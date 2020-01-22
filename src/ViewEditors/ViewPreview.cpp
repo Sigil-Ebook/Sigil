@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks Stratford, Ontario, Canada
-**  Copyright (C) 2019 Doug Massay
+**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2020 Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -243,7 +243,6 @@ void ViewPreview::UpdateDisplay()
 
 void ViewPreview::SetPreviewColors(const QString &bg, const QString &fg)
 {
-    qDebug() << SET_PREVIEW_COLORS.arg(bg).arg(fg);
     DoJavascript(SET_PREVIEW_COLORS.arg(bg).arg(fg));
 }
 

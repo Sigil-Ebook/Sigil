@@ -265,16 +265,16 @@ void setupHighDPI()
     SettingsStore ss;
     int highdpi = ss.highDPI();
     if (highdpi == 1 || (highdpi == 0 && !has_env_setting)) {
-        qDebug() << "Turning on Automatic High DPI scaling";
+        // qDebug() << "Turning on Automatic High DPI scaling";
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
     } else if (highdpi == 2) {
-        qDebug() << "Turning off Automatic High DPI scaling";
+        // qDebug() << "Turning off Automatic High DPI scaling";
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, false);
         foreach(QString v, env_vars) {
             bool irrel = qunsetenv(v.toUtf8().constData());
         }
     } else {
-        qDebug() << "Not Controlling Automatic High DPI scaling";
+        // qDebug() << "Not Controlling Automatic High DPI scaling";
     }
 }
 
@@ -446,7 +446,7 @@ int main(int argc, char *argv[])
         }
 #endif
         settings.setOriginalUIFont(f.toString());
-        qDebug() << "Original UI font: " << f.toString();
+        // qDebug() << "Original UI font: " << f.toString();
         if (!settings.uiFont().isEmpty()) {
             QFont font;
             if (font.fromString(settings.uiFont()))
@@ -459,13 +459,13 @@ int main(int argc, char *argv[])
             if (font.fromString(settings.uiFont())) {
                 QTimer::singleShot(0, [=]() {
                     QApplication::setFont(font);
-                    qDebug() << "Setting app font with timer";
+                    // qDebug() << "Setting app font with timer";
                 } );
             }
         }
 #endif
-        qDebug() << "UI Font family: " << QApplication::font().family();    
-        qDebug() << "UI Font size: " << QApplication::font().pointSize();
+        // qDebug() << "UI Font family: " << QApplication::font().family();    
+        // qDebug() << "UI Font size: " << QApplication::font().pointSize();
         // End of UI font stuff
 
         // Check for existing qt_styles.qss in Prefs dir and load it if present

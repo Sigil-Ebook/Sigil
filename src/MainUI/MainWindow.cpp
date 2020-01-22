@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019      Doug Massay
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2020 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -245,7 +245,6 @@ MainWindow::~MainWindow()
     }
 
 #ifdef Q_OS_MAC  // speeds cleaningup of old modal dialogs
-    // DBG qDebug() << "In MainWindow destructor in mac only part";
     if (m_ClipboardHistorySelector) delete m_ClipboardHistorySelector;
     if (m_LinkOrStyleBookmark) delete m_LinkOrStyleBookmark;
     if (m_Reports) delete m_Reports;
@@ -270,6 +269,8 @@ MainWindow::~MainWindow()
 
 }
 
+#if 0
+// The problem is this routine does not help!
 void MainWindow::maybe_fixup_dockwidget_geometry(QDockWidget* dw) 
 {
     QRect screen_rect = qApp->desktop()->availableGeometry(dw);
@@ -279,17 +280,15 @@ void MainWindow::maybe_fixup_dockwidget_geometry(QDockWidget* dw)
     if (dw->isFloating()) {
         if (!dw->geometry().intersects(screen_rect)) {
             qDebug() << "on a no longer available screen";
-#if 0
             // shrink it to fit the current screen and move it here
             int w = std::min(dw->width(), screen_rect.width() - 10);
 	    int h = std::min(dw->height(), screen_rect.height() - 10);
 	    dw->resize(w, h);
 	    dw->move((screen_rect.width() - w)/2, (screen_rect.height() - h)/2);
-#endif
 	}
     }
 }
-
+#endif
 
 // Note on Mac OS X you may only add a QMenu or SubMenu to the MenuBar Once!
 // Actions can be removed
@@ -2422,7 +2421,7 @@ void MainWindow::MarkForIndex()
 void MainWindow::ApplicationPaletteChanged()
 {
     // we need to force a full reload of all Tabs and Preview Window
-    qDebug() << "ApplicationPaletteChanged";
+    // qDebug() << "ApplicationPaletteChanged";
     m_TabManager->ReopenTabs();
     UpdatePreview();
 }
@@ -3282,7 +3281,7 @@ void MainWindow::ValidateStylesheetsWithW3C()
 
 void MainWindow::ChangeSignalsWhenTabChanges(ContentTab *old_tab, ContentTab *new_tab)
 {
-    qDebug() << "in ChangesSignalWhenTabChanges " << old_tab << new_tab;
+    // qDebug() << "in ChangesSignalWhenTabChanges " << old_tab << new_tab;
     if (old_tab == new_tab) return;
     BreakTabConnections(old_tab);
     MakeTabConnections(new_tab);
@@ -5545,29 +5544,23 @@ void MainWindow::changeEvent(QEvent *e)
                     restoreState(m_LastState);
 		}
 
-                int numscreens = qApp->desktop()->numScreens();
-		for (int i = 0; i < numscreens; i++) {
-                    qDebug() << "Screen: " << i;
-		    qDebug() << "    screen  geo: " << qApp->desktop()->screenGeometry(i);
-                    QScreen *srn = QApplication::screens().at(i);
-		    qDebug() << "    avail   geo: " << srn->availableGeometry();
-		    qDebug() << "    geo        : " << srn->geometry();
-                    qDebug() << "    devideRatio: " << srn->devicePixelRatio();
-                    qDebug() << "    logical dpi: " << srn->logicalDotsPerInchX() << srn->logicalDotsPerInchY();
-                    qDebug() << "    physic  dpi: " << srn->physicalDotsPerInchX() << srn->physicalDotsPerInchY();
+	        DWINGEO {
+                    int numscreens = qApp->desktop()->numScreens();
+		    for (int i = 0; i < numscreens; i++) {
+                        qDebug() << "Screen: " << i;
+		        qDebug() << "    screen  geo: " << qApp->desktop()->screenGeometry(i);
+                        QScreen *srn = QApplication::screens().at(i);
+		        qDebug() << "    avail   geo: " << srn->availableGeometry();
+		        qDebug() << "    geo        : " << srn->geometry();
+                        qDebug() << "    devideRatio: " << srn->devicePixelRatio();
+                        qDebug() << "    logical dpi: " << srn->logicalDotsPerInchX() << srn->logicalDotsPerInchY();
+                        qDebug() << "    physic  dpi: " << srn->physicalDotsPerInchX() << srn->physicalDotsPerInchY();
+		    }
 		}
 
                 // restoreState properly handles moving floating Preview Window
                 // back to main screen if needed but keeps it hidden, only need to 
                 // use View to display it, at least on macOSX
-
-                // So only Use this to dump screen debug data now (no actual fixup is currently done)
-                // Handle Dock Widgets not being restored to correct screen
-                // See https://bugreports.qt.io/browse/QTBUG-77385
-                maybe_fixup_dockwidget_geometry(m_BookBrowser);
-                maybe_fixup_dockwidget_geometry(m_TableOfContents);
-                maybe_fixup_dockwidget_geometry(m_ValidationResultsView);
-                maybe_fixup_dockwidget_geometry(m_PreviewWindow);
 
 	    }
             m_FirstTime = false;

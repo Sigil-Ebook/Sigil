@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019       Doug Massay
+**  Copyright (C) 2015-2020  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2020  Doug Massay
 **  Copyright (C) 2012       Dave Heiland, John Schember
 **
 **  This file is part of Sigil.

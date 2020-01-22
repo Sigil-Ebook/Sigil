@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -270,7 +270,7 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
             updates[target_file] = "";
             // Do nothing. If the referenced file does not exist,
             // well then we don't load it.
-            qDebug() << "broken link ImportHTML" << m_FullFilePath << file_path << target_file;
+            // qDebug() << "broken link ImportHTML" << m_FullFilePath << file_path << target_file;
         }
     }
     return updates;
@@ -305,7 +305,7 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_path
             updates[target_file] = "";
             // Do nothing. If the referenced file does not exist,
             // well then we don't load it.
-            qDebug() << "broken link ImportHTML" << m_FullFilePath << file_path << target_file;
+            // qDebug() << "broken link ImportHTML" << m_FullFilePath << file_path << target_file;
         }
     }
 

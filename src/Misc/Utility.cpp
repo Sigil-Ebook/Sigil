@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019   Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -136,7 +136,7 @@ bool Utility::IsWindowsSysDarkMode()
 {
     QSettings s("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", QSettings::NativeFormat);
     if (s.status() == QSettings::NoError) {
-        qDebug() << "Registry Value = " << s.value("AppsUseLightTheme");
+        // qDebug() << "Registry Value = " << s.value("AppsUseLightTheme");
         return s.value("AppsUseLightTheme") == 0;
     }
     return false;
