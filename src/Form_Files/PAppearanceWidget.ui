@@ -509,6 +509,9 @@ if a sans-serif font-family specified in your CSS</string>
           </item>
           <item>
            <widget class="QPushButton" name="changeUIFontButton">
+            <property name="toolTip">
+             <string>Change the font used by Sigil's menus, buttons, etc...</string>
+            </property>
             <property name="text">
              <string>Change Font (Needs Sigil Restart)</string>
             </property>
