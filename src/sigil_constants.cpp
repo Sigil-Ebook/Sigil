@@ -28,6 +28,8 @@ const QString PATH_LIST_DELIM = ":";
 const QString sigil_extra_root = QString(getenv("SIGIL_EXTRA_ROOT"));
 // Runtime env var override of hunspell dictionaries directory to use
 const QString hunspell_dicts_override = QString(getenv("SIGIL_DICTIONARIES"));
+// Runtime env var to force the use of Sigil's darkmode palette instead of platform QPA themes/styles
+const QString force_sigil_darkmode_palette = QString(getenv("FORCE_SIGIL_DARKMODE_PALETTE"));
 // Standard build-time location of Sigil's 'share/sigil' directory. Set in src/CMakeLists.txt with the line:
 // set_source_files_properties( sigil_constants.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_SHARE_ROOT="${SIGIL_SHARE_ROOT}" )
 const QString sigil_share_root = QString(SIGIL_SHARE_ROOT);
