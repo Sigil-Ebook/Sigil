@@ -303,6 +303,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
     DBG qDebug() << "PreviewWindow UpdatePage final step scroll to location";
 
+#if 0
     // use javascript to set the proper colors on the body tag in a style
     if (Utility::IsDarkMode() && settings.previewDark()) {
 	QPalette pal = qApp->palette();
@@ -310,6 +311,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
 	QString fore = pal.color(QPalette::Text).name();
         m_Preview->SetPreviewColors(back, fore);
     }
+#endif  
 
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();

@@ -121,7 +121,8 @@ ViewPreview::ViewPreview(QWidget *parent)
       m_LoadOkay(false)
 {
     setPage(m_ViewWebPage);
-    page()->setBackgroundColor(Utility::WebViewBackgroundColor(true));
+    // Now handled in the WebEngPage constructor to be faster
+    // page()->setBackgroundColor(Utility::WebViewBackgroundColor(true));
     setContextMenuPolicy(Qt::CustomContextMenu);
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
