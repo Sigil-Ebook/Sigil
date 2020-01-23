@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2020 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -66,16 +67,8 @@
 #include "MainUI/MainApplication.h"
 
 static const QString DARK_STYLE =
-    "<style>\n"
-    "  :root { background-color: %1; color: %2; }\n"
-    "  a:link { color: #ff9999; }\n"
-    "  a:visited { color: #99ff99; }\n"
-    "</style>\n"
-    "<link rel=\"stylesheet\" type=\"text/css\" href=\"%3\" />\n";
-
-static const QString DARK_STYLESHEET =
-    "<link rel=\"stylesheet\" type=\"text/css\" href=\"%1\" />";
-
+    "<style>:root { background-color: %1; color: %2; }</style>"
+    "<link rel=\"stylesheet\" type=\"text/css\" href=\"%3\" />";
 
 #ifndef MAX_PATH
 // Set Max length to 256 because that's the max path size on many systems.
@@ -1190,8 +1183,7 @@ QString Utility::AddDarkCSS(const QString &html)
 #elif defined(Q_OS_WIN32)
     QString dark_css_url = "qrc:///dark/win_dark_scrollbar.css";
 #else
-    // Linux Temporary
-    QString dark_css_url = "qrc:///dark/win_dark_scrollbar.css";
+    QString dark_css_url = "qrc:///dark/lin_dark_scrollbar.css";
 #endif
     QString inject_dark_style = DARK_STYLE.arg(back).arg(fore).arg(dark_css_url);
     // qDebug() << "Injecting dark style: ";
@@ -1199,22 +1191,6 @@ QString Utility::AddDarkCSS(const QString &html)
     return text;
 }
 
-QString Utility::AddDarkStyleSheet(const QString &html)
-{
-    QString text = html;
-    int endheadpos = text.indexOf("</head>");
-    if (endheadpos == -1) return text;
-#ifdef Q_OS_MAC
-    QString dark_css_url = "qrc:///dark/mac_dark_scrollbar.css";
-#elif defined(Q_OS_WIN32)
-    QString dark_css_url = "qrc:///dark/win_dark_scrollbar.css";
-#else
-    QString dark_css_url = "qrc:///dark/win_dark_scrollbar.css";
-#endif
-    QString inject_dark_style = DARK_STYLESHEET.arg(dark_css_url);
-    text.insert(endheadpos, inject_dark_style);
-    return text;
-}
 
 QColor Utility::WebViewBackgroundColor(bool followpref)
 {

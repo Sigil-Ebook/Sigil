@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2020 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -212,11 +213,8 @@ public:
     // perform a locale aware string sort
     static QStringList LocaleAwareSort(QStringList &names);
 
-    // inject dark mode css into html for AVTab, ImageTab, ViewImage, and SelectFiles
+    // inject dark mode css into html for Preview, AVTab, ImageTab, ViewImage, and SelectFiles
     static QString AddDarkCSS(const QString &html);
-
-    // inject dark mode css into Preview
-    static QString AddDarkStyleSheet(const QString &html);
 
     // return the proper background color for QWebEngineView
     static QColor WebViewBackgroundColor(bool followpref = false);

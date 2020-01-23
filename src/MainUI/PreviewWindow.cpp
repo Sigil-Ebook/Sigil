@@ -228,7 +228,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     //if isDarkMode is set, inject a local style in head
     SettingsStore settings;
     if (Utility::IsDarkMode() && settings.previewDark()) {
-        text = Utility::AddDarkStyleSheet(text);
+        text = Utility::AddDarkCSS(text);
         DBG qDebug() << "Preview injecting dark style: ";
     }
     m_Preview->page()->setBackgroundColor(Utility::WebViewBackgroundColor(true));

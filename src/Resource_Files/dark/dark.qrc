@@ -8,6 +8,7 @@
     <file>undock.svg</file>
     <file>undock-hover.svg</file>
     <file>win-dark-style.qss</file>
+    <file>lin_dark_scrollbar.css</file>
     <file>win_dark_scrollbar.css</file>
     <file>mac_dark_scrollbar.css</file>
   </qresource>
