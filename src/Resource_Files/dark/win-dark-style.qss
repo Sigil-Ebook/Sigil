@@ -2,6 +2,15 @@ QToolBar {
   border: 0;
 }
 
+QToolTip {
+  background-color: rgb(42, 42, 42);
+  color: white;
+  border: 1px solid rgb(66, 66, 66);
+  padding: 2px;
+  border-radius: 4px; 
+  opacity: 250;
+}
+
 QTabBar {
   qproperty-drawBase:0;
 }
