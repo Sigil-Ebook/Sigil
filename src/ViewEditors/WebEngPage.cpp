@@ -20,6 +20,7 @@
 *************************************************************************/
 #include <QTimer>
 #include <QtWebEngineWidgets/QWebEnginePage>
+#include <QUrl>
 #include <QDebug>
 #include "Misc/Utility.h"
 #include "ViewEditors/WebEngPage.h"
@@ -30,6 +31,7 @@ WebEngPage::WebEngPage(QObject *parent)
     : QWebEnginePage(parent)
 {
     setBackgroundColor(Utility::WebViewBackgroundColor(true));
+    setUrl(QUrl("about:blank"));
 }
 
 // Because you can not delegate all links in QtWebEngine we must override here and generate
