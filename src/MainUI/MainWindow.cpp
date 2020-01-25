@@ -5406,14 +5406,29 @@ void MainWindow::ExtendIconSizes()
     ui.actionAbout->setIcon(icon);
 
     icon = ui.actionSplitSection->icon();
-    icon.addFile(QString::fromUtf8(":/main/insert-section-break_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/insert-section-break_22px.png"));
+    icon.addFile(QString::fromUtf8(":/main/split-section_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/split-section_22px.png"));
     ui.actionSplitSection->setIcon(icon);
 
     icon = ui.actionInsertFile->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-image_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/insert-image_22px.png"));
     ui.actionInsertFile->setIcon(icon);
+
+    icon = ui.actionInsertSpecialCharacter->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-special-character_16px.png"));  // Was not working for Becky on Windows
+    icon.addFile(QString::fromUtf8(":/main/insert-special-character_22px.png"));
+    ui.actionInsertSpecialCharacter->setIcon(icon);
+
+    icon = ui.actionInsertId->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-id_16px.png"));  // Was not working for Becky on Windows
+    icon.addFile(QString::fromUtf8(":/main/insert-id_22px.png"));
+    ui.actionInsertId->setIcon(icon);
+
+    icon = ui.actionInsertHyperlink->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-hyperlink_16px.png"));  // Was not working for Becky on Windows
+    icon.addFile(QString::fromUtf8(":/main/insert-hyperlink_22px.png"));
+    ui.actionInsertHyperlink->setIcon(icon);
 
     icon = ui.actionPrint->icon();
     icon.addFile(QString::fromUtf8(":/main/document-print_16px.png"));
