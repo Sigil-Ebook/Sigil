@@ -11,5 +11,6 @@
     <file>lin_dark_scrollbar.css</file>
     <file>win_dark_scrollbar.css</file>
     <file>mac_dark_scrollbar.css</file>
+    <file>sigil_logo_blue.png</file>
   </qresource>
 </RCC>
