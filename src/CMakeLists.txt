@@ -367,6 +367,8 @@ set( VIEW_EDITOR_FILES
     ViewEditors/CodeViewEditor.h
     ViewEditors/WebEngPage.cpp
     ViewEditors/WebEngPage.h
+    ViewEditors/SimplePage.cpp
+    ViewEditors/SimplePage.h
     ViewEditors/ViewPreview.cpp
     ViewEditors/ViewPreview.h
     ViewEditors/LineNumberArea.cpp
