@@ -39,6 +39,7 @@ public:
     MainApplication(int &argc, char **argv);
 
     bool isDarkMode() { return m_isDark; }
+    void fixMacDarkModePalette(QPalette &pal);
 
 signals:
     void applicationActivated();

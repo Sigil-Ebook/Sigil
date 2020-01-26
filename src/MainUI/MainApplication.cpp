@@ -42,10 +42,23 @@ MainApplication::MainApplication(int &argc, char **argv)
     m_Style = QStyleFactory::create("macintosh");
     QPalette app_palette = m_Style->standardPalette();
     m_isDark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
-    // See QTBUG-75321 and follow the advice Kovid posted there for broken ButtonText being always dark
-    app_palette.setColor(QPalette::ButtonText, app_palette.color(QPalette::WindowText));
-    // do not forget to set the initial app palette as well
+    // set the initial app palette
+    fixMacDarkModePalette(app_palette);
     setPalette(app_palette);
+#endif
+}
+
+void MainApplication::fixMacDarkModePalette(QPalette &pal)
+{
+# ifdef Q_OS_MAC
+    // See QTBUG-75321 and follow Kovid's workaround for broken ButtonText always being dark
+    pal.setColor(QPalette::ButtonText, pal.color(QPalette::WindowText));
+    if (m_isDark) {
+        // make alternating base color change not so sharp
+        pal.setColor(QPalette::AlternateBase, pal.color(QPalette::Base).lighter(150));
+	// make link color better for dark mode (try to match calibre for consistency)
+        pal.setColor(QPalette::Link, QColor("#6cb4ee"));
+    }
 #endif
 }
 
@@ -74,11 +87,10 @@ void MainApplication::EmitPaletteChanged()
     // Application palette
     QPalette app_palette = m_Style->standardPalette();
     bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
-    // See QTBUG-75321 and follow the advice Kovid posted there for broken ButtonText being always dark
-    app_palette.setColor(QPalette::ButtonText, app_palette.color(QPalette::WindowText));
     if (m_isDark != isdark) {
         // qDebug() << "Theme changed " << "was isDark:" << m_isDark << "now isDark:" << isdark;
         m_isDark = isdark;
+        fixMacDarkModePalette(app_palette);
         setPalette(app_palette);
         emit applicationPaletteChanged();
     }
