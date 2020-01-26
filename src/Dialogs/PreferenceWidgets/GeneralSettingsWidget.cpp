@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012  Dave Heiland
+**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2011      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -43,8 +43,9 @@ GeneralSettingsWidget::GeneralSettingsWidget()
     connectSignalsToSlots();
 }
 
-PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
+PreferencesWidget::ResultActions GeneralSettingsWidget::saveSettings()
 {
+    PreferencesWidget::ResultActions results = PreferencesWidget::ResultAction_None;
 
     int new_clean_on_level = 0;
     QString new_epub_version = "2.0";
@@ -111,10 +112,11 @@ PreferencesWidget::ResultAction GeneralSettingsWidget::saveSettings()
     settings.setTempFolderHome(new_temp_folder_home);
     settings.setExternalXEditorPath(new_xeditor_path);
 
-    if (!m_refreshClipboardHistoryLimit) {
-        return PreferencesWidget::ResultAction_None;
+    if (m_refreshClipboardHistoryLimit) {
+        results = results | PreferencesWidget::ResultAction_RefreshClipHistoryLimit;
     }
-    return PreferencesWidget::ResultAction_RefreshClipHistoryLimit;
+    results = results & PreferencesWidget::ResultAction_Mask;
+    return results;
 }
 
 void GeneralSettingsWidget::readSettings()

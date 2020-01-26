@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019  Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -55,17 +55,15 @@ QString Landmarks::GetName(const QString &code)
 }
 
 
-QString Landmarks::GetTitle(const QString &code)
+QString Landmarks::GetTitle(const QString &code, const QString &lang)
 {
     if (!m_CodeToRawTitle.contains(code)) return code;
-
-    SettingsStore ss;
 
     // Setup the book language translator and load the translation for the selected language
     // Note the book language may differ from the ui language
     bool translation_loaded = false;
     QTranslator bookTranslator;
-    const QString qm_name = QString("sigil_%1").arg(ss.defaultMetadataLang());
+    const QString qm_name = QString("sigil_%1").arg(lang);
     // Run though all locations and stop once we find and are able to load
     // an appropriate translation.
     foreach(QString path, UILanguage::GetPossibleTranslationPaths()) {
@@ -239,6 +237,26 @@ void Landmarks::SetGuideLandMap()
     m_GuideLandMap[ "title-page"       ] = "titlepage";
     m_GuideLandMap[ "titlepage"        ] = "title-page";
     m_GuideLandMap[ "toc"              ] = "toc";
+    // extended other. entries
+    m_GuideLandMap["other.afterword"]     = "afterword";
+    m_GuideLandMap["other.appendix"]      = "appendix";
+    m_GuideLandMap["other.backmatter"]    = "backmatter";
+    m_GuideLandMap["other.conclusion"]    = "conclusion";
+    m_GuideLandMap["other.contributors"]  = "contributors";
+    m_GuideLandMap["other.epilogue"]      = "epilogue";
+    m_GuideLandMap["other.errata"]        = "errata";
+    m_GuideLandMap["other.footnotes"]     = "footnotes";
+    m_GuideLandMap["other.frontmatter"]   = "frontmatter";
+    m_GuideLandMap["other.halftitlepage"] = "halftitlepage";
+    m_GuideLandMap["other.imprimatur"]    = "imprimatur";
+    m_GuideLandMap["other.imprint"]       = "imprint";
+    m_GuideLandMap["other.introduction"]  = "introduction";
+    m_GuideLandMap["other.loa"]           = "loa";
+    m_GuideLandMap["other.lov"]           = "lov";
+    m_GuideLandMap["other.other-credits"] = "other-credits";
+    m_GuideLandMap["other.preamble"]      = "preamble";
+    m_GuideLandMap["other.prologue"]      = "prologue";
+    m_GuideLandMap["other.rearnotes"]     = "rearnotes";
 }
 
 

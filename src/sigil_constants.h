@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -132,6 +132,7 @@ extern const QStringList PYTHON_SYS_PATHS;
 #if !defined(_WIN32) && !defined(__APPLE__)
 extern const QString sigil_extra_root;
 extern const QString hunspell_dicts_override;
+extern const QString force_sigil_darkmode_palette;
 extern const QString sigil_share_root;
 extern const bool dicts_are_bundled;
 extern const QString extra_dict_dirs;

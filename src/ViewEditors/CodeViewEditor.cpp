@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019      Doug Massay
-**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON Canada
+**  Copyright (C) 2019-2020 Doug Massay
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -122,15 +122,14 @@ CodeViewEditor::~CodeViewEditor()
     m_ScrollOneLineDown->deleteLater();
 }
 
-
 void CodeViewEditor::SetAppearance()
 {
     SettingsStore settings;
     if (Utility::IsDarkMode()) {
-        qDebug() << "IsDarkMode returned: true";
+        // qDebug() << "IsDarkMode returned: true";
         m_codeViewAppearance = settings.codeViewDarkAppearance();
     } else {
-        qDebug() << "IsDarkMode returned: false";
+        // qDebug() << "IsDarkMode returned: false";
         m_codeViewAppearance = settings.codeViewAppearance();
     }
 
@@ -1143,7 +1142,7 @@ void CodeViewEditor::mouseReleaseEvent(QMouseEvent *event)
 void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu *menu = createStandardContextMenu();
-
+    
     if (m_reformatCSSEnabled) {
         AddReformatCSSContextMenu(menu);
     }
@@ -1243,7 +1242,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
 
             // Allow the user to select a dictionary
             QStringList dictionaries = sc->userDictionaries();
-            QMenu *dictionary_menu = new QMenu(this);
+            QMenu *dictionary_menu = new QMenu(menu);
             dictionary_menu->setTitle(tr("Add To Dictionary"));
 
             if (topAction) {
@@ -1324,6 +1323,7 @@ void CodeViewEditor::AddReformatCSSContextMenu(QMenu *menu)
     }
 
     QMenu *reformatCSSMenu = new QMenu(tr("Reformat CSS"), menu);
+
     QAction *multiLineCSSAction = new QAction(tr("Multiple Lines Per Style"), reformatCSSMenu);
     QAction *singleLineCSSAction = new QAction(tr("Single Line Per Style"), reformatCSSMenu);
     connect(multiLineCSSAction, SIGNAL(triggered()), this, SLOT(ReformatCSSMultiLineAction()));
@@ -1351,10 +1351,11 @@ void CodeViewEditor::AddReformatHTMLContextMenu(QMenu *menu)
     }
 
     QMenu *reformatMenu = new QMenu(tr("Reformat HTML"), menu);
-    QAction *cleanAction = new QAction(tr("Mend and Prettify Code"), menu);
-    QAction *cleanAllAction = new QAction(tr("Mend and Prettify Code - All HTML Files"), menu);
-    QAction *toValidAction = new QAction(tr("Mend Code"), menu);
-    QAction *toValidAllAction = new QAction(tr("Mend Code - All HTML Files"), menu);
+
+    QAction *cleanAction = new QAction(tr("Mend and Prettify Code"), reformatMenu);
+    QAction *cleanAllAction = new QAction(tr("Mend and Prettify Code - All HTML Files"), reformatMenu);
+    QAction *toValidAction = new QAction(tr("Mend Code"), reformatMenu);
+    QAction *toValidAllAction = new QAction(tr("Mend Code - All HTML Files"), reformatMenu);
     connect(cleanAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLCleanAction()));
     connect(cleanAllAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLCleanAllAction()));
     connect(toValidAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLToValidAction()));
@@ -1385,7 +1386,6 @@ void CodeViewEditor::AddGoToLinkOrStyleContextMenu(QMenu *menu)
     }
 
     QAction *goToLinkOrStyleAction = new QAction(tr("Go To Link Or Style"), menu);
-
     if (!topAction) {
         menu->addAction(goToLinkOrStyleAction);
     } else {
@@ -1461,7 +1461,7 @@ void CodeViewEditor::AddClipContextMenu(QMenu *menu)
         topAction = menu->actions().at(0);
     }
 
-    QMenu *clips_menu = new QMenu(this);
+    QMenu *clips_menu = new QMenu(menu);
     clips_menu->setTitle(tr("Clips"));
 
     if (topAction) {
@@ -1500,7 +1500,7 @@ bool CodeViewEditor::CreateMenuEntries(QMenu *parent_menu, QAction *topAction, Q
     if (!item->text().isEmpty()) {
         // If item has no children, add entry to the menu, else create menu
         if (!item->data().toBool()) {
-            clipAction = new QAction(item->text(), this);
+            clipAction = new QAction(item->text(), parent_menu);
             connect(clipAction, SIGNAL(triggered()), m_clipMapper, SLOT(map()));
             m_clipMapper->setMapping(clipAction, ClipEditorModel::instance()->GetFullName(item));
 
@@ -1510,7 +1510,7 @@ bool CodeViewEditor::CreateMenuEntries(QMenu *parent_menu, QAction *topAction, Q
                 parent_menu->insertAction(topAction, clipAction);
             }
         } else {
-            group_menu = new QMenu(this);
+            group_menu = new QMenu(parent_menu);
             group_menu->setTitle(item->text());
 
             if (topAction) {
@@ -1596,7 +1596,6 @@ void CodeViewEditor::GoToLinkOrStyle()
             emit LinkClicked(QUrl(url_name));
         }
     } else if (IsPositionInOpeningTag()) {
-        // qDebug() << "we are here";
         GoToStyleDefinition();
     } else {
         emit ShowStatusMessageRequest(tr("You must be in an opening HTML tag to use this feature."));
@@ -2133,6 +2132,7 @@ void CodeViewEditor::SetAppearanceColors()
     QPalette app_pal = qApp->palette();
     setPalette(app_pal);
     return;
+
 #if 0
     // Linux and other platforms, let the user specify the colors
     QPalette pal = palette();
@@ -2140,14 +2140,14 @@ void CodeViewEditor::SetAppearanceColors()
         pal.setColor(QPalette::Base, m_codeViewAppearance.background_color);
         pal.setColor(QPalette::Window, m_codeViewAppearance.background_color);
         setBackgroundVisible(true);
-        qDebug() << "setting background color" << m_codeViewAppearance.background_color.name();
+        // qDebug() << "setting background color" << m_codeViewAppearance.background_color.name();
     } else {
         setBackgroundVisible(false);
     }
 
     if (m_codeViewAppearance.foreground_color.isValid()) {
         pal.setColor(QPalette::Text, m_codeViewAppearance.foreground_color);
-        qDebug() << "setting foreground color" << m_codeViewAppearance.foreground_color.name();
+        // qDebug() << "setting foreground color" << m_codeViewAppearance.foreground_color.name();
     }
 
     if (m_codeViewAppearance.selection_background_color.isValid()) {
@@ -2159,6 +2159,7 @@ void CodeViewEditor::SetAppearanceColors()
     }
     setPalette(pal);
 #endif
+
 }
 
 

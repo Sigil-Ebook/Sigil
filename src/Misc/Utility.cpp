@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2019   Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2020 Doug Massay
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -56,6 +57,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QCollator>
+#include <QMenu>
 #include <QDebug>
 
 #include "sigil_constants.h"
@@ -64,6 +66,10 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/SleepFunctions.h"
 #include "MainUI/MainApplication.h"
+
+static const QString DARK_STYLE =
+    "<style>:root { background-color: %1; color: %2; } ::-webkit-scrollbar { display: none; }</style>"
+    "<link rel=\"stylesheet\" type=\"text/css\" href=\"%3\" />";
 
 #ifndef MAX_PATH
 // Set Max length to 256 because that's the max path size on many systems.
@@ -124,7 +130,7 @@ bool Utility::IsWindowsSysDarkMode()
 {
     QSettings s("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", QSettings::NativeFormat);
     if (s.status() == QSettings::NoError) {
-        qDebug() << "Registry Value = " << s.value("AppsUseLightTheme");
+        // qDebug() << "Registry Value = " << s.value("AppsUseLightTheme");
         return s.value("AppsUseLightTheme") == 0;
     }
     return false;
@@ -1161,4 +1167,79 @@ QStringList Utility::LocaleAwareSort(QStringList &names)
   // use uiCollator.compare(s1, s2)
   std::sort(names.begin(), names.end(), uiCollator);
   return names;
+}
+
+
+QString Utility::AddDarkCSS(const QString &html)
+{
+    QString text = html;
+    int endheadpos = text.indexOf("</head>");
+    if (endheadpos == -1) return text;
+    QPalette pal = qApp->palette();
+    QString back = pal.color(QPalette::Base).name();
+    QString fore = pal.color(QPalette::Text).name();
+#ifdef Q_OS_MAC
+    // on macOS the Base role is used for the background not the Window role
+    QString dark_css_url = "qrc:///dark/mac_dark_scrollbar.css";
+#elif defined(Q_OS_WIN32)
+    QString dark_css_url = "qrc:///dark/win_dark_scrollbar.css";
+#else
+    QString dark_css_url = "qrc:///dark/lin_dark_scrollbar.css";
+#endif
+    QString inject_dark_style = DARK_STYLE.arg(back).arg(fore).arg(dark_css_url);
+    // qDebug() << "Injecting dark style: ";
+    text.insert(endheadpos, inject_dark_style);
+    return text;
+}
+
+
+QColor Utility::WebViewBackgroundColor(bool followpref)
+{
+    QColor back_color = Qt::white;
+    if (IsDarkMode()) {
+        if (followpref) {
+            SettingsStore ss;
+            if (!ss.previewDark()) {
+                return back_color;    
+            }
+        }
+        QPalette pal = qApp->palette();
+        back_color = pal.color(QPalette::Base);
+    }
+    return back_color; 
+}
+
+QBrush Utility::ValidationResultBrush(const Val_Msg_Type &valres)
+{
+    if (Utility::IsDarkMode()) {
+        switch (valres) {
+            case Utility::INFO_BRUSH: {
+               return QBrush(QColor(114, 165, 212)); 
+            }
+            case Utility::WARNING_BRUSH: {
+                return QBrush(QColor(212, 165, 114));
+            }
+            case Utility::ERROR_BRUSH: {
+                return QBrush(QColor(222, 94, 94));
+            }
+            default:
+                QPalette pal = qApp->palette();
+                return QBrush(pal.color(QPalette::Text));
+        }
+    } else {
+        switch (valres) {
+            case Utility::INFO_BRUSH: {
+                return QBrush(QColor(224, 255, 255));;
+            }
+            case Utility::WARNING_BRUSH: {
+                return QBrush(QColor(255, 255, 230));
+            }
+            case Utility::ERROR_BRUSH: {
+                return QBrush(QColor(255, 230, 230));
+            }
+            default:
+                QPalette pal = qApp->palette();
+                return QBrush(pal.color(QPalette::Window));
+        }
+    }
 }

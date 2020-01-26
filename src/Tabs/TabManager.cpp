@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -386,7 +386,7 @@ void TabManager::DeleteTab(ContentTab *tab_to_delete)
     if (m_tabs_deletion_in_use) return;
     m_tabs_deletion_in_use = true;
 
-    qDebug() << "entering DeleteTab";
+    // qDebug() << "entering DeleteTab";
 
     // Important: This routine appears to be re-entered somehow
     // due to processEvents causing control to leave and return
@@ -467,7 +467,7 @@ void TabManager::DeleteTab(ContentTab *tab_to_delete)
         tab->deleteLater();
         m_tabs_deletion_in_use = !m_TabsToDelete.isEmpty();
     }
-    qDebug() << "exiting  DeleteTab";
+    // qDebug() << "exiting  DeleteTab";
 }
 
 

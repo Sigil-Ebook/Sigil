@@ -63,7 +63,7 @@ make
 sudo make install
 
 
-# Building Qt5.12.5 from source
+# Building Qt5.12.6 from source
 # -----------------------------
 
 # download qt-everywhere-src-5.12.6.tar.xz directly from Qt
@@ -84,8 +84,8 @@ cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_avoid_qtabbar_segfault.patch .
 cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_fix_h6_insertParagraph.patch ./
 cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_backport_009abcd_fix.patch ./
 cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_fix_missing_macos_menubar.patch ./
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_remove_bad_QWindow_workaround.patch ./
-cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_synchronize_activation_events.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_remove_bad_workaround.patch
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.6_qguiapplication_use_QPointer.patch
 
 # apply mouse press and flick on qtabbar tab fix to prevent segfault
 # See https://bugreports.qt.io/browse/QTBUG-74478
@@ -107,11 +107,11 @@ patch -p0 < ./qt512.6_fix_missing_macos_menubar.patch
 
 # apply patch to remove broken crash prevention workaround in Qt 5.12.5 and later
 # See https://bugreports.qt.io/browse/QTBUG-75326
-patch -p0 < ./qt512.6_remove_bad_QWindow_workaround.patch
+patch -p0 < ./qt512.6_remove_bad_workaround.patch
 
-# apply a better fix to prevent the crashes
-# See https://bugreports.qt.io/browse/QTBUG-66536 and https://bugreports.qt.io/browse/QTBUG-75326
-patch -p0 < ./qt512.6_synchronize_activation_events.patch
+# apply a better fix to prevent the crashes that ues QPointers
+# See https://bugreports.qt.io/browse/QTBUG-80355, QTBUG-75326, QTBUG-66536
+patch -p0 < ./qt512.6_qguiapplication_use_QPointer.patch
 
 
 # this is the new minimum supported by Qt 5.12.X
@@ -121,21 +121,21 @@ export MACOSX_DEPLOYMENT_TARGET=10.12
 # Create a destination directory to house your complete Qt binary in your home directory
 # to be similar to how stock Qt does it
 cd ~/
-mkdir Qt5126
+mkdir Qt512
 
 # Now return and create a shadow build inside a new directory to keep your Qt 5.12.X sources clean
 cd ${MYQTSRC}
-mkdir buildqt5126
-cd buildqt5126
+mkdir buildqt512
+cd buildqt512
 
 
 # Remember to include the -webengine-proprietary-codecs configure switch
 
-../qt-everywhere-src-5.12.6/configure --prefix=/Users/${USER}/Qt5126 -webengine-proprietary-codecs -opensource -nomake examples -nomake tests
+../qt-everywhere-src-5.12.6/configure --prefix=/Users/${USER}/Qt512 -webengine-proprietary-codecs -opensource -nomake examples -nomake tests
 
 # note the build itself can take a couple of hours depending on memory available, disk and cpus used
 make -j4
 make install
 
-# After the install phase completes your newly built Qt should exist in ~/Qt5126 ready to be used
+# After the install phase completes your newly built Qt should exist in ~/Qt512 ready to be used
 # to build Sigil and PageEdit

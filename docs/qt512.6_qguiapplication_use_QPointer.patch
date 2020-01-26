@@ -1,0 +1,53 @@
+diff qtbase/src/gui/kernel/qguiapplication.cpp qtbase/src/gui/kernel/qguiapplication.cpp
+--- qtbase/src/gui/kernel/qguiapplication.cpp
++++ qtbase/src/gui/kernel/qguiapplication.cpp
+@@ -140,7 +140,7 @@
+ 
+ QPointF QGuiApplicationPrivate::lastCursorPosition(qInf(), qInf());
+ 
+-QWindow *QGuiApplicationPrivate::currentMouseWindow = 0;
++QPointer<QWindow> QGuiApplicationPrivate::currentMouseWindow;
+ 
+ QString QGuiApplicationPrivate::styleOverride;
+ 
+@@ -185,7 +185,7 @@
+ static int mouseDoubleClickDistance = -1;
+ static int touchDoubleTapDistance = -1;
+ 
+-QWindow *QGuiApplicationPrivate::currentMousePressWindow = 0;
++QPointer<QWindow> QGuiApplicationPrivate::currentMousePressWindow;
+ 
+ static Qt::LayoutDirection layout_direction = Qt::LayoutDirectionAuto;
+ static bool force_reverse = false;
+@@ -201,7 +201,7 @@
+ QList<QScreen *> QGuiApplicationPrivate::screen_list;
+ 
+ QWindowList QGuiApplicationPrivate::window_list;
+-QWindow *QGuiApplicationPrivate::focus_window = 0;
++QPointer<QWindow> QGuiApplicationPrivate::focus_window;
+ 
+ static QBasicMutex applicationFontMutex;
+ QFont *QGuiApplicationPrivate::app_font = 0;
+diff qtbase/src/gui/kernel/qguiapplication_p.h qtbase/src/gui/kernel/qguiapplication_p.h
+--- qtbase/src/gui/kernel/qguiapplication_p.h
++++ qtbase/src/gui/kernel/qguiapplication_p.h
+@@ -212,8 +212,8 @@
+     static int mousePressX;
+     static int mousePressY;
+     static QPointF lastCursorPosition;
+-    static QWindow *currentMouseWindow;
+-    static QWindow *currentMousePressWindow;
++    static QPointer<QWindow> currentMouseWindow;
++    static QPointer<QWindow> currentMousePressWindow;
+     static Qt::ApplicationState applicationState;
+     static bool highDpiScalingUpdated;
+     static QPointer<QWindow> currentDragWindow;
+@@ -234,7 +234,7 @@
+     static QPalette *app_pal;
+ 
+     static QWindowList window_list;
+-    static QWindow *focus_window;
++    static QPointer<QWindow> focus_window;
+ 
+ #ifndef QT_NO_CURSOR
+     QList<QCursor> cursor_list;

@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks Stratford, Ontario, Canada
-**  Copyright (C) 2019 Doug Massay
+**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2020 Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -32,6 +32,8 @@
 #include <QtWebEngineWidgets/QWebEnginePage>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWebEngineWidgets/QWebEngineScript>
+#include <QApplication>
+#include <QGuiApplication>
 #include <QDebug>
 
 #include "Misc/SettingsStore.h"
@@ -49,6 +51,43 @@ const QString SET_CURSOR_JS2 =
     "var selection = window.getSelection();"
     "selection.removeAllRanges();"
     "selection.addRange(range);";
+
+const QString SET_PREVIEW_COLORS =
+    "document.body.style.backgroundColor=\"%1\"; "
+    "document.body.style.color=\"%2\";";
+
+#if 0
+    "var bodyStyle = window.getComputedStyle(document.body, null);"
+    "var bg = bodyStyle.backgroundColor;"
+    "var fg = bodyStyle.color;"
+    "console.log('bg', bg);"
+    "console.log('fg', fg);"
+    "var isRGB = bg.indexOf('rgb') == 0;"
+    "var isHEX = bg.indexOf('#') == 0;"
+    "console.log('isRGB', isRGB);"
+    "console.log('isHEX', isHEX);"
+     "if (isRGB) {"
+    "    var m = bg.match(/(\\d+){3}/g);"
+    "    if (m) var r = m[0], g = m[1], b = m[2];"
+    "    console.log('rgb', r, g, b);"
+    "}"
+    "if (isHEX) {"
+        "var c = bg.replace('#', '');"
+        "var r = parseInt(c.substr(0,2), 16);"
+        "var g = parseInt(c.substr(2,2), 16);"
+        "var b = parseInt(c.substr(4,2), 16);"
+    "    console.log('rgb', r, g, b);"
+    "}"
+    "if (typeof r != 'undefined') {"
+    "    if ((r*0.299 + g*0.587 + b*0.114) > 186) {"
+    "        document.body.style.color = '#000000';"
+    "        console.log('bg is light');" 
+    "    } else {"
+    "        document.body.style.color = '#FFFFFF';"
+    "        console.log('bg is dark');" 
+    "    }"
+    "}";
+#endif
 
 struct JSResult {
   QVariant res;
@@ -82,6 +121,8 @@ ViewPreview::ViewPreview(QWidget *parent)
       m_LoadOkay(false)
 {
     setPage(m_ViewWebPage);
+    // Now handled in the WebEngPage constructor to be faster
+    // page()->setBackgroundColor(Utility::WebViewBackgroundColor(true));
     setContextMenuPolicy(Qt::CustomContextMenu);
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
@@ -127,7 +168,6 @@ QSize ViewPreview::sizeHint() const
 
 void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
 {
-
     if (html.isEmpty()) {
         return;
     }
@@ -200,6 +240,11 @@ void ViewPreview::UpdateDisplay()
         m_CurrentZoomFactor = stored_factor;
         Zoom();
     }
+}
+
+void ViewPreview::SetPreviewColors(const QString &bg, const QString &fg)
+{
+    DoJavascript(SET_PREVIEW_COLORS.arg(bg).arg(fg));
 }
 
 void ViewPreview::ScrollToTop()

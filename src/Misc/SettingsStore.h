@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2020      Doug Massay
 **  Copyright (C) 2011-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -57,6 +58,9 @@ public:
      */
     QString uiLanguage();
 
+    QString uiFont();
+    QString originalUIFont();
+
     /**
      * The default langauge to use when creating new books.
      *
@@ -75,6 +79,7 @@ public:
     float zoomText();
     float zoomWeb();
     float zoomPreview();
+    float zoomInspector();
 
     /**
      * The name of the dictionary to use for spell check.
@@ -139,6 +144,10 @@ public:
 
     int showFullPathOn();
 
+    int highDPI();
+
+    int previewDark();
+
     int cleanOn();
 
     QStringList pluginMap();
@@ -161,12 +170,6 @@ public:
     struct CodeViewAppearance {
         QString font_family;
         int font_size;
-
-        QColor background_color;
-        QColor foreground_color;
-
-        QColor selection_background_color;
-        QColor selection_foreground_color;
 
         QColor css_comment_color;
         QColor css_property_color;
@@ -248,6 +251,10 @@ public slots:
      * @param lang The language to set.
      */
     void setUILanguage(const QString &language_code);
+    
+    void setUIFont(const QString &font_data);
+
+    void setOriginalUIFont(const QString &font_data);
 
     /**
      * Set the default language to use when creating new books.
@@ -267,6 +274,7 @@ public slots:
     void setZoomText(float zoom);
     void setZoomWeb(float zoom);
     void setZoomPreview(float zoom);
+    void setZoomInspector(float zoom);
 
     /**
      * Set the name of the dictionary the user has selected.
@@ -331,6 +339,10 @@ public slots:
     void setJavascriptOn(int on);
 
     void setShowFullPathOn(int on);
+
+    void setHighDPI(int value);
+
+    void setPreviewDark(int enabled);
 
     void setCleanOn(int on);
 

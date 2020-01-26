@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2016-2020 Kevin B. Hendricks Stratford, ON, Canada 
 **
 **  This file is part of Sigil.
 **
@@ -100,5 +100,6 @@ private:
     QString ConvertBookPathToNavRelative(const QString & href);
     
     HTMLResource * m_NavResource;
+    QString m_language;
 };
 #endif  // NAVPROCESSORH

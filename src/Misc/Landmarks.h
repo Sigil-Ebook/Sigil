@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -48,7 +48,7 @@ public:
     static Landmarks *instance();
 
     QString GetName(const QString &code);
-    QString GetTitle(const QString &code);
+    QString GetTitle(const QString &code, const QString &lang);
     QString GetDescriptionByCode(const QString &code);
     QString GetDescriptionByName(const QString &name);
     QString GetCode(const QString &name);

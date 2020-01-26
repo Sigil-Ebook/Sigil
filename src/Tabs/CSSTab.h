@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -34,6 +35,10 @@ class CSSTab : public TextTab
 public:
 
     CSSTab(CSSResource *resource, int line_to_scroll_to = -1, int position_to_scroll_to = -1, QWidget *parent = 0);
+
+    bool PasteClipNumber(int clip_number);
+    bool PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips);
+
 
 public slots:
 

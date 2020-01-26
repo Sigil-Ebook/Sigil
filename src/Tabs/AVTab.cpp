@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -25,9 +25,14 @@
 #include <QtWidgets/QLayout>
 #include <QtWebEngineWidgets/QWebEngineProfile>
 #include <QtWebEngineWidgets/QWebEngineView>
+#include <QGuiApplication>
+#include <QApplication>
 #include "MainUI/MainWindow.h"
-#include "Tabs/AVTab.h"
+#include "ViewEditors/SimplePage.h"
+#include "Misc/Utility.h"
 #include "sigil_constants.h"
+
+#include "Tabs/AVTab.h"
 
 const QString AUDIO_HTML_BASE =
     "<html>"
@@ -36,6 +41,7 @@ const QString AUDIO_HTML_BASE =
     "body { -webkit-user-select: none; }"
     "audio { display: block; margin-left: auto; margin-right: auto; }"
     "</style>"
+    "</head>"
     "<body>"
     "<p><audio controls=\"controls\" src=\"%1\"></audio></p>"
     "</body>"
@@ -48,6 +54,7 @@ const QString VIDEO_HTML_BASE =
     "body { -webkit-user-select: none; }"
     "video { display: block; margin-left: auto; margin-right: auto; }"
     "</style>"
+    "</head>"
     "<body>"
     "<p><video controls=\"controls\" width=\"560\" src=\"%1\"></video></p>"
     "</body>"
@@ -57,6 +64,7 @@ AVTab::AVTab(Resource *resource, QWidget *parent)
     : ContentTab(resource, parent),
       m_WebView(new QWebEngineView(this))
 {
+    m_WebView->setPage(new SimplePage(m_WebView));
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
@@ -76,6 +84,10 @@ void AVTab::RefreshContent()
     } else {
         html = VIDEO_HTML_BASE.arg(resourceUrl.toString());
     }
+    if (Utility::IsDarkMode()) {
+        html = Utility::AddDarkCSS(html);
+    }
+    m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
     m_WebView->setHtml(html, resourceUrl);
 }
 

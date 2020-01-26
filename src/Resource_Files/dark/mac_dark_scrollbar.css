@@ -1,0 +1,28 @@
+a:link {
+    color: #ff9999;
+}
+
+a:visited {
+    color: #99ff99;
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(61,61,61);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(119, 119, 119);
+    border: 4px solid transparent;
+    border-radius: 10px;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-corner {
+    background: rgb(61,61,61);
+}
+
+::-webkit-scrollbar {display: block;}

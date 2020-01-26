@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019      Doug Massay
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2020 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -106,6 +106,7 @@
 #include "SourceUpdates/LinkUpdates.h"
 #include "SourceUpdates/WordUpdates.h"
 #include "Tabs/FlowTab.h"
+#include "Tabs/CSSTab.h"
 #include "Tabs/OPFTab.h"
 #include "Tabs/TabManager.h"
 #include "MainUI/MainApplication.h"
@@ -209,8 +210,7 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_menuPluginsValidation(NULL),
     m_pluginList(QStringList()),
     m_SaveCSS(false),
-    m_IsClosing(false),
-    m_Style(NULL)
+    m_IsClosing(false)
 {
     ui.setupUi(this);
     // Telling Qt to delete this window
@@ -245,7 +245,6 @@ MainWindow::~MainWindow()
     }
 
 #ifdef Q_OS_MAC  // speeds cleaningup of old modal dialogs
-    // DBG qDebug() << "In MainWindow destructor in mac only part";
     if (m_ClipboardHistorySelector) delete m_ClipboardHistorySelector;
     if (m_LinkOrStyleBookmark) delete m_LinkOrStyleBookmark;
     if (m_Reports) delete m_Reports;
@@ -270,6 +269,8 @@ MainWindow::~MainWindow()
 
 }
 
+#if 0
+// The problem is this routine does not help!
 void MainWindow::maybe_fixup_dockwidget_geometry(QDockWidget* dw) 
 {
     QRect screen_rect = qApp->desktop()->availableGeometry(dw);
@@ -279,17 +280,15 @@ void MainWindow::maybe_fixup_dockwidget_geometry(QDockWidget* dw)
     if (dw->isFloating()) {
         if (!dw->geometry().intersects(screen_rect)) {
             qDebug() << "on a no longer available screen";
-#if 0
             // shrink it to fit the current screen and move it here
             int w = std::min(dw->width(), screen_rect.width() - 10);
 	    int h = std::min(dw->height(), screen_rect.height() - 10);
 	    dw->resize(w, h);
 	    dw->move((screen_rect.width() - w)/2, (screen_rect.height() - h)/2);
-#endif
 	}
     }
 }
-
+#endif
 
 // Note on Mac OS X you may only add a QMenu or SubMenu to the MenuBar Once!
 // Actions can be removed
@@ -313,7 +312,7 @@ void MainWindow::loadPluginsMenu()
         connect(pa, &QAction::triggered, this, [this,i]() {
             MainWindow::QuickLaunchPlugin(i);
         });
-	    i++;
+        i++;
     }
 
     QHash<QString, Plugin *> plugins = pdb->all_plugins();
@@ -2422,8 +2421,9 @@ void MainWindow::MarkForIndex()
 void MainWindow::ApplicationPaletteChanged()
 {
     // we need to force a full reload of all Tabs and Preview Window
-    qDebug() << "ApplicationPaletteChanged";
+    // qDebug() << "ApplicationPaletteChanged";
     m_TabManager->ReopenTabs();
+    UpdatePreview();
 }
 
 void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)
@@ -2488,6 +2488,17 @@ void MainWindow::PasteTextIntoCurrentTarget(const QString &text)
     m_LastPasteTarget->PasteText(text);
 }
 
+#if 0
+void MainWindow::PasteClipIntoCurrentTarget(QAction * act)
+{
+    int clip_number = act->data().toInt();
+    if ((clip_number > 0) && (clip_number <= m_clactions.count())) { 
+        PasteClipIntoCurrentTarget(clip_number);
+    }
+}
+#endif
+
+
 void MainWindow::PasteClipIntoCurrentTarget(int clip_number)
 {
     if (m_LastPasteTarget == NULL) {
@@ -2501,106 +2512,6 @@ void MainWindow::PasteClipIntoCurrentTarget(int clip_number)
         // Clear the statusbar afterwards but only if entries were pasted.
         ShowMessageOnStatusBar(tr("Pasted clip entry %1.").arg(clip_number));
     }
-}
-
-void MainWindow::PasteClip1IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(1);
-}
-
-void MainWindow::PasteClip2IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(2);
-}
-
-void MainWindow::PasteClip3IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(3);
-}
-
-void MainWindow::PasteClip4IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(4);
-}
-
-void MainWindow::PasteClip5IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(5);
-}
-
-void MainWindow::PasteClip6IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(6);
-}
-
-void MainWindow::PasteClip7IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(7);
-}
-
-void MainWindow::PasteClip8IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(8);
-}
-
-void MainWindow::PasteClip9IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(9);
-}
-
-void MainWindow::PasteClip10IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(10);
-}
-
-void MainWindow::PasteClip11IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(11);
-}
-
-void MainWindow::PasteClip12IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(12);
-}
-
-void MainWindow::PasteClip13IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(13);
-}
-
-void MainWindow::PasteClip14IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(14);
-}
-
-void MainWindow::PasteClip15IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(15);
-}
-
-void MainWindow::PasteClip16IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(16);
-}
-
-void MainWindow::PasteClip17IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(17);
-}
-
-void MainWindow::PasteClip18IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(18);
-}
-
-void MainWindow::PasteClip19IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(19);
-}
-
-void MainWindow::PasteClip20IntoCurrentTarget()
-{
-    PasteClipIntoCurrentTarget(20);
 }
 
 // How to deal with this as each clipEntry struct created with new and passed via
@@ -2632,14 +2543,18 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
 
 void MainWindow::PasteClipEntriesIntoPreviousTarget(const QList<ClipEditorModel::clipEntry *> &clips)
 {
-    FlowTab *flow_tab = GetCurrentFlowTab();
-    if (flow_tab && flow_tab->GetLoadedResource()->Type() == Resource::HTMLResourceType) {
-        bool applied = flow_tab->PasteClipEntries(clips);
-        if (applied) {
-            flow_tab->setFocus();
-            // Clear the statusbar afterwards but only if entries were pasted.
-            ShowMessageOnStatusBar();
-        }
+    ContentTab *tab = GetCurrentContentTab();
+    if (tab == NULL)  return;
+    FlowTab *flow_tab = qobject_cast<FlowTab *>(tab);
+    if (flow_tab && flow_tab->PasteClipEntries(clips)) {
+        flow_tab->setFocus();
+        ShowMessageOnStatusBar();
+	return;
+    }
+    CSSTab * css_tab = qobject_cast<CSSTab *>(tab);
+    if (css_tab && css_tab->PasteClipEntries(clips)) {
+        css_tab->setFocus();
+        ShowMessageOnStatusBar();
     }
 }
 
@@ -3274,6 +3189,11 @@ void MainWindow::PreferencesDialog()
         SettingsStore settings;
         m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
     }
+    if (prefers.isReloadPreviewRequired()) {
+        if (m_PreviewWindow) {
+            UpdatePreview();
+        }
+    }
 
     if (m_SelectCharacter->isVisible()) {
         // To ensure any font size changes are immediately applied.
@@ -3361,7 +3281,7 @@ void MainWindow::ValidateStylesheetsWithW3C()
 
 void MainWindow::ChangeSignalsWhenTabChanges(ContentTab *old_tab, ContentTab *new_tab)
 {
-    qDebug() << "in ChangesSignalWhenTabChanges " << old_tab << new_tab;
+    // qDebug() << "in ChangesSignalWhenTabChanges " << old_tab << new_tab;
     if (old_tab == new_tab) return;
     BreakTabConnections(old_tab);
     MakeTabConnections(new_tab);
@@ -4902,29 +4822,6 @@ void MainWindow::PlatformSpecificTweaks()
     sizeMenuIcons();
 }
 
-
-void MainWindow::SetupUiFonts()
-{
-    QFont f = QFont(qApp->font());
-#ifdef Q_OS_WIN32
-    if (f.family() == "MS Shell Dlg 2" && f.pointSize() == 8) {
-        // Microsoft's recommended UI defaults
-        f.setFamily("Segoe UI");
-        f.setPointSize(9);
-        qApp->setFont(f);
-    }
-#elif defined(Q_OS_MAC)
-    // Just in case
-#else
-    if ((f.family() == "Sans Serif" || f.family() == "Sans") && f.pointSize() == 9) {
-        f.setPointSize(10);
-        qApp->setFont(f);
-    }
-   
-#endif
-}
-
-
 void MainWindow::ExtendUI()
 {
     // initialize list of quick launch plugin actions
@@ -4938,6 +4835,26 @@ void MainWindow::ExtendUI()
     m_qlactions.append(ui.actionPlugin8);
     m_qlactions.append(ui.actionPlugin9);
     m_qlactions.append(ui.actionPlugin10);
+
+    // initialize the first set of clip actions
+    foreach(QAction * clipaction, ui.toolBarClips->actions()) {
+        if (!clipaction->isSeparator()) {
+            QString strIndex = clipaction->objectName();
+            strIndex.replace(QString("actionClip"), QString(""));
+            clipaction->setData(strIndex.toInt());
+            m_clactions.append(clipaction);
+        }
+    }
+
+    // initialize the second set of clip actions
+    foreach(QAction * clipaction, ui.toolBarClips2->actions()) {
+        if (!clipaction->isSeparator()) {
+            QString strIndex = clipaction->objectName();
+            strIndex.replace(QString("actionClip"), QString(""));
+            clipaction->setData(strIndex.toInt());
+            m_clactions.append(clipaction);
+        }
+    }
 
     // initialize action group from tbHeadings QToolButton actions
     foreach(QAction* ha, ui.tbHeadings->actions()) {
@@ -4965,7 +4882,7 @@ void MainWindow::ExtendUI()
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(1);
     frame->setObjectName(FRAME_NAME);
-    frame->setStyleSheet(TAB_STYLE_SHEET);
+    //frame->setStyleSheet(TAB_STYLE_SHEET);
     setCentralWidget(frame);
     m_BookBrowser = new BookBrowser(this);
     m_BookBrowser->setObjectName(BOOK_BROWSER_NAME);
@@ -5024,6 +4941,7 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarTextDirection->toggleViewAction());
     ui.toolBarTextDirection->setVisible(false);
     ui.menuToolbars->addAction(ui.toolBarClips->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarClips2->toggleViewAction());
     ui.toolBarClips->setVisible(false);
     m_lbCursorPosition = new QLabel(QString(""), statusBar());
     statusBar()->addPermanentWidget(m_lbCursorPosition);
@@ -5195,27 +5113,12 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionDonate, "MainWindow.Donate");
     sm->registerAction(this, ui.actionSigilWebsite, "MainWindow.SigilWebsite");
     sm->registerAction(this, ui.actionAbout, "MainWindow.About");
+
     // Clips
-    sm->registerAction(this, ui.actionClip1, "MainWindow.Clip1");
-    sm->registerAction(this, ui.actionClip2, "MainWindow.Clip2");
-    sm->registerAction(this, ui.actionClip3, "MainWindow.Clip3");
-    sm->registerAction(this, ui.actionClip4, "MainWindow.Clip4");
-    sm->registerAction(this, ui.actionClip5, "MainWindow.Clip5");
-    sm->registerAction(this, ui.actionClip6, "MainWindow.Clip6");
-    sm->registerAction(this, ui.actionClip7, "MainWindow.Clip7");
-    sm->registerAction(this, ui.actionClip8, "MainWindow.Clip8");
-    sm->registerAction(this, ui.actionClip9, "MainWindow.Clip9");
-    sm->registerAction(this, ui.actionClip10, "MainWindow.Clip10");
-    sm->registerAction(this, ui.actionClip11, "MainWindow.Clip11");
-    sm->registerAction(this, ui.actionClip12, "MainWindow.Clip12");
-    sm->registerAction(this, ui.actionClip13, "MainWindow.Clip13");
-    sm->registerAction(this, ui.actionClip14, "MainWindow.Clip14");
-    sm->registerAction(this, ui.actionClip15, "MainWindow.Clip15");
-    sm->registerAction(this, ui.actionClip16, "MainWindow.Clip16");
-    sm->registerAction(this, ui.actionClip17, "MainWindow.Clip17");
-    sm->registerAction(this, ui.actionClip18, "MainWindow.Clip18");
-    sm->registerAction(this, ui.actionClip19, "MainWindow.Clip19");
-    sm->registerAction(this, ui.actionClip20, "MainWindow.Clip20");
+    foreach(QAction * clipaction, m_clactions) {
+        QString clip_number = clipaction->data().toString();
+        sm->registerAction(this, clipaction, "MainWindow.Clip" + clip_number);
+    }
 
     // for plugins
     sm->registerAction(this, ui.actionPlugin1,  "MainWindow.Plugins.RunPlugin1");
@@ -5243,19 +5146,15 @@ void MainWindow::ExtendUI()
     ui.tbCase->setFont(font);
 #endif
 
-    SetupUiFonts();
     ExtendIconSizes();
     UpdateClipsUI();
-
-    QFont f = QFont(qApp->font());
-    qDebug() << "UI Font family: " << f.family();    
-    qDebug() << "UI Font size: " << f.pointSize();
 }
 
-void MainWindow::UpdateClipButton(int clip_number, QAction *ui_action)
+void MainWindow::UpdateClipButton(QAction *ui_action)
 {
     // clipEntry is a simple struct created by GetEntry with new,
     // no reference counting or smart pointers so they must be cleaned up appropriately
+    int clip_number = ui_action->data().toInt();
     ClipEditorModel::clipEntry *clip_entry = ClipEditorModel::instance()->GetEntryFromNumber(clip_number);
 
     if (clip_entry) {
@@ -5275,26 +5174,9 @@ void MainWindow::UpdateClipButton(int clip_number, QAction *ui_action)
 
 void MainWindow::UpdateClipsUI()
 {
-    UpdateClipButton(1, ui.actionClip1);
-    UpdateClipButton(2, ui.actionClip2);
-    UpdateClipButton(3, ui.actionClip3);
-    UpdateClipButton(4, ui.actionClip4);
-    UpdateClipButton(5, ui.actionClip5);
-    UpdateClipButton(6, ui.actionClip6);
-    UpdateClipButton(7, ui.actionClip7);
-    UpdateClipButton(8, ui.actionClip8);
-    UpdateClipButton(9, ui.actionClip9);
-    UpdateClipButton(10, ui.actionClip10);
-    UpdateClipButton(11, ui.actionClip11);
-    UpdateClipButton(12, ui.actionClip12);
-    UpdateClipButton(13, ui.actionClip13);
-    UpdateClipButton(14, ui.actionClip14);
-    UpdateClipButton(15, ui.actionClip15);
-    UpdateClipButton(16, ui.actionClip16);
-    UpdateClipButton(17, ui.actionClip17);
-    UpdateClipButton(18, ui.actionClip18);
-    UpdateClipButton(19, ui.actionClip19);
-    UpdateClipButton(20, ui.actionClip20);
+    foreach(QAction * clipaction, m_clactions) {
+        UpdateClipButton(clipaction);
+    }
 }
 
 void MainWindow::ExtendIconSizes()
@@ -5526,14 +5408,29 @@ void MainWindow::ExtendIconSizes()
     ui.actionAbout->setIcon(icon);
 
     icon = ui.actionSplitSection->icon();
-    icon.addFile(QString::fromUtf8(":/main/insert-section-break_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/insert-section-break_22px.png"));
+    icon.addFile(QString::fromUtf8(":/main/split-section_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/split-section_22px.png"));
     ui.actionSplitSection->setIcon(icon);
 
     icon = ui.actionInsertFile->icon();
     icon.addFile(QString::fromUtf8(":/main/insert-image_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/insert-image_22px.png"));
     ui.actionInsertFile->setIcon(icon);
+
+    icon = ui.actionInsertSpecialCharacter->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-special-character_16px.png"));  // Was not working for Becky on Windows
+    icon.addFile(QString::fromUtf8(":/main/insert-special-character_22px.png"));
+    ui.actionInsertSpecialCharacter->setIcon(icon);
+
+    icon = ui.actionInsertId->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-id_16px.png"));  // Was not working for Becky on Windows
+    icon.addFile(QString::fromUtf8(":/main/insert-id_22px.png"));
+    ui.actionInsertId->setIcon(icon);
+
+    icon = ui.actionInsertHyperlink->icon();
+    icon.addFile(QString::fromUtf8(":/main/insert-hyperlink_16px.png"));  // Was not working for Becky on Windows
+    icon.addFile(QString::fromUtf8(":/main/insert-hyperlink_22px.png"));
+    ui.actionInsertHyperlink->setIcon(icon);
 
     icon = ui.actionPrint->icon();
     icon.addFile(QString::fromUtf8(":/main/document-print_16px.png"));
@@ -5664,17 +5561,23 @@ void MainWindow::changeEvent(QEvent *e)
                     restoreState(m_LastState);
 		}
 
+	        DWINGEO {
+                    int numscreens = qApp->desktop()->numScreens();
+		    for (int i = 0; i < numscreens; i++) {
+                        qDebug() << "Screen: " << i;
+		        qDebug() << "    screen  geo: " << qApp->desktop()->screenGeometry(i);
+                        QScreen *srn = QApplication::screens().at(i);
+		        qDebug() << "    avail   geo: " << srn->availableGeometry();
+		        qDebug() << "    geo        : " << srn->geometry();
+                        qDebug() << "    devideRatio: " << srn->devicePixelRatio();
+                        qDebug() << "    logical dpi: " << srn->logicalDotsPerInchX() << srn->logicalDotsPerInchY();
+                        qDebug() << "    physic  dpi: " << srn->physicalDotsPerInchX() << srn->physicalDotsPerInchY();
+		    }
+		}
+
                 // restoreState properly handles moving floating Preview Window
                 // back to main screen if needed but keeps it hidden, only need to 
                 // use View to display it, at least on macOSX
-
-                // So only Use this to dump screen debug data now (no actual fixup is currently done)
-                // Handle Dock Widgets not being restored to correct screen
-                // See https://bugreports.qt.io/browse/QTBUG-77385
-                maybe_fixup_dockwidget_geometry(m_BookBrowser);
-                maybe_fixup_dockwidget_geometry(m_TableOfContents);
-                maybe_fixup_dockwidget_geometry(m_ValidationResultsView);
-                maybe_fixup_dockwidget_geometry(m_PreviewWindow);
 
 	    }
             m_FirstTime = false;
@@ -5799,27 +5702,18 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionGoBackFromLinkOrStyle,  SIGNAL(triggered()), this,   SLOT(GoBackFromLinkOrStyle()));
     connect(ui.actionSplitOnSGFSectionMarkers, SIGNAL(triggered()),  this,   SLOT(SplitOnSGFSectionMarkers()));
     connect(ui.actionPasteClipboardHistory,    SIGNAL(triggered()),  this,   SLOT(ShowPasteClipboardHistoryDialog()));
+
     // Clips
-    connect(ui.actionClip1,       SIGNAL(triggered()), this, SLOT(PasteClip1IntoCurrentTarget()));
-    connect(ui.actionClip2,       SIGNAL(triggered()), this, SLOT(PasteClip2IntoCurrentTarget()));
-    connect(ui.actionClip3,       SIGNAL(triggered()), this, SLOT(PasteClip3IntoCurrentTarget()));
-    connect(ui.actionClip4,       SIGNAL(triggered()), this, SLOT(PasteClip4IntoCurrentTarget()));
-    connect(ui.actionClip5,       SIGNAL(triggered()), this, SLOT(PasteClip5IntoCurrentTarget()));
-    connect(ui.actionClip6,       SIGNAL(triggered()), this, SLOT(PasteClip6IntoCurrentTarget()));
-    connect(ui.actionClip7,       SIGNAL(triggered()), this, SLOT(PasteClip7IntoCurrentTarget()));
-    connect(ui.actionClip8,       SIGNAL(triggered()), this, SLOT(PasteClip8IntoCurrentTarget()));
-    connect(ui.actionClip9,       SIGNAL(triggered()), this, SLOT(PasteClip9IntoCurrentTarget()));
-    connect(ui.actionClip10,      SIGNAL(triggered()), this, SLOT(PasteClip10IntoCurrentTarget()));
-    connect(ui.actionClip11,      SIGNAL(triggered()), this, SLOT(PasteClip11IntoCurrentTarget()));
-    connect(ui.actionClip12,      SIGNAL(triggered()), this, SLOT(PasteClip12IntoCurrentTarget()));
-    connect(ui.actionClip13,      SIGNAL(triggered()), this, SLOT(PasteClip13IntoCurrentTarget()));
-    connect(ui.actionClip14,      SIGNAL(triggered()), this, SLOT(PasteClip14IntoCurrentTarget()));
-    connect(ui.actionClip15,      SIGNAL(triggered()), this, SLOT(PasteClip15IntoCurrentTarget()));
-    connect(ui.actionClip16,      SIGNAL(triggered()), this, SLOT(PasteClip16IntoCurrentTarget()));
-    connect(ui.actionClip17,      SIGNAL(triggered()), this, SLOT(PasteClip17IntoCurrentTarget()));
-    connect(ui.actionClip18,      SIGNAL(triggered()), this, SLOT(PasteClip18IntoCurrentTarget()));
-    connect(ui.actionClip19,      SIGNAL(triggered()), this, SLOT(PasteClip19IntoCurrentTarget()));
-    connect(ui.actionClip20,      SIGNAL(triggered()), this, SLOT(PasteClip20IntoCurrentTarget()));
+    foreach(QAction* clipaction, m_clactions) {
+	// Use the new signal/slot syntax and use a lambda to
+	// eliminate the need for the obsoleted QSignalMapper.
+	// [captured variables]() {...anonymous processing to do...;}
+        int i = clipaction->data().toInt();
+        connect(clipaction, &QAction::triggered, this, [this,i]() {
+                MainWindow::PasteClipIntoCurrentTarget(i);
+        });
+    }
+
     // Slider
     connect(m_slZoomSlider,         SIGNAL(valueChanged(int)), this, SLOT(SliderZoom(int)));
     // We also update the label when the slider moves... this is to show

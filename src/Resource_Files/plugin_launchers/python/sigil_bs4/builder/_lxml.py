@@ -77,7 +77,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
         if self._default_parser is not None:
             return self._default_parser
         return etree.XMLParser(
-            target=self, strip_cdata=False, recover=True, encoding=encoding)
+            target=self, strip_cdata=False, recover=True, encoding=encoding, resolve_entities=False)
 
     def parser_for(self, encoding):
         # Use the default parser.
@@ -85,7 +85,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
 
         if isinstance(parser, collections.Callable):
             # Instantiate the parser with default arguments
-            parser = parser(target=self, strip_cdata=False, encoding=encoding)
+            parser = parser(target=self, strip_cdata=False, encoding=encoding, resolve_entities=False)
         return parser
 
     def __init__(self, parser=None, empty_element_tags=None):

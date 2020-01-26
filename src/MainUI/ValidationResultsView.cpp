@@ -35,9 +35,12 @@
 #include "Misc/Utility.h"
 #include "sigil_exception.h"
 
+#if(0)
 static const QBrush INFO_BRUSH    = QBrush(QColor(224, 255, 255));
 static const QBrush WARNING_BRUSH = QBrush(QColor(255, 255, 230));
 static const QBrush ERROR_BRUSH   = QBrush(QColor(255, 230, 230));
+#endif
+
 const QString ValidationResultsView::SEP = QString(QChar(31));
 
 ValidationResultsView::ValidationResultsView(QWidget *parent)
@@ -213,11 +216,11 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
         int rownum = m_ResultTable->rowCount();
         QTableWidgetItem *item = NULL;
 
-        QBrush row_brush = INFO_BRUSH;
+        QBrush row_brush = Utility::ValidationResultBrush(Utility::INFO_BRUSH);
         if (result.Type() == ValidationResult::ResType_Warn) {
-            row_brush = WARNING_BRUSH;
+            row_brush = Utility::ValidationResultBrush(Utility::WARNING_BRUSH);
         } else if (result.Type() == ValidationResult::ResType_Error) {
-            row_brush = ERROR_BRUSH;
+            row_brush = Utility::ValidationResultBrush(Utility::ERROR_BRUSH);
         }
 
         m_ResultTable->insertRow(rownum);
@@ -228,24 +231,28 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
 	    Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
 	    path = resource->ShortPathName();
 	} catch (ResourceDoesNotExist) {
-	    path = "***Invalid Book Path Provided ***";
+            if (bookpath.isEmpty()) {
+	        path = "***Invalid Book Path Provided ***";
+            } else {
+                path = bookpath;
+	    }
 	}
 	
         item = new QTableWidgetItem(RemoveEpubPathPrefix(path));
-	item->setData(Qt::UserRole+1, bookpath);
-        item->setBackground(row_brush);
+        item->setData(Qt::UserRole+1, bookpath);
+        SetItemPalette(item, row_brush);
         m_ResultTable->setItem(rownum, 0, item);
 
         item = result.LineNumber() > 0 ? new QTableWidgetItem(QString::number(result.LineNumber())) : new QTableWidgetItem(tr("N/A"));
-        item->setBackground(row_brush);
+        SetItemPalette(item, row_brush);
         m_ResultTable->setItem(rownum, 1, item);
 
         item = result.CharOffset() > 0 ? new QTableWidgetItem(QString::number(result.CharOffset())) : new QTableWidgetItem(tr("N/A"));
-        item->setBackground(row_brush);
+        SetItemPalette(item, row_brush);
         m_ResultTable->setItem(rownum, 2, item);
 
         item = new QTableWidgetItem(result.Message());
-        item->setBackground(row_brush);
+        SetItemPalette(item, row_brush);
         m_ResultTable->setItem(rownum, 3, item);
     }
 
@@ -287,5 +294,14 @@ void ValidationResultsView::ConfigureTableForResults()
 QString ValidationResultsView::RemoveEpubPathPrefix(const QString &path)
 {
     return QString(path).remove(QRegularExpression("^[\\w-]+\\.epub/?"));
+}
+
+void ValidationResultsView::SetItemPalette(QTableWidgetItem * item, QBrush &row_brush)
+{
+    if (Utility::IsDarkMode()) {
+        item->setForeground(row_brush);
+    } else {
+        item->setBackground(row_brush);
+    }   
 }
 

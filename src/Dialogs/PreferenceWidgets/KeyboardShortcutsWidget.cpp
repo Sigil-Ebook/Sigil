@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2011      Grzegorz Wolszczak <grzechu81@gmail.com>
 **
@@ -43,8 +43,10 @@ KeyboardShortcutsWidget::KeyboardShortcutsWidget()
     readSettings();
 }
 
-PreferencesWidget::ResultAction KeyboardShortcutsWidget::saveSettings()
+PreferencesWidget::ResultActions KeyboardShortcutsWidget::saveSettings()
 {
+    PreferencesWidget::ResultActions results = PreferencesWidget::ResultAction_None;
+
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
 
     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
@@ -54,7 +56,7 @@ PreferencesWidget::ResultAction KeyboardShortcutsWidget::saveSettings()
         sm->setKeySequence(id, keySequence);
     }
 
-    return PreferencesWidget::ResultAction_None;
+    return results;
 }
 
 bool KeyboardShortcutsWidget::eventFilter(QObject *object, QEvent *event)

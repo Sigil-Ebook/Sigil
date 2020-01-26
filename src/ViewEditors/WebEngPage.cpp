@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -20,7 +20,9 @@
 *************************************************************************/
 #include <QTimer>
 #include <QtWebEngineWidgets/QWebEnginePage>
+#include <QUrl>
 #include <QDebug>
+#include "Misc/Utility.h"
 #include "ViewEditors/WebEngPage.h"
 
 #define DBG if(0)
@@ -28,6 +30,8 @@
 WebEngPage::WebEngPage(QObject *parent)
     : QWebEnginePage(parent)
 {
+    setBackgroundColor(Utility::WebViewBackgroundColor(true));
+    setUrl(QUrl("about:blank"));
 }
 
 // Because you can not delegate all links in QtWebEngine we must override here and generate
@@ -65,7 +69,7 @@ void WebEngPage::EmitLinkClicked()
 void WebEngPage::javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level, 
 				  const QString & message, int lineNumber, const QString & sourceID)
 {
-  const QString logEntry = message + " on line:" % QString::number(lineNumber) % " Source:" + sourceID;
-  qDebug() << "Javascript error: " << level << logEntry;
+    const QString logEntry = message + " on line:" % QString::number(lineNumber) % " Source:" + sourceID;
+    qDebug() << "Javascript error: " << level << logEntry;
 }
 

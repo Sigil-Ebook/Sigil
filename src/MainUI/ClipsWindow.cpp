@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -25,6 +26,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
 
+#include "Misc/Utility.h"
 #include "MainUI/ClipsWindow.h"
 
 static const int COLUMN_INDENTATION = 15;

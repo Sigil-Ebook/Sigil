@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -21,6 +21,7 @@
 *************************************************************************/
 
 #include <QApplication>
+#include <QGuiApplication>
 #include <QtCore/QDateTime>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
@@ -39,9 +40,12 @@
 #include <QDebug>
 
 #include "MainUI/MainWindow.h"
+#include "ViewEditors/SimplePage.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/ImageResource.h"
+#include "sigil_constants.h"
 #include "Tabs/ImageTab.h"
 
 const QString IMAGE_HTML_BASE =
@@ -53,12 +57,14 @@ const QString IMAGE_HTML_BASE =
     "hr { width: 75%; }"
     "div { text-align: center; }"
     "</style>"
+    "</head>"
     "<body>"
     "<p><img src=\"%1\" /></p>"
     "<hr />"
     "<div>%2&times;%3px | %4 KB | %5%6</div>"
     "</body>"
     "</html>";
+
 
 ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     :
@@ -68,6 +74,7 @@ ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     m_OpenWithContextMenu(new QMenu(this)),
     m_openWithMapper(new QSignalMapper(this))
 {
+    m_WebView->setPage(new SimplePage(m_WebView));
     m_WebView->setContextMenuPolicy(Qt::CustomContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
@@ -186,8 +193,13 @@ void ImageTab::RefreshContent()
         colorsInfo = QString(" %1bpp (%2 %3)").arg(img.bitPlaneCount()).arg(img.colorCount()).arg(colors_shades);
     }
 
-    const QString html = IMAGE_HTML_BASE.arg(imgUrl.toString()).arg(img.width()).arg(img.height()).arg(fsize)
+    QString html = IMAGE_HTML_BASE.arg(imgUrl.toString()).arg(img.width()).arg(img.height()).arg(fsize)
                          .arg(grayscale_color).arg(colorsInfo);
+
+    if (Utility::IsDarkMode()) {
+	html = Utility::AddDarkCSS(html);
+    }
+    m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
     m_WebView->setHtml(html, imgUrl);
 }
 

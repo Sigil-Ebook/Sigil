@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2019 Doug Massay
-**  Copyright (C) 2012      Dave Heiland, John Schember
+**  Copyright (C) 2015-2020  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2020  Doug Massay
+**  Copyright (C) 2012       Dave Heiland, John Schember
 **
 **  This file is part of Sigil.
 **
@@ -45,6 +45,8 @@
 #include "Misc/Utility.h"
 #include "ViewEditors/ViewPreview.h"
 #include "sigil_constants.h"
+
+static const QStringList HEADERTAGS = QStringList() << "h1" << "h2" << "h3" << "h4" << "h5" << "h6";
 
 static const QString SETTINGS_GROUP = "previewwindow";
 
@@ -223,7 +225,16 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     DBG qDebug() << "PV UpdatePage " << filename_url;
     DBG foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
 
+    //if isDarkMode is set, inject a local style in head
+    SettingsStore settings;
+    if (Utility::IsDarkMode() && settings.previewDark()) {
+        text = Utility::AddDarkCSS(text);
+        DBG qDebug() << "Preview injecting dark style: ";
+    }
+    m_Preview->page()->setBackgroundColor(Utility::WebViewBackgroundColor(true));
+
     // If the user has set a default stylesheet inject it
+    // it can override anything above it
     if (!m_usercssurl.isEmpty()) {
         int endheadpos = text.indexOf("</head>");
         if (endheadpos > 1) {
@@ -291,6 +302,16 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
  
     DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
     DBG qDebug() << "PreviewWindow UpdatePage final step scroll to location";
+
+#if 0
+    // use javascript to set the proper colors on the body tag in a style
+    if (Utility::IsDarkMode() && settings.previewDark()) {
+	QPalette pal = qApp->palette();
+	QString back = pal.color(QPalette::Base).name();
+	QString fore = pal.color(QPalette::Text).name();
+        m_Preview->SetPreviewColors(back, fore);
+    }
+#endif  
 
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
@@ -544,7 +565,7 @@ bool PreviewWindow::fixup_fullscreen_svg_images(const QString &text)
     GumboNode* body_node  = body_tags.at(0);
 
     // loop through immediate children of body ignore script and style tags
-    // make sure div or svg is only child of body
+    // and empty headers to make sure the div or svg is only child of body
     QStringList child_names;
     int elcount = 0;
     GumboVector* children = &body_node->v.element.children;
@@ -552,12 +573,17 @@ bool PreviewWindow::fixup_fullscreen_svg_images(const QString &text)
         GumboNode* child = static_cast<GumboNode*>(children->data[i]);
         if (child->type == GUMBO_NODE_ELEMENT) {
 	    QString name = QString::fromStdString(gi.get_tag_name(child));
-	    if ((name != "script") && (name != "style")) {
-	        child_names << name;
-	        elcount++;
+	    bool ignore_tag = (name == "script") || (name == "style");
+	    if (HEADERTAGS.contains(name)) {
+		QString contents = gi.get_local_text_of_node(child);
+		ignore_tag = ignore_tag || contents.isEmpty();
+	    }
+	    if (!ignore_tag) {
+		child_names << name;
+		elcount++;
 	    }
 	    if (elcount > 1) break;
-        }
+	}
     }
     const QStringList allowed_tags = QStringList() << "div" << "svg"; 
     if ((elcount != 1) || !allowed_tags.contains(child_names.at(0))) return false;

@@ -204,7 +204,7 @@ public:
     QString GetCurrentFilePath();
 
     void DebugCurrentWidgetSizes();
-
+    
 public slots:
 
     void OpenUrl(const QUrl &url);
@@ -385,26 +385,6 @@ private slots:
     void PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::clipEntry *> &clips);
     void PasteClipEntriesIntoPreviousTarget(const QList<ClipEditorModel::clipEntry *> &clips);
     void PasteClipIntoCurrentTarget(int clip_number);
-    void PasteClip1IntoCurrentTarget();
-    void PasteClip2IntoCurrentTarget();
-    void PasteClip3IntoCurrentTarget();
-    void PasteClip4IntoCurrentTarget();
-    void PasteClip5IntoCurrentTarget();
-    void PasteClip6IntoCurrentTarget();
-    void PasteClip7IntoCurrentTarget();
-    void PasteClip8IntoCurrentTarget();
-    void PasteClip9IntoCurrentTarget();
-    void PasteClip10IntoCurrentTarget();
-    void PasteClip11IntoCurrentTarget();
-    void PasteClip12IntoCurrentTarget();
-    void PasteClip13IntoCurrentTarget();
-    void PasteClip14IntoCurrentTarget();
-    void PasteClip15IntoCurrentTarget();
-    void PasteClip16IntoCurrentTarget();
-    void PasteClip17IntoCurrentTarget();
-    void PasteClip18IntoCurrentTarget();
-    void PasteClip19IntoCurrentTarget();
-    void PasteClip20IntoCurrentTarget();
 
     /**
      * Implements the set CodeView functionality.
@@ -660,7 +640,7 @@ private slots:
 
 private:
     void updateToolTipsOnPluginIcons();
-    void UpdateClipButton(int clip_number, QAction *ui_action);
+    void UpdateClipButton(QAction *ui_action);
     void InsertFiles(const QStringList &selected_images);
     void InsertFilesFromDisk();
 
@@ -792,7 +772,7 @@ private:
     /**
      * Tweak default UI fonts based on the OS platform.
      */
-    void SetupUiFonts();
+    void SetupUiFont();
 
     /**
      * Extends the UI with extra widgets and tweaks.
@@ -1027,12 +1007,13 @@ private:
 
     QList<QAction*> m_qlactions;
 
+    QList<QAction*> m_clactions;
+
+
     /**
      * Collects signals and sends specific parameters to the connected slots.
      */
     QActionGroup *m_headingActionGroup;
-
-    QStyle * m_Style;
 
     /**
      * Holds all the widgets Qt Designer created for us.

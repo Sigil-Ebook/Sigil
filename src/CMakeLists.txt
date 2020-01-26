@@ -173,8 +173,6 @@ set( DIALOG_FILES
     Dialogs/Preferences.h
     Dialogs/PreferenceWidgets/AppearanceWidget.cpp
     Dialogs/PreferenceWidgets/AppearanceWidget.h
-    Dialogs/PreferenceWidgets/DarkAppearanceWidget.cpp
-    Dialogs/PreferenceWidgets/DarkAppearanceWidget.h
     Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp
     Dialogs/PreferenceWidgets/GeneralSettingsWidget.h
     Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp
@@ -369,6 +367,8 @@ set( VIEW_EDITOR_FILES
     ViewEditors/CodeViewEditor.h
     ViewEditors/WebEngPage.cpp
     ViewEditors/WebEngPage.h
+    ViewEditors/SimplePage.cpp
+    ViewEditors/SimplePage.h
     ViewEditors/ViewPreview.cpp
     ViewEditors/ViewPreview.h
     ViewEditors/LineNumberArea.cpp
@@ -461,7 +461,6 @@ set( UI_FILES
     Form_Files/HeadingSelector.ui
     Form_Files/FindReplace.ui
     Form_Files/PAppearanceWidget.ui
-    Form_Files/PDarkAppearanceWidget.ui
     Form_Files/Preferences.ui
     Form_Files/PKeyboardShortcutsWidget.ui
     Form_Files/PGeneralSettingsWidget.ui

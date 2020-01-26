@@ -64,6 +64,8 @@ public:
 
     void UpdateDisplay();
 
+    void SetPreviewColors(const QString &bg, const QString& fg);
+
     /**
      * Scrolls the editor to the top.
      */

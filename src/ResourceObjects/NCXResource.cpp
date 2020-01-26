@@ -163,23 +163,9 @@ void NCXResource::GenerateNCXFromTOCEntries(const Book *book, TOCModel::TOCEntry
 
 void NCXResource::FillWithDefaultText(const QString &version, const QString &default_text_folder)
 {
-    QString epubversion = version;
-    if (epubversion.isEmpty()) {
-        SettingsStore ss;
-        epubversion = ss.defaultVersion();
-    }
-    QString ncxbookpath = GetRelativePath();
     QString first_section_bookpath = FIRST_SECTION_NAME;
     if (!default_text_folder.isEmpty()) first_section_bookpath = default_text_folder + "/" + FIRST_SECTION_NAME;
-    QString texthref = Utility::URLEncodePath(Utility::buildRelativePath(ncxbookpath, first_section_bookpath));
-    if (epubversion.startsWith('2')) {
-        SetText(TEMPLATE_TEXT.arg(tr("Start")).arg(texthref));
-    } else {
-        SetText(TEMPLATE3_TEXT.arg(tr("Start")).arg(texthref));
-    }
-    // Make sure the file exists on disk.
-    // Among many reasons, this also solves the problem
-    // with the Book Browser not displaying an icon for this resource.
+    FillWithDefaultTextToBookPath(version, first_section_bookpath);
     SaveToDisk();
 }
 

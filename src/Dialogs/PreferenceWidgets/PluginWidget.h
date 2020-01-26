@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -37,7 +37,7 @@ class PluginWidget : public PreferencesWidget
 
 public:
     PluginWidget();
-    PreferencesWidget::ResultAction saveSettings();
+    PreferencesWidget::ResultActions saveSettings();
 
 private slots:
     void addPlugin();

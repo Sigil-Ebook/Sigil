@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2014 Kevin Hendricks
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Startford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -34,7 +34,7 @@ class PreserveEntitiesWidget : public PreferencesWidget
 
 public:
     PreserveEntitiesWidget();
-    PreferencesWidget::ResultAction saveSettings();
+    PreferencesWidget::ResultActions saveSettings();
 
 private slots:
     void addEntities();

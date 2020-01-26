@@ -105,6 +105,8 @@ QString XhtmlDoc::ResolveCustomEntities(const QString &source)
 
     // ...and now replace all occurrences
     foreach(QString key, entities.keys()) {
+        // this could be dangerous so remove them to be safest
+        // new_source.replace(key, "");
         new_source.replace(key, entities[ key ]);
     }
     // Clean up what's left of the custom entity declaration field

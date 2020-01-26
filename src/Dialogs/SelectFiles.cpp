@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B, Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2020 Kevin B, Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -22,6 +22,7 @@
 *************************************************************************/
 
 #include <QApplication>
+#include <QGuiApplication>
 #include <QtCore/QFileInfo>
 #include <QEventLoop>
 #include <QImage>
@@ -31,9 +32,10 @@
 #include <QtWebEngineWidgets/QWebEngineSettings>
 
 #include "MainUI/MainWindow.h"
-#include "Dialogs/SelectFiles.h"
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
+#include "ViewEditors/SimplePage.h"
+#include "Dialogs/SelectFiles.h"
 
 static const int COL_NAME = 0;
 static const int COL_IMAGE = 1;
@@ -50,6 +52,7 @@ const QString IMAGE_HTML_BASE_PREVIEW =
     "body { -webkit-user-select: none; }"
     "img { display: block; margin-left: auto; margin-right: auto; border-style: solid; border-width: 1px; max-width: 95%; max-height: 95%}"
     "</style>"
+    "</head>"
     "<body>"
     "<div><img src=\"%1\" /></div>"
     "</body>"
@@ -68,7 +71,7 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
 {
     ui.setupUi(this);
     setWindowTitle(title);
-
+    m_WebView->setPage(new SimplePage(m_WebView));
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
@@ -122,7 +125,11 @@ QStringList SelectFiles::SelectedImages()
 void SelectFiles::SetImages()
 {
     ui.Details->clear();
-    m_WebView->setHtml("", QUrl());
+    QString html = "<html><head><title></title></head><body></body></html>";
+    if (Utility::IsDarkMode()) {
+        html = Utility::AddDarkCSS(html);
+    }
+    m_WebView->setHtml(html, QUrl());
 
     m_SelectFilesModel->clear();
     QStringList header;
@@ -260,7 +267,11 @@ void SelectFiles::SetPreviewImage()
     QStandardItem *item = GetLastSelectedImageItem();
     
     ui.Details->clear();
-    m_WebView->setHtml("", QUrl());
+    QString html = "<html><head><title></title></head><body></body></html>";
+    if (Utility::IsDarkMode()) {
+        html = Utility::AddDarkCSS(html);
+    }
+    m_WebView->setHtml(html, QUrl());
 
     if (!item || item->text().isEmpty()) {
         m_PreviewReady = true;
@@ -301,6 +312,10 @@ void SelectFiles::SetPreviewImage()
         // MainWindow::clearMemoryCaches();
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
         QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
+	if (Utility::IsDarkMode()) {
+            html = Utility::AddDarkCSS(html);
+	}
+        m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
         m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
         loading_resources = true;
@@ -312,6 +327,11 @@ void SelectFiles::SetPreviewImage()
         MainWindow::clearMemoryCaches();
         html = VIDEO_HTML_BASE.arg(resourceUrl.toString());
         m_PreviewLoaded = false;
+	if (Utility::IsDarkMode()) {
+            html = Utility::AddDarkCSS(html);
+	}
+        m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
+        m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
         loading_resources = true;
         details = QString("%1 MB").arg(fmbsize);
@@ -320,6 +340,10 @@ void SelectFiles::SetPreviewImage()
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
         // MainWindow::clearMemoryCaches();
         html = AUDIO_HTML_BASE.arg(resourceUrl.toString());
+	if (Utility::IsDarkMode()) {
+            html = Utility::AddDarkCSS(html);
+	}
+        m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
         m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
         loading_resources = true;

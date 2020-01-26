@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2019-2020  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2011       John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -24,9 +24,11 @@
 #ifndef PREFERENCESWIDGET_H
 #define PREFERENCESWIDGET_H
 
+#include <cstdint>
 #include <QWidget>
 
 class QString;
+
 
 /**
  * Base Interface for preferences widgets.
@@ -36,24 +38,29 @@ class PreferencesWidget : public QWidget
     Q_OBJECT
 
 public:
+
+    typedef uint32_t ResultActions;
+
     /**
      * Describes the result actions to present to the user as a result
      * of saving any changes made in the preferences widgets.
-     * Results are in order of increasing priority of result to display.
      */
     enum ResultAction {
-        ResultAction_None = 0,                /**< Default, no further action required */
-        ResultAction_RefreshSpelling,         /**< Refresh spelling highlighting on any open tabs */
-        ResultAction_ReloadTabs,              /**< All tabs need to be reloaded. */
-        ResultAction_RestartSigil,            /**< Warn user that Sigil needs to be restarted. */
-        ResultAction_RefreshClipHistoryLimit, /**< Reload cliboard history saving limit */
-        ResultAction_RefreshBookBrowser       /**< Refresh BookBrowser window */
+        ResultAction_None                    = 0,  // Default, no further action required
+        ResultAction_RefreshSpelling         = 1,  // Refresh spelling highlighting on any open tabs
+        ResultAction_ReloadTabs              = 2,  // All tabs need to be reloaded.
+        ResultAction_RefreshClipHistoryLimit = 4,  // Reload cliboard history saving limit
+        ResultAction_RefreshBookBrowser      = 8,  // Refresh BookBrowser window
+        ResultAction_ReloadPreview           = 16, // Reload Preview window
+        ResultAction_RestartSigil            = 32, // Warn user that Sigil needs to be restarted.
+        ResultAction_Mask                    = 63  // AND Mask of allowable values
     };
 
     /**
      * Save settings made available by the widget.
      */
-    virtual ResultAction saveSettings() = 0;
+    virtual PreferencesWidget::ResultActions saveSettings() = 0;
+
 };
 
 #endif // PREFERENCESWIDGET_H

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019, Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -44,9 +44,9 @@ NavProcessor::NavProcessor(HTMLResource * nav_resource)
 {
     QReadLocker locker(&m_NavResource->GetLock());
     QString source = m_NavResource->GetText();
+    SettingsStore ss;
+    QString lang = ss.defaultMetadataLang();
     if (source.isEmpty()) {
-          SettingsStore ss;
-          QString lang = ss.defaultMetadataLang();
           QString newsource = 
             "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
             "<!DOCTYPE html>\n"
@@ -66,10 +66,27 @@ NavProcessor::NavProcessor(HTMLResource * nav_resource)
             "  </nav>\n"
             "</body>\n"
             "</html>";
-          newsource = newsource.arg(lang).arg(lang);
+          source = newsource.arg(lang).arg(lang);
           QWriteLocker locker(&m_NavResource->GetLock());
-          m_NavResource->SetText(newsource);
+          m_NavResource->SetText(source);
+          m_language = lang;
+          return;
     }
+    // determine the language used by the nav
+    GumboInterface gi = GumboInterface(source, "3.0");
+    gi.parse();
+    const QList<GumboNode*> html_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_HTML);
+    if (!html_nodes.isEmpty()) {
+        GumboNode* node = html_nodes.at(0);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "lang");
+        if (attr) {
+            lang = QString::fromUtf8(attr->value);
+	} else {
+            attr = gumbo_get_attribute(&node->v.element.attributes, "xml:lang");
+            if (attr) lang = QString::fromUtf8(attr->value);
+	}
+    }
+    m_language = lang;
 }
 
 
@@ -255,7 +272,7 @@ QString NavProcessor::BuildTOC(const QList<NavTOCEntry> & toclist)
     QString step = "  ";
     QString base = step.repeated(2);
     res << "\n" + step + "<nav epub:type=\"toc\" id=\"toc\">\n";
-    res << base + "<h1>" + Landmarks::instance()->GetTitle("toc") + "</h1>\n";
+    res << base + "<h1>" + Landmarks::instance()->GetTitle("toc", m_language) + "</h1>\n";
     res << base + "<ol>\n";
     foreach(NavTOCEntry te, toclist) {
         int lvl = te.lvl;
@@ -308,7 +325,7 @@ QString NavProcessor::BuildLandmarks(const QList<NavLandmarkEntry> & landlist)
     QString step = "  ";
     QString base = step.repeated(2);
     res << "\n" + step + "<nav epub:type=\"landmarks\" id=\"landmarks\" hidden=\"\">\n";
-    res << base + "<h1>" + Landmarks::instance()->GetTitle("landmarks") + "</h1>\n";
+    res << base + "<h1>" + Landmarks::instance()->GetTitle("landmarks", m_language) + "</h1>\n";
     res << base + "<ol>\n";
     foreach(NavLandmarkEntry le, landlist) {
         QString etype = le.etype;
@@ -330,7 +347,7 @@ QString NavProcessor::BuildPageList(const QList<NavPageListEntry> & pagelist)
     QString step = "  ";
     QString base = step.repeated(3);
     res << "\n" + step + "<nav epub:type=\"page-list\" id=\"page-list\" hidden=\"\">\n";
-    res << base + "<h1>" + Landmarks::instance()->GetTitle("page-list") + "</h1>\n";
+    res << base + "<h1>" + Landmarks::instance()->GetTitle("page-list", m_language) + "</h1>\n";
     res << "\n" + base + "<ol>\n";
     foreach(NavPageListEntry pe, pagelist) {
         QString pagename = Utility::EncodeXML(pe.pagename);
@@ -485,7 +502,7 @@ void NavProcessor::AddLandmarkCode(const Resource *resource, QString new_code, b
         current_code = le.etype;
     }
     if ((current_code != new_code) || !toggle) {
-        QString title = Landmarks::instance()->GetTitle(new_code);
+        QString title = Landmarks::instance()->GetTitle(new_code, m_language);
         if (pos > -1) {
             NavLandmarkEntry le = landlist.at(pos);
             le.etype = new_code;
@@ -772,5 +789,7 @@ QString NavProcessor::ConvertBookPathToNavRelative(const QString & bookpath)
     if (!fragment.isEmpty()) {
         new_href = new_href + "#" + fragment;
     }
+    // finally handle case of link from nav to nav top of file
+    if (new_href.isEmpty()) new_href = "#";
     return new_href;
 }

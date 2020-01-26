@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2014-2019 Kevin Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2014-2020 Kevin Hendricks, Stratford, Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -35,10 +35,12 @@ PreserveEntitiesWidget::PreserveEntitiesWidget()
 }
 
 
-PreferencesWidget::ResultAction PreserveEntitiesWidget::saveSettings()
+PreferencesWidget::ResultActions PreserveEntitiesWidget::saveSettings()
 {
+    PreferencesWidget::ResultActions results = PreferencesWidget::ResultAction_None;
+
     if (!m_isDirty) {
-        return PreferencesWidget::ResultAction_None;
+        return results;
     }
 
     // Save preserve entities information
@@ -54,7 +56,7 @@ PreferencesWidget::ResultAction PreserveEntitiesWidget::saveSettings()
     }
     settings.setPreserveEntityCodeNames(codenames);
 
-    return PreferencesWidget::ResultAction_None;
+    return results;
 }
 
 

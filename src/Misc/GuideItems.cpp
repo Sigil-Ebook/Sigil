@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -24,6 +24,7 @@
 #include <QHash>
 #include <QTranslator>
 #include <QDir>
+// #include <QDebug>
 
 #include "Misc/SettingsStore.h"
 #include "Misc/UILanguage.h"
@@ -56,23 +57,23 @@ QString GuideItems::GetName(const QString &code)
 }
 
 
-QString GuideItems::GetTitle(const QString &code)
+QString GuideItems::GetTitle(const QString &code, const QString &lang)
 {
+    // qDebug() << "GuideItems: " << code << lang;
     if (!m_CodeToRawTitle.contains(code)) return code;
-
-    SettingsStore ss;
 
     // Setup the book language translator and load the translation for the selected language
     // Note the book language may differ from the ui language
     bool translation_loaded = false;
     QTranslator bookTranslator;
-    const QString qm_name = QString("sigil_%1").arg(ss.defaultMetadataLang());
+    const QString qm_name = QString("sigil_%1").arg(lang);
     // Run though all locations and stop once we find and are able to load
     // an appropriate translation.
     foreach(QString path, UILanguage::GetPossibleTranslationPaths()) {
         if (QDir(path).exists()) {
             if (bookTranslator.load(qm_name, path)) {
                 translation_loaded = true;
+                // qDebug() << "Loaded bookTranslator: " << qm_name << path;
                 break;
             }
         }
@@ -84,6 +85,9 @@ QString GuideItems::GetTitle(const QString &code)
     }
     
     QString title = bookTranslator.translate("GuideItems", m_CodeToRawTitle[code].toUtf8().constData());
+    if (title.isEmpty()) {
+        title = bookTranslator.translate("Landmarks", m_CodeToRawTitle[code].toUtf8().constData());
+    }
     return title;
 }
 

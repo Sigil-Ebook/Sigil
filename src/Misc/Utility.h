@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2020 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -24,12 +25,15 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
+
 #include <QCoreApplication>
 #include <QtCore/QString>
+#include <QColor>
 
 class QStringList;
 class QStringRef;
 class QWidget;
+class QMenu;
 
 struct ExceptionBase;
 
@@ -44,6 +48,12 @@ public:
         Casing_Lowercase,     /**< Change characters to lowercase */
         Casing_Titlecase,    /**< Change first character of each word to uppercase, reset to lowercase. */
         Casing_Capitalize,    /**< Change first character of sentence to uppercase, rest to lowercase. */
+    };
+
+    enum Val_Msg_Type {
+        INFO_BRUSH,
+        WARNING_BRUSH,
+        ERROR_BRUSH,
     };
 
     static QString ChangeCase(const QString &text, const Casing &casing);
@@ -210,6 +220,14 @@ public:
     // perform a locale aware string sort
     static QStringList LocaleAwareSort(QStringList &names);
 
+    // inject dark mode css into html for Preview, AVTab, ImageTab, ViewImage, and SelectFiles
+    static QString AddDarkCSS(const QString &html);
+
+    // return the proper background color for QWebEngineView
+    static QColor WebViewBackgroundColor(bool followpref = false);
+    
+    // return the qbrushes for ValidationResultsView
+    static QBrush ValidationResultBrush(const Val_Msg_Type &valres);
 };
 #endif // UTILITY_H
 

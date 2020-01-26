@@ -41,7 +41,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20191228
+_launcher_version=20200118
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -100,7 +100,9 @@ class Wrapper(object):
         # status of epub inside Sigil (isDirty) and CurrentFilePath of current epub file
         self.epub_isDirty = False
         self.epub_filepath = ""
-        # File selected in Sigil's Book Browser
+        self.colormode = None
+        self.colors = None
+         # File selected in Sigil's Book Browser
         self.selected = []
         cfg = ''
         with open(os.path.join(self.outdir, 'sigil.cfg'), 'rb') as f:
@@ -117,6 +119,8 @@ class Wrapper(object):
             self.sigil_spellcheck_lang = cfg_lst.pop(0)
             self.epub_isDirty = (cfg_lst.pop(0) == "True")
             self.epub_filepath = cfg_lst.pop(0)
+            self.colormode = cfg_lst.pop(0)
+            self.colors = cfg_lst.pop(0) 
             self.selected = cfg_lst
         os.environ['SigilGumboLibPath'] = self.get_gumbo_path()
 
@@ -200,6 +204,24 @@ class Wrapper(object):
         return ext_mime_map.get(ext, "")
 
 
+    # New in Sigil 1.1
+    # ------------------
+
+    # returns color mode of Sigil "light" or "dark"
+    def colorMode(self):
+        return unicode_str(self.colormode)
+
+    # returns color as css or javascript hex color string #xxxxxx
+    # Accepts the following color roles "Window", "Base", "Text", "Highlight", "HighlightedText"
+    def color(self, role):
+        role = unicode_str(role)
+        role = role.lower()
+        color_roles = ["window", "base", "text", "highlight", "highlightedtext"]
+        colors = self.colors.split(',')
+        if role in color_roles:
+            idx = color_roles.index(role)
+            return unicode_str(colors[idx])
+        return None
 
     # New in Sigil 1.0
     # ----------------

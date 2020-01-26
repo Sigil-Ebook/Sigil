@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -433,7 +433,7 @@ bool OPFModel::MoveResourceList(const QList<Resource *> &resources, const QStrin
 	if (oldbookpath.startsWith("META-INF/")) continue;
 
         if (!BookPathIsValid(oldbookpath, newbookpath)) {
-	    qDebug() << "OPFModel: invalid bookpath " << oldbookpath, newbookpath;
+	    // qDebug() << "OPFModel: invalid bookpath " << oldbookpath, newbookpath;
             not_moved.append(oldbookpath);
             continue;
         }
@@ -456,7 +456,7 @@ bool OPFModel::MoveResourceList(const QList<Resource *> &resources, const QStrin
 
         if (!move_success) {
             not_moved.append(oldbookpath);
-	    qDebug() << "OPFModel: not moved " << oldbookpath;
+	    // qDebug() << "OPFModel: not moved " << oldbookpath;
             continue;
         }
 

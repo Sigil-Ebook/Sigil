@@ -2,6 +2,19 @@ QToolBar {
   border: 0;
 }
 
+QToolTip {
+  background-color: rgb(42, 42, 42);
+  color: rgb(238, 238, 238);
+  border: 1px solid rgb(66, 66, 66);
+  padding: 2px;
+  border-radius: 4px; 
+}
+
+QMenu::item:disabled {
+  background: #2d2d2d;
+  color: #808080;
+}
+
 QTabBar {
   qproperty-drawBase:0;
 }
@@ -47,4 +60,8 @@ QTabBar::close-button:hover {
 
 QTabBar::close-button:pressed {
   image: url(:/dark/closetab-pressed.svg);
+}
+
+QLabel#logo {
+  qproperty-pixmap: url(:/dark/sigil_logo_blue.png);
 }

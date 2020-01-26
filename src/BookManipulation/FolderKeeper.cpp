@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -349,7 +349,12 @@ QString FolderKeeper::GetBookPathByPathEnd(const QString& path_end) const
     foreach(Resource *resource, m_Resources.values()) {
         QString bookpath = resource->GetRelativePath();
         if (bookpath.endsWith(path_end, Qt::CaseInsensitive)) {
-            return bookpath ;
+	    // make sure full file names match too
+	    QString filename = bookpath.split('/').last();
+	    QString othername = path_end.split('/').last();
+            if (filename.compare(othername, Qt::CaseInsensitive) == 0) {
+                return bookpath ;
+	    }
         }
     }
     return "";

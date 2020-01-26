@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -62,10 +62,12 @@ PluginWidget::PluginWidget()
 }
 
 
-PluginWidget::ResultAction PluginWidget::saveSettings()
+PreferencesWidget::ResultActions PluginWidget::saveSettings()
 {
+    PreferencesWidget::ResultActions results = PreferencesWidget::ResultAction_None;
+
     if (!m_isDirty) {
-        return PreferencesWidget::ResultAction_None;
+        return results;
     }
 
     SettingsStore settings;
@@ -99,7 +101,7 @@ PluginWidget::ResultAction PluginWidget::saveSettings()
     }
 
     m_isDirty = false;
-    return PreferencesWidget::ResultAction_None;
+    return results;
 }
 
 void PluginWidget::setPluginTableRow(Plugin *p, int row)

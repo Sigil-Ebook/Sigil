@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2019 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2018-2020  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2020  Doug Massay
+**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -30,13 +31,13 @@
 #include <QtCore/QTextCodec>
 #include <QtCore/QThreadPool>
 #include <QtCore/QTranslator>
+#include <QtCore/QStandardPaths>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMessageBox>
 #include <QXmlStreamReader>
 #include <QFile>
 #include <QFileInfo>
 #include <QTextStream>
-#include <QDebug>
 
 #include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
@@ -155,6 +156,7 @@ static QIcon GetApplicationIcon()
 void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &message)
 {
     QString error_message;
+    QString context_file;
     QString qt_debug_message;
 
     switch (type) {
@@ -177,6 +179,9 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
         case QtCriticalMsg:
             qt_debug_message = QString("Critical: %1").arg(message.toLatin1().constData());
             error_message = QString(message.toLatin1().constData());
+            if (context.file) context_file = QString(context.file);
+
+	    
 #ifdef Q_OS_WIN32
             // On Windows there is a known issue with the clipboard that results in some copy
             // operations in controls being intermittently blocked. Rather than presenting
@@ -211,7 +216,10 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
             }
 
 #endif
-            Utility::DisplayExceptionErrorDialog(QString("Critical: %1").arg(error_message));
+            // screen out error messages from inspector / devtools
+            if (!context_file.contains("devtools://devtools")) {
+                Utility::DisplayExceptionErrorDialog(QString("Critical: %1").arg(error_message));
+	    }
             break;
 
         case QtFatalMsg:
@@ -239,7 +247,7 @@ void VerifyPlugins()
 }
 
 
-void setupHiDPI()
+void setupHighDPI()
 {
     bool has_env_setting = false;
     QStringList env_vars;
@@ -252,10 +260,55 @@ void setupHiDPI()
             break;
         }
     }
-    if (!has_env_setting) {
-        qDebug() << "Turning on Automatic High DPI scaling";
-        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
+    SettingsStore ss;
+    int highdpi = ss.highDPI();
+    if (highdpi == 1 || (highdpi == 0 && !has_env_setting)) {
+        // Turning on Automatic High DPI scaling
+        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
+    } else if (highdpi == 2) {
+        // Turning off Automatic High DPI scaling
+        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, false);
+        foreach(QString v, env_vars) {
+            bool irrel = qunsetenv(v.toUtf8().constData());
+        }
     }
+}
+
+
+QPalette getDarkPalette()
+{
+    // Dark palette for Sigil
+    QPalette darkPalette;
+
+    darkPalette.setColor(QPalette::Window, QColor(53, 53, 53));
+    darkPalette.setColor(QPalette::Disabled, QPalette::Window, QColor(80, 80, 80));
+    darkPalette.setColor(QPalette::WindowText, QColor(238, 238, 238));
+    darkPalette.setColor(QPalette::Disabled, QPalette::WindowText,
+                        QColor(127, 127, 127));
+    darkPalette.setColor(QPalette::Base, QColor(42, 42, 42));
+    darkPalette.setColor(QPalette::Disabled, QPalette::Base, QColor(80, 80, 80));
+    darkPalette.setColor(QPalette::AlternateBase, QColor(66, 66, 66));
+    darkPalette.setColor(QPalette::ToolTipBase, QColor(53, 53, 53));
+    darkPalette.setColor(QPalette::ToolTipText, QColor(238, 238, 238));
+    darkPalette.setColor(QPalette::Text, QColor(238, 238, 238));
+    darkPalette.setColor(QPalette::Disabled, QPalette::Text, QColor(127, 127, 127));
+    darkPalette.setColor(QPalette::Dark, QColor(35, 35, 35));
+    darkPalette.setColor(QPalette::Shadow, QColor(20, 20, 20));
+    darkPalette.setColor(QPalette::Button, QColor(53, 53, 53));
+    darkPalette.setColor(QPalette::ButtonText, QColor(238, 238, 238));
+    darkPalette.setColor(QPalette::Disabled, QPalette::ButtonText,
+                        QColor(127, 127, 127));
+    darkPalette.setColor(QPalette::BrightText, Qt::red);
+    darkPalette.setColor(QPalette::Link, QColor(108, 180, 238));
+    darkPalette.setColor(QPalette::LinkVisited, QColor(108, 180, 238));
+    darkPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
+    darkPalette.setColor(QPalette::Disabled, QPalette::Highlight, QColor(80, 80, 80));
+    darkPalette.setColor(QPalette::HighlightedText, QColor(238, 238, 238));
+    darkPalette.setColor(QPalette::Disabled, QPalette::HighlightedText,
+                        QColor(127, 127, 127));
+
+    return darkPalette;
 }
 
 
@@ -268,12 +321,19 @@ int main(int argc, char *argv[])
     QT_REQUIRE_VERSION(argc, argv, "5.12.3");
 #endif
 
-#ifndef QT_DEBUG
-    qInstallMessageHandler(MessageHandler);
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+// Unset platform theme plugins/styles environment variables immediately
+// when forcing Sigil's own darkmode palette on Linux
+if (!force_sigil_darkmode_palette.isEmpty()) {
+    QStringList env_vars = {"QT_QPA_PLATFORMTHEME", "QT_STYLE_OVERRIDE"};
+    foreach(QString v, env_vars) {
+        bool irrel = qunsetenv(v.toUtf8().constData());
+    }
+}
 #endif
 
-#ifndef Q_OS_MAC
-    setupHiDPI();
+#ifndef QT_DEBUG
+    qInstallMessageHandler(MessageHandler);
 #endif
 
     // Set application information for easier use of QSettings classes
@@ -283,6 +343,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationVersion(SIGIL_VERSION);
 
 #ifndef Q_OS_MAC
+    setupHighDPI();
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
 
@@ -312,6 +373,7 @@ int main(int argc, char *argv[])
     removeMacosSpecificMenuItems();
 #endif
 
+
     // Install an event filter for the application
     // so we can catch OS X's file open events
     // This needs to be done upfront to prevent events from
@@ -339,6 +401,7 @@ int main(int argc, char *argv[])
 
         QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
         SettingsStore settings;
+
         // Setup the qtbase_ translator and load the translation for the selected language
         QTranslator qtbaseTranslator;
         const QString qm_name_qtbase = QString("qtbase_%1").arg(settings.uiLanguage());
@@ -367,47 +430,63 @@ int main(int argc, char *argv[])
         }
         app.installTranslator(&sigilTranslator);
 
-#ifdef Q_OS_WIN32
-        // Fusion style is fully dpi aware on Windows
-        app.setStyle(QStyleFactory::create("fusion"));
-        if (Utility::WindowsShouldUseDarkMode()) {
+#ifndef Q_OS_MAC
+#ifndef Q_OS_WIN32
+        // Use platform themes/styles on Linux unless FORCE_SIGIL_DARKMODE_PALETTE is set
+        if (!force_sigil_darkmode_palette.isEmpty()) {
+            // Fusion style is fully dpi aware on Windows/Linux
+            app.setStyle(QStyleFactory::create("fusion"));
             // qss stylesheet from resources
-            QString dark_styles = Utility::ReadUnicodeTextFile(":/dark/dark-style.qss");
+            QString dark_styles = Utility::ReadUnicodeTextFile(":/dark/win-dark-style.qss");
             app.setStyleSheet(dark_styles);
-
-            // Dark palette for Sigil
-            QPalette darkPalette;
-
-            darkPalette.setColor(QPalette::Window, QColor(53, 53, 53));
-            darkPalette.setColor(QPalette::Disabled, QPalette::Window, QColor(80, 80, 80));
-            darkPalette.setColor(QPalette::WindowText, Qt::white);
-            darkPalette.setColor(QPalette::Disabled, QPalette::WindowText,
-                                QColor(127, 127, 127));
-            darkPalette.setColor(QPalette::Base, QColor(42, 42, 42));
-            darkPalette.setColor(QPalette::Disabled, QPalette::Base, QColor(80, 80, 80));
-            darkPalette.setColor(QPalette::AlternateBase, QColor(66, 66, 66));
-            darkPalette.setColor(QPalette::ToolTipBase, Qt::white);
-            darkPalette.setColor(QPalette::ToolTipText, QColor(53, 53, 53));
-            darkPalette.setColor(QPalette::Text, Qt::white);
-            darkPalette.setColor(QPalette::Disabled, QPalette::Text, QColor(127, 127, 127));
-            darkPalette.setColor(QPalette::Dark, QColor(35, 35, 35));
-            darkPalette.setColor(QPalette::Shadow, QColor(20, 20, 20));
-            darkPalette.setColor(QPalette::Button, QColor(53, 53, 53));
-            darkPalette.setColor(QPalette::ButtonText, Qt::white);
-            darkPalette.setColor(QPalette::Disabled, QPalette::ButtonText,
-                                QColor(127, 127, 127));
-            darkPalette.setColor(QPalette::BrightText, Qt::red);
-            darkPalette.setColor(QPalette::Link, QColor(108, 180, 238));
-            darkPalette.setColor(QPalette::LinkVisited, QColor(108, 180, 238));
-            darkPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
-            darkPalette.setColor(QPalette::Disabled, QPalette::Highlight, QColor(80, 80, 80));
-            darkPalette.setColor(QPalette::HighlightedText, Qt::white);
-            darkPalette.setColor(QPalette::Disabled, QPalette::HighlightedText,
-                                QColor(127, 127, 127));
-
-            app.setPalette(darkPalette);
+            app.setPalette(getDarkPalette());
         }
 #endif
+        if (Utility::WindowsShouldUseDarkMode()) {
+            // Fusion style is fully dpi aware on Windows/Linux
+            app.setStyle(QStyleFactory::create("fusion"));
+            // qss stylesheet from resources
+            QString dark_styles = Utility::ReadUnicodeTextFile(":/dark/win-dark-style.qss");
+            app.setStyleSheet(dark_styles);
+            app.setPalette(getDarkPalette());
+        }
+#endif
+
+        // Set ui font from preferences after dark theming
+        QFont f = QFont(QApplication::font());
+#ifdef Q_OS_WIN32
+        if (f.family() == "MS Shell Dlg 2" && f.pointSize() == 8) {
+            // Microsoft's recommended UI defaults
+            f.setFamily("Segoe UI");
+            f.setPointSize(9);
+            QApplication::setFont(f);
+        }
+#elif defined(Q_OS_MAC)
+        // Just in case
+#else
+        if (f.family() == "Sans Serif" && f.pointSize() == 9) {
+            f.setPointSize(10);
+            QApplication::setFont(f);
+        }
+#endif
+        settings.setOriginalUIFont(f.toString());
+        if (!settings.uiFont().isEmpty()) {
+            QFont font;
+            if (font.fromString(settings.uiFont()))
+                QApplication::setFont(font);
+        }
+#ifndef Q_OS_MAC
+        // redo on a timer to ensure in all cases
+        if (!settings.uiFont().isEmpty()) {
+            QFont font;
+            if (font.fromString(settings.uiFont())) {
+                QTimer::singleShot(0, [=]() {
+                    QApplication::setFont(font);
+                } );
+            }
+        }
+#endif
+        // End of UI font stuff
 
         // Check for existing qt_styles.qss in Prefs dir and load it if present
         QString qt_stylesheet_path = Utility::DefinePrefsDir() + "/qt_styles.qss";
@@ -423,9 +502,7 @@ int main(int argc, char *argv[])
         // a value which for Mac OS X is hardcoded to 1000 ms
         // This was the only way I could get Qt to disable cursor blinking on a Mac if desired
         if (qEnvironmentVariableIsSet("SIGIL_DISABLE_CURSOR_BLINK")) {
-            // qDebug() << "trying to disable text cursor blinking";
             app.setCursorFlashTime(0);
-            // qDebug() << "cursorFlashTime: " << app.cursorFlashTime();
         }
         // We set the window icon explicitly on Linux.
         // On Windows this is handled by the RC file,

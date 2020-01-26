@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019  Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2020  Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -1300,7 +1300,6 @@ std::tuple<bool, QString, QString> Book::HasUndefinedURLFragments()
 
 	    if (!dest_id.isEmpty()) {
 	        if (html_bookpaths.contains(dest_bookpath) && !all_ids[dest_bookpath].contains(dest_id)) {
-	            qDebug() << "huh: " << bookpath << dest_bookpath << dest_id << hrefparts.second;
 		    return std::make_tuple(true, ahref, bookpath);
 	        }
 	    }

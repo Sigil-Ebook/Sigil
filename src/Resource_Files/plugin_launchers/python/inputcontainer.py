@@ -71,3 +71,16 @@ class InputContainer(object):
     def addotherfile(self, book_href, data):
         # creates a new file not in manifest with desired ebook root relative href
         self._w.addotherfile(book_href, data)
+
+    # New in Sigil 1.1
+    # ----------------
+
+    # returns "light" or "dark"
+    def colorMode(self):
+        return self._w.colorMode()
+
+    # returns color as css or javascript hex color string "#xxxxxx"
+    # acccepts the following color roles in a case insensitive manner:
+    #    "Window", "Base", "Text", "Highlight", "HighlightedText"
+    def color(self, role):
+        return self._w.color(role)
