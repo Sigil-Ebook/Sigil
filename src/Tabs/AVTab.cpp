@@ -28,9 +28,11 @@
 #include <QGuiApplication>
 #include <QApplication>
 #include "MainUI/MainWindow.h"
-#include "Tabs/AVTab.h"
+#include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
+
+#include "Tabs/AVTab.h"
 
 const QString AUDIO_HTML_BASE =
     "<html>"
@@ -62,7 +64,7 @@ AVTab::AVTab(Resource *resource, QWidget *parent)
     : ContentTab(resource, parent),
       m_WebView(new QWebEngineView(this))
 {
-    m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
+    m_WebView->setPage(new SimplePage(m_WebView));
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);

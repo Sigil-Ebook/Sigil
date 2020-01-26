@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -25,6 +25,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
 
+#include "Misc/Utility.h"
 #include "Tabs/TabBar.h"
 
 TabBar::TabBar(QWidget *parent)
@@ -80,6 +81,7 @@ void TabBar::ShowContextMenu(QMouseEvent *event, int tab_index)
     QAction *closeOtherTabsAction = new QAction(tr("Close Other Tabs"), menu);
     menu->addAction(closeOtherTabsAction);
     connect(closeOtherTabsAction, SIGNAL(triggered()), this, SLOT(EmitCloseOtherTabs()));
+    Utility::FixupContextMenuColors(menu);
     menu->exec(mapToGlobal(event->pos()));
     delete menu;
 }

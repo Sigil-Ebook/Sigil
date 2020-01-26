@@ -29,10 +29,11 @@
 #include <QtWebEngineWidgets/QWebEngineProfile>
 
 #include "MainUI/MainWindow.h"
-#include "Dialogs/ViewImage.h"
 #include "ResourceObjects/ImageResource.h"
+#include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
+#include "Dialogs/ViewImage.h"
 
 static QString SETTINGS_GROUP = "view_image";
 
@@ -41,7 +42,7 @@ ViewImage::ViewImage(QWidget *parent)
     QDialog(parent)
 {
     ui.setupUi(this);
-    ui.webView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
+    ui.webView->setPage(new SimplePage(ui.webView));
     ui.webView->setContextMenuPolicy(Qt::NoContextMenu);
     ui.webView->setFocusPolicy(Qt::NoFocus);
     ui.webView->setAcceptDrops(false);

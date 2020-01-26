@@ -706,6 +706,7 @@ void SearchEditor::CreateContextMenuActions()
 void SearchEditor::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
+    Utility::FixupContextMenuColors(m_ContextMenu);
     m_ContextMenu->exec(ui.SearchEditorTree->viewport()->mapToGlobal(point));
     m_ContextMenu->clear();
     // Make sure every action is enabled - in case shortcut is used after context menu disables some.

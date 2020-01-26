@@ -981,6 +981,7 @@ void HeadingSelector::CreateContextMenuActions()
 void HeadingSelector::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
+    Utility::FixupContextMenuColors(m_ContextMenu);
     m_ContextMenu->exec(ui.tvTOCDisplay->viewport()->mapToGlobal(point));
     m_ContextMenu->clear();
 }

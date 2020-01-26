@@ -57,6 +57,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QCollator>
+#include <QMenu>
 #include <QDebug>
 
 #include "sigil_constants.h"
@@ -1206,4 +1207,27 @@ QColor Utility::WebViewBackgroundColor(bool followpref)
         back_color = pal.color(QPalette::Base);
     }
     return back_color; 
+}
+
+void Utility::FixupContextMenuColors(QMenu * menu)
+{
+#ifdef Q_OS_MAC
+    if (!menu) return;
+
+    if (Utility::IsDarkMode()) {
+        QPalette pal = qApp->palette();
+        menu->setBackgroundRole(QPalette::Window);
+        menu->setForegroundRole(QPalette::Text);
+        QColor bgrd = QColor("#777777");
+        bgrd.setAlpha(255);
+	pal.setColor(QPalette::Window, bgrd);
+        pal.setColor(QPalette::Active, QPalette::Text, Qt::black);
+        pal.setColor(QPalette::Disabled, QPalette::Text, Qt::gray);
+        pal.setColor(QPalette::Inactive, QPalette::Text, Qt::black);
+        menu->setPalette(pal);
+        foreach(QAction* act, menu->actions()) {
+	    Utility::FixupContextMenuColors(act->menu());
+	}
+    }
+#endif
 }

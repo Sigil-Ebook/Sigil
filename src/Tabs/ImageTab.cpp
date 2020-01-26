@@ -40,11 +40,13 @@
 #include <QDebug>
 
 #include "MainUI/MainWindow.h"
+#include "ViewEditors/SimplePage.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "ResourceObjects/ImageResource.h"
-#include "Tabs/ImageTab.h"
 #include "sigil_constants.h"
+#include "Tabs/ImageTab.h"
 
 const QString IMAGE_HTML_BASE =
     "<html>"
@@ -72,7 +74,7 @@ ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     m_OpenWithContextMenu(new QMenu(this)),
     m_openWithMapper(new QSignalMapper(this))
 {
-    m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
+    m_WebView->setPage(new SimplePage(m_WebView));
     m_WebView->setContextMenuPolicy(Qt::CustomContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
@@ -276,6 +278,7 @@ void ImageTab::OpenContextMenu(const QPoint &point)
         return;
     }
 
+    Utility::FixupContextMenuColors(m_ContextMenu);
     m_ContextMenu->exec(mapToGlobal(point));
     m_ContextMenu->clear();
 }

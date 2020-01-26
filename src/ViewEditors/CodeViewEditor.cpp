@@ -122,7 +122,6 @@ CodeViewEditor::~CodeViewEditor()
     m_ScrollOneLineDown->deleteLater();
 }
 
-
 void CodeViewEditor::SetAppearance()
 {
     SettingsStore settings;
@@ -1143,7 +1142,7 @@ void CodeViewEditor::mouseReleaseEvent(QMouseEvent *event)
 void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu *menu = createStandardContextMenu();
-
+    
     if (m_reformatCSSEnabled) {
         AddReformatCSSContextMenu(menu);
     }
@@ -1164,6 +1163,7 @@ void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
         AddViewImageContextMenu(menu);
     }
 
+    Utility::FixupContextMenuColors(menu);
     menu->exec(event->globalPos());
     delete menu;
 }
@@ -1243,7 +1243,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
 
             // Allow the user to select a dictionary
             QStringList dictionaries = sc->userDictionaries();
-            QMenu *dictionary_menu = new QMenu(this);
+            QMenu *dictionary_menu = new QMenu(menu);
             dictionary_menu->setTitle(tr("Add To Dictionary"));
 
             if (topAction) {
@@ -1324,6 +1324,7 @@ void CodeViewEditor::AddReformatCSSContextMenu(QMenu *menu)
     }
 
     QMenu *reformatCSSMenu = new QMenu(tr("Reformat CSS"), menu);
+
     QAction *multiLineCSSAction = new QAction(tr("Multiple Lines Per Style"), reformatCSSMenu);
     QAction *singleLineCSSAction = new QAction(tr("Single Line Per Style"), reformatCSSMenu);
     connect(multiLineCSSAction, SIGNAL(triggered()), this, SLOT(ReformatCSSMultiLineAction()));
@@ -1351,10 +1352,11 @@ void CodeViewEditor::AddReformatHTMLContextMenu(QMenu *menu)
     }
 
     QMenu *reformatMenu = new QMenu(tr("Reformat HTML"), menu);
-    QAction *cleanAction = new QAction(tr("Mend and Prettify Code"), menu);
-    QAction *cleanAllAction = new QAction(tr("Mend and Prettify Code - All HTML Files"), menu);
-    QAction *toValidAction = new QAction(tr("Mend Code"), menu);
-    QAction *toValidAllAction = new QAction(tr("Mend Code - All HTML Files"), menu);
+
+    QAction *cleanAction = new QAction(tr("Mend and Prettify Code"), reformatMenu);
+    QAction *cleanAllAction = new QAction(tr("Mend and Prettify Code - All HTML Files"), reformatMenu);
+    QAction *toValidAction = new QAction(tr("Mend Code"), reformatMenu);
+    QAction *toValidAllAction = new QAction(tr("Mend Code - All HTML Files"), reformatMenu);
     connect(cleanAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLCleanAction()));
     connect(cleanAllAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLCleanAllAction()));
     connect(toValidAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLToValidAction()));
@@ -1385,7 +1387,6 @@ void CodeViewEditor::AddGoToLinkOrStyleContextMenu(QMenu *menu)
     }
 
     QAction *goToLinkOrStyleAction = new QAction(tr("Go To Link Or Style"), menu);
-
     if (!topAction) {
         menu->addAction(goToLinkOrStyleAction);
     } else {
@@ -1461,7 +1462,7 @@ void CodeViewEditor::AddClipContextMenu(QMenu *menu)
         topAction = menu->actions().at(0);
     }
 
-    QMenu *clips_menu = new QMenu(this);
+    QMenu *clips_menu = new QMenu(menu);
     clips_menu->setTitle(tr("Clips"));
 
     if (topAction) {
@@ -1500,7 +1501,7 @@ bool CodeViewEditor::CreateMenuEntries(QMenu *parent_menu, QAction *topAction, Q
     if (!item->text().isEmpty()) {
         // If item has no children, add entry to the menu, else create menu
         if (!item->data().toBool()) {
-            clipAction = new QAction(item->text(), this);
+            clipAction = new QAction(item->text(), parent_menu);
             connect(clipAction, SIGNAL(triggered()), m_clipMapper, SLOT(map()));
             m_clipMapper->setMapping(clipAction, ClipEditorModel::instance()->GetFullName(item));
 
@@ -1510,7 +1511,7 @@ bool CodeViewEditor::CreateMenuEntries(QMenu *parent_menu, QAction *topAction, Q
                 parent_menu->insertAction(topAction, clipAction);
             }
         } else {
-            group_menu = new QMenu(this);
+            group_menu = new QMenu(parent_menu);
             group_menu->setTitle(item->text());
 
             if (topAction) {

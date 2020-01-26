@@ -483,6 +483,7 @@ void EditTOC::CreateContextMenuActions()
 void EditTOC::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
+    Utility::FixupContextMenuColors(m_ContextMenu);
     m_ContextMenu->exec(ui.TOCTree->viewport()->mapToGlobal(point));
     m_ContextMenu->clear();
 }

@@ -554,6 +554,7 @@ void SpellcheckEditor::CreateContextMenuActions()
 void SpellcheckEditor::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
+    Utility::FixupContextMenuColors(m_ContextMenu);
     m_ContextMenu->exec(ui.SpellcheckEditorTree->viewport()->mapToGlobal(point));
     m_ContextMenu->clear();
     // Make sure every action is enabled - in case shortcut is used after context menu disables some.

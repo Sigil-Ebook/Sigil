@@ -431,6 +431,7 @@ void ImageFilesWidget::CreateContextMenuActions()
 void ImageFilesWidget::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
+    Utility::FixupContextMenuColors(m_ContextMenu);
     m_ContextMenu->exec(ui.fileTree->viewport()->mapToGlobal(point));
     m_ContextMenu->clear();
 }
