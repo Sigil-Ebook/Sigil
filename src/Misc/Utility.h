@@ -50,6 +50,12 @@ public:
         Casing_Capitalize,    /**< Change first character of sentence to uppercase, rest to lowercase. */
     };
 
+    enum Val_Msg_Type {
+        INFO_BRUSH,
+        WARNING_BRUSH,
+        ERROR_BRUSH,
+    };
+
     static QString ChangeCase(const QString &text, const Casing &casing);
 
     // Define the user preferences location to be used
@@ -223,6 +229,9 @@ public:
 
     // return the proper background color for QWebEngineView
     static QColor WebViewBackgroundColor(bool followpref = false);
+    
+    // return the qbrushes for ValidationResultsView
+    static QBrush ValidationResultBrush(const Val_Msg_Type &valres);
 };
 #endif // UTILITY_H
 

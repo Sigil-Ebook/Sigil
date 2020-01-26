@@ -134,6 +134,8 @@ private:
      */
     static QString RemoveEpubPathPrefix(const QString &path);
 
+    void SetItemPalette(QTableWidgetItem * item, QBrush &row_brush);
+
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES

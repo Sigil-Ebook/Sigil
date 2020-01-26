@@ -1209,6 +1209,41 @@ QColor Utility::WebViewBackgroundColor(bool followpref)
     return back_color; 
 }
 
+QBrush Utility::ValidationResultBrush(const Val_Msg_Type &valres)
+{
+    if (Utility::IsDarkMode()) {
+        switch (valres) {
+            case Utility::INFO_BRUSH: {
+               return QBrush(QColor(114, 165, 212)); 
+            }
+            case Utility::WARNING_BRUSH: {
+                return QBrush(QColor(212, 165, 114));
+            }
+            case Utility::ERROR_BRUSH: {
+                return QBrush(QColor(222, 94, 94));
+            }
+            default:
+                QPalette pal = qApp->palette();
+                return QBrush(pal.color(QPalette::Text));
+        }
+    } else {
+        switch (valres) {
+            case Utility::INFO_BRUSH: {
+                return QBrush(QColor(224, 255, 255));;
+            }
+            case Utility::WARNING_BRUSH: {
+                return QBrush(QColor(255, 255, 230));
+            }
+            case Utility::ERROR_BRUSH: {
+                return QBrush(QColor(255, 230, 230));
+            }
+            default:
+                QPalette pal = qApp->palette();
+                return QBrush(pal.color(QPalette::Window));
+        }
+    }
+}
+
 void Utility::FixupContextMenuColors(QMenu * menu)
 {
 #ifdef Q_OS_MAC
