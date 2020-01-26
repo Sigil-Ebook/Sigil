@@ -82,3 +82,6 @@ a:visited {
     background-position: center;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAALCAYAAABCm8wlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABbSURBVChTdZDRDYAwCAXB4dhKP+xUZbnqMxRB6iWEl3AJAR5jEGBmmjmyWafe+2kx4cLNrqpFigIo0lcASVoJiZXQROSw/Ap2Yho+YIDCmTPH8kf94SvwyQrRBYLnM399pEngAAAAAElFTkSuQmCC);
 }
+
+::-webkit-scrollbar {display: block;}
+

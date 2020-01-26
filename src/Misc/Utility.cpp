@@ -68,7 +68,7 @@
 #include "MainUI/MainApplication.h"
 
 static const QString DARK_STYLE =
-    "<style>:root { background-color: %1; color: %2; }</style>"
+    "<style>:root { background-color: %1; color: %2; } ::-webkit-scrollbar { display: none; }</style>"
     "<link rel=\"stylesheet\" type=\"text/css\" href=\"%3\" />";
 
 #ifndef MAX_PATH
