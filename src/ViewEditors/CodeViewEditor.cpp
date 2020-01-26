@@ -1163,7 +1163,6 @@ void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
         AddViewImageContextMenu(menu);
     }
 
-    Utility::FixupContextMenuColors(menu);
     menu->exec(event->globalPos());
     delete menu;
 }

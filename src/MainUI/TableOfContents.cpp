@@ -161,6 +161,5 @@ void TableOfContents::contextMenuEvent(QContextMenuEvent *event)
     connect(collapseAction, SIGNAL(triggered()), m_TreeView, SLOT(collapseAll()));
     menu->addAction(expandAction);
     connect(expandAction, SIGNAL(triggered()), m_TreeView, SLOT(expandAll()));
-    Utility::FixupContextMenuColors(menu);
     menu->exec(mapToGlobal(event->pos()));
 }

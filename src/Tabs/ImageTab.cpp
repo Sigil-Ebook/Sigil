@@ -278,7 +278,6 @@ void ImageTab::OpenContextMenu(const QPoint &point)
         return;
     }
 
-    Utility::FixupContextMenuColors(m_ContextMenu);
     m_ContextMenu->exec(mapToGlobal(point));
     m_ContextMenu->clear();
 }

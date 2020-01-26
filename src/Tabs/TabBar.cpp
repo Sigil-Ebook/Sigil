@@ -81,7 +81,6 @@ void TabBar::ShowContextMenu(QMouseEvent *event, int tab_index)
     QAction *closeOtherTabsAction = new QAction(tr("Close Other Tabs"), menu);
     menu->addAction(closeOtherTabsAction);
     connect(closeOtherTabsAction, SIGNAL(triggered()), this, SLOT(EmitCloseOtherTabs()));
-    Utility::FixupContextMenuColors(menu);
     menu->exec(mapToGlobal(event->pos()));
     delete menu;
 }

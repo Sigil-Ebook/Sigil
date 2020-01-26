@@ -70,10 +70,6 @@ public:
     // Should Windows Sigil be using dark mode?
     static bool WindowsShouldUseDarkMode();
 
-    // under dark mode pop-up context menu text colors are broken
-    // workaround this as follows:
-    static void FixupContextMenuColors(QMenu * menu);
-
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // Return correct path(s) for Linux hunspell dictionaries
     static QStringList LinuxHunspellDictionaryDirs();

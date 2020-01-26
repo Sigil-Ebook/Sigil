@@ -80,7 +80,6 @@ void FindReplaceQLineEdit::contextMenuEvent(QContextMenuEvent *event)
         menu->insertSeparator(topAction);
     }
 
-    Utility::FixupContextMenuColors(menu);
     menu->exec(mapToGlobal(event->pos()));
     delete menu;
 }

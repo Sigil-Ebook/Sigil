@@ -299,7 +299,6 @@ void BookBrowser::OpenContextMenu(const QPoint &point)
         return;
     }
 
-    Utility::FixupContextMenuColors(m_ContextMenu);
     m_ContextMenu->exec(m_TreeView->viewport()->mapToGlobal(point));
     m_ContextMenu->clear();
     // Ensure any actions with keyboard shortcuts that might have temporarily been
