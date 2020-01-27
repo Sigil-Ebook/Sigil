@@ -85,7 +85,10 @@ class LXMLTreeBuilderForXML(TreeBuilder):
 
         if isinstance(parser, collections.Callable):
             # Instantiate the parser with default arguments
-            parser = parser(target=self, strip_cdata=False, encoding=encoding, resolve_entities=False)
+            if self.is_xml:
+                parser = parser(target=self, strip_cdata=False, encoding=encoding, resolve_entities=False)
+            else:
+                parser = parser(target=self, strip_cdata=False, encoding=encoding)
         return parser
 
     def __init__(self, parser=None, empty_element_tags=None):
