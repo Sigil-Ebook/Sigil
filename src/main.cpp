@@ -441,7 +441,7 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
             app.setStyleSheet(dark_styles);
             app.setPalette(getDarkPalette());
         }
-#endif
+#else
         if (Utility::WindowsShouldUseDarkMode()) {
             // Fusion style is fully dpi aware on Windows/Linux
             app.setStyle(QStyleFactory::create("fusion"));
@@ -450,6 +450,7 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
             app.setStyleSheet(dark_styles);
             app.setPalette(getDarkPalette());
         }
+#endif
 #endif
 
         // Set ui font from preferences after dark theming
