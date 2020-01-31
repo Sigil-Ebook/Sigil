@@ -84,10 +84,17 @@ void LanguageWidget::readSettings()
             index = 0;
         }
     }
-
     ui.cbMetadataLanguage->setCurrentIndex(index);
-    // UI Language
-    index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName(settings.uiLanguage().replace("_", "-")));
+    
+// UI Language
+    QString langcode = settings.uiLanguage().replace("_","-");
+    index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName(langcode));
+
+    // try again with just part of language code that exists before the "-"
+    if (index == -1) {
+	langcode = langcode.split("-").at(0);
+        index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName(langcode));
+    }
 
     if (index == -1) {
         index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName("en"));
