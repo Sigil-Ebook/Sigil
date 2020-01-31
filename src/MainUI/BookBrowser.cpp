@@ -1716,7 +1716,7 @@ void BookBrowser::CreateContextMenuActions()
     m_Rename->setToolTip(tr("Rename selected file(s)"));
     sm->registerAction(this, m_Rename, "MainWindow.BookBrowser.Rename");
     m_RERename->setToolTip(tr("Use Regular Expressions to Rename selected file(s)"));
-    sm->registerAction(this, m_Rename, "MainWindow.BookBrowser.RERename");
+    sm->registerAction(this, m_RERename, "MainWindow.BookBrowser.RERename");
     // m_Move->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R));
     m_Move->setToolTip(tr("Move selected file(s) to a new folder"));
     sm->registerAction(this, m_Move, "MainWindow.BookBrowser.Move");
