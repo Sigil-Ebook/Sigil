@@ -1,6 +1,7 @@
-pre-Sigil-1.1.0
+Sigil-1.1.0
     New Features:
       - Added Support for Dark Mode for Windows, Linux and macOSX (Thanks BeckyEbook!)
+      - Added new icons that work well under both Light and Dark modes (Thanks BeckyEbook)
       - Added ability to use Dark Mode for Preview (controlled by Preferences)
       - Added Zoom Keys Ctrl +/- support to the Inspector (for improved Accessibility)
       - Added support for a second Clip bar with up to 20 additional clips
@@ -32,6 +33,7 @@ pre-Sigil-1.1.0
       - Fix ImportHTML when creating a new book to properly add an NCX if needed
       - Include official QT backported fixes to Qt 5.12.6 to make it more stable
       - The nav will now properly handle internal links to top of page of the nav itself
+      - harden lxml xml processing with resolve_entities set to false for improved security
 
 
 Sigil-1.0.0
