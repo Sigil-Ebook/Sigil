@@ -18,6 +18,9 @@ platform:
 
 init:
   - set /p RedistVersion=<"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\Microsoft.VCRedistVersion.default.txt"
+  - ps: $commit = $env:appveyor_repo_commit.SubString(0,7)
+  - ps: $timestamp = $env:appveyor_repo_commit_timestamp.SubString(0,10)
+  - ps: Update-AppveyorBuild -Version ("{0}-{1}-{2}" -f $env:appveyor_repo_branch, $commit, $timestamp)
 
 clone_script:
 - ps: >-
