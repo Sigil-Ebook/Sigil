@@ -37,7 +37,6 @@ Once again: `sudo apt-get install cmake` will get you what you need on Ubuntu-ty
 
 ## <a name="qt5"/>Getting Qt5
 <center>**If your repos don't provide at lease Qt5.9.4, use the [Building_on_older_Linux](./Building_on_older_Linux.md) documentation**</center>
-
 To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
 
 + qtbase5-dev
@@ -204,6 +203,8 @@ SIGIL_EXTRA_ROOT - Handy for relocating the Sigil support files. For instance yo
 
 SIGIL_DICTIONARIES - Used to tell Sigil what directories are to be searched for Hunspell dictionary files. Multiple directories can be specified by separating the paths with a colon. i.e. SIGIL_DICTIONARIES="/usr/share/hunspell" or SIGIL_DICTIONARIES="/usr/share/hunspell:/usr/share/hunspellextra" Setting this variable at run time will override all compile-time dictionary search paths (except for any user-supplied dictionaries manually added to their preference directory's hunspell_dictionary location).
 
-SIGIL_ICON_SCALE_FACTOR - Valid values: 1.0 to 3.0. The default value (with no variable set) is 1.8. Sigil scales its menu icons based on font-size. This can sometimes result in icons being a bit too large (or too small) depending on the system Qt theme. Use this variable to tweak the icon size if deemed necessary. (Only works with Sigil v0.9.7 and earlier; v0.9.8 has a preference setting to adjust icons)
+FORCE_SIGIL_DARKMODE_PALETTE - If this variable is set at runtime, it tells Sigil to ignore any defined platform themes/styles (QT_QPA_PLATFORMTHEME, or QT_STYLE_OVERRIDE) and to use the dark color palette provided by Sigil (starting with Sigil v1.1).
+
+SIGIL_ICON_SCALE_FACTOR - Valid values: 1.0 to 3.0. The default value (with no variable set) is 1.8. Sigil scales its menu icons based on font-size. This can sometimes result in icons being a bit too large (or too small) depending on the system Qt theme. Use this variable to tweak the icon size if deemed necessary. **(Only works with Sigil v0.9.7 and earlier; v0.9.8 has a preference setting to adjust icons)**
 
 The Sigil launch script also sets a SIGIL_SHARE_PREFIX environment variable, but it is automatically set to be the same as the cmake SHARE_INSTALL_PREFIX build-time option. It would be unwise to change this environment variable. Use the SIGIL_EXTRA_ROOT environment variable instead, if you need to alter the location of Sigil's support files after building Sigil.
