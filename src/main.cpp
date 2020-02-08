@@ -366,6 +366,9 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
     QThreadPool::globalInstance()->setExpiryTimeout(-1);
 #endif
 
+    // QtWebEngine may need this
+    QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
+
     MainApplication app(argc, argv);
 
 #ifdef Q_OS_MAC
