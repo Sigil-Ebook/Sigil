@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2020 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -28,6 +28,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QProgressDialog>
 #include <QRegularExpression>
+#include <QDebug>
 
 #include "ResourceObjects/HTMLResource.h"
 #include "Misc/GumboInterface.h"
@@ -141,7 +142,9 @@ bool Index::CreateIndexEntry(const QString text, HTMLResource *html_resource, QS
 
     if (is_custom_index_entry) {
         IndexEditorModel::indexEntry *custom_entry = new IndexEditorModel::indexEntry();
-        custom_entry->pattern = text;
+        // need to escape text to prevent it being interpreted 
+        // as a QRegularExpression special character
+        custom_entry->pattern = QRegularExpression::escape(text);
         custom_entry->index_entry = custom_index_value;
         entries.append(custom_entry);
     } else {
