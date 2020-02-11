@@ -1850,7 +1850,14 @@ bool CodeViewEditor::MarkForIndex(const QString &title)
     const QString &element_name = "a";
     const QString &attribute_name = "class";
 
-    if (!InsertTagAttribute(element_name, attribute_name, SIGIL_INDEX_CLASS, ANCHOR_TAGS)) {
+    // first see if an achor is the immediate parent of selected text
+    // and if so get any existing attribute class values to append
+    // so we do not overwrite them
+    QString existing_class = GetAttribute("class",ANCHOR_TAGS, false);
+    QString new_class = SIGIL_INDEX_CLASS;
+    if (!existing_class.isEmpty()) new_class = new_class + " " + existing_class;
+
+    if (!InsertTagAttribute(element_name, attribute_name, new_class, ANCHOR_TAGS)) {
         ok = false;
     }
 
