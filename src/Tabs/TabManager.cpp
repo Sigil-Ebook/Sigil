@@ -71,8 +71,6 @@ TabManager::TabManager(QWidget *parent)
     }
 #else
     setMovable(true);
-    setAcceptDrops(true);
-    setChangeCurrentOnDrag(true);
 #endif
 
     setTabsClosable(true);

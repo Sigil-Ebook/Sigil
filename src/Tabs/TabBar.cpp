@@ -45,6 +45,8 @@ TabBar::TabBar(QWidget *parent)
         "}";
     setStyleSheet(FORCE_TAB_CLOSE_BUTTON);
 #endif
+    setAcceptDrops(true);
+    setChangeCurrentOnDrag(true);
 }
 
 void TabBar::mouseDoubleClickEvent(QMouseEvent *event)
