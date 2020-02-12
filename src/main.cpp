@@ -368,6 +368,7 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
 
     // QtWebEngine may need this
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
+    QCoreApplication::setAttribute(Qt::AA_SynthesizeTouchForUnhandledMouseEvents, false);
 
     MainApplication app(argc, argv);
 
