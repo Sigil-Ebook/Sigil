@@ -61,6 +61,8 @@ public:
     QString uiFont();
     QString originalUIFont();
 
+    int uiDragDistanceTweak();
+
     /**
      * The default langauge to use when creating new books.
      *
@@ -253,8 +255,10 @@ public slots:
     void setUILanguage(const QString &language_code);
     
     void setUIFont(const QString &font_data);
-
+    
     void setOriginalUIFont(const QString &font_data);
+
+    void setUiDragDistanceTweak(int tweak);
 
     /**
      * Set the default language to use when creating new books.

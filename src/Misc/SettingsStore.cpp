@@ -39,6 +39,7 @@ static QString KEY_DEFAULT_METADATA_LANGUAGE = SETTINGS_GROUP + "/" + "default_m
 static QString KEY_UI_LANGUAGE = SETTINGS_GROUP + "/" + "ui_language";
 static QString KEY_UI_FONT = SETTINGS_GROUP + "/" + "ui_font";
 static QString KEY_ORIGINAL_UI_FONT = SETTINGS_GROUP + "/" + "original_ui_font";
+static QString KEY_DRAG_DISTANCE_TWEAK = SETTINGS_GROUP + "/" + "drag_distance_tweak";
 static QString KEY_ZOOM_IMAGE = SETTINGS_GROUP + "/" + "zoom_image";
 static QString KEY_ZOOM_TEXT = SETTINGS_GROUP + "/" + "zoom_text";
 static QString KEY_ZOOM_WEB = SETTINGS_GROUP + "/" + "zoom_web";
@@ -155,6 +156,12 @@ QString SettingsStore::originalUIFont()
 {
     clearSettingsGroup();
     return value(KEY_ORIGINAL_UI_FONT, "").toString();
+}
+
+int SettingsStore::uiDragDistanceTweak()
+{
+    clearSettingsGroup();
+    return value(KEY_DRAG_DISTANCE_TWEAK, 30).toInt();
 }
 
 QString SettingsStore::defaultMetadataLang()
@@ -471,6 +478,12 @@ void SettingsStore::setOriginalUIFont(const QString &font_data)
 {
     clearSettingsGroup();
     setValue(KEY_ORIGINAL_UI_FONT, font_data);
+}
+
+void SettingsStore::setUiDragDistanceTweak(int tweak)
+{
+    clearSettingsGroup();
+    setValue(KEY_DRAG_DISTANCE_TWEAK, tweak);
 }
 
 void SettingsStore::setExternalXEditorPath(const QString &path)

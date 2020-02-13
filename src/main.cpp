@@ -368,7 +368,6 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
 
     // QtWebEngine may need this
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
-    QCoreApplication::setAttribute(Qt::AA_SynthesizeTouchForUnhandledMouseEvents, false);
 
     MainApplication app(argc, argv);
 
@@ -385,11 +384,6 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
     AppEventFilter *filter = new AppEventFilter(&app);
     app.installEventFilter(filter);
 
-    // drag and drop in main tab bar is too touchy and that can cause problems.
-    // default drag distance limit is much too small especially for hpi displays
-    // startDragDistance default is just 10 pixels
-    if (app.startDragDistance() < 50) app.setStartDragDistance(50);
-
     // Set up embedded python integration first thing
     EmbeddedPython* epython = EmbeddedPython::instance();
     epython->addToPythonSysPath(epython->embeddedRoot());
@@ -405,6 +399,18 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
 
         QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
         SettingsStore settings;
+
+        // drag and drop in main tab bar is too touchy and that can cause problems.
+        // default drag distance limit is much too small especially for hpi displays
+        // startDragDistance default is just 10 pixels
+#ifdef Q_OS_MAC
+        if (app.startDragDistance() < 50) app.setStartDragDistance(50);
+#else
+        int drag_tweak = settings.uiDragDistanceTweak();
+        if ((drag_tweak >= 10) && (drag_tweak <= 50)) {
+            app.setStartDragDistance(drag_tweak);
+        }
+#endif
 
         // Setup the qtbase_ translator and load the translation for the selected language
         QTranslator qtbaseTranslator;
