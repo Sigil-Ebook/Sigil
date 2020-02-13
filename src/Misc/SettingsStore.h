@@ -255,7 +255,7 @@ public slots:
     void setUILanguage(const QString &language_code);
     
     void setUIFont(const QString &font_data);
-    
+
     void setOriginalUIFont(const QString &font_data);
 
     void setUiDragDistanceTweak(int tweak);

@@ -407,6 +407,7 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
         if (app.startDragDistance() < 50) app.setStartDragDistance(50);
 #else
         int drag_tweak = settings.uiDragDistanceTweak();
+        # Use Qt platform default if tweak value not between 10 and 50px
         if ((drag_tweak >= 10) && (drag_tweak <= 50)) {
             app.setStartDragDistance(drag_tweak);
         }
