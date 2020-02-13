@@ -161,7 +161,7 @@ QString SettingsStore::originalUIFont()
 int SettingsStore::uiDragDistanceTweak()
 {
     clearSettingsGroup();
-    #Default value of 9 should result in Qt platform default
+    // Default value of 9 should result in Qt platform default
     return value(KEY_DRAG_DISTANCE_TWEAK, 9).toInt();
 }
 
