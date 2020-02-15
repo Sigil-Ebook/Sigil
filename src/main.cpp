@@ -404,7 +404,7 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
         // default drag distance limit is much too small especially for hpi displays
         // startDragDistance default is just 10 pixels
 #ifdef Q_OS_MAC
-        if (app.startDragDistance() < 50) app.setStartDragDistance(50);
+        if (app.startDragDistance() < 30) app.setStartDragDistance(30);
 #else
         int drag_tweak = settings.uiDragDistanceTweak();
         // Use Qt platform default if tweak value not between 10 and 50px
