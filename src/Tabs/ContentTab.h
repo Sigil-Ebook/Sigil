@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -34,7 +34,6 @@
 class QLayout;
 class Searchable;
 class Resource;
-
 
 /**
  * A generic tab widget for editing/viewing a resource.
@@ -312,6 +311,7 @@ public:
         return false;
     }
 
+
 public slots:
 
     /**
@@ -473,6 +473,7 @@ protected:
      * Has our underlying resource been deleted
      */
     bool m_resource_was_deleted;
+
 };
 
 #endif // CONTENTTAB_H
