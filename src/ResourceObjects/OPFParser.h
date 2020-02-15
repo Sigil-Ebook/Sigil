@@ -27,14 +27,15 @@
 #include <QStringList>
 #include <QHash>
 #include <QVariant>
+#include "Misc/TagAtts.h"
 
 struct PackageEntry
 {
     QString m_version;
     QString m_uniqueid;
-    QHash<QString,QString> m_atts;
+    TagAtts m_atts;
 
-    PackageEntry() : m_version("2.0"), m_uniqueid("Bookid"), m_atts(QHash<QString,QString>()) {};
+    PackageEntry() : m_version("2.0"), m_uniqueid("Bookid") {};
     PackageEntry(const QVariant&);
     PackageEntry(const QString&, const QString&, const QStringList&, const QStringList&);
     PackageEntry(const PackageEntry& entry) : m_version(entry.m_version), 
@@ -46,9 +47,9 @@ struct PackageEntry
 
 struct MetaNSEntry
 {
-    QHash<QString,QString> m_atts;
+    TagAtts m_atts;
 
-    MetaNSEntry() : m_atts(QHash<QString,QString>()) {}; 
+    MetaNSEntry() {}; 
     MetaNSEntry(const QVariant&);
     MetaNSEntry(const QStringList&, const QStringList&);
     MetaNSEntry(const MetaNSEntry& entry) : m_atts(entry.m_atts) {};
@@ -61,8 +62,8 @@ struct MetaEntry
 {
     QString m_name;
     QString m_content;
-    QHash<QString,QString> m_atts;
-    MetaEntry() :  m_name(""), m_content(""), m_atts(QHash<QString,QString>()) {};
+    TagAtts m_atts;
+    MetaEntry() :  m_name(""), m_content("") {};
     MetaEntry(const QVariant&);
     MetaEntry(const QString&, const QString&, const QStringList&, const QStringList&);
     MetaEntry(const MetaEntry& entry) : m_name(entry.m_name), m_content(entry.m_content), m_atts(entry.m_atts) {};
@@ -76,9 +77,9 @@ struct ManifestEntry
     QString m_id;
     QString m_href;
     QString m_mtype;
-    QHash<QString,QString> m_atts;
+    TagAtts m_atts;
 
-    ManifestEntry() : m_id(""), m_href(""), m_mtype(""), m_atts(QHash<QString,QString>()) {} ;
+    ManifestEntry() : m_id(""), m_href(""), m_mtype("") {} ;
     ManifestEntry(const QVariant&);
     ManifestEntry(const QString&, const QString&, const QString&, const QStringList&, const QStringList&);
     ManifestEntry(const ManifestEntry& entry) : m_id(entry.m_id), m_href(entry.m_href),
@@ -90,9 +91,9 @@ struct ManifestEntry
 
 struct SpineAttrEntry
 {
-    QHash<QString,QString> m_atts;
+    TagAtts m_atts;
 
-    SpineAttrEntry() : m_atts(QHash<QString,QString>()) {};
+    SpineAttrEntry() {};
     SpineAttrEntry(const QVariant&);
     SpineAttrEntry(const QStringList&, const QStringList&);
     SpineAttrEntry(const SpineAttrEntry& entry) : m_atts(entry.m_atts) {};
@@ -104,9 +105,9 @@ struct SpineAttrEntry
 struct SpineEntry
 {
     QString m_idref;
-    QHash<QString,QString> m_atts;
+    TagAtts m_atts;
 
-    SpineEntry() : m_idref(""), m_atts(QHash<QString,QString>()) {};
+    SpineEntry() : m_idref("") {};
     SpineEntry(const QVariant&);
     SpineEntry(const QString&, const QStringList&, const QStringList&);
     SpineEntry(const SpineEntry& entry) : m_idref(entry.m_idref), m_atts(entry.m_atts) {};

@@ -332,6 +332,8 @@ set( MISC_FILES
     Misc/TextDocument.cpp
     Misc/MediaTypes.cpp
     Misc/MediaTypes.h
+    Misc/TagAtts.cpp
+    Misc/TagAtts.h
     )
 
 set( MISC_EDITORS_FILES
