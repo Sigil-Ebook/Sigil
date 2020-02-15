@@ -14,6 +14,8 @@ else:
     chr = unichr
 
 from collections import defaultdict
+from collections import OrderedDict
+
 import itertools
 from sigil_bs4.element import (
     CharsetMetaAttributeValue,
@@ -106,7 +108,7 @@ class TreeBuilder(object):
 
     # A value for these tag/attribute combinations is a space- or
     # comma-separated list of CDATA, rather than a single CDATA.
-    cdata_list_attributes = {}
+    cdata_list_attributes = OrderedDict()
 
 
     def __init__(self):
@@ -199,7 +201,7 @@ class SAXTreeBuilder(TreeBuilder):
         pass
 
     def startElement(self, name, attrs):
-        attrs = dict((key[1], value) for key, value in list(attrs.items()))
+        attrs = OrderedDict((key[1], value) for key, value in list(attrs.items()))
         #print "Start %s, %r" % (name, attrs)
         self.soup.handle_starttag(name, attrs)
 
@@ -252,22 +254,22 @@ class HTMLTreeBuilder(TreeBuilder):
     # encounter one of these attributes, we will parse its value into
     # a list of values if possible. Upon output, the list will be
     # converted back into a string.
-    cdata_list_attributes = {
-        "*" : ['class', 'accesskey', 'dropzone'],
-        "a" : ['rel', 'rev'],
-        "link" :  ['rel', 'rev'],
-        "td" : ["headers"],
-        "th" : ["headers"],
-        "td" : ["headers"],
-        "form" : ["accept-charset"],
-        "object" : ["archive"],
+    cdata_list_attributes = OrderedDict([
+        ("*", ['class', 'accesskey', 'dropzone']),
+        ("a", ['rel', 'rev']),
+        ("link", ['rel', 'rev']),
+        ("td", ["headers"]),
+        ("th", ["headers"]),
+        ("td", ["headers"]),
+        ("form", ["accept-charset"]),
+        ("object", ["archive"]),
 
         # These are HTML5 specific, as are *.accesskey and *.dropzone above.
-        "area" : ["rel"],
-        "icon" : ["sizes"],
-        "iframe" : ["sandbox"],
-        "output" : ["for"],
-        }
+        ("area", ["rel"]),
+        ("icon", ["sizes"]),
+        ("iframe", ["sandbox"]),
+        ("output", ["for"]),
+        ])
 
     def set_up_substitutions(self, tag):
         # We are only interested in <meta> tags

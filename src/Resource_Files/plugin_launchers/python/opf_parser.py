@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014 Kevin B. Hendricks, John Schember, and Doug Massay
+# Copyright (c) 2014-2020 Kevin B. Hendricks and Doug Massay
+# Copyright (c) 2014      John Schember
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -31,12 +32,13 @@ import sys, os
 from unipath import pathof
 from hrefutils import unquoteurl, buildBookPath, startingDir, longestCommonPath
 from hrefutils import ext_mime_map, mime_group_map
+from collections import OrderedDict
 
-SPECIAL_HANDLING_TAGS = {
-    '?xml'     : ('xmlheader', -1), 
-    '!--'      : ('comment', -3),
-    '!DOCTYPE' : ('doctype', -1),
-}
+SPECIAL_HANDLING_TAGS = OrderedDict([
+    ('?xml',('xmlheader', -1)),
+    ('!--', ('comment', -3)),
+    ('!DOCTYPE',('doctype', -1))
+])
 
 SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
 
@@ -68,14 +70,14 @@ class Opf_Parser(object):
         self.cover_id = None
 
         # let downstream invert any invertable dictionaries when needed
-        self.manifest_id_to_href = {}
-        self.manifest_id_to_bookpath = {}
+        self.manifest_id_to_href = OrderedDict()
+        self.manifest_id_to_bookpath = OrderedDict()
 
         # create non-invertable dictionaries
-        self.manifest_id_to_mime = {}
-        self.manifest_id_to_properties = {}
-        self.manifest_id_to_fallback = {}
-        self.manifest_id_to_overlay = {}
+        self.manifest_id_to_mime = OrderedDict()
+        self.manifest_id_to_properties = OrderedDict()
+        self.manifest_id_to_fallback = OrderedDict()
+        self.manifest_id_to_overlay = OrderedDict()
 
         # spine and guide
         self.spine = []
@@ -84,8 +86,8 @@ class Opf_Parser(object):
         self.bindings = []
         
         # determine folder structure
-        self.group_folder = {}
-        self.group_count = {}
+        self.group_folder = OrderedDict()
+        self.group_count = OrderedDict()
         self.group_folder["epub"] = ['META-INF']
         self.group_count["epub"] = [1]
         self.group_folder["opf"] = [self.opf_dir]
@@ -121,7 +123,7 @@ class Opf_Parser(object):
                         prefix.pop()
                         tattr = last_tattr
                         if tattr is None:
-                            tattr = {}
+                            tattr = OrderedDict()
                         last_tattr = None
                     elif ttype == 'single':
                         tcontent = None
@@ -220,7 +222,7 @@ class Opf_Parser(object):
 
         # determine unique ShortPathName for each bookpath
         # start with filename and work back up the folders
-        # spn = {}
+        # spn = OrderedDict()
         # dupset = set()
         # nameset = {}
         # lvl = 1
@@ -315,7 +317,7 @@ class Opf_Parser(object):
         p = 1
         tname = None
         ttype = None
-        tattr = {}
+        tattr = OrderedDict()
         while p < n and s[p:p+1] == ' ' : p += 1
         if s[p:p+1] == '/':
             ttype = 'end'

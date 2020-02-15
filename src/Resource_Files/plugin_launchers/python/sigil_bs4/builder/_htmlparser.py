@@ -1,6 +1,8 @@
 from __future__ import unicode_literals, division, absolute_import, print_function
 
 import sys
+from collections import OrderedDict
+
 PY3 = sys.version_info[0] >= 3
 if PY3:
     text_type = str
@@ -74,7 +76,7 @@ HTMLPARSER = 'html.parser'
 class BeautifulSoupHTMLParser(HTMLParser):
     def handle_starttag(self, name, attrs):
         # XXX namespace
-        attr_dict = {}
+        attr_dict = OrderedDict()
         for key, value in attrs:
             # Change None attribute values to the empty string
             # for consistency with the other tree builders.

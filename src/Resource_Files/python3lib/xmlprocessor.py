@@ -11,7 +11,7 @@ from lxml import etree
 from io import BytesIO
 from opf_newparser import Opf_Parser
 from hrefutils import startingDir, buildBookPath, buildRelativePath
-
+from collections import OrderedDict
 
 ASCII_CHARS   = set(chr(x) for x in range(128))
 URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -207,7 +207,7 @@ def anchorNCXUpdates(data, ncx_bookpath, originating_bookpath, keylist, valuelis
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
     # rebuild serialized lookup dictionary
-    id_dict = {}
+    id_dict = OrderedDict()
     for i in range(0, len(keylist)):
         id_dict[ keylist[i] ] = valuelist[i]
     startdir = startingDir(ncx_bookpath)
@@ -260,7 +260,7 @@ def performNCXSourceUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
     # rebuild serialized lookup dictionary
-    updates = {}
+    updates = OrderedDict()
     for i in range(0, len(keylist)):
         updates[ keylist[i] ] = valuelist[i]
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=ebook_xml_empty_tags)
@@ -290,7 +290,7 @@ def performOPFSourceUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
     # rebuild serialized lookup dictionary
-    updates = {}
+    updates = OrderedDict()
     for i in range(0, len(keylist)):
         updates[ keylist[i] ] = valuelist[i]
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=ebook_xml_empty_tags)
@@ -323,7 +323,7 @@ def performSMILUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
     # rebuild serialized lookup dictionary of xml_updates, properly adjusted
-    updates = {}
+    updates = OrderedDict()
     for i in range(0, len(keylist)):
         updates[ keylist[i] ] = valuelist[i]
     xml_empty_tags = ["text", "audio"]
@@ -357,7 +357,7 @@ def performPageMapUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
     # lxml on a Mac does not seem to handle full unicode properly, so encode as utf-8
     data = data.encode('utf-8')
     # rebuild serialized lookup dictionary of xml_updates properly adjusted
-    updates = {}
+    updates = OrderedDict()
     for i in range(0, len(keylist)):
         updates[ keylist[i] ] = valuelist[i]
     xml_empty_tags = ["page"]

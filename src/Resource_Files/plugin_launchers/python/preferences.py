@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014 Kevin B. Hendricks, John Schember, and Doug Massay
+# Copyright (c) 2014-2020 Kevin B. Hendricks, and Doug Massay
+# Copyright (c) 2014      John Schember
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -29,6 +30,7 @@ from __future__ import unicode_literals, division, absolute_import, print_functi
 
 import os
 import json
+from collections import OrderedDict
 
 from compatibility_utils import PY2
 
@@ -46,7 +48,7 @@ class JSONPrefs(dict):
     # json file in user plugin directory.
     def __init__(self, plugin_dir, plugin_name):
         dict.__init__(self)
-        self.defaults = {}
+        self.defaults = OrderedDict()
         pfolder = os.path.join(os.path.dirname(plugin_dir), "plugins_prefs", plugin_name)
         # in a plugins_prefs dir (/plugin_name subdir just to be safe)
         self.file_path = os.path.join(pfolder,  '{0}{1}'.format(plugin_name, self.EXTENSION))
@@ -54,7 +56,7 @@ class JSONPrefs(dict):
         self.refresh()
 
     def refresh(self, clear_current=True):
-        d = {}
+        d = OrderedDict()
         if os.path.exists(self.file_path):
             with file_open(self.file_path, 'r', encoding='utf-8') as f:
                 try:
@@ -64,7 +66,7 @@ class JSONPrefs(dict):
                 except:
                     import traceback
                     traceback.print_exc()
-                    d = {}
+                    d = OrderedDict()
         if clear_current:
             self.clear()
         self.update(d)

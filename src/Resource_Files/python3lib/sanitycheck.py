@@ -7,6 +7,8 @@ from __future__ import unicode_literals, division, absolute_import, print_functi
 import sys
 import os
 
+from collections import OrderedDict
+
 PY3 = sys.version_info[0] >= 3
 
 if PY3:
@@ -14,12 +16,12 @@ if PY3:
 else:
     binary_type = str
 
-SPECIAL_HANDLING_TAGS = {
-    '?xml'     : ('xmlheader', -1), 
-    '!--'      : ('comment', -3),
-    '!DOCTYPE' : ('doctype', -1),
-    '?'        : ('pi', -1)
-}
+SPECIAL_HANDLING_TAGS = OrderedDict([
+    ('?xml', ('xmlheader', -1)), 
+    ('!--', ('comment', -3)),
+    ('!DOCTYPE', ('doctype', -1)),
+    ('?', ('pi', -1))
+])
 
 SPECIAL_HANDLING_TYPES = ['xmlheader', 'comment', 'doctype', 'pi']
 
@@ -90,7 +92,7 @@ class SanityCheck(object):
         # get the tag name
         tname = None
         ttype = None
-        tattr = {}
+        tattr = OrderedDict()
         while s[p:p+1] == ' ' : p += 1
         if s[p:p+1] == '/':
             ttype = 'end'
