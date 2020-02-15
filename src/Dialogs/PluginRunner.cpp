@@ -1,6 +1,7 @@
 /************************************************************************
  **
  **  Copyright (C) 2014-2020 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020      Doug Massay
  **
  **  This file is part of Sigil.
  **
@@ -242,6 +243,19 @@ void PluginRunner::writeSigilCFG()
     colors << pal.color(QPalette::Highlight).name();
     colors << pal.color(QPalette::HighlightedText).name();
     cfg << colors.join(",");
+    switch (settings.highDPI())
+    {
+        case 0:
+            cfg << "detect";
+            break;
+        case 1:
+            cfg << "on";
+            break;
+        case 2:
+            cfg << "off";
+            break;
+    }
+    cfg << qApp->font().toString();
     QList <Resource *> selected_resources = m_bookBrowser->AllSelectedResources();
     foreach(Resource * resource, selected_resources) {
         cfg << resource->GetRelativePath();

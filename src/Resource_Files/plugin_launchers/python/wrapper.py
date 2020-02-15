@@ -120,7 +120,9 @@ class Wrapper(object):
             self.epub_isDirty = (cfg_lst.pop(0) == "True")
             self.epub_filepath = cfg_lst.pop(0)
             self.colormode = cfg_lst.pop(0)
-            self.colors = cfg_lst.pop(0) 
+            self.colors = cfg_lst.pop(0)
+            self.highdpi = cfg_lst.pop(0)
+            self.uifont = cfg_lst.pop(0)
             self.selected = cfg_lst
         os.environ['SigilGumboLibPath'] = self.get_gumbo_path()
 
