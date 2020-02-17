@@ -478,6 +478,16 @@ QStringList OPFResource::GetSpineOrderBookPaths() const
     return book_paths_in_reading_order;
 }
 
+QString OPFResource::GetPrimaryBookTitle() const
+{
+    QString title = "";
+    QList<QVariant> titles = GetDCMetadataValues("dc:title");
+    if (!titles.isEmpty()) {
+         title = titles.at(0).toString();
+    }
+    return title;
+}
+
 QString OPFResource::GetPrimaryBookLanguage() const
 {
     SettingsStore settings;

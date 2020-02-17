@@ -117,6 +117,9 @@ public:
     // returns first (primary) dc:language value found
     QString GetPrimaryBookLanguage() const;
 
+    // returns first (primary) dc:title value found
+    QString GetPrimaryBookTitle() const;
+
     /**
      * Returns the book's Dublin Core metadata.
      *
