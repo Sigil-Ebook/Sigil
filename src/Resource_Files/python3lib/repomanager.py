@@ -8,19 +8,21 @@ import dulwich
 from dulwich import porcelain
 
 # the entry points
-def performCommit(localRepo, bookid, bookroot, bookfiles):
+def performCommit(localRepo, bookid, booktitle, bookroot, bookfiles):
     has_error = False
     # simply echo parameters back for now
     parms = []
     parms.append(localRepo)
-    parms.append('\n')
+    parms.append("\n")
     parms.append(bookid)
-    parms.append('\n')
+    parms.append("\n")
+    parms.append(booktitle)
+    parms.append("\n")
     parms.append(bookroot)
-    parms.append('\n')
+    parms.append("\n")
     for bp in bookfiles:
         parms.append(bp)
-        parms.append('\n')
+        parms.append("\n")
     result = ''.join(parms);
     if not has_error:
         return result;

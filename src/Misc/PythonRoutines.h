@@ -46,7 +46,7 @@ public:
     MetadataPieces GetMetadataInPython(const QString& opfdata, const QString& version);
     QString SetNewMetadataInPython(const MetadataPieces& mdp, const QString& opfdata, const QString& version);
 
-    QString PerformRepoCommitInPython(const QString& localRepo, const QString& bookid, 
+    QString PerformRepoCommitInPython(const QString& localRepo, const QString& bookid, const QString& booktitle,
                                       const QString& bookroot, const QStringList& bookfiles);
 
 private:
