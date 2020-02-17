@@ -411,6 +411,21 @@
    <addaction name="actionAddExistingFile"/>
    <addaction name="actionSave"/>
   </widget>
+  <widget class="QToolBar" name="toolBarRepoActions">
+   <property name="windowTitle">
+    <string>Checkpoints</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionCommit"/>
+   <addaction name="actionCheckout"/>
+   <addaction name="actionDiff"/>
+   <addaction name="actionEraseRepo"/>
+  </widget>
   <widget class="QToolBar" name="toolBarTextManip">
    <property name="windowTitle">
     <string>Edit</string>
@@ -2664,6 +2679,42 @@
   <action name="actionRemoveNCXGuide">
    <property name="text">
     <string>Remove the NCX and Guide</string>
+   </property>
+  </action>
+  <action name="actionCommit">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/git-commit_48px.png</normaloff>:/main/git-commit_48px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create Checkpoint for Epub</string>
+   </property>
+  </action>
+  <action name="actionCheckout">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/git-checkout_48px.png</normaloff>:/main/git-checkout_48px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Restore Epub from previous Checkpoint</string>
+   </property>
+  </action>
+  <action name="actionDiff">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/git-diff_48px.png</normaloff>:/main/git-diff_48px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Compare Epub against Checkpoint</string>
+   </property>
+  </action>
+  <action name="actionEraseRepo">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/git-erase_48px.png</normaloff>:/main/git-erase_48px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Erase Unneeded Checkpoint Repositories</string>
    </property>
   </action>
  </widget>

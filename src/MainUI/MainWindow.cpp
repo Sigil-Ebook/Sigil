@@ -4924,6 +4924,7 @@ void MainWindow::ExtendUI()
 
     // Create the view menu to hide and show toolbars.
     ui.menuToolbars->addAction(ui.toolBarFileActions->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarRepoActions->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextManip->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarInsertions->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarBack->toggleViewAction());
