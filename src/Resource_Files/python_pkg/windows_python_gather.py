@@ -30,6 +30,8 @@ site_packages = [ ('lxml', 'd'),
                   ('PIL', 'd'), 
                   ('regex','d'),
                   ('cssselect', 'd'),
+                  ('urllib3', 'd'),
+                  ('dulwich', 'd'),
                   ('encutils', 'd'),
                   ('css_parser', 'd'),
                   ('webencodings', 'd'), # needed by html5lib
