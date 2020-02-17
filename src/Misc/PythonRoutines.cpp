@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -121,4 +121,31 @@ QString PythonRoutines::SetNewMetadataInPython(const MetadataPieces& mdp, const 
     newopfdata = res.toString();
     return newopfdata;
 }
+
+
+QString PythonRoutines::PerformRepoCommitInPython(const QString &localRepo, const QString &bookid, 
+						  const QString &bookroot, const QStringList &bookfiles) 
+{
+    QString results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(localRepo));
+    args.append(QVariant(bookid));
+    args.append(QVariant(bookroot));
+    args.append(QVariant(bookfiles));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("performCommit"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+        results = res.toString();
+    }
+    return results;
+}
+
 

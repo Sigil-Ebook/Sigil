@@ -585,21 +585,64 @@ void MainWindow::MoveContentFilesToStdFolders()
 void MainWindow::RepoCommit()
 {
     qDebug() << "Commit";
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // make sure that the Sigil-Preferences directory has a "repo" folder
+    QString localRepo = Utility::DefinePrefsDir() + "/repo";
+    QDir repoDir(localRepo);
+    if (!repoDir.exists()) {
+        repoDir.mkpath(localRepo);
+    }
+
+    // ensure epub opf has valid bookid and retrieve it
+    QString bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
+
+    // then force all changes to Disk
+    SaveTabData();
+    m_Book->GetFolderKeeper()->SuspendWatchingResources();
+    m_Book->SaveAllResourcesToDisk();
+    m_Book->GetFolderKeeper()->ResumeWatchingResources();
+
+    // get epub root
+    QString bookroot = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+
+    // finally get a full list of epub resource bookpaths
+    QStringList bookfiles = m_Book->GetFolderKeeper()->GetAllBookPaths();
+
+    // now perform the commit using python in a separate thread since this
+    // may take a while depending on the speed of the filesystem
+    PythonRoutines pr;
+    QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::PerformRepoCommitInPython, localRepo, 
+                                                bookid, bookroot, bookfiles);
+    future.waitForFinished();
+    QString commit_result = future.result();
+
+    qDebug() << "echo from python";
+    qDebug() << commit_result;
+    if (commit_result.isEmpty()) {
+        ShowMessageOnStatusBar(tr("Checkpoint generation failed."));
+	QApplication::restoreOverrideCursor();
+        return;
+    }
+
+    QApplication::restoreOverrideCursor();
+    ShowMessageOnStatusBar(tr("Checkpoint saved."));
 }
 
 void MainWindow::RepoCheckout()
 {
-    qDebug() << "Checkout";
+    qDebug() << "Checkout Not Implmented Yet";
 }
 
 void MainWindow::RepoDiff()
 {
-    qDebug() << "Diff";
+    qDebug() << "Diff Not Implemented Yet";
 }
 
 void MainWindow::RepoErase()
 {
-    qDebug() << "Erase Repo";
+    qDebug() << "Erase Repo Not Implemented Yet";
 }
 
 void MainWindow::launchExternalXEditor()

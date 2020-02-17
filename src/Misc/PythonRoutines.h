@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -46,6 +46,8 @@ public:
     MetadataPieces GetMetadataInPython(const QString& opfdata, const QString& version);
     QString SetNewMetadataInPython(const MetadataPieces& mdp, const QString& opfdata, const QString& version);
 
+    QString PerformRepoCommitInPython(const QString& localRepo, const QString& bookid, 
+                                      const QString& bookroot, const QStringList& bookfiles);
 
 private:
 
