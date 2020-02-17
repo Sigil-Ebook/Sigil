@@ -242,6 +242,11 @@ public slots:
 
     void launchExternalXEditor();
 
+    void RepoCommit();
+    void RepoCheckout();
+    void RepoDiff();
+    void RepoErase();
+
     void StandardizeEpub();
 
     void CreateEpubLayout();

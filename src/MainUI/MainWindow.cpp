@@ -582,6 +582,25 @@ void MainWindow::MoveContentFilesToStdFolders()
     }
 }
 
+void MainWindow::RepoCommit()
+{
+    qDebug() << "Commit";
+}
+
+void MainWindow::RepoCheckout()
+{
+    qDebug() << "Checkout";
+}
+
+void MainWindow::RepoDiff()
+{
+    qDebug() << "Diff";
+}
+
+void MainWindow::RepoErase()
+{
+    qDebug() << "Erase Repo";
+}
 
 void MainWindow::launchExternalXEditor()
 {
@@ -5207,6 +5226,26 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/document-save_22px.png"));
     ui.actionSave->setIcon(icon);
 
+    icon = ui.actionCommit->icon();
+    icon.addFile(QString::fromUtf8(":/main/git-commit_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/git-commit_22px.png"));
+    ui.actionCommit->setIcon(icon);
+
+    icon = ui.actionCheckout->icon();
+    icon.addFile(QString::fromUtf8(":/main/git-checkout_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/git-checkout_22px.png"));
+    ui.actionCheckout->setIcon(icon);
+
+    icon = ui.actionDiff->icon();
+    icon.addFile(QString::fromUtf8(":/main/git-diff_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/git-diff_22px.png"));
+    ui.actionDiff->setIcon(icon);
+
+    icon = ui.actionEraseRepo->icon();
+    icon.addFile(QString::fromUtf8(":/main/git-erase_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/git-erase_22px.png"));
+    ui.actionEraseRepo->setIcon(icon);
+
     icon = ui.actionXEditor->icon();
     icon.addFile(QString::fromUtf8(":/main/document-edit_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/document-edit_22px.png"));
@@ -5629,6 +5668,13 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionSaveACopy,     SIGNAL(triggered()), this, SLOT(SaveACopy()));
     connect(ui.actionClose,         SIGNAL(triggered()), this, SLOT(close()));
     connect(ui.actionExit,          SIGNAL(triggered()), this, SLOT(Exit()));
+
+    // Checkpoint Repo functions
+    connect(ui.actionCommit,        SIGNAL(triggered()), this, SLOT(RepoCommit()));
+    connect(ui.actionCheckout,      SIGNAL(triggered()), this, SLOT(RepoCheckout()));
+    connect(ui.actionDiff,          SIGNAL(triggered()), this, SLOT(RepoDiff()));
+    connect(ui.actionEraseRepo,     SIGNAL(triggered()), this, SLOT(RepoErase()));
+
     // Edit
     connect(ui.actionXEditor,         SIGNAL(triggered()), this, SLOT(launchExternalXEditor()));
     connect(ui.actionInsertFile,      SIGNAL(triggered()), this, SLOT(InsertFileDialog()));
