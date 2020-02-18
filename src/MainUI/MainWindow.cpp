@@ -616,6 +616,9 @@ void MainWindow::RepoCommit()
     // get a full list of epub resource bookpaths
     QStringList bookfiles = m_Book->GetFolderKeeper()->GetAllBookPaths();
 
+    // add in the META-INF/container.xml file
+    bookfiles << "META-INF/container.xml";
+
     // now perform the commit using python in a separate thread since this
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
