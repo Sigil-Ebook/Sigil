@@ -52,6 +52,8 @@ TagAtts& TagAtts::operator=(const TagAtts &other)
             patt = natt;
             m_n--;
         }
+        m_anchor->next = m_anchor;
+        m_anchor->prev = m_anchor;
         m_n = 0;
     }
     QList<std::pair<QString, QString> > pairlist = other.pairs();
