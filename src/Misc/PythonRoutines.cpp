@@ -123,8 +123,10 @@ QString PythonRoutines::SetNewMetadataInPython(const MetadataPieces& mdp, const 
 }
 
 
-QString PythonRoutines::PerformRepoCommitInPython(const QString &localRepo, const QString &bookid, 
-						  const QString &booktitle, const QString &bookroot, 
+QString PythonRoutines::PerformRepoCommitInPython(const QString &localRepo, 
+						  const QString &bookid, 
+						  const QString &filename,
+						  const QString &bookroot, 
 						  const QStringList &bookfiles) 
 {
     QString results;
@@ -133,7 +135,7 @@ QString PythonRoutines::PerformRepoCommitInPython(const QString &localRepo, cons
     QList<QVariant> args;
     args.append(QVariant(localRepo));
     args.append(QVariant(bookid));
-    args.append(QVariant(booktitle));
+    args.append(QVariant(filename));
     args.append(QVariant(bookroot));
     args.append(QVariant(bookfiles));
 

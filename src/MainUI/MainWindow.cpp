@@ -584,8 +584,6 @@ void MainWindow::MoveContentFilesToStdFolders()
 
 void MainWindow::RepoCommit()
 {
-    qDebug() << "Commit";
-
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     // make sure that the Sigil-Preferences directory has a "repo" folder
@@ -603,6 +601,7 @@ void MainWindow::RepoCommit()
 
     // get the primary book title in case we need it for later
     QString booktitle = m_Book->GetOPF()->GetPrimaryBookTitle();
+    QString filename = m_CurrentFileName;
 
     // finally force all changes to Disk
     SaveTabData();
@@ -623,7 +622,7 @@ void MainWindow::RepoCommit()
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
     QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::PerformRepoCommitInPython, localRepo, 
-                                                bookid, booktitle, bookroot, bookfiles);
+                                                bookid, filename, bookroot, bookfiles);
     future.waitForFinished();
     QString commit_result = future.result();
 

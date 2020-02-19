@@ -45,6 +45,7 @@ _SKIP_LIST = [
     'rights.xml',
     '.gitignore',
     '.gitattributes'
+    '.bookinfo'
 ]
 
 # convert string to utf-8
@@ -121,31 +122,67 @@ def cleanup_file_name(name):
 #   bookroot is path to root folder of epub inside Sigil
 #   bookfiles is list of all bookpaths (relative to bookroot) that make up the epub
 #   path to the destination folder
-def copy_book_contents_to_destination(bookroot, bookfiles, destdir):
+def copy_book_contents_to_destination(book_home, filepaths, destdir):
     copied = []
-    destdir = pathof(destdir)
-    root = bookroot.replace('/', os.sep)
-    for bookpath in bookfiles:
-        # convert to os specific path
-        bookpath = bookpath.replace('/', os.sep)
-        src = os.path.join(root, bookpath)
-        dest = os.path.join(destdir, bookpath)
+    for apath in filepaths:
+        src = os.path.join(book_home, apath)
+        dest = os.path.join(destdir, apath)
         # and make sure destination directory exists
         base = os.path.dirname(dest)
         if not os.path.exists(base):
             os.makedirs(base)
         data = b''
-        with open(src, 'rb') as f:
-            data = f.read()
-        with open(dest,'wb') as fp:
-            fp.write(data)
-        copied.append(bookpath)
+        f = open(src, 'rb')
+        data = f.read()
+        f.close()
+        fp = open(dest,'wb')
+        fp.write(data)
+        fp.close()
+        copied.append(apath)
     # Finally Add the proper mimetype file
-    data = "application/epub+zip"
-    with open(os.path.join(destdir,"mimetype"),'wb') as fm:
-        fm.write(data.encode('utf-8'))
+    data = b"application/epub+zip"
+    fm = open(os.path.join(destdir,"mimetype"),'wb')
+    fm.write(data)
+    fm.close()
     copied.append("mimetype")
     return copied
+
+def add_gitignore(repo_path):
+    ignoredata = []
+    ignoredata.append(".DS_Store")
+    ignoredata.append("*~")
+    ignoredata.append("*.orig")
+    ignoredata.append("*.bak")
+    ignoredata.append(".bookinfo")
+    ignoredata.append(".gitignore")
+    ignoredata.append(".gitattributes")
+    ignoredata.append("")
+    data = "\n".join(ignoredata).encode('utf-8')
+    f1 = open(os.path.join(repo_path, ".gitignore"),'wb')
+    f1.write(data)
+    f1.close()
+
+def add_gitattributes(repo_path):
+    adata = []
+    adata.append(".git export-ignore")
+    adata.append(".gitattributes export-ignore")
+    adata.append(".gitignore export-ignore")
+    adata.append(".bookinfo export-ignore")
+    adata.append("")
+    data = "\n".join(adata).encode('utf-8')
+    f3 = open(os.path.join(repo_path, ".gitattributes"),'wb')
+    f3.write(data)
+    f3.close()
+
+def add_bookinfo(repo_path, filename, bookid):
+    bookinfo = []
+    bookinfo.append(filename)
+    bookinfo.append(bookid)
+    bookinfo.append("")
+    data = "\n".join(bookinfo).encode('utf-8')
+    f2 = open(os.path.join(repo_path, ".bookinfo"),'wb')
+    f2.write(data)
+    f2.close()
 
 # return True if file should be copied to destination folder
 def valid_file_to_copy(rpath):
@@ -195,29 +232,73 @@ def create_epub(booktitle, foldpath):
 
 
 # the entry points
-def performCommit(localRepo, bookid, booktitle, bookroot, bookfiles):
+def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
     has_error = False
     staged = []
     added=[]
     ignored=[]
-    repo_home = localRepo.replace("/", os.sep)
+    # convert url paths to os specific paths
+    repo_home = pathof(localRepo)
+    repo_home = repo_home.replace("/", os.sep)
     repo_path = os.path.join(repo_home, "epub_" + bookid)
+    book_home = pathof(bookroot)
+    book_home = book_home.replace("/", os.sep);
+    # convert from bookpaths to os relative file paths
+    filepaths = []
+    for bkpath in bookfiles:
+        afile = pathof(bkpath)
+        afile = afile.replace("/", os.sep)
+        filepaths.append(afile)
+
     if os.path.exists(repo_path):
         # handle updating the staged files and commiting and tagging
-        print("not implemented yet")
+        # first collect info to determine files to delete form repo
+        # current tag, etc
+        cdir = os.getcwd()
+        os.chdir(repo_path)
+        # determine the new tag
+        tags = porcelain.list_tags(repo='.')
+        tagname = "V%04d" % (len(tags) + 1)
+        # delete files that are no longer needed from staging area
+        tracked = []
+        tracked = porcelain.ls_files(repo='.')
+        files_to_delete = []
+        for afile in tracked:
+            afile = pathof(afile)
+            if afile not in filepaths:
+                if afile not in  ["mimetype", ".gitignore", ".bookinfo"]:
+                    files_to_delete.append(afile)
+        if len(files_to_delete) > 0:
+            porcelain.rm(repo='.',paths=files_to_delete)
+        # copy over current files
+        copy_book_contents_to_destination(book_home, filepaths, repo_path)
+        (staged, unstaged, untracked) = porcelain.status(repo='.')
+        files_to_update = []
+        for afile in unstaged:
+            afile = pathof(afile)
+            files_to_update.append(afile)
+        for afile in untracked:
+            afile = pathof(afile)
+            files_to_update.append(afile)
+        (added, ignored) = porcelain.add(repo='.', paths=files_to_update)
+        commit_sha1 = porcelain.commit(repo='.',message="updating to " + tagname, author=None, committer=None)
+        tag = porcelain.tag_create(repo='.', tag=tagname, message="Tagging..." + tagname, author=None)
+        os.chdir(cdir)
     else:
         # this will be an initial commit to this repo
         tagname = 'V0001'
         os.makedirs(repo_path)
+        add_gitignore(repo_path)
+        add_gitattributes(repo_path)
         cdir = os.getcwd()
         os.chdir(repo_path)
         repo = porcelain.init(path='.', bare=False)
-        staged = copy_book_contents_to_destination(bookroot, bookfiles, repo_path)
+        staged = copy_book_contents_to_destination(book_home, filepaths, repo_path)
         (added, ignored) = porcelain.add(repo='.',paths=staged)
         commit_sha1 = porcelain.commit(repo='.',message="Initial Commit", author=None, committer=None)
         tag = porcelain.tag_create(repo='.', tag=tagname, message="Tagging..." + tagname, author=None)
         os.chdir(cdir)
-
+        add_bookinfo(repo_path, filename, bookid)
     result = "\n".join(added);
     result = result + "***********" + "\n".join(ignored)
     if not has_error:
