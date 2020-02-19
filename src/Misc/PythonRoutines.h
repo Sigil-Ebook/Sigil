@@ -44,13 +44,26 @@ public:
                                 const QString &ncx_dir, const QString &doctitle, const QString & mainid);
 
     MetadataPieces GetMetadataInPython(const QString& opfdata, const QString& version);
+
     QString SetNewMetadataInPython(const MetadataPieces& mdp, const QString& opfdata, const QString& version);
 
-    QString PerformRepoCommitInPython(const QString& localRepo, 
-				      const QString& bookid, 
-                                      const QString& filename, 
-				      const QString& bookroot, 
-				      const QStringList& bookfiles);
+    QString PerformRepoCommitInPython(  const QString& localRepo, 
+				        const QString& bookid, 
+                                        const QString& filename, 
+				        const QString& bookroot, 
+				        const QStringList& bookfiles );
+
+    bool PerformRepoEraseInPython(      const QString& localRepo, 
+				        const QString& bookid ); 
+
+    QStringList GetRepoTagsInPython(    const QString& localRepo, 
+				        const QString& bookid );
+
+    QString GenerateEpubFromTagInPython(const QString& localRepo, 
+				        const QString& bookid,
+				        const QString& tagname,
+                                        const QString& filename, 
+				        const QString& destpath ); 
 
 private:
 

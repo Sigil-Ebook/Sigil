@@ -2696,7 +2696,7 @@
      <normaloff>:/main/git-checkout_48px.png</normaloff>:/main/git-checkout_48px.png</iconset>
    </property>
    <property name="text">
-    <string>Restore Epub from previous Checkpoint</string>
+    <string>Create Epub from previous Checkpoint</string>
    </property>
   </action>
   <action name="actionDiff">

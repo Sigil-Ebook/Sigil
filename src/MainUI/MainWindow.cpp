@@ -600,8 +600,9 @@ void MainWindow::RepoCommit()
     m_Book->GetOPF()->AddModificationDateMeta();
 
     // get the primary book title in case we need it for later
-    QString booktitle = m_Book->GetOPF()->GetPrimaryBookTitle();
-    QString filename = m_CurrentFileName;
+    // QString booktitle = m_Book->GetOPF()->GetPrimaryBookTitle();
+
+    QString filename = QFileInfo(m_CurrentFileName).completeBaseName();
 
     // finally force all changes to Disk
     SaveTabData();
@@ -640,7 +641,49 @@ void MainWindow::RepoCommit()
 
 void MainWindow::RepoCheckout()
 {
-    qDebug() << "Checkout Not Implmented Yet";
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    QString localRepo = Utility::DefinePrefsDir() + "/repo";
+
+    QString checkouts = Utility::DefinePrefsDir() + "/checkouts";
+    QDir coDir(checkouts);
+    if (!coDir.exists()) {
+        coDir.mkpath(checkouts);
+    }
+
+    // ensure epub opf has valid bookid and retrieve it
+    QString bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
+
+    // now perform the commit using python in a separate thread since this
+    // may take a while depending on the speed of the filesystem
+    PythonRoutines pr;
+    QFuture<QStringList> future = QtConcurrent::run(&pr, &PythonRoutines::GetRepoTagsInPython, localRepo, bookid);
+    future.waitForFinished();
+    QStringList tag_results = future.result();
+    qDebug() << "in RepoCheckout getting tag list  with result: " << tag_results;
+    if (tag_results.isEmpty()) {
+        ShowMessageOnStatusBar(tr("Checkout Failed."));
+	QApplication::restoreOverrideCursor();
+        return;
+    }
+
+    // FIXME need to add dialog to select a checkout tagname from list
+    QString tagname = "V0001";
+
+    // FIXME need to add dialog to select a filename?
+    QString filename = QFileInfo(m_CurrentFileName).completeBaseName();
+
+    QFuture<QString> afuture = QtConcurrent::run(&pr, &PythonRoutines::GenerateEpubFromTagInPython, localRepo,
+						 bookid, tagname, filename, checkouts);
+    afuture.waitForFinished();
+    QString epub_result = afuture.result();
+    if (epub_result.isEmpty()) {
+        ShowMessageOnStatusBar(tr("Epub Generate from Tag Failed."));
+	QApplication::restoreOverrideCursor();
+        return;
+    }
+    QApplication::restoreOverrideCursor();
+    ShowMessageOnStatusBar(tr("Epub Generation succeeded"));
 }
 
 void MainWindow::RepoDiff()
@@ -650,7 +693,28 @@ void MainWindow::RepoDiff()
 
 void MainWindow::RepoErase()
 {
-    qDebug() << "Erase Repo Not Implemented Yet";
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    QString localRepo = Utility::DefinePrefsDir() + "/repo";
+
+    // ensure epub opf has valid bookid and retrieve it
+    QString bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
+
+    // now perform the commit using python in a separate thread since this
+    // may take a while depending on the speed of the filesystem
+    PythonRoutines pr;
+    QFuture<bool> future = QtConcurrent::run(&pr, &PythonRoutines::PerformRepoEraseInPython, localRepo, bookid);
+    future.waitForFinished();
+    bool erase_result = future.result();
+    qDebug() << "in RepoErase with result: " << erase_result;
+    if (!erase_result) {
+        ShowMessageOnStatusBar(tr("Book Repo erasure failed."));
+	QApplication::restoreOverrideCursor();
+        return;
+    }
+
+    QApplication::restoreOverrideCursor();
+    ShowMessageOnStatusBar(tr("Book Repo was Erased"));
 }
 
 void MainWindow::launchExternalXEditor()

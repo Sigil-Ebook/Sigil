@@ -153,3 +153,76 @@ QString PythonRoutines::PerformRepoCommitInPython(const QString &localRepo,
 }
 
 
+bool PythonRoutines::PerformRepoEraseInPython(const QString& localRepo, const QString& bookid)
+{
+    bool results = false;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(localRepo));
+    args.append(QVariant(bookid));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("eraseRepo"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+        results = (res.toInt() > 0);
+    }
+    return results;
+}
+
+QStringList PythonRoutines::GetRepoTagsInPython(const QString& localRepo, const QString& bookid)
+{
+    QStringList results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(localRepo));
+    args.append(QVariant(bookid));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("get_tag_list"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+        results = res.toStringList();
+    }
+    return results;
+}
+
+
+QString PythonRoutines::GenerateEpubFromTagInPython(const QString& localRepo,
+				                    const QString& bookid,
+				                    const QString& tagname,
+				                    const QString& filename,
+				                    const QString& destpath)
+{
+    QString results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(localRepo));
+    args.append(QVariant(bookid));
+    args.append(QVariant(tagname));
+    args.append(QVariant(filename));
+    args.append(QVariant(destpath));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("generate_epub_from_tag"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+        results = res.toString();
+    }
+    return results;
+}

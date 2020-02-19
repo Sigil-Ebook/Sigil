@@ -23,8 +23,11 @@
 import sys
 import os
 import re
+import shutil
+
 import dulwich
 from dulwich import porcelain
+from dulwich.repo import Repo
 
 import zlib
 import zipfile
@@ -132,18 +135,15 @@ def copy_book_contents_to_destination(book_home, filepaths, destdir):
         if not os.path.exists(base):
             os.makedirs(base)
         data = b''
-        f = open(src, 'rb')
-        data = f.read()
-        f.close()
-        fp = open(dest,'wb')
-        fp.write(data)
-        fp.close()
+        with open(src, 'rb') as f:
+            data = f.read()
+        with open(dest,'wb') as fp:
+            fp.write(data)
         copied.append(apath)
     # Finally Add the proper mimetype file
     data = b"application/epub+zip"
-    fm = open(os.path.join(destdir,"mimetype"),'wb')
-    fm.write(data)
-    fm.close()
+    with open(os.path.join(destdir,"mimetype"),'wb') as fm:
+        fm.write(data)
     copied.append("mimetype")
     return copied
 
@@ -158,9 +158,9 @@ def add_gitignore(repo_path):
     ignoredata.append(".gitattributes")
     ignoredata.append("")
     data = "\n".join(ignoredata).encode('utf-8')
-    f1 = open(os.path.join(repo_path, ".gitignore"),'wb')
-    f1.write(data)
-    f1.close()
+    with open(os.path.join(repo_path, ".gitignore"),'wb') as f1:
+        f1.write(data)
+
 
 def add_gitattributes(repo_path):
     adata = []
@@ -170,9 +170,8 @@ def add_gitattributes(repo_path):
     adata.append(".bookinfo export-ignore")
     adata.append("")
     data = "\n".join(adata).encode('utf-8')
-    f3 = open(os.path.join(repo_path, ".gitattributes"),'wb')
-    f3.write(data)
-    f3.close()
+    with open(os.path.join(repo_path, ".gitattributes"),'wb') as f3:
+        f3.write(data)
 
 def add_bookinfo(repo_path, filename, bookid):
     bookinfo = []
@@ -180,9 +179,8 @@ def add_bookinfo(repo_path, filename, bookid):
     bookinfo.append(bookid)
     bookinfo.append("")
     data = "\n".join(bookinfo).encode('utf-8')
-    f2 = open(os.path.join(repo_path, ".bookinfo"),'wb')
-    f2.write(data)
-    f2.close()
+    with open(os.path.join(repo_path, ".bookinfo"),'wb') as f2:
+        f2.write(data)
 
 # return True if file should be copied to destination folder
 def valid_file_to_copy(rpath):
@@ -209,29 +207,66 @@ def build_epub_from_folder_contents(foldpath, epub_filepath):
     outzip.close()
 
 
-def create_epub(booktitle, foldpath):
-    # use title to create epub name
-    epubname = cleanup_file_name(booktitle) + ".epub"            
-    rv = -1
-    data = b''        
-    with make_temp_directory() as scratchdir:
-        epubpath = os.path.join(scratchdir,epubname)
-        try:
-            build_epub_from_folder_contents(foldpath, epubpath)
-            with open(epubpath,'rb') as fp:
-                data = fp.read()
-            rv = 0
-        except Exception as e:
-            print("Import from Folder failed")
-            print(str(e))
-            rv = -1
+# the entry points from Cpp
 
-    if rv == -1:
-        return -1
-    return 0
+def generate_epub_from_tag(localRepo, bookid, tagname, filename, dest_path):
+    repo_home = pathof(localRepo)
+    repo_home = repo_home.replace("/", os.sep)
+    repo_path = os.path.join(repo_home, "epub_" + bookid)
+    cdir = os.getcwd()
+    # first verify both repo and tagname exist
+    epub_filepath = ""
+    epub_name = filename + "_" + tagname + ".epub"
+    taglst = []
+    if os.path.exists(repo_path):
+        os.chdir(repo_path)
+        tags = porcelain.list_tags(repo='.')
+        for atag in tags:
+            taglst.append(unicode_str(atag))
+        if tagname not in taglst:
+            return epub_file_path
+        # make a temporary repo to clone into
+        # workaround to the fact that dulwich does not support clean checkouts
+        # of branches or tags into existing working directories nor does it support merges
+        with make_temp_directory() as scratchrepo:
+            # should clone current repo "s" into scratchrepo "r"
+            s = Repo(".")
+            r = s.clone(scratchrepo, mkdir=False, bare=False, origin=b"origin", checkout=False)
+            os.chdir(scratchrepo)
+            tagkey = utf8_str("refs/tags/" + tagname)
+            r.reset_index(r[tagkey].tree)
+            r.refs.set_symbolic_ref(b"HEAD", tagkey)
+            os.chdir(cdir)
+
+            # working directory of scratch repo should now be populated
+            epub_filepath = os.path.join(dest_path, epub_name)
+            try:
+                build_epub_from_folder_contents(scratchrepo, epub_filepath)
+            except Exception as e:
+                print("epub creation failed")
+                print(str(e))
+                epub_filepath = ""
+                pass
+        os.chdir(cdir)
+    return epub_filepath
+        
+
+def get_tag_list(localRepo, bookid):
+    repo_home = pathof(localRepo)
+    repo_home = repo_home.replace("/", os.sep)
+    repo_path = os.path.join(repo_home, "epub_" + bookid)
+    cdir = os.getcwd()
+    taglst = []
+    if os.path.exists(repo_path):
+        os.chdir(repo_path)
+        # determine the new tag
+        tags = porcelain.list_tags(repo='.')
+        for atag in tags:
+            taglst.append(unicode_str(atag))
+        os.chdir(cdir)
+    return taglst
 
 
-# the entry points
 def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
     has_error = False
     staged = []
@@ -250,11 +285,11 @@ def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
         afile = afile.replace("/", os.sep)
         filepaths.append(afile)
 
+    cdir = os.getcwd()
     if os.path.exists(repo_path):
         # handle updating the staged files and commiting and tagging
         # first collect info to determine files to delete form repo
         # current tag, etc
-        cdir = os.getcwd()
         os.chdir(repo_path)
         # determine the new tag
         tags = porcelain.list_tags(repo='.')
@@ -292,7 +327,7 @@ def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
         add_gitattributes(repo_path)
         cdir = os.getcwd()
         os.chdir(repo_path)
-        repo = porcelain.init(path='.', bare=False)
+        r = porcelain.init(path='.', bare=False)
         staged = copy_book_contents_to_destination(book_home, filepaths, repo_path)
         (added, ignored) = porcelain.add(repo='.',paths=staged)
         commit_sha1 = porcelain.commit(repo='.',message="Initial Commit", author=None, committer=None)
@@ -304,6 +339,23 @@ def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
     if not has_error:
         return result;
     return ''
+
+def eraseRepo(localRepo, bookid):
+    repo_home = pathof(localRepo)
+    repo_home = repo_home.replace("/", os.sep)
+    repo_path = os.path.join(repo_home, "epub_" + bookid)
+    success = 1
+    cdir = os.getcwd()
+    if os.path.exists(repo_path):
+        try:
+            shutil.rmtree(repo_path)
+        except Exception as e:
+            print("repo erasure failed")
+            print(str(e))
+            success = 0
+            pass
+    return success
+
 
 def main():
     argv = sys.argv
