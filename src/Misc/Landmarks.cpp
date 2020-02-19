@@ -257,6 +257,26 @@ void Landmarks::SetGuideLandMap()
     m_GuideLandMap["other.preamble"]      = "preamble";
     m_GuideLandMap["other.prologue"]      = "prologue";
     m_GuideLandMap["other.rearnotes"]     = "rearnotes";
+    // and their reverse
+    m_GuideLandMap["afterword"]     = "other.afterword";
+    m_GuideLandMap["appendix"]      = "other.appendix";
+    m_GuideLandMap["backmatter"]    = "other.backmatter";
+    m_GuideLandMap["conclusion"]    = "other.conclusion";
+    m_GuideLandMap["contributors"]  = "other.contributors";
+    m_GuideLandMap["epilogue"]      = "other.epilogue";
+    m_GuideLandMap["errata"]        = "other.errata";
+    m_GuideLandMap["footnotes"]     = "other.footnotes";
+    m_GuideLandMap["frontmatter"]   = "other.frontmatter";
+    m_GuideLandMap["halftitlepage"] = "other.halftitlepage";
+    m_GuideLandMap["imprimatur"]    = "other.imprimatur";
+    m_GuideLandMap["imprint"]       = "other.imprint";
+    m_GuideLandMap["introduction"]  = "other.introduction";
+    m_GuideLandMap["loa"]           = "other.loa";
+    m_GuideLandMap["lov"]           = "other.lov";
+    m_GuideLandMap["other-credits"] = "other.other-credits";
+    m_GuideLandMap["preamble"]      = "other.preamble";
+    m_GuideLandMap["prologue"]      = "other.prologue";
+    m_GuideLandMap["rearnotes"]     = "other.rearnotes";
 }
 
 
