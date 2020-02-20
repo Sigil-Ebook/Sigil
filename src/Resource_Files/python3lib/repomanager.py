@@ -28,6 +28,7 @@ import shutil
 import dulwich
 from dulwich import porcelain
 from dulwich.repo import Repo
+from dulwich.porcelain import open_repo_closing
 
 import zlib
 import zipfile
@@ -43,13 +44,22 @@ def make_temp_directory():
     yield temp_dir
     shutil.rmtree(temp_dir)
 
-_SKIP_LIST = [
+_SKIP_COPY_LIST = [
     'encryption.xml',
     'rights.xml',
     '.gitignore',
-    '.gitattributes'
+    '.gitattributes',
     '.bookinfo'
 ]
+
+_SKIP_CLEAN_LIST = [
+    '.gitignore',
+    '.gitattributes',
+    '.bookinfo',
+    '.git'
+]
+
+_SIGIL = b"Sigil <sigil@sigil-ebook.com>"
 
 # convert string to utf-8
 def utf8_str(p, enc='utf-8'):
@@ -188,8 +198,37 @@ def valid_file_to_copy(rpath):
     if ".git" in segs:
         return False
     filename = os.path.basename(rpath)
-    keep = filename not in _SKIP_LIST
+    keep = filename not in _SKIP_COPY_LIST
     return keep
+
+
+# clean dulwich repo skipping specific files and folders
+# returns true on success, false otherwise
+def cleanWorkingDir(folder):
+    result = True
+    if os.path.exists(folder):
+        for the_obj in os.listdir(folder):
+            obj_path = os.path.join(folder, the_obj)
+            if the_obj not in _SKIP_CLEAN_LIST:
+                if os.path.isfile(obj_path):
+                    try:
+                        os.remove(obj_path)
+                    except Exception as e:
+                        result = False
+                        print(str(e))
+                        pass
+                else:
+                    # a subdirectory is found
+                    result = cleanWorkingDir(obj_path)
+                    if not result: return result
+                    try:
+                        os.rmdir(obj_path)
+                    except Exception as e:
+                        result = False
+                        print(str(e))
+                        pass
+            if not result: return result;
+    return result
 
 
 def build_epub_from_folder_contents(foldpath, epub_filepath):
@@ -205,6 +244,37 @@ def build_epub_from_folder_contents(foldpath, epub_filepath):
             filepath = os.path.join(foldpath, file)
             outzip.write(pathof(filepath),pathof(file),zipfile.ZIP_DEFLATED)
     outzip.close()
+
+# will lose any untracked or unstaged changes    
+# so add and commit to keep them before using this
+def checkout_tag(repo_path, tagname):
+    result = True
+    cdir = os.getcwd()
+    result = cleanWorkingDir(repo_path)
+    if not result: return result
+    os.chdir(repo_path)
+    with open_repo_closing(".") as r:
+        tagkey = utf8_str("refs/tags/" + tagname)
+        r.reset_index(r[tagkey].tree)
+        # use this to reset HEAD to this tag (ie. revert)
+        # r.refs.set_symbolic_ref(b"HEAD", tagkey)
+    os.chdir(cdir)
+    return result
+
+# will lose any untracked or unstaged changes    
+# so add and commit to keep them before using this
+# Note: the Working Directory should always be left with HEAD checked out
+def checkout_head(repo_path):
+    result = True
+    cdir = os.getcwd()
+    result = cleanWorkingDir(repo_path)
+    if not result:
+        return result
+    os.chdir(repo_path)
+    with open_repo_closing(".") as r:
+        r.reset_index(r[b"HEAD"].tree)
+    os.chdir(cdir)
+    return result
 
 
 # the entry points from Cpp
@@ -230,14 +300,13 @@ def generate_epub_from_tag(localRepo, bookid, tagname, filename, dest_path):
         # of branches or tags into existing working directories nor does it support merges
         with make_temp_directory() as scratchrepo:
             # should clone current repo "s" into scratchrepo "r"
-            s = Repo(".")
-            r = s.clone(scratchrepo, mkdir=False, bare=False, origin=b"origin", checkout=False)
-            s.close()
+            with open_repo_closing(".") as s:
+                s.clone(scratchrepo, mkdir=False, bare=False, origin=b"origin", checkout=False)
             os.chdir(scratchrepo)
-            tagkey = utf8_str("refs/tags/" + tagname)
-            r.reset_index(r[tagkey].tree)
-            r.refs.set_symbolic_ref(b"HEAD", tagkey)
-            r.close()
+            with open_repo_closing(".") as r:
+                tagkey = utf8_str("refs/tags/" + tagname)
+                r.reset_index(r[tagkey].tree)
+                r.refs.set_symbolic_ref(b"HEAD", tagkey)
             os.chdir(cdir)
 
             # working directory of scratch repo should now be populated
@@ -251,7 +320,7 @@ def generate_epub_from_tag(localRepo, bookid, tagname, filename, dest_path):
                 pass
         os.chdir(cdir)
     return epub_filepath
-        
+
 
 def get_tag_list(localRepo, bookid):
     repo_home = pathof(localRepo)
@@ -296,6 +365,12 @@ def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
         # determine the new tag
         tags = porcelain.list_tags(repo='.')
         tagname = "V%04d" % (len(tags) + 1)
+        tagmessage = "Tag: " + tagname
+        message = "updating to " + tagname
+        # extra parameters must be passed as bytes if annotated is true
+        tagname = utf8_str(tagname)
+        message = utf8_str(message)
+        tagmessage = utf8_str(tagmessage)
         # delete files that are no longer needed from staging area
         tracked = []
         tracked = porcelain.ls_files(repo='.')
@@ -318,12 +393,15 @@ def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
             afile = pathof(afile)
             files_to_update.append(afile)
         (added, ignored) = porcelain.add(repo='.', paths=files_to_update)
-        commit_sha1 = porcelain.commit(repo='.',message="updating to " + tagname, author=None, committer=None)
-        tag = porcelain.tag_create(repo='.', tag=tagname, message="Tagging..." + tagname, author=None)
+        commit_sha1 = porcelain.commit(repo='.',message=message, author=_SIGIL, committer=_SIGIL)
+        # create annotated tags so we can get a date history
+        tag = porcelain.tag_create(repo='.', tag=tagname, message=tagmessage, annotated=False, author=_SIGIL)
         os.chdir(cdir)
     else:
         # this will be an initial commit to this repo
-        tagname = 'V0001'
+        tagname = b"V0001"
+        tagmessage = b'First Tag'
+        message = b"Initial Commit"
         os.makedirs(repo_path)
         add_gitignore(repo_path)
         add_gitattributes(repo_path)
@@ -332,8 +410,9 @@ def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
         r = porcelain.init(path='.', bare=False)
         staged = copy_book_contents_to_destination(book_home, filepaths, repo_path)
         (added, ignored) = porcelain.add(repo='.',paths=staged)
-        commit_sha1 = porcelain.commit(repo='.',message="Initial Commit", author=None, committer=None)
-        tag = porcelain.tag_create(repo='.', tag=tagname, message="Tagging..." + tagname, author=None)
+        # it seems author, committer, messages, and tagname only work with bytes if annotated=True
+        commit_sha1 = porcelain.commit(repo='.',message=message, author=_SIGIL, committer=_SIGIL)
+        tag = porcelain.tag_create(repo='.', tag=tagname, message=tagmessage, annotated=False, author=_SIGIL)
         os.chdir(cdir)
         add_bookinfo(repo_path, filename, bookid)
     result = "\n".join(added);
