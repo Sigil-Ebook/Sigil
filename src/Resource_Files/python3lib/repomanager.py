@@ -232,10 +232,12 @@ def generate_epub_from_tag(localRepo, bookid, tagname, filename, dest_path):
             # should clone current repo "s" into scratchrepo "r"
             s = Repo(".")
             r = s.clone(scratchrepo, mkdir=False, bare=False, origin=b"origin", checkout=False)
+            s.close()
             os.chdir(scratchrepo)
             tagkey = utf8_str("refs/tags/" + tagname)
             r.reset_index(r[tagkey].tree)
             r.refs.set_symbolic_ref(b"HEAD", tagkey)
+            r.close()
             os.chdir(cdir)
 
             # working directory of scratch repo should now be populated
