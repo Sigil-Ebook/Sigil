@@ -24,12 +24,14 @@ import sys
 import os
 import re
 import shutil
+import datetime
+import time
 
 import dulwich
 from dulwich import porcelain
 from dulwich.repo import Repo
 from dulwich.porcelain import open_repo_closing
-from dulwich.objects import Tag, Commit, Blob, check_hexsha, ShaFile, Tree
+from dulwich.objects import Tag, Commit, Blob, check_hexsha, ShaFile, Tree, format_timezone
 from dulwich.refs import ANNOTATED_TAG_SUFFIX
 
 import zlib
@@ -267,6 +269,7 @@ def checkout_tag(repo_path, tagname):
     os.chdir(cdir)
     return result
 
+
 # will lose any untracked or unstaged changes    
 # so add and commit to keep them before using this
 # Note: the Working Directory should always be left with HEAD checked out
@@ -340,13 +343,29 @@ def get_tag_list(localRepo, bookid):
     taglst = []
     if os.path.exists(repo_path):
         os.chdir(repo_path)
-        # determine the new tag
-        tags = porcelain.list_tags(repo='.')
-        for atag in tags:
-            taglst.append(unicode_str(atag))
+        with open_repo_closing(".") as r:
+            tags = sorted(r.refs.as_dict(b"refs/tags"))
+            for atag in tags:
+                tagkey = b"refs/tags/" + atag
+                obj = r[tagkey]
+                tag_name = unicode_str(atag)
+                tag_message = ""
+                tag_date = ""
+                if isinstance(obj,Tag):
+                    time_tuple = time.gmtime(obj.tag_time + obj.tag_timezone)
+                    time_str = time.strftime("%a %b %d %Y %H:%M:%S",time_tuple)
+                    timezone_str = format_timezone(obj.tag_timezone).decode('ascii')
+                    tag_date = time_str + " " + timezone_str
+                    tag_message = unicode_str(obj.message)
+                if isinstance(obj, Commit):
+                    time_tuple = time.gmtime(obj.author_time + obj.author_timezone)
+                    time_str = time.strftime("%a %b %d %Y %H:%M:%S",time_tuple)
+                    timezone_str = format_timezone(obj.author_timezone).decode('ascii')
+                    tag_date = time_str + " " + timezone_str
+                    tag_message = unicode_str(obj.message)
+                taglst.append(tag_name + "|" + tag_date + "|" + tag_message)
         os.chdir(cdir)
     return taglst
-
 
 def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
     has_error = False
