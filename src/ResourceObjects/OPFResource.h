@@ -93,7 +93,7 @@ public:
 
     void UpdateNCXLocationInManifest(const NCXResource *ncx);
 
-    void AddModificationDateMeta();
+    QString AddModificationDateMeta();
 
     void AddSigilVersionMeta();
 

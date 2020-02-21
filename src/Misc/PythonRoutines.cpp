@@ -29,7 +29,7 @@
 
 QString PythonRoutines::GenerateNcxInPython(const QString &navdata, const QString &navbkpath, 
                                             const QString &ncxdir, const QString &doctitle, 
-					    const QString & mainid)
+					    const QString &mainid)
 {
     QString results;
     int rv = -1;
@@ -125,7 +125,7 @@ QString PythonRoutines::SetNewMetadataInPython(const MetadataPieces& mdp, const 
 
 QString PythonRoutines::PerformRepoCommitInPython(const QString &localRepo, 
 						  const QString &bookid, 
-						  const QString &filename,
+						  const QStringList &bookinfo,
 						  const QString &bookroot, 
 						  const QStringList &bookfiles) 
 {
@@ -135,7 +135,7 @@ QString PythonRoutines::PerformRepoCommitInPython(const QString &localRepo,
     QList<QVariant> args;
     args.append(QVariant(localRepo));
     args.append(QVariant(bookid));
-    args.append(QVariant(filename));
+    args.append(QVariant(bookinfo));
     args.append(QVariant(bookroot));
     args.append(QVariant(bookfiles));
 

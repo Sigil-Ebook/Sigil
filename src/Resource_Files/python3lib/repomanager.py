@@ -187,12 +187,16 @@ def add_gitattributes(repo_path):
     with open(os.path.join(repo_path, ".gitattributes"),'wb') as f3:
         f3.write(data)
 
-def add_bookinfo(repo_path, filename, bookid):
-    bookinfo = []
-    bookinfo.append(filename)
-    bookinfo.append(bookid)
-    bookinfo.append("")
-    data = "\n".join(bookinfo).encode('utf-8')
+def add_bookinfo(repo_path, bookinfo, bookid):
+    (filename, booktitle, datetime) = bookinfo
+    booktitle = booktitle.replace("\n", " ")
+    bkdata = []
+    bkdata.append(filename)
+    bkdata.append(booktitle)
+    bkdata.append(datetime)
+    bkdata.append(bookid)
+    bkdata.append("")
+    data = "\n".join(bkdata).encode('utf-8')
     with open(os.path.join(repo_path, ".bookinfo"),'wb') as f2:
         f2.write(data)
 
@@ -405,7 +409,7 @@ def get_tag_list(localRepo, bookid):
         os.chdir(cdir)
     return taglst
 
-def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
+def performCommit(localRepo, bookid, bookinfo, bookroot, bookfiles):
     has_error = False
     staged = []
     added=[]
@@ -481,7 +485,7 @@ def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
         commit_sha1 = porcelain.commit(repo='.',message=message, author=_SIGIL, committer=_SIGIL)
         tag = porcelain.tag_create(repo='.', tag=tagname, message=tagmessage, annotated=True, author=_SIGIL)
         os.chdir(cdir)
-        add_bookinfo(repo_path, filename, bookid)
+        add_bookinfo(repo_path, bookinfo, bookid)
     result = "\n".join(added);
     result = result + "***********" + "\n".join(ignored)
     if not has_error:

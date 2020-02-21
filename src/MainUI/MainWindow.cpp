@@ -597,13 +597,11 @@ void MainWindow::RepoCommit()
     // ensure epub opf has valid bookid and retrieve it
     QString bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
 
-    // update the modification date metadata to the current date and time
-    m_Book->GetOPF()->AddModificationDateMeta();
-
-    // get the primary book title in case we need it for later
-    // QString booktitle = m_Book->GetOPF()->GetPrimaryBookTitle();
-
-    QString filename = QFileInfo(m_CurrentFileName).completeBaseName();
+    // collect additional book info (file name, title, datetime)
+    QStringList bookinfo;
+    bookinfo << QFileInfo(m_CurrentFileName).completeBaseName();
+    bookinfo << m_Book->GetOPF()->GetPrimaryBookTitle();
+    bookinfo <<  m_Book->GetOPF()->AddModificationDateMeta();
 
     // finally force all changes to Disk
     SaveTabData();
@@ -624,7 +622,7 @@ void MainWindow::RepoCommit()
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
     QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::PerformRepoCommitInPython, localRepo, 
-                                                bookid, filename, bookroot, bookfiles);
+                                                bookid, bookinfo, bookroot, bookfiles);
     future.waitForFinished();
     QString commit_result = future.result();
 

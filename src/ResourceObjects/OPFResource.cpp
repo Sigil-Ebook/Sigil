@@ -1152,8 +1152,13 @@ void OPFResource::WriteIdentifier(const QString &metaname, const QString &metava
     p.m_metadata.append(me);
 }
 
-void OPFResource::AddModificationDateMeta()
+QString OPFResource::AddModificationDateMeta()
 {
+    QString datetime;
+    QDateTime local(QDateTime::currentDateTime());
+    local.setTimeSpec(Qt::UTC);
+    datetime = local.toString(Qt::ISODate);
+
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
@@ -1163,9 +1168,6 @@ void OPFResource::AddModificationDateMeta()
     if (epubversion.startsWith('3')) {
 
         // epub 3 set dcterms:modified date time in ISO 8601 format
-        QDateTime local(QDateTime::currentDateTime());
-        local.setTimeSpec(Qt::UTC);
-        QString datetime = local.toString(Qt::ISODate);
         // if an entry exists, update it
         for (int i=0; i < p.m_metadata.count(); ++i) {
             MetaEntry me = p.m_metadata.at(i);
@@ -1175,7 +1177,7 @@ void OPFResource::AddModificationDateMeta()
                     me.m_content = datetime;
                     p.m_metadata.replace(i, me);
                     UpdateText(p);
-                    return;
+                    return datetime;
                 }
             }
         }
@@ -1186,7 +1188,7 @@ void OPFResource::AddModificationDateMeta()
         me.m_atts["property"]="dcterms:modified";
         p.m_metadata.append(me);
         UpdateText(p);
-        return;
+        return datetime;
     }   
     // epub 2 version 
     QString date;
@@ -1204,7 +1206,7 @@ void OPFResource::AddModificationDateMeta()
                 me.m_content = date;
                 p.m_metadata.replace(i, me);
                 UpdateText(p);
-                return;
+                return datetime;
             }
             
         }
@@ -1217,6 +1219,7 @@ void OPFResource::AddModificationDateMeta()
     me.m_atts[QString("opf:event")] = QString("modification");
     p.m_metadata.append(me);
     UpdateText(p);
+    return datetime;
 }
 
 
