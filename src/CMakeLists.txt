@@ -149,6 +149,8 @@ set( DIALOG_FILES
     Dialogs/RETable.h
     Dialogs/SelectCharacter.cpp
     Dialogs/SelectCharacter.h
+    Dialogs/SelectCheckpoint.cpp
+    Dialogs/SelectCheckpoint.h
     Dialogs/SelectFolder.cpp
     Dialogs/SelectFolder.h
     Dialogs/SelectHyperlink.cpp
@@ -481,6 +483,7 @@ set( UI_FILES
     Form_Files/ReportsStylesInCSSFilesWidget.ui
     Form_Files/ReportsCharactersInHTMLFilesWidget.ui
     Form_Files/LinkStylesheets.ui
+    Form_Files/SelectCheckpoint.ui
     Form_Files/SearchEditor.ui
     Form_Files/ClipEditor.ui
     Form_Files/IndexEditor.ui

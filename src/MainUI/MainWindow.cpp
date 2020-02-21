@@ -67,6 +67,7 @@
 #include "Dialogs/Preferences.h"
 #include "Dialogs/SearchEditor.h"
 #include "Dialogs/SelectCharacter.h"
+#include "Dialogs/SelectCheckpoint.h"
 #include "Dialogs/SelectFiles.h"
 #include "Dialogs/SelectHyperlink.h"
 #include "Dialogs/SelectId.h"
@@ -662,19 +663,30 @@ void MainWindow::RepoCheckout()
     QStringList tag_results = future.result();
     qDebug() << "in RepoCheckout getting tag list  with result: " << tag_results;
     if (tag_results.isEmpty()) {
-        ShowMessageOnStatusBar(tr("Checkout Failed."));
+        ShowMessageOnStatusBar(tr("Checkout Failed. No checkpoints found"));
 	QApplication::restoreOverrideCursor();
         return;
     }
 
-    // FIXME need to add dialog to select a checkout tagname from list
-    QString tagname = "V0001";
+    // Now create a Dialog to allow the user to select a tag (checkpoint)
+    QString tagname;
+    SelectCheckpoint gettag(tag_results, this);
+    if (gettag.exec() == QDialog::Accepted) {
+	QStringList taglst  = gettag.GetSelectedEntries();
+	if (!taglst.isEmpty()) {
+	    tagname = taglst.at(0);
+	}
+    }
+    if (tagname.isEmpty()) {
+        ShowMessageOnStatusBar(tr("Checkout Failed. No checkpoint selected"));
+	QApplication::restoreOverrideCursor();
+        return;
+    }
 
-    // FIXME need to add dialog to select a filename?
     QString filename = QFileInfo(m_CurrentFileName).completeBaseName();
 
-    QFuture<QString> afuture = QtConcurrent::run(&pr, &PythonRoutines::GenerateEpubFromTagInPython, localRepo,
-						 bookid, tagname, filename, checkouts);
+    QFuture<QString> afuture = QtConcurrent::run(&pr, &PythonRoutines::GenerateEpubFromTagInPython, 
+						 localRepo, bookid, tagname, filename, checkouts);
     afuture.waitForFinished();
     QString epub_result = afuture.result();
     if (epub_result.isEmpty()) {
