@@ -208,6 +208,8 @@ def valid_file_to_copy(rpath):
 
 # clean dulwich repo skipping specific files and folders
 # returns true on success, false otherwise
+# folder is a full path to the folder
+# make sure the cwd is not this folder to prevent erase issues
 def cleanWorkingDir(folder):
     result = True
     if os.path.exists(folder):
@@ -251,6 +253,7 @@ def build_epub_from_folder_contents(foldpath, epub_filepath):
 
 # will lose any untracked or unstaged changes    
 # so add and commit to keep them before using this
+# repo_path here must be a full path
 def checkout_tag(repo_path, tagname):
     result = True
     cdir = os.getcwd()
@@ -266,12 +269,15 @@ def checkout_tag(repo_path, tagname):
         r.reset_index(r[refkey].tree)
         # use this to reset HEAD to this tag (ie. revert)
         # r.refs.set_symbolic_ref(b"HEAD", tagkey)
+        # cd out **before** the repo closes
+        os.chdir(cdir) 
     os.chdir(cdir)
     return result
 
 
 # will lose any untracked or unstaged changes    
 # so add and commit to keep them before using this
+# repo_path must be a full path
 # Note: the Working Directory should always be left with HEAD checked out
 def checkout_head(repo_path):
     result = True
@@ -282,8 +288,45 @@ def checkout_head(repo_path):
     os.chdir(repo_path)
     with open_repo_closing(".") as r:
         r.reset_index(r[b"HEAD"].tree)
+        # cd out **before** the repo closes
+        os.chdir(cdir)
     os.chdir(cdir)
     return result
+
+def clone_repo_and_checkout_tag(localRepo, bookid, tagname, filename, dest_path):
+    repo_home = pathof(localRepo)
+    repo_home = repo_home.replace("/", os.sep)
+    repo_path = os.path.join(repo_home, "epub_" + bookid)
+    dest_path = dest_path.replace("/", os.sep)
+    cdir = os.getcwd()
+    # first verify both repo and tagname exist
+    taglst = []
+    if os.path.exists(repo_path):
+        if not os.path.exists(dest_path): return ""
+        os.chdir(repo_path)
+        tags = porcelain.list_tags(repo='.')
+        for atag in tags:
+            taglst.append(unicode_str(atag))
+        # use dest_path to clone into
+        # clone current repo "s" into new repo "r"
+        with open_repo_closing(".") as s:
+            s.clone(dest_path, mkdir=False, bare=False, origin=b"origin", checkout=False)
+            # cd out **before** the repo closes
+            os.chdir(dest_path)
+        with open_repo_closing(".") as r:
+            if tagname not in taglist or tagname == "HEAD":
+                tagkey = utf8_str("HEAD")
+            else:
+                tagkey = utf8_str("refs/tags/" + tagname)
+            refkey = tagkey
+            # if annotated tag get the commit id it pointed to instead
+            if isinstance(r[tagkey], Tag):
+                refkey = r[tagkey].object[1]
+            r.reset_index(r[refkey].tree)
+            r.refs.set_symbolic_ref(b"HEAD", tagkey)
+            # cd out **before** the repo closes
+            os.chdir(cdir)
+    return "success"
 
 
 # the entry points from Cpp
@@ -300,38 +343,33 @@ def generate_epub_from_tag(localRepo, bookid, tagname, filename, dest_path):
     if os.path.exists(repo_path):
         os.chdir(repo_path)
         tags = porcelain.list_tags(repo='.')
+        os.chdir(cdir)
         for atag in tags:
             taglst.append(unicode_str(atag))
         if tagname not in taglst:
             return epub_file_path
-        # make a temporary repo to clone into
-        # workaround to the fact that dulwich does not support clean checkouts
-        # of branches or tags into existing working directories nor does it support merges
-        with make_temp_directory() as scratchrepo:
-            # should clone current repo "s" into scratchrepo "r"
-            with open_repo_closing(".") as s:
-                s.clone(scratchrepo, mkdir=False, bare=False, origin=b"origin", checkout=False)
-            os.chdir(scratchrepo)
-            with open_repo_closing(".") as r:
-                tagkey = utf8_str("refs/tags/" + tagname)
-                refkey = tagkey
-                # if annotated tag get the commit id it pointed to instead
-                if isinstance(r[tagkey], Tag):
-                    refkey = r[tagkey].object[1]
-                r.reset_index(r[refkey].tree)
-                r.refs.set_symbolic_ref(b"HEAD", tagkey)
-            os.chdir(cdir)
 
-            # working directory of scratch repo should now be populated
-            epub_filepath = os.path.join(dest_path, epub_name)
-            try:
-                build_epub_from_folder_contents(scratchrepo, epub_filepath)
-            except Exception as e:
-                print("epub creation failed")
-                print(str(e))
-                epub_filepath = ""
-                pass
-        os.chdir(cdir)
+        # FIXME: there should **never** be unstaged changes or untracked files
+        # in the repo because of how Sigil handles it, but we really should use
+        # dulwich status to verify that before proceeding and abort otherwise.
+        # Just in case the user uses command line git to manipulate the repo 
+        # outside of Sigil's control leaving it in a dirty state
+
+        # Instead of cloning an entire repo just to do a checkout
+        # of a tag, do all work in the current repo
+        checkout_tag(repo_path, tagname)
+
+        # working directory of the repo should now be populated
+        epub_filepath = os.path.join(dest_path, epub_name)
+        try:
+            build_epub_from_folder_contents(repo_path, epub_filepath)
+        except Exception as e:
+            print("epub creation failed")
+            print(str(e))
+            epub_filepath = ""
+            pass
+        # **always** restore the repo working directory HEAD before leaving
+        checkout_head(repo_path)
     return epub_filepath
 
 
@@ -449,6 +487,7 @@ def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
     if not has_error:
         return result;
     return ''
+
 
 def eraseRepo(localRepo, bookid):
     repo_home = pathof(localRepo)

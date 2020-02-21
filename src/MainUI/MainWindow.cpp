@@ -642,7 +642,6 @@ void MainWindow::RepoCommit()
 
 void MainWindow::RepoCheckout()
 {
-    QApplication::setOverrideCursor(Qt::WaitCursor);
 
     QString localRepo = Utility::DefinePrefsDir() + "/repo";
 
@@ -654,6 +653,8 @@ void MainWindow::RepoCheckout()
 
     // ensure epub opf has valid bookid and retrieve it
     QString bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
 
     // now perform the commit using python in a separate thread since this
     // may take a while depending on the speed of the filesystem
@@ -668,6 +669,8 @@ void MainWindow::RepoCheckout()
         return;
     }
 
+    QApplication::restoreOverrideCursor();
+
     // Now create a Dialog to allow the user to select a tag (checkpoint)
     QString tagname;
     SelectCheckpoint gettag(tag_results, this);
@@ -679,11 +682,12 @@ void MainWindow::RepoCheckout()
     }
     if (tagname.isEmpty()) {
         ShowMessageOnStatusBar(tr("Checkout Failed. No checkpoint selected"));
-	QApplication::restoreOverrideCursor();
         return;
     }
 
     QString filename = QFileInfo(m_CurrentFileName).completeBaseName();
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
 
     QFuture<QString> afuture = QtConcurrent::run(&pr, &PythonRoutines::GenerateEpubFromTagInPython, 
 						 localRepo, bookid, tagname, filename, checkouts);
