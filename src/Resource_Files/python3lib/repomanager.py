@@ -29,6 +29,8 @@ import dulwich
 from dulwich import porcelain
 from dulwich.repo import Repo
 from dulwich.porcelain import open_repo_closing
+from dulwich.objects import Tag, Commit, Blob, check_hexsha, ShaFile, Tree
+from dulwich.refs import ANNOTATED_TAG_SUFFIX
 
 import zlib
 import zipfile
@@ -255,7 +257,11 @@ def checkout_tag(repo_path, tagname):
     os.chdir(repo_path)
     with open_repo_closing(".") as r:
         tagkey = utf8_str("refs/tags/" + tagname)
-        r.reset_index(r[tagkey].tree)
+        refkey = tagkey
+        # if annotated tag get the commit it pointed to
+        if isinstance(r[tagkey], Tag):
+            refkey = r[tagkey].object[1]
+        r.reset_index(r[refkey].tree)
         # use this to reset HEAD to this tag (ie. revert)
         # r.refs.set_symbolic_ref(b"HEAD", tagkey)
     os.chdir(cdir)
@@ -305,7 +311,11 @@ def generate_epub_from_tag(localRepo, bookid, tagname, filename, dest_path):
             os.chdir(scratchrepo)
             with open_repo_closing(".") as r:
                 tagkey = utf8_str("refs/tags/" + tagname)
-                r.reset_index(r[tagkey].tree)
+                refkey = tagkey
+                # if annotated tag get the commit id it pointed to instead
+                if isinstance(r[tagkey], Tag):
+                    refkey = r[tagkey].object[1]
+                r.reset_index(r[refkey].tree)
                 r.refs.set_symbolic_ref(b"HEAD", tagkey)
             os.chdir(cdir)
 
@@ -395,7 +405,7 @@ def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
         (added, ignored) = porcelain.add(repo='.', paths=files_to_update)
         commit_sha1 = porcelain.commit(repo='.',message=message, author=_SIGIL, committer=_SIGIL)
         # create annotated tags so we can get a date history
-        tag = porcelain.tag_create(repo='.', tag=tagname, message=tagmessage, annotated=False, author=_SIGIL)
+        tag = porcelain.tag_create(repo='.', tag=tagname, message=tagmessage, annotated=True, author=_SIGIL)
         os.chdir(cdir)
     else:
         # this will be an initial commit to this repo
@@ -412,7 +422,7 @@ def performCommit(localRepo, bookid, filename, bookroot, bookfiles):
         (added, ignored) = porcelain.add(repo='.',paths=staged)
         # it seems author, committer, messages, and tagname only work with bytes if annotated=True
         commit_sha1 = porcelain.commit(repo='.',message=message, author=_SIGIL, committer=_SIGIL)
-        tag = porcelain.tag_create(repo='.', tag=tagname, message=tagmessage, annotated=False, author=_SIGIL)
+        tag = porcelain.tag_create(repo='.', tag=tagname, message=tagmessage, annotated=True, author=_SIGIL)
         os.chdir(cdir)
         add_bookinfo(repo_path, filename, bookid)
     result = "\n".join(added);
