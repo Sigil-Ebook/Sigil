@@ -730,7 +730,7 @@ u sure you want to proceed"));
 	    proceed = true;
 	}
 	if (proceed) {
-	    m_mainWindow->LoadFile(epub_result, true);
+	    LoadFile(epub_result, true);
 	}
 #endif
     }
