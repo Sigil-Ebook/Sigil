@@ -243,9 +243,9 @@ public slots:
     void launchExternalXEditor();
 
     void RepoCommit();
-    void RepoCheckout();
+    void RepoCheckout(QString bookid="", QString destpath="", QString fielname="", bool loadnow=true);
     void RepoDiff();
-    void RepoErase();
+    void RepoManage();
 
     void StandardizeEpub();
 

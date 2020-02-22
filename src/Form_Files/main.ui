@@ -424,7 +424,7 @@
    <addaction name="actionCommit"/>
    <addaction name="actionCheckout"/>
    <addaction name="actionDiff"/>
-   <addaction name="actionEraseRepo"/>
+   <addaction name="actionManageRepo"/>
   </widget>
   <widget class="QToolBar" name="toolBarTextManip">
    <property name="windowTitle">
@@ -2708,13 +2708,13 @@
     <string>Compare Epub against Checkpoint</string>
    </property>
   </action>
-  <action name="actionEraseRepo">
+  <action name="actionManageRepo">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/git-erase_48px.png</normaloff>:/main/git-erase_48px.png</iconset>
+     <normaloff>:/main/git-manage_48px.png</normaloff>:/main/git-manage_48px.png</iconset>
    </property>
    <property name="text">
-    <string>Erase Unneeded Checkpoint Repositories</string>
+    <string>Manage Checkpoint Repositories</string>
    </property>
   </action>
  </widget>

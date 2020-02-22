@@ -639,19 +639,28 @@ void MainWindow::RepoCommit()
     ShowMessageOnStatusBar(tr("Checkpoint saved."));
 }
 
-void MainWindow::RepoCheckout()
+// handle both the current epub and the general case
+void MainWindow::RepoCheckout(QString bookid, QString destdir, QString filename, bool loadnow)
 {
-
     QString localRepo = Utility::DefinePrefsDir() + "/repo";
 
-    QString checkouts = Utility::DefinePrefsDir() + "/checkouts";
-    QDir coDir(checkouts);
+    if (destdir.isEmpty()) {
+	destdir = Utility::DefinePrefsDir() + "/checkouts";
+    }
+    QDir coDir(destdir);
     if (!coDir.exists()) {
-        coDir.mkpath(checkouts);
+        coDir.mkpath(destdir);
     }
 
-    // ensure epub opf has valid bookid and retrieve it
-    QString bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
+    if (bookid.isEmpty()) {
+        // use current epub's bookid and create one if needed
+        bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
+    }
+
+    if (filename.isEmpty()) {
+        // use current epub's filename
+        filename = QFileInfo(m_CurrentFileName).completeBaseName();
+    }
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
@@ -684,12 +693,10 @@ void MainWindow::RepoCheckout()
         return;
     }
 
-    QString filename = QFileInfo(m_CurrentFileName).completeBaseName();
-
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     QFuture<QString> afuture = QtConcurrent::run(&pr, &PythonRoutines::GenerateEpubFromTagInPython, 
-						 localRepo, bookid, tagname, filename, checkouts);
+						 localRepo, bookid, tagname, filename, destdir);
     afuture.waitForFinished();
     QString epub_result = afuture.result();
     if (epub_result.isEmpty()) {
@@ -699,6 +706,34 @@ void MainWindow::RepoCheckout()
     }
     QApplication::restoreOverrideCursor();
     ShowMessageOnStatusBar(tr("Epub Generation succeeded"));
+
+    if (loadnow) {
+#ifdef Q_OS_MAC
+	MainWindow *new_window = new MainWindow(epub_result, "", true);
+	new_window->show();
+	new_window->activateWindow();
+#else
+	// For Linux and Windows will replace current book                                                      
+	// So Throw Up a Dialog to See if they want to proceed                                                  
+	bool proceed = false;
+	QMessageBox msgBox;
+	msgBox.setIcon(QMessageBox::Warning);
+	msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
+	msgBox.setWindowTitle(tr("Repository Checkout"));
+	msgBox.setText(tr("Your current book will be completely replaced losing any unsaved changes ...  Are yo\
+u sure you want to proceed"));
+	QPushButton *yesButton = msgBox.addButton(QMessageBox::Yes);
+	QPushButton *noButton =  msgBox.addButton(QMessageBox::No);
+	msgBox.setDefaultButton(noButton);
+	msgBox.exec();
+	if (msgBox.clickedButton() == yesButton) {
+	    proceed = true;
+	}
+	if (proceed) {
+	    m_mainWindow->LoadFile(epub_result, true);
+	}
+#endif
+    }
 }
 
 void MainWindow::RepoDiff()
@@ -706,7 +741,7 @@ void MainWindow::RepoDiff()
     qDebug() << "Diff Not Implemented Yet";
 }
 
-void MainWindow::RepoErase()
+void MainWindow::RepoManage()
 {
     ManageRepos mr(this);
     mr.exec();
@@ -5351,10 +5386,10 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/git-diff_22px.png"));
     ui.actionDiff->setIcon(icon);
 
-    icon = ui.actionEraseRepo->icon();
-    icon.addFile(QString::fromUtf8(":/main/git-erase_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/git-erase_22px.png"));
-    ui.actionEraseRepo->setIcon(icon);
+    icon = ui.actionManageRepo->icon();
+    icon.addFile(QString::fromUtf8(":/main/git-manage_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/git-manage_22px.png"));
+    ui.actionManageRepo->setIcon(icon);
 
     icon = ui.actionXEditor->icon();
     icon.addFile(QString::fromUtf8(":/main/document-edit_16px.png"));
@@ -5783,7 +5818,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionCommit,        SIGNAL(triggered()), this, SLOT(RepoCommit()));
     connect(ui.actionCheckout,      SIGNAL(triggered()), this, SLOT(RepoCheckout()));
     connect(ui.actionDiff,          SIGNAL(triggered()), this, SLOT(RepoDiff()));
-    connect(ui.actionEraseRepo,     SIGNAL(triggered()), this, SLOT(RepoErase()));
+    connect(ui.actionManageRepo,    SIGNAL(triggered()), this, SLOT(RepoManage()));
 
     // Edit
     connect(ui.actionXEditor,         SIGNAL(triggered()), this, SLOT(launchExternalXEditor()));
