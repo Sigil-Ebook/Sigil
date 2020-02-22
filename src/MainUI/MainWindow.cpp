@@ -62,6 +62,7 @@
 #include "Dialogs/EmptyLayout.h"
 #include "Dialogs/HeadingSelector.h"
 #include "Dialogs/LinkStylesheets.h"
+#include "Dialogs/ManageRepos.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/PluginRunner.h"
 #include "Dialogs/Preferences.h"
@@ -707,28 +708,8 @@ void MainWindow::RepoDiff()
 
 void MainWindow::RepoErase()
 {
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-
-    QString localRepo = Utility::DefinePrefsDir() + "/repo";
-
-    // ensure epub opf has valid bookid and retrieve it
-    QString bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
-
-    // now perform the commit using python in a separate thread since this
-    // may take a while depending on the speed of the filesystem
-    PythonRoutines pr;
-    QFuture<bool> future = QtConcurrent::run(&pr, &PythonRoutines::PerformRepoEraseInPython, localRepo, bookid);
-    future.waitForFinished();
-    bool erase_result = future.result();
-    qDebug() << "in RepoErase with result: " << erase_result;
-    if (!erase_result) {
-        ShowMessageOnStatusBar(tr("Book Repo erasure failed."));
-	QApplication::restoreOverrideCursor();
-        return;
-    }
-
-    QApplication::restoreOverrideCursor();
-    ShowMessageOnStatusBar(tr("Book Repo was Erased"));
+    ManageRepos mr(this);
+    mr.exec();
 }
 
 void MainWindow::launchExternalXEditor()
