@@ -365,7 +365,7 @@ bool Utility::removeDir(const QString &dirName)
             if (info.isDir()) {
                 result = removeDir(info.absoluteFilePath());
             } else {
-                result = QFile::remove(info.absoluteFilePath());
+                result = SDeleteFile(info.absoluteFilePath());
             }
 
             if (!result) {
@@ -374,7 +374,6 @@ bool Utility::removeDir(const QString &dirName)
         }
         result = dir.rmdir(dirName);
     }
-
     return result;
 }
 
