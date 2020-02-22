@@ -141,6 +141,8 @@ set( DIALOG_FILES
     Dialogs/EditTOC.h
     Dialogs/EmptyLayout.cpp
     Dialogs/EmptyLayout.h
+    Dialogs/ManageRepos.cpp
+    Dialogs/ManageRepos.h
     Dialogs/OpenWithName.cpp
     Dialogs/OpenWithName.h
     Dialogs/RERenamer.cpp
@@ -447,6 +449,7 @@ set( UI_FILES
     Form_Files/ClipboardHistorySelector.ui
     Form_Files/DeleteFiles.ui
     Form_Files/DeleteStyles.ui
+    Form_Files/ManageRepos.ui
     Form_Files/OpenWithName.ui
     Form_Files/RERenamer.ui
     Form_Files/RETable.ui
