@@ -187,17 +187,21 @@ def add_gitattributes(repo_path):
     with open(os.path.join(repo_path, ".gitattributes"),'wb') as f3:
         f3.write(data)
 
-def add_bookinfo(repo_path, bookinfo, bookid):
+def add_bookinfo(repo_path, bookinfo, bookid, tagname):
+    binfo_path = os.path.join(repo_path,".bookinfo");
+    if os.path.exists(binfo_path):
+        os.remove(binfo_path)
     (filename, booktitle, datetime) = bookinfo
     booktitle = booktitle.replace("\n", " ")
     bkdata = []
     bkdata.append(filename)
     bkdata.append(booktitle)
     bkdata.append(datetime)
+    bkdata.append(tagname)
     bkdata.append(bookid)
     bkdata.append("")
     data = "\n".join(bkdata).encode('utf-8')
-    with open(os.path.join(repo_path, ".bookinfo"),'wb') as f2:
+    with open(binfo_path,'wb') as f2:
         f2.write(data)
 
 # return True if file should be copied to destination folder
@@ -468,6 +472,7 @@ def performCommit(localRepo, bookid, bookinfo, bookroot, bookfiles):
         # create annotated tags so we can get a date history
         tag = porcelain.tag_create(repo='.', tag=tagname, message=tagmessage, annotated=True, author=_SIGIL)
         os.chdir(cdir)
+        add_bookinfo(repo_path, bookinfo, bookid, unicode_str(tagname))
     else:
         # this will be an initial commit to this repo
         tagname = b"V0001"
@@ -485,7 +490,7 @@ def performCommit(localRepo, bookid, bookinfo, bookroot, bookfiles):
         commit_sha1 = porcelain.commit(repo='.',message=message, author=_SIGIL, committer=_SIGIL)
         tag = porcelain.tag_create(repo='.', tag=tagname, message=tagmessage, annotated=True, author=_SIGIL)
         os.chdir(cdir)
-        add_bookinfo(repo_path, bookinfo, bookid)
+        add_bookinfo(repo_path, bookinfo, bookid, unicode_str(tagname))
     result = "\n".join(added);
     result = result + "***********" + "\n".join(ignored)
     if not has_error:
