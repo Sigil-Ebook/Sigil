@@ -63,7 +63,12 @@ public:
 				        const QString& bookid,
 				        const QString& tagname,
                                         const QString& filename, 
-				        const QString& destpath ); 
+				        const QString& destpath );
+
+    QString GenerateDiffFromCheckPoints(const QString& localRepo,
+                        const QString& bookid,
+                        const QString& leftchkpoint,
+                        const QString& rightchkpoint);
 
 private:
 

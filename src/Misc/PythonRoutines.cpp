@@ -226,3 +226,31 @@ QString PythonRoutines::GenerateEpubFromTagInPython(const QString& localRepo,
     }
     return results;
 }
+
+
+QString PythonRoutines::GenerateDiffFromCheckPoints(const QString& localRepo,
+                                    const QString& bookid,
+                                    const QString& leftchkpoint,
+                                    const QString& rightchkpoint)
+{
+    QString results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(localRepo));
+    args.append(QVariant(bookid));
+    args.append(QVariant(leftchkpoint));
+    args.append(QVariant(rightchkpoint));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("generate_diff_from_checkpoints"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+        results = res.toString();
+    }
+    return results;
+}

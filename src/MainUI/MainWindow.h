@@ -244,7 +244,7 @@ public slots:
 
     void RepoCommit();
     void RepoCheckout(QString bookid="", QString destpath="", QString fielname="", bool loadnow=true);
-    void RepoDiff();
+    void RepoDiff(QString bookid="");
     void RepoManage();
 
     void StandardizeEpub();

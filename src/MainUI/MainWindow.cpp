@@ -736,9 +736,81 @@ u sure you want to proceed"));
     }
 }
 
-void MainWindow::RepoDiff()
+void MainWindow::RepoDiff(QString bookid)
 {
-    qDebug() << "Diff Not Implemented Yet";
+    QString localRepo = Utility::DefinePrefsDir() + "/repo";
+    QDir repoDir(localRepo);
+    if (!repoDir.exists()) {
+        // No repo folder, no checkpoints
+        ShowMessageOnStatusBar(tr("Diff Failed. No checkpoints found"));
+        return;
+    }
+    if (bookid.isEmpty()) {
+        // use current epub's bookid and create one if needed
+        bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
+    }
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // Get tags using python in a separate thread since this
+    // may take a while depending on the speed of the filesystem
+    PythonRoutines pr;
+    QFuture<QStringList> future = QtConcurrent::run(&pr, &PythonRoutines::GetRepoTagsInPython, localRepo, bookid);
+    future.waitForFinished();
+    QStringList tag_results = future.result();
+    qDebug() << "in RepoDiff getting tag list  with result: " << tag_results;
+    if (tag_results.isEmpty()) {
+        ShowMessageOnStatusBar(tr("Diff Failed. No checkpoints found"));
+        QApplication::restoreOverrideCursor();
+        return;
+    }
+    QApplication::restoreOverrideCursor();
+
+    // Reuse SelectCheckpoint for the time being
+    // Now create a Dialog to allow the user to select left diff tree
+    QString chkpoint1;
+    SelectCheckpoint gettagleft(tag_results, this);
+    if (gettagleft.exec() == QDialog::Accepted) {
+        QStringList taglst  = gettagleft.GetSelectedEntries();
+        if (!taglst.isEmpty()) {
+            chkpoint1 = taglst.at(0);
+        }
+    }
+    if (chkpoint1.isEmpty()) {
+        ShowMessageOnStatusBar(tr("Diff Failed. No left checkpoint selected for comparison"));
+        return;
+    }
+
+    // Now create a Dialog to allow the user to select right diff tree
+    QString chkpoint2;
+    SelectCheckpoint gettagright(tag_results, this);
+    if (gettagright.exec() == QDialog::Accepted) {
+        QStringList taglst  = gettagright.GetSelectedEntries();
+        if (!taglst.isEmpty()) {
+            chkpoint2 = taglst.at(0);
+        }
+    }
+    if (chkpoint2.isEmpty()) {
+        ShowMessageOnStatusBar(tr("Diff Failed. No right checkpoint selectedfor comparison"));
+        return;
+    }
+
+    // TODO: implement a way to use current bookfiles as right diff tree
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    QFuture<QString> afuture = QtConcurrent::run(&pr, &PythonRoutines::GenerateDiffFromCheckPoints, 
+                         localRepo, bookid, chkpoint1, chkpoint2);
+    afuture.waitForFinished();
+    QString diff_result = afuture.result();
+    if (diff_result.isEmpty()) {
+        ShowMessageOnStatusBar(tr("Diff failed"));
+        QApplication::restoreOverrideCursor();
+        return;
+    }
+    // Dulwich unified diff for now. May eventually build diffs from "live" trees in C++.
+    QApplication::restoreOverrideCursor();
+    ShowMessageOnStatusBar(tr("Diff successful"));
+    qDebug() << diff_result;
+   
 }
 
 void MainWindow::RepoManage()

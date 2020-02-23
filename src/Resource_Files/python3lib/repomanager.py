@@ -26,6 +26,7 @@ import re
 import shutil
 import datetime
 import time
+import io
 
 import dulwich
 from dulwich import porcelain
@@ -33,6 +34,7 @@ from dulwich.repo import Repo
 from dulwich.porcelain import open_repo_closing
 from dulwich.objects import Tag, Commit, Blob, check_hexsha, ShaFile, Tree, format_timezone
 from dulwich.refs import ANNOTATED_TAG_SUFFIX
+from dulwich.patch import write_tree_diff
 
 import zlib
 import zipfile
@@ -513,6 +515,30 @@ def eraseRepo(localRepo, bookid):
             success = 0
             pass
     return success
+
+
+def generate_diff_from_checkpoints(localRepo, bookid, leftchkpoint, rightchkpoint):
+    repo_home = pathof(localRepo)
+    repo_home = repo_home.replace("/", os.sep)
+    repo_path = os.path.join(repo_home, "epub_" + bookid)
+    success = True
+    if os.path.exists(repo_path):
+        os.chdir(repo_path)
+        with open_repo_closing(".") as r:
+            tags = r.refs.as_dict(b"refs/tags")
+            commit1 = r[r[tags[utf8_str(leftchkpoint)]].object[1]]
+            commit2 = r[r[tags[utf8_str(rightchkpoint)]].object[1]]
+            output = io.BytesIO()
+            try:
+                write_tree_diff(output, r.object_store, commit1.tree, commit2.tree)
+            except Exception as e:
+                print("diff failed in python")
+                print(str(e))
+                success = False
+                pass
+        if success:
+            return output.getvalue()
+        return ''
 
 
 def main():
