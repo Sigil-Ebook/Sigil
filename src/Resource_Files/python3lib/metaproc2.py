@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2016 Kevin B. Hendricks, Stratford, and Doug Massay
+# Copyright (c) 2016-2020 Kevin B. Hendricks, Stratford, and Doug Massay
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -30,6 +30,7 @@
 import sys
 import os
 from metadata_utils import quoteurl, unquoteurl, xmldecode, buildxml, valid_id, OPFMetadataParser
+from collections import OrderedDict
 
 import re
 
@@ -108,7 +109,7 @@ class MetadataProcessor(object):
         # add the opf attribute namespace to the metadata tag for OPF 2
         # and make sure the dc namespace is there as well
         if self.metadata_attr is None:
-            self.metadata_attr = {}
+            self.metadata_attr = OrderedDict()
         if "xmlsns:opf" not in self.metadata_attr:
             self.metadata_attr["xmlns:opf"] = "http://www.idpf.org/2007/opf"
         if "xmlsns:dc" not in self.metadata_attr:
@@ -216,7 +217,7 @@ def set_new_metadata(data, other, idlst, metatag, opfdata):
         mname = None
         mcontent = None
         id = None
-        mattr = {}
+        mattr = OrderedDict()
         (name, value) = line.split(_US)
         mname = name.strip()
         mcontent = value.strip()

@@ -130,6 +130,18 @@
         <file>generate-toc_16px.png</file>
         <file>generate-toc_22px.png</file>
         <file>generate-toc_48px.png</file>
+        <file>git-checkout_16px.png</file>
+        <file>git-checkout_22px.png</file>
+        <file>git-checkout_48px.png</file>
+        <file>git-commit_16px.png</file>
+        <file>git-commit_22px.png</file>
+        <file>git-commit_48px.png</file>
+        <file>git-diff_16px.png</file>
+        <file>git-diff_22px.png</file>
+        <file>git-diff_48px.png</file>
+        <file>git-manage_16px.png</file>
+        <file>git-manage_22px.png</file>
+        <file>git-manage_48px.png</file>
         <file>heading-1_16px.png</file>
         <file>heading-1_22px.png</file>
         <file>heading-1_48px.png</file>

@@ -38,6 +38,8 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QTextStream>
+#include <QFontMetrics>
+#include <QDebug>
 
 #include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
@@ -384,11 +386,6 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
     AppEventFilter *filter = new AppEventFilter(&app);
     app.installEventFilter(filter);
 
-    // drag and drop in main tab bar is too touchy and that can cause problems.
-    // default drag distance limit is much too small especially for hpi displays
-    // startDragDistance default is just 10 pixels
-    if (app.startDragDistance() < 50) app.setStartDragDistance(50);
-
     // Set up embedded python integration first thing
     EmbeddedPython* epython = EmbeddedPython::instance();
     epython->addToPythonSysPath(epython->embeddedRoot());
@@ -488,6 +485,38 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
                     QApplication::setFont(font);
                 } );
             }
+        }
+#endif
+
+        // drag and drop in main tab bar is too touchy and that can cause problems.
+        // default drag distance limit is much too small especially for hpi displays
+        // startDragDistance default is just 10 pixels
+#ifdef Q_OS_MAC
+        if (app.startDragDistance() < 30) app.setStartDragDistance(30);
+#else
+        QFontMetrics fm(app.font());
+        qDebug() << "Platform Default Drag Distance: " << app.startDragDistance();
+        int dragbase = fm.xHeight() * 2;
+        qDebug() << "Calculated Drag Distance: " << dragbase;
+        int dragtweak = settings.uiDragDistanceTweak();
+        qDebug() << "User adjustment: " << dragtweak;
+        // Use calculated base distance if tweak value not between -20 and 20px
+        if (dragtweak >= -20 && dragtweak <= 20) {
+            int newdrag = dragbase + dragtweak;
+            if (newdrag < 10) {
+                qDebug() << "Using 10px min";
+                app.setStartDragDistance(10);  // 10px minimum
+            } else if (newdrag > 60) {
+                qDebug() << "Using 60px min";
+                app.setStartDragDistance(60);  // 60px maximum
+            } else {
+                qDebug() << "Using Tweaked Distance of:  " << newdrag;
+                app.setStartDragDistance(newdrag);
+            }
+        } else {
+            qDebug() << "Tweak value outside range";
+            qDebug() << "Using calculated distance: " << dragbase;
+            app.setStartDragDistance(dragbase);
         }
 #endif
         // End of UI font stuff

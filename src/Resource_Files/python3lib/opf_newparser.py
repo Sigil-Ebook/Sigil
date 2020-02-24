@@ -26,6 +26,8 @@
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import sys, os, codecs
+from collections import OrderedDict
+
 from urllib.parse import unquote
 from urllib.parse import urlsplit
 
@@ -45,7 +47,7 @@ def quoteurl(href):
     result = []
     for char in href:
         if char in IRI_UNSAFE:
-            char = "%%%02x" % ord(char)
+            char = "%%%02X" % ord(char)
         result.append(char)
     return scheme + ''.join(result)
 
@@ -77,11 +79,11 @@ def xmldecode(data):
     newdata = newdata.replace('&amp;', '&')
     return newdata
 
-SPECIAL_HANDLING_TAGS = {
-    '?xml'     : ('xmlheader', -1), 
-    '!--'      : ('comment', -3),
-    '!DOCTYPE' : ('doctype', -1),
-}
+SPECIAL_HANDLING_TAGS = OrderedDict([
+    ('?xml', ('xmlheader', -1)), 
+    ('!--',  ('comment', -3)),
+    ('!DOCTYPE', ('doctype', -1))
+    ])
 
 SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
 
@@ -126,7 +128,7 @@ class Opf_Parser(object):
                         prefix.pop()
                         tattr = last_tattr
                         if tattr is None:
-                            tattr = {}
+                            tattr = OrderedDict()
                         last_tattr = None
                     elif ttype == 'single':
                         tcontent = None
@@ -216,7 +218,7 @@ class Opf_Parser(object):
         p = 1
         tname = None
         ttype = None
-        tattr = {}
+        tattr = OrderedDict()
         while p < n and s[p:p+1] == ' ' : p += 1
         if s[p:p+1] == '/':
             ttype = 'end'

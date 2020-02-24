@@ -1,6 +1,8 @@
 from __future__ import unicode_literals, division, absolute_import, print_function
 
 import sys
+from collections import OrderedDict
+
 PY3 = sys.version_info[0] >= 3
 if PY3:
     text_type = str
@@ -167,7 +169,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
 
     def start(self, name, attrs, nsmap={}):
         # Make sure attrs is a mutable dict--lxml may send an immutable dictproxy.
-        attrs = dict(attrs)
+        attrs = OrderedDict(attrs)
         nsprefix = None
 
         # ARRGGHH lxml 4.4.X has changes empty prefixes on namespaces to be the null string 
@@ -215,7 +217,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
         # Namespaces are in play. Find any attributes that came in
         # from lxml with namespaces attached to their names, and
         # turn then into NamespacedAttribute objects.
-        new_attrs = {}
+        new_attrs = OrderedDict()
         for attr, value in list(attrs.items()):
             namespace, attr = self._getNsTag(attr)
             if namespace is None:

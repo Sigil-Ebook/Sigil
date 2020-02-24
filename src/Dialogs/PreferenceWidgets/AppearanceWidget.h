@@ -61,6 +61,7 @@ private:
     QColor m_currentColor;
     int m_ShowFullPathOn;
     int m_HighDPI;
+    int m_DragTweak;
     int m_PreviewDark;
     bool m_wasDark;
     QString m_initUIFont;

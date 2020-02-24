@@ -1,6 +1,8 @@
 from __future__ import unicode_literals, division, absolute_import, print_function
 
 import sys
+from collections import OrderedDict
+
 PY3 = sys.version_info[0] >= 3
 if PY3:
     text_type = str
@@ -148,7 +150,7 @@ class TreeBuilderForHtml5lib(treebuilder_base.TreeBuilder):
 class AttrList(object):
     def __init__(self, element):
         self.element = element
-        self.attrs = dict(self.element.attrs)
+        self.attrs = OrderedDict(self.element.attrs)
     def __iter__(self):
         return list(self.attrs.items()).__iter__()
     def __setitem__(self, name, value):

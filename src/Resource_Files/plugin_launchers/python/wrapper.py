@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014-2019 Kevin B. Hendricks and Doug Massay
+# Copyright (c) 2014-2020 Kevin B. Hendricks and Doug Massay
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -29,7 +29,7 @@ from __future__ import unicode_literals, division, absolute_import, print_functi
 
 
 from compatibility_utils import PY3, PY2, text_type, binary_type, utf8_str, unicode_str, iswindows
-
+from collections import OrderedDict
 import sys
 import os
 
@@ -41,7 +41,7 @@ import unipath
 from unipath import pathof
 import unicodedata
 
-_launcher_version=20200131
+_launcher_version=20200214
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''',re.IGNORECASE)
 
@@ -120,19 +120,21 @@ class Wrapper(object):
             self.epub_isDirty = (cfg_lst.pop(0) == "True")
             self.epub_filepath = cfg_lst.pop(0)
             self.colormode = cfg_lst.pop(0)
-            self.colors = cfg_lst.pop(0) 
+            self.colors = cfg_lst.pop(0)
+            self.highdpi = cfg_lst.pop(0)
+            self.uifont = cfg_lst.pop(0)
             self.selected = cfg_lst
         os.environ['SigilGumboLibPath'] = self.get_gumbo_path()
 
         # dictionaries used to map opf manifest information
-        self.id_to_href = {}
-        self.id_to_mime = {}
-        self.id_to_props = {}
-        self.id_to_fall = {}
-        self.id_to_over = {}
-        self.id_to_bookpath = {}
-        self.href_to_id = {}
-        self.bookpath_to_id = {}
+        self.id_to_href = OrderedDict()
+        self.id_to_mime = OrderedDict()
+        self.id_to_props = OrderedDict()
+        self.id_to_fall = OrderedDict()
+        self.id_to_over = OrderedDict()
+        self.id_to_bookpath = OrderedDict()
+        self.href_to_id = OrderedDict()
+        self.bookpath_to_id = OrderedDict()
         self.spine_ppd = None
         self.spine = []
         self.guide = []
@@ -161,14 +163,18 @@ class Wrapper(object):
             self.bindings = op.get_bindings()
             self.metadataxml = op.get_metadataxml()
             # invert key dictionaries to allow for reverse access
-            self.href_to_id = {v: k for k, v in self.id_to_href.items()}
-            self.bookpath_to_id = {v: k for k, v in self.id_to_bookpath.items()}
+            for k, v in self.id_to_href.items():
+                self.href_to_id[v] = k
+            for k, v in self.id_to_bookpath.items():
+                self.bookpath_to_id[v] = k
+            # self.href_to_id = {v: k for k, v in self.id_to_href.items()}
+            # self.bookpath_to_id = {v: k for k, v in self.id_to_bookpath.items()}
             # self.metadata = op.get_metadata()
             # self.metadata_attr = op.get_metadata_attr()
         self.other = []  # non-manifest file information
-        self.id_to_filepath = {}
-        self.book_href_to_filepath = {}
-        self.modified = {}
+        self.id_to_filepath = OrderedDict()
+        self.book_href_to_filepath = OrderedDict()
+        self.modified = OrderedDict()
         self.added = []
         self.deleted = []
 

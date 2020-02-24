@@ -8,6 +8,8 @@ import sys
 import os
 import re
 
+from collections import OrderedDict
+
 from gencheck import GenCheck
 
 PY3 = sys.version_info[0] >= 3
@@ -17,12 +19,12 @@ if PY3:
 else:
     binary_type = str
 
-SPECIAL_HANDLING_TAGS = {
-    '?xml'     : ('xmlheader', -1),
-    '!--'      : ('comment', -3),
-    '!DOCTYPE' : ('doctype', -1),
-    '![CDATA[' : ('cdata', -3)
-}
+SPECIAL_HANDLING_TAGS = OrderedDict([
+    ('?xml', ('xmlheader', -1)),
+    ('!--', ('comment', -3)),
+    ('!DOCTYPE', ('doctype', -1)),
+    ('![CDATA[', ('cdata', -3))
+])
 
 SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment', 'cdata']
 
@@ -124,7 +126,7 @@ class XMLSanityCheck(object):
         # get the tag name
         tname = None
         ttype = None
-        tattr = {}
+        tattr = OrderedDict()
         while s[p:p+1] == ' ' : p += 1
         if s[p:p+1] == '/':
             if s[p+1:p+2] == ' ':

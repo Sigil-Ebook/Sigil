@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2016 Kevin B. Hendricks, Stratford, and Doug Massay
+# Copyright (c) 2016-2020 Kevin B. Hendricks, Stratford, and Doug Massay
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -27,6 +27,8 @@
 
 import sys
 import os
+
+from collections import OrderedDict
 
 from urllib.parse import unquote
 from urllib.parse import urlsplit
@@ -149,7 +151,7 @@ class OPFMetadataParser(object):
                         prefix.pop()
                         tattr = last_tattr
                         if tattr is None:
-                            tattr = {}
+                            tattr = OrderedDict()
                         last_tattr = None
                     elif ttype == 'single':
                         tcontent = None
@@ -254,7 +256,7 @@ class OPFMetadataParser(object):
         p = 1
         tname = None
         ttype = None
-        tattr = {}
+        tattr = OrderedDict()
         while p < n and s[p:p+1] == ' ' : p += 1
         if s[p:p+1] == '/':
             ttype = 'end'

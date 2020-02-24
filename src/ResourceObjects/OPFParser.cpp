@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks
+**  Copyright (C) 2015-2020 Kevin B. Hendricks
 **  Copyright (C) 2015      John Schember
 **
 **  This file is part of Sigil.
@@ -41,7 +41,7 @@ PackageEntry::PackageEntry(const QString& version, const QString& uniqueid,
 }
 
 PackageEntry::PackageEntry(const QVariant& qv)
-    : m_version(""), m_uniqueid(""), m_atts(QHash<QString,QString>())
+    : m_version(""), m_uniqueid("")
 {
     // tuple: (version, uniqueid, keylist, vallist)
     QList<QVariant> tup = qv.toList();
@@ -89,7 +89,6 @@ MetaNSEntry::MetaNSEntry(const QStringList& keylist, const QStringList& vallist)
 }
 
 MetaNSEntry::MetaNSEntry(const QVariant& qv)
-    : m_atts(QHash<QString,QString>())
 {
     // tuple: (keylist, vallist)
     QList<QVariant> tup = qv.toList();
@@ -130,7 +129,7 @@ MetaEntry::MetaEntry(const QString& name, const QString& content,
     if (n == vallist.size()) {
         for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-	}
+	    }
     }
 }
 
@@ -181,9 +180,9 @@ ManifestEntry::ManifestEntry(const QString& id, const QString& href, const QStri
 {
     int n = keylist.size();
     if (n == vallist.size()) {
-	for (int i=0; i < n; i++) {
+	    for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-	}
+        }
     }
 }
 
@@ -230,14 +229,13 @@ SpineAttrEntry::SpineAttrEntry(const QStringList& keylist, const QStringList& va
 {
     int n = keylist.size();
     if (n == vallist.size()) {
-	for (int i=0; i < n; i++) {
+	    for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-	}
+	    }
     }
 }
 
 SpineAttrEntry::SpineAttrEntry(const QVariant& qv)
-    : m_atts(QHash<QString,QString>())
 {
     // tuple (keylist, vallist)
     QList<QVariant> tup = qv.toList();
@@ -275,9 +273,9 @@ SpineEntry::SpineEntry(const QString& idref, const QStringList& keylist, const Q
 {
     int n = keylist.size();
     if (n == vallist.size()) {
-	for (int i=0; i < n; i++) {
+	    for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-	}
+	    }
     }
 }
 

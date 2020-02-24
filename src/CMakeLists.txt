@@ -141,6 +141,8 @@ set( DIALOG_FILES
     Dialogs/EditTOC.h
     Dialogs/EmptyLayout.cpp
     Dialogs/EmptyLayout.h
+    Dialogs/ManageRepos.cpp
+    Dialogs/ManageRepos.h
     Dialogs/OpenWithName.cpp
     Dialogs/OpenWithName.h
     Dialogs/RERenamer.cpp
@@ -149,6 +151,8 @@ set( DIALOG_FILES
     Dialogs/RETable.h
     Dialogs/SelectCharacter.cpp
     Dialogs/SelectCharacter.h
+    Dialogs/SelectCheckpoint.cpp
+    Dialogs/SelectCheckpoint.h
     Dialogs/SelectFolder.cpp
     Dialogs/SelectFolder.h
     Dialogs/SelectHyperlink.cpp
@@ -332,6 +336,8 @@ set( MISC_FILES
     Misc/TextDocument.cpp
     Misc/MediaTypes.cpp
     Misc/MediaTypes.h
+    Misc/TagAtts.cpp
+    Misc/TagAtts.h
     )
 
 set( MISC_EDITORS_FILES
@@ -443,6 +449,7 @@ set( UI_FILES
     Form_Files/ClipboardHistorySelector.ui
     Form_Files/DeleteFiles.ui
     Form_Files/DeleteStyles.ui
+    Form_Files/ManageRepos.ui
     Form_Files/OpenWithName.ui
     Form_Files/RERenamer.ui
     Form_Files/RETable.ui
@@ -479,6 +486,7 @@ set( UI_FILES
     Form_Files/ReportsStylesInCSSFilesWidget.ui
     Form_Files/ReportsCharactersInHTMLFilesWidget.ui
     Form_Files/LinkStylesheets.ui
+    Form_Files/SelectCheckpoint.ui
     Form_Files/SearchEditor.ui
     Form_Files/ClipEditor.ui
     Form_Files/IndexEditor.ui

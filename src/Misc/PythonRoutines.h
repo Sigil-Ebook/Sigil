@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -41,11 +41,34 @@ public:
     PythonRoutines() {};
 
     QString GenerateNcxInPython(const QString &navdata, const QString &navbkpath,
-                                const QString &ncx_dir, const QString &doctitle, const QString & mainid);
+                                const QString &ncx_dir, const QString &doctitle, const QString &mainid);
 
     MetadataPieces GetMetadataInPython(const QString& opfdata, const QString& version);
+
     QString SetNewMetadataInPython(const MetadataPieces& mdp, const QString& opfdata, const QString& version);
 
+    QString PerformRepoCommitInPython(  const QString&     localRepo,
+				        const QString&     bookid,
+                                        const QStringList& bookinfo,
+				        const QString&     bookroot,
+				        const QStringList& bookfiles );
+
+    bool PerformRepoEraseInPython(      const QString& localRepo, 
+				        const QString& bookid ); 
+
+    QStringList GetRepoTagsInPython(    const QString& localRepo, 
+				        const QString& bookid );
+
+    QString GenerateEpubFromTagInPython(const QString& localRepo, 
+				        const QString& bookid,
+				        const QString& tagname,
+                                        const QString& filename, 
+				        const QString& destpath );
+
+    QString GenerateDiffFromCheckPoints(const QString& localRepo,
+                        const QString& bookid,
+                        const QString& leftchkpoint,
+                        const QString& rightchkpoint);
 
 private:
 

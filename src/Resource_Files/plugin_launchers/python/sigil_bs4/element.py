@@ -1,6 +1,8 @@
 from __future__ import unicode_literals, division, absolute_import, print_function
 
 import sys
+from collections import OrderedDict
+
 PY3 = sys.version_info[0] >= 3
 if PY3:
     text_type = str
@@ -443,13 +445,13 @@ class PageElement(object):
         index = parent.index(self)
         parent.insert(index+1, successor)
 
-    def find_next(self, name=None, attrs={}, text=None, **kwargs):
+    def find_next(self, name=None, attrs=OrderedDict(), text=None, **kwargs):
         """Returns the first item that matches the given criteria and
         appears after this Tag in the document."""
         return self._find_one(self.find_all_next, name, attrs, text, **kwargs)
     findNext = find_next  # BS3
 
-    def find_all_next(self, name=None, attrs={}, text=None, limit=None,
+    def find_all_next(self, name=None, attrs=OrderedDict(), text=None, limit=None,
                     **kwargs):
         """Returns all items that match the given criteria and appear
         after this Tag in the document."""
@@ -457,14 +459,14 @@ class PageElement(object):
                              **kwargs)
     findAllNext = find_all_next  # BS3
 
-    def find_next_sibling(self, name=None, attrs={}, text=None, **kwargs):
+    def find_next_sibling(self, name=None, attrs=OrderedDict(), text=None, **kwargs):
         """Returns the closest sibling to this Tag that matches the
         given criteria and appears after this Tag in the document."""
         return self._find_one(self.find_next_siblings, name, attrs, text,
                              **kwargs)
     findNextSibling = find_next_sibling  # BS3
 
-    def find_next_siblings(self, name=None, attrs={}, text=None, limit=None,
+    def find_next_siblings(self, name=None, attrs=OrderedDict(), text=None, limit=None,
                            **kwargs):
         """Returns the siblings of this Tag that match the given
         criteria and appear after this Tag in the document."""
@@ -473,14 +475,14 @@ class PageElement(object):
     findNextSiblings = find_next_siblings   # BS3
     fetchNextSiblings = find_next_siblings  # BS2
 
-    def find_previous(self, name=None, attrs={}, text=None, **kwargs):
+    def find_previous(self, name=None, attrs=OrderedDict(), text=None, **kwargs):
         """Returns the first item that matches the given criteria and
         appears before this Tag in the document."""
         return self._find_one(
             self.find_all_previous, name, attrs, text, **kwargs)
     findPrevious = find_previous  # BS3
 
-    def find_all_previous(self, name=None, attrs={}, text=None, limit=None,
+    def find_all_previous(self, name=None, attrs=OrderedDict(), text=None, limit=None,
                         **kwargs):
         """Returns all items that match the given criteria and appear
         before this Tag in the document."""
@@ -489,14 +491,14 @@ class PageElement(object):
     findAllPrevious = find_all_previous  # BS3
     fetchPrevious = find_all_previous    # BS2
 
-    def find_previous_sibling(self, name=None, attrs={}, text=None, **kwargs):
+    def find_previous_sibling(self, name=None, attrs=OrderedDict(), text=None, **kwargs):
         """Returns the closest sibling to this Tag that matches the
         given criteria and appears before this Tag in the document."""
         return self._find_one(self.find_previous_siblings, name, attrs, text,
                              **kwargs)
     findPreviousSibling = find_previous_sibling  # BS3
 
-    def find_previous_siblings(self, name=None, attrs={}, text=None,
+    def find_previous_siblings(self, name=None, attrs=OrderedDict(), text=None,
                                limit=None, **kwargs):
         """Returns the siblings of this Tag that match the given
         criteria and appear before this Tag in the document."""
@@ -505,7 +507,7 @@ class PageElement(object):
     findPreviousSiblings = find_previous_siblings   # BS3
     fetchPreviousSiblings = find_previous_siblings  # BS2
 
-    def find_parent(self, name=None, attrs={}, **kwargs):
+    def find_parent(self, name=None, attrs=OrderedDict(), **kwargs):
         """Returns the closest parent of this Tag that matches the given
         criteria."""
         # NOTE: We can't use _find_one because findParents takes a different
@@ -517,7 +519,7 @@ class PageElement(object):
         return r
     findParent = find_parent  # BS3
 
-    def find_parents(self, name=None, attrs={}, limit=None, **kwargs):
+    def find_parents(self, name=None, attrs=OrderedDict(), limit=None, **kwargs):
         """Returns the parents of this Tag that match the given
         criteria."""
 
@@ -836,15 +838,15 @@ class Tag(PageElement):
         self.namespace = namespace
         self.prefix = prefix
         if attrs is None:
-            attrs = {}
+            attrs = OrderedDict()
         elif attrs:
             if builder is not None and builder.cdata_list_attributes:
                 attrs = builder._replace_cdata_list_attribute_values(
                     self.name, attrs)
             else:
-                attrs = dict(attrs)
+                attrs = OrderedDict(attrs)
         else:
-            attrs = dict(attrs)
+            attrs = OrderedDict(attrs)
         self.attrs = attrs
         self.contents = []
         self.setup(parent, previous)
@@ -1647,7 +1649,7 @@ class Tag(PageElement):
 
     #Soup methods
 
-    def find(self, name=None, attrs={}, recursive=True, text=None,
+    def find(self, name=None, attrs=OrderedDict(), recursive=True, text=None,
              **kwargs):
         """Return only the first child of this Tag matching the given
         criteria."""
@@ -1658,7 +1660,7 @@ class Tag(PageElement):
         return r
     findChild = find
 
-    def find_all(self, name=None, attrs={}, recursive=True, text=None,
+    def find_all(self, name=None, attrs=OrderedDict(), recursive=True, text=None,
                  limit=None, **kwargs):
         """Extracts a list of Tag objects that match the given
         criteria.  You can specify the name of the Tag and any
@@ -1941,7 +1943,7 @@ class SoupStrainer(object):
     """Encapsulates a number of ways of matching a markup element (tag or
     text)."""
 
-    def __init__(self, name=None, attrs={}, text=None, **kwargs):
+    def __init__(self, name=None, attrs=OrderedDict(), text=None, **kwargs):
         self.name = self._normalize_search_value(name)
         if not isinstance(attrs, dict):
             # Treat a non-dict value for attrs as a search for the 'class'
@@ -1961,7 +1963,7 @@ class SoupStrainer(object):
                 attrs.update(kwargs)
             else:
                 attrs = kwargs
-        normalized_attrs = {}
+        normalized_attrs = OrderedDict()
         for key, value in list(attrs.items()):
             normalized_attrs[key] = self._normalize_search_value(value)
 
@@ -2004,7 +2006,7 @@ class SoupStrainer(object):
         else:
             return "%s|%s" % (self.name, self.attrs)
 
-    def search_tag(self, markup_name=None, markup_attrs={}):
+    def search_tag(self, markup_name=None, markup_attrs=OrderedDict()):
         found = None
         markup = None
         if isinstance(markup_name, Tag):
@@ -2028,7 +2030,7 @@ class SoupStrainer(object):
                         if hasattr(markup_attrs, 'get'):
                             markup_attr_map = markup_attrs
                         else:
-                            markup_attr_map = {}
+                            markup_attr_map = OrderedDict()
                             for k, v in markup_attrs:
                                 markup_attr_map[k] = v
                     attr_value = markup_attr_map.get(attr)

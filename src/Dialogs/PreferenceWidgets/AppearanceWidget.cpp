@@ -82,6 +82,7 @@ AppearanceWidget::AppearanceWidget()
 
 #ifdef Q_OS_MAC
     // Disable the HighDPI combobox on Mac
+    // Effectively an isMacOS runtime check
     m_isHighDPIComboEnabled = false;
 #endif
 
@@ -98,6 +99,13 @@ AppearanceWidget::AppearanceWidget()
     ui.comboHighDPI->setToolTip(highdpi_tooltip);
     // The HighDPI setting is unused/unnecessary on Mac
     ui.comboHighDPI->setEnabled(m_isHighDPIComboEnabled);
+    QString drag_tweak_tooltip = "<p>" + tr("Adjust the distance necessary to drag an item before a move event is triggered.");
+    drag_tweak_tooltip += "<p>" + tr("-20 to +20 pixel range");
+    ui.dragTweakSpinBox->setToolTip(drag_tweak_tooltip);
+    ui.dragTweakSpinBox->setMinimum(-20);
+    ui.dragTweakSpinBox->setMaximum(20);
+    // The Drag start-distance setting is unused/unnecessary on Mac
+    ui.dragTweakSpinBox->setEnabled(m_isHighDPIComboEnabled);
     m_codeViewAppearance = readSettings();
     loadCodeViewColorsList(m_codeViewAppearance);
     m_uiFontResetFlag = false;
@@ -113,6 +121,7 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     // Don't try to get the index of a disabled combobox
     if (m_isHighDPIComboEnabled) {
         settings.setHighDPI(ui.comboHighDPI->currentIndex());
+        settings.setUiDragDistanceTweak(ui.dragTweakSpinBox->value());
     }
     settings.setUIFont(m_currentUIFont);
     SettingsStore::PreviewAppearance PVAppearance;
@@ -200,6 +209,9 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
         if (m_HighDPI != (ui.comboHighDPI->currentIndex())) {
             results = results | PreferencesWidget::ResultAction_RestartSigil;
         }
+        if (m_DragTweak != (ui.dragTweakSpinBox->value())) {
+            results = results | PreferencesWidget::ResultAction_RestartSigil;
+        }
     }
     if ((m_currentUIFont != m_initUIFont) || m_uiFontResetFlag) {
         results = results | PreferencesWidget::ResultAction_RestartSigil;
@@ -215,10 +227,12 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     ui.tabAppearance->setCurrentIndex(settings.appearancePrefsTabIndex());
     m_ShowFullPathOn = settings.showFullPathOn();
     ui.ShowFullPath->setChecked(settings.showFullPathOn());
-    // Don't try to set the index of a disabled combobox
+    // Don't try to set the index of disabled widgets
     if (m_isHighDPIComboEnabled) {
         m_HighDPI = settings.highDPI();
         ui.comboHighDPI->setCurrentIndex(m_HighDPI);
+        m_DragTweak = settings.uiDragDistanceTweak();
+        ui.dragTweakSpinBox->setValue(m_DragTweak);
     }
     if (!settings.uiFont().isEmpty()) {
         m_initUIFont = settings.uiFont();

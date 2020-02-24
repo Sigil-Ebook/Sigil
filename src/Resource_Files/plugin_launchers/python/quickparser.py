@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014 Kevin B. Hendricks, John Schember, and Doug Massay
+# Copyright (c) 2014-2020 Kevin B. Hendricks, and Doug Massay
+# Copyright (c) 2014      John Schember 
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -27,15 +28,15 @@
 
 from __future__ import unicode_literals, division, absolute_import, print_function
 from compatibility_utils import text_type, binary_type
-
+from collections import OrderedDict
 import sys
 import os
 
-SPECIAL_HANDLING_TAGS = {
-    '?xml'     : ('xmlheader', -1),
-    '!--'      : ('comment', -3),
-    '!DOCTYPE' : ('doctype', -1),
-}
+SPECIAL_HANDLING_TAGS = OrderedDict([
+    ('?xml',('xmlheader', -1)),
+    ('!--', ('comment', -3)),
+    ('!DOCTYPE',('doctype', -1))
+])
 
 SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
 
@@ -68,7 +69,7 @@ class QuickXHTMLParser(object):
         # get the tag name
         tname = None
         ttype = None
-        tattr = {}
+        tattr = OrderedDict()
         while p < n and s[p:p+1] == ' ' : p += 1
         if s[p:p+1] == '/':
             ttype = 'end'

@@ -32,6 +32,8 @@ import re
 import logging
 import string
 
+from collections import OrderedDict
+
 # Import a library to autodetect character encodings.
 chardet_type = None
 try:
@@ -71,8 +73,8 @@ class EntitySubstitution(object):
     """Substitute XML or HTML entities for the corresponding characters."""
 
     def _populate_class_variables():
-        lookup = {}
-        reverse_lookup = {}
+        lookup = OrderedDict()
+        reverse_lookup = OrderedDict()
         characters_for_re = []
         for codepoint, name in list(codepoint2name.items()):
             character = chr(codepoint)
