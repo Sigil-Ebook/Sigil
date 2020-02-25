@@ -78,10 +78,15 @@ void TabBar::mousePressEvent(QMouseEvent *event)
 void TabBar::ShowContextMenu(QMouseEvent *event, int tab_index)
 {
     QMenu *menu = new QMenu();
+    QPoint p;
     QAction *closeOtherTabsAction = new QAction(tr("Close Other Tabs"), menu);
     menu->addAction(closeOtherTabsAction);
     connect(closeOtherTabsAction, SIGNAL(triggered()), this, SLOT(EmitCloseOtherTabs()));
-    menu->exec(mapToGlobal(event->pos()));
+    p = mapToGlobal(event->pos());
+    // relocate slightly down and right as test
+    p.setX(p.x() + 2);
+    p.setY(p.y() + 2);
+    menu->exec(p);
     delete menu;
 }
 
