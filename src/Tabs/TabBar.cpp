@@ -50,7 +50,7 @@ TabBar::TabBar(QWidget *parent)
     setStyleSheet(FORCE_TAB_CLOSE_BUTTON);
 #endif
     m_MoveDelay = new QTimer(this);
-    m_MoveDelay->setInterval(150);
+    m_MoveDelay->setInterval(250);
     m_MoveDelay->setSingleShot(true);
     connect(m_MoveDelay, SIGNAL(timeout()), this, SLOT(processDelayTimer()));
 }
@@ -64,8 +64,7 @@ void TabBar::mouseReleaseEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
         // Kill the timer and reset the ok_to_move_flag to false
-        qDebug() << "Qt::LeftButton released, timer stopped";
-        m_MoveDelay->stop();
+        qDebug() << "Qt::LeftButton released, move flag false";
         is_ok_to_move = false;
     }
     QTabBar::mouseMoveEvent(event);
@@ -76,6 +75,7 @@ void TabBar::mouseMoveEvent(QMouseEvent *event)
     // If timer hasn't expired, block the mouse move (with button down) event.
     // This is being done to prevent the "dancing tab" problem when clicking
     // on an inactive tab without the mouse being absolutely still.
+    qDebug() << "Mouse button " << event->button();
     if (!is_ok_to_move) {
         qDebug() << "Timer left: " << m_MoveDelay->remainingTime();
         return;
@@ -100,7 +100,7 @@ void TabBar::mousePressEvent(QMouseEvent *event)
             }
         }
     } else if (event->button() == Qt::LeftButton) {
-        // Set the ok_to_move flag to false and start .15 second delay timer
+        // Set the ok_to_move flag to false and start .25 second delay timer
         qDebug() << "Qt::LeftButton pressed, delay timer started";
         is_ok_to_move = false;
         m_MoveDelay->start();
@@ -136,7 +136,7 @@ void TabBar::EmitCloseOtherTabs()
 void TabBar::processDelayTimer()
 {
     // Allow the mouse movement (with button down) to proceed
-    qDebug() << "Mouse move allowed";
+    qDebug() << "Timer elapsed. Mouse movement allowed. Timer disabled";
     m_MoveDelay->stop();
     is_ok_to_move = true;
 }
