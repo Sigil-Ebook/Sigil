@@ -47,7 +47,7 @@ RepoLog::RepoLog(const QString& localRepo, const QString& bookid, QWidget *paren
 
 {
     ui.setupUi(this);
-    // need fixed width font
+    // need fixed width font for diff stats bar graphs to show properly
     QFont font = ui.textEdit->font();
     font.setFamily("Courier New");
     font.setStyleHint(QFont::TypeWriter);
@@ -87,11 +87,11 @@ int RepoLog::exec()
 {
     SettingsStore settings;
     m_ready = false;
+    ui.okButton->setEnabled(true);
     ui.textEdit->clear();
     ui.textEdit->setOverwriteMode(true);
-    ui.textEdit->setVisible(false);
-
-    // FIXME: need status info or wait cursor here
+    ui.textEdit->setPlainText(tr("Please wait while the repository log is being generated"));
+    ui.textEdit->setVisible(true);
 
     // generate the repo log using python in a separate thread since this
     // may take a while depending on the speed of the filesystem
@@ -102,21 +102,12 @@ int RepoLog::exec()
 						m_bookid);
     future.waitForFinished();
     QString m_LogData = future.result();
+
     m_ready = true;
+    ui.textEdit->clear();
     ui.textEdit->setPlainText(m_LogData);
-    // ui.textEdit->insertPlainText(newbytedata);
-    // ui.textEdit->append(tr("Launcher process crashed"));
-    showConsole();
-    ui.okButton->setEnabled(true);
     return QDialog::exec();
 }
-
-void RepoLog::showConsole()
-{
-    ui.textEdit->setVisible(true);
-    // resize(789, 550);
-}
-
 
 // should cover both escape key use and using x to close the runner dialog
 void RepoLog::reject()

@@ -45,7 +45,6 @@ public slots:
 private:
     void ReadSettings();
     void WriteSettings();
-    void showConsole();
     void connectSignalsToSlots();
 
     QString m_bookid;
