@@ -145,6 +145,8 @@ set( DIALOG_FILES
     Dialogs/ManageRepos.h
     Dialogs/OpenWithName.cpp
     Dialogs/OpenWithName.h
+    Dialogs/RepoLog.cpp
+    Dialogs/RepoLog.h
     Dialogs/RERenamer.cpp
     Dialogs/RERenamer.h
     Dialogs/RETable.cpp
@@ -451,6 +453,7 @@ set( UI_FILES
     Form_Files/DeleteStyles.ui
     Form_Files/ManageRepos.ui
     Form_Files/OpenWithName.ui
+    Form_Files/RepoLog.ui
     Form_Files/RERenamer.ui
     Form_Files/RETable.ui
     Form_Files/SelectCharacter.ui

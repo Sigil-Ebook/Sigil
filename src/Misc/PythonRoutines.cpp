@@ -254,3 +254,26 @@ QString PythonRoutines::GenerateDiffFromCheckPoints(const QString& localRepo,
     }
     return results;
 }
+
+QString PythonRoutines::GenerateRepoLogSummaryInPython(const QString& localRepo,
+						       const QString& bookid)
+{
+    QString results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(localRepo));
+    args.append(QVariant(bookid));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("generate_log_summary"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+        results = res.toString();
+    }
+    return results;
+}

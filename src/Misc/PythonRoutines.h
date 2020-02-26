@@ -70,6 +70,9 @@ public:
                         const QString& leftchkpoint,
                         const QString& rightchkpoint);
 
+    QString GenerateRepoLogSummaryInPython(const QString& localRepo,
+					   const QString& bookid);
+
 private:
 
     ///////////////////////////////

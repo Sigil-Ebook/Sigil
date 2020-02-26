@@ -28,6 +28,7 @@ import datetime
 import time
 import io
 from io import BytesIO
+from io import StringIO
 
 from diffstat import diffstat
 
@@ -342,6 +343,41 @@ def clone_repo_and_checkout_tag(localRepo, bookid, tagname, filename, dest_path)
     return "success"
 
 
+def logsummary(repo=".", paths=None, outstream=sys.stdout, max_entries=None, reverse=False, stats=False):
+    """Write commit logs with optional diff stat summaries
+    Args:
+      repo: Path to repository
+      paths: Optional set of specific paths to print entries for
+      outstream: Stream to write log output to
+      reverse: Reverse order in which entries are printed
+      max_entries: Optional maximum number of entries to display
+      stats: Print diff stats
+    """
+    with open_repo_closing(repo) as r:
+        walker = r.get_walker(max_entries=max_entries, paths=paths, reverse=reverse)
+        for entry in walker:
+            def decode(x):
+                return commit_decode(entry.commit, x)
+            print_commit(entry.commit, decode, outstream)
+            if stats:
+                commit = entry.commit
+                if commit.parents:
+                    parent_commit = r[commit.parents[0]]
+                    base_tree = parent_commit.tree
+                else:
+                    base_tree = None
+                adiff = b""
+                with BytesIO() as diffstream:
+                    write_tree_diff(
+                        diffstream,
+                        r.object_store, base_tree, commit.tree)
+                    diffstream.seek(0)
+                    adiff = diffstream.getvalue()
+                dsum = diffstat(adiff.split(b'\n'))
+                outstream.write(dsum.decode('utf-8'))
+                outstream.write("\n\n")
+
+
 # the entry points from Cpp
 
 def generate_epub_from_tag(localRepo, bookid, tagname, filename, dest_path):
@@ -544,40 +580,20 @@ def generate_diff_from_checkpoints(localRepo, bookid, leftchkpoint, rightchkpoin
         return ''
 
 
-def logsummary(repo=".", paths=None, outstream=sys.stdout, max_entries=None, reverse=False, stats=False):
-    """Write commit logs with optional diff stat summaries
-    Args:
-      repo: Path to repository
-      paths: Optional set of specific paths to print entries for
-      outstream: Stream to write log output to
-      reverse: Reverse order in which entries are printed
-      max_entries: Optional maximum number of entries to display
-      stats: Print diff stats
-    """
-    with open_repo_closing(repo) as r:
-        walker = r.get_walker(
-            max_entries=max_entries, paths=paths, reverse=reverse)
-        for entry in walker:
-            def decode(x):
-                return commit_decode(entry.commit, x)
-            print_commit(entry.commit, decode, outstream)
-            if stats:
-                commit = entry.commit
-                if commit.parents:
-                    parent_commit = r[commit.parents[0]]
-                    base_tree = parent_commit.tree
-                else:
-                    base_tree = None
-                adiff = b""
-                with BytesIO() as diffstream:
-                    write_tree_diff(
-                        diffstream,
-                        r.object_store, base_tree, commit.tree)
-                    diffstream.seek(0)
-                    adiff = diffstream.getvalue()
-                dsum = diffstat(adiff.split(b'\n'))
-                outstream.write(dsum.decode('utf-8'))
-                outstream.write("\n\n")
+def generate_log_summary(localRepo, bookid):
+    repo_home = pathof(localRepo)
+    repo_home = repo_home.replace("/", os.sep)
+    repo_path = os.path.join(repo_home, "epub_" + bookid)
+    results = ""
+    cdir = os.getcwd()
+    if os.path.exists(repo_path):
+        os.chdir(repo_path)
+        with StringIO() as sf:
+            logsummary(repo=".", outstream=sf, stats=True)
+            sf.seek(0)
+            results = sf.getvalue()
+        os.chdir(cdir)
+    return results
 
 
 def main():
