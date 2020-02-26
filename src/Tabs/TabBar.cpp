@@ -60,21 +60,12 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent *event)
     emit TabBarDoubleClicked();
 }
 
-void TabBar::mouseReleaseEvent(QMouseEvent *event)
-{
-    if (event->button() == Qt::LeftButton) {
-        // Kill the timer and reset the ok_to_move_flag to false
-        qDebug() << "Qt::LeftButton released, move flag false";
-        is_ok_to_move = false;
-    }
-    QTabBar::mouseMoveEvent(event);
-}
-
 void TabBar::mouseMoveEvent(QMouseEvent *event)
 {
     // If timer hasn't expired, block the mouse move (with button down) event.
     // This is being done to prevent the "dancing tab" problem when clicking
     // on an inactive tab without the mouse being absolutely still.
+    // event->button() reports Qt::NoButton when moving with mouse button down
     qDebug() << "Mouse button " << event->button();
     if (!is_ok_to_move) {
         qDebug() << "Timer left: " << m_MoveDelay->remainingTime();
@@ -135,8 +126,7 @@ void TabBar::EmitCloseOtherTabs()
 
 void TabBar::processDelayTimer()
 {
-    // Allow the mouse movement (with button down) to proceed
-    qDebug() << "Timer elapsed. Mouse movement allowed. Timer disabled";
-    m_MoveDelay->stop();
+    // Allow the mouse movement (with button down) to happen normally
+    qDebug() << "Timer elapsed. Mouse movement allowed.";
     is_ok_to_move = true;
 }
