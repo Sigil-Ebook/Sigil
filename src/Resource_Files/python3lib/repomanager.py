@@ -27,11 +27,14 @@ import shutil
 import datetime
 import time
 import io
+from io import BytesIO
+
+from diffstat import diffstat
 
 import dulwich
 from dulwich import porcelain
 from dulwich.repo import Repo
-from dulwich.porcelain import open_repo_closing
+from dulwich.porcelain import open_repo_closing, show_object, print_commit, commit_decode
 from dulwich.objects import Tag, Commit, Blob, check_hexsha, ShaFile, Tree, format_timezone
 from dulwich.refs import ANNOTATED_TAG_SUFFIX
 from dulwich.patch import write_tree_diff
@@ -539,6 +542,42 @@ def generate_diff_from_checkpoints(localRepo, bookid, leftchkpoint, rightchkpoin
         if success:
             return output.getvalue()
         return ''
+
+
+def logsummary(repo=".", paths=None, outstream=sys.stdout, max_entries=None, reverse=False, stats=False):
+    """Write commit logs with optional diff stat summaries
+    Args:
+      repo: Path to repository
+      paths: Optional set of specific paths to print entries for
+      outstream: Stream to write log output to
+      reverse: Reverse order in which entries are printed
+      max_entries: Optional maximum number of entries to display
+      stats: Print diff stats
+    """
+    with open_repo_closing(repo) as r:
+        walker = r.get_walker(
+            max_entries=max_entries, paths=paths, reverse=reverse)
+        for entry in walker:
+            def decode(x):
+                return commit_decode(entry.commit, x)
+            print_commit(entry.commit, decode, outstream)
+            if stats:
+                commit = entry.commit
+                if commit.parents:
+                    parent_commit = r[commit.parents[0]]
+                    base_tree = parent_commit.tree
+                else:
+                    base_tree = None
+                adiff = b""
+                with BytesIO() as diffstream:
+                    write_tree_diff(
+                        diffstream,
+                        r.object_store, base_tree, commit.tree)
+                    diffstream.seek(0)
+                    adiff = diffstream.getvalue()
+                dsum = diffstat(adiff.split(b'\n'))
+                outstream.write(dsum.decode('utf-8'))
+                outstream.write("\n\n")
 
 
 def main():
