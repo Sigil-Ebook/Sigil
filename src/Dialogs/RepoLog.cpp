@@ -21,30 +21,19 @@
  *************************************************************************/
 #include <Qt>
 #include <QString>
-#include <QDir>
-#include <QFile>
-#include <QFileInfo>
-#include <QByteArray>
 #include <QMessageBox>
 #include <QPlainTextEdit>
-#include <QtConcurrent>
-#include <QFuture>
 
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
-#include "Misc/PythonRoutines.h"
 #include "Dialogs/RepoLog.h"
 
 
 static const QString SETTINGS_GROUP = "repo_log";
 
-RepoLog::RepoLog(const QString& localRepo, const QString& bookid, QWidget *parent)
+RepoLog::RepoLog(const QString& logdata, QWidget *parent)
     : QDialog(parent),
-      m_bookid(bookid),
-      m_localRepo(localRepo),
-      m_LogData(""),
-      m_ready(false)
-
+      m_LogData(logdata)
 {
     ui.setupUi(this);
     // need fixed width font for diff stats bar graphs to show properly
@@ -55,7 +44,6 @@ RepoLog::RepoLog(const QString& localRepo, const QString& bookid, QWidget *paren
     ReadSettings();
     connectSignalsToSlots();
 }
-
 
 RepoLog::~RepoLog()
 {
@@ -85,26 +73,10 @@ void RepoLog::WriteSettings()
 
 int RepoLog::exec()
 {
-    SettingsStore settings;
-    m_ready = false;
     ui.okButton->setEnabled(true);
     ui.textEdit->clear();
     ui.textEdit->setOverwriteMode(true);
-    ui.textEdit->setPlainText(tr("Please wait while the repository log is being generated"));
     ui.textEdit->setVisible(true);
-
-    // generate the repo log using python in a separate thread since this
-    // may take a while depending on the speed of the filesystem
-    PythonRoutines pr;
-    QFuture<QString> future = QtConcurrent::run(&pr, 
-						&PythonRoutines::GenerateRepoLogSummaryInPython,
-						m_localRepo,
-						m_bookid);
-    future.waitForFinished();
-    QString m_LogData = future.result();
-
-    m_ready = true;
-    ui.textEdit->clear();
     ui.textEdit->setPlainText(m_LogData);
     return QDialog::exec();
 }
@@ -112,7 +84,6 @@ int RepoLog::exec()
 // should cover both escape key use and using x to close the runner dialog
 void RepoLog::reject()
 {
-    // qDebug() << "in reject";
     QDialog::reject();
 }
 

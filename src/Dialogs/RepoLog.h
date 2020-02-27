@@ -24,7 +24,6 @@
 
 #include <QString>
 #include <QDialog>
-// #include <QDebug>
 
 #include "ui_RepoLog.h"
 
@@ -34,7 +33,7 @@ class RepoLog : public QDialog
     Q_OBJECT
 
 public:
-    RepoLog(const QString& localRepo, const QString& bookid, QWidget *parent);
+    RepoLog(const QString& logdata, QWidget *parent);
     ~RepoLog();
 
 
@@ -47,10 +46,7 @@ private:
     void WriteSettings();
     void connectSignalsToSlots();
 
-    QString m_bookid;
-    QString m_localRepo;
     QString m_LogData;
-    bool m_ready;
 
     Ui::RepoLog ui;
 };
