@@ -56,7 +56,7 @@ private:
 
     int m_TabIndex;
     class QTimer *m_MoveDelay;
-    bool is_ok_to_move;
+    bool is_ok_to_move = false;
 };
 
 #endif // TABBAR_H
