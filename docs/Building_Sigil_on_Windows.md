@@ -70,13 +70,13 @@ etc...
 
 ### Installing Pillow
 
-Other versions of Pillow may work fine, but Sigil's installer build is predicated on v5.4.1, To install that specific version, use the following pip command.
+Other versions of Pillow may work fine, but Sigil's installer build is predicated on v6.2.1, To install that specific version, use the following pip command.
 
 >`pip install Pillow==6.2.1`
 
 ### Installing lxml.
 
-Version 4.3.2 comes with precompiled binary wheels for Windows. Not all versions do. So if you want to install a different version, you'll need to find out if there's precompiled binaries for Windows or not. Install a specific version with pip using the following command
+Version 4.4.2 comes with precompiled binary wheels for Windows. Not all versions do. So if you want to install a different version, you'll need to find out if there's precompiled binaries for Windows or not. Install a specific version with pip using the following command
 
 >`pip install lxml==4.4.2`
 
