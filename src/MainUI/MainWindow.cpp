@@ -4427,7 +4427,6 @@ void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
 void MainWindow::ResourcesAddedOrDeletedOrMoved()
 {
     // MainWindow::clearMemoryCaches();
-
     m_Book->GetFolderKeeper()->RefreshGroupFolders();
 
     // Make sure currently visible tab is updated immediately

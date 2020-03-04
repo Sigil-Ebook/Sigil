@@ -147,6 +147,8 @@ set( DIALOG_FILES
     Dialogs/OpenWithName.h
     Dialogs/RepoLog.cpp
     Dialogs/RepoLog.h
+    Dialogs/ChgViewer.cpp
+    Dialogs/ChgViewer.h
     Dialogs/RERenamer.cpp
     Dialogs/RERenamer.h
     Dialogs/RETable.cpp
@@ -371,6 +373,11 @@ set( SPCRE_FILES
     )
 
 set( VIEW_EDITOR_FILES
+    ViewEditors/Navigator.h
+    ViewEditors/TextView.cpp
+    ViewEditors/TextView.h
+    ViewEditors/TVLineNumberArea.cpp
+    ViewEditors/TVLineNumberArea.h
     ViewEditors/CodeViewEditor.cpp
     ViewEditors/CodeViewEditor.h
     ViewEditors/WebEngPage.cpp
