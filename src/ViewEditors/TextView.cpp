@@ -35,7 +35,7 @@
 #include <QColor>
 #include <QPainter>
 #include <QScrollBar>
-#include <QTextBlocK>
+#include <QTextBlock>
 #include <QPlainTextEdit>
 #include <QKeyEvent>
 #include <QDebug>
