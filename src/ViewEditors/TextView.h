@@ -103,12 +103,10 @@ signals:
 protected:
 
     void keyPressEvent(QKeyEvent* ev);
-
-    void resizeEvent(QResizeEvent *event);
-
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
 
+    void resizeEvent(QResizeEvent *event);
     void contextMenuEvent(QContextMenuEvent *event);
 
     void focusInEvent(QFocusEvent *event);

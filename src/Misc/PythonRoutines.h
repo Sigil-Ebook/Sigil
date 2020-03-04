@@ -26,6 +26,8 @@
 #include <QString>
 #include <QStringList>
 
+#include "Misc/DiffRec.h"
+
 struct MetadataPieces {
     QString data;
     QString otherxml;
@@ -72,6 +74,9 @@ public:
 
     QString GenerateRepoLogSummaryInPython(const QString& localRepo,
 					   const QString& bookid);
+
+    QList<DiffRecord::DiffRec> GenerateParsedNDiffInPython(const QString& path1, const QString& path2);
+
 
 private:
 

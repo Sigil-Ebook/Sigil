@@ -28,19 +28,10 @@
 #include <QLabel>
 #include <QDialog>
 
+#include "Misc/DiffRec.h"
+
 class Navigator;
 class TextView;
-
-    struct DiffRec {
-	QString code;
-	QString line;
-	QString newline;
-	QString leftchanges;
-	QString rightchanges;
-    };
-
-
-// #include "ui_ChgViewer.h"
 
 class ChgViewer : public QDialog
 
@@ -49,7 +40,7 @@ class ChgViewer : public QDialog
 
 public:
 
-    ChgViewer(const QList<struct DiffRec>& diffinfo, const QString& file1,
+    ChgViewer(const QList<DiffRecord::DiffRec>& diffinfo, const QString& file1,
 	      const QString& file2, QWidget *parent);
     ~ChgViewer();
 
@@ -58,20 +49,19 @@ public:
 public slots:
     int exec();
     void reject();
+    void slideraction();
+    void next_change(int dir);
+    void do_search(bool reverse=false);
 
 protected:
     void cross_link_scrollbars(bool link=true);
-    void slideraction();
     void synchronize_viewers();
-    void next_change(int dir);
-    void do_search(bool reverse=false);
     void keyPressEvent(QKeyEvent * ev);
 
 private:
     void ReadSettings();
     void WriteSettings();
     void connectSignalsToSlots();
-
 
     QString       m_filepath1;
     QString       m_filepath2;
@@ -82,12 +72,11 @@ private:
     QLabel*       m_lbl2;
     QVBoxLayout*  m_layout;
 
-    const QList<struct DiffRec>&  m_diffinfo;
+    const QList<DiffRecord::DiffRec>&  m_diffinfo;
 
     QStringList    m_leftno;
     QStringList    m_rightno;
     QList<int>     m_changelst;
 
-    // Ui::ChgViewer ui;
 };
 #endif

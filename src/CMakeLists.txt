@@ -276,6 +276,7 @@ set( MISC_FILES
     Misc/CSSHighlighter.h
     Misc/CSSInfo.cpp
     Misc/CSSInfo.h
+    Misc/DiffRec.h
     Misc/HTMLEncodingResolver.cpp
     Misc/HTMLEncodingResolver.h
     Misc/HTMLSpellCheck.cpp

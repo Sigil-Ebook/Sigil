@@ -522,8 +522,9 @@ QScrollBar* TextView::GetVerticalScrollBar()
 }
 
 
-void TextView::keyPressEvent(QKeyEvent*ev)
+void TextView::keyPressEvent(QKeyEvent* ev)
 {
+    qDebug() << "in key press event with key: " << ev->key();
     int amount = 0;
     int d = 1;
     int key = ev->key();
@@ -560,5 +561,4 @@ void TextView::ConnectSignalsToSlots()
 {
     connect(this, SIGNAL(blockCountChanged(int)), this, SLOT(UpdateLineNumberAreaMargin()));
     connect(this, SIGNAL(updateRequest(const QRect &, int)), this, SLOT(UpdateLineNumberArea(const QRect &, int)));
-    // connect(m_verticalScrollBar, SIGNAL(actionTriggered()), this, SLOT(EmitScrollBarActionTriggered()));
 }

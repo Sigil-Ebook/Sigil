@@ -83,10 +83,13 @@ public:
 	// right panel
 	m_rb->setToolTip(tr("Use Right Panel"));
 	m_layout->addWidget(m_rb, r, 6);
+	m_rb->setChecked(true);
 
-	connect(m_bp, SIGNAL(clicked()), this, SLOT(do_prev_change));
-	connect(m_bn, SIGNAL(clicked()), this, SLOT(do_next_change));
-	connect(m_search, SIGNAL(returnPressed()), this, SLOT(do_search));
+	connect(m_bp, SIGNAL(clicked()), this, SLOT(do_prev_change()));
+	connect(m_bn, SIGNAL(clicked()), this, SLOT(do_next_change()));
+	connect(m_search, SIGNAL(returnPressed()), this, SLOT(do_search()));
+	connect(m_sn, SIGNAL(clicked()), this, SLOT(do_find_next()));
+	connect(m_sp, SIGNAL(clicked()), this, SLOT(do_find_prev()));
     }
 
     bool use_left_panel() { return m_lb->isChecked(); }
@@ -99,10 +102,10 @@ public:
     void NextChange(int dir);
     void DoSearch(bool reverse);
 
-protected:
+ public slots:
 
-    void do_previous_change() { emit NextChange(-1); }
-    void do_next_change() { emit NextChange(-1); }
+    void do_prev_change() { emit NextChange(-1); }
+    void do_next_change() { emit NextChange(1); }
 
     void do_find_next() { do_search(false); }
     void do_find_prev() { do_search(true); }

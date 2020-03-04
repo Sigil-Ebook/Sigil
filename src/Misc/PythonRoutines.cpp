@@ -277,3 +277,40 @@ QString PythonRoutines::GenerateRepoLogSummaryInPython(const QString& localRepo,
     }
     return results;
 }
+
+
+QList<DiffRecord::DiffRec> PythonRoutines::GenerateParsedNDiffInPython(const QString& path1,
+						                  const QString& path2)
+{
+    QList<DiffRecord::DiffRec> results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(path1));
+    args.append(QVariant(path2));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("generate_parsed_ndiff"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+	QVariantList vlist = res.toList();
+	foreach(QVariant qv, vlist) {
+	    QStringList fields = qv.toStringList();
+	    DiffRecord::DiffRec dr;
+	    dr.code = fields.at(0);
+	    dr.line = fields.at(1);
+	    dr.newline = fields.at(2);
+	    dr.leftchanges = fields.at(3);
+	    dr.rightchanges = fields.at(4);
+	    results << dr;
+	}
+    }
+    return results;
+}
+
+
+

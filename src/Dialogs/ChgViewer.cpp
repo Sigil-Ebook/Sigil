@@ -51,7 +51,7 @@ static const QString _greenColor        = "#c9fcd6";
 static const QString _darkgreenColor    = "#50c96e";
 
 
-ChgViewer::ChgViewer(const QList<DiffRec>& diffinfo, 
+ChgViewer::ChgViewer(const QList<DiffRecord::DiffRec>& diffinfo, 
 		     const QString&file1, const QString& file2, QWidget *parent)
     : QDialog(parent),
       m_view1(new TextView(this)),
@@ -69,8 +69,8 @@ ChgViewer::ChgViewer(const QList<DiffRec>& diffinfo,
     vl1->addWidget(m_view1);
     hl->addLayout(vl1);
     QVBoxLayout *vl2 = new QVBoxLayout();
-    vl1->addWidget(m_lbl2);
-    vl1->addWidget(m_view2);
+    vl2->addWidget(m_lbl2);
+    vl2->addWidget(m_view2);
     hl->addLayout(vl2);
     m_layout->addLayout(hl);
     m_layout->addWidget(m_nav);
@@ -99,7 +99,7 @@ void ChgViewer::LoadViewers()
     int rightlineno = 1;
     QString pad = "" + _PAD;
     // codes: 0 = Similar, 1 = RightOnly, 2 = LeftOnly, 3 = Changed
-    foreach(struct DiffRec diff, m_diffinfo) {
+    foreach(DiffRecord::DiffRec diff, m_diffinfo) {
 	if (diff.code == "0") { // similar
 	    m_view1->insertPlainText(diff.line + "\n");
 	    m_view2->insertPlainText(diff.line + "\n");
@@ -158,6 +158,8 @@ void ChgViewer::LoadViewers()
     }
     m_view1->setBlockMap(m_leftno);
     m_view2->setBlockMap(m_rightno);
+
+    synchronize_viewers();
 }
 
 void ChgViewer::cross_link_scrollbars(bool link)
@@ -289,10 +291,12 @@ void ChgViewer::do_search(bool reverse)
 void ChgViewer::keyPressEvent(QKeyEvent * ev)
 {
     if ((ev->key() == Qt::Key_Enter) || (ev->key() == Qt::Key_Return)) return;
+
     if (ev->key() == Qt::Key_Slash) {
 	m_nav->set_focus_on_search();
 	return;
     }
+
     if (ev->matches(QKeySequence::Copy)) {
 	QString text = m_view1->GetSelectedText() + m_view2->GetSelectedText();
 	if (!text.isEmpty()) {
@@ -300,6 +304,7 @@ void ChgViewer::keyPressEvent(QKeyEvent * ev)
 	}
 	return;
     }
+
     if (ev->matches(QKeySequence::FindNext)) {
 	do_search(false);
         return;
@@ -347,7 +352,10 @@ void ChgViewer::connectSignalsToSlots()
 {
     connect(m_nav, SIGNAL(NextChange(int)), this, SLOT(next_change(int)));
     connect(m_nav, SIGNAL(DoSearch(bool)),  this, SLOT(do_search(bool)));
-    connect(m_view1->GetVerticalScrollBar(), SIGNAL(actionTriggered()), this, SLOT(slideraction()));
-    connect(m_view2->GetVerticalScrollBar(), SIGNAL(actionTriggered()), this, SLOT(slideraction()));
+    connect(m_view1->GetVerticalScrollBar(), SIGNAL(actionTriggered(int)), this, SLOT(slideraction()));
+    connect(m_view2->GetVerticalScrollBar(), SIGNAL(actionTriggered(int)), this, SLOT(slideraction()));
+    connect(m_view1, SIGNAL(NextChange(int)), this, SLOT(next_change(int)));
+    connect(m_view2, SIGNAL(NextChange(int)), this, SLOT(next_change(int)));
+    
     // connect(ui.okButton, SIGNAL(clicked()), this, SLOT(accept()));
 }

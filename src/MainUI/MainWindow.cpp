@@ -67,6 +67,7 @@
 #include "Dialogs/PluginRunner.h"
 #include "Dialogs/Preferences.h"
 #include "Dialogs/RepoLog.h"
+#include "Dialogs/ChgViewer.h"
 #include "Dialogs/SearchEditor.h"
 #include "Dialogs/SelectCharacter.h"
 #include "Dialogs/SelectCheckpoint.h"
@@ -813,6 +814,21 @@ void MainWindow::RepoDiff(QString bookid)
     RepoLog rl(diff_result, this);
     rl.exec();
     qDebug() << diff_result;
+
+#if 0 // 1 
+    // for testing purposes try to play around with the ChgViewer here
+    // with hard coded file paths
+    QString path1 = "/Users/kbhend/Desktop/project/features.html";
+    QString path2 = "/Users/kbhend/Desktop/project/features2.html";
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    QFuture<QList<DiffRecord::DiffRec>> bfuture = QtConcurrent::run(&pr, &PythonRoutines::GenerateParsedNDiffInPython, 
+							       path1, path2);
+    bfuture.waitForFinished();
+    QList<DiffRecord::DiffRec> diffinfo = bfuture.result();
+    QApplication::restoreOverrideCursor();
+    ChgViewer cv(diffinfo, path1, path2, this);
+    cv.exec();
+#endif
 }
 
 void MainWindow::RepoManage()

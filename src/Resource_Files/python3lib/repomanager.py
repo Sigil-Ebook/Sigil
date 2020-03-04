@@ -31,6 +31,7 @@ from io import BytesIO
 from io import StringIO
 
 from diffstat import diffstat
+from sdifflibparser import DiffCode, DifflibParser
 
 import dulwich
 from dulwich import porcelain
@@ -593,6 +594,24 @@ def generate_log_summary(localRepo, bookid):
             sf.seek(0)
             results = sf.getvalue()
         os.chdir(cdir)
+    return results
+
+
+def generate_parsed_ndiff(path1, path2):
+    path1 = pathof(path1)
+    path2 = pathof(path2)
+    try:
+        leftFileContents = open(path1,'rb').read().decode('utf-8')
+    except:
+        leftFileContents = ''
+    try:
+        rightFileContents = open(path2, 'rb').read().decode('utf-8')
+    except:
+        rightFileContents = ''
+    diff = DifflibParser(leftFileContents.splitlines(), rightFileContents.splitlines())
+    results = []
+    for dinfo in diff:
+        results.append(dinfo)
     return results
 
 
