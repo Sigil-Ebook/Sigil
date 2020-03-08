@@ -29,6 +29,7 @@ import time
 import io
 from io import BytesIO
 from io import StringIO
+import filecmp
 
 from diffstat import diffstat
 from sdifflibparser import DiffCode, DifflibParser
@@ -117,7 +118,10 @@ def walk_folder(top):
         base = pathof(base)
         for name in names:
             name = pathof(name)
-            rv.append(relpath(os.path.join(base, name), top))
+            apath = relpath(os.path.join(base, name), top)
+            if not apath.startswith(".git"):
+                if not os.path.basename(apath) in _SKIP_CLEAN_LIST:
+                    rv.append(apath)
     return rv
 
 
@@ -613,6 +617,93 @@ def generate_parsed_ndiff(path1, path2):
     for dinfo in diff:
         results.append(dinfo)
     return results
+
+
+def generate_unified_diff(path1, path2):
+    path1 = pathof(path1)
+    path2 = pathof(path2)
+    try:
+        leftContents = open(path1,'rb').read().decode('utf-8')
+    except:
+        leftContents = ''
+    try:
+        rightContents = open(path2, 'rb').read().decode('utf-8')
+    except:
+        rightContents = ''
+
+    diffs = difflib.unified_diff(leftContents.splitlines(keepends=True), 
+                                 rightContents.splitlines(keepends=True),
+                                 fromfile=path1, tofile=path2, n=3)
+    results = "diff a/%s b/%s\n" % (path1, path2)
+    with StringIO() as sf:
+        for a in diffs:
+            sf.write(a)
+        sf.seek(0)
+        results += sf.getvalue()
+    return results
+    
+
+def copy_tag_to_destdir(localRepo, bookid, tagname, destdir):
+    # convert posix paths to os specific paths
+    repo_home = pathof(localRepo)
+    repo_home = repo_home.replace("/", os.sep)
+    repo_path = os.path.join(repo_home, "epub_" + bookid)
+    dest_path = pathof(destdir).replace("/", os.sep)
+    copied = []
+    if tagname != "HEAD":
+        # checkout the proper base tag in the repo if needed
+        checkout_tag(repo_path, tagname)
+    # walk the list of files and copy them
+    repolist = walk_folder(repo_path)
+    for apath in repolist:
+        src = os.path.join(repo_path, apath)
+        dest = os.path.join(dest_path, apath)
+        # and make sure destination directory exists
+        base = os.path.dirname(dest)
+        if not os.path.exists(base):
+            os.makedirs(base)
+        data = b''
+        with open(src, 'rb') as f:
+            data = f.read()
+        with open(dest,'wb') as fp:
+            fp.write(data)
+        copied.append(apath)
+    # return the repo to its normal state if needed
+    if tagname != "HEAD":
+        checkout_head(repo_path)
+    return "\n".join(copied)
+
+
+def get_current_status_vs_destdir(bookroot, bookfiles, destdir):
+    # convert posix paths to os specific paths
+    book_home = pathof(bookroot).replace("/", os.sep);
+    dest_path = pathof(destdir).replace("/", os.sep);
+    # convert from bookpaths to os relative file paths
+    filepaths = []
+    for bkpath in bookfiles:
+        afile = pathof(bkpath)
+        afile = afile.replace("/", os.sep)
+        filepaths.append(afile)
+    if "mimetype" in filepaths:
+        filepaths.remove("mimetype")
+    repolist = walk_folder(dest_path)
+    # determine what has been deleted
+    deleted = []
+    for fpath in repolist:
+        if fpath not in filepaths:
+            deleted.append(fpath)
+    if "mimetype" in deleted:
+        deleted.remove("mimetype")
+    # now use pythons built in filecmp to determine added and modified
+    (unchanged, modified, added) = filecmp.cmpfiles(dest_path, book_home, filepaths, shallow=False)
+    # convert everything back to posix style bookpaths
+    for i in range(len(deleted)):
+        deleted[i] = deleted[i].replace(os.sep,"/")
+    for i in range(len(added)):
+        added[i] = added[i].replace(os.sep,"/")
+    for i in range(len(modified)):
+        modified[i] = modified[i].replace(os.sep,"/")
+    return (deleted, added, modified)
 
 
 def main():

@@ -77,6 +77,18 @@ public:
 
     QList<DiffRecord::DiffRec> GenerateParsedNDiffInPython(const QString& path1, const QString& path2);
 
+    QString GenerateUnifiedDiffInPython(const QString& path1, const QString& path2);
+
+    QString CopyTagToDestDirInPython(const QString& localRepo,
+				     const QString& bookid,
+				     const QString& tagname,
+				     const QString& destdir);
+
+    // returns 3 stringlists in the following order: deleted, added, modified
+    QList<QStringList> GetCurrentStatusVsDestDirInPython(const QString& bookroot,
+							 const QStringList& bookfiles,
+							 const QString& destdir);
+    
 
 private:
 
