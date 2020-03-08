@@ -45,18 +45,14 @@ signals:
 protected:
     void mouseDoubleClickEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
 
 private slots:
     void EmitCloseOtherTabs();
-    void processDelayTimer();
 
 private:
     void ShowContextMenu(QMouseEvent *event, int tab_index);
 
     int m_TabIndex;
-    class QTimer *m_MoveDelay;
-    bool is_ok_to_move = false;
 };
 
 #endif // TABBAR_H

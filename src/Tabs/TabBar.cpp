@@ -25,8 +25,6 @@
 #include <QtGui/QContextMenuEvent>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
-#include <QTimer>
-#include <QDebug>
 
 #include "Misc/Utility.h"
 #include "Tabs/TabBar.h"
@@ -47,14 +45,6 @@ TabBar::TabBar(QWidget *parent)
             "background-image: url(:/qt-project.org/styles/commonstyle/images/standardbutton-closetab-hover-16.png);"
         "}";
     setStyleSheet(FORCE_TAB_CLOSE_BUTTON);
-#else
-    m_MoveDelay = new QTimer(this);
-    m_MoveDelay->setInterval(250);
-    m_MoveDelay->setSingleShot(true);
-#ifdef Q_OS_WIN32
-    m_MoveDelay->setTimerType(Qt::PreciseTimer);
-#endif
-    connect(m_MoveDelay, SIGNAL(timeout()), this, SLOT(processDelayTimer()));
 #endif
 }
 
@@ -63,21 +53,6 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent *event)
     emit TabBarDoubleClicked();
 }
 
-void TabBar::mouseMoveEvent(QMouseEvent *event)
-{
-#ifndef Q_OS_MAC
-    // If timer hasn't expired, block the mouse move (with button down) event.
-    // This is being done to prevent the "dancing tab" problem when clicking
-    // on an inactive tab without the mouse being absolutely still.
-    // event->button() reports Qt::NoButton when moving with mouse button down
-    qDebug() << "Mouse button " << event->button();
-    if (!is_ok_to_move) {
-        qDebug() << "Timer left: " << m_MoveDelay->remainingTime();
-        return;
-    }
-#endif
-    QTabBar::mouseMoveEvent(event);
-}
 
 void TabBar::mousePressEvent(QMouseEvent *event)
 {
@@ -96,15 +71,6 @@ void TabBar::mousePressEvent(QMouseEvent *event)
             }
         }
     } else if (event->button() == Qt::LeftButton) {
-#ifndef Q_OS_MAC
-        // Set the ok_to_move flag to false and start .25 second delay timer
-        // No overlapping .25 second timers allowed
-        if(!m_MoveDelay->isActive()) {
-            qDebug() << "Qt::LeftButton pressed, delay timer started";
-            is_ok_to_move = false;
-            m_MoveDelay->start();
-        }
-#endif
         emit TabBarClicked();
     }
 
@@ -132,11 +98,4 @@ void TabBar::ShowContextMenu(QMouseEvent *event, int tab_index)
 void TabBar::EmitCloseOtherTabs()
 {
     emit CloseOtherTabsRequest(m_TabIndex);
-}
-
-void TabBar::processDelayTimer()
-{
-    // Allow the mouse movement (with button down) to happen normally
-    qDebug() << "Timer elapsed. Mouse movement allowed.";
-    is_ok_to_move = true;
 }
