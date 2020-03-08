@@ -1,3 +1,9 @@
+Sigil-Pre-1.2.0
+    New Features:
+      - Provide a tweak setting to adjust drag distance for Windows & Linux
+    Bug Fixes:
+      - Improve default drag-distance for Book View for Windows & Linux
+
 Sigil-1.1.0
     New Features:
       - Added Support for Dark Mode for Windows, Linux and macOSX (Thanks BeckyEbook!)
