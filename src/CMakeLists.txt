@@ -149,6 +149,9 @@ set( DIALOG_FILES
     Dialogs/RepoLog.h
     Dialogs/ChgViewer.cpp
     Dialogs/ChgViewer.h
+    Dialogs/ListSelector.h
+    Dialogs/CPCompare.cpp
+    Dialogs/CPCompare.h
     Dialogs/RERenamer.cpp
     Dialogs/RERenamer.h
     Dialogs/RETable.cpp

@@ -68,6 +68,7 @@
 #include "Dialogs/Preferences.h"
 #include "Dialogs/RepoLog.h"
 #include "Dialogs/ChgViewer.h"
+#include "Dialogs/CPCompare.h"
 #include "Dialogs/SearchEditor.h"
 #include "Dialogs/SelectCharacter.h"
 #include "Dialogs/SelectCheckpoint.h"
@@ -754,6 +755,12 @@ void MainWindow::RepoDiff(QString bookid)
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
+    // force all changes to Disk
+    SaveTabData();
+    m_Book->GetFolderKeeper()->SuspendWatchingResources();
+    m_Book->SaveAllResourcesToDisk();
+    m_Book->GetFolderKeeper()->ResumeWatchingResources();
+
     // Get tags using python in a separate thread since this
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
@@ -769,7 +776,7 @@ void MainWindow::RepoDiff(QString bookid)
     QApplication::restoreOverrideCursor();
 
     // Reuse SelectCheckpoint for the time being
-    // Now create a Dialog to allow the user to select left diff tree
+    // Now create a Dialog to allow the user to select the base tag
     QString chkpoint1;
     SelectCheckpoint gettagleft(tag_results, this);
     if (gettagleft.exec() == QDialog::Accepted) {
@@ -779,10 +786,41 @@ void MainWindow::RepoDiff(QString bookid)
         }
     }
     if (chkpoint1.isEmpty()) {
-        ShowMessageOnStatusBar(tr("Diff Failed. No left checkpoint selected for comparison"));
+        ShowMessageOnStatusBar(tr("Diff Failed. No checkpoint selected for comparison"));
         return;
     }
 
+    // now checkout this tag version and copy it to a tempfolder
+    TempFolder destdir;
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    QFuture<QString> cfuture = QtConcurrent::run(&pr, &PythonRoutines::CopyTagToDestDirInPython, 
+						 localRepo, bookid, chkpoint1, destdir.GetPath() );
+    cfuture.waitForFinished();
+    QString copied = cfuture.result();
+    QApplication::restoreOverrideCursor();
+
+    // now test getting the status of the changes since that tag
+    QString bookroot = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+    QStringList bookfiles = m_Book->GetFolderKeeper()->GetAllBookPaths();
+    bookfiles << "META-INF/container.xml";
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    QFuture<QList<QStringList> > dfuture = QtConcurrent::run(
+				    &pr, &PythonRoutines::GetCurrentStatusVsDestDirInPython, 
+				    bookroot, bookfiles, destdir.GetPath());
+    dfuture.waitForFinished();
+    QList<QStringList> sres = dfuture.result();
+    QApplication::restoreOverrideCursor();
+
+    QStringList dlist(sres.at(0));
+    QStringList alist(sres.at(1));
+    QStringList mlist(sres.at(2));
+
+    // show CPCompare dialog to allow the user to explore the changes
+    CPCompare comp(bookroot, destdir.GetPath(), dlist, alist, mlist, this);
+    comp.exec();
+
+#if 0
     // Now create a Dialog to allow the user to select right diff tree
     QString chkpoint2;
     SelectCheckpoint gettagright(tag_results, this);
@@ -811,11 +849,10 @@ void MainWindow::RepoDiff(QString bookid)
     // Dulwich unified diff for now. May eventually build diffs from "live" trees in C++.
     QApplication::restoreOverrideCursor();
     ShowMessageOnStatusBar(tr("Diff successful"));
-    RepoLog rl(diff_result, this);
+    RepoLog rl(diff_result, "fill in title here", this);
     rl.exec();
     qDebug() << diff_result;
 
-#if 0 //1
     // for testing purposes try to play around with the ChgViewer here
     // with hard coded file paths
     QString path1 = "/Users/kbhend/Desktop/project/features.html";
@@ -828,49 +865,6 @@ void MainWindow::RepoDiff(QString bookid)
     QApplication::restoreOverrideCursor();
     ChgViewer cv(diffinfo, path1, path2, this);
     cv.exec();
-
-    // test creating a directory and filling it with a tag checkout
-    TempFolder destdir;
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    QFuture<QString> cfuture = QtConcurrent::run(&pr, &PythonRoutines::CopyTagToDestDirInPython, 
-						 localRepo, bookid, QString("V0001"), destdir.GetPath() );
-    cfuture.waitForFinished();
-    QString copied = cfuture.result();
-    QApplication::restoreOverrideCursor();
-    qDebug() << "copied tag: " << copied;
-
-    // now test getting the status of the changes since that tag
-    // get epub root
-    QString bookroot = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
-
-    // get a full list of epub resource bookpaths
-    QStringList bookfiles = m_Book->GetFolderKeeper()->GetAllBookPaths();
-
-    // add in the META-INF/container.xml file
-    bookfiles << "META-INF/container.xml";
-
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    QFuture<QList<QStringList> > dfuture = QtConcurrent::run(&pr, &PythonRoutines::GetCurrentStatusVsDestDirInPython, 
-						         bookroot, bookfiles, destdir.GetPath());
-    dfuture.waitForFinished();
-    QList<QStringList> sres = dfuture.result();
-    QApplication::restoreOverrideCursor();
-
-    QStringList files_deleted(sres.at(0));
-    QStringList files_added(sres.at(1));
-    QStringList files_modified(sres.at(2));
-    qDebug() << "Deleted:";
-    foreach(QString apath, files_deleted) {
-	qDebug() << apath;
-    }
-    qDebug() << "Added:";
-    foreach(QString apath, files_added) {
-	qDebug() << apath;
-    }
-    qDebug() << "Modifed:";
-    foreach(QString apath, files_modified) {
-	qDebug() << apath;
-    }
 
 #endif
 }

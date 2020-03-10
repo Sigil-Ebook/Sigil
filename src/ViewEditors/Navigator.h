@@ -46,7 +46,8 @@ public:
 	m_sn(new QToolButton(this)),
 	m_sp(new QToolButton(this)),
 	m_lb(new QRadioButton(tr("Left"), this)),
-	m_rb(new QRadioButton(tr("Right"), this))
+	m_rb(new QRadioButton(tr("Right"), this)),
+	m_done(new QToolButton(this))
     {
 	int r = m_layout->rowCount();
 	// previous change
@@ -85,11 +86,18 @@ public:
 	m_layout->addWidget(m_rb, r, 6);
 	m_rb->setChecked(true);
 
+	// done button
+	m_done->setToolTip(tr("Close this window"));
+	m_done->setText(tr("Done"));
+	m_done->setToolButtonStyle(Qt::ToolButtonTextOnly);
+	m_layout->addWidget(m_done, r, 7);
+
 	connect(m_bp, SIGNAL(clicked()), this, SLOT(do_prev_change()));
 	connect(m_bn, SIGNAL(clicked()), this, SLOT(do_next_change()));
 	connect(m_search, SIGNAL(returnPressed()), this, SLOT(do_search()));
 	connect(m_sn, SIGNAL(clicked()), this, SLOT(do_find_next()));
 	connect(m_sp, SIGNAL(clicked()), this, SLOT(do_find_prev()));
+	connect(m_done, SIGNAL(clicked()), this, SLOT(do_done()));
     }
 
     bool use_left_panel() { return m_lb->isChecked(); }
@@ -101,6 +109,7 @@ public:
  signals:
     void NextChange(int dir);
     void DoSearch(bool reverse);
+    void DoDone();
 
  public slots:
 
@@ -114,6 +123,8 @@ public:
 	emit DoSearch(reverse);
     }
 
+    void do_done() { emit DoDone(); }
+
 private:
     QGridLayout*  m_layout;
     QToolButton*  m_bp;
@@ -123,6 +134,7 @@ private:
     QToolButton*  m_sp;
     QRadioButton* m_lb;
     QRadioButton* m_rb;
+    QToolButton * m_done;
 };
 
 #endif // NAVIGATOR_H

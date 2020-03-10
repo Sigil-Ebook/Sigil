@@ -31,7 +31,7 @@
 
 static const QString SETTINGS_GROUP = "repo_log";
 
-RepoLog::RepoLog(const QString& logdata, QWidget *parent)
+RepoLog::RepoLog(const QString& logdata, const QString& title, QWidget *parent)
     : QDialog(parent),
       m_LogData(logdata)
 {
@@ -41,6 +41,7 @@ RepoLog::RepoLog(const QString& logdata, QWidget *parent)
     font.setFamily("Courier New");
     font.setStyleHint(QFont::TypeWriter);
     ui.textEdit->setFont(font);
+    ui.label->setText(title);
     ReadSettings();
     connectSignalsToSlots();
 }
@@ -69,6 +70,16 @@ void RepoLog::WriteSettings()
     // The size of the window and it's full screen status
     settings.setValue("geometry", saveGeometry());
     settings.endGroup();
+}
+
+void RepoLog::show()
+{
+    ui.okButton->setEnabled(true);
+    ui.textEdit->clear();
+    ui.textEdit->setOverwriteMode(true);
+    ui.textEdit->setVisible(true);
+    ui.textEdit->setPlainText(m_LogData);
+    return QDialog::show();
 }
 
 int RepoLog::exec()

@@ -352,6 +352,7 @@ void ChgViewer::connectSignalsToSlots()
 {
     connect(m_nav, SIGNAL(NextChange(int)), this, SLOT(next_change(int)));
     connect(m_nav, SIGNAL(DoSearch(bool)),  this, SLOT(do_search(bool)));
+    connect(m_nav, SIGNAL(DoDone()),        this, SLOT(accept()));
     connect(m_view1->GetVerticalScrollBar(), SIGNAL(actionTriggered(int)), this, SLOT(slideraction()));
     connect(m_view2->GetVerticalScrollBar(), SIGNAL(actionTriggered(int)), this, SLOT(slideraction()));
     connect(m_view1, SIGNAL(NextChange(int)), this, SLOT(next_change(int)));
