@@ -24,8 +24,11 @@
 
 #include <QString>
 #include <QStringList>
+#include <QWidget>
 #include <QDialog>
 
+class QToolButton;
+class QVBoxLayout;
 class ListSelector;
 
 class CPCompare : public QDialog
