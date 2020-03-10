@@ -158,8 +158,9 @@ void ManageRepos::ShowLog()
 
     QApplication::restoreOverrideCursor();
 
-    RepoLog log(logData, tr("Repository Log"), this);
-    log.exec();
+    RepoLog* log = new RepoLog(logData, tr("Repository Log"), this);
+    log->show();
+    log->raise();
 }
 
 

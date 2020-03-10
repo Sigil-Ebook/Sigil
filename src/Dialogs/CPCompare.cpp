@@ -92,7 +92,9 @@ void CPCompare::handle_del_request()
 	    RepoLog* lv = new RepoLog(data, apath, this);
 	    lv->show();
 	    lv->raise();
-	    lv->activateWindow();
+	    // lv->activateWindow();
+	} else {
+	    qDebug() << "attempted to show a binary file " << apath;
 	}
     }
 }
@@ -109,7 +111,9 @@ void CPCompare::handle_add_request()
 	    RepoLog* lv = new RepoLog(data, apath, this);
 	    lv->show();
 	    lv->raise();
-	    lv->activateWindow();
+	    // lv->activateWindow();
+	} else {
+	    qDebug() << "attempted to show a binary file " << apath;
 	}
     }
 }
@@ -133,10 +137,11 @@ void CPCompare::handle_mod_request()
 	    ChgViewer* cv = new ChgViewer(diffinfo, "Checkpoint: "+apath, "Current: "+apath, this);
 	    cv->show();
 	    cv->raise();
-	    cv->activateWindow();
+	    // cv->activateWindow();
+	} else {
+	    qDebug() << "attempted to show a binary file " << apath;
 	}
     }
-    
 }
 
 void CPCompare::handle_cleanup()

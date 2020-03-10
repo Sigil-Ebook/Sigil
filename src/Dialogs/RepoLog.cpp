@@ -35,6 +35,7 @@ RepoLog::RepoLog(const QString& logdata, const QString& title, QWidget *parent)
     : QDialog(parent),
       m_LogData(logdata)
 {
+    setAttribute(Qt::WA_DeleteOnClose,true);
     ui.setupUi(this);
     // need fixed width font for diff stats bar graphs to show properly
     QFont font = ui.textEdit->font();
