@@ -83,9 +83,11 @@ void TextView::insert_with_background(const QString& text, const QString& colorv
 {
     QTextCharFormat tf = currentCharFormat();
     tf.setBackground(QColor(colorval));
+    tf.setForeground(Qt::black);
     setCurrentCharFormat(tf);
     insertPlainText(text);
     tf.clearBackground();
+    tf.clearForeground();
     setCurrentCharFormat(tf);
 }
 
