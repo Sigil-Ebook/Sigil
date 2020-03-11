@@ -39,12 +39,15 @@
 #include <QPlainTextEdit>
 #include <QKeyEvent>
 #include <QDebug>
+#include <QSyntaxHighlighter>
 
+#include "Misc/XHTMLHighlighter.h"
+#include "Misc/CSSHighlighter.h"
 #include "MainUI/MainWindow.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
-#include "ViewEditors/TextView.h"
 #include "ViewEditors/TVLineNumberArea.h"
+#include "ViewEditors/TextView.h"
 
 static const int TAB_SPACES_WIDTH     = 4;
 static const int LINE_NUMBER_MARGIN   = 5;
@@ -61,7 +64,8 @@ static const QColor darkgreenColor    = QColor("#50c96e");
 TextView::TextView(QWidget *parent)
     :
     QPlainTextEdit(parent),
-    m_LineNumberArea(new TVLineNumberArea(this))
+    m_LineNumberArea(new TVLineNumberArea(this)),
+    m_Highlighter(nullptr)
 {
     UpdateLineNumberAreaMargin();
     setReadOnly(true);
@@ -167,6 +171,41 @@ void TextView::LineNumberAreaPaintEvent(QPaintEvent *event)
         blockNumber++;
     }
 }
+
+void TextView::DoHighlightDocument(HighlighterType high_type)
+{
+    if (!m_Highlighter) {
+	if (high_type == TextView::Highlight_XHTML) {
+	    m_Highlighter = new XHTMLHighlighter(false, this);
+	} else if (high_type == TextView::Highlight_CSS) {
+	    m_Highlighter = new CSSHighlighter(this);
+	} else {
+	    m_Highlighter = NULL;
+	}
+	if (m_Highlighter) {
+            m_Highlighter->setDocument(document());
+	    RehighlightDocument();
+	}
+    }
+}
+
+void TextView::RehighlightDocument()
+{
+    if (!isVisible()) {
+        return;
+    }
+
+    if (m_Highlighter) {
+	// We block signals from the document while highlighting takes place,
+	// because we do not want the contentsChanged() signal to be fired
+	// which would mark the underlying resource as needing saving.
+	document()->blockSignals(true);
+	m_Highlighter->rehighlight();
+	document()->blockSignals(false);
+    }
+}
+
+
 
 #if 0
 void TextView::SetAppearance()
@@ -427,7 +466,7 @@ void TextView::GoToLinkOrStyle()
 // Overridden so we can emit the FocusGained() signal.
 void TextView::focusInEvent(QFocusEvent *event)
 {
-    // RehighlightDocument();
+    RehighlightDocument();
     emit FocusGained(this);
     QPlainTextEdit::focusInEvent(event);
 }

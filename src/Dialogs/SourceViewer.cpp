@@ -42,6 +42,9 @@
 
 static const QString SETTINGS_GROUP = "source_viewer";
 
+static const QStringList XHTML_EXTENSIONS = QStringList() << "htm" << "html" << "xhtml";
+static const QStringList CSS_EXTENSIONS = QStringList() << "css";
+
 SourceViewer::SourceViewer(const QString&file1, const QString& data, QWidget *parent)
     : QDialog(parent),
       m_view(new TextView(this)),
@@ -51,6 +54,7 @@ SourceViewer::SourceViewer(const QString&file1, const QString& data, QWidget *pa
       m_layout(new QVBoxLayout(this))
 {
     setAttribute(Qt::WA_DeleteOnClose,true);
+    QString ext = file1.split(".").last().toLower();
     // handle the layout manually
     m_layout->addWidget(m_lbl);
     m_layout->addWidget(m_view);
@@ -64,6 +68,12 @@ SourceViewer::SourceViewer(const QString&file1, const QString& data, QWidget *pa
 
     ReadSettings();
     LoadViewer();
+    if (XHTML_EXTENSIONS.contains(ext)) {
+	m_view->DoHighlightDocument(TextView::Highlight_XHTML);
+    }
+    if (CSS_EXTENSIONS.contains(ext)) {
+	m_view->DoHighlightDocument(TextView::Highlight_CSS);
+    }
     connectSignalsToSlots();
 }
 
