@@ -34,7 +34,7 @@
 #include <QDebug>
 
 #include "Dialogs/ListSelector.h"
-#include "Dialogs/RepoLog.h"
+#include "Dialogs/SourceViewer.h"
 #include "Dialogs/ChgViewer.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -89,10 +89,9 @@ void CPCompare::handle_del_request()
 	QFileInfo fi(filepath);
 	if (TEXT_EXTENSIONS.contains(fi.suffix().toLower())) {
 	    QString data = Utility::ReadUnicodeTextFile(filepath);
-	    RepoLog* lv = new RepoLog(data, apath, this);
-	    lv->show();
-	    lv->raise();
-	    // lv->activateWindow();
+	    SourceViewer* sv = new SourceViewer(apath, data, this);
+	    sv->show();
+	    sv->raise();
 	} else {
 	    qDebug() << "attempted to show a binary file " << apath;
 	}
@@ -108,10 +107,9 @@ void CPCompare::handle_add_request()
 	QFileInfo fi(filepath);
 	if (TEXT_EXTENSIONS.contains(fi.suffix().toLower())) {
 	    QString data = Utility::ReadUnicodeTextFile(filepath);
-	    RepoLog* lv = new RepoLog(data, apath, this);
-	    lv->show();
-	    lv->raise();
-	    // lv->activateWindow();
+	    SourceViewer* sv = new SourceViewer(apath, data, this);
+	    sv->show();
+	    sv->raise();
 	} else {
 	    qDebug() << "attempted to show a binary file " << apath;
 	}
@@ -137,7 +135,6 @@ void CPCompare::handle_mod_request()
 	    ChgViewer* cv = new ChgViewer(diffinfo, "Checkpoint: "+apath, "Current: "+apath, this);
 	    cv->show();
 	    cv->raise();
-	    // cv->activateWindow();
 	} else {
 	    qDebug() << "attempted to show a binary file " << apath;
 	}

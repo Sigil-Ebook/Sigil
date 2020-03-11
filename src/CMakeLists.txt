@@ -149,6 +149,8 @@ set( DIALOG_FILES
     Dialogs/RepoLog.h
     Dialogs/ChgViewer.cpp
     Dialogs/ChgViewer.h
+    Dialogs/SourceViewer.cpp
+    Dialogs/SourceViewer.h
     Dialogs/ListSelector.h
     Dialogs/CPCompare.cpp
     Dialogs/CPCompare.h
@@ -378,6 +380,7 @@ set( SPCRE_FILES
 
 set( VIEW_EDITOR_FILES
     ViewEditors/Navigator.h
+    ViewEditors/Navigator2.h
     ViewEditors/TextView.cpp
     ViewEditors/TextView.h
     ViewEditors/TVLineNumberArea.cpp
