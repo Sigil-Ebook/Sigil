@@ -58,6 +58,7 @@ public:
 	hl->addWidget(m_bp);
 	m_layout->addLayout(hl);
 	connect(m_bp, SIGNAL(clicked()), this, SLOT(view_request()));
+	connect(m_lw, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(view_request()));
     }
 
     QStringList get_selections() 
