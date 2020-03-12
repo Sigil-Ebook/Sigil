@@ -1,7 +1,6 @@
 /************************************************************************
  **
  **  Copyright (C) 2020 Kevin B. Hendricks, Stratford Ontario Canada
- **  Copyright (C) 2020 Doug Massay
  **
  **  This file is part of Sigil.
  **
@@ -19,30 +18,51 @@
  **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
  **
  *************************************************************************/
-#include <Qt>
 #include <QString>
-#include <QMessageBox>
+#include <QList>
+#include <QDialog>
+#include <QWidget>
+#include <QScrollBar>
+#include <QClipboard>
 #include <QPlainTextEdit>
+#include <QTextDocument>
+#include <QTextCursor>
+#include <QScrollBar>
+#include <QTextBlock>
+#include <QKeySequence>
+#include <QKeyEvent>
+#include <QApplication>
+#include <QDebug>
 
+#include "ViewEditors/TextView.h"
+#include "ViewEditors/Navigator2.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "Dialogs/RepoLog.h"
 
-
 static const QString SETTINGS_GROUP = "repo_log";
 
-RepoLog::RepoLog(const QString& logdata, const QString& title, QWidget *parent)
+RepoLog::RepoLog(const QString&lbl, const QString& data, QWidget *parent)
     : QDialog(parent),
-      m_LogData(logdata)
+      m_view(new TextView(this)),
+      m_lbl(new QLabel(lbl, this)),
+      m_nav(new Navigator2(this)),
+      m_data(data),
+      m_layout(new QVBoxLayout(this))
 {
-    ui.setupUi(this);
-    // need fixed width font for diff stats bar graphs to show properly
-    QFont font = ui.textEdit->font();
-    font.setFamily("Courier New");
-    font.setStyleHint(QFont::TypeWriter);
-    ui.textEdit->setFont(font);
-    ui.label->setText(title);
+    // handle the layout manually
+    m_layout->addWidget(m_lbl);
+    m_layout->addWidget(m_view);
+    m_layout->addWidget(m_nav);
+
+    // need fixed width font for diff to show properly
+    QFont tf = m_view->font();
+    tf.setFamily("Courier New");
+    tf.setStyleHint(QFont::TypeWriter);
+    m_view->setFont(tf);
+
     ReadSettings();
+    LoadViewer();
     connectSignalsToSlots();
 }
 
@@ -51,11 +71,78 @@ RepoLog::~RepoLog()
     WriteSettings();
 }
 
+void RepoLog::LoadViewer()
+{
+    QStringList recs = m_data.split("\n");
+    foreach(QString rec, recs) {
+	m_view->insertPlainText(rec + "\n");
+	m_blockmap << "";
+    }
+    m_view->setBlockMap(m_blockmap);
+
+    // set cursor to the top and start scroll there
+    QTextCursor tc = m_view->textCursor();
+    tc.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor,1);
+    m_view->setTextCursor(tc);
+    m_view->GetVerticalScrollBar()->setValue(0);
+}
+
+void RepoLog::next_page(int dir)
+{
+    int d = 1;
+    if (dir < 0) d = -1;
+    int amount = m_view->GetVerticalScrollBar()->pageStep();
+    int value = m_view->GetVerticalScrollBar()->value();
+    if (amount != 0) {
+        m_view->GetVerticalScrollBar()->setValue(value + (d * amount));
+    }
+}
+
+void RepoLog::do_search(bool reverse)
+{
+    QString stext = m_nav->get_search_text();
+    if (stext.simplified().isEmpty()) return;
+    QTextDocument::FindFlags ff = QTextDocument::FindFlags();
+    if (reverse) ff = ff | QTextDocument::FindBackward;
+    bool found = m_view->find(stext, ff);
+    if (found) {
+	QTextCursor c = m_view->textCursor();
+	m_view->centerCursor();
+    }
+}
+
+void RepoLog::keyPressEvent(QKeyEvent * ev)
+{
+    if ((ev->key() == Qt::Key_Enter) || (ev->key() == Qt::Key_Return)) return;
+
+    if (ev->key() == Qt::Key_Slash) {
+	m_nav->set_focus_on_search();
+	return;
+    }
+
+    if (ev->matches(QKeySequence::Copy)) {
+	QString text = m_view->GetSelectedText();
+	if (!text.isEmpty()) {
+	    QApplication::clipboard()->setText(text);
+	}
+	return;
+    }
+
+    if (ev->matches(QKeySequence::FindNext)) {
+	do_search(false);
+        return;
+    }
+    if (ev->matches(QKeySequence::FindPrevious)) {
+	do_search(true);
+        return;
+    }
+    return QDialog::keyPressEvent(ev);
+}
+
 void RepoLog::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-    // The size of the window and it's full screen status
     QByteArray geometry = settings.value("geometry").toByteArray();
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
@@ -67,28 +154,12 @@ void RepoLog::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-    // The size of the window and it's full screen status
     settings.setValue("geometry", saveGeometry());
     settings.endGroup();
 }
 
-void RepoLog::show()
-{
-    ui.okButton->setEnabled(true);
-    ui.textEdit->clear();
-    ui.textEdit->setOverwriteMode(true);
-    ui.textEdit->setVisible(true);
-    ui.textEdit->setPlainText(m_LogData);
-    return QDialog::show();
-}
-
 int RepoLog::exec()
 {
-    ui.okButton->setEnabled(true);
-    ui.textEdit->clear();
-    ui.textEdit->setOverwriteMode(true);
-    ui.textEdit->setVisible(true);
-    ui.textEdit->setPlainText(m_LogData);
     return QDialog::exec();
 }
 
@@ -100,5 +171,8 @@ void RepoLog::reject()
 
 void RepoLog::connectSignalsToSlots()
 {
-    connect(ui.okButton, SIGNAL(clicked()), this, SLOT(accept()));
+    connect(m_nav, SIGNAL(NextPage(int)), this, SLOT(next_page(int)));
+    connect(m_nav, SIGNAL(DoSearch(bool)),  this, SLOT(do_search(bool)));
+    connect(m_nav, SIGNAL(DoDone()),        this, SLOT(accept()));
+    connect(m_view, SIGNAL(NextPage(int)), this, SLOT(next_page(int)));
 }

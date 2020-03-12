@@ -102,6 +102,15 @@ void TextView::setBlockMap(const QStringList& blockmap)
 
 int TextView::CalculateLineNumberAreaWidth()
 {
+    int max_width = 0;
+    foreach(const QString& aval, m_blockmap) {
+        if (aval.length() > max_width) {
+	    max_width = aval.length();
+	}
+    }
+    if (max_width == 0) {
+	return 0;
+    }
     int num_digits = 1;
     int max_value = std::max(1, blockCount());
     // We count the number of digits

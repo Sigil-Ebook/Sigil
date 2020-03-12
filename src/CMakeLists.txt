@@ -467,7 +467,6 @@ set( UI_FILES
     Form_Files/DeleteStyles.ui
     Form_Files/ManageRepos.ui
     Form_Files/OpenWithName.ui
-    Form_Files/RepoLog.ui
     Form_Files/RERenamer.ui
     Form_Files/RETable.ui
     Form_Files/SelectCharacter.ui

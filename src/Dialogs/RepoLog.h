@@ -23,9 +23,14 @@
 #define REPOLOG_H
 
 #include <QString>
+#include <QStringList>
+#include <QList>
+#include <QLabel>
 #include <QDialog>
 
-#include "ui_RepoLog.h"
+class Navigator2;
+class TextView;
+class QVBoxLayout;
 
 class RepoLog : public QDialog
 
@@ -33,22 +38,31 @@ class RepoLog : public QDialog
     Q_OBJECT
 
 public:
-    RepoLog(const QString& logdata, const QString& title, QWidget *parent);
+
+    RepoLog(const QString& lbl, const QString& data, QWidget *parent);
     ~RepoLog();
 
+    void LoadViewer();
 
 public slots:
-    void show();
     int exec();
     void reject();
+    void next_page(int dir);
+    void do_search(bool reverse=false);
+
+protected:
+    void keyPressEvent(QKeyEvent * ev);
 
 private:
     void ReadSettings();
     void WriteSettings();
     void connectSignalsToSlots();
 
-    QString m_LogData;
-
-    Ui::RepoLog ui;
+    QStringList   m_blockmap;
+    TextView*     m_view;
+    Navigator2*   m_nav;
+    QLabel*       m_lbl;
+    QString       m_data;
+    QVBoxLayout*  m_layout;
 };
 #endif
