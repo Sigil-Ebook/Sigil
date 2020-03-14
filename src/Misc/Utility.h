@@ -218,7 +218,7 @@ public:
     static QStringList sortByCounts(const QStringList &folderlst, const QList<int> &countlst);
 
     // perform a locale aware string sort
-    static QStringList LocaleAwareSort(QStringList &names);
+    static QStringList LocaleAwareSort(const QStringList &names);
 
     // inject dark mode css into html for Preview, AVTab, ImageTab, ViewImage, and SelectFiles
     static QString AddDarkCSS(const QString &html);

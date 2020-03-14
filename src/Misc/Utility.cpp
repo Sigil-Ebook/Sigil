@@ -1157,15 +1157,16 @@ QStringList Utility::sortByCounts(const QStringList &folderlst, const QList<int>
     return sortedlst;
 }
 
-QStringList Utility::LocaleAwareSort(QStringList &names)
+QStringList Utility::LocaleAwareSort(const QStringList &names)
 {
   SettingsStore ss;
+  QStringList nlist(names);
   QLocale uiLocale(ss.uiLanguage());
   QCollator uiCollator(uiLocale);
   uiCollator.setCaseSensitivity(Qt::CaseInsensitive);
   // use uiCollator.compare(s1, s2)
-  std::sort(names.begin(), names.end(), uiCollator);
-  return names;
+  std::sort(nlist.begin(), nlist.end(), uiCollator);
+  return nlist;
 }
 
 

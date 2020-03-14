@@ -31,6 +31,8 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
+#include "Misc/Utility.h"
+
 class ListSelector : public QWidget
 {
     Q_OBJECT
@@ -46,7 +48,8 @@ public:
 	m_bp->setToolTip(tr("View selected"));
 	m_bp->setText(btext);
 	m_bp->setToolButtonStyle(Qt::ToolButtonTextOnly);
-	foreach(QString aitem, alist) {
+	QStringList sortedlist = Utility::LocaleAwareSort(alist);
+	foreach(QString aitem, sortedlist) {
 	    m_lw->addItem(aitem);
 	}
 	m_lw->setSelectionMode(QAbstractItemView::ExtendedSelection);
