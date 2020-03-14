@@ -747,7 +747,7 @@ private:
      *
      * @param fullfilepath The path to the currently edited file.
      */
-    void UpdateUiWithCurrentFile(const QString &fullfilepath);
+    void UpdateUiWithCurrentFile(const QString &fullfilepath, bool just_name = false);
 
     /**
      * Selects the appropriate entry in the heading combo box

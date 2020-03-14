@@ -711,20 +711,19 @@ void MainWindow::RepoCheckout(QString bookid, QString destdir, QString filename,
     ShowMessageOnStatusBar(tr("Epub Generation succeeded"));
 
     if (loadnow) {
-#ifdef Q_OS_MAC
-	MainWindow *new_window = new MainWindow(epub_result, "", true);
-	new_window->show();
-	new_window->activateWindow();
-#else
-	// For Linux and Windows will replace current book                                                      
-	// So Throw Up a Dialog to See if they want to proceed                                                  
+	// on macOS bad things with checkpoints could happen if we have 
+        // two different epubs open but both with the exact same book id
+	// so treat macOS just like Linux and Windows when restoring from 
+	// a checkpoint
+
+	// For Linux and Windows (and macOS in this one case) will replace 
+	// current book So Throw Up a Dialog to See if they want to proceed
 	bool proceed = false;
 	QMessageBox msgBox;
 	msgBox.setIcon(QMessageBox::Warning);
 	msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
 	msgBox.setWindowTitle(tr("Repository Checkout"));
-	msgBox.setText(tr("Your current book will be completely replaced losing any unsaved changes ...  Are yo\
-u sure you want to proceed"));
+	msgBox.setText(tr("Your current book will be completely replaced losing any unsaved changes ... Are you sure you want to proceed"));
 	QPushButton *yesButton = msgBox.addButton(QMessageBox::Yes);
 	QPushButton *noButton =  msgBox.addButton(QMessageBox::No);
 	msgBox.setDefaultButton(noButton);
@@ -735,7 +734,6 @@ u sure you want to proceed"));
 	if (proceed) {
 	    LoadFile(epub_result, true);
 	}
-#endif
     }
 }
 
@@ -4662,7 +4660,7 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
                 m_LastInsertedFile = "";
                 UpdateUiWithCurrentFile(fullfilepath);
             } else {
-                UpdateUiWithCurrentFile("");
+                UpdateUiWithCurrentFile(QFileInfo(fullfilepath).fileName(), true);
                 m_Book->SetModified();
             }
 
@@ -4942,10 +4940,15 @@ const QMap<QString, QString> MainWindow::GetSaveFiltersMap()
 }
 
 
-void MainWindow::UpdateUiWithCurrentFile(const QString &fullfilepath)
+void MainWindow::UpdateUiWithCurrentFile(const QString &fullfilepath, bool just_name)
 {
-    m_CurrentFilePath = fullfilepath;
-    m_CurrentFileName = m_CurrentFilePath.isEmpty() ? DEFAULT_FILENAME : QFileInfo(m_CurrentFilePath).fileName();
+    if (just_name) {
+        m_CurrentFilePath = "";
+        m_CurrentFileName = fullfilepath;
+    } else {
+        m_CurrentFilePath = fullfilepath;
+        m_CurrentFileName = m_CurrentFilePath.isEmpty() ? DEFAULT_FILENAME : QFileInfo(m_CurrentFilePath).fileName();
+    }
     QString epubversion = m_Book->GetConstOPF()->GetEpubVersion();
 
     // Update the titlebar
