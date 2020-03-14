@@ -38,8 +38,8 @@
 #include <QTextBlock>
 #include <QPlainTextEdit>
 #include <QKeyEvent>
-#include <QDebug>
 #include <QSyntaxHighlighter>
+#include <QDebug>
 
 #include "Misc/XHTMLHighlighter.h"
 #include "Misc/CSSHighlighter.h"
@@ -77,6 +77,7 @@ TextView::TextView(QWidget *parent)
     setFont(cf);
     m_verticalScrollBar = verticalScrollBar();
     ConnectSignalsToSlots();
+    SetAppearance();
 }
 
 TextView::~TextView()
@@ -152,8 +153,8 @@ void TextView::LineNumberAreaPaintEvent(QPaintEvent *event)
 {
     QPainter painter(m_LineNumberArea);
     // Paint the background first
-    // painter.fillRect(event->rect(), m_textViewAppearance.line_number_background_color);
-    painter.fillRect(event->rect(), Qt::lightGray);
+    painter.fillRect(event->rect(), m_codeViewAppearance.line_number_background_color);
+    // painter.fillRect(event->rect(), Qt::lightGray);
     QTextBlock block = firstVisibleBlock();
     int blockNumber  = block.blockNumber();
 
@@ -170,8 +171,8 @@ void TextView::LineNumberAreaPaintEvent(QPaintEvent *event)
 		numlbl = m_blockmap.at(blockNumber);
 	    }
 	    // Draw the number in the line number area.
-	    // painter.setPen(m_textViewAppearance.line_number_foreground_color);
-	    painter.setPen(Qt::black);
+	    painter.setPen(m_codeViewAppearance.line_number_foreground_color);
+	    // painter.setPen(Qt::black);
 	    painter.drawText(0, top, m_LineNumberArea->width(), height, Qt::AlignRight, numlbl);
 	}
         block = block.next();
@@ -183,19 +184,27 @@ void TextView::LineNumberAreaPaintEvent(QPaintEvent *event)
 
 void TextView::DoHighlightDocument(HighlighterType high_type)
 {
+    if (m_Highlighter) {
+	delete m_Highlighter;
+	m_Highlighter = nullptr;
+    }
     if (!m_Highlighter) {
 	if (high_type == TextView::Highlight_XHTML) {
 	    m_Highlighter = new XHTMLHighlighter(false, this);
 	} else if (high_type == TextView::Highlight_CSS) {
 	    m_Highlighter = new CSSHighlighter(this);
-	} else {
-	    m_Highlighter = NULL;
-	}
-	if (m_Highlighter) {
-            m_Highlighter->setDocument(document());
-	    RehighlightDocument();
 	}
     }
+    if (m_Highlighter) {
+        m_Highlighter->setDocument(document());
+	RehighlightDocument();
+    }
+}
+
+void TextView::Refresh(HighlighterType high_type)
+{
+    SetAppearance();
+    DoHighlightDocument(high_type);
 }
 
 void TextView::RehighlightDocument()
@@ -215,21 +224,19 @@ void TextView::RehighlightDocument()
 }
 
 
-
-#if 0
 void TextView::SetAppearance()
 {
+    // follow the codeViewAppearance here
     SettingsStore settings;
     if (Utility::IsDarkMode()) {
-        m_textViewAppearance = settings.textViewDarkAppearance();
+        m_codeViewAppearance = settings.codeViewDarkAppearance();
     } else {
-        m_textViewAppearance = settings.textViewAppearance();
+        m_codeViewAppearance = settings.codeViewAppearance();
     }
     SetAppearanceColors();
     UpdateLineNumberAreaMargin();
-    setFrameStyle(QFrame::NoFrame);
 }
-#endif
+
 
 QSize TextView::sizeHint() const
 {
@@ -258,13 +265,6 @@ void TextView::ScrollToPosition(int cursor_position, bool center_screen)
     QTextCursor cursor(document());
     cursor.setPosition(cursor_position);
     setTextCursor(cursor);
-#if 0
-    if (center_screen) {
-        if (height() > 0) {
-            centerCursor();
-        }
-    }
-#endif
 }
 
 void TextView::ScrollToBlock(int bnum)
@@ -276,11 +276,6 @@ void TextView::ScrollToBlock(int bnum)
     QTextCursor cursor(document());
     cursor.movePosition(QTextCursor::NextBlock, QTextCursor::MoveAnchor, bnum);
     setTextCursor(cursor);
-#if 0
-    if (height() > 0) {
-        centerCursor();
-    }
-#endif
 }
 
 QString TextView::rstrip_pad(const QString& str) 
@@ -514,42 +509,14 @@ void TextView::ResetFont()
 #endif
 
 
-#if 0
 void TextView::SetAppearanceColors()
 {
 
     QPalette app_pal = qApp->palette();
     setPalette(app_pal);
     return;
-
-    // #if 0
-    // Linux and other platforms, let the user specify the colors
-    QPalette pal = palette();
-    if (m_codeViewAppearance.background_color.isValid()) {
-        pal.setColor(QPalette::Base, m_codeViewAppearance.background_color);
-        pal.setColor(QPalette::Window, m_codeViewAppearance.background_color);
-        setBackgroundVisible(true);
-        // qDebug() << "setting background color" << m_codeViewAppearance.background_color.name();
-    } else {
-        setBackgroundVisible(false);
-    }
-
-    if (m_codeViewAppearance.foreground_color.isValid()) {
-        pal.setColor(QPalette::Text, m_codeViewAppearance.foreground_color);
-        // qDebug() << "setting foreground color" << m_codeViewAppearance.foreground_color.name();
-    }
-
-    if (m_codeViewAppearance.selection_background_color.isValid()) {
-        pal.setColor(QPalette::Highlight, m_codeViewAppearance.selection_background_color);
-    }
-
-    if (m_codeViewAppearance.selection_foreground_color.isValid()) {
-        pal.setColor(QPalette::HighlightedText, m_codeViewAppearance.selection_foreground_color);
-    }
-    setPalette(pal);
-    // #endif
 }
-#endif
+
 
 void TextView::ScrollByLine(bool down)
 {
@@ -574,7 +541,6 @@ QScrollBar* TextView::GetVerticalScrollBar()
 
 void TextView::keyPressEvent(QKeyEvent* ev)
 {
-    qDebug() << "in key press event with key: " << ev->key();
     int amount = 0;
     int d = 1;
     int key = ev->key();

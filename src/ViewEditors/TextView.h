@@ -58,7 +58,8 @@ public:
     TextView(QWidget *parent = 0);
     ~TextView();
 
-    // void SetAppearance();
+    void SetAppearance();
+    void SetAppearanceColors();
 
     QSize sizeHint() const;
 
@@ -97,6 +98,9 @@ public:
     QString GetSelectedText();
 
     void setBlockMap(const QStringList& blockmap);
+
+public slots:
+    void Refresh(HighlighterType hightype);
 
 signals:
 
@@ -137,8 +141,7 @@ private:
 
     void ConnectSignalsToSlots();
 
-
-    // SettingsStore::TextViewAppearance m_textViewAppearance;
+    SettingsStore::CodeViewAppearance m_codeViewAppearance;
     TVLineNumberArea *m_LineNumberArea;
     QStringList  m_blockmap;
     QScrollBar* m_verticalScrollBar;

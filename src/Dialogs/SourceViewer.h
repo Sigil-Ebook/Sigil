@@ -27,9 +27,9 @@
 #include <QList>
 #include <QLabel>
 #include <QDialog>
+#include "ViewEditors/TextView.h"
 
 class Navigator2;
-class TextView;
 
 class SourceViewer : public QDialog
 
@@ -48,6 +48,7 @@ public slots:
     void reject();
     void next_page(int dir);
     void do_search(bool reverse=false);
+    void ReloadViewer();
 
 protected:
     void keyPressEvent(QKeyEvent * ev);
@@ -64,5 +65,6 @@ private:
     QLabel*       m_lbl;
     QString       m_data;
     QVBoxLayout*  m_layout;
+    TextView::HighlighterType m_hightype;
 };
 #endif

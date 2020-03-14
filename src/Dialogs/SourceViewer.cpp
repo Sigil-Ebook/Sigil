@@ -38,6 +38,7 @@
 #include "ViewEditors/Navigator2.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "MainUI/MainApplication.h"
 #include "Dialogs/SourceViewer.h"
 
 static const QString SETTINGS_GROUP = "source_viewer";
@@ -71,11 +72,14 @@ SourceViewer::SourceViewer(const QString&file1, const QString& data, QWidget *pa
 
     ReadSettings();
     LoadViewer();
+    m_hightype = TextView::Highlight_NONE;
     if (XML_EXTENSIONS.contains(ext)) {
-	m_view->DoHighlightDocument(TextView::Highlight_XHTML);
+	m_hightype = TextView::Highlight_XHTML;
+	m_view->DoHighlightDocument(m_hightype);
     }
     if (CSS_EXTENSIONS.contains(ext)) {
-	m_view->DoHighlightDocument(TextView::Highlight_CSS);
+	m_hightype = TextView::Highlight_CSS;
+	m_view->DoHighlightDocument(m_hightype);
     }
     connectSignalsToSlots();
 }
@@ -83,6 +87,19 @@ SourceViewer::SourceViewer(const QString&file1, const QString& data, QWidget *pa
 SourceViewer::~SourceViewer()
 {
     WriteSettings();
+}
+
+
+// This is needed on macOS to force the 
+// syntax highlighting to start from scratch
+// when dark to light mode is switched dynamically
+void SourceViewer::ReloadViewer()
+{
+    // This will force the TextView to delete its current XHTMLHighlighter and 
+    // if needed install a freshly created one.  This is all because of a bug 
+    // in QSyntaxHighlighting that can not detect color format changes alone 
+    // if the exact same ranges were previously formatted
+    m_view->Refresh(m_hightype);
 }
 
 void SourceViewer::LoadViewer()
@@ -189,6 +206,10 @@ void SourceViewer::reject()
 
 void SourceViewer::connectSignalsToSlots()
 {
+#ifdef Q_OS_MAC
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+    connect(mainApplication, SIGNAL(applicationPaletteChanged()), this, SLOT(ReloadViewer()));
+#endif
     connect(m_nav, SIGNAL(NextPage(int)), this, SLOT(next_page(int)));
     connect(m_nav, SIGNAL(DoSearch(bool)),  this, SLOT(do_search(bool)));
     connect(m_nav, SIGNAL(DoDone()),        this, SLOT(accept()));
