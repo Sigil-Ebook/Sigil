@@ -99,6 +99,7 @@ void TextView::insert_with_background(const QString& text, const QString& colorv
 void TextView::setBlockMap(const QStringList& blockmap)
 {
     m_blockmap = blockmap;
+    UpdateLineNumberAreaMargin();
 }
 
 int TextView::CalculateLineNumberAreaWidth()
