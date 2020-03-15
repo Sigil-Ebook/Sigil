@@ -232,6 +232,8 @@ set( DIALOG_FILES
     Dialogs/SpellcheckEditor.h
     Dialogs/ViewImage.cpp
     Dialogs/ViewImage.h
+    Dialogs/ViewAV.cpp
+    Dialogs/ViewAV.h
     Dialogs/Inspector.cpp
     Dialogs/Inspector.h
     )

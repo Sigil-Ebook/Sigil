@@ -36,6 +36,7 @@
 #include "Dialogs/ListSelector.h"
 #include "Dialogs/SourceViewer.h"
 #include "Dialogs/ViewImage.h"
+#include "Dialogs/ViewAV.h"
 #include "Dialogs/ChgViewer.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -53,6 +54,13 @@ static const QStringList TEXT_EXTENSIONS = QStringList() << "css" << "htm" << "h
 
 static const QStringList IMAGE_EXTENSIONS = QStringList() << "bm" << "bmp" << "gif" << "jpeg" << "jpg" <<
 							     "png" << "tif" << "tiff" << "webp";
+
+
+static const QStringList AUDIO_EXTENSIONS = QStringList() << "aac"   << "m4a"  << "mp3" << "mpeg" << 
+                                                             "mpg" << "oga" << "ogg";
+
+static const QStringList VIDEO_EXTENSIONS = QStringList() << "m4v"   << "mp4"  << "mov" << "ogv"  << 
+                                                             "webm";
 
 CPCompare::CPCompare(const QString& bookroot,
 		     const QString& cpdir,
@@ -92,16 +100,22 @@ void CPCompare::handle_del_request()
     foreach(QString apath, pathlist) {
 	QString filepath = m_cpdir + "/" + apath;
 	QFileInfo fi(filepath);
-	if (TEXT_EXTENSIONS.contains(fi.suffix().toLower())) {
+	QString ext = fi.suffix().toLower();
+	if (TEXT_EXTENSIONS.contains(ext)) {
 	    QString data = Utility::ReadUnicodeTextFile(filepath);
 	    SourceViewer* sv = new SourceViewer(apath, data, this);
 	    sv->show();
 	    sv->raise();
-	} else if (IMAGE_EXTENSIONS.contains(fi.suffix().toLower())) {
+	} else if (IMAGE_EXTENSIONS.contains(ext)) {
 	    ViewImage * vi = new ViewImage(this);
 	    vi->ShowImage(filepath);
 	    vi->show();
 	    vi->raise();
+	} else if (AUDIO_EXTENSIONS.contains(ext) || VIDEO_EXTENSIONS.contains(ext)) {
+	    ViewAV * av = new ViewAV(this);
+	    av->ShowAV(filepath);
+	    av->show();
+	    av->raise();
 	} else {
 	    qDebug() << "attempted to show a binary file " << apath;
 	}
@@ -115,16 +129,22 @@ void CPCompare::handle_add_request()
     foreach(QString apath, pathlist) {
         QString filepath = m_bookroot + "/" + apath;
 	QFileInfo fi(filepath);
-	if (TEXT_EXTENSIONS.contains(fi.suffix().toLower())) {
+	QString ext = fi.suffix().toLower();
+	if (TEXT_EXTENSIONS.contains(ext)) {
 	    QString data = Utility::ReadUnicodeTextFile(filepath);
 	    SourceViewer* sv = new SourceViewer(apath, data, this);
 	    sv->show();
 	    sv->raise();
-	} else if (IMAGE_EXTENSIONS.contains(fi.suffix().toLower())) {
+	} else if (IMAGE_EXTENSIONS.contains(ext)) {
 	    ViewImage * vi = new ViewImage(this);
 	    vi->ShowImage(filepath);
 	    vi->show();
 	    vi->raise();
+	} else if (AUDIO_EXTENSIONS.contains(ext) || VIDEO_EXTENSIONS.contains(ext)) {
+	    ViewAV * av = new ViewAV(this);
+	    av->ShowAV(filepath);
+	    av->show();
+	    av->raise();
 	} else {
 	    qDebug() << "attempted to show a binary file " << apath;
 	}
