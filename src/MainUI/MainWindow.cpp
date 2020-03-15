@@ -665,7 +665,7 @@ void MainWindow::RepoCheckout(QString bookid, QString destdir, QString filename,
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    // now perform the commit using python in a separate thread since this
+    // now perform the operation using python in a separate thread since this
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
     QFuture<QStringList> future = QtConcurrent::run(&pr, &PythonRoutines::GetRepoTagsInPython, 
@@ -694,6 +694,20 @@ void MainWindow::RepoCheckout(QString bookid, QString destdir, QString filename,
         return;
     }
 
+    // Save the current state of open tabs, putting the current tab last
+    QStringList open_tab_bookpaths;
+    QList<int> open_tab_positions;
+    Resource * current_resource = m_TabManager->GetCurrentContentTab()->GetLoadedResource();
+    foreach(ContentTab* tab, m_TabManager->GetContentTabs()) {
+	Resource* res = tab->GetLoadedResource();
+	if (res != current_resource) {
+	    open_tab_bookpaths << res->GetRelativePath();
+	    open_tab_positions << tab->GetCursorPosition();
+	}
+    }
+    open_tab_bookpaths << current_resource->GetRelativePath();
+    open_tab_positions << m_TabManager->GetCurrentContentTab()->GetCursorPosition();
+    
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     QFuture<QString> afuture = QtConcurrent::run(&pr, &PythonRoutines::GenerateEpubFromTagInPython, 
@@ -731,6 +745,10 @@ void MainWindow::RepoCheckout(QString bookid, QString destdir, QString filename,
 	}
 	if (proceed) {
 	    LoadFile(epub_result, true);
+	    // restore what we can of the open tabs
+	    for(int i=0; i < open_tab_bookpaths.length(); i++) {
+		OpenFile(open_tab_bookpaths.at(i), -1, open_tab_positions.at(i));
+	    }
 	}
     }
 }
@@ -2285,19 +2303,20 @@ void MainWindow::ReportsDialog()
 }
 
 // This routine accepts a file_path that is a book path
-void MainWindow::OpenFile(QString bookpath, int line)
+void MainWindow::OpenFile(QString bookpath, int line, int position)
 {
     if (bookpath.isEmpty()) {
         return;
     }
-
-    if (line < 1) {
-        line = 1;
+    // if position exists use it as is is more precise
+    // otherwise use line
+    if (position < 0) {
+        if (line < 1) line = 1;
     }
 
     try {
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
-        OpenResource(resource, line);
+        OpenResource(resource, line, position);
     } catch (ResourceDoesNotExist) {
         //
     }

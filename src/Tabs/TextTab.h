@@ -64,6 +64,9 @@ public:
     bool CutCodeTagsEnabled();
 
     int GetCursorLine() const;
+
+    int GetCursorPosition() const;
+
     int GetCursorColumn() const;
 
     float GetZoomFactor() const;

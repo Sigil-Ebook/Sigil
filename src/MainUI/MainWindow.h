@@ -633,7 +633,8 @@ private slots:
     void DeleteReportsStyles(QList<BookReports::StyleData *> reports_styles_to_delete);
 
     void DeleteFilenames(QStringList files_to_delete);
-    void OpenFile(QString file_shortpathname, int line = -1);
+
+    void OpenFile(QString file_bookpath, int line = -1, int position = -1);
 
     void UpdateClipsUI();
 
