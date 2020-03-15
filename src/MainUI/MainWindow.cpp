@@ -829,6 +829,11 @@ void MainWindow::RepoDiff(QString bookid)
     QStringList alist(sres.at(1));
     QStringList mlist(sres.at(2));
 
+    if (dlist.isEmpty() && alist.isEmpty() && mlist.isEmpty()) {
+	QMessageBox::information(this, tr("Results of Comparison"), tr("No differences were found."));
+	return;
+    } 
+
     // use CPCompare dialog modally to allow the user to explore the changes
     CPCompare comp(bookroot, destdir.GetPath(), dlist, alist, mlist, this);
     comp.exec();

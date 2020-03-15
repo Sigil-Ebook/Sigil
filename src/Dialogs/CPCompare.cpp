@@ -35,6 +35,7 @@
 
 #include "Dialogs/ListSelector.h"
 #include "Dialogs/SourceViewer.h"
+#include "Dialogs/ViewImage.h"
 #include "Dialogs/ChgViewer.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -49,6 +50,10 @@ static const QStringList TEXT_EXTENSIONS = QStringList() << "css" << "htm" << "h
                                                             "js" << "ncx" << "opf" << "pls" << "smil" <<
                                                             "svg" << "ttml" << "txt" << "vtt" << "xhtml" <<
                                                             "xml" << "xpgt";
+
+static const QStringList IMAGE_EXTENSIONS = QStringList() << "bm" << "bmp" << "gif" << "jpeg" << "jpg" <<
+							     "png" << "tif" << "tiff" << "webp";
+
 CPCompare::CPCompare(const QString& bookroot,
 		     const QString& cpdir,
 		     const QStringList& dlist,
@@ -92,6 +97,11 @@ void CPCompare::handle_del_request()
 	    SourceViewer* sv = new SourceViewer(apath, data, this);
 	    sv->show();
 	    sv->raise();
+	} else if (IMAGE_EXTENSIONS.contains(fi.suffix().toLower())) {
+	    ViewImage * vi = new ViewImage(this);
+	    vi->ShowImage(filepath);
+	    vi->show();
+	    vi->raise();
 	} else {
 	    qDebug() << "attempted to show a binary file " << apath;
 	}
@@ -110,6 +120,11 @@ void CPCompare::handle_add_request()
 	    SourceViewer* sv = new SourceViewer(apath, data, this);
 	    sv->show();
 	    sv->raise();
+	} else if (IMAGE_EXTENSIONS.contains(fi.suffix().toLower())) {
+	    ViewImage * vi = new ViewImage(this);
+	    vi->ShowImage(filepath);
+	    vi->show();
+	    vi->raise();
 	} else {
 	    qDebug() << "attempted to show a binary file " << apath;
 	}
