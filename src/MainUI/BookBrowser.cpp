@@ -643,6 +643,8 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
         progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
         progress.setValue(progress_value);
     }
+    bool yes_to_all = false;
+    bool no_to_all = false;
     foreach(QString filepath, filepaths) {
         if (file_count > 1) {
             // Set progress value and ensure dialog has time to display when doing extensive updates
@@ -681,14 +683,28 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
                 SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
                 VIDEO_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
                 AUDIO_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
-                QMessageBox::StandardButton button_pressed;
-                button_pressed = QMessageBox::warning(this,
-                                                      tr("Sigil"), tr("The multimedia file \"%1\" already exists in the book.\n\nOK to replace?").arg(filename),
-                                                      QMessageBox::Ok | QMessageBox::Cancel);
+		bool do_replacement = false;
+		if (yes_to_all) do_replacement = true;
+		if (no_to_all) do_replacement = false;
+		if (!yes_to_all && !no_to_all) {
+                   QMessageBox::StandardButton button_pressed;
+                   button_pressed = QMessageBox::warning(this, tr("Sigil"), 
+			tr("The multimedia file \"%1\" already exists in the book.\n\nOK to replace?").arg(filename),
+				  QMessageBox::Yes | QMessageBox::YesToAll | QMessageBox::No | QMessageBox::NoToAll);
 
-                if (button_pressed != QMessageBox::Ok) {
-                    continue;
-                }
+		   if (button_pressed == QMessageBox::YesToAll) {
+		       yes_to_all = true;
+		       do_replacement = true;
+		   }
+		   if (button_pressed == QMessageBox::NoToAll) {
+		       no_to_all = true;
+		       do_replacement = false;
+		   }
+		   if (button_pressed == QMessageBox::Yes) do_replacement = true;
+		   if (button_pressed == QMessageBox::No) do_replacement = false;
+		}
+
+		if (!do_replacement) continue; 
 
                 try {
                     Resource *old_resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(existing_book_path);
