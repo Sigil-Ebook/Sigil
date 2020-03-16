@@ -31,6 +31,7 @@
 #include <QtConcurrent>
 #include <QFuture>
 #include <QFileInfo>
+#include <QMessageBox>
 #include <QDebug>
 
 #include "Dialogs/ListSelector.h"
@@ -172,11 +173,12 @@ void CPCompare::handle_mod_request()
 	QString leftpath = m_cpdir + "/" + apath;
 	QString rightpath = m_bookroot + "/" + apath;
 	QFileInfo fi(rightpath);
-	if (TEXT_EXTENSIONS.contains(fi.suffix().toLower())) {
+	QFileInfo lfi(leftpath);
+	QString ext = fi.suffix().toLower();
+	if (TEXT_EXTENSIONS.contains(ext)) {
 	    QApplication::setOverrideCursor(Qt::WaitCursor);
-	    QFuture<QList<DiffRecord::DiffRec>> bfuture = QtConcurrent::run(&pr, 
-									&PythonRoutines::GenerateParsedNDiffInPython,
-									leftpath, rightpath);
+	    QFuture<QList<DiffRecord::DiffRec>> bfuture =
+		QtConcurrent::run(&pr, &PythonRoutines::GenerateParsedNDiffInPython, leftpath, rightpath);
 	    bfuture.waitForFinished();
 	    QList<DiffRecord::DiffRec> diffinfo = bfuture.result();
 	    QApplication::restoreOverrideCursor();
@@ -184,7 +186,16 @@ void CPCompare::handle_mod_request()
 	    cv->show();
 	    cv->raise();
 	} else {
-	    qDebug() << "attempted to show a binary file " << apath;
+	    QMessageBox * msgbox = new QMessageBox(this);
+	    msgbox->setIcon(QMessageBox::Information);
+	    msgbox->setWindowTitle(tr("Results of Comparison"));
+	    msgbox->setStandardButtons(QMessageBox::Ok);
+	    QString amsg = tr("These binary files differ in content:") + "\n";
+	    amsg += tr("Checkpoint:") + " " + apath + " " + QString::number(lfi.size()) + tr("bytes") + "\n";
+	    amsg += tr("Current:") + " " + apath + " " + QString::number(fi.size()) + tr("bytes") + "\n";
+	    msgbox->setText(amsg);
+	    msgbox->show();
+	    msgbox->raise();
 	}
     }
 }
