@@ -55,6 +55,8 @@ static const QString FONT_HTML_BASE =
     "</head>"
     "<body>"
     "  <h1>%5</h1>"
+    "  <p>Filename: %6, File Size: %7 bytes</p>"
+    "  <p>&#160;</p>"
     "  <p>abcdefghijklmnopqrstuvwxyz</p>"
     "  <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>"
     "  <p>0123456789.:,;(*!?'\\/\")$&#x20AC;%^&amp;-+@=_-~</p>"
@@ -100,6 +102,8 @@ void ViewFont::ShowFont(QString path)
     m_path = path;
     m_WebView->page()->profile()->clearHttpCache();
     QFileInfo fi(path);
+    QString file_name = fi.fileName();
+    int file_size = fi.size();
     QString font_name = fi.baseName();
     QRawFont rawfont(path, 16.0);
     QString family_name = rawfont.familyName();
@@ -126,7 +130,9 @@ void ViewFont::ShowFont(QString path)
                                  .arg(font_name)
 	                         .arg(weight_name)
                                  .arg(style_name)
-	                         .arg(desc);
+	                         .arg(desc)
+	                         .arg(file_name)
+                                 .arg(QString::number(file_size));
     if (Utility::IsDarkMode()) {
         html = Utility::AddDarkCSS(html);
     }
