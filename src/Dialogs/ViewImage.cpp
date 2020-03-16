@@ -20,7 +20,9 @@
 **
 *************************************************************************/
 
-#include <QtCore/QFileInfo>
+#include <QString>
+#include <QImage>
+#include <QFileInfo>
 #include <QApplication>
 #include <QGuiApplication>
 #include <QtWidgets/QLayout>
@@ -37,6 +39,24 @@
 
 static QString SETTINGS_GROUP = "view_image";
 
+static const QString IMAGE_HTML_BASE =
+    "<html>"
+    "<head>"
+    "<style type=\"text/css\">"
+    "body { -webkit-user-select: none; }"
+    "img { display: block; margin-left: auto; margin-right: auto; border-style: solid; border-width: 1px; }"
+    "hr { width: 75%; }"
+    "div { text-align: center; }"
+    "</style>"
+    "</head>"
+    "<body>"
+    "<p><img src=\"%1\" /></p>"
+    "<hr />"
+    "<div>%2&times;%3px | %4 KB | %5%6</div>"
+    "</body>"
+    "</html>";
+
+
 ViewImage::ViewImage(QWidget *parent)
     :
     QDialog(parent)
@@ -46,10 +66,6 @@ ViewImage::ViewImage(QWidget *parent)
     ui.webView->setContextMenuPolicy(Qt::NoContextMenu);
     ui.webView->setFocusPolicy(Qt::NoFocus);
     ui.webView->setAcceptDrops(false);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
-    ui.webView->page()->settings()->setAttribute(QWebEngineSettings::ShowScrollBars,false);
-#endif
-
     ReadSettings();
 }
 
@@ -61,13 +77,30 @@ ViewImage::~ViewImage()
 void ViewImage::ShowImage(QString path)
 {
     ui.webView->page()->profile()->clearHttpCache();
-    const QUrl resourceUrl = QUrl::fromLocalFile(path);
-    QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
+    const QFileInfo fileInfo = QFileInfo(path);
+    const double ffsize = fileInfo.size() / 1024.0;
+    const QString fsize = QLocale().toString(ffsize, 'f', 2);
+    const QImage img(path);
+    const QUrl imgUrl = QUrl::fromLocalFile(path);
+    QString colors_shades = img.isGrayscale() ? tr("shades") : tr("colors");
+    QString grayscale_color = img.isGrayscale() ? tr("Grayscale") : tr("Color");
+    QString colorsInfo = "";
+    if (img.depth() == 32) {
+        colorsInfo = QString(" %1bpp").arg(img.bitPlaneCount());
+    } else if (img.depth() > 0) {
+        colorsInfo = QString(" %1bpp (%2 %3)").arg(img.bitPlaneCount()).arg(img.colorCount()).arg(colors_shades);
+    }
+    QString html = IMAGE_HTML_BASE.arg(imgUrl.toString())
+	                          .arg(img.width())
+                                  .arg(img.height())
+                                  .arg(fsize)
+                                  .arg(grayscale_color)
+                                  .arg(colorsInfo);
     if (Utility::IsDarkMode()) {
 	html = Utility::AddDarkCSS(html);
     }
     ui.webView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
-    ui.webView->setHtml(html, resourceUrl);
+    ui.webView->setHtml(html, imgUrl);
     QApplication::processEvents();
 }
 
@@ -75,13 +108,10 @@ void ViewImage::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-    // The size of the window and it's full screen status
     QByteArray geometry = settings.value("geometry").toByteArray();
-
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
     }
-
     settings.endGroup();
 }
 
@@ -89,7 +119,6 @@ void ViewImage::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
-    // The size of the window and it's full screen status
     settings.setValue("geometry", saveGeometry());
     settings.endGroup();
 }
