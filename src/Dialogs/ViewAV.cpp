@@ -20,18 +20,20 @@
  *************************************************************************/
 
 #include <QString>
+#include <QToolButton>
 #include <QFileInfo>
 #include <QApplication>
 #include <QGuiApplication>
 #include <QUrl>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QtWebEngineWidgets/QWebEngineProfile>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QGuiApplication>
 #include <QApplication>
-#include "MainUI/MainWindow.h"
 #include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"
+#include "Misc/SettingsStore.h"
 #include "Dialogs/ViewAV.h"
 
 static QString SETTINGS_GROUP = "view_av";
@@ -71,6 +73,7 @@ static const QStringList VIDEO_EXTENSIONS = QStringList() << "m4v"   << "mp4"  <
 ViewAV::ViewAV(QWidget *parent)
     : QDialog(parent),
       m_WebView(new QWebEngineView(this)),
+      m_bp(new QToolButton(this)),
       m_layout(new QVBoxLayout(this))
 {
     m_WebView->setPage(new SimplePage(m_WebView));
@@ -79,6 +82,13 @@ ViewAV::ViewAV(QWidget *parent)
     m_WebView->setAcceptDrops(false);
     m_WebView->setUrl(QUrl("about:blank"));
     m_layout->addWidget(m_WebView);
+    m_bp->setToolTip(tr("Close this window"));
+    m_bp->setText(tr("Done"));
+    m_bp->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    QHBoxLayout* hl = new QHBoxLayout();
+    hl->addStretch(0);
+    hl->addWidget(m_bp);
+    m_layout->addLayout(hl);
     ReadSettings();
     ConnectSignalsToSlots();
 }
@@ -138,4 +148,5 @@ void ViewAV::WriteSettings()
 
 void ViewAV::ConnectSignalsToSlots()
 {
+    connect(m_bp, SIGNAL(clicked()), this, SLOT(accept()));
 }

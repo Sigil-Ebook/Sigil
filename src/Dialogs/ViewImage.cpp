@@ -22,7 +22,10 @@
 
 #include <QString>
 #include <QImage>
+#include <QToolButton>
 #include <QFileInfo>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QApplication>
 #include <QGuiApplication>
 #include <QtWidgets/QLayout>
@@ -30,7 +33,6 @@
 #include <QtWebEngineWidgets/QWebEngineSettings>
 #include <QtWebEngineWidgets/QWebEngineProfile>
 
-#include "MainUI/MainWindow.h"
 #include "ResourceObjects/ImageResource.h"
 #include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"
@@ -59,14 +61,26 @@ static const QString IMAGE_HTML_BASE =
 
 ViewImage::ViewImage(QWidget *parent)
     :
-    QDialog(parent)
+    QDialog(parent),
+    m_WebView(new QWebEngineView(this)),
+    m_bp(new QToolButton(this)),
+    m_layout(new QVBoxLayout(this))
 {
-    ui.setupUi(this);
-    ui.webView->setPage(new SimplePage(ui.webView));
-    ui.webView->setContextMenuPolicy(Qt::NoContextMenu);
-    ui.webView->setFocusPolicy(Qt::NoFocus);
-    ui.webView->setAcceptDrops(false);
+    m_WebView->setPage(new SimplePage(m_WebView));
+    m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
+    m_WebView->setFocusPolicy(Qt::NoFocus);
+    m_WebView->setAcceptDrops(false);
+    m_WebView->setUrl(QUrl("about:blank"));
+    m_layout->addWidget(m_WebView);
+    m_bp->setToolTip(tr("Close this window"));
+    m_bp->setText(tr("Done"));
+    m_bp->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    QHBoxLayout* hl = new QHBoxLayout();
+    hl->addStretch(0);
+    hl->addWidget(m_bp);
+    m_layout->addLayout(hl);
     ReadSettings();
+    ConnectSignalsToSlots();
 }
 
 ViewImage::~ViewImage()
@@ -74,9 +88,15 @@ ViewImage::~ViewImage()
     WriteSettings();
 }
 
+QSize ViewImage::sizeHint()
+{
+    return QSize(450,450);
+}
+
 void ViewImage::ShowImage(QString path)
 {
-    ui.webView->page()->profile()->clearHttpCache();
+    m_path = path;
+    m_WebView->page()->profile()->clearHttpCache();
     const QFileInfo fileInfo = QFileInfo(path);
     const double ffsize = fileInfo.size() / 1024.0;
     const QString fsize = QLocale().toString(ffsize, 'f', 2);
@@ -99,8 +119,8 @@ void ViewImage::ShowImage(QString path)
     if (Utility::IsDarkMode()) {
 	html = Utility::AddDarkCSS(html);
     }
-    ui.webView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
-    ui.webView->setHtml(html, imgUrl);
+    m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
+    m_WebView->setHtml(html, imgUrl);
     QApplication::processEvents();
 }
 
@@ -111,6 +131,8 @@ void ViewImage::ReadSettings()
     QByteArray geometry = settings.value("geometry").toByteArray();
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
+    } else {
+        resize(sizeHint());
     }
     settings.endGroup();
 }
@@ -123,3 +145,7 @@ void ViewImage::WriteSettings()
     settings.endGroup();
 }
 
+void ViewImage::ConnectSignalsToSlots()
+{
+    connect(m_bp, SIGNAL(clicked()), this, SLOT(accept()));
+}

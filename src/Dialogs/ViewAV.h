@@ -30,6 +30,7 @@
 
 class QVBoxLayout;
 class QWebEngineView;
+class QToolButton;
 
 class ViewAV : public QDialog
 {
@@ -49,9 +50,10 @@ class ViewAV : public QDialog
     void ReadSettings();
     void ConnectSignalsToSlots();
 
-    QVBoxLayout* m_layout;
     QString m_path;
     QWebEngineView *m_WebView;
+    QToolButton* m_bp;
+    QVBoxLayout* m_layout;
 };
 
 #endif // VIEWAV_H

@@ -512,7 +512,6 @@ set( UI_FILES
     Form_Files/IndexEditor.ui
     Form_Files/SpellcheckEditor.ui
     Form_Files/PluginRunner.ui
-    Form_Files/ViewImage.ui
     )
 
 set( SOURCEUPDATE_FILES

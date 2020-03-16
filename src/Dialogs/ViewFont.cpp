@@ -19,22 +19,23 @@
  **
  *************************************************************************/
 
+#include <QToolButton>
 #include <QString>
 #include <QFileInfo>
 #include <QApplication>
 #include <QGuiApplication>
 #include <QUrl>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QtWebEngineWidgets/QWebEngineProfile>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QGuiApplication>
 #include <QApplication>
 #include <QFont>
 #include <QRawFont>
-#include "MainUI/MainWindow.h"
 #include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"
-
+#include "Misc/SettingsStore.h"
 #include "Dialogs/ViewFont.h"
 
 static QString SETTINGS_GROUP = "view_font";
@@ -74,6 +75,7 @@ static const QString FONT_HTML_BASE =
 ViewFont::ViewFont(QWidget *parent)
     : QDialog(parent),
       m_WebView(new QWebEngineView(this)),
+      m_bp(new QToolButton(this)),
       m_layout(new QVBoxLayout(this))
 {
     m_WebView->setPage(new SimplePage(m_WebView));
@@ -82,6 +84,13 @@ ViewFont::ViewFont(QWidget *parent)
     m_WebView->setAcceptDrops(false);
     m_WebView->setUrl(QUrl("about:blank"));
     m_layout->addWidget(m_WebView);
+    m_bp->setToolTip(tr("Close this window"));
+    m_bp->setText(tr("Done"));
+    m_bp->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    QHBoxLayout* hl = new QHBoxLayout();
+    hl->addStretch(0);
+    hl->addWidget(m_bp);
+    m_layout->addLayout(hl);
     ReadSettings();
     ConnectSignalsToSlots();
 }
@@ -164,4 +173,5 @@ void ViewFont::WriteSettings()
 
 void ViewFont::ConnectSignalsToSlots()
 {
+    connect(m_bp, SIGNAL(clicked()), this, SLOT(accept()));
 }

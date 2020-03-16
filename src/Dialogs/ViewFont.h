@@ -30,6 +30,7 @@
 
 class QVBoxLayout;
 class QWebEngineView;
+class QToolButton;
 
 class ViewFont : public QDialog
 {
@@ -49,9 +50,10 @@ class ViewFont : public QDialog
     void ReadSettings();
     void ConnectSignalsToSlots();
 
-    QVBoxLayout* m_layout;
     QString m_path;
     QWebEngineView *m_WebView;
+    QToolButton* m_bp;
+    QVBoxLayout* m_layout;
 };
 
 #endif // VIEWFONT_H
