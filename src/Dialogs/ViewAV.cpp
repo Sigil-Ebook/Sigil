@@ -122,6 +122,8 @@ void ViewAV::ReadSettings()
     QByteArray geometry = settings.value("geometry").toByteArray();
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
+    } else {
+	resize(sizeHint());
     }
     settings.endGroup();
 }

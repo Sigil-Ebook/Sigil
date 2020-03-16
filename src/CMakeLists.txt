@@ -234,6 +234,8 @@ set( DIALOG_FILES
     Dialogs/ViewImage.h
     Dialogs/ViewAV.cpp
     Dialogs/ViewAV.h
+    Dialogs/ViewFont.cpp
+    Dialogs/ViewFont.h
     Dialogs/Inspector.cpp
     Dialogs/Inspector.h
     )

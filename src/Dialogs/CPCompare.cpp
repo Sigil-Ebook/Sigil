@@ -37,6 +37,7 @@
 #include "Dialogs/SourceViewer.h"
 #include "Dialogs/ViewImage.h"
 #include "Dialogs/ViewAV.h"
+#include "Dialogs/ViewFont.h"
 #include "Dialogs/ChgViewer.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -61,6 +62,8 @@ static const QStringList AUDIO_EXTENSIONS = QStringList() << "aac"   << "m4a"  <
 
 static const QStringList VIDEO_EXTENSIONS = QStringList() << "m4v"   << "mp4"  << "mov" << "ogv"  << 
                                                              "webm";
+
+static const QStringList FONT_EXTENSIONS = QStringList() << "ttf"   << "ttc"  << "otf" << "woff" << "woff2";
 
 CPCompare::CPCompare(const QString& bookroot,
 		     const QString& cpdir,
@@ -116,6 +119,11 @@ void CPCompare::handle_del_request()
 	    av->ShowAV(filepath);
 	    av->show();
 	    av->raise();
+	} else if (FONT_EXTENSIONS.contains(ext)) {
+	    ViewFont * vf = new ViewFont(this);
+	    vf->ShowFont(filepath);
+	    vf->show();
+	    vf->raise();
 	} else {
 	    qDebug() << "attempted to show a binary file " << apath;
 	}
@@ -145,6 +153,11 @@ void CPCompare::handle_add_request()
 	    av->ShowAV(filepath);
 	    av->show();
 	    av->raise();
+	} else if (FONT_EXTENSIONS.contains(ext)) {
+	    ViewFont * vf = new ViewFont(this);
+	    vf->ShowFont(filepath);
+	    vf->show();
+	    vf->raise();
 	} else {
 	    qDebug() << "attempted to show a binary file " << apath;
 	}
