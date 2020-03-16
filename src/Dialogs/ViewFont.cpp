@@ -56,18 +56,18 @@ static const QString FONT_HTML_BASE =
     "</head>"
     "<body>"
     "  <h1>%5</h1>"
-    "  <p>Filename: %6, File Size: %7 bytes</p>"
+    "  <p>%6, %7 bytes</p>"
     "  <p>&#160;</p>"
-    "  <p>abcdefghijklmnopqrstuvwxyz</p>"
-    "  <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>"
-    "  <p>0123456789.:,;(*!?'\\/\")$&#x20AC;%^&amp;-+@=_-~</p>"
-    "  <p>The quick brown fox jumps over the lazy dog.</p>"
-    "  <h6>The quick brown fox jumps over the lazy dog.</h6>"
-    "  <h5>The quick brown fox jumps over the lazy dog.</h5>"
-    "  <h4>The quick brown fox jumps over the lazy dog.</h4>"
-    "  <h3>The quick brown fox jumps over the lazy dog.</h3>"
-    "  <h2>The quick brown fox jumps over the lazy dog.</h2>"
-    "  <h1>The quick brown fox jumps over the lazy dog.</h1>"
+    "  <p>LOWERCASE_LETTERS</p>"
+    "  <p>UPPERCASE_LETTERS</p>"
+    "  <p>DIGITS_SYMBOLS</p>"
+    "  <p>SAMPLE_LINE</p>"
+    "  <h6>SAMPLE_LINE</h6>"
+    "  <h5>SAMPLE_LINE</h5>"
+    "  <h4>SAMPLE_LINE</h4>"
+    "  <h3>SAMPLE_LINE</h3>"
+    "  <h2>SAMPLE_LINE</h2>"
+    "  <h1>SAMPLE_LINE</h1>"
     "</body>"
     "</html>";
 
@@ -142,6 +142,11 @@ void ViewFont::ShowFont(QString path)
 	                         .arg(desc)
 	                         .arg(file_name)
                                  .arg(QString::number(file_size));
+    // allow translators to control over what the font is displaying
+    html = html.replace("LOWERCASE_LETTERS", tr("abcdefghijklmnopqrstuvwxyz"));
+    html = html.replace("UPPERCASE_LETTERS", tr("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+    html = html.replace("DIGITS_SYMBOLS", Utility::EncodeXML(tr("0123456789.:,;(*!?'\\/\")$%^&-+@=_-~><")));
+    html = html.replace("SAMPLE_LINE", tr("The quick brown fox jumps over the lazy dog"));
     if (Utility::IsDarkMode()) {
         html = Utility::AddDarkCSS(html);
     }
