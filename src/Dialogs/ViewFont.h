@@ -43,6 +43,9 @@ class ViewFont : public QDialog
     void ShowFont(QString path);
     QSize sizeHint();
 
+ public slots:
+    void ReloadViewer();
+
  private slots:
     void WriteSettings();
 

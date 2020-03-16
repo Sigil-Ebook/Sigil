@@ -33,6 +33,7 @@
 #include <QApplication>
 #include <QFont>
 #include <QRawFont>
+#include "MainUI/MainApplication.h"
 #include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"
 #include "Misc/SettingsStore.h"
@@ -155,6 +156,12 @@ void ViewFont::ShowFont(QString path)
     QApplication::processEvents();
 }
 
+void ViewFont::ReloadViewer()
+{
+    QString path = m_path;
+    ShowFont(path);
+}
+
 void ViewFont::ReadSettings()
 {
     SettingsStore settings;
@@ -178,5 +185,9 @@ void ViewFont::WriteSettings()
 
 void ViewFont::ConnectSignalsToSlots()
 {
+#ifdef Q_OS_MAC
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+    connect(mainApplication, SIGNAL(applicationPaletteChanged()), this, SLOT(ReloadViewer()));
+#endif
     connect(m_bp, SIGNAL(clicked()), this, SLOT(accept()));
 }

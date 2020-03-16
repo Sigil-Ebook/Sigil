@@ -43,6 +43,9 @@ class ViewAV : public QDialog
     void ShowAV(QString path);
     QSize sizeHint();
 
+ public slots:
+    void ReloadViewer();
+
  private slots:
     void WriteSettings();
 

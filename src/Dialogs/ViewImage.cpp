@@ -36,6 +36,7 @@
 #include "ResourceObjects/ImageResource.h"
 #include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"
+#include "MainUI/MainApplication.h"
 #include "sigil_constants.h"
 #include "Dialogs/ViewImage.h"
 
@@ -124,6 +125,12 @@ void ViewImage::ShowImage(QString path)
     QApplication::processEvents();
 }
 
+void ViewImage::ReloadViewer()
+{
+    QString path = m_path;
+    ShowImage(path);
+}
+
 void ViewImage::ReadSettings()
 {
     SettingsStore settings;
@@ -147,5 +154,9 @@ void ViewImage::WriteSettings()
 
 void ViewImage::ConnectSignalsToSlots()
 {
+#ifdef Q_OS_MAC
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+    connect(mainApplication, SIGNAL(applicationPaletteChanged()), this, SLOT(ReloadViewer()));
+#endif
     connect(m_bp, SIGNAL(clicked()), this, SLOT(accept()));
 }

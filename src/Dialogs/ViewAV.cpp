@@ -34,6 +34,7 @@
 #include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"
 #include "Misc/SettingsStore.h"
+#include "MainUI/MainApplication.h"
 #include "Dialogs/ViewAV.h"
 
 static QString SETTINGS_GROUP = "view_av";
@@ -125,6 +126,12 @@ void ViewAV::ShowAV(QString path)
     QApplication::processEvents();
 }
 
+void ViewAV::ReloadViewer()
+{
+    QString path = m_path;
+    ShowAV(path);
+}
+
 void ViewAV::ReadSettings()
 {
     SettingsStore settings;
@@ -148,5 +155,9 @@ void ViewAV::WriteSettings()
 
 void ViewAV::ConnectSignalsToSlots()
 {
+#ifdef Q_OS_MAC
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+    connect(mainApplication, SIGNAL(applicationPaletteChanged()), this, SLOT(ReloadViewer()));
+#endif
     connect(m_bp, SIGNAL(clicked()), this, SLOT(accept()));
 }

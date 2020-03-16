@@ -44,6 +44,9 @@ public:
     QSize sizeHint();
     void ShowImage(QString path);
 
+public slots:
+    void ReloadViewer();
+
 private slots:
     void WriteSettings();
 
