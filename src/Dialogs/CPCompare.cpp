@@ -182,7 +182,7 @@ void CPCompare::handle_mod_request()
 	    bfuture.waitForFinished();
 	    QList<DiffRecord::DiffRec> diffinfo = bfuture.result();
 	    QApplication::restoreOverrideCursor();
-	    ChgViewer* cv = new ChgViewer(diffinfo, "Checkpoint: "+apath, "Current: "+apath, this);
+	    ChgViewer* cv = new ChgViewer(diffinfo, tr("Checkpoint:") + " " + apath, tr("Current:") + " " + apath, this);
 	    cv->show();
 	    cv->raise();
 	} else {
