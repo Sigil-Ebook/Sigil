@@ -30,7 +30,7 @@ CMake 3.0 or better is required. I'm using 3.12.x Download it from [cmake.org](h
 Get the unicode version (5.5.9 at the time of this writing) from [jrsoftware.org](http://www.jrsoftware.org/isdl.php) make sure you say yes to the Preprocessor option when installing. **Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH**. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.
 
 ## <a name="qt5"/>Qt5.12.6
-Download qt-opensource-windows-x86-5.12.6.exe from [Qt's Website](http://download.qt.io/archive/qt/5.12/5.12.3) and install the msvc2017_64, or msvc2017 component (depending on the architecture you will be building Sigil for). You can install both msvc2017_64 and msvc2017 if you like. Also install the QtWebEngine component.
+Download qt-opensource-windows-x86-5.12.6.exe from [Qt's Website](http://download.qt.io/archive/qt/5.12/5.12.6) and install the msvc2017_64, or msvc2017 component (depending on the architecture you will be building Sigil for). You can install both msvc2017_64 and msvc2017 if you like. Also install the QtWebEngine component.
 
 If you want to use the exact, patched versions of Qt5.12.6 and QtWebEngine that I've used to release Sigil, feel free to download the whole shebang [from my personal repository](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). It's the archive named: MyQtx64-5.12.6_VS2017_WE.7z (NOTE: you're on your own with a 32-bit version).
 
@@ -70,13 +70,13 @@ etc...
 
 ### Installing Pillow
 
-Other versions of Pillow may work fine, but Sigil's installer build is predicated on v5.4.1, To install that specific version, use the following pip command.
+Other versions of Pillow may work fine, but Sigil's installer build is predicated on v6.2.1, To install that specific version, use the following pip command.
 
 >`pip install Pillow==6.2.1`
 
 ### Installing lxml.
 
-Version 4.3.2 comes with precompiled binary wheels for Windows. Not all versions do. So if you want to install a different version, you'll need to find out if there's precompiled binaries for Windows or not. Install a specific version with pip using the following command
+Version 4.4.2 comes with precompiled binary wheels for Windows. Not all versions do. So if you want to install a different version, you'll need to find out if there's precompiled binaries for Windows or not. Install a specific version with pip using the following command
 
 >`pip install lxml==4.4.2`
 
@@ -131,7 +131,7 @@ If this completes successfully, then you're ready to compile Sigil (leave the co
 
 You can also generate Visual Studio Project/Solution Files with cmake by using:
 
-> `cmake -G "Visual Studio 14 2017 Win64" WIN_INSTALLER_USE_64BIT_CRT=1 -DQt5_DIR="C:\Qt\Qt5.12.6\5.12.6\mscv2017(_64)\lib\cmake\Qt5" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+> `cmake -G "Visual Studio 15 2017 Win64" WIN_INSTALLER_USE_64BIT_CRT=1 -DQt5_DIR="C:\Qt\Qt5.12.6\5.12.6\mscv2017(_64)\lib\cmake\Qt5" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
 
 Leave off "Win64" and -DWIN_INSTALLER_USE_64BIT_CRT=1 if you're building the 32-bit version of Sigil.
 

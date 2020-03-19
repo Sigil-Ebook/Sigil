@@ -320,6 +320,10 @@ void OPFResource::EnsureUUIDIdentifierPresent()
         }
     }
     QString uuid = Utility::CreateUUID();
+    // add in the proper identifier type prefix
+    if (!uuid.startsWith("urn:uuid:")) {
+	uuid = "urn:uuid:" + uuid;
+    }
     WriteIdentifier("UUID", uuid, p);
     UpdateText(p);
 }
@@ -1137,13 +1141,19 @@ void OPFResource::WriteIdentifier(const QString &metaname, const QString &metava
     if (pos > -1) {
         MetaEntry me = p.m_metadata.at(pos);
         QString scheme = me.m_atts.value(QString("scheme"),QString(""));
+	// epub3 no longer uses the scheme attribute
+	if (scheme.isEmpty() && me.m_content.startsWith("urn:uuid:")) scheme="UUID";
         if ((metavalue == me.m_content) && (metaname == scheme)) {
             return;
         }
     }
+    QString epubversion = GetEpubVersion();
     MetaEntry me;
     me.m_name = QString("dc:identifier");
-    me.m_atts[QString("opf:scheme")] = metaname;
+    // under the latest epub3 spec "scheme" is no longer an allowed attribute of dc:identifier
+    if (epubversion.startsWith('2')) {
+	me.m_atts[QString("opf:scheme")] = metaname;
+    }
     if (metaname.toLower() == "uuid" && !metavalue.contains("urn:uuid:")) {
         me.m_content = QString("urn:uuid:")  + metavalue;
     } else {

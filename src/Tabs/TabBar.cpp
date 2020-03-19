@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2020      Doug Massay
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -52,6 +53,7 @@ void TabBar::mouseDoubleClickEvent(QMouseEvent *event)
     emit TabBarDoubleClicked();
 }
 
+
 void TabBar::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::RightButton) {
@@ -81,7 +83,15 @@ void TabBar::ShowContextMenu(QMouseEvent *event, int tab_index)
     QAction *closeOtherTabsAction = new QAction(tr("Close Other Tabs"), menu);
     menu->addAction(closeOtherTabsAction);
     connect(closeOtherTabsAction, SIGNAL(triggered()), this, SLOT(EmitCloseOtherTabs()));
-    menu->exec(mapToGlobal(event->pos()));
+    QPoint p;
+    p = mapToGlobal(event->pos());
+#ifdef Q_OS_WIN32
+    // Relocate the context menu slightly down and right to prevent "automatic" action 
+    // highlight on Windows, which then closes all other tabs when the mouse is released.
+    p.setX(p.x() + 2);
+    p.setY(p.y() + 4);
+#endif
+    menu->exec(p);
     delete menu;
 }
 

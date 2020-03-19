@@ -128,6 +128,7 @@ void TagAtts::remove(const QString &key)
     TagAtts::TAttribute* pprev = patt->prev;
     pprev->next = pnext;
     pnext->prev = pprev;
+    m_mapping.remove(key);
     delete patt;
     m_n--;
 }    

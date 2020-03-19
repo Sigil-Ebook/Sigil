@@ -1,3 +1,26 @@
+Sigil-Pre-1.2.0
+    New Features:
+      - Provide a tweak setting to adjust drag distance for Windows & Linux
+      - Added YesToAll and NoToAll options for replacing images via Add Existing...
+      - Highdpi and uifont setting information is now available to Sigil's plugins
+      - Add a Checkpoint feature to Sigil for fast versioned saves to git repositories
+          - add ability to easily create a Checkpoint (stored via a local git repository)
+	  - add ability to see the changes between the current epub and any earlier Checkpoint
+	  - add ability to revert the entire epub back to an earlier Checkpoint
+	  - added ability to manage and delete Checkpoint repositories.
+    Bug Fixes:
+      - Improve default drag-distance for BookBrowser for Windows & Linux
+      - Reduce required drag distance for macOS
+      - Fix index generation bug related to non-escaped text used in regular expressions
+      - Fix bug that caused lost class attributes when marking words for an index
+      - Guide to Landmark Semantic mappings have been extended to better cover "other.*" guide items
+      - Changed the removeDir() routine to better deal with Windows delete file issues.
+      - Updated Building on Windows docs
+      - Updated Building on MacOS docs
+      - Modified the codebase to use Ordered hashes/dictionaries throughout 
+            to prevent unneeded reordering in tag attribute order
+
+
 Sigil-1.1.0
     New Features:
       - Added Support for Dark Mode for Windows, Linux and macOSX (Thanks BeckyEbook!)

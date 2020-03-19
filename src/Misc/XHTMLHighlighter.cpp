@@ -20,6 +20,8 @@
 **
 *************************************************************************/
 
+#include <QSyntaxHighlighter>
+#include <QTextDocument>
 #include <QRegularExpressionMatch>
 #include <QBrush>
 #include <QColor>
@@ -67,6 +69,8 @@ XHTMLHighlighter::XHTMLHighlighter(bool checkSpelling, QObject *parent)
 
 void XHTMLHighlighter::SetRules()
 {
+    m_Rules.clear();
+
     SettingsStore settings;
     if (Utility::IsDarkMode()) {
         m_codeViewAppearance = settings.codeViewDarkAppearance();
@@ -272,7 +276,6 @@ void XHTMLHighlighter::ClearState(int state)
 bool XHTMLHighlighter::StateChecked(int state) const
 {
     int current_state = currentBlockState();
-
     // Check if our state is in the list
     if ((current_state & state) != 0) {
         return true;
