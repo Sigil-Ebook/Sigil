@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/main">
+        <file>back.png</file>
+        <file>forward.png</file>
+        <file>arrow-down.png</file>
+        <file>arrow-up.png</file>
         <file>back-to-link-style_22px.png</file>
         <file>back-to-link-style_48px.png</file>
         <file>case-change_16px.png</file>

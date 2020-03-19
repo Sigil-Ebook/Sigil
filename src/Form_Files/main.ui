@@ -383,6 +383,15 @@
     </property>
     <addaction name="actionManage_Plugins"/>
    </widget>
+   <widget class="QMenu" name="menuCheckpoints">
+    <property name="title">
+     <string>Checkpoints</string>
+    </property>
+    <addaction name="actionCommit"/>
+    <addaction name="actionCheckout"/>
+    <addaction name="actionDiff"/>
+    <addaction name="actionManageRepo"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuInsert"/>
@@ -392,8 +401,10 @@
    <addaction name="menuView"/>
    <addaction name="menuWindow"/>
    <addaction name="menuPlugins"/>
+   <addaction name="menuCheckpoints"/>
    <addaction name="menuHelp"/>
   </widget>
+
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBarFileActions">
    <property name="windowTitle">

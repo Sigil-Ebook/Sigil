@@ -54,7 +54,7 @@ signals:
 private slots:
 
     void UpdateDescription(QListWidgetItem *current);
-
+    void ClearDescription();
     void SaveSelection();
 
     void WriteSettings();

@@ -25,11 +25,16 @@
 #include <QFileInfo>
 #include <QTableWidgetItem>
 #include <QMessageBox>
+#include <QApplication>
+#include <QtConcurrent>
+#include <QFuture>
+
 #include <QDebug>
 
 #include "Misc/Utility.h"
 #include "Misc/SettingsStore.h"
-
+#include "Misc/PythonRoutines.h"
+#include "Dialogs/RepoLog.h"
 #include "Dialogs/ManageRepos.h"
 
 static const QString SETTINGS_GROUP = "manage_repos";
@@ -127,6 +132,37 @@ void ManageRepos::RepoSelected(int row, int col)
     ui.repoTable->setCurrentCell(row, col);
 }
 
+void ManageRepos::ShowLog()
+{
+    // limited to work with one selection at a time to prevent row mixup upon removal
+    QList<QTableWidgetItem *> itemlist = ui.repoTable->selectedItems();
+    if (itemlist.isEmpty()) {
+        Utility::DisplayStdWarningDialog(tr("Nothing is Selected."));
+        return;
+    }
+    int row = ui.repoTable->row(itemlist.at(0));
+    QString bookid = ui.repoTable->item(row, ManageRepos::UUIDField)->text();
+    QString localRepo = Utility::DefinePrefsDir() + "/repo/";
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // generate the repo log using python in a separate thread since this
+    // may take a while depending on the speed of the filesystem
+    PythonRoutines pr;
+    QFuture<QString> future = QtConcurrent::run(&pr,
+                                                &PythonRoutines::GenerateRepoLogSummaryInPython,
+                                                localRepo,
+                                                bookid);
+    future.waitForFinished();
+    QString logData = future.result();
+
+    QApplication::restoreOverrideCursor();
+
+    RepoLog log(tr("Repository Log"), logData, this);
+    log.exec();
+}
+
+
 void ManageRepos::RemoveRepo()
 {
     // limited to work with one selection at a time to prevent row mixup upon removal
@@ -174,6 +210,7 @@ void ManageRepos::RemoveAllRepos()
 
 void ManageRepos::ConnectSignalsToSlots()
 {
+    connect(ui.logButton,       SIGNAL(clicked()),                  this, SLOT(ShowLog()));
     connect(ui.removeButton,    SIGNAL(clicked()),                  this, SLOT(RemoveRepo()));
     connect(ui.removeAllButton, SIGNAL(clicked()),                  this, SLOT(RemoveAllRepos()));
     connect(ui.repoTable,       SIGNAL(cellDoubleClicked(int,int)), this, SLOT(RepoSelected(int,int)));

@@ -27,11 +27,17 @@ import shutil
 import datetime
 import time
 import io
+from io import BytesIO
+from io import StringIO
+import filecmp
+
+from diffstat import diffstat
+from sdifflibparser import DiffCode, DifflibParser
 
 import dulwich
 from dulwich import porcelain
 from dulwich.repo import Repo
-from dulwich.porcelain import open_repo_closing
+from dulwich.porcelain import open_repo_closing, show_object, print_commit, commit_decode
 from dulwich.objects import Tag, Commit, Blob, check_hexsha, ShaFile, Tree, format_timezone
 from dulwich.refs import ANNOTATED_TAG_SUFFIX
 from dulwich.patch import write_tree_diff
@@ -112,7 +118,10 @@ def walk_folder(top):
         base = pathof(base)
         for name in names:
             name = pathof(name)
-            rv.append(relpath(os.path.join(base, name), top))
+            apath = relpath(os.path.join(base, name), top)
+            if not apath.startswith(".git"):
+                if not os.path.basename(apath) in _SKIP_CLEAN_LIST:
+                    rv.append(apath)
     return rv
 
 
@@ -339,6 +348,41 @@ def clone_repo_and_checkout_tag(localRepo, bookid, tagname, filename, dest_path)
     return "success"
 
 
+def logsummary(repo=".", paths=None, outstream=sys.stdout, max_entries=None, reverse=False, stats=False):
+    """Write commit logs with optional diff stat summaries
+    Args:
+      repo: Path to repository
+      paths: Optional set of specific paths to print entries for
+      outstream: Stream to write log output to
+      reverse: Reverse order in which entries are printed
+      max_entries: Optional maximum number of entries to display
+      stats: Print diff stats
+    """
+    with open_repo_closing(repo) as r:
+        walker = r.get_walker(max_entries=max_entries, paths=paths, reverse=reverse)
+        for entry in walker:
+            def decode(x):
+                return commit_decode(entry.commit, x)
+            print_commit(entry.commit, decode, outstream)
+            if stats:
+                commit = entry.commit
+                if commit.parents:
+                    parent_commit = r[commit.parents[0]]
+                    base_tree = parent_commit.tree
+                else:
+                    base_tree = None
+                adiff = b""
+                with BytesIO() as diffstream:
+                    write_tree_diff(
+                        diffstream,
+                        r.object_store, base_tree, commit.tree)
+                    diffstream.seek(0)
+                    adiff = diffstream.getvalue()
+                dsum = diffstat(adiff.split(b'\n'))
+                outstream.write(dsum.decode('utf-8'))
+                outstream.write("\n\n")
+
+
 # the entry points from Cpp
 
 def generate_epub_from_tag(localRepo, bookid, tagname, filename, dest_path):
@@ -539,6 +583,127 @@ def generate_diff_from_checkpoints(localRepo, bookid, leftchkpoint, rightchkpoin
         if success:
             return output.getvalue()
         return ''
+
+
+def generate_log_summary(localRepo, bookid):
+    repo_home = pathof(localRepo)
+    repo_home = repo_home.replace("/", os.sep)
+    repo_path = os.path.join(repo_home, "epub_" + bookid)
+    results = ""
+    cdir = os.getcwd()
+    if os.path.exists(repo_path):
+        os.chdir(repo_path)
+        with StringIO() as sf:
+            logsummary(repo=".", outstream=sf, stats=True)
+            sf.seek(0)
+            results = sf.getvalue()
+        os.chdir(cdir)
+    return results
+
+
+def generate_parsed_ndiff(path1, path2):
+    path1 = pathof(path1)
+    path2 = pathof(path2)
+    try:
+        leftFileContents = open(path1,'rb').read().decode('utf-8')
+    except:
+        leftFileContents = ''
+    try:
+        rightFileContents = open(path2, 'rb').read().decode('utf-8')
+    except:
+        rightFileContents = ''
+    diff = DifflibParser(leftFileContents.splitlines(), rightFileContents.splitlines())
+    results = []
+    for dinfo in diff:
+        results.append(dinfo)
+    return results
+
+
+def generate_unified_diff(path1, path2):
+    path1 = pathof(path1)
+    path2 = pathof(path2)
+    try:
+        leftContents = open(path1,'rb').read().decode('utf-8')
+    except:
+        leftContents = ''
+    try:
+        rightContents = open(path2, 'rb').read().decode('utf-8')
+    except:
+        rightContents = ''
+
+    diffs = difflib.unified_diff(leftContents.splitlines(keepends=True), 
+                                 rightContents.splitlines(keepends=True),
+                                 fromfile=path1, tofile=path2, n=3)
+    results = "diff a/%s b/%s\n" % (path1, path2)
+    with StringIO() as sf:
+        for a in diffs:
+            sf.write(a)
+        sf.seek(0)
+        results += sf.getvalue()
+    return results
+    
+
+def copy_tag_to_destdir(localRepo, bookid, tagname, destdir):
+    # convert posix paths to os specific paths
+    repo_home = pathof(localRepo)
+    repo_home = repo_home.replace("/", os.sep)
+    repo_path = os.path.join(repo_home, "epub_" + bookid)
+    dest_path = pathof(destdir).replace("/", os.sep)
+    copied = []
+    if tagname != "HEAD":
+        # checkout the proper base tag in the repo if needed
+        checkout_tag(repo_path, tagname)
+    # walk the list of files and copy them
+    repolist = walk_folder(repo_path)
+    for apath in repolist:
+        src = os.path.join(repo_path, apath)
+        dest = os.path.join(dest_path, apath)
+        # and make sure destination directory exists
+        base = os.path.dirname(dest)
+        if not os.path.exists(base):
+            os.makedirs(base)
+        data = b''
+        with open(src, 'rb') as f:
+            data = f.read()
+        with open(dest,'wb') as fp:
+            fp.write(data)
+        copied.append(apath)
+    # return the repo to its normal state if needed
+    if tagname != "HEAD":
+        checkout_head(repo_path)
+    return "\n".join(copied)
+
+
+def get_current_status_vs_destdir(bookroot, bookfiles, destdir):
+    # convert posix paths to os specific paths
+    book_home = pathof(bookroot).replace("/", os.sep);
+    dest_path = pathof(destdir).replace("/", os.sep);
+    # convert from bookpaths to os relative file paths
+    filepaths = []
+    for bkpath in bookfiles:
+        afile = pathof(bkpath)
+        afile = afile.replace("/", os.sep)
+        filepaths.append(afile)
+    if "mimetype" in filepaths:
+        filepaths.remove("mimetype")
+    repolist = walk_folder(dest_path)
+    # determine what has been deleted
+    deleted = []
+    for fpath in repolist:
+        if fpath not in filepaths:
+            deleted.append(fpath)
+    if "mimetype" in deleted:
+        deleted.remove("mimetype")
+    # now use pythons built in filecmp to determine added and modified
+    (unchanged, modified, added) = filecmp.cmpfiles(dest_path, book_home, filepaths, shallow=False)
+    # convert everything back to posix style bookpaths
+    for i in range(len(deleted)):
+        deleted[i] = deleted[i].replace(os.sep,"/")
+    for i in range(len(added)):
+        added[i] = added[i].replace(os.sep,"/")
+    for i in range(len(modified)):
+        modified[i] = modified[i].replace(os.sep,"/")
+    return (deleted, added, modified)
 
 
 def main():

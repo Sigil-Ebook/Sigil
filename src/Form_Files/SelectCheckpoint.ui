@@ -49,7 +49,7 @@
       <property name="minimumSize">
        <size>
         <width>200</width>
-        <height>150</height>
+        <height>75</height>
        </size>
       </property>
       <property name="text">

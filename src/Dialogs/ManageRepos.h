@@ -38,6 +38,7 @@ public:
     ~ManageRepos();
 
 private slots:
+    void ShowLog();
     void RemoveRepo();
     void RemoveAllRepos();
     void RepoSelected(int row, int col);

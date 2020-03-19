@@ -633,7 +633,8 @@ private slots:
     void DeleteReportsStyles(QList<BookReports::StyleData *> reports_styles_to_delete);
 
     void DeleteFilenames(QStringList files_to_delete);
-    void OpenFile(QString file_shortpathname, int line = -1);
+
+    void OpenFile(QString file_bookpath, int line = -1, int position = -1);
 
     void UpdateClipsUI();
 
@@ -747,7 +748,7 @@ private:
      *
      * @param fullfilepath The path to the currently edited file.
      */
-    void UpdateUiWithCurrentFile(const QString &fullfilepath);
+    void UpdateUiWithCurrentFile(const QString &fullfilepath, bool just_name = false);
 
     /**
      * Selects the appropriate entry in the heading combo box

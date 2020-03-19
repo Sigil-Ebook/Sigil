@@ -110,6 +110,10 @@ int TextTab::GetCursorLine() const
     return m_wCodeView->GetCursorLine();
 }
 
+int TextTab::GetCursorPosition() const
+{
+    return m_wCodeView->GetCursorPosition();
+}
 
 int TextTab::GetCursorColumn() const
 {

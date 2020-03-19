@@ -254,3 +254,142 @@ QString PythonRoutines::GenerateDiffFromCheckPoints(const QString& localRepo,
     }
     return results;
 }
+
+QString PythonRoutines::GenerateRepoLogSummaryInPython(const QString& localRepo,
+						       const QString& bookid)
+{
+    QString results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(localRepo));
+    args.append(QVariant(bookid));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("generate_log_summary"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+        results = res.toString();
+    }
+    return results;
+}
+
+
+QList<DiffRecord::DiffRec> PythonRoutines::GenerateParsedNDiffInPython(const QString& path1,
+						                  const QString& path2)
+{
+    QList<DiffRecord::DiffRec> results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(path1));
+    args.append(QVariant(path2));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("generate_parsed_ndiff"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+	QVariantList vlist = res.toList();
+	foreach(QVariant qv, vlist) {
+	    QStringList fields = qv.toStringList();
+	    DiffRecord::DiffRec dr;
+	    dr.code = fields.at(0);
+	    dr.line = fields.at(1);
+	    dr.newline = fields.at(2);
+	    dr.leftchanges = fields.at(3);
+	    dr.rightchanges = fields.at(4);
+	    results << dr;
+	}
+    }
+    return results;
+}
+
+
+
+QString PythonRoutines::GenerateUnifiedDiffInPython(const QString& path1, const QString& path2)
+{
+    QString results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(path1));
+    args.append(QVariant(path2));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("generate_unified_diff"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+        results = res.toString();
+    }
+    return results;
+}
+
+
+// returns 3 string lists: deleted, added, and modified (in that order)
+QList<QStringList> PythonRoutines::GetCurrentStatusVsDestDirInPython(const QString&bookroot,
+						                     const QStringList& bookfiles,
+						                     const QString& destdir)
+{
+    QList<QStringList> results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(bookroot));
+    args.append(QVariant(bookfiles));
+    args.append(QVariant(destdir));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("get_current_status_vs_destdir"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+	QVariantList vlist = res.toList();
+	foreach(QVariant qv, vlist) {
+	    results << qv.toStringList();
+	}
+    }
+    return results;
+}
+
+
+QString PythonRoutines::CopyTagToDestDirInPython(const QString& localRepo,
+				                 const QString& bookid,
+				                 const QString& tagname,
+				                 const QString& destdir)
+{
+    QString results;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(localRepo));
+    args.append(QVariant(bookid));
+    args.append(QVariant(tagname));
+    args.append(QVariant(destdir));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("copy_tag_to_destdir"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+        results = res.toString();
+    }
+    return results;
+}

@@ -28,6 +28,8 @@
 
 #include "Misc/SettingsStore.h"
 
+class QTextDocument;
+
 class XHTMLHighlighter : public QSyntaxHighlighter
 {
 

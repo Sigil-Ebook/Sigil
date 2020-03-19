@@ -39,7 +39,6 @@
 #include <QFileInfo>
 #include <QTextStream>
 #include <QFontMetrics>
-#include <QDebug>
 
 #include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
@@ -495,27 +494,20 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
         if (app.startDragDistance() < 30) app.setStartDragDistance(30);
 #else
         QFontMetrics fm(app.font());
-        qDebug() << "Platform Default Drag Distance: " << app.startDragDistance();
         int dragbase = fm.xHeight() * 2;
-        qDebug() << "Calculated Drag Distance: " << dragbase;
         int dragtweak = settings.uiDragDistanceTweak();
-        qDebug() << "User adjustment: " << dragtweak;
         // Use calculated base distance if tweak value not between -20 and 20px
         if (dragtweak >= -20 && dragtweak <= 20) {
             int newdrag = dragbase + dragtweak;
             if (newdrag < 10) {
-                qDebug() << "Using 10px min";
                 app.setStartDragDistance(10);  // 10px minimum
             } else if (newdrag > 60) {
-                qDebug() << "Using 60px min";
                 app.setStartDragDistance(60);  // 60px maximum
             } else {
-                qDebug() << "Using Tweaked Distance of:  " << newdrag;
                 app.setStartDragDistance(newdrag);
             }
         } else {
-            qDebug() << "Tweak value outside range";
-            qDebug() << "Using calculated distance: " << dragbase;
+            // Tweak value outside range. Use calculated distance.
             app.setStartDragDistance(dragbase);
         }
 #endif

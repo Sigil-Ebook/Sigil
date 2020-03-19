@@ -19,8 +19,9 @@
 **
 *************************************************************************/
 
-#include <QtCore/QDate>
-#include <QtCore/QModelIndex>
+#include <QDate>
+#include <QModelIndex>
+#include <QDebug>
 
 #include "Dialogs/SelectCheckpoint.h"
 #include "Misc/SettingsStore.h"
@@ -33,22 +34,30 @@ SelectCheckpoint::SelectCheckpoint(const QStringList &checkpointlst, QWidget *pa
     QDialog(parent)
 {
     ui.setupUi(this);
+    QString key0;
     foreach(QString atag, checkpointlst) {
 	QStringList fields = atag.split("|");
 	if (fields.length() == 3) {
 	    QString key = fields.at(0);
+	    if (key0.isEmpty()) key0 = key;
 	    QString dinfo = fields.at(1) + "\n" + fields.at(2);
 	    m_CheckpointInfo[key] = dinfo;
             ui.lwProperties->addItem(key);
 	}
     }
+    ui.lwProperties->setCurrentRow(0);
+    ui.lbDescription->setText(m_CheckpointInfo[key0]);
+    
+    ReadSettings();
 
     connect(ui.lwProperties, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)),
-            this,	          SLOT(UpdateDescription(QListWidgetItem *)));
+             this, SLOT(UpdateDescription(QListWidgetItem *)));
     connect(this, SIGNAL(accepted()), this, SLOT(WriteSettings()));
     connect(ui.lwProperties, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(accept()));
+    connect(ui.lwProperties, SIGNAL(itemSelectionChanged()),
+            this, SLOT(ClearDescription()));
+    
 
-    ReadSettings();
 }
 
 void SelectCheckpoint::UpdateDescription(QListWidgetItem *current)
@@ -60,6 +69,13 @@ void SelectCheckpoint::UpdateDescription(QListWidgetItem *current)
     }
     if (!text.isEmpty()) {
         ui.lbDescription->setText(text);
+    }
+}
+
+void SelectCheckpoint::ClearDescription()
+{
+    if (ui.lwProperties->selectedItems().isEmpty() || (ui.lwProperties->selectedItems().size()>1)) {
+        ui.lbDescription->setText("");
     }
 }
 

@@ -24,13 +24,14 @@
 #ifndef VIEWIMAGE_H
 #define VIEWIMAGE_H
 
-#include <QtWidgets/QDialog>
-
+#include <QDialog>
+#include <QSize>
 #include "Misc/SettingsStore.h"
 #include "ResourceObjects/Resource.h"
-#include "ui_ViewImage.h"
 
+class QVBoxLayout;
 class QWebEngineView;
+class QToolButton;
 
 class ViewImage : public QDialog
 {
@@ -40,15 +41,23 @@ public:
     ViewImage(QWidget *parent = 0);
     ~ViewImage();
 
+    QSize sizeHint();
     void ShowImage(QString path);
+
+public slots:
+    void ReloadViewer();
 
 private slots:
     void WriteSettings();
 
 private:
     void ReadSettings();
+    void ConnectSignalsToSlots();
 
-    Ui::ViewImage ui;
+    QString m_path;
+    QWebEngineView *m_WebView;
+    QToolButton* m_bp;
+    QVBoxLayout* m_layout;
 };
 
 #endif // VIEWIMAGE_H
