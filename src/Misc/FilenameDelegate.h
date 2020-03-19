@@ -26,11 +26,19 @@
 
 class FilenameDelegate : public QStyledItemDelegate
 {
+    Q_OBJECT
+    
 public:
     FilenameDelegate(QWidget *parent = 0);
 
-protected:
-    virtual bool eventFilter(QObject *object, QEvent *event);
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+
+    void setModelData(QWidget *editor, QAbstractItemModel *model,
+                      const QModelIndex &index) const override;
+
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option,
+                              const QModelIndex &index) const override;
+
 };
 
 #endif // FILENAMEDELEGATE_H
