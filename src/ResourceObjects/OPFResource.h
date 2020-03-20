@@ -62,6 +62,8 @@ public:
 
     virtual void SetText(const QString &text);
 
+    virtual bool LoadFromDisk();
+
     QString GetGuideSemanticCodeForResource(const Resource *resource) const;
     QString GetGuideSemanticNameForResource(Resource *resource);
     QHash <QString, QString> GetSemanticCodeForPaths();
@@ -136,6 +138,10 @@ public:
 
     void SetNavResource(HTMLResource* nav);
     HTMLResource* GetNavResource() const;
+
+ signals:
+    void TextChanging();
+    void LoadedFromDisk();
 
 public slots:
 

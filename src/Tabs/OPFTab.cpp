@@ -25,8 +25,33 @@
 OPFTab::OPFTab(OPFResource *resource, int line_to_scroll_to, int position_to_scroll_to, QWidget *parent)
     :
     XMLTab(resource, line_to_scroll_to, position_to_scroll_to, parent),
-    m_OPFResource(resource)
+    m_OPFResource(resource),
+    m_LastPosition(-1)
 {
+    ConnectSignalsToSlots();
+}
+
+
+void OPFTab::ReloadTabIfPending()
+{
+    if (!isVisible()) {
+        return;
+    }
+    setFocus();
+}
+
+void OPFTab::ResourceModified()
+{
+    if (m_LastPosition > 0) {
+        m_wCodeView->ScrollToPosition(m_LastPosition);
+        m_LastPosition = -1;
+    }
+}
+
+void OPFTab::ResourceTextChanging()
+{
+    // Store an exact position of cursor
+    m_LastPosition = m_wCodeView->GetCursorPosition();
 }
 
 void OPFTab::AutoFixWellFormedErrors()
@@ -34,3 +59,9 @@ void OPFTab::AutoFixWellFormedErrors()
     m_OPFResource->AutoFixWellFormedErrors();
 }
 
+void OPFTab::ConnectSignalsToSlots()
+{
+    connect(m_OPFResource, SIGNAL(TextChanging()), this, SLOT(ResourceTextChanging()));
+    connect(m_OPFResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
+    connect(m_OPFResource, SIGNAL(LoadedFromDisk()), this, SLOT(ReloadTabIfPending()));
+}

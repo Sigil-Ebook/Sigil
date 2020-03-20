@@ -46,9 +46,8 @@
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/OPFParser.h"
 #include "ResourceObjects/NavProcessor.h"
-
-
 #include "sigil_constants.h"
+#include "sigil_exception.h"
 
 static const QString SIGIL_VERSION_META_NAME  = "Sigil version";
 static const QString OPF_XML_NAMESPACE        = "http://www.idpf.org/2007/opf";
@@ -176,9 +175,24 @@ QString OPFResource::GetText() const
 
 void OPFResource::SetText(const QString &text)
 {
+    emit TextChanging();
     QWriteLocker locker(&GetLock());
     QString source = ValidatePackageVersion(text);
     TextResource::SetText(source);
+}
+
+
+bool OPFResource::LoadFromDisk()
+{
+    try {
+        const QString &text = Utility::ReadUnicodeTextFile(GetFullPath());
+	SetText(text);
+        emit LoadedFromDisk();
+	return true;
+    } catch (CannotOpenFile) {
+        //
+    }
+    return false;
 }
 
 QList<Resource*> OPFResource::GetSpineOrderResources( const QList<Resource *> &resources)
