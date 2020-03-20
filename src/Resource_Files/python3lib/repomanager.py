@@ -530,6 +530,10 @@ def performCommit(localRepo, bookid, bookinfo, bookroot, bookfiles):
         cdir = os.getcwd()
         os.chdir(repo_path)
         r = porcelain.init(path='.', bare=False)
+        # set local git config to no convert crlf since always a non-shared local repo
+        c = r.get_config()
+        c.set("core","autocrlf","false")
+        c.write_to_path()
         staged = copy_book_contents_to_destination(book_home, filepaths, repo_path)
         (added, ignored) = porcelain.add(repo='.',paths=staged)
         # it seems author, committer, messages, and tagname only work with bytes if annotated=True
