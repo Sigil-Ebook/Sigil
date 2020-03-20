@@ -4423,8 +4423,8 @@ bool MainWindow::ProceedToOverwrite(const QString& msg, const QString &filename)
     QMessageBox::StandardButton button_pressed;
     button_pressed = QMessageBox::warning(this,
 					  tr("Sigil"),
-				          msg + " " +  
-				          tr("Should Sigil overwrite this file?") + " " + filename,
+				          msg + "\n" + filename + "\n\n" +
+				          tr("Should Sigil overwrite this file?"),
 					  QMessageBox::Yes | QMessageBox::No);
     if (button_pressed == QMessageBox::Yes) return true;
     return false;
