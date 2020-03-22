@@ -42,7 +42,7 @@ environment:
   global:
       INNO: C:\Program Files (x86)\Inno Setup 5
       REDIST: C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Redist\MSVC\%RedistVersion%\vcredist_%PLATFORM%.exe
-      DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/MyQt%PLATFORM%_5.12.6_VS2017_WE.7z
+      DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/MyQt%PLATFORM%_5.12.7_VS2017_WE.7z
       GDRIVE: https://github.com/gdrive-org/gdrive/releases/download/2.1.0/gdrive-windows-x64.exe
       GDRIVE_REFRESH_TOKEN:
         secure: +J2q/4lkiBXik5Ttvt06vpNiWBjNIXx+jFnYw1rOR9sLkyksyXGj+NeNKQB8kPwE
@@ -53,7 +53,7 @@ environment:
       QT: C:\MyQt32\Qt5.12.2
       CMAKE64BIT:
     - PYTHON: C:\Python37-x64
-      QT: C:\MyQtx64_WE\Qt5.12.6
+      QT: C:\MyQtx64_WE\Qt5.12.7
       CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
 
 matrix:
