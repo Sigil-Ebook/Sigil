@@ -112,9 +112,11 @@ void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
     QTextCursor tc1 = m_view1->textCursor();
     tc1.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor,1);
     m_view1->setTextCursor(tc1);
+    tc1.beginEditBlock();
     QTextCursor tc2 = m_view2->textCursor();
     tc2.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor,1);
     m_view2->setTextCursor(tc2);
+    tc2.beginEditBlock();
     int blockno = 0;
     int leftlineno = 1;
     int rightlineno = 1;
@@ -266,6 +268,8 @@ void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
 	    rightlineno++;
 	} 
     }
+    tc1.endEditBlock();
+    tc2.endEditBlock();
     m_view1->setBlockMap(m_leftno);
     m_view2->setBlockMap(m_rightno);
 
