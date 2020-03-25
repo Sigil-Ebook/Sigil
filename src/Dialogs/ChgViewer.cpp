@@ -32,6 +32,7 @@
 #include <QKeySequence>
 #include <QKeyEvent>
 #include <QApplication>
+#include <QDateTime>
 #include <QDebug>
 
 #include "ViewEditors/TextView.h"
@@ -58,8 +59,7 @@ ChgViewer::ChgViewer(const QList<DiffRecord::DiffRec>& diffinfo,
       m_view2(new TextView(this)),
       m_lbl1(new QLabel(file1, this)),
       m_lbl2(new QLabel(file2, this)),
-      m_nav(new Navigator(this)),
-      m_diffinfo(diffinfo)
+      m_nav(new Navigator(this))
 {
     setAttribute(Qt::WA_DeleteOnClose,true);
     // handle the layout manually
@@ -84,7 +84,7 @@ ChgViewer::ChgViewer(const QList<DiffRecord::DiffRec>& diffinfo,
     m_view2->setFont(tf);
 
     ReadSettings();
-    LoadViewers();
+    LoadViewers(diffinfo);
     connectSignalsToSlots();
 }
 
@@ -93,28 +93,53 @@ ChgViewer::~ChgViewer()
     WriteSettings();
 }
 
-void ChgViewer::LoadViewers()
+// it turns out this routine is a time killer if you insert character by character
+// so be careful and insert more than one character whenever possible
+void ChgViewer::insert_with_background(QTextCursor& tc, const QString& sval, const QString& cval)
 {
+    QTextCharFormat tf = tc.charFormat();
+    tf.setBackground(QColor(cval));
+    tf.setForeground(Qt::black);
+    tc.setCharFormat(tf);
+    tc.insertText(sval);
+    tf.clearBackground();
+    tf.clearForeground();
+    tc.setCharFormat(tf);
+}
+
+void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
+{
+    QTextCursor tc1 = m_view1->textCursor();
+    tc1.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor,1);
+    m_view1->setTextCursor(tc1);
+    QTextCursor tc2 = m_view2->textCursor();
+    tc2.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor,1);
+    m_view2->setTextCursor(tc2);
     int blockno = 0;
     int leftlineno = 1;
     int rightlineno = 1;
     QString pad = "" + _PAD;
     // codes: 0 = Similar, 1 = RightOnly, 2 = LeftOnly, 3 = Changed
-    foreach(DiffRecord::DiffRec diff, m_diffinfo) {
+    foreach(DiffRecord::DiffRec diff, diffinfo) {
 	if (diff.code == "0") { // similar
-	    m_view1->insertPlainText(diff.line + "\n");
-	    m_view2->insertPlainText(diff.line + "\n");
+	    tc1.insertText(diff.line + "\n");
+	    tc2.insertText(diff.line + "\n");
 	} else if (diff.code == "1") { // rightonly
 	    m_changelst << blockno;
 	    int n = diff.line.length();
-	    m_view1->insert_with_background(pad.repeated(n) + "\n", _grayColor);
-	    m_view2->insert_with_background(diff.line + "\n", _greenColor);
+	    insert_with_background(tc1, pad.repeated(n) + "\n", _grayColor);
+	    insert_with_background(tc2, diff.line + "\n", _greenColor);
 	} else if (diff.code == "2") { // leftonly
 	    m_changelst << blockno;
             int n = diff.line.length();
-            m_view1->insert_with_background(diff.line + "\n", _redColor);
-	    m_view2->insert_with_background(pad.repeated(n) + "\n", _grayColor);
+            insert_with_background(tc1, diff.line + "\n", _redColor);
+	    insert_with_background(tc2, pad.repeated(n) + "\n", _grayColor);
+
+#if 0
 	} else if (diff.code == "3") { // changed
+
+	    // This code although simpler did not work efficiently with
+            // inserting characters with different background colors one by one
 	    m_changelst << blockno;
             int l1 = diff.line.length();
 	    int l2 = diff.newline.length();
@@ -124,22 +149,106 @@ void ChgViewer::LoadViewers()
 	    for(int i=0; i < l1; i++) {
 		QChar c = diff.line.at(i);
 		if ((i < lc) && (diff.leftchanges.at(i) != " ")) {
-		    m_view1->insert_with_background(c, _darkredColor);
+		    insert_with_background(tc1, c, _darkredColor);
 		} else {
-		    m_view1->insert_with_background(c, _redColor);
+		    insert_with_background(tc1, c, _redColor);
 		}
 	    }
-	    m_view1->insertPlainText(pad.repeated(n-l1) + "\n");
+	    tc1.insertText(pad.repeated(n-l1) + "\n");
 	    for(int i=0; i < l2; i++) {
 		QChar c = diff.newline.at(i);
 		if ((i < rc) && (diff.rightchanges.at(i) != " ")) {
-		    m_view2->insert_with_background(c, _darkgreenColor);
+		    insert_with_background(tc2, c, _darkgreenColor);
 		} else {
-		    m_view2->insert_with_background(c, _greenColor);
+		    insert_with_background(tc2, c, _greenColor);
 		}
 	    }
-	    m_view2->insertPlainText(pad.repeated(n-l2) + "\n");
+	    tc2.insertText(pad.repeated(n-l2) + "\n");
 	}
+#else 
+
+        } else if (diff.code == "3") { // changed                                                                                   
+	    m_changelst << blockno;
+	    int l1 = diff.line.length();
+	    int l2 = diff.newline.length();
+	    int n = std::max(l1, l2);
+
+            // Handle the left side changes first
+
+	    // pad out left changes to match line
+	    int lc = diff.leftchanges.length();
+	    QString leftchanges = diff.leftchanges + QString(" ").repeated(l1 - lc);
+
+	    int l = 0;
+	    while (l < l1) {
+	        int i = l;
+	        QString txt = "";
+
+                // first check for emphasized chars
+                // if any exist output them
+	        while((i < l1) && (leftchanges.at(i) != " ")) {
+	            txt.append(diff.line.at(i));
+	            i++;
+	        }
+	        if (l != i) {
+	            insert_with_background(tc1, txt, _darkredColor);
+	            l = i;
+	        }
+
+                txt = "";
+
+                // next check for background chars
+                // if any exist output them
+	        while((i < l1) && (leftchanges.at(i) == " ")) {
+	            txt.append(diff.line.at(i));
+	            i++;
+                }
+                if (l != i) {
+	            insert_with_background(tc1, txt, _redColor);
+	            l = i;
+                }
+	    }
+            tc1.insertText(pad.repeated(n-l1) + "\n");
+
+            // Now Handle the right side changes
+
+            // pad out right changes to match newline
+            int rc = diff.rightchanges.length();
+            QString rightchanges = diff.rightchanges + QString(" ").repeated(l2 - rc);
+
+            int r = 0;
+            while (r < l2) {
+                int i = r;
+                QString txt = "";
+
+                // first check for emphasized chars
+                // if any exist output them
+                while((i < l2) && (rightchanges.at(i) != " ")) {
+		    txt.append(diff.newline.at(i));
+		    i++;
+	        }
+                if (r != i) {
+                    insert_with_background(tc2, txt, _darkgreenColor);
+                    r = i;
+	        }
+
+                txt = "";
+
+                // next check for background chars
+                // if any exist output them
+                while((i < l2) && (rightchanges.at(i) == " ")) {
+                    txt.append(diff.newline.at(i));
+		    i++;
+	        }
+                if (r != i) {
+                    insert_with_background(tc2, txt, _greenColor);
+                    r = i;
+                }
+	    }
+            tc2.insertText(pad.repeated(n-l2) + "\n");
+        }
+#endif
+
 	blockno++;
 	// map out block to line numbers
 	if (diff.code == "2") { // leftonly

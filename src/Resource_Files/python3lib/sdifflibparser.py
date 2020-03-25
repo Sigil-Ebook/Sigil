@@ -53,10 +53,10 @@ class DifflibParser:
         currentLine = self.__diff[self.__currentLineno]
         code = currentLine[:2]
         line = currentLine[2:]
-        dcode = None
-        newline = None
-        leftchanges = None
-        rightchanges = None
+        dcode = ''
+        newline = ''
+        leftchanges = ''
+        rightchanges = ''
         if code == '  ':
             dcode = DiffCode.SIMILAR
         elif code == '- ':
@@ -65,8 +65,8 @@ class DifflibParser:
                 dcode = DiffCode.LEFTONLY
             else:
                 dcode = DiffCode.CHANGED
-                leftchanges = incrementalChange['left'] if 'left' in incrementalChange else None
-                rightchanges = incrementalChange['right'] if 'right' in incrementalChange else None
+                leftchanges = incrementalChange['left'] if 'left' in incrementalChange else ''
+                rightchanges = incrementalChange['right'] if 'right' in incrementalChange else ''
                 newline = incrementalChange['newline']
                 self.__currentLineno += incrementalChange['skiplines']
         elif code == '+ ':

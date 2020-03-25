@@ -32,6 +32,7 @@
 
 class Navigator;
 class TextView;
+class QTextCursor;
 
 class ChgViewer : public QDialog
 
@@ -44,7 +45,9 @@ public:
 	      const QString& file2, QWidget *parent);
     ~ChgViewer();
 
-    void LoadViewers();
+    void insert_with_background(QTextCursor&  tc, const QString& sval, const QString& cval);
+
+    void LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo);
 
 public slots:
     int exec();
@@ -71,8 +74,6 @@ private:
     QLabel*       m_lbl1;
     QLabel*       m_lbl2;
     QVBoxLayout*  m_layout;
-
-    const QList<DiffRecord::DiffRec>&  m_diffinfo;
 
     QStringList    m_leftno;
     QStringList    m_rightno;

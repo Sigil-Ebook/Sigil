@@ -84,18 +84,6 @@ TextView::~TextView()
 {
 }
 
-void TextView::insert_with_background(const QString& text, const QString& colorval)
-{
-    QTextCharFormat tf = currentCharFormat();
-    tf.setBackground(QColor(colorval));
-    tf.setForeground(Qt::black);
-    setCurrentCharFormat(tf);
-    insertPlainText(text);
-    tf.clearBackground();
-    tf.clearForeground();
-    setCurrentCharFormat(tf);
-}
-
 void TextView::setBlockMap(const QStringList& blockmap)
 {
     m_blockmap = blockmap;
