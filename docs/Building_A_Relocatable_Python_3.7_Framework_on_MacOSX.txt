@@ -121,6 +121,8 @@ sudo pip3 install css-parser
 sudo pip3 install cssselect
 sudo pip3 install chardet
 sudo pip3 install certifi
+sudo pip3 install dulwich
+sudo pip3 install urllib3
 
 Note: we have replaced cssutils with a drop in replacement with many bugs fixed
 called css-parser.

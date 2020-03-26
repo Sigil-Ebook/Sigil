@@ -26,13 +26,3 @@
  }
  
  bool QCocoaMenuBar::needsImmediateUpdate()
-@@ -252,6 +264,9 @@
-     if (qApp->focusWindow())
-         return static_cast<QCocoaWindow*>(qApp->focusWindow()->handle());
- 
-+    // fixme shouldn't this look for another visible toplevel window
-+    // and that is active first?
-+
-     return nullptr;
- }
- 
