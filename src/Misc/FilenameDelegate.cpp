@@ -23,7 +23,6 @@
 #include <QKeyEvent>
 #include <QtWidgets/QLineEdit>
 #include <QApplication>
-#include <QDebug>
 
 #include "Misc/FilenameDelegate.h"
 
