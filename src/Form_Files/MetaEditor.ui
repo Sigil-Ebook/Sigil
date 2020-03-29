@@ -169,7 +169,7 @@
    <item row="1" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="toolTip">
-      <string>Use OK to commit your metdata changes to the epub, otherwise use Cancel.</string>
+      <string>Use OK to commit your metadata changes to the epub, otherwise use Cancel.</string>
      </property>
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>

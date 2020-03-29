@@ -314,7 +314,7 @@ class XMLSanityCheck(object):
                 if tag.startswith('< '):
                     error_msg = 'Unexpected whitespace following "<"'
                 if tag.endswith(' >'):
-                    error_msg = 'Unexpected whitespace preceeding ">"'
+                    error_msg = 'Unexpected whitespace preceding ">"'
                 if error_msg is not None:
                     self.errors.append((self.tag_start[0], self.tag_start[1], error_msg))
                     self.has_error = True

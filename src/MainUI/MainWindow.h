@@ -243,7 +243,7 @@ public slots:
     void launchExternalXEditor();
 
     void RepoCommit();
-    void RepoCheckout(QString bookid="", QString destpath="", QString fielname="", bool loadnow=true);
+    void RepoCheckout(QString bookid="", QString destpath="", QString filename="", bool loadnow=true);
     void RepoDiff(QString bookid="");
     void RepoManage();
 
