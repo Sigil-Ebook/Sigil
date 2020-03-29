@@ -35,9 +35,10 @@ from diffstat import diffstat
 from sdifflibparser import DiffCode, DifflibParser
 
 # Work around dulwich assumption about sys.argv being defined,
-# which is not automatically the case with embedded Python < 3.8.
-if not hasattr(sys, 'argv'):
-    sys.argv  = ['']
+# which is not automatically the case on Linux with distribution-provided
+# embedded Python versions older than 3.8.
+if (sys.hexversion < 0x03080000) and not hasattr(sys, 'argv'):
+    sys.argv = ['']
 
 import dulwich
 from dulwich import porcelain
