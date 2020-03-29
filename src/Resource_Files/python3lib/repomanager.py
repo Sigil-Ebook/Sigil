@@ -34,6 +34,11 @@ import filecmp
 from diffstat import diffstat
 from sdifflibparser import DiffCode, DifflibParser
 
+# Work around dulwich assumption about sys.argv being defined,
+# which is not automatically the case with embedded Python < 3.8.
+if not hasattr(sys, 'argv'):
+    sys.argv  = ['']
+
 import dulwich
 from dulwich import porcelain
 from dulwich.repo import Repo
