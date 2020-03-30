@@ -27,7 +27,7 @@
 #include "Tabs/ContentTab.h"
 #include "ResourceObjects/Resource.h"
 
-class QWebEngineView;
+class AVView;
 
 class AVTab : public ContentTab
 {
@@ -37,12 +37,13 @@ public:
     AVTab(Resource *resource, QWidget *parent=0);
 
 public slots:
+    void ShowAV();
     void RefreshContent();
 
 private:
     void ConnectSignalsToSlots();
 
-    QWebEngineView *m_WebView;
+    AVView *m_av;
 };
 
-#endif // IMAGETAB_H
+#endif // AVTAB_H

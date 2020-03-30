@@ -35,8 +35,8 @@
 #include <QDateTime>
 #include <QDebug>
 
-#include "ViewEditors/TextView.h"
-#include "ViewEditors/Navigator.h"
+#include "Widgets/TextView.h"
+#include "Widgets/Navigator.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "Dialogs/ChgViewer.h"

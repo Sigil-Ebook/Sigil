@@ -240,6 +240,21 @@ set( DIALOG_FILES
     Dialogs/Inspector.h
     )
 
+set( WIDGET_FILES
+    Widgets/ImageView.cpp
+    Widgets/ImageView.h
+    Widgets/AVView.cpp
+    Widgets/AVView.h
+    Widgets/FontView.cpp
+    Widgets/FontView.h
+    Widgets/Navigator.h
+    Widgets/Navigator2.h
+    Widgets/TextView.cpp
+    Widgets/TextView.h
+    Widgets/TVLineNumberArea.cpp
+    Widgets/TVLineNumberArea.h
+    )
+
 set( EXPORTER_FILES
     Exporters/ExportEPUB.cpp
     Exporters/ExportEPUB.h
@@ -383,12 +398,6 @@ set( SPCRE_FILES
     )
 
 set( VIEW_EDITOR_FILES
-    ViewEditors/Navigator.h
-    ViewEditors/Navigator2.h
-    ViewEditors/TextView.cpp
-    ViewEditors/TextView.h
-    ViewEditors/TVLineNumberArea.cpp
-    ViewEditors/TVLineNumberArea.h
     ViewEditors/CodeViewEditor.cpp
     ViewEditors/CodeViewEditor.h
     ViewEditors/WebEngPage.cpp
@@ -447,6 +456,8 @@ set( TAB_FILES
     Tabs/CSSTab.h
     Tabs/AVTab.cpp
     Tabs/AVTab.h
+    Tabs/FontTab.cpp
+    Tabs/FontTab.h
     Tabs/ImageTab.cpp
     Tabs/ImageTab.h
     Tabs/MiscTextTab.cpp
@@ -599,7 +610,7 @@ if ( NOT DEFINED INSTALL_BUNDLED_DICTS )
     set ( INSTALL_BUNDLED_DICTS 1 )
 endif()
 
-set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITORS_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
+set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${WIDGET_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITORS_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 #############################################################################
 
@@ -624,6 +635,7 @@ source_group( "Resource Files"    FILES ${QRC_FILES} )
 source_group( "Book Manipulation" FILES ${BOOK_MANIPULATION_FILES} )
 source_group( "Resource Objects"  FILES ${RESOURCE_OBJECT_FILES} )
 source_group( "Dialogs"           FILES ${DIALOG_FILES} )
+source_group( "Widgets"           FILES ${WIDGET_FILES} )
 source_group( "Exporters"         FILES ${EXPORTER_FILES} )
 source_group( "Importers"         FILES ${IMPORTER_FILES} )
 source_group( "Misc"              FILES ${MISC_FILES} )

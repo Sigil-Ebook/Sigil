@@ -29,7 +29,7 @@
 #include <QDialog>
 
 class QVBoxLayout;
-class QWebEngineView;
+class AVView;
 class QToolButton;
 
 class ViewAV : public QDialog
@@ -53,8 +53,7 @@ class ViewAV : public QDialog
     void ReadSettings();
     void ConnectSignalsToSlots();
 
-    QString m_path;
-    QWebEngineView *m_WebView;
+    AVView * m_av;
     QToolButton* m_bp;
     QVBoxLayout* m_layout;
 };

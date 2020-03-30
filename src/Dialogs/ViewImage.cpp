@@ -29,50 +29,24 @@
 #include <QApplication>
 #include <QGuiApplication>
 #include <QtWidgets/QLayout>
-#include <QtWebEngineWidgets/QWebEngineView>
-#include <QtWebEngineWidgets/QWebEngineSettings>
-#include <QtWebEngineWidgets/QWebEngineProfile>
 
 #include "ResourceObjects/ImageResource.h"
 #include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"
 #include "MainUI/MainApplication.h"
-#include "sigil_constants.h"
+#include "Widgets/ImageView.h"
 #include "Dialogs/ViewImage.h"
 
 static QString SETTINGS_GROUP = "view_image";
 
-static const QString IMAGE_HTML_BASE =
-    "<html>"
-    "<head>"
-    "<style type=\"text/css\">"
-    "body { -webkit-user-select: none; }"
-    "img { display: block; margin-left: auto; margin-right: auto; border-style: solid; border-width: 1px; }"
-    "hr { width: 75%; }"
-    "div { text-align: center; }"
-    "</style>"
-    "</head>"
-    "<body>"
-    "<p><img src=\"%1\" /></p>"
-    "<hr />"
-    "<div>%2&times;%3px | %4 KB | %5%6</div>"
-    "</body>"
-    "</html>";
-
-
 ViewImage::ViewImage(QWidget *parent)
     :
     QDialog(parent),
-    m_WebView(new QWebEngineView(this)),
+    m_iv(new ImageView(this)),
     m_bp(new QToolButton(this)),
     m_layout(new QVBoxLayout(this))
 {
-    m_WebView->setPage(new SimplePage(m_WebView));
-    m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
-    m_WebView->setFocusPolicy(Qt::NoFocus);
-    m_WebView->setAcceptDrops(false);
-    m_WebView->setUrl(QUrl("about:blank"));
-    m_layout->addWidget(m_WebView);
+    m_layout->addWidget(m_iv);
     m_bp->setToolTip(tr("Close this window"));
     m_bp->setText(tr("Done"));
     m_bp->setToolButtonStyle(Qt::ToolButtonTextOnly);
@@ -96,39 +70,13 @@ QSize ViewImage::sizeHint()
 
 void ViewImage::ShowImage(QString path)
 {
-    m_path = path;
-    m_WebView->page()->profile()->clearHttpCache();
-    const QFileInfo fileInfo = QFileInfo(path);
-    const double ffsize = fileInfo.size() / 1024.0;
-    const QString fsize = QLocale().toString(ffsize, 'f', 2);
-    const QImage img(path);
-    const QUrl imgUrl = QUrl::fromLocalFile(path);
-    QString colors_shades = img.isGrayscale() ? tr("shades") : tr("colors");
-    QString grayscale_color = img.isGrayscale() ? tr("Grayscale") : tr("Color");
-    QString colorsInfo = "";
-    if (img.depth() == 32) {
-        colorsInfo = QString(" %1bpp").arg(img.bitPlaneCount());
-    } else if (img.depth() > 0) {
-        colorsInfo = QString(" %1bpp (%2 %3)").arg(img.bitPlaneCount()).arg(img.colorCount()).arg(colors_shades);
-    }
-    QString html = IMAGE_HTML_BASE.arg(imgUrl.toString())
-	                          .arg(img.width())
-                                  .arg(img.height())
-                                  .arg(fsize)
-                                  .arg(grayscale_color)
-                                  .arg(colorsInfo);
-    if (Utility::IsDarkMode()) {
-	html = Utility::AddDarkCSS(html);
-    }
-    m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
-    m_WebView->setHtml(html, imgUrl);
+    m_iv->ShowImage(path);
     QApplication::processEvents();
 }
 
 void ViewImage::ReloadViewer()
 {
-    QString path = m_path;
-    ShowImage(path);
+    m_iv->ReloadViewer();
 }
 
 void ViewImage::ReadSettings()

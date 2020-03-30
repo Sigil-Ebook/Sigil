@@ -26,11 +26,11 @@
 #include <QSize>
 #include <QString>
 #include <QWidget>
+#include <QToolButton>
 #include <QDialog>
 
 class QVBoxLayout;
-class QWebEngineView;
-class QToolButton;
+class FontView;
 
 class ViewFont : public QDialog
 {
@@ -53,8 +53,7 @@ class ViewFont : public QDialog
     void ReadSettings();
     void ConnectSignalsToSlots();
 
-    QString m_path;
-    QWebEngineView *m_WebView;
+    FontView* m_fv;
     QToolButton* m_bp;
     QVBoxLayout* m_layout;
 };

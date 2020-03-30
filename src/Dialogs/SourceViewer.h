@@ -27,7 +27,7 @@
 #include <QList>
 #include <QLabel>
 #include <QDialog>
-#include "ViewEditors/TextView.h"
+#include "Widgets/TextView.h"
 
 class Navigator2;
 

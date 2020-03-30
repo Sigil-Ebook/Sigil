@@ -34,8 +34,8 @@
 #include <QApplication>
 #include <QDebug>
 
-#include "ViewEditors/TextView.h"
-#include "ViewEditors/Navigator2.h"
+#include "Widgets/TextView.h"
+#include "Widgets/Navigator2.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "MainUI/MainApplication.h"

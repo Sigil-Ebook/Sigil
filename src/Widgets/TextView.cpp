@@ -46,20 +46,13 @@
 #include "MainUI/MainWindow.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
-#include "ViewEditors/TVLineNumberArea.h"
-#include "ViewEditors/TextView.h"
+#include "Widgets/TVLineNumberArea.h"
+#include "Widgets/TextView.h"
 
 static const int TAB_SPACES_WIDTH     = 4;
 static const int LINE_NUMBER_MARGIN   = 5;
 
 static const QChar _PAD               = QChar(0x2007); // "use a 'figure space' 8199
-
-static const QColor redColor          = QColor("#ffc4c4");
-static const QColor darkredColor      = QColor("#ff8282");
-static const QColor grayColor         = QColor("#dddddd");
-static const QColor greenColor        = QColor("#c9fcd6");
-static const QColor darkgreenColor    = QColor("#50c96e");
-
 
 TextView::TextView(QWidget *parent)
     :
