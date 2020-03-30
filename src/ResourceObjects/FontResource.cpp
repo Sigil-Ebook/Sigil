@@ -63,13 +63,9 @@ QString FontResource::GetDescription() const
         desc = desc + weight_name;
     }
 
-#ifdef Q_OS_WIN32
     if (rawfont.style()      == QFont::StyleItalic)  style_name = " Italic";
     else if (rawfont.style() == QFont::StyleOblique) style_name = " Oblique";
-    else style_name = "";
-#else
-    style_name = " " + rawfont.styleName();
-#endif
+
     if (desc != "") desc = desc + style_name;
     else desc = tr("No reliable font data");
     return desc;

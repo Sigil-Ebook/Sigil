@@ -6118,7 +6118,10 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
     rType = tab->GetLoadedResource()->Type();
 
     // Triggered connections should be disconnected in BreakTabConnections
-    if (rType != Resource::ImageResourceType && rType != Resource::AudioResourceType && rType != Resource::VideoResourceType) {
+    if (rType != Resource::ImageResourceType && 
+        rType != Resource::AudioResourceType && 
+        rType != Resource::VideoResourceType && 
+        rType != Resource::FontResourceType) {
         connect(ui.actionUndo,                     SIGNAL(triggered()),  tab,   SLOT(Undo()));
         connect(ui.actionRedo,                     SIGNAL(triggered()),  tab,   SLOT(Redo()));
         connect(ui.actionCut,                      SIGNAL(triggered()),  tab,   SLOT(Cut()));

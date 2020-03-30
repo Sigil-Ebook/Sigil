@@ -40,6 +40,16 @@ public slots:
     void ShowFont();
     void RefreshContent();
 
+    // dummy implementations for signals
+    void Undo() { };
+    void Redo() { };
+    void Cut() { };
+    void Copy() { };
+    void Paste() { };
+    void DeleteLine() { };
+    void PrintPreview() { };
+    void Print() { };
+
 private:
     void ConnectSignalsToSlots();
     FontView *m_fv;

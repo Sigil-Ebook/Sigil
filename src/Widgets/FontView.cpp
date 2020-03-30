@@ -96,6 +96,7 @@ void FontView::ShowFont(QString path)
     QString font_name = fi.baseName();
     QRawFont rawfont(path, 16.0);
     QString family_name = rawfont.familyName();
+    QString desc = family_name;
     QString weight_name;
     QString style_name;
     if (rawfont.weight() <  QFont::ExtraLight)      weight_name = "Thin";
@@ -107,13 +108,18 @@ void FontView::ShowFont(QString path)
     else if (rawfont.weight() <  QFont::ExtraBold)  weight_name = "Bold";
     else if (rawfont.weight() <  QFont::Black)      weight_name = "ExtraBold";
     else if (rawfont.weight() >= QFont::Black)      weight_name = "Black";
-#ifdef Q_OS_WIN32
+    if (!desc.isEmpty()) {
+        if (desc.contains(weight_name)) weight_name = "";
+        if (!weight_name.isEmpty()) desc = desc + " " + weight_name;
+    }
+
     if (rawfont.style()      == QFont::StyleItalic)  style_name = "Italic";
     else if (rawfont.style() == QFont::StyleOblique) style_name = "Oblique";
-#else
-    style_name = " " + rawfont.styleName();
-#endif
-    QString desc = family_name + " " + style_name;
+
+    if (!desc.isEmpty()) {
+        if (!style_name.isEmpty()) desc = desc + " " + style_name;
+    } else desc = tr("No reliable font data");
+
     const QUrl furl = QUrl::fromLocalFile(path);
     QString html = FONT_HTML_BASE.arg(furl.toString())
                                  .arg(font_name)
