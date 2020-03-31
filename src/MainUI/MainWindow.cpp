@@ -6203,7 +6203,9 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab,   SIGNAL(ScrollPreviewImmediately()), this, SLOT(ScrollPreview()));
     }
 
-    if (rType != Resource::AudioResourceType && rType != Resource::VideoResourceType) {
+    if (rType != Resource::AudioResourceType && 
+        rType != Resource::VideoResourceType &&
+        rType != Resource::FontResourceType) {
         connect(ui.actionPrintPreview,             SIGNAL(triggered()),  tab,   SLOT(PrintPreview()));
         connect(ui.actionPrint,                    SIGNAL(triggered()),  tab,   SLOT(Print()));
         connect(tab,   SIGNAL(ContentChanged()),             m_Book.data(), SLOT(SetModified()));
