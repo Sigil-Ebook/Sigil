@@ -297,7 +297,6 @@ QVariant EmbeddedPython::runInPython(const QString &mname,
 {
     EmbeddedPython::m_mutex.lock();
     PyGILState_STATE gstate = PyGILState_Ensure();
-        
     QVariant  res        = QVariant(QString());
     PyObject *moduleName = NULL;
     PyObject *module     = NULL;
@@ -349,7 +348,8 @@ QVariant EmbeddedPython::runInPython(const QString &mname,
 
 cleanup:
     if (PyErr_Occurred() != NULL) {
-        tb = getPythonErrorTraceback();
+        QString default_error = "Module Error: " + mname + " " + fname;
+        tb = getPythonErrorTraceback(default_error);
     }
     Py_XDECREF(pyres);
     Py_XDECREF(pyargs);
@@ -413,7 +413,8 @@ QVariant EmbeddedPython::callPyObjMethod(PyObjectPtr &pyobj,
 
     cleanup:
     if (PyErr_Occurred() != NULL) {
-        tb = getPythonErrorTraceback();
+        QString default_error = "Python Object Method Invocation Error: " + methname;
+        tb = getPythonErrorTraceback(default_error);
      }
     Py_XDECREF(pyres);
     Py_XDECREF(pyargs);
@@ -579,7 +580,7 @@ PyObject* EmbeddedPython::QVariantToPyObject(const QVariant &v)
 
 
 // get traceback from inside interpreter upon error
-QString EmbeddedPython::getPythonErrorTraceback(bool useMsgBox)
+QString EmbeddedPython::getPythonErrorTraceback(const QString& default_message, bool useMsgBox)
 {
     PyObject     *etype      = NULL;
     PyObject     *evalue     = NULL;
@@ -598,7 +599,7 @@ QString EmbeddedPython::getPythonErrorTraceback(bool useMsgBox)
         if (elist != NULL) {
             tblist = PyObjectToQVariant(elist).toStringList();
         } else {
-            tblist.append(QString("Error: traceback report is missing"));
+            tblist.append(default_message);
         }
     } else {
         tblist.append(QString("Error: traceback module failed to load"));
