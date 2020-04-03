@@ -63,8 +63,6 @@ public:
 
     QSize sizeHint() const;
 
-    void insert_with_background(const QString& text, const QString& colorval);
-
     void LineNumberAreaPaintEvent(QPaintEvent *event);
     void LineNumberAreaMouseEvent(QMouseEvent *event);
     int CalculateLineNumberAreaWidth();

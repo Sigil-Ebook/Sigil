@@ -70,10 +70,11 @@ On Ubuntu/Debian `sudo apt-get install` (at a minimum) the following packages:
 + python3-lxml
 + python3-six
 + python3-css-parser (may have to use `pip3 install css-parser` if your distro has no package for this)
++ python3-dulwich (unless your distro has very recent version (0.19.x) in its repos, you'll probably need to use `pip3 install dulwich` to install a new enough version that will work with Sigil. dulwich requires that the urllib3 and certifi modules be installed as well)
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install python3-dev python3-pip python3-lxml python3-six python3-css-parser`
+`sudo apt-get install python3-dev python3-pip python3-lxml python3-six python3-css-parser python3-dulwich`
 
 That's all the Python 3.4 (or higher) stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. These should all be able to be installed with `sudo apt-get install`.
 

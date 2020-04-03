@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2013 Dave Heiland
+**  Copyright (C) 2020 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -21,42 +21,38 @@
 *************************************************************************/
 
 #pragma once
-#ifndef VIEWIMAGE_H
-#define VIEWIMAGE_H
+#ifndef FONTTAB_H
+#define FONTTAB_H
 
-#include <QDialog>
-#include <QSize>
-#include "Misc/SettingsStore.h"
+#include "Tabs/ContentTab.h"
 #include "ResourceObjects/Resource.h"
 
-class QVBoxLayout;
-class ImageView;
-class QToolButton;
+class FontView;
 
-class ViewImage : public QDialog
+class FontTab : public ContentTab
 {
     Q_OBJECT
 
 public:
-    ViewImage(QWidget *parent = 0);
-    ~ViewImage();
-
-    QSize sizeHint();
-    void ShowImage(QString path);
+    FontTab(Resource *resource, QWidget *parent=0);
 
 public slots:
-    void ReloadViewer();
+    void ShowFont();
+    void RefreshContent();
 
-private slots:
-    void WriteSettings();
+    // dummy implementations for signals
+    void Undo() { };
+    void Redo() { };
+    void Cut() { };
+    void Copy() { };
+    void Paste() { };
+    void DeleteLine() { };
+    void PrintPreview() { };
+    void Print() { };
 
 private:
-    void ReadSettings();
     void ConnectSignalsToSlots();
-
-    ImageView * m_iv;
-    QToolButton* m_bp;
-    QVBoxLayout* m_layout;
+    FontView *m_fv;
 };
 
-#endif // VIEWIMAGE_H
+#endif // FONTTAB_H

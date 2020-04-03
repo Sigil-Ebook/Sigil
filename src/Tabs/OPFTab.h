@@ -38,13 +38,22 @@ public:
 
     void AutoFixWellFormedErrors();
 
+public slots:
+
+    void ReloadTabIfPending();
+    void ResourceModified();
+    void ResourceTextChanging();
+
 private:
+
+    void ConnectSignalsToSlots();
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
     OPFResource *m_OPFResource;
+    int          m_LastPosition;
 
 };
 

@@ -69,7 +69,8 @@ private:
 
     PyObject *QVariantToPyObject(const QVariant &v);
 
-    QString getPythonErrorTraceback(bool useMsgBox = true);
+    QString getPythonErrorTraceback(const QString& default_error = "Error: traceback report is missing",
+				    bool useMsgBox = true);
 
     static QMutex m_mutex;
     static EmbeddedPython *m_instance;

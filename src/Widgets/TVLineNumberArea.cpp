@@ -25,8 +25,8 @@
 
 #include <QtCore/QCoreApplication>
 
-#include "ViewEditors/TextView.h"
-#include "ViewEditors/TVLineNumberArea.h"
+#include "Widgets/TextView.h"
+#include "Widgets/TVLineNumberArea.h"
 
 // Constructor;
 // The parameter is the TextView to

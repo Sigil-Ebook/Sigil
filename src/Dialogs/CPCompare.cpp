@@ -176,12 +176,14 @@ void CPCompare::handle_mod_request()
 	QFileInfo lfi(leftpath);
 	QString ext = fi.suffix().toLower();
 	if (TEXT_EXTENSIONS.contains(ext)) {
+
 	    QApplication::setOverrideCursor(Qt::WaitCursor);
 	    QFuture<QList<DiffRecord::DiffRec>> bfuture =
 		QtConcurrent::run(&pr, &PythonRoutines::GenerateParsedNDiffInPython, leftpath, rightpath);
 	    bfuture.waitForFinished();
 	    QList<DiffRecord::DiffRec> diffinfo = bfuture.result();
 	    QApplication::restoreOverrideCursor();
+
 	    ChgViewer* cv = new ChgViewer(diffinfo, tr("Checkpoint:") + " " + apath, tr("Current:") + " " + apath, this);
 	    cv->show();
 	    cv->raise();

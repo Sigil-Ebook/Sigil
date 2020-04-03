@@ -31,6 +31,7 @@
 #include "ResourceObjects/MiscTextResource.h"
 #include "ResourceObjects/SVGResource.h"
 #include "Tabs/AVTab.h"
+#include "Tabs/FontTab.h"
 #include "Tabs/CSSTab.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/ImageTab.h"
@@ -589,6 +590,13 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
             return true;
         }
 
+        FontTab *font_tab = qobject_cast<FontTab *>(tab);
+
+        if (font_tab != NULL) {
+            return true;
+        }
+
+
     }
 
     return false;
@@ -667,6 +675,11 @@ ContentTab *TabManager::CreateTabForResource(Resource *resource,
         case Resource::AudioResourceType:
         case Resource::VideoResourceType: {
             tab = new AVTab(qobject_cast<Resource *>(resource), this);
+            break;
+        }
+
+        case Resource::FontResourceType: {
+            tab = new FontTab(qobject_cast<Resource *>(resource), this);
             break;
         }
 

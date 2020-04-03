@@ -58,6 +58,33 @@ const QString IMAGE_HTML_BASE_PREVIEW =
     "</body>"
     "</html>";
 
+const QString AUDIO_HTML_BASE =
+    "<html>"
+    "<head>"
+    "<style type=\"text/css\">"
+    "body { -webkit-user-select: none; }"
+    "audio { display: block; margin-left: auto; margin-right: auto; }"
+    "</style>"
+    "</head>"
+    "<body>"
+    "<p><audio controls=\"controls\" src=\"%1\"></audio></p>"
+    "</body>"
+    "</html>";
+
+const QString VIDEO_HTML_BASE =
+    "<html>"
+    "<head>"
+    "<style type=\"text/css\">"
+    "body { -webkit-user-select: none; }"
+    "video { display: block; margin-left: auto; margin-right: auto; }"
+    "</style>"
+    "</head>"
+    "<body>"
+    "<p><video controls=\"controls\" width=\"560\" src=\"%1\"></video></p>"
+    "</body>"
+    "</html>";
+
+
 SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QString default_selected_image, QWidget *parent) :
     QDialog(parent),
     m_MediaResources(media_resources),

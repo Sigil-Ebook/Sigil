@@ -26,32 +26,33 @@
 #include <QGuiApplication>
 #include <QApplication>
 #include "MainUI/MainWindow.h"
+#include "Widgets/FontView.h"
 #include "Misc/Utility.h"
-#include "sigil_constants.h"
-#include "Widgets/AVView.h"
-#include "Tabs/AVTab.h"
 
-AVTab::AVTab(Resource *resource, QWidget *parent)
+#include "Tabs/FontTab.h"
+
+FontTab::FontTab(Resource *resource, QWidget *parent)
     : ContentTab(resource, parent),
-      m_av(new AVView(this))
+      m_fv(new FontView(this))
 {
-    m_Layout->addWidget(m_av);
+    m_Layout->addWidget(m_fv);
+    ShowFont();
     ConnectSignalsToSlots();
-    ShowAV();
 }
 
-void AVTab::ShowAV()
+void FontTab::ShowFont()
 {
-    m_av->ShowAV(m_Resource->GetFullPath());
+    m_fv->ShowFont(m_Resource->GetFullPath());
 }
 
-void AVTab::RefreshContent()
+void FontTab::RefreshContent()
 {
-    m_av->ReloadViewer();
+    m_fv->ReloadViewer();
 }
 
-void AVTab::ConnectSignalsToSlots()
+void FontTab::ConnectSignalsToSlots()
 {
     connect(m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(RefreshContent()));
     connect(m_Resource, SIGNAL(Deleted(const Resource*)), this, SLOT(Close()));
 }
+

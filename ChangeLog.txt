@@ -1,4 +1,15 @@
-Sigil-Pre-1.2.0
+pre-1.3.0
+    New Features:
+      - Added FontTab to show a specific font by double-clicking in BookBrowser
+      - Reorganized the source code to add a Widgets folder to reduce code duplication
+    Bug Fixes:
+      - Fixed spelling mistakes in MetaEditor user interface and xmlsanitycheck error messages
+
+Sigil-1.2.1
+    Bug Fix:
+      - Source code only release for Linux using Python versions <  3.8 to define sys.argv
+ 
+Sigil-1.2.0
     New Features:
       - Provide a tweak setting to adjust drag distance for Windows & Linux
       - Added YesToAll and NoToAll options for replacing images via Add Existing...
@@ -9,6 +20,7 @@ Sigil-Pre-1.2.0
 	  - add ability to revert the entire epub back to an earlier Checkpoint
 	  - added ability to manage and delete Checkpoint repositories.
     Bug Fixes:
+      - Fix cosmetic file name issue when aborts file rename edits in BookBrowser
       - Improve default drag-distance for BookBrowser for Windows & Linux
       - Reduce required drag distance for macOS
       - Fix index generation bug related to non-escaped text used in regular expressions

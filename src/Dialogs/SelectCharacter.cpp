@@ -183,7 +183,7 @@ void SelectCharacter::SetList()
         << QString::fromUtf8("\xc3\xa1")        << ""           << "&aacute;"   << "small a with acute"
         << QString::fromUtf8("\xc3\xa2")        << ""           << "&acirc;"    << "small a with circumflex"
         << QString::fromUtf8("\xc3\xa3")        << ""           << "&atilde;"   << "small a with tilde"
-        << QString::fromUtf8("\xc3\xa4")        << ""           << "&auml;"     << "small a with diaresis"
+        << QString::fromUtf8("\xc3\xa4")        << ""           << "&auml;"     << "small a with diaeresis"
         << QString::fromUtf8("\xc3\xa5")        << ""           << "&aring;"    << "small a with ring above"
         << QString::fromUtf8("\xc3\xa6")        << ""           << "&aelig;"    << "small ae"
         << QString::fromUtf8("\xc3\xa7")        << ""           << "&ccedil;"   << "small c with cedilia"
