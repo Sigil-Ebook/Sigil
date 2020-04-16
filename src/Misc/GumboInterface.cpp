@@ -824,6 +824,10 @@ std::string GumboInterface::update_attribute_value(const std::string &attvalue)
     std::string result = attvalue;
     if (attvalue.find(":") != std::string::npos) return attvalue;
     QString attpath = Utility::URLDecodePath(QString::fromStdString(attvalue));
+
+    // handle purely local hrefs here as they do not need to be updated at all
+    if (attpath.startsWith("#") && (attpath.length() > 1)) return result;
+
     std::pair<QString, QString> parts = Utility::parseHREF(attpath);
     QString fragment = parts.second;
     attpath = parts.first;
