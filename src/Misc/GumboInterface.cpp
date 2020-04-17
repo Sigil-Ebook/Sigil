@@ -826,7 +826,7 @@ std::string GumboInterface::update_attribute_value(const std::string &attvalue)
     QString attpath = Utility::URLDecodePath(QString::fromStdString(attvalue));
 
     // handle purely local hrefs here as they do not need to be updated at all
-    if (attpath.startsWith("#") && (attpath.length() > 1)) return result;
+    if (attpath.startsWith("#")) return result;
 
     std::pair<QString, QString> parts = Utility::parseHREF(attpath);
     QString fragment = parts.second;
@@ -838,7 +838,7 @@ std::string GumboInterface::update_attribute_value(const std::string &attvalue)
         dest_oldbkpath = Utility::buildBookPath(attpath, m_currentdir);
     }
     // note destination may not have moved but we still need to update
-    // the link
+    // the link since we may have moved
     QString dest_newbkpath = m_sourceupdates.value(dest_oldbkpath, dest_oldbkpath);
     if (!dest_newbkpath.isEmpty() && !m_newbookpath.isEmpty()) {
         QString new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);

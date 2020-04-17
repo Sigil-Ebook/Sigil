@@ -137,6 +137,8 @@ public:
 
     static GumboNode *GetAncestorIDElement(GumboInterface &gi, GumboNode *node);
 
+    static QStringList GetHrefSrcPaths(const QString &source);
+
     static QStringList GetPathsToMediaFiles(const QString &source);
 
     static QStringList GetPathsToStyleFiles(const QString &source);

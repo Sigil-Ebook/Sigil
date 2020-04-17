@@ -209,6 +209,27 @@ void ImportHTML::UpdateFiles(HTMLResource *html_resource,
     sync.addFuture(QtConcurrent::map(css_resources,
                                      std::bind(UniversalUpdates::LoadAndUpdateOneCSSFile, std::placeholders::_1, css_updates)));
     QString newbookpath = html_resource->GetRelativePath();
+
+    // add special case to handle just this filename in link (pseudo internal link) with no path
+    html_updates[currentpath] = newbookpath;
+
+    // leave untouched any links to non-existing files
+    QStringList TargetPaths = XhtmlDoc::GetHrefSrcPaths(newsource);
+    QFileInfo hinfo = QFileInfo(m_FullFilePath);
+    QDir folder(hinfo.absoluteDir());
+    foreach(QString target, TargetPaths) {
+	QString target_file = hinfo.absolutePath() + "/" + target;
+	target_file = Utility::resolveRelativeSegmentsInFilePath(target_file, "/");
+	if (!QFile::exists(target_file)) {
+            html_updates[target_file] = "";
+	} else {
+	    // do not touch javascript links when importing html
+	    // even when they do exist as we do not import them
+	    if (QFileInfo(target_file).suffix() == "js") {
+                html_updates[target_file] = "";
+	    }
+	}
+    }
     html_resource->SetText(PerformHTMLUpdates(newsource, newbookpath, html_updates, css_updates, currentpath, version)());
     html_resource->SetCurrentBookRelPath("");
     sync.waitForFinished();
