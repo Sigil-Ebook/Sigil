@@ -2,14 +2,16 @@
 ; with actual values. Note the dollar sign; {VAR_NAME} variables are from
 ; Inno, the ones with the dollar we define with CMake.
 
+#define AppName "Sigil"
+
 [Setup]
-AppName=Sigil
-AppVerName=Sigil ${SIGIL_FULL_VERSION}
+AppName={#AppName}
+AppVerName={#AppName} ${SIGIL_FULL_VERSION}
 VersionInfoVersion=${SIGIL_FULL_VERSION}
-DefaultDirName={pf}\Sigil
+DefaultDirName={autopf}\{#AppName}
 DisableDirPage=no
-DefaultGroupName=Sigil
-UninstallDisplayIcon={app}\Sigil.exe
+DefaultGroupName={#AppName}
+UninstallDisplayIcon={app}\{#AppName}.exe
 AppPublisher=Sigil-Ebook
 AppPublisherURL=https://github.com/Sigil-Ebook/Sigil
 WizardImageFile=compiler:wizmodernimage-IS.bmp
@@ -21,7 +23,8 @@ LicenseFile=${LICENSE_LOCATION}
 ; Win 7sp1 is the lowest supported version
 MinVersion=0,6.1.7601
 PrivilegesRequired=admin
-OutputBaseFilename=Sigil-${SIGIL_FULL_VERSION}-Windows${ISS_SETUP_FILENAME_PLATFORM}-Setup
+PrivilegesRequiredOverridesAllowed=dialog
+OutputBaseFilename={#AppName}-${SIGIL_FULL_VERSION}-Windows${ISS_SETUP_FILENAME_PLATFORM}-Setup
 ChangesAssociations=yes
 
 ; "ArchitecturesAllowed=x64" specifies that Setup cannot run on
@@ -35,38 +38,47 @@ ArchitecturesAllowed="${ISS_ARCH}"
 ArchitecturesInstallIn64BitMode="${ISS_ARCH}"
 
 [Files]
-Source: "Sigil\*"; DestDir: "{app}"; Flags: createallsubdirs recursesubdirs ignoreversion
+Source: "{#AppName}\*"; DestDir: "{app}"; Flags: createallsubdirs recursesubdirs ignoreversion
 Source: vendor\vcredist.exe; DestDir: {tmp}
 
 [Components]
 ; Main files cannot be unchecked. Doesn't do anything, just here for show
-Name: main; Description: "Sigil"; Types: full compact custom; Flags: fixed
+Name: main; Description: "{#AppName}"; Types: full compact custom; Flags: fixed
 ; Desktop icon.
 Name: dicon; Description: "Create a desktop icon"; Types: full custom
-Name: dicon\common; Description: "For all users"; Types: full custom; Flags: exclusive
-Name: dicon\user; Description: "For the current user only"; Flags: exclusive
 ; File associations
-Name: afiles; Description: "Associate ebook files with Sigil"
+Name: afiles; Description: "Associate ebook files with {#AppName}"
 Name: afiles\epub; Description: "EPUB"
+; Cancel runtime install if desired.
+Name: vcruntime; Description: "Install bundled VS ${VCREDIST_VER} runtime if necessary? (admin required)"; Types: full custom
 
 [Registry]
 ; Add Sigil as a global file handler for EPUB and HTML.
-Root: HKLM; Subkey: "Software\Classes\.epub\OpenWithList\Sigil.exe"; Flags: uninsdeletekey
-Root: HKLM; Subkey: "Software\Classes\.htm\OpenWithList\Sigil.exe"; Flags: uninsdeletekey
-Root: HKLM; Subkey: "Software\Classes\.html\OpenWithList\Sigil.exe"; Flags: uninsdeletekey
-Root: HKLM; Subkey: "Software\Classes\.xhtml\OpenWithList\Sigil.exe"; Flags: uninsdeletekey
+; HKLM if admin, HKCU if not
+Root: HKA; Subkey: "Software\Classes\.epub\OpenWithList\{#AppName}.exe"; Flags: uninsdeletekey
+Root: HKA; Subkey: "Software\Classes\.htm\OpenWithList\{#AppName}.exe"; Flags: uninsdeletekey
+Root: HKA; Subkey: "Software\Classes\.html\OpenWithList\{#AppName}.exe"; Flags: uninsdeletekey
+Root: HKA; Subkey: "Software\Classes\.xhtml\OpenWithList\{#AppName}.exe"; Flags: uninsdeletekey
+
 ; Associate EPUB files if requested.
-Components: afiles\epub; Root: HKCR; Subkey: ".epub"; ValueType: string; ValueName: ""; ValueData: "SigilEPUB"; Flags: uninsdeletevalue uninsdeletekeyifempty
-Components: afiles\epub; Root: HKCR; Subkey: "SigilEPUB"; ValueType: string; ValueName: ""; ValueData: "EPUB"; Flags: uninsdeletekey
-Components: afiles\epub; Root: HKCR; Subkey: "SigilEPUB\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\Sigil.exe,0"; Flags: uninsdeletekey
-Components: afiles\epub; Root: HKCR; Subkey: "SigilEPUB\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\Sigil.exe"" ""%1"""; Flags: uninsdeletekey
+; HKLM if admin, HKCU if not
+Components: afiles\epub; Root: HKA; Subkey: "Software\Classes\.epub"; ValueType: string; ValueName: ""; ValueData: "{#AppName}EPUB"; Flags: uninsdeletevalue uninsdeletekeyifempty
+Components: afiles\epub; Root: HKA; Subkey: "Software\Classes\{#AppName}EPUB"; ValueType: string; ValueName: ""; ValueData: "EPUB"; Flags: uninsdeletekey
+Components: afiles\epub; Root: HKA; Subkey: "Software\Classes\.epub\OpenWithProgids"; ValueType: string; ValueName: "{#AppName}EPUB"; ValueData: ""; Flags: uninsdeletevalue uninsdeletekeyifempty
+Components: afiles\epub; Root: HKA; Subkey: "Software\Classes\{#AppName}EPUB\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#AppName}.exe,0"; Flags: uninsdeletekey
+Components: afiles\epub; Root: HKA; Subkey: "Software\Classes\{#AppName}EPUB\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#AppName}.exe"" ""%1"""; Flags: uninsdeletekey
+
+Root: HKA; Subkey: "Software\Classes\Applications\{#AppName}.exe"; ValueType: string; ValueName: "FriendlyAppName"; ValueData: "{#AppName}: a cross-platform EPUB editor"; Flags: uninsdeletekey
+Root: HKA; Subkey: "Software\Classes\Applications\{#AppName}.exe\SupportedTypes"; ValueType: string; ValueName: ".epub"; ValueData: ""
+Root: HKA; Subkey: "Software\Classes\Applications\{#AppName}.exe\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#AppName}.exe,0"
+Root: HKA; Subkey: "Software\Classes\Applications\{#AppName}.exe\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#AppName}.exe"" ""%1"""
 
 [Icons]
-Name: "{group}\Sigil"; Filename: "{app}\Sigil.exe"
-Name: "{group}\Uninstall Sigil"; Filename: "{uninstallexe}"
+Name: "{group}\{#AppName}"; Filename: "{app}\{#AppName}.exe"
+Name: "{group}\Uninstall {#AppName}"; Filename: "{uninstallexe}"
 ; Optional desktop icon.
-Components: dicon\common; Name: "{commondesktop}\Sigil"; Filename: "{app}\Sigil.exe"
-Components: dicon\user; Name: "{userdesktop}\Sigil"; Filename: "{app}\Sigil.exe"
+; commondesktop if admin, userdesktop if not
+Components: dicon; Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppName}.exe"
 
 [InstallDelete]
 ; Restructuring done in 0.9.8 makes this folder residual.
@@ -83,8 +95,8 @@ Type: filesandordirs; Name: "{app}\Scripts"
 Type: files; Name: "{app}\sigil-python3.exe"
 
 [Run]
-; The following command detects whether or not the c++ runtime need to be installed.
-Filename: {tmp}\vcredist.exe; Check: NeedsVCRedistInstall; Parameters: "/passive /norestart /Q:a /c:""msiexec /qb /i vcredist.msi"" "; StatusMsg: Checking for VC++ RunTime ...
+; The following command detects whether or not the vc++ runtime needs to be installed.
+Components: vcruntime; Filename: {tmp}\vcredist.exe; Check: NeedsVCRedistInstall; Parameters: "/passive /norestart /Q:a /c:""msiexec /qb /i vcredist.msi"" "; StatusMsg: Checking for VC++ RunTime ...
 
 [Code]
 
@@ -169,3 +181,13 @@ begin
         Result := False;
     end
  end;
+
+procedure CurPageChanged(CurPageID: Integer);
+begin
+  if CurPageID = wpSelectComponents then
+    if not IsAdminInstallMode then
+    begin
+      WizardForm.ComponentsList.Checked[4] := False;
+      // WizardForm.ComponentsList.ItemEnabled[4] := False;
+    end;
+end;

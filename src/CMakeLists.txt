@@ -61,7 +61,12 @@ else()
     # Qt5 packages minimum version 5.12 for Mac/Windows
     set(QT5_NEEDED 5.12)
 endif()
-find_package(Qt5 ${QT5_NEEDED} COMPONENTS Core Network WebEngine WebEngineWidgets Widgets Xml Concurrent PrintSupport LinguistTools)
+
+set( PKGS_TO_FIND Core Network WebEngine WebEngineWidgets Widgets Xml Concurrent PrintSupport LinguistTools )
+if ( WIN32 )
+    list( APPEND PKGS_TO_FIND WinExtras )
+endif()
+find_package( Qt5 ${QT5_NEEDED} COMPONENTS ${PKGS_TO_FIND} )
 
 set(CMAKE_AUTOMOC ON)
 
@@ -747,9 +752,14 @@ else()
 endif()
 
 # No need to explicity link Qt5::WinMain or to use the qt5_use_modules macro since CMAKE 2.8.11. We require CMAKE 3.0.0
-target_link_libraries( ${PROJECT_NAME} ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} 
-    ${MINIZIP_LIBRARIES} ${PYTHON_LIBRARIES} Qt5::Widgets  Qt5::Xml  Qt5::PrintSupport  Qt5::WebEngine  
-    Qt5::WebEngineWidgets  Qt5::Network  Qt5::Concurrent )
+set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} 
+                  ${MINIZIP_LIBRARIES} ${PYTHON_LIBRARIES}
+                  Qt5::Widgets  Qt5::Xml  Qt5::PrintSupport  Qt5::WebEngine  
+                  Qt5::WebEngineWidgets  Qt5::Network  Qt5::Concurrent )
+if ( WIN32 )
+    list( APPEND LIBS_TO_LINK Qt5::WinExtras )
+endif()
+target_link_libraries( ${PROJECT_NAME} ${LIBS_TO_LINK} )
 
 #############################################################################
 
@@ -850,6 +860,7 @@ elseif (MSVC)
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     set( PYTHON_DEST_DIR ${MAIN_PACKAGE_DIR}/python3 )
+    set( VCREDIST_VER "2017" ) 
 
     # ISS conf file for the Inno Setup compiler
     # We first create a CMake configured version of the ISS file,
@@ -970,7 +981,6 @@ elseif (MSVC)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E copy ${EXE_PATH} ${MAIN_PACKAGE_DIR} )
 
-    set( VCREDIST_VER "2017" )
     # We need to copy the CRT dlls
     # Add -DWIN_INSTALLER_USE_64BIT_CRT=1 to the cmake call if you want to build
     # an installer for the x64 verison of Sigil. This will make sure that the
