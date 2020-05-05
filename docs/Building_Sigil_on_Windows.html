@@ -2,8 +2,10 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="generator" content="ReText 7.0.4">
+<meta name="generator" content="ReText 7.1.0">
 <title>Building_Sigil_on_Windows</title>
+<style type="text/css">
+</style>
 </head>
 <body>
 <h1><center>Building Sigil on Windows</center></h1>
@@ -12,7 +14,7 @@
 <ol>
 <li><a href="#vsstudio">Visual Studio 2017</a> The free Community Edition will work fine</li>
 <li><a href="#cmake">CMake</a> (3.0 or higher)</li>
-<li><a href="#inno">Inno Setup</a> (the latest Unicode version available recommended)</li>
+<li><a href="#inno">Inno Setup</a> (Version 6 - unicode version - or higher required)</li>
 <li><a href="#qt5">Qt5.12.7/QtWebEngine</a> (<strong>NOTE</strong>: The standard precompiled binaries will work but Sigil patches a few things)</li>
 <li><a href="#python">Python 3.7.x</a></li>
 <li><a href="#sigil">The Sigil source code</a> (downloaded zipfile or a git clone)</li>
@@ -27,7 +29,7 @@
 <h2><a name="cmake"/>Getting CMake</h2>
 <p>CMake 3.0 or better is required. I'm using 3.12.x Download it from <a href="http://www.cmake.org">cmake.org</a> and install it. <strong>Make sure CMake's "bin" directory (the one containing "cmake.exe") is added to your PATH</strong>.</p>
 <h2><a name="inno"/>Inno Setup</h2>
-<p>Get the unicode version (5.5.9 at the time of this writing) from <a href="http://www.jrsoftware.org/isdl.php">jrsoftware.org</a> make sure you say yes to the Preprocessor option when installing. <strong>Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH</strong>. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.</p>
+<p>Get the unicode version (6.0.2 at the time of this writing) from <a href="http://www.jrsoftware.org/isdl.php">jrsoftware.org</a> make sure you say yes to the Preprocessor option when installing. <strong>Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH</strong>. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.</p>
 <h2><a name="qt5"/>Qt5.12.7</h2>
 <p>Download qt-opensource-windows-x86-5.12.7.exe from <a href="http://download.qt.io/archive/qt/5.12/5.12.7">Qt's Website</a> and install the msvc2017_64, or msvc2017 component (depending on the architecture you will be building Sigil for). You can install both msvc2017_64 and msvc2017 if you like. Also install the QtWebEngine component. <strong>NOTE:</strong> at the time of this writing, Sigil cannot be built with the precompiled version of Qt5.12.7 because of a bug in Qt. Either use Qt5.12.6, or my compiled version of Qt5.12.7 explained below (or compile Qt5.12.7 yourself and patch it with qt5.12.7_windows_qt_add_resources.patch from the Sigil Docs directory).</p>
 <p>If you want to use the exact, patched versions of Qt5.12.7 and QtWebEngine that I've used to release Sigil, feel free to download the whole shebang <a href="https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1">from my personal repository</a>. It's the archive named: MyQtx64-5.12.7_VS2017_WE.7z (NOTE: you're on your own with a 32-bit version).</p>
