@@ -544,14 +544,30 @@ GumboNode *XhtmlDoc::GetAncestorIDElement(GumboInterface &gi, GumboNode *node)
 }
 
 
+// the returned paths are the href attribute values url decoded
+QStringList XhtmlDoc::GetHrefSrcPaths(const QString &source)
+{
+    QStringList destination_paths;
+    GumboInterface gi = GumboInterface(source, "any_version");
+    foreach(QString apath, gi.get_all_values_for_attribute("src")) {
+	destination_paths << Utility::URLDecodePath(apath);
+    }
+    foreach(QString apath, gi.get_all_values_for_attribute("href")) {
+	destination_paths << Utility::URLDecodePath(apath);
+    }
+    destination_paths.removeDuplicates();
+    return destination_paths;
+}
+
+
 // the returned media paths are the href attribute values url decoded
 QStringList XhtmlDoc::GetPathsToMediaFiles(const QString &source)
 {
-  QList<GumboTag> tags = QList<GumboTag>() << GIMAGE_TAGS << GVIDEO_TAGS << GAUDIO_TAGS;
-  QStringList media_paths = GetAllMediaPathsFromMediaChildren(source, tags);
-  // Remove duplicate references
-  media_paths.removeDuplicates();
-  return media_paths;
+    QList<GumboTag> tags = QList<GumboTag>() << GIMAGE_TAGS << GVIDEO_TAGS << GAUDIO_TAGS;
+    QStringList media_paths = GetAllMediaPathsFromMediaChildren(source, tags);
+    // Remove duplicate references
+    media_paths.removeDuplicates();
+    return media_paths;
 }
 
 QStringList XhtmlDoc::GetPathsToStyleFiles(const QString &source)

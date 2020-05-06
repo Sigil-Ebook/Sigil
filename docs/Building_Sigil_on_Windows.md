@@ -6,7 +6,7 @@ To build Sigil on Windows, you need to get/do the following things:
 
 1. [Visual Studio 2017](#vsstudio) The free Community Edition will work fine
 2. [CMake](#cmake) (3.0 or higher)
-3. [Inno Setup](#inno) (the latest Unicode version available recommended)
+3. [Inno Setup](#inno) (Version 6 - unicode version - or higher required)
 4. [Qt5.12.7/QtWebEngine](#qt5) (**NOTE**: The standard precompiled binaries will work but Sigil patches a few things)
 5. [Python 3.7.x](#python)
 6. [The Sigil source code](#sigil) (downloaded zipfile or a git clone)
@@ -27,7 +27,7 @@ If you're going to use the Visual Studio IDE and cmake-gui, you won't need to us
 CMake 3.0 or better is required. I'm using 3.12.x Download it from [cmake.org](http://www.cmake.org) and install it. **Make sure CMake's "bin" directory (the one containing "cmake.exe") is added to your PATH**.
 
 ## <a name="inno"/>Inno Setup
-Get the unicode version (5.5.9 at the time of this writing) from [jrsoftware.org](http://www.jrsoftware.org/isdl.php) make sure you say yes to the Preprocessor option when installing. **Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH**. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.
+Get the unicode version (6.0.2 at the time of this writing) from [jrsoftware.org](http://www.jrsoftware.org/isdl.php) make sure you say yes to the Preprocessor option when installing. **Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH**. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.
 
 ## <a name="qt5"/>Qt5.12.7
 Download qt-opensource-windows-x86-5.12.7.exe from [Qt's Website](http://download.qt.io/archive/qt/5.12/5.12.7) and install the msvc2017_64, or msvc2017 component (depending on the architecture you will be building Sigil for). You can install both msvc2017_64 and msvc2017 if you like. Also install the QtWebEngine component. **NOTE:** at the time of this writing, Sigil cannot be built with the precompiled version of Qt5.12.7 because of a bug in Qt. Either use Qt5.12.6, or my compiled version of Qt5.12.7 explained below (or compile Qt5.12.7 yourself and patch it with qt5.12.7_windows_qt_add_resources.patch from the Sigil Docs directory).

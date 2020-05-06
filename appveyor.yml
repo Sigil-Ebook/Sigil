@@ -9,7 +9,7 @@ branches:
 clone_folder: c:\project\sigil
 
 image:
-- Visual Studio 2017
+- Visual Studio 2019
 
 configuration: Release
 
@@ -17,7 +17,7 @@ platform:
 - x64
 
 init:
-  - set /p RedistVersion=<"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\Microsoft.VCRedistVersion.default.txt"
+  - set /p RedistVersion=<"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\Microsoft.VCRedistVersion.default.txt"
   - ps: $commit = $env:appveyor_repo_commit.SubString(0,7)
   - ps: $timestamp = $env:appveyor_repo_commit_timestamp.SubString(0,10)
   - ps: Update-AppveyorBuild -Version ("{0}-{1}-{2}" -f $env:appveyor_repo_branch, $commit, $timestamp)
@@ -40,8 +40,8 @@ install:
 
 environment:
   global:
-      INNO: C:\Program Files (x86)\Inno Setup 5
-      REDIST: C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Redist\MSVC\%RedistVersion%\vcredist_%PLATFORM%.exe
+      INNO: C:\Program Files (x86)\Inno Setup 6
+      REDIST: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Redist\MSVC\%RedistVersion%\vcredist_%PLATFORM%.exe
       DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/MyQt%PLATFORM%_5.12.7_VS2017_WE.7z
       GDRIVE: https://github.com/gdrive-org/gdrive/releases/download/2.1.0/gdrive-windows-x64.exe
       GDRIVE_REFRESH_TOKEN:
@@ -103,7 +103,7 @@ before_build:
     cd project\sigil\build
     curl.exe -L -o gdrive.exe %GDRIVE%
     c:\project\sigil\build\gdrive.exe version
-    call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %PLATFORM%
+    call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" %PLATFORM% -vcvars_ver=14.1
     echo 'LIB = %LIB%'
     echo 'LIBPATH = %LIBPATH%'
     echo 'INCLUDE = %INCLUDE%'

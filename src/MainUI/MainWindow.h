@@ -645,6 +645,7 @@ private slots:
     void unloadPluginsMenu();
 
 private:
+    void createJumpList();
     void updateToolTipsOnPluginIcons();
     void UpdateClipButton(QAction *ui_action);
     void InsertFiles(const QStringList &selected_images);
