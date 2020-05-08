@@ -97,8 +97,6 @@ public:
     // with string "after" in string "string"
     static QString ReplaceFirst(const QString &before, const QString &after, const QString &string);
 
-    static QStringList GetAbsolutePathsToFolderDescendantFiles(const QString &fullfolderpath);
-
     // Copies every file and folder in the source folder
     // to the destination folder; the paths to the folders are submitted;
     // the destination folder needs to be created in advance
