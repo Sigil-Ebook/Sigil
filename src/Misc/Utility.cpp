@@ -324,6 +324,11 @@ void Utility::CopyFiles(const QString &fullfolderpath_source, const QString &ful
 {
     QDir folder_source(fullfolderpath_source);
     QDir folder_destination(fullfolderpath_destination);
+    folder_source.setFilter(QDir::AllDirs |
+			    QDir::Files |
+			    QDir::NoDotAndDotDot |
+			    QDir::NoSymLinks |
+			    QDir::Hidden);
     // Erase all the files in this folder
     foreach(QFileInfo file, folder_source.entryInfoList()) {
         if ((file.fileName() != ".") && (file.fileName() != "..")) {
