@@ -1,0 +1,46 @@
+--- qtbase/src/widgets/widgets/qmenu.cpp.orig	2020-05-08 19:31:17.000000000 -0400
++++ qtbase/src/widgets/widgets/qmenu.cpp	2020-05-08 19:37:23.000000000 -0400
+@@ -565,6 +565,35 @@
+ {
+     if (!menu)
+         return;
++
++    // See two execs below. They may trigger an akward situation
++    // when 'menu' (also known as 'q' or 'this' in the many functions
++    // around) to become a dangling pointer if the loop manages
++    // to execute 'deferred delete' ... posted while executing
++    // this same loop. Not good!
++    struct Reposter : QObject
++    {
++        Reposter(QMenu *menu) : q(menu)
++	{
++	    Q_ASSERT(q);
++	    q->installEventFilter(this);
++	}
++        ~Reposter()
++	{
++            if (deleteLater)
++	        q->deleteLater();
++	}
++        bool eventFilter(QObject *obj, QEvent *event) override
++	{
++	    if (obj == q && event->type() == QEvent::DeferredDelete)
++	        return deleteLater = true;
++
++             return QObject::eventFilter(obj, event);
++        }
++        QMenu *q = nullptr;
++        bool deleteLater = false;
++    };
++
+ #if QT_CONFIG(effects)
+     QSignalBlocker blocker(menu);
+     aboutToHide = true;
+@@ -576,6 +605,7 @@
+         QAction *activeAction = currentAction;
+ 
+         menu->setActiveAction(0);
++        const Reposter deleteDeleteLate(menu);
+         QTimer::singleShot(60, &eventLoop, SLOT(quit()));
+         eventLoop.exec();
+ 
