@@ -2,8 +2,15 @@ pre-1.3.0
     New Features:
       - Added FontTab to show a specific font by double-clicking in BookBrowser
       - Reorganized the source code to add a Widgets folder to reduce code duplication
+      - Updated to use Qt 5.12.8 with added patches and backported crash fixes
+
     Bug Fixes:
       - Fixed spelling mistakes in MetaEditor user interface and xmlsanitycheck error messages
+      - Fixed mistakes handling font files (and other files) whose names start with a "." on macOS/Linux
+      - Improved embedded python error messages
+      - Fix TabConnections to properly handle the new FontTab tabs
+      - grew Preferences Colour widths to better handle non-Enlgish colour names (Thanks BeckyEbook)
+      - Better handle missing local links when using Add Existing ...
 
 Sigil-1.2.1
     Bug Fix:
