@@ -812,8 +812,8 @@ if( APPLE )
     if ("${CODE_SIGN_ID}" STREQUAL "")
         add_custom_target(  addframeworks
                             COMMAND macdeployqt Sigil.app
-                            WORKING_DIRECTORY ${WORK_DIR}
-                            DEPENDS ${PROJECT_NAME} )
+                            WORKING_DIRECTORY ${WORK_DIR} )
+#                            DEPENDS ${PROJECT_NAME} )
     else()
         add_custom_target(  addframeworks
                             COMMAND macdeployqt  Sigil.app -codesign="${CODE_SIGN_ID}"
