@@ -5226,6 +5226,7 @@ void MainWindow::ExtendUI()
     ui.toolBarTextDirection->setVisible(false);
     ui.menuToolbars->addAction(ui.toolBarClips->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarClips2->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarIndexActions->toggleViewAction());
     ui.toolBarClips->setVisible(false);
     m_lbCursorPosition = new QLabel(QString(""), statusBar());
     statusBar()->addPermanentWidget(m_lbCursorPosition);
@@ -5515,6 +5516,26 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/git-manage_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/git-manage_22px.png"));
     ui.actionManageRepo->setIcon(icon);
+
+    icon = ui.actionIndexEditor->icon();
+    icon.addFile(QString::fromUtf8(":/main/index-edit_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/index-edit_22px.png"));
+    ui.actionIndexEditor->setIcon(icon);
+
+    icon = ui.actionAddToIndex->icon();
+    icon.addFile(QString::fromUtf8(":/main/index-add_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/index-add_22px.png"));
+    ui.actionAddToIndex->setIcon(icon);
+
+    icon = ui.actionMarkForIndex->icon();
+    icon.addFile(QString::fromUtf8(":/main/index-mark_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/index-mark_22px.png"));
+    ui.actionMarkForIndex->setIcon(icon);
+
+    icon = ui.actionCreateIndex->icon();
+    icon.addFile(QString::fromUtf8(":/main/index-create_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/index-create_22px.png"));
+    ui.actionCreateIndex->setIcon(icon);
 
     icon = ui.actionXEditor->icon();
     icon.addFile(QString::fromUtf8(":/main/document-edit_16px.png"));

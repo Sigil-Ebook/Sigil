@@ -422,6 +422,7 @@
    <addaction name="actionAddExistingFile"/>
    <addaction name="actionSave"/>
   </widget>
+
   <widget class="QToolBar" name="toolBarRepoActions">
    <property name="windowTitle">
     <string>Checkpoints</string>
@@ -437,6 +438,22 @@
    <addaction name="actionDiff"/>
    <addaction name="actionManageRepo"/>
   </widget>
+  <widget class="QToolBar" name="toolBarIndexActions">
+   <property name="windowTitle">
+    <string>Index</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionIndexEditor"/>
+   <addaction name="actionAddToIndex"/>
+   <addaction name="actionMarkForIndex"/>
+   <addaction name="actionCreateIndex"/>
+  </widget>
+
   <widget class="QToolBar" name="toolBarTextManip">
    <property name="windowTitle">
     <string>Edit</string>
@@ -1729,6 +1746,11 @@
    <property name="text">
     <string>&amp;Index Editor...</string>
    </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/index-edit_48px.png</normaloff>:/main/index-edit_48px.png</iconset>
+   </property>
+
    <property name="shortcut">
     <string>Ctrl+Alt+I</string>
    </property>
@@ -2474,6 +2496,10 @@
    <property name="text">
     <string>&amp;Add To Index Editor</string>
    </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/index-add_48px.png</normaloff>:/main/index-add_48px.png</iconset>
+   </property>
    <property name="toolTip">
     <string>Add the selected text to the Index Editor.</string>
    </property>
@@ -2481,6 +2507,10 @@
   <action name="actionMarkForIndex">
    <property name="text">
     <string>&amp;Mark For Index</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/index-mark_48px.png</normaloff>:/main/index-mark_48px.png</iconset>
    </property>
    <property name="toolTip">
     <string>Mark the selected text for inclusion in the Index.</string>
@@ -2492,6 +2522,10 @@
   <action name="actionCreateIndex">
    <property name="text">
     <string>&amp;Create Index</string>
+   </property>
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/index-create_48px.png</normaloff>:/main/index-create_48px.png</iconset>
    </property>
    <property name="toolTip">
     <string>Generate a new Index HTML file.</string>
