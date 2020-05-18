@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2012, 2013 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012, 2013 Dave Heiland
+**  Copyright (C) 2020      Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012-2013 Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -30,6 +31,7 @@
 #include <QtWidgets/QMenu>
 #include <QShortcut>
 #include <QtCore/QSharedPointer>
+#include <QPointer>
 
 #include "Misc/SettingsStore.h"
 #include "BookManipulation/Book.h"
@@ -120,7 +122,7 @@ private:
 
     QStandardItemModel *m_SpellcheckEditorModel;
 
-    QMenu *m_ContextMenu;
+    QPointer<QMenu> m_ContextMenu;
 
     bool m_MultipleSelection;
 

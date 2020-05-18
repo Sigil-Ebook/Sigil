@@ -38,6 +38,7 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QRegularExpressionMatchIterator>
+#include <QPointer>
 #include <QDebug>
 
 #include "BookManipulation/Book.h"
@@ -1139,9 +1140,13 @@ void CodeViewEditor::mouseReleaseEvent(QMouseEvent *event)
 // if it is well formed. If it is not a message box is shown asking
 // if the user would like to auto correct. This causes the context
 // menu to disappear and thus be inaccessible to the user.
+
 void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
 {
-    QMenu *menu = createStandardContextMenu();
+    // Need to use QPointer to prevent crashes on macOS when closing 
+    // parent during qmenu exec.  See discussion at:
+    // https://www.qtcentre.org/threads/65046-closing-parent-widget-during-QMenu-exec()
+    QPointer<QMenu> menu = createStandardContextMenu();
     
     if (m_reformatCSSEnabled) {
         AddReformatCSSContextMenu(menu);
@@ -1164,7 +1169,9 @@ void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
     }
 
     menu->exec(event->globalPos());
-    delete menu;
+    if (!menu.isNull()) {
+        delete menu.data();
+    }
 }
 
 bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)

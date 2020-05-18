@@ -462,19 +462,21 @@ void IndexEditor::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
     m_ContextMenu->exec(ui.IndexEditorTree->viewport()->mapToGlobal(point));
-    m_ContextMenu->clear();
-    // Make sure every action is enabled - in case shortcut is used after context menu disables some.
-    m_AddEntry->setEnabled(true);
-    m_Edit->setEnabled(true);
-    m_Cut->setEnabled(true);
-    m_Copy->setEnabled(true);
-    m_Paste->setEnabled(true);
-    m_Delete->setEnabled(true);
-    m_AutoFill->setEnabled(true);
-    m_Open->setEnabled(true);
-    m_Reload->setEnabled(true);
-    m_SaveAs->setEnabled(true);
-    m_SelectAll->setEnabled(true);
+    if (!m_ContextMenu.isNull()) {
+        m_ContextMenu->clear();
+        // Make sure every action is enabled - in case shortcut is used after context menu disables some.
+        m_AddEntry->setEnabled(true);
+        m_Edit->setEnabled(true);
+        m_Cut->setEnabled(true);
+        m_Copy->setEnabled(true);
+        m_Paste->setEnabled(true);
+        m_Delete->setEnabled(true);
+        m_AutoFill->setEnabled(true);
+        m_Open->setEnabled(true);
+        m_Reload->setEnabled(true);
+        m_SaveAs->setEnabled(true);
+        m_SelectAll->setEnabled(true);
+    }
 }
 
 void IndexEditor::SetupContextMenu(const QPoint &point)

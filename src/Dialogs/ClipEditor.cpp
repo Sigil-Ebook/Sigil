@@ -681,22 +681,24 @@ void ClipEditor::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
     m_ContextMenu->exec(ui.ClipEditorTree->viewport()->mapToGlobal(point));
-    m_ContextMenu->clear();
-    // Make sure every action is enabled - in case shortcut is used after context menu disables some.
-    m_AddEntry->setEnabled(true);
-    m_AddGroup->setEnabled(true);
-    m_Edit->setEnabled(true);
-    m_Cut->setEnabled(true);
-    m_Copy->setEnabled(true);
-    m_Paste->setEnabled(true);
-    m_Delete->setEnabled(true);
-    m_Import->setEnabled(true);
-    m_Reload->setEnabled(true);
-    m_Export->setEnabled(true);
-    m_ExportAll->setEnabled(true);
-    m_CollapseAll->setEnabled(true);
-    m_ExpandAll->setEnabled(true);
-    m_AutoFill->setEnabled(true);
+    if (!m_ContextMenu.isNull()) {
+        m_ContextMenu->clear();
+        // Make sure every action is enabled - in case shortcut is used after context menu disables some.
+        m_AddEntry->setEnabled(true);
+        m_AddGroup->setEnabled(true);
+        m_Edit->setEnabled(true);
+        m_Cut->setEnabled(true);
+        m_Copy->setEnabled(true);
+        m_Paste->setEnabled(true);
+        m_Delete->setEnabled(true);
+        m_Import->setEnabled(true);
+        m_Reload->setEnabled(true);
+        m_Export->setEnabled(true);
+        m_ExportAll->setEnabled(true);
+        m_CollapseAll->setEnabled(true);
+        m_ExpandAll->setEnabled(true);
+        m_AutoFill->setEnabled(true);
+    }
 }
 
 void ClipEditor::SetupContextMenu(const QPoint &point)

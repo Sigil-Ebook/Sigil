@@ -29,6 +29,7 @@
 #include <QtWidgets/QCompleter>
 #include <QtGui/QContextMenuEvent>
 #include <QtWidgets/QMenu>
+#include <QPointer>
 
 #include "Misc/Utility.h"
 #include "Misc/FindReplaceQLineEdit.h"
@@ -49,7 +50,7 @@ FindReplaceQLineEdit::~FindReplaceQLineEdit()
 
 void FindReplaceQLineEdit::contextMenuEvent(QContextMenuEvent *event)
 {
-    QMenu *menu = createStandardContextMenu();
+    QPointer<QMenu> menu = createStandardContextMenu();
     QAction *topAction = 0;
 
     if (!menu->actions().isEmpty()) {
@@ -81,7 +82,9 @@ void FindReplaceQLineEdit::contextMenuEvent(QContextMenuEvent *event)
     }
 
     menu->exec(mapToGlobal(event->pos()));
-    delete menu;
+    if (!menu.isNull()) {
+        delete menu.data();
+    }
 }
 
 bool FindReplaceQLineEdit::CreateMenuEntries(QMenu *parent_menu, QAction *topAction, QStandardItem *item)

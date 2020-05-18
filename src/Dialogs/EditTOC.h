@@ -30,6 +30,7 @@
 #include <QtGui/QStandardItemModel>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
+#include <QPointer>
 
 #include "MainUI/TOCModel.h"
 #include "BookManipulation/Headings.h"
@@ -106,7 +107,7 @@ private:
 
     QStandardItemModel *m_TableOfContents;
 
-    QMenu *m_ContextMenu;
+    QPointer<QMenu> m_ContextMenu;
 
     QAction *m_Rename;
     QAction *m_Delete;

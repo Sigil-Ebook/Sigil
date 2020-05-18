@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford Ontario, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario, Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -25,6 +25,7 @@
 #define IMAGETAB_H
 
 #include <QtCore/QUrl>
+#include <QPointer>
 
 #include "Tabs/ContentTab.h"
 
@@ -96,7 +97,7 @@ private:
 
     QWebEngineView *m_WebView;
 
-    QMenu *m_ContextMenu;
+    QPointer<QMenu> m_ContextMenu;
     QMenu *m_OpenWithContextMenu;
 
     QAction *m_OpenWith;

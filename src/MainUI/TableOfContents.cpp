@@ -27,6 +27,7 @@
 #include <QtGui/QContextMenuEvent>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
+#include <QPointer>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "MainUI/TableOfContents.h"
@@ -153,7 +154,7 @@ void TableOfContents::SetupTreeView()
 
 void TableOfContents::contextMenuEvent(QContextMenuEvent *event)
 {
-    QMenu *menu = new QMenu(this);
+    QPointer<QMenu> menu = new QMenu(this);
     // Add menu options
     QAction *collapseAction = new QAction(tr("Collapse All"), menu);
     QAction *expandAction = new QAction(tr("Expand All"), menu);
@@ -162,4 +163,7 @@ void TableOfContents::contextMenuEvent(QContextMenuEvent *event)
     menu->addAction(expandAction);
     connect(expandAction, SIGNAL(triggered()), m_TreeView, SLOT(expandAll()));
     menu->exec(mapToGlobal(event->pos()));
+    if (!menu.isNull()) {
+        delete menu.data();
+    }
 }

@@ -299,15 +299,17 @@ void BookBrowser::OpenContextMenu(const QPoint &point)
         return;
     }
 
-    m_ContextMenu->exec(m_TreeView->viewport()->mapToGlobal(point));
-    m_ContextMenu->clear();
-    // Ensure any actions with keyboard shortcuts that might have temporarily been
-    // disabled are enabled again to let the shortcut work outside the menu.
-    m_Delete->setEnabled(true);
-    m_Merge->setEnabled(true);
-    m_Rename->setEnabled(true);
-    m_RERename->setEnabled(true);
-    m_Move->setEnabled(true);
+    m_ContextMenu->exec(m_TreeView->viewport()->mapToGlobal(point)); 
+    if (!m_ContextMenu.isNull()) {
+        m_ContextMenu->clear();
+        // Ensure any actions with keyboard shortcuts that might have temporarily been
+        // disabled are enabled again to let the shortcut work outside the menu.
+        m_Delete->setEnabled(true);
+        m_Merge->setEnabled(true);
+        m_Rename->setEnabled(true);
+        m_RERename->setEnabled(true);
+        m_Move->setEnabled(true);
+    }
 }
 
 QList <Resource *> BookBrowser::ValidSelectedHTMLResources()

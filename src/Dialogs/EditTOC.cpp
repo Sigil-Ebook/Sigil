@@ -484,7 +484,9 @@ void EditTOC::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
     m_ContextMenu->exec(ui.TOCTree->viewport()->mapToGlobal(point));
-    m_ContextMenu->clear();
+    if (!m_ContextMenu.isNull()) {
+        m_ContextMenu->clear();
+    }
 }
 
 void EditTOC::SetupContextMenu(const QPoint &point)
