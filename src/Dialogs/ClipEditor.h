@@ -28,6 +28,7 @@
 #include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 #include <QtCore/QSharedPointer>
+#include <QPointer>
 
 #include "Misc/SettingsStore.h"
 #include "MiscEditors/ClipEditorModel.h"
@@ -146,7 +147,7 @@ private:
 
     QString m_LastFolderOpen;
 
-    QMenu *m_ContextMenu;
+    QPointer<QMenu> m_ContextMenu;
 
     QList<ClipEditorModel::clipEntry *> m_SavedClipEntries;
 

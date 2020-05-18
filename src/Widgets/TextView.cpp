@@ -32,6 +32,7 @@
 #include <QSignalMapper>
 #include <QAction>
 #include <QMenu>
+#include <QPointer>
 #include <QColor>
 #include <QPainter>
 #include <QScrollBar>
@@ -399,10 +400,12 @@ void TextView::mouseReleaseEvent(QMouseEvent *event)
 // menu to disappear and thus be inaccessible to the user.
 void TextView::contextMenuEvent(QContextMenuEvent *event)
 {
-    QMenu *menu = createStandardContextMenu();
+    QPointer<QMenu> menu = createStandardContextMenu();
     
     menu->exec(event->globalPos());
-    delete menu;
+    if (!menu.isNull()) {
+        delete menu.data();
+    }
 }
 
 #if 0

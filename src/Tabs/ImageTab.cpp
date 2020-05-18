@@ -279,7 +279,9 @@ void ImageTab::OpenContextMenu(const QPoint &point)
     }
 
     m_ContextMenu->exec(mapToGlobal(point));
-    m_ContextMenu->clear();
+    if (!m_ContextMenu.isNull()) {
+        m_ContextMenu->clear();
+    }
 }
 
 bool ImageTab::SuccessfullySetupContextMenu(const QPoint &point)

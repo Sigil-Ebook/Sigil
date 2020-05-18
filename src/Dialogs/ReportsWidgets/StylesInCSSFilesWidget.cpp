@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -290,7 +290,9 @@ void StylesInCSSFilesWidget::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
     m_ContextMenu->exec(ui.fileTree->viewport()->mapToGlobal(point));
-    m_ContextMenu->clear();
+    if (!m_ContextMenu.isNull()) {
+        m_ContextMenu->clear();
+    }
 }
 
 void StylesInCSSFilesWidget::SetupContextMenu(const QPoint &point)

@@ -26,6 +26,7 @@
 
 #include <QtCore/QSharedPointer>
 #include <QWidget>
+#include <QPointer>
 #include <QtWidgets/QDockWidget>
 
 #include "BookManipulation/Book.h"
@@ -476,7 +477,7 @@ private:
     /**
      * The right-click context menu.
      */
-    QMenu *m_ContextMenu;
+    QPointer<QMenu> m_ContextMenu;
 
     /**
      * The sub-menu for marking fonts

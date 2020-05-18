@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -555,12 +555,14 @@ void SpellcheckEditor::OpenContextMenu(const QPoint &point)
 {
     SetupContextMenu(point);
     m_ContextMenu->exec(ui.SpellcheckEditorTree->viewport()->mapToGlobal(point));
-    m_ContextMenu->clear();
-    // Make sure every action is enabled - in case shortcut is used after context menu disables some.
-    m_Ignore->setEnabled(true);
-    m_Add->setEnabled(true);
-    m_Find->setEnabled(true);
-    m_SelectAll->setEnabled(true);
+    if (!m_ContextMenu.isNull()) {
+        m_ContextMenu->clear();
+        // Make sure every action is enabled - in case shortcut is used after context menu disables some.
+        m_Ignore->setEnabled(true);
+        m_Add->setEnabled(true);
+        m_Find->setEnabled(true);
+        m_SelectAll->setEnabled(true);
+    }
 }
 
 void SpellcheckEditor::SetupContextMenu(const QPoint &point)

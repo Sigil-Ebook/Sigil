@@ -29,6 +29,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
 #include <QtCore/QSharedPointer>
+#include <QPointer>
 
 #include "Misc/SettingsStore.h"
 #include "MiscEditors/IndexEditorModel.h"
@@ -122,7 +123,7 @@ private:
 
     QString m_LastFolderOpen;
 
-    QMenu *m_ContextMenu;
+    QPointer<QMenu> m_ContextMenu;
 
     QList<IndexEditorModel::indexEntry *> m_SavedIndexEntries;
 

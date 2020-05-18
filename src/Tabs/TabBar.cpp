@@ -25,6 +25,7 @@
 #include <QtGui/QContextMenuEvent>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
+#include <QPointer>
 
 #include "Misc/Utility.h"
 #include "Tabs/TabBar.h"
@@ -79,7 +80,7 @@ void TabBar::mousePressEvent(QMouseEvent *event)
 
 void TabBar::ShowContextMenu(QMouseEvent *event, int tab_index)
 {
-    QMenu *menu = new QMenu();
+    QPointer<QMenu> menu = new QMenu();
     QAction *closeOtherTabsAction = new QAction(tr("Close Other Tabs"), menu);
     menu->addAction(closeOtherTabsAction);
     connect(closeOtherTabsAction, SIGNAL(triggered()), this, SLOT(EmitCloseOtherTabs()));
@@ -92,7 +93,9 @@ void TabBar::ShowContextMenu(QMouseEvent *event, int tab_index)
     p.setY(p.y() + 4);
 #endif
     menu->exec(p);
-    delete menu;
+    if (!menu.isNull()) {
+        delete menu.data();
+    }
 }
 
 void TabBar::EmitCloseOtherTabs()

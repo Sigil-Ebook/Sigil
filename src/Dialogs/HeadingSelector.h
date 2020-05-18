@@ -29,6 +29,7 @@
 #include <QtGui/QStandardItemModel>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QMenu>
+#include <QPointer>
 
 #include "ui_HeadingSelector.h"
 #include "BookManipulation/Headings.h"
@@ -200,7 +201,7 @@ private:
     // The tree of all the headings in the book
     QList<Headings::Heading> m_Headings;
 
-    QMenu *m_ContextMenu;
+    QPointer<QMenu> m_ContextMenu;
 
     QAction *m_Rename;
 
