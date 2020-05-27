@@ -218,7 +218,7 @@ def failed(script_type, msg):
 #      script type ("input", "output", "edit")
 #      path to script target file
 
-def main(argv=sys.argv()):
+def main(argv=sys.argv):
 
     if len(argv) != 5:
         failed(None, msg="Launcher: improper number of arguments passed to launcher.py")

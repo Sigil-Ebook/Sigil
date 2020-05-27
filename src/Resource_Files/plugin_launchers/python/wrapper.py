@@ -82,6 +82,16 @@ TEXT_MIMETYPES = [
     'application/pls+xml'
 ]
 
+
+def _epub_file_walk(top):
+    top = os.fsdecode(top)
+    rv = []
+    for base, dnames, names in os.walk(top):
+        for name in names:
+            rv.append(os.path.relpath(os.path.join(base, name), top))
+    return rv
+
+
 class WrapperException(Exception):
     pass
 
@@ -188,7 +198,7 @@ class Wrapper(object):
 
         # walk the ebook directory tree building up initial list of
         # all unmanifested (other) files
-        for filepath in os.walk(ebook_root):
+        for filepath in _epub_file_walk(ebook_root):
             book_href = filepath.replace(os.sep, "/")
             # OS X file names and paths use NFD form. The EPUB
             # spec requires all text including filenames to be in NFC form.

@@ -52,6 +52,15 @@ def utf8str(s):
     return s.encode('utf-8', errors='replace')
 
 
+def epub_file_walk(top):
+    top = os.fsdecode(top)
+    rv = []
+    for base, dnames, names in os.walk(top):
+        for name in names:
+            rv.append(os.path.relpath(os.path.join(base, name), top))
+    return rv
+
+
 def unzip_epub_to_dir(path_to_epub, destdir):
     f = open(os.fsdecode(path_to_epub), 'rb')
     sz = ZipFile(f)
@@ -70,7 +79,7 @@ def unzip_epub_to_dir(path_to_epub, destdir):
 def epub_zip_up_book_contents(ebook_path, epub_filepath):
     outzip = zipfile.ZipFile(os.fsdecode(epub_filepath), 'w')
     book_path = os.fsdecode(ebook_path)
-    files = os.walk(book_path)
+    files = epub_file_walk(book_path)
     if 'mimetype' in files:
         outzip.write(os.path.join(book_path, 'mimetype'), 'mimetype', zipfile.ZIP_STORED)
     else:
