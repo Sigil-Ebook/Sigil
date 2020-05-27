@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
@@ -25,8 +25,6 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from __future__ import unicode_literals, division, absolute_import, print_function
-
 from outputcontainer import OutputContainer
 from validationresult import ValidationResult
 
@@ -36,7 +34,7 @@ class ValidationContainer(OutputContainer):
     TYPE_WARN  = 'warning'
     TYPE_ERROR = 'error'
 
-    def __init__(self, wrapper,  debug=False):
+    def __init__(self, wrapper, debug=False):
         # List of validation results
         self.results = []
         super(ValidationContainer, self).__init__(wrapper, debug)

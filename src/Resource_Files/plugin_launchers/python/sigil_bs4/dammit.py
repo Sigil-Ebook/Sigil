@@ -7,27 +7,10 @@ Feed Parser. It works best on XML and HTML, but it does not rewrite the
 XML or HTML to reflect a new encoding; that's the tree builder's job.
 """
 
-from __future__ import unicode_literals, print_function
-
 import sys
-PY3 = sys.version_info[0] >= 3
-if PY3:
-    text_type = str
-    binary_type = bytes
-    unicode = str
-    basestring = str
-else:
-    range = xrange
-    text_type = unicode
-    binary_type = str
-    chr = unichr
-
 from pdb import set_trace
 import codecs
-if PY3:
-    from html.entities import codepoint2name
-else:
-    from htmlentitydefs import codepoint2name
+from html.entities import codepoint2name
 import re
 import logging
 import string
@@ -314,7 +297,7 @@ class EncodingDetector:
     def strip_byte_order_mark(cls, data):
         """If a byte-order mark is present, strip it and return the encoding it implies."""
         encoding = None
-        if isinstance(data, text_type):
+        if isinstance(data, str):
             # Unicode data cannot have a byte-order mark.
             return data, encoding
         if (len(data) >= 4) and (data[:2] == b'\xfe\xff') \
@@ -392,9 +375,9 @@ class UnicodeDammit:
             markup, override_encodings, is_html, exclude_encodings)
 
         # Short-circuit if the data is in Unicode to begin with.
-        if isinstance(markup, text_type) or markup == b'':
+        if isinstance(markup, str) or markup == b'':
             self.markup = markup
-            self.unicode_markup = unicode(markup)
+            self.unicode_markup = str(markup)
             self.original_encoding = None
             return
 
@@ -475,7 +458,7 @@ class UnicodeDammit:
     def _to_unicode(self, data, encoding, errors="strict"):
         '''Given a string and its encoding, decodes the string into Unicode.
         %encoding is a string recognized by encodings.aliases'''
-        return unicode(data, encoding, errors)
+        return str(data, encoding, errors)
             
 
     @property

@@ -1,9 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
 # Copyright (c) 2014-2020 Kevin B. Hendricks, and Doug Massay
-# Copyright (c) 2014      John Schember 
+# Copyright (c) 2014      John Schember
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -26,16 +26,12 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from __future__ import unicode_literals, division, absolute_import, print_function
-from compatibility_utils import text_type, binary_type
 from collections import OrderedDict
-import sys
-import os
 
 SPECIAL_HANDLING_TAGS = OrderedDict([
-    ('?xml',('xmlheader', -1)),
+    ('?xml', ('xmlheader', -1)),
     ('!--', ('comment', -3)),
-    ('!DOCTYPE',('doctype', -1))
+    ('!DOCTYPE', ('doctype', -1))
 ])
 
 SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
@@ -48,10 +44,10 @@ class QuickXHTMLParser(object):
         self.clen = 0
         self.tagpath = None
 
-    def setContent(self, data, codec = 'utf-8' ):
+    def setContent(self, data, codec='utf-8'):
         if data is None:
             data = ''
-        if isinstance(data, binary_type):
+        if isinstance(data, bytes):
             self.content = data.decode(codec)
         else:
             self.content = data
@@ -70,22 +66,22 @@ class QuickXHTMLParser(object):
         tname = None
         ttype = None
         tattr = OrderedDict()
-        while p < n and s[p:p+1] == ' ' : p += 1
-        if s[p:p+1] == '/':
+        while p < n and s[p:p + 1] == ' ' : p += 1
+        if s[p:p + 1] == '/':
             ttype = 'end'
             p += 1
-            while p < n and s[p:p+1] == ' ' : p += 1
+            while p < n and s[p:p + 1] == ' ' : p += 1
         b = p
-        # handle comment special case as there may be no spaces to 
-        # delimit name begin or end 
+        # handle comment special case as there may be no spaces to
+        # delimit name begin or end
         if s[b:].startswith('!--'):
-            p = b+3
+            p = b + 3
             tname = '!--'
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
             tattr['special'] = s[p:backstep].strip()
             return tname, ttype, tattr
-        while p < n and s[p:p+1] not in ('>', '/', ' ', '"', "'", "\r", "\n") : p += 1
-        tname=s[b:p].lower()
+        while p < n and s[p:p + 1] not in ('>', '/', ' ', '"', "'", "\r", "\n") : p += 1
+        tname = s[b:p].lower()
         if tname == '!doctype':
             tname = '!DOCTYPE'
         # special cases
@@ -94,31 +90,31 @@ class QuickXHTMLParser(object):
             tattr['special'] = s[p:backstep]
         if ttype is None:
             # parse any attributes
-            while s.find('=',p) != -1 :
-                while p < n and s[p:p+1] == ' ' : p += 1
+            while s.find('=', p) != -1 :
+                while p < n and s[p:p + 1] == ' ' : p += 1
                 b = p
-                while p < n and s[p:p+1] != '=' : p += 1
+                while p < n and s[p:p + 1] != '=' : p += 1
                 # attribute names can be mixed case and are in SVG
                 aname = s[b:p]
                 aname = aname.rstrip(' ')
                 p += 1
-                while p < n and s[p:p+1] == ' ' : p += 1
-                if s[p:p+1] in ('"', "'") :
-                    qt = s[p:p+1]
+                while p < n and s[p:p + 1] == ' ' : p += 1
+                if s[p:p + 1] in ('"', "'") :
+                    qt = s[p:p + 1]
                     p = p + 1
                     b = p
-                    while p < n and s[p:p+1] != qt : p += 1
+                    while p < n and s[p:p + 1] != qt : p += 1
                     val = s[b:p]
                     p += 1
                 else :
                     b = p
-                    while p < n and s[p:p+1] not in ('>', '/', ' ') : p += 1
+                    while p < n and s[p:p + 1] not in ('>', '/', ' ') : p += 1
                     val = s[b:p]
                 tattr[aname] = val
         # label beginning and single tags
         if ttype is None:
             ttype = 'begin'
-            if s.find('/',p) >= 0:
+            if s.find('/', p) >= 0:
                 ttype = 'single'
         return tname, ttype, tattr
 
@@ -130,25 +126,24 @@ class QuickXHTMLParser(object):
         if p >= self.clen:
             return None, None
         if self.content[p] != '<':
-            res = self.content.find('<',p)
+            res = self.content.find('<', p)
             if res == -1 :
                 res = len(self.content)
             self.pos = res
             return self.content[p:res], None
         # handle comment as a special case to deal with multi-line comments
-        if self.content[p:p+4] == '<!--':
-            te = self.content.find('-->',p+1)
+        if self.content[p:p + 4] == '<!--':
+            te = self.content.find('-->', p + 1)
             if te != -1:
-                te = te+2
+                te = te + 2
         else :
-            tb = p
-            te = self.content.find('>',p+1)
-            ntb = self.content.find('<',p+1)
+            te = self.content.find('>', p + 1)
+            ntb = self.content.find('<', p + 1)
             if ntb != -1 and ntb < te:
                 self.pos = ntb
                 return self.content[p:ntb], None
         self.pos = te + 1
-        return None, self.content[p:te+1]
+        return None, self.content[p:te + 1]
 
 
 
@@ -170,7 +165,7 @@ class QuickXHTMLParser(object):
                 if ttype == 'end':
                     last_begin = self.tagpath[-1]
                     if last_begin != tname:
-                        print ('Warning: Improperly Nested Tags, nesting: ', self.tagpath, ' but parsing end tag: ', tname)
+                        print('Warning: Improperly Nested Tags, nesting: ', self.tagpath, ' but parsing end tag: ', tname)
             yield text, tp, tname, ttype, tattr
             if ttype is not None:
                 if ttype == 'begin':

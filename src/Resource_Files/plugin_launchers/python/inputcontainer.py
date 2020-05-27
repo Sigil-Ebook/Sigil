@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
@@ -25,10 +25,6 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from __future__ import unicode_literals, division, absolute_import, print_function
-
-import sys
-import os
 from quickparser import QuickXHTMLParser
 from pluginhunspell import HunspellChecker
 from preferences import JSONPrefs
@@ -38,12 +34,12 @@ class ContainerException(Exception):
 
 class InputContainer(object):
 
-    def __init__(self, wrapper,  debug = False):
+    def __init__(self, wrapper, debug=False):
         self._debug = debug
         self._w = wrapper
-        self.qp=QuickXHTMLParser()
-        self.hspell=HunspellChecker(wrapper.get_hunspell_path())
-        self.dictionary_dirs=wrapper.get_dictionary_dirs()
+        self.qp = QuickXHTMLParser()
+        self.hspell = HunspellChecker(wrapper.get_hunspell_path())
+        self.dictionary_dirs = wrapper.get_dictionary_dirs()
         self._prefs_store = JSONPrefs(wrapper.plugin_dir, wrapper.plugin_name)
 
     def getPrefs(self):

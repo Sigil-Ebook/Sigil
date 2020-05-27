@@ -1,17 +1,5 @@
-from __future__ import unicode_literals, division, absolute_import, print_function
-
 import sys
 from collections import OrderedDict
-
-PY3 = sys.version_info[0] >= 3
-if PY3:
-    text_type = str
-    binary_type = bytes
-    unicode = str
-else:
-    range = xrange
-    text_type = unicode
-    binary_type = str
 
 __all__ = [
     'LXMLTreeBuilderForXML',
@@ -19,10 +7,7 @@ __all__ = [
     ]
 
 from io import BytesIO
-if PY3:
-    from io import StringIO
-else:
-    from StringIO import StringIO
+from io import StringIO
 
 import collections
 from lxml import etree
@@ -121,12 +106,12 @@ class LXMLTreeBuilderForXML(TreeBuilder):
 
         Each 4-tuple represents a strategy for parsing the document.
         """
-        if isinstance(markup, unicode):
+        if isinstance(markup, str):
             # We were given Unicode. Maybe lxml can parse Unicode on
             # this system?
             yield markup, None, document_declared_encoding, False
 
-        if isinstance(markup, unicode):
+        if isinstance(markup, str):
             # No, apparently not. Convert the Unicode to UTF-8 and
             # tell lxml to parse it as UTF-8.
             yield (markup.encode("utf8"), "utf8",
@@ -146,7 +131,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
     def feed(self, markup):
         if isinstance(markup, bytes):
             markup = BytesIO(markup)
-        elif isinstance(markup, unicode):
+        elif isinstance(markup, str):
             markup = StringIO(markup)
 
         # Call feed() at least once, even if the markup is empty,

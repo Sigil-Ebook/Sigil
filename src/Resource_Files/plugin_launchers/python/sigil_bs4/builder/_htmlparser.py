@@ -1,19 +1,5 @@
-from __future__ import unicode_literals, division, absolute_import, print_function
-
 import sys
 from collections import OrderedDict
-
-PY3 = sys.version_info[0] >= 3
-if PY3:
-    text_type = str
-    binary_type = bytes
-    unicode = str
-    basestring = str
-else:
-    range = xrange
-    text_type = unicode
-    binary_type = str
-    chr = unichr
 
 """Use the HTMLParser library to parse HTML files that aren't too bad."""
 
@@ -21,24 +7,14 @@ __all__ = [
     'HTMLParserTreeBuilder',
     ]
 
-if PY3:
-    from html.parser import HTMLParser
-    try:
-        from html.parser import HTMLParseError
-    except ImportError as e:
-        # HTMLParseError is removed in Python 3.5. Since it can never be
-        # thrown in 3.5, we can just define our own class as a placeholder.
-        class HTMLParseError(Exception):
-            pass
-else:
-    from HTMLParser import HTMLParser
-    try:
-        from HTMLParser import HTMLParseError
-    except ImportError as e:
-        # HTMLParseError is removed in Python 3.5. Since it can never be
-        # thrown in 3.5, we can just define our own class as a placeholder.
-        class HTMLParseError(Exception):
-            pass
+from html.parser import HTMLParser
+try:
+    from html.parser import HTMLParseError
+except ImportError as e:
+    # HTMLParseError is removed in Python 3.5. Since it can never be
+    # thrown in 3.5, we can just define our own class as a placeholder.
+    class HTMLParseError(Exception):
+        pass
 
 import warnings
 
@@ -170,7 +146,7 @@ class HTMLParserTreeBuilder(HTMLTreeBuilder):
         declared within markup, whether any characters had to be
         replaced with REPLACEMENT CHARACTER).
         """
-        if isinstance(markup, unicode):
+        if isinstance(markup, str):
             yield (markup, None, None, False)
             return
 

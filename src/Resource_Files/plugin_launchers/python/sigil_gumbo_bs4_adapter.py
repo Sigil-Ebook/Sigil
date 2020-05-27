@@ -1,10 +1,10 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-from __future__ import unicode_literals, print_function
 
 # Copyright 2012 Google Inc. All Rights Reserved.
-# Modifications to use BeautifulSoup4 
+# Modifications to use BeautifulSoup4
 #   Copyright 2015-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -64,6 +64,7 @@ def _add_source_info(obj, original_text, start_pos, end_pos):
 
 
 def _convert_attrs(element_attrs):
+
     def maybe_namespace(attr):
         if attr.namespace != gumboc.AttributeNamespace.NONE:
             name = _fromutf8(attr.name)
@@ -72,12 +73,14 @@ def _convert_attrs(element_attrs):
             return sigil_bs4.element.NamespacedAttribute(prefix, name, nsurl)
         else:
             return _fromutf8(attr.name)
+
     def maybe_value_list(attr):
         value = _fromutf8(attr.value)
         if " " in value:
             if _fromutf8(attr.name) == "class" and attr.namespace == gumboc.AttributeNamespace.NONE:
                 value = sigil_bs4.element.whitespace_re.split(value)
         return value
+
     return dict((maybe_namespace(attr), maybe_value_list(attr)) for attr in element_attrs)
 
 
@@ -92,15 +95,15 @@ def _add_document(soup, element):
     if sys_id == '':
         sys_id = None
     doctype = sigil_bs4.element.Doctype.for_name_and_ids(_fromutf8(element.name),
-                                                   pub_id, sys_id)
+                                                         pub_id, sys_id)
     soup.object_was_parsed(doctype)
 
 
 def _add_element(soup, element):
     tag = sigil_bs4.element.Tag(parser=soup,
-                  name=_fromutf8(element.tag_name),
-                  namespace=_NAMESPACES[element.tag_namespace.value],
-                  attrs=_convert_attrs(element.attributes))
+                                name=_fromutf8(element.tag_name),
+                                namespace=_NAMESPACES[element.tag_namespace.value],
+                                attrs=_convert_attrs(element.attributes))
     for child in element.children:
         tag.append(_add_node(soup, child))
     _add_source_info(tag, element.original_tag, element.start_pos, element.end_pos)
@@ -117,13 +120,13 @@ def _add_text(cls):
 
 
 _HANDLERS = [
-    _add_document,                              # DOCUMENT
-    _add_element,                               # ELEMENT
+    _add_document,                                    # DOCUMENT
+    _add_element,                                     # ELEMENT
     _add_text(sigil_bs4.element.NavigableString),     # TEXT
     _add_text(sigil_bs4.element.CData),               # CDATA
     _add_text(sigil_bs4.element.Comment),             # COMMENT
     _add_text(sigil_bs4.element.NavigableString),     # WHITESPACE
-    _add_element,                               # TEMPLATE
+    _add_element                                      # TEMPLATE
     ]
 
 
@@ -149,8 +152,8 @@ def _add_next_prev_pointers(soup):
         nodes[0].previous_element = None
         nodes[-1].next_element = None
     for i, node in enumerate(nodes[1:-1], 1):
-        nodes[i-1].next_element = node
-        node.previous_element = nodes[i-1]
+        nodes[i - 1].next_element = node
+        node.previous_element = nodes[i - 1]
 
 
 # The only input encoding that gumbo supports is utf-8
@@ -190,7 +193,7 @@ def main():
         print(node)
     print("\n")
     print("Findall tags with class attribute 'second':")
-    for node in soup.find_all(attrs={'class':'second'}):
+    for node in soup.find_all(attrs={'class': 'second'}):
         print(node)
     return 0
 

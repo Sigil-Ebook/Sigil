@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
@@ -25,10 +25,6 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from __future__ import unicode_literals, division, absolute_import, print_function
-
-import sys
-import os
 from quickparser import QuickXHTMLParser
 from preferences import JSONPrefs
 from pluginhunspell import HunspellChecker
@@ -38,12 +34,12 @@ class ContainerException(Exception):
 
 class BookContainer(object):
 
-    def __init__(self, wrapper,  debug = False):
+    def __init__(self, wrapper, debug=False):
         self._debug = debug
         self._w = wrapper
-        self.qp=QuickXHTMLParser()
-        self.hspell=HunspellChecker(wrapper.get_hunspell_path())
-        self.dictionary_dirs=wrapper.get_dictionary_dirs()
+        self.qp = QuickXHTMLParser()
+        self.hspell = HunspellChecker(wrapper.get_hunspell_path())
+        self.dictionary_dirs = wrapper.get_dictionary_dirs()
         self._prefs_store = JSONPrefs(wrapper.plugin_dir, wrapper.plugin_name)
 
     def getPrefs(self):
@@ -62,7 +58,7 @@ class BookContainer(object):
     def epub_is_standard(self):
         return self._w.epub_is_standard()
 
-    @property    
+    @property
     def sigil_ui_lang(self):
         if self._w.sigil_ui_lang is None:
             return 'en'
@@ -124,7 +120,7 @@ class BookContainer(object):
         self._w.setspine_ppd(ppd)
 
     # New for epub3
-    def setspine_idref_epub3_attributes(idref, linear, properties):
+    def setspine_idref_epub3_attributes(self, idref, linear, properties):
         self._w.setspine_idref_attributes(idref, linear, properties)
 
 
@@ -219,7 +215,7 @@ class BookContainer(object):
 
     def text_iter(self):
         # yields manifest id, href in spine order plus any non-spine items
-        text_set = set([k for k,v in self._w.id_to_mime.items() if v == 'application/xhtml+xml'])
+        text_set = set([k for k, v in self._w.id_to_mime.items() if v == 'application/xhtml+xml'])
         for (id, linear, properties) in self._w.spine:
             if id in text_set:
                 text_set -= set([id])
@@ -273,14 +269,14 @@ class BookContainer(object):
 
     def spine_iter(self):
         # yields spine idref, linear(yes,no,None), href in spine order
-        for (id , linear, properties) in self._w.spine:
+        for (id, linear, properties) in self._w.spine:
             href = self._w.id_to_href[id]
             yield id, linear, href
 
     # New for epub3
     def spine_epub3_iter(self):
         # yields spine idref, linear(yes,no,None), properties, href in spine order
-        for (id , linear, properties) in self._w.spine:
+        for (id, linear, properties) in self._w.spine:
             href = self._w.id_to_href[id]
             yield id, linear, properties, href
 
@@ -378,7 +374,7 @@ class BookContainer(object):
 
     # New in Sigil 1.1
     # ----------------
-    
+
     # returns "light" or "dark"
     def colorMode(self):
         return self._w.colorMode()
@@ -407,7 +403,7 @@ class BookContainer(object):
     #   OEBPS/toc.ncx
     #   OEBPS/Text/Section0001.xhtml
     #   OEBPS/Images/cover.jpg
-    # 
+    #
 
     # and src and hrefs always looked like the following:
     #    from Section0001.xhtml to Section0002.xhtml: ../Text/Section0002.xhtml
@@ -420,10 +416,10 @@ class BookContainer(object):
     # almost anyplace inside the epub.  This is true for almost all files.
 
     # So to uniquely identify a file, you need to know the bookpath of the OPF
-    # and the manifest href to the specific file, or the path from the epub 
+    # and the manifest href to the specific file, or the path from the epub
     # root to the file itself (ie. its bookpath)
 
-    # so the Sigil plugin interface for Sigil 1.0 has been extended to allow 
+    # so the Sigil plugin interface for Sigil 1.0 has been extended to allow
     # the plugin developer to more easily work with bookpaths, create links
     # between bookpaths, etc.
 
@@ -457,7 +453,7 @@ class BookContainer(object):
 
     # functions for converting from  manifest id to bookpath and back
     def bookpath_to_id(self, bookpath, ow=None):
-        return self._w.map_bookpath_to_id(bookpath,ow)
+        return self._w.map_bookpath_to_id(bookpath, ow)
 
     def id_to_bookpath(self, id, ow=None):
         return self._w.map_id_to_bookpath(id, ow)
