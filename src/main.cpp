@@ -546,7 +546,7 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
         // against bad file:: urls
 	URLInterceptor* urlint = new URLInterceptor();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
-	QWebEngineProfile::defaultProfile()->setURLRequestInterceptor(urlint);
+	QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(urlint);
 #else
 	QWebEngineProfile::defaultProfile()->setRequestInterceptor(urlint);
 #endif
