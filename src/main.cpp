@@ -289,30 +289,15 @@ int main(int argc, char *argv[])
     QT_REQUIRE_VERSION(argc, argv, "5.12.3");
 #endif
 
-#ifndef Q_OS_MAC
-    // Custom dark style/palette for Windows and Linux
-#ifndef Q_OS_WIN32
-    // Use platform themes/styles on Linux unless FORCE_SIGIL_DARKMODE_PALETTE is set
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+    // Unset platform theme plugins/styles environment variables immediately
+    // when forcing Sigil's own darkmode palette on Linux
     if (!force_sigil_darkmode_palette.isEmpty()) {
-        // Unset platform theme plugins/styles environment variables immediately
-        // when forcing Sigil's own dark style/palette on Linux
         QStringList env_vars = {"QT_QPA_PLATFORMTHEME", "QT_STYLE_OVERRIDE"};
         foreach(QString v, env_vars) {
             bool irrel = qunsetenv(v.toUtf8().constData());
         }
-        // Apply custom dark style
-        // Explicit QApplication style/palette assignment required since Qt5.15.0
-        QApplication::setStyle(new SigilDarkStyle);
-        QApplication::setPalette(QApplication::style()->standardPalette());
-    }
-#else
-    if (Utility::WindowsShouldUseDarkMode()) {
-        // Apply custom dark style
-        // Explicit QApplication style/palette assignment required since Qt5.15.0
-        QApplication::setStyle(new SigilDarkStyle);
-        QApplication::setPalette(QApplication::style()->standardPalette());
-    }
-#endif
+}
 #endif
 
 #ifndef QT_DEBUG
@@ -410,6 +395,24 @@ int main(int argc, char *argv[])
             }
         }
         app.installTranslator(&sigilTranslator);
+
+#ifndef Q_OS_MAC
+        // Custom dark style/palette for Windows and Linux
+#ifndef Q_OS_WIN32
+        // Use platform themes/styles on Linux unless FORCE_SIGIL_DARKMODE_PALETTE is set
+        if (!force_sigil_darkmode_palette.isEmpty()) {
+            // Apply custom dark style
+            app.setStyle(new SigilDarkStyle);
+            app.setPalette(QApplication::style()->standardPalette());
+        }
+#else
+        if (Utility::WindowsShouldUseDarkMode()) {
+            // Apply custom dark style
+            app.setStyle(new SigilDarkStyle);
+            app.setPalette(QApplication::style()->standardPalette());
+        }
+#endif
+#endif
 
         // Set ui font from preferences after dark theming
         QFont f = QFont(QApplication::font());
