@@ -176,7 +176,19 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
             if (ss.cleanOn() & CLEANON_OPEN) {
                 if (!XhtmlDoc::IsDataWellFormed(hresource->GetText(),hresource->GetEpubVersion())) {
                     non_well_formed << hresource;
-                }
+                } else {
+		    QString txt = hresource->GetText();
+		    // had cases of large files with no line breaks
+		    if (txt.size() > 307200) {
+			int lines = 0;
+			QChar *uc = txt.data();
+			QChar *e = uc + txt.size();
+			for (; uc != e; ++uc) {
+			    if (uc->unicode() == 0x000A) lines++;
+			}
+			if (lines < 5) non_well_formed << hresource;
+		    }
+		}
             }
         }
     }
@@ -186,7 +198,7 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
                 tr("Sigil"),
                 tr("This EPUB has HTML files that are not well formed. "
                    "Sigil can attempt to automatically fix these files, although this "
-                   "can result in minor data loss.\n\n"
+                   "may result in minor data loss in extreme circumstances.\n\n"
                    "Do you want to automatically fix the files?"),
                 QMessageBox::Yes|QMessageBox::No)) 
         {
