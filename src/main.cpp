@@ -46,6 +46,7 @@
 #include "MainUI/MainApplication.h"
 #include "MainUI/MainWindow.h"
 #include "Misc/AppEventFilter.h"
+#include "Misc/SigilDarkStyle.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/TempFolder.h"
 #include "Misc/UpdateChecker.h"
@@ -127,8 +128,8 @@ static void file_open()
                        "Open File",
                        "~",
                        filter_string,
-		       &default_filter,
-		       QFileDialog::DontUseNativeDialog
+                       &default_filter,
+                       QFileDialog::DontUseNativeDialog
                                                    );
 
     if (!filename.isEmpty()) {
@@ -184,7 +185,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
             error_message = QString(message.toLatin1().constData());
             if (context.file) context_file = QString(context.file);
 
-	    
+
 #ifdef Q_OS_WIN32
             // On Windows there is a known issue with the clipboard that results in some copy
             // operations in controls being intermittently blocked. Rather than presenting
@@ -222,7 +223,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
             // screen out error messages from inspector / devtools
             if (!context_file.contains("devtools://devtools")) {
                 Utility::DisplayExceptionErrorDialog(QString("Critical: %1").arg(error_message));
-	    }
+            }
             break;
 
         case QtFatalMsg:
@@ -234,12 +235,12 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     // User must have permissions to write to the location or no file will be created.
     QString sigil_log_file;
     sigil_log_file = Utility::GetEnvironmentVar("SIGIL_DEBUG_LOGFILE");
-	if (!sigil_log_file.isEmpty()) {
-            QFile outFile(sigil_log_file);
-            outFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
-            QTextStream ts(&outFile);
-            ts << qt_debug_message << endl;
-	}
+    if (!sigil_log_file.isEmpty()) {
+        QFile outFile(sigil_log_file);
+        outFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+        QTextStream ts(&outFile);
+        ts << qt_debug_message << endl;
+    }
 }
 
 
@@ -279,42 +280,6 @@ void setupHighDPI()
 }
 
 
-QPalette getDarkPalette()
-{
-    // Dark palette for Sigil
-    QPalette darkPalette;
-
-    darkPalette.setColor(QPalette::Window, QColor(53, 53, 53));
-    darkPalette.setColor(QPalette::Disabled, QPalette::Window, QColor(80, 80, 80));
-    darkPalette.setColor(QPalette::WindowText, QColor(238, 238, 238));
-    darkPalette.setColor(QPalette::Disabled, QPalette::WindowText,
-                        QColor(127, 127, 127));
-    darkPalette.setColor(QPalette::Base, QColor(42, 42, 42));
-    darkPalette.setColor(QPalette::Disabled, QPalette::Base, QColor(80, 80, 80));
-    darkPalette.setColor(QPalette::AlternateBase, QColor(66, 66, 66));
-    darkPalette.setColor(QPalette::ToolTipBase, QColor(53, 53, 53));
-    darkPalette.setColor(QPalette::ToolTipText, QColor(238, 238, 238));
-    darkPalette.setColor(QPalette::Text, QColor(238, 238, 238));
-    darkPalette.setColor(QPalette::Disabled, QPalette::Text, QColor(127, 127, 127));
-    darkPalette.setColor(QPalette::Dark, QColor(35, 35, 35));
-    darkPalette.setColor(QPalette::Shadow, QColor(20, 20, 20));
-    darkPalette.setColor(QPalette::Button, QColor(53, 53, 53));
-    darkPalette.setColor(QPalette::ButtonText, QColor(238, 238, 238));
-    darkPalette.setColor(QPalette::Disabled, QPalette::ButtonText,
-                        QColor(127, 127, 127));
-    darkPalette.setColor(QPalette::BrightText, Qt::red);
-    darkPalette.setColor(QPalette::Link, QColor(108, 180, 238));
-    darkPalette.setColor(QPalette::LinkVisited, QColor(108, 180, 238));
-    darkPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
-    darkPalette.setColor(QPalette::Disabled, QPalette::Highlight, QColor(80, 80, 80));
-    darkPalette.setColor(QPalette::HighlightedText, QColor(238, 238, 238));
-    darkPalette.setColor(QPalette::Disabled, QPalette::HighlightedText,
-                        QColor(127, 127, 127));
-
-    return darkPalette;
-}
-
-
 // Application entry point
 int main(int argc, char *argv[])
 {
@@ -324,15 +289,30 @@ int main(int argc, char *argv[])
     QT_REQUIRE_VERSION(argc, argv, "5.12.3");
 #endif
 
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-// Unset platform theme plugins/styles environment variables immediately
-// when forcing Sigil's own darkmode palette on Linux
-if (!force_sigil_darkmode_palette.isEmpty()) {
-    QStringList env_vars = {"QT_QPA_PLATFORMTHEME", "QT_STYLE_OVERRIDE"};
-    foreach(QString v, env_vars) {
-        bool irrel = qunsetenv(v.toUtf8().constData());
+#ifndef Q_OS_MAC
+    // Custom dark style/palette for Windows and Linux
+#ifndef Q_OS_WIN32
+    // Use platform themes/styles on Linux unless FORCE_SIGIL_DARKMODE_PALETTE is set
+    if (!force_sigil_darkmode_palette.isEmpty()) {
+        // Unset platform theme plugins/styles environment variables immediately
+        // when forcing Sigil's own dark style/palette on Linux
+        QStringList env_vars = {"QT_QPA_PLATFORMTHEME", "QT_STYLE_OVERRIDE"};
+        foreach(QString v, env_vars) {
+            bool irrel = qunsetenv(v.toUtf8().constData());
+        }
+        // Apply custom dark style
+        // Explicit QApplication style/palette assignment required since Qt5.15.0
+        QApplication::setStyle(new SigilDarkStyle);
+        QApplication::setPalette(QApplication::style()->standardPalette());
     }
-}
+#else
+    if (Utility::WindowsShouldUseDarkMode()) {
+        // Apply custom dark style
+        // Explicit QApplication style/palette assignment required since Qt5.15.0
+        QApplication::setStyle(new SigilDarkStyle);
+        QApplication::setPalette(QApplication::style()->standardPalette());
+    }
+#endif
 #endif
 
 #ifndef QT_DEBUG
@@ -431,29 +411,6 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
         }
         app.installTranslator(&sigilTranslator);
 
-#ifndef Q_OS_MAC
-#ifndef Q_OS_WIN32
-        // Use platform themes/styles on Linux unless FORCE_SIGIL_DARKMODE_PALETTE is set
-        if (!force_sigil_darkmode_palette.isEmpty()) {
-            // Fusion style is fully dpi aware on Windows/Linux
-            app.setStyle(QStyleFactory::create("fusion"));
-            // qss stylesheet from resources
-            QString dark_styles = Utility::ReadUnicodeTextFile(":/dark/win-dark-style.qss");
-            app.setStyleSheet(dark_styles);
-            app.setPalette(getDarkPalette());
-        }
-#else
-        if (Utility::WindowsShouldUseDarkMode()) {
-            // Fusion style is fully dpi aware on Windows/Linux
-            app.setStyle(QStyleFactory::create("fusion"));
-            // qss stylesheet from resources
-            QString dark_styles = Utility::ReadUnicodeTextFile(":/dark/win-dark-style.qss");
-            app.setStyleSheet(dark_styles);
-            app.setPalette(getDarkPalette());
-        }
-#endif
-#endif
-
         // Set ui font from preferences after dark theming
         QFont f = QFont(QApplication::font());
 #ifdef Q_OS_WIN32
@@ -544,11 +501,11 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
 
         // Install our own URLInterceptor for QtWebEngine to protect
         // against bad file:: urls
-	URLInterceptor* urlint = new URLInterceptor();
+        URLInterceptor* urlint = new URLInterceptor();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
-	QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(urlint);
+        QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(urlint);
 #else
-	QWebEngineProfile::defaultProfile()->setRequestInterceptor(urlint);
+        QWebEngineProfile::defaultProfile()->setRequestInterceptor(urlint);
 #endif
 
         // Needs to be created on the heap so that
@@ -559,18 +516,18 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
         QStringList arguments = QCoreApplication::arguments();
 
 #ifdef Q_OS_MAC
-	// now process main app events so that any startup 
+        // now process main app events so that any startup 
         // FileOpen event will be processed for macOS
-	QCoreApplication::processEvents();
+        QCoreApplication::processEvents();
 
-	QString filepath = filter->getInitialFilePath();
+        QString filepath = filter->getInitialFilePath();
 
-	// if one found append it to argv for processing as normal
-	if ((arguments.size() == 1) && !filepath.isEmpty()) {
-	    arguments << QFileInfo(filepath).absoluteFilePath();
-	}
+        // if one found append it to argv for processing as normal
+        if ((arguments.size() == 1) && !filepath.isEmpty()) {
+            arguments << QFileInfo(filepath).absoluteFilePath();
+        }
 
-	if (filepath.isEmpty()) filter->setInitialFilePath(QString("placeholder"));
+        if (filepath.isEmpty()) filter->setInitialFilePath(QString("placeholder"));
 #endif
 
         if (arguments.contains("-t")) {
@@ -581,8 +538,8 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
 
 #ifdef Q_OS_MAC
             // Try to Work around QTBUG-62193 and QTBUG-65245 and others where menubar
-	    // menu items are lost under File and Sigil menus and where
-	    // Quit menu gets lost when deleting other windows first
+            // menu items are lost under File and Sigil menus and where
+            // Quit menu gets lost when deleting other windows first
 
             app.setQuitOnLastWindowClosed(false);
 
@@ -596,33 +553,33 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
             QIcon icon;
 
             // Quit
-	    QAction* appquit_action = new QAction(QObject::tr("Quit"));
+            QAction* appquit_action = new QAction(QObject::tr("Quit"));
             appquit_action->setMenuRole(QAction::QuitRole);
             appquit_action->setShortcut(QKeySequence("Ctrl+Q"));
             icon = appquit_action->icon();
-	    icon.addFile(QString::fromUtf8(":/main/process-stop_16px.png"));
-	    icon.addFile(QString::fromUtf8(":/main/process-stop_22px.png"));
-	    icon.addFile(QString::fromUtf8(":/main/process-stop_48px.png"));
+            icon.addFile(QString::fromUtf8(":/main/process-stop_16px.png"));
+            icon.addFile(QString::fromUtf8(":/main/process-stop_22px.png"));
+            icon.addFile(QString::fromUtf8(":/main/process-stop_48px.png"));
             appquit_action->setIcon(icon);
             QObject::connect(appquit_action, &QAction::triggered, AppExit);
-	    app_menu->addAction(appquit_action);
+            app_menu->addAction(appquit_action);
 
             // About
-	    QAction* about_action = new QAction(QObject::tr("About"));
+            QAction* about_action = new QAction(QObject::tr("About"));
             about_action->setMenuRole(QAction::AboutRole);
             icon = about_action->icon();
-	    icon.addFile(QString::fromUtf8(":/main/help-browser_16px.png"));
-	    icon.addFile(QString::fromUtf8(":/main/help-browser_22px.png"));
-	    icon.addFile(QString::fromUtf8(":/main/help-browser_48px.png"));
+            icon.addFile(QString::fromUtf8(":/main/help-browser_16px.png"));
+            icon.addFile(QString::fromUtf8(":/main/help-browser_22px.png"));
+            icon.addFile(QString::fromUtf8(":/main/help-browser_48px.png"));
             about_action->setIcon(icon);
             QObject::connect(about_action, &QAction::triggered, AboutDialog);
-	    app_menu->addAction(about_action);
+            app_menu->addAction(about_action);
 
             // Preferences
-	    QAction* prefs_action = new QAction(QObject::tr("Preferences"));
+            QAction* prefs_action = new QAction(QObject::tr("Preferences"));
             prefs_action->setMenuRole(QAction::PreferencesRole);
             QObject::connect(prefs_action, &QAction::triggered, PreferencesDialog);
-	    app_menu->addAction(prefs_action);
+            app_menu->addAction(prefs_action);
 
             mac_bar->addMenu(app_menu);
 
@@ -632,31 +589,31 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
             // New
             QAction * new_action = new QAction(QObject::tr("New"));
             new_action->setShortcut(QKeySequence("Ctrl+N"));
-	    icon = new_action->icon();
-	    icon.addFile(QString::fromUtf8(":/main/document-new_16px.png"));
-	    icon.addFile(QString::fromUtf8(":/main/document-new_22px.png"));
-	    icon.addFile(QString::fromUtf8(":/main/document-new_48px.png"));
-	    new_action->setIcon(icon);
+            icon = new_action->icon();
+            icon.addFile(QString::fromUtf8(":/main/document-new_16px.png"));
+            icon.addFile(QString::fromUtf8(":/main/document-new_22px.png"));
+            icon.addFile(QString::fromUtf8(":/main/document-new_48px.png"));
+            new_action->setIcon(icon);
             QObject::connect(new_action, &QAction::triggered, file_new);
-	    file_menu->addAction(new_action);
+            file_menu->addAction(new_action);
 
             // Open
-	    QAction* open_action = new QAction(QObject::tr("Open"));
+            QAction* open_action = new QAction(QObject::tr("Open"));
             open_action->setShortcut(QKeySequence("Ctrl+O"));
-	    icon = open_action->icon();
-	    icon.addFile(QString::fromUtf8(":/main/document-open_16px.png"));
-	    icon.addFile(QString::fromUtf8(":/main/document-open_22px.png"));
-	    icon.addFile(QString::fromUtf8(":/main/document-open_48px.png"));
-	    open_action->setIcon(icon);
+            icon = open_action->icon();
+            icon.addFile(QString::fromUtf8(":/main/document-open_16px.png"));
+            icon.addFile(QString::fromUtf8(":/main/document-open_22px.png"));
+            icon.addFile(QString::fromUtf8(":/main/document-open_48px.png"));
+            open_action->setIcon(icon);
             QObject::connect(open_action, &QAction::triggered, file_open);
-	    file_menu->addAction(open_action);
+            file_menu->addAction(open_action);
 
             // Quit - force add of a secondary quit menu to the file menu
-	    QAction* quit_action = new QAction(QObject::tr("Quit"));
+            QAction* quit_action = new QAction(QObject::tr("Quit"));
             quit_action->setMenuRole(QAction::NoRole);
             quit_action->setShortcut(QKeySequence("Ctrl+Q"));
             QObject::connect(quit_action, &QAction::triggered, qApp->quit);
-	    file_menu->addAction(quit_action);
+            file_menu->addAction(quit_action);
 
             mac_bar->addMenu(file_menu);
 #endif

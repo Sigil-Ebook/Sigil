@@ -323,6 +323,8 @@ set( MISC_FILES
     Misc/QCodePage437Codec.h
     Misc/SearchOperations.cpp
     Misc/SearchOperations.h
+    Misc/SigilDarkStyle.cpp
+    Misc/SigilDarkStyle.h
     Misc/Language.cpp
     Misc/Language.h
     Misc/DescriptiveInfo.h
