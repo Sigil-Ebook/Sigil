@@ -29,7 +29,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "URLInterceptor.h"
 
-#define INTERCEPTDEBUG 1
+#define INTERCEPTDEBUG 0
 
 URLInterceptor::URLInterceptor(QObject *parent)
     : QWebEngineUrlRequestInterceptor(parent)
@@ -51,6 +51,7 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 
     if (info.requestMethod() != "GET") {
         info.block(true);
+	qDebug() << "Warning: URLInterceptor Blocking POST request from " << info.firstPartyUrl();
         return;
     }
     
@@ -76,6 +77,7 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 	// if can not determine book folder block it
         if (bookfolder.isEmpty()) {
             info.block(true);
+	    qDebug() << "Error: URLInterceptor can not determine book folder so all file: requests blocked";
             return;
         }
 	// path must be inside of bookfolder, Nore it is legal for it not to exist
@@ -96,6 +98,8 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
         }
 	// otherwise block it to prevent access to any user file path
         info.block(true);
+	qDebug() << "Warning: URLInterceptor blocking access to url " << destination;
+	qDebug() << "    from " << info.firstPartyUrl();
         return;
     }
 
