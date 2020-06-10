@@ -292,6 +292,8 @@ set( MISC_FILES
     Misc/AppEventFilter.h
     Misc/UpdateChecker.cpp
     Misc/UpdateChecker.h
+    Misc/URLInterceptor.cpp
+    Misc/URLInterceptor.h
     Misc/Utility.cpp
     Misc/Utility.h
     Misc/SleepFunctions.h

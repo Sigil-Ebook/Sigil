@@ -39,6 +39,7 @@
 #include <QFileInfo>
 #include <QTextStream>
 #include <QFontMetrics>
+#include <QtWebEngineWidgets/QWebEngineProfile>
 
 #include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
@@ -49,6 +50,7 @@
 #include "Misc/TempFolder.h"
 #include "Misc/UpdateChecker.h"
 #include "Misc/Utility.h"
+#include "Misc/URLInterceptor.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
@@ -539,6 +541,16 @@ if (!force_sigil_darkmode_palette.isEmpty()) {
         app.setDesktopFileName(QStringLiteral("sigil.desktop"));
 #endif
 #endif
+
+        // Install our own URLInterceptor for QtWebEngine to protect
+        // against bad file:: urls
+	URLInterceptor* urlint = new URLInterceptor();
+#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
+	QWebEngineProfile::defaultProfile()->setURLRequestInterceptor(urlint);
+#else
+	QWebEngineProfile::defaultProfile()->setRequestInterceptor(urlint);
+#endif
+
         // Needs to be created on the heap so that
         // the reply has time to return.
         UpdateChecker *checker = new UpdateChecker(&app);
