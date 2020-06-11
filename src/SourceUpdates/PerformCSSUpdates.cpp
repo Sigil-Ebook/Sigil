@@ -26,7 +26,6 @@
 #include <QString>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
-#include <QDebug>
 
 #include "Misc/Utility.h"
 #include "SourceUpdates/PerformCSSUpdates.h"
@@ -99,8 +98,6 @@ QString PerformCSSUpdates::operator()()
                             QString new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
                             if (new_href.isEmpty()) new_href = destfile;
                             // Replace the old url with the new one
-                            qDebug() << "new content = " << new_href;
-                            qDebug() << "old content = " << frag_mo.captured(j);
                             // But only replace if string has changed. Otherwise any matched
                             // quoted string content could potentially be unnecessarily url encoded.
                             // The hope is to only encode urls that were actually modified by renames.
