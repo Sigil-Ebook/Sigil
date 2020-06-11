@@ -20,8 +20,8 @@
 *************************************************************************/
 
 #pragma once
-#ifndef SIGIL_DARK_STYLE_H
-#define SIGIL_DARK_STYLE_H
+#ifndef SIGILDARKSTYLE_H
+#define SIGILDARKSTYLE_H
 
 #include <QApplication>
 #include <QFile>
@@ -44,5 +44,5 @@ private:
     QStyle *styleBase(QStyle *style = Q_NULLPTR) const;
 };
 
-#endif  // SIGIL_DARK_STYLE_H
+#endif  // SIGILDARKSTYLE_H
 
