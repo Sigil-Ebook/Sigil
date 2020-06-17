@@ -26,6 +26,12 @@
 #define SG_EXCEPTION_H
 
 #include <exception>
+
+// Visual Studio 2019 seems to need this explicitly included
+#if defined(_MSC_VER) && (_MSC_VER >= 1920)
+#include <stdexcept>
+#endif
+
 #include <string>
 
 /**
