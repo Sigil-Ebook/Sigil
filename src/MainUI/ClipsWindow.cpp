@@ -68,7 +68,7 @@ void ClipsWindow::SetupTreeView()
     m_TreeView->setAlternatingRowColors(false);
 
     m_TreeView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_TreeView->sortByColumn(-1);
+    m_TreeView->sortByColumn(-1, Qt::AscendingOrder);
     m_TreeView->setUniformRowHeights(true);
     m_TreeView->setDragEnabled(false);
     m_TreeView->setAcceptDrops(false);

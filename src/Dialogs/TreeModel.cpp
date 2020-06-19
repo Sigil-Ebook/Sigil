@@ -58,7 +58,7 @@ TreeModel::TreeModel(const QStringList &headers, const QString &data, QObject *p
         rootData << header;
 
     rootItem = new TreeItem(rootData);
-    setupModelData(data.split(_RS, QString::SkipEmptyParts), rootItem);
+    setupModelData(data.split(_RS, Qt::SkipEmptyParts), rootItem);
 }
 
 
@@ -89,7 +89,7 @@ QVariant TreeModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags TreeModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return 0;
+      return Qt::ItemFlags();
 
     return Qt::ItemIsEditable | QAbstractItemModel::flags(index);
 }
@@ -257,7 +257,7 @@ void TreeModel::setupModelData(const QStringList &lines, TreeItem *parent)
 
         if (!lineData.isEmpty()) {
             // Read the column data from the rest of the line.
-            QStringList columnStrings = lineData.split(_US, QString::SkipEmptyParts);
+            QStringList columnStrings = lineData.split(_US, Qt::SkipEmptyParts);
             QVector<QVariant> columnData;
             for (int column = 0; column < columnStrings.count(); ++column)
                 columnData << columnStrings[column];

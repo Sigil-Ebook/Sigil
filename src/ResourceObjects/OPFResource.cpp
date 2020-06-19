@@ -768,7 +768,7 @@ int OPFResource::GetGuideReferenceForResourcePos(const Resource *resource, const
     for (int i=0; i < p.m_guide.count(); ++i) {
         GuideEntry ge = p.m_guide.at(i);
         QString href = ge.m_href;
-        QStringList parts = href.split('#', QString::KeepEmptyParts);
+        QStringList parts = href.split('#', Qt::KeepEmptyParts);
         if (parts.at(0) == href_to_resource_from_opf) {
             return i;
         }
@@ -855,7 +855,7 @@ QHash <QString, QString>  OPFResource::GetSemanticCodeForPaths()
   QHash <QString, QString> semantic_types;
   foreach(GuideEntry ge, p.m_guide) {
     QString href = ge.m_href;
-    QStringList parts = href.split('#', QString::KeepEmptyParts);
+    QStringList parts = href.split('#', Qt::KeepEmptyParts);
     QString bkpath = Utility::buildBookPath(parts.at(0),GetFolder());
     QString gtype = ge.m_type;
     semantic_types[bkpath] = gtype;
@@ -874,7 +874,7 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
     QHash <QString, QString> semantic_types;
     foreach(GuideEntry ge, p.m_guide) {
         QString href = ge.m_href;
-        QStringList parts = href.split('#', QString::KeepEmptyParts);
+        QStringList parts = href.split('#', Qt::KeepEmptyParts);
         QString gtype = ge.m_type;
 	QString bkpath = Utility::buildBookPath(parts.at(0),GetFolder());
         semantic_types[bkpath] = GuideItems::instance()->GetName(gtype);

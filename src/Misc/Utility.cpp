@@ -1043,8 +1043,8 @@ QString Utility::relativePath(const QString & destination, const QString & start
     while (dest.endsWith(sep)) dest.chop(1);
     while (start.endsWith(sep)) start.chop(1);
 
-    QStringList dsegs = dest.split(sep, QString::KeepEmptyParts);
-    QStringList ssegs = start.split(sep, QString::KeepEmptyParts);
+    QStringList dsegs = dest.split(sep, Qt::KeepEmptyParts);
+    QStringList ssegs = start.split(sep, Qt::KeepEmptyParts);
     QStringList res;
     int i = 0;
     int nd = dsegs.size();

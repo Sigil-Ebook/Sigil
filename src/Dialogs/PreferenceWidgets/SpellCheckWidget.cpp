@@ -502,7 +502,7 @@ void SpellCheckWidget::saveUserDictionaryWordList(QString dict_name)
         }
     }
 
-    QStringList words = unique_words.toList();
+    QStringList words = unique_words.values();
     words.sort();
     // Replace words in the user dictionary.
     QFile userDictFile(dict_path);

@@ -106,7 +106,7 @@ public:
 	       const QString version = QString(),
 	       bool is_internal = false, 
 	       QWidget *parent = 0, 
-	       Qt::WindowFlags flags = 0);
+	       Qt::WindowFlags flags = Qt::WindowFlags());
     ~MainWindow();
 
     void maybe_fixup_dockwidget_geometry(QDockWidget * widget);

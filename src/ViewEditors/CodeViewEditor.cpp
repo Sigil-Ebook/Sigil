@@ -562,7 +562,7 @@ int CodeViewEditor::CalculateLineNumberAreaWidth()
         num_digits++;
     }
 
-    return LINE_NUMBER_MARGIN * 2 + fontMetrics().width(QChar('0')) * num_digits;
+    return LINE_NUMBER_MARGIN * 2 + fontMetrics().horizontalAdvance(QChar('0')) * num_digits;
 }
 
 
@@ -1294,7 +1294,7 @@ QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
         // additionalFormats property. Thus we have to check if the cursor is within
         // an additionalFormat for the block and if that format is for a misspelled word.
         int pos = c.positionInBlock();
-        foreach(QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
+        foreach(QTextLayout::FormatRange r, textCursor().block().layout()->formats()) {
             if (pos > r.start && pos < r.start + r.length && r.format.underlineStyle() == QTextCharFormat::WaveUnderline/*QTextCharFormat::SpellCheckUnderline*/) {
                 if (select_word) {
                     c.setPosition(c.block().position() + r.start);
@@ -1311,7 +1311,7 @@ QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
     else {
         int selStart = c.selectionStart() - c.block().position();
         int selLen = c.selectionEnd() - c.block().position() - selStart;
-        foreach(QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
+        foreach(QTextLayout::FormatRange r, textCursor().block().layout()->formats()) {
             if (r.start == selStart && selLen == r.length && r.format.underlineStyle() == QTextCharFormat::WaveUnderline/*QTextCharFormat::SpellCheckUnderline*/) {
                 return c.selectedText();
             }
@@ -2128,7 +2128,7 @@ void CodeViewEditor::ResetFont()
     // But just in case, say we want a fixed width font if font is not present
     font.setStyleHint(QFont::TypeWriter);
     setFont(font);
-    setTabStopWidth(TAB_SPACES_WIDTH * QFontMetrics(font).width(' '));
+    setTabStopDistance(TAB_SPACES_WIDTH * QFontMetrics(font).horizontalAdvance(' '));
     UpdateLineNumberAreaFont(font);
 }
 
@@ -3596,7 +3596,7 @@ void CodeViewEditor::ApplyListToSelection(const QString &element)
 	new_text = new_text.trimmed();
 	// now split remaining text by new lines and 
 	// remove any beginning and ending li tags
-	QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
+	QStringList alist = new_text.split(QChar::ParagraphSeparator, Qt::SkipEmptyParts);
 	QStringList result;
 	foreach(QString aitem, alist) {
 	    result.append(indent + RemoveLastTag(RemoveFirstTag(aitem,"li"), "li"));
@@ -3605,7 +3605,7 @@ void CodeViewEditor::ApplyListToSelection(const QString &element)
 	new_text = result.join("\n");
     }
     else if ((tagname == "p") || tagname.isEmpty()) {
-        QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
+        QStringList alist = new_text.split(QChar::ParagraphSeparator, Qt::SkipEmptyParts);
 	QStringList result;
 	result.append(indent + "<" + element + ">");
 	foreach(QString aitem, alist) {

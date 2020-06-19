@@ -702,7 +702,7 @@ void FolderKeeper::updateShortPathNames()
 
     // now work just through any to-do list of duplicates
     // until all duplicates are gone
-    QStringList todolst = DupSet.toList();
+    QStringList todolst = DupSet.values();
     while(!todolst.isEmpty()) {
         DupSet.clear();
         lvl++;
@@ -720,7 +720,7 @@ void FolderKeeper::updateShortPathNames()
 	        }
             }
         }
-        todolst = DupSet.toList();
+        todolst = DupSet.values();
     }
     // now set the short path name for each resource
     foreach(QString bookpath, bookpaths) {

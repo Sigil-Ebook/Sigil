@@ -239,7 +239,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
         QFile outFile(sigil_log_file);
         outFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
         QTextStream ts(&outFile);
-        ts << qt_debug_message << endl;
+        ts << qt_debug_message << Qt::endl;
     }
 }
 

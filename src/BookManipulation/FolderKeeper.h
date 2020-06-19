@@ -380,7 +380,7 @@ template<typename T> inline
 QList<T *> FolderKeeper::ListResourceSort(const QList<T *> &resource_list)  const
 {
     QList<T *> sorted_list = resource_list;
-    qSort(sorted_list.begin(), sorted_list.end(), FolderKeeper::PointerLessThan<T>);
+    std::sort(sorted_list.begin(), sorted_list.end(), FolderKeeper::PointerLessThan<T>);
     return sorted_list;
 }
 

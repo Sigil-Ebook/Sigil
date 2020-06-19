@@ -438,7 +438,7 @@ bool OPFModel::MoveResourceList(const QList<Resource *> &resources, const QStrin
             continue;
         }
 
-	bool move_success;
+	bool move_success = false;
 	// special case the OPFResource and the NCXResource
 	if (resource->Type() == Resource::OPFResourceType) {
 	    OPFResource* opfres = qobject_cast<OPFResource*>(resource);

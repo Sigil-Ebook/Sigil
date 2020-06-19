@@ -109,7 +109,7 @@ void TableOfContents::RenumberTOCContents()
 void TableOfContents::ItemClickedHandler(const QModelIndex &index)
 {
     QString bookpath = m_TOCModel->GetBookPathForIndex(index);
-    QStringList pieces = bookpath.split('#', QString::KeepEmptyParts);
+    QStringList pieces = bookpath.split('#', Qt::KeepEmptyParts);
     QString dest_bkpath = pieces.at(0);
     QString fragment = "";
     if (pieces.size() > 1) fragment = pieces.at(1);
@@ -140,7 +140,7 @@ void TableOfContents::SetupTreeView()
 {
     m_TreeView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_TreeView->setSortingEnabled(false);
-    m_TreeView->sortByColumn(-1);
+    m_TreeView->sortByColumn(-1, Qt::AscendingOrder);
     m_TreeView->setUniformRowHeights(true);
     m_TreeView->setDragEnabled(false);
     m_TreeView->setAcceptDrops(false);

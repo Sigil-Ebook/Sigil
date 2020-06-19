@@ -1668,7 +1668,7 @@ void BookBrowser::SetupTreeView()
 {
     m_TreeView->setEditTriggers(QAbstractItemView::EditKeyPressed);
     m_TreeView->setSortingEnabled(false);
-    m_TreeView->sortByColumn(-1);
+    m_TreeView->sortByColumn(-1, Qt::AscendingOrder);
     m_TreeView->setUniformRowHeights(true);
     m_TreeView->setDragEnabled(true);
     m_TreeView->setAcceptDrops(false);

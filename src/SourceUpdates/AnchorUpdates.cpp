@@ -115,7 +115,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
         if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
             QString href = QString::fromUtf8(attr->value);
 	    href = Utility::URLDecodePath(href);
-            QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
+            QStringList parts = href.split(QChar('#'), Qt::KeepEmptyParts);
 
             if (parts.length() > 1) {
                 QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
@@ -170,7 +170,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
         if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
             QString href = QString::fromUtf8(attr->value);
 	    href = Utility::URLDecodePath(href);
-            QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
+            QStringList parts = href.split(QChar('#'), Qt::KeepEmptyParts);
 	    QString target_bookpath = Utility::buildBookPath(parts.at(0),startdir);
 
             // If the href pointed to the original file then update the file_id.
@@ -219,7 +219,7 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
 	    href = Utility::URLDecodePath(href);
 
             // Does this href point to a bookpath in the originating_bookpaths
-            QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
+            QStringList parts = href.split(QChar('#'), Qt::KeepEmptyParts);
 	    QString target_bookpath = Utility::buildBookPath(parts.at(0), startdir);
 	    if (originating_bookpaths.contains(target_bookpath)) {
 		QString attribute_value = Utility::buildRelativePath(html_resource->GetRelativePath(), sink_bookpath);

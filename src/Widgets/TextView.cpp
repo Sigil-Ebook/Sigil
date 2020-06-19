@@ -103,7 +103,7 @@ int TextView::CalculateLineNumberAreaWidth()
         max_value /= 10;
         num_digits++;
     }
-    return LINE_NUMBER_MARGIN * 2 + fontMetrics().width(QChar('0')) * num_digits;
+    return LINE_NUMBER_MARGIN * 2 + fontMetrics().horizontalAdvance(QChar('0')) * num_digits;
 }
 
 void TextView::UpdateLineNumberAreaFont(const QFont &font)
@@ -488,7 +488,7 @@ void TextView::ResetFont()
     // But just in case, say we want a fixed width font if font is not present
     font.setStyleHint(QFont::TypeWriter);
     setFont(font);
-    setTabStopWidth(TAB_SPACES_WIDTH * QFontMetrics(font).width(' '));
+    setTabStopWidth(TAB_SPACES_WIDTH * QFontMetrics(font).horizontalAdvance(' '));
     UpdateLineNumberAreaFont(font);
 }
 #endif

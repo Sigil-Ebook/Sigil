@@ -214,7 +214,7 @@ QString TOCModel::ConvertHREFToBookPath(const QString &ahref)
     if (ahref.indexOf(":") != -1) return ahref;
     // split off any fragment
     NCXResource* ncxres = m_Book->GetNCX();
-    QStringList pieces = ahref.split('#', QString::KeepEmptyParts);
+    QStringList pieces = ahref.split('#', Qt::KeepEmptyParts);
     QString basepath = pieces.at(0);
     QString fragment = "";
     if (pieces.size() > 1) fragment = pieces.at(1);

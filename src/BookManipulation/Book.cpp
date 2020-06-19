@@ -1067,7 +1067,7 @@ QSet<QString> Book::GetWordsInHTMLFiles()
         all_words.append(result);
     }
 
-    return all_words.toSet();
+    return QSet<QString>(all_words.begin(), all_words.end());
 }
 
 QStringList Book::GetWordsInHTMLFileMapped(HTMLResource *html_resource)
