@@ -3596,7 +3596,7 @@ void CodeViewEditor::ApplyListToSelection(const QString &element)
 	new_text = new_text.trimmed();
 	// now split remaining text by new lines and 
 	// remove any beginning and ending li tags
-	QStringList alist = new_text.split(QChar::ParagraphSeparator, Qt::SkipEmptyParts);
+	QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
 	QStringList result;
 	foreach(QString aitem, alist) {
 	    result.append(indent + RemoveLastTag(RemoveFirstTag(aitem,"li"), "li"));
@@ -3605,7 +3605,7 @@ void CodeViewEditor::ApplyListToSelection(const QString &element)
 	new_text = result.join("\n");
     }
     else if ((tagname == "p") || tagname.isEmpty()) {
-        QStringList alist = new_text.split(QChar::ParagraphSeparator, Qt::SkipEmptyParts);
+        QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
 	QStringList result;
 	result.append(indent + "<" + element + ">");
 	foreach(QString aitem, alist) {

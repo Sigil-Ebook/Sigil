@@ -338,7 +338,7 @@ void SearchEditorModel::AddFullNameEntry(SearchEditorModel::searchEntry *entry, 
     QString entry_name = entry->name;
 
     if (entry->name.contains("/")) {
-        QStringList group_names = entry->name.split("/", Qt::SkipEmptyParts);
+        QStringList group_names = entry->name.split("/", QString::SkipEmptyParts);
         entry_name = group_names.last();
 
         if (!entry->is_group) {

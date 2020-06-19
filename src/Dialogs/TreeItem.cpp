@@ -125,7 +125,7 @@ bool TreeItem::moveChildUp(int position)
     if (position <=0 || position > childItems.size() - 1)
         return false;
 
-    childItems.swapItemsAt(position, position-1);
+    childItems.swap(position, position-1);
     return true;
 }
 
@@ -134,7 +134,7 @@ bool TreeItem::moveChildDown(int position)
     if (position < 0 || position >= childItems.size() - 1)
         return false;
 
-    childItems.swapItemsAt(position, position+1);
+    childItems.swap(position, position+1);
     return true;
 }
 

@@ -440,7 +440,7 @@ QList<ElementIndex> ViewPreview::ConvertQWebPathToHierarchy(const QString & webp
 {
     // The location element hierarchy encoded in a string
     QString location_string = webpath;
-    QStringList elements    = location_string.split(",", Qt::SkipEmptyParts);
+    QStringList elements    = location_string.split(",", QString::SkipEmptyParts);
     QList<ElementIndex> location;
     foreach(QString element, elements) {
         ElementIndex new_element;

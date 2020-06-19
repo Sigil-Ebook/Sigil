@@ -402,7 +402,7 @@ QString GumboInterface::get_qwebpath_to_node(GumboNode* node)
 
 GumboNode* GumboInterface::get_node_from_qwebpath(QString webpath) 
 {
-    QStringList path_pieces = webpath.split(",", Qt::SkipEmptyParts);
+    QStringList path_pieces = webpath.split(",", QString::SkipEmptyParts);
     GumboNode* node = get_root_node();
     GumboNode* end_node = node;
     for (int i=0; i < path_pieces.count() - 1 ; ++i) {

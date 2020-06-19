@@ -252,7 +252,7 @@ QString NCXWriter::ConvertBookPathToNCXRelative(const QString & bookpath)
 {
     QString ncx_bkpath = m_ncxresource->GetRelativePath();
     // split off any fragment added to bookpath destination
-    QStringList pieces = bookpath.split('#', Qt::KeepEmptyParts);
+    QStringList pieces = bookpath.split('#', QString::KeepEmptyParts);
     QString dest_bkpath = pieces.at(0);
     QString fragment = "";
     if (pieces.size() > 1) fragment = pieces.at(1);

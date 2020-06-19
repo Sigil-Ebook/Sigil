@@ -100,7 +100,7 @@ bool Plugin::isvalid()
     return (!m_name.isEmpty()   &&
             !m_type.isEmpty()   &&
             (!m_engine.isEmpty() && PluginRunner::SupportedEngines().contains(m_engine)) &&
-            (m_oslist.isEmpty() || m_oslist.split(',', Qt::SkipEmptyParts).contains(POS)));
+            (m_oslist.isEmpty() || m_oslist.split(',', QString::SkipEmptyParts).contains(POS)));
 }
 
 QString Plugin::get_name()

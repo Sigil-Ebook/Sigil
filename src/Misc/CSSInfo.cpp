@@ -330,7 +330,7 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
             // Life is now complicated. We need to be careful how we remove the text.
             const int selector_length = remove_selector->originalText.length();
             const QString current_selector_text = new_text.mid(remove_selector->position, selector_length);
-            QStringList current_groups = current_selector_text.split(QChar(','), Qt::SkipEmptyParts);
+            QStringList current_groups = current_selector_text.split(QChar(','), QString::SkipEmptyParts);
 
             // If we are the last group within the selector, we can safely remove the whole thing
             if (current_groups.count() > 1) {
@@ -379,13 +379,13 @@ QList<CSSInfo::CSSProperty *> CSSInfo::getCSSProperties(const QString &text, con
     }
 
     const QString &style_text = text.mid(styleTextStartPos, styleTextEndPos - styleTextStartPos);
-    QStringList properties = style_text.split(QChar(';'), Qt::SkipEmptyParts);
+    QStringList properties = style_text.split(QChar(';'), QString::SkipEmptyParts);
     foreach(QString property_text, properties) {
         if (property_text.trimmed().isEmpty()) {
             continue;
         }
 
-        QStringList name_values = property_text.split(QChar(':'), Qt::SkipEmptyParts);
+        QStringList name_values = property_text.split(QChar(':'), QString::SkipEmptyParts);
         CSSProperty *css_property = new CSSProperty();
 
         // Any badly formed CSS or stuff we don't "understand" like pre-processing we leave as is
@@ -521,7 +521,7 @@ void CSSInfo::parseCSSSelectors(const QString &text, const int &offsetLines, con
         int line = search_text.left(pos + 1).count(QChar('\n')) + 1;
         QString selector_text = search_text.mid(pos, open_brace_pos - pos).trimmed();
         // Handle case of a selector group containing multiple declarations
-        QStringList matches = selector_text.split(QChar(','), Qt::SkipEmptyParts);
+        QStringList matches = selector_text.split(QChar(','), QString::SkipEmptyParts);
         foreach(QString match, matches) {
             CSSSelector *selector = new CSSSelector();
             selector->originalText = selector_text;
@@ -538,7 +538,7 @@ void CSSInfo::parseCSSSelectors(const QString &text, const int &offsetLines, con
             // Also replace any other characters like > or + not of interest
             match.replace(strip_non_name_chars_regex, QChar(' '));
             // Now break it down into the element components
-            QStringList elements = match.trimmed().split(QChar(' '), Qt::SkipEmptyParts);
+            QStringList elements = match.trimmed().split(QChar(' '), QString::SkipEmptyParts);
             foreach(QString element, elements) {
                 if (element.contains(QChar('.'))) {
                     QStringList parts = element.split('.');

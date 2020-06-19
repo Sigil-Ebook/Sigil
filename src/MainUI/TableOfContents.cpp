@@ -109,7 +109,7 @@ void TableOfContents::RenumberTOCContents()
 void TableOfContents::ItemClickedHandler(const QModelIndex &index)
 {
     QString bookpath = m_TOCModel->GetBookPathForIndex(index);
-    QStringList pieces = bookpath.split('#', Qt::KeepEmptyParts);
+    QStringList pieces = bookpath.split('#', QString::KeepEmptyParts);
     QString dest_bkpath = pieces.at(0);
     QString fragment = "";
     if (pieces.size() > 1) fragment = pieces.at(1);
