@@ -239,7 +239,11 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
         QFile outFile(sigil_log_file);
         outFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
         QTextStream ts(&outFile);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
         ts << qt_debug_message << Qt::endl;
+#else
+        ts << qt_debug_message << endl;
+#endif	
     }
 }
 
