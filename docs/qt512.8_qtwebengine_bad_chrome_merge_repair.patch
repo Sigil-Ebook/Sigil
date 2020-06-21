@@ -1,0 +1,26 @@
+--- qtwebengine/src/3rdparty/chromium/third_party/blink/renderer/core/editing/serializers/styled_markup_serializer.cc.orig	2020-06-19 23:46:16.000000000 -0400
++++ qtwebengine/src/3rdparty/chromium/third_party/blink/renderer/core/editing/serializers/styled_markup_serializer.cc	2020-06-19 23:47:33.000000000 -0400
+@@ -363,11 +363,6 @@
+       }
+ 
+       if (n->GetLayoutObject() || ShouldSerializeUnrenderedElement(*n)) {
+-        next = Strategy::NextSkippingChildren(*n);
+-        // Don't skip over pastEnd.
+-        if (past_end && Strategy::IsDescendantOf(*past_end, *n))
+-          next = past_end;
+-      } else {
+         // Add the node to the markup if we're not skipping the descendants
+         AppendStartMarkup(*n);
+ 
+@@ -378,6 +373,11 @@
+         }
+         AppendEndMarkup(*n);
+         last_closed = n;
++      } else {
++        next = Strategy::NextSkippingChildren(*n);
++        // Don't skip over pastEnd.
++        if (past_end && Strategy::IsDescendantOf(*past_end, *n))
++          next = past_end;
+       }
+     }
+ 
