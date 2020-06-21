@@ -71,9 +71,9 @@ public:
 
 private:
     unsigned int m_n;
+    QHash<QString, TAttribute*> m_mapping;
     // anchor for the circular doubly linked list
     TAttribute* m_anchor;
-    QHash<QString, TAttribute*> m_mapping;
 };
 
 #endif // TAGATTS_H
