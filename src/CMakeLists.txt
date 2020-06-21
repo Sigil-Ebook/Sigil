@@ -54,6 +54,8 @@ endif()
 
 #############################################################################
 
+add_definitions(-DQT_NO_DEPRECATED_WARNINGS)
+
 if( UNIX AND NOT APPLE )
     # Qt5 packages minimum version 5.9 for Linux
     set(QT5_NEEDED 5.9)
