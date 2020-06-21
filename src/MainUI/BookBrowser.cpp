@@ -123,7 +123,7 @@ void BookBrowser::SetBook(QSharedPointer<Book> book)
         EmitResourceActivated(m_OPFModel->GetFirstHTMLModelIndex());
     }
     // No exception variable since we don't use it
-    catch (NoHTMLFiles) {
+    catch (NoHTMLFiles&) {
         // Do nothing. No HTML files, no first file opened.
     }
 }
@@ -275,7 +275,7 @@ Resource *BookBrowser::GetUrlResource(const QUrl &url)
         try {
             Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
             return resource;
-        } catch (ResourceDoesNotExist) {
+        } catch (ResourceDoesNotExist&) {
             Utility::DisplayStdErrorDialog(tr("The file \"%1\" does not exist.").arg(bookpath));
         }
     }
@@ -715,7 +715,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
 		        CoverImageSemanticsSet = m_Book->GetOPF()->IsCoverImage(image_resource);
 		    }
                     old_resource->Delete();
-                } catch (ResourceDoesNotExist) {
+                } catch (ResourceDoesNotExist&) {
                     Utility::DisplayStdErrorDialog(tr("Unable to delete or replace file \"%1\".").arg(filename)
                     );
                     continue;

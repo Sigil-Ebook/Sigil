@@ -62,7 +62,7 @@ bool HTMLResource::LoadFromDisk()
         SetText(text);
         emit LoadedFromDisk();
         return true;
-    } catch (CannotOpenFile) {
+    } catch (CannotOpenFile&) {
         //
     }
 

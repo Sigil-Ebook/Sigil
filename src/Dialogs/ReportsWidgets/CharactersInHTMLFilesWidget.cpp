@@ -264,7 +264,7 @@ void CharactersInHTMLFilesWidget::Save()
 
     try {
         Utility::WriteUnicodeTextFile(report_info, destination);
-    } catch (CannotOpenFile) {
+    } catch (CannotOpenFile&) {
         QMessageBox::warning(this, tr("Sigil"), tr("Cannot save report file."));
     }
 

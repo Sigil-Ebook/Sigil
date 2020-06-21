@@ -284,7 +284,7 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
             }
 
             updates[ fullfilepath ] = newpath;
-        } catch (FileDoesNotExist) {
+        } catch (FileDoesNotExist&) {
             // Do not touch link if it is already broken
             QString target_file = hinfo.absolutePath() + "/" + file_path;
             target_file = Utility::resolveRelativeSegmentsInFilePath(target_file, "/");
@@ -319,7 +319,7 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_path
             }
 
             updates[ fullfilepath ] = newpath;
-        } catch (FileDoesNotExist) {
+        } catch (FileDoesNotExist&) {
             // Do not touch link if it is already broken
             QString target_file = hinfo.absolutePath() + "/" + file_path;
             target_file = Utility::resolveRelativeSegmentsInFilePath(target_file, "/");

@@ -204,7 +204,7 @@ QString UniversalUpdates::UpdateOneHTMLFile(HTMLResource *html_resource,
         html_resource->SetText(newsource);
         html_resource->SetCurrentBookRelPath("");
         return QString();
-    } catch (ErrorBuildingDOM) {
+    } catch (ErrorBuildingDOM&) {
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.
@@ -275,12 +275,12 @@ QString UniversalUpdates::LoadAndUpdateOneHTMLFile(HTMLResource *html_resource,
         }
         html_resource->SetText(source);
         return QString();
-    } catch (ErrorBuildingDOM) {
+    } catch (ErrorBuildingDOM&) {
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.
         return QString(QObject::tr("Invalid HTML file: %1")).arg(html_resource->GetRelativePath());
-    } catch (QString err) {
+    } catch (QString& err) {
         return QString("%1: %2").arg(err).arg(html_resource->GetRelativePath());
     } catch (...) {
         return QString("Cannot perform HTML updates there was an unrecoverable error: %1").arg(html_resource->GetRelativePath());
@@ -320,7 +320,7 @@ QString UniversalUpdates::UpdateOPFFile(OPFResource *opf_resource,
         opf_resource->SetText(newsource);
         opf_resource->SetCurrentBookRelPath("");
         return QString();
-    } catch (ErrorBuildingDOM) {
+    } catch (ErrorBuildingDOM&) {
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.
@@ -346,7 +346,7 @@ QString UniversalUpdates::UpdateNCXFile(NCXResource *ncx_resource,
         ncx_resource->SetText(CleanSource::PrettifyDOCTYPEHeader(newsource));
         ncx_resource->SetCurrentBookRelPath("");
         return QString();
-    } catch (ErrorBuildingDOM) {
+    } catch (ErrorBuildingDOM&) {
         // It would be great if we could just let this exception bubble up,
         // but we can't since QtConcurrent doesn't let exceptions cross threads.
         // So we just leave the old source in the resource.

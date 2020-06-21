@@ -185,7 +185,7 @@ void ValidationResultsView::ResultDoubleClicked(QTableWidgetItem *item)
         } else {
             emit OpenResourceRequest(resource, line, -1, QString());
         }
-    } catch (ResourceDoesNotExist) {
+    } catch (ResourceDoesNotExist&) {
         return;
     }
 }
@@ -230,7 +230,7 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
 	try {
 	    Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
 	    path = resource->ShortPathName();
-	} catch (ResourceDoesNotExist) {
+	} catch (ResourceDoesNotExist&) {
             if (bookpath.isEmpty()) {
 	        path = "***Invalid Book Path Provided ***";
             } else {

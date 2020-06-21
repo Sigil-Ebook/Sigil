@@ -171,7 +171,7 @@ bool TextResource::LoadFromDisk()
         }
 
         return true;
-    } catch (CannotOpenFile) {
+    } catch (CannotOpenFile&) {
         // ?
     }
 

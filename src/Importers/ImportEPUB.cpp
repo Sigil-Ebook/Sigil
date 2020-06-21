@@ -556,7 +556,7 @@ void ImportEPUB::LocateOPF()
     QXmlStreamReader container;
     try {
         container.addData(Utility::ReadUnicodeTextFile(fullpath));
-    } catch (CannotOpenFile) {
+    } catch (CannotOpenFile&) {
         // Find the first OPF file.
         QString OPFfile;
         QDirIterator files(m_ExtractedFolderPath, QStringList() << "*.opf", QDir::NoFilter, QDirIterator::Subdirectories);
@@ -961,7 +961,7 @@ std::tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const 
         }
         QString newpath = resource->GetRelativePath();
         return std::make_tuple(currentpath, newpath);
-    } catch (FileDoesNotExist) {
+    } catch (FileDoesNotExist&) {
         return std::make_tuple(UPDATE_ERROR_STRING, UPDATE_ERROR_STRING);
     }
 }

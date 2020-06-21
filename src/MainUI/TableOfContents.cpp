@@ -123,7 +123,7 @@ void TableOfContents::ItemClickedHandler(const QModelIndex &index)
     try {
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(dest_bkpath);
         emit OpenResourceRequest(resource, line, -1, QString(), fragment);
-    } catch (ResourceDoesNotExist) {
+    } catch (ResourceDoesNotExist&) {
         Utility::DisplayStdErrorDialog(
             tr("The file \"%1\" does not exist.")
             .arg(dest_bkpath)

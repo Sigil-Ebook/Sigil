@@ -189,7 +189,7 @@ bool OPFResource::LoadFromDisk()
 	SetText(text);
         emit LoadedFromDisk();
 	return true;
-    } catch (CannotOpenFile) {
+    } catch (CannotOpenFile&) {
         //
     }
     return false;
