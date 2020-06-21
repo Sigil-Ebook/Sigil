@@ -26,6 +26,7 @@
 #endif
 
 #include "unzip.h"
+
 #ifdef _WIN32
 #include "iowin32.h"
 #endif
@@ -1135,7 +1136,7 @@ QStringList Utility::sortByCounts(const QStringList &folderlst, const QList<int>
     }
     std::sort(vec.begin(), vec.end(), sort_pair_in_reverse);
     QStringList sortedlst;
-    for(int j=0; j < vec.size(); j++) {
+    for(unsigned int j=0; j < vec.size(); j++) {
         sortedlst << vec[j].second;
     }
     return sortedlst;

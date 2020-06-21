@@ -279,6 +279,7 @@ void setupHighDPI()
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, false);
         foreach(QString v, env_vars) {
             bool irrel = qunsetenv(v.toUtf8().constData());
+	    Q_UNUSED(irrel);
         }
     }
 }
@@ -300,6 +301,7 @@ int main(int argc, char *argv[])
         QStringList env_vars = {"QT_QPA_PLATFORMTHEME", "QT_STYLE_OVERRIDE"};
         foreach(QString v, env_vars) {
             bool irrel = qunsetenv(v.toUtf8().constData());
+	    Q_UNUSED(irrel);
         }
 }
 #endif

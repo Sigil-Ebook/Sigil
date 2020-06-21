@@ -190,7 +190,6 @@ MainWindow::MainWindow(const QString &openfilepath,
     c_SaveFilters(GetSaveFiltersMap()),
     c_LoadFilters(GetLoadFiltersMap()),
     m_casingChangeGroup(new QActionGroup(this)),
-    m_headingActionGroup(new QActionGroup(this)),
     m_SearchEditor(new SearchEditor(this)),
     m_ClipEditor(new ClipEditor(this)),
     m_IndexEditor(new IndexEditor(this)),
@@ -218,7 +217,8 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_menuPluginsValidation(NULL),
     m_pluginList(QStringList()),
     m_SaveCSS(false),
-    m_IsClosing(false)
+    m_IsClosing(false),
+    m_headingActionGroup(new QActionGroup(this))
 {
     createJumpList();
     ui.setupUi(this);

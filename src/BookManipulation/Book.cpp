@@ -1271,7 +1271,8 @@ std::tuple<bool, QString, QString> Book::HasUndefinedURLFragments()
 {
     QList<HTMLResource *> html_resources = GetHTMLResources();
     bool hasUndefinedUrlFrags = false;
-
+    Q_UNUSED(hasUndefinedUrlFrags);
+    
     QStringList html_bookpaths;
     foreach(HTMLResource *html_resource, html_resources) {
         html_bookpaths.append(html_resource->GetRelativePath());

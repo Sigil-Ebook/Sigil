@@ -214,8 +214,8 @@ void CodeViewEditor::HighlightMarkedText()
     QList<QTextEdit::ExtraSelection> extraSelections;
     QTextEdit::ExtraSelection selection;
     selection.cursor = textCursor();
-
-    selection.format.setFontUnderline(QTextCharFormat::DotLine);
+    selection.format.setUnderlineStyle(QTextCharFormat::DotLine);
+    selection.format.setFontUnderline(true);
     selection.cursor.clearSelection();
     selection.cursor.setPosition(0);
     int textlen = textLength();
@@ -227,7 +227,8 @@ void CodeViewEditor::HighlightMarkedText()
     if (m_MarkedTextStart < 0 || m_MarkedTextEnd > textlen) {
         return;
     }
-    selection.format.setFontUnderline(QTextCharFormat::DotLine);
+    selection.format.setUnderlineStyle(QTextCharFormat::DotLine);
+    selection.format.setFontUnderline(true);
     selection.cursor = textCursor();
     selection.cursor.clearSelection();
     selection.cursor.setPosition(m_MarkedTextStart);

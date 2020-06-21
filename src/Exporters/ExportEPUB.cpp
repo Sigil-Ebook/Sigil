@@ -26,6 +26,7 @@
 
 #include <string>
 #include <string.h>
+
 #include <zip.h>
 #ifdef _WIN32
 #include <iowin32.h>

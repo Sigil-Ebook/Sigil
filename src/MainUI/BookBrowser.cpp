@@ -131,6 +131,7 @@ void BookBrowser::SetBook(QSharedPointer<Book> book)
 void BookBrowser::RefreshCounts()
 {
     int  mainfolder_length = m_Book->GetFolderKeeper()->GetFullPathToMainFolder().length();
+    Q_UNUSED(mainfolder_length);
     for (int i = 0; i < m_OPFModel->invisibleRootItem()->rowCount(); i++) {
         QStandardItem *folder = m_OPFModel->invisibleRootItem()->child(i);
 	QString tooltip;
@@ -992,6 +993,7 @@ void BookBrowser::Rename()
     }
 
     Resource::ResourceType resource_type = resources.first()->Type();
+    Q_UNUSED(resource_type);
 
     if (resources.count() == 1) {
         // Save the resource so it can be re-selected
@@ -1012,7 +1014,8 @@ void BookBrowser::REXRename()
     }
 
     Resource::ResourceType resource_type = resources.first()->Type();
-
+    Q_UNUSED(resource_type);
+    
     QString retext;
     QString replacetext;
     int trycnt = 4;

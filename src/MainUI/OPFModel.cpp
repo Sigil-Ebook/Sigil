@@ -376,7 +376,7 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
             continue;
         }
 
-	bool rename_success;
+	bool rename_success = false;
 	// special case the OPFResource and the NCXResource
 	if (resource->Type() == Resource::OPFResourceType) {
 	    OPFResource* opfres = qobject_cast<OPFResource*>(resource);
