@@ -66,7 +66,7 @@
          self.add(Extension('_tkinter', ['_tkinter.c', 'tkappinit.c'],
                             define_macros=[('WITH_APPINIT', 1)],
 -                           include_dirs=include_dirs,
-+                           include_dirs=['-I/Library/Frameworks/Tcl.framework/Headers', '-I/Library/Frameworks/Tk.framework/Headers'] + include_dirs,
++                           include_dirs=['/Library/Frameworks/Tcl.framework/Headers', '/Library/Frameworks/Tk.framework/Headers'] + include_dirs,
                             libraries=[],
                             extra_compile_args=frameworks[2:],
 -                           extra_link_args=frameworks))
