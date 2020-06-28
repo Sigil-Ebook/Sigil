@@ -54,6 +54,9 @@ endif()
 
 #############################################################################
 
+# quiet Qt 5.15 deprecat4ed warnings for now as we must support Qt 5.12.X and even earlier
+add_definitions(-DQT_NO_DEPRECATED_WARNINGS)
+
 if( UNIX AND NOT APPLE )
     # Qt5 packages minimum version 5.9 for Linux
     set(QT5_NEEDED 5.9)
