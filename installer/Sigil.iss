@@ -50,7 +50,7 @@ Name: dicon; Description: "Create a desktop icon"; Types: full custom
 Name: afiles; Description: "Associate ebook files with {#AppName}"
 Name: afiles\epub; Description: "EPUB"
 ; Cancel runtime install if desired.
-Name: vcruntime; Description: "Install bundled VS ${VCREDIST_VER} runtime if necessary? (admin required)"; Types: full custom
+Name: vcruntime; Description: "Check if bundled VS runtime install is necessary? (admin required)"; Types: full custom
 
 [Registry]
 ; Add Sigil as a global file handler for EPUB and HTML.
@@ -188,6 +188,19 @@ begin
     if not IsAdminInstallMode then
     begin
       WizardForm.ComponentsList.Checked[4] := False;
-      // WizardForm.ComponentsList.ItemEnabled[4] := False;
+      WizardForm.ComponentsList.ItemEnabled[4] := False;
     end;
+end;
+
+function NextButtonClick(CurPageID: Integer): Boolean ;
+begin
+  Result := True;
+  if CurPageID = wpSelectComponents then
+  begin
+    if (not WizardIsComponentSelected('vcruntime')) and (not IsAdminInstallMode)  then
+      Result := MsgBox('When installing for the current user only, you are' + #13#10 +
+        'responsible for insuring that the proper Visual Studio' + #13#10 +
+        'runtime distributable is installed.' + #13#10 + #13#10 +
+        'Do you wish to continue?' , mbInformation, MB_YESNO) = IDYES;
+  end;
 end;
