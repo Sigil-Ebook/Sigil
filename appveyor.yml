@@ -88,18 +88,18 @@ before_build:
     set PATH=%PYTHON%;%PYTHON%\Scripts;%QT%\bin;%INNO%;%PATH%
     echo 'PATH = %PATH%'
     python -m pip install --upgrade pip
-    pip3.7 install six==1.15.0
-    pip3.7 install html5lib==1.1
-    pip3.7 install regex==2020.6.8
-    pip3.7 install css-parser==1.0.4
-    pip3.7 install cssselect==1.1.0
-    pip3.7 install urllib3==1.25.9
-    pip3.7 install certifi==2020.6.20
-    pip3.7 install dulwich==0.20.5 --global-option="--pure"
-    pip3.7 install chardet==3.0.4
-    pip3.7 install pillow==7.1.2
-    pip3.7 install PyQt5==5.12.3 PyQt5-sip==4.19.19
-    pip3.7 install lxml==4.5.1
+    pip3.8 install six==1.15.0
+    pip3.8 install html5lib==1.1
+    pip3.8 install regex==2020.6.8
+    pip3.8 install css-parser==1.0.4
+    pip3.8 install cssselect==1.1.0
+    pip3.8 install urllib3==1.25.9
+    pip3.8 install certifi==2020.6.20
+    pip3.8 install dulwich==0.20.5 --global-option="--pure"
+    pip3.8 install chardet==3.0.4
+    pip3.8 install pillow==7.1.2
+    pip3.8 install PyQt5==5.12.3 PyQt5-sip==4.19.19
+    pip3.8 install lxml==4.5.1
     cd project\sigil\build
     curl.exe -L -o gdrive.exe %GDRIVE%
     c:\project\sigil\build\gdrive.exe version
