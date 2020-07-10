@@ -720,6 +720,18 @@ bool Utility::has_non_ascii_chars(const QString &str)
 
 bool Utility::use_filename_warning(const QString &filename)
 {
+    const QString uri_delimiters = ":/?#[]@";
+    foreach(QChar c, uri_delimiters) {
+        if (filename.contains(c)) {
+	  QMessageBox::warning(QApplication::activeWindow(),
+			       tr("Sigil"),
+                               tr("The requested file name contains one or more url/uri delimiter characters: "
+				  " : / ? # [ ] @  "
+				  "that should NOT appear in url/uri link targets such as filenames.\n\n"),
+			       QMessageBox::Ok);
+	  return false;
+        }
+    }
     if (has_non_ascii_chars(filename)) {
         return QMessageBox::Apply == QMessageBox::warning(QApplication::activeWindow(),
                 tr("Sigil"),
