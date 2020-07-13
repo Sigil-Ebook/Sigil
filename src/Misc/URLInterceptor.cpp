@@ -21,10 +21,11 @@
 
 #include <QString>
 #include <QUrl>
+#include <QApplication>
+#include <QWidgetList>
 #include <QDebug>
 
 #include "BookManipulation/Book.h"
-#include "Misc/Utility.h"
 #include "MainUI/MainWindow.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "URLInterceptor.h"
@@ -60,31 +61,40 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 
     // verify all url file schemes before allowing
     if (destination.scheme() == "file") {
-        QString bookfolder;
+        // find the relavent MainWindow
+	QString bookfolder;
         QString mathjaxfolder;
-        QString usercssfolder;
-        MainWindow * mainwin = qobject_cast<MainWindow*>(Utility::GetMainWindow());
+        QString usercssfolder = Utility::DefinePrefsDir() + "/";
+	QString sourcefolder = info.firstPartyUrl().toLocalFile();
+	const QWidgetList topwidgets = qApp->topLevelWidgets();
+	foreach(QWidget* widget, topwidgets) {
+	    MainWindow * mw = qobject_cast<MainWindow *>(widget);
+	    if (mw) {
+		QSharedPointer<Book> book = mw->GetCurrentBook();
+		QString path_to_book = book->GetFolderKeeper()->GetFullPathToMainFolder() + "/";
+		QString path_to_mathjax = mw->GetMathJaxFolder();
+		if (sourcefolder.startsWith(path_to_book)) {
+		    bookfolder = path_to_book;
+		    mathjaxfolder = path_to_mathjax;
 #if INTERCEPTDEBUG
-        qDebug() << "mainwin: " <<  mainwin;
+                    qDebug() << "mainwin: " <<  mw;
+                    qDebug() << "book: " << bookfolder;
+                    qDebug() << "mathjax: " << mathjaxfolder;
+                    qDebug() << "usercss: " << usercssfolder;
+		    qDebug() << "party: " << info.firstPartyUrl();
+		    qDebug() << "source: " << sourcefolder;
 #endif
-        if (mainwin) {
-            QSharedPointer<Book> book = mainwin->GetCurrentBook();
-            bookfolder = book->GetFolderKeeper()->GetFullPathToMainFolder() + "/";
-            mathjaxfolder = mainwin->GetMathJaxFolder();
-            usercssfolder = Utility::DefinePrefsDir() + "/";
-#if INTERCEPTDEBUG
-            qDebug() << "book: " << bookfolder;
-            qDebug() << "mathjax: " << mathjaxfolder;
-            qDebug() << "usercss: " << usercssfolder;
-#endif
-        }
+		    break;
+		}
+	    }
+	}
         // if can not determine book folder block it
         if (bookfolder.isEmpty()) {
             info.block(true);
             qDebug() << "Error: URLInterceptor can not determine book folder so all file: requests blocked";
             return;
         }
-        // path must be inside of bookfolder, Nore it is legal for it not to exist
+        // path must be inside of bookfolder, Note it is legal for it not to exist
         QString destpath = destination.toLocalFile();
         if (destpath.startsWith(bookfolder)) {
             info.block(false);
