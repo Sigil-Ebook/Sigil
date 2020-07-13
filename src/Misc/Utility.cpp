@@ -691,6 +691,7 @@ float Utility::RoundToOneDecimal(float number)
 QWidget *Utility::GetMainWindow()
 {
     QWidget *parent_window = QApplication::activeWindow();
+#if 0
     if (!parent_window) {
         const QWidgetList allWidgets = QApplication::allWidgets();
         for (QWidget *widget : allWidgets) {
@@ -700,6 +701,7 @@ QWidget *Utility::GetMainWindow()
             }
         }
     }
+#endif
 
     while (parent_window && !(qobject_cast<QMainWindow *>(parent_window))) {
         parent_window = parent_window->parentWidget();
