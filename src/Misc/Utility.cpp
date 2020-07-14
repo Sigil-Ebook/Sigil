@@ -691,22 +691,13 @@ float Utility::RoundToOneDecimal(float number)
 QWidget *Utility::GetMainWindow()
 {
     QWidget *parent_window = QApplication::activeWindow();
-    if (!parent_window) {
-        const QWidgetList allWidgets = QApplication::allWidgets();
-        for (QWidget *widget : allWidgets) {
-            if (widget->objectName() == "PluginRunner") {
-                parent_window = widget;
-                break;
-            }
-        }
-    }
-
     while (parent_window && !(qobject_cast<QMainWindow *>(parent_window))) {
         parent_window = parent_window->parentWidget();
     }
 
     return parent_window;
 }
+
 
 QString Utility::getSpellingSafeText(const QString &raw_text)
 {

@@ -30,7 +30,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "URLInterceptor.h"
 
-#define INTERCEPTDEBUG 1
+#define INTERCEPTDEBUG 0
 
 URLInterceptor::URLInterceptor(QObject *parent)
     : QWebEngineUrlRequestInterceptor(parent)
