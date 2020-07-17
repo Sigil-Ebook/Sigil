@@ -217,12 +217,6 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         return true;
     }
 
-    QWidget *active_window = QApplication::activeWindow();
-    if (!active_window) {
-        DBG qDebug() << "ignoring PV UpdatePage since no Sigil Window is active.";
-        return true;
-    }
-
     if (m_updatingPage) {
         DBG qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
 	return false;
