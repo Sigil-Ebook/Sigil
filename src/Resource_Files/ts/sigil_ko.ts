@@ -1,90 +1,90 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ko" version="2.1">
 <context>
     <name>About</name>
     <message>
         <location filename="../../Form_Files/About.ui" line="14"/>
         <source>About</source>
-        <translation>关于</translation>
+        <translation>Sigil 정보</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="56"/>
         <source>The EPUB Editor</source>
-        <translation>EPUB 编辑器</translation>
+        <translation>EPUB 편집기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="70"/>
         <source>General</source>
-        <translation>常规</translation>
+        <translation>일반</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="107"/>
         <source>Homepage:</source>
-        <translation>主页:</translation>
+        <translation>홈페이지:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="143"/>
         <source>Version:</source>
-        <translation>版本:</translation>
+        <translation>버젼:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="170"/>
         <source>Loaded Qt:</source>
-        <translation>装载 QT：</translation>
+        <translation>불러들인 Qt:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="200"/>
         <source>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU General Public License v3&lt;/a&gt;</source>
-        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU 通用公共许可证 v3&lt;/a&gt;</translation>
+        <translation>&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0-standalone.html&quot;&gt;GNU 일반 공중 사용 허가서 v3&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation>构建时间：</translation>
+        <translation>빌드 시간:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="245"/>
         <source>License:</source>
-        <translation>许可证：</translation>
+        <translation>라이센스:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="255"/>
         <source>Authors</source>
-        <translation>作者</translation>
+        <translation>저자들(Authors)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
         <source>GNU General Public License v3</source>
-        <translation>GNU 通用公共许可证 v3</translation>
+        <translation>GNU 일반 공중 사용 허가서 v3</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation>维护者</translation>
+        <translation>유지관리자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation>以前的维护者</translation>
+        <translation>이전 관리자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
         <source>Code Contributors</source>
-        <translation>代码贡献者</translation>
+        <translation>코드 기여자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="68"/>
         <source>Translators</source>
-        <translation>翻译器</translation>
+        <translation>번역자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Original Creator</source>
-        <translation>原始创建者</translation>
+        <translation>원 제작자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
-        <translation>已隐退</translation>
+        <translation>은퇴</translation>
     </message>
 </context>
 <context>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>添加元数据属性</translation>
+        <translation>메타데이터 속성 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
         <source>Metadata description</source>
-        <translation>元数据描述</translation>
+        <translation>메타데이터 설명</translation>
     </message>
 </context>
 <context>
@@ -105,12 +105,12 @@
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="14"/>
         <source>Add Semantic Property</source>
-        <translation>添加语义属性</translation>
+        <translation>시맨틱 속성 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddSemantics.ui" line="56"/>
         <source>Description of Semantic Properties</source>
-        <translation>语义属性的描述</translation>
+        <translation>시맨틱 속성 설명</translation>
     </message>
 </context>
 <context>
@@ -118,57 +118,57 @@
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="14"/>
         <source>All Files</source>
-        <translation>添加文件</translation>
+        <translation>모든 파일</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>仅列出文件名包含所输入文本的文件</translation>
+        <translation>입력한 텍스트가 포함된 파일만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsAllFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>过滤：</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="73"/>
         <source>Directory</source>
-        <translation>目录</translation>
+        <translation>디렉토리</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="74"/>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="75"/>
         <source>File Size (KB)</source>
-        <translation>文件大小（KB）</translation>
+        <translation>파일 크기 (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="76"/>
         <source>Type</source>
-        <translation>类型</translation>
+        <translation>형식</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="77"/>
         <source>Semantics</source>
-        <translation>语义</translation>
+        <translation>시맨틱</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="79"/>
         <source>Properties</source>
-        <translation>属性</translation>
+        <translation>속성</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="149"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n 个文件</numerusform></translation>
+        <translation><numerusform>%n 파일</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="267"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>将报告保存为都好分割的文件</translation>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="281"/>
@@ -178,32 +178,32 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="281"/>
         <source>Cannot save report file.</source>
-        <translation>无法保存报告文件</translation>
+        <translation>리포트 파일을 저장할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="306"/>
         <source>Image</source>
-        <translation>图像</translation>
+        <translation>이미지</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="311"/>
         <source>Audio</source>
-        <translation>音频</translation>
+        <translation>오디오</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="316"/>
         <source>Video</source>
-        <translation>视频</translation>
+        <translation>비디오</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="321"/>
         <source>Font</source>
-        <translation>字体</translation>
+        <translation>폰트</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="348"/>
         <source>Unknown</source>
-        <translation>未知</translation>
+        <translation>알 수 없음</translation>
     </message>
 </context>
 <context>
@@ -211,322 +211,318 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="14"/>
         <source>Appearance</source>
-        <translation>外形</translation>
+        <translation>모양</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="30"/>
         <source>Code View</source>
-        <translation>代码视图</translation>
+        <translation>코드 보기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="36"/>
         <source>Monospaced Code Font:</source>
-        <translation>等距代码字体：</translation>
+        <translation>고정폭 코드 글꼴:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="50"/>
         <source>Font size to be used for text in Code View.</source>
-        <translation>在代码视图中使用的字体大小</translation>
+        <translation>코드 보기의 텍스트 글자 크기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="53"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="119"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="309"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="318"/>
         <source>Font Size:</source>
-        <translation>字体大小：</translation>
+        <translation>글꼴 크기:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="67"/>
         <source>Font family to be used for text in Code View.</source>
-        <translation>在代码视图中使用的字体系列</translation>
+        <translation>코드 보기에서 텍스트에 사용될 글꼴 패밀리</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="70"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="136"/>
         <source>Font:</source>
-        <translation>字体：</translation>
+        <translation>글꼴:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="102"/>
         <source>Insert Special Characters:</source>
-        <translation>插入特殊字符：</translation>
+        <translation>특수 문자 삽입 :</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="116"/>
         <source>Font size to be used for Insert Special Characters window</source>
-        <translation>在插入特殊字符窗口中使用的字体大小</translation>
+        <translation>특수 문자 삽입 창에서 사용할 글자 크기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="164"/>
         <source>Colors:</source>
-        <translation>颜色：</translation>
+        <translation>색깔:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="172"/>
         <source>Item Colors:</source>
-        <translation>项目颜色：</translation>
+        <translation>항목 색깔:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="191"/>
         <source>Select an alternative color for this display item</source>
-        <translation>选择一种替代颜色显示该项</translation>
+        <translation>이 표시 항목에 대한 대체 색상을 선택하세요</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="194"/>
         <source>Custom Color...</source>
-        <translation>自定义颜色</translation>
+        <translation>사용자 지정 색상...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="260"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="269"/>
         <source>Preview</source>
-        <translation>预览</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="266"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="497"/>
-        <source>Fonts:</source>
-        <translation>字体：</translation>
+        <translation>미리보기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="275"/>
-        <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation>如果你页面的 CSS 没有指定字体，Sigil 将使用下面的字体，这些字体不会再你的成书中使用。</translation>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="506"/>
+        <source>Fonts:</source>
+        <translation>글꼴:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="305"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="284"/>
+        <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
+        <translation>CSS에 글꼴이 지정되지 않은 경우, 다음 글꼴을 사용하여 Sigil 내에 표시합니다. 이 글꼴은 실제 전자 책에서 사용되지 않습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="314"/>
         <source>Default font size to be used for Preview
 if no font-size specified in your CSS</source>
-        <translation>用于预览的默认字体大小
-如果没有特定的字体大小设定在CSS中</translation>
+        <translation>CSS에서 글꼴 크기를 지정하지 않을 경우 미리보기에서 사용할 기본 글꼴 크기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="316"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="325"/>
         <source>Default font family to be used for Preview
 if no font-family specified in your CSS</source>
-        <translation>用于预览的默认字体系列
-如果没有特定的字体系列设定在CSS中</translation>
+        <translation>CSS에서 글꼴을 지정하지 않을 경우 미리보기에서 사용할 기본 글꼴</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="320"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="329"/>
         <source>Standard:</source>
-        <translation>标准字体：</translation>
+        <translation>표준:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="343"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="352"/>
         <source>Default font family to be used for Preview
 if a serif font-family specified in your CSS</source>
-        <translation>用于预览的默认字体系列
-如果没有特定的衬线字体系列设定在CSS 中</translation>
+        <translation>CSS에서 Serif(명조 계열) 글꼴을 지정하지 않을 경우 미리보기에서 사용할 Serif 글꼴</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="347"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="356"/>
         <source>Serif:</source>
-        <translation>衬线字体：</translation>
+        <translation>명조 계열 글꼴:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="360"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="369"/>
         <source>Default font family to be used for Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation>用于预览的默认字体系列
-如果没有特定的非衬线字体系列设定在CSS 中</translation>
+        <translation>CSS에서 Sans-serif(고딕 계열) 글꼴을 지정하지 않을 경우 미리보기에서 사용할 기본 Sans-serif 글꼴</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="364"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="373"/>
         <source>Sans-Serif:</source>
-        <translation>非衬线字体</translation>
+        <translation>고딕 계열 글꼴:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="391"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="400"/>
         <source>Make Preview simulate a dark appearance in dark mode</source>
-        <translation>使预览在黑暗模式下模拟黑暗外观</translation>
+        <translation>다크 모드 화면 미리 보기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="415"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="424"/>
         <source>Main UI</source>
-        <translation>主界面</translation>
+        <translation>기본 UI</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="421"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="430"/>
         <source>Main Menu Icon Size:</source>
-        <translation>主菜单图标大小：</translation>
+        <translation>기본 메뉴 아이콘 크기: </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="427"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="436"/>
         <source>Adjust the size of the icons in the main menu.</source>
-        <translation>调整主菜单中图标大小</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="465"/>
-        <source>High DPI Setting:</source>
-        <translation>高DPI设置：</translation>
+        <translation>메인 메뉴 아이콘 크기 조절</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="474"/>
+        <source>High DPI Setting:</source>
+        <translation>High DPI 설정:</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="483"/>
         <source>(Needs Sigil Restart)</source>
-        <translation>（Sigil需要重启）</translation>
+        <translation>(Sigil을 다시 시작해야합니다)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="503"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="512"/>
         <source>UI Font:</source>
-        <translation>界面字体：</translation>
+        <translation>UI 글꼴:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="513"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="522"/>
         <source>Change the font used by Sigil&apos;s menus, buttons, etc...</source>
-        <translation>更改Sigil菜单、按钮等使用的字体</translation>
+        <translation>Sigil의 메뉴, 버튼 등에 사용되는 글꼴을 변경하십시오.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="516"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="525"/>
         <source>Change Font (Needs Sigil Restart)</source>
-        <translation>更改字体（Sigil需要重启）</translation>
+        <translation>글꼴 변경(Sigil을 다시 시작해야합니다.)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="539"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="548"/>
         <source>Determine if the BookBrowser should show full paths</source>
-        <translation>确认BookBrowser是否应显示完整路径</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="542"/>
-        <source>Control Book Browser Appearance:</source>
-        <translation>控制Book Browser外观：</translation>
+        <translation>책 탐색기에 전체 경로가 표시되어야하는지 결정</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="551"/>
+        <source>Control Book Browser Appearance:</source>
+        <translation>책 탐색기 설정:</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="560"/>
         <source>Check to make BookBrowser show full paths.</source>
-        <translation>选中可使BookBrowser显示完整路径。</translation>
+        <translation>책 탐색기에 전체 경로가 표시되어야 할 경우 선택</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="554"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="563"/>
         <source>BookBrowser should show full paths.</source>
-        <translation>BookBrowser应该显示完整的路径。</translation>
+        <translation>책 탐색기에 전체 경로가 표시되야 함</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="567"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="576"/>
         <source>Tweak Drag Distance (Needs Sigil Restart):</source>
-        <translation>调整拖动距离（Sigil需要重启）：</translation>
+        <translation>드래그 거리 조절(Sigil을 다시 시작해야 합니다)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="600"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="609"/>
         <source>Reset all fonts and colors to the default values</source>
-        <translation>重置所有字体和颜色为默认值</translation>
+        <translation>모든 글꼴과 색상을 기본값으로 초기화합니다</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="603"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="612"/>
         <source>Reset All</source>
-        <translation>全部重置</translation>
+        <translation>모두 초기화</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="92"/>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="93"/>
         <source>Detect</source>
-        <translation>检测</translation>
+        <translation>감지</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="92"/>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="95"/>
         <source>On</source>
-        <translation>开</translation>
+        <translation>켜기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="92"/>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="97"/>
         <source>Off</source>
-        <translation>关</translation>
+        <translation>끄기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="93"/>
         <source>Detect whether any high dpi scaling should take place.</source>
-        <translation>检测是否应发生任何高dpi缩放。</translation>
+        <translation>High dpi 스케일링이 발생하는지 감지합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="94"/>
         <source>Defers to any Qt environment variables that are set to control high dpi behavior.</source>
-        <translation>遵从任何设置为控制高dpi行为的Qt环境变量。</translation>
+        <translation>High dpi 동작을 제어하도록 설정된 Qt 환경 변수를 연기합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="95"/>
         <source>Turns on high dpi scaling and ignores any Qt environment variables</source>
-        <translation>打开高dpi缩放并忽略任何Qt环境变量</translation>
+        <translation>High dpi 스케일링을 켜고 Qt 환경 변수를 무시합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="96"/>
         <source>that are set controlling high dpi behavior.</source>
-        <translation>设置为控制高dpi行为。</translation>
+        <translation>High dpi 동작을 제어하도록 설정되어 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="97"/>
         <source>Turns off high dpi scaling regardless if any Qt environment</source>
-        <translation>关闭高dpi缩放，而不考虑Qt环境</translation>
+        <translation>Qt 환경에 관계없이 High dpi 스케일링을 끕니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="98"/>
         <source>variables controlling high dpi behavior are set.</source>
-        <translation>设置控制高dpi行为的变量。</translation>
+        <translation>High dpi 동작을 제어하는 ​​변수가 설정됩니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="102"/>
         <source>Adjust the distance necessary to drag an item before a move event is triggered.</source>
-        <translation>调整在触发移动事件之前拖动项目所需的距离。</translation>
+        <translation>이동 이벤트가 생기기 전에 항목을 드래그하는 데 필요한 거리를 조정하세요.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="103"/>
         <source>-20 to +20 pixel range</source>
-        <translation>-20至+20像素范围</translation>
+        <translation>-20에서 20 사이의 픽셀 범위</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="287"/>
         <source>CSS Comment</source>
-        <translation>CSS 注释</translation>
+        <translation>CSS 주석</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="288"/>
         <source>CSS Property</source>
-        <translation>CSS 属性</translation>
+        <translation>CSS 속성(Property)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="289"/>
         <source>CSS Quote</source>
-        <translation>CSS 引用</translation>
+        <translation>CSS Quote</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="290"/>
         <source>CSS Selector</source>
-        <translation>CSS 选择器</translation>
+        <translation>CSS 선택자(Selector)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="291"/>
         <source>CSS Value</source>
-        <translation>CSS 值</translation>
+        <translation>CSS 값(Value)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="292"/>
         <source>Line Highlight</source>
-        <translation>行突出显示</translation>
+        <translation>줄 강조</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="293"/>
         <source>Line# Background</source>
-        <translation>行#背景</translation>
+        <translation>Line# 배경</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="294"/>
         <source>Line# Foreground</source>
-        <translation>行#前景</translation>
+        <translation>Line# 전경</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="295"/>
         <source>Spelling Underline</source>
-        <translation>拼写下划线</translation>
+        <translation>맞춤법 오류 밑줄</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="296"/>
         <source>XHTML Attribute Name</source>
-        <translation>XHTML 属性名称</translation>
+        <translation>XHTML 특성 이름(Attribute Name)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="297"/>
         <source>XHTML Attribute Value</source>
-        <translation>XHTML 属性值</translation>
+        <translation>XHTML 특성 값(Attribute Value)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="298"/>
@@ -536,27 +532,27 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="299"/>
         <source>XHTML CSS Comment</source>
-        <translation>XHTML CSS 注释</translation>
+        <translation>XHTML CSS 주석(Comment)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="300"/>
         <source>XHTML DocType</source>
-        <translation>XHTML 文本类型</translation>
+        <translation>XHTML DocType</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="301"/>
         <source>XHTML Entity</source>
-        <translation>XHTML 实体</translation>
+        <translation>XHTML 엔터티(Entity)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="302"/>
         <source>XHTML HTML Tag</source>
-        <translation>XHTML HTML 标签</translation>
+        <translation>XHTML HTML 태그(Tag)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="303"/>
         <source>XHTML HTML Comment</source>
-        <translation>XHTML HTML 注释</translation>
+        <translation>XHTML HTML 주석(Comment)</translation>
     </message>
 </context>
 <context>
@@ -564,7 +560,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="415"/>
         <source>Start</source>
-        <translation>开始</translation>
+        <translation>시작</translation>
     </message>
 </context>
 <context>
@@ -572,323 +568,321 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="69"/>
         <source>Book Browser</source>
-        <translation>书浏览器</translation>
+        <translation>책 찾아보기</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="81"/>
         <source>Font Obfuscation</source>
-        <translation>字体混淆</translation>
+        <translation>글꼴 난독 처리</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="82"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1714"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1836"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1719"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1841"/>
         <source>Open With</source>
-        <translation>打开方式</translation>
+        <translation>외부 프로그램으로 편집</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="141"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="142"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n 个文件</numerusform></translation>
+        <translation><numerusform>%n 파일</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="244"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="691"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="722"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="780"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="894"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1178"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1283"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="245"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="694"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="725"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="783"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="897"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1183"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="244"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="245"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation>是否确定将所选文件按照字符顺序排列</translation>
+        <translation>선택한 파일을 사전순으로 정렬하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="244"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="245"/>
         <source>This action cannot be reversed.</source>
-        <translation>无法逆转这个操作</translation>
+        <translation>이 작업의 실행을 취소할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="279"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="280"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>文件&quot;%1&quot;不存在</translation>
+        <translation>파일 &quot;%1&quot; 는 존재하지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="622"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="625"/>
         <source>Add Existing Files</source>
-        <translation>添加已存在文件</translation>
+        <translation>기존 파일 추가</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="661"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="664"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
-        <translation>文件不是图像或者无法使用：
+        <translation>선택하신 파일은 이미지 파일이 아닙니다:
 
-“%1”。</translation>
+&quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="670"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="673"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation>文件不是多媒体（图像，视频，音频）或者无法使用
+        <translation>멀티미디어 파일(이미지, 동영상, 오디오) 파일이 아니면 추가되지 않습니다.
 
-“%1”。</translation>
+&quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="692"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="695"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation>书中已存在该多媒体文件 “%1”。
-
-是否替换？</translation>
+        <translation>멀티미디어 파일 &quot;%1&quot;이 이미 추가되어 있습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="717"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="720"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
-        <translation>无法删除或者替换文件 “%1”。</translation>
+        <translation>&quot;%1&quot; 파일을 지우거나 교체할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="722"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="725"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation>无法加载 “%1”
+        <translation>&quot;%1&quot;을 불러들일 수 없습니다.
 
-在书中已经存在该名称的文件。</translation>
+이 이름을 갖는 파일이 이미 책에 있습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="781"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="784"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
-        <translation>由于无效内容或错误的 XML 格式，下面文件无法加载：
+        <translation>다음 파일은 잘못된 콘텐츠 혹은 문법에 맞지 않는 XML 파일이어서 추가되지 않았습니다.
 
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="795"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="798"/>
         <source>File(s) added.</source>
-        <translation>文件已添加。</translation>
+        <translation>파일 추가됨.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="835"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="838"/>
         <source>Save As File</source>
-        <translation>文件另存为</translation>
+        <translation>파일로 저장하기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="858"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="861"/>
         <source>Unable to save the file.</source>
-        <translation>无法保存该文件</translation>
+        <translation>파일을 저장할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="872"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="875"/>
         <source>Choose the directory to save the files to</source>
-        <translation>选择将文件保存的目录</translation>
+        <translation>파일을 저장할 디렉토리를 선택하세요.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="894"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="897"/>
         <source>One or more files already exists.  OK to overwrite?</source>
-        <translation>一个或多个文件已经存在。确认后覆盖？</translation>
+        <translation>하나 이상의 파일이 이미 존재합니다. 덮어쓰시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="911"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="914"/>
         <source>Unable to save files.  Destination may be a directory.</source>
-        <translation>无法保存文件。目标可能是一个目录。</translation>
+        <translation>파일을 저장할 수 없습니다. 대상이 디렉토리입니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="919"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="922"/>
         <source>Unable to save files.</source>
-        <translation>无法保存文件。</translation>
+        <translation>파일을 저장할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1178"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1183"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
-        <translation>无法重命名文件，此操作会导致同名文件。</translation>
+        <translation>동일한 파일명이 있어 파일명을 수정할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1249"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1254"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
-        <translation>目标文件夹的路径无效 &quot;%1&quot;</translation>
+        <translation>대상 폴더에 잘못된 경로 &quot;%1&quot;이 (가) 있습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1283"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
-        <translation>无法移动文件，因为这将导致重复的文件名。</translation>
+        <translation>동일한 파일명이 있어 파일을 이동할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1335"/>
         <source>The Nav document can not be removed.</source>
-        <translation>无法删除 Nav 文档。</translation>
+        <translation>Nav 문서는 삭제할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1338"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1343"/>
         <source>The NCX can not be removed.</source>
-        <translation>无法删除NCX。</translation>
+        <translation>NCX파일은 삭제할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1345"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1350"/>
         <source>The OPF is required for epub and can not be removed.</source>
-        <translation>epub需要OPF，无法删除。</translation>
+        <translation>OPF 파일은 EPUB에 반드시 필요하기 때문에 삭제할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1354"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1359"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
-        <translation>无法将所有的 html 文件都删除。
-至少保留一个。</translation>
+        <translation>모든 html 파일을 삭제할 수 없습니다.
+적어도 하나는 항상 있어야 합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1495"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1500"/>
         <source>Unable to set file as cover image.</source>
-        <translation>无法将文件设置为封面图像。</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1693"/>
-        <source>Select All</source>
-        <translation>选择全部</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1694"/>
-        <source>Add Blank HTML File</source>
-        <translation>添加空白 HTML 文件</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1695"/>
-        <source>Add Blank Stylesheet</source>
-        <translation>添加空白的样式表</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1696"/>
-        <source>Add Blank SVG Image</source>
-        <translation>添加空白的 SVG 图形</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1697"/>
-        <source>Add Existing Files...</source>
-        <translation>添加现有文件...</translation>
+        <translation>파일을 표지 이미지로 설정할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1698"/>
+        <source>Select All</source>
+        <translation>모두 선택</translation>
+    </message>
+    <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1699"/>
-        <source>Add Copy</source>
-        <translation>添加副本</translation>
+        <source>Add Blank HTML File</source>
+        <translation>빈 HTML 파일 추가하기</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1700"/>
-        <source>Rename</source>
-        <translation>重命名</translation>
+        <source>Add Blank Stylesheet</source>
+        <translation>빈 스타일시트 추가</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1701"/>
-        <source>RegEx Rename</source>
-        <translation>正则表达式重命名</translation>
+        <source>Add Blank SVG Image</source>
+        <translation>빈 SVG 그림을 추가</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1702"/>
-        <source>Move</source>
-        <translation>移动</translation>
+        <source>Add Existing Files...</source>
+        <translation>기존 파일 추가...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1703"/>
-        <source>Delete</source>
-        <translation>删除</translation>
-    </message>
-    <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1704"/>
-        <source>Cover Image</source>
-        <translation>封面图像</translation>
+        <source>Add Copy</source>
+        <translation>복사본 추가</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1705"/>
-        <source>Merge</source>
-        <translation>合并</translation>
+        <source>Rename</source>
+        <translation>이름 바꾸기</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1706"/>
-        <source>None</source>
-        <translation>无</translation>
+        <source>RegEx Rename</source>
+        <translation>정규식으로 이름변경</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1707"/>
-        <source>Use Adobe&apos;s Method</source>
-        <translation>使用 Adobe 方式</translation>
+        <source>Move</source>
+        <translation>이동</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1708"/>
-        <source>Use IDPF&apos;s Method</source>
-        <translation>使用 IDPF 方式</translation>
+        <source>Delete</source>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1709"/>
-        <source>Sort</source>
-        <translation>排序</translation>
+        <source>Cover Image</source>
+        <translation>표지 그림</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1710"/>
-        <source>Renumber TOC Entries</source>
-        <translation>重命名 TOC 条目</translation>
+        <source>Merge</source>
+        <translation>합치기</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1711"/>
-        <source>Link Stylesheets...</source>
-        <translation>连接样式表...</translation>
+        <source>None</source>
+        <translation>없음</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1712"/>
-        <source>Add Semantics...</source>
-        <translation>添加语义...</translation>
+        <source>Use Adobe&apos;s Method</source>
+        <translation>Adobe 방식 사용하기</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1713"/>
-        <source>Validate with W3C</source>
-        <translation>用 W3C 验证</translation>
+        <source>Use IDPF&apos;s Method</source>
+        <translation>IDPF 방식 사용하기</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1714"/>
+        <source>Sort</source>
+        <translation>정렬</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1715"/>
+        <source>Renumber TOC Entries</source>
+        <translation>목차 항목 번호 다시 매기기</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1716"/>
+        <source>Link Stylesheets...</source>
+        <translation>Stylesheets를 연결...</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1717"/>
+        <source>Add Semantics...</source>
+        <translation>시맨틱 추가</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1718"/>
+        <source>Validate with W3C</source>
+        <translation>W3C로 검증하기</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1720"/>
         <source>Save As</source>
-        <translation>保存为</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1729"/>
-        <source>Merge with previous file, or merge multiple files into one.</source>
-        <translation>和上一个文件合并，或者是多个文件合并为一个。</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1732"/>
-        <source>Rename selected file(s)</source>
-        <translation>重命名已选定的文件</translation>
+        <translation>다른 이름으로 저장하기</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1734"/>
-        <source>Use Regular Expressions to Rename selected file(s)</source>
-        <translation>使用正则表达式重命名选定的文件</translation>
+        <source>Merge with previous file, or merge multiple files into one.</source>
+        <translation>선택한 파일을 이전 파일과 병합하거나 여러개의 선택된 파일을 하나의 파일로 병합합니다. </translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1737"/>
-        <source>Move selected file(s) to a new folder</source>
-        <translation>将所选文件移动到新文件夹</translation>
+        <source>Rename selected file(s)</source>
+        <translation>선택한 파일의 파일명을 변경합니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1739"/>
+        <source>Use Regular Expressions to Rename selected file(s)</source>
+        <translation>정규식을 사용하여 선택한 파일 이름 바꾸기</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1742"/>
+        <source>Move selected file(s) to a new folder</source>
+        <translation>선택한 파일을 새 폴더로 이동</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1744"/>
         <source>Link Stylesheets to selected file(s).</source>
-        <translation>将样式表链接到选定的文件。</translation>
+        <translation>선택한 파일에 스타일시트를 연결합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1741"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1746"/>
         <source>Add Semantics to selected file(s).</source>
-        <translation>添加语义到选定的文件。</translation>
+        <translation>선택한 파일에 시맨틱을 추가합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1871"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1876"/>
         <source>Other Application</source>
-        <translation>其它应用程序</translation>
+        <translation>다른 응용프로그램</translation>
     </message>
 </context>
 <context>
@@ -896,56 +890,58 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="81"/>
         <source>Files Only in Checkpoint</source>
-        <translation>仅限检查点中的文件</translation>
+        <translation>체크포인트에만 있는 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="81"/>
         <location filename="../../Dialogs/CPCompare.cpp" line="82"/>
         <location filename="../../Dialogs/CPCompare.cpp" line="83"/>
         <source>View</source>
-        <translation>观察</translation>
+        <translation>보기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="82"/>
         <source>Files Only in Current ePub</source>
-        <translation>仅当前ePub中的文件</translation>
+        <translation>현재 EPUB에만 있는 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="83"/>
         <source>Modified since Checkpoint</source>
-        <translation>自检查点以来已修改</translation>
+        <translation>체크포인트 저장 후 변경</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="84"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="191"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="193"/>
         <source>Results of Comparison</source>
-        <translation>比较结果</translation>
+        <translation>비교 결과</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="85"/>
         <source>Done</source>
-        <translation>完成</translation>
+        <translation>완료</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="193"/>
-        <source>These binary files differ in content:</source>
-        <translation>这些二进制文件的内容不同：</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="194"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="187"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="196"/>
         <source>Checkpoint:</source>
-        <translation>检查点：</translation>
+        <translation>체크포인트:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="194"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="187"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="197"/>
+        <source>Current:</source>
+        <translation>현재:</translation>
+    </message>
+    <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="195"/>
+        <source>These binary files differ in content:</source>
+        <translation>이 바이너리 파일은 내용이 다릅니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/CPCompare.cpp" line="196"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="197"/>
         <source>bytes</source>
         <translation>bytes</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="195"/>
-        <source>Current:</source>
-        <translation>当前：</translation>
     </message>
 </context>
 <context>
@@ -953,37 +949,37 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="14"/>
         <source>CSS Files</source>
-        <translation>CSS 文件</translation>
+        <translation>CSS 파일</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>仅列出文件名包含所输入文本的文件</translation>
+        <translation>입력한 텍스트가 포함된 파일만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>过滤：</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="75"/>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="76"/>
         <source>Size (KB)</source>
-        <translation>大小 (KB)</translation>
+        <translation>크기 (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="77"/>
         <source>Times Used</source>
-        <translation>使用时间</translation>
+        <translation>사용한 시간</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="143"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n 个文件</numerusform></translation>
+        <translation><numerusform>%n 파일</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="147"/>
@@ -993,7 +989,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="280"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>将报告保存为都好分割的文件</translation>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="294"/>
@@ -1003,12 +999,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="294"/>
         <source>Cannot save report file.</source>
-        <translation>无法保存报告文件</translation>
+        <translation>리포트 파일을 저장할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="305"/>
         <source>Delete From Book</source>
-        <translation>从书中删除</translation>
+        <translation>책에서 삭제하기</translation>
     </message>
 </context>
 <context>
@@ -1016,17 +1012,17 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="99"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation>Sigil将您的样式表数据发送到&lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt; W3C验证服务&lt;/a&gt;.</translation>
+        <translation>&lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;로 Stylesheet 데이터를 전송합니다.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
         <source>This page should disappear once loaded after 3 seconds.</source>
-        <translation>此网页在3秒后载入时会消失.</translation>
+        <translation>이 페이지는 3초 후에 사라집니다.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="101"/>
         <source>If your browser does not have javascript enabled, click on the button below.</source>
-        <translation>如果您的浏览器没有启用javascript, 请点击下面的按钮.</translation>
+        <translation>브라우저에 자바스크립트가 활성화 되어 있지 않으면 아래 버튼을 클릭해 주십시요.</translation>
     </message>
 </context>
 <context>
@@ -1034,57 +1030,57 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="14"/>
         <source>Characters Used</source>
-        <translation>使用的字符</translation>
+        <translation>사용된 문자</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>仅列出文件名包含所输入文本的文件</translation>
+        <translation>입력한 텍스트가 포함된 파일만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>过滤：</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="76"/>
         <source>Characters:</source>
-        <translation>字符：</translation>
+        <translation>문자:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="78"/>
         <source>Character</source>
-        <translation>字符</translation>
+        <translation>문자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="79"/>
         <source>Decimal</source>
-        <translation>小数</translation>
+        <translation>10진수</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="80"/>
         <source>Hexadecimal</source>
-        <translation>16进制数</translation>
+        <translation>16진수</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="81"/>
         <source>Entity Name</source>
-        <translation>单元名称</translation>
+        <translation>엔터티(Entity) 이름</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="82"/>
         <source>Entity Description</source>
-        <translation>单元描述</translation>
+        <translation>엔터티(Entity) 설명</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="88"/>
         <source>&lt;p&gt;This is a list of the characters used in all HTML files.&lt;p&gt;</source>
-        <translation>&lt;p&gt;这是在HTML文件中使用的所有字符列表. &lt;p&gt;</translation>
+        <translation>모든 HTML 파일에 사용된 문자 목록</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="254"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>将报告保存为都好分割的文件</translation>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="268"/>
@@ -1094,7 +1090,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="268"/>
         <source>Cannot save report file.</source>
-        <translation>无法保存报告文件</translation>
+        <translation>리포트 파일을 저장할 수 없습니다.</translation>
     </message>
 </context>
 <context>
@@ -1102,62 +1098,62 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="14"/>
         <source>Classes Used</source>
-        <translation>使用的类</translation>
+        <translation>사용된 클래스</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>仅列出文件名包含所输入文本的文件</translation>
+        <translation>입력한 텍스트가 포함된 파일만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>过滤：</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="83"/>
         <source>HTML File</source>
-        <translation>HTML文件</translation>
+        <translation>HTML 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="84"/>
         <source>Element</source>
-        <translation>元素</translation>
+        <translation>구성요소</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="85"/>
         <source>Class</source>
-        <translation>类</translation>
+        <translation>클래스</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="86"/>
         <source>Matched Selector</source>
-        <translation>匹配选择器</translation>
+        <translation>일치하는 선택자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
         <source>Found In</source>
-        <translation>发现于</translation>
+        <translation>발견됨</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="93"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
-        <translation>&lt;p&gt;这是HTML文件中使用的所有样式类，以及该样式是否与链接的样式表相匹配的选择器的列表。&lt;p&gt;</translation>
+        <translation>&lt;p&gt;이 목록은 모든 HTML 파일 안에 사용된 style 클래스로, 해당 클래스가 링크된 스타일시트 안에 포함되어 있는지는 검증하지 않습니다.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="94"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation>&lt;p&gt;注释:&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;NOTE:&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="95"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;由于CSS的复杂性，您必须手动检查代码以确定样式是否被使用。&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;CSS가 복잡하기 때문에 스타일이 사용되는지 여부를 확인하려면 코드를 수동으로 확인해야합니다.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="242"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>将报告保存为都好分割的文件</translation>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="256"/>
@@ -1167,58 +1163,58 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="256"/>
         <source>Cannot save report file.</source>
-        <translation>无法保存报告文件</translation>
+        <translation>리포트 파일을 저장할 수 없습니다.</translation>
     </message>
 </context>
 <context>
     <name>ClipEditor</name>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="538"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="539"/>
         <source>Clip Editor</source>
-        <translation>剪切编辑</translation>
+        <translation>클립 편집기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>过滤名称: </translation>
+        <translation>이름 검색:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation>全部过滤: </translation>
+        <translation>모두 검색:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>仅列出包含您输入的文本的条目. </translation>
+        <translation>입력한 텍스트가 포함된 항목만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="65"/>
         <source>Paste the selected entry into the active window.</source>
-        <translation>将选定的条目粘贴到活动窗口中. </translation>
+        <translation>선택 항목을 활성화된 창에 붙여넣기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="68"/>
         <source>Paste Clip</source>
-        <translation>粘贴剪辑</translation>
+        <translation>클립 적용</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="91"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="649"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
         <source>Add Entry</source>
-        <translation>添加入口</translation>
+        <translation>항목 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="98"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
         <source>Add Group</source>
-        <translation>添加到组</translation>
+        <translation>그룹 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="123"/>
         <source>Move an entry up one entry in the same group.</source>
-        <translation>将条目向上移动到同一组中的一个条目. </translation>
+        <translation>동일한 그룹에서 한 항목 위로 항목을 이동</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="126"/>
@@ -1231,184 +1227,184 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="153"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation>将条目移动到其父级的级别. </translation>
+        <translation>상위 그룹으로 항목을 이동</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="182"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation>您必须选择组下面的项目才能将其移动到组中. </translation>
+        <translation>선택한 항목을 그룹에 포함시키려면 선택 항목이 그룹 목록 바로 아래에 있어야 합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="212"/>
         <source>Move an entry down one in the group.</source>
-        <translation>将组中的条目向下移动一个. </translation>
+        <translation>동일한 그룹에서 한 항목 아래로 항목을 이동</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>右键单击一个条目以查看操作的上下文菜单. </translation>
+        <translation>동작의 상황에 맞는 메뉴를 보기 위해서 항목 위에서 오른쪽 클릭</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="74"/>
         <source>You can also right click in your document to select an entry.</source>
-        <translation>您也可以在文档中右键单击以选择条目. </translation>
+        <translation>문서에서 마우스 오른쪽 버튼을 클릭하여 항목을 선택할 수도 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Name of your entry or group.</source>
-        <translation>给您的条目或组命名. </translation>
+        <translation>항목 또는 그룹의 이름</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Text</source>
-        <translation>文本</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</source>
-        <translation>要插入的文本, 文本被视为正则表达式替换表达式，因此\1可用于在粘贴剪辑时插入在代码视图中选择的文本. </translation>
+        <translation>삽입 할 텍스트. 텍스트는 정규표현식처럼 취급되므로 클립을 붙여 넣을 때 \1을 사용하여 코드 뷰에서 선택한 텍스트를 대체 할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation>저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save your changes.</source>
-        <translation>保存改变的.</translation>
+        <translation>변경사항 저장하기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>如果有其他Sigil的实例正在运行，它们将自动更新您的更改. </translation>
+        <translation>다른 Sigil 인스턴스가 실행중인 경우 변경 사항이 자동으로 업데이트됩니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="91"/>
         <source>Cannot save entries.</source>
-        <translation>无法保存条目. </translation>
+        <translation>항목을 저장할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="135"/>
         <source>Clip entries loaded from file.</source>
-        <translation>从文件加载的剪辑条目. </translation>
+        <translation>파일로 저장된 클립 불러오기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="195"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="196"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation>您不能选择包含该条目的条目和组。</translation>
+        <translation>항목을 포함하는 그룹과 항목을 동시에 선택할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="282"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="283"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation>您不能复制或剪切组 - 请使用拖放。</translation>
+        <translation>그룹을 복사하기나 잘라내기할 수 없습니다. - 끌어서 놓기를 사용하세요.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="354"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="355"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="354"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="355"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>您确定要重新载入所有条目吗? 所有更改将被覆盖. </translation>
+        <translation>모든 항목을 다시 읽어들이는 것이 확실합니까? 저장되지 않은 모든 변경 내용을 잃게됩니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="375"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="376"/>
         <source>Import Entries</source>
-        <translation>导入条目</translation>
+        <translation>중요한 항목</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="456"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="457"/>
         <source>Export Selected Entries</source>
-        <translation>导出所选条目</translation>
+        <translation>선택된 항목 내보내기</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ClipEditor.cpp" line="538"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="539"/>
         <source>CSS entries added: %n</source>
-        <translation><numerusform>CSS 项已添加： %n</numerusform></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
-        <source>Edit</source>
-        <translation>编辑</translation>
+        <translation><numerusform>CSS 항목 추가: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
-        <source>Cut</source>
-        <translation>剪切</translation>
+        <source>Edit</source>
+        <translation>편집</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
-        <source>Copy</source>
-        <translation>复制</translation>
+        <source>Cut</source>
+        <translation>잘라내기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="654"/>
-        <source>Paste</source>
-        <translation>黏贴</translation>
+        <source>Copy</source>
+        <translation>복사하기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="655"/>
-        <source>Delete</source>
-        <translation>删除</translation>
+        <source>Paste</source>
+        <translation>붙여넣기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="656"/>
-        <source>Import</source>
-        <translation>输入</translation>
+        <source>Delete</source>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="657"/>
-        <source>Reload</source>
-        <translation>重载入</translation>
+        <source>Import</source>
+        <translation>가져오기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="658"/>
-        <source>Export</source>
-        <translation>输出</translation>
+        <source>Reload</source>
+        <translation>다시 읽어들이기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="659"/>
-        <source>Export All</source>
-        <translation>全部输出</translation>
+        <source>Export</source>
+        <translation>내보내기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="660"/>
-        <source>Collapse All</source>
-        <translation>全部收起</translation>
+        <source>Export All</source>
+        <translation>모두 내보내기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="661"/>
-        <source>Expand All</source>
-        <translation>全部打开</translation>
+        <source>Collapse All</source>
+        <translation>모두 접기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="662"/>
+        <source>Expand All</source>
+        <translation>모두 펼치기</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="663"/>
         <source>Autofill</source>
-        <translation>自动填充</translation>
+        <translation>자동 채우기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="742"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="745"/>
         <source>Clip entries saved.</source>
-        <translation>剪辑条目已保存. </translation>
+        <translation>클립 항목이 저장되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="771"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="774"/>
         <source>Sigil: Clip Editor</source>
-        <translation>Sigil：剪辑编辑器</translation>
+        <translation>Sigil: 클립 편집기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="772"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="775"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>剪辑条目可能已被修改
-要保存更改吗？</translation>
+        <translation>클립 항목이 변경되었습니다.
+변경된 사항을 저장하시겠습니까?</translation>
     </message>
 </context>
 <context>
@@ -1416,17 +1412,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="65"/>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="66"/>
         <source>Text</source>
-        <translation>文本</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="680"/>
         <source>Unable to create file %1</source>
-        <translation>无法创建文件 %1</translation>
+        <translation>%1 파일을 생성할 수 없습니다</translation>
     </message>
 </context>
 <context>
@@ -1434,153 +1430,153 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="14"/>
         <source>Select Text to Paste</source>
-        <translation>粘贴选择的文本</translation>
+        <translation>붙여넣기할 텍스트를 선택</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipboardHistorySelector.ui" line="20"/>
         <source>Recent clipboards:</source>
-        <translation>最近的剪贴板</translation>
+        <translation>최근 클립보드:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="340"/>
         <source>Paste</source>
-        <translation>黏贴</translation>
+        <translation>붙여넣기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="342"/>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation>저장</translation>
     </message>
 </context>
 <context>
     <name>ClipsWindow</name>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="36"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="37"/>
         <source>Clips</source>
-        <translation>剪辑</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="101"/>
-        <source>Collapse All</source>
-        <translation>全部收起</translation>
+        <translation>클립</translation>
     </message>
     <message>
         <location filename="../../MainUI/ClipsWindow.cpp" line="102"/>
+        <source>Collapse All</source>
+        <translation>모두 접기</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="103"/>
         <source>Expand All</source>
-        <translation>全部打开</translation>
+        <translation>모두 펼치기</translation>
     </message>
 </context>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="441"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="443"/>
         <source>Cannot insert closing tag at this position.</source>
-        <translation>无法在此位置插入结束标记. </translation>
+        <translation>이 위치에 닫기 태그를 삽입 할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="450"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="452"/>
         <source>No open tags found at this position.</source>
-        <translation>在此位置找不到打开的标签. </translation>
+        <translation>이 위치에 열려있는 태그가 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1233"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1241"/>
         <source>Add To Default Dictionary</source>
-        <translation>添加到默认字典</translation>
+        <translation>기본 사전에 추가</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1246"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1254"/>
         <source>Add To Dictionary</source>
-        <translation>添加到字典</translation>
+        <translation>사전에 추가하기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1263"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1271"/>
         <source>Ignore</source>
-        <translation>忽略</translation>
+        <translation>무시</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1325"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1333"/>
         <source>Reformat CSS</source>
-        <translation>重新CSS格式化</translation>
+        <translation>CSS 정리</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1327"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1335"/>
         <source>Multiple Lines Per Style</source>
-        <translation>每个格式应用多行</translation>
+        <translation>스타일을 여러 줄로 정리</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1328"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1336"/>
         <source>Single Line Per Style</source>
-        <translation>每个格式应用单行</translation>
+        <translation>스타일을 한 줄로 정리</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1353"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1361"/>
         <source>Reformat HTML</source>
-        <translation>重新HTML格式化</translation>
+        <translation>HTML 정리</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1355"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1363"/>
         <source>Mend and Prettify Code</source>
-        <translation>修改和优化代码</translation>
+        <translation>Ment and Prettify 코드 방식</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1356"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1364"/>
         <source>Mend and Prettify Code - All HTML Files</source>
-        <translation>修改和预验证码 - 所有HTML文件</translation>
+        <translation>Ment and Prettify 코드 방식 - 모든 파일에 적용</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1357"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1365"/>
         <source>Mend Code</source>
-        <translation>修改代码</translation>
+        <translation>Mend 코드 방식</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1358"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1366"/>
         <source>Mend Code - All HTML Files</source>
-        <translation>修改代码 - 所有HTML文件</translation>
+        <translation>Mend 코드 방식 - 모든 파일에 적용</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1388"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1396"/>
         <source>Go To Link Or Style</source>
-        <translation>转换到链接或样式</translation>
+        <translation>링크 혹은 스타일로 이동</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1410"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1418"/>
         <source>View Image</source>
-        <translation>看图</translation>
+        <translation>이미지 보기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1411"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1419"/>
         <source>Open Tab For Image</source>
-        <translation>打开图像的标签</translation>
+        <translation>이미지를 탭으로 열기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1437"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1445"/>
         <source>Mark Selected Text</source>
-        <translation>标记所选文本</translation>
+        <translation>선택 영역 표시</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1439"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1447"/>
         <source>Unmark Marked Text</source>
-        <translation>去除所选文本标记</translation>
+        <translation>선택 내용 표시 해제</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1465"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1473"/>
         <source>Clips</source>
-        <translation>剪辑</translation>
+        <translation>클립</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1475"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1483"/>
         <source>Add To Clips</source>
-        <translation>添加到剪辑</translation>
+        <translation>클립에 추가</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1601"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1609"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
-        <translation>您必须在HTML开始标记中才能使用此功能. </translation>
+        <translation>이 기능은 HTML 시작 태그에 사용할 수 있습니다.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1611"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1619"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
-        <translation>您必须在HTML开始标记内使用此功能. </translation>
+        <translation>이 기능은 HTML 태그 사이에 사용할 수 있습니다.</translation>
     </message>
 </context>
 <context>
@@ -1588,22 +1584,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="59"/>
         <source>Background</source>
-        <translation>背景</translation>
+        <translation>배경</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="61"/>
         <source>Foreground</source>
-        <translation>前景</translation>
+        <translation>전경</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="63"/>
         <source>Selection Background</source>
-        <translation>选择部分背景</translation>
+        <translation>배경 선택</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="65"/>
         <source>Selection Foreground</source>
-        <translation>选择部分前景</translation>
+        <translation>전경 선택</translation>
     </message>
 </context>
 <context>
@@ -1611,22 +1607,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="14"/>
         <source>Delete Files</source>
-        <translation>删除文件</translation>
+        <translation>파일 삭제</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="68"/>
         <source>Delete Marked Files</source>
-        <translation>删除标记的文件</translation>
+        <translation>선택 파일 삭제</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="69"/>
         <source>Delete</source>
-        <translation>删除</translation>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="70"/>
         <source>File</source>
-        <translation>文件</translation>
+        <translation>파일</translation>
     </message>
 </context>
 <context>
@@ -1634,27 +1630,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="14"/>
         <source>Delete Styles</source>
-        <translation>删除样式</translation>
+        <translation>스타일 삭제</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="80"/>
         <source>Delete Marked Styles</source>
-        <translation>删除标记的样式</translation>
+        <translation>선택한 스타일 삭제</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="81"/>
         <source>Delete</source>
-        <translation>删除</translation>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="82"/>
         <source>File</source>
-        <translation>文件</translation>
+        <translation>파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="83"/>
         <source>Style</source>
-        <translation>样式</translation>
+        <translation>스타일</translation>
     </message>
 </context>
 <context>
@@ -1662,55 +1658,55 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="14"/>
         <source>Edit Table Of Contents</source>
-        <translation>编辑目录</translation>
+        <translation>목차 편집</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="52"/>
         <source>Insert a blank entry above the currently selected entry.</source>
-        <translation>在当前选定条目上方插入空白条目.</translation>
+        <translation>현재 선택된 항목 위에 빈 항목을 삽입</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="55"/>
         <source>Add Above</source>
-        <translation> 在上面加入</translation>
+        <translation>위에 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="62"/>
         <source>Add a blank entry below the currently selected entry.</source>
-        <translation>在当前选定条目下方插入空白条目.</translation>
+        <translation>현재 선택된 항목 아래에 빈 항목을 삽입</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="65"/>
         <source>Add Below</source>
-        <translation>在下方加入</translation>
+        <translation>아래에 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="72"/>
         <source>Delete the selected TOC entry</source>
-        <translation>删除选中的TOC条目</translation>
+        <translation>선택한 TOC 항목 삭제</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="75"/>
         <location filename="../../Dialogs/EditTOC.cpp" line="465"/>
         <source>Delete</source>
-        <translation>删除</translation>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="82"/>
         <source>Set the destination of the TOC entry from a list of valid targets in the book.</source>
-        <translation>从书中有效目标的列表中设置TOC条目的目标.</translation>
+        <translation>책의 유효한 대상 목록에서 목차 항목의 대상을 설정하십시오.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="85"/>
         <source>Select Target</source>
-        <translation>选择目标</translation>
+        <translation>대상 선택</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="110"/>
         <source>Decrease the heading level of the selected entry.
 You can also use the left arrow key.</source>
-        <translation>降低所选条目的标题级别
-您也可以使用左箭头键.</translation>
+        <translation>선택한 항목의 제목 수준을 한단계씩 높입니다.
+왼쪽 방향키를 사용할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="126"/>
@@ -1722,51 +1718,51 @@ You can also use the left arrow key.</source>
         <location filename="../../Form_Files/EditTOC.ui" line="148"/>
         <source>Increase the heading level of the selected entry.
 You can also use the right arrow key.</source>
-        <translation>增加所选条目的标题级别
-您也可以使用右箭头键.</translation>
+        <translation>선택한 항목의 제목 수준을 한단계씩 줄입니다.
+오른쪽 방향키를 사용할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="97"/>
         <source>TOC Entry</source>
-        <translation>TOC条目</translation>
+        <translation>목차 항목</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="98"/>
         <source>Target</source>
-        <translation>目标</translation>
+        <translation>대상</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="464"/>
         <source>Rename</source>
-        <translation>重命名</translation>
+        <translation>이름 바꾸기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="472"/>
         <source>Move Up</source>
-        <translation>上移</translation>
+        <translation>위로 이동</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="473"/>
         <source>Move Down</source>
-        <translation>下移</translation>
+        <translation>아래로 이동</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="479"/>
         <source>Expand All</source>
-        <translation>全部打开</translation>
+        <translation>모두 펼치기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="480"/>
         <source>Collapse All</source>
-        <translation>全部收起</translation>
+        <translation>모두 접기</translation>
     </message>
 </context>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../Misc/EmbeddedPython.cpp" line="617"/>
+        <location filename="../../Misc/EmbeddedPython.cpp" line="636"/>
         <source>Embedded Python Error</source>
-        <translation>嵌入式Python错误</translation>
+        <translation>내장 파이썬 오류</translation>
     </message>
 </context>
 <context>
@@ -1774,67 +1770,67 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="22"/>
         <source>Design Custom Epub Layout</source>
-        <translation>设计自定义Epub布局</translation>
+        <translation>사용자 정의 EPUB 레이아웃 디자인</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="62"/>
         <source>Load a previously saved design from an ini file.</source>
-        <translation>从ini文件加载以前保存的设计。</translation>
+        <translation>ini 파일에서 이전에 저장된 디자인을 불러옵니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="65"/>
         <source>Load</source>
-        <translation>加载</translation>
+        <translation>불러오기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="73"/>
         <source>Save the current design to an ini file.</source>
-        <translation>将当前设计保存到ini文件。</translation>
+        <translation>현재 디자인을 ini 파일에 저장.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="76"/>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation>저장</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="98"/>
         <source>Add a new folder to parent.</source>
-        <translation>将新文件夹添加到父文件夹。</translation>
+        <translation>새로운 폴더 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="101"/>
         <source>Add Folder</source>
-        <translation>添加文件夹</translation>
+        <translation>폴더 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="109"/>
         <source>Add an allowed file type marker to an existing folder.</source>
-        <translation>将允许的文件类型标记添加到现有文件夹。</translation>
+        <translation>허용 된 파일 형식 마커를 기존 폴더에 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="112"/>
         <source>Add Marker</source>
-        <translation>添加标记</translation>
+        <translation>마커 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="120"/>
         <source>Remove an existing file type marker or folder.</source>
-        <translation>删除现有的文件类型标记或文件夹。</translation>
+        <translation>기존 파일 형식 마커 혹은 폴더 삭제</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="123"/>
         <source>Remove</source>
-        <translation>删除</translation>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="131"/>
         <source>Rename a folder or OPF, NCX or Nav marker.</source>
-        <translation>重命名文件夹或OPF、NCX或Nav marker。</translation>
+        <translation>폴더, OPF, NCX 또는 폴더 마커 이름 변경</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="134"/>
         <source>Rename</source>
-        <translation>重命名</translation>
+        <translation>이름 바꾸기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="167"/>
@@ -1842,153 +1838,153 @@ You can also use the right arrow key.</source>
 the types of files that can be stored in each folder.  
 The file type markers can also be used to specify 
 locations and names for the OPF, NCX and/or Nav.</source>
-        <translation>添加文件夹/子文件夹和文件标记，以确定可以存储在每个文件夹中的文件类型。 
-文件类型标记也可用于指定OPF、NCX和/或Nav的位置和名称。</translation>
+        <translation>각 폴더에 저장할 수있는 파일 유형을 결정하는 폴더/하위 폴더 및 파일 마커를 추가하세요.
+파일 유형 마커를 사용하여 OPF, NCX, Nav의 위치와 이름을 지정할 수도 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="179"/>
         <source>Use OK to commit your custom epub design, otherwise use Cancel.</source>
-        <translation>使用“确定”提交自定义epub设计，否则使用“取消”。</translation>
+        <translation>EPUB 디자인을 사용하려면 확인을, 그렇지 않으면 취소를 누르세요.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="144"/>
         <source>Xhtml files</source>
-        <translation>Xhtml文件</translation>
+        <translation>Xhtml 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="144"/>
         <source>Style files</source>
-        <translation>样式文件</translation>
+        <translation>스타일 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="145"/>
         <source>Image files</source>
-        <translation>图像文件</translation>
+        <translation>이미지 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="145"/>
         <source>Font files</source>
-        <translation>字体文件</translation>
+        <translation>글꼴 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
         <source>Audio files</source>
-        <translation>音频文件</translation>
+        <translation>오디오 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
         <source>Video files</source>
-        <translation>视频文件</translation>
+        <translation>비디오 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="147"/>
         <source>Javascript files</source>
-        <translation>Javascript脚本文件</translation>
+        <translation>자바스크립트 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="147"/>
         <source>Misc files</source>
-        <translation>杂项文件</translation>
+        <translation>기타 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="148"/>
         <source>OPF file</source>
-        <translation>OPF文件</translation>
+        <translation>OPF 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="148"/>
         <source>NCX file</source>
-        <translation>NCX文件</translation>
+        <translation>NCX 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="149"/>
         <source>Nav file</source>
-        <translation>Nav文件</translation>
+        <translation>목차 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="224"/>
         <source>Select previously saved layout design ini File</source>
-        <translation>选择以前保存的布局设计ini文件</translation>
+        <translation>이전에 ini 파일에 저장한 디자인 레이아웃 선택</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="226"/>
         <source>Settings Files (*.ini)</source>
-        <translation>设置文件 (*.ini)</translation>
+        <translation>설정 파일(*.ini)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="326"/>
         <source>Save current design to an ini File</source>
-        <translation>将当前设计保存到ini文件</translation>
+        <translation>현재 디자인을 ini 파일에 저장.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="358"/>
         <source>Add a Folder</source>
-        <translation>添加文件夹</translation>
+        <translation>폴더 추가</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="358"/>
         <source>New Folder Name?</source>
-        <translation>新文件夹名？</translation>
+        <translation>새 폴더 명</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="358"/>
         <source>untitled_folder</source>
-        <translation>无标题文件夹</translation>
+        <translation>이름 없는 폴더</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="395"/>
         <source>Rename a Folder</source>
-        <translation>重命名文件夹</translation>
+        <translation>폴더명 변경</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="395"/>
         <source>New Name for Folder?</source>
-        <translation>文件夹的新名称？</translation>
+        <translation>변경할 폴더명</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="406"/>
         <source>Rename a File</source>
-        <translation>重命名文件</translation>
+        <translation>파일명 변경</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="406"/>
         <source>New Name for File?</source>
-        <translation>文件的新名称？</translation>
+        <translation>변경할 파일명</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="464"/>
         <source>A single OPF file is required.</source>
-        <translation>需要一个单独的OPF文件。</translation>
+        <translation>OPF 파일은 하나만 존재해야 합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="465"/>
         <source>At least one xhtml marker must exist.</source>
-        <translation>必须至少存在一个xhtml标记。</translation>
+        <translation>하나 이상의 xhtml 마커가 반드시 존재해야 합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="466"/>
         <source>At least one image marker must exist.</source>
-        <translation>必须至少存在一个图像标记。</translation>
+        <translation>하나 이상의 이미지 마커가 반드시 존재해야 합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="467"/>
         <source>At least one css marker must exist.</source>
-        <translation>必须至少存在一个css标记。</translation>
+        <translation>하나 이상의 CSS 마커가 반드시 존재해야 합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="469"/>
         <source>A single NCX file is required.</source>
-        <translation>需要一个单独的NCX文件。</translation>
+        <translation>NCX 파일은 하나만 존재해야 합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="471"/>
         <source>A single NAV file is required.</source>
-        <translation>需要一个单独的NAV文件。</translation>
+        <translation>NAV 파일은 하나만 존재해야 합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="475"/>
         <source>Errors Detected</source>
-        <translation>检测到错误</translation>
+        <translation>오류가 발견되었습니다</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="481"/>
@@ -2000,9 +1996,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>Do you want to set this layout as the default empty Epub layout for Sigil?
 
 </source>
-        <translation>是否要将此布局设置为Sigil的默认空Epub布局？
-
-</translation>
+        <translation>이 레이아웃을 Sigil의 기본 EPUB 레이아웃으로 설정 하시겠습니까?</translation>
     </message>
 </context>
 <context>
@@ -2010,12 +2004,12 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="20"/>
         <source>Find &amp; Replace</source>
-        <translation>查找&amp;替换</translation>
+        <translation>찾기 및 바꾸기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="55"/>
         <source>Hide Find and Replace</source>
-        <translation>隐藏查找&amp;替换</translation>
+        <translation>찾기와 바꾸기 숨기기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
@@ -2026,168 +2020,168 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="103"/>
         <source>Show/Hide Advanced Options</source>
-        <translation>显示查找&amp;替换选项</translation>
+        <translation>고급 옵션 표시/숨기기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="152"/>
         <source>Find:</source>
-        <translation>查找: </translation>
+        <translation>찾기:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="184"/>
         <source>Find next match.</source>
-        <translation>查找下一个匹配的: </translation>
+        <translation>다음 일치하는 것 찾기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="190"/>
         <source>Find</source>
-        <translation>找到</translation>
+        <translation>찾기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="203"/>
         <source>Replace highlighted match (if any),
 then find the Next match in Code View.</source>
-        <translation>替换突出显示的匹配（如果有）,
-然后在代码视图中找到下一个匹配。</translation>
+        <translation>코드 보기 창에서 강조 표시된 일치항목이 있을 경우 이를 바꾼 후 다음 일치 항목을 찾습니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="210"/>
         <source>Replace/Find</source>
-        <translation>替换/查找</translation>
+        <translation>바꾸기/찾기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="217"/>
         <source>Replace:</source>
-        <translation>替换: </translation>
+        <translation>바꾸기:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="249"/>
         <source>Replace highlighted match (if any) in Code View.</source>
-        <translation>替换代码视图中突出显示的匹配项（如果有）.</translation>
+        <translation>코드 보기 창에서 강조 표시된 항목이 있을 경우 이를 변경합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="255"/>
         <source>Replace</source>
-        <translation>替换</translation>
+        <translation>바꾸기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="268"/>
         <source>Replace all matches in Code View.</source>
-        <translation>替换代码视图中匹配项（如果有）.</translation>
+        <translation>코드 보기에서 모든 일치 항목 바꾸기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="274"/>
         <source>Replace All</source>
-        <translation>全部替换</translation>
+        <translation>모두 바꾸기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="281"/>
         <source>Options:</source>
-        <translation>选项: </translation>
+        <translation>설정:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>For Regex searches, prefix your search with (?s).</source>
-        <translation>对于正则表达式搜索，使用（？）作为搜索前缀.</translation>
+        <translation>정규식 검색을 할 때 접두어에 (?s)를 추가합니다. 줄바꿈이 된 항목까지 검색을 합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="299"/>
         <source>DotAll</source>
-        <translation>全部加点</translation>
+        <translation>줄바꿈 포함</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="306"/>
         <source>For Regex searches, prefix your search with (?U).</source>
-        <translation>对于正则表达式搜索，使用（?U）作为搜索前缀.</translation>
+        <translation>정규식 검색을 할 때 접두어에 (?U)를 추가합니다. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="312"/>
         <source>Minimal Match</source>
-        <translation>最小匹配</translation>
+        <translation>최소 일치</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="319"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation>对于正则表达式搜索，打开查找时的标记/转义选择。</translation>
+        <translation>검색할 내용을 선택 후 CTRL+F로 검색창을 열면 선택된 내용이 토큰화 되어 찾기에 추가됩니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="325"/>
         <source>Auto-Tokenise</source>
-        <translation>自动标记</translation>
+        <translation>자동 토큰화</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="332"/>
         <source>Search from current position to end of the 
 current file or book, and then wrap to the
 other end to continue searching.</source>
-        <translation>从当前位置搜索到当前
-文件或书的结尾，然后
-换另一端继续搜索。</translation>
+        <translation>현재 위치에서 현재 파일 또는 책의 
+끝까지 검색 한 다음 처음부터 현재 
+위치까지 계속 검색합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="337"/>
         <source>Wrap</source>
-        <translation>包</translation>
+        <translation>되돌이 검색</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="371"/>
         <source>Count all matches in Code View.</source>
-        <translation>计数代码视图中的所有匹配项。</translation>
+        <translation>코드 보기 창에서 일치하는 모든 항목의 갯수를 보여줍니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="377"/>
         <source>Count All</source>
-        <translation>计数所有</translation>
+        <translation>모두 세기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="384"/>
         <source>Mode:</source>
-        <translation>模式: </translation>
+        <translation>방식:</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="179"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1431"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
         <source>Current File</source>
-        <translation>当前文件</translation>
+        <translation>현재 파일</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="334"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1254"/>
         <source>Matches found: %n</source>
-        <translation><numerusform>查找到匹配项：%n</numerusform></translation>
+        <translation><numerusform>%n개 일치 항목 발견</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="418"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1278"/>
         <source>No replacements made</source>
-        <translation>没有替换</translation>
+        <translation>바꿀 텍스트가 없습니다</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="420"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1280"/>
         <source>Replacements made: %n</source>
-        <translation><numerusform>已替换： %n</numerusform></translation>
+        <translation><numerusform>%n 개 항목이 교체됨</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="617"/>
         <source>No matches found</source>
-        <translation>没有发现匹配</translation>
+        <translation>
+        </translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1132"/>
         <source>This tab cannot be searched</source>
-        <translation>无法搜索这个标签</translation>
+        <translation>이 탭은 검색할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1164"/>
         <source>Unnamed search loaded</source>
-        <translation>加载了未命名的搜索</translation>
+        <translation>이름 없는 검색이 로드됨</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1167"/>
         <source>Loaded</source>
-        <translation>加载</translation>
+        <translation>불러오기</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1180"/>
@@ -2196,134 +2190,134 @@ other end to continue searching.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="1238"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1264"/>
         <source>No searches selected</source>
-        <translation>没有选择搜索</translation>
+        <translation>검색 결과 없음</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1421"/>
         <source>What to search for</source>
-        <translation>搜索所什么</translation>
+        <translation>무엇을 찾습니까</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1422"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>Normal</source>
-        <translation>普通</translation>
+        <translation>정방향</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1423"/>
         <source>Case in-sensitive search of exactly what you type.</source>
-        <translation>大小写不敏感搜索你所输入的</translation>
+        <translation>입력한 대로 대소문자 구별없이 찾기</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Case Sensitive</source>
-        <translation>大小写敏感</translation>
+        <translation>대/소문자 구분</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1425"/>
         <source>Case sensitive search of exactly what you type.</source>
-        <translation>大小写敏感搜索你所输入的</translation>
+        <translation>입력한 대로 대소문자 구별하여 찾기</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1426"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
         <source>Regex</source>
-        <translation>正则表达式</translation>
+        <translation>정규식</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
-        <translation>使用正则表达式语法搜索.</translation>
+        <translation>정규식 문법을 사용하여 패턴 찾기</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1430"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1442"/>
         <source>Where to search</source>
-        <translation>在哪里搜索</translation>
+        <translation>어디서 찾습니까</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1432"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
-        <translation>限制查找或替换在打开的文件中, 按住Ctrl键的同时单击任何搜索按钮，以临时限制搜索在当前文件中。</translation>
+        <translation>열려있는 파일에서만 찾기나 바꾸기를 수행합니다. 임시로 현재 파일에서만 찾으려면 찾기 버튼을 누를때는 Ctrl 키를 누르세요.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1433"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <source>All HTML Files</source>
-        <translation>所有HTML文件</translation>
+        <translation>모든 HTML 파일</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1434"/>
         <source>Find or replace in all HTML files in Code View.</source>
-        <translation>在代码视图中的所有HTML文件中查找或替换。</translation>
+        <translation>코드 보기의 모든 HTML 파일에서 찾기 또는 바꾸기</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1435"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
         <source>Selected HTML Files</source>
-        <translation>已选择 HTML 文件</translation>
+        <translation>선택된 HTML 파일</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1436"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
-        <translation>在代码视图的书浏览器中, 限制在选择的HTML文件中查找或替换.</translation>
+        <translation>책 찾아보기에서 HTML 파일 선택 후 코드보기 창에서 찾거나 바꿉니다. 선택된 파일 내에서만 검색을 합니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1438"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
-        <translation>要限制为仅在选定的文本中搜索，使用 Search&amp;rarr; 标记选定的文本。</translation>
+        <translation>선택 영역으로 검색을 제한하려면 [검색&amp;rarr; 선택 영역 표시]를 사용하세요.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1443"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1444"/>
         <source>Marked Text</source>
-        <translation>标记的文本</translation>
+        <translation>선택된 텍스트</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1444"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
-        <translation>将查找或替换限制在标记所选文本的文本. 如果您使用撤消，输入文字或更改视图或标签，则清除。</translation>
+        <translation>[검색&amp;rarr; 선택 영역 표시]로 선택된 텍스트만 검색합니다. 선택 영역 취소, 다른 텍스트 입력 또는 탭이나 파일을 이동하면 선택 영역이 취소됩니다. </translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1448"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
         <source>Up</source>
-        <translation>上</translation>
+        <translation>위쪽</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1449"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1453"/>
         <source>Down</source>
-        <translation>下</translation>
+        <translation>아래쪽</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1450"/>
         <source>Direction to search</source>
-        <translation>搜索的方向</translation>
+        <translation>찾을 방향</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1452"/>
         <source>Search for the previous match from your current position.</source>
-        <translation>从当前位置搜索上一次的匹配。</translation>
+        <translation>현재 위치에서 이전 검색 결과 찾기</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1453"/>
         <source>Search for the next match from your current position.</source>
-        <translation>从当前位置搜索下一个匹配。</translation>
+        <translation>현재 위치에서 다음 검색 결과 찾기</translation>
     </message>
 </context>
 <context>
     <name>FindReplaceQLineEdit</name>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="60"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="61"/>
         <source>Tokenise Selection</source>
-        <translation>标记选择</translation>
+        <translation>토큰화 하여 선택</translation>
     </message>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="73"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="74"/>
         <source>Save Search</source>
-        <translation>保存搜索</translation>
+        <translation>검색 저장</translation>
     </message>
 </context>
 <context>
@@ -2331,15 +2325,43 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Tabs/FlowTab.cpp" line="853"/>
         <source>Print %1</source>
-        <translation>打印%1</translation>
+        <translation>인쇄 %1</translation>
     </message>
 </context>
 <context>
     <name>FontResource</name>
     <message>
-        <location filename="../../ResourceObjects/FontResource.cpp" line="74"/>
+        <location filename="../../ResourceObjects/FontResource.cpp" line="70"/>
         <source>No reliable font data</source>
-        <translation>没有可靠的字体数据</translation>
+        <translation>신뢰할 수 있는 글꼴 없음</translation>
+    </message>
+</context>
+<context>
+    <name>FontView</name>
+    <message>
+        <location filename="../../Widgets/FontView.cpp" line="121"/>
+        <source>No reliable font data</source>
+        <translation>신뢰할 수 있는 글꼴 없음</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/FontView.cpp" line="132"/>
+        <source>abcdefghijklmnopqrstuvwxyz</source>
+        <translation>abcdefghijklmnopqrstuvwxyz</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/FontView.cpp" line="133"/>
+        <source>ABCDEFGHIJKLMNOPQRSTUVWXYZ</source>
+        <translation>ABCDEFGHIJKLMNOPQRSTUVWXYZ</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/FontView.cpp" line="134"/>
+        <source>0123456789.:,;(*!?&apos;\/&quot;)$%^&amp;-+@=_-~&gt;&lt;</source>
+        <translation>0123456789.:,;(*!?&apos;\/&quot;)$%^&amp;-+@=_-~&gt;&lt;</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/FontView.cpp" line="135"/>
+        <source>The quick brown fox jumps over the lazy dog</source>
+        <translation>날쌘 갈색 여우가 게으른 개를 뛰어넘는다.</translation>
     </message>
 </context>
 <context>
@@ -2347,254 +2369,253 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="14"/>
         <source>General Settings</source>
-        <translation>常规设置</translation>
+        <translation>일반 설정</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="30"/>
         <source>Basics</source>
-        <translation>基本</translation>
+        <translation>기본 항목</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="42"/>
         <source>Choose which version of Epub to use
 when creating new or empty Epubs in Sigil.</source>
-        <translation>当在Sigil创建新的或空的Epubs时
-选择要使用的Epub版本</translation>
+        <translation>Sigil에서 새 EPUB 파일을 열 때 생성되는 EPUB 버전</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="46"/>
         <source>Create New or Empty Epubs as:</source>
-        <translation>创建新的或空的Epubs为:</translation>
+        <translation>새 EPUB 파일 만들기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="55"/>
         <source>Epub Version 2.</source>
-        <translation>Epub版本2</translation>
+        <translation>EPUB Version2.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="58"/>
         <source>Version 2</source>
-        <translation>版本2</translation>
+        <translation>Version 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="68"/>
         <source>Epub Version 3.</source>
-        <translation>Epub版本3</translation>
+        <translation>EPUB Version 3.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="71"/>
         <source>Version 3</source>
-        <translation>版本3</translation>
+        <translation>Version 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="103"/>
         <source>Choose when your not well formed HTML code is automatically 
 mended.</source>
-        <translation>选择何时自动修复格式不正确的HTML代码。</translation>
+        <translation>문법에 맞지 않는 HTML 코드를 자동으로 정리하는 시기를 선택하십시오.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="107"/>
         <source>Mend Not Well Formed HTML Source Code On:</source>
-        <translation>修补格式不正确的HTML源代码：</translation>
+        <translation>문법에 맞지 않는 HTML 코드 자동 수정</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="116"/>
         <source>Mend Not Well Formed HTML when opening an Epub or HTML file.</source>
-        <translation>打开Epub或HTML文件时修复格式不正确的HTML。</translation>
+        <translation>Epub 또는 HTML 파일을 열 때 문법에 맞지 않는 HTML 코드를 자동으로 정리.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="119"/>
         <source>Open</source>
-        <translation>打开</translation>
+        <translation>열기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="126"/>
         <source>Mend Not Well Formed HTML when saving an Epub.</source>
-        <translation>在保存Epub时修复格式不正确的HTML。</translation>
+        <translation>EPUB으로 저장할 때 문법에 맞지 않는 HTML 코드를 자동으로 수정합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="129"/>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation>저장</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="152"/>
         <source>Number of clipboard history items to save (0 disables):</source>
-        <translation>要保存的剪贴板历史记录项目数(0 disables):</translation>
+        <translation>클립보드에 저장할 항목 수(0은 비활성화):</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="167"/>
         <source>Use to limit (or disable) clipboard history saving between sessions</source>
-        <translation>用于限制（或禁用）会话期间剪切板历时</translation>
+        <translation>클립보드에 저장할 항목 수를 지정하거나 비활성화 합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="186"/>
         <source>Set your preferred external xhtml editor:</source>
-        <translation>设置首选的外部xhtml编辑器：</translation>
+        <translation>선호하는 외부 xhtml 편집기를 설정:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="203"/>
         <source>Clear</source>
-        <translation>清除</translation>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="210"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="524"/>
         <source>Browse</source>
-        <translation>浏览</translation>
+        <translation>찾아보기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="236"/>
         <source>Security</source>
-        <translation>安全</translation>
+        <translation>보안</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="242"/>
         <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
-        <translation>确定是否允许Epubs访问非多媒体远程资源.</translation>
+        <translation>EPUB이 멀티미디어 유형이 아닌 외부 자원을 지원할지 결정합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="245"/>
         <source> Control Access by Epubs to non-multimedia remote resources:</source>
-        <translation>控制Epubs对非多媒体远程资源的访问：</translation>
+        <translation>EPUB에서 멀티미디어 유형이 아닌 외부 자원 허용:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="260"/>
         <source>Check to allow Epubs to access non-multimedia remote resources.</source>
-        <translation>选中此复选框以允许Epubs访问非多媒体远程资源.</translation>
+        <translation>EPUB에서 멀티미디어 유형이 아닌 외부 자원을 허용하려면 체크니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="263"/>
         <source>Epubs may access all remote resources types.</source>
-        <translation>准许Epub访问所有远程资源类型</translation>
+        <translation>EPUB에서 모든 유형의 외부 자원 허용</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="276"/>
         <source>Determine if javascript is allowed to be used by Epubs</source>
-        <translation>确定Epubs是否允许使用javascript</translation>
+        <translation>Epubs에서 자바 스크립트를 사용 여부 결정</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="279"/>
         <source> Control Use of Javascript by Epubs.</source>
-        <translation>控制Epubs对Javascript的使用。</translation>
+        <translation>EPUB에서 자바스크립트 사용 여부</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="294"/>
         <source>Check to allow Epubs to use javascript.</source>
-        <translation>选中以允许Epubs使用javascript。</translation>
+        <translation>EPUB에서 자바스크립트를 허용할 경우 선택</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="297"/>
         <source>Epubs may use javascript.</source>
-        <translation>Epubs可以使用javascript。</translation>
+        <translation>EPUB에서 자바스크립트 사용함</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="324"/>
         <source>Validation</source>
-        <translation>验证</translation>
+        <translation>적합성 검사</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="336"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
-        <translation>为W3C样式表验证工具（EPUB2）指定的CSS级别</translation>
+        <translation>W3C 스타일 시트 유효성 검증시 사용할 CSS레벨 지정(EPUB2)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="339"/>
         <source>EPUB2 W3C Stylesheet Validation Level:</source>
-        <translation>EPUB2的W3C样式表验证工具级别: </translation>
+        <translation>EPUB2의 W3C 스타일시트 검사 레벨</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="348"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB2</source>
-        <translation>W3C样式表验证器将对EPUB2使用CSS级别2</translation>
+        <translation>CSS 레벨2 기준으로 W3C 스타일시트 검사를 진행합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="351"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="421"/>
         <source>CSS Level 2</source>
-        <translation>CSS级别2</translation>
+        <translation>CSS Level 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="358"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB2</source>
-        <translation>W3C样式表验证器将对EPUB2使用CSS级别2.1</translation>
+        <translation>CSS 레벨2.1 기준으로 W3C 스타일시트 검사를 진행합니다. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="361"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="431"/>
         <source>CSS Level 2.1</source>
-        <translation>CSS级别2.1</translation>
+        <translation>CSS Level 2.1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="371"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB2</source>
-        <translation>W3C样式表验证器将对EPUB2使用CSS级别3</translation>
+        <translation>CSS 레벨3 기준으로 W3C 스타일시트 검사를 진행합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="374"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="444"/>
         <source>CSS Level 3</source>
-        <translation>CSS级别3</translation>
+        <translation>CSS Level 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="406"/>
         <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
-        <translation>为W3C样式表验证工具（EPUB3）指定的CSS级别</translation>
+        <translation>W3C 스타일 시트 유효성 검증시 사용할 CSS레벨 지정(EPUB3)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="409"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
-        <translation>EPUB3的W3C样式表验证工具级别: </translation>
+        <translation>EPUB3 W3C 스타일 시트 유효성 검사 레벨</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="418"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB3</source>
-        <translation>W3C样式表验证器将对EPUB3使用CSS级别2</translation>
+        <translation>EPUB3의 W3C 스타일 시트 유효성 검사에 CSS level 2 사용</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="428"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB3</source>
-        <translation>W3C样式表验证器将对EPUB3使用CSS级别2.1</translation>
+        <translation>EPUB3의 W3C 스타일 시트 유효성 검사에 CSS level 2.1 사용</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="441"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB3</source>
-        <translation>W3C样式表验证器将对EPUB3使用CSS级别3</translation>
+        <translation>EPUB3의 W3C 스타일 시트 유효성 검사에 CSS level 3 사용</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="484"/>
         <source>Advanced</source>
-        <translation>高级</translation>
+        <translation>고급 설정</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="490"/>
         <source>Unless you know exactly what you&apos;re doing, there&apos;s very little reason to ever change this setting. Use extreme caution!</source>
-        <translation>除非你确切知道自己在做什么，否则没什么理由改变这个设置。要格外小心！</translation>
+        <translation>이 기능에 대해 정확히 알지 못하면 설정을 변경하지 마십시요. 오작동을 일으킬 수 있기 때문에 매우 주의를 요합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="500"/>
         <source>Set folder where temporary files should be created:</source>
-        <translation>设置应在其中创建临时文件的文件夹：</translation>
+        <translation>임시 파일 저장 공간 설정:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="517"/>
         <source>Auto</source>
-        <translation>自动</translation>
+        <translation>자동</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="197"/>
         <source>Incorrect Path for External Xhtml Editor selected</source>
-        <translation>所选外部Xhtml编辑器的路径不正确</translation>
+        <translation>외부 편집기 경로를 잘못 선택하였습니다. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="217"/>
         <source>Select Folder for Temporary Files</source>
-        <translation>设置临时文件文件夹</translation>
+        <translation>임시 파일 폴더 선택</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="234"/>
         <source>Incorrect Folder for Temporary Files selected</source>
-        <translation>临时文件文件夹不对</translation>
+        <translation>임시 파일 폴더를 잘못 선택하였습니다. </translation>
     </message>
 </context>
 <context>
@@ -2602,362 +2623,364 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="154"/>
         <source>Acknowledgements</source>
-        <translation>致谢</translation>
+        <translation>감사의 말</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="154"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation>包含对参与实际工作的致谢段落。</translation>
+        <translation>출판의 작업과 관련되어 작가의 감사를 포함하고 있는 구절을 말한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="155"/>
         <source>Afterword [other.]</source>
-        <translation>后记 [other.]</translation>
+        <translation>후기[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="155"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation>来自作者或对故事重要人物的结束陈述，通常提供洞察故事如何写、其意义或自其时间表以来发生的相关事件。</translation>
+        <translation>저자가 직접 작성하거나 또는 출판물의 중요 공헌을 한 사람이 작성하는 마무리하
+는 글이다. 일반적으로 스토리가 작성된 방법, 본문의 타임 라인 이후에 발생한 연
+관된 사건이나 중요한 사건을 나열한다. 발문(跋文)으로 칭하기도 한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="156"/>
         <source>Appendix [other.]</source>
-        <translation>附录 [other.]</translation>
+        <translation>부록,부속물[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="156"/>
         <source>Supplemental information.</source>
-        <translation>补充信息.</translation>
+        <translation>보충 정보.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="157"/>
         <source>Back Matter [other.]</source>
-        <translation>结文 [other.]</translation>
+        <translation>권말[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="157"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
-        <translation>在出版物的主要内容之后出现的辅助材料，如索引、附录等。</translation>
+        <translation>색인, 부록 등과 같은 출판물의 주요 내용 이후에 발생하는 보조 자료를 말한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="158"/>
         <source>Bibliography</source>
-        <translation>参考书目</translation>
+        <translation>참고서적</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="158"/>
         <source>A list of works cited.</source>
-        <translation>引用作品的列表</translation>
+        <translation>인용된 작품 목록</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="159"/>
         <source>Text</source>
-        <translation>文本</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="159"/>
         <source>The start of the main text content of a publication.</source>
-        <translation>主要发行文本内容的开始.</translation>
+        <translation>발행물의 주가 되는 텍스트 내용의 시작.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="160"/>
         <source>Colophon</source>
-        <translation>出版标记</translation>
+        <translation>판권 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="160"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation>位于出版物末尾的简要说明，通常描述与该版本相关的出版说明。</translation>
+        <translation>출판물의 뒷부분에 위치한 간략한 설명으로 해당 판과 관련된 서명, 저자명, 출판지, 출판사, 출판년, 인쇄지, 인쇄자명, 인쇄년, 판차, 인차, 발행자의 주소 및 연락처, 정가, 판권인, 출판물목록정보 등의 사항을 담는다. 판권장, 간기 등으로 불린다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="161"/>
         <source>Conclusion [other.]</source>
-        <translation>结尾 [other.]</translation>
+        <translation>결론[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="161"/>
         <source>An ending section that typically wraps up the work.</source>
-        <translation>结束章节, 通常对全书的总结.</translation>
+        <translation>일반적으로 작업을 마무리하는 결말 부분이다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="162"/>
         <source>Contributors [other.]</source>
-        <translation>贡献者 [other.]</translation>
+        <translation>기여자[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="162"/>
         <source>A list of contributors to the work.</source>
-        <translation>作品的贡献者列表。</translation>
+        <translation>작업에 참여한 사람들</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="163"/>
         <source>Copyright Page</source>
-        <translation>版权页</translation>
+        <translation>저작권 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="163"/>
         <source>The copyright page of the work.</source>
-        <translation>作品的版权页.</translation>
+        <translation>작업물에 대한 저작권 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="164"/>
         <source>Cover</source>
-        <translation>封面</translation>
+        <translation>표지</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="164"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation>出版物封面和封套等信息.</translation>
+        <translation>발행물의 표지, 책 커버 정보 등.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="165"/>
         <source>Dedication</source>
-        <translation>题词</translation>
+        <translation>헌정 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="165"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation>给一个或几个特定人的题词.</translation>
+        <translation>한 명 또는 여러 명의 특정인에게 보내는 비문.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="166"/>
         <source>Epilogue [other.]</source>
-        <translation>尾声 [other.]</translation>
+        <translation>맺음말[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="166"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
-        <translation>结论章节，通常在比主故事稍晚的时候完成，虽然仍然是叙事的一部分。</translation>
+        <translation>글이나 말의 끝마무리가 되는 부분.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>Epigraph</source>
-        <translation>引言</translation>
+        <translation>지문(Epigraph)</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation>引言是相关的, 但不是文本的组成部分.</translation>
+        <translation>출판물의 전체적인 분위기나 주제를 알리기 위하여 작품의 시작 부분에 위치한 인용문구 영역이다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="168"/>
         <source>Errata [other.]</source>
-        <translation>勘误表 [other.]</translation>
+        <translation>정오표[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="168"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
-        <translation>出版物勘误表,在印刷品中通常是手工插入的纸; 有时是包含工作中错误更正的绑定纸.</translation>
+        <translation>잘못된 글자나 부분을 바로잡아 만든 일람표</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>Footnotes [other.]</source>
-        <translation>脚注 [other.]</translation>
+        <translation>각주[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
-        <translation>出现在页面底部的注释集合.</translation>
+        <translation>페이지 하단에 나타나는 부가 설명이나 참고 문헌</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="170"/>
         <source>Foreword</source>
-        <translation>前言</translation>
+        <translation>머리말</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="170"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation>在作品之前的介绍部分，通常不是作品的作者写的。</translation>
+        <translation>일반적으로 작품의 저자가 쓰지 않으며, 작품을 소개하는 부분으로 서문으로도 칭한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="171"/>
         <source>Front Matter [other.]</source>
-        <translation>前页 [other.]</translation>
+        <translation>권두[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="171"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
-        <translation>出版物主要内容的初步材料, 如目录, 奉献等.</translation>
+        <translation>목차, 헌정의 말 등 출판물의 주요 내용을 포함하는 책의 첫머리 부분이며 전문 또는 서문 등과 같은 의미로 사용한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="172"/>
         <source>Glossary</source>
-        <translation>词汇表</translation>
+        <translation>용어</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="172"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation>按字母顺序排列的特定知识领域中术语的列表, 以及这些术语的定义.</translation>
+        <translation>출판물에 사용된 용어를 낱자 순(알파벳 순)으로 정리한 목록이며 해당 용어에 대한 정의를 포함한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>Half Title Page [other.]</source>
-        <translation>半标题页 [other.]</translation>
+        <translation>중간 제목 페이지[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>The half title page of the work which carries just the title itself.</source>
-        <translation>作品的半标题页只带有标题本身.</translation>
+        <translation>출판물의 중간 제목 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="174"/>
         <source>Imprimatur [other.]</source>
-        <translation>出版许可 [other.]</translation>
+        <translation>출판허가[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="174"/>
         <source>A formal statement authorizing the publication of the work.</source>
-        <translation>授权发布作品的正式声明。</translation>
+        <translation>작품의 출판을 승인하는 공식 진술.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="175"/>
         <source>Imprint [other.]</source>
-        <translation>出版商名称 [other.]</translation>
+        <translation>간기[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="175"/>
         <source>Information relating to the publication or distribution of the work.</source>
-        <translation>与作品的出版或分发有关的信息.</translation>
+        <translation>작품의 출판 또는 배포와 관련된 정보. 책의 간기(刊記): 발행자 명, 주소, 발행 연월일 등</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>Index</source>
-        <translation>索引</translation>
+        <translation>색인</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation>通常按字母顺序排列的出版物中特定信息的详细列表.</translation>
+        <translation>책 속의 세부 내용이나 사항 따위를 쉽게 찾아볼 수 있도록 항목별로 그 쪽수를 표시해 놓은 목록</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="177"/>
         <source>Introduction [other.]</source>
-        <translation>简介 [other.]</translation>
+        <translation>소개, 서론[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="177"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
-        <translation>作品的开始部分，通常向读者介绍作品内容的范围或性质.</translation>
+        <translation>출판물의 앞부분 영역으로 일반적으로 작업 내용의 범위나 성격을 독자에게 소개한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>List of Illustrations</source>
-        <translation>插图列表</translation>
+        <translation>일러스트레이션 목록</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation>作品中包括的插图列表.</translation>
+        <translation>작품에 포함 된 삽화 목록.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>List of Audio Clips [other.]</source>
-        <translation>音频剪辑列表 [other.]</translation>
+        <translation>오디오 클립 목록[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>A listing of audio clips included in the work.</source>
-        <translation>包含在作品中的音频剪辑的列表</translation>
+        <translation>작품에 포함 된 오디오 클립 목록.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="180"/>
         <source>List of Tables</source>
-        <translation>表列表</translation>
+        <translation>표 목록</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="180"/>
         <source>A listing of tables included in the work.</source>
-        <translation>包含在作品中的表的列表。</translation>
+        <translation>작업에 포함 된 테이블 목록.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>List of Video Clips [other.]</source>
-        <translation>视频剪辑列表 [other.]</translation>
+        <translation>비디오 클립 목록[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>A listing of video clips included in the work.</source>
-        <translation>包含在作品中的视频剪辑的列表</translation>
+        <translation>작품에 포함 된 비디오 클립 목록.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>Notes</source>
-        <translation>笔记</translation>
+        <translation>참고</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
-        <translation>笔记的集合, 当不需要旧的命名约定时，它可以用于识别脚注, 后注, 边注, 内联注释等。 状态：已弃用 - 替换者：&apos;脚注&apos;，&apos;后注&apos;</translation>
+        <translation>(더 이상 사용되지 않으며 각주, 후면노트로 대체됨) 메모 모음. 레거시 명명 규칙이 필요하지 않은 경우 각주, 후면 노트, 한계 노트, 인라인 노트 등을 식별하는 데 사용할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Other Credits [other.]</source>
-        <translation>其他信誉 [other.]</translation>
+        <translation>기타 크레딧[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
-        <translation>致谢以前发布的部分的作品, 插图信用和版权材料的报价许可.</translation>
+        <translation>전에 출판 된 작품의 일부에 대한 승인, 일러스트레이션 크레디트 및 저작권이있는 자료를 인용 할 수있는 권한.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="184"/>
         <source>Preamble [other.]</source>
-        <translation>序言 [other.]</translation>
+        <translation>전문[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="184"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
-        <translation>作品开头的部分，通常包含关于作品内容的范围或性质的介绍性和/或说明性的内容</translation>
+        <translation>작품의 시작 부분에 일반적으로 작품 내용의 범위 또는 성격에 관한 입문 또는 설명이 포함 된 섹션</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="185"/>
         <source>Preface</source>
-        <translation>前言</translation>
+        <translation>머리말</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="185"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation>在作品之前的介绍部分，通常由作品的作者书写。</translation>
+        <translation>일반적으로 작품의 저자가 쓴 작품 앞에 나오는 소개 영역이며 서문으로도 칭한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="186"/>
         <source>Prologue [other.]</source>
-        <translation>开场白 [other.]</translation>
+        <translation>서두[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="186"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
-        <translation>介绍部分,设置故事的背景, 通常是叙事的一部分.</translation>
+        <translation>일반적으로 이야기의 일부가 되는 배경 이야기를 설정하는 소개 섹션입니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="187"/>
         <source>Rear Notes [other.]</source>
-        <translation>后记 [other.]</translation>
+        <translation>후주[기타]</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="187"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
-        <translation>出现在作品后面（背面）或某一部分结尾处的笔记集。</translation>
+        <translation>출판물의 뒷부분 또는 단원의 끝 부분에 위치한 주석</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="188"/>
         <source>Title Page</source>
-        <translation>标题页</translation>
+        <translation>제목 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="188"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation>书籍开头的页面，标题，作者，出版商和其他出版物信息。</translation>
+        <translation>책의 시작 부분에 제목, 저자, 출판사 및 기타 출판 정보를 제공하는 페이지입니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="189"/>
         <source>Table of Contents</source>
-        <translation>目录</translation>
+        <translation>목차</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="189"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation>内容表是书或文档的标题或部分的书内容列表，按照出现的顺序排序, 通常出现在工作的前端或在节的开头。</translation>
+        <translation>책 또는 문서의 제목 또는 부분의 목록 인 목차로, 순서대로 표시됩니다. 일반적으로 작품의 전면 또는 섹션 시작 부분에 나타납니다.</translation>
     </message>
 </context>
 <context>
@@ -2965,82 +2988,82 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="14"/>
         <source>HTML Files</source>
-        <translation>HTML文件</translation>
+        <translation>HTML 파일</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>仅列出文件名包含所输入文本的文件</translation>
+        <translation>입력한 텍스트가 포함된 파일만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsHTMLFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>过滤：</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="75"/>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="76"/>
         <source>File Size (KB)</source>
-        <translation>文件大小 (KB)</translation>
+        <translation>파일 크기 (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="77"/>
         <source>All Words</source>
-        <translation>所有词语</translation>
+        <translation>모든 단어</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="78"/>
         <source>Misspelled Words</source>
-        <translation>错别字</translation>
+        <translation>맞춤법 틀린 단어</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="79"/>
         <source>Images</source>
-        <translation>图像</translation>
+        <translation>이미지</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="80"/>
         <source>Video</source>
-        <translation>视频</translation>
+        <translation>디오</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="81"/>
         <source>Audio</source>
-        <translation>音频</translation>
+        <translation>오디오</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="82"/>
         <source>Stylesheets</source>
-        <translation>样式表</translation>
+        <translation>스타일시트</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="83"/>
         <source>Well Formed</source>
-        <translation>良好构成</translation>
+        <translation>잘 구성된</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="173"/>
         <source>Yes</source>
-        <translation>是</translation>
+        <translation>예</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="173"/>
         <source>No</source>
-        <translation>否</translation>
+        <translation>아니오</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="192"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n 个文件</numerusform></translation>
+        <translation><numerusform>%n 파일</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="338"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>将报告保存为都好分割的文件</translation>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="352"/>
@@ -3050,12 +3073,12 @@ mended.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="352"/>
         <source>Cannot save report file.</source>
-        <translation>无法保存报告文件</translation>
+        <translation>리포트 파일을 저장할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="377"/>
         <source>Delete From Book</source>
-        <translation>从书中删除</translation>
+        <translation>책에서 삭제하기</translation>
     </message>
 </context>
 <context>
@@ -3063,105 +3086,98 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="14"/>
         <source>Generate Table Of Contents</source>
-        <translation>生成目录</translation>
+        <translation>목차 만들기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="52"/>
         <source>Change the name of the entry in the TOC.
 The heading&apos;s title attribute will be updated in the document.</source>
-        <translation>更改TOC中条目的名称
-标题的台头属性将在文档中更新。</translation>
+        <translation>목차의 항목 이름을 변경합니다. 본문의 제목은 수정되지 않으며 헤딩(heading) 태그의 title 속성이 문서에서 업데이트됩니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="56"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="975"/>
         <source>Rename</source>
-        <translation>重命名</translation>
+        <translation>이름 바꾸기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="81"/>
         <source>Decrease the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the left arrow key.</source>
-        <translation>减小所选条目的标题1个级别
-标题的标签将在文档中更新
-您也可以使用左箭头键。</translation>
+        <translation>선택한 항목의 제목 수준을 한단계씩 줄입니다. 제목 태그가 문서에서 업데이트됩니다 . 왼쪽 화살표 키를 사용할 수도 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="96"/>
         <source>Increase the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
 You can also use the right arrow key.</source>
-        <translation>增加所选条目的标题1个级别
-标题的标签将在文档中更新
-您也可以使用右箭头键。</translation>
+        <translation>선택한 항목의 제목 수준을 한단계씩 증가시킵니다 . 제목 태그가 문서에서 업데이트됩니다 . 오른쪽 화살표 키를 사용할 수도 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="130"/>
         <source>Only display the items that will be added to the Table Of Contents.
 Check or uncheck an entry to determine if it will be added to the TOC.</source>
-        <translation>仅显示将添加到目录中的项目
-选中或取消选中条目以确定是否将其添加到TOC中.</translation>
+        <translation>목차에 추가 될 항목 만 표시합니다 . 항목을 확인하거나 선택 취소하여 항목을 목차에 추가할 지 결정합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="134"/>
         <source>Show TOC items only</source>
-        <translation>仅显示TOC的项目</translation>
+        <translation>TOC 항목만 보기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="153"/>
         <source>Quickly mark which headings are included in the TOC.
 You can then check or uncheck individual headings in the list above.</source>
-        <translation>快速标记TOC中包括哪些标题
-然后, 您可以在上面的列表中选中或取消选中某个标题。</translation>
+        <translation>TOC에 포함 된 제목을 빠르게 표시하십시오 . 그런 다음 위 목록에서 개별 제목을 확인하거나 선택 취소 할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="618"/>
         <source>Level</source>
-        <translation>级别</translation>
+        <translation>수준</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Included</source>
-        <translation>包含</translation>
+        <translation>포함</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="602"/>
         <source>Hidden</source>
-        <translation>隐藏</translation>
+        <translation>숨김</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="617"/>
         <source>TOC Entry / Heading Title</source>
-        <translation>TOC条目/标题</translation>
+        <translation>목차 항목</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="619"/>
         <source>Include</source>
-        <translation>包含</translation>
+        <translation>포함</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="838"/>
         <source>Up to level</source>
-        <translation>升级</translation>
+        <translation>한 단계 위로</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="840"/>
         <source>&lt;Select headings to include in TOC&gt;</source>
-        <translation>&lt;选择要包括在TOC中的标题&gt;</translation>
+        <translation>&lt;Select headings to include in TOC&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="843"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="904"/>
         <source>None</source>
-        <translation>无</translation>
+        <translation>없음</translation>
     </message>
     <message>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="849"/>
         <location filename="../../Dialogs/HeadingSelector.cpp" line="902"/>
         <source>All</source>
-        <translation>所有</translation>
+        <translation>모두</translation>
     </message>
 </context>
 <context>
@@ -3169,67 +3185,67 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="14"/>
         <source>Image Files</source>
-        <translation>图像文件</translation>
+        <translation>이미지 파일</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>仅列出文件名包含所输入文本的文件</translation>
+        <translation>입력한 텍스트가 포함된 파일만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>过滤：</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsImageFilesWidget.ui" line="76"/>
         <source>Thumbnail size:</source>
-        <translation>缩略图大小: </translation>
+        <translation>썸네일 크기:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="88"/>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="89"/>
         <source>File Size (KB)</source>
-        <translation>文件大小 (KB)</translation>
+        <translation>파일 크기 (KB)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="90"/>
         <source>Times Used</source>
-        <translation>使用时间</translation>
+        <translation>사용한 시간</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="91"/>
         <source>Width</source>
-        <translation>宽度</translation>
+        <translation>폭</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="92"/>
         <source>Height</source>
-        <translation>高度</translation>
+        <translation>높이</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="93"/>
         <source>Pixels</source>
-        <translation>像素数</translation>
+        <translation>픽셀</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="94"/>
         <source>Color</source>
-        <translation>颜色</translation>
+        <translation>색상</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="97"/>
         <source>Image</source>
-        <translation>图像</translation>
+        <translation>이미지</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="184"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n 个文件</numerusform></translation>
+        <translation><numerusform>%n 파일</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="188"/>
@@ -3239,7 +3255,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>将报告保存为都好分割的文件</translation>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="350"/>
@@ -3249,12 +3265,12 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="350"/>
         <source>Cannot save report file.</source>
-        <translation>无法保存报告文件</translation>
+        <translation>리포트 파일을 저장할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="425"/>
         <source>Delete From Book</source>
-        <translation>从书中删除</translation>
+        <translation>책에서 삭제하기</translation>
     </message>
 </context>
 <context>
@@ -3262,49 +3278,72 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="186"/>
         <source>shades</source>
-        <translation>色彩</translation>
+        <translation>그림자</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="186"/>
         <source>colors</source>
-        <translation>颜色</translation>
+        <translation>색상</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="187"/>
         <source>Grayscale</source>
-        <translation>灰度</translation>
+        <translation>회색조(Grayscale)</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="187"/>
         <source>Color</source>
-        <translation>色彩</translation>
+        <translation>색상</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="307"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="365"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="368"/>
-        <source>Open With</source>
-        <translation>用...打开</translation>
-    </message>
-    <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="343"/>
-        <source>Other Application</source>
-        <translation>其它应用程序</translation>
-    </message>
-    <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="366"/>
-        <source>Save As</source>
-        <translation>保存为</translation>
-    </message>
-    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="309"/>
         <location filename="../../Tabs/ImageTab.cpp" line="367"/>
-        <source>Copy Image</source>
-        <translation>复制图像</translation>
+        <location filename="../../Tabs/ImageTab.cpp" line="370"/>
+        <source>Open With</source>
+        <translation>다른 프로그램으로 편집</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="415"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="345"/>
+        <source>Other Application</source>
+        <translation>다른 응용프로그램</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="368"/>
+        <source>Save As</source>
+        <translation>다른 이름으로 저장</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="369"/>
+        <source>Copy Image</source>
+        <translation>이미지 복사</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="417"/>
         <source>Print %1</source>
-        <translation>打印%1</translation>
+        <translation>인쇄 %1</translation>
+    </message>
+</context>
+<context>
+    <name>ImageView</name>
+    <message>
+        <location filename="../../Widgets/ImageView.cpp" line="84"/>
+        <source>shades</source>
+        <translation>그림자</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/ImageView.cpp" line="84"/>
+        <source>colors</source>
+        <translation>색상</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/ImageView.cpp" line="85"/>
+        <source>Grayscale</source>
+        <translation>회색조(Grayscale)</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/ImageView.cpp" line="85"/>
+        <source>Color</source>
+        <translation>색상</translation>
     </message>
 </context>
 <context>
@@ -3312,31 +3351,29 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="148"/>
         <source>Files exist in epub that are not listed in the manifest, they will be ignored</source>
-        <translation>epub中存在清单中未列出的文件，它们将被忽略</translation>
+        <translation>매니페스트에 나열되지 않은 파일이 epub에 존재하기 때문에 파일은 무시합니다.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="186"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="198"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="187"/>
-        <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in minor data loss.
+        <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
+        <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this may result in minor data loss in extreme circumstances.
 
 Do you want to automatically fix the files?</source>
-        <translation>此EPUB包含格式不正确的HTML文件。Sigil可以尝试自动修复这些文件，尽管这可能会导致轻微的数据丢失。
-
-你想要要自动修复文件吗？</translation>
+        <translation>이 EPUB에는 문법에 맞지 않는 HTML 파일이 있습니다. Sigil은 이러한 파일을 자동으로 수정하려고 시도하지만 약간의 데이터 손실이 발생할 수 있습니다 . 파일을 자동으로 수정 하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="557"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="569"/>
         <source>Epub has missing or improperly specified OPF.</source>
-        <translation>Epub丢失或者不正确的OPF</translation>
+        <translation>Epub에 OPF가 없거나 잘못 지정되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="597"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="609"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
-        <translation>此epub有多个格式副本（多个OPF文件）。在Sigil中编辑这个epub将只使用找到的主（第一个）OPF文件生成一个普通的单一格式副本epub。</translation>
+        <translation>이 epub에는 다줄 렌디션(renditions, 다중 OPF 파일)이 있습니다. Sigil에서 이 epub를 편집하면 Sigil이 처음 발견한 OPF 파일만 사용합니다.</translation>
     </message>
 </context>
 <context>
@@ -3345,93 +3382,93 @@ Do you want to automatically fix the files?</source>
         <location filename="../../Form_Files/IndexEditor.ui" line="14"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
         <source>Index Editor</source>
-        <translation>索引编辑器</translation>
+        <translation>색인 편집기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>过滤：</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>仅列出包含您输入的文本的条目. </translation>
+        <translation>입력한 텍스트가 포함된 항목만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="55"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="435"/>
         <source>Add Entry</source>
-        <translation>添加入口</translation>
+        <translation>항목 추가</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>右键单击一个条目以查看操作的上下文菜单. </translation>
+        <translation>동작의 상황에 맞는 메뉴를 보기 위해서 항목 위에서 오른쪽 클릭</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="68"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
-        <translation>您还可以在文档中右键单击以将所选文本添加到索引.</translation>
+        <translation>문서에서 텍스트를 선택한 후 마우스 오른쪽 버튼을 클릭하여 색인에 추가 할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>Text to Include</source>
-        <translation>要包含的文本</translation>
+        <translation>포함할 텍스트</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
-        <translation>文档中匹配的模式，例如 “古登堡”, 这是一个正则表达式模式, 所以“(？i)古登堡”忽略匹配时的情况。</translation>
+        <translation>문서에서 일치시킬 패턴 (예 : &quot;Gutenberg&quot;. ) 정규식을 사용할 수 있습니다.(예 : &quot;(?i)Gutenberg&quot;는 대소문자를 구분하지 않음)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
         <source>Index Entries</source>
-        <translation>索引入口</translation>
+        <translation>색인 항목</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
-        <translation>要在索引中创建条目, 按原样使用文本并留空或输入要显示的文本. 通过在级别名称后使用“/”符号创建多级条目，例如 “书/幻想/爱丽丝梦游仙境”或“书/幻想/”。</translation>
+        <translation>인에서 작성할 항목입니다. 텍스트를 그대로 사용하려면 비워 두거나 표시 할 텍스트를 입력하십시오. 레벨 이름 뒤에 &apos;/&apos;를 사용하여 다중 레벨 항목을 작성하십시오 (예 : &quot;책 / 판타지 / 앨리스 원더 랜드&quot;또는 &quot;도서 / 판타지 /&quot;)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation>저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
         <source>Save your changes.</source>
-        <translation>保存改变的.</translation>
+        <translation>변경사항 저장하기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>如果有其他Sigil的实例正在运行，它们将自动更新您的更改. </translation>
+        <translation>다른 Sigil 인스턴스가 실행중인 경우 변경 사항이 자동으로 업데이트됩니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="85"/>
         <source>Cannot save entries.</source>
-        <translation>无法保存条目. </translation>
+        <translation>항목을 저장할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="127"/>
         <source>Index entries loaded from file.</source>
-        <translation>从文件加载的索引条目.</translation>
+        <translation>색인 항목 불러오기</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
         <source>Entries added: %n</source>
-        <translation><numerusform>项目已添加： %n</numerusform></translation>
+        <translation><numerusform>추가한 항목: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="294"/>
         <source>Index files: *.ini *.txt (*.ini *.txt)</source>
-        <translation>索引文件: *.ini *.txt (*.ini *.txt)</translation>
+        <translation>인덱스 파일: *.ini *.txt(*.ini *.txt)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="301"/>
         <source>Load Entries From File</source>
-        <translation>从文件加载条目</translation>
+        <translation>파일로부터 불러들인 항목</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="319"/>
@@ -3441,79 +3478,78 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="319"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>您确定要重新载入所有条目吗? 所有更改将被覆盖. </translation>
+        <translation>모든 항목을 다시 읽어들이는 것이 확실합니까? 저장되지 않은 모든 변경 내용을 잃게됩니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="342"/>
         <source>Save Entries to File</source>
-        <translation>将条目保存到文件</translation>
+        <translation>파일에 항목 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="436"/>
         <source>Edit</source>
-        <translation>编辑</translation>
+        <translation>편집</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="437"/>
         <source>Cut</source>
-        <translation>剪切</translation>
+        <translation>잘라내기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="438"/>
         <source>Copy</source>
-        <translation>复制</translation>
+        <translation>복사하기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="439"/>
         <source>Paste</source>
-        <translation>黏贴</translation>
+        <translation>붙여넣기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="440"/>
         <source>Delete</source>
-        <translation>删除</translation>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="441"/>
         <source>Autofill</source>
-        <translation>自动填充</translation>
+        <translation>자동 채우기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="442"/>
         <source>Open</source>
-        <translation>打开</translation>
+        <translation>열기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="443"/>
         <source>Reload</source>
-        <translation>重载入</translation>
+        <translation>다시 읽어들이기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="444"/>
         <source>Save As</source>
-        <translation>保存为</translation>
+        <translation>다른 이름으로 저장하기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="445"/>
         <source>Select All</source>
-        <translation>选择全部</translation>
+        <translation>모두 선택하기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="520"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="522"/>
         <source>Index entries saved.</source>
-        <translation>索引条目已保存.</translation>
+        <translation>색인 항목이 저장됨.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="549"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="551"/>
         <source>Sigil: Index Editor</source>
-        <translation>Sigil: 索引编辑器</translation>
+        <translation>Sigil: 색인 편집기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="550"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="552"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>索引条目可能已被修改
-要保存更改吗？</translation>
+        <translation>색인 항목이 수정합니다. 수정된 내용을 저장하시겠습니까?</translation>
     </message>
 </context>
 <context>
@@ -3521,17 +3557,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="61"/>
         <source>Text to Include</source>
-        <translation>要包含的文本</translation>
+        <translation>포함할 텍스트</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="62"/>
         <source>Index Entries</source>
-        <translation>索引入口</translation>
+        <translation>색인 항목</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="347"/>
         <source>Unable to create file %1</source>
-        <translation>无法创建文件 %1</translation>
+        <translation>%1 파일을 생성할 수 없습니다</translation>
     </message>
 </context>
 <context>
@@ -3539,12 +3575,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/Inspector.cpp" line="54"/>
         <source>Inspect Page or Element</source>
-        <translation>检查页面或元素</translation>
+        <translation>페이지 또는 요소 검사</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Inspector.cpp" line="153"/>
         <source>The Inspector functionality is not supported before Qt 5.11</source>
-        <translation>Qt 5.11之前不支持检查器功能</translation>
+        <translation>검사 기능은 Qt 5.11 이전에는 지원되지 않습니다.</translation>
     </message>
 </context>
 <context>
@@ -3552,78 +3588,78 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="14"/>
         <source>Keyboard Shortcuts</source>
-        <translation>键盘快捷键</translation>
+        <translation>키보드 단축키</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="34"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>仅列出包含您输入的文本的条目. </translation>
+        <translation>입력한 텍스트가 포함된 항목만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="37"/>
         <source>Filter: </source>
-        <translation>过滤器:</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="62"/>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="67"/>
         <source>Shortcut</source>
-        <translation>快捷方式</translation>
+        <translation>단축키</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="72"/>
         <source>Description</source>
-        <translation>描述</translation>
+        <translation>설명</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="82"/>
         <source>Reset all to default</source>
-        <translation>重置所有为默认值</translation>
+        <translation>모두 기본값으로 초기화</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="85"/>
         <source>Reset All</source>
-        <translation>全部重置</translation>
+        <translation>모두 초기화</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="115"/>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="125"/>
         <source>Press the key combination you want to use.</source>
-        <translation>按您要使用的组合键.</translation>
+        <translation>사용하기 원하는 키 조합을 누르세요.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="118"/>
         <source>Shortcut:</source>
-        <translation>快捷方式: </translation>
+        <translation>단축키:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="141"/>
         <source>Assign this keyboard shortcut, overriding any conflicting usages.</source>
-        <translation>指定此键盘快捷键并覆盖任何其它的冲突。</translation>
+        <translation>동일한 단축키를 사용하는 항목이 있습니다. 단축키를 다시 할당해야 합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="144"/>
         <source>Assign</source>
-        <translation>分派</translation>
+        <translation>할당(Assign)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="160"/>
         <source>Remove this keyboard shortcut.</source>
-        <translation>删除键盘组合键</translation>
+        <translation>이 단축키 제거</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="163"/>
         <source>Remove</source>
-        <translation>删除</translation>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="365"/>
         <source>Conflicts with: &lt;b&gt;</source>
-        <translation>与: &lt;b&gt;冲突</translation>
+        <translation>충돌 항목:&lt;b&gt;</translation>
     </message>
 </context>
 <context>
@@ -3631,482 +3667,484 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>Acknowledgments</source>
-        <translation>致谢</translation>
+        <translation>감사의 말</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="152"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
-        <translation>包含对参与实际工作的致谢段落。</translation>
+        <translation>작업을 하며 받은 도움에 대해 감사를 표시함</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="153"/>
         <source>Afterword</source>
-        <translation>后话</translation>
+        <translation>후기</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="153"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation>来自作者或对故事重要人物的结束陈述，通常提供洞察故事如何写、其意义或自其时间表以来发生的相关事件。</translation>
+        <translation>저자가 직접 작성하거나 또는 출판물의 중요 공헌을 한 사람이 작성하는 마무리하
+는 글이다. 일반적으로 스토리가 작성된 방법, 본문의 타임 라인 이후에 발생한 연
+관된 사건이나 중요한 사건을 나열한다. 발문(跋文)으로 칭하기도 한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>Annotation</source>
-        <translation>注解</translation>
+        <translation>주석</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>Explanatory information about passages in the work. Status: Deprecated</source>
-        <translation>关于作品中的段落的解释性信息. 状态：已弃用</translation>
+        <translation>작품의 구절에 대한 설명 정보. 상태 : 더 이상 사용되지 않음</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>Appendix</source>
-        <translation>附录</translation>
+        <translation>부록</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>Supplemental information.</source>
-        <translation>补充信息.</translation>
+        <translation>보충 정보.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>Assessment</source>
-        <translation>评语</translation>
+        <translation>평가</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</source>
-        <translation>测试、测验或其他有助于衡量学生对正在教授内容的理解.</translation>
+        <translation>학습 내용에 대한 학생의 이해도를 측정하는 데 도움이되는 시험, 퀴즈 또는 기타 활동.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Back Matter</source>
-        <translation>返回事项</translation>
+        <translation>권말</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
-        <translation>出现在出版物的主要内容（如索引，附录等）之后的补充材料.</translation>
+        <translation>색인, 부록 등과 같은 출판물의 주요 내용 이후에 발생하는 보조 자료</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>Bibliography</source>
-        <translation>参考书目</translation>
+        <translation>참고서적</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>A list of works cited.</source>
-        <translation>引用作品的列表</translation>
+        <translation>인용된 작품 목록</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>Body Matter</source>
-        <translation>主体详情</translation>
+        <translation>본문</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>The main content of a publication.</source>
-        <translation>出版物的主要内容.</translation>
+        <translation>발행물의 주요 내용</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>Chapter</source>
-        <translation>章</translation>
+        <translation>장</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>A major structural division of a piece of writing.</source>
-        <translation>一个写作的主要结构分割.</translation>
+        <translation>글쓰기의 주요 구조를 분할하기 위해 사용.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>Colophon</source>
-        <translation>Colophon</translation>
+        <translation>판권 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
-        <translation>位于出版物末尾的简要说明，通常描述与该版本相关的出版说明。</translation>
+        <translation>출판물의 뒷부분에 위치한 간략한 설명으로 해당 판과 관련된 서명, 저자명, 출판지, 출판사, 출판년, 인쇄지, 인쇄자명, 인쇄년, 판차, 인차, 발행자의 주소 및 연락처, 정가, 판권인, 출판물목록정보 등의 사항을 담는다. 판권장, 간기 등으로 불린다.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>Conclusion</source>
-        <translation>结论</translation>
+        <translation>결론</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>An ending section that typically wraps up the work.</source>
-        <translation>结束章节, 通常对全书的总结.</translation>
+        <translation>일반적으로 작업을 마무리하는 결말 부분이다.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>Contributors</source>
-        <translation>贡献者</translation>
+        <translation>기여자</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>A list of contributors to the work.</source>
-        <translation>作品的贡献者列表。</translation>
+        <translation>작업에 참여한 사람들</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>Copyright Page</source>
-        <translation>版权页</translation>
+        <translation>저작권 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>The copyright page of the work.</source>
-        <translation>作品的版权页.</translation>
+        <translation>작업물에 대한 저작권 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="165"/>
         <source>Cover</source>
-        <translation>封面</translation>
+        <translation>표지</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="165"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation>出版物封面和封套等信息.</translation>
+        <translation>발행물의 표지, 책 커버 정보 등.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="166"/>
         <source>Dedication</source>
-        <translation>题词</translation>
+        <translation>헌정 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="166"/>
         <source>An inscription addressed to one or several particular person(s).</source>
-        <translation>给一个或几个特定人的题词.</translation>
+        <translation>한 명 또는 여러 명의 특정인에게 보내는 비문.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>Division</source>
-        <translation>分隔</translation>
+        <translation>분할</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>A major structural division that may also appear as a substructure of a part (esp. in legislation).</source>
-        <translation>一个主要的结构分割, 也可以作为一个部分的子结构(特别是在立法中).</translation>
+        <translation>부(part)의 하위 구조로도 나타날 수있는 주요 구조 구분(esp. in legislation).</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="168"/>
         <source>Epigraph</source>
-        <translation>书法</translation>
+        <translation>명구</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="168"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation>引文是相关的, 但不是文本的组成部分.</translation>
+        <translation>(권두나 장 머리에 붙이는) 본문과 관련은 있지만 본문에 포함되지 않는 명구 또는 인용구</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>Epilogue</source>
-        <translation>结语</translation>
+        <translation>발문(Epilogue)</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
-        <translation>结论章节，通常在比主故事稍晚的时候完成，虽然仍然是叙事的一部分。</translation>
+        <translation>글이나 말의 끝마무리가 되는 부분.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>Errata</source>
-        <translation>勘误表</translation>
+        <translation>정오표</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
-        <translation>出版物勘误表,在印刷品中通常是手工插入的纸; 有时是包含工作中错误更正的绑定纸.</translation>
+        <translation>출판물 따위에서, 잘못된 글자나 부분을 바로잡아 만든 일람표</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="171"/>
         <source>Footnotes</source>
-        <translation>注脚</translation>
+        <translation>각주</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="171"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
-        <translation>出现在页面底部的注释集合.</translation>
+        <translation>페이지 하단에 나타나는 부가 설명이나 참고 문헌</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="172"/>
         <source>Foreword</source>
-        <translation>前言</translation>
+        <translation>머리말</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="172"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation>在作品之前的介绍部分，通常不是作品的作者写的。</translation>
+        <translation>일반적으로 작품의 저자가 쓰지 않으며, 작품을 소개하는 부분으로 서문으로도 칭한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="173"/>
         <source>Front Matter</source>
-        <translation>前面的事</translation>
+        <translation>권두</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="173"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
-        <translation>出版物主要内容的初步材料, 如目录, 奉献等.</translation>
+        <translation>목차, 헌정의 말 등 출판물의 주요 내용을 포함하는 책의 첫머리 부분이며 전문 또는 서문 등과 같은 의미로 사용한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>Glossary</source>
-        <translation>词汇表</translation>
+        <translation>용어</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
-        <translation>按字母顺序排列的特定知识领域中术语的列表, 以及这些术语的定义.</translation>
+        <translation>출판물에 사용된 용어를 낱자 순(알파벳 순)으로 정리한 목록이며 해당 용어에 대한 정의를 포함한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="175"/>
         <source>Half Title Page</source>
-        <translation>半标题页</translation>
+        <translation>중간 제목 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="175"/>
         <source>The half title page of the work which carries just the title itself.</source>
-        <translation>作品的半标题页只带有标题本身.</translation>
+        <translation>출판물의 중간 제목 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="176"/>
         <source>Imprimatur</source>
-        <translation>出版许可</translation>
+        <translation>출판허가</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="176"/>
         <source>A formal statement authorizing the publication of the work.</source>
-        <translation>授权发布作品的正式声明。</translation>
+        <translation>작품의 출판을 승인하는 공식 진술.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="177"/>
         <source>Imprint</source>
-        <translation>版本说明</translation>
+        <translation>간기</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="177"/>
         <source>Information relating to the publication or distribution of the work.</source>
-        <translation>与作品的出版或分发有关的信息.</translation>
+        <translation>작품의 출판 또는 배포와 관련된 정보. 책의 간기(刊記): 발행자 명, 주소, 발행 연월일 등</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>Index</source>
-        <translation>索引</translation>
+        <translation>색인</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
-        <translation>通常按字母顺序排列的出版物中特定信息的详细列表.</translation>
+        <translation>책 속의 세부 내용이나 사항 따위를 쉽게 찾아볼 수 있도록 항목별로 그 쪽수를 표시해 놓은 목록</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="179"/>
         <source>Introduction</source>
-        <translation>引言</translation>
+        <translation>소개, 서론</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="179"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
-        <translation>作品的开始部分，通常向读者介绍作品内容的范围或性质.</translation>
+        <translation>출판물의 앞부분 영역으로 일반적으로 작업 내용의 범위나 성격을 독자에게 소개한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Landmarks</source>
-        <translation>里程碑</translation>
+        <translation>랜드마크</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>A collection of references to well-known/recurring components within the publication</source>
-        <translation>出版物中对知名/反复出现的组件的引用集合</translation>
+        <translation>간행물 내에서 잘 알려진 / 반복적인 구성 요소에 대한 참조 모음</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>List of Audio Clips</source>
-        <translation>音频剪辑列表</translation>
+        <translation>오디오 클립 목록</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>A listing of audio clips included in the work.</source>
-        <translation>包含在作品中的音频剪辑的列表</translation>
+        <translation>작품에 포함 된 오디오 클립 목록.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>List of Illustrations</source>
-        <translation>插图列表</translation>
+        <translation>일러스트레이션 목록</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>A listing of illustrations included in the work.</source>
-        <translation>作品中包括的插图列表.</translation>
+        <translation>작품에 포함 된 삽화 목록.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>List of Tables</source>
-        <translation>表列表</translation>
+        <translation>표 목록</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>A listing of tables included in the work.</source>
-        <translation>包含在作品中的表的列表。</translation>
+        <translation>작업에 포함 된 테이블 목록.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>List of Video Clips</source>
-        <translation>视频剪辑列表</translation>
+        <translation>비디오 클립 목록</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>A listing of video clips included in the work.</source>
-        <translation>包含在作品中的视频剪辑的列表</translation>
+        <translation>작품에 포함 된 비디오 클립 목록.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>Notice</source>
-        <translation>须知</translation>
+        <translation>주의</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</source>
-        <translation>需要特别注意的信息, 不得跳过或删掉的, 比如包括: 警报, 警告, 警告, 危险, 版本说明。</translation>
+        <translation>특별한 주의가 필요하며 생략하거나 억제해서는 안되는 정보. 예를 들면 다음과 같습니다. 경고, 경보,주의, 위험, 중요.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>Other Credits</source>
-        <translation>其他感谢</translation>
+        <translation>기타 크레딧</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
-        <translation>致谢以前发布的部分的作品, 插图信用和版权材料的报价许可.</translation>
+        <translation>전에 출판 된 작품의 일부에 대한 승인, 일러스트레이션 크레디트 및 저작권이있는 자료를 인용 할 수있는 권한.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>Page List</source>
-        <translation>页列表</translation>
+        <translation>페이지 목록</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>A list of references to pagebreaks (start locations) from a print version of the ebook</source>
-        <translation>电子书打印版本中对分页符（起始位置）的引用列表</translation>
+        <translation>전자책의 인쇄 버전에서 페이지 나누기 (시작 위치)에 대한 참조 목록</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>Part</source>
-        <translation>局部</translation>
+        <translation>부</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
-        <translation>一段写作的主要结构部分, 通常封装一组相关的章节.</translation>
+        <translation>일반적으로 여러개의 관련 장(chapter)을 묶은 단위로  글쓰기의 주요 구조를 분할하기 위해 사용.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>Preamble</source>
-        <translation>前言</translation>
+        <translation>전문</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
-        <translation>作品开头的部分，通常包含关于作品内容的范围或性质的介绍性和/或说明性的内容</translation>
+        <translation>작품의 시작 부분에 일반적으로 작품 내용의 범위 또는 성격에 관한 입문 또는 설명이 포함 된 섹션</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>Preface</source>
-        <translation>前言</translation>
+        <translation>머리말</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation>在作品之前的介绍部分，通常由作品的作者书写。</translation>
+        <translation>일반적으로 작품의 저자가 쓴 작품 앞에 나오는 소개 영역이며 서문으로도 칭한다.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>Prologue</source>
-        <translation>开场白</translation>
+        <translation>서두</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
-        <translation>介绍部分,设置故事的背景, 通常是叙事的一部分.</translation>
+        <translation>일반적으로 이야기의 일부로 설정하는 소개 섹션입니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>Questions and Answers</source>
-        <translation>问题与解答</translation>
+        <translation>질의 응답</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>A question and answer section.</source>
-        <translation>问题与解答章节</translation>
+        <translation>질의 응답 영역</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>Rear Notes</source>
-        <translation>后面的札记</translation>
+        <translation>후주</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
-        <translation>出现在作品后面（背面）或某一部分结尾处的笔记集。</translation>
+        <translation>출판물의 뒷부분 또는 단원의 끝 부분에 위치한 주석</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>Revision History</source>
-        <translation>修订记录</translation>
+        <translation>개정 이력</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>A record of changes made to a work.</source>
-        <translation>对作品所做更改的记录.</translation>
+        <translation>작업에 대한 변경 기록.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>Subchapter</source>
-        <translation>子章节</translation>
+        <translation>하위 장</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>A major sub-division of a chapter.</source>
-        <translation>一章的主要子部分.</translation>
+        <translation>장(chapter)의 중요한 하위 장</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>Title Page</source>
-        <translation>标题页</translation>
+        <translation>제목 페이지</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
-        <translation>书籍开头的页面，标题，作者，出版商和其他出版物信息。</translation>
+        <translation>책의 시작 부분에 제목, 저자, 출판사 및 기타 출판 정보를 제공하는 페이지입니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>Table of Contents</source>
-        <translation>目录</translation>
+        <translation>목차</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
-        <translation>内容表是书或文档的标题或部分的书内容列表, 按照出现的顺序排序, 通常出现在工作的前端或在节的开头.</translation>
+        <translation>책 또는 문서의 제목 또는 부분의 목록 인 목차로, 순서대로 표시됩니다. 일반적으로 작품의 전면 또는 섹션 시작 부분에 나타납니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>Volume</source>
-        <translation>卷</translation>
+        <translation>볼륨</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>A component of a collection.</source>
-        <translation>作品集一个部分</translation>
+        <translation>컬렉션의 구성 요소</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>Warning</source>
-        <translation>警示</translation>
+        <translation>경고</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
-        <translation>特定材料的警告或警告.  状态：已弃用 - 替换为“通知”</translation>
+        <translation>특정 항목에 대한 경고 또는주의. 상태 : 더 이상 사용되지 않음- &apos;알림&apos;으로 대체되었습니다.</translation>
     </message>
 </context>
 <context>
@@ -4114,32 +4152,32 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="85"/>
         <source>Abkhazian</source>
-        <translation>阿布哈西亚</translation>
+        <translation>아브카지어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="86"/>
         <source>Afar</source>
-        <translation>阿法尔</translation>
+        <translation>아파르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="87"/>
         <source>Afrikaans</source>
-        <translation>南非荷兰语</translation>
+        <translation>아프리칸스어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="88"/>
         <source>Akan</source>
-        <translation>库阿语</translation>
+        <translation>아칸어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="89"/>
         <source>Albanian</source>
-        <translation>阿尔巴尼亚语</translation>
+        <translation>알바니아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="90"/>
         <source>Amharic</source>
-        <translation>阿比西尼亚官话</translation>
+        <translation>암하라어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="91"/>
@@ -4159,205 +4197,205 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Arabic</source>
-        <translation>阿拉伯语</translation>
+        <translation>아랍어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="92"/>
         <source>Algeria</source>
-        <translation>阿尔及利亚</translation>
+        <translation>알제리</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="93"/>
         <source>Bahrain</source>
-        <translation>巴林</translation>
+        <translation>바레인</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="94"/>
         <source>Egypt</source>
-        <translation>埃及</translation>
+        <translation>이집트</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="95"/>
         <source>Iraq</source>
-        <translation>伊拉克</translation>
+        <translation>이라크</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Jordan</source>
-        <translation>约旦</translation>
+        <translation>요르단</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="97"/>
         <source>Kuwait</source>
-        <translation>科威特</translation>
+        <translation>쿠웨이트</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="98"/>
         <source>Lebanon</source>
-        <translation>黎巴嫩</translation>
+        <translation>레바논</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="99"/>
         <source>Libya</source>
-        <translation>利比亚</translation>
+        <translation>리비아</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Morocco</source>
-        <translation>摩洛哥</translation>
+        <translation>모로코</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="101"/>
         <source>Oman</source>
-        <translation>阿曼</translation>
+        <translation>오만</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="102"/>
         <source>Qatar</source>
-        <translation>卡塔尔</translation>
+        <translation>카타르</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Syria</source>
-        <translation>叙利亚</translation>
+        <translation>시리아</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="104"/>
         <source>Tunisia</source>
-        <translation>突尼斯</translation>
+        <translation>튀니지아</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="105"/>
         <source>United Arab Emirates</source>
-        <translation>阿拉伯联合酋长国</translation>
+        <translation>아랍에미리트</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Yemen</source>
-        <translation>也门</translation>
+        <translation>예멘</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="107"/>
         <source>Aragonese</source>
-        <translation>阿拉贡</translation>
+        <translation>아라곤어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Armenian</source>
-        <translation>亚美尼亚</translation>
+        <translation>아르메니아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Assamese</source>
-        <translation>阿萨姆语</translation>
+        <translation>아셈어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Avaric</source>
-        <translation>阿瓦尔</translation>
+        <translation>아바르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <source>Avestan</source>
-        <translation>阿维斯坦</translation>
+        <translation>아베스타어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Aymara</source>
-        <translation>艾马拉人</translation>
+        <translation>아이마라어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Azerbaijani</source>
-        <translation>阿塞拜疆语</translation>
+        <translation>아제르바이잔어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Azerbaijan</source>
-        <translation>阿塞拜疆</translation>
+        <translation>아제르바이잔</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="115"/>
         <source>Bambara</source>
-        <translation>班巴拉</translation>
+        <translation>밤바라어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Bashkir</source>
-        <translation>巴什基尔</translation>
+        <translation>바슈키르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Basque</source>
-        <translation>巴斯克</translation>
+        <translation>바스크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Belarusian</source>
-        <translation>白俄罗斯语</translation>
+        <translation>벨로루시어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Bengali</source>
-        <translation>孟加拉</translation>
+        <translation>벵골어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="120"/>
         <source>Bihari</source>
-        <translation>比尔哈语</translation>
+        <translation>비하리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Bislama</source>
-        <translation>比斯拉玛</translation>
+        <translation>비슬라마어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Bosnian</source>
-        <translation>波斯尼亚</translation>
+        <translation>보스니아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Breton</source>
-        <translation>布列塔尼</translation>
+        <translation>브르타뉴어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Bulgarian</source>
-        <translation>保加利亚语</translation>
+        <translation>불가리아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="125"/>
         <source>Burmese</source>
-        <translation>缅甸语</translation>
+        <translation>버마어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="126"/>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Catalan</source>
-        <translation>加泰罗尼亚语</translation>
+        <translation>카탈로니아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="127"/>
         <location filename="../../Misc/Language.cpp" line="312"/>
         <source>Spain</source>
-        <translation>西班牙</translation>
+        <translation>스페인</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Central Khmer</source>
-        <translation>中央高棉</translation>
+        <translation>중앙 크메르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Chamorro</source>
-        <translation>夏莫罗</translation>
+        <translation>차모로어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Chechen</source>
-        <translation>车臣</translation>
+        <translation>체첸어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="131"/>
@@ -4367,106 +4405,106 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Chinese</source>
-        <translation>中文</translation>
+        <translation>중국어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="132"/>
         <source>China</source>
-        <translation>中国</translation>
+        <translation>중국</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Hong Kong</source>
-        <translation>香港</translation>
+        <translation>홍콩</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Macau</source>
-        <translation>澳门</translation>
+        <translation>마카오</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Singapore</source>
-        <translation>新加坡</translation>
+        <translation>싱가폴</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Taiwan</source>
-        <translation>台湾</translation>
+        <translation>대만</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Church Slavic</source>
-        <translation>教会斯拉夫语</translation>
+        <translation>성경슬라브어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="138"/>
         <source>Chuvash</source>
-        <translation>楚瓦什</translation>
+        <translation>추바슈어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Cornish</source>
-        <translation>康沃尔</translation>
+        <translation>콘월어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Corsican</source>
-        <translation>科西嘉</translation>
+        <translation>코르시카어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="141"/>
         <source>Cree</source>
-        <translation>克里</translation>
+        <translation>크리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="142"/>
         <source>Croatian</source>
-        <translation>克罗地亚语</translation>
+        <translation>크로아티아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Czech</source>
-        <translation>捷克语</translation>
+        <translation>체코어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="144"/>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Danish</source>
-        <translation>丹麦语</translation>
+        <translation>덴마크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Denmark</source>
-        <translation>丹麦</translation>
+        <translation>덴마크</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Dhivehi</source>
-        <translation>地维西</translation>
+        <translation>디베히어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="147"/>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Dutch</source>
-        <translation>荷兰语</translation>
+        <translation>네덜란드어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="148"/>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Belgium</source>
-        <translation>比利时</translation>
+        <translation>벨기에</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Netherlands</source>
-        <translation>荷兰</translation>
+        <translation>네덜란드</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Dzongkha</source>
-        <translation>宗卡</translation>
+        <translation>선택된 파일을 합치시겠습니까?</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="151"/>
@@ -4483,99 +4521,99 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>English</source>
-        <translation>英语</translation>
+        <translation>영어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="152"/>
         <source>Australia</source>
-        <translation>澳大利亚语</translation>
+        <translation>오스트레일리아</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Belize</source>
-        <translation>伯利兹</translation>
+        <translation>벨리즈</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="154"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <source>Canada</source>
-        <translation>加拿大</translation>
+        <translation>캐나다</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Caribbean</source>
-        <translation>加勒比</translation>
+        <translation>카리브 해</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="156"/>
         <source>Great Britain</source>
-        <translation>英国</translation>
+        <translation>영국</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="157"/>
         <source>India</source>
-        <translation>印度</translation>
+        <translation>인도</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="158"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Ireland</source>
-        <translation>爱尔兰</translation>
+        <translation>아일랜드</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Jamaica</source>
-        <translation>牙买加</translation>
+        <translation>자메이카</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Philippines</source>
-        <translation>菲律宾</translation>
+        <translation>필리핀어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Trinidad</source>
-        <translation>特立尼达</translation>
+        <translation>트리니다드</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="162"/>
         <source>South Africa</source>
-        <translation>南非</translation>
+        <translation>남아프리카</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="163"/>
         <source>United States</source>
-        <translation>美国</translation>
+        <translation>미국</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="164"/>
         <source>Esperanto</source>
-        <translation>世界语</translation>
+        <translation>에스페란토어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Estonian</source>
-        <translation>爱沙尼亚语</translation>
+        <translation>에스토니아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Ewe</source>
-        <translation>埃维语</translation>
+        <translation>에웨어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="167"/>
         <source>Faroese</source>
-        <translation>法罗群岛语</translation>
+        <translation>페로어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="168"/>
         <source>Fijian</source>
-        <translation>斐济群岛语</translation>
+        <translation>피지어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="169"/>
         <source>Finnish</source>
-        <translation>芬兰</translation>
+        <translation>핀란드어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="170"/>
@@ -4585,56 +4623,56 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <source>French</source>
-        <translation>法语</translation>
+        <translation>불어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="173"/>
         <source>France</source>
-        <translation>法国</translation>
+        <translation>프랑스</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="174"/>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Luxembourg</source>
-        <translation>卢森堡</translation>
+        <translation>룩셈부르크</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="175"/>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Switzerland</source>
-        <translation>瑞士</translation>
+        <translation>스위스</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="176"/>
         <source>Fulah</source>
-        <translation>Fulah</translation>
+        <translation>풀라어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Gaelic</source>
-        <translation>盖尔语</translation>
+        <translation>게일어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Scotland</source>
-        <translation>苏格兰</translation>
+        <translation>스코틀랜드</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Galician</source>
-        <translation>加利西亚</translation>
+        <translation>갈리시아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <source>Ganda</source>
-        <translation>甘达</translation>
+        <translation>간다어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <source>Georgian</source>
-        <translation>格鲁吉亚</translation>
+        <translation>그루지야어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="182"/>
@@ -4644,568 +4682,568 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="186"/>
         <location filename="../../Misc/Language.cpp" line="187"/>
         <source>German</source>
-        <translation>德国</translation>
+        <translation>독일어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="183"/>
         <source>Austria</source>
-        <translation>澳大利亚</translation>
+        <translation>오스트리아</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="184"/>
         <source>Germany</source>
-        <translation>德语</translation>
+        <translation>독일</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="185"/>
         <source>Liechtenstein</source>
-        <translation>列支敦士登</translation>
+        <translation>리히텐슈타인</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Greek, Modern</source>
-        <translation>希腊语, 现代</translation>
+        <translation>현대 그리스어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Greek</source>
-        <translation>希腊语</translation>
+        <translation>그리스어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Guarani</source>
-        <translation>瓜拉尼</translation>
+        <translation>과라니어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Gujarati</source>
-        <translation>古吉拉特</translation>
+        <translation>구자라트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="192"/>
         <source>Haitian</source>
-        <translation>海地</translation>
+        <translation>아이티어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Hausa</source>
-        <translation>豪萨</translation>
+        <translation>하우사어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Hebrew</source>
-        <translation>希伯来语</translation>
+        <translation>히브리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="195"/>
         <source>Herero</source>
-        <translation>赫勒娄</translation>
+        <translation>헤레로어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Hindi</source>
-        <translation>印地语</translation>
+        <translation>힌디어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="197"/>
         <source>Hiri Motu</source>
-        <translation>希里摩图语</translation>
+        <translation>히리 모투어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="198"/>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Hungarian</source>
-        <translation>匈牙利</translation>
+        <translation>헝가리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Hungary</source>
-        <translation>匈牙利</translation>
+        <translation>헝가리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Icelandic</source>
-        <translation>冰岛语</translation>
+        <translation>아이슬란드어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Ido</source>
-        <translation>伊多语</translation>
+        <translation>이도</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Igbo</source>
-        <translation>伊博语</translation>
+        <translation>이그보어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Indonesian</source>
-        <translation>印尼语群</translation>
+        <translation>인도네시아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="204"/>
         <source>Indonesian - Indonesia</source>
-        <translation>印尼语 - 印度尼西亚</translation>
+        <translation>인도네시아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Interlingua</source>
-        <translation>国际语</translation>
+        <translation>인터링구아</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Interlingue</source>
-        <translation>国际语</translation>
+        <translation>인터링구에</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Inuktitut</source>
-        <translation>伊努伊特语</translation>
+        <translation>이누크티투트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="208"/>
         <source>Inupiaq</source>
-        <translation>因纽皮雅特语</translation>
+        <translation>이누피아크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Irish</source>
-        <translation>爱尔兰语</translation>
+        <translation>아일랜드어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="210"/>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Italian</source>
-        <translation>意大利语</translation>
+        <translation>이탈리아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Italy</source>
-        <translation>意大利</translation>
+        <translation>이탈리아</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Japanese</source>
-        <translation>日语</translation>
+        <translation>일본어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Javanese</source>
-        <translation>爪哇语</translation>
+        <translation>자바어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Kalaallisut</source>
-        <translation>格陵兰语</translation>
+        <translation>그린란드어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Kannada</source>
-        <translation>&lt;印&gt; 埃纳德语</translation>
+        <translation>카나다어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Kanuri</source>
-        <translation>(尼日利亚北部)卡努里语</translation>
+        <translation>카누리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Kashmiri</source>
-        <translation>克什米尔语</translation>
+        <translation>카슈미르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Kazakh</source>
-        <translation>哈萨克</translation>
+        <translation>카자흐어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="220"/>
         <source>Kikuyu</source>
-        <translation>基库尤语</translation>
+        <translation>키쿠유어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Kinyarwanda</source>
-        <translation>卢旺达语</translation>
+        <translation>키냐르완다어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Kirghiz</source>
-        <translation>吉尔吉斯语</translation>
+        <translation>키르기스어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Komi</source>
-        <translation>科米语</translation>
+        <translation>페름어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="224"/>
         <source>Kongo</source>
-        <translation>刚果语</translation>
+        <translation>콩고어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Korean</source>
-        <translation>韩语</translation>
+        <translation>한국어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Kuanyama</source>
-        <translation>卡尼亚马</translation>
+        <translation>콰냐마어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Kurdish</source>
-        <translation>库尔德语</translation>
+        <translation>쿠르드어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Lao</source>
-        <translation>老挝</translation>
+        <translation>라오스어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Latin</source>
-        <translation>拉丁</translation>
+        <translation>라틴어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="230"/>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Latvian</source>
-        <translation>拉脱维亚语</translation>
+        <translation>라트비아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Latvia</source>
-        <translation>拉脱维亚</translation>
+        <translation>라트비아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Limburgan</source>
-        <translation>林堡语 </translation>
+        <translation>림뷔르흐어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Lingala</source>
-        <translation>林加拉语</translation>
+        <translation>링갈라어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="234"/>
         <source>Lithuanian</source>
-        <translation>立陶宛语</translation>
+        <translation>리투아니아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Luba-Katanga</source>
-        <translation>卢巴-加丹加语</translation>
+        <translation>루바-카탕가어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Luxembourgish</source>
-        <translation>卢森堡语</translation>
+        <translation>룩셈부르크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Macedonian</source>
-        <translation>马其顿语</translation>
+        <translation>마케도니아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Malagasy</source>
-        <translation>马尔加什语</translation>
+        <translation>말라가시어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Malayalam</source>
-        <translation>马拉雅拉姆语</translation>
+        <translation>말라얄람어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="240"/>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Malay</source>
-        <translation>马来语</translation>
+        <translation>말레이어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Brunei</source>
-        <translation>文莱</translation>
+        <translation>브루나이</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Malaysia</source>
-        <translation>马来西亚</translation>
+        <translation>말레이시아</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Maltese</source>
-        <translation>马尔他语</translation>
+        <translation>몰타어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Manx</source>
-        <translation>曼岛语</translation>
+        <translation>맹크스</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="245"/>
         <source>Maori</source>
-        <translation>毛利语</translation>
+        <translation>마오리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Marathi</source>
-        <translation>马拉地语</translation>
+        <translation>마라티어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Marshallese</source>
-        <translation>马绍尔语</translation>
+        <translation>마셜어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Mongolian</source>
-        <translation>蒙古语</translation>
+        <translation>몽골어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Nauru</source>
-        <translation>瑙鲁</translation>
+        <translation>나우루</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="250"/>
         <source>Navajo</source>
-        <translation>纳瓦霍语</translation>
+        <translation>나바호</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Ndebele</source>
-        <translation>恩德贝勒语</translation>
+        <translation>은데벨레어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="251"/>
         <source>North</source>
-        <translation>北方的</translation>
+        <translation>북</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="252"/>
         <source>South</source>
-        <translation>南方的</translation>
+        <translation>남</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Ndonga</source>
-        <translation>恩敦加语</translation>
+        <translation>은동가어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Nepali</source>
-        <translation>尼泊尔语</translation>
+        <translation>네팔어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Northern, Sami</source>
-        <translation>北部, 萨米人</translation>
+        <translation>북사미어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="256"/>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Norwegian</source>
-        <translation>挪威语</translation>
+        <translation>노르웨이어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Bokmal</source>
-        <translation>博克马尔语</translation>
+        <translation>복말</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Nynorsk</source>
-        <translation>尼诺斯克语</translation>
+        <translation>니노르스크</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="259"/>
         <source>Nyanja</source>
-        <translation>尼扬贾人</translation>
+        <translation>냔자어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Occitan</source>
-        <translation>奥克西坦人</translation>
+        <translation>오크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Ojibwa</source>
-        <translation>奥吉布瓦语</translation>
+        <translation>오지브와어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Oriya</source>
-        <translation>奥里雅语</translation>
+        <translation>오리야어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="263"/>
         <source>Oromo</source>
-        <translation>奥罗莫语</translation>
+        <translation>오로모어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Ossetian</source>
-        <translation>奥塞梯人</translation>
+        <translation>오세트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Pali</source>
-        <translation>巴利语</translation>
+        <translation>팔리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Panjabi</source>
-        <translation>旁遮普语</translation>
+        <translation>펀잡어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Persian</source>
-        <translation>波斯语</translation>
+        <translation>이란어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Polish</source>
-        <translation>波兰语</translation>
+        <translation>폴란드어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="269"/>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Portuguese</source>
-        <translation>葡萄牙语</translation>
+        <translation>포르투갈어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Brazil</source>
-        <translation>巴西</translation>
+        <translation>브라질</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Portugal</source>
-        <translation>葡萄牙</translation>
+        <translation>포르투갈</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Pushto</source>
-        <translation>普什图语</translation>
+        <translation>파슈토어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="273"/>
         <source>Quechua</source>
-        <translation>盖丘亚语</translation>
+        <translation>케추아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="274"/>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Romanian</source>
-        <translation>罗马尼亚语</translation>
+        <translation>루마니아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="275"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Moldova</source>
-        <translation>摩尔多瓦</translation>
+        <translation>몰도바</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Romania</source>
-        <translation>罗马尼亚</translation>
+        <translation>루마니아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Romansh</source>
-        <translation>罗曼什语</translation>
+        <translation>로망슈어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Rundi</source>
-        <translation>基隆迪语</translation>
+        <translation>룬디</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="279"/>
         <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Russian</source>
-        <translation>俄语</translation>
+        <translation>러시아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Samoan</source>
-        <translation>萨摩亚语</translation>
+        <translation>사모아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Sango</source>
-        <translation>桑戈语</translation>
+        <translation>상고어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Sanskrit</source>
-        <translation>梵文</translation>
+        <translation>산스크리트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="284"/>
         <source>Sardinian</source>
-        <translation>撒丁岛语</translation>
+        <translation>사르데냐어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="285"/>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Serbian</source>
-        <translation>塞尔维亚语</translation>
+        <translation>세르비아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Serbia</source>
-        <translation>塞尔维亚</translation>
+        <translation>세르비아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Shona</source>
-        <translation>修纳语</translation>
+        <translation>쇼냐어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Sichuan Yi</source>
-        <translation>四川彝族</translation>
+        <translation>사천어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="289"/>
         <source>Sindhi</source>
-        <translation>信德语</translation>
+        <translation>신디어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Sinhala</source>
-        <translation>僧伽罗语</translation>
+        <translation>싱할라어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Slovak</source>
-        <translation>斯洛伐克语</translation>
+        <translation>슬로바키아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Slovenian</source>
-        <translation>斯洛文尼亚语</translation>
+        <translation>슬로베니아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Somali</source>
-        <translation>索马里</translation>
+        <translation>소말리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Sotho, Southern</source>
-        <translation>南部梭托</translation>
+        <translation>남 소토어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="295"/>
@@ -5229,1812 +5267,1812 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Spanish</source>
-        <translation>西班牙语</translation>
+        <translation>스페인어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Argentina</source>
-        <translation>阿根廷</translation>
+        <translation>아르헨티나</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="297"/>
         <source>Bolivia</source>
-        <translation>玻利维亚</translation>
+        <translation>볼리비아</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Chile</source>
-        <translation>智利</translation>
+        <translation>칠레</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Columbia</source>
-        <translation>哥伦比亚</translation>
+        <translation>콜롬비아</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Costa Rica</source>
-        <translation>哥斯达黎加</translation>
+        <translation>코스타 리카</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Dominican Republic</source>
-        <translation>多米尼加共和国</translation>
+        <translation>도미니카 공화국</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Ecuador</source>
-        <translation>厄瓜多尔</translation>
+        <translation>에콰도르</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="303"/>
         <source>El Salvador</source>
-        <translation>萨尔瓦多</translation>
+        <translation>엘 살바도르</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Guatemala</source>
-        <translation>危地马拉</translation>
+        <translation>과테말라</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="305"/>
         <source>Honduras</source>
-        <translation>洪都拉斯</translation>
+        <translation>온두라스</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Mexico</source>
-        <translation>墨西哥</translation>
+        <translation>멕시코</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Nicaragua</source>
-        <translation>尼加拉瓜</translation>
+        <translation>니카라구아</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Panama</source>
-        <translation>巴拿马</translation>
+        <translation>파나마</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Paraguay</source>
-        <translation>巴拉圭</translation>
+        <translation>파라과이</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Peru</source>
-        <translation>秘鲁</translation>
+        <translation>페루</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Puerto Rico</source>
-        <translation>波多黎各</translation>
+        <translation>푸에르토 리코</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Uruguay</source>
-        <translation>乌拉圭</translation>
+        <translation>우루과이</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Venezuela</source>
-        <translation>委内瑞拉</translation>
+        <translation>베네수엘라</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Sundanese</source>
-        <translation>巽他语</translation>
+        <translation>순다어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Swahili</source>
-        <translation>斯瓦希里语</translation>
+        <translation>스와힐리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Swati</source>
-        <translation>斯特瓦</translation>
+        <translation>스와티어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="318"/>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Swedish</source>
-        <translation>瑞典语</translation>
+        <translation>스웨덴어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Finland</source>
-        <translation>芬兰</translation>
+        <translation>핀란드</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Sweden</source>
-        <translation>瑞典</translation>
+        <translation>스웨덴</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Tagalog</source>
-        <translation>塔加拉语</translation>
+        <translation>타갈로그어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Tahitian</source>
-        <translation>塔希提岛语</translation>
+        <translation>타히티어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Tajik</source>
-        <translation>塔吉克</translation>
+        <translation>타지키스탄어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Tamil</source>
-        <translation>泰米尔语</translation>
+        <translation>타밀어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Tatar</source>
-        <translation>鞑靼语</translation>
+        <translation>타타르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Telugu</source>
-        <translation>泰卢固语</translation>
+        <translation>텔루구어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="327"/>
         <source>Thai</source>
-        <translation>泰国</translation>
+        <translation>태국어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Tibetan</source>
-        <translation>藏族</translation>
+        <translation>티베트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Tigrinya</source>
-        <translation>提格里尼亚语</translation>
+        <translation>티그리냐어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Tonga</source>
-        <translation>汤加</translation>
+        <translation>통가어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Tsonga</source>
-        <translation>尚加纳族</translation>
+        <translation>총가어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="332"/>
         <source>Tswana</source>
-        <translation>茨瓦纳语</translation>
+        <translation>츠와나어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="333"/>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Turkish</source>
-        <translation>土耳其语</translation>
+        <translation>터키어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Turkey</source>
-        <translation>土耳其</translation>
+        <translation>터키</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="335"/>
         <source>Turkmen</source>
-        <translation>土库曼语</translation>
+        <translation>투르크멘어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Twi</source>
-        <translation>契维语</translation>
+        <translation>트위어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Uighur</source>
-        <translation>维吾尔语</translation>
+        <translation>위구르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="338"/>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Ukrainian</source>
-        <translation>乌克兰语</translation>
+        <translation>우크라이나어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Ukraine</source>
-        <translation>乌克兰</translation>
+        <translation>우크라이나어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Urdu</source>
-        <translation>乌尔都语</translation>
+        <translation>우르두어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="341"/>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Uzbek</source>
-        <translation>乌兹别克</translation>
+        <translation>우즈벡어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Uzbekistan</source>
-        <translation>乌兹别克语</translation>
+        <translation>우즈베키스탄</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="343"/>
         <source>Venda</source>
-        <translation>文达语</translation>
+        <translation>벤다어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Vietnamese</source>
-        <translation>越南语</translation>
+        <translation>베트남어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Volapuk</source>
-        <translation>沃拉普克语</translation>
+        <translation>볼라퓌크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Walloon</source>
-        <translation>瓦隆语</translation>
+        <translation>왈론어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Welsh</source>
-        <translation>威尔士语</translation>
+        <translation>웨일즈어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Western Frisian</source>
-        <translation>西弗里西语</translation>
+        <translation>서부 프리슬란드어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Wolof</source>
-        <translation>沃洛夫语</translation>
+        <translation>월로프어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="350"/>
         <source>Xhosa</source>
-        <translation>科萨语</translation>
+        <translation>호사어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="351"/>
         <source>Yiddish</source>
-        <translation>意第绪语</translation>
+        <translation>이디시어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Yoruba</source>
-        <translation>约鲁巴语</translation>
+        <translation>요루바어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="353"/>
         <source>Zhuang</source>
-        <translation>壮语</translation>
+        <translation>장족어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Zulu</source>
-        <translation>祖鲁语</translation>
+        <translation>줄루어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Achinese</source>
-        <translation>亚齐语</translation>
+        <translation>아체어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Acoli</source>
-        <translation>亚齐</translation>
+        <translation>아콜리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="357"/>
         <source>Adangme</source>
-        <translation>阿当梅语</translation>
+        <translation>아당메어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Adygei, Adyghe</source>
-        <translation>安迪吉, 阿迪格语</translation>
+        <translation>아디게야어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Afrihili</source>
-        <translation>阿弗里希利语</translation>
+        <translation>Afrihili어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Afro-Asiatic languages</source>
-        <translation>非洲-亚洲语系</translation>
+        <translation>Afro-Asiatic어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Ainu</source>
-        <translation>阿伊努语</translation>
+        <translation>아이누어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Akkadian</source>
-        <translation>阿卡德语</translation>
+        <translation>아카디아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="363"/>
         <source>Aleut</source>
-        <translation>阿留申语</translation>
+        <translation>알류트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Algonquian languages</source>
-        <translation>阿尔冈昆语族</translation>
+        <translation>알곤킨어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Altaic languages</source>
-        <translation>阿尔泰语系</translation>
+        <translation>알타이어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Angika</source>
-        <translation>昂加语</translation>
+        <translation>앙기카어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Apache languages</source>
-        <translation>阿巴契语言</translation>
+        <translation>아파치어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="368"/>
         <source>Arapaho</source>
-        <translation>阿帕霍语</translation>
+        <translation>아라파호어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="369"/>
         <source>Arawak</source>
-        <translation>阿拉瓦语</translation>
+        <translation>아라와크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="370"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
-        <translation>阿罗马尼亚语, 阿鲁马尼语, 希腊、阿尔巴尼亚</translation>
+        <translation>아로마니아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Artificial languages</source>
-        <translation>人造语言</translation>
+        <translation>인공어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="372"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
-        <translation>阿斯图里亚斯, </translation>
+        <translation>Asturian, Asturleonese, Bable, Leonese어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="373"/>
         <source>Athapascan languages</source>
-        <translation>阿萨巴斯卡语系</translation>
+        <translation>애서배스카어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="374"/>
         <source>Australian languages</source>
-        <translation>澳大利亚语言</translation>
+        <translation>오스트레일리아 원주민 언어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="375"/>
         <source>Austronesian languages</source>
-        <translation>南岛语系</translation>
+        <translation>오스트로네시아어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="376"/>
         <source>Awadhi</source>
-        <translation>阿瓦迪</translation>
+        <translation>아와히어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="377"/>
         <source>Balinese</source>
-        <translation>巴里语</translation>
+        <translation>발리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="378"/>
         <source>Baltic languages</source>
-        <translation>波罗的诸语言</translation>
+        <translation>발트어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="379"/>
         <source>Baluchi</source>
-        <translation>俾路支</translation>
+        <translation>발루치어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="380"/>
         <source>Bamileke languages</source>
-        <translation>巴米累克语</translation>
+        <translation>Bamileke어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="381"/>
         <source>Banda languages</source>
-        <translation>班达语系</translation>
+        <translation>Banda어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="382"/>
         <source>Bantu languages</source>
-        <translation>班图语系</translation>
+        <translation>Bantu어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="383"/>
         <source>Basa</source>
-        <translation>巴萨</translation>
+        <translation>자와어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="384"/>
         <source>Batak languages</source>
-        <translation>巴塔克语系</translation>
+        <translation>Batak어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="385"/>
         <source>Bedawiyet, Beja</source>
-        <translation>贝达维耶特, 贝沙族</translation>
+        <translation>Bedawiyet, Beja어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="386"/>
         <source>Bemba</source>
-        <translation>本巴语</translation>
+        <translation>Bemba어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="387"/>
         <source>Berber languages</source>
-        <translation>柏柏尔语系</translation>
+        <translation>베르베르어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="388"/>
         <source>Bhojpuri</source>
-        <translation>比哈尔方言</translation>
+        <translation>보지푸리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="389"/>
         <source>Bikol</source>
-        <translation>比科尔人</translation>
+        <translation>비콜어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="390"/>
         <source>Bilin, Blin</source>
-        <translation>彼林, 布林</translation>
+        <translation>Bilin, Blin어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="391"/>
         <source>Bini, Edo</source>
-        <translation>毕尼, 艾斗</translation>
+        <translation>Bini, Edo어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="392"/>
         <source>Bliss, Blissymbols, Blissymbolics</source>
-        <translation>布利斯, 布利斯符号, 布利斯符号体系</translation>
+        <translation>블리스 심볼</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="393"/>
         <source>Braj</source>
-        <translation>布拉示</translation>
+        <translation>Braj어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="394"/>
         <source>Buginese</source>
-        <translation>布吉语</translation>
+        <translation>부기어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Buriat</source>
-        <translation>布里亚特语</translation>
+        <translation>Buriat어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Caddo</source>
-        <translation>卡多</translation>
+        <translation>Caddo어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="397"/>
         <source>Caucasian languages</source>
-        <translation>高加索语系</translation>
+        <translation>캅카스어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="398"/>
         <source>Cebuano</source>
-        <translation>宿雾族语</translation>
+        <translation>세부아노어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="399"/>
         <source>Celtic languages</source>
-        <translation>凯尔特语族</translation>
+        <translation>켈트어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="400"/>
         <source>Central American Indian languages</source>
-        <translation>中美洲印第安语</translation>
+        <translation>중앙아메리카 인디언 어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="401"/>
         <source>Chagatai</source>
-        <translation>察合台</translation>
+        <translation>차가타이어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="402"/>
         <source>Chamic languages</source>
-        <translation>占语诸语言</translation>
+        <translation>참어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="403"/>
         <source>Cherokee</source>
-        <translation>切罗基语</translation>
+        <translation>체로키어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="404"/>
         <source>Cheyenne</source>
-        <translation>夏安族语</translation>
+        <translation>샤이엔어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="405"/>
         <source>Chibcha</source>
-        <translation>奇布查语</translation>
+        <translation>치브차어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Chinook jargon</source>
-        <translation>奇诺克行话</translation>
+        <translation>치누크 자곤어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="407"/>
         <source>Chipewyan, Dene Suline</source>
-        <translation>奇帕维安族, 奇标扬语</translation>
+        <translation>치페우얀어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="408"/>
         <source>Choctaw</source>
-        <translation>乔克托语 </translation>
+        <translation>Choctaw어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Chuukese</source>
-        <translation>楚克语</translation>
+        <translation>추크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
-        <translation>传统尼泊尔语, 古尼瓦尔语</translation>
+        <translation>고전 네와르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Classical Syriac</source>
-        <translation>传统叙利亚语</translation>
+        <translation>고전 시리아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="412"/>
         <source>Coptic</source>
-        <translation>科普特语</translation>
+        <translation>콥트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="413"/>
         <source>Creek</source>
-        <translation>克里克语</translation>
+        <translation>크리크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="414"/>
         <source>Creoles and pidgins</source>
-        <translation>克里奥尔语</translation>
+        <translation>크리올 피진어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="415"/>
         <source>Creoles and pidgins- English based</source>
-        <translation>英语克里奥尔混合语</translation>
+        <translation>크리올 피진어(영어 기반)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="416"/>
         <source>Creoles and pidgins- French-based</source>
-        <translation>法语克里奥尔混合语</translation>
+        <translation>크리올 피진어(프랑스어 기반)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Creoles and pidgins- Portuguese-based</source>
-        <translation>葡萄牙语克里奥尔混合语</translation>
+        <translation>크리올 피진어(포르투갈어 기반)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="418"/>
         <source>Crimean Tatar/Turkish</source>
-        <translation>克里米亚鞑靼语/土耳其语</translation>
+        <translation>Crimean Tatar/Turkish</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="419"/>
         <source>Cushitic languages</source>
-        <translation>库希特语族</translation>
+        <translation>쿠시어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="420"/>
         <source>Dakota</source>
-        <translation>达科塔语</translation>
+        <translation>다코타어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="421"/>
         <source>Dargwa</source>
-        <translation>达尔格瓦语</translation>
+        <translation>다르기어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="422"/>
         <source>Delaware</source>
-        <translation>特拉华</translation>
+        <translation>델라웨어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="423"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
-        <translation>狄米丽, 狄木丽, 扎扎, 扎扎其, 北扎扎其, 北扎扎其语</translation>
+        <translation>자자어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="424"/>
         <source>Dinka</source>
-        <translation>丁卡语</translation>
+        <translation>딩카어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="425"/>
         <source>Dogri</source>
-        <translation>多格拉人</translation>
+        <translation>도그리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="426"/>
         <source>Dogrib</source>
-        <translation>多格里布语</translation>
+        <translation>도그리브어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Dravidian languages</source>
-        <translation>Dravidian语言</translation>
+        <translation>드라비다어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="428"/>
         <source>Duala</source>
-        <translation>杜亚拉语 </translation>
+        <translation>두알라어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="429"/>
         <source>Dutch- Middle (ca.1050-1350)</source>
-        <translation>荷兰-中世纪(ca.1050-1350)</translation>
+        <translation>덜란드어-중세(ca.1050-1350)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="430"/>
         <source>Dyula</source>
-        <translation>朱拉语</translation>
+        <translation>드율라어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="431"/>
         <source>Eastern Frisian</source>
-        <translation>东部弗里斯兰语</translation>
+        <translation>동부 프리슬란드어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="432"/>
         <source>Efik</source>
-        <translation>埃菲克语</translation>
+        <translation>이픽어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="433"/>
         <source>Egyptian (Ancient)</source>
-        <translation>埃及语(古)</translation>
+        <translation>이집트어(고대)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="434"/>
         <source>Ekajuk</source>
-        <translation> 埃克丘克语</translation>
+        <translation>이카죽어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="435"/>
         <source>Elamite</source>
-        <translation>埃兰语</translation>
+        <translation>엘람어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="436"/>
         <source>English- Middle (1100-1500)</source>
-        <translation>英语-中世纪(1100-1500)</translation>
+        <translation>영어-중세(1100-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="437"/>
         <source>English- Old (ca.450-1100)</source>
-        <translation>英语-古代(ca.450-1100)</translation>
+        <translation>영어-고대(ca.450-1100)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="438"/>
         <source>Erzya</source>
-        <translation>厄尔兹亚语</translation>
+        <translation>에르자어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="439"/>
         <source>Ewondo</source>
-        <translation>埃翁多语</translation>
+        <translation>이원도어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="440"/>
         <source>Fang</source>
-        <translation>芳语</translation>
+        <translation>팡그(Fang)어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="441"/>
         <source>Fanti</source>
-        <translation>芳蒂语</translation>
+        <translation>판티어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="442"/>
         <source>Filipino, Pilipino</source>
-        <translation>菲律宾</translation>
+        <translation>필리핀어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="443"/>
         <source>Finno-Ugrian languages</source>
-        <translation>芬兰 - 乌干达语言</translation>
+        <translation>핀우그리아어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="444"/>
         <source>Fon</source>
-        <translation>Fon语</translation>
+        <translation>폰(Fon)어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="445"/>
         <source>French- Middle (ca.1400-1600)</source>
-        <translation>法语-中世纪(ca.1400-1600)</translation>
+        <translation>프랑스어-중세(ca.1400-1600)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="446"/>
         <source>French- Old (842-ca.1400)</source>
-        <translation>法语-古代(842-ca.1400)</translation>
+        <translation>프랑스어-고대(842-ca.1400)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="447"/>
         <source>Friulian</source>
-        <translation>Friulian语</translation>
+        <translation>프리울리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="448"/>
         <source>Ga</source>
-        <translation>Ga语</translation>
+        <translation>가(Ga)어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Galibi Carib</source>
-        <translation>Galibi加勒比语</translation>
+        <translation>수리남(Galibi) 카리브어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="450"/>
         <source>Gayo</source>
-        <translation>Gayo语</translation>
+        <translation>가요(Gayo, 인도네시아)어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="451"/>
         <source>Gbaya</source>
-        <translation>Gbaya语</translation>
+        <translation>그바야어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="452"/>
         <source>Geez</source>
-        <translation>Geez语</translation>
+        <translation>그으즈어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="453"/>
         <source>German- Middle High (ca.1050-1500)</source>
-        <translation>德语-中晚期(ca.1050-1500)</translation>
+        <translation>독일어-중세 고지(ca.1050-1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="454"/>
         <source>German- Old High (ca.750-1050)</source>
-        <translation>德语-古晚期(ca.750-1050)</translation>
+        <translation>독일어-고대 고지(ca.750-1050)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="455"/>
         <source>Germanic languages</source>
-        <translation>日耳曼语</translation>
+        <translation>게르만어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="456"/>
         <source>Gilbertese</source>
-        <translation>吉尔伯特语</translation>
+        <translation>키리바시어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="457"/>
         <source>Gondi</source>
-        <translation>Gondi语</translation>
+        <translation>곤디어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="458"/>
         <source>Gorontalo</source>
-        <translation>Gorontalo语</translation>
+        <translation>고론탈로어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="459"/>
         <source>Gothic</source>
-        <translation>哥特语</translation>
+        <translation>고트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="460"/>
         <source>Grebo</source>
-        <translation>Grebo语</translation>
+        <translation>게르보어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="461"/>
         <source>Greek- Ancient (to 1453)</source>
-        <translation>古希腊语(到1453)</translation>
+        <translation>그리스어-고대(to 1453)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="462"/>
         <source>Gwich&apos;in</source>
-        <translation>Gwich&apos;in语</translation>
+        <translation>그위친어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="463"/>
         <source>Haida</source>
-        <translation>海达语</translation>
+        <translation>하이다어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="464"/>
         <source>Hawaiian</source>
-        <translation>夏威夷</translation>
+        <translation>하와이어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="465"/>
         <source>Hiligaynon</source>
-        <translation>Hiligaynon语</translation>
+        <translation>힐리가이논어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="466"/>
         <source>Himachali, Western Pahari languages</source>
-        <translation>Himachali，西帕哈里语</translation>
+        <translation>히마찰프라데시, Western Pahari어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Hittite</source>
-        <translation>赫梯</translation>
+        <translation>히타이트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="468"/>
         <source>Hmong, Mong</source>
-        <translation>Hmong, Mong语</translation>
+        <translation>몽(Hmong, Mong)어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="469"/>
         <source>Hupa</source>
-        <translation>Hupa语</translation>
+        <translation>후파어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="470"/>
         <source>Iban</source>
-        <translation>伊班语</translation>
+        <translation>이반어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="471"/>
         <source>Ijo languages</source>
-        <translation>Ijo语言</translation>
+        <translation>Ijaw어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="472"/>
         <source>Iloko</source>
-        <translation>Iloko语</translation>
+        <translation>일로카노어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="473"/>
         <source>Inari Sami</source>
-        <translation>Inari Sami语</translation>
+        <translation>이나리 사미어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="474"/>
         <source>Indic languages</source>
-        <translation>印度语</translation>
+        <translation>인도아리아어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="475"/>
         <source>Indo-European languages</source>
-        <translation>印欧语言</translation>
+        <translation>인도유럽어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="476"/>
         <source>Ingush</source>
-        <translation>Ingush语</translation>
+        <translation>인구시어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Iranian languages</source>
-        <translation>伊朗语言</translation>
+        <translation>페르시아(Iranian)어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Irish- Middle (900-1200)</source>
-        <translation>爱尔兰-中世纪(900-1200)</translation>
+        <translation>아일랜드어-중세(900-1200)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Irish- Old (to 900)</source>
-        <translation>爱尔兰-古(到900)</translation>
+        <translation>아일랜드어-고대(to 900)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Iroquoian languages</source>
-        <translation>Iroquoian语言</translation>
+        <translation>이로쿼이어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Jingpho, Kachin</source>
-        <translation>Jingpho，Kachin</translation>
+        <translation>징포, 카친어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="482"/>
         <source>Judeo-Arabic</source>
-        <translation>犹太 - 阿拉伯语</translation>
+        <translation>유대-아라비아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="483"/>
         <source>Judeo-Persian</source>
-        <translation>犹太-波斯</translation>
+        <translation>유대-페르시아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="484"/>
         <source>Kabardian</source>
-        <translation>卡巴尔迪</translation>
+        <translation>카바르다어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Kabyle</source>
-        <translation>Kabyle语</translation>
+        <translation>커바일어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Kalmyk, Oirat</source>
-        <translation>卡尔梅克, 奥拉特</translation>
+        <translation>칼미크, 오이라트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Kamba</source>
-        <translation>Kamba语</translation>
+        <translation>캄바어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Kapampangan, Pampanga</source>
-        <translation>Kapampangan, Pampanga</translation>
+        <translation>팜팡가어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Kara-Kalpak</source>
-        <translation>Kara-Kalpak</translation>
+        <translation>카라칼파크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="490"/>
         <source>Karachay-Balkar</source>
-        <translation>Karachay-Balkar</translation>
+        <translation>카라차이발카르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="491"/>
         <source>Karelian</source>
-        <translation>Karelian语</translation>
+        <translation>카렐리야어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="492"/>
         <source>Karen languages</source>
-        <translation>韩语</translation>
+        <translation>카레인어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="493"/>
         <source>Kashubian</source>
-        <translation>Kashubian语</translation>
+        <translation>카슈브어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="494"/>
         <source>Kawi</source>
-        <translation>Kawi</translation>
+        <translation>카위어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="495"/>
         <source>Khasi</source>
-        <translation>Khasi语</translation>
+        <translation>카시어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Khoisan languages</source>
-        <translation>Khoisan语言</translation>
+        <translation>코이산 제어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Khotanese, Sakan</source>
-        <translation>Khotanese, Sakan</translation>
+        <translation>호탄어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="498"/>
         <source>Kimbundu</source>
-        <translation>Kimbundu</translation>
+        <translation>킴분두어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Klingon, tlhIngan-Hol</source>
-        <translation>Klingon, tlhIngan-Hol</translation>
+        <translation>클링온어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="500"/>
         <source>Konkani</source>
-        <translation>Konkani</translation>
+        <translation>콘칸어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Kosraean</source>
-        <translation>Kosraean</translation>
+        <translation>코스라에어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="502"/>
         <source>Kpelle</source>
-        <translation>Kpelle</translation>
+        <translation>크펠레어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="503"/>
         <source>Kru languages</source>
-        <translation>Kru语</translation>
+        <translation>크루어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="504"/>
         <source>Kumyk</source>
-        <translation>Kumyk语</translation>
+        <translation>쿠미크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="505"/>
         <source>Kurukh</source>
-        <translation>库卢克语</translation>
+        <translation>쿠루흐어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="506"/>
         <source>Kutenai</source>
-        <translation>库特奈语</translation>
+        <translation>쿠테네어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="507"/>
         <source>Ladino</source>
-        <translation>拉迪诺</translation>
+        <translation>라디노어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="508"/>
         <source>Lahnda</source>
-        <translation>拉亨达语</translation>
+        <translation>란다어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="509"/>
         <source>Lamba</source>
-        <translation>兰巴语</translation>
+        <translation>람바어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="510"/>
         <source>Land Dayak languages</source>
-        <translation>土地达雅克语言</translation>
+        <translation>Land Dayak어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="511"/>
         <source>Lezghian</source>
-        <translation>莱兹基安</translation>
+        <translation>레즈기어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="512"/>
         <source>Lojban</source>
-        <translation>莱兹基安</translation>
+        <translation>로지반어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="513"/>
         <source>German-Low, Low Saxon</source>
-        <translation>德语-低, 低撒克逊语</translation>
+        <translation>저지 독일어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Lower Sorbian</source>
-        <translation>下索布族</translation>
+        <translation>저지 소르브어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="515"/>
         <source>Lozi</source>
-        <translation>洛齐</translation>
+        <translation>로지어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="516"/>
         <source>Luba-Lulua</source>
-        <translation>卢巴卢卢</translation>
+        <translation>루바어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="517"/>
         <source>Luiseno</source>
-        <translation>路易斯诺</translation>
+        <translation>루이세노어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="518"/>
         <source>Lule Sami</source>
-        <translation>Lule Sami</translation>
+        <translation>룰레 사미어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="519"/>
         <source>Lunda</source>
-        <translation>Lunda</translation>
+        <translation>룬다어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="520"/>
         <source>Luo (Kenya and Tanzania)</source>
-        <translation>Luo(肯尼亚和坦桑尼亚)</translation>
+        <translation>루오어(Kenya and Tanzania))</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="521"/>
         <source>Lushai</source>
-        <translation>Lushai</translation>
+        <translation>Lushai어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="522"/>
         <source>Madurese</source>
-        <translation>Madurese</translation>
+        <translation>마두라어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="523"/>
         <source>Magahi</source>
-        <translation>Magahi</translation>
+        <translation>마가히어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="524"/>
         <source>Maithili</source>
-        <translation>Maithili</translation>
+        <translation>마이틸어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="525"/>
         <source>Makasar</source>
-        <translation>Makasar</translation>
+        <translation>마카사르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="526"/>
         <source>Manchu</source>
-        <translation>Manchu</translation>
+        <translation>만주어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="527"/>
         <source>Mandar</source>
-        <translation>Mandar</translation>
+        <translation>만다르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="528"/>
         <source>Mandingo</source>
-        <translation>Mandingo</translation>
+        <translation>Mandingo어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="529"/>
         <source>Manipuri</source>
-        <translation>Manipuri</translation>
+        <translation>마니푸르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="530"/>
         <source>Manobo languages</source>
-        <translation>Manobo语言</translation>
+        <translation>Manobo 어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="531"/>
         <source>Mapuche/Mapudungun</source>
-        <translation>Mapuche/Mapudungun</translation>
+        <translation>마푸체어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="532"/>
         <source>Mari</source>
-        <translation>马里</translation>
+        <translation>마리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="533"/>
         <source>Marwari</source>
-        <translation>Marwari</translation>
+        <translation>마르와리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="534"/>
         <source>Masai</source>
-        <translation>Masai</translation>
+        <translation>마사이어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="535"/>
         <source>Mayan languages</source>
-        <translation>Mayan语</translation>
+        <translation>마야어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="536"/>
         <source>Mende</source>
-        <translation>门德</translation>
+        <translation>Mende어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="537"/>
         <source>Mi&apos;kmaq, Micmac</source>
-        <translation>Mi&apos;kmaq, Micmac</translation>
+        <translation>미크맥어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="538"/>
         <source>Minangkabau</source>
-        <translation>Minangkabau</translation>
+        <translation>미낭카바우어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="539"/>
         <source>Mirandese</source>
-        <translation>Mirandese</translation>
+        <translation>미란다어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Mohawk</source>
-        <translation>Mohawk</translation>
+        <translation>모호크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Moksha</source>
-        <translation>Moksha</translation>
+        <translation>목샤어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Mon-Khmer languages</source>
-        <translation>Mon-Khmer语</translation>
+        <translation>Mon-Khmer어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="543"/>
         <source>Mongo</source>
-        <translation>蒙语</translation>
+        <translation>몽고어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Mossi</source>
-        <translation>Mossi</translation>
+        <translation>모시어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Multiple languages</source>
-        <translation>多语种</translation>
+        <translation>복합(Multiple)어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Munda languages</source>
-        <translation>Munda语</translation>
+        <translation>Munda어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="547"/>
         <source>N&apos;Ko</source>
-        <translation>N&apos;Ko</translation>
+        <translation>응코어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Nahuatl languages</source>
-        <translation>Nahuatl语</translation>
+        <translation>나우아틀어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Neapolitan</source>
-        <translation>那不勒斯语</translation>
+        <translation>나폴리어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Nepal Bhasa/Newari</source>
-        <translation>尼泊尔Bhasa / Newari</translation>
+        <translation>네와르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Nias</source>
-        <translation>Nias</translation>
+        <translation>니아스어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Niger-Kordofanian languages</source>
-        <translation>尼日尔 - 科尔多瓦语</translation>
+        <translation>니제르 쿠르두판어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Nilo-Saharan languages</source>
-        <translation>尼罗 - 撒哈拉语</translation>
+        <translation>나일사하라어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Niuean</source>
-        <translation>Niuean</translation>
+        <translation>니우에어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="555"/>
         <source>No linguistic content/Not applicable</source>
-        <translation>无语言内容/不适用</translation>
+        <translation>언어적 내용 아님/해당 사항 없음</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Nogai</source>
-        <translation>Nogai</translation>
+        <translation>노가이어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Norse- Old</source>
-        <translation>诺尔斯-古代</translation>
+        <translation>노르드어(고대)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="558"/>
         <source>North American Indian languages</source>
-        <translation>北美印第安语</translation>
+        <translation>북아메리카 인디언 언어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Northern Frisian</source>
-        <translation>北弗里斯兰语</translation>
+        <translation>북부 프리슬란드어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
-        <translation>北Sotho，Sepedi，Pedi</translation>
+        <translation>북소토어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Nubian languages</source>
-        <translation>Nubian语</translation>
+        <translation>누비아 언어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Nyamwezi</source>
-        <translation>Nyamwezi</translation>
+        <translation>니암웨지어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Nyankole</source>
-        <translation>Nyankole</translation>
+        <translation>니안콜어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Nyoro</source>
-        <translation>Nyoro</translation>
+        <translation>Nyoro어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Nzima</source>
-        <translation>Nzima</translation>
+        <translation>Nzima어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
-        <translation>奥克西特/普罗旺斯-古代(至1500)</translation>
+        <translation>옥시타니아/프로방스어-고대(to 1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
-        <translation>官方/帝国亚拉姆语(700-300 BCE)</translation>
+        <translation>공식/아람 제국어(700-300 BCE)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Osage</source>
-        <translation>Osage</translation>
+        <translation>오세이지어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Otomian languages</source>
-        <translation>Otomian语</translation>
+        <translation>오토망게(Otomian) 어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Pahlavi</source>
-        <translation>Otomian</translation>
+        <translation>팔라비어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Palauan</source>
-        <translation>Palauan</translation>
+        <translation>팔라우어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Pangasinan</source>
-        <translation>Pangasinan</translation>
+        <translation>팡가시난어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Papiamento</source>
-        <translation>Papiamento</translation>
+        <translation>파피아멘토어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Papuan languages</source>
-        <translation>Papuan语</translation>
+        <translation>파푸아 제어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Paraguayan Guaraní</source>
-        <translation>巴拉圭瓜拉尼</translation>
+        <translation>파라과이 과라니어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
-        <translation>波斯语-古代(ca.600-400 B.C.)</translation>
+        <translation>페르시아어-고대(ca.600-400 B.C.)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Philippine languages</source>
-        <translation>菲律宾语</translation>
+        <translation>필리핀 어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Phoenician</source>
-        <translation>腓尼基</translation>
+        <translation>페니키아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Pohnpeian</source>
-        <translation>Pohnpeian</translation>
+        <translation>폰페이어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Prakrit languages</source>
-        <translation>Prakrit语</translation>
+        <translation>Prakrit 어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Rajasthani</source>
-        <translation>Rajasthani</translation>
+        <translation>라자스탄어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Rapanui</source>
-        <translation>Rapanui</translation>
+        <translation>라파누이어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Rarotongan, Cook Islands Maori</source>
-        <translation>拉罗汤根，库克群岛毛利人</translation>
+        <translation>라로통가어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Reserved for local use</source>
-        <translation>保留供本地使用</translation>
+        <translation>현지 사용을 위해 예약 됨</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Romance languages</source>
-        <translation>Romance语</translation>
+        <translation>로망스어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Romany</source>
-        <translation>罗马书</translation>
+        <translation>롬어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Salishan languages</source>
-        <translation>Salishan</translation>
+        <translation>세일리시어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Samaritan Aramaic</source>
-        <translation>撒玛利亚人阿拉姆语</translation>
+        <translation>사마리아 아랍어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Sami languages</source>
-        <translation>Sami语</translation>
+        <translation>사미어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Sandawe</source>
-        <translation>Sandawe</translation>
+        <translation>산다웨어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Santali</source>
-        <translation>Santali</translation>
+        <translation>산탈어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Sasak</source>
-        <translation>Sasak</translation>
+        <translation>사사크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Scots</source>
-        <translation>Scots</translation>
+        <translation>스코트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Selkup</source>
-        <translation>Selkup</translation>
+        <translation>셀쿠프어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Semitic languages</source>
-        <translation>Semitic语</translation>
+        <translation>셈어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Serer</source>
-        <translation>Serer</translation>
+        <translation>세레르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Shan</source>
-        <translation>Shan</translation>
+        <translation>샨어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Sicilian</source>
-        <translation>西西里人</translation>
+        <translation>시칠리아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Sidamo</source>
-        <translation>Sidamo</translation>
+        <translation>시다모어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Sign Languages</source>
-        <translation>标志语言</translation>
+        <translation>수화</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Siksika</source>
-        <translation>Siksika</translation>
+        <translation>Siksika어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sino-Tibetan languages</source>
-        <translation>中藏语</translation>
+        <translation>중국티베트어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Siouan languages</source>
-        <translation>Siouan语</translation>
+        <translation>수어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Skolt Sami</source>
-        <translation>Skolt Sami</translation>
+        <translation>스콜트 사미어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Slave (Athapascan)</source>
-        <translation>Slave (Athapascan)</translation>
+        <translation>슬라브어(애서배스카어 군)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Slavic languages</source>
-        <translation>斯拉夫语</translation>
+        <translation>슬라브어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Sogdian</source>
-        <translation>Sogdian</translation>
+        <translation>소그드어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Songhai languages</source>
-        <translation>宋海语言</translation>
+        <translation>송하이 어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Soninke</source>
-        <translation>Soninke</translation>
+        <translation>소닌케어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Sorbian languages</source>
-        <translation>索布族语</translation>
+        <translation>소르브어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="611"/>
         <source>South American Indian languages</source>
-        <translation>南美印第安语</translation>
+        <translation>남아메리카 인디언 언어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Southern Altai</source>
-        <translation>南阿尔泰</translation>
+        <translation>남부 알타이어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Southern Sami</source>
-        <translation>南Sami</translation>
+        <translation>남부 사미어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Sranan Tongo</source>
-        <translation>Sranan Tongo</translation>
+        <translation>스라난 통고어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Sukuma</source>
-        <translation>Sukuma</translation>
+        <translation>수쿠마어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Sumerian</source>
-        <translation>苏美尔人</translation>
+        <translation>수메르어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Susu</source>
-        <translation>Susu</translation>
+        <translation>Susu어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Alsatian, Swiss German, Alemannic</source>
-        <translation>阿尔萨斯, 瑞士德语, Alemannic</translation>
+        <translation>알자스어, 스위스 독일어, 알레만어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Syriac</source>
-        <translation>叙利亚</translation>
+        <translation>시리아어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Tai languages</source>
-        <translation>泰语</translation>
+        <translation>따이어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Tamashek</source>
-        <translation>Tamashek</translation>
+        <translation>타마섹어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Tereno</source>
-        <translation>Tereno</translation>
+        <translation>테레노어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Tetum</source>
-        <translation>Tetum</translation>
+        <translation>테툼어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Tigre</source>
-        <translation>Tigre</translation>
+        <translation>티그레어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Timne</source>
-        <translation>Timne</translation>
+        <translation>Timne어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Tiv</source>
-        <translation>Tiv</translation>
+        <translation>Tiv어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Tlingit</source>
-        <translation>Tlingit</translation>
+        <translation>틀링깃어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Tok Pisin</source>
-        <translation>Tok Pisin</translation>
+        <translation>톡 피신어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Tokelau</source>
-        <translation>Tokelau</translation>
+        <translation>토켈라우어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Tonga (Nyasa)</source>
-        <translation>汤加(Nyasa)</translation>
+        <translation>니아사 통가어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Tsimshian</source>
-        <translation>Tsimshian</translation>
+        <translation>Tsimshian어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Tumbuka</source>
-        <translation>Tumbuka</translation>
+        <translation>툼부카어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Tupi languages</source>
-        <translation>Tupi语</translation>
+        <translation>투피어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Turkish- Ottoman (1500-1928)</source>
-        <translation>土耳其 - 奥斯曼(1500-1928)</translation>
+        <translation>오스만 터키어 (1500-1928)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Tuvalu</source>
-        <translation>Tuvalu</translation>
+        <translation>투발루어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Tuvinian</source>
-        <translation>Tuvinian</translation>
+        <translation>투바어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Udmurt</source>
-        <translation>Udmurt</translation>
+        <translation>우드무르트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Ugaritic</source>
-        <translation>Ugaritic</translation>
+        <translation>우가리트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Umbundu</source>
-        <translation>Umbundu</translation>
+        <translation>움분두어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Uncoded languages</source>
-        <translation>未编码的语言</translation>
+        <translation>코딩되지 않은 언어(Uncoded languages)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Undetermined</source>
-        <translation>未确定</translation>
+        <translation>명확하지 않은 언어(Undetermined)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Upper Sorbian</source>
-        <translation>上索布族</translation>
+        <translation>고지 소르브어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Vai</source>
-        <translation>Vai</translation>
+        <translation>Vai어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Votic</source>
-        <translation>Votic</translation>
+        <translation>바트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Wakashan languages</source>
-        <translation>Wakashan语</translation>
+        <translation>Wakashan어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Waray</source>
-        <translation>Waray</translation>
+        <translation>와라이어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Washo</source>
-        <translation>Washo</translation>
+        <translation>와쇼어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Wolaitta, Wolaytta</source>
-        <translation>Wolaitta, Wolaytta</translation>
+        <translation>월라이타어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Yakut</source>
-        <translation>Yakut</translation>
+        <translation>야쿠트어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="650"/>
         <source>Yao</source>
-        <translation>Yao</translation>
+        <translation>야오어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="651"/>
         <source>Yapese</source>
-        <translation>Yapese</translation>
+        <translation>야프어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="652"/>
         <source>Yupik languages</source>
-        <translation>Yupik语</translation>
+        <translation>유픽어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="653"/>
         <source>Zande languages</source>
-        <translation>Zande语</translation>
+        <translation>Zande어 군</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="654"/>
         <source>Zapotec</source>
-        <translation>Zapotec</translation>
+        <translation>사포테크어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="655"/>
         <source>Zenaga</source>
-        <translation>Zenaga</translation>
+        <translation>제나가어</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="656"/>
         <source>Zuni</source>
-        <translation>Zuni</translation>
+        <translation>주니어</translation>
     </message>
 </context>
 <context>
@@ -7042,7 +7080,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="14"/>
         <source>Language</source>
-        <translation>语言</translation>
+        <translation>언어</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="36"/>
@@ -7051,24 +7089,26 @@ Do you want to save your changes?</source>
 If a translation for specific word or phrase is not available it will be displayed in English.
 
 Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</source>
-        <translation>在更改用户界面语言后您必须重新启动Sigil.
-如果特定词语或短语的翻译不可用，它将以英语显示.
-使用首选项 - &gt;拼写检查字典设置拼写检查字典.</translation>
+        <translation>사용자 인터페이스 언어를 변경 한 후 Sigil을 다시 시작해야합니다.
+
+특정 단어 나 문구에 대한 번역을 사용할 수없는 경우 영어로 표시됩니다
+
+환경 설정-&gt; 맞춤법 검사 사전을 사용하여 맞춤법 검사 사전을 설정하십시오.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
         <source>User Interface Language:</source>
-        <translation>用户界面语言</translation>
+        <translation>사용자 인터페이스 언어:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="53"/>
         <source>Set the default language used by the Metadata Editor for new books.</source>
-        <translation>设置新图书的元数据编辑器的默认语言。</translation>
+        <translation>메타데이터 편집기를 이용해 새 책에 대해 기본 언어를 설정하세요.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="56"/>
         <source>Default Language For Metadata:</source>
-        <translation>元数据的默认语言</translation>
+        <translation>메타데이터용 기본 언어:</translation>
     </message>
 </context>
 <context>
@@ -7076,40 +7116,41 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="14"/>
         <source>Link StyleSheets</source>
-        <translation>样式表链接</translation>
+        <translation>스타일시트 연결</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="43"/>
         <source>Move the selected stylesheets up in priority.
 
 Stylesheets that are listed first take precedence over later stylesheets.</source>
-        <translation>将所选样式表优先向上移动
-首先列出的样式表优先于较后的样式表。</translation>
+        <translation>선택한 스타일시트를 우선적으로 적용하려면 위로 이동하십시오.
+
+처음에 나열된 스타일시트는 이후 스타일 시트보다 우선합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="48"/>
         <source>Up</source>
-        <translation>上</translation>
+        <translation>위쪽</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="58"/>
         <source>Move the selected stylesheets down in priority.</source>
-        <translation>优先移动所选样式表。</translation>
+        <translation>선택된 스타일시트의 우선순위를 내립니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
         <source>Down</source>
-        <translation>下</translation>
+        <translation>아래쪽</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="61"/>
         <source>Include</source>
-        <translation>包含</translation>
+        <translation>포함</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="62"/>
         <source>Stylesheet</source>
-        <translation>样式表</translation>
+        <translation>스타일시트</translation>
     </message>
 </context>
 <context>
@@ -7117,27 +7158,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="14"/>
         <source>Links</source>
-        <translation>链接</translation>
+        <translation>링크</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>仅列出文件名包含所输入文本的文件</translation>
+        <translation>입력한 텍스트가 포함된 파일만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsLinksWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>过滤：</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="71"/>
         <source>File</source>
-        <translation>文件</translation>
+        <translation>파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="72"/>
         <source>Line</source>
-        <translation>行</translation>
+        <translation>줄</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="73"/>
@@ -7147,47 +7188,47 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="74"/>
         <source>Text</source>
-        <translation>文本</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="75"/>
         <source>Target File</source>
-        <translation>目标文件</translation>
+        <translation>대상 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="76"/>
         <source>Target ID</source>
-        <translation>目标ID</translation>
+        <translation>대상 ID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="77"/>
         <source>Target Exists?</source>
-        <translation>目标存在?</translation>
+        <translation>대상 파일 유무</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="78"/>
         <source>Target Text</source>
-        <translation>目标文本</translation>
+        <translation>대상 텍스트</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="79"/>
         <source>Target&apos;s Target File</source>
-        <translation>目标的目标文件</translation>
+        <translation>타겟의 대상 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="80"/>
         <source>Target&apos;s Target ID</source>
-        <translation>目标的目标ID</translation>
+        <translation>타겟의 대상 ID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="81"/>
         <source>Match?</source>
-        <translation>匹配?</translation>
+        <translation>일치?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="87"/>
         <source>Report shows all source and target links using the anchor tag &quot;a&quot;.</source>
-        <translation>报告显示所有使用锚标签“a”源链接和目标链接。</translation>
+        <translation>보고서는 앵커 태그 &quot;a&quot;를 사용한 모든 소스 및 대상 링크를 표시합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="159"/>
@@ -7198,18 +7239,18 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="163"/>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="231"/>
         <source>no</source>
-        <translation>否</translation>
+        <translation>no</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="173"/>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="233"/>
         <source>yes</source>
-        <translation>是</translation>
+        <translation>yes</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="352"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>将报告保存为都好分割的文件</translation>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="366"/>
@@ -7219,7 +7260,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="366"/>
         <source>Cannot save report file.</source>
-        <translation>无法保存报告文件</translation>
+        <translation>리포트 파일을 저장할 수 없습니다.</translation>
     </message>
 </context>
 <context>
@@ -7227,7 +7268,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ListSelector.h" line="48"/>
         <source>View selected</source>
-        <translation>查看所选内容</translation>
+        <translation>선택한 항목 보기</translation>
     </message>
 </context>
 <context>
@@ -7235,37 +7276,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>未命名.epub[*]-Sigil</translation>
+        <translation>untitled.epub[*] - Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
         <source>&amp;File</source>
-        <translation>&amp;文件</translation>
+        <translation>파일</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="62"/>
         <source>A&amp;dd</source>
-        <translation>&amp;添加</translation>
+        <translation>추가(&amp;D)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="72"/>
         <source>&amp;New</source>
-        <translation>&amp;新建</translation>
+        <translation>새로(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="96"/>
         <source>&amp;Edit</source>
-        <translation>&amp;编辑</translation>
+        <translation>편집</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="100"/>
         <source>C&amp;hange Case</source>
-        <translation>&amp;更改大小写</translation>
+        <translation>대/소문자 변경(&amp;H)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="125"/>
         <source>&amp;Insert</source>
-        <translation>&amp;插入</translation>
+        <translation>삽입(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="129"/>
@@ -7280,3074 +7321,3084 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="192"/>
         <source>&amp;Help</source>
-        <translation>&amp;帮助</translation>
+        <translation>도움말</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="202"/>
         <source>For&amp;mat</source>
-        <translation>&amp;格式化</translation>
+        <translation>For&amp;mat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="206"/>
         <source>&amp;Heading</source>
-        <translation>&amp;标题</translation>
+        <translation>제목 스타일(&amp;H)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="246"/>
         <source>&amp;View</source>
-        <translation>&amp;视图</translation>
+        <translation>보기(&amp;V)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="250"/>
         <source>&amp;Toolbars</source>
-        <translation>&amp;工具栏</translation>
+        <translation>도구 막대(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="262"/>
         <source>&amp;Search</source>
-        <translation>&amp;搜索</translation>
+        <translation>검색(&amp;S)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="266"/>
         <source>Current Fil&amp;e</source>
-        <translation>&amp;当前文件</translation>
+        <translation>현재 파일(&amp;E)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="298"/>
         <source>&amp;Window</source>
-        <translation>&amp;窗口</translation>
+        <translation>창(&amp;W)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="310"/>
         <source>&amp;Tools</source>
-        <translation>&amp;工具</translation>
+        <translation>도구(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="314"/>
         <source>&amp;Table Of Contents</source>
-        <translation>&amp;目录</translation>
+        <translation>차례(&amp;T)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="322"/>
         <source>Spe&amp;llcheck</source>
-        <translation>&amp;拼写检查</translation>
+        <translation>맞춤법검사(&amp;L)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="336"/>
         <source>&amp;Index</source>
-        <translation>&amp;索引</translation>
+        <translation>색인(&amp;I)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="347"/>
         <source>Re&amp;format HTML</source>
-        <translation>&amp;重新格式化HTML</translation>
+        <translation>HTML 정리(&amp;f)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="354"/>
         <source>Epub&amp;3 Tools</source>
-        <translation>Epub&amp;3工具</translation>
+        <translation>Epub&amp;3 도구</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="382"/>
         <source>Plugins</source>
-        <translation>插件</translation>
+        <translation>플러그인</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="388"/>
-        <location filename="../../Form_Files/main.ui" line="427"/>
+        <location filename="../../Form_Files/main.ui" line="428"/>
         <source>Checkpoints</source>
-        <translation>检查点</translation>
+        <translation>체크포인트</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="411"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1157"/>
         <source>File</source>
-        <translation>文件</translation>
+        <translation>파일</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="442"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
+        <location filename="../../Form_Files/main.ui" line="443"/>
+        <source>Index</source>
+        <translation>색인</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="391"/>
         <source>Edit</source>
-        <translation>编辑</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="463"/>
-        <source>Insert</source>
-        <translation>插入</translation>
+        <translation>편집</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="480"/>
+        <source>Insert</source>
+        <translation>삽입</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="497"/>
         <source>Back</source>
-        <translation>回退</translation>
+        <translation>뒤로</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="492"/>
+        <location filename="../../Form_Files/main.ui" line="509"/>
         <source>Donate</source>
-        <translation>捐款</translation>
+        <translation>기부</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="504"/>
+        <location filename="../../Form_Files/main.ui" line="521"/>
         <source>Tools</source>
-        <translation>工具</translation>
+        <translation>도구</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="518"/>
+        <location filename="../../Form_Files/main.ui" line="535"/>
         <source>Plugins Set 1</source>
-        <translation>插件集1</translation>
+        <translation>플러그인 설정 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="534"/>
+        <location filename="../../Form_Files/main.ui" line="551"/>
         <source>Plugins Set 2</source>
-        <translation>插件集2</translation>
+        <translation>플러그인 설정 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="550"/>
+        <location filename="../../Form_Files/main.ui" line="567"/>
         <source>Heading</source>
-        <translation>标题</translation>
+        <translation>제목 스타일</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="564"/>
+        <location filename="../../Form_Files/main.ui" line="581"/>
         <source>set Heading Level of Selected Text</source>
-        <translation>设置选定文本的标题级别</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="577"/>
-        <source>Format</source>
-        <translation>格式</translation>
+        <translation>선택한 텍스트의 제목 수준 설정</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="594"/>
+        <source>Format</source>
+        <translation>서식</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="611"/>
         <source>Align</source>
-        <translation>对齐</translation>
+        <translation>정렬</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="609"/>
+        <location filename="../../Form_Files/main.ui" line="626"/>
         <source>List</source>
-        <translation>列表</translation>
+        <translation>목록</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="622"/>
+        <location filename="../../Form_Files/main.ui" line="639"/>
         <source>Indent</source>
-        <translation>缩进</translation>
+        <translation>들여쓰기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="635"/>
+        <location filename="../../Form_Files/main.ui" line="652"/>
         <source>Change Case</source>
-        <translation>更改大小写</translation>
+        <translation>대소문자 변경</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="649"/>
+        <location filename="../../Form_Files/main.ui" line="666"/>
         <source>set Case of Selected Text</source>
-        <translation>设置选定文本的大小写</translation>
+        <translation>선택된 텍스트의 대소 문자 설정</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="659"/>
+        <location filename="../../Form_Files/main.ui" line="676"/>
         <source>Text Direction</source>
-        <translation>文字方向</translation>
+        <translation>텍스트 방향</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="673"/>
+        <location filename="../../Form_Files/main.ui" line="690"/>
         <source>Clip Bar</source>
-        <translation>剪辑条</translation>
+        <translation>클립 바</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="704"/>
+        <location filename="../../Form_Files/main.ui" line="721"/>
         <source>Clip Bar2</source>
-        <translation>剪辑条2</translation>
+        <translation>클립 바2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="740"/>
+        <location filename="../../Form_Files/main.ui" line="757"/>
         <source>New Default</source>
-        <translation>新建默认</translation>
+        <translation>기본 EPUB 새로 만들기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="743"/>
+        <location filename="../../Form_Files/main.ui" line="760"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new default book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;新建&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;새로 만들기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;创建新的默认书籍。&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;기본 설정된 EPUB으로 새로 만들기&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="748"/>
+        <location filename="../../Form_Files/main.ui" line="765"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="758"/>
+        <location filename="../../Form_Files/main.ui" line="775"/>
         <source>ePub&amp;2</source>
         <translation>ePub&amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="761"/>
+        <location filename="../../Form_Files/main.ui" line="778"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub2 book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;新建 ePub2&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;EPUB2 새로 만들기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;创建新的ePub2书籍。&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;빈 EPUB2 파일을 새로 만듧니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="773"/>
+        <location filename="../../Form_Files/main.ui" line="790"/>
         <source>ePub&amp;3</source>
         <translation>ePub&amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="776"/>
+        <location filename="../../Form_Files/main.ui" line="793"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub3 book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;新建 ePub3&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;EPUB3 새로 만들기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;创建新的ePub3书籍&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;빈 EPUB3 파일을 새로 만듧니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="788"/>
+        <location filename="../../Form_Files/main.ui" line="805"/>
         <source>&amp;Save</source>
-        <translation>&amp;保存</translation>
+        <translation>저장(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="791"/>
+        <location filename="../../Form_Files/main.ui" line="808"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;保存&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;저장&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;保存当前的书.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;현재 책 저장하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="796"/>
+        <location filename="../../Form_Files/main.ui" line="813"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="801"/>
+        <location filename="../../Form_Files/main.ui" line="818"/>
         <source>Save &amp;As...</source>
-        <translation>&amp;另存为</translation>
+        <translation>다른 이름으로 저장하기(&amp;A)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="804"/>
+        <location filename="../../Form_Files/main.ui" line="821"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;另存为&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;다른 이름으로 저장&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;用不同的文件名保存当前图书。&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;현재 책을 다른 파일 이름으로 저장하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="809"/>
+        <location filename="../../Form_Files/main.ui" line="826"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="814"/>
+        <location filename="../../Form_Files/main.ui" line="831"/>
         <source>Save A &amp;Copy...</source>
-        <translation>&amp;保存为副本</translation>
+        <translation>사본으로 저장하기(&amp;C)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="817"/>
+        <location filename="../../Form_Files/main.ui" line="834"/>
         <source>Save a copy of your book to another file name.</source>
-        <translation>将你的书籍保存为另一个文件名</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="826"/>
-        <source>Cu&amp;t</source>
-        <translation>&amp;t剪切</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="829"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;剪切&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;剪切文档中选定的文本并将其放在剪贴板中.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="840"/>
-        <source>&amp;Paste</source>
-        <translation>&amp;粘贴</translation>
+        <translation>책의 사본을 다른 파일 이름으로 저장합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="843"/>
+        <source>Cu&amp;t</source>
+        <translation>잘라내기(&amp;t)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="846"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;잘라내기&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문서에서 선택된 텍스트를 잘라내서 클립보드에 보관하기.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="857"/>
+        <source>&amp;Paste</source>
+        <translation>붙여넣기(&amp;P)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="860"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;粘贴&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;붙여넣기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将剪贴板中的内容粘贴到书本中。&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;클립보드에 있는 내용물을 책 안에 붙여넣기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="850"/>
+        <location filename="../../Form_Files/main.ui" line="867"/>
         <source>&amp;Closing Tag</source>
-        <translation>&amp;关闭标签</translation>
+        <translation>태그 닫기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="853"/>
+        <location filename="../../Form_Files/main.ui" line="870"/>
         <source>Insert a closing tag in Code View.</source>
-        <translation>在代码视图中插入结束标记.</translation>
+        <translation>코드 보기에서 닫는 태그를 넣으세요.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="856"/>
+        <location filename="../../Form_Files/main.ui" line="873"/>
         <source>Ctrl+.</source>
         <translation>Ctrl+.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="865"/>
+        <location filename="../../Form_Files/main.ui" line="882"/>
         <source>&amp;Undo</source>
-        <translation>&amp;撤消</translation>
+        <translation>되돌리기(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="868"/>
+        <location filename="../../Form_Files/main.ui" line="885"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;撤消&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;되돌리기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;还原上一操作的更改。&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;바로 전에 작업한 변경 내용을 되돌리기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="873"/>
+        <location filename="../../Form_Files/main.ui" line="890"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="882"/>
+        <location filename="../../Form_Files/main.ui" line="899"/>
         <source>&amp;Redo</source>
-        <translation>&amp;恢复</translation>
+        <translation>다시 실행(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="885"/>
+        <location filename="../../Form_Files/main.ui" line="902"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;恢复&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;다시 실행&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;还原由上一个撤消操作还原的更改。&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;바로 전에 되돌리기 작업한 변경 내용을 다시 실행하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="890"/>
+        <location filename="../../Form_Files/main.ui" line="907"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="899"/>
-        <source>&amp;Copy</source>
-        <translation>&amp;复制</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="902"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;复制&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;复制所选文本并将其放在剪贴板中.&lt;/p&gt;</translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/main.ui" line="916"/>
-        <source>Align &amp;Left</source>
-        <translation>&amp;左对齐</translation>
+        <source>&amp;Copy</source>
+        <translation>복사(&amp;C)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="919"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;左对齐&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;복사내기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将该段对齐到左边.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문서에서 선택된 텍스트를 복사해서 클립보드에 보관하기.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="933"/>
-        <source>Align &amp;Right</source>
-        <translation>&amp;右对齐</translation>
+        <source>Align &amp;Left</source>
+        <translation>왼쪽 정렬(&amp;L)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="936"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;右对齐&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;왼쪽 정렬&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将该段对齐到右边.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단을 왼쪽으로 정렬합니다.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="950"/>
-        <source>&amp;Center</source>
-        <translation>&amp;居中</translation>
+        <source>Align &amp;Right</source>
+        <translation>오른쪽 정렬(&amp;R)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="953"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;오른쪽 정렬&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단을 오른쪽으로 정렬합니다.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="967"/>
+        <source>&amp;Center</source>
+        <translation>가운데 정렬(&amp;C)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="970"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;居中&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;가운데 맞춤&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将该段居中.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;단락을 가운데 맞춤.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="958"/>
+        <location filename="../../Form_Files/main.ui" line="975"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="970"/>
+        <location filename="../../Form_Files/main.ui" line="987"/>
         <source>&amp;Justify</source>
-        <translation>&amp;对齐</translation>
+        <translation>양쪽 맞춤(&amp;J)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="973"/>
+        <location filename="../../Form_Files/main.ui" line="990"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;调整&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落对齐到左边距和右边距.&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;균등 분할&lt;/b&gt;&lt;/p&gt;⏎
+⏎
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;왼쪽과 오른쪽의 여백에 단락을 맞추기 .&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="978"/>
+        <location filename="../../Form_Files/main.ui" line="995"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="990"/>
+        <location filename="../../Form_Files/main.ui" line="1007"/>
         <source>&amp;Bold</source>
-        <translation>&amp;加粗</translation>
+        <translation>진하게</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="993"/>
+        <location filename="../../Form_Files/main.ui" line="1010"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;加粗&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;굵게&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;使所选文本加粗.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트를 굵게 합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="998"/>
+        <location filename="../../Form_Files/main.ui" line="1015"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1010"/>
+        <location filename="../../Form_Files/main.ui" line="1027"/>
         <source>&amp;Italic</source>
-        <translation>&amp;斜体</translation>
+        <translation>기울임꼴</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1013"/>
+        <location filename="../../Form_Files/main.ui" line="1030"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;斜体&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;기울임꼴&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将所选文本设为斜体.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트를 기울임꼴로 합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1018"/>
+        <location filename="../../Form_Files/main.ui" line="1035"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1027"/>
+        <location filename="../../Form_Files/main.ui" line="1044"/>
         <source>&amp;Open...</source>
-        <translation>&amp;打开</translation>
+        <translation>열기...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1030"/>
+        <location filename="../../Form_Files/main.ui" line="1047"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;打开&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;열기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;从磁盘打开一本书。&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;디스크에서 책 열기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1035"/>
+        <location filename="../../Form_Files/main.ui" line="1052"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1047"/>
+        <location filename="../../Form_Files/main.ui" line="1064"/>
         <source>&amp;Underline</source>
-        <translation>&amp;加下划线</translation>
+        <translation>밑줄</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1050"/>
+        <location filename="../../Form_Files/main.ui" line="1067"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;加下划线&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;밑줄&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将所选文本加下划线.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트에 밑줄을 넣습니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1055"/>
+        <location filename="../../Form_Files/main.ui" line="1072"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1067"/>
+        <location filename="../../Form_Files/main.ui" line="1084"/>
         <source>&amp;Quit</source>
-        <translation>&amp;退出</translation>
+        <translation>나가기(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1070"/>
+        <location filename="../../Form_Files/main.ui" line="1087"/>
         <source>Exit</source>
-        <translation>退出</translation>
+        <translation>종료</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1073"/>
+        <location filename="../../Form_Files/main.ui" line="1090"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1085"/>
+        <location filename="../../Form_Files/main.ui" line="1102"/>
         <source>&amp;About...</source>
-        <translation>&amp;关于</translation>
+        <translation>Sigil 정보(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1088"/>
+        <location filename="../../Form_Files/main.ui" line="1105"/>
         <source>Show information about Sigil.</source>
-        <translation>显示有关Sigil的信息。</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1093"/>
-        <source>Add &amp;Cover...</source>
-        <translation>&amp;添加封面...</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1096"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;添加封面&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;添加一张封面.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1107"/>
-        <source>&amp;Metadata Editor...</source>
-        <translation>&amp;元数据编辑器...</translation>
+        <translation>Sigil에 대한 정보 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1110"/>
+        <source>Add &amp;Cover...</source>
+        <translation>표지 추가(&amp;C)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1113"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;표지 삽입&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;표지를 추가합니다.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1124"/>
+        <source>&amp;Metadata Editor...</source>
+        <translation>메타데이터 편집기...(&amp;M)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1127"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;元数据编辑器&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;编辑并显示您的书籍相关资讯，包括作者和书名.&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;메타데이터 편집기&lt;/b&gt;&lt;/p&gt;⏎
+⏎
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;저자, 제목 등을 포함하는 책에 대한 정보를 표시하고 편집하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1115"/>
+        <location filename="../../Form_Files/main.ui" line="1132"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1124"/>
+        <location filename="../../Form_Files/main.ui" line="1141"/>
         <source>&amp;Generate Table Of Contents...</source>
-        <translation>&amp;生成目录</translation>
+        <translation>목차 만들기...(&amp;G)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1127"/>
+        <location filename="../../Form_Files/main.ui" line="1144"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;生成目录&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;목차 만들기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;从书中的标题生成一个新的目录.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;책에 있는 헤딩 태그를 기준으로 목차를 만듧니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1132"/>
+        <location filename="../../Form_Files/main.ui" line="1149"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1137"/>
+        <location filename="../../Form_Files/main.ui" line="1154"/>
         <source>&amp;Edit Table Of Contents...</source>
-        <translation>&amp;编辑目录</translation>
+        <translation>목차 편집(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1140"/>
+        <location filename="../../Form_Files/main.ui" line="1157"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;编辑目录&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;목차 편집&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;直接编辑存在的目录.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1151"/>
-        <source>&amp;Split At Cursor</source>
-        <translation>&amp;在光标处切分</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1154"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;在光标处切分&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;使用光标位置作为分割点将当前文件分割为两个文件.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1159"/>
-        <source>Ctrl+Return</source>
-        <translation>Ctrl+回车</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;만들어 진 목차를 직접 수정합니다.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1168"/>
-        <source>&amp;File...</source>
-        <translation>&amp;文件</translation>
+        <source>&amp;Split At Cursor</source>
+        <translation>현재 커서 위치에서 나누기(&amp;S)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1171"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;커서 위치에서 나누기&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;커서가 있는 위치에서 현재 파일을 두 개의 파일로 분할합니다.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1176"/>
+        <source>Ctrl+Return</source>
+        <translation>Ctrl+Return</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1185"/>
+        <source>&amp;File...</source>
+        <translation>&amp;파일....</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1188"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;You can add files to your book by using the menu File - Add - Existing Files.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入文件&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;파일 추가&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;从书中选择要插入文字的图片，视频或音频文件.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;책에서 이미지, 비디오 또는 오디오 파일을 선택하여 텍스트에 삽입합니다.&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;您可以使用文件 - 添加 - 现有文件菜单将文件添加到您的书.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;메뉴 파일-추가-기존 파일을 사용하여 책에 파일을 추가 할 수 있습니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1178"/>
+        <location filename="../../Form_Files/main.ui" line="1195"/>
         <source>Ctrl+Shift+I</source>
         <translation>Ctrl+Shift+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1187"/>
+        <location filename="../../Form_Files/main.ui" line="1204"/>
         <source>&amp;Special Character...</source>
-        <translation>&amp;特殊字符</translation>
+        <translation>특수 문자(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1190"/>
+        <location filename="../../Form_Files/main.ui" line="1207"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入特殊字符&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;특수 문자 삽입&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;选择一个字符插入到文本中.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1201"/>
-        <source>I&amp;D...</source>
-        <translation>I&amp;D...</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1204"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入ID&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;插入或编辑具有ID名称的锚点以用作链接目标.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1215"/>
-        <source>&amp;Link...</source>
-        <translation>&amp;链接</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;텍스트에 넣을 문자 선택하기.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1218"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
+        <source>I&amp;D...</source>
+        <translation>I&amp;D...
+</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1221"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;插入链接&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;ID 추가&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;插入或编辑具有到目标的超链接的锚点.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;링크 타겟으로 사용할 ID 이름으로 앵커를 추가하거나 편집합니다.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1232"/>
-        <source>&amp;Numbered List</source>
-        <translation>&amp;编号列表</translation>
+        <source>&amp;Link...</source>
+        <translation>&amp;링크....</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1235"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;编号&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;링크 추가&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;生成编号列表.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;대상에 대한 하이퍼 링크가있는 앵커를 삽입하거나 편집하십시오.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1249"/>
-        <source>Bulle&amp;ted List</source>
-        <translation>&amp;符号列表</translation>
+        <source>&amp;Numbered List</source>
+        <translation>글머리 숫자(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1252"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;번호 매기기&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;번호 매긴 목록 만들기.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1266"/>
+        <source>Bulle&amp;ted List</source>
+        <translation>글머리 목록(&amp;t)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1269"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;符号&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;글머리 기호&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;生成符号列表.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;글머리 기호 목록 만들기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1257"/>
+        <location filename="../../Form_Files/main.ui" line="1274"/>
         <source>Ctrl+Shift+L</source>
         <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1269"/>
-        <source>Stri&amp;kethrough</source>
-        <translation>&amp;删除线</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1272"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;删除线&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;在所选文本中画一条线.&lt;/p&gt;</translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/main.ui" line="1286"/>
-        <source>&amp;Subscript</source>
-        <translation>&amp;下标</translation>
+        <source>Stri&amp;kethrough</source>
+        <translation>취소선(&amp;K)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1289"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;下标&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;취소선&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将所选文本设置为略小于法线的下方.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트에 취소선 그리기.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1303"/>
-        <source>Su&amp;perscript</source>
-        <translation>&amp;上标</translation>
+        <source>&amp;Subscript</source>
+        <translation>아래 첨자(&amp;S)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1306"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;上标&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将所选文本设置为略小于法线的上方.&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1317"/>
-        <source>&amp;Print...</source>
-        <translation>&amp;打印</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;아래 첨자&lt;/b&gt;&lt;/p&gt;⏎
+⏎
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택된 텍스트를 조금 작고 기준선 아래로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1320"/>
-        <source>Print</source>
-        <translation>打印</translation>
+        <source>Su&amp;perscript</source>
+        <translation>위첨자</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1323"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;윗 첨자&lt;/b&gt;&lt;/p&gt;⏎
+⏎
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택된 텍스트를 조금 작고 기준선 위로 설정하기.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1334"/>
+        <source>&amp;Print...</source>
+        <translation>인쇄...</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1337"/>
+        <source>Print</source>
+        <translation>인쇄</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1340"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1332"/>
+        <location filename="../../Form_Files/main.ui" line="1349"/>
         <source>Print Pre&amp;view...</source>
-        <translation>&amp;打印预览</translation>
+        <translation>인쇄 미리보기...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1335"/>
+        <location filename="../../Form_Files/main.ui" line="1352"/>
         <source>Print Preview</source>
-        <translation>打印预览</translation>
+        <translation>인쇄 미리보기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1340"/>
-        <location filename="../../Form_Files/main.ui" line="1343"/>
+        <location filename="../../Form_Files/main.ui" line="1357"/>
+        <location filename="../../Form_Files/main.ui" line="1360"/>
         <source>Close</source>
-        <translation>关闭</translation>
+        <translation>닫기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1346"/>
+        <location filename="../../Form_Files/main.ui" line="1363"/>
         <source>Ctrl+Shift+W</source>
         <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1351"/>
+        <location filename="../../Form_Files/main.ui" line="1368"/>
         <source>Restructure Epub to Sigil Norm</source>
-        <translation>将Epub重构为Sigil范数</translation>
+        <translation>Sigil 표준 양식으로 재구성</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1354"/>
+        <location filename="../../Form_Files/main.ui" line="1371"/>
         <source>Restructure Epub to Sigil Standard Form</source>
-        <translation>将Epub重构为Sigil标准格式</translation>
+        <translation>Sigil 표준 양식으로 EPUB의 구조를 다시 구성합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1363"/>
+        <location filename="../../Form_Files/main.ui" line="1380"/>
         <source>Zoom &amp;In</source>
-        <translation>&amp;放大</translation>
+        <translation>확대</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1366"/>
+        <location filename="../../Form_Files/main.ui" line="1383"/>
         <source>Zoom In</source>
-        <translation>放大</translation>
+        <translation>확대</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1369"/>
+        <location filename="../../Form_Files/main.ui" line="1386"/>
         <source>Ctrl+=</source>
-        <translation>Ctrl+=</translation>
+        <translation>확대</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1378"/>
+        <location filename="../../Form_Files/main.ui" line="1395"/>
         <source>Zoom &amp;Out</source>
-        <translation>缩小</translation>
+        <translation>축소</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1381"/>
+        <location filename="../../Form_Files/main.ui" line="1398"/>
         <source>Zoom Out</source>
-        <translation>缩小</translation>
+        <translation>축소</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1384"/>
+        <location filename="../../Form_Files/main.ui" line="1401"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1393"/>
+        <location filename="../../Form_Files/main.ui" line="1410"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
-        <translation>&amp;搜索和替换</translation>
+        <translation>찾기 &amp;&amp; 바꾸기(&amp;F)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1396"/>
+        <location filename="../../Form_Files/main.ui" line="1413"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;搜索 &amp;amp; 替换&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;찾아 바꾸기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;在文档中查找和替换文本.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문서에서 텍스트를 찾아 바꾸기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1401"/>
+        <location filename="../../Form_Files/main.ui" line="1418"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1410"/>
+        <location filename="../../Form_Files/main.ui" line="1427"/>
         <source>Incre&amp;ase Indent</source>
-        <translation>&amp;增加缩进</translation>
+        <translation>들여쓰기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1413"/>
+        <location filename="../../Form_Files/main.ui" line="1430"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;增加缩进&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;들여쓰기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;增加段落的缩进级别.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 들여쓰기 값 조정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1418"/>
+        <location filename="../../Form_Files/main.ui" line="1435"/>
         <source>Ctrl+Alt+M</source>
         <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1427"/>
+        <location filename="../../Form_Files/main.ui" line="1444"/>
         <source>&amp;Decrease Indent</source>
-        <translation>&amp;减少缩进</translation>
+        <translation>둘여쓰기 취소</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1430"/>
+        <location filename="../../Form_Files/main.ui" line="1447"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;减少缩进&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;내어쓰기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;降低段落的缩进级别。&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 내어쓰기 값 조정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1435"/>
-        <location filename="../../Form_Files/main.ui" line="1846"/>
+        <location filename="../../Form_Files/main.ui" line="1452"/>
+        <location filename="../../Form_Files/main.ui" line="1868"/>
         <source>Ctrl+Shift+M</source>
         <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1444"/>
+        <location filename="../../Form_Files/main.ui" line="1461"/>
         <source>Te&amp;xt Direction LTR</source>
-        <translation>&amp;文本从左向右方向</translation>
+        <translation>텍스트 방향 좌에서 우로(&amp;X)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1447"/>
+        <location filename="../../Form_Files/main.ui" line="1464"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction left to right.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;从左向右&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;왼쪽에서 오른쪽으로&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落方向从左向右设置.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단의 방향을 왼쪽에서 오른쪽으로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1460"/>
+        <location filename="../../Form_Files/main.ui" line="1477"/>
         <source>T&amp;ext Direction RTL</source>
-        <translation>&amp;文本从右向左方向</translation>
+        <translation>텍스트 방향 우에서 좌로(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1463"/>
+        <location filename="../../Form_Files/main.ui" line="1480"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction right to left.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;从右向左&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;오른쪽에서 왼쪽으로&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落方向从右向左设置.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단의 방향을 오른쪽에서 왼쪽으로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1476"/>
+        <location filename="../../Form_Files/main.ui" line="1493"/>
         <source>Text Directi&amp;on Default</source>
-        <translation>&amp;默认文字方向</translation>
+        <translation>기본 텍스트 방향(&amp;o)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1479"/>
+        <location filename="../../Form_Files/main.ui" line="1496"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set paragraph direction to inherit from default.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;默认&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;기본값&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落方向设置为从默认继承。&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단의 방향을 기본값으로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1488"/>
+        <location filename="../../Form_Files/main.ui" line="1505"/>
         <source>Remove &amp;Formatting</source>
-        <translation>&amp;移除格式</translation>
+        <translation>서식 제거</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1491"/>
+        <location filename="../../Form_Files/main.ui" line="1508"/>
         <source>Ctrl+Space</source>
-        <translation>Ctrl+空格</translation>
+        <translation>Ctrl+Space</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1500"/>
+        <location filename="../../Form_Files/main.ui" line="1517"/>
         <source>&amp;Lowercase</source>
-        <translation>&amp;小写</translation>
+        <translation>소문자로(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1503"/>
+        <location filename="../../Form_Files/main.ui" line="1520"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to lowercase.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;小写&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;소문자&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将选中文本变为小写.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트를 소문자로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1510"/>
+        <location filename="../../Form_Files/main.ui" line="1527"/>
         <source>Alt+L</source>
         <translation>Alt+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1519"/>
+        <location filename="../../Form_Files/main.ui" line="1536"/>
         <source>&amp;Uppercase</source>
-        <translation>&amp;大写</translation>
+        <translation>대문자로(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1522"/>
+        <location filename="../../Form_Files/main.ui" line="1539"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set selected text to uppercase.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;大写&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;대문자&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将选中文本变为大写.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트를 대문자로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1529"/>
+        <location filename="../../Form_Files/main.ui" line="1546"/>
         <source>Alt+U</source>
         <translation>Alt+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1538"/>
+        <location filename="../../Form_Files/main.ui" line="1555"/>
         <source>&amp;Titlecase</source>
-        <translation>&amp;首字母大写</translation>
+        <translation>제목 스타일 대소문자(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1541"/>
+        <location filename="../../Form_Files/main.ui" line="1558"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize the first letter of each word selected.&lt;/p&gt;
     </source>
-        <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;首字母大写&lt;/b&gt;&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;大写所选每个字词的第一个字母.&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;제목 스타일 대소문자&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 각 영문 단어의 첫번째 글자를 대문자로 바꿉니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1554"/>
+        <location filename="../../Form_Files/main.ui" line="1571"/>
         <source>&amp;Capitalize</source>
-        <translation>&amp;大写</translation>
+        <translation>&amp;첫 글자를 대문자로</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1557"/>
+        <location filename="../../Form_Files/main.ui" line="1574"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Capitalize only the first word of the selected text.&lt;/p&gt;
     </source>
         <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;大写&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;첫 글자를 대문자로&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;仅使选定文本的第一个单词大写.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트에서 단어의 첫 글자를 대문자로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1566"/>
+        <location filename="../../Form_Files/main.ui" line="1583"/>
         <source>Sigil Website...</source>
-        <translation>Sigil主页</translation>
+        <translation>Sigil 공식 홈페이지...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1571"/>
+        <location filename="../../Form_Files/main.ui" line="1588"/>
         <source>&amp;Next Tab</source>
-        <translation>&amp;下一个标签</translation>
+        <translation>다음 탭</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1574"/>
+        <location filename="../../Form_Files/main.ui" line="1591"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1579"/>
+        <location filename="../../Form_Files/main.ui" line="1596"/>
         <source>&amp;Previous Tab</source>
-        <translation>&amp;上一个标签</translation>
+        <translation>이전 탭</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1582"/>
+        <location filename="../../Form_Files/main.ui" line="1599"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1587"/>
+        <location filename="../../Form_Files/main.ui" line="1604"/>
         <source>&amp;Close Tab</source>
-        <translation>&amp;关闭标签</translation>
+        <translation>탭 닫기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1590"/>
+        <location filename="../../Form_Files/main.ui" line="1607"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1595"/>
-        <source>Split At &amp;Markers</source>
-        <translation>&amp;在标记处切分</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1598"/>
-        <source>Split At Sigil split file markers</source>
-        <translation>&amp;在Sigil切分标记处切分</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1601"/>
-        <source>F6</source>
-        <translation>F6</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1606"/>
-        <source>Split &amp;Marker</source>
-        <translation>&amp;切分标记</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="1609"/>
-        <source>Insert Sigil split file marker</source>
-        <translation>插入Sigil切分标记</translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/main.ui" line="1612"/>
+        <source>Split At &amp;Markers</source>
+        <translation>장 나누기 표시 분할(&amp;M)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1615"/>
+        <source>Split At Sigil split file markers</source>
+        <translation>장 나누기 표시가 된 부분을 파일로 분할합니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1618"/>
+        <source>F6</source>
+        <translation>양쪽 맞춤(&amp;J)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1623"/>
+        <source>Split &amp;Marker</source>
+        <translation>장 나누기 표시(&amp;M)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1626"/>
+        <source>Insert Sigil split file marker</source>
+        <translation>파일을 나눌 위치를 표시합니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1629"/>
         <source>Ctrl+Shift+Return</source>
         <translation>Ctrl+Shift+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1617"/>
+        <location filename="../../Form_Files/main.ui" line="1634"/>
         <source>User &amp;Guide...</source>
-        <translation>&amp;用户指南</translation>
+        <translation>사용 안내(&amp;G)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1620"/>
+        <location filename="../../Form_Files/main.ui" line="1637"/>
         <source>User Guide</source>
-        <translation>用户指南</translation>
+        <translation>사용 안내</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1623"/>
+        <location filename="../../Form_Files/main.ui" line="1640"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1628"/>
+        <location filename="../../Form_Files/main.ui" line="1645"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>&amp;FAQ</translation>
+        <translation>자주 묻는 질문...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1631"/>
+        <location filename="../../Form_Files/main.ui" line="1648"/>
         <source>Frequently Asked Questions</source>
-        <translation>FAQ</translation>
+        <translation>자주 묻는 질문</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1636"/>
+        <location filename="../../Form_Files/main.ui" line="1653"/>
         <source>&amp;Tutorials...</source>
-        <translation>&amp;教程</translation>
+        <translation>스스로 익히기(&amp;T)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1639"/>
+        <location filename="../../Form_Files/main.ui" line="1656"/>
         <source>Tutorials</source>
-        <translation>教程</translation>
+        <translation>스스로 익히기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1644"/>
+        <location filename="../../Form_Files/main.ui" line="1661"/>
         <source>Well-Formed Check &amp;EPUB</source>
-        <translation>EPUB格式良好性检查</translation>
+        <translation>EPUB 문법 검사(Wel-Formed Check)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1647"/>
+        <location filename="../../Form_Files/main.ui" line="1664"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EPUB格式良好性检查&lt;/span&gt;&lt;/p&gt;&lt;p&gt;验证您的文档是否符合需要成功解析的最低要求. 这并不表示符合相关的epub标准.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EPUB 문법 검사(Well-Formed Check)&lt;/span&gt;&lt;/p&gt;&lt;p&gt; 문서가 구문 분석에 필요한 최소값을 준수하는지 확인합니다. 이는 EPUB 표준을 준수 함을 나타내지 않습니다.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1650"/>
+        <location filename="../../Form_Files/main.ui" line="1667"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1655"/>
+        <location filename="../../Form_Files/main.ui" line="1672"/>
         <source>Validate Stylesheets With &amp;W3C</source>
-        <translation>&amp;使用W3C验证样式表</translation>
+        <translation>W3C로 스타일시트 검증하기(&amp;W)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1658"/>
+        <location filename="../../Form_Files/main.ui" line="1675"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your CSS stylesheets comply with W3C standards using the online W3C CSS Validation Service.&lt;/p&gt;
     </source>
-        <translation>
-&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;使用W3C验证样式表&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;W3C를 사용한 스타일시트 적합성 검사&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;使用在线W3C CSS验证服务验证您的CSS样式表是否符合W3C标准.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;온라인 W3C CSS Validation Service를 사용하여 CSS 스타일 시트가 W3C 표준을 준수하는지 확인합니다&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1671"/>
+        <location filename="../../Form_Files/main.ui" line="1688"/>
         <source>&amp;Spellcheck...</source>
-        <translation>&amp;拼写检查</translation>
+        <translation>맞춤법 검사(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1674"/>
+        <location filename="../../Form_Files/main.ui" line="1691"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;拼写检查&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;맞춤법 검사&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;查找所有拼写错误的单词，并允许您将其添加到字典或忽略它们.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;맞춤법이 틀린 단어를 모두 찾아서 사전에 추가하거나 무시할 수 있습니다. 한글 맞춤법 검사 파일은 다음 사이트에서 다운받아 추가할 수 있습니다. https://github.com/spellcheck-ko/hunspell-dict-ko/releases&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1679"/>
+        <location filename="../../Form_Files/main.ui" line="1696"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1687"/>
+        <location filename="../../Form_Files/main.ui" line="1704"/>
         <source>&amp;Highlight Misspelled Words</source>
-        <translation>&amp;突出显示拼写错误的单词</translation>
+        <translation>&amp;맞춤법 틀린 단어 강조</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1690"/>
+        <location filename="../../Form_Files/main.ui" line="1707"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
-        <translation>在代码视图中启用或禁用突出显示拼写错误的字词.</translation>
+        <translation>코드 보기 창에서 맞춤법이 틀린 단어를 강조하거나 기능을 해제합니다. </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1695"/>
+        <location filename="../../Form_Files/main.ui" line="1712"/>
         <source>&amp;Next Misspelled Word</source>
-        <translation>&amp;下一个拼写错误的单词</translation>
+        <translation>&amp;다음 철자가 잘못된 단어</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1698"/>
+        <location filename="../../Form_Files/main.ui" line="1715"/>
         <source>Find the next misspelled word in the book.</source>
-        <translation>在书中找到下一个拼写错误的单词.</translation>
+        <translation>맞춤법이 틀린 다음 단어 찾기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1701"/>
+        <location filename="../../Form_Files/main.ui" line="1718"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1706"/>
+        <location filename="../../Form_Files/main.ui" line="1723"/>
         <source>&amp;Add Misspelled Word</source>
-        <translation>&amp;添加拼写错误的单词</translation>
+        <translation>맞춤법 틀린 단어 추가(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1709"/>
+        <location filename="../../Form_Files/main.ui" line="1726"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
-        <translation>将插入符下的当前拼写错误的单词添加到默认用户字典</translation>
+        <translation>기본 사용자 사전에 맞춤법이 틀린 단어로 추가합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1714"/>
+        <location filename="../../Form_Files/main.ui" line="1731"/>
         <source>&amp;Ignore Misspelled Word</source>
-        <translation>&amp;忽略拼写错误的单词</translation>
+        <translation>맞춤법 틀린 단어 무시(&amp;I)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1717"/>
+        <location filename="../../Form_Files/main.ui" line="1734"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
-        <translation>忽略插入符号下的当前拼写错误的单词，直到Sigil重新启动.</translation>
+        <translation>Sigil이 다시 시작될 때까지 맞춤법이 틀린 단어를 무시합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1722"/>
+        <location filename="../../Form_Files/main.ui" line="1739"/>
         <source>&amp;Clear Ignored Words</source>
-        <translation>&amp;清除已忽略的单词</translation>
+        <translation>무시 단어 지우기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1725"/>
+        <location filename="../../Form_Files/main.ui" line="1742"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
-        <translation>清除当前从Spellcheck忽略的单词，而不必重新启动Sigil。</translation>
+        <translation>Sigil을 다시 시작하지 않고도 맞춤법 검사를 무시하도록 추가한 단어를 초기화합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1730"/>
+        <location filename="../../Form_Files/main.ui" line="1747"/>
         <source>&amp;Index Editor...</source>
-        <translation>&amp;索引编辑器...</translation>
+        <translation>색인 편집기...(&amp;I)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1733"/>
+        <location filename="../../Form_Files/main.ui" line="1755"/>
         <source>Ctrl+Alt+I</source>
         <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1738"/>
+        <location filename="../../Form_Files/main.ui" line="1760"/>
         <source>&amp;Delete Unused Media Files...</source>
-        <translation>&amp;删除未使用的媒体文件...</translation>
+        <translation>사용하지 않는 미디어 파일 삭제(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1743"/>
+        <location filename="../../Form_Files/main.ui" line="1765"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
-        <translation>&amp;删除未用的样式表类...</translation>
+        <translation>사용되지 않는 스타일시트 클래스 삭제하기(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1748"/>
+        <location filename="../../Form_Files/main.ui" line="1770"/>
         <source>&amp;Reports...</source>
-        <translation>&amp;报告</translation>
+        <translation>보고서...(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1751"/>
+        <location filename="../../Form_Files/main.ui" line="1773"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1760"/>
+        <location filename="../../Form_Files/main.ui" line="1782"/>
         <source>&amp;Donate...</source>
-        <translation>&amp;捐款</translation>
+        <translation>기부하기...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1763"/>
+        <location filename="../../Form_Files/main.ui" line="1785"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
 </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;捐款&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;기부&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;捐款支持Sigil。&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Sigil을 지원하기 위해 기부하기.&lt;/p&gt;
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1771"/>
+        <location filename="../../Form_Files/main.ui" line="1793"/>
         <source>Close &amp;Other Tabs</source>
-        <translation>&amp;关闭其它标签</translation>
+        <translation>다른 탭 닫기(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1774"/>
+        <location filename="../../Form_Files/main.ui" line="1796"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1779"/>
+        <location filename="../../Form_Files/main.ui" line="1801"/>
         <source>Go To &amp;Line...</source>
-        <translation>&amp;转移到行...</translation>
+        <translation>줄 이동(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1782"/>
+        <location filename="../../Form_Files/main.ui" line="1804"/>
         <source>Ctrl+/</source>
         <translation>Ctrl+/</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1787"/>
+        <location filename="../../Form_Files/main.ui" line="1809"/>
         <source>Find &amp;Next</source>
-        <translation>&amp;查找下一个</translation>
+        <translation>다음 찾기(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1790"/>
+        <location filename="../../Form_Files/main.ui" line="1812"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1795"/>
+        <location filename="../../Form_Files/main.ui" line="1817"/>
         <source>Find &amp;Previous</source>
-        <translation>&amp;查找上一个</translation>
+        <translation>이전 찾기(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1798"/>
+        <location filename="../../Form_Files/main.ui" line="1820"/>
         <source>Ctrl+Shift+G</source>
         <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1803"/>
+        <location filename="../../Form_Files/main.ui" line="1825"/>
         <source>Replace</source>
-        <translation>替换</translation>
+        <translation>바꾸기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1806"/>
+        <location filename="../../Form_Files/main.ui" line="1828"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1811"/>
+        <location filename="../../Form_Files/main.ui" line="1833"/>
         <source>&amp;Replace/Find Next</source>
-        <translation>&amp;替换/查找下一个</translation>
+        <translation>바꾸기/찾기 다음(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1814"/>
+        <location filename="../../Form_Files/main.ui" line="1836"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1819"/>
+        <location filename="../../Form_Files/main.ui" line="1841"/>
         <source>R&amp;eplace/Find Previous</source>
-        <translation>&amp;替换/查找上一个</translation>
+        <translation>바꾸기/찾기 이전(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1822"/>
+        <location filename="../../Form_Files/main.ui" line="1844"/>
         <source>Ctrl+[</source>
-        <translation>Ctr;+[</translation>
+        <translation>Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1827"/>
+        <location filename="../../Form_Files/main.ui" line="1849"/>
         <source>Replace &amp;All</source>
-        <translation>&amp;全部替换</translation>
+        <translation>모두 바꾸기(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1830"/>
+        <location filename="../../Form_Files/main.ui" line="1852"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1835"/>
+        <location filename="../../Form_Files/main.ui" line="1857"/>
         <source>&amp;Count All</source>
-        <translation>&amp;全部计数</translation>
+        <translation>모두 세기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1838"/>
+        <location filename="../../Form_Files/main.ui" line="1860"/>
         <source>Alt+C</source>
         <translation>Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1843"/>
+        <location filename="../../Form_Files/main.ui" line="1865"/>
         <source>Mar&amp;k Selected Text</source>
-        <translation>&amp;标记选定文本</translation>
+        <translation>선택 영역 표시(&amp;k)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1851"/>
+        <location filename="../../Form_Files/main.ui" line="1873"/>
         <source>Find &amp;Next In File</source>
-        <translation>&amp;查找文件中的下一个</translation>
+        <translation>파일 안에서 다음 찾기(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1856"/>
+        <location filename="../../Form_Files/main.ui" line="1878"/>
         <source>&amp;Replace Next In File</source>
-        <translation>&amp;替换文件中的下一个</translation>
+        <translation>파일 안에서 다음 바꾸기(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1861"/>
+        <location filename="../../Form_Files/main.ui" line="1883"/>
         <source>Replace &amp;All In File</source>
-        <translation>&amp;替换文件中的所有内容</translation>
+        <translation>현재 파일 안에서 모두 바꾸기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1866"/>
+        <location filename="../../Form_Files/main.ui" line="1888"/>
         <source>&amp;Count All In File</source>
-        <translation>&amp;在文件中计数全部</translation>
+        <translation>파일 안에서 모두 세기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1871"/>
+        <location filename="../../Form_Files/main.ui" line="1893"/>
         <source>&amp;Saved Searches...</source>
-        <translation>&amp;保存的搜索</translation>
+        <translation>저장된 검색(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1874"/>
+        <location filename="../../Form_Files/main.ui" line="1896"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1879"/>
+        <location filename="../../Form_Files/main.ui" line="1901"/>
         <source>&amp;Clip Editor...</source>
-        <translation>&amp;剪辑编辑器...</translation>
+        <translation>클립 편집기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1882"/>
+        <location filename="../../Form_Files/main.ui" line="1904"/>
         <source>Open the Clip Editor.</source>
-        <translation>打开剪辑编辑器.</translation>
+        <translation>클립 편집기 열기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1885"/>
+        <location filename="../../Form_Files/main.ui" line="1907"/>
         <source>Ctrl+Alt+C</source>
         <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1890"/>
+        <location filename="../../Form_Files/main.ui" line="1912"/>
         <source>Clip &amp;1</source>
-        <translation>剪辑 &amp;1</translation>
+        <translation>클립 &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1893"/>
+        <location filename="../../Form_Files/main.ui" line="1915"/>
         <source>Insert Clip 1</source>
-        <translation>插入剪辑1</translation>
+        <translation>클립 1 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1896"/>
+        <location filename="../../Form_Files/main.ui" line="1918"/>
         <source>Ctrl+Alt+1</source>
         <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1901"/>
+        <location filename="../../Form_Files/main.ui" line="1923"/>
         <source>Clip &amp;2</source>
-        <translation>剪辑 &amp;2</translation>
+        <translation>클립 &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1904"/>
+        <location filename="../../Form_Files/main.ui" line="1926"/>
         <source>Insert Clip 2</source>
-        <translation>插入剪辑2</translation>
+        <translation>클립 2 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1907"/>
+        <location filename="../../Form_Files/main.ui" line="1929"/>
         <source>Ctrl+Alt+2</source>
         <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1912"/>
+        <location filename="../../Form_Files/main.ui" line="1934"/>
         <source>Clip &amp;3</source>
-        <translation>剪辑 &amp;3</translation>
+        <translation>클립 &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1915"/>
+        <location filename="../../Form_Files/main.ui" line="1937"/>
         <source>Insert Clip 3</source>
-        <translation>插入剪辑3</translation>
+        <translation>클립 3 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1918"/>
+        <location filename="../../Form_Files/main.ui" line="1940"/>
         <source>Ctrl+Alt+3</source>
         <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1923"/>
+        <location filename="../../Form_Files/main.ui" line="1945"/>
         <source>Clip &amp;4</source>
-        <translation>剪辑 &amp;4</translation>
+        <translation>클립 &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1926"/>
+        <location filename="../../Form_Files/main.ui" line="1948"/>
         <source>Insert Clip 4</source>
-        <translation>插入剪辑4</translation>
+        <translation>클립 4 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1929"/>
+        <location filename="../../Form_Files/main.ui" line="1951"/>
         <source>Ctrl+Alt+4</source>
         <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1934"/>
+        <location filename="../../Form_Files/main.ui" line="1956"/>
         <source>Clip &amp;5</source>
-        <translation>剪辑 &amp;5</translation>
+        <translation>클립 &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1937"/>
+        <location filename="../../Form_Files/main.ui" line="1959"/>
         <source>Insert Clip 5</source>
-        <translation>插入剪辑5</translation>
+        <translation>클립 5 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1940"/>
+        <location filename="../../Form_Files/main.ui" line="1962"/>
         <source>Ctrl+Alt+5</source>
         <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1945"/>
+        <location filename="../../Form_Files/main.ui" line="1967"/>
         <source>Clip &amp;6</source>
-        <translation>剪辑 &amp;6</translation>
+        <translation>클립 &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1948"/>
+        <location filename="../../Form_Files/main.ui" line="1970"/>
         <source>Insert Clip 6</source>
-        <translation>插入剪辑6</translation>
+        <translation>클립 6 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1951"/>
+        <location filename="../../Form_Files/main.ui" line="1973"/>
         <source>Ctrl+Alt+6</source>
         <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1956"/>
+        <location filename="../../Form_Files/main.ui" line="1978"/>
         <source>Clip &amp;7</source>
-        <translation>剪辑 &amp;7</translation>
+        <translation>클립 &amp;7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1959"/>
+        <location filename="../../Form_Files/main.ui" line="1981"/>
         <source>Insert Clip 7</source>
-        <translation>插入剪辑7</translation>
+        <translation>클립 7 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1962"/>
+        <location filename="../../Form_Files/main.ui" line="1984"/>
         <source>Ctrl+Alt+7</source>
         <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1967"/>
+        <location filename="../../Form_Files/main.ui" line="1989"/>
         <source>Clip &amp;8</source>
-        <translation>剪辑 &amp;8</translation>
+        <translation>클립 &amp;8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1970"/>
+        <location filename="../../Form_Files/main.ui" line="1992"/>
         <source>Insert Clip 8</source>
-        <translation>插入剪辑8</translation>
+        <translation>클립 8 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1973"/>
+        <location filename="../../Form_Files/main.ui" line="1995"/>
         <source>Ctrl+Alt+8</source>
         <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1978"/>
+        <location filename="../../Form_Files/main.ui" line="2000"/>
         <source>Clip &amp;9</source>
-        <translation>剪辑 &amp;9</translation>
+        <translation>클립 &amp;9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1981"/>
+        <location filename="../../Form_Files/main.ui" line="2003"/>
         <source>Insert Clip 9</source>
-        <translation>插入剪辑9</translation>
+        <translation>클립 9 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1984"/>
+        <location filename="../../Form_Files/main.ui" line="2006"/>
         <source>Ctrl+Alt+9</source>
         <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1989"/>
+        <location filename="../../Form_Files/main.ui" line="2011"/>
         <source>Clip 1&amp;0</source>
-        <translation>剪辑 1&amp;0</translation>
+        <translation>클립 1&amp;0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1992"/>
+        <location filename="../../Form_Files/main.ui" line="2014"/>
         <source>Insert Clip 10</source>
-        <translation>插入剪辑10</translation>
+        <translation>클립 10 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1995"/>
+        <location filename="../../Form_Files/main.ui" line="2017"/>
         <source>Ctrl+Alt+0</source>
         <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2000"/>
+        <location filename="../../Form_Files/main.ui" line="2022"/>
         <source>Clip 11</source>
-        <translation>剪辑 11</translation>
+        <translation>클립 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2003"/>
+        <location filename="../../Form_Files/main.ui" line="2025"/>
         <source>Insert Clip 11</source>
-        <translation>插入剪辑11</translation>
+        <translation>클립 11 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2008"/>
+        <location filename="../../Form_Files/main.ui" line="2030"/>
         <source>Clip 12</source>
-        <translation>剪辑 12</translation>
+        <translation>클립 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2011"/>
+        <location filename="../../Form_Files/main.ui" line="2033"/>
         <source>Insert Clip 12</source>
-        <translation>插入剪辑12</translation>
+        <translation>클립 12 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2016"/>
+        <location filename="../../Form_Files/main.ui" line="2038"/>
         <source>Clip 13</source>
-        <translation>剪辑 13</translation>
+        <translation>클립 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2019"/>
+        <location filename="../../Form_Files/main.ui" line="2041"/>
         <source>Insert Clip 13</source>
-        <translation>插入剪辑13</translation>
+        <translation>클립 13 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2024"/>
+        <location filename="../../Form_Files/main.ui" line="2046"/>
         <source>Clip 14</source>
-        <translation>剪辑 14</translation>
+        <translation>클립 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2027"/>
+        <location filename="../../Form_Files/main.ui" line="2049"/>
         <source>Insert Clip 14</source>
-        <translation>插入剪辑14</translation>
+        <translation>클립 14 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2032"/>
+        <location filename="../../Form_Files/main.ui" line="2054"/>
         <source>Clip 15</source>
-        <translation>剪辑 15</translation>
+        <translation>클립 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2035"/>
+        <location filename="../../Form_Files/main.ui" line="2057"/>
         <source>Insert Clip 15</source>
-        <translation>插入剪辑15</translation>
+        <translation>클립 15 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2040"/>
+        <location filename="../../Form_Files/main.ui" line="2062"/>
         <source>Clip 16</source>
-        <translation>剪辑 16</translation>
+        <translation>클립 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2043"/>
+        <location filename="../../Form_Files/main.ui" line="2065"/>
         <source>Insert Clip 16</source>
-        <translation>插入剪辑16</translation>
+        <translation>클립 16 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2048"/>
+        <location filename="../../Form_Files/main.ui" line="2070"/>
         <source>Clip 17</source>
-        <translation>剪辑 17</translation>
+        <translation>클립 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2051"/>
+        <location filename="../../Form_Files/main.ui" line="2073"/>
         <source>Insert Clip 17</source>
-        <translation>插入剪辑17</translation>
+        <translation>클립 17 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2056"/>
+        <location filename="../../Form_Files/main.ui" line="2078"/>
         <source>Clip 18</source>
-        <translation>剪辑 18</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2059"/>
-        <source>Insert Clip 18</source>
-        <translation>插入剪辑18</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2064"/>
-        <source>Clip 19</source>
-        <translation>剪辑 19</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2067"/>
-        <source>Insert Clip 19</source>
-        <translation>插入剪辑19</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2072"/>
-        <source>Clip 20</source>
-        <translation>剪辑 20</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2075"/>
-        <source>Insert Clip 20</source>
-        <translation>插入剪辑20</translation>
+        <translation>클립 18</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2081"/>
-        <source>Clip 21</source>
-        <translation>剪辑 21</translation>
+        <source>Insert Clip 18</source>
+        <translation>클립 18 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2084"/>
-        <source>Insert Clip 21</source>
-        <translation>插入剪辑21</translation>
+        <location filename="../../Form_Files/main.ui" line="2086"/>
+        <source>Clip 19</source>
+        <translation>클립 19</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2089"/>
-        <source>Clip 22</source>
-        <translation>剪辑 22</translation>
+        <source>Insert Clip 19</source>
+        <translation>클립 19 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2092"/>
-        <source>Insert Clip 22</source>
-        <translation>插入剪辑22</translation>
+        <location filename="../../Form_Files/main.ui" line="2094"/>
+        <source>Clip 20</source>
+        <translation>클립 20</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2097"/>
+        <source>Insert Clip 20</source>
+        <translation>클립 20 삽입</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2103"/>
+        <source>Clip 21</source>
+        <translation>클립 21</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2106"/>
+        <source>Insert Clip 21</source>
+        <translation>클립 21 삽입</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2111"/>
+        <source>Clip 22</source>
+        <translation>클립 22</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2114"/>
+        <source>Insert Clip 22</source>
+        <translation>클립 22 삽입</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2119"/>
         <source>Clip 23</source>
-        <translation>剪辑 23</translation>
+        <translation>클립 23</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2100"/>
+        <location filename="../../Form_Files/main.ui" line="2122"/>
         <source>Insert Clip 23</source>
-        <translation>插入剪辑23</translation>
+        <translation>클립 23 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2105"/>
+        <location filename="../../Form_Files/main.ui" line="2127"/>
         <source>Clip 24</source>
-        <translation>剪辑 24</translation>
+        <translation>클립 24</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2108"/>
+        <location filename="../../Form_Files/main.ui" line="2130"/>
         <source>Insert Clip 24</source>
-        <translation>插入剪辑24</translation>
+        <translation>클립 24 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2113"/>
+        <location filename="../../Form_Files/main.ui" line="2135"/>
         <source>Clip 25</source>
-        <translation>剪辑 25</translation>
+        <translation>클립 25</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2116"/>
+        <location filename="../../Form_Files/main.ui" line="2138"/>
         <source>Insert Clip 25</source>
-        <translation>插入剪辑25</translation>
+        <translation>클립 25 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2121"/>
+        <location filename="../../Form_Files/main.ui" line="2143"/>
         <source>Clip 26</source>
-        <translation>剪辑 26</translation>
+        <translation>클립 26</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2124"/>
+        <location filename="../../Form_Files/main.ui" line="2146"/>
         <source>Insert Clip 26</source>
-        <translation>插入剪辑26</translation>
+        <translation>클립 26 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2129"/>
+        <location filename="../../Form_Files/main.ui" line="2151"/>
         <source>Clip 27</source>
-        <translation>剪辑 27</translation>
+        <translation>클립 27</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2132"/>
+        <location filename="../../Form_Files/main.ui" line="2154"/>
         <source>Insert Clip 27</source>
-        <translation>插入剪辑27</translation>
+        <translation>클립 27 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2137"/>
+        <location filename="../../Form_Files/main.ui" line="2159"/>
         <source>Clip 28</source>
-        <translation>剪辑 28</translation>
+        <translation>클립 28</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2140"/>
+        <location filename="../../Form_Files/main.ui" line="2162"/>
         <source>Insert Clip 28</source>
-        <translation>插入剪辑28</translation>
+        <translation>클립 28 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2145"/>
+        <location filename="../../Form_Files/main.ui" line="2167"/>
         <source>Clip 29</source>
-        <translation>剪辑 29</translation>
+        <translation>클립 29</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2148"/>
+        <location filename="../../Form_Files/main.ui" line="2170"/>
         <source>Insert Clip 29</source>
-        <translation>插入剪辑29</translation>
+        <translation>클립 29 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2153"/>
+        <location filename="../../Form_Files/main.ui" line="2175"/>
         <source>Clip 30</source>
-        <translation>剪辑 30</translation>
+        <translation>클립 30</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2156"/>
+        <location filename="../../Form_Files/main.ui" line="2178"/>
         <source>Insert Clip 30</source>
-        <translation>插入剪辑30</translation>
+        <translation>클립 30 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2161"/>
+        <location filename="../../Form_Files/main.ui" line="2183"/>
         <source>Clip 31</source>
-        <translation>剪辑 31</translation>
+        <translation>클립 31</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2164"/>
+        <location filename="../../Form_Files/main.ui" line="2186"/>
         <source>Insert Clip 31</source>
-        <translation>插入剪辑31</translation>
+        <translation>클립 31 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2169"/>
+        <location filename="../../Form_Files/main.ui" line="2191"/>
         <source>Clip 32</source>
-        <translation>剪辑 32</translation>
+        <translation>클립 32</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2172"/>
+        <location filename="../../Form_Files/main.ui" line="2194"/>
         <source>Insert Clip 32</source>
-        <translation>插入剪辑32</translation>
+        <translation>클립 32 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2177"/>
+        <location filename="../../Form_Files/main.ui" line="2199"/>
         <source>Clip 33</source>
-        <translation>剪辑 33</translation>
+        <translation>클립 33</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2180"/>
+        <location filename="../../Form_Files/main.ui" line="2202"/>
         <source>Insert Clip 33</source>
-        <translation>插入剪辑33</translation>
+        <translation>클립 33 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2185"/>
+        <location filename="../../Form_Files/main.ui" line="2207"/>
         <source>Clip 34</source>
-        <translation>剪辑 34</translation>
+        <translation>클립 34</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2188"/>
+        <location filename="../../Form_Files/main.ui" line="2210"/>
         <source>Insert Clip 34</source>
-        <translation>插入剪辑34</translation>
+        <translation>클립 34 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2193"/>
+        <location filename="../../Form_Files/main.ui" line="2215"/>
         <source>Clip 35</source>
-        <translation>剪辑 35</translation>
+        <translation>클립 35</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2196"/>
+        <location filename="../../Form_Files/main.ui" line="2218"/>
         <source>Insert Clip 35</source>
-        <translation>插入剪辑35</translation>
+        <translation>클립 35 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2201"/>
+        <location filename="../../Form_Files/main.ui" line="2223"/>
         <source>Clip 36</source>
-        <translation>剪辑 36</translation>
+        <translation>클립 36</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2204"/>
+        <location filename="../../Form_Files/main.ui" line="2226"/>
         <source>Insert Clip 36</source>
-        <translation>插入剪辑36</translation>
+        <translation>클립 36 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2209"/>
+        <location filename="../../Form_Files/main.ui" line="2231"/>
         <source>Clip 37</source>
-        <translation>剪辑 37</translation>
+        <translation>클립 37</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2212"/>
+        <location filename="../../Form_Files/main.ui" line="2234"/>
         <source>Insert Clip 37</source>
-        <translation>插入剪辑37</translation>
+        <translation>클립 37 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2217"/>
+        <location filename="../../Form_Files/main.ui" line="2239"/>
         <source>Clip 38</source>
-        <translation>剪辑 38</translation>
+        <translation>클립 38</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2220"/>
+        <location filename="../../Form_Files/main.ui" line="2242"/>
         <source>Insert Clip 38</source>
-        <translation>插入剪辑38</translation>
+        <translation>클립 38 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2225"/>
+        <location filename="../../Form_Files/main.ui" line="2247"/>
         <source>Clip 39</source>
-        <translation>剪辑 39</translation>
+        <translation>클립 39</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2228"/>
+        <location filename="../../Form_Files/main.ui" line="2250"/>
         <source>Insert Clip 39</source>
-        <translation>插入剪辑39</translation>
+        <translation>클립 39 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2233"/>
+        <location filename="../../Form_Files/main.ui" line="2255"/>
         <source>Clip 40</source>
-        <translation>剪辑 40</translation>
+        <translation>클립 40</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2236"/>
+        <location filename="../../Form_Files/main.ui" line="2258"/>
         <source>Insert Clip 40</source>
-        <translation>插入剪辑40</translation>
+        <translation>클립 40 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2245"/>
+        <location filename="../../Form_Files/main.ui" line="2267"/>
         <source>&amp;Preferences...</source>
-        <translation>&amp;配置</translation>
+        <translation>설정(&amp;P)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2248"/>
+        <location filename="../../Form_Files/main.ui" line="2270"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2253"/>
+        <location filename="../../Form_Files/main.ui" line="2275"/>
         <source>&amp;Zoom Reset</source>
-        <translation>&amp;重置缩放</translation>
+        <translation>줌 리셋(&amp;Z)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2256"/>
+        <location filename="../../Form_Files/main.ui" line="2278"/>
         <source>Zoom Reset</source>
-        <translation>重置缩放</translation>
+        <translation>확대/축소 다시 설정</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2259"/>
+        <location filename="../../Form_Files/main.ui" line="2281"/>
         <source>Ctrl+0</source>
         <translation>Ctrl+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2271"/>
+        <location filename="../../Form_Files/main.ui" line="2293"/>
         <source>Heading &amp;1</source>
-        <translation>标题 &amp;1</translation>
+        <translation>Heading &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2274"/>
+        <location filename="../../Form_Files/main.ui" line="2296"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;标题 1&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;제목 1&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为1级标题.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 1로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2279"/>
+        <location filename="../../Form_Files/main.ui" line="2301"/>
         <source>Ctrl+1</source>
         <translation>Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2291"/>
+        <location filename="../../Form_Files/main.ui" line="2313"/>
         <source>Heading &amp;2</source>
-        <translation>标题 &amp;2</translation>
+        <translation>Heading &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2294"/>
+        <location filename="../../Form_Files/main.ui" line="2316"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;标题 2&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;제목 2&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为2级标题.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 2로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2299"/>
+        <location filename="../../Form_Files/main.ui" line="2321"/>
         <source>Ctrl+2</source>
         <translation>Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2311"/>
+        <location filename="../../Form_Files/main.ui" line="2333"/>
         <source>Heading &amp;3</source>
-        <translation>标题 &amp;3</translation>
+        <translation>Heading &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2314"/>
+        <location filename="../../Form_Files/main.ui" line="2336"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;标题 3&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;제목 3&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为3级标题.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 3로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2319"/>
+        <location filename="../../Form_Files/main.ui" line="2341"/>
         <source>Ctrl+3</source>
         <translation>Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2331"/>
+        <location filename="../../Form_Files/main.ui" line="2353"/>
         <source>Heading &amp;4</source>
-        <translation>标题 &amp;4</translation>
+        <translation>Heading &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2334"/>
+        <location filename="../../Form_Files/main.ui" line="2356"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;标题 4&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;제목 4&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为4级标题.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 4로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2339"/>
+        <location filename="../../Form_Files/main.ui" line="2361"/>
         <source>Ctrl+4</source>
         <translation>Ctrl+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2351"/>
+        <location filename="../../Form_Files/main.ui" line="2373"/>
         <source>Heading &amp;5</source>
-        <translation>标题 &amp;5</translation>
+        <translation>Heading &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2354"/>
+        <location filename="../../Form_Files/main.ui" line="2376"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;标题 5&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;제목 5&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为5级标题.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 5로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2359"/>
+        <location filename="../../Form_Files/main.ui" line="2381"/>
         <source>Ctrl+5</source>
         <translation>Ctrl+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2371"/>
+        <location filename="../../Form_Files/main.ui" line="2393"/>
         <source>Heading &amp;6</source>
-        <translation>标题 &amp;6</translation>
+        <translation>Heading &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2374"/>
+        <location filename="../../Form_Files/main.ui" line="2396"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;标题 6&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;제목 6&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为6级标题.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 6로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2379"/>
+        <location filename="../../Form_Files/main.ui" line="2401"/>
         <source>Ctrl+6</source>
         <translation>Ctrl+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2391"/>
+        <location filename="../../Form_Files/main.ui" line="2413"/>
         <source>&amp;Normal</source>
-        <translation>&amp;一般</translation>
+        <translation>&amp;기본</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2394"/>
+        <location filename="../../Form_Files/main.ui" line="2416"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;段落&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;제목 &lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;将段落格式化为一般段落.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2399"/>
+        <location filename="../../Form_Files/main.ui" line="2421"/>
         <source>Ctrl+7</source>
         <translation>Ctrl+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2407"/>
+        <location filename="../../Form_Files/main.ui" line="2429"/>
         <source>&amp;Preserve Existing Attributes</source>
-        <translation>&amp;保留现有属性</translation>
+        <translation>&amp;기존 속성 유지</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2410"/>
+        <location filename="../../Form_Files/main.ui" line="2432"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
-        <translation>应用此样式时，保留标记上的所有现有属性</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2415"/>
-        <source>Blank HTML File</source>
-        <translation>空白HTML文件</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2418"/>
-        <source>Add a new blank HTML file to the book.</source>
-        <translation>添加空白HTML文件到书中</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2427"/>
-        <source>Existing Files...</source>
-        <translation>已存在文件</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2430"/>
-        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
-
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;添加已存在文件&lt;/b&gt;&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;从你的电脑中添加文件到书中.&lt;/p&gt;</translation>
+        <translation>이 스타일을 적용할때 태그에 있는 기존의 특성(attributes)은 유지됩니다</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2437"/>
-        <source>Blank Stylesheet</source>
-        <translation>空白的样式表</translation>
+        <source>Blank HTML File</source>
+        <translation>빈 HTML 파일</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2440"/>
-        <source>Add a new blank stylesheet to the book.</source>
-        <translation>添加空白的样式表到书中</translation>
+        <source>Add a new blank HTML file to the book.</source>
+        <translation>책에 빈 HTML을 추가합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2445"/>
-        <source>Blank SVG Image</source>
-        <translation>空白的SVG图形</translation>
+        <location filename="../../Form_Files/main.ui" line="2449"/>
+        <source>Existing Files...</source>
+        <translation>기존 파일...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2448"/>
-        <source>Add a new blank svg image file to the book.</source>
-        <translation>添加空白svg图形文件到书中</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2453"/>
-        <source>Pre&amp;vious File</source>
-        <translation>&amp;上一个文件</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2456"/>
-        <source>Open previous file of the same type.</source>
-        <translation>打开上一个同类型文件</translation>
+        <location filename="../../Form_Files/main.ui" line="2452"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;기존 파일 추가&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;책에 컴퓨터에서 파일을 추가합니다.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2459"/>
+        <source>Blank Stylesheet</source>
+        <translation>빈 스타일시트</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2462"/>
+        <source>Add a new blank stylesheet to the book.</source>
+        <translation>책에 새 빈 스타일시트를 추가합니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2467"/>
+        <source>Blank SVG Image</source>
+        <translation>빈 SVG 이미지</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2470"/>
+        <source>Add a new blank svg image file to the book.</source>
+        <translation>책에 새 빈 svg 이미지 파일을 추가합니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2475"/>
+        <source>Pre&amp;vious File</source>
+        <translation>이전 파일(&amp;V)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2478"/>
+        <source>Open previous file of the same type.</source>
+        <translation>동일한 형태의 기존 파일을 엽니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2481"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2464"/>
+        <location filename="../../Form_Files/main.ui" line="2486"/>
         <source>Next &amp;File</source>
-        <translation>&amp;下一个文件</translation>
+        <translation>다음 파일(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2467"/>
+        <location filename="../../Form_Files/main.ui" line="2489"/>
         <source>Open next file of the same type.</source>
-        <translation>打开下一个同类型文件</translation>
+        <translation>동일한 형태의 다음 파일을 엽니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2470"/>
+        <location filename="../../Form_Files/main.ui" line="2492"/>
         <source>Alt+PgDown</source>
         <translation>Alt+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2475"/>
+        <location filename="../../Form_Files/main.ui" line="2497"/>
         <source>&amp;Add To Index Editor</source>
-        <translation>&amp;添加到索引编辑器</translation>
+        <translation>색인 편집기에 추가</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2478"/>
+        <location filename="../../Form_Files/main.ui" line="2504"/>
         <source>Add the selected text to the Index Editor.</source>
-        <translation>将选中的文本添加到索引编辑器</translation>
+        <translation>색인 편집기에 선택한 텍스트를 추가합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2483"/>
+        <location filename="../../Form_Files/main.ui" line="2509"/>
         <source>&amp;Mark For Index</source>
-        <translation>&amp;标记为索引</translation>
+        <translation>색인 마크(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2486"/>
+        <location filename="../../Form_Files/main.ui" line="2516"/>
         <source>Mark the selected text for inclusion in the Index.</source>
-        <translation>将所选文本标记为包含在索引中</translation>
+        <translation>선택한 텍스트를 색인에 포함하도록 표시</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2489"/>
+        <location filename="../../Form_Files/main.ui" line="2519"/>
         <source>Ctrl+Shift+X</source>
         <translation>Ctrl+Shift+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2494"/>
+        <location filename="../../Form_Files/main.ui" line="2524"/>
         <source>&amp;Create Index</source>
-        <translation>&amp;生成索引</translation>
+        <translation>색인 만들기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2497"/>
+        <location filename="../../Form_Files/main.ui" line="2531"/>
         <source>Generate a new Index HTML file.</source>
-        <translation>生成新的HTML文件索引</translation>
+        <translation>새로운 색인 HTML 파일 생성</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2502"/>
+        <location filename="../../Form_Files/main.ui" line="2536"/>
         <source>&amp;Create HTML Table Of Contents</source>
-        <translation>&amp;创建HTML目录</translation>
+        <translation>HTML 목차 만들기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2505"/>
+        <location filename="../../Form_Files/main.ui" line="2539"/>
         <source>Create a new HTML file using the current TOC.</source>
-        <translation>使用当前TOC创建一个新的HTML文件</translation>
+        <translation>현재 TOC를 사용하여 새 HTML 파일 목차를 만듧니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2510"/>
+        <location filename="../../Form_Files/main.ui" line="2544"/>
         <source>Book&amp;mark Location</source>
-        <translation>&amp;书签的位置</translation>
+        <translation>현재 위치 북마크(&amp;m)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2513"/>
+        <location filename="../../Form_Files/main.ui" line="2547"/>
         <source>Ctrl+Alt+B</source>
         <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2518"/>
+        <location filename="../../Form_Files/main.ui" line="2552"/>
         <source>&amp;Go To Link Or Style</source>
-        <translation>转移到链接或样式</translation>
+        <translation>링크 혹은 스타일로 이동(&amp;G)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2521"/>
+        <location filename="../../Form_Files/main.ui" line="2555"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2530"/>
+        <location filename="../../Form_Files/main.ui" line="2564"/>
         <source>&amp;Back</source>
-        <translation>&amp;后退</translation>
+        <translation>뒤로(&amp;B)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2533"/>
+        <location filename="../../Form_Files/main.ui" line="2567"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
     </source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;后退&lt;/b&gt;&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;返回您上次访问的链接或样式，或将您的位置添加到书签.&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;뒤로&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;마지막으로 이동한 링크, 스타일 또는 북마크한 위치로 이동합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2539"/>
+        <location filename="../../Form_Files/main.ui" line="2573"/>
         <source>Ctrl+\</source>
         <translation>Ctrl+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2544"/>
+        <location filename="../../Form_Files/main.ui" line="2578"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
-        <translation>从剪贴板历史中编辑或粘贴...</translation>
+        <translation>클립보드에서 붙여넣기/편집(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2547"/>
+        <location filename="../../Form_Files/main.ui" line="2581"/>
         <source>Ctrl+Alt+V</source>
         <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2552"/>
+        <location filename="../../Form_Files/main.ui" line="2586"/>
         <source>&amp;Delete Line</source>
-        <translation>&amp;删除行</translation>
+        <translation>줄 삭제(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2555"/>
+        <location filename="../../Form_Files/main.ui" line="2589"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2560"/>
+        <location filename="../../Form_Files/main.ui" line="2594"/>
         <source>Manage Plugins</source>
-        <translation>管理插件</translation>
+        <translation>플러그인 관리</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2569"/>
+        <location filename="../../Form_Files/main.ui" line="2603"/>
         <source>Run Plugin 1</source>
-        <translation>运行插件1</translation>
+        <translation>플러그인1 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2578"/>
+        <location filename="../../Form_Files/main.ui" line="2612"/>
         <source>Run Plugin 2</source>
-        <translation>运行插件2</translation>
+        <translation>플러그인2 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2587"/>
+        <location filename="../../Form_Files/main.ui" line="2621"/>
         <source>Run Plugin 3</source>
-        <translation>运行插件3</translation>
+        <translation>플러그인3 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2596"/>
+        <location filename="../../Form_Files/main.ui" line="2630"/>
         <source>Run Plugin 4</source>
-        <translation>运行插件 4</translation>
+        <translation>플러그인4 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2605"/>
+        <location filename="../../Form_Files/main.ui" line="2639"/>
         <source>Run Plugin 5</source>
-        <translation>运行插件 5</translation>
+        <translation>플러그인5 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2614"/>
+        <location filename="../../Form_Files/main.ui" line="2648"/>
         <source>Run Plugin 6</source>
-        <translation>运行插件 6</translation>
+        <translation>플러그인6 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2623"/>
+        <location filename="../../Form_Files/main.ui" line="2657"/>
         <source>Run Plugin 7</source>
-        <translation>运行插件 7</translation>
+        <translation>플러그인7 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2632"/>
+        <location filename="../../Form_Files/main.ui" line="2666"/>
         <source>Run Plugin 8</source>
-        <translation>运行插件 8</translation>
+        <translation>플러그인8 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2641"/>
+        <location filename="../../Form_Files/main.ui" line="2675"/>
         <source>Run Plugin 9</source>
-        <translation>运行插件 9</translation>
+        <translation>플러그인9 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2650"/>
+        <location filename="../../Form_Files/main.ui" line="2684"/>
         <source>Run Plugin 10</source>
-        <translation>运行插件 10</translation>
+        <translation>플러그인10 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2659"/>
+        <location filename="../../Form_Files/main.ui" line="2693"/>
         <source>Launch External Xhtml Editor</source>
-        <translation>启动外部Xhtml编辑器</translation>
+        <translation>외부 HTML 편집기 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2662"/>
+        <location filename="../../Form_Files/main.ui" line="2696"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2667"/>
-        <source>Mend and &amp;Prettify All HTML Files</source>
-        <translation>修改和预处理所有HTML文件</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2672"/>
-        <source>&amp;Mend All HTML Files</source>
-        <translation>&amp;修改所有HTML文件</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2677"/>
-        <source>&amp;Update Manifest Properties</source>
-        <translation>&amp;更新清单属性</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2682"/>
-        <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
-        <translation>为epub2电子阅读器生成NCX/指南</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2687"/>
-        <source>Create a Custom Empty Epub</source>
-        <translation>创建自定义空Epub</translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/main.ui" line="2692"/>
-        <source>Remove the NCX and Guide</source>
-        <translation>移除NCX和指南</translation>
-    </message>
-    <message>
         <location filename="../../Form_Files/main.ui" line="2701"/>
+        <source>Mend and &amp;Prettify All HTML Files</source>
+        <translation>모든 HTML 파일 코드 자동 정리(&amp;P)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2706"/>
+        <source>&amp;Mend All HTML Files</source>
+        <translation>잘못된 코드 고치기(&amp;M)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2711"/>
+        <source>&amp;Update Manifest Properties</source>
+        <translation>매니페스트 속성 업데이트(&amp;U)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2716"/>
+        <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
+        <translation>NCX 만들기(&amp;N)/EPUB2 리더를 위한 가이드</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2721"/>
+        <source>Create a Custom Empty Epub</source>
+        <translation>사용자 정의 EPUB 만들기</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2726"/>
+        <source>Remove the NCX and Guide</source>
+        <translation>NCX와 Guide 삭제</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2735"/>
         <source>Create Checkpoint for Epub</source>
-        <translation>为Epub创建检查点</translation>
+        <translation>EPUB 체크포인트 만들기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2710"/>
+        <location filename="../../Form_Files/main.ui" line="2744"/>
         <source>Create Epub from previous Checkpoint</source>
-        <translation>从以前的检查点创建Epub</translation>
+        <translation>이전 체크포인트로 EPUB 복구</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2719"/>
+        <location filename="../../Form_Files/main.ui" line="2753"/>
         <source>Compare Epub against Checkpoint</source>
-        <translation>比较Epub和检查点</translation>
+        <translation>체크포인트 버전 비교</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2728"/>
+        <location filename="../../Form_Files/main.ui" line="2762"/>
         <source>Manage Checkpoint Repositories</source>
-        <translation>管理检查点存储库</translation>
+        <translation>체크포인트 저장소 관리</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="367"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
         <source>Input</source>
-        <translation>输入</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="373"/>
-        <source>Output</source>
-        <translation>输出</translation>
+        <translation>입력</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="385"/>
-        <source>Validation</source>
-        <translation>验证</translation>
+        <source>Output</source>
+        <translation>출력</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="434"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="447"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="455"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="462"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1437"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1672"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1814"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2295"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2390"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2458"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2466"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="397"/>
+        <source>Validation</source>
+        <translation>적합성 검사</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="446"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="467"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="474"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1121"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1689"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1831"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2312"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2407"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2475"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2483"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2495"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2600"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2616"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2621"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2634"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2647"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2500"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2617"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2633"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2651"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2664"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2674"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2679"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2838"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2845"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2859"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2864"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2888"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2920"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4087"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4093"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4099"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4134"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4140"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4146"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4400"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4420"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4718"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4928"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2681"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2691"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2696"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2855"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2862"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2876"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2881"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2905"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2937"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4104"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4110"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4151"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4157"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4163"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4439"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4737"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4947"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="435"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="447"/>
         <source>Are you sure you want to restructure this epub?
 This action cannot be reversed.</source>
-        <translation>你确定要重组这个epub吗？
-此操作无法逆转。</translation>
+        <translation>이 EPUB을 재구성하시겠습니까?
+이 작업은 되돌릴 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="448"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="456"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="463"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="468"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="475"/>
         <source>Restructure cancelled: %1, XML not well formed.</source>
-        <translation>重组取消： %1, XML格式不正确。</translation>
+        <translation>재구성이 취소되었습니다 : %1, XML이 문법에 맞지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="532"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="544"/>
         <source>Restructure completed.</source>
-        <translation>重组完成。</translation>
+        <translation>재구성이 완료되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="634"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="651"/>
         <source>Checkpoint generation failed.</source>
-        <translation>检查点生成失败。</translation>
+        <translation>체크포인트를 만들지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="640"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="657"/>
         <source>Checkpoint saved.</source>
-        <translation>已保存检查点。</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="676"/>
-        <source>Checkout Failed. No checkpoints found</source>
-        <translation>签出失败。找不到检查点</translation>
+        <translation>체크포인트가 저장되었습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="693"/>
+        <source>Checkout Failed. No checkpoints found</source>
+        <translation>복구할 수 없습니다. 체크포인트를 찾지 못했습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="710"/>
         <source>Checkout Failed. No checkpoint selected</source>
-        <translation>签出失败。未选择检查点</translation>
+        <translation>복구할 수 없습니다. 체크포인트를 선택하지 않았습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="735"/>
         <source>Epub Generate from Tag Failed.</source>
-        <translation>从标记生成Epub失败。</translation>
+        <translation>태그에서 Epub 생성에 실패했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="740"/>
         <source>Epub Generation succeeded</source>
-        <translation>生成Epub成功</translation>
+        <translation>EPUB 생성에 성공했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="737"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="754"/>
         <source>Repository Checkout</source>
-        <translation>存储库签出</translation>
+        <translation>저장소 체크아웃</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="755"/>
         <source>Your current book will be replaced losing any unsaved changes ... Are you sure you want to proceed?</source>
-        <translation>您当前的图书将被替换掉任何未保存的更改 ... 确定要继续吗？</translation>
+        <translation>현재 작업중인 책이 대체되며, 저장하지 않은 모든 데이터가 사라집니다. 계속 진행하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="762"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="786"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="803"/>
         <source>Diff Failed. No checkpoints found</source>
-        <translation>差异失败。找不到检查点</translation>
+        <translation>비교할 수 없습니다. 체크포인트를 찾지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="819"/>
         <source>Diff Failed. No checkpoint selected for comparison</source>
-        <translation>差异失败。未选择要比较的检查点</translation>
+        <translation>비교할 수 없습니다. 비교할 체크포인트를 선택하지 않았습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="833"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="850"/>
         <source>Results of Comparison</source>
-        <translation>比较结果</translation>
+        <translation>비교 결과</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="833"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="850"/>
         <source>No differences were found.</source>
-        <translation>没有发现差异。</translation>
+        <translation>다른 점을 찾지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="864"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="881"/>
         <source>External XHtml Editor works only on Html Resources or OPF Resources!</source>
-        <translation>外部XHtml编辑器只能在Html资源或OPF资源上工作！</translation>
+        <translation>외부 XHtml 편집기는 HTML 리소스 또는 OPF 리소스에서만 작동합니다!</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="871"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="888"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
-        <translation>未指定外部Xhtml编辑器：请参见首选项</translation>
+        <translation>외부 Xhtml 편집기를 지정하지 않았습니다: 설정을 확인하세요.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="878"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="895"/>
         <source>Specified External Xhtml Editor path does not exist</source>
-        <translation>指定的外部Xhtml编辑器路径不存在</translation>
+        <translation>설정한 외부 Xhtml 편집기의 경로가 존재하지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="922"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="939"/>
         <source>Executing External Xhtml Editor</source>
-        <translation>执行外部Xhtml编辑器</translation>
+        <translation>외부 Xhtml 편집기 실행</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="925"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="942"/>
         <source>Failed to Launch External Xhtml Editor</source>
-        <translation>无法启动外部Xhtml编辑器</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1022"/>
-        <source>Navigation cancelled as location no longer exists.</source>
-        <translation>因为位置已不存在，导航已取消。</translation>
+        <translation>외부 Xhtml 편집기를 실행하지 못했습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1039"/>
-        <source>Location bookmarked.</source>
-        <translation>加入书签的位置</translation>
+        <source>Navigation cancelled as location no longer exists.</source>
+        <translation>위치가 더 이상 존재하지 않아 탐색이 취소되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1056"/>
+        <source>Location bookmarked.</source>
+        <translation>위치가 북마크 되었습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1121"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
-        <translation>您确定要打开此外部链接?
+        <translation>이 외부 링크를 열겠습니까?
 
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1157"/>
         <source>was updated</source>
-        <translation>已经更新</translation>
+        <translation>업데이트 되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1147"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1164"/>
         <source>Warning</source>
-        <translation>警告</translation>
+        <translation>경고</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1147"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1164"/>
         <source>The file was NOT well formed and may be corrupted.</source>
-        <translation>该文件没有正确形成并可能已损坏.</translation>
+        <translation>파일이 문법에 맞지 않습니다. 손상된 파일일 수 있습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1175"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1192"/>
         <source>Opening this EPUB generated warnings.</source>
-        <translation>打开此EPUB产生的警告。</translation>
+        <translation>이 EPUB을 열면서 문제를 발견했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1194"/>
         <source>Select Show Details for more information.</source>
-        <translation>有关详细信息，请选择显示详细信息</translation>
+        <translation>자세한 내용을 보려면 세부 사항 표시를 선택하십시오.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1305"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1322"/>
         <source>Sigil is closing...</source>
-        <translation>Sigil正在关闭中...</translation>
+        <translation>Sigil을 닫는 중...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1371"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
         <source>New file created.</source>
-        <translation>新文件生成了</translation>
+        <translation>새 파일 만들어짐.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1396"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1413"/>
         <source>Open File</source>
-        <translation>打开文件</translation>
+        <translation>파일 열기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1436"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1453"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
-        <translation>此文件已不存在. 单击“确定”将其从菜单中删除.
+        <translation>이 파일은 더 이상 존재하지 않습니다. 확인을 클릭하면 메뉴에서 제거됩니다.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1531"/>
         <source>Save File</source>
-        <translation>保存文件</translation>
+        <translation>파일 저장</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1568"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1585"/>
         <source>Save a Copy</source>
-        <translation>保存为副本</translation>
+        <translation>사본으로 저장하기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1607"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1624"/>
         <source>Epub layout discarded.</source>
-        <translation>已放弃Epub布局。</translation>
+        <translation>EPUB 레이아웃이 삭제되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1614"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1631"/>
         <source>New epub created.</source>
-        <translation>新建epub。</translation>
+        <translation>새로운 EPUB이 생성되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1649"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1666"/>
         <source>Go To Line</source>
-        <translation>转移到行</translation>
+        <translation>줄 이동</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1649"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1666"/>
         <source>Line #</source>
-        <translation>行 #</translation>
+        <translation>줄 #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1672"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1689"/>
         <source>Image does not exist: </source>
-        <translation>图像不存在: </translation>
+        <translation>존재하지 않는 이미지: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1742"/>
         <source>or</source>
-        <translation>或</translation>
+        <translation>또는</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1733"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1750"/>
         <source>No CSS styles named</source>
-        <translation>没有CSS样式命名</translation>
+        <translation>CSS 스타일 이름이 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1733"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1750"/>
         <source>found, or stylesheet not linked.</source>
-        <translation>找到，或是样式表没有链接。</translation>
+        <translation>찾거나 스타일 시트가 연결되지 않았습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1810"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1827"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;p&gt;在&lt;b&gt;%2&lt;/b&gt;中的href&lt;b&gt;%1&lt;/b&gt;不存在 (并且可能有更多).  在这些条件下分裂或合并可能导致链接断开.&lt;/p&gt;&lt;p&gt;你希望继续吗?&lt;/p&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;p&gt;&lt;b&gt;%2&lt;/b&gt;에서 찾은 링크 경로 &lt;b&gt;%1&lt;/b&gt;은 존재하지 않습니다. 이러한 조건에서 분할하거나 병합하면 링크가 끊어 질 수 있습니다.&lt;/p&gt;&lt;p&gt;계속 진행하시겠습니까?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1834"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1851"/>
         <source>Add Cover</source>
-        <translation>添加封面</translation>
+        <translation>표지 추가</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1883"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1900"/>
         <source>An existing Cover file has been found.</source>
-        <translation>已找到现有的封面文件。</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1939"/>
-        <source>Unexpected error. Only image files can be used for the cover.</source>
-        <translation>意外的错误. 只有图像文件可用于封面.</translation>
+        <translation>기존 표지 파일이 발견되었습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1956"/>
-        <source>Cover added.</source>
-        <translation>封面添加完毕.</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1965"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1982"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2014"/>
-        <source>Not Available for epub2.</source>
-        <translation>不适用于epub2.</translation>
+        <source>Unexpected error. Only image files can be used for the cover.</source>
+        <translation>예상치 못한 오류. 표지에는 이미지 파일 만 사용할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1973"/>
-        <source>OPF Manifest Properties Updated.</source>
-        <translation>OPF清单属性已更新.</translation>
+        <source>Cover added.</source>
+        <translation>표지가 추가되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2004"/>
-        <source>NCX and Guide removed.</source>
-        <translation>NCX和指南已移除。</translation>
-    </message>
-    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1982"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1999"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2031"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2063"/>
+        <source>Not Available for epub2.</source>
+        <translation>EPUB2에서 사용할 수 없습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1990"/>
+        <source>OPF Manifest Properties Updated.</source>
+        <translation>OPF 매니페스트 속성이 업데이트되었습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2021"/>
+        <source>NCX and Guide removed.</source>
+        <translation>NCX와 Guide가 삭제되었습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2048"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2080"/>
         <source>NCX and Guide generation failed.</source>
-        <translation>NCX和指南生成失败。</translation>
+        <translation>NCX 와 Guide 생성에 실패했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2118"/>
         <source>NCX and Guide generated.</source>
-        <translation>生成NCX和指南。</translation>
+        <translation>NCX 와 Guide가 생성되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2185"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2202"/>
         <source>An existing Index file has been found.</source>
-        <translation>已找到现有索引文件。</translation>
+        <translation>기존 색인 파일이 발견되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2276"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2293"/>
         <source>Styles deleted.</source>
-        <translation>样式已删除.</translation>
+        <translation>스타일 삭제됨.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2284"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2301"/>
         <source>Reports Being Generated.</source>
-        <translation>正在生成报告。</translation>
+        <translation>보고서 생성중</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2312"/>
         <source>Reports cancelled due to XML not well formed.</source>
-        <translation>由于XML格式不正确而取消的报告.</translation>
+        <translation>XML이 문법에 맞지 않아 보고서가 취소되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2390"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2407"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
-        <translation>删除由于XML格式不正确而取消的未使用的媒体文件.</translation>
+        <translation>XML이 문법에 맞지 않아 사용하지 않는 미디어 파일 삭제 작업이 취소되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2456"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2473"/>
         <source>Unused media files deleted.</source>
-        <translation>未使用的媒体文件已删除.</translation>
+        <translation>사용하지 않는 미디어 파일 삭제</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2458"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2475"/>
         <source>There are no unused image, video or audio files to delete.</source>
-        <translation>没有未使用的图像、视频或音频文件需要删除。</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2466"/>
-        <source>Delete Unused Styles cancelled due to XML not well formed.</source>
-        <translation>删除由于XML格式不正确而取消的未使用的样式。</translation>
+        <translation>삭제할 미사용 이미지, 비디오 또는 오디오 파일이 없습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2483"/>
+        <source>Delete Unused Styles cancelled due to XML not well formed.</source>
+        <translation>XML이 문법에 맞지 않아 사용하지 않는 스타일 삭제가 취소되었습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2500"/>
         <source>There are no unused stylesheet classes to delete.</source>
-        <translation>没有未使用的样式表需要删除</translation>
+        <translation>삭제할 사용되지 않는 스타일시트 클래스가 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2495"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2512"/>
         <source>You cannot insert a file at this position.</source>
-        <translation>无法再当前位置插入文件.</translation>
+        <translation>이 위치에는 파일을 삽입 할 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2502"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2519"/>
         <source>Insert File</source>
-        <translation>插入文件</translation>
+        <translation>파일 삽입</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2554"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2571"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>文件&quot;%1&quot;不存在</translation>
+        <translation>파일 &quot;%1&quot; 가 존재하지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2600"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2617"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2638"/>
         <source>You cannot insert an id at this position.</source>
-        <translation>无法再当前位置插入ID标识.</translation>
+        <translation>이 위치에는 ID를 넣을 수 없습니다. </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2616"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2633"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
-        <translation>ID无效 - 必须以字母开头，后可跟字母数字以及“_”“:”“-” 或“.”</translation>
+        <translation>잘못된 ID 이름 - 반드시 영문으로 시작하고 영문, 숫자, 언더바(_) 콜론(:), 하이픈(-) 혹은 점(.)만 사용 가능</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2634"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2651"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2669"/>
         <source>You cannot insert a link at this position.</source>
-        <translation>无法再当前位置插入连接.</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2647"/>
-        <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation>链接无效 - 不能包含 &apos;&lt;&apos; 或 &apos;&gt;&apos;</translation>
+        <translation>이 위치에는 링크를 삽입할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2664"/>
+        <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
+        <translation>잘못된 링크 - &apos;&lt;&apos;나 &apos;&gt;&apos;는 포함할 수 없음</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2681"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
-        <translation>您不能在此位置标记索引或不选择文本.</translation>
+        <translation>색인 항목을 선택하지 않았거나 색인을 추가할 수 없는 위치입니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2674"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2691"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation>条目无效 - 不能包含“&lt;”或“&gt;”</translation>
+        <translation>입력이 유효하지 않습니다- &apos;&lt;&apos;또는 &apos;&gt;&apos;를 포함 할 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2679"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2696"/>
         <source>You cannot mark an index at this position.</source>
-        <translation>您不能在此位置标记索引.</translation>
+        <translation>색인을 추가할 수 없는 위치입니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2746"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2768"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2785"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2804"/>
         <source>Select the destination to paste into first.</source>
-        <translation>选择要粘贴到的目标位置.</translation>
+        <translation>붙여 넣기 할 대상을 먼저 선택하십시오.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2776"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2793"/>
         <source>Pasted clip entry %1.</source>
-        <translation>已粘贴剪辑项%1.</translation>
+        <translation>붙여 넣은 클립 항목 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2838"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2855"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
-        <translation>选择了一个资源, 没有要合并到的以前的资源.</translation>
+        <translation>하나의 리소스가 선택되었으며 병합 할 이전 리소스가 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2845"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2862"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
-        <translation>您确定要合并所选的文件吗？
-此操作无法撤消.</translation>
+        <translation>선택된 파일들을 합치시겠습니까?
+합친 뒤에는 되돌릴 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2859"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2876"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
-        <translation>合并取消: %1, XML格式不正确.</translation>
+        <translation>병합이 취소되었습니다 : %1, XML이 문법에 맞지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2864"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2881"/>
         <source>Merge cancelled due to XML not well formed.</source>
-        <translation>由于XML格式不正确, 因此合并已取消.</translation>
+        <translation>XML이 문법에 맞지 않아 병합이 취소되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2888"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2905"/>
         <source>Cannot merge file %1</source>
-        <translation>无法合并文件%1</translation>
+        <translation>파일 %1을 병합하지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2902"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2919"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
-        <translation>合并完成. 您可能需要重新生成或编辑您的目录.</translation>
+        <translation>병합을 완료했습니다. 목차를 다시 생성해야 합니다. </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2920"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2937"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
-        <translation>已取消链接样式表: %1, XML格式不正确.</translation>
+        <translation>스타일시트 연결 실패: %1, XML이 문법에 맞지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3045"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3062"/>
         <source>Word updated.</source>
-        <translation>词以更新.</translation>
+        <translation>단어를 업데이트 했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3117"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
         <source>File(s) deleted.</source>
-        <translation>文件已删除.</translation>
+        <translation>파일 삭제됨.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3128"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3145"/>
         <source>Edit Table of Contents cancelled.</source>
-        <translation>编辑目录已取消.</translation>
+        <translation>목차 편집을 취소했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3133"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3150"/>
         <source>Table Of Contents edited.</source>
-        <translation>编辑目录已编辑。</translation>
+        <translation>목차를 편집했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3151"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3168"/>
         <source>Generate TOC cancelled.</source>
-        <translation>生成的TOC取消.</translation>
+        <translation>목차 생성을 취소했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3193"/>
         <source>Table Of Contents generated.</source>
-        <translation>目录一生成.</translation>
+        <translation>목차가 만들어 졌습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3178"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3195"/>
         <source>No Table Of Contents changes were necessary.</source>
-        <translation>无需改变目录.</translation>
+        <translation>목차 변경이 필요하지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3251"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3268"/>
         <source>An existing HTML Table of Contents file has been found.</source>
-        <translation>已找到现有的HTML目录文件。</translation>
+        <translation>기존 HTML 목차 파일이 발견되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3329"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3346"/>
         <source>Text selection marked.</source>
-        <translation>已标记文本选择.</translation>
+        <translation>선택한 텍스트를 표시(mark)했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3331"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3366"/>
         <source>Text selection unmarked.</source>
-        <translation>取消选择文本的标记</translation>
+        <translation>선택한 텍스트의 표시(mark)를 삭제했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3398"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3415"/>
         <source>Metadata Editor cancelled.</source>
-        <translation>元数据编辑器已取消.</translation>
+        <translation>메타데이터 편집을 취소했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3401"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3418"/>
         <source>Metadata edited.</source>
-        <translation>元数据已编辑</translation>
+        <translation>메타데이터를 편집했습니다. </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3509"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3526"/>
         <source>RunPlugin</source>
-        <translation>运行插件</translation>
+        <translation>플러그인 실행</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3534"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3551"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
-        <translation>此EPUB不包含任何需要验证的CSS样式表.</translation>
+        <translation>이 EPUB에는 유효성을 검사 할 CSS 스타일 시트가 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4001"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4018"/>
         <source>Line: %1, Col: %2</source>
-        <translation>行: %1, 列: %2</translation>
+        <translation>행: %1, 열: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4087"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4104"/>
         <source>File cannot be split at this position.</source>
-        <translation>文件不能在此位置分割.</translation>
+        <translation>이 위치에서는 파일을 나눌 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4093"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4110"/>
         <source>Cannot split since it may not be an HTML file.</source>
-        <translation>无法拆分，可能不是 HTML 文件。</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4099"/>
-        <source>The Nav file cannot be split.</source>
-        <translation>Nav文件不能分割.</translation>
+        <translation>HTML 파일이 아니기 때문에 분할 할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
+        <source>The Nav file cannot be split.</source>
+        <translation>Nav 파일을 분할 할 수 없습니다.
+</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="4133"/>
         <source>Split completed.</source>
-        <translation>分割结束.</translation>
+        <translation>나누기가 끝났습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4151"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
-        <translation>由于至少有一个文件不是HTML文件, 因此无法拆分.</translation>
+        <translation>하나 이상의 파일이 HTML 파일이 아니기 때문에 분할할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4157"/>
         <source>Cannot split: %1 XML is not well formed</source>
-        <translation>无法拆分: ％1 XML格式不正确.</translation>
+        <translation>분할 취소: %1 XML이 문법에 맞지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4146"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4163"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
-        <translation>无法拆分, 因为至少有一个文件可能不是HTML文件.</translation>
+        <translation>하나 이상의 파일이 HTML 파일이 아니기 때문에 분할 할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4179"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4196"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
-        <translation>拆分完成, 您可能需要更新目录.</translation>
+        <translation>분할이 완료되었습니다. 목차 갱신이 필요합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4181"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4198"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
-        <translation>未找到拆分文件标记. 使用插入-&gt;拆分标记.</translation>
+        <translation>장 나누기 표시가 없습니다. 추가-&gt;장 나누기 표시를 이용하세요.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4401"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4420"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
-        <translation>文档已修改.
-要保存更改吗?</translation>
+        <translation>이 문서가 수정되었습나더.⏎
+변경 사항을 저장하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4422"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4441"/>
         <source>Should Sigil overwrite this file?</source>
-        <translation>Sigil应该覆盖这个文件吗？</translation>
+        <translation>Sigil이 이 파일을 덮어쓸까요?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4593"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4612"/>
         <source>No importer for file type: %1</source>
-        <translation>没有文件类型的导入器: %1</translation>
+        <translation>추가할 수 없는 파일 타입 : %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4600"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4619"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
 
 Try setting the Clean Source preference to Mend XHTML Source Code on Open and reloading the file.</source>
-        <translation>以下文件由于无效的内容或格式不正确的XML而未加载:
-％1(行％2：％3)
-尝试打开时将“清除源”首选项设置为“修改XHTML源代码”, 然后重新加载文件.</translation>
+        <translation>유효하지 않은 컨텐츠 또는 형식이 잘못된 XML로 인해 다음 파일이로드되지 않았습니다.
+
+%1 (line %2: %3)
+
+파일을 열거 나 다시로드 할 때 소스 정리 환경 설정을 Mend XHTML 소스 코드로 설정하십시오.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4605"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4624"/>
         <source>Loading file...</source>
-        <translation>加载文件中...</translation>
+        <translation>파일을 불러오는 중...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4638"/>
         <source>File loaded.</source>
-        <translation>文件已加载.</translation>
+        <translation>파일을 불러옴.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4646"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4665"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
-        <translation>此文件的创建者已使用DRM加密. Sigil无法打开这样的文件.</translation>
+        <translation>이 파일를 만든 사람이 DRM으로 암호화했습니다. Sigil은 이 파일을 열 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4653"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4672"/>
         <source>Cannot load EPUB: %1</source>
-        <translation>无法加载EPUB: %1</translation>
+        <translation>EPUB를 불러들일 수 없습니다: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4657"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4676"/>
         <source>Cannot load file %1: %2</source>
-        <translation>无法加载%1: %2</translation>
+        <translation>파일 %1 을 불러들 일 수 없습니다: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4685"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4704"/>
         <source>Saving EPUB...</source>
-        <translation>正在保存EPUB...</translation>
+        <translation>EPUB 저장 중...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4694"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4713"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
-        <translation>Sigil无法保存类型“%1”的文件.
-请选择其他格式.</translation>
+        <translation>Sigil은 &quot;%1&quot; 형식의 파일로 저장할 수 없습니다.
+다른 포맷을 선택해주세요.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4719"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4738"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in some data loss.
 
 Do you want to automatically mend the files before saving?</source>
-        <translation>此EPUB包含格式不正确的HTML文件，并且当前的“干净源”首选项设置为“保存时自动修复”。保存一个格式不好的文件会导致它被自动修复，这很少会导致一些数据丢失。
+        <translation>이 EPUB에는 문법에 맞지 않는 HTML 파일이 있으며 현재 정리 소스 환경 설정이 저장시 자동으로 수정되도록 설정되어 있습니다. 제대로 구성되지 않은 파일을 저장하면 파일이 자동으로 수정되며 일부 데이터 손실이 발행할 수 있습니다.
 
-是否要在保存前自动修复文件？</translation>
+저장하기 전에 파일을 자동으로 수정 하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4757"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4776"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
-        <translation>EPUB已保存, 但并非所有HTML文件格式正确.</translation>
+        <translation>EPUB이 저장되었습니다. 하지만 일부 HTML 파일이 문법에 맞지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4759"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4778"/>
         <source>EPUB saved.</source>
-        <translation>EPUB已保存.</translation>
+        <translation>EPUB이 저장되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4784"/>
         <source>Cannot save file %1: %2</source>
-        <translation>无法保存文件 %1: %2</translation>
+        <translation>파일 %1 를 저장할 수 없습니다: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4898"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4917"/>
         <source>EPUB files (*.epub)</source>
-        <translation>EPUB文件(*.epub)</translation>
+        <translation>EPUB 파일 (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4899"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4900"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4901"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4918"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4919"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4920"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
-        <translation>HTML文件(*.htm *.html *.xhtml)</translation>
+        <translation>HTML 파일 (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4902"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4921"/>
         <source>Text files (*.txt)</source>
-        <translation>文本文件(*.txt)</translation>
+        <translation>텍스트 파일 (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4903"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4922"/>
         <source>All files (*.*)</source>
-        <translation>所有文件(*.*)</translation>
+        <translation>모든 파일 (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4911"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4930"/>
         <source>EPUB file (*.epub)</source>
-        <translation>EPUB文件(*.epub)</translation>
+        <translation>EPUB 파일 (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4928"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4947"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5006"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5025"/>
         <source>Preserve existing heading attributes is now:</source>
-        <translation>保留现有标题属性是: </translation>
+        <translation>기존 제목 속성 유지는 다음과 같습니다: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5026"/>
         <source>ON</source>
-        <translation>开</translation>
+        <translation>켜기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5026"/>
         <source>OFF</source>
-        <translation>关</translation>
+        <translation>끄기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5032"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5051"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -10357,32 +10408,32 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="14"/>
         <source>Manage Checkpoint Repositories</source>
-        <translation>管理检查点存储库</translation>
+        <translation>체크포인트 저장소 관리</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="22"/>
         <source>Checkpoint Repositories</source>
-        <translation>检查点存储库</translation>
+        <translation>체크포인트 저장소</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="69"/>
         <source>ePub FileName</source>
-        <translation>ePub文件名</translation>
+        <translation>ePub 파일명</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="74"/>
         <source>Title</source>
-        <translation>标题</translation>
+        <translation>제목</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="79"/>
         <source>Modified</source>
-        <translation>修改</translation>
+        <translation>수정</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="84"/>
         <source>Version</source>
-        <translation>版本</translation>
+        <translation>버전</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="89"/>
@@ -10392,38 +10443,38 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="112"/>
         <source>Show Log</source>
-        <translation>显示日志</translation>
+        <translation>로그 보기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="120"/>
         <source>Remove</source>
-        <translation>删除</translation>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="128"/>
         <source>Remove All</source>
-        <translation>删除所有</translation>
+        <translation>모두 지우기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="140"/>
         <location filename="../../Dialogs/ManageRepos.cpp" line="171"/>
         <source>Nothing is Selected.</source>
-        <translation>未选择任何内容。</translation>
+        <translation>선택된 것이 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="161"/>
         <source>Repository Log</source>
-        <translation>存储库日志</translation>
+        <translation>저장소 기록</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="196"/>
         <source>Remove All Repositories</source>
-        <translation>删除所有存储库</translation>
+        <translation>모든 저장소 삭제</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="197"/>
         <source>Are you sure sure you want to remove all checkpoint repositories?</source>
-        <translation>是否确实要删除所有检查点存储库？</translation>
+        <translation>체크포인트 저장소를 모두 삭제하시겠습니까?</translation>
     </message>
 </context>
 <context>
@@ -10431,2249 +10482,2248 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>Abridger</source>
-        <translation>删节</translation>
+        <translation>Abridger</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>A person, family, or organization contributing to a resource by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged. For substantial modifications that result in the creation of a new work, see Author.</source>
-        <translation>一个人、家庭或组织通过缩短或浓缩原作而贡献资源，但使原作的性质和内容基本不变。有关导致创作新作品的实质性修改，请参见作者。</translation>
+        <translation>원본 저작물을 줄이거 나 축약하지만 원본 저작물의 성격과 내용을 실질적으로 변경하지 않은 채 자원에 기여하는 사람, 가족 또는 조직. 새로운 작품을 만들어내는 실질적인 수정에 대해서는 Author를 참조하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Actor</source>
-        <translation>角色</translation>
+        <translation>Actor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>用于在音乐或戏剧表演或娱乐中主要展示表演技巧的人或组织。</translation>
+        <translation>뮤지컬 또는 드라마틱 한 프리젠 테이션 또는 엔터테인먼트에서 주로 연기 기술을 나타내는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Adapter</source>
-        <translation>改编者</translation>
+        <translation>Adapter</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation>用于以下人员或组织：1）重写音乐作品，通常用于其他媒体；2）重写小说或故事，用于电影或其他视听媒体。</translation>
+        <translation>1) 일반적으로 다른 매체를 위해 음악 작곡을 재 작업하거나 2) 영화 나 기타 시청각 매체를위한 소설이나 이야기를 재작 성하는 사람이나 조직에 사용합니다</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Analyst</source>
-        <translation>分析师</translation>
+        <translation>Analyst</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
-        <translation>用于审查, 检查和解释特定区域中的数据或信息的人员或组织.</translation>
+        <translation>특정 영역의 데이터 또는 정보를 검토, 검사 및 해석하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Animator</source>
-        <translation>动画师</translation>
+        <translation>Animator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
-        <translation>用于绘制二维图形的人或组织, 操纵三维物体和/或还对计算机编程以移动物体和图像以用于动画胶片处理的目的. 动画相机, 支架, 赛璐id屏幕, 幻灯片和墨水是动画师的一些工具.</translation>
+        <translation>2차원 도형을 그리거나 3차원 개체를 조작하거나 애니메이션 필름 처리를 위해 개체와 이미지를 이동하도록 컴퓨터를 프로그래밍하는 사람이나 조직에 사용합니다. 애니메이션 카메라, 스탠드, 셀룰로이드 스크린, 투명 필름 및 잉크는 애니메이터의 도구 중 일부입니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Annotator</source>
-        <translation>注释者</translation>
+        <translation>Annotator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
-        <translation>用于在打印项目上书写原稿注释的人.</translation>
+        <translation>인쇄 된 항목에 원고 주석을 쓰는 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>Appellant</source>
-        <translation>上诉人</translation>
+        <translation>Appellant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>A person or organization who appeals a lower court&apos;s decision.</source>
-        <translation>提出下级法院裁决的个人或组织.</translation>
+        <translation>지방 법원의 결정에 항소하는 개인 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Appellee</source>
-        <translation>被上诉人</translation>
+        <translation>Appellee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>A person or organization against whom an appeal is taken.</source>
-        <translation>提出上诉的个人或组织.</translation>
+        <translation>항소가 제기되는 사람 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Applicant</source>
-        <translation>申请人</translation>
+        <translation>Applicant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
-        <translation>用于负责提交申请或被命名为符合申请处理结果 (例如授予权利, 奖励, 所有权, 职位) 的个人或组织.</translation>
+        <translation>신청서 제출을 책임지는 사람 또는 신청서 처리 결과(예 : 권리 부여, 보상, 직책, 직위 부여)에 적합한 사람 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Architect</source>
-        <translation>设计师</translation>
+        <translation>Architect</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
-        <translation>用于设计结构或监督其构造的人或组织.</translation>
+        <translation>구조물을 설계하거나 건축을 감독하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Arranger</source>
-        <translation>组织者</translation>
+        <translation>Arranger</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation>用于转录音乐作品的人或组织，通常用于与原作不同的媒介; 在一种布置中, 音乐物质基本上保持不变.</translation>
+        <translation>일반적으로 원본과 다른 매체를 위해 음악 작품을 녹음하는 사람이나 조직에 사용; 배열에서 음악적 물질은 본질적으로 변하지 않은 채로있다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Art copyist</source>
-        <translation>艺术复制</translation>
+        <translation>Art copyist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation>用于制作视觉艺术作品副本的人 (例如画家或雕塑家).</translation>
+        <translation>시각 예술 작품의 사본을 만드는 사람(예 : 화가 또는 조각가)에게 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>Art director</source>
-        <translation>艺术指导</translation>
+        <translation>Art director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>A person contributing to a motion picture or television production by overseeing the artists and craftspeople who build the sets.</source>
-        <translation>通过监督构建集合的艺术家和手工艺者来贡献电影或电视制作的人.</translation>
+        <translation>세트를 제작하는 예술가와 장인을 감독하여 영화 나 TV 제작에 기여하는 사람.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Artist</source>
-        <translation>艺术家</translation>
+        <translation>Artist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation>如果不需要特定代码 (例如，[egr]，[etr]), 则用于构思并且也许实现原始平面设计或艺术作品的人 (例如画家)或组织. 对于书插画, 喜欢Illustrator [ill].</translation>
+        <translation>특정 코드(예 : [egr], [etr])가 필요하지 않은 경우 독창적 인 그래픽 디자인 또는 예술 작품을 구상하고 구현하는 사람(예 : 화가) 또는 조직에 사용합니다. 서적 일러스트 레이터의 경우 Illustrator[ill]를 선호합니다</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Artistic director</source>
-        <translation>艺术总监</translation>
+        <translation>Artistic director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation>用于负责控制整个生产的艺术风格的发展的人, 包括要呈现的作品的选择和高级生产人员的选择.</translation>
+        <translation>발표 할 작품 선택 및 선임 제작 직원 선발을 포함하여 전체 작품의 예술적 스타일 개발을 통제하는 담당자에게 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Assignee</source>
-        <translation>受让人</translation>
+        <translation>Assignee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation>用于已转让打印或出版许可的个人或组织.</translation>
+        <translation>인쇄 또는 출판 라이센스가 이전 된 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Associated name</source>
-        <translation>关联名</translation>
+        <translation>Associated name</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
-        <translation>用于与项目或集合相关联或找到的人员或组织, 不能被确定为前所有者[fmo]或其他指定来源的指定关系者.</translation>
+        <translation>항목 또는 컬렉션과 관련이 있거나 발견 된 개인 또는 조직에 사용되며, 이는 전 소유자 [fmo] 또는 출처를 나타내는 기타 지정된 관계자의 것으로 결정될 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Attributed name</source>
-        <translation>属性名称</translation>
+        <translation>Attributed name</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
-        <translation>用于作者, 艺术家等, 将他/她与某一作品相关联, 该作品对于该作品具有或曾经具有指定该作者作为作品的作者, 创作者等的实质权限.</translation>
+        <translation>저작자, 작가 등이 저작물을 저작자, 창작자 등으로 지정하는 데 실질적인 권한이 있거나 존재했던 저작물과 관련이있는 저작자 또는 아티스트 등에 게 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Auctioneer</source>
-        <translation>拍卖人</translation>
+        <translation>Auctioneer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
-        <translation>用于负责货物估计和公开拍卖的个人或组织, 特别是书籍, 艺术作品等.</translation>
+        <translation>상품, 특히 서적, 예술 작품 등의 견적 및 공개 경매를 담당하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Author</source>
-        <translation>作者</translation>
+        <translation>저자(Author)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
-        <translation>用于主要负责作品的知识或艺术内容的人或组织, 通常是印刷文本. 当多于一个的人或机构承担这种责任时, 也可以使用该术语.</translation>
+        <translation>작품의 지적 또는 예술적 내용 (주로 인쇄 된 텍스트)을 주로 책임지는 사람이나 조직에 사용합니다. 이 용어는 둘 이상의 사람이나 신체가 그러한 책임을지는 경우에도 사용될 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Author in quotations or text extracts</source>
-        <translation>作者在报价或文本提取</translation>
+        <translation>인용문 또는 텍스트 추출물 작성자</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
-        <translation>用于工作主要是在他或她没有直接贡献的作品中引用或提取的人或组织. 这种报价特别在展览目录, 照片集等中找到.</translation>
+        <translation>직접 공헌하지 않은 작품에서 작품이 크게 인용되거나 발췌 된 개인 또는 조직에 사용합니다. 이러한 인용문은 특히 전시회 카탈로그, 사진 모음 등에서 찾을 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Author of afterword, colophon, etc.</source>
-        <translation>作者的后话和书籍的末页等</translation>
+        <translation>후기(afterword), 출판사 마크(colophon) 등의 저자</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
-        <translation>用于负责后记, 后台, 版权等的人或组织, 但不是作品的主要作者.</translation>
+        <translation>afterword, postface, colophon 등을 담당하지만 저작의 수석 저자가 아닌 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Author of dialog</source>
-        <translation>作者的对话</translation>
+        <translation>다이얼로그(dialog) 저자</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
-        <translation>用于负责对话或口头评论的人或组织进行剧本或录音.</translation>
+        <translation>각본 또는 음성 녹음에 대한 대화 또는 음성 설명을 담당하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Author of introduction, etc.</source>
-        <translation>作者简介等</translation>
+        <translation>서론 등의 저자</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
-        <translation>用于负责介绍, 序言, 前言或其他关键介绍性事项, 但不是主要作者的个人或组织.</translation>
+        <translation>서론, 머리말, 서문 또는 기타 중요한 입문 문제를 책임지는 사람이나 조직에 사용하지만 수석 저자는 아닙니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Author of screenplay, etc.</source>
-        <translation>作者剧本等.</translation>
+        <translation>시나리오 등의 저자</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
-        <translation>用于负责电影剧本, 对话, 口头评论等的个人或组织.</translation>
+        <translation>영화 시나리오, 대화, 음성 해설 등을 담당하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>Autographer</source>
-        <translation>亲笔签名</translation>
+        <translation>Autographer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>A person whose manuscript signature appears on an item.</source>
-        <translation>稿件签名出现在项目上的人.</translation>
+        <translation>원고 서명이 항목에 나타나는 사람.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Bibliographic antecedent</source>
-        <translation>参考书目前提</translation>
+        <translation>Bibliographic antecedent</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
-        <translation>用于由负责基于目录记录工作的个人或组织, 这可能适合于适应、续集、延续、索引等.</translation>
+        <translation>카탈로그 레코드로 표시되는 작업의 기반이되는 작업을 담당하는 개인 또는 조직에 사용합니다. 이것은 개작, 속편, 연속, 색인 등에 적합 할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Binder</source>
-        <translation>活页封面</translation>
+        <translation>Binder</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation>用于负责印刷或手稿材料装订的个人或组织。</translation>
+        <translation>인쇄물 또는 원고의 제본을 담당하는 사람 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Binding designer</source>
-        <translation>封皮设计师</translation>
+        <translation>Binding designer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation>用于负责书籍装订设计的个人或组织, 包括装订类型, 所使用材料以及任何装饰装订的部分.</translation>
+        <translation>제본 유형, 사용 된 재료 유형 및 제본의 장식적인 측면을 포함하여 책의 제본 디자인을 담당하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Blurb writer</source>
-        <translation>推荐者</translation>
+        <translation>Blurb writer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>A person or organization responsible for writing a commendation or testimonial for a work, which appears on or within the publication itself, frequently on the back or dust jacket of print publications or on advertising material for all media.</source>
-        <translation>负责为出版物本身或出版物内部出现的作品作出表扬或推荐的人或组织，经常出现在印刷出版物的背面或防尘套上或媒体的广告材料上。</translation>
+        <translation>출판물 자체 또는 출판물 내에 자주 나타나는 인쇄 출판물의 뒤 또는 더스트 재킷 또는 모든 매체의 광고 자료에 게재되는 저작물에 대한 칭찬 또는 평가를 작성하는 사람 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Book designer</source>
-        <translation>书籍设计者</translation>
+        <translation>Book designer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation>用于负责书籍整个图形设计的个人或组织, 包括类型和插图的排列, 材料的选择和使用的过程.</translation>
+        <translation>유형 및 일러스트레이션 배열, 재료 선택 및 사용 된 프로세스를 포함하여 책의 전체 그래픽 디자인을 담당하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Book producer</source>
-        <translation>图书制作人</translation>
+        <translation>Book producer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
-        <translation>如果不需要特定代码 (例如[bkd], [egr], [tyd], [prt] ),则用于负责生成图书和其他打印介质的个人或组织.</translation>
+        <translation>특정 코드 (예 : [bkd], [egr], [tyd], [prt])가 필요하지 않은 경우 책 및 기타 인쇄 매체 제작을 담당하는 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Bookjacket designer</source>
-        <translation>书皮设计师</translation>
+        <translation>Bookjacket designer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
-        <translation>用于负责设计或出版书籍的柔性封皮设计的个人或组织, 包括所使用的材料类型和书套的任何装饰方面.</translation>
+        <translation>사용 된 재료의 종류와 책장의 장식적인면을 포함하여 책을 위해 디자인되거나 출판 된 플렉서블 커버 디자인을 책임지는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Bookplate designer</source>
-        <translation>书板设计师</translation>
+        <translation>Bookplate designer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
-        <translation>用于负责设计书籍所有者识别标签的个人或组织, 最常见的是粘贴到书籍内封面.</translation>
+        <translation>책의 앞 표지 안쪽에 가장 일반적으로 붙여지는 책 소유자의 식별 레이블 디자인을 담당하는 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Bookseller</source>
-        <translation>书商</translation>
+        <translation>Bookseller</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation>用于使书籍和其他书目资料可供购买的个人或组织. 对材料的兴趣主要是利润丰厚. </translation>
+        <translation>도서 및 기타 서지 자료를 구매할 수있는 사람이나 조직에 사용하십시오. 재료에 대한 관심은 주로 유리합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>Braille embosser</source>
-        <translation>盲文压花机</translation>
+        <translation>Braille embosser</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>A person, family, or organization involved in manufacturing a resource by embossing Braille cells using a stylus, special embossing printer, or other device.</source>
-        <translation>通过使用触针, 特殊压印打印机或其他装置压印盲文单元来参与制造资源的人, 家庭或组织.</translation>
+        <translation>스타일러스, 특수 엠보싱 프린터 또는 기타 장치를 사용하여 점자 셀을 엠보싱하여 자원을 제조하는 사람, 가족 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>Broadcaster</source>
-        <translation>广播电台</translation>
+        <translation>Broadcaster</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>A person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc.</source>
-        <translation>涉及通过广播, 电视, 网络广播等向观众广播资源的个人, 家庭或组织.</translation>
+        <translation>라디오, 텔레비전, 웹 캐스트 등을 통해 청중에게 리소스를 방송하는 사람, 가족 또는 조직</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Calligrapher</source>
-        <translation>书法家</translation>
+        <translation>Calligrapher</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation>用于在艺术手中写作的人或组织, 通常作为抄写员和/或工作者.</translation>
+        <translation>손으로 예술인 글자를 쓰는 사람(캘리그래퍼)이나 조직, 일반적으로 카피리스트 및 engrosser에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Cartographer</source>
-        <translation>制图师</translation>
+        <translation>Cartographer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
-        <translation>用于负责创建地图和其他制图资料的个人或组织.</translation>
+        <translation>지도 및 기타지도 제작을 담당하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>Caster</source>
-        <translation>铸字者</translation>
+        <translation>Caster</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>A person, family, or organization involved in manufacturing a resource by pouring a liquid or molten substance into a mold and leaving it to solidify to take the shape of the mold.</source>
-        <translation>通过将液体或熔融物质倾注到模具中并使其固化以采取模具的形状而涉及制造资源的人, 家庭或组织.</translation>
+        <translation>액체 또는 용융 물질을 몰드에 붓고 몰드 형태를 갖도록 응고시켜 자원을 제조하는 사람, 가족 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Censor</source>
-        <translation>检查员</translation>
+        <translation>Censor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
-        <translation>用于官方或私人的检查员, 删改, 修订等。</translation>
+        <translation>공식 또는 개인 검열, bowdlerizer, expurgator 등에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Choreographer</source>
-        <translation>编舞者</translation>
+        <translation>Choreographer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
-        <translation>用于组成或安排舞蹈或其他动作 (例如“剑之主人”) 的人或组织进行音乐或戏剧性演示或娱乐.</translation>
+        <translation>뮤지컬 또는 드라마틱 한 프리젠 테이션 또는 엔터테인먼트를 위해 댄스 또는 기타 움직임 (예 : &quot;master of swords&quot;)을 구성하거나 구성하는 사람 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Cinematographer</source>
-        <translation>摄影技师</translation>
+        <translation>Cinematographer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
-        <translation>用于负责为电影胶片拍摄的图像的个人或组织. 电影摄影师在导演的监督下工作, 也可被称为摄影导演. 不要与摄像师混淆.</translation>
+        <translation>영화 필름 용으로 촬영 한 이미지를 담당하는 사람이나 조직에 사용합니다. 촬영 감독은 감독의 감독하에 작동하며 사진 감독으로도 불릴 수 있습니다. 동영상 제작자와 혼동하지 마십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Client</source>
-        <translation>当事人</translation>
+        <translation>Client</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
-        <translation>用于其他人或组织代表的人或组织.</translation>
+        <translation>다른 사람이나 조직이 활동하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Collection registrar</source>
-        <translation>集合注册商</translation>
+        <translation>Collection registrar</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>A curator who lists or inventories the items in an aggregate work such as a collection of items or works.</source>
-        <translation>列出或存储合计作品中的项目, 如项目或作品集合,的策展人.</translation>
+        <translation>항목 또는 저작물 모음과 같은 집계 작업의 항목을 나열하거나 목록 화하는 큐레이터입니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Collector</source>
-        <translation>收集家</translation>
+        <translation>Collector</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
-        <translation>用于从已经安排, 描述和编目为集合的各种来源收集材料的个人或组织. 收藏家既不是材料的创造者, 也不是收藏中的抄本可能被处理的人.</translation>
+        <translation>컬렉션으로 정리, 설명 및 분류 된 다양한 출처의 자료를 모은 개인 또는 조직에 사용합니다. 수집가는 자료의 창작자도 아니며 소장의 원고를 다루는 사람도 아닙니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Collotyper</source>
-        <translation>胶板制版</translation>
+        <translation>Collotyper</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
-        <translation>用于负责从具有接受油墨和防油墨表面的胶片或其他胶体生产照相印刷品的个人或组织.</translation>
+        <translation>잉크 또는 발수성 표면이있는 필름 또는 기타 콜로이드로 사진 인화를 제작하는 담당자 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Colorist</source>
-        <translation>彩妆师</translation>
+        <translation>Colorist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>A person or organization responsible for applying color to drawings, prints, photographs, maps, moving images, etc.</source>
-        <translation>负责为图纸, 印刷品, 照片, 地图, 动态图像等应用颜色的个人或组织.</translation>
+        <translation>그림, 인쇄물, 사진,지도, 동영상 등에 색상을 적용하는 사람 또는 조직</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Commentator</source>
-        <translation>评论员</translation>
+        <translation>Commentator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
-        <translation>用于在录音, 电影或其他视听媒体上提供主题解释, 分析或讨论的个人或组织.</translation>
+        <translation>레코딩, 영화 또는 기타 시청각 매체에 대한 주제에 대한 해석, 분석 또는 토론을 제공하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Commentator for written text</source>
-        <translation>书面文本评论员</translation>
+        <translation>Commentator for written text</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation>用于负责评论或文本说明注释的个人或组织. 对于在打印的书中的手稿注释的作者，使用注释[ann].</translation>
+        <translation>텍스트에 대한 주석 또는 설명 메모를 담당하는 사람이나 조직에 사용합니다. 인쇄 된 책에서 원고 주석을 작성하는 경우 Annotator [ann]를 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Compiler</source>
-        <translation>编辑者</translation>
+        <translation>Compiler</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
-        <translation>用于通过从各种人或机构的作品中选择和整理材料来制作作品或出版物的个人或组织.</translation>
+        <translation>다양한 사람이나 단체의 작품에서 자료를 선택하고 정리하여 작품이나 출판물을 제작하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Complainant</source>
-        <translation>投诉人</translation>
+        <translation>Complainant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
-        <translation>用于通常在股权诉讼中向法院申请补救的一方.</translation>
+        <translation>보상을 위해 법원에 신청하는 당사자, 일반적으로 지분 절차에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Complainant-appellant</source>
-        <translation>投诉人-上诉人</translation>
+        <translation>Complainant-appellant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>用于投诉人, 其从一个法院或管辖区向另一个法院或管辖区提出上诉, 以通过股权程序撤销判决.</translation>
+        <translation>일반적으로 형평법 소송에서 판결을 취소하기 위해 한 법원이나 관할권에서 다른 법원으로 항소하는 불만 제 기자에게 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Complainant-appellee</source>
-        <translation>投诉人-被上诉人</translation>
+        <translation>Complainant-appellee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>用于申诉人, 从一个法院或管辖区向另一个法院或管辖区提出上诉, 以通过股权程序来推翻判决.</translation>
+        <translation>일반적으로 형평법 소송에서 판결을 취소하기 위해 한 법원이나 관할권에서 다른 법원으로 항소를 제기 한 불만 제 기자에게 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Composer</source>
-        <translation>作曲家</translation>
+        <translation>Composer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
-        <translation>用于创建音乐作品的人或组织, 通常是手稿或印刷形式的音乐片段.</translation>
+        <translation>음악 작품, 주로 원고 또는 인쇄 된 형태의 음악 작품을 만드는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Compositor</source>
-        <translation>作曲家</translation>
+        <translation>Compositor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
-        <translation>用于负责创建金属块的人或组织或用于生产印刷品中的文本和图像的由其他材料制成的模具.</translation>
+        <translation>인쇄물에 텍스트 및 이미지를 생성하는 데 사용되는 금속 슬러그 또는 기타 재료로 만든 금형 제작을 담당하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Conceptor</source>
-        <translation>概念</translation>
+        <translation>Conceptor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
-        <translation>用于负责工作所基于的原始想法的个人或组织, 包括视听项目的科学作者和广告的概念者.</translation>
+        <translation>작품의 기초가되는 독창적 인 아이디어를 책임지는 사람이나 조직에 사용합니다. 여기에는 시청각 항목의 과학적 저자 및 광고의 개념자가 포함됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Conductor</source>
-        <translation>指挥</translation>
+        <translation>Conductor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation>用于指挥表演团体 (乐团，合唱，歌剧等) 在音乐或戏剧性演示或娱乐中的人.</translation>
+        <translation>공연 그룹 (오케스트라, 코러스, 오페라 등)을 뮤지컬 또는 드라마틱 한 프리젠테이션 또는 엔터테인먼트로 감독하는 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Conservator</source>
-        <translation>保守者</translation>
+        <translation>Conservator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>A person or organization responsible for documenting, preserving, or treating printed or manuscript material, works of art, artifacts, or other media.</source>
-        <translation>负责记录, 保存或处理印刷或手稿材料, 艺术作品, 工件或其他媒体的个人或组织.</translation>
+        <translation>인쇄 또는 원고 자료, 예술 작품, 인공물 또는 기타 매체를 문서화, 보존 또는 처리하는 책임이있는 사람 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Consultant</source>
-        <translation>顾问</translation>
+        <translation>Consultant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
-        <translation>用于与资源相关的个人或组织, 在专门的知识或培训领域被要求提供专业建议或服务.</translation>
+        <translation>전문 지식이나 훈련 분야에서 전문적인 조언이나 서비스를 요구하는 자원과 관련된 개인이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Consultant to a project</source>
-        <translation>项目顾问</translation>
+        <translation>Consultant to a project</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
-        <translation>用于与资源相关的人员或组织, 他们专门从事战略或操作任务的智力概述以及分析, 规范或指导, 以创建或提出具有成本效益的行动或解决方案.</translation>
+        <translation>전략적 또는 운영 작업에 대한 지적 개요를 제공하고 분석, 사양 또는 지침에 따라 비용 효율적인 조치 또는 솔루션을 만들거나 제안하기 위해 특별히 관여하는 자원과 관련된 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Contestant</source>
-        <translation>竞争者</translation>
+        <translation>Contestant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
-        <translation>用于在法院, 索赔, 决定, 结果等中反对, 抵抗或争议的一方.</translation>
+        <translation>법정, 클레임, 결정, 결과 등에서 반대, 저항 또는 분쟁을 일으키는 당사자에게 사용</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Contestant-appellant</source>
-        <translation>参赛者</translation>
+        <translation>Contestant-appellant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation>用于从一个法律或管辖区向另一个法院提出上诉的参赛者, 以撤销判决.</translation>
+        <translation>판결을 취소하기 위해 한 법원 또는 관할권에서 다른 법원으로 항소하는 참가자에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Contestant-appellee</source>
-        <translation>参赛者 - 被上诉人</translation>
+        <translation>Contestant-appellee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation>用于从一个法律或管辖区向另一个法院提出上诉的参赛者, 以撤销该判决.</translation>
+        <translation>판결을 취소하기 위해 한 법원 또는 관할권에서 다른 법원으로 항소를 제기 한 참가자에게 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Contestee</source>
-        <translation>参赛者</translation>
+        <translation>Contestee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
-        <translation>用于捍卫索赔, 决定, 结果等在法庭上遭到反对, 抵抗或争议的一方.</translation>
+        <translation>법원에서 반대, 저항 또는 분쟁을 주장하는 주장, 결정, 결과 등을 변호하는 당사자를 위해 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Contestee-appellant</source>
-        <translation>参赛者-上诉人</translation>
+        <translation>Contestee-appellant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation>用于从一个管辖法院向另一个法院提出上诉的比赛, 以扭转判决.</translation>
+        <translation>판결을 취소하기 위해 한 법원 또는 관할권에서 다른 법원으로 항소하는 참가자에게 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Contestee-appellee</source>
-        <translation>参赛者-被上诉人</translation>
+        <translation>Contestee-appellee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation>用于有争议的人, 从一个管辖法院向另一个法院提出上诉, 以推翻该判决.</translation>
+        <translation>판결을 취소하기 위해 한 법원 또는 관할권에서 다른 법원으로 항소를 제기 한 참가자에게 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Contractor</source>
-        <translation>承包商</translation>
+        <translation>Contractor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
-        <translation>用于与资源相关的个人或组织, 他们与另一个人或组织签订合同以执行特定任务.</translation>
+        <translation>특정 작업을 수행하기 위해 다른 사람 또는 조직과 계약을 체결 한 자원과 관련된 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Contributor</source>
-        <translation>捐助者</translation>
+        <translation>기여자</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
-        <translation>用于个人或组织, 他们的工作已经贡献给更大的工作, 例如选集, 连续出版物或其他个别作品的汇编. 如果与作品有关的唯一功能是作者, 编辑, 编译器或翻译者, 请不要使用.</translation>
+        <translation>선집, 연재 출판물 또는 기타 개별 저작물 편집과 같이 더 큰 저작물에 기여한 개인이나 조직에 사용합니다. 저작물과 관련된 유일한 기능이 저작자, 편집자, 컴파일러 또는 번역자 인 경우 사용하지 마십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Copyright claimant</source>
-        <translation>版权声明人</translation>
+        <translation>Copyright claimant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
-        <translation>用于在注册时列为版权所有者的个人或组织. 版权可以授予或以后转移给另一个人或组织, 在此时, 索赔人成为版权所有者.</translation>
+        <translation>등록시 저작권 소유자로 등재 된 개인 또는 조직에 사용하십시오. 저작권은 다른 사람이나 조직에 부여되거나 나중에 양도 될 수 있으며, 이때 청구자는 저작권 소유자가됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Copyright holder</source>
-        <translation>版权所有者</translation>
+        <translation>Copyright holder</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
-        <translation>用于被授予或转让作品的知识内容的复制和法律权利的个人或组织. 版权所有者虽然不一定是作品的创作者, 但通常拥有从销售和使用相关版权保护适用的作品中获得经济利益的专有权利.</translation>
+        <translation>저작물의 지적 내용에 대해 사본 및 법적 권리가 부여되거나 양도 된 개인 또는 조직에 사용합니다. 저작물 제작자가 반드시 그런 것은 아니지만 저작권자는 일반적으로 관련 저작권 보호가 적용되는 저작물의 판매 및 사용으로 재정적으로 혜택을 누릴 독점적 권리를 갖습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Corrector</source>
-        <translation>校正者</translation>
+        <translation>Corrector</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
-        <translation>用于作为手稿校正者的人或组织, 例如修改抄写员工作的脚本官员. 对于印刷品, 请使用校对.</translation>
+        <translation>스크라이브 작업을 수정 한 대본 관료와 같이 원고 교정자 인 개인이나 조직에 사용합니다. 인쇄물의 경우 교정기를 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Correspondent</source>
-        <translation>通信者</translation>
+        <translation>Correspondent</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
-        <translation>用于作为信件或其他通信的作者或收件人的个人或组织。</translation>
+        <translation>서신 또는 기타 의사 소통의 작성자 또는 수령자 인 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Costume designer</source>
-        <translation>服装设计师</translation>
+        <translation>Costume designer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
-        <translation>用于设计或制作服装，固定头发等的人或组织进行音乐或戏剧性演示或娱乐.</translation>
+        <translation>뮤지컬 또는 드라마틱 한 프리젠 테이션 또는 엔터테인먼트를 위해 의상을 디자인하거나 제작하거나 머리카락을 수정하는 사람 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Court governed</source>
-        <translation>法院管制</translation>
+        <translation>Court governed</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>A court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations.)</source>
-        <translation>受法院规则管辖的法院，不论其官方性质 (例如法律, 行政法规).</translation>
+        <translation>공식적인 성격 (예 : 법률, 행정 규정)에 관계없이 법원 규칙에 따라 적용되는 법원.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Court reporter</source>
-        <translation>法院书记官</translation>
+        <translation>Court reporter</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>A person, family, or organization contributing to a resource by preparing a court&apos;s opinions for publication.</source>
-        <translation>对资源的贡献准备法院发表意见的人，家庭或组织.</translation>
+        <translation>출판을 위해 법원의 의견을 준비하여 자원에 기여하는 개인, 가족 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Cover designer</source>
-        <translation>封面设计</translation>
+        <translation>표지 디자이너</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
-        <translation>用于负责图书封面, 专辑封面, 书套, 盒子, 容器等图形设计的个人或组织. 对于负责整本图书设计的个人或组织, 请使用图书设计师; 为书夹克, 使用Bookjacket设计师.</translation>
+        <translation>책 표지, 앨범 표지, 서류 가방, 상자, 컨테이너 등의 그래픽 디자인을 담당하는 개인 또는 조직에 사용합니다. 전체 책의 그래픽 디자인을 담당하는 개인 또는 조직의 경우 북 디자이너를 사용하십시오. 책 자켓의 경우 Bookjacket 디자이너를 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Creator</source>
-        <translation>艺术创作</translation>
+        <translation>창작자(Creator)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
-        <translation>用于负责作品的智力或艺术内容的个人或组织。</translation>
+        <translation>작품의 지적 또는 예술적 내용을 담당하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Curator of an exhibition</source>
-        <translation>展览策展人</translation>
+        <translation>전시 큐레이터</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
-        <translation>用于负责构思和组织展览的个人或组织。</translation>
+        <translation>전시회를 계획하고 조직하는 책임이있는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Dancer</source>
-        <translation>舞蹈演员</translation>
+        <translation>Dancer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>用于主要在音乐或戏剧演出或娱乐中展示舞蹈技能的人或组织。</translation>
+        <translation>뮤지컬 또는 드라마틱 한 프리젠 테이션 또는 엔터테인먼트에서 주로 춤 기술을 선보이는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Data contributor</source>
-        <translation>数据贡献者</translation>
+        <translation>자료 기여자</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
-        <translation>用于提交数据以包含在数据库或其他数据收集中的个人或组织。</translation>
+        <translation>데이터베이스 또는 기타 데이터 콜렉션에 포함하기 위해 데이터를 제출하는 개인 또는 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Data manager</source>
-        <translation>数据经理</translation>
+        <translation>Data manager</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
-        <translation>用于负责管理数据库或其他数据源的个人或组织。</translation>
+        <translation>데이터베이스 또는 기타 데이터 소스 관리를 담당하는 개인 또는 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Dedicatee</source>
-        <translation>受捐赠者</translation>
+        <translation>Dedicatee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
-        <translation>用于书籍、手稿等专供的人或组织（不是礼物的接收者）。</translation>
+        <translation>책, 원고 등이 헌정 된 사람이나 조직에 사용하십시오 (선물을받는 사람이 아님).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Dedicator</source>
-        <translation>捐赠者</translation>
+        <translation>Dedicator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
-        <translation>使用作者的奉献，这可能是一个正式的声明或以片段或诗歌的形式。</translation>
+        <translation>헌신의 저자를 위해 사용하십시오. 공식적인 진술 또는 대표 또는 구절 형식 일 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Defendant</source>
-        <translation>被告</translation>
+        <translation>Defendant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
-        <translation>用于捍卫或拒绝在诉讼中提出的指控，并在法院寻求救济或恢复的一方，通常是法律诉讼。</translation>
+        <translation>소송에서 제기 된 혐의를 방어하거나 거부하고 당사자가 법정에서 구제 또는 회복을 요구하는 당사자 (일반적으로 법적 조치)에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Defendant-appellant</source>
-        <translation>被告-上诉人</translation>
+        <translation>Defendant-appellant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation>用于被告人从一个法院或管辖区向另一个法院或管辖区提出上诉，以通过法律诉讼来推翻判决。</translation>
+        <translation>일반적으로 법적 조치로 판결을 취소하기 위해 한 법원이나 관할권에서 다른 법원으로 항소하는 피고에게 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Defendant-appellee</source>
-        <translation>被告</translation>
+        <translation>Defendant-appellee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation>用于被告人，从一个管辖法院向另一个法院提出上诉，以通过法律诉讼撤销判决.</translation>
+        <translation>일반적으로 법적 조치로 판결을 취소하기 위해 한 법원 또는 관할권에서 다른 법원으로 항소를 제기 한 피고에게 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Degree grantor</source>
-        <translation>学位设保人</translation>
+        <translation>Degree grantor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
-        <translation>用于授予所描述的论文或论文的学位的组织。</translation>
+        <translation>기술 된 논문 또는 논문의 학위를 수여하는 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Delineator</source>
-        <translation>描绘画</translation>
+        <translation>Delineator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
-        <translation>用于从其他人的设计执行技术图纸的个人或组织。</translation>
+        <translation>다른 사람의 설계에서 기술 도면을 실행하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Depicted</source>
-        <translation>描绘</translation>
+        <translation>Depicted</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
-        <translation>用于在工作中描绘或描绘的实体，特别是在艺术作品中.</translation>
+        <translation>작품, 특히 예술 작품에 묘사되거나 묘사 된 실체에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Depositor</source>
-        <translation>寄存者</translation>
+        <translation>Depositor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
-        <translation>用于将资料放置在图书馆或知识库的实际保管之下的人或组织，而不转移法定所有权。</translation>
+        <translation>법적 소유권을 양도하지 않고 도서관이나 저장소의 물리적 양육권에 자료를 배치하는 개인이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Designer</source>
-        <translation>设计者</translation>
+        <translation>Designer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
-        <translation>如果不需要更具体的代码（例如[bkd]，[tyd]），请使用负责设计的个人或组织。</translation>
+        <translation>보다 구체적인 코드 (예 : [bkd], [tyd])가 필요하지 않은 경우 설계를 담당하는 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Director</source>
-        <translation>导演</translation>
+        <translation>Director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
-        <translation>用于负责工作的一般管理或负责监督舞台，屏幕或录音演出的制作的个人或组织。</translation>
+        <translation>작업의 전반적인 관리를 담당하거나 무대, 스크린 또는 사운드 녹음을위한 공연 제작을 감독하는 사람 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Dissertant</source>
-        <translation>论文</translation>
+        <translation>Dissertant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
-        <translation>用于为大学或高等教育学位提交论文的人。</translation>
+        <translation>대학 또는 고등 교육 학위 논문을 제시하는 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>Distribution place</source>
-        <translation>分发地点</translation>
+        <translation>Distribution place</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>A place from which a resource, e.g., a serial, is distributed.</source>
-        <translation>从其分发资源（例如，串行）的地方。</translation>
+        <translation>일련 번호와 같은 리소스가 배포되는 장소입니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Distributor</source>
-        <translation>分销商</translation>
+        <translation>Distributor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
-        <translation>适用于对项目拥有独家或共享营销权利的个人或组织</translation>
+        <translation>상품에 대해 독점적이거나 공유 된 마케팅 권한이있는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Donor</source>
-        <translation>捐赠者</translation>
+        <translation>Donor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
-        <translation>用于作为书籍，手稿等捐赠者的个人或组织给其当前所有者.  对以前业主的捐赠者被指定为前所有者[fmo]或用户 [ins]</translation>
+        <translation>현재 소유자에게 책, 원고 등을 기증 한 사람이나 조직에 사용합니다. 이전 소유자에 대한 기증자는 이전 소유자 [fmo] 또는 Inscriber [in]로 지정됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Draftsman</source>
-        <translation>起草人</translation>
+        <translation>Draftsman</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
-        <translation>用于准备艺术或技术图纸的个人或组织.</translation>
+        <translation>예술 또는 기술 도면을 준비하는 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Dubious author</source>
-        <translation>可疑作者</translation>
+        <translation>불확실한 저자</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
-        <translation>用于作者被怀疑或不正确归属的个人或组织</translation>
+        <translation>저자가 확실하게 부정확하게 주장 된 개인이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Editor</source>
-        <translation>编辑</translation>
+        <translation>Editor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
-        <translation>用于准备出版不是他/她自己的作品的人或组织，例如通过阐明文本, 添加介绍性或其他关键事项, 或技术指导编辑人员.</translation>
+        <translation>텍스트를 설명하거나 소개 또는 기타 중요 사항을 추가하거나 편집 담당자를 기술적으로 지시하는 등 주로 자신이 아닌 작품을 출판 할 준비를하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>Editor of compilation</source>
-        <translation>汇编编辑</translation>
+        <translation>Editor of compilation</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>A person, family, or organization contributing to a collective or aggregate work by selecting and putting together works, or parts of works, by one or more creators. For compilations of data, information, etc., that result in new works, see compiler.</source>
-        <translation>通过选择由一个或多个创作者和组合作品或作品的一部分来为集体或集体作品做出贡献的人，家庭或组织。 对于导致新工作的数据，信息等的编译，请参阅编译器。</translation>
+        <translation>하나 이상의 제작자가 저작물 또는 작품의 일부를 선택하고 정리하여 집단 또는 총괄 저작물에 기여하는 개인, 가족 또는 조직. 새로운 작업을 초래하는 데이터, 정보 등의 편집에 대해서는 컴파일러를 참조하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>Editor of moving image work</source>
-        <translation>运动图像编辑</translation>
+        <translation>Editor of moving image work</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>A person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects.</source>
-        <translation>负责组装, 安排和修整电影, 视频或其他运动图像格式（包括视觉和音频方面）的个人, 家庭或组织.</translation>
+        <translation>시각적, 청각 적 측면을 포함하여 영화, 비디오 또는 기타 동영상 형식을 조립, 정리 및 트리밍하는 담당자, 가족 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Electrician</source>
-        <translation>电工</translation>
+        <translation>Electrician</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
-        <translation>用于负责设置照明装置并将灯聚焦于生产以及在演出时运行照明装置的人员。</translation>
+        <translation>조명 장치를 설정하고 프로덕션을 위해 조명의 초점을 맞추고 조명을 공연에서 실행하는 담당자에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Electrotyper</source>
-        <translation>电版技师</translation>
+        <translation>Electrotyper</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
-        <translation>用于通过压力成型和电沉积金属，然后用铅印刷的铅笔来创建复印表面的个人或组织.</translation>
+        <translation>금속의 압력 성형 및 전착에 의해 인쇄 표면을 복제하여 인쇄용 납으로 백업 한 사람 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Engineer</source>
-        <translation>工程师</translation>
+        <translation>Engineer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
-        <translation>用于负责技术规划和设计, 特别是建筑施工的人或组织.</translation>
+        <translation>특히 건축 관련 기술 계획 및 설계를 담당하는 개인 또는 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Engraver</source>
-        <translation>雕刻师</translation>
+        <translation>Engraver</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
-        <translation>用于在表面（如木制或金属板）上切割字母、数字等以供印刷的人或组织。</translation>
+        <translation>나무 또는 금속판과 같은 표면에 글자, 그림 등을 자르는 사람이나 조직에서 인쇄에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Etcher</source>
-        <translation>蚀刻者</translation>
+        <translation>Etcher</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
-        <translation>用于通过使金属, 玻璃或其他表面经受酸或某些其他物质的腐蚀作用而用于印刷的文本或图像的人或组织.</translation>
+        <translation>금속, 유리 또는 기타 표면을 산성으로 만들거나 다른 물질의 부식 작용으로 인쇄용 텍스트 또는 이미지를 생성하는 개인 또는 조직에 사용</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>Event place</source>
-        <translation>活动场所</translation>
+        <translation>Event place</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>A place where an event such as a conference or a concert took place.</source>
-        <translation>举办会议或音乐会等活动的地方</translation>
+        <translation>회의 나 콘서트 등의 행사가 열린 장소.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Expert</source>
-        <translation>专家</translation>
+        <translation>Expert</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
-        <translation>用于负责描述和评估商品价值的个人或组织, 特别是稀有物品，艺术品等.</translation>
+        <translation>상품, 특히 희귀 품목, 예술품 등의 가치에 대한 설명 및 평가를 담당하는 개인 또는 조직에 사용</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Facsimilist</source>
-        <translation>传真电报员</translation>
+        <translation>Facsimilist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Use for a person or organization that executed the facsimile.</source>
-        <translation>用于执行传真的人或组织.</translation>
+        <translation>팩시밀리를 실행 한 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Field director</source>
-        <translation>现场总监</translation>
+        <translation>Field director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
-        <translation>用于管理或监督收集原始数据或在实际环境或环境中进行研究的人员或组织 (通常适用于自然和社会科学).</translation>
+        <translation>원시 데이터를 수집하거나 실제 환경이나 환경에서 연구를 수행하기 위해 수행 한 작업을 관리하거나 감독하는 개인 또는 조직에 사용합니다 (일반적으로 자연 및 사회 과학에 적용됨).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>Film director</source>
-        <translation>制片导演</translation>
+        <translation>Film director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>A director responsible for the general management and supervision of a filmed performance.</source>
-        <translation>负责拍摄表演的一般管理和监督的导演.</translation>
+        <translation>촬영 된 공연의 전반적인 관리 및 감독을 담당하는 감독.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Film distributor</source>
-        <translation>影片发行</translation>
+        <translation>Film distributor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>A person, family, or organization involved in distributing a moving image resource to theatres or other distribution channels.</source>
-        <translation>涉及将运动图像资源分发到剧院或其他分发渠道的个人, 家庭或组织</translation>
+        <translation>동영상 리소스를 극장 또는 기타 배포 채널에 배포하는 데 관련된 개인, 가족 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Film editor</source>
-        <translation>影片剪辑员</translation>
+        <translation>Film editor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
-        <translation>用于作为电影胶片编辑的人或组织. 该术语的使用与生成或制造运动图像的介质无关 (例如，醋酸薄膜，录像带).</translation>
+        <translation>영화 필름의 편집자 인 개인이나 조직에 사용합니다. 이 용어는 영화가 제작되거나 제조되는 매체 (예를 들어, 아세테이트 필름, 비디오 테이프)에 관계없이 사용된다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>Film producer</source>
-        <translation>制片人</translation>
+        <translation>Film producer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>A producer responsible for most of the business aspects of a film.</source>
-        <translation>一个负责电影大部分业务方面的制片人.</translation>
+        <translation>영화의 대부분의 비즈니스 측면을 담당하는 프로듀서.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Filmmaker</source>
-        <translation>电影摄像</translation>
+        <translation>Filmmaker</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film.</source>
-        <translation>负责创建独立或个人电影的个人, 家庭或组织. 电影制作人单独负责电影的所有方面的概念和执行.</translation>
+        <translation>독립 또는 개인 영화 제작을 담당하는 개인, 가족 또는 조직. 영화 제작자는 영화의 모든 측면에 대한 개념과 실행을 개별적으로 책임집니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>First party</source>
-        <translation>甲方</translation>
+        <translation>First party</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
-        <translation>用于被认定为唯一一方或首要一方的个人或组织. 在转让权利的情况下，这是转让人, 转让人, 许可人, 设保人等. 多方可以共同命名为第一方.</translation>
+        <translation>유일한 당사자 또는 첫 번째 당사자로 식별 된 개인 또는 조직에 사용하십시오. 권리 양도의 경우, 이는 양도인, 양도인, 허가자, 양도인 등입니다. 여러 당사자를 공동으로 제 1 자로 지정할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Forger</source>
-        <translation>伪造者</translation>
+        <translation>Forger</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
-        <translation>用于制造或模仿有价值或重要性的人或组织, 尤其是意图欺诈的人或组织.</translation>
+        <translation>특히 사기하려는 의도로 가치가 있거나 중요한 것을 만들거나 모방하는 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Former owner</source>
-        <translation>前所有者</translation>
+        <translation>전 소유자(Former owner)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
-        <translation>用于过去任何时间拥有项目的个人或组织. 包括那些曾经呈现材料的人. 将该项目给予现有所有者的个人或组织被指定为捐赠人 [dnr].</translation>
+        <translation>과거에 언제든지 항목을 소유 한 사람이나 조직에 사용하십시오. 자료가 한 번 제공된 사람들을 포함합니다. 현재 소유자에게 품목을 제공하는 개인 또는 조직은 공여자 [dnr]로 지정됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Funder</source>
-        <translation>投资人</translation>
+        <translation>Funder</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
-        <translation>用于为生产工作提供财务支持的个人或组织.</translation>
+        <translation>작업의 생산을 위해 재정적 지원을 제공 한 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Geographic information specialist</source>
-        <translation>地理信息专家</translation>
+        <translation>지리 정보 전문가</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
-        <translation>用于负责地理信息系统 (GIS) 开发和与全球定位系统数据集成的人员.</translation>
+        <translation>지리 정보 시스템 (GIS) 개발 및 글로벌 포지셔닝 시스템 데이터와의 통합을 담당하는 사람에게 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Honoree</source>
-        <translation>获奖人</translation>
+        <translation>Honoree</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
-        <translation>用于捐赠书, 手稿等的记忆或荣誉的个人或组织</translation>
+        <translation>책, 원고 등이 기증 된 기억이나 명예를 가진 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Host</source>
-        <translation>主持人</translation>
+        <translation>Host</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
-        <translation>用于受邀或定期带领包含其他邀请对象，表演者等的节目 (通常为广播) 的人 (例如，聊天节目主持人).</translation>
+        <translation>초대되거나 정기적으로 다른 손님, 공연자 등을 포함하는 프로그램 (보통 방송)을 이끄는 사람 (예 : 토크쇼 호스트)에게 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Host institution</source>
-        <translation>主办方</translation>
+        <translation>Host institution</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>An organization hosting the event, exhibit, conference, etc., which gave rise to a resource, but having little or no responsibility for the content of the resource.</source>
-        <translation>举办活动，展览，会议等的组织，这产生了资源，但对资源的内容几乎没有或没有责任</translation>
+        <translation>이벤트, 전시회, 회의 등을 주최하여 리소스를 발생 시켰지만 리소스의 내용에 대해 거의 또는 전혀 책임이없는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Illuminator</source>
-        <translation>展现</translation>
+        <translation>Illuminator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
-        <translation>用于负责装饰具有贵金属或颜色的作品 (特别是手稿材料) 的人或组织, 通常具有精心设计和图案.</translation>
+        <translation>귀금속이나 색상, 일반적으로 정교한 디자인과 주제를 사용하여 작품 (특히 원고 자료)을 장식하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Illustrator</source>
-        <translation>插图画家</translation>
+        <translation>Illustrator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
-        <translation>用于构思和实现一个设计或插图，通常伴随着一个书面文本一个人或组织.</translation>
+        <translation>일반적으로 서면 텍스트와 함께 디자인이나 일러스트레이션을 구상하고 구현하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Inscriber</source>
-        <translation>登记员</translation>
+        <translation>Inscriber</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Use for a person who has written a statement of dedication or gift.</source>
-        <translation>用于写有奉献或礼物字句的人</translation>
+        <translation>헌신이나 선물(gift)을 쓴 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Instrumentalist</source>
-        <translation>乐器演奏家</translation>
+        <translation>Instrumentalist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
-        <translation>用于主要在音乐或戏剧演出或娱乐中演奏乐器的人或组织.</translation>
+        <translation>주로 음악 또는 극적인 프리젠 테이션 또는 엔터테인먼트에서 악기를 연주하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Interviewee</source>
-        <translation>被采访者</translation>
+        <translation>Interviewee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
-        <translation>用于在磋商或会议中接受采访的个人或组织，通常由记者，调查员或一些其他信息收集代理</translation>
+        <translation>일반적으로 리포터, 여론 조사원 또는 기타 정보 수집 에이전트가 상담 또는 회의에서 인터뷰하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Interviewer</source>
-        <translation>采访者</translation>
+        <translation>Interviewer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
-        <translation>用于在涉及一个或多个个人的磋商或会议中担任记者，调查员或其他信息收集代理人的个人或组织</translation>
+        <translation>한 명 이상의 개인과의 상담 또는 회의에서 기자, 설문 조사자 또는 기타 정보 수집 에이전트로 활동하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Inventor</source>
-        <translation>创造者</translation>
+        <translation>Inventor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
-        <translation>用于首先生产特定有用项目的个人或组织，或开发用于获取已知项目或结果的新过程</translation>
+        <translation>먼저 유용한 특정 항목을 생성하거나 알려진 항목 또는 결과를 얻기위한 새로운 프로세스를 개발하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Issuing body</source>
-        <translation>发行体</translation>
+        <translation>Issuing body</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>A person, family or organization issuing a work, such as an official organ of the body.</source>
-        <translation>发出工作的人，家庭或组织，如官方机关</translation>
+        <translation>신체의 공식 기관과 같은 저작물을 발행하는 개인, 가족 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>Judge</source>
-        <translation>法官</translation>
+        <translation>Judge</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>A person who hears and decides on legal matters in court.</source>
-        <translation>在法庭上听取和决定法律事务的人.</translation>
+        <translation>법정에서 법적 문제를 듣고 결정하는 사람.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Jurisdiction governed</source>
-        <translation>管辖权</translation>
+        <translation>Jurisdiction governed</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>A jurisdiction governed by a law, regulation, etc., that was enacted by another jurisdiction.</source>
-        <translation>由另一个司法管辖区颁布的法律，法规等管辖的管辖区</translation>
+        <translation>다른 관할권에 의해 제정 된 법률, 규정 등이 적용되는 관할권.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Laboratory</source>
-        <translation>实验室</translation>
+        <translation>Laboratory</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
-        <translation>用于提供材料样品的科学分析的机构</translation>
+        <translation>재료 샘플의 과학적 분석을 제공하는 기관에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Laboratory director</source>
-        <translation>实验室经理</translation>
+        <translation>Laboratory director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
-        <translation>用于管理或监督在受控环境或环境中完成的工作的个人或组织.</translation>
+        <translation>통제 된 환경이나 환경에서 수행되는 작업을 관리하거나 감독하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Landscape architect</source>
-        <translation>园艺师</translation>
+        <translation>Landscape architect</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
-        <translation>用于一个人或组织, 其工作涉及协调现有和拟议的土地特征和结构的安排</translation>
+        <translation>기존 및 제안 된 토지 지형 및 구조물의 배치를 조정하는 작업을 수행하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Lead</source>
-        <translation>领导</translation>
+        <translation>Lead</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
-        <translation>用于表示个人或组织对特定活动或努力负主要责任. 与其他关系者术语或代码一起使用，以表明此人或组织对该特定角色的重要性. 如果还有多个相关头衔, 则只有在适用于所有头衔时才使用在开始.</translation>
+        <translation>개인이나 조직이 특정 활동이나 노력에 주된 책임을진다는 것을 나타내는 데 사용합니다. 다른 관련 용어 또는 코드와 함께 사용하여 해당 개인이나 조직이 해당 특정 역할에 대해 더 큰 중요성을 보여줍니다. 제목에 둘 이상의 relator가 지정된 경우 Lead relator가 모든 relator에 적용되는 경우에만 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Lender</source>
-        <translation>贷方</translation>
+        <translation>Lender</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
-        <translation>用于允许临时使用书籍手稿等的人员或组织, 例如用于复印或微缩胶片.</translation>
+        <translation>복사 또는 마이크로 필름 촬영과 같은 책, 원고 등의 임시 사용을 허용하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Libelant</source>
-        <translation>原告</translation>
+        <translation>Libelant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
-        <translation>用于在教会或海事案件中提出诉讼的一方</translation>
+        <translation>교회 또는 해군 사건에서 성서를 제출 한 당사자에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Libelant-appellant</source>
-        <translation>原告-上诉人</translation>
+        <translation>Libelant-appellant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>用于一个原告为了扭转判决结果而从一个教会法院或海事法庭上诉另一个人</translation>
+        <translation>한 교회 법원에서 판결을 내리거나 판결을 반대하기 위해 다른 사람에게 해임 한 구호 인을 위해 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Libelant-appellee</source>
-        <translation>原告-被上诉人</translation>
+        <translation>Libelant-appellee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>用于从一个教会法院或海事法庭向另一个教会法院提出上诉以撤销判决的原告人.</translation>
+        <translation>한 교회 법원에서 판결을 내리거나 다른 판사에게 항의를 제기 한 판사에게 판결을 취소하기 위해 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Libelee</source>
-        <translation>被告</translation>
+        <translation>Libelee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
-        <translation>用于在教会法院或海事法庭中被提出控告的一方</translation>
+        <translation>교회 법원이나 해군에 성 추방을 제기 한 당사자에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Libelee-appellant</source>
-        <translation>被告-上诉人</translation>
+        <translation>Libelee-appellant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>用于从一个教会法院或海事法庭到另一个人的反对判决的原告</translation>
+        <translation>한 교회 법원에서 판결을 내리거나 판결을 반대하기 위해 다른 사람에게 해방을 가하는 성직자를 위해 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Libelee-appellee</source>
-        <translation>被告-被上诉人</translation>
+        <translation>Libelee-appellee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation>用于从一个教会法院或海事法庭到另一个人的反对人的反对的告诉</translation>
+        <translation>한 교회 법원에서 판결을 내리거나 다른 판사에게 항의를 제기 한 성원에 판결을 내리기 위해 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Librettist</source>
-        <translation>剧本作者</translation>
+        <translation>Librettist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
-        <translation>用于作为歌剧，赞美剧等文本作者的人或组织</translation>
+        <translation>오페라, 오라토리오 등의 텍스트를 쓴 사람이나 조직에 사용</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Licensee</source>
-        <translation>执照持有者</translation>
+        <translation>Licensee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
-        <translation>用于作为打印或发布权利的原始收件人的个人或组织</translation>
+        <translation>인쇄하거나 출판 할 권리를 최초로받는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Licensor</source>
-        <translation>许可人</translation>
+        <translation>Licensor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
-        <translation>用于作为许可证批准, 签发的个人或组织</translation>
+        <translation>라이센스 서명, 즉위 등의 개인 또는 조직에 사용</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Lighting designer</source>
-        <translation>照明设计师</translation>
+        <translation>Lighting designer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
-        <translation>用于为剧院演示，娱乐，电影等设计照明方案的个人或组织.</translation>
+        <translation>연극 프리젠 테이션, 엔터테인먼트, 영화 등을위한 조명 구성표를 디자인하는 사람 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Lithographer</source>
-        <translation>石版家</translation>
+        <translation>Lithographer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
-        <translation>用于准备用于平版印刷的石或板的人或组织，包括直接在表面上创建直接在其上进行印刷的图案的图形艺术家</translation>
+        <translation>인쇄 할 표면에 직접 디자인을 만드는 그래픽 아티스트를 포함하여 석판 인쇄를 위해 석재 또는 플레이트를 준비하는 사람 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Lyricist</source>
-        <translation>歌词作者</translation>
+        <translation>Lyricist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
-        <translation>用于作为歌曲文本作者的人或组织</translation>
+        <translation>노래 텍스트를 쓴 사람(작곡가)이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Manufacture place</source>
-        <translation>制造地点</translation>
+        <translation>Manufacture place</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>The place of manufacture (e.g., printing, duplicating, casting, etc.) of a resource in a published form.</source>
-        <translation>以公开形式的资源的制造地点 (例如，打印，复制，铸造等)</translation>
+        <translation>출판 된 형태의 자원의 제조 장소 (예 : 인쇄, 복제, 주조 등).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Manufacturer</source>
-        <translation>制造商</translation>
+        <translation>Manufacturer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
-        <translation>用于进行人为工作的个人或组织 (由一个或多个人制作或修改的对象). 人工作品的例子包括花瓶, 大炮或家具.</translation>
+        <translation>인공 작업 (한 명 이상의 사람이 만들거나 수정 한 물건)을 만드는 개인 또는 조직에 사용합니다. 인공 작품의 예로는 꽃병, 대포 또는 가구 조각이 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>Marbler</source>
-        <translation>大理石工匠</translation>
+        <translation>Marbler</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>The entity responsible for marbling paper, cloth, leather, etc. used in construction of a resource.</source>
-        <translation>负责在建筑资源中使用的大理石纸，布，皮革等的实体</translation>
+        <translation>자원 건설에 사용되는 종이, 천, 가죽 등의 마블링 책임자.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Markup editor</source>
-        <translation>标记编辑</translation>
+        <translation>Markup editor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
-        <translation>用于执行元数据，文本等的SGML，HTML或XML标记编码的人员或组织.</translation>
+        <translation>메타 데이터, 텍스트 등의 SGML, HTML 또는 XML 마크 업 코딩을 수행하는 개인 또는 조직에 사용</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>Medium</source>
-        <translation>巫师</translation>
+        <translation>Medium</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>A person held to be a channel of communication between the earthly world and a different world.</source>
-        <translation>一个被认为是地球世界和另一个世界之间的沟通渠道的人</translation>
+        <translation>사람은 세상과 다른 세상 사이의 의사 소통 통로가되어야합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Metadata contact</source>
-        <translation>元数据联系人</translation>
+        <translation>Metadata contact</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
-        <translation>用于主要负责编辑和维护元数据集的原始描述 (例如，地理空间元数据集) 的人员或组织</translation>
+        <translation>메타 데이터 세트 (예 : 지리 공간 메타 데이터 세트)의 원래 설명을 편집하고 유지하는 일을 주로 담당하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Metal-engraver</source>
-        <translation>金属雕刻</translation>
+        <translation>Metal-engraver</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
-        <translation>用于在金属表面上切割以进行打印或装饰的负责装饰，插图，信件等的人或组织</translation>
+        <translation>인쇄 또는 장식을 위해 금속 표면에 잘라낸 장식, 삽화, 문자 등을 담당하는 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Minute taker</source>
-        <translation>会议书记员</translation>
+        <translation>Minute taker</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>A person, family, or organization responsible for recording the minutes of a meeting.</source>
-        <translation>负责记录会议记录的人，家人或组织</translation>
+        <translation>회의록을 기록하는 사람, 가족 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Moderator</source>
-        <translation>协调人</translation>
+        <translation>Moderator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation>用于领导讨论主题的节目 (通常是广播) 的人, 通常由与讨论相关领域的专家参与</translation>
+        <translation>일반적으로 토론과 관련된 분야의 전문가의 참여와 함께 주제가 논의되는 프로그램 (종종 방송)을 이끄는 사람에게 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Monitor</source>
-        <translation>督导员</translation>
+        <translation>Monitor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
-        <translation>用于监督合同合规并对报告负责并控制其分发的个人或组织。 有时称为受让人或控制机构</translation>
+        <translation>계약 준수를 감독하고 보고서를 책임지고 배포를 통제하는 개인 또는 조직에 사용합니다. 때로는 양수인 또는 통제 기관이라고도합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Music copyist</source>
-        <translation>音乐誊写员</translation>
+        <translation>Music copyist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Use for a person who transcribes or copies musical notation</source>
-        <translation>用于转录或复制音乐符号的人</translation>
+        <translation>악보를 녹음하거나 복사하는 사람에게 사용</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Musical director</source>
-        <translation>音乐总监</translation>
+        <translation>Musical director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
-        <translation>用于负责制作的基本音乐决策的人员，包括协调作曲家，声音编辑和混音师的工作，选择音乐家，组织和/或演奏排练和表演的声音</translation>
+        <translation>작곡가, 사운드 편집기 및 사운드 믹서의 작업 조정, 음악가 선택, 리허설 및 공연을위한 사운드 구성 및 / 또는 수행을 포함하여 프로덕션에 대한 기본 음악 결정을 담당하는 사람에게 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Musician</source>
-        <translation>音乐家</translation>
+        <translation>Musician</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
-        <translation>用于在不可能或不可能更精确地识别功能时执行音乐或贡献作品的音乐内容的人或组织</translation>
+        <translation>기능을보다 정확하게 식별하는 것이 불가능하거나 바람직하지 않은 경우 음악을 연주하거나 작품의 음악 컨텐츠에 기여하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Narrator</source>
-        <translation>讲解员</translation>
+        <translation>Narrator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
-        <translation>用于作为与事件，事件或事件过程的细节相关的发言人的人</translation>
+        <translation>행위, 사건 또는 사건의 과정과 관련된 연사 인 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Onscreen presenter</source>
-        <translation>屏幕演示者</translation>
+        <translation>Onscreen presenter</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>A performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., Narrator, Host) is either not applicable or not desired.</source>
-        <translation>通过出现在非小说移动图像资料的屏幕上或介绍小说移动图像资料以提供上下文或背景信息来对作品表达做出贡献的表演者。 当其他术语 (例如，旁白，主机) 不适用或不需要时使用.</translation>
+        <translation>논픽션 동영상 자료에 화면에 나타나거나 맥락 또는 배경 정보를 제공하기 위해 소설 동영상 자료에 대한 소개를 통해 작품 표현에 기여하는 연기자. 다른 용어 (예 : 내레이터, 호스트)가 적용되지 않거나 원하지 않는 경우에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Opponent</source>
-        <translation>对手</translation>
+        <translation>상대(Opponent)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
-        <translation>用于负责反对论文或论文的个人或组织</translation>
+        <translation>이론 또는 논문에 반대하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Organizer of meeting</source>
-        <translation>会议主办方</translation>
+        <translation>회의 주최자(Organizer of meeting)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
-        <translation>用于负责组织一个项目是报告或诉讼的会议的个人或组织。</translation>
+        <translation>항목이 보고서 또는 진행 상황 인 회의를 조직 할 책임이있는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Originator</source>
-        <translation>创始人</translation>
+        <translation>창작자(Originator)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
-        <translation>用于执行工作的个人或组织，即与工作的知识内容相关联的人员或组织的名称. 此类别不包括出版商或个人联盟或赞助商，除非它也是公司作者.</translation>
+        <translation>작업을 수행하는 개인 또는 조직, 즉 작업의 지적 내용과 관련된 개인 또는 조직의 이름에 사용합니다. 이 카테고리에는 출판사 또는 개인 제휴사 또는 스폰서가 포함되지 않으며 공동 저자이기도합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Other</source>
-        <translation>其它</translation>
+        <translation>Other</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
-        <translation>用于在MARC列表中没有等效项的其他列表中的relator代码或未分配代码的项</translation>
+        <translation>MARC 목록에 해당되지 않는 다른 목록의 코드 나 코드에 할당되지 않은 용어에 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Owner</source>
-        <translation>所有者</translation>
+        <translation>소유자(Owner)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
-        <translation>用于当前拥有项目或集合的个人或组织</translation>
+        <translation>현재 아이템이나 컬렉션을 소유 한 개인이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>Panelist</source>
-        <translation>专家小组成员</translation>
+        <translation>패널리스트(Panelist)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source> performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation>通过参与讨论主题的程序 (通常是广播) 来促进资源的执行者，通常由与讨论相关领域的专家参与</translation>
+        <translation>일반적으로 토론과 관련된 분야의 전문가의 참여와 함께 주제가 논의되는 프로그램 (종종 방송)에 참여함으로써 자원에 기여하는 수행자.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Papermaker</source>
-        <translation>造纸者</translation>
+        <translation>제지업자(Papermaker)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
-        <translation>用于负责生产纸张的人员或组织，通常来自木材，布料或其他纤维材料.</translation>
+        <translation>일반적으로 목재, 천 또는 기타 섬유 재료로 종이를 생산하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Patent applicant</source>
-        <translation>专利申请人</translation>
+        <translation>특허 출원(Patent applicant)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Use for a person or organization that applied for a patent.</source>
-        <translation>用于申请专利的个人或组织.</translation>
+        <translation>특허를 신청 한 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Patent holder</source>
-        <translation>专利持有者</translation>
+        <translation>특허 보유자(Patent holder)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
-        <translation>用于被授予该项目提及的专利的个人或组织.</translation>
+        <translation>품목이 언급 한 특허를받은 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Patron</source>
-        <translation>赞助人</translation>
+        <translation>Patron</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
-        <translation>用于负责调试工作的个人或组织。 通常，顾客使用他或她的手段或影响来支持艺术家，作家等的工作. 这包括那些谁委托和支付个别作品.</translation>
+        <translation>작업 커미셔닝을 담당하는 개인 또는 조직에 사용하십시오. 일반적으로 고객은 예술가, 작가 등의 작품을 지원하기 위해 자신의 수단이나 영향력을 사용합니다. 여기에는 개별 작품을 의뢰하고 비용을 지불하는 사람들이 포함됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Performer</source>
-        <translation>表演者</translation>
+        <translation>배우(Performer)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
-        <translation>如果没有使用这些功能的特定代码 ([act]，[dnc]，[itr]，[voc]等) ，则用于在音乐或戏剧性演示或娱乐中表现音乐或表演技巧的个人或组织. 如果使用特定代码，[prf]用于主要技能未知或未指定的人员.</translation>
+        <translation>해당 기능에 대한 특정 코드 ([act], [dnc], [itr], [voc] 등)를 사용하지 않는 경우 음악 또는 연극 프레젠테이션 또는 엔터테인먼트에서 음악 또는 연기 기술을 나타내는 개인 또는 조직에 사용 . 특정 코드를 사용하는 경우 [prf]는 주요 기술을 모르거나 지정하지 않은 사람에게 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Permitting agency</source>
-        <translation>许可代理</translation>
+        <translation>허가 기관(Permitting agency)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
-        <translation>用于发放工作完成的许可证的机构 (通常是政府机构).</translation>
+        <translation>작업이 수행되는 허가를 발급하는 기관 (보통 정부 기관)에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Photographer</source>
-        <translation>摄影师</translation>
+        <translation>사진작가(Photographer)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
-        <translation>用于负责拍摄照片的个人或组织，无论他们是以原始形式使用还是作为复制品.</translation>
+        <translation>사진을 원래 형태로 사용하든 복제물로 사용하든 사진을 찍는 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Plaintiff</source>
-        <translation>原告</translation>
+        <translation>원고(Plaintiff)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
-        <translation>用于通过个人诉讼（通常是法律程序）在法庭上投诉或起诉的一方.</translation>
+        <translation>법정에서 불만을 제기하거나 소송을 제기 한 당사자를 위해 개인 소송에서, 일반적으로 법적 소송에서 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Plaintiff-appellant</source>
-        <translation>原告上诉人</translation>
+        <translation>원고-항소(Plaintiff-appellant)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation>用于原告人从一个法院或管辖区向另一个法院或管辖区提出上诉，以通过法律程序进行判决.</translation>
+        <translation>일반적으로 법정 소송에서 판결을 취소하기 위해 한 법원 또는 관할권에서 다른 법원으로 항소하는 원고에게 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Plaintiff-appellee</source>
-        <translation>原告被上诉人</translation>
+        <translation>Plaintiff-appellee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation>用于被原告人从一个法院或管辖区向另一个法院或管辖区提出上诉的人，通常是在法律程序中推翻该判决.</translation>
+        <translation>일반적으로 법적 절차에서 판결을 취소하기 위해 한 법원 또는 관할권에서 다른 법원으로 항소를 제기 한 원고에게 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Platemaker</source>
-        <translation>制版商</translation>
+        <translation>Platemaker</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
-        <translation>用于负责生产印版的个人或组织，通常用于生产印刷图像和/或文本.</translation>
+        <translation>일반적으로 인쇄 된 이미지 및 / 또는 텍스트를 제작하기 위해 플레이트 제작을 담당하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Praeses</source>
-        <translation>之前的</translation>
+        <translation>Praeses</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>A person who is the faculty moderator of an academic disputation, normally proposing a thesis and participating in the ensuing disputation.</source>
-        <translation>一个人是学术争议的教师主持人，通常提出论文并参与随后的争议.</translation>
+        <translation>학문적 논쟁의 교수 중재자 인 사람으로, 일반적으로 논문을 제안하고 이의를 제기하는 논쟁에 참여합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Presenter</source>
-        <translation>演说者</translation>
+        <translation>증여자(Presenter)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</source>
-        <translation>在“某演讲”中提到的个人或组织表示对运动图像材料的信用，并且以某种方式与生产，财务或分配相关联。 虚荣信用; 在早年，通常一个工作室的头。</translation>
+        <translation>&apos;X presemts&apos;에 언급 된 사람이나 조직은 동영상 자료 및 제작, 금융 또는 배포와 관련이있는 사람에 대해 크레딧을 제공합니다. 허영 신용; 초기에는 일반적으로 스튜디오 책임자였습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Printer</source>
-        <translation>打印者</translation>
+        <translation>Printer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
-        <translation>用于打印文本的个人或组织，无论是从类型还是从版面</translation>
+        <translation>종류 나 번호판에서 텍스트를 인쇄하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Printer of plates</source>
-        <translation>制版打印</translation>
+        <translation>Printer of plates</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
-        <translation>用于打印插图的人或组织</translation>
+        <translation>판에서 삽화를 인쇄하는 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Printmaker</source>
-        <translation>版画复制</translation>
+        <translation>Printmaker</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
-        <translation>用于制作浮雕，凹版或平版印刷表面的人或组织</translation>
+        <translation>구호, 요판 또는 평면 인쇄 표면을 만드는 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Process contact</source>
-        <translation>过程联系人</translation>
+        <translation>Process contact</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
-        <translation>用于主要负责执行或启动流程的人员或组织，例如对元数据集合的收集.</translation>
+        <translation>메타 데이터 세트 수집과 같이 프로세스 수행 또는 시작을 주로 담당하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Producer</source>
-        <translation>生产者</translation>
+        <translation>Producer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
-        <translation>用于负责制作电影的个人或组织，包括业务方面，制作的管理以及工作的商业成功</translation>
+        <translation>비즈니스 측면, 작품 관리, 작품의 상업적 성공 등 영화 제작을 담당하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Production company</source>
-        <translation>制作公司</translation>
+        <translation>Production company</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc.</source>
-        <translation>负责舞台，屏幕，录音，电视，网播等产品的财务，技术和组织管理的组织.</translation>
+        <translation>무대, 스크린, 오디오 녹음, 텔레비전, 웹 캐스트 등을위한 프로덕션의 재무, 기술 및 조직 관리를 담당하는 조직</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>Production designer</source>
-        <translation>产品设计师</translation>
+        <translation>Production designer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>A person or organization responsible for designing the overall visual appearance of a moving image production.</source>
-        <translation>负责设计运动图像制作的整体视觉外观的个人或组织</translation>
+        <translation>동영상 제작의 전체적인 시각적 모양을 디자인하는 담당자 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Production manager</source>
-        <translation>产品经理</translation>
+        <translation>Production manager</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
-        <translation>用于负责生产中的所有技术和业务问题的人员</translation>
+        <translation>프로덕션의 모든 기술 및 비즈니스 문제를 담당하는 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Production personnel</source>
-        <translation>生产人员</translation>
+        <translation>Production personnel</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
-        <translation>用于与音乐或戏剧演出或娱乐的制作 (道具，灯光，特效等)
- 相关的人或组织.</translation>
+        <translation>뮤지컬 또는 드라마틱 한 프리젠 테이션 또는 엔터테인먼트 제작 (소품, 조명, 특수 효과 등)과 관련된 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>Production place</source>
-        <translation>生产地点</translation>
+        <translation>Production place</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>The place of production (e.g., inscription, fabrication, construction, etc.) of a resource in an unpublished form.</source>
-        <translation>原材料未出版形式的生产地 (例如，铭文，制作，建造等).</translation>
+        <translation>출판되지 않은 형태의 자원의 생산 장소 (예 : 비문, 제작, 건설 등).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Programmer</source>
-        <translation>程序员</translation>
+        <translation>Programmer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
-        <translation>用于负责创建和/或维护计算机程序设计文档，源代码和机器可执行数字文件和支持文档的人员或组织.</translation>
+        <translation>컴퓨터 프로그램 설계 문서, 소스 코드 및 머신 실행 가능 디지털 파일 및 지원 문서의 작성 및 / 또는 유지 관리를 담당하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Project director</source>
-        <translation>项目总监</translation>
+        <translation>Project director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
-        <translation>用于对项目所有重要方面负主要责任的人员或组织，或管理需要高级职责的大型项目，或负责管理项目的全面责任，或向项目经理提供整体指导。</translation>
+        <translation>프로젝트의 모든 필수 측면에 대한 주요 책임이 있거나, 고위급 책임이 필요한 대규모 프로젝트를 관리하거나, 프로젝트 관리에 대한 전반적인 책임이 있거나, 프로젝트 관리자에게 전반적인 방향을 제시하는 개인 또는 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Proofreader</source>
-        <translation>校对</translation>
+        <translation>Proofreader</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
-        <translation>用于纠正印刷品的人. 对于手稿，请使用Corrector [crr].</translation>
+        <translation>인쇄물을 수정 한 사람에게 사용하십시오. 원고의 경우 교정기 [crr]을 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Provider</source>
-        <translation>供应者</translation>
+        <translation>Provider</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>A person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl].)</source>
-        <translation>如果不需要特定代码 (例如[mfr], [pbl]), 则指生产，出版，制造或分发资源的个人或组织。</translation>
+        <translation>특정 코드가 필요하지 않은 경우 리소스를 생성, 게시, 제조 또는 배포하는 사람 또는 조직 (예 : [mfr], [pbl])</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Publication place </source>
-        <translation>出版地</translation>
+        <translation>Publication place </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>The place where a resource is published.</source>
-        <translation>源版出版的地方</translation>
+        <translation>리소스가 게시 된 장소입니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Publisher</source>
-        <translation>出版商</translation>
+        <translation>발행인(Publisher)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
-        <translation>用于制作印刷品的人或组织，通常是文字，也可以向公众提供印刷的音乐，艺术品等.</translation>
+        <translation>인쇄물, 종종 텍스트뿐만 아니라 인쇄 된 음악, 아트 워크 등을 대중에게 공개하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Publishing director</source>
-        <translation>出版总监</translation>
+        <translation>Publishing director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
-        <translation>用于主持编写集体工作以确保其一致性或连续性的个人或组织. 这包括主编, 文学编辑, 系列编辑等.</translation>
+        <translation>일관성 또는 연속성을 보장하기 위해 공동 작업의 정교화를 주재하는 개인 또는 조직에 사용합니다. 여기에는 편집장, 문학 편집자, 시리즈 편집자 등이 포함됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Puppeteer</source>
-        <translation>拉线木偶表演者</translation>
+        <translation>Puppeteer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
-        <translation>用于在音乐或戏剧性演示或娱乐中操纵，控制或指导木偶或牵线木偶的人或组织.</translation>
+        <translation>뮤지컬 또는 드라마틱 한 프리젠 테이션 또는 엔터테인먼트에서 퍼펫 또는 마리오네트를 조작, 제어 또는 감독하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>Radio director</source>
-        <translation>广播导演</translation>
+        <translation>Radio director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>A director responsible for the general management and supervision of a radio program.</source>
-        <translation>负责广播节目总体管理和监督的主任。</translation>
+        <translation>라디오 프로그램의 전반적인 관리 및 감독을 담당하는 이사.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>Radio producer</source>
-        <translation>无线电制作人</translation>
+        <translation>Radio producer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>A producer responsible for most of the business aspects of a radio program.</source>
-        <translation>负责无线电节目的大部分业务方面的生产者。</translation>
+        <translation>라디오 프로그램의 대부분의 비즈니스 측면을 담당하는 프로듀서.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Recipient</source>
-        <translation>收信人</translation>
+        <translation>Recipient</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
-        <translation>用于通信对象的个人或组织。</translation>
+        <translation>서신을 다루는 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Recording engineer</source>
-        <translation>录音工程师</translation>
+        <translation>Recording engineer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
-        <translation>用于监督声音或录像会话的技术方面的个人或组织.</translation>
+        <translation>사운드 또는 비디오 녹화 세션의 기술적 측면을 감독하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>A person contributing to a resource by supervising the technical aspects of a sound or video recording session.</source>
-        <translation>通过监督声音或视频记录会话的技术方面来贡献资源的人员.</translation>
+        <translation>사운드 또는 비디오 녹화 세션의 기술적 측면을 감독하여 리소스에 기여하는 사람.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Redactor</source>
-        <translation>编辑者</translation>
+        <translation>Redactor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
-        <translation>用于为物品编写或开发框架而不对其内容负责的人员或组织.</translation>
+        <translation>항목에 대한 지적 책임없이 항목의 프레임 워크를 작성하거나 개발하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Renderer</source>
-        <translation>渲染师</translation>
+        <translation>Renderer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
-        <translation>用于以准确的，代表性的角度准备建筑设计图 (即渲染) 的人员或组织，以显示项目在完成时的外观.</translation>
+        <translation>건축 설계 도면 (예 : 렌더링)을 정확하고 표현적인 관점에서 도면을 작성하여 프로젝트가 완료 될 때의 모습을 보여주는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Reporter</source>
-        <translation>记着</translation>
+        <translation>Reporter</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
-        <translation>用于在空中或印刷品上写入或呈现新闻或当前活动的报告的个人或组织</translation>
+        <translation>방송 또는 인쇄 된 뉴스 또는 현재 이벤트에 대한 보고서를 쓰거나 제시하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Repository</source>
-        <translation>仓库</translation>
+        <translation>Repository</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
-        <translation>用于托管数据或材料文化对象的代理机构，并提供服务以促进对这些数据或对象的长期，一致和共享的使用</translation>
+        <translation>데이터 또는 재료 문화 개체를 호스팅하고 해당 데이터 또는 개체의 장기적이고 일관된 공유 사용을 촉진하는 서비스를 제공하는 대행사에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Research team head</source>
-        <translation>研究组长</translation>
+        <translation>Research team head</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Use for a person who directed or managed a research project.</source>
-        <translation>用于指导或管理研究项目的人员.</translation>
+        <translation>연구 프로젝트를 지휘하거나 관리하는 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Research team member</source>
-        <translation>研究组成员</translation>
+        <translation>Research team member</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
-        <translation>用于参与研究项目的人员, 但不涉及指导或管理角色.</translation>
+        <translation>연구 프로젝트에 참여했지만 그 방향이나 관리와 관련이없는 역할을하는 사람에게 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Researcher</source>
-        <translation>研究员</translation>
+        <translation>Researcher</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Use for a person or organization responsible for performing research. </source>
-        <translation>用于负责研究的人员或组织</translation>
+        <translation>연구 수행을 담당하는 개인 또는 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Respondent</source>
-        <translation>答辩人</translation>
+        <translation>Respondent</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
-        <translation>用于通常在股本诉讼中向法院作出答复的一方.</translation>
+        <translation>일반적으로 지분 절차에서 구제 신청에 따라 법원에 답변하는 당사자에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Respondent-appellant</source>
-        <translation>答辩人上诉人</translation>
+        <translation>Respondent-appellant</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>用于从一个法院或管辖区向另一个法院提起上诉的被告人.</translation>
+        <translation>일반적으로 형평법 절차에서 판결을 취소하기 위해 한 법원 또는 관할권에서 항소하는 응답자에게 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Respondent-appellee</source>
-        <translation>被申请人被上诉人</translation>
+        <translation>Respondent-appellee</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation>对于通过在产权诉讼中，通过一项法院或司法管辖区向另一方提出上诉的被告，用于扭转判决的诉讼。</translation>
+        <translation>일반적으로 형평법 소송에서 판결을 취소하기 위해 한 법원이나 관할권에서 다른 법원으로 항소를 제기 한 응답자에게 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Responsible party</source>
-        <translation>责任方</translation>
+        <translation>Responsible party</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
-        <translation>用于对发布资料的内容负法律责任的个人或组织。</translation>
+        <translation>출판 된 자료의 내용에 대해 법적 책임이있는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>Restager</source>
-        <translation>舞蹈再编辑</translation>
+        <translation>Restager</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
-        <translation>用于除原始编舞者或导演以外的人员或组织，负责重新进行舞蹈作品或戏剧作品贡献最少的新内容。</translation>
+        <translation>안무 또는 극적인 작품의 복원을 담당하고 최소한의 새로운 콘텐츠를 제공하는 사람이나 조직, 원래 안무가 또는 감독 이외의 사람에게 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>Restorationist</source>
-        <translation>恢复修补者</translation>
+        <translation>Restorationist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>A person, family, or organization responsible for the set of technical, editorial, and intellectual procedures aimed at compensating for the degradation of an item by bringing it back to a state as close as possible to its original condition.</source>
-        <translation>负责一系列技术，编辑和智力程序的个人，家庭或组织，旨在通过将其恢复到尽可能接近原始状态的状态来补偿项目的退化。</translation>
+        <translation>품목을 원래 상태와 가능한 한 가까운 상태로 되돌려 서 품목의 열화를 보상하는 것을 목표로하는 일련의 기술, 편집 및 지적 절차를 담당하는 개인, 가족 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Reviewer</source>
-        <translation>审查</translation>
+        <translation>Reviewer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
-        <translation>用于负责审查书籍，电影，表演等的个人或组织</translation>
+        <translation>책, 영화, 공연 등의 검토를 담당하는 개인 또는 조직에 사용</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Rubricator</source>
-        <translation>加红字标题的人</translation>
+        <translation>Rubricator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
-        <translation>用于负责部分工作的人员或组织，通常是以特殊颜色出现的手稿的标题或开头部分，通常为红色。</translation>
+        <translation>작품의 일부, 주로 원고의 제목 또는 오프닝 부분을 담당하는 개인 또는 조직에 사용되며, 일반적으로 빨간색으로 나타납니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Scenarist</source>
-        <translation>编剧家</translation>
+        <translation>Scenarist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
-        <translation>作为电影剧本作者的个人或组织。</translation>
+        <translation>영화 시나리오를 제작 한 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Scientific advisor</source>
-        <translation>科学顾问</translation>
+        <translation>Scientific advisor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
-        <translation>用于为科学，教学或历史能力而设计的人或组织，用于对作品的概念和实现，特别是在视听材料的情况下。</translation>
+        <translation>특히 시청각 항목의 경우 작업에 대한 개념과 실현에 과학적, 교육적 또는 역사적 역량을 부여하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
@@ -12683,407 +12733,407 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
-        <translation>一个为作家手写书稿文案的人. 对于制作笔式传真的人，请使用传真电报 [fac]。</translation>
+        <translation>필기자와 적절한 필사자에게 사용하십시오. 펜 팩스를 만드는 사람은 팩스 [facimilist]를 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Sculptor</source>
-        <translation>雕刻家</translation>
+        <translation>Sculptor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
-        <translation>用于建模或雕刻三维表示图形的人员或组织</translation>
+        <translation>3차원 표현물을 모형화하거나 조각하는 개인 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Second party</source>
-        <translation>第二方</translation>
+        <translation>Second party</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
-        <translation>用于被识别为第二部分的一方的个人或组织。 在转让权的情况下，受让人，受让人，被许可人，受让人等。多方可以共同命名为第二方。</translation>
+        <translation>두 번째 부분의 당사자로 식별 된 개인 또는 조직에 사용하십시오. 권리 양도의 경우, 양수인, 양수인, 라이센스 사용자, 양수인 등입니다. 여러 당사자를 공동으로 제 2 자로 지명 할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Secretary</source>
-        <translation>秘书</translation>
+        <translation>Secretary</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
-        <translation>用于记录，重定向或负责表达组织意见的人员或组织.</translation>
+        <translation>레코더, 편집자 또는 조직의 견해를 표현할 책임이있는 사람 또는 개인에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>Seller</source>
-        <translation>卖方</translation>
+        <translation>Seller</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>A former owner of an item who sold that item to another owner.</source>
-        <translation>将该物品出售给另一位的前拥有人。</translation>
+        <translation>해당 항목을 다른 소유자에게 판매 한 항목의 이전 소유자.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Set designer</source>
-        <translation>设置设计师</translation>
+        <translation>Set designer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
-        <translation>用于将艺术总监的粗略草图翻译成用于戏剧演示，娱乐，电影等的实际建筑结构的个人或组织。设计师绘制构建集的详细指南和规范。</translation>
+        <translation>아트 디렉터의 거친 스케치를 연극 프리젠 테이션, 엔터테인먼트, 영화 등을위한 실제 건축 구조로 변환하는 개인 또는 조직에 사용합니다. 세트 디자이너는 세트 제작에 대한 자세한 안내 및 사양을 그립니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>Setting</source>
-        <translation>背景</translation>
+        <translation>Setting</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>An entity in which the activity or plot of a work takes place, e.g. a geographic place, a time period, a building, an event.</source>
-        <translation>工作活动或事情发生的实体, 例如地理位置, 时间段, 建筑物, 事件.</translation>
+        <translation>작업의 활동이나 음모가 발생하는 실체 (예 : 지리적 장소, 기간, 건물, 이벤트.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Signer</source>
-        <translation>签名人</translation>
+        <translation>Signer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
-        <translation>用于签名出现的人，不附有陈述或其他陈述来源的陈述。 当演示声明时，请使用记录器[ins]。</translation>
+        <translation>프레젠테이션 또는 출처를 나타내는 기타 진술없이 서명이있는 사람에게 사용하십시오. 프레젠테이션 설명이 있으면 Inscriber [ins]를 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Singer</source>
-        <translation>歌唱家</translation>
+        <translation>Singer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
-        <translation>用于使用或不使用乐器伴奏的他/她/他们的声音的人或组织来制作音乐。 表演可能包含或不包括实际单词。</translation>
+        <translation>악기 반주와 함께 또는없이 반주를 사용하여 음악을 제작하는 개인이나 조직에 사용합니다. 공연은 실제 단어를 포함하거나 포함하지 않을 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Sound designer</source>
-        <translation>声音设计师</translation>
+        <translation>Sound designer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
-        <translation>用于生产和再现声音 (包括现场和录音) 的人员，麦克风的安装，声级的设置以及生产的声源的协调。</translation>
+        <translation>사운드 스코어 (라이브 및 녹음), 마이크 설치, 사운드 레벨 설정 및 제작을위한 사운드 소스 조정을 생성 및 재생하는 사람에게 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Speaker</source>
-        <translation>发言者</translation>
+        <translation>Speaker</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
-        <translation>用于参与节目 (经常广播) 提前准备正式演讲的人员。</translation>
+        <translation>프로그램 (보통 방송)에 참여하고 일반적으로 사전에 준비된 공식 기여 나 발표를하는 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Sponsor</source>
-        <translation>主办方</translation>
+        <translation>Sponsor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
-        <translation>用于签发合同的人员或组织，或其主持人已经编写，印刷，出版等。</translation>
+        <translation>계약을 체결 한 사람 또는 저작물이 기록, 출판, 출판 등의 후원을받는 사람 또는 조직에 사용</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Stage director</source>
-        <translation>舞台导演</translation>
+        <translation>Stage director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>A person or organization contributing to a stage resource through the overall management and supervision of a performance.</source>
-        <translation>为舞台资源做出贡献并监督表演的人员或组织。</translation>
+        <translation>성능의 전반적인 관리 및 감독을 통해 단계 자원에 기여하는 개인 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Stage manager</source>
-        <translation>舞台监督</translation>
+        <translation>Stage manager</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
-        <translation>用于负责演出舞台上发生的一切的人，以及在排练期间担任导演的所有员工和助理的主管。</translation>
+        <translation>공연 무대에서 발생하는 모든 일을 담당하고 리허설 중에 모든 승무원의 책임자 및 감독의 조수 역할을하는 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Standards body</source>
-        <translation>标准化组织</translation>
+        <translation>Standards body</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
-        <translation>用于负责制定或执行标准的组织。</translation>
+        <translation>표준의 개발 또는 시행을 담당하는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Stereotyper</source>
-        <translation>铸版工</translation>
+        <translation>Stereotyper</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
-        <translation>用于通过模制或复制另一个打印面来创建新版印刷的人员或组织。</translation>
+        <translation>다른 인쇄면을 성형하거나 복사하여 인쇄용 새 판을 만드는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>Storyteller</source>
-        <translation>讲故事者</translation>
+        <translation>Storyteller</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
-        <translation>通过创意和/或戏剧解释传达故事的人。</translation>
+        <translation>창의적이고 연극적인 해석으로 이야기를 전달하는 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Supporting host</source>
-        <translation>支持方</translation>
+        <translation>Supporting host</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
-        <translation>用于支持 (通过分配设施，人员或其他资源) 项目，计划，会议，事件，数据对象，材料文化对象或能够支持实体的个人或组织。</translation>
+        <translation>프로젝트, 프로그램, 회의, 이벤트, 데이터 객체, 재료 문화 객체 또는 기타 지원 가능한 단체를 지원하는 시설이나 직원 또는 기타 자원을 지원하는 개인이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Surveyor</source>
-        <translation>勘测员</translation>
+        <translation>Surveyor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
-        <translation>用于对土地等进行测量的个人或组织，以确定位置，形式和边界.</translation>
+        <translation>위치, 형태 및 경계를 결정하기 위해 토지 등을 측정하는 사람 또는 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Teacher</source>
-        <translation>教师</translation>
+        <translation>Teacher</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
-        <translation>在智力科目中进行指导或在教授身体技能时表现的人。</translation>
+        <translation>자원과 관련하여 지적 주제에 대한 교육을 제공하거나 신체 기술을 가르치면서 시연하는 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Technical director</source>
-        <translation>技术总监</translation>
+        <translation>Technical director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
-        <translation>最终负责风景，道具，灯光和声音的人</translation>
+        <translation>프로덕션의 풍경, 소품, 조명 및 사운드를 궁극적으로 담당하는 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Television director</source>
-        <translation>电视总监</translation>
+        <translation>Television director</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>A director responsible for the general management and supervision of a television program.</source>
-        <translation>负责电视节目总体管理和监督的主任</translation>
+        <translation>텔레비전 프로그램의 전반적인 관리 및 감독을 담당하는 관리자.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>Television producer</source>
-        <translation>电视制作人</translation>
+        <translation>Television producer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>A producer responsible for most of the business aspects of a television program.</source>
-        <translation>负责电视节目的大部分业务方面的制片人。</translation>
+        <translation>텔레비전 프로그램의 대부분의 비즈니스 측면을 책임지는 프로듀서.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>Thesis advisor</source>
-        <translation>论文顾问</translation>
+        <translation>Thesis advisor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
-        <translation>用于一名在学位候选人进行监督的人员，并提供论文，记述或论文文本.</translation>
+        <translation>학위 후보자가 감독하여 논문, 논문 또는 논문의 텍스트를 개발하고 발표하는 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>Transcriber</source>
-        <translation>抄录员</translation>
+        <translation>Transcriber</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
-        <translation>从原始材料（包括由口头或口头记录的材料）准备手写或打字副本的人员。 对于笔式传真机的制造商，请使用Facsimilist [fac]。</translation>
+        <translation>받아쓰기 또는 구두로 기록 된 자료를 포함하여 원본 자료에서 필기 또는 타이핑 된 사본을 준비하는 사람에게 사용하십시오. 펜 팩시밀리 제조업체의 경우 팩시밀리 [fac]를 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>Translator</source>
-        <translation>翻译</translation>
+        <translation>Translator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
-        <translation>将文本从一种语言呈现到另一种语言或从较旧形式的语言转换为现代形式的个人或组织</translation>
+        <translation>한 언어에서 다른 언어로, 또는 오래된 언어에서 현대적인 형태로 텍스트를 렌더링하는 개인이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Type designer</source>
-        <translation>类型设计师</translation>
+        <translation>Type designer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
-        <translation>用于设计特定项目中使用的类型面孔的人员或组织。</translation>
+        <translation>특정 품목에 사용 된 활자체를 디자인 한 사람 또는 조직에 사용</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Typographer</source>
-        <translation>排版师</translation>
+        <translation>Typographer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
-        <translation>用于主要负责项目中使用的类型的选择和排列的人员或组织。 如果打字人员还负责图书设计的其他方面 (例如书籍设计师[bkd])，则可能需要为两种功能编写代码。</translation>
+        <translation>품목에 사용 된 유형의 선택 및 배열을 주로 담당하는 개인 또는 조직에 사용합니다. 타이포 그래퍼가 책의 그래픽 디자인 (예 : 북 디자이너 [bkd])의 다른 측면을 담당하는 경우 두 기능 모두에 대한 코드가 필요할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>University place</source>
-        <translation>大学地点</translation>
+        <translation>University place</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>A place where a university that is associated with a resource is located, for example, a university where an academic dissertation or thesis was presented.</source>
-        <translation>与资源相关联的大学所在的地方，例如提供学术论文或论文的大学。</translation>
+        <translation>자원과 관련된 대학이있는 장소 (예 : 학술 논문 또는 논문이 제시된 대학)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="365"/>
         <source>Videographer</source>
-        <translation>摄影师</translation>
+        <translation>Videographer</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="365"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
-        <translation>用于负责视频制作的个人或组织，例如 与商业电影相反的舞台制作的录像. 摄像师可以是相机操作者，也可以监督一个或多个相机操作者。 不要与摄影师混淆.</translation>
+        <translation>비디오 제작을 담당하는 개인 또는 조직에 사용 (예 : 상업적인 영화와 달리 무대 제작의 비디오 녹화. 비디오 그래퍼는 카메라 오퍼레이터 일 수 있거나 하나 이상의 카메라 오퍼레이터를 감독 할 수있다. 촬영 감독과 혼동하지 마십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="366"/>
         <source>Voice actor</source>
-        <translation>配音演员</translation>
+        <translation>Voice actor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="366"/>
         <source>An actor contributing to a resource by providing the voice for characters in radio and audio productions and for animated characters in moving image works, as well as by providing voice overs in radio and television commercials, dubbed resources, etc.</source>
-        <translation>通过在无线电和音频制作中为角色提供语音，以及通过在移动图像作品中为动画人物提供声音，以及通过在广播电视广告，被称为资源等方面提供语音来贡献资源的演员。</translation>
+        <translation>라디오 및 오디오 제작의 캐릭터에 대한 음성 및 동영상 작품의 애니메이션 캐릭터에 대한 음성을 제공하고 라디오 및 텔레비전 광고, 더빙 된 리소스 등의 음성 오버를 제공하여 리소스에 기여하는 행위자</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="367"/>
         <source>Witness</source>
-        <translation>见证</translation>
+        <translation>Witness</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="367"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
-        <translation>用于验证事件或行为的真实性的人。</translation>
+        <translation>사건이나 행동의 진실성을 검증하는 사람에게 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="368"/>
         <source>Wood-engraver</source>
-        <translation>木雕刻</translation>
+        <translation>Wood-engraver</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="368"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
-        <translation>用于通过在木块末端谷物上切割图像进行打印的人员或组织。</translation>
+        <translation>나무 블록의 끝 부분에 이미지를 구호로 잘라서 인쇄하는 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="369"/>
         <source>Woodcutter</source>
-        <translation>木刻工</translation>
+        <translation>Woodcutter</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="369"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
-        <translation>用于通过在木块的木板侧切割图像而进行打印的人员或组织。</translation>
+        <translation>나무 블록의 판자쪽에 이미지를 부드러워서 인쇄하는 사람이나 조직에 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="370"/>
         <source>Writer of accompanying material</source>
-        <translation>伴随材料的作者</translation>
+        <translation>Writer of accompanying material</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="370"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
-        <translation>用于撰写伴随录音或其他视听材料的重要材料的个人或组织。</translation>
+        <translation>음원 또는 기타 시청각 자료와 함께 중요한 자료를 작성하는 사람이나 조직에 사용합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="371"/>
         <source>Writer of added commentary</source>
-        <translation>添加评论作者</translation>
+        <translation>Writer of added commentary</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="371"/>
         <source>A person, family, or organization contributing to an expression of a work by providing an interpretation or critical explanation of the original work.</source>
-        <translation>一个人，家庭或组织通过提供对原作的解释或批评性解释来促进工作的表达。</translation>
+        <translation>원본 저작물에 대한 해석 또는 비판적 설명을 제공하여 저작물 표현에 기여하는 개인, 가족 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="372"/>
         <source>Writer of added lyrics</source>
-        <translation>加入歌词者</translation>
+        <translation>Writer of added lyrics</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="372"/>
         <source>A writer of words added to an expression of a musical work. For lyric writing in collaboration with a composer to form an original work, see lyricist.</source>
-        <translation>一个作家的词语添加到一个表达的音乐作品。 为了与作曲家合作撰写原创作品的抒情作品，请参见歌词。</translation>
+        <translation>뮤지컬 작품의 표현에 추가 된 단어의 작가. 작곡가와 협력하여 독창적 인 작품을 작곡하는 가사는 가사를 참조하십시오.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="373"/>
         <source>Writer of added text</source>
-        <translation>文字添加作者</translation>
+        <translation>Writer of added text</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="373"/>
         <source>A person, family, or organization contributing to a non-textual resource by providing text for the non-textual work (e.g., writing captions for photographs, descriptions of maps.)</source>
-        <translation>通过为非文字作品提供文字 (例如，为照片撰写字幕，地图描述)，为非文字资源作出贡献的个人，家庭或组织。</translation>
+        <translation>비 텍스트 작업에 텍스트를 제공하여 비 텍스트 리소스에 기여하는 개인, 가족 또는 조직 (예 : 사진 캡션,지도 설명)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="374"/>
         <source>Writer of introduction</source>
-        <translation>介绍作家</translation>
+        <translation>Writer of introduction</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="374"/>
         <source>A person, family, or organization contributing to a resource by providing an introduction to the original work.</source>
-        <translation>通过介绍原创作品，为资源贡献一个人，家庭或组织。</translation>
+        <translation>원본 저작물을 소개함으로써 자원에 기여하는 개인, 가족 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="375"/>
         <source>Writer of preface</source>
-        <translation>序言作者</translation>
+        <translation>Writer of preface</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="375"/>
         <source>A person, family, or organization contributing to a resource by providing a preface to the original work.</source>
-        <translation>通过提供原始作品的序言，为资源贡献的人，家庭或组织。</translation>
+        <translation>원본 저작물의 서문을 제공하여 자원에 기여하는 개인, 가족 또는 조직.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="376"/>
         <source>Writer of supplementary textual content</source>
-        <translation>补充文字内容作者</translation>
+        <translation>Writer of supplementary textual content</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="376"/>
         <source>A person, family, or organization contributing to a resource by providing supplementary textual content (e.g., an introduction, a preface) to the original work.</source>
-        <translation>通过向原始作品提供补充文本内容 (例如介绍，序言)，为资源贡献的个人，家庭或组织。</translation>
+        <translation>원본 저작물에 보충 텍스트 콘텐츠 (예 : 소개, 서문)를 제공하여 자원에 기여하는 개인, 가족 또는 조직.</translation>
     </message>
 </context>
 <context>
@@ -13091,42 +13141,42 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="20"/>
         <source>MetaData Editor</source>
-        <translation>元数据编辑器</translation>
+        <translation>메타데이터 편집기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="52"/>
         <source>Add a new metadata element.</source>
-        <translation>添加新的元数据单元</translation>
+        <translation>새로운 메타데이터 요소를 추가합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="55"/>
         <source>Add Metadata</source>
-        <translation>添加元数据</translation>
+        <translation>메타데이터 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="62"/>
         <source>Remove a metadata element or property.</source>
-        <translation>删除一个元数据或属性</translation>
+        <translation>메타데이터 요소 또는 속성을 제거합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="65"/>
         <source>Remove</source>
-        <translation>删除</translation>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="72"/>
         <source>Add a new property or attribute to an existing metadata element.</source>
-        <translation>为一个已存在的元数据添加一个新的属性</translation>
+        <translation>기존 메타데이터 요소에 새 속성(property 또는 attribute)을 추가합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="75"/>
         <source>Add Property</source>
-        <translation>添加属性</translation>
+        <translation>속성 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="97"/>
         <source>Move selected metadata element or property up.</source>
-        <translation>将已选的元数据单元或属性上移</translation>
+        <translation>선택한 메타데이터 요소 또는 속성을 위로 이동합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="100"/>
@@ -13137,644 +13187,644 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="110"/>
         <source>Move selected metadata element or property down.</source>
-        <translation>将已选的元数据单元或属性下移</translation>
+        <translation>선택한 메타데이터 요소 또는 속성을 아래로 이동합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="148"/>
         <source>Double-click in cell to edit its value.  Minimum metadata consists of main language, title, and at least one creator.</source>
-        <translation>双击单元编辑值，最简元数据应该包括主要语言，标题和至少一位创建者。</translation>
+        <translation>셀을 두 번 클릭하여 값을 편집하십시오. 최소 메타 데이터는 기본 언어, 제목 및 하나 이상의 작성자가 포함되야 합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="172"/>
-        <source>Use OK to commit your metdata changes to the epub, otherwise use Cancel.</source>
-        <translation>使用OK来确认对epib的元数据的变更，否则选择Cancel.</translation>
+        <source>Use OK to commit your metadata changes to the epub, otherwise use Cancel.</source>
+        <translation>메타데이터 변경 사항을 epub에 반영하려면 확인을 누르고, 그렇지 않으면 취소를 누릅니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
         <source>Value</source>
-        <translation>值</translation>
+        <translation>값</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="171"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="239"/>
         <source>[ISBN here]</source>
-        <translation>[此处填写 ISBN]</translation>
+        <translation>[ISBN을 넣어주세요]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="175"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="244"/>
         <source>[ISSN here]</source>
-        <translation>[此处填写 ISBN]</translation>
+        <translation>[ISSN을 넣어주세요]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="179"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="249"/>
         <source>[DOI here]</source>
-        <translation>[此处填写 DOI]</translation>
+        <translation>[DOI를 넣어주세요]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="183"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="254"/>
         <source>[UUID here]</source>
-        <translation>[此处填写 UUID]</translation>
+        <translation>[UUID를 넣어주세요]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="194"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="272"/>
         <source>[Author name here]</source>
-        <translation>[此处填写作者名]</translation>
+        <translation>[저자의 이름을 넣어주세요]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="200"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="277"/>
         <source>[Creator name here]</source>
-        <translation>[此处填写创建者]</translation>
+        <translation>[창작자(creator)의 이름을 넣어주세요]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="204"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="281"/>
         <source>[Contributor name here]</source>
-        <translation>[此处填写贡献者]</translation>
+        <translation>[기여자의 이름을 넣어주세요]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="208"/>
         <source>[meta value here]</source>
-        <translation>[此处填写meta]</translation>
+        <translation>[메타 값을 넣어주세요]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="259"/>
         <source>[Custom identifier here]</source>
-        <translation>[此处填写自定义标识符]</translation>
+        <translation>[Custon identifier를 넣어주세요]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="448"/>
         <source>[Place value here]</source>
-        <translation>[此处填写值]</translation>
+        <translation>[장소 값을 넣어주세요]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="483"/>
         <source>[Your value here]</source>
-        <translation>[此处填写您需要的值]</translation>
+        <translation>[넣을 값을 입력하세요.]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="547"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <source>Author</source>
-        <translation>作者</translation>
+        <translation>저자(Author)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="547"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <source>Represents a primary author of the book or publication</source>
-        <translation>代表书或出版物的主要作者</translation>
+        <translation>책이나 출판의 기본 저자를 나타냅니다</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="548"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
         <source>Subject</source>
-        <translation>主题</translation>
+        <translation>주제(Subject)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="548"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
-        <translation>描述相关主题的任意短语或关键字, 如有需要，请使用多个“主题”元素。</translation>
+        <translation>문제의 주제를 설명하는 임의의 문구 또는 키워드. 필요한 경우 여러 &apos;제목&apos;요소를 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>Description</source>
-        <translation>描述</translation>
+        <translation>설명(Description)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>Description of the publication&apos;s content.</source>
-        <translation>出版物内容的说明</translation>
+        <translation>출판물의 내용에 대한 설명.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
         <source>Publisher</source>
-        <translation>出版商</translation>
+        <translation>발행인(Publisher)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
         <source>An entity responsible for making the publication available.</source>
-        <translation>负责提供该出版物的实体.</translation>
+        <translation>출판물을 제공 할 책임이있는 단체.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="656"/>
         <source>Date: Publication</source>
-        <translation>日期：出版</translation>
+        <translation>날짜: 출간일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="656"/>
         <source>The date of publication.</source>
-        <translation>出版日期.</translation>
+        <translation>책을 출간한 날짜</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="552"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
         <source>Date: Creation</source>
-        <translation>日期：创作</translation>
+        <translation>날짜: 작성일(Creation)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="552"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
         <source>The date of creation.</source>
-        <translation>创作日期</translation>
+        <translation>작성한 날짜</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="553"/>
         <source>Date: Issued</source>
-        <translation>日期：发行</translation>
+        <translation>날짜: 발행일(Issued)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="553"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
         <source>The date of modification.</source>
-        <translation>修改日期</translation>
+        <translation>수정한 날짜</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
         <source>Date: Modification</source>
-        <translation>日期：修改</translation>
+        <translation>날짜: 수정일(Modification)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="555"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="659"/>
         <source>Type</source>
-        <translation>类型</translation>
+        <translation>타입</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="555"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
-        <translation>用于表示给定的EPUB出版物是专门的类型.</translation>
+        <translation>주어진 EPUB 간행물이 특수한 유형임을 나타내는 데 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
         <source>Format</source>
-        <translation>格式</translation>
+        <translation>서식</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
-        <translation>出版物的媒体类型或尺寸。最佳做法是使用受控词汇表中的值（例如MIME媒体类型）。</translation>
+        <translation>출판물의 매체 유형 또는 크기. 모범 사례는 통제 된 어휘 (예 : MIME media types)의 값을 사용하는 것입니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="557"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="661"/>
         <source>Source</source>
-        <translation>来源</translation>
+        <translation>소스</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="557"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
-        <translation>标识从该EPUB出版物获得的相关资源.</translation>
+        <translation>이 EPUB Publication이 파생된 관련 리소스를 식별합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
         <source>Language</source>
-        <translation>语言</translation>
+        <translation>언어</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
-        <translation>指定出版物的语言. 从下拉菜单中选择.</translation>
+        <translation>게시 언어를 지정합니다. 드롭 다운 메뉴에서 선택.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
         <source>Relation</source>
-        <translation>关系</translation>
+        <translation>관계</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
-        <translation>对相关资源的引用. 推荐的最佳做法是通过符合正式识别系统的字符串或数字来识别引用的资源。</translation>
+        <translation>관련 리소스에 대한 참조 권장되는 모범 사례는 공식 식별 시스템을 따르는 문자열 또는 숫자를 사용하여 참조 된 자원을 식별하는 것입니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
         <source>Coverage</source>
-        <translation>出版物内容的范围或范围。</translation>
+        <translation>적용 범위</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
-        <translation>出版物内容的范围.</translation>
+        <translation>출판물 내용의 범위 또는 범위.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
         <source>Rights</source>
-        <translation>权利</translation>
+        <translation>판권</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
-        <translation>关于在出版物中和对出版物拥有的权利的信息。权利信息通常包括知识产权（IPR）、版权和各种产权。如果权利要素不存在，则不得对出版物中或出版物上的任何权利作出任何假设。</translation>
+        <translation>출판물에 대한 권리에 관한 정보. 권리 정보에는 종종 지적 재산권 (IPR), 저작권 및 다양한 재산권이 포함됩니다. Rights 요소가 없으면 출판물에 포함 된 권리에 대한 어떠한 가정도 할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="651"/>
         <source>Creator</source>
-        <translation>创作者</translation>
+        <translation>창작자(Creator)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>表示负责创建EPUB出版物内容的人员和组织等的名称。 role属性可以附加到元素以指示创建者在创建内容时播放的功能。</translation>
+        <translation>EPUB 간행물의 컨텐츠 작성을 담당하는 개인, 조직 등의 이름을 나타냅니다. 역할 속성을 요소에 첨부하여 제작자가 콘텐츠를 만들 때 사용한 기능을 나타낼 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="563"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>Contributor</source>
-        <translation>捐助者</translation>
+        <translation>기여자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="563"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>表示在EPUB出版物的内容创建中起次要作用的人员和组织等的名称。 role属性可以附加到元素以指示创建者在创建内容时播放的功能。</translation>
+        <translation>EPUB 간행물의 컨텐츠 작성에서 2차 역할을 수행한 개인, 조직 등의 이름을 나타냅니다. 역할 속성을 요소에 첨부하여 제작자가 콘텐츠를 만들 때 사용한 기능을 나타낼 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
         <source>Belongs to Collection</source>
-        <translation>作品集</translation>
+        <translation>Belongs to Collection</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
-        <translation>标识EPUB出版物所属的作品集的名称。 EPUB出版物可能属于一个或多个作品集。</translation>
+        <translation>EPUB 간행물이 속하는 콜렉션의 이름을 식별합니다. EPUB 간행물은 하나 이상의 콜렉션에 속할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>Title</source>
-        <translation>标题</translation>
+        <translation>제목</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
-        <translation>出版物的标题. 出版物可能只有一个主要标题，但可能有许多其他标题类型, 这些包括主题，小标题，简短，收藏，版本和扩展的标题类型。</translation>
+        <translation>출판물의 제목. 간행물에는 주 제목이 하나만있을 수 있지만 다른 많은 제목 유형이있을 수 있습니다. 여기에는 기본, 자막, 짧은, 컬렉션, 에디션 및 확장 타이틀 유형이 포함됩니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <source>Identifier: DOI</source>
-        <translation>标识: DOI</translation>
+        <translation>식별자: DOI</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <source>Digital Object Identifier associated with the given EPUB publication.</source>
-        <translation>与给定EPUB出版物相关联的数字对象标识符-DOI.</translation>
+        <translation>EPUB 출판물에 부여된 디지털 객체 식별자.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
         <source>Identifier: ISBN</source>
-        <translation>标识: ISBN</translation>
+        <translation>식별자: ISBN</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
         <source>International Standard Book Number associated with the given EPUB publication.</source>
-        <translation>与给定EPUB出版物相关的国际标准书号.</translation>
+        <translation>EPUB 출판물에 부여된 국제 표준 도서 번호.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
         <source>Identifier: ISSN</source>
-        <translation>标识: ISSN</translation>
+        <translation>식별자: ISSN</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
         <source>International Standard Serial Number associated with the given EPUB publication.</source>
-        <translation>与给定EPUB出版物相关的国际标准序列号.</translation>
+        <translation>EPUB 출판물에 부여된 국제 표준 일련 번호.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
         <source>Identifier: UUID</source>
-        <translation>标识: UUID</translation>
+        <translation>식별자: UUID</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
         <source>A Universally Unique Idenitifier generated for this EPUB publication.</source>
-        <translation>为此EPUB出版物生成的通用唯一标识符.</translation>
+        <translation>이 EPUB 발행물에 대해 생성된 범용 고유 식별자.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>Custom Element</source>
-        <translation>自定义元素</translation>
+        <translation>맞춤 요소</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>[Custom element]</source>
-        <translation>[此处填写自定义元素]</translation>
+        <translation>[맞춤 요소]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
         <source>An empty metadata element you can modify.</source>
-        <translation>可以编辑的空的元数据单元</translation>
+        <translation>비어있는 메타데이터 요소를 수정할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>Meta Element (primary)</source>
-        <translation>Meta元素（主元素）</translation>
+        <translation>메타데이터 요소 (primary)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>An empty primary meta element you can modify.</source>
-        <translation>可以修改的空主元元素。</translation>
+        <translation>수정할 수있는 비어있는 기본 메타 요소입니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="701"/>
         <source>Id Attribute</source>
-        <translation>ID属性</translation>
+        <translation>ID 속성</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="701"/>
         <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
-        <translation>可选的，通常为简短的唯一标识符字符串，用作 (opf) 文档包中的属性。</translation>
+        <translation>선택항목 - 패키지 (opf) 문서에서 속성으로 사용되는 짧고 고유 한 식별자 문자열입니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="599"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
         <source>XML Language</source>
-        <translation>XML语言</translation>
+        <translation>XML Language</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="599"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>可选，指定的语言属性. 使用与dc:language相同的代码. 不适用于dc:language, dc:date或dc:标识符等元数据元素。</translation>
+        <translation>선택항목- 언어 지정 속성 dc:language와 동일한 코드를 사용합니다. dc:language, dc:date 또는 dc:identifier 메타데이터 요소와 함께 사용할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="600"/>
         <source>Text Direction: rtl</source>
-        <translation>文字方向: rtl</translation>
+        <translation>텍스트 방향: rtl</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="600"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>此元数据项目文本方向的可选属性。 从右到左 (rtl)。 不适用于dc：language，dc：date或dc：标识符元数据元素。</translation>
+        <translation>선택항목 - 이 메타데이터 항목은 텍스트 방향 속성입니다. 오른쪽에서 왼쪽 (rtl)을 의미합니다. dc:language, dc:date 또는 dc:identifier 메타 데이터 요소와 함께 사용할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="601"/>
         <source>Text Direction: ltr</source>
-        <translation>文字方向: ltr</translation>
+        <translation>텍스트 방향: ltr</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="601"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>此元数据项目文本方向的可选属性。 从左到右 (ltr)。 不适用于dc：language，dc：date或dc：标识符元数据元素。</translation>
+        <translation>선택항목 - 이 메타데이터 항목은 텍스트 방향 속성입니다. 왼쪽에서 오른쪽 (ltr)을 의미합니다. dc:language, dc:date 또는 dc:identifier 메타 데이터 요소와 함께 사용할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
         <source>Title Type: main</source>
-        <translation>标题类型: 主标题</translation>
+        <translation>제목 유형: main</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
-        <translation>标识此关联标题是此出版物的主标题. 只能有一个主标题.</translation>
+        <translation>발행물의 기본 제목입니다. 하나의 주 제목만 있어야합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
         <source>Title Type: subtitle</source>
-        <translation>标题类型: 副标题</translation>
+        <translation>제목 유형: subtitle</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
-        <translation>标识此关联标题是此出版物的副标题. </translation>
+        <translation>발행물의 부제목(subtitle)입니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
         <source>Title Type: short</source>
-        <translation>标题类型: 短标题</translation>
+        <translation>제목 유형: short</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
-        <translation>标识此关联标题是此出版物的短标题. </translation>
+        <translation>발행물의 요약 제목입니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
         <source>Title Type: collection</source>
-        <translation>标题类型: 作品集</translation>
+        <translation>제목 유형: collection</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
         <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
-        <translation>表示相关的标题是包含此出版物所属的作品集的标题.</translation>
+        <translation>발행물이 포함된 컬렉션의 제목입니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
         <source>Title Type: edition</source>
-        <translation>标题类型: 版本</translation>
+        <translation>제목 유형: edition</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
         <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
-        <translation>表示相关的标题是此出版物的版本标题.</translation>
+        <translation>발행물의 에디션 제목입니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
         <source>Title Type: expanded</source>
-        <translation>标题类型: 扩展标题</translation>
+        <translation>제목 유형: expanded</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
         <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
-        <translation>表示相关的标题是此出版物的扩展标题.</translation>
+        <translation>발행물의 확장(expanded) 제목입니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
         <source>Alternate Script</source>
-        <translation>可选脚本</translation>
+        <translation>대체 스크립트</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.</source>
-        <translation>在由替代语言属性标识的语言和脚本中提供关联属性值的替代表达式。</translation>
+        <translation>대체 언어 속성으로 식별되는 언어 및 스크립트에서 연관된 특성 값의 대체 표현식을 제공합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="609"/>
         <source>Alternate Language</source>
-        <translation>可选语言</translation>
+        <translation>대체 언어</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="609"/>
         <source>Language code for the language used in the associated alternate-script property value.</source>
-        <translation>在相关的可选脚本的属性中的可使用的语言代码</translation>
+        <translation>연관된 대체 스크립트 특성 값에 사용되는 언어의 언어 코드입니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>Collection Type: set</source>
-        <translation>作品集: 集合</translation>
+        <translation>콜렉션 유형: set</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
-        <translation>用于从属集合的属性。 表示集合的形式或性质。‘集合’应用于一起有限收藏作品组成单个知识产权单位; 通常发放在一起并能够作为一个单位出售</translation>
+        <translation>소속 컬렉션과 함께 사용되는 속성입니다. 컬렉션의 형태 또는 특성을 나타냅니다. &apos;set&apos;라는 가치는 하나의 지적 단위를 구성하는 유한 한 작품 모음에 사용되어야합니다. 일반적으로 함께 발행되어 단위로 판매 될 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
         <source>Collection Type: series</source>
-        <translation>作品集: 序列</translation>
+        <translation>콜렉션 유형: series</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
-        <translation>用于从属集合的属性。 表示集合的形式或性质。 “系列”应用于正式识别为一组的相关作品序列; 通常是开放式的，随着时间的推移单独发行。</translation>
+        <translation>소속 컬렉션과 함께 사용되는 속성입니다. 컬렉션의 형태 또는 특성을 나타냅니다. &apos;series&apos;라는 값은 공식적으로 그룹으로 식별되는 일련의 관련 저작물에 사용되어야합니다. 일반적으로 시간이 지남에 따라 개별적으로 발행 된 작품으로 개방형입니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="612"/>
         <source>Display Sequence</source>
-        <translation>显示顺序</translation>
+        <translation>표시 순서</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="612"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
-        <translation>表示当前属性的数字相对于相同的元数据属性显示的位置 (例如，指示呈现多个标题或多个作者的顺序) .</translation>
+        <translation>동일한 메타 데이터 속성을 기준으로 현재 속성을 표시 할 숫자 위치를 나타냅니다 (예 : 여러 제목 또는 작성자를 렌더링하는 순서를 나타냄).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="703"/>
         <source>File as</source>
-        <translation>文件作为</translation>
+        <translation>File as</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="703"/>
         <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
-        <translation>提供用于排序的关联属性的归一化形式. 通常与作者，创作者和贡献者名称一起使用.</translation>
+        <translation>정렬을 위해 관련 속성의 정규화 된 형식을 제공합니다. 일반적으로 작성자, 작성자 및 기고자 이름과 함께 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="614"/>
         <source>Group Position</source>
-        <translation>组位置</translation>
+        <translation>그룹 포지션</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="614"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
-        <translation>表示EPUB出版物相对于属于同一组的其他作品 (无论是否是EPUB出版物) 的数字位置。</translation>
+        <translation>EPUB 간행물이 같은 그룹에 속하는 다른 저작물 (모든 EPUB 간행물에 관계없이)과 관련하여 정렬 된 숫자 위치를 나타냅니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>Identifier Type</source>
-        <translation>表示类型</translation>
+        <translation>식별자 유형</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
-        <translation>表示标识符的形式或性质. 当标识符类型值从代码列表或其他正式枚举中抽取时，应使用方案属性来标识其来源。</translation>
+        <translation>식별자의 형식 또는 특성을 나타냅니다. 식별자 유형 값이 코드 목록 또는 다른 공식 열거에서 가져 오면 scheme 속성을 사용하여 해당 소스를 식별해야합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
         <source>Meta Authority</source>
-        <translation>元管理局</translation>
+        <translation>메타 권한(Meta Authority)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
         <source>Identifies the party or authority responsible for an instance of package metadata.</source>
-        <translation>标识负责元数据包实例的机构。</translation>
+        <translation>패키지 메타데이터 인스턴스를 담당하는 당사자 또는 권한을 식별합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="617"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="704"/>
         <source>Role</source>
-        <translation>角色</translation>
+        <translation>역할</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="617"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="704"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
-        <translation>描述创造者或贡献者所进行的工作的性质 (例如，该人是作品的作者或编辑)。 通常用于控制词汇的marc：relators方案。</translation>
+        <translation>제작자 또는 기고자가 수행 한 작업의 특성을 설명합니다 (예 : 개인이 저작물의 저자 또는 편집자 임). 일반적으로 제어 어휘를 위해 marc:relators 체계와 함께 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="618"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="705"/>
         <source>Scheme</source>
-        <translation>架构</translation>
+        <translation>스키마</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="618"/>
         <source>This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
-        <translation>此属性通常添加到dc:identifier，dc:source：dc:creator或dc:contributor以指示所使用的受控词汇系统 (例如marc:relators 指定role属性的有效值的 .</translation>
+        <translation>이 속성은 일반적으로 dc:identifier, dc:source, dc:creator 또는 dc:contributor에 추가되어 사용되는 제어 어휘 시스템을 나타냅니다. (예 : 역할 속성에 유효한 값을 지정하기위한 marc:relators)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="619"/>
         <source>Source of Pagination</source>
-        <translation>分页来源</translation>
+        <translation>페이지 매김 소스</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="619"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
-        <translation>表示在EPUB出版物的给定Rendition中保留的已修改源资源的唯一方面. 此规范定义分页值, 以指示引用的源元素是内容中定义的分页属性的来源. 每当包括分页并且已知打印源时，应设置此值. 有效值: 分页.</translation>
+        <translation>주어진 EPUB 출판물 버전에서 유지 된 적응형 소스 리소스의 고유한 측면을 나타냅니다. 이 사양에서는 참조된 소스 요소가 컨텐츠에 정의된 페이지 구분 특성의 소스임을 나타내기 위해 페이지 매김 값을 정의합니다. 이 값은 페이지 매김이 포함되고 인쇄 소스를 알 때 설정해야합니다. 유효한 값 : 페이지 매김.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>Custom Property</source>
-        <translation>自定义属性</translation>
+        <translation>맞춤 속성</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>[Custom property/attribute]</source>
-        <translation>[此处填写自定义属性]</translation>
+        <translation>[맞춤 property/attribute]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>An empty metadata property or attribute you can modify.</source>
-        <translation>一个可以编辑的空的元数据属相</translation>
+        <translation>빈 메타데이터 속성 또는 속성을 수정할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
-        <translation>epub出版物的主标题. 只能有一个主标题.</translation>
+        <translation>epub 간행물의 주요 제목. 제목은 하나만 존재할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="651"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>表示负责创建EPUB出版物内容的人员，组织等的名称. 属性opf: role, opf: scheme和opf: file-as可以附加到元素以指示创建者在创建内容时播放的功能.</translation>
+        <translation>EPUB 간행물의 컨텐츠 작성을 담당하는 개인, 조직 등의 이름을 나타냅니다. Opf:role, opf:scheme 및 opf:file-as 속성을 요소에 첨부하여 작성자가 컨텐츠 작성시 재생한 기능을 표시 할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
-        <translation>代表在创建EPUB出版物的内容中发挥次要作用的人，组织等的名称，</translation>
+        <translation>EPUB 간행물의 내용을 만드는데 2 ​​차적인 역할을 한 사람, 조직 등의 이름을 나타냅니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="659"/>
         <source>The nature or genre of the content of the resource.</source>
-        <translation>资源内容的性质或类型.</translation>
+        <translation>자원 내용의 성격 또는 장르</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="661"/>
         <source>A reference to a resource from which the present publication is derived.</source>
-        <translation>引用本出版物的资源。</translation>
+        <translation>본 출판물이 참조한 리소스의 출처</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
         <source>A language used in the publication. Choose a RFC5646 value.</source>
-        <translation>出版物所使用的语言. 使用RFC5646值.</translation>
+        <translation>출판물에 사용 된 언어. RFC5646 값을 선택하십시오.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
@@ -13782,102 +13832,102 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
         <source>Identifier</source>
-        <translation>标识</translation>
+        <translation>식별자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
         <source>Digital Object Identifier</source>
-        <translation>数字对象表示</translation>
+        <translation>디지털 객체 식별자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
         <source>International Standard Book Number</source>
-        <translation>国际标准书号</translation>
+        <translation>국제 표준 도서 번호</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
         <source>International Standard Serial Number</source>
-        <translation>国际标准序列号</translation>
+        <translation>국제 표준 일련 번호</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
         <source>Universally Unique Identifier</source>
-        <translation>通用唯一标识符</translation>
+        <translation>보편적으로 고유 한 식별자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
         <source>Identifier: Custom</source>
-        <translation>标识：自定义</translation>
+        <translation>식별자 : 사용자 지정</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
         <source>A custom identifier based on a specified scheme</source>
-        <translation>基于指定架构的自定义标识</translation>
+        <translation>지정된 체계를 기반으로하는 사용자 지정 식별자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="671"/>
         <source>Series</source>
-        <translation>系列</translation>
+        <translation>시리즈</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="671"/>
         <source>Series title or name (from calibre)</source>
-        <translation>系列标题或名称（来自 calibre）</translation>
+        <translation>시리즈 제목(from calibre)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="672"/>
         <source>Series Index</source>
-        <translation>系列索引</translation>
+        <translation>시리즈 색인</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="672"/>
         <source>Index of this book in the series (from calibre)</source>
-        <translation>此书在所在系列中的编号（来自 calibre）</translation>
+        <translation>시리즈에서 이 책의 ​​색인(from calibre)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
         <source>Title for Sorting</source>
-        <translation>按标题排序</translation>
+        <translation>정렬 제목</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
-        <translation>用于排序的电子书标题版本（来自calibre）</translation>
+        <translation>정렬에 사용할 전자 책 제목 버전(from calibre)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>An empty element for you to modify</source>
-        <translation>要修改的空元素</translation>
+        <translation>수정해야 하는 비어있는 요소</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="705"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, or UUID.</source>
-        <translation>这个属性一般被用来添加dc:indentifier来指定标识类型: DOI, ISBN, ISSN,或UUID.</translation>
+        <translation>이 속성은 일반적으로 사용중인 식별자 유형 (DOI, ISBN, ISSN 또는 UUID)을 나타 내기 위해 dc:identifier에 추가됩니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="706"/>
         <source>Event</source>
-        <translation>事件</translation>
+        <translation>이벤트</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="706"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
-        <translation>这个属性一般被用来添加dc:date单元来指定日期类型: 发布, 制作或修订.</translation>
+        <translation>이 속성은 일반적으로 dc:date 요소에 추가되어 날짜 유형 (게시, 작성 또는 수정)을 지정합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
         <source>Custom Attribute</source>
-        <translation>自定义属性</translation>
+        <translation>맞춤 속성</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
         <source>[Custom metadata property/attribute]</source>
-        <translation>[此处填写自定义元数据属性]</translation>
+        <translation>[맞춤 메타데이터 property/attribute]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
         <source>An empty metadata attribute you can modify.</source>
-        <translation>可以修改的空的元数据属性</translation>
+        <translation>비어있는 메타데이터 속성을 수정할 수 있습니다.</translation>
     </message>
 </context>
 <context>
@@ -13886,103 +13936,103 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="183"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="185"/>
         <source>Start</source>
-        <translation>开始</translation>
+        <translation>시작</translation>
     </message>
 </context>
 <context>
     <name>Navigator</name>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="48"/>
+        <location filename="../../Widgets/Navigator.h" line="48"/>
         <source>Left</source>
-        <translation>左</translation>
+        <translation>왼쪽</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="49"/>
+        <location filename="../../Widgets/Navigator.h" line="49"/>
         <source>Right</source>
-        <translation>右</translation>
+        <translation>오른쪽</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="55"/>
+        <location filename="../../Widgets/Navigator.h" line="55"/>
         <source>Go to previous change - [p]</source>
-        <translation>转到上一个更改 - [p]</translation>
+        <translation>이전 변경 항목으로 이동 - [p]</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="61"/>
+        <location filename="../../Widgets/Navigator.h" line="61"/>
         <source>Go to next change - [n]</source>
-        <translation>转到下一个更改 - [n]</translation>
+        <translation>다음 변경 항목으로 이동 - [n]</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="67"/>
+        <location filename="../../Widgets/Navigator.h" line="67"/>
         <source>Search ...</source>
-        <translation>搜索...</translation>
+        <translation>찾기...</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="71"/>
+        <location filename="../../Widgets/Navigator.h" line="71"/>
         <source>Find Next</source>
-        <translation>查找下一个</translation>
+        <translation>다음 찾기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="77"/>
+        <location filename="../../Widgets/Navigator.h" line="77"/>
         <source>Find Previous</source>
-        <translation>查找上一个</translation>
+        <translation>이전 찾기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="82"/>
+        <location filename="../../Widgets/Navigator.h" line="82"/>
         <source>Use Left Panel</source>
-        <translation>使用左侧面板</translation>
+        <translation>왼쪽 패널 사용</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="85"/>
+        <location filename="../../Widgets/Navigator.h" line="85"/>
         <source>Use Right Panel</source>
-        <translation>使用右侧面板</translation>
+        <translation>오른쪽 패널 사용</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="90"/>
+        <location filename="../../Widgets/Navigator.h" line="90"/>
         <source>Close this window</source>
-        <translation>关闭此窗口</translation>
+        <translation>이 창 닫기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="91"/>
+        <location filename="../../Widgets/Navigator.h" line="91"/>
         <source>Done</source>
-        <translation>完成</translation>
+        <translation>완료</translation>
     </message>
 </context>
 <context>
     <name>Navigator2</name>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="53"/>
+        <location filename="../../Widgets/Navigator2.h" line="53"/>
         <source>Go to previous page - [p]</source>
-        <translation>转到上一页 - [p]</translation>
+        <translation>이전 페이지로 이동 - [P]</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="60"/>
+        <location filename="../../Widgets/Navigator2.h" line="60"/>
         <source>Go to next page - [n]</source>
-        <translation>转到下一页 - [n]</translation>
+        <translation>다음 페이지로 이동 - [n]</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="67"/>
+        <location filename="../../Widgets/Navigator2.h" line="67"/>
         <source>Search ...</source>
-        <translation>搜索...</translation>
+        <translation>찾기...</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="72"/>
+        <location filename="../../Widgets/Navigator2.h" line="72"/>
         <source>Find Next</source>
-        <translation>查找下一个</translation>
+        <translation>다음 찾기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="79"/>
+        <location filename="../../Widgets/Navigator2.h" line="79"/>
         <source>Find Previous</source>
-        <translation>查找上一个</translation>
+        <translation>이전 찾기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="85"/>
+        <location filename="../../Widgets/Navigator2.h" line="85"/>
         <source>Close this window</source>
-        <translation>关闭此窗口</translation>
+        <translation>이 창 닫기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="86"/>
+        <location filename="../../Widgets/Navigator2.h" line="86"/>
         <source>Done</source>
-        <translation>完成</translation>
+        <translation>완료</translation>
     </message>
 </context>
 <context>
@@ -13990,44 +14040,43 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="713"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
-        <translation>一个文件名不能包含&quot;%1&quot;的字符.</translation>
+        <translation>파일 이름은 문자 &quot;%1&quot; 을 포함할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="724"/>
         <source>The filename cannot be empty.</source>
-        <translation>文件名不能为空</translation>
+        <translation>파일 이름은 비워둘 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="736"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
-        <translation>文件名&quot;%1&quot;已经被使用
+        <translation>파일 이름 &quot;%1&quot; 은 이미 사용되고 있습니다.
 </translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="748"/>
         <source>The book path cannot be empty.</source>
-        <translation>图书路径不能为空。</translation>
+        <translation>책 경로는 비워 둘 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="755"/>
         <source>That book path &quot;%1&quot; is already in use.
 </source>
-        <translation>书本路径 &quot;%1&quot; 已在使用中。
-</translation>
+        <translation>책 경로 &quot;%1&quot;는(은) 이미 사용중입니다.</translation>
     </message>
 </context>
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1241"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1255"/>
         <source>[Title here]</source>
-        <translation>[此处填写标题]</translation>
+        <translation>[제목을 넣으세요]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1247"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1261"/>
         <source>[Main title here]</source>
-        <translation>[此处填写主标题]</translation>
+        <translation>[메인 제목을 넣으세요]</translation>
     </message>
 </context>
 <context>
@@ -14035,27 +14084,27 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="14"/>
         <source>Open With Application Name</source>
-        <translation>使用应用程序名打开</translation>
+        <translation>응용 프로그램으로 파일 열기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="20"/>
         <source>Enter the name to display in the Open With menu for this application:</source>
-        <translation>输入一个使用本程序打开时显示名字:</translation>
+        <translation>이 어플리케이션의 실행 메뉴에 표시할 이름을 입력하세요.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="48"/>
         <source>Filename:</source>
-        <translation>文件名:</translation>
+        <translation>파일이름:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="55"/>
         <source>Menu Name:</source>
-        <translation>菜单名:</translation>
+        <translation>메뉴 이름:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/OpenWithName.ui" line="62"/>
         <source>No File</source>
-        <translation>文件不存在</translation>
+        <translation>파일 없음</translation>
     </message>
 </context>
 <context>
@@ -14063,218 +14112,219 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="14"/>
         <source>Plugin Runner</source>
-        <translation>运行插件的程序</translation>
+        <translation>플러그인 실행</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
         <source>Plugin:</source>
-        <translation>插件:</translation>
+        <translation>플러그인:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="48"/>
         <source>Start</source>
-        <translation>开始</translation>
+        <translation>시작</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="61"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="90"/>
         <source>Message</source>
-        <translation>消息</translation>
+        <translation>메시지</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="103"/>
         <source>Details...</source>
-        <translation>详细...</translation>
+        <translation>세부 항목...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="110"/>
         <source>OK</source>
-        <translation>确认</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="139"/>
         <source>Status: </source>
-        <translation>状态:</translation>
+        <translation>상태:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="125"/>
         <source>Error: A plugin by that name does not exist</source>
-        <translation>错误: 该名称的插件不存在</translation>
+        <translation>오류: 해당 이름의 플러그인이 존재하지 않음</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="156"/>
         <source>Error: Interpreter</source>
-        <translation>错误：翻译器</translation>
+        <translation>오류: 인터프리터</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="156"/>
         <source>has no path set</source>
-        <translation>没有设定路径</translation>
+        <translation>경로가 지정되지 않음</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="169"/>
         <source>Installation Error: plugin launcher</source>
-        <translation>安装错误: 插件启动器</translation>
+        <translation>설치 오류: 플러그인 런처</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="170"/>
         <source>does not exist</source>
-        <translation>不存在</translation>
+        <translation>존재하지 않습니다</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="175"/>
         <source>Error: plugin engine</source>
-        <translation>错误：插件引擎</translation>
+        <translation>오류: 플러그인 엔진</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="176"/>
         <source>is not supported (yet!)</source>
-        <translation>（暂）不支持</translation>
+        <translation>지원하지 않음(지원예정)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="182"/>
         <source>Status: ready</source>
-        <translation>状态: 就绪</translation>
+        <translation>상태: 준비</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="272"/>
         <source>Error: plugin can not start</source>
-        <translation>错误: 无法启动插件</translation>
+        <translation>오류: 플러그인을 시작할 수 없음</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="424"/>
         <source>Status: running</source>
-        <translation>状态：运行中</translation>
+        <translation>상태: 진행중</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="441"/>
         <source>Launcher process crashed</source>
-        <translation>启动进程崩溃</translation>
+        <translation>실행기 프로세스 충돌</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="452"/>
         <source>Status: finished</source>
-        <translation>状态: 完成</translation>
+        <translation>상태: 종료</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="459"/>
         <source>Status: failed</source>
-        <translation>状态: 失败</translation>
+        <translation>상태: 실패</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="465"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="474"/>
         <source>Status: No Changes Made</source>
-        <translation>状态: 没有改变</translation>
+        <translation>상태 : 변경 사항 없음</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="473"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
-        <translation>错误: 插件试图删除上一个XHTML文件...取消改变</translation>
+        <translation>오류: 플러그인이 마지막 XHTML 파일을 제거하려고 시도했습니다. 변경 중단</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="537"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="623"/>
         <source>Status:</source>
-        <translation>状态：</translation>
+        <translation>상태:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="564"/>
         <source>Plugin failed to start</source>
-        <translation>启动插件失败</translation>
+        <translation>플러그인 실행 실패</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="572"/>
         <source>Status: error</source>
-        <translation>状态: 错误</translation>
+        <translation>상태: 오류</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="601"/>
         <source>Plugin cancelled</source>
-        <translation>插件取消了</translation>
+        <translation>플러그인 취소됨</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="602"/>
         <source>Status: cancelled</source>
-        <translation>状态: 取消</translation>
+        <translation>상태: 취소됨</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="695"/>
         <source>Error Parsing Result XML:  </source>
-        <translation>结果XML分析错误: </translation>
+        <translation>파싱 결과 XML 오류:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="752"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="767"/>
         <source>Status: checking</source>
-        <translation>状态：检查中</translation>
+        <translation>상태: 확인중</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="756"/>
         <source>Incorrect XHTML:</source>
-        <translation>错误的 XHTML：</translation>
+        <translation>잘못된 XHTML:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="756"/>
         <source>Line/Col</source>
-        <translation>行/列</translation>
+        <translation>행/열</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="783"/>
         <source>Check Report</source>
-        <translation>检查报告</translation>
+        <translation>보고서 확인</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="784"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
-        <translation>检测到错误的XHTML/XML
-是否确认继续?</translation>
+        <translation>잘못된 XHTML / XML 감지
+
+계속 진행하시겠습니까?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="802"/>
         <source>Status: cleaning up - deleting files</source>
-        <translation>状态: 清扫工作 - 删除文件</translation>
+        <translation>상태: 정리중 - 파일 삭제중</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="835"/>
         <source>Status: deleting</source>
-        <translation>状态：删除中</translation>
+        <translation>상태: 삭제중</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="874"/>
         <source>Status: Loading</source>
-        <translation>状态：装载中</translation>
+        <translation>삭제: 불러오는 중</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="893"/>
         <source>Input Plugin</source>
-        <translation>输入插件</translation>
+        <translation>플러그인 입력</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="894"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
-        <translation>当前的书的所有变更将会丢失...是否继续</translation>
+        <translation>저장하지 않은 변경 사항을 모두 잃어 버리고 현재 책이 완전히 교체됩니다. 계속 하시겠습니까?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="920"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="934"/>
         <source>Status: adding</source>
-        <translation>状态：添加中</translation>
+        <translation>상태: 추가 중</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="972"/>
         <source>Status: cleaning up - modifying files</source>
-        <translation>状态: 清理工作 - 编辑文件中</translation>
+        <translation>상태: 정리중 - 파일 수정 중</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="1009"/>
         <source>Status: modifying</source>
-        <translation>状态：变更中</translation>
+        <translation>상태: 수정 중</translation>
     </message>
 </context>
 <context>
@@ -14283,22 +14333,22 @@ Are you Sure You Want to Continue?</source>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="116"/>
         <source>Plugins</source>
-        <translation>插件</translation>
+        <translation>플러그인</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="28"/>
         <source>Path to Interpreter Executable</source>
-        <translation>可执行解释器的路径</translation>
+        <translation>인터프리터 실행 경로</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="38"/>
         <source>Should the bundled Python interpreter be used if present?</source>
-        <translation>如果绑定的Python解释器存在是否使用?</translation>
+        <translation>번들로 제공되는 파이썬 인터프리터를 사용해야합니까?</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="41"/>
         <source>Use Bundled Python</source>
-        <translation>使用绑定的Python</translation>
+        <translation>번들 Python 사용</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="54"/>
@@ -14308,172 +14358,172 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="73"/>
         <source>Auto</source>
-        <translation>自动</translation>
+        <translation>자동</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="80"/>
         <source>Set</source>
-        <translation>集合</translation>
+        <translation>설정</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="108"/>
         <source>Add/Remove</source>
-        <translation>添加/移除</translation>
+        <translation>추가/삭제</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="163"/>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="168"/>
         <source>Version</source>
-        <translation>版本</translation>
+        <translation>버전</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="173"/>
         <source>Author</source>
-        <translation>作者</translation>
+        <translation>저자(Author)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="178"/>
         <source>Type</source>
-        <translation>类型</translation>
+        <translation>형식</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="183"/>
         <source>Interpreter</source>
-        <translation>解释器</translation>
+        <translation>인터프리터</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="204"/>
         <source>Add Plugin</source>
-        <translation>添加插件</translation>
+        <translation>플러그인 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="211"/>
         <source>Remove Plugin</source>
-        <translation>移除插件</translation>
+        <translation>플러그인 삭제</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="218"/>
         <source>Remove All</source>
-        <translation>删除所有的</translation>
+        <translation>모두 지우기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="241"/>
         <source>Shortcuts</source>
-        <translation>快捷方式</translation>
+        <translation>단축키</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="249"/>
         <source>Quick Launch Plugin Assignments</source>
-        <translation>快速启动插件分配</translation>
+        <translation>빠른 실행에 플러그인 할당</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="259"/>
         <source>Plugin 1:</source>
-        <translation>插件1：</translation>
+        <translation>플러그인 1:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="272"/>
         <source>Plugin 6:</source>
-        <translation>插件6：</translation>
+        <translation>플러그인 6:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="285"/>
         <source>Plugin 2:</source>
-        <translation>插件2：</translation>
+        <translation>플러그인 2:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="298"/>
         <source>Plugin 7:</source>
-        <translation>插件7：</translation>
+        <translation>플러그인 7:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="311"/>
         <source>Plugin 3:</source>
-        <translation>插件3：</translation>
+        <translation>플러그인 3:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="324"/>
         <source>Plugin 8:</source>
-        <translation>插件8：</translation>
+        <translation>플러그인 8:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="337"/>
         <source>Plugin 4:</source>
-        <translation>插件4：</translation>
+        <translation>플러그인 4:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="350"/>
         <source>Plugin 9:</source>
-        <translation>插件9：</translation>
+        <translation>플러그인 9:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="363"/>
         <source>Plugin 5:</source>
-        <translation>插件5：</translation>
+        <translation>플러그인 5:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="376"/>
         <source>Plugin 10:</source>
-        <translation>插件10：</translation>
+        <translation>플러그인 10:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
         <source>Select Plugin Zip Archive</source>
-        <translation>选择Zip格式的插件</translation>
+        <translation>플러그인 압축 파일 선택</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="211"/>
         <source>Plugin Files (*.zip)</source>
-        <translation>插件文件(*.zip)</translation>
+        <translation>플러그인 파일 (*.zip)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="229"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
-        <translation>错误: 你的操作系统上无效或者是不支持的插件plugin.xml文件.</translation>
+        <translation>오류: 플러그인 plugin.xml이 운영 체제에서 유효하지 않거나 지원되지 않습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="232"/>
         <source>Warning: A plugin by that name already exists</source>
-        <translation>警告: 该文件名的插件已经存在</translation>
+        <translation>경고: 해당 이름의 플러그인이 이미 존재합니다</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="235"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
-        <translation>错误: zip插件文件无法解开.</translation>
+        <translation>오류: 플러그인을 압축 해제 할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="238"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation>错误: 不是有效的Sigil插件</translation>
+        <translation>오류: 유효한 Sigil 플러그인이 아닙니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="276"/>
         <source>Nothing is Selected.</source>
-        <translation>没有任何被选择</translation>
+        <translation>선택된 것이 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="324"/>
         <source>Remove All Plugins</source>
-        <translation>删除所有插件</translation>
+        <translation>모든 플러그인 삭제</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="325"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation>是否确定删除所有插件?</translation>
+        <translation>모든 플러그인을 삭제하시겠습니까?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="382"/>
         <source>Select Interpreter</source>
-        <translation>选择解释器</translation>
+        <translation>인터프리터 선택</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="411"/>
         <source>Incorrect Interpreter Path selected</source>
-        <translation>选择的计数器路径错误</translation>
+        <translation>선택한 인터프리터 경로가 올바르지 않음</translation>
     </message>
 </context>
 <context>
@@ -14481,7 +14531,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/Preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>参数选择</translation>
+        <translation>기본 설정</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="116"/>
@@ -14491,12 +14541,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="116"/>
         <source>Changes will take effect when you restart Sigil.</source>
-        <translation>变更在重新启动Sigil后生效</translation>
+        <translation>변경사항은 Sigil을 다시 시작하면 적용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="198"/>
         <source>Open Preferences Location</source>
-        <translation>打开参数位置</translation>
+        <translation>기본 설정 위치 열기</translation>
     </message>
 </context>
 <context>
@@ -14504,44 +14554,44 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="14"/>
         <source>Preserve Entities</source>
-        <translation>保留入口</translation>
+        <translation>엔티티 유지</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="32"/>
         <source>Entities to Preserve</source>
-        <translation>入口用来保留用</translation>
+        <translation>유지 할 엔티티</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="47"/>
         <source>Enter or paste entities to add to the list.
 Entities can be separated by lines, commas, or spaces.</source>
-        <translation>输入或粘贴入口以添加到列表中.
-入口可以用分行,逗号或空格区分.</translation>
+        <translation>목록에 추가 할 엔티티를 입력하거나 붙여 넣습니다.
+엔티티는 줄, 쉼표 또는 공백으로 구분할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation>추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="58"/>
         <source>Remove</source>
-        <translation>删除</translation>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="65"/>
         <source>Remove All</source>
-        <translation>删除所有的</translation>
+        <translation>모두 지우기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="67"/>
         <source>Add Entities</source>
-        <translation>添加入口</translation>
+        <translation>요소 추가</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="67"/>
         <source>Entities:</source>
-        <translation>入口: </translation>
+        <translation>요소:</translation>
     </message>
 </context>
 <context>
@@ -14549,30 +14599,30 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="57"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="67"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="344"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="352"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="350"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="358"/>
         <source>Preview</source>
-        <translation>预览</translation>
+        <translation>미리보기</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="183"/>
         <source>Inspect Page</source>
-        <translation>检查页面</translation>
+        <translation>페이지 검사</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="186"/>
         <source>Select-All</source>
-        <translation>选择全部</translation>
+        <translation>선택-모두</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="189"/>
         <source>Copy Selection To ClipBoard</source>
-        <translation>将所选内容复制到剪贴板</translation>
+        <translation>클립 보드에 선택 항목 복사</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="192"/>
         <source>Update Preview Window</source>
-        <translation>更新预览窗口</translation>
+        <translation>미리보기 창 업데이트</translation>
     </message>
 </context>
 <context>
@@ -14580,169 +14630,169 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="1149"/>
         <source>Merging Files..</source>
-        <translation>文件合并..</translation>
+        <translation>파일 합치는 중...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/CleanSource.cpp" line="312"/>
         <source>Cleaning...</source>
-        <translation>清理...</translation>
+        <translation>정리...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="48"/>
         <source>Creating Index...</source>
-        <translation>生成索引...</translation>
+        <translation>색인 만드는 중...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="48"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="89"/>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="289"/>
         <source>Custom Epub Layout Designer</source>
-        <translation>自定义Epub布局设计器</translation>
+        <translation>사용자 정의 EPUB 레이아웃 편집기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="163"/>
         <location filename="../../Misc/OpenExternally.cpp" line="244"/>
         <source>Applications</source>
-        <translation>应用程序</translation>
+        <translation>응용 프로그램</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="181"/>
         <source>Select External Xhtml Editor</source>
-        <translation>选择外部Xhtml编辑器</translation>
+        <translation>외부 Xhtml 편집기 선택</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Reports.cpp" line="124"/>
         <source>Creating reports...</source>
-        <translation>生成报告...</translation>
+        <translation>보고서 생성 중...</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="111"/>
         <source>Cannot read EPUB: %1</source>
-        <translation>无法读取EPUB: %1</translation>
+        <translation>EPUB를 읽을 수 없습니다: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="245"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="257"/>
         <source>The OPF file does not contain a valid spine.</source>
-        <translation>OPF文件没有一个有效的书脊</translation>
+        <translation>OPF 파일에 유효한 spine이 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="246"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="860"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="258"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="872"/>
         <source>Sigil has created a new one for you.</source>
-        <translation>Sigil已经为你生成了一个新的.</translation>
+        <translation>새로운 Sigil이 준비되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="290"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="302"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
-        <translation>加密XML文件语法分析错误.
-行: %1 列 %2 - %3</translation>
+        <translation>암호화 XML을 구문 분석하는 중 오류가 발생했습니다.
+Line: %1 Column %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="406"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="418"/>
         <source>Cannot unzip EPUB: %1</source>
-        <translation>无法解压缩EPUB: %1</translation>
+        <translation>EPUB 파일의 압축을 풀 수 없습니다: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="462"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="474"/>
         <source>Possible evil or corrupt epub file name: %1</source>
-        <translation>可能是有害或损坏的epub文件名: %1</translation>
+        <translation>악의적이거나 손상된 EPUB 파일: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="489"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="498"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="515"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="523"/>
-        <source>Cannot extract file: %1</source>
-        <translation>无法提取文件: %1</translation>
-    </message>
-    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="501"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="510"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="527"/>
         <location filename="../../Importers/ImportEPUB.cpp" line="535"/>
-        <source>Cannot open EPUB: %1</source>
-        <translation>无法打开EPUB: %1</translation>
+        <source>Cannot extract file: %1</source>
+        <translation>추출할 수 없는 파일: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="589"/>
-        <source>Unable to parse container.xml file.
-Line: %1 Column %2 - %3</source>
-        <translation>无法分析container.xml文件.
-行: %1 列 %2 - %3</translation>
+        <location filename="../../Importers/ImportEPUB.cpp" line="547"/>
+        <source>Cannot open EPUB: %1</source>
+        <translation>EPUB를 열 수 없습니다: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="601"/>
-        <source>No appropriate OPF file found</source>
-        <translation>没有发现适当的OPF文件</translation>
+        <source>Unable to parse container.xml file.
+Line: %1 Column %2 - %3</source>
+        <translation>container.xml 파일을 구문 분석 할 수 없습니다.
+Line: %1 Column %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="652"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="613"/>
+        <source>No appropriate OPF file found</source>
+        <translation>적절한 OPF 파일을 찾을 수 없습니다</translation>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="664"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
-        <translation>无法读取OPF文件.
-行: %1 列 %2 - %3</translation>
+        <translation>OPF 파일을 읽을 수 없습니다.
+Line: %1 Column %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="739"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="751"/>
         <source>The OPF uses an unrecognized media type &quot;%1&quot; for file &quot;%2&quot;</source>
-        <translation>OPF对文件 &quot;%2&quot; 使用了无法识别的媒体类型 &quot;%1&quot;</translation>
+        <translation>파일 &quot;%2&quot;에 인식할 수 없는 미디어 파일 유형 &quot;%1&quot;이 사용되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="740"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="752"/>
         <source>A temporary media type of &quot;%1&quot; has been assigned. You should edit your OPF file to fix this problem.</source>
-        <translation>&quot;%1&quot; 临时媒体类型已分配。你应该编辑你的OPF文件来解决这个问题。</translation>
+        <translation>&quot;%1&quot; 의 임시 미디어 유형이 할당되었습니다. 이 문제를 해결하려면 OPF 파일을 편집해야합니다.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="763"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="775"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
-        <translation>OPF文件包含重复的ID: %1</translation>
+        <translation>OPF manifest에 중복된 ID가 있습니다: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="764"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="776"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
-        <translation>已经为加载的EPUB指定了临时ID. 你需要编辑OPF文件来移除重复项.</translation>
+        <translation>이 EPUB을 불러오기 위해 임시 ID가 할당되었습니다. 중복을 제거하려면 OPF 파일을 편집해야합니다</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="835"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="847"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
-        <translation>OPF文件无法正确识别NCX文件.</translation>
+        <translation>OPF 파일이 NCX 파일을 올바르게 식별하지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="836"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="848"/>
         <source>Sigil has used the following file as the NCX:</source>
-        <translation>Sigil已经使用下面的文件作为NCX.</translation>
+        <translation>Sigil이 다음 파일을 NCX로 사용했습니다: </translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="859"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="871"/>
         <source>The OPF file does not contain an NCX file.</source>
-        <translation>此OPF文件未包含一个NCX文件.</translation>
+        <translation>OPF 파일에 NCX 파일이 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="641"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="644"/>
         <source>Adding Existing Files..</source>
-        <translation>添加已存在文件..</translation>
+        <translation>기존 파일 추가하는 중...</translation>
     </message>
     <message>
         <location filename="../../Misc/OpenExternally.cpp" line="262"/>
         <source>Open With</source>
-        <translation>用...打开</translation>
+        <translation>다른 프로그램으로 편집</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="44"/>
         <source>Counting occurrences..</source>
-        <translation>计算出现次数..</translation>
+        <translation>발생 횟수 세는 중..</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="64"/>
         <source>Replacing search term...</source>
-        <translation>替换查找的项...</translation>
+        <translation>검색 용어로 바꾸기...</translation>
     </message>
     <message>
         <location filename="../../Misc/TOCHTMLWriter.cpp" line="111"/>
         <source>Table of Contents</source>
-        <translation>目录</translation>
+        <translation>목차</translation>
     </message>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
@@ -14752,71 +14802,71 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Sigil有了一个新版本, 版本 &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;是否打开下载页面?&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Sigil 최신 버전 &lt;b&gt;%1&lt;/b&gt;을 사용할 수 있습니다.&lt;br/&gt;&lt;p&gt;다운로드 페이지로 이동하시겠습니까?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="505"/>
+        <location filename="../../Misc/Utility.cpp" line="490"/>
         <source>Cannot read file %1:
 %2.</source>
-        <translation>无法读取文件%1:
+        <translation>다음 파일을 읽을 수 없습니다 %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="632"/>
+        <location filename="../../Misc/Utility.cpp" line="617"/>
         <source>Sigil has encountered a problem.</source>
-        <translation>Sigil遇到了问题.</translation>
+        <translation>시길에 문제가 발생했습니다.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="633"/>
+        <location filename="../../Misc/Utility.cpp" line="618"/>
         <source>Sigil may need to close.</source>
-        <translation>Sigil 需要关闭。</translation>
+        <translation>Sigil을 종료해야 합니다.</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="75"/>
         <source>Index</source>
-        <translation>索引</translation>
+        <translation>색인</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="211"/>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="279"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="282"/>
         <source>Invalid HTML file: %1</source>
-        <translation>非法的HTML文件: %1</translation>
+        <translation>잘못된 HTML 파일: %1</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="324"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="327"/>
         <source>Invalid OPF file: %1</source>
-        <translation>非法的OPF文件: %1</translation>
+        <translation>잘못된 OPF 파일: %1</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="350"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="353"/>
         <source>Invalid NCX file: %1</source>
-        <translation>非法的NCX文件: %1</translation>
+        <translation>잘못된 NCX 파일: %1</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="587"/>
-        <location filename="../../main.cpp" line="643"/>
+        <location filename="../../main.cpp" line="565"/>
+        <location filename="../../main.cpp" line="621"/>
         <source>Quit</source>
-        <translation>退出</translation>
+        <translation>나가기</translation>
+    </message>
+    <message>
+        <location filename="../../main.cpp" line="577"/>
+        <source>About</source>
+        <translation>Sigil 정보</translation>
+    </message>
+    <message>
+        <location filename="../../main.cpp" line="588"/>
+        <source>Preferences</source>
+        <translation>기본 설정</translation>
     </message>
     <message>
         <location filename="../../main.cpp" line="599"/>
-        <source>About</source>
-        <translation>关于</translation>
+        <source>New</source>
+        <translation>새로</translation>
     </message>
     <message>
         <location filename="../../main.cpp" line="610"/>
-        <source>Preferences</source>
-        <translation>参数选择</translation>
-    </message>
-    <message>
-        <location filename="../../main.cpp" line="621"/>
-        <source>New</source>
-        <translation>新建</translation>
-    </message>
-    <message>
-        <location filename="../../main.cpp" line="632"/>
         <source>Open</source>
-        <translation>打开</translation>
+        <translation>열기</translation>
     </message>
 </context>
 <context>
@@ -14824,27 +14874,27 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="14"/>
         <source>RE File Renamer</source>
-        <translation>重新文件重命名程序</translation>
+        <translation>RE 파일 이름 바꾸기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="42"/>
         <source>Enter Regular Expression to be Replaced</source>
-        <translation>输入要替换的正则表达式</translation>
+        <translation>대체 할 정규식을 입력하십시오.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="55"/>
         <source>Regular Expression:</source>
-        <translation>正则表达式：</translation>
+        <translation>정규식:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="68"/>
         <source>Replacement:</source>
-        <translation>替换：</translation>
+        <translation>대체:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="81"/>
         <source>Enter Replacement text (can use subgroups replacements)</source>
-        <translation>输入替换文本（可以使用子组替换）</translation>
+        <translation>대체 텍스트 입력 (하위 대체 그룹을 사용할 수 있음)</translation>
     </message>
 </context>
 <context>
@@ -14852,17 +14902,17 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="14"/>
         <source>Rename Table</source>
-        <translation>重命名表</translation>
+        <translation>테이블 이름 바꾸기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="39"/>
         <source>Prior Filename</source>
-        <translation>以前的文件名</translation>
+        <translation>이전 파일명</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="44"/>
         <source>Revised Filename</source>
-        <translation>修订的文件名</translation>
+        <translation>수정된 파일명</translation>
     </message>
 </context>
 <context>
@@ -14870,7 +14920,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="20"/>
         <source>Rename Files</source>
-        <translation>文件重命名</translation>
+        <translation>파일 이름 바꾸기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="28"/>
@@ -14889,31 +14939,26 @@ current extensions will be kept.  If you just provide a file extension (e.g. .xh
 then only file extensions will be updated.  Be careful that any extension you use is 
 valid for all selected files.
 </source>
-        <translation>输入用于重命名所有选定文件的起始名称，例如:
+        <translation>선택한 모든 파일의 이름을 바꾸는데 사용할 시작 이름을 입력하십시오 (예 :
 
-filename001
-filename08.xhtml
-.html
+    filename001
+    filename08.xhtml
+    .html
 
-您输入的文件名的结尾中的所有数字将按顺序替换
-从提供的号码开始 (如果没有提供号码,则默认为1)，
-带有前导0被添加以匹配使用的位数
+입력한 파일 이름의 끝 부분에 있는 모든 숫자는 제공된 숫자부터 시작하여 순차적으로 대체되며 (숫자가 없으면 기본값은 1 임) 사용된 자릿수와 일치하도록 앞에 0이 추가됩니다.
 
-如果您提供的文件扩展名将用于所有文件，否则
-目前的扩展将被保留。 如果您只提供文件扩展名 (例如.xhtml)
-那么只有文件扩展名将被更新. 请注意, 您使用的任何扩名都是
-对所有选定的文件有效.
+파일 확장자를 제공하면 파일 확장자가 모든 파일에 사용되며, 그렇지 않으면 현재 확장자가 유지됩니다. 파일 확장자 (예 : .xhtml) 만 제공하면 파일 확장자만 업데이트됩니다. 사용하는 확장자는 선택한 모든 파일에 유효합니다.
 </translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="45"/>
         <source>Rename Files Starting At: </source>
-        <translation>重命名文件开始于: </translation>
+        <translation>다음에서 시작하는 파일 이름 바꾸기:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="52"/>
         <source>Section0001</source>
-        <translation>章节0001</translation>
+        <translation>Section0001</translation>
     </message>
 </context>
 <context>
@@ -14921,12 +14966,12 @@ filename08.xhtml
     <message>
         <location filename="../../Form_Files/Reports.ui" line="14"/>
         <source>Reports</source>
-        <translation>报告</translation>
+        <translation>보고서</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Reports.ui" line="51"/>
         <source>Refresh</source>
-        <translation>刷新</translation>
+        <translation>새로 고침</translation>
     </message>
 </context>
 <context>
@@ -14934,105 +14979,101 @@ filename08.xhtml
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="14"/>
         <source>Saved Searches</source>
-        <translation>保存的搜索</translation>
+        <translation>저장된 검색</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>过滤名称: </translation>
+        <translation>필터 이름:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation>全部过滤: </translation>
+        <translation>모두 검색:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>仅列出包含您输入的文本的条目. </translation>
+        <translation>입력한 텍스트가 포함된 항목만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="65"/>
         <source>Load the selected entry into the Find &amp; Replace window.</source>
-        <translation>把选择的项目加载到查找和替换窗口.</translation>
+        <translation>선택한 항목을 찾기 및 바꾸기 창에 입력합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="68"/>
         <source>Load Search</source>
-        <translation>加载搜索</translation>
+        <translation>검색 불러오기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="91"/>
         <source>Run Find using the selected entry.
 If a group is selected, find the first entry in the list, 
 then if not found look for the second entry in the list, etc.</source>
-        <translation>使用选择的条目进行查找.
-如果选择了一个组, 请在列表中找到第一个条目,
-如果没有找到, 使用列表中的第二个条目, 以此类推.</translation>
+        <translation>선택한 항목을 사용하여 찾기를 실행하십시오.
+그룹을 선택한 경우 목록에서 첫 번째 항목을 찾은 다음 목록에서 두 번째 항목을 찾으십시오.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>Find</source>
-        <translation>找到</translation>
+        <translation>찾기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="103"/>
         <source>Run Replace using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
-        <translation>使用选择的条目进行替换.
-如果选择了一个组, 请在列表中找到第一个条目,
-如果没有找到, 使用列表中的第二个条目, 以此类推.</translation>
+        <translation>선택한 항목을 사용하여 바꾸기를 실행합니다.
+그룹이 선택된 경우 각 항목을 순차적으로 수행합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="69"/>
         <source>Replace</source>
-        <translation>替换</translation>
+        <translation>바꾸기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="131"/>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
-        <translation>使用选择的条目进行替换/查找.
-如果选择了一个组, 请在列表中找到第一个条目,
-如果没有找到, 使用列表中的第二个条目, 以此类推.</translation>
+        <translation>선택한 항목을 사용하여 바꾸기/찾기를 실행합니다.
+그룹을 선택하면 각 항목을 순차적으로 수행합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="136"/>
         <source>Replace/Find</source>
-        <translation>替换/查找</translation>
+        <translation>바꾸기/찾기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="143"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
-        <translation>使用选择的循序，进行全部替换操作.
-如果选择一个组, 并按顺序提花组中所有条目.</translation>
+        <translation>선택한 항목에 대해 선택한 순서대로 모두 바꾸기를 실행합니다.
+그룹의 모든 항목을 순서대로 바꾸려면 그룹을 선택하십시오.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="147"/>
         <source>Replace All</source>
-        <translation>全部替换</translation>
+        <translation>모두 바꾸기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="170"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation>按照选择的顺序对选择项进行全计算操作.
-包括选择的组项.</translation>
+        <translation>선택한 그룹의 항목을 포함하여 선택한 항목에 대해 선택된 순서대로 일치하는 항목의 수를 세어 표시합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
         <source>Count All</source>
-        <translation>计数所有</translation>
+        <translation>모두 세기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="199"/>
         <source>Move an entry up one level in the same group.</source>
-        <translation>在组内向上移动一级</translation>
+        <translation>같은 그룹 내에서 한 단계 위로 항목을 이동합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="202"/>
@@ -15045,210 +15086,209 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="229"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation>将条目移动到其父级的级别. </translation>
+        <translation>항목을 상위 그룹으로 이동</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="258"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation>您必须选择组下面的项目才能将其移动到组中. </translation>
+        <translation>선택한 항목을 그룹에 포함시키려면 선택 항목이 그룹 목록 바로 아래에 있어야 합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="288"/>
         <source>Move an entry down one level in the same group.</source>
-        <translation>在组内向下移动一级</translation>
+        <translation>같은 그룹 내에서 한 레벨 아래로 항목을 이동합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="354"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
-        <translation>点击应用加载选择的查找到搜索&amp;替换.
-点击OK加载查找, 保存数据并关闭.</translation>
+        <translation>적용을 클릭하면 선택한 검색으로 찾기 및 바꾸기를 로드합니다. 확인을 클릭하여 검색을로드하고 데이터를 저장 한 후 닫습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="62"/>
         <source>All searches default to Regex, All HTML Files, Down.</source>
-        <translation>所以搜索默认是Regex,所有HTML文件和向下.</translation>
+        <translation>모든 검색의 기본 설정은 정규식, 모든 HTML 파일, 아래 방향입니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="63"/>
         <source>Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.</source>
-        <translation>按住Ctrl键再点击查找, 替换等来临时仅从当前文件搜索.</translation>
+        <translation>찾기, 바꾸기 등을 클릭하하면서 동시에 Ctrl 키를 누르면, 현재 파일 만 검색합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="64"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>右键单击一个条目以查看操作的上下文菜单. </translation>
+        <translation>동작의 상황에 맞는 메뉴를 보기 위해서 항목 위에서 오른쪽 클릭</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="65"/>
         <source>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</source>
-        <translation>你也可以右键点击在查找&amp;替换窗口中的查找文本框来选择入口.</translation>
+        <translation>찾기 및 바꾸기 창에서 찾기 텍스트 상자를 마우스 오른쪽 단추로 클릭하여 항목을 선택할 수도 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Name of your entry or group.</source>
-        <translation>给您的条目或组命名. </translation>
+        <translation>항목 또는 그룹의 이름</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>The text to put into the Find box.</source>
-        <translation>输入到查找框中的文字.</translation>
+        <translation>찾기 상자에 넣을 텍스트.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="69"/>
         <source>The text to put into the Replace box.</source>
-        <translation>输入到替换框中的文字.</translation>
+        <translation>바꾸기 상자에 넣을 텍스트.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation>저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>Save your changes.</source>
-        <translation>保存改变的.</translation>
+        <translation>변경사항 저장하기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>如果有其他Sigil的实例正在运行，它们将自动更新您的更改. </translation>
+        <translation>다른 Sigil 인스턴스가 실행중인 경우 변경 사항이 자동으로 업데이트됩니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="90"/>
         <source>Cannot save entries.</source>
-        <translation>无法保存条目. </translation>
+        <translation>항목을 저장할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="170"/>
         <source>Saved Searches loaded from file.</source>
-        <translation>保存搜索到文件</translation>
+        <translation>파일에서 저장된 검색을 불러옵니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="206"/>
         <source>You cannot select more than one entry when using this action.</source>
-        <translation>当使用这个动作时，您无法选择多个入口.</translation>
+        <translation>이 조치를 사용할 때 둘 이상의 항목을 선택할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="214"/>
         <source>You cannot select a group for this action.</source>
-        <translation>您无法用这个动作选择一个组.</translation>
+        <translation>이 작업에 대한 그룹을 선택할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="260"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="261"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation>您不能选择包含该条目的条目和组。</translation>
+        <translation>항목을 포함하는 그룹과 항목을 동시에 선택할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="343"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="344"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
-        <translation>您不能复制或剪切组 - 请使用拖放。</translation>
+        <translation>그룹을 복사하기나 잘라내기할 수 없습니다. - 끌어서 놓기를 사용하세요.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="410"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="411"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="410"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="411"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>您确定要重新载入所有条目吗? 所有更改将被覆盖. </translation>
+        <translation>모든 항목을 다시 읽어들이는 것이 확실합니까? 저장되지 않은 모든 변경 내용을 잃게됩니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="430"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="431"/>
         <source>Import Search Entries</source>
-        <translation>导入搜索入口</translation>
+        <translation>검색 항목 가져 오기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="510"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="511"/>
         <source>Export Selected Searches</source>
-        <translation>导出搜索入口</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="676"/>
-        <source>Add Entry</source>
-        <translation>添加入口</translation>
+        <translation>선택한 검색 내보내기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="677"/>
-        <source>Add Group</source>
-        <translation>添加到组</translation>
+        <source>Add Entry</source>
+        <translation>항목 추가</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="678"/>
-        <source>Edit</source>
-        <translation>编辑</translation>
+        <source>Add Group</source>
+        <translation>그룹 추가</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="679"/>
-        <source>Cut</source>
-        <translation>剪切</translation>
+        <source>Edit</source>
+        <translation>편집</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="680"/>
-        <source>Copy</source>
-        <translation>复制</translation>
+        <source>Cut</source>
+        <translation>잘라내기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="681"/>
-        <source>Paste</source>
-        <translation>粘贴</translation>
+        <source>Copy</source>
+        <translation>복사하기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="682"/>
-        <source>Delete</source>
-        <translation>删除</translation>
+        <source>Paste</source>
+        <translation>붙여넣기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="683"/>
-        <source>Import</source>
-        <translation>输入</translation>
+        <source>Delete</source>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="684"/>
-        <source>Reload</source>
-        <translation>重载入</translation>
+        <source>Import</source>
+        <translation>가져오기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="685"/>
-        <source>Export</source>
-        <translation>输出</translation>
+        <source>Reload</source>
+        <translation>다시 읽어들이기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="686"/>
-        <source>Export All</source>
-        <translation>全部输出</translation>
+        <source>Export</source>
+        <translation>내보내기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="687"/>
-        <source>Collapse All</source>
-        <translation>全部收起</translation>
+        <source>Export All</source>
+        <translation>모두 내보내기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="688"/>
+        <source>Collapse All</source>
+        <translation>모두 접기</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="689"/>
         <source>Expand All</source>
-        <translation>全部打开</translation>
+        <translation>모두 펼치기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="765"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="768"/>
         <source>Search entries saved.</source>
-        <translation>搜索入口已保存.</translation>
+        <translation>검색 항목이 저장되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="794"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="797"/>
         <source>Sigil: Saved Searches</source>
-        <translation>Sigil: 保存的搜索</translation>
+        <translation>Sigil: 저장된 검색</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="795"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="798"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>搜索入口可能已被修改.
-您是否保存?</translation>
+        <translation>검색 항목이 수정되었습니다.
+변경 사항을 저장하시겠습니까?</translation>
     </message>
 </context>
 <context>
@@ -15256,22 +15296,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="66"/>
         <source>Name</source>
-        <translation>名称</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="67"/>
         <source>Find</source>
-        <translation>找到</translation>
+        <translation>찾기</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="68"/>
         <source>Replace</source>
-        <translation>替换</translation>
+        <translation>바꾸기</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="604"/>
         <source>Unable to create file %1</source>
-        <translation>无法创建文件 %1</translation>
+        <translation>%1 파일을 생성할 수 없습니다</translation>
     </message>
 </context>
 <context>
@@ -15279,7 +15319,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectCharacter.ui" line="14"/>
         <source>Insert Special Character</source>
-        <translation>插入特殊字符</translation>
+        <translation>특수 문자 삽입</translation>
     </message>
 </context>
 <context>
@@ -15287,12 +15327,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectCheckpoint.ui" line="14"/>
         <source>Select Checkpoint Version</source>
-        <translation>选择检查点版本</translation>
+        <translation>체크포인트 버전 선택</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectCheckpoint.ui" line="56"/>
         <source>Description of Checkpoint</source>
-        <translation>检查点说明</translation>
+        <translation>체크포인트 설명</translation>
     </message>
 </context>
 <context>
@@ -15300,84 +15340,83 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="14"/>
         <source>Insert File</source>
-        <translation>插入文件</translation>
+        <translation>파일 삽입</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="46"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>仅列出文件名包含所输入文本的文件</translation>
+        <translation>입력한 텍스트가 포함된 파일만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="49"/>
         <source>Filter:</source>
-        <translation>过滤：</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="59"/>
         <source>Choose which image, video, or audio files from your computer to add to
 your book and automatically insert into your document.</source>
-        <translation>从您的计算机选择哪个图片, 视频或声音文件添加
-到你的书籍并自动插入到文本中.</translation>
+        <translation>컴퓨터에서 책에 추가하고 문서에 자동으로 삽입 할 이미지, 비디오 또는 오디오 파일을 선택하십시오.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="63"/>
         <source>Other Files...</source>
-        <translation>其他文件...</translation>
+        <translation>다른 파일...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="129"/>
         <source>Thumbnail size:</source>
-        <translation>缩略图大小: </translation>
+        <translation>썸네일 크기:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="85"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="112"/>
         <source>All</source>
-        <translation>所有</translation>
+        <translation>모두</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="86"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="113"/>
         <source>Images</source>
-        <translation>图像</translation>
+        <translation>이미지</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="87"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="114"/>
         <source>Video</source>
-        <translation>视频</translation>
+        <translation>비디오</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="88"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="115"/>
         <source>Audio</source>
-        <translation>音频</translation>
+        <translation>오디오</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="136"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="163"/>
         <source>Files In the Book</source>
-        <translation>书中的文件</translation>
+        <translation>책에 있는 파일</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="139"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="166"/>
         <source>Thumbnails</source>
-        <translation>缩略图</translation>
+        <translation>썸네일</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="299"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="326"/>
         <source>shades</source>
-        <translation>色彩</translation>
+        <translation>그림자</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="299"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="326"/>
         <source>colors</source>
-        <translation>颜色</translation>
+        <translation>색상</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="300"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="327"/>
         <source>Grayscale</source>
-        <translation>灰度</translation>
+        <translation>회색조(Grayscale)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="300"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="327"/>
         <source>Color</source>
-        <translation>色彩</translation>
+        <translation>색상</translation>
     </message>
 </context>
 <context>
@@ -15385,21 +15424,20 @@ your book and automatically insert into your document.</source>
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="14"/>
         <source>Select Destination Folder </source>
-        <translation>选择目标文件夹</translation>
+        <translation>대상 폴더를 선택하십시오</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="22"/>
         <source>Enter or select an ebook path to the desired destination folder.
 
 The dropdown box shows existing Folder paths for this file type.</source>
-        <translation>输入或选择所需目标文件夹的电子书路径。
-
-下拉框显示此文件类型的现有文件夹路径。</translation>
+        <translation>원하는 대상 폴더의 전자 책 경로를 입력하거나 선택하십시오.
+드롭 다운 상자에는 이 파일 형식의 기존 폴더 경로가 표시됩니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="27"/>
         <source>Folders:</source>
-        <translation>文件夹：</translation>
+        <translation>폴더: </translation>
     </message>
 </context>
 <context>
@@ -15407,33 +15445,33 @@ The dropdown box shows existing Folder paths for this file type.</source>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="14"/>
         <source>Select Target</source>
-        <translation>选择目标</translation>
+        <translation>대상 선택</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="22"/>
         <source>List only the entries that match the text you enter.</source>
-        <translation>仅列出与你的输入相匹配的入口.</translation>
+        <translation>입력한 텍스트와 일치하는 항목만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="25"/>
         <source>Filter:</source>
-        <translation>过滤：</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="58"/>
         <source>Enter the target URL for this hyperlink.  You can select or 
 double click on existing destinations in your book from the list above.</source>
-        <translation>为这个超链接输入目标URL. 您可以从上面的列表中选择或者双击书中的目标.</translation>
+        <translation>링크를 걸 타겟 URL을 입력하세요. 위 목록에서 책의 기존 대상을 선택하거나 더블클릭으로 선택 할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectHyperlink.ui" line="62"/>
         <source>Target:</source>
-        <translation>目标: </translation>
+        <translation>대상 : </translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="69"/>
         <source>Targets in the Book</source>
-        <translation>书中的目标</translation>
+        <translation>책 내의 Target</translation>
     </message>
 </context>
 <context>
@@ -15441,7 +15479,7 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="14"/>
         <source>Insert ID </source>
-        <translation>插入ID</translation>
+        <translation>ID 삽입</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="22"/>
@@ -15450,14 +15488,12 @@ double click on existing destinations in your book from the list above.</source>
 The dropdown box shows existing ID names in the current file.
 
 ID names must be unique and start with a letter.</source>
-        <translation>为超链接,注释,和TOC入口等输入一个ID名称.
-下拉菜单显示当前文件已有的ID名称.
-ID名称必须是为一个且以一个字母开头.</translation>
+        <translation>하이퍼 링크, 메모 및 목차 항목의 대상으로 사용할 ID 이름을 입력하십시오. 드롭 다운 상자는 현재 파일의 기존 ID 이름을 표시합니다 . ID 이름은 고유해야하며 영문으로 시작해야합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectId.ui" line="29"/>
         <source>ID:</source>
-        <translation>ID: </translation>
+        <translation>ID:</translation>
     </message>
 </context>
 <context>
@@ -15465,17 +15501,17 @@ ID名称必须是为一个且以一个字母开头.</translation>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="14"/>
         <source>Mark For Index</source>
-        <translation>为索引做标记</translation>
+        <translation>색인 마크</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="22"/>
         <source>Enter the index entry to create for the selected text.</source>
-        <translation>为选择的文本输入生成一个索引入口.</translation>
+        <translation>선택한 텍스트의 색인 항목을 입력하십시오.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="25"/>
         <source>Index Entry:</source>
-        <translation>索引入口: </translation>
+        <translation>색인 항목:</translation>
     </message>
 </context>
 <context>
@@ -15483,68 +15519,68 @@ ID名称必须是为一个且以一个字母开头.</translation>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
         <source>Spellcheck Dictionaries</source>
-        <translation>拼写检查字典</translation>
+        <translation>맞춤법 검사 사전</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="22"/>
         <source>Dictionary:</source>
-        <translation>字典: </translation>
+        <translation>사전:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="52"/>
         <source>Highlight misspelled words in Code View.</source>
-        <translation>在代码视图中高亮拼错单词.</translation>
+        <translation>코드 보기에서 맞춤법 틀린 단어 강조</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="55"/>
         <source>Highlight Misspelled Words</source>
-        <translation>高亮拼错单词</translation>
+        <translation>맞춤법 틀린 단어 강조</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="75"/>
         <source>Check words with numbers in them.</source>
-        <translation>在其中检查包含数字的单词。</translation>
+        <translation>숫자가 포함된 단어인지 확인하세요.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="78"/>
         <source>Check Numbers</source>
-        <translation>检查编号</translation>
+        <translation>숫자 확인</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="149"/>
         <source>User Dictionaries</source>
-        <translation>用户词典</translation>
+        <translation>사용자 사전</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="159"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="264"/>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation>추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="166"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="217"/>
         <source>Rename</source>
-        <translation>重命名</translation>
+        <translation>이름 바꾸기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="173"/>
         <source>Copy</source>
-        <translation>复制</translation>
+        <translation>복사</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="180"/>
         <source>Remove the selected dictionary.
 
 You cannot remove the last dictionary.</source>
-        <translation>移除选择的字典.
-您无法移除上一个字典.</translation>
+        <translation>선택한 사전을 제거합니다.
+마지막 사전은 제거 할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="185"/>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="278"/>
         <source>Remove</source>
-        <translation>删除</translation>
+        <translation>지우기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="223"/>
@@ -15553,68 +15589,68 @@ spell checking.
 
 Select a dictionary to display its words,
 and to make it the default dictionary.</source>
-        <translation>标记哪些字典用于拼写检查.
-选择一个字典用于显示单词,
-并将其设置为默认字典.</translation>
+        <translation>맞춤법 검사용 사전을 선택합니다.
+단어를 표시하고 기본 사전으로 만들 사전을 선택하십시오.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="250"/>
         <source>User Dictionary Word List</source>
-        <translation>用户字典列表</translation>
+        <translation>사용자 사전 단어 목록</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="260"/>
         <source>Enter or paste words to add to the dictionary.
 Words can be separated by lines, commas, or spaces.</source>
-        <translation>输入或粘贴字词添加到字典中.
-词可以用行,逗号或空格区分.</translation>
+        <translation>사전에 추가 할 단어를 입력하거나 붙여 넣습니다.
+단어는 줄, 쉼표 또는 공백으로 구분할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="271"/>
         <source>Edit</source>
-        <translation>编辑</translation>
+        <translation>편집</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="285"/>
         <source>Remove All</source>
-        <translation>删除所有的</translation>
+        <translation>모두 지우기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="348"/>
         <source>The default dictionary is used when you add words to the
 default dictionary or use the shortcuts for Add Misspelled Words.</source>
-        <translation>当你添加词到字典或者用“添加拼错的单词”时, 使用默认字典.</translation>
+        <translation>기본 사전은 단어를 기본 사전에 추가하거나 
+&apos;철자가 틀린 단어&apos; 추가 바로 가기를 사용할 때 사용됩니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="352"/>
         <source>Default Dictionary:</source>
-        <translation>默认字典: </translation>
+        <translation>기본 사전:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="359"/>
         <source>none</source>
-        <translation>无</translation>
+        <translation>없음</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
         <source>Enable</source>
-        <translation>启用</translation>
+        <translation>사용</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="54"/>
         <source>Dictionary</source>
-        <translation>字典</translation>
+        <translation>사전</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="114"/>
         <source>Add Dictionary</source>
-        <translation>添加字典</translation>
+        <translation>사전 추가</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="114"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="217"/>
         <source>Name:</source>
-        <translation>名称: </translation>
+        <translation>이름:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
@@ -15623,38 +15659,38 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="238"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="257"/>
         <source>Error</source>
-        <translation>错误</translation>
+        <translation>오류</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="230"/>
         <source>A user dictionary already exists with this name!</source>
-        <translation>同名用户字典已经存在!</translation>
+        <translation>사용자 사전이 동일한 이름으로 이미 존재합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="137"/>
         <source>Add Words</source>
-        <translation>添加单词</translation>
+        <translation>단어 추가</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="137"/>
         <source>Words:</source>
-        <translation>单词: </translation>
+        <translation>단어:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="168"/>
         <source>Could not create file!</source>
-        <translation>无法生成文件!</translation>
+        <translation>파일을 생성할 수 없습니다!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="238"/>
         <source>Could not rename file!</source>
-        <translation>无法给文件重命名!</translation>
+        <translation>파일 이름을 변경할 수 없습니다!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="257"/>
         <source>You cannot delete the last dictionary.</source>
-        <translation>无法删除最后一个字典.</translation>
+        <translation>마지막 사전은 삭제할 수 없습니다.</translation>
     </message>
 </context>
 <context>
@@ -15662,83 +15698,82 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="14"/>
         <source>Spellcheck</source>
-        <translation>拼写检查</translation>
+        <translation>맞춤법 검사</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
         <source>Filter:</source>
-        <translation>过滤：</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>仅列出包含您输入的文本的条目. </translation>
+        <translation>입력한 텍스트가 포함된 항목만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="58"/>
         <source>Ignore the selected words until Sigil
 is restarted or a new book is opened.</source>
-        <translation>忽略选中的词直到Sigil
-重新启动或者打开一个新书.</translation>
+        <translation>Sigil을 다시 시작하거나 새 책을 열 때까지 
+선택한 단어를 무시합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="541"/>
         <source>Ignore</source>
-        <translation>忽略</translation>
+        <translation>무시</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="91"/>
         <source>Add the selected words to the
 dictionary selected below.</source>
-        <translation>将选中的单词添加到下面选中的
-字典中</translation>
+        <translation>선택한 단어를 아래 선택한 사전에 추가합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="95"/>
         <source>Add To Dictionary:</source>
-        <translation>添加到字典: </translation>
+        <translation>사전에 추가</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="134"/>
         <source>Change all occurrences of the selected word  in
 HTML files to the word you select or type below.
 The selected word does not have to be misspelled.</source>
-        <translation>将所有在HTML文件中选中出现的单词
-替换为您选择的或者在下面输入的.
-选中的单词不必是拼写错的.</translation>
+        <translation>HTML 파일에서 선택한 단어를 모두 선택하거나 
+아래에 입력 한 단어로 변경합니다.
+선택한 단어의 철자가 틀릴 필요는 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="139"/>
         <source>Change Selected Word To:</source>
-        <translation>将选中的词变为: </translation>
+        <translation>선택한 단어를 다음으로 변경:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="181"/>
         <source>Show All Words</source>
-        <translation>显示所有单词</translation>
+        <translation>모든 단어 표시</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="188"/>
         <source>Sort words as AaBbCc instead of ABCabc.</source>
-        <translation>使用AaBbCb而不是ABCabc的排序方式.</translation>
+        <translation>AaBbCc를 ABCabc로 정렬</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="191"/>
         <source>Case-Insensitive Sort</source>
-        <translation>大小写不敏感排序</translation>
+        <translation>대소 문자를 구분하지 않고 정렬</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="215"/>
         <source>Re-check the HTML files for misspelled words.
 Use if you edit any HTML files while Spellcheck is open.</source>
-        <translation>重新检查HTML文件是否有拼错单词.
-编辑HTML文件时打开拼写检查.</translation>
+        <translation>철자가 틀린 단어가 있는지 HTML 파일을 다시 확인합니다.
+맞춤법 검사가 열려있는 동안 HTML 파일을 편집하는 경우 사용하십시오.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="219"/>
         <source>Refresh</source>
-        <translation>刷新</translation>
+        <translation>새로 고침</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="54"/>
@@ -15769,78 +15804,78 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="178"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="217"/>
         <source>No words selected.</source>
-        <translation>没有选中的词.</translation>
+        <translation>단어가 선택되지 않았습니다</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="171"/>
         <source>Ignored word(s).</source>
-        <translation>忽略单词(多个).</translation>
+        <translation>무시 단어(s)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="206"/>
         <source>Added word(s) to dictionary.</source>
-        <translation>添加(多个)单词到字典.</translation>
+        <translation>단어가 사전에 추가되었습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="208"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
-        <translation>添加(多个)单词到字典. 该字典在配置中还没有开启.</translation>
+        <translation>단어가 사전에 추가되었습니다. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="223"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
-        <translation>新字不能包含&quot;&lt;&quot;, &quot;&gt;&quot;, 或者 &quot;&amp;&quot;.</translation>
+        <translation>새 단어에는 &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;. 기호를 사용할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="234"/>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="302"/>
         <source>No</source>
-        <translation>否</translation>
+        <translation>아니요</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="253"/>
         <source>Word</source>
-        <translation>单词</translation>
+        <translation>단어</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="254"/>
         <source>Count</source>
-        <translation>计数</translation>
+        <translation>세기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="255"/>
         <source>Misspelled?</source>
-        <translation>拼写错误?</translation>
+        <translation>맞춤법에 맞춰 수정하시겠습니까?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="300"/>
         <source>Yes</source>
-        <translation>是</translation>
+        <translation>예</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="318"/>
         <source>Misspelled Words</source>
-        <translation>错别字</translation>
+        <translation>맞춤법 틀린 단어</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="318"/>
         <source>Total Unique Words</source>
-        <translation>唯一单词总数</translation>
+        <translation>총 고유 단어</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="542"/>
         <source>Add to Dictionary</source>
-        <translation>添加到字典</translation>
+        <translation>사전에 추가하기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="543"/>
         <source>Find in Text</source>
-        <translation>在文本中查找</translation>
+        <translation>텍스트 찾기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="544"/>
         <source>Select All</source>
-        <translation>选择全部</translation>
+        <translation>모두 선택하기</translation>
     </message>
 </context>
 <context>
@@ -15848,52 +15883,52 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="14"/>
         <source>CSS Classes</source>
-        <translation>CSS类</translation>
+        <translation>CSS 클래스</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
         <source>List only the file names which contain the text you enter.</source>
-        <translation>仅列出文件名包含所输入文本的文件</translation>
+        <translation>입력한 텍스트가 포함된 파일만 보기.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="37"/>
         <source>Filter:</source>
-        <translation>过滤：</translation>
+        <translation>필터:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="86"/>
         <source>CSS File</source>
-        <translation>CSS文件</translation>
+        <translation>CSS 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="87"/>
         <source>Class Selector</source>
-        <translation>类选择器</translation>
+        <translation>CSS 선택자(Selector)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="88"/>
         <source>Used In HTML File</source>
-        <translation>在HTML文件中使用的</translation>
+        <translation>HTML 파일에서 사용 됨</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="94"/>
         <source>&lt;p&gt;This is a list of the class based selectors in all CSS files and whether or not the selector was matched from a style in an HTML file.&lt;p&gt;</source>
-        <translation>&lt;p&gt;这是所有CSS文件中基于类的选择器的列表，以及选择器是否与HTML文件中的样式匹配&lt;p&gt;</translation>
+        <translation>&lt;p&gt;이것은 모든 CSS 파일의 클래스 기반 선택자 목록으로 선택자가 HTML 파일의 스타일과 일치하는지는 검증하지 않습니다.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="95"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
-        <translation>&lt;p&gt;注释:&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;NOTE:&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="96"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;由于CSS的复杂性，您必须手动检查代码以确定样式是否被使用。&lt;/ p&gt;</translation>
+        <translation>&lt;p&gt;CSS가 복잡하기 때문에 스타일이 사용되는지 여부를 확인하려면 코드를 수동으로 확인해야합니다.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="258"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>将报告保存为都好分割的文件</translation>
+        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="272"/>
@@ -15903,51 +15938,51 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="272"/>
         <source>Cannot save report file.</source>
-        <translation>无法保存报告文件</translation>
+        <translation>리포트 파일을 저장할 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="283"/>
         <source>Delete From Stylesheet</source>
-        <translation>从样式表中删除</translation>
+        <translation>스타일시트에서 삭제하기</translation>
     </message>
 </context>
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../../Tabs/TabBar.cpp" line="83"/>
+        <location filename="../../Tabs/TabBar.cpp" line="84"/>
         <source>Close Other Tabs</source>
-        <translation>关闭其它的标签</translation>
+        <translation>다른 탭 닫기</translation>
     </message>
 </context>
 <context>
     <name>TabManager</name>
     <message>
-        <location filename="../../Tabs/TabManager.cpp" line="264"/>
+        <location filename="../../Tabs/TabManager.cpp" line="265"/>
         <source>Cannot edit file</source>
-        <translation>无法编辑文件</translation>
+        <translation>파일을 편집할 수 없습니다.</translation>
     </message>
 </context>
 <context>
     <name>TableOfContents</name>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="42"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="43"/>
         <source>Table Of Contents</source>
-        <translation>索引</translation>
+        <translation>차례</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="127"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="128"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>文件&quot;%1&quot;不存在</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="158"/>
-        <source>Collapse All</source>
-        <translation>全部收起</translation>
+        <translation>파일 &quot;%1&quot; 가 존재하지 않습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="159"/>
+        <source>Collapse All</source>
+        <translation>모두 접기</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/TableOfContents.cpp" line="160"/>
         <source>Expand All</source>
-        <translation>全部打开</translation>
+        <translation>모두 펼치기</translation>
     </message>
 </context>
 <context>
@@ -15955,52 +15990,59 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Tabs/TextTab.cpp" line="314"/>
         <source>Print %1</source>
-        <translation>打印%1</translation>
+        <translation>인쇄 %1</translation>
     </message>
 </context>
 <context>
     <name>TextView</name>
     <message>
-        <location filename="../../ViewEditors/TextView.cpp" line="436"/>
+        <location filename="../../Widgets/TextView.cpp" line="420"/>
         <source>Reformat HTML</source>
-        <translation>重新HTML格式化</translation>
+        <translation>HTML 정리</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/TextView.cpp" line="438"/>
+        <location filename="../../Widgets/TextView.cpp" line="422"/>
         <source>Mend and Prettify Code</source>
-        <translation>修改和优化代码</translation>
+        <translation>Ment and Prettify 코드 방식</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/TextView.cpp" line="439"/>
+        <location filename="../../Widgets/TextView.cpp" line="423"/>
         <source>Mend and Prettify Code - All HTML Files</source>
-        <translation>修改和预验证码 - 所有HTML文件</translation>
+        <translation>Ment and Prettify 코드 방식 - 모든 파일에 적용</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/TextView.cpp" line="440"/>
+        <location filename="../../Widgets/TextView.cpp" line="424"/>
         <source>Mend Code</source>
-        <translation>修改代码</translation>
+        <translation>Mend 코드 방식</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/TextView.cpp" line="441"/>
+        <location filename="../../Widgets/TextView.cpp" line="425"/>
         <source>Mend Code - All HTML Files</source>
-        <translation>修改代码 - 所有HTML文件</translation>
+        <translation>Mend 코드 방식 - 모든 파일에 적용</translation>
     </message>
 </context>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="740"/>
+        <location filename="../../Misc/Utility.cpp" line="727"/>
+        <location filename="../../Misc/Utility.cpp" line="737"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="741"/>
+        <location filename="../../Misc/Utility.cpp" line="728"/>
+        <source>The requested file name contains one or more url/uri delimiter characters:  : / ? # [ ] @  that should NOT appear in url/uri link targets such as filenames.
+
+</source>
+        <translation>요청한 파일 이름에 하나 이상의 url/uri 구분 문자가 포함되어 있습니다.  : / ? # [ ] @ 같은 url/uri 구분자는 파일 이름과 같은 url / uri 링크 대상에 사용할 수 없습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Utility.cpp" line="738"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
-        <translation>请求的文件名包含非ASCII字符. 您只应在文件名中使用ASCII字符. 使用非ASCII字符可能阻止一些读者使用EPUB.
-
-继续使用该文件名吗?</translation>
+        <translation>요청한 파일 명에 non-ASCII 문자가 포함되어 있습니다. 파일명에는 ASCII 문자만 사용할 수 있습니다. non-ASCII 문자를 사용할 경우 일부 전자책 뷰어에서 작동하지 않을 수 있습니다.
+그래도 파일명을 사용하시겠습니까?</translation>
     </message>
 </context>
 <context>
@@ -16008,118 +16050,78 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="48"/>
         <source>Validation Results</source>
-        <translation>验证结果</translation>
+        <translation>유효성 검사 결과</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="246"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="250"/>
         <source>N/A</source>
-        <translation>不适用</translation>
+        <translation>발생 횟수 세는 중..</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="273"/>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="289"/>
         <source>Message</source>
-        <translation>消息</translation>
+        <translation>메시지</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="274"/>
         <source>No problems found!</source>
-        <translation>没有发现问题!</translation>
+        <translation>아무 문제를 찾지 못했습니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="289"/>
         <source>File</source>
-        <translation>文件</translation>
+        <translation>파일</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="289"/>
         <source>Line</source>
-        <translation>行</translation>
+        <translation>줄</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="289"/>
         <source>Offset</source>
-        <translation>偏移</translation>
+        <translation>오프셋</translation>
     </message>
 </context>
 <context>
     <name>ViewAV</name>
     <message>
-        <location filename="../../Dialogs/ViewAV.cpp" line="86"/>
+        <location filename="../../Dialogs/ViewAV.cpp" line="50"/>
         <source>Close this window</source>
-        <translation>关闭此窗口</translation>
+        <translation>이 창 닫기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ViewAV.cpp" line="87"/>
+        <location filename="../../Dialogs/ViewAV.cpp" line="51"/>
         <source>Done</source>
-        <translation>完成</translation>
+        <translation>완료</translation>
     </message>
 </context>
 <context>
     <name>ViewFont</name>
     <message>
-        <location filename="../../Dialogs/ViewFont.cpp" line="88"/>
+        <location filename="../../Dialogs/ViewFont.cpp" line="45"/>
         <source>Close this window</source>
-        <translation>关闭此窗口</translation>
+        <translation>이 창 닫기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ViewFont.cpp" line="89"/>
+        <location filename="../../Dialogs/ViewFont.cpp" line="46"/>
         <source>Done</source>
-        <translation>完成</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewFont.cpp" line="147"/>
-        <source>abcdefghijklmnopqrstuvwxyz</source>
-        <translation>abcdefghijklmnopqrstuvwxyz</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewFont.cpp" line="148"/>
-        <source>ABCDEFGHIJKLMNOPQRSTUVWXYZ</source>
-        <translation>ABCDEFGHIJKLMNOPQRSTUVWXYZ</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewFont.cpp" line="149"/>
-        <source>0123456789.:,;(*!?&apos;\/&quot;)$%^&amp;-+@=_-~&gt;&lt;</source>
-        <translation>0123456789.:,;(*!?&apos;\/&quot;)$%^&amp;-+@=_-~&gt;&lt;</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewFont.cpp" line="150"/>
-        <source>The quick brown fox jumps over the lazy dog</source>
-        <translation>The quick brown fox jumps over the lazy dog</translation>
+        <translation>완료</translation>
     </message>
 </context>
 <context>
     <name>ViewImage</name>
     <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="76"/>
+        <location filename="../../Dialogs/ViewImage.cpp" line="50"/>
         <source>Close this window</source>
-        <translation>关闭此窗口</translation>
+        <translation>이 창 닫기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="77"/>
+        <location filename="../../Dialogs/ViewImage.cpp" line="51"/>
         <source>Done</source>
-        <translation>完成</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="106"/>
-        <source>shades</source>
-        <translation>色彩</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="106"/>
-        <source>colors</source>
-        <translation>颜色</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="107"/>
-        <source>Grayscale</source>
-        <translation>灰度</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="107"/>
-        <source>Color</source>
-        <translation>颜色</translation>
+        <translation>완료</translation>
     </message>
 </context>
 <context>
@@ -16127,22 +16129,22 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="43"/>
         <source>&lt;p&gt;The operation you requested cannot be performed because &lt;b&gt;%1&lt;/b&gt; is not a well-formed XML document.&lt;/p&gt;&lt;p&gt;An error was found &lt;b&gt;at or above line %2: %3.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;The &lt;i&gt;Fix Manually&lt;/i&gt; option will let you fix the problem by hand.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;您所请求的操作无法执行，因为&lt;b&gt;%1 &lt;/ b&gt;不是一个格式正确的XML文档。&lt;/ p&gt; &lt;p&gt;发现错误&lt;b&gt;在第%2行以上%3。&lt;/ b&gt; &lt;/ p&gt; &lt;p&gt; &lt;i&gt;手动修复&lt;/ i&gt;可让您手动修复问题。&lt;/ p&gt;</translation>
+        <translation>&lt;p&gt;요청하신 작업을 수행할 수 없습니다. &lt;b&gt;%1&lt;/b&gt; 는 정상적인 XML 문서가 아닙니다.&lt;/p&gt;&lt;p&gt;다음 라인 &lt;b&gt; %2: %3.&lt;/b&gt;위나 아래에서 오류를 발견했습니다.&lt;/p&gt;&lt;p&gt;&lt;i&gt;수동으로 수정&lt;/i&gt; 을 선택하면 오류를 직접 수정할 수 있습니다.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="48"/>
         <source>&lt;p&gt;The &lt;i&gt;Fix Automatically&lt;/i&gt; option will instruct Sigil to try to repair the document. &lt;b&gt;This option may lead to loss of data!&lt;/b&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt; &lt;i&gt;自动修复&lt;/i&gt;选项将指示Sigil尝试修复文档. &lt;b&gt;此选项可能导致数据丢失！&lt;/b&gt; &lt;/p&gt;</translation>
+        <translation>&lt;p&gt; &lt;i&gt;자동을 수정&lt;/i&gt; 을 선택하면 Sigil이 자동으로 잘못된 문서를 수정합니다.&lt;b&gt;자동 수정을 하면 일부 데이터가 삭제될 수 있습니다!&lt;/b&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="55"/>
         <source>Fix &amp;Automatically</source>
-        <translation>&amp;A自动修复</translation>
+        <translation>자동으로 고치기</translation>
     </message>
     <message>
         <location filename="../../Tabs/WellFormedCheckComponent.cpp" line="57"/>
         <source>Fix &amp;Manually</source>
-        <translation>&amp;M手动修复</translation>
+        <translation>수동으로 고치기</translation>
     </message>
 </context>
 <context>
@@ -16150,147 +16152,147 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>quotation mark</source>
-        <translation>引号</translation>
+        <translation>quotation mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="98"/>
         <source>ampersand</source>
-        <translation>＆符</translation>
+        <translation>ampersand</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>apostrophe</source>
-        <translation>撇号</translation>
+        <translation>apostrophe</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="100"/>
         <source>less-than sign</source>
-        <translation>小于号</translation>
+        <translation>보다 작음 부호</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>greater-than sign</source>
-        <translation>大于号</translation>
+        <translation>보다 큼 부호</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="102"/>
         <source>no-break space</source>
-        <translation>不可打断的空格</translation>
+        <translation>no-break 공백</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>inverted exclamation mark</source>
-        <translation>反转感叹号</translation>
+        <translation>inverted exclamation mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>cent sign</source>
-        <translation>分号</translation>
+        <translation>cent sign</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>pound sign</source>
-        <translation>英镑符号</translation>
+        <translation>pound sign</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>currency sign</source>
-        <translation>货币符号</translation>
+        <translation>화폐 기호</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>yen sign</source>
-        <translation>日元</translation>
+        <translation>yen sign</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="108"/>
         <source>broken bar</source>
-        <translation>断了的条</translation>
+        <translation>broken bar</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="109"/>
         <source>section sign</source>
-        <translation>章节标识</translation>
+        <translation>section 기호</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="110"/>
         <source>diaeresis</source>
-        <translation>分音符</translation>
+        <translation>diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>copyright symbol</source>
-        <translation>版权符号</translation>
+        <translation>copyright symbol</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>feminine ordinal indicator</source>
-        <translation>女性序数指标</translation>
+        <translation>feminine ordinal indicator</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>left-pointing double angle quotation mark</source>
-        <translation>左指双角引号</translation>
+        <translation>left-pointing double angle quotation mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="114"/>
         <source>not sign</source>
-        <translation>非标识</translation>
+        <translation>not sign</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="115"/>
         <source>soft hyphen</source>
-        <translation>软连字符</translation>
+        <translation>soft hyphen</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="116"/>
         <source>registered sign</source>
-        <translation>注册标志</translation>
+        <translation>registered sign</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="117"/>
         <source>macron</source>
-        <translation>长音符号</translation>
+        <translation>macron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="118"/>
         <source>degree symbol</source>
-        <translation>度符号</translation>
+        <translation>도(온도, 각도) 기호</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="119"/>
         <source>plus-minus sign</source>
-        <translation>加减符号</translation>
+        <translation>plus-minus sign</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="120"/>
         <source>superscript two</source>
-        <translation>上标2</translation>
+        <translation>superscript two</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="121"/>
         <source>superscript three</source>
-        <translation>上标3</translation>
+        <translation>superscript three</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="122"/>
         <source>acute accent</source>
-        <translation>尖音符</translation>
+        <translation>acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="123"/>
         <source>micro sign</source>
-        <translation>微符号</translation>
+        <translation>micro sign</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="124"/>
         <source>pilcrow sign</source>
-        <translation>雄鹿标志</translation>
+        <translation>단락 기호</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="125"/>
         <source>middle dot</source>
-        <translation>中点</translation>
+        <translation>중점 기호</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="126"/>
@@ -16300,1117 +16302,1117 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="127"/>
         <source>superscript one</source>
-        <translation>上标1</translation>
+        <translation>superscript one</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="128"/>
         <source>masculine ordinal indicator</source>
-        <translation>男性序数指标</translation>
+        <translation>masculine ordinal indicator</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>right-pointing double angle quotation mark</source>
-        <translation>右指双角引号</translation>
+        <translation>right-pointing double angle quotation mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="130"/>
         <source>vulgar fraction one quarter</source>
-        <translation>普通分数四分之一</translation>
+        <translation>vulgar fraction one quarter</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="131"/>
         <source>vulgar fraction one half</source>
-        <translation>普通分数一半</translation>
+        <translation>vulgar fraction one half</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="132"/>
         <source>vulgar fraction three quarters</source>
-        <translation>普通分数三分之一</translation>
+        <translation>vulgar fraction three quarters</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="133"/>
         <source>inverted question mark</source>
-        <translation>反转问号</translation>
+        <translation>inverted question mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="134"/>
         <source>Latin capital letter A with grave accent</source>
-        <translation>加重音的拉丁字母A</translation>
+        <translation>Latin capital letter A with grave accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="135"/>
         <source>Latin capital letter A with acute accent</source>
-        <translation>加尖音符的拉丁字母A</translation>
+        <translation>Latin capital letter A with acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="136"/>
         <source>Latin capital letter A with circumflex</source>
-        <translation>加音调符号的拉丁字母A</translation>
+        <translation>Latin capital letter A with circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin capital letter A with tilde</source>
-        <translation>加波浪符的拉丁字母A</translation>
+        <translation>Latin capital letter A with tilde</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="138"/>
         <source>Latin capital letter A with diaeresis</source>
-        <translation>加分音符的拉丁字母A</translation>
+        <translation>Latin capital letter A with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="139"/>
         <source>Latin capital letter A with ring above</source>
-        <translation>加圆圈符的拉丁字母A</translation>
+        <translation>Latin capital letter A with ring above</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="140"/>
         <source>Latin capital letter AE</source>
-        <translation>大写拉丁字母AE</translation>
+        <translation>Latin capital letter AE</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="141"/>
         <source>Latin capital letter C with cedilla</source>
-        <translation>加下加符的拉丁字母C</translation>
+        <translation>Latin capital letter C with cedilla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="142"/>
         <source>Latin capital letter E with grave accent</source>
-        <translation>加重音的拉丁字母E</translation>
+        <translation>Latin capital letter E with grave accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="143"/>
         <source>Latin capital letter E with acute accent</source>
-        <translation>加尖音符的拉丁字母E</translation>
+        <translation>Latin capital letter E with acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin capital letter E with circumflex</source>
-        <translation>加音调符号的拉丁字母E</translation>
+        <translation>Latin capital letter E with circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="145"/>
         <source>Latin capital letter E with diaeresis</source>
-        <translation>加分音符的拉丁字母E</translation>
+        <translation>Latin capital letter E with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="146"/>
         <source>Latin capital letter I with grave accent</source>
-        <translation>加重音的拉丁字母I</translation>
+        <translation>Latin capital letter I with grave accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="147"/>
         <source>Latin capital letter I with acute accent</source>
-        <translation>加尖音符的拉丁字母I</translation>
+        <translation>Latin capital letter I with acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="148"/>
         <source>Latin capital letter I with circumflex</source>
-        <translation>加音调符号的拉丁字母I</translation>
+        <translation>Latin capital letter I with circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="149"/>
         <source>Latin capital letter I with diaeresis</source>
-        <translation>加分音符的拉丁字母I</translation>
+        <translation>Latin capital letter I with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="150"/>
         <source>Latin capital letter Eth</source>
-        <translation>大写拉丁字母Eth</translation>
+        <translation>Latin capital letter Eth</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="151"/>
         <source>Latin capital letter N with tilde</source>
-        <translation>加波浪符的拉丁字母N</translation>
+        <translation>Latin capital letter N with tilde</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="152"/>
         <source>Latin capital letter O with grave accent</source>
-        <translation>加重音的拉丁字母O</translation>
+        <translation>Latin capital letter O with grave accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="153"/>
         <source>Latin capital letter O with acute accent</source>
-        <translation>加尖音符的拉丁字母O</translation>
+        <translation>Latin capital letter O with acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="154"/>
         <source>Latin capital letter O with circumflex</source>
-        <translation>加音调符号的拉丁字母O</translation>
+        <translation>Latin capital letter O with circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="155"/>
         <source>Latin capital letter O with tilde</source>
-        <translation>加波浪符的拉丁字母O</translation>
+        <translation>Latin capital letter O with tilde</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="156"/>
         <source>Latin capital letter O with diaeresis</source>
-        <translation>加分音符的拉丁字母O</translation>
+        <translation>Latin capital letter O with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="157"/>
         <source>multiplication sign</source>
-        <translation>乘法符号</translation>
+        <translation>multiplication sign</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="158"/>
         <source>Latin capital letter O with stroke</source>
-        <translation>加中横线的拉丁字母O</translation>
+        <translation>Latin capital letter O with stroke</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="159"/>
         <source>Latin capital letter U with grave accent</source>
-        <translation>加重音的拉丁字母U</translation>
+        <translation>Latin capital letter U with grave accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="160"/>
         <source>Latin capital letter U with acute accent</source>
-        <translation>加尖音符的拉丁字母E</translation>
+        <translation>Latin capital letter U with acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>Latin capital letter U with circumflex</source>
-        <translation>加音调符号的拉丁字母U</translation>
+        <translation>Latin capital letter U with circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="162"/>
         <source>Latin capital letter U with diaeresis</source>
-        <translation>加分音符的拉丁字母U</translation>
+        <translation>Latin capital letter U with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="163"/>
         <source>Latin capital letter Y with acute accent</source>
-        <translation>加尖音符的拉丁字母Y</translation>
+        <translation>Latin capital letter Y with acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="164"/>
         <source>Latin capital letter THORN</source>
-        <translation>拉丁字母THORN</translation>
+        <translation>Latin capital letter THORN</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="165"/>
         <source>Latin small letter sharp s</source>
-        <translation>拉丁语小写字母s</translation>
+        <translation>Latin small letter sharp s</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="166"/>
         <source>Latin small letter a with grave accent</source>
-        <translation>加重音的拉丁语小写字母a</translation>
+        <translation>Latin small letter a with grave accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="167"/>
         <source>Latin small letter a with acute accent</source>
-        <translation>加尖音符的拉丁语小写字母a</translation>
+        <translation>Latin small letter a with acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="168"/>
         <source>Latin small letter a with circumflex</source>
-        <translation>加音调符号的拉丁小写字母a</translation>
+        <translation>Latin small letter a with circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="169"/>
         <source>Latin small letter a with tilde</source>
-        <translation>加波浪符的拉丁小写字母a</translation>
+        <translation>Latin small letter a with tilde</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="170"/>
         <source>Latin small letter a with diaeresis</source>
-        <translation>加分音符的拉丁小写字母a</translation>
+        <translation>Latin small letter a with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="171"/>
         <source>Latin small letter a with ring above</source>
-        <translation>加圆圈符的拉丁小写字母a</translation>
+        <translation>Latin small letter a with ring above</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="172"/>
         <source>Latin small letter ae</source>
-        <translation>拉丁语小写字母ae</translation>
+        <translation>Latin small letter ae</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="173"/>
         <source>Latin small letter c with cedilla</source>
-        <translation>加下加符的拉丁小写字母c</translation>
+        <translation>Latin small letter c with cedilla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="174"/>
         <source>Latin small letter e with grave accent</source>
-        <translation>加重音的拉丁语小写字母e</translation>
+        <translation>Latin small letter e with grave accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="175"/>
         <source>Latin small letter e with acute accent</source>
-        <translation>加尖音符的拉丁语小写字母e</translation>
+        <translation>Latin small letter e with acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="176"/>
         <source>Latin small letter e with circumflex</source>
-        <translation>加音调符号的拉丁小写字母e</translation>
+        <translation>Latin small letter e with circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="177"/>
         <source>Latin small letter e with diaeresis</source>
-        <translation>加分音符的拉丁小写字母e</translation>
+        <translation>Latin small letter e with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Latin small letter i with grave accent</source>
-        <translation>加重音的拉丁语小写字母i</translation>
+        <translation>Latin small letter i with grave accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>Latin small letter i with acute accent</source>
-        <translation>加尖音符的拉丁语小写字母i</translation>
+        <translation>Latin small letter i with acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Latin small letter i with circumflex</source>
-        <translation>加音调符号的拉丁小写字母i</translation>
+        <translation>Latin small letter i with circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Latin small letter i with diaeresis</source>
-        <translation>加分音符的拉丁小写字母i</translation>
+        <translation>Latin small letter i with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Latin small letter eth</source>
-        <translation>拉丁语小写字母eth</translation>
+        <translation>Latin small letter eth</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Latin small letter n with tilde</source>
-        <translation>加波浪符的拉丁小写字母n</translation>
+        <translation>Latin small letter n with tilde</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Latin small letter o with grave accent</source>
-        <translation>加重音的拉丁语小写字母o</translation>
+        <translation>Latin small letter o with grave accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Latin small letter o with acute accent</source>
-        <translation>加尖音符的拉丁语小写字母o</translation>
+        <translation>Latin small letter o with acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Latin small letter o with circumflex</source>
-        <translation>加音调符号的拉丁小写字母o</translation>
+        <translation>Latin small letter o with circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Latin small letter o with tilde</source>
-        <translation>加波浪符的拉丁小写字母o</translation>
+        <translation>Latin small letter o with tilde</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Latin small letter o with diaeresis</source>
-        <translation>加分音符的拉丁小写字母o</translation>
+        <translation>Latin small letter o with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>division sign</source>
-        <translation>除号</translation>
+        <translation>division sign</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Latin small letter o with stroke</source>
-        <translation>加中横线的拉丁字母o</translation>
+        <translation>Latin small letter o with stroke</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Latin small letter u with grave accent</source>
-        <translation>加重音的拉丁语小写字母u</translation>
+        <translation>Latin small letter u with grave accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Latin small letter u with acute accent</source>
-        <translation>加尖音符的拉丁语小写字母u</translation>
+        <translation>Latin small letter u with acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Latin small letter u with circumflex</source>
-        <translation>加音调符号的拉丁小写字母u</translation>
+        <translation>Latin small letter u with circumflex</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>Latin small letter u with diaeresis</source>
-        <translation>加分音符的拉丁小写字母u</translation>
+        <translation>Latin small letter u with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>Latin small letter y with acute accent</source>
-        <translation>加尖音符的拉丁语小写字母y</translation>
+        <translation>Latin small letter y with acute accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Latin small letter thorn</source>
-        <translation>拉丁语小写字母thorn</translation>
+        <translation>Latin small letter thorn</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Latin small letter y with diaeresis</source>
-        <translation>加分音符的拉丁小写字母y</translation>
+        <translation>Latin small letter y with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Latin capital ligature oe</source>
-        <translation>拉丁大写连字oe</translation>
+        <translation>Latin capital ligature oe</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Latin small ligature oe</source>
-        <translation>拉丁小写连字oe</translation>
+        <translation>Latin small ligature oe</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Latin capital letter s with caron</source>
-        <translation>加对勾的拉丁大写字母s</translation>
+        <translation>Latin capital letter s with caron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Latin small letter s with caron</source>
-        <translation>加对勾的拉丁小写字母s</translation>
+        <translation>Latin small letter s with caron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Latin capital letter y with diaeresis</source>
-        <translation>加分音符的拉丁字母y</translation>
+        <translation>Latin capital letter y with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Latin small letter f with hook</source>
-        <translation>有尾勾的小写拉丁字母f</translation>
+        <translation>Latin small letter f with hook</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>modifier letter circumflex accent</source>
-        <translation>音调符号修饰字符</translation>
+        <translation>modifier letter circumflex accent</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>small tilde</source>
-        <translation>小波浪符号</translation>
+        <translation>small tilde</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek capital letter Alpha</source>
-        <translation>希腊大写字母Alpha</translation>
+        <translation>Greek capital letter Alpha</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek capital letter Beta</source>
-        <translation>希腊大写字母Beta</translation>
+        <translation>Greek capital letter Beta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek capital letter Gamma</source>
-        <translation>希腊大写字母Gamma</translation>
+        <translation>Greek capital letter Gamma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek capital letter Delta</source>
-        <translation>希腊大写字母Delta</translation>
+        <translation>Greek capital letter Delta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek capital letter Epsilon</source>
-        <translation>希腊大写字母Epsilon</translation>
+        <translation>Greek capital letter Epsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek capital letter Zeta</source>
-        <translation>希腊大写字母Zeta</translation>
+        <translation>Greek capital letter Zeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek capital letter Eta</source>
-        <translation>希腊大写字母Eta</translation>
+        <translation>Greek capital letter Eta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek capital letter Theta</source>
-        <translation>希腊大写字母Theta</translation>
+        <translation>Greek capital letter Theta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek capital letter Iota</source>
-        <translation>希腊大写字母lota</translation>
+        <translation>Greek capital letter Iota</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek capital letter Kappa</source>
-        <translation>希腊大写字母Kappa</translation>
+        <translation>Greek capital letter Kappa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek capital letter Lambda</source>
-        <translation>希腊大写字母Lambda</translation>
+        <translation>Greek capital letter Lambda</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek capital letter Mu</source>
-        <translation>希腊大写字母Mu</translation>
+        <translation>Greek capital letter Mu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek capital letter Nu</source>
-        <translation>希腊大写字母Nu</translation>
+        <translation>Greek capital letter Nu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek capital letter Xi</source>
-        <translation>希腊大写字母Xi</translation>
+        <translation>Greek capital letter Xi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek capital letter Omicron</source>
-        <translation>希腊大写字母Omicron</translation>
+        <translation>Greek capital letter Omicron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek capital letter Pi</source>
-        <translation>希腊大写字母Pi</translation>
+        <translation>Greek capital letter Pi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek capital letter Rho</source>
-        <translation>希腊大写字母Rho</translation>
+        <translation>Greek capital letter Rho</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek capital letter Sigma</source>
-        <translation>希腊大写字母Sigma</translation>
+        <translation>Greek capital letter Sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek capital letter Tau</source>
-        <translation>希腊大写字母Tau</translation>
+        <translation>Greek capital letter Tau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek capital letter Upsilon</source>
-        <translation>希腊大写字母Upsilon</translation>
+        <translation>Greek capital letter Upsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek capital letter Phi</source>
-        <translation>希腊大写字母Phi</translation>
+        <translation>Greek capital letter Phi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek capital letter Chi</source>
-        <translation>希腊大写字母Chi</translation>
+        <translation>Greek capital letter Chi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="228"/>
         <source>Greek capital letter Psi</source>
-        <translation>希腊大写字母Psi</translation>
+        <translation>Greek capital letter Psi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek capital letter Omega</source>
-        <translation>希腊大写字母Omega</translation>
+        <translation>Greek capital letter Omega</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="230"/>
         <source>Greek small letter alpha</source>
-        <translation>希腊小写字母alpha</translation>
+        <translation>Greek small letter alpha</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="231"/>
         <source>Greek small letter beta</source>
-        <translation>希腊小写字母beta</translation>
+        <translation>Greek small letter beta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="232"/>
         <source>Greek small letter gamma</source>
-        <translation>希腊小写字母gamma</translation>
+        <translation>Greek small letter gamma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="233"/>
         <source>Greek small letter delta</source>
-        <translation>希腊小写字母delta</translation>
+        <translation>Greek small letter delta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="234"/>
         <source>Greek small letter epsilon</source>
-        <translation>希腊小写字母epsilon</translation>
+        <translation>Greek small letter epsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="235"/>
         <source>Greek small letter zeta</source>
-        <translation>希腊小写字母zeta</translation>
+        <translation>Greek small letter zeta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="236"/>
         <source>Greek small letter eta</source>
-        <translation>希腊小写字母eta</translation>
+        <translation>Greek small letter eta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="237"/>
         <source>Greek small letter theta</source>
-        <translation>希腊小写字母theta</translation>
+        <translation>Greek small letter theta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="238"/>
         <source>Greek small letter iota</source>
-        <translation>希腊小写字母iota</translation>
+        <translation>Greek small letter iota</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="239"/>
         <source>Greek small letter kappa</source>
-        <translation>希腊小写字母kappa</translation>
+        <translation>Greek small letter kappa</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="240"/>
         <source>Greek small letter lambda</source>
-        <translation>希腊小写字母lambda</translation>
+        <translation>Greek small letter lambda</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="241"/>
         <source>Greek small letter mu</source>
-        <translation>希腊小写字母mu</translation>
+        <translation>Greek small letter mu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="242"/>
         <source>Greek small letter nu</source>
-        <translation>希腊小写字母nu</translation>
+        <translation>Greek small letter nu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="243"/>
         <source>Greek small letter xi</source>
-        <translation>希腊小写字母xi</translation>
+        <translation>Greek small letter xi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="244"/>
         <source>Greek small letter omicron</source>
-        <translation>希腊小写字母omicron</translation>
+        <translation>Greek small letter omicron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="245"/>
         <source>Greek small letter pi</source>
-        <translation>希腊小写字母pi</translation>
+        <translation>Greek small letter pi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="246"/>
         <source>Greek small letter rho</source>
-        <translation>希腊小写字母rho</translation>
+        <translation>Greek small letter rho</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="247"/>
         <source>Greek small letter final sigma</source>
-        <translation>希腊小写字母结束sigma</translation>
+        <translation>Greek small letter final sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="248"/>
         <source>Greek small letter sigma</source>
-        <translation>希腊小写字母sigma</translation>
+        <translation>Greek small letter sigma</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="249"/>
         <source>Greek small letter tau</source>
-        <translation>希腊小写字母tau</translation>
+        <translation>Greek small letter tau</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="250"/>
         <source>Greek small letter upsilon</source>
-        <translation>希腊小写字母upsilon</translation>
+        <translation>Greek small letter upsilon</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="251"/>
         <source>Greek small letter phi</source>
-        <translation>希腊小写字母phi</translation>
+        <translation>Greek small letter phi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="252"/>
         <source>Greek small letter chi</source>
-        <translation>希腊小写字母chi</translation>
+        <translation>Greek small letter chi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="253"/>
         <source>Greek small letter psi</source>
-        <translation>希腊小写字母 psi</translation>
+        <translation>Greek small letter psi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="254"/>
         <source>Greek small letter omega</source>
-        <translation>希腊小写字母 omega</translation>
+        <translation>Greek small letter omega</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="255"/>
         <source>Greek theta symbol</source>
-        <translation>希腊 theta 符号</translation>
+        <translation>Greek theta symbol</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="256"/>
         <source>Greek Upsilon with hook symbol</source>
-        <translation>希腊有钩的 Upsilon 符号</translation>
+        <translation>Greek Upsilon with hook symbol</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="257"/>
         <source>Greek pi symbol</source>
-        <translation>希腊 pi 符号</translation>
+        <translation>Greek pi symbol</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="258"/>
         <source>en space</source>
-        <translation>en 间隔</translation>
+        <translation>en space</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="259"/>
         <source>em space</source>
-        <translation>em 间隔</translation>
+        <translation>em space</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="260"/>
         <source>thin space</source>
-        <translation>thin 间隔</translation>
+        <translation>thin space</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="261"/>
         <source>zero-width non-joiner</source>
-        <translation>零宽不连字</translation>
+        <translation>zero-width non-joiner</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="262"/>
         <source>zero-width joiner</source>
-        <translation>零宽连字</translation>
+        <translation>zero-width joiner</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="263"/>
         <source>left-to-right mark</source>
-        <translation>左至右符号</translation>
+        <translation>left-to-right mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="264"/>
         <source>right-to-left mark</source>
-        <translation>右至左符号</translation>
+        <translation>right-to-left mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="265"/>
         <source>en dash</source>
-        <translation>en 连字号</translation>
+        <translation>en dash</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="266"/>
         <source>em dash</source>
-        <translation>em 连字号</translation>
+        <translation>em dash</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>left single quotation mark</source>
-        <translation>左单引号</translation>
+        <translation>left single quotation mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>right single quotation mark</source>
-        <translation>右单引号</translation>
+        <translation>right single quotation mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="269"/>
         <source>single low-9 quotation mark</source>
-        <translation>低位-9单引号</translation>
+        <translation>single low-9 quotation mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>left double quotation mark</source>
-        <translation>左双引号</translation>
+        <translation>left double quotation mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>right double quotation mark</source>
-        <translation>右双引号</translation>
+        <translation>right double quotation mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>double low-9 quotation mark</source>
-        <translation>低位-9双引号</translation>
+        <translation>double low-9 quotation mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>dagger, obelisk</source>
-        <translation>剑标，方尖标</translation>
+        <translation>dagger, obelisk</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>double dagger, double obelisk</source>
-        <translation>双剑标，双方尖标</translation>
+        <translation>double dagger, double obelisk</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="275"/>
         <source>bullet</source>
-        <translation>项目符号</translation>
+        <translation>bullet</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="276"/>
         <source>horizontal ellipsis</source>
-        <translation>水平省略号</translation>
+        <translation>horizontal ellipsis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="277"/>
         <source>per mille sign</source>
-        <translation>千分比符号</translation>
+        <translation>per mille sign</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="278"/>
         <source>prime</source>
-        <translation>角分符号</translation>
+        <translation>prime</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="279"/>
         <source>double prime</source>
-        <translation>双角分符号</translation>
+        <translation>double prime</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>single left-pointing angle quotation mark</source>
-        <translation>单左指针角引号</translation>
+        <translation>single left-pointing angle quotation mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>single right-pointing angle quotation mark</source>
-        <translation>单右指针角引号</translation>
+        <translation>single right-pointing angle quotation mark</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>overline</source>
-        <translation>上线</translation>
+        <translation>overline</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="283"/>
         <source>fraction slash</source>
-        <translation>分数斜线</translation>
+        <translation>fraction slash</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>euro sign</source>
-        <translation>欧元标志</translation>
+        <translation>euro sign</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="285"/>
         <source>black-letter capital I</source>
-        <translation>黑体字符大写 I</translation>
+        <translation>black-letter capital I</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>script capital P</source>
-        <translation>手写大写 P</translation>
+        <translation>script capital P</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>black-letter capital R</source>
-        <translation>黑体字符大写 R</translation>
+        <translation>black-letter capital R</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>trademark symbol</source>
-        <translation>商标符号</translation>
+        <translation>상표 기호</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>alef symbol</source>
-        <translation>alef 符号</translation>
+        <translation>alef 기호</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="290"/>
         <source>leftwards arrow</source>
-        <translation>向左箭头</translation>
+        <translation>왼쪽 화살표</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="291"/>
         <source>upwards arrow</source>
-        <translation>向上箭头</translation>
+        <translation>위쪽 화살표</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="292"/>
         <source>rightwards arrow</source>
-        <translation>向右箭头</translation>
+        <translation>오른쪽 화살표</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="293"/>
         <source>downwards arrow</source>
-        <translation>向下箭头</translation>
+        <translation>아래쪽 화살표</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="294"/>
         <source>left right arrow</source>
-        <translation>左右箭头</translation>
+        <translation>좌우 화살표</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="295"/>
         <source>downwards arrow with corner leftwards</source>
-        <translation>向下左转箭头</translation>
+        <translation>왼쪽 모서리가 있는 아래쪽 화살표</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="296"/>
         <source>leftwards double arrow</source>
-        <translation>向左双箭头</translation>
+        <translation>왼쪽 이중 화살표</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="297"/>
         <source>upwards double arrow</source>
-        <translation>向上双箭头</translation>
+        <translation>위쪽 이중 화살표</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="298"/>
         <source>rightwards double arrow</source>
-        <translation>向右双箭头</translation>
+        <translation>오른쪽 이중 화살표</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="299"/>
         <source>downwards double arrow</source>
-        <translation>向下双箭头</translation>
+        <translation>아래쪽 이중 화살표</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="300"/>
         <source>left right double arrow</source>
-        <translation>左右双箭头</translation>
+        <translation>왼쪽 오른쪽 이중 화살표</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="301"/>
         <source>for all</source>
-        <translation>所有</translation>
+        <translation>모두(for all)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="302"/>
         <source>partial differential</source>
-        <translation>偏差</translation>
+        <translation>부분 미분(partial differential)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="303"/>
         <source>there exists</source>
-        <translation>存在着</translation>
+        <translation>존재함</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="304"/>
         <source>empty set</source>
-        <translation>空集合</translation>
+        <translation>빈 세트</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="305"/>
         <source>nabla</source>
-        <translation>微分算符</translation>
+        <translation>nabla</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="306"/>
         <source>element of</source>
-        <translation>单元</translation>
+        <translation>의 요소</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="307"/>
         <source>not an element of</source>
-        <translation>非成员</translation>
+        <translation>의 요소가 아닌</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="308"/>
         <source>contains as member</source>
-        <translation>包含成员</translation>
+        <translation>회원으로 포함</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="309"/>
         <source>n-ary product</source>
-        <translation>n 进制乘积</translation>
+        <translation>n-ary product</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="310"/>
         <source>n-ary summation</source>
-        <translation>n 进制和</translation>
+        <translation>n-ary 요약</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="311"/>
         <source>minus sign</source>
-        <translation>减号</translation>
+        <translation>빼기</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="312"/>
         <source>asterisk operator</source>
-        <translation>星号操作符</translation>
+        <translation>별표 연산</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="313"/>
         <source>square root</source>
-        <translation>平方根</translation>
+        <translation>제곱근</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="314"/>
         <source>proportional to</source>
-        <translation>成比例</translation>
+        <translation>에 비례</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>infinity</source>
-        <translation>无穷</translation>
+        <translation>무한대</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>angle</source>
-        <translation>角</translation>
+        <translation>각도</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>logical and</source>
-        <translation>逻辑与</translation>
+        <translation>논리적이고</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>logical or</source>
-        <translation>逻辑或</translation>
+        <translation>논리적이거나</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="319"/>
         <source>intersection</source>
-        <translation>交集</translation>
+        <translation>교차점</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="320"/>
         <source>union</source>
-        <translation>集合</translation>
+        <translation>결합(union)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>integral</source>
-        <translation>整数</translation>
+        <translation>정수</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="322"/>
         <source>therefore sign</source>
-        <translation>所以标记</translation>
+        <translation>therefore sign</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="323"/>
         <source>tilde operator</source>
-        <translation>波浪号运算符</translation>
+        <translation>tilde operator</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="324"/>
         <source>congruent to</source>
-        <translation>全等于</translation>
+        <translation>congruent to</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="325"/>
         <source>almost equal to</source>
-        <translation>约等于</translation>
+        <translation>almost equal to</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="326"/>
         <source>not equal to</source>
-        <translation>不等于</translation>
+        <translation>not equal to</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="327"/>
         <source>identical to</source>
-        <translation>相同</translation>
+        <translation>identical to</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="328"/>
         <source>less-than or equal to</source>
-        <translation>小于或等于</translation>
+        <translation>less-than or equal to</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="329"/>
         <source>greater-than or equal to</source>
-        <translation>大于或等于</translation>
+        <translation>greater-than or equal to</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="330"/>
         <source>subset of</source>
-        <translation>子集</translation>
+        <translation>subset of</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="331"/>
         <source>superset of</source>
-        <translation>超集</translation>
+        <translation>superset of</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="332"/>
         <source>not a subset of</source>
-        <translation>非子集</translation>
+        <translation>not a subset of</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="333"/>
         <source>subset of or equal to</source>
-        <translation>子集或等于</translation>
+        <translation>subset of or equal to</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="334"/>
         <source>superset of or equal to</source>
-        <translation>超集或等于</translation>
+        <translation>superset of or equal to</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="335"/>
         <source>circled plus</source>
-        <translation>圆圈加号</translation>
+        <translation>circled plus</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="336"/>
         <source>circled times</source>
-        <translation>圆圈乘号</translation>
+        <translation>circled times</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="337"/>
         <source>up tack</source>
-        <translation>倒T符</translation>
+        <translation>up tack</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="338"/>
         <source>dot operator</source>
-        <translation>点操作符</translation>
+        <translation>dot operator</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="339"/>
         <source>left ceiling</source>
-        <translation>左取顶高斯符号</translation>
+        <translation>left ceiling</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="340"/>
         <source>right ceiling</source>
-        <translation>右取顶高斯符号</translation>
+        <translation>right ceiling</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="341"/>
         <source>left floor</source>
-        <translation>左取底高斯符号</translation>
+        <translation>left floor</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="342"/>
         <source>right floor</source>
-        <translation>右取底高斯符号</translation>
+        <translation>right floor</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="343"/>
         <source>left-pointing angle bracket</source>
-        <translation>左尖括号</translation>
+        <translation>left-pointing angle bracket</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="344"/>
         <source>right-pointing angle bracket</source>
-        <translation>右尖括号</translation>
+        <translation>right-pointing angle bracket</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="345"/>
         <source>lozenge</source>
-        <translation>菱形</translation>
+        <translation>lozenge</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="346"/>
         <source>black spade suit</source>
-        <translation>黑桃花色</translation>
+        <translation>black spade suit</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="347"/>
         <source>black club suit</source>
-        <translation>梅花花色</translation>
+        <translation>black club suit</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="348"/>
         <source>black heart suit</source>
-        <translation>黑心花色</translation>
+        <translation>black heart suit</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="349"/>
         <source>black diamond suit</source>
-        <translation>黑钻石花色</translation>
+        <translation>black diamond suit</translation>
     </message>
 </context>
 </TS>
