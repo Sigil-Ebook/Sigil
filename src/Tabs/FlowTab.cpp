@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019  Kevin B Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2020  Kevin B Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012       John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012       Dave Heiland
 **  Copyright (C) 2012       Grant Drake
@@ -432,7 +432,7 @@ bool FlowTab::AddToIndexEnabled()
 bool FlowTab::MarkForIndexEnabled()
 {
     if (m_wCodeView) {
-        return true;
+        return m_wCodeView->textCursor().hasSelection();
     }
     return false;
 }
