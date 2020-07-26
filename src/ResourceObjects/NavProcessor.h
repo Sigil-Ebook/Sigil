@@ -32,20 +32,20 @@
 struct NavTOCEntry {
     int lvl;
     QString title;
-    QString href;
+    QString href; // hrefs must be stored in URLEncoded form since fragments may be present
     // allow for either flat or hierarchical use
     QList<NavTOCEntry> children;
 };
 
 struct NavPageListEntry {
     QString pagename;
-    QString href;
+    QString href; // hrefs must be stored in URLEncoded form since fragments may be present
 };
 
 struct NavLandmarkEntry {
     QString etype;
     QString title;
-    QString href;
+    QString href; // hrefs must be stored in URLEncoded form since fragments may be present
 };
 
 class NavProcessor

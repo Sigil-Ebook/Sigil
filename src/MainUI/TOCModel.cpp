@@ -168,7 +168,7 @@ TOCModel::TOCEntry TOCModel::ParseNavPoint(QXmlStreamReader &ncx)
                 // Compress whitespace that pretty-print may add.
                 current.text = ncx.text().toString().simplified();
             } else if (ncx.name() == "content") {
-                QString href = Utility::URLDecodePath(ncx.attributes().value("", "src").toString());
+                QString href = ncx.attributes().value("", "src").toString();
                 current.target = ConvertHREFToBookPath(href);
             } else if (ncx.name() == "navPoint") {
                 current.children.append(ParseNavPoint(ncx));
@@ -208,6 +208,8 @@ void TOCModel::AddEntryToParentItem(const TOCEntry &entry, QStandardItem *parent
 }
 
 
+// This routine is designed to work on url encoded hrefs
+// and return things url encoded
 QString TOCModel::ConvertHREFToBookPath(const QString &ahref)
 {
     QString bookpath;
@@ -221,11 +223,12 @@ QString TOCModel::ConvertHREFToBookPath(const QString &ahref)
     // handle special cases first                                                                                   
     if (basepath == "./" || basepath.isEmpty()) {
         // this link ends in the ncx itself                                                                         
-        bookpath = ncxres->GetRelativePath();
+        bookpath = Utility::URLEncodePath(ncxres->GetRelativePath());
         if (!fragment.isEmpty()) bookpath = bookpath + "#" + fragment;
         return bookpath;
     }
-    bookpath = Utility::buildBookPath(basepath, ncxres->GetFolder());
+    bookpath = Utility::buildBookPath(Utility::URLDecodePath(basepath), ncxres->GetFolder());
+    bookpath = Utility::URLEncodePath(bookpath);
     if (!fragment.isEmpty()) bookpath = bookpath + "#" + fragment;
     return bookpath;
 }

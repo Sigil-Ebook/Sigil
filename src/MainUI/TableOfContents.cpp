@@ -110,9 +110,9 @@ void TableOfContents::ItemClickedHandler(const QModelIndex &index)
 {
     QString bookpath = m_TOCModel->GetBookPathForIndex(index);
     QStringList pieces = bookpath.split('#', QString::KeepEmptyParts);
-    QString dest_bkpath = pieces.at(0);
+    QString dest_bkpath = Utility::URLDecodePath(pieces.at(0));
     QString fragment = "";
-    if (pieces.size() > 1) fragment = pieces.at(1);
+    if (pieces.size() > 1) fragment = Utility::URLDecodePath(pieces.at(1));
     int line = -1;
 
     // If no id, go to the top of the page

@@ -3150,7 +3150,7 @@ void MainWindow::EditTOCDialog()
     ShowMessageOnStatusBar(tr("Table Of Contents edited."));
 }
 
-// For epub2 this set the NCX for epub3 this sets the Nac TOC section
+// For epub2 this set the NCX, for epub3 this sets the Nav TOC section
 void MainWindow::GenerateToc()
 {
     SaveTabData();

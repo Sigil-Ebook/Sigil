@@ -94,6 +94,7 @@ public:
         /**
          * A Book Path representing the target of the src attribute
          * (note: there may be a fragment!).
+         * Note: this should always be url encoded since # is legaql char in path and fragment
          */
         QString target;
 
