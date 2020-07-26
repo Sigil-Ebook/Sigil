@@ -544,16 +544,16 @@ GumboNode *XhtmlDoc::GetAncestorIDElement(GumboInterface &gi, GumboNode *node)
 }
 
 
-// the returned paths are the href attribute values url decoded
+// the returned paths are the raw href attribute values url encoded
 QStringList XhtmlDoc::GetHrefSrcPaths(const QString &source)
 {
     QStringList destination_paths;
     GumboInterface gi = GumboInterface(source, "any_version");
     foreach(QString apath, gi.get_all_values_for_attribute("src")) {
-	destination_paths << Utility::URLDecodePath(apath);
+	destination_paths << apath;
     }
     foreach(QString apath, gi.get_all_values_for_attribute("href")) {
-	destination_paths << Utility::URLDecodePath(apath);
+	destination_paths << apath;
     }
     destination_paths.removeDuplicates();
     return destination_paths;
