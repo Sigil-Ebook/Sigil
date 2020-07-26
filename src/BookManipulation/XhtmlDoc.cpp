@@ -580,10 +580,13 @@ QStringList XhtmlDoc::GetPathsToStyleFiles(const QString &source)
         GumboNode* node = nodes.at(i);
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
         if (attr) {
-            QString relative_path = Utility::URLDecodePath(QString::fromUtf8(attr->value));
-            QFileInfo file_info(relative_path);
-            if (file_info.suffix().toLower() == "css") {
-                style_paths << relative_path;
+            QString relative_path = QString::fromUtf8(attr->value);
+            if (relative_path.indexOf(":") == -1) {
+                std::pair<QString, QString> parts = Utility::parseRelativeHREF(relative_path);
+                QFileInfo file_info(parts.first);
+                if (file_info.suffix().toLower() == "css") {
+                    style_paths << parts.first;
+                }
             }
         }
   }
@@ -639,8 +642,11 @@ QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const QString & source, 
             if (attr && attr->attr_namespace != GUMBO_ATTR_NAMESPACE_XLINK) attr = NULL;
         }
         if (attr) {
-            QString relative_path = Utility::URLDecodePath(QString::fromUtf8(attr->value));
-            media_paths << relative_path;
+            QString relative_path = QString::fromUtf8(attr->value);
+            if (relative_path.indexOf(":") == -1) {
+                std::pair<QString, QString> parts = Utility::parseRelativeHREF(relative_path);
+                media_paths << parts.first;
+            }
         }
     }
     return media_paths;
