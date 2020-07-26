@@ -1290,9 +1290,9 @@ std::tuple<bool, QString, QString> Book::HasUndefinedURLFragments()
         QString bookpath = html_resource->GetRelativePath();
 	QString htmldir = html_resource->GetFolder();
         foreach(QString ahref, links[bookpath]) {
-	    // each links is relative to the bookpath resource and already unquoted
+	    // each links is relative to the bookpath resource and raw
             // convert this href to a bookpath href
-	    std::pair<QString,QString> hrefparts = Utility::parseHREF(ahref);
+	    std::pair<QString,QString> hrefparts = Utility::parseRelativeHREF(ahref);
 	    QString attpath = hrefparts.first;
 	    QString dest_bookpath;
 	    if (attpath.isEmpty()) {
@@ -1382,7 +1382,7 @@ Book::NewSectionResult Book::CreateOneNewSection(NewSection section_info,
     return section;
 }
 
-// Links hrefs are unquoted but otherwise untouched 
+// Links hrefs are raw (untouched) 
 QPair<QString, QStringList> Book::GetRelLinksInOneFile(HTMLResource *html_resource)
 {
     Q_ASSERT(html_resource);
@@ -1398,8 +1398,7 @@ QPair<QString, QStringList> Book::GetRelLinksInOneFile(HTMLResource *html_resour
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
         // We find the hrefs that are relative and contain an href.
         if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
-	    QString attpath = Utility::URLDecodePath(QString::fromStdString(attr->value));
-            hreflist.append(attpath);
+            hreflist.append(QString::fromStdString(attr->value));
         }
     }
     link_pair.first = html_resource->GetRelativePath();

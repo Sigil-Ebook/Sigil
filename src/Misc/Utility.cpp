@@ -574,6 +574,9 @@ QString Utility::EncodeXML(const QString &text)
     return newtext.toHtmlEscaped();
 }
 
+
+// this is meant to work on paths, not paths and fragments
+// thereofre do not leave # chars unencoded
 QString Utility::URLEncodePath(const QString &path)
 {
     QString newpath = path;
@@ -589,7 +592,7 @@ QString Utility::URLEncodePath(const QString &path)
     // So run xmldecode first to convert them to normal characters before 
     // url encoding them
     newpath = DecodeXML(newpath);
-    QByteArray encoded_url = QUrl::toPercentEncoding(newpath, QByteArray("/#"));
+    QByteArray encoded_url = QUrl::toPercentEncoding(newpath, QByteArray("/"));
     return scheme + QString::fromUtf8(encoded_url.constData(), encoded_url.count());
 }
 
