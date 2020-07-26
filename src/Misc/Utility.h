@@ -209,6 +209,10 @@ public:
 
     static std::pair<QString, QString> parseHREF(const QString &relative_href);
     
+    static std::pair<QString, QString> parseRelativeHREF(const QString &relative_href);
+    
+    static QString buildRelativeHREF(const QString &apath, const QString &afrag);
+    
     static QString startingDir(const QString &file_bookpath);
 
     // sort list of strings by list of counts in a decreasing fashion, highest count first

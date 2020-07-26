@@ -88,7 +88,10 @@ QList<BookReports::StyleData *> BookReports::ClassesUsedInHTMLFileMapped(HTMLRes
     QString html_folder = html_resource->GetFolder();
     // convert links relative to a html resource to their book paths
     foreach(QString stylelink, stylelinks) {
-	linked_stylesheets.append(Utility::buildBookPath(stylelink, html_folder));
+        if (stylelink.indexOf(":") == -1) {
+            std::pair<QString, QString> parts = Utility::parseRelativeHREF(stylelink);
+	    linked_stylesheets.append(Utility::buildBookPath(parts.first, html_folder));
+        }
     }
 
     // Look at each class from the HTML file
@@ -173,7 +176,10 @@ QList<BookReports::StyleData *> BookReports::AllClassesUsedInHTMLFileMapped(HTML
     QString html_folder = html_resource->GetFolder();
     // convert links relative to a html resource to their book paths
     foreach(QString stylelink, stylelinks) {
-	linked_stylesheets.append(Utility::buildBookPath(stylelink, html_folder));
+        if (stylelink.indexOf(":") == -1) {
+            std::pair<QString, QString> parts = Utility::parseRelativeHREF(stylelink);
+            linked_stylesheets.append(Utility::buildBookPath(parts.first, html_folder));
+        }
     }
 
     // Look at each class from the HTML file

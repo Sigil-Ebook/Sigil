@@ -1118,7 +1118,8 @@ std::tuple<QString, QStringList> Book::GetStylesheetsInHTMLFileMapped(HTMLResour
     QStringList link_bookpaths;
     foreach(QString ahref, link_hrefs) {
         if (ahref.indexOf(":") == -1) {
-            link_bookpaths << Utility::buildBookPath(ahref, startdir);
+            std::pair<QString, QString> parts = Utility::parseRelativeHREF(ahref);
+            link_bookpaths << Utility::buildBookPath(parts.first, startdir);
         }
     }
     return std::make_tuple(html_bookpath, link_bookpaths);
@@ -1126,12 +1127,15 @@ std::tuple<QString, QStringList> Book::GetStylesheetsInHTMLFileMapped(HTMLResour
 
 QStringList Book::GetStylesheetsInHTMLFile(HTMLResource *html_resource)
 {
-    // convert links relative to a html resource to their book paths
+    // convert encoded links relative to a html resource to their book paths
     QStringList stylelinks = XhtmlDoc::GetLinkedStylesheets(html_resource->GetText());
     QStringList results;
     QString html_folder = html_resource->GetFolder();
     foreach(QString stylelink, stylelinks) {
-       results.append(Utility::buildBookPath(stylelink, html_folder));
+       if (stylelink.indexOf(":") == -1) {
+           std::pair<QString, QString> parts = Utility::parseRelativeHREF(stylelink);
+           results.append(Utility::buildBookPath(parts.first, html_folder));
+       }
     }
     return results;
 }

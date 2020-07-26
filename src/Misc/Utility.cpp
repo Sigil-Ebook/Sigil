@@ -1117,7 +1117,45 @@ QString Utility::buildRelativePath(const QString &from_file_bkpath, const QStrin
 
     // convert start_file_bkpath to start_dir by stripping off existing filename component
     return relativePath(to_file_bkpath, startingDir(from_file_bkpath));
-}   
+}
+
+// return fully decoded path and fragment (if any) from a raw relative href string.
+// any fragment will start with '#', use QUrl to handle parsing and Percent Decoding
+std::pair<QString, QString> Utility::parseRelativeHREF(const QString &relative_href)
+{
+    QUrl href(relative_href);
+    Q_ASSERT(href.isRelative());
+    Q_ASSERT(!href.hasQuery());
+    QString attpath = href.path();
+    QString fragment = href.fragment();
+    // fragment will include any # if fragment exists
+    if (relative_href.indexOf("#") != -1) {
+        fragment = "#" + fragment;
+    }
+    if (attpath.startsWith("./")) attpath = attpath.mid(2,-1);
+    return std::make_pair(attpath, fragment);
+}
+
+// return a url encoded string for given decoded path and fragment (if any)
+// any fragment will start with a "#", Use Qurl to handle building and Percent Encoding
+QString Utility::buildRelativeHREF(const QString &apath, const QString &afrag)
+{
+    QUrl href;
+    href.setScheme("");
+    href.setQuery("");
+    href.setPath(apath);
+    QString id(afrag);
+    bool add_empty_fragment = id == QString("#");
+    if (id.startsWith("#")) {
+        id = id.mid(1, -1);
+    }
+    href.setFragment(id);
+    QString newhref = QString::fromUtf8(href.toEncoded());
+    if (add_empty_fragment) newhref = newhref + "#";  
+    return newhref;
+}
+
+
 
 std::pair<QString, QString> Utility::parseHREF(const QString &relative_href)
 {

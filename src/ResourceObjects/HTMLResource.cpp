@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2020 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -106,7 +106,10 @@ QStringList HTMLResource::GetLinkedStylesheets()
     QString startdir = GetFolder();
     QStringList stylesheet_bookpaths;
     foreach(QString ahref, hreflist) {
-        stylesheet_bookpaths << Utility::buildBookPath(ahref,startdir); 
+        if (ahref.indexOf(":") == -1) {
+            std::pair<QString, QString> parts = Utility::parseRelativeHREF(ahref);
+            stylesheet_bookpaths << Utility::buildBookPath(parts.first, startdir);
+        }
     }
     return stylesheet_bookpaths;
 }
