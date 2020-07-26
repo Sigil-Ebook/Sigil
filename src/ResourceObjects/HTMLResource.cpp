@@ -166,16 +166,20 @@ QStringList HTMLResource::GetPathsToLinkedResources()
         }
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
         if (attr) {
-	    QString attpath = Utility::URLDecodePath(QString::fromUtf8(attr->value));
-	    if (attpath.indexOf(":") == -1) {
+	    QString href = QString::fromUtf8(attr->value);
+	    if (href.indexOf(":") == -1) {
+                QUrl target_url(href);
+                QString attpath = target_url.path();
 	        linked_resources.append(Utility::buildBookPath(attpath,GetFolder()));
 	    }
             continue;
         }
         attr = gumbo_get_attribute(&node->v.element.attributes, "src");
         if (attr) {
-	    QString attpath = Utility::URLDecodePath(QString::fromUtf8(attr->value));
-	    if (attpath.indexOf(":") == -1) {
+	    QString href = QString::fromUtf8(attr->value);
+	    if (href.indexOf(":") == -1) {
+                QUrl target_url(href);
+                QString attpath = target_url.path();
 	        linked_resources.append(Utility::buildBookPath(attpath,GetFolder()));
 	    }
         }

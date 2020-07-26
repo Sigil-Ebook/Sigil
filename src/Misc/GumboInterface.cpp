@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019  Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2015-2020  Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -822,33 +822,41 @@ void GumboInterface::replace_all(std::string &s, const char * s1, const char * s
 std::string GumboInterface::update_attribute_value(const std::string &attvalue)
 {
     std::string result = attvalue;
-    if (attvalue.find(":") != std::string::npos) return attvalue;
-    QString attpath = Utility::URLDecodePath(QString::fromStdString(attvalue));
-
+    if (attvalue.find(":") != std::string::npos) return result;
+    bool has_fragment = attvalue.find("#") != std::string::npos;
+    QUrl href(QString::fromStdString(attvalue));
+    QString attpath = href.path();
     // handle purely local hrefs here as they do not need to be updated at all
-    if (attpath.startsWith("#")) return result;
+    if (attpath.isEmpty() && has_fragment) return result;
+    QString fragment;
+    if (has_fragment) {
+        fragment = href.fragment();
+    }    
 
-    std::pair<QString, QString> parts = Utility::parseHREF(attpath);
-    QString fragment = parts.second;
-    attpath = parts.first;
     QString dest_oldbkpath;
     if (attpath.isEmpty()) {
         dest_oldbkpath = m_currentbkpath;
     } else {
         dest_oldbkpath = Utility::buildBookPath(attpath, m_currentdir);
     }
+    
     // note destination may not have moved but we still need to update
     // the link since we may have moved
     QString dest_newbkpath = m_sourceupdates.value(dest_oldbkpath, dest_oldbkpath);
     if (!dest_newbkpath.isEmpty() && !m_newbookpath.isEmpty()) {
-        QString new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
-        new_href += fragment;
-        // if empty then internal link to the top
-	if (new_href.isEmpty()) new_href = QFileInfo(dest_newbkpath).fileName();
-	// if (new_href.isEmpty()) new_href="#";
-        new_href = Utility::URLEncodePath(new_href);
+        QString new_path = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
+        QString new_href(QUrl::toPercentEncoding(Utility::DecodeXML(new_path), QByteArray("/")));
+        if (has_fragment) {
+            new_href.append("#");
+            new_href.append(QUrl::toPercentEncoding(fragment));
+        }
+
+        // if empty then internal link to the top (which is best here?)                                
+        if (new_href.isEmpty()) new_href = QFileInfo(dest_newbkpath).fileName();
+        // if (new_href.isEmpty()) new_href="#";                                                          
+
         result =  new_href.toStdString();
-    } 
+    }
     return result;
 }
 
