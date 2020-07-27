@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -21,6 +21,7 @@
 **
 *************************************************************************/
 
+#include "Misc/Utility.h"
 #include "MiscEditors/IndexEntries.h"
 #include "MiscEditors/IndexEditorModel.h"
 
@@ -58,8 +59,8 @@ void IndexEntries::AddOneEntry(QString text, QString bookpath, QString index_id_
 {
     QStandardItem *parent_item = m_BookIndexRootItem;
     QStringList names = text.split("/", QString::SkipEmptyParts);
-    names.append(bookpath % "#" % index_id_value);
-    // Add names in heirachary
+    names.append(Utility::URLEncodePath(bookpath) + "#" +  Utility::URLEncodePath(index_id_value));
+    // Add names in hierarchy
     foreach(QString name, names) {
         bool found = false;
         int insert_at_row = -1;
