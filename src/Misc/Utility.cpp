@@ -579,7 +579,7 @@ QString Utility::EncodeXML(const QString &text)
 // thereofre do not leave # chars unencoded
 QString Utility::URLEncodePath(const QString &path)
 {
-    QString newpath = path;
+    QString newpath = URLDecodePath(path);
     QUrl href = QUrl(newpath);
     QString scheme = href.scheme();
     if (!scheme.isEmpty()) {
@@ -1157,23 +1157,6 @@ QString Utility::buildRelativeHREF(const QString &apath, const QString &afrag)
     if (add_empty_fragment) newhref = newhref + "#";  
     return newhref;
 }
-
-
-
-std::pair<QString, QString> Utility::parseHREF(const QString &relative_href)
-{
-    QString fragment;
-    QString attpath = relative_href;
-    int fragpos = attpath.lastIndexOf("#");
-    // fragment will include any # if one exists
-    if (fragpos != -1) {
-        fragment = attpath.mid(fragpos, -1);
-        attpath = attpath.mid(0, fragpos);
-    }
-    if (attpath.startsWith("./")) attpath = attpath.mid(2,-1);
-    return std::make_pair(attpath, fragment);
-}
-
 
 bool Utility::sort_pair_in_reverse(const std::pair<int,QString> &a, const std::pair<int,QString> &b)
 {

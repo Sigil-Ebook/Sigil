@@ -207,8 +207,6 @@ public:
     // both the "from" and "to" book paths are to FILES
     static QString buildRelativePath(const QString &from_file_bkpath, const QString &to_file_bkpath);
 
-    static std::pair<QString, QString> parseHREF(const QString &relative_href);
-    
     static std::pair<QString, QString> parseRelativeHREF(const QString &relative_href);
     
     static QString buildRelativeHREF(const QString &apath, const QString &afrag);
