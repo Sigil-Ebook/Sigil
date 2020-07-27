@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks, John Schember
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, John Schember
 **
 **  This file is part of Sigil.
 **
@@ -28,6 +28,10 @@
 #include <QHash>
 #include <QVariant>
 #include "Misc/TagAtts.h"
+
+// Note: all hrefs should always be kept in URLEncoded form
+// as decoding urls before splitting into component parts can lead
+// to data loss (paths can legally contain url delimiters when decoded - such as #)
 
 struct PackageEntry
 {
@@ -165,4 +169,3 @@ struct OPFParser
 };
 
 #endif
-

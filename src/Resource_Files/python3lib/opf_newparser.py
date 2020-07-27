@@ -28,34 +28,35 @@
 import sys, os, codecs
 from collections import OrderedDict
 
-from urllib.parse import unquote
-from urllib.parse import urlsplit
+# from urllib.parse import unquote
+# from urllib.parse import urlsplit
 
-ASCII_CHARS   = set(chr(x) for x in range(128))
-URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-                    'abcdefghijklmnopqrstuvwxyz'
-                    '0123456789' '#' '_.-/~')
-IRI_UNSAFE = ASCII_CHARS - URL_SAFE
+# ASCII_CHARS   = set(chr(x) for x in range(128))
+# URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+#                     'abcdefghijklmnopqrstuvwxyz'
+#                     '0123456789' '#' '_.-/~')
+# IRI_UNSAFE = ASCII_CHARS - URL_SAFE
+# 
+# def quoteurl(href):
+#     if isinstance(href,bytes):
+#         href = href.decode('utf-8')
+#     (scheme, netloc, path, query, fragment) = urlsplit(href, scheme="", allow_fragments=True)
+#     if scheme != "":
+#         scheme += "://"
+#         href = href[len(scheme):]
+#     result = []
+#     for char in href:
+#         if char in IRI_UNSAFE:
+#             char = "%%%02X" % ord(char)
+#         result.append(char)
+#     return scheme + ''.join(result)
+# 
+# def unquoteurl(href):
+#     if isinstance(href,bytes):
+#         href = href.decode('utf-8')
+#     href = unquote(href)
+#     return href
 
-def quoteurl(href):
-    if isinstance(href,bytes):
-        href = href.decode('utf-8')
-    (scheme, netloc, path, query, fragment) = urlsplit(href, scheme="", allow_fragments=True)
-    if scheme != "":
-        scheme += "://"
-        href = href[len(scheme):]
-    result = []
-    for char in href:
-        if char in IRI_UNSAFE:
-            char = "%%%02X" % ord(char)
-        result.append(char)
-    return scheme + ''.join(result)
-
-def unquoteurl(href):
-    if isinstance(href,bytes):
-        href = href.decode('utf-8')
-    href = unquote(href)
-    return href
 
 # encode to make xml safe
 def xmlencode(data):
@@ -158,9 +159,9 @@ class Opf_Parser(object):
                 nid = "xid%03d" %  cnt
                 cnt += 1
                 id = tattr.pop("id",nid)
+                # must keep all hrefs in quoted (encoded) form
                 href = tattr.pop("href","")
                 mtype = tattr.pop("media-type","")
-                href = unquoteurl(href)
                 self.manifest.append((id, href, mtype, tattr))
                 continue
             # spine
@@ -175,7 +176,8 @@ class Opf_Parser(object):
             if tname == "reference" and  "guide" in prefix:
                 type = tattr.pop("type","")
                 title = tattr.pop("title","")
-                href = unquoteurl(tattr.pop("href",""))
+                # must keep all hrefs in quoted (encoded) form
+                href = tattr.pop("href","")
                 self.guide.append((type, title, href))
                 continue
             # bindings
@@ -368,8 +370,8 @@ class Opf_Parser(object):
     def convert_manifest_entries_to_xml(self):
         xmlres = []
         for (id, href, mtype, attr) in self.manifest:
-            url = quoteurl(href)
-            xmlres.append('    <item id="%s" href="%s" media-type="%s"' % (id, url, mtype))
+            # all hrefs should be kept in quoted (encoded) form 
+            xmlres.append('    <item id="%s" href="%s" media-type="%s"' % (id, href, mtype))
             for key in attr:
                 val= attr[key]
                 val= xmlencode(val)
@@ -404,8 +406,8 @@ class Opf_Parser(object):
     def convert_guide_entries_to_xml(self):
         xmlres=[]
         for (gtype, gtitle, ghref) in self.guide:
-            url = quoteurl(ghref)
-            xmlres.append('    <reference type="%s" title="%s" href="%s"/>\n' % (gtype, gtitle, url))
+            # all hrefs should already be in quoted (encoded) form
+            xmlres.append('    <reference type="%s" title="%s" href="%s"/>\n' % (gtype, gtitle, ghref))
         return "".join(xmlres)
                           
     def convert_binding_entries_to_xml(self):
