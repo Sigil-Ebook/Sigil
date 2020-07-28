@@ -36,7 +36,8 @@ class TOCHTMLWriter
 public:
     TOCHTMLWriter(const QString& toc_bookpath, 
 		  const QString& css_bookpath, 
-		  TOCModel::TOCEntry toc_root_entry);
+		  TOCModel::TOCEntry toc_root_entry,
+		  const QString& title);
     ~TOCHTMLWriter();
 
     QString WriteXML(const QString &version);
@@ -51,6 +52,7 @@ private:
     TOCModel::TOCEntry m_TOCRootEntry;
     QString m_TOCBookPath;
     QString m_CSSBookPath;
+    QString m_title;
 };
 
 #endif // TOCHTMLWRITER_H

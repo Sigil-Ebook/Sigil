@@ -3284,9 +3284,14 @@ void MainWindow::CreateHTMLTOC()
         htmlResources.insert(0, tocResource);
         m_Book->GetOPF()->UpdateSpineOrder(htmlResources);
     }
+
+    // Get Primary language from the OPF and use it to Translate "toc" for title
+    QString lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
+    QString title = Landmarks::instance()->GetTitle("toc", lang); 
     TOCHTMLWriter toc(tocResource->GetRelativePath(), 
 		      css_resource->GetRelativePath(),
-		      m_TableOfContents->GetRootEntry());
+		      m_TableOfContents->GetRootEntry(),
+		      title);
     tocResource->SetText(toc.WriteXML(version));
 
     // For epub3 now allow multiple landmarks with the toc semantic set, this is legal as long

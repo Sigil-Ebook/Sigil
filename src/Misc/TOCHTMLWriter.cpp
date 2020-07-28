@@ -31,12 +31,14 @@ const QString SGC_TOC_CSS_FILENAME = "sgc-toc.css";
 
 TOCHTMLWriter::TOCHTMLWriter(const QString &toc_bookpath,
 			     const QString &css_bookpath, 
-			     TOCModel::TOCEntry toc_root_entry)
+			     TOCModel::TOCEntry toc_root_entry,
+			     const QString &title)
     :
     m_Writer(0),
     m_TOCRootEntry(toc_root_entry),
     m_TOCBookPath(toc_bookpath),
-    m_CSSBookPath(css_bookpath)
+    m_CSSBookPath(css_bookpath),
+    m_title(title)
 {
 }
 
@@ -108,7 +110,7 @@ void TOCHTMLWriter::WriteBody()
     // Page heading
     m_Writer->writeStartElement("div");
     m_Writer->writeAttribute("class", "sgc-toc-title");
-    m_Writer->writeCharacters(QObject::tr("Table of Contents"));
+    m_Writer->writeCharacters(m_title);
     m_Writer->writeEndElement();
     m_Writer->writeCharacters("\n");
     // Entries
