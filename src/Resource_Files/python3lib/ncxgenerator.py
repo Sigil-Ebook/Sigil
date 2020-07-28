@@ -5,7 +5,32 @@
 import sys
 import os
 from quickparser import QuickXHTMLParser
-from hrefutils import quoteurl, unquoteurl, startingDir, buildBookPath, buildRelativePath, relativePath
+from hrefutils import startingDir, buildBookPath, buildRelativePath, relativePath
+
+from urllib.parse import unquote
+
+ASCII_CHARS   = set(chr(x) for x in range(128))
+URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                    'abcdefghijklmnopqrstuvwxyz'
+                    '0123456789' '_.-/~')
+IRI_UNSAFE = ASCII_CHARS - URL_SAFE
+
+def urlencodepart(part):
+    if isinstance(part,bytes):
+        parts = part.decode('utf-8')
+    result = []
+    for char in part:
+        if char in IRI_UNSAFE:
+            char = "%%%02x" % ord(char)
+        result.append(char)
+    return ''.join(result)
+
+def urldecodepart(part):
+    if isinstance(part,bytes):
+        part = part.decode('utf-8')
+    part = unquote(part)
+    return part
+
 
 _epubtype_guide_map = {
      'acknowledgements' : 'acknowledgments',
@@ -56,7 +81,7 @@ _epubtype_guide_map = {
 
 
 # parse the current nav.xhtml to extract toc, pagelist, and landmarks
-# note all hrefs, src  are in unquoted form when they are stored
+# note all hrefs, src  are in urlencoded (raw) form when they are stored
 # note all hrefs, src, have been converted to be relative to newdir
 def parse_nav(qp, navdata, navbkpath, newdir):
     qp.setContent(navdata)
@@ -93,14 +118,16 @@ def parse_nav(qp, navdata, navbkpath, newdir):
                 if ttype == "end": lvl -= 1
                 continue
             if tname == "a" and ttype == "begin":
+                # get the raw href (urlencoded)
                 href = tattr.get("href", "")
-                href = unquoteurl(href)
                 if href.find(":") == -1:
                     # first strip off any fragment
                     fragment = ""
                     if href.find("#") != -1:
                         href, fragment = href.split("#")
                     # find destination bookpath
+                    href = urldecodepart(href)
+                    fragment = urldecodepart(fragment)
                     if href.startswith("./"): href=href[2:]
                     if href == "":
                         destbkpath = navbkpath
@@ -108,6 +135,8 @@ def parse_nav(qp, navdata, navbkpath, newdir):
                         destbkpath = buildBookPath(href, navdir)
                     # create relative path to destbkpath from newdir
                     href = relativePath(destbkpath, newdir)
+                    href = urlencodepart(href)
+                    fragment = urlencodepart(fragment)
                     if fragment != "":
                         href = href + "#" + fragment
                 epubtype = tattr.get("epub:type", None)
@@ -147,6 +176,7 @@ def build_ncx(doctitle, mainid, maxlvl, pgcnt, toclist, pagelist):
     ncxres.append('<navMap>\n')
     plvl = -1
     for (po, lvl, href, title) in toclist:
+        # note all hrefs should already be in urlencoded form
         # first close off any already opened navPoints
         while lvl <= plvl:
             space = ind*plvl
@@ -161,7 +191,7 @@ def build_ncx(doctitle, mainid, maxlvl, pgcnt, toclist, pagelist):
         ncxres.append(space + '  <navLabel>\n')
         ncxres.append(space + '    <text>' + title + '</text>\n')
         ncxres.append(space + '  </navLabel>\n')
-        ncxres.append(space + '  <content src="' + quoteurl(href) + '" />\n')
+        ncxres.append(space + '  <content src="' + href + '" />\n')
         plvl = lvl
     # now finish off any open navpoints
     while plvl > 0:
@@ -178,7 +208,7 @@ def build_ncx(doctitle, mainid, maxlvl, pgcnt, toclist, pagelist):
             target += ' value="' + title + '">\n'
             ncxres.append(target)
             ncxres.append(ind*2 + '<navLabel><text>' + title + '</text></navLabel>\n')
-            ncxres.append(ind*2 + '<content src="' + quoteurl(href) + '" />\n')
+            ncxres.append(ind*2 + '<content src="' + href + '" />\n')
             ncxres.append(ind + '</pageTarget>\n')
         ncxres.append('</pageList>\n')
     # now close it off
