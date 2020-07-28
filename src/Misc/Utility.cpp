@@ -592,7 +592,7 @@ QString Utility::URLEncodePath(const QString &path)
     // So run xmldecode first to convert them to normal characters before 
     // url encoding them
     newpath = DecodeXML(newpath);
-    QByteArray encoded_url = QUrl::toPercentEncoding(newpath, QByteArray("/"));
+    QByteArray encoded_url = QUrl::toPercentEncoding(newpath, QByteArray("/"), QByteArray("#"));
     return scheme + QString::fromUtf8(encoded_url.constData(), encoded_url.count());
 }
 
@@ -723,6 +723,7 @@ bool Utility::has_non_ascii_chars(const QString &str)
 
 bool Utility::use_filename_warning(const QString &filename)
 {
+#if 0
     const QString uri_delimiters = ":/?#[]@";
     foreach(QChar c, uri_delimiters) {
         if (filename.contains(c)) {
@@ -735,6 +736,7 @@ bool Utility::use_filename_warning(const QString &filename)
             return false;
         }
     }
+#endif
     if (has_non_ascii_chars(filename)) {
         return QMessageBox::Apply == QMessageBox::warning(QApplication::activeWindow(),
                 tr("Sigil"),

@@ -23,6 +23,7 @@
 #include "Misc/EmbeddedPython.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/OPFParser.h"
+#include <QDebug>
 
 // Note: all hrefs/urls should always be kept in URLEncoded form
 // as decoding urls before splitting into component parts can lead
@@ -484,5 +485,6 @@ QString OPFParser::convert_to_xml() const
         xmlres << "  </bindings>\n";
     }
     xmlres << "</package>\n";
+    qDebug() << "new_opf" << xmlres;
     return xmlres.join("");
 }

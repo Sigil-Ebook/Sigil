@@ -747,6 +747,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
 
     QUrl mhref(href);
     QString apath = mhref.path();
+    qDebug() << "ImportEpub in with Manifest item: " << href << apath;
     QString extension = QFileInfo(apath).suffix().toLower();
 
     // validate the media type if we can, and warn otherwise

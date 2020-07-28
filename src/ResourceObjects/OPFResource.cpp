@@ -31,6 +31,7 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QDateTime>
+#include <QDebug>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
@@ -198,6 +199,7 @@ bool OPFResource::LoadFromDisk()
 QList<Resource*> OPFResource::GetSpineOrderResources( const QList<Resource *> &resources)
 {
     QReadLocker locker(&GetLock());
+    qDebug() << "GetSpineOrderResources";
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
@@ -215,6 +217,7 @@ QList<Resource*> OPFResource::GetSpineOrderResources( const QList<Resource *> &r
 QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource *> resources)
 {
     QReadLocker locker(&GetLock());
+    qDebug() << "GetReadingOrderAll";
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
@@ -225,8 +228,10 @@ QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource 
     }
     QHash<Resource *, QString> id_mapping = GetResourceManifestIDMapping(resources, p);
     foreach(Resource *resource, resources) {
+        qDebug() << "   " << resource << id_order[id_mapping[resource]];
         reading_order[resource] = id_order[id_mapping[resource]];
     }
+    
     return reading_order;
 }
 
@@ -234,11 +239,13 @@ QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource 
 int OPFResource::GetReadingOrder(const HTMLResource *html_resource) const
 {
     QReadLocker locker(&GetLock());
+    qDebug() << "GetReadingOrder";
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     const Resource *resource = static_cast<const Resource *>(html_resource);
     QString resource_id = GetResourceManifestID(resource, p);
+    qDebug() << "   " << "looking for " << resource_id;
     for (int i = 0; i < p.m_spine.count(); ++i) {
         QString idref = p.m_spine.at(i).m_idref;
         if (resource_id == idref) {
@@ -479,6 +486,7 @@ void OPFResource::AutoFixWellFormedErrors()
 
 QStringList OPFResource::GetSpineOrderBookPaths() const
 {
+    qDebug() << "GetSpineOrderBookPaths";
     QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
@@ -489,8 +497,8 @@ QStringList OPFResource::GetSpineOrderBookPaths() const
         QString idref = sp.m_idref;
         int pos = p.m_idpos.value(idref,-1);
         if (pos > -1) {
-            QString href = Utility::URLDecodePath(p.m_manifest.at(pos).m_href);
-            book_paths_in_reading_order.append(Utility::buildBookPath(href,GetFolder()));
+            QString apath = Utility::URLDecodePath(p.m_manifest.at(pos).m_href);
+            book_paths_in_reading_order.append(Utility::buildBookPath(apath,GetFolder()));
         }
     }
     return book_paths_in_reading_order;
@@ -935,6 +943,7 @@ void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
 
 void OPFResource::UpdateSpineOrder(const QList<::HTMLResource *> html_files)
 {
+    qDebug() << "UpdateSpineOrder";
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
@@ -982,6 +991,7 @@ void OPFResource::ResourceRenamed(const Resource *resource, QString old_full_pat
             ManifestEntry me = p.m_manifest.at(i);
             QString old_me_href = me.m_href;
             me.m_href = Utility::URLEncodePath(GetRelativePathToResource(resource));
+            qDebug() << "renaming resource to" << me.m_href;
             old_id = me.m_id;
             p.m_idpos.remove(old_id);
             new_id = GetUniqueID(GetValidID(resource->Filename()),p);
@@ -1085,7 +1095,7 @@ QHash<QString, Resource*>OPFResource::GetManifestIDResourceMapping(const QList<R
 {
     QHash<QString, Resource*> id_mapping;
     foreach(Resource * resource, resources) {
-      QString href_path = Utility::URLEncodePath(GetRelativePathToResource(resource));
+        QString href_path = Utility::URLEncodePath(GetRelativePathToResource(resource));
         int pos = p.m_hrefpos.value(href_path,-1);
         if (pos > -1) { 
 	    id_mapping[ p.m_manifest.at(pos).m_id ] = resource;
@@ -1097,11 +1107,12 @@ QHash<QString, Resource*>OPFResource::GetManifestIDResourceMapping(const QList<R
 
 QString OPFResource::GetResourceManifestID(const Resource *resource, const OPFParser& p) const
 {
-  QString href_path = Utility::URLEncodePath(GetRelativePathToResource(resource));
+    QString href_path = Utility::URLEncodePath(GetRelativePathToResource(resource));
     int pos = p.m_hrefpos.value(href_path,-1);
     if (pos > -1) { 
         return QString(p.m_manifest.at(pos).m_id); 
     }
+    qDebug() << "GetResourceMainfestID returning null" << href_path;
     return QString();
 }
 
@@ -1109,12 +1120,19 @@ QString OPFResource::GetResourceManifestID(const Resource *resource, const OPFPa
 QHash<Resource *, QString> OPFResource::GetResourceManifestIDMapping(const QList<Resource *> &resources, 
                                                                      const OPFParser& p)
 {
+    qDebug() << "In GetResourceMainifestIDMapping";
     QHash<Resource *, QString> id_mapping;
+    QStringList keys = p.m_hrefpos.keys();
+    foreach(QString key, keys) {
+        qDebug() << "p.m_hrefpos: " << key;
+    }
     foreach(Resource * resource, resources) {
-      QString href_path = Utility::URLEncodePath(GetRelativePathToResource(resource));
+        QString href_path = Utility::URLEncodePath(GetRelativePathToResource(resource));
         int pos = p.m_hrefpos.value(href_path,-1);
         if (pos > -1) { 
             id_mapping[ resource ] = p.m_manifest.at(pos).m_id;
+        } else {
+          qDebug() << "GetResourceMainifestIDMapping no map for" << href_path;
         }
     }
     return id_mapping;
