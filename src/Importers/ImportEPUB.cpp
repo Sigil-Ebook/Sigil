@@ -741,13 +741,18 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     QString href = opf_reader->attributes().value("", "href").toString();
     QString type = opf_reader->attributes().value("", "media-type").toString();
     QString properties = opf_reader->attributes().value("", "properties").toString();
-    // FIXME: can OPF Manifest href attributes include fragments?
+    // FIXME: can epub3 OPF Manifest href attributes include fragments?
+    // FIXME: under epub2 fragments are explicitly outlawed in spec
     // For robustness sake we will assume they can but ...
-    // Note:  they can be outside the epub so need to handle full url
+    // Note:  Under epub3 they can point outside the epub so need to handle full url
 
-    QUrl mhref(href);
-    QString apath = mhref.path();
-    qDebug() << "ImportEpub in with Manifest item: " << href << apath;
+    QString apath;
+    if (href.indexOf(':') == -1) {
+	// we know we have a relative href to a file so no fragments can exist
+	apath = Utility::URLDecodePath(href);
+    }
+    // for hrefs pointing outside the epub, apath will be empty
+    qDebug() << "ImportEpub with Manifest item: " << href << apath;
     QString extension = QFileInfo(apath).suffix().toLower();
 
     // validate the media type if we can, and warn otherwise
@@ -759,7 +764,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
         AddLoadWarning(load_warning);
     }
 
-    if (mhref.isRelative()) {
+    if (!apath.isEmpty()) {
         // find the epub root relative file path from the opf location and the item href
         QString file_path = m_opfDir.absolutePath() + "/" + apath;
         file_path = Utility::resolveRelativeSegmentsInFilePath(file_path,"/");

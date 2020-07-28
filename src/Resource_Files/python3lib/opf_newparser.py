@@ -28,35 +28,29 @@
 import sys, os, codecs
 from collections import OrderedDict
 
-# from urllib.parse import unquote
-# from urllib.parse import urlsplit
+from urllib.parse import unquote
 
-# ASCII_CHARS   = set(chr(x) for x in range(128))
-# URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-#                     'abcdefghijklmnopqrstuvwxyz'
-#                     '0123456789' '#' '_.-/~')
-# IRI_UNSAFE = ASCII_CHARS - URL_SAFE
-# 
-# def quoteurl(href):
-#     if isinstance(href,bytes):
-#         href = href.decode('utf-8')
-#     (scheme, netloc, path, query, fragment) = urlsplit(href, scheme="", allow_fragments=True)
-#     if scheme != "":
-#         scheme += "://"
-#         href = href[len(scheme):]
-#     result = []
-#     for char in href:
-#         if char in IRI_UNSAFE:
-#             char = "%%%02X" % ord(char)
-#         result.append(char)
-#     return scheme + ''.join(result)
-# 
-# def unquoteurl(href):
-#     if isinstance(href,bytes):
-#         href = href.decode('utf-8')
-#     href = unquote(href)
-#     return href
+ASCII_CHARS   = set(chr(x) for x in range(128))
+URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                    'abcdefghijklmnopqrstuvwxyz'
+                    '0123456789' '_.-/~')
+IRI_UNSAFE = ASCII_CHARS - URL_SAFE
 
+def urlencodepart(part):
+    if isinstance(part,bytes):
+        parts = part.decode('utf-8')
+    result = []
+    for char in part:
+        if char in IRI_UNSAFE:
+            char = "%%%02x" % ord(char)
+        result.append(char)
+    return ''.join(result)
+
+def urldecodepart(part):
+    if isinstance(part,bytes):
+        part = part.decode('utf-8')
+    part = unquote(part)
+    return part
 
 # encode to make xml safe
 def xmlencode(data):
@@ -159,8 +153,12 @@ class Opf_Parser(object):
                 nid = "xid%03d" %  cnt
                 cnt += 1
                 id = tattr.pop("id",nid)
-                # must keep all hrefs in quoted (encoded) form
+                # must keep all hrefs in encoded) form
+                # if relative, then no fragments so decode and then encode for safety
                 href = tattr.pop("href","")
+                if href.find(':') == -1:
+                    href = urldecodepart(href)
+                    href = urlencodepart(href)
                 mtype = tattr.pop("media-type","")
                 self.manifest.append((id, href, mtype, tattr))
                 continue
