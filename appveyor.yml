@@ -43,7 +43,7 @@ environment:
       INNO: C:\Program Files (x86)\Inno Setup 6
       REDIST: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Redist\MSVC\%RedistVersion%\vcredist_%PLATFORM%.exe
       DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/MyQt%PLATFORM%_5.12.9_VS2017_WE.7z
-      GDRIVE: https://github.com/gdrive-org/gdrive/releases/download/2.1.0/gdrive-windows-x64.exe
+      GDRIVE: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/gdrive-windows-x64.exe
       GDRIVE_REFRESH_TOKEN:
         secure: +J2q/4lkiBXik5Ttvt06vpNiWBjNIXx+jFnYw1rOR9sLkyksyXGj+NeNKQB8kPwE
       GDRIVE_DIR:
