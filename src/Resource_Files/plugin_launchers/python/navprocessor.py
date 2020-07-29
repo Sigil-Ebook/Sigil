@@ -28,7 +28,6 @@
 import sys
 import re
 from quickparser import QuickXHTMLParser
-from hrefutils import quoteurl, unquoteurl
 
 SIGIL_REPLACE_LANDMARKS_HERE = "<!-- SIGIL_REPLACE_LANDMARKS_HERE -->"
 SIGIL_REPLACE_PAGELIST_HERE  = "<!-- SIGIL_REPLACE_PAGELIST_HERE -->"
@@ -72,7 +71,7 @@ class NavProcessor(object):
             self.content = navsrc
 
     # returns ordered list of tuples (play_order, nesting_level, href, title)
-    # href is unquoted (percent encodings removed)
+    # href is in url encoded form (percent encodings used if needed)
     # title has been xml decoded/unescaped
     def getTOC(self):
         # parse the nav to get the table of contents
@@ -106,7 +105,8 @@ class NavProcessor(object):
                         continue
                     if tname == "a" and ttype == "begin":
                         href = tattr.get("href", "")
-                        href = unquoteurl(href)
+                        # must leave all url hrefs in raw url encoded form
+                        # if they can ever contain fragments
                         continue
                     if tname == "a" and ttype == "end":
                         po += 1
@@ -119,7 +119,7 @@ class NavProcessor(object):
         return toclist
 
     # replace the TOC with ordered list of tuples (play_order, nesting_level, href, title)
-    # href should be unquoted (percent encodings removed)
+    # href should be url encoded (percent encodings present if needed)
     # title should be xml decoded/unescaped
     def setTOC(self, toclist):
         toc_xhtml = self.buildTOC(toclist)
@@ -158,7 +158,7 @@ class NavProcessor(object):
         return True
 
     # returns ordered list of tuples (epubtype, href, title)
-    # href is unquoted (percent encodings removed)
+    # href is url encoded (percent encodings present if needed)
     # title has been xml decoded/unescaped
     def getLandmarks(self):
         # parse the nav to get the landmarks
@@ -188,7 +188,8 @@ class NavProcessor(object):
                 if nav_type is not None and nav_type == "landmarks":
                     if tname == "a" and ttype == "begin":
                         href = tattr.get("href", "")
-                        href = unquoteurl(href)
+                        # must leave all hrefs in raw url encoded form
+                        # if they can contain fragments
                         epubtype = tattr.get("epub:type", None)
                         continue
                     if tname == "a" and ttype == "end":
@@ -202,7 +203,7 @@ class NavProcessor(object):
         return landmarks
 
     # replace the landmarks with ordered list of tuples (epubtype, href, title)
-    # href should be unquoted (percent encodings removed)
+    # href should be url encoded (percent encodings present if needed)
     # title should be xml decoded/unescaped
     def setLandmarks(self, landmarks):
         landmarks_xhtml = self.buildLandmarks(landmarks)
@@ -241,7 +242,7 @@ class NavProcessor(object):
         return True
 
     # returns ordered list of tuples (page_number, href, title)
-    # href is unquoted (percent encodings removed)
+    # href is url encoded (percent encodings if needed should be present))
     # title has been xml decoded/unescaped
     def getPageList(self):
         # parse the nav source to get the page-list
@@ -270,7 +271,7 @@ class NavProcessor(object):
                 if nav_type is not None and nav_type == "page-list":
                     if tname == "a" and ttype == "begin" and nav_type == "page-list":
                         href = tattr.get("href", "")
-                        href = unquoteurl(href)
+                        # hrefs must be kept in raw urlencoded form that may contain fragments
                         continue
                     if tname == "a" and ttype == "end":
                         pgcnt += 1
@@ -282,7 +283,7 @@ class NavProcessor(object):
         return pagelist
 
     # replace the page with ordered list of tuples (page_number, href, title)
-    # href should be unquoted (percent encodings removed)
+    # href should be url encoded (percent encodings present if needed))
     # title should be xml decoded/unescaped
     def setPageList(self, pagelist):
         pagelist_xhtml = self.buildPageList(pagelist)
@@ -330,7 +331,7 @@ class NavProcessor(object):
         return True
 
     # self.toclist is an ordered list of tuples (play_order, nesting_level, href, title)
-    # href is unquoted in self.toclist is unquoted
+    # hrefs should be in url encoded form (percent encodings present if needed)  
     def buildTOC(self, toclist):
         navres = []
         ind = '  '
@@ -343,7 +344,6 @@ class NavProcessor(object):
         curlvl = 1
         initial = True
         for po, lvl, href, lbl in toclist:
-            href = quoteurl(href)
             lbl = xmlencode(lbl)
             if lvl > curlvl:
                 while lvl > curlvl:
@@ -380,7 +380,7 @@ class NavProcessor(object):
 
 
     # self.pagelist is an ordered list of tuples (page_number, href, title)
-    # href is unquoted in self.pagelist
+    # href should be url encoded (percent encodings present if needed)
     def buildPageList(self, pagelist):
         navres = []
         ind = '  '
@@ -389,7 +389,6 @@ class NavProcessor(object):
             navres.append(ind * 2 + '<nav epub:type="page-list" id="page-list" hidden="">\n')
             navres.append(ind * 3 + '<ol>\n')
             for pn, href, title in pagelist:
-                href = quoteurl(href)
                 title = xmlencode(title)
                 navres.append(ind * 4 + '<li><a href="%s">%s</a></li>\n' % (href, title))
             navres.append(ind * 3 + '</ol>\n')
@@ -398,7 +397,7 @@ class NavProcessor(object):
 
 
     # self.landmarks is an ordered list of tuples (epub_type, href, title)
-    # href is unquoted in self.landmarks
+    # href should be url encoded (percent encodings present if needed) 
     def buildLandmarks(self, landmarks):
         navres = []
         ind = '  '
@@ -406,7 +405,6 @@ class NavProcessor(object):
         navres.append(ind * 3 + '<h2>Guide</h2>\n')
         navres.append(ind * 3 + '<ol>\n')
         for etyp, href, title in landmarks:
-            href = quoteurl(href)
             title = xmlencode(title)
             navres.append(ind * 4 + '<li>\n')
             navres.append(ind * 5 + '<a epub:type="%s" href="%s">%s</a>\n' % (etyp, href, title))

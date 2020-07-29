@@ -29,8 +29,8 @@ from collections import OrderedDict
 import sys
 import os
 import re
-
-from hrefutils import quoteurl, unquoteurl, buildBookPath, startingDir, buildRelativePath
+from hrefutils import urldecodepart, urlencodepart
+from hrefutils import buildBookPath, startingDir, buildRelativePath
 from hrefutils import ext_mime_map, mime_group_map
 
 import unicodedata
@@ -49,7 +49,7 @@ def _unicodestr(p):
         return p
     return p.decode('utf-8', errors='replace')
 
-_launcher_version = 20200527
+_launcher_version = 20200729
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''', re.IGNORECASE)
 
@@ -166,6 +166,8 @@ class Wrapper(object):
         if self.op is not None:
             # copy in data from parsing of initial opf
             self.opf_dir = op.opf_dir
+            # Note: manifest hrefs may only point to files (there are no fragments)
+            # all manifest relative hrefs have already had their path component url decoded
             self.id_to_href = op.get_manifest_id_to_href_dict().copy()
             self.id_to_mime = op.get_manifest_id_to_mime_dict().copy()
             self.id_to_props = op.get_manifest_id_to_properties_dict().copy()
@@ -175,6 +177,7 @@ class Wrapper(object):
             self.group_paths = op.get_group_paths().copy()
             self.spine_ppd = op.get_spine_ppd()
             self.spine = op.get_spine()
+            # since guide hrefs may contain framents they are kept in url encoded form
             self.guide = op.get_guide()
             self.package_tag = op.get_package_tag()
             self.epub_version = op.get_epub_version()
@@ -219,9 +222,10 @@ class Wrapper(object):
         return self.epub_version
 
     # utility routine to get mime from href (book href or opf href)
+    # no fragments present
     def getmime(self, href):
         href = _unicodestr(href)
-        href = unquoteurl(href)
+        href = urldecodepart(href)
         filename = os.path.basename(href)
         ext = os.path.splitext(filename)[1]
         ext = ext.lower()
@@ -274,9 +278,10 @@ class Wrapper(object):
 
     # return a bookpath for the file pointed to by the href from
     # the specified bookpath starting directory
+    # no fragments allowed in href (must have been previously split off)
     def build_bookpath(self, href, starting_dir):
         href = _unicodestr(href)
-        href = unquoteurl(href)
+        href = urldecodepart(href)
         starting_dir = _unicodestr(starting_dir)
         return buildBookPath(href, starting_dir)
 
@@ -312,7 +317,10 @@ class Wrapper(object):
         manout = []
         manout.append('  <manifest>\n')
         for id in sorted(self.id_to_mime):
-            href = quoteurl(self.id_to_href[id])
+            href = self.id_to_href[id]
+            # relative manifest hrefs must have no fragments
+            if href.find(':') == -1:
+                href = urlencodepart(href)
             mime = self.id_to_mime[id]
             props = ''
             properties = self.id_to_props[id]
@@ -360,7 +368,8 @@ class Wrapper(object):
         if len(self.guide) > 0:
             guideout.append('  <guide>\n')
             for (type, title, href) in self.guide:
-                href = quoteurl(href)
+                # note guide hrefs may have fragments so must be kept
+                # in url encoded form at all times until splitting into component parts
                 guideout.append('    <reference type="%s" href="%s" title="%s"/>\n' % (type, href, title))
             guideout.append('  </guide>\n')
         return "".join(guideout)
@@ -544,18 +553,19 @@ class Wrapper(object):
     def getguide(self):
         return self.guide
 
+    # guide hrefs must be in urlencoded form (percent encodings present if needed)
+    # as they may include fragments and # is a valid url path character
     def setguide(self, new_guide):
         guide = []
         for (type, title, href) in new_guide:
             type = _unicodestr(type)
             title = _unicodestr(title)
             href = _unicodestr(href)
-            href = unquoteurl(href)
             if type not in _guide_types:
                 type = "other." + type
             if title is None:
                 title = 'title missing'
-            thref = href.split('#')[0]
+            thref = urldecodepath(href.split('#')[0])
             if thref not in self.href_to_id:
                 raise WrapperException('guide href not in manifest')
             guide.append((type, title, href))
@@ -795,7 +805,7 @@ class Wrapper(object):
 
     def map_href_to_id(self, href, ow):
         href = _unicodestr(href)
-        href = unquoteurl(href)
+        href = urldecodepart(href)
         return self.href_to_id.get(href, ow)
 
     # new in Sigil 1.0
@@ -856,7 +866,7 @@ class Wrapper(object):
 
     def readotherfile(self, book_href):
         id = _unicodestr(book_href)
-        id = unquoteurl(id)
+        id = urldecodepart(id)
         if id is None:
             raise WrapperException('None is not a valid book href')
         if id not in self.other and id in self.id_to_href:
@@ -887,7 +897,7 @@ class Wrapper(object):
 
     def writeotherfile(self, book_href, data):
         id = _unicodestr(book_href)
-        id = unquoteurl(id)
+        id = urldecodepart(id)
         if id is None:
             raise WrapperException('None is not a valid book href')
         if id not in self.other and id in self.id_to_href:
@@ -909,7 +919,7 @@ class Wrapper(object):
 
     def addotherfile(self, book_href, data) :
         id = _unicodestr(book_href)
-        id = unquoteurl(id)
+        id = urldecodepart(id)
         if id is None:
             raise WrapperException('None is not a valid book href')
         if id in self.other:
@@ -931,7 +941,7 @@ class Wrapper(object):
 
     def deleteotherfile(self, book_href):
         id = _unicodestr(book_href)
-        id = unquoteurl(id)
+        id = urldecodepart(id)
         if id is None:
             raise WrapperException('None is not a valid book hrefbook href')
         if id not in self.other and id in self.id_to_href:

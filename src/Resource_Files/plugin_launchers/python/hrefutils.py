@@ -113,34 +113,60 @@ mime_group_map = {
     'text/plain'                              : 'Misc',
 }
 
+# Note any # char in the href path component must be url encoded
+# if fragments can exist
 
-ASCII_CHARS   = set(chr(x) for x in range(128))
-URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-                    'abcdefghijklmnopqrstuvwxyz'
-                    '0123456789' '#' '_.-/~')
-IRI_UNSAFE = ASCII_CHARS - URL_SAFE
+_ASCII_CHARS   = set(chr(x) for x in range(128))
 
-# returns a quoted IRI (not a URI)
-def quoteurl(href):
-    if isinstance(href, bytes):
-        href = href.decode('utf-8')
-    (scheme, netloc, path, query, fragment) = urlsplit(href, scheme="", allow_fragments=True)
-    if scheme != "":
-        scheme += "://"
-        href = href[len(scheme):]
+_URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                     'abcdefghijklmnopqrstuvwxyz'
+                     '0123456789' '_.-/~')
+
+_IRI_UNSAFE = _ASCII_CHARS - _URL_SAFE
+
+
+def urlencodepart(part):
+    if isinstance(part,bytes):
+        parts = part.decode('utf-8')
     result = []
-    for char in href:
-        if char in IRI_UNSAFE:
+    for char in part:
+        if char in _IRI_UNSAFE:
             char = "%%%02x" % ord(char)
         result.append(char)
-    return scheme + ''.join(result)
+    return ''.join(result)
 
-# unquotes url/iri
-def unquoteurl(href):
+
+def urldecodepart(part):
+    if isinstance(part,bytes):
+        part = part.decode('utf-8')
+    part = unquote(part)
+    return part
+
+
+# return a properly url encoded relative href
+# from path and fragment components
+def getRelativeHREF(apath, afragment):
+    if isinstance(apath, bytes):
+        apath = apath.decode('utf-8')
+    if afragment and isinstance(afragment, bytes):
+        afragment = afragment.decode('utf-8')
+    href = urlencodepart(apath)
+    if afragment:
+        href = href + "#" + urlencodepart(fragment)
+    return href
+
+
+# return a properly url decoded path
+# and fragment (None) from a url encoded relative href
+def parseRelativeHREF(href):
     if isinstance(href, bytes):
         href = href.decode('utf-8')
-    href = unquote(href)
-    return href
+    parts = href.split('#')
+    apath = urldecodepart(parts[0])
+    afragment = None
+    if len(parts) > 1:
+        afragment = urldecodepart(parts[1])
+    return apath, afragment
 
 
 def relativePath(to_bkpath, start_dir):
@@ -207,6 +233,42 @@ def longestCommonPath(bookpaths):
     if not res or len(res) == 0:
         return ""
     return '/'.join(res) + '/'
+
+
+# DEPRECATED: kept only for backwards compatibility
+# as it assumes no # chars will ever exist in an href path
+_XURL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                      'abcdefghijklmnopqrstuvwxyz'
+                      '0123456789' '#' '_.-/~')
+_XIRI_UNSAFE = _ASCII_CHARS - _XURL_SAFE
+
+
+# DEPRECATED: kept only for backwards compatibility
+# as it assumes no # chars will ever exist in an href path
+# returns a quoted IRI (not a URI)
+def quoteurl(href):
+    if isinstance(href, bytes):
+        href = href.decode('utf-8')
+    (scheme, netloc, path, query, fragment) = urlsplit(href, scheme="", allow_fragments=True)
+    if scheme != "":
+        scheme += "://"
+        href = href[len(scheme):]
+    result = []
+    for char in href:
+        if char in _XIRI_UNSAFE:
+            char = "%%%02x" % ord(char)
+        result.append(char)
+    return scheme + ''.join(result)
+
+
+# DEPRECATED: kept only for backwards compatibility
+# as it assumes no # chars will ever exist in an href path
+# unquotes url/iri
+def unquoteurl(href):
+    if isinstance(href, bytes):
+        href = href.decode('utf-8')
+    href = unquote(href)
+    return href
 
 
 def main():

@@ -30,7 +30,7 @@
 # Sigil Python Script Launcher
 #
 # This launcher script is aways invoked by the script manager
-# for python scripts (both Python 2.7 and 3.4 and later).  It is passed in:
+# for python scripts.  It is passed in a number of things including
 # ebook_root, output directory, script type, and path to target script location
 #
 # This launcher script will parse the opf and make available
@@ -54,7 +54,7 @@ from bookcontainer import BookContainer
 from inputcontainer import InputContainer
 from outputcontainer import OutputContainer
 from validationcontainer import ValidationContainer
-from hrefutils import quoteurl
+from hrefutils import urlencodepart
 
 import html
 from xml.sax.saxutils import escape as xmlescape
@@ -157,6 +157,8 @@ class ProcessScript(object):
             # write out the final updated opf to the outdir
             container._w.write_opf()
         # save the wrapper results to a file before exiting the thread
+        # Note: the hrefs generated for the result xml are all relative paths
+        #       with no fragments since they must refer to entire files
         self.wrapout.append(_XML_HEADER)
         self.wrapout.append('<wrapper type="%s">\n' % script_type)
         self.wrapout.append('<result>success</result>\n')
@@ -170,7 +172,7 @@ class ProcessScript(object):
                     bookhref = id
                     id = ""
                     mime = container._w.getmime(bookhref)
-                self.wrapout.append('<deleted href="%s" id="%s" media-type="%s" />\n' % (quoteurl(bookhref), id, mime))
+                self.wrapout.append('<deleted href="%s" id="%s" media-type="%s" />\n' % (urlencodepart(bookhref), id, mime))
         if script_type in ['input', 'edit']:
             for id in container._w.added:
                 if id in container._w.id_to_bookpath:
@@ -180,7 +182,7 @@ class ProcessScript(object):
                     bookhref = id
                     id = ""
                     mime = container._w.getmime(bookhref)
-                self.wrapout.append('<added href="%s" id="%s" media-type="%s" />\n' % (quoteurl(bookhref), id, mime))
+                self.wrapout.append('<added href="%s" id="%s" media-type="%s" />\n' % (urlencodepart(bookhref), id, mime))
         if script_type == 'edit':
             for id in container._w.modified:
                 if id in container._w.id_to_bookpath:
@@ -190,7 +192,7 @@ class ProcessScript(object):
                     bookhref = id
                     id = ""
                     mime = container._w.getmime(bookhref)
-                self.wrapout.append('<modified href="%s" id="%s" media-type="%s" />\n' % (quoteurl(bookhref), id, mime))
+                self.wrapout.append('<modified href="%s" id="%s" media-type="%s" />\n' % (urlencodepart(bookhref), id, mime))
         if script_type == 'validation':
             for vres in container.results:
                 self.wrapout.append('<validationresult type="%s" bookpath="%s" linenumber="%s" charoffset="%s" message="%s" />\n' % (vres.restype, vres.bookpath, vres.linenumber, vres.charoffset, vres.message))

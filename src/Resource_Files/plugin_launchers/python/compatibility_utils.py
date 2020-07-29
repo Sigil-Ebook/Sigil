@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014 Kevin B. Hendricks, John Schember, and Doug Massay
+# Copyright (c) 2014-2020 Kevin B. Hendricks, John Schember, and Doug Massay
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -25,11 +25,15 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
+# DEPRECATED:  This entire module is deprecated.  It is only kept to help
+# maintain older plugins.  DO NOT USE for any new or revised code.
+
+
 import sys
 import html
 import binascii
-from urllib.parse import unquote
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 
 PY2 = sys.version_info[0] == 2
 PY3 = sys.version_info[0] >= 3

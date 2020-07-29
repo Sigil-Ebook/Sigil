@@ -29,7 +29,7 @@
 import sys
 import os
 
-from hrefutils import unquoteurl, buildBookPath, startingDir, longestCommonPath
+from hrefutils import urldecodepart, buildBookPath, startingDir, longestCommonPath
 from hrefutils import mime_group_map
 from collections import OrderedDict
 
@@ -152,6 +152,8 @@ class Opf_Parser(object):
                     self.cover_id = tattr.get("content", None)
                 continue
             # manifest
+            # Note: manifest hrefs when relative may not contain a fragment
+            # as they must refer to and entire file
             if tname == "item" and "manifest" in prefix:
                 nid = "xid%03d" % cnt
                 cnt += 1
@@ -162,13 +164,15 @@ class Opf_Parser(object):
                     mtype = "application/xhtml+xml"
                 if mtype not in mime_group_map:
                     print("****Opf_Parser Warning****: Unknown MediaType: ", mtype)
-                href = unquoteurl(href)
+                # url decode all relative hrefs since no fragment can be present
+                # meaning no ambiguity in the meaning of any # chars in path
+                if href.find(':') == -1:
+                    href = urldecodepart(href)
                 properties = tattr.pop("properties", None)
                 fallback = tattr.pop("fallback", None)
                 overlay = tattr.pop("media-overlay", None)
 
                 # external resources are now allowed in the opf under epub3
-                # we can ignore fragments here as these are links to files
                 self.manifest_id_to_href[id] = href
 
                 bookpath = ""
@@ -206,10 +210,13 @@ class Opf_Parser(object):
                 self.spine.append((idref, linear, properties))
                 continue
             # guide
+            # Note: guide hrefs may have fragments, so leave any
+            # guide hrefs in their raw urlencoded form to prevent
+            # errors
             if tname == "reference" and "guide" in prefix:
                 type = tattr.pop("type", '')
                 title = tattr.pop("title", '')
-                href = unquoteurl(tattr.pop("href", ''))
+                href = tattr.pop("href", '')
                 self.guide.append((type, title, href))
                 continue
             # bindings (stored but ignored for now)
