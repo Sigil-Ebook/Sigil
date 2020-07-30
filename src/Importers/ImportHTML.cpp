@@ -225,11 +225,19 @@ void ImportHTML::UpdateFiles(HTMLResource *html_resource,
 	    if (!QFile::exists(target_file)) {
                 html_updates[target_file] = "";
 	    } else {
+		QString extension = QFileInfo(target_file).suffix();
 	        // do not touch javascript links when importing html
 	        // even when they do exist as we do not import them
-	        if (QFileInfo(target_file).suffix() == "js") {
+	        if (extension == "js") {
                     html_updates[target_file] = "";
 	        }
+		// we also do not touch links to *other* xhtml files
+		if ((target_file != currentpath) &&
+		    (extension == "htm" ||
+		     extension == "html" ||
+		     extension == "xhtml")) {
+                    html_updates[target_file] = "";
+		}
 	    }
         }
     }
