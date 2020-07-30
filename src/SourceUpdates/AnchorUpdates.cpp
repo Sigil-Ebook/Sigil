@@ -100,6 +100,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
 {
     // qDebug() << "in UpdateAnchorsInOneFile";
     // qDebug() << "ID_locations" << ID_locations;
+    QStringList bookpaths_impacted = ID_locations.values();
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
     QString version = html_resource->GetEpubVersion();
@@ -116,16 +117,26 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
             QString href = QString::fromUtf8(attr->value);
             if (href.indexOf(':') == -1) {
                 std::pair<QString, QString> parts = Utility::parseRelativeHREF(href);
+		// if fragment exists
                 if (!parts.second.isEmpty()) {
+		    QString base_href = parts.first;
                     QString fragment_id = parts.second;
                     if (fragment_id.startsWith("#")) fragment_id = fragment_id.mid(1, -1);
-		    QString base_href = parts.first;
-                    QString file_id = ID_locations.value(fragment_id);
+		    QString dest_bookpath = Utility::buildBookPath(base_href, Utility::startingDir(resource_bookpath));
+		    QString file_id = ID_locations.value(fragment_id);
+
+		    // qDebug() << "destination bookpath" << dest_bookpath;
 		    // qDebug() << "fragment_id" << fragment_id;
 		    // qDebug() << "file_id" << file_id;
 		    // qDebug() << "resource_bookpath" << resource_bookpath;
-		    // qDebug() << "base_href" << base_href;
 
+		    // Duplicates of this id may exist in other xhtml files in the epub
+		    // not involved in the split, so only set the target file_id if the
+		    // original dest_bookpath is one that was impacted by split
+		    if (!bookpaths_impacted.contains(dest_bookpath)) {
+		        file_id = ""; 
+		    }
+		    
                     // If the ID is in a different file, update the link
                     if (file_id != resource_bookpath && !file_id.isEmpty()) {
                         QString attpath = Utility::buildRelativePath(resource_bookpath, file_id);
