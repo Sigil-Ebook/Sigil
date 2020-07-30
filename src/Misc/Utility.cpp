@@ -1147,7 +1147,6 @@ QString Utility::buildRelativeHREF(const QString &apath, const QString &afrag)
 {
     QUrl href;
     href.setScheme("");
-    href.setQuery("");
     href.setPath(apath);
     QString id(afrag);
     bool add_empty_fragment = id == QString("#");
