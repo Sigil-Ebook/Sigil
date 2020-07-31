@@ -507,9 +507,9 @@ QStringList OPFResource::GetSpineOrderBookPaths() const
 QString OPFResource::GetPrimaryBookTitle() const
 {
     QString title = "";
-    QList<QVariant> titles = GetDCMetadataValues("dc:title");
+    QStringList titles = GetDCMetadataValues("dc:title");
     if (!titles.isEmpty()) {
-         title = titles.at(0).toString();
+	title = titles.at(0);
     }
     return title;
 }
@@ -518,9 +518,9 @@ QString OPFResource::GetPrimaryBookLanguage() const
 {
     SettingsStore settings;
     QString lang = settings.defaultMetadataLang();
-    QList<QVariant> languages = GetDCMetadataValues("dc:language");
+    QStringList languages = GetDCMetadataValues("dc:language");
     if (!languages.isEmpty()) {
-        lang = languages.at(0).toString();
+        lang = languages.at(0);
     }
     return lang;
 }
@@ -542,15 +542,15 @@ QList<MetaEntry> OPFResource::GetDCMetadata() const
 }
 
 
-QList<QVariant> OPFResource::GetDCMetadataValues(QString text) const
+QStringList OPFResource::GetDCMetadataValues(QString text) const
 {
-    QList<QVariant> values;
+    QStringList metavalues;
     foreach(MetaEntry meta, GetDCMetadata()) {
         if (meta.m_name == text) {
-            values.append(meta.m_content);
+            metavalues.append(meta.m_content);
         }
     }
-    return values;
+    return metavalues;
 }
 
 

@@ -2062,10 +2062,10 @@ void MainWindow::GenerateNCXGuideFromNav()
 
     QString ncxdir = Utility::startingDir(ncx_resource->GetRelativePath());
 
-    QList<QVariant> mvalues = m_Book->GetConstOPF()->GetDCMetadataValues("dc:title");
+    QStringList mvalues = m_Book->GetConstOPF()->GetDCMetadataValues("dc:title");
     QString doctitle = "UNKNOWN";
     if (!mvalues.isEmpty()) {
-        doctitle = mvalues.at(0).toString();
+        doctitle = mvalues.at(0);
     } 
     QString mainid = m_Book->GetConstOPF()->GetMainIdentifierValue();
 

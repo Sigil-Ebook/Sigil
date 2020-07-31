@@ -108,12 +108,12 @@ void NCXWriter::WriteHead()
 void NCXWriter::WriteDocTitle()
 {
     QString document_title;
-    QList<QVariant> titles = m_Book->GetMetadataValues("dc:title");
+    QStringList titles = m_Book->GetMetadataValues("dc:title");
 
     if (titles.isEmpty()) {
         document_title = "Unknown";
     } else { // FIXME: handle multiple titles
-        document_title = titles.first().toString();
+        document_title = titles.first();
     }
 
     m_Writer->writeStartElement("docTitle");

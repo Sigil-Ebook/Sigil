@@ -278,7 +278,7 @@ QList<MetaEntry> Book::GetMetadata() const
     return GetConstOPF()->GetDCMetadata();
 }
 
-QList<QVariant> Book::GetMetadataValues(QString text) const
+QStringList Book::GetMetadataValues(QString text) const
 {
     return GetConstOPF()->GetDCMetadataValues(text);
 }

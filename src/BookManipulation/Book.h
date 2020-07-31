@@ -115,7 +115,7 @@ public:
      *
      * @return A list of values
      */
-    QList<QVariant> GetMetadataValues(QString text) const;
+    QStringList GetMetadataValues(QString text) const;
 
     /**
      * Replaces the book's current meta information with the received metadata.
