@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014 Kevin B. Hendricks, John Schember, and Doug Massay
+# Copyright (c) 2015-2020 Kevin B. Hendricks, and Doug Massay
+# Copyright (c) 2014      Kevin B. Hendricks, John Schember, and Doug Massay
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -330,6 +331,10 @@ class BookContainer(object):
     def copy_book_contents_to(self, destdir):
         self._w.copy_book_contents_to(destdir)
 
+    # get path to hunspell dll / library
+    def get_hunspell_library_path(self):
+        return self._w.get_hunspell_path()
+    
     # get a list of the directories that contain Sigil's hunspell dictionaries
     def get_dictionary_dirs(self):
         return self._w.get_dictionary_dirs()
