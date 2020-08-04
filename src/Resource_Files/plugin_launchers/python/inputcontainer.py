@@ -71,7 +71,7 @@ class InputContainer(object):
 
     # get path to hunspell dll / library
     def get_hunspell_library_path(self):
-	return self._w.get_hunspell_path()
+        return self._w.get_hunspell_path()
 
     # get a list of the directories that contain Sigil's hunspell dictionaries
     def get_dictionary_dirs(self):
