@@ -138,8 +138,8 @@ class HunspellMLChecker(object):
             return adic.get_wordchars()
         return ''
 
-    def cleanUp_All(self):
-        for dickeys in self.dicts.keys():
+    def cleanUpAll(self):
+        for dickey in self.dicts.keys():
             adic = self.dicts[dickey]
             self.hunspell.Hunspell_destroy(adic.handle)
             del self.dicts[dickey]
