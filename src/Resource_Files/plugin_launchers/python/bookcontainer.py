@@ -368,13 +368,13 @@ class BookContainer(object):
 
     # New for epub3
     def id_to_properties(self, id, ow=None):
-        return self._w.map_id_to_props.get(id, ow)
+        return self._w.map_id_to_properties(id, ow)
 
     def id_to_fallback(self, id, ow=None):
-        return self._w.map_id_to_fall.get(id, ow)
+        return self._w.map_id_to_fallback(id, ow)
 
     def id_to_overlay(self, id, ow=None):
-        return self._w.map_id_to_over.get(id, ow)
+        return self._w.map_id_to_overlay(id, ow)
 
 
     # New in Sigil 1.1
