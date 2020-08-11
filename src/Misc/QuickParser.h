@@ -22,6 +22,8 @@
 #ifndef QUICK_PARSER
 #define QUICK_PARSER
 
+#include "Misc/TagAtts.h"
+
 class TagAtts;
 class QString;
 class QStringList;
@@ -49,7 +51,7 @@ public:
 private:
     QString parseML();
     void parseTag(const QString &tagstring, MarkupInfo &mi);
-    int findTarget(const QString &tgt, int p);
+    int findTarget(const QString &tgt, int p, bool after=false);
     int skipAnyBlanks(const QString &tgt, int p);
     int stopWhenContains(const QString &tgt, const QString& stopchars, int p);
     

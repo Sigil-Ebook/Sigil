@@ -26,7 +26,7 @@
 
 #include "Misc/TagAtts.h"
 #include "Misc/Utility.h"
-#include "QuickParser.h"
+#include "Misc/QuickParser.h"
 
 QuickParser::QuickParser(const QString &source, QString default_lang)
         : m_source(source),
@@ -144,7 +144,7 @@ QString QuickParser::parseML()
     m_pos = p;
     if (p >= m_source.length()) return QString();
     if (m_source.at(p) != "<") {
-	// we have text leading up to a tag
+	// we have text leading up to a tag start
 	m_next = findTarget("<", p+1);
 	return Utility::Substring(m_pos, m_next, m_source);
     }
@@ -152,15 +152,19 @@ QString QuickParser::parseML()
     // handle special cases first
     QString tstart = Utility::Substring(p, p+9, m_source);
     if (tstart.startsWith("<!--")) {
-        m_next = findTarget("-->", p+4);
+	// include ending > as part of the string
+        m_next = findTarget("-->", p+4, true);
 	return Utility::Substring(m_pos, m_next, m_source);
     }
     if (tstart.startsWith("<![CDATA[")) {
-        m_next = findTarget("]]>", p+9);
+	// include ending > as part of the string
+        m_next = findTarget("]]>", p+9, true);
 	return Utility::Substring(m_pos, m_next, m_source);
     }
-    m_next = findTarget(">", p+1);
-    int ntb = m_source.indexOf("<", p+1);
+    // include ending > as part of the string
+    m_next = findTarget(">", p+1, true);
+    
+    int ntb = findTarget("<", p+1);
     if ((ntb != -1) && (ntb < m_next)) {
         m_next = ntb;
     }
@@ -247,11 +251,13 @@ void QuickParser::parseTag(const QString& tagstring, QuickParser::MarkupInfo& mi
 }
 
 
-int QuickParser::findTarget(const QString &tgt, int p)
+int QuickParser::findTarget(const QString &tgt, int p, bool after)
 {
     int nxt = m_source.indexOf(tgt, p);
     if (nxt == -1) return m_source.length();
-    return nxt + tgt.length();
+    nxt = nxt + (tgt.length() -1);
+    if (after) nxt++;
+    return nxt;
 }
 
 
