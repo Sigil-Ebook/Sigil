@@ -379,6 +379,8 @@ set( MISC_FILES
     Misc/MediaTypes.h
     Misc/TagAtts.cpp
     Misc/TagAtts.h
+    Misc/QuickParser.cpp
+    Misc/QuickParser.h
     )
 
 set( MISC_EDITORS_FILES
