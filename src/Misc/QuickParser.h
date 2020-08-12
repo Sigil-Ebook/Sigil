@@ -45,7 +45,7 @@ public:
     QuickParser(const QString &source, const QString default_lang = "en");
     ~QuickParser() {};
     void reload_parser(const QString &source, const QString default_lang = "en");
-    MarkupInfo parse_iter();
+    MarkupInfo parse_next();
     QString serialize_markup(const MarkupInfo &mi);
     
 private:
@@ -58,7 +58,6 @@ private:
     QString      m_source;
     int          m_pos;
     int          m_next;
-    QString      m_text;
     QStringList  m_TagPath;
     QStringList  m_LangPath;
 };

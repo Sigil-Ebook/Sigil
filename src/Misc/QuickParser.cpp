@@ -52,7 +52,7 @@ void QuickParser::reload_parser(const QString& source, QString default_language)
 }
 
 
-QuickParser::MarkupInfo QuickParser::parse_iter()
+QuickParser::MarkupInfo QuickParser::parse_next()
 {
     MarkupInfo mi;
     mi.pos = -1;
@@ -101,25 +101,25 @@ QString QuickParser::serialize_markup(const QuickParser::MarkupInfo& mi)
     
     // handle the special cases
     if (mi.ttype == "xmlheader") {
-	res = res + "<" + mi.tname + " " + mi.tattr.value("special","") + ">";
+	res = res + "<" + mi.tname + " " + mi.tattr["special"] + ">";
 	return res;
     }
     if (mi.ttype == "comment") {
-	res = res + "<" + mi.tname + " " + mi.tattr.value("special","") + "-->";
+	res = res + "<" + mi.tname + " " + mi.tattr["special"] + "-->";
 	return res;
     }
     if (mi.ttype == "cdata") {
-	res = res + "<" + mi.tname + " " + mi.tattr.value("special","") + "]]>";
+	res = res + "<" + mi.tname + " " + mi.tattr["special"] + "]]>";
 	return res;
     }
     if (mi.ttype == "doctype") {
-	res = res + "<" + mi.tname + " " + mi.tattr.value("special","") + ">";
+	res = res + "<" + mi.tname + " " + mi.tattr["special"] + ">";
 	return res;
     }
     // finally begin and single tags
     res = res + "<" + mi.tname;
     foreach(QString key, mi.tattr.keys()) {
-	QString val = mi.tattr.value(key,"");
+	QString val = mi.tattr[key];
 	if (val.contains("\"")) {
 	    res = res + " " + key + "=" + "'" + val + "'";
 	} else {

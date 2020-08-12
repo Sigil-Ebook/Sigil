@@ -47,6 +47,7 @@ public:
      bool operator==(const TagAtts &other);
      bool operator!=(const TagAtts &other);
      QString& operator[](const QString &key);
+     const QString operator[](const QString &key) const noexcept;
      
     ~TagAtts();
     
