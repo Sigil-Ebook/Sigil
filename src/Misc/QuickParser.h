@@ -26,6 +26,7 @@
 
 class TagAtts;
 class QString;
+class QStringRef;
 class QStringList;
  
 class QuickParser
@@ -49,11 +50,11 @@ public:
     QString serialize_markup(const MarkupInfo &mi);
     
 private:
-    QString parseML();
-    void parseTag(const QString &tagstring, MarkupInfo &mi);
+    QStringRef parseML();
+    void parseTag(const QStringRef &tagstring, MarkupInfo &mi);
     int findTarget(const QString &tgt, int p, bool after=false);
-    int skipAnyBlanks(const QString &tgt, int p);
-    int stopWhenContains(const QString &tgt, const QString& stopchars, int p);
+    int skipAnyBlanks(const QStringRef &segment, int p);
+    int stopWhenContains(const QStringRef &segment, const QString& stopchars, int p);
     
     QString      m_source;
     int          m_pos;

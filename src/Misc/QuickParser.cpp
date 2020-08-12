@@ -56,7 +56,7 @@ QuickParser::MarkupInfo QuickParser::parse_next()
 {
     MarkupInfo mi;
     mi.pos = -1;
-    QString markup = parseML();
+    QStringRef markup = parseML();
     if (!markup.isNull()) {
 	if ((markup.front() == "<") && (markup.back() == ">")) {
 	    parseTag(markup, mi);
@@ -71,7 +71,7 @@ QuickParser::MarkupInfo QuickParser::parse_next()
 		m_LangPath.removeLast();
 	    }
 	} else {
-	    mi.text = markup;
+            mi.text = markup.toString();
 	}
         mi.pos = m_pos;
         mi.lang = m_LangPath.last();
@@ -138,15 +138,15 @@ QString QuickParser::serialize_markup(const QuickParser::MarkupInfo& mi)
 // private routines
 
 
-QString QuickParser::parseML()
+QStringRef QuickParser::parseML()
 {
     int p = m_next;
     m_pos = p;
-    if (p >= m_source.length()) return QString();
+    if (p >= m_source.length()) return QStringRef();
     if (m_source.at(p) != "<") {
 	// we have text leading up to a tag start
 	m_next = findTarget("<", p+1);
-	return Utility::Substring(m_pos, m_next, m_source);
+	return Utility::SubstringRef(m_pos, m_next, m_source);
     }
     // we have a tag or special case
     // handle special cases first
@@ -154,12 +154,12 @@ QString QuickParser::parseML()
     if (tstart.startsWith("<!--")) {
 	// include ending > as part of the string
         m_next = findTarget("-->", p+4, true);
-	return Utility::Substring(m_pos, m_next, m_source);
+	return Utility::SubstringRef(m_pos, m_next, m_source);
     }
     if (tstart.startsWith("<![CDATA[")) {
 	// include ending > as part of the string
         m_next = findTarget("]]>", p+9, true);
-	return Utility::Substring(m_pos, m_next, m_source);
+	return Utility::SubstringRef(m_pos, m_next, m_source);
     }
     // include ending > as part of the string
     m_next = findTarget(">", p+1, true);
@@ -168,11 +168,11 @@ QString QuickParser::parseML()
     if ((ntb != -1) && (ntb < m_next)) {
         m_next = ntb;
     }
-    return Utility::Substring(m_pos, m_next, m_source);
+    return Utility::SubstringRef(m_pos, m_next, m_source);
 }
 
 
-void QuickParser::parseTag(const QString& tagstring, QuickParser::MarkupInfo& mi)
+void QuickParser::parseTag(const QStringRef& tagstring, QuickParser::MarkupInfo& mi)
 {
     Q_ASSERT(tagstring.front() == "<");
     Q_ASSERT(tagstring.back() == ">");
@@ -261,14 +261,14 @@ int QuickParser::findTarget(const QString &tgt, int p, bool after)
 }
 
 
-int QuickParser::skipAnyBlanks(const QString &tgt, int p)
+int QuickParser::skipAnyBlanks(const QStringRef &tgt, int p)
 {
     while((p < tgt.length()) && (tgt.at(p) == " ")) p++;
     return p;
 }
 
 
-int QuickParser::stopWhenContains(const QString &tgt, const QString& stopchars, int p)
+int QuickParser::stopWhenContains(const QStringRef &tgt, const QString& stopchars, int p)
 {
     while((p < tgt.length()) && !stopchars.contains(tgt.at(p))) p++;
     return p;

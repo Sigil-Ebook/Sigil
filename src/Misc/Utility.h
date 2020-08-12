@@ -83,6 +83,11 @@ public:
     // For instance, "test" and "TEST" return false, "teSt" returns true.
     static bool IsMixedCase(const QString &string);
 
+    // Returns a substring of a QStringRef as a real string
+    // the characters included are in the interval:
+    // [ start_index, end_index >
+    static QString Substring(int start_index, int end_index, const QStringRef &string);
+
     // Returns a substring of a specified string;
     // the characters included are in the interval:
     // [ start_index, end_index >

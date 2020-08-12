@@ -272,12 +272,22 @@ bool Utility::IsMixedCase(const QString &string)
     return false;
 }
 
+// Returns a substring from a specified QStringRef;
+// the characters included are in the interval:
+// [ start_index, end_index >
+QString Utility::Substring(int start_index, int end_index, const QStringRef &string)
+{
+    return string.mid(start_index, end_index - start_index).toString();
+}
+
+
 // Returns a substring of a specified string;
 // the characters included are in the interval:
 // [ start_index, end_index >
 QString Utility::Substring(int start_index, int end_index, const QString &string)
 {
     return string.mid(start_index, end_index - start_index);
+
 }
 
 // Returns a substring of a specified string;
