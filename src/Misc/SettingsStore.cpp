@@ -47,6 +47,7 @@ static QString KEY_ZOOM_PREVIEW = SETTINGS_GROUP + "/" + "zoom_preview";
 static QString KEY_ZOOM_INSPECTOR = SETTINGS_GROUP + "/" + "zoom_inspector";
 static QString KEY_RENAME_TEMPLATE = SETTINGS_GROUP + "/" + "rename_template";
 static QString KEY_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "dictionary_name";
+static QString KEY_SECONDARY_DICTIONARY_NAME = SETTINGS_GROUP + "/" + "secondary_dictionary_name";
 static QString KEY_SPELL_CHECK = SETTINGS_GROUP + "/" + "spell_check";
 static QString KEY_SPELL_CHECK_NUMBERS = SETTINGS_GROUP + "/" + "spell_check_numbers";
 static QString KEY_DEFAULT_USER_DICTIONARY = SETTINGS_GROUP + "/" + "user_dictionary_name";
@@ -210,6 +211,12 @@ QString SettingsStore::dictionary()
 {
     clearSettingsGroup();
     return value(KEY_DICTIONARY_NAME, "en_US").toString();
+}
+
+QString SettingsStore::secondary_dictionary()
+{
+    clearSettingsGroup();
+    return value(KEY_SECONDARY_DICTIONARY_NAME, "").toString();
 }
 
 QStringList SettingsStore::enabledUserDictionaries()
@@ -526,6 +533,12 @@ void SettingsStore::setDictionary(const QString &name)
 {
     clearSettingsGroup();
     setValue(KEY_DICTIONARY_NAME, name);
+}
+
+void SettingsStore::setSecondaryDictionary(const QString &name)
+{
+    clearSettingsGroup();
+    setValue(KEY_SECONDARY_DICTIONARY_NAME, name);
 }
 
 void SettingsStore::setEnabledUserDictionaries(const QStringList names)

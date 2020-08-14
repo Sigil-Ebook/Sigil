@@ -34,6 +34,7 @@
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
 #include "Misc/HTMLSpellCheck.h"
+#include "Misc/HTMLSpellCheckML.h"
 #include "Misc/Landmarks.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
@@ -1072,7 +1073,8 @@ QSet<QString> Book::GetWordsInHTMLFiles()
 
 QStringList Book::GetWordsInHTMLFileMapped(HTMLResource *html_resource)
 {
-    return HTMLSpellCheck::GetAllWords(html_resource->GetText());
+    return HTMLSpellCheckML::GetAllWords(html_resource->GetText());
+    // return HTMLSpellCheck::GetAllWords(html_resource->GetText());
 }
 
 QHash<QString, int> Book::GetUniqueWordsInHTMLFiles()

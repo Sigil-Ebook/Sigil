@@ -91,6 +91,7 @@
 #include "MainUI/TableOfContents.h"
 #include "MainUI/ValidationResultsView.h"
 #include "Misc/HTMLSpellCheck.h"
+#include "Misc/HTMLSpellCheckML.h"
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/Landmarks.h"
 #include "Misc/MediaTypes.h"
@@ -3027,14 +3028,15 @@ void MainWindow::FindWord(QString word)
         }
         QString text = html_resource->GetText();
 
-        int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
+        int found_pos = HTMLSpellCheckML::WordPosition(text, word, start_pos);
+        // int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
         if (found_pos >= 0) {
             if (resource->ShortPathName() != current_html_filename) {
                 OpenResourceAndWaitUntilLoaded(resource, -1, found_pos);
             }
             FlowTab *flow_tab = GetCurrentFlowTab();
             if (flow_tab) {
-                flow_tab->HighlightWord(word, found_pos);
+              flow_tab->HighlightWord(HTMLSpellCheckML::textOf(word), found_pos);
                 break;
             }
         }

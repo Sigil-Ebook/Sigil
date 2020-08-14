@@ -92,6 +92,9 @@ public:
 
     QStringList enabledUserDictionaries();
 
+    QString secondary_dictionary();
+
+
     /**
      * Get the list of entities/code pairs to preserve
      */
@@ -288,6 +291,8 @@ public slots:
     void setDictionary(const QString &name);
 
     void setEnabledUserDictionaries(const QStringList name);
+
+    void setSecondaryDictionary(const QString &name);
 
     /**
      * Set the list of paired code, entity strings to preserve.
