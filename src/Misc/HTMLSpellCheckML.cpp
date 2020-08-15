@@ -27,6 +27,7 @@
 #include "Misc/HTMLSpellCheckML.h"
 
 const int MAX_WORD_LENGTH  = 90;
+const QString ENTITYWORDCHARS = ";#01234567890abcdefABCDEFxX";
 
 QList<HTMLSpellCheckML::AWord> HTMLSpellCheckML::GetWordList(const QString &source, const QString & default_lang)
 {
@@ -65,7 +66,8 @@ void HTMLSpellCheckML::parse_text_into_words(QList<HTMLSpellCheckML::AWord> &wor
         if (IsBoundary(prev_c, c, next_c, wc, use_nums)) {
             // If we're in an entity and we hit a boundary and it isn't
             // part of an entity then this is an invalid entity.
-            if (in_entity && c != QChar(';')) in_entity = false;
+            // if (in_entity && c != QChar(';')) in_entity = false;
+            if (in_entity && !ENTITYWORDCHARS.contains(c)) in_entity = false;
             if (!in_invalid_word && !in_entity && word_start != -1 && (i - word_start) > 0) {
                 QString word = Utility::Substring(word_start, i, text);
                 if (!word.isEmpty()) {

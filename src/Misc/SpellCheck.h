@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -23,9 +24,10 @@
 #ifndef SPELLCHECK_H
 #define SPELLCHECK_H
 
-#include <QtCore/QHash>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
+#include <QHash>
+#include <QString>
+#include <QStringList>
+#include <QMutex>
 
 class Hunspell;
 class QStringList;
@@ -37,19 +39,34 @@ class QTextCodec;
 class SpellCheck
 {
 public:
+    struct HDictionary {
+        QString    name;
+        Hunspell   *handle;
+        QTextCodec *codec;
+        QString    wordchars;
+    };
+
     static SpellCheck *instance();
     ~SpellCheck();
 
     QStringList userDictionaries();
     QStringList dictionaries();
     QString currentDictionary() const;
+
     bool spell(const QString &word);
     QStringList suggest(const QString &word);
+
+    bool spellPS(const QString &word);
+    QStringList suggestPS(const QString &word);
+
     void clearIgnoredWords();
     void ignoreWord(const QString &word);
     void ignoreWordInDictionary(const QString &word);
 
-    QString getWordChars();
+    QString getWordChars(const QString &lang="");
+    void loadDictionary(const QString &name);
+    void UnloadDictionary(const QString &name);
+    void UnloadAllDictionaries();
 
     void setDictionary(const QString &name, bool forceReplace = false);
     void reloadDictionary();
@@ -70,13 +87,10 @@ public:
 
 private:
     SpellCheck();
-
-    Hunspell *m_hunspell;
-    QTextCodec *m_codec;
-    QString m_wordchars;
-    QString m_dictionaryName;
-    //
     QHash<QString, QString> m_dictionaries;
+    QHash<QString, QString> m_langcode2dict;
+    mutable QMutex mutex;
+    QHash<QString, struct HDictionary> m_opendicts;
     QStringList m_ignoredWords;
 
     static SpellCheck *m_instance;

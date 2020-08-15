@@ -1213,7 +1213,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
         // If a misspelled word is selected try to offer spelling suggestions.
         if (offer_spelling) {
             SpellCheck *sc = SpellCheck::instance();
-            QStringList suggestions = sc->suggest(selected_word);
+            QStringList suggestions = sc->suggestPS(selected_word);
             QAction *suggestAction = 0;
 
             // We want to limit the number of suggestions so we don't

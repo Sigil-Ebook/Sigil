@@ -360,7 +360,6 @@ void SpellCheckWidget::readSettings()
     QStringList dicts = sc->dictionaries();
     ui.dictionaries->clear();
     ui.dictionaries2d->clear();
-    ui.dictionaries2d->addItem(tr("None"), "");
     foreach(QString dict, dicts) {
         QString name;
         QString fix_dict = dict;
@@ -390,6 +389,8 @@ void SpellCheckWidget::readSettings()
         ui.dictionaries->addItem(name, dict);
         ui.dictionaries2d->addItem(name, dict);
     }
+    ui.dictionaries2d->addItem("", "");
+
     // Select the current dictionary.
     QString currentDict = sc->currentDictionary();
     SettingsStore settings;
@@ -402,12 +403,9 @@ void SpellCheckWidget::readSettings()
         }
     }
     currentDict = settings.secondary_dictionary();
-    if (!currentDict.isEmpty()) {
-        int index = ui.dictionaries2d->findData(currentDict);
-
-        if (index > -1) {
-            ui.dictionaries2d->setCurrentIndex(index);
-        }
+    int index = ui.dictionaries2d->findData(currentDict);
+    if (index > -1) {
+        ui.dictionaries2d->setCurrentIndex(index);
     }
 
     // Load the list of user dictionaries.
