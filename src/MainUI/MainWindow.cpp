@@ -3036,7 +3036,7 @@ void MainWindow::FindWord(QString word)
             }
             FlowTab *flow_tab = GetCurrentFlowTab();
             if (flow_tab) {
-              flow_tab->HighlightWord(HTMLSpellCheckML::textOf(word), found_pos);
+                flow_tab->HighlightWord(HTMLSpellCheckML::textOf(word), found_pos);
                 break;
             }
         }

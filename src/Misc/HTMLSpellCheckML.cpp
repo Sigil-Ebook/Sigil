@@ -74,8 +74,7 @@ void HTMLSpellCheckML::parse_text_into_words(QList<HTMLSpellCheckML::AWord> &wor
                     HTMLSpellCheckML::AWord aword;
                     aword.text = lang + ": " + word;
                     aword.offset = pos + word_start - 1;
-                    // aword.lang = lang;
-                    // aword.length = i - word_start;
+                    aword.length = i - word_start;
                     wordlist.append(aword);
                 }
             }

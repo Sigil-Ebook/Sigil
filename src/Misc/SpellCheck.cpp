@@ -187,10 +187,12 @@ bool SpellCheck::spell(const QString &word)
     if (dname.isEmpty()) return true;
 
     // if a dictionary exists but is not open yet, open it first
-    if (!m_opendicts.keys().contains(dname)) {
+    if (!m_opendicts.contains(dname)) {
         loadDictionary(dname);
     }
     HDictionary hdic = m_opendicts[dname];
+    Q_ASSERT(hdic.codec != nullptr);
+    Q_ASSERT(hdic.handle != nullptr);
     return hdic.handle->spell(hdic.codec->fromUnicode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word))).constData()) != 0;
 }
 
@@ -206,6 +208,8 @@ bool SpellCheck::spellPS(const QString &word)
     dname = settings.secondary_dictionary();
     if (dname.isEmpty()) return res;
     hdic = m_opendicts[dname];
+    Q_ASSERT(hdic.codec != nullptr);
+    Q_ASSERT(hdic.handle != nullptr);
     return hdic.handle->spell(hdic.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData()) != 0;
 }
 
@@ -216,8 +220,10 @@ QStringList SpellCheck::suggest(const QString &word)
     char **suggestedWords;
     QString dname = m_langcode2dict.value(HTMLSpellCheckML::langOf(word), "");
     if (dname.isEmpty()) return suggestions;
-    if (!m_opendicts.keys().contains(dname)) return suggestions;
+    if (!m_opendicts.contains(dname)) return suggestions;
     HDictionary hdic = m_opendicts[dname];
+    Q_ASSERT(hdic.codec != nullptr);
+    Q_ASSERT(hdic.handle != nullptr);
     int count = hdic.handle->suggest(&suggestedWords, hdic.codec->fromUnicode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word))).constData());
 
     for (int i = 0; i < count; ++i) {
@@ -238,6 +244,8 @@ QStringList SpellCheck::suggestPS(const QString &word)
     char **suggestedWords2;
     QString dname = settings.dictionary();
     HDictionary hdic = m_opendicts[dname];
+    Q_ASSERT(hdic.codec != nullptr);
+    Q_ASSERT(hdic.handle != nullptr);
     int count = hdic.handle->suggest(&suggestedWords, hdic.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
     int limit = count;
     if (limit > 4) limit = 4;
@@ -248,6 +256,8 @@ QStringList SpellCheck::suggestPS(const QString &word)
     dname = settings.secondary_dictionary();
     if (dname.isEmpty()) return suggestions;
     hdic = m_opendicts[dname];
+    Q_ASSERT(hdic.codec != nullptr);
+    Q_ASSERT(hdic.handle != nullptr);
     count = hdic.handle->suggest(&suggestedWords2, hdic.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
     limit = count;
     if (limit > 4) limit = 4;
@@ -277,7 +287,7 @@ void SpellCheck::ignoreWordInDictionary(const QString &word)
     QString dname = m_langcode2dict.value(HTMLSpellCheckML::langOf(word), "");
     if (dname.isEmpty()) return;
 
-    if (m_opendicts.keys().contains(dname)) {
+    if (m_opendicts.contains(dname)) {
         HDictionary hdic = m_opendicts[dname];
         hdic.handle->add(hdic.codec->fromUnicode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word))).constData());
     }
@@ -338,7 +348,7 @@ void SpellCheck::loadDictionary(const QString &name)
 void SpellCheck::setDictionary(const QString &name, bool forceReplace)
 {
     // See if we are already using a hunspell object for this language.
-    if (!forceReplace && m_opendicts.keys().contains(name)) {
+    if (!forceReplace && m_opendicts.contains(name)) {
         return;
     }
 
@@ -359,10 +369,12 @@ QString SpellCheck::getWordChars(const QString &lang)
     if (dname.isEmpty()) return "";
 
     // if a dictionary exists but is not open yet, open it first
-    if (!m_opendicts.keys().contains(dname)) {
+    if (!m_opendicts.contains(dname)) {
         loadDictionary(dname);
     }
     HDictionary hdic = m_opendicts[dname];
+    Q_ASSERT(hdic.codec != nullptr);
+    Q_ASSERT(hdic.handle != nullptr);
     return hdic.wordchars;
 }
 

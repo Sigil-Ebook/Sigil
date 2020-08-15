@@ -35,6 +35,7 @@ public:
     struct AWord {
         QString text;
         int offset;
+        int length;
     };
 
     static QList<AWord> GetWordList(const QString &text, const QString & default_lang = "en-US");

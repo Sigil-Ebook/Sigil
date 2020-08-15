@@ -91,6 +91,9 @@ PreferencesWidget::ResultActions SpellCheckWidget::saveSettings()
 
     SpellCheck *sc = SpellCheck::instance();
     sc->setDictionary(settings.dictionary(), true);
+    if (!settings.secondary_dictionary().isEmpty()) {
+        sc->setDictionary(settings.secondary_dictionary(), true);
+    }
 
     results = results | PreferencesWidget::ResultAction_RefreshSpelling;
     results = results & PreferencesWidget::ResultAction_Mask;
