@@ -193,7 +193,9 @@ bool SpellCheck::spell(const QString &word)
     HDictionary hdic = m_opendicts[dname];
     Q_ASSERT(hdic.codec != nullptr);
     Q_ASSERT(hdic.handle != nullptr);
-    return hdic.handle->spell(hdic.codec->fromUnicode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word))).constData()) != 0;
+    bool res = hdic.handle->spell(hdic.codec->fromUnicode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word))).constData()) != 0;
+    res = res || isIgnored(HTMLSpellCheckML::textOf(word));
+    return res;
 }
 
 
@@ -204,6 +206,7 @@ bool SpellCheck::spellPS(const QString &word)
     QString dname = settings.dictionary();
     HDictionary hdic = m_opendicts[dname];
     bool res = hdic.handle->spell(hdic.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData()) != 0;
+    res = res || isIgnored(word);
     if (res) return res;
     dname = settings.secondary_dictionary();
     if (dname.isEmpty()) return res;
@@ -272,17 +275,21 @@ QStringList SpellCheck::suggestPS(const QString &word)
 void SpellCheck::clearIgnoredWords()
 {
     m_ignoredWords.clear();
-    reloadDictionary();
 }
+
 
 void SpellCheck::ignoreWord(const QString &word)
 {
-    ignoreWordInDictionary(word);
-
-    m_ignoredWords.append(HTMLSpellCheckML::textOf(word));
+    m_ignoredWords[word] = 1;
 }
 
-void SpellCheck::ignoreWordInDictionary(const QString &word)
+
+bool SpellCheck::isIgnored(const QString &word) {
+    return m_ignoredWords.value(word, 0);
+}
+
+
+void SpellCheck::addWordToDictionary(const QString &word)
 {
     QString dname = m_langcode2dict.value(HTMLSpellCheckML::langOf(word), "");
     if (dname.isEmpty()) return;
@@ -292,7 +299,6 @@ void SpellCheck::ignoreWordInDictionary(const QString &word)
         hdic.handle->add(hdic.codec->fromUnicode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word))).constData());
     }
 }
-
 
 void SpellCheck::loadDictionary(const QString &name)
 {
@@ -333,12 +339,7 @@ void SpellCheck::loadDictionary(const QString &name)
 #if 0 // Disable these temporarily
     // Load in the words from the user dictionaries.
     foreach(QString word, allUserDictionaryWords()) {
-        ignoreWordInDictionary(word);
-    }
-
-    // Reload the words in the "Ignored" dictionary.
-    foreach(QString word, m_ignoredWords) {
-        ignoreWordInDictionary(word);
+        addWordToDictionary(word);
     }
 #endif
     return;
@@ -398,9 +399,9 @@ void SpellCheck::addToUserDictionary(const QString &word, QString dict_name)
         dict_name = settings.defaultUserDictionary();
     }
 
-    // Ignore the word only if the dictionary is enabled
+    // Add the word only if the dictionary is enabled
     if (settings.enabledUserDictionaries().contains(dict_name)) {
-        ignoreWordInDictionary(word);
+        addWordToDictionary(word);
     }
 
     if (!userDictionaryWords(dict_name).contains(word)) {

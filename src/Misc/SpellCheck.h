@@ -61,7 +61,7 @@ public:
 
     void clearIgnoredWords();
     void ignoreWord(const QString &word);
-    void ignoreWordInDictionary(const QString &word);
+    bool isIgnored(const QString &word);
 
     QString getWordChars(const QString &lang="");
     void loadDictionary(const QString &name);
@@ -72,6 +72,8 @@ public:
     void reloadDictionary();
 
     void addToUserDictionary(const QString &word, QString dict_name = "");
+    void addWordToDictionary(const QString &word);
+
     QStringList allUserDictionaryWords();
     QStringList userDictionaryWords(QString dict_name);
 
@@ -91,7 +93,7 @@ private:
     QHash<QString, QString> m_langcode2dict;
     mutable QMutex mutex;
     QHash<QString, struct HDictionary> m_opendicts;
-    QStringList m_ignoredWords;
+    QHash<QString, int> m_ignoredWords;
 
     static SpellCheck *m_instance;
 };

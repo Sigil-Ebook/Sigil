@@ -33,6 +33,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/Utility.h"
+#include "Misc/HTMLSpellCheckML.h"
 #include "ResourceObjects/Resource.h"
 
 static const QString SETTINGS_GROUP = "spellcheck_editor";
@@ -160,7 +161,7 @@ void SpellcheckEditor::Ignore()
 
     SpellCheck *sc = SpellCheck::instance();
     foreach (QStandardItem *item, GetSelectedItems()) {
-        sc->ignoreWord(item->text());
+        sc->ignoreWord(HTMLSpellCheckML::textOf(item->text()));
         MarkSpelledOkay(item->row());
     }
 
