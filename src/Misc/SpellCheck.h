@@ -51,7 +51,7 @@ public:
 
     QStringList userDictionaries();
     QStringList dictionaries();
-    QString currentDictionary() const;
+    QString currentPrimaryDictionary() const;
 
     bool spell(const QString &word);
     QStringList suggest(const QString &word);
@@ -64,15 +64,16 @@ public:
     bool isIgnored(const QString &word);
 
     QString getWordChars(const QString &lang="");
-    void loadDictionary(const QString &name);
-    void UnloadDictionary(const QString &name);
+    void loadDictionary(const QString &dname);
+    void UnloadDictionary(const QString &dname);
     void UnloadAllDictionaries();
 
-    void setDictionary(const QString &name, bool forceReplace = false);
-    void reloadDictionary();
+    void setDictionary(const QString &dname, bool forceReplace = false);
 
     void addToUserDictionary(const QString &word, QString dict_name = "");
-    void addWordToDictionary(const QString &word);
+    void addWordToDictionary(const QString &word, const QString &dname);
+
+    void dicDeltaWords(const QString &delta_path, QStringList &deltaWords);
 
     QStringList allUserDictionaryWords();
     QStringList userDictionaryWords(QString dict_name);

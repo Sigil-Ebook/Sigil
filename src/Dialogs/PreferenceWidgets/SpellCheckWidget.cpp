@@ -395,7 +395,7 @@ void SpellCheckWidget::readSettings()
     ui.dictionaries2d->addItem("", "");
 
     // Select the current dictionary.
-    QString currentDict = sc->currentDictionary();
+    QString currentDict = sc->currentPrimaryDictionary();
     SettingsStore settings;
 
     if (!currentDict.isEmpty()) {
