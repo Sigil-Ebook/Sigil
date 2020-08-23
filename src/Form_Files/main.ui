@@ -406,6 +406,21 @@
   </widget>
 
   <widget class="QStatusBar" name="statusbar"/>
+
+  <widget class="QToolBar" name="toolBarNewActions">
+   <property name="windowTitle">
+    <string>New</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNewEpub2"/>
+   <addaction name="actionNewEpub3"/>
+  </widget>
+  
   <widget class="QToolBar" name="toolBarFileActions">
    <property name="windowTitle">
     <string>File</string>
@@ -416,11 +431,21 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionNewEpub2"/>
-   <addaction name="actionNewEpub3"/>
    <addaction name="actionOpen"/>
-   <addaction name="actionAddExistingFile"/>
    <addaction name="actionSave"/>
+  </widget>
+
+  <widget class="QToolBar" name="toolBarAddExisting">
+   <property name="windowTitle">
+    <string>Add Existing</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionAddExistingFile"/>
   </widget>
 
   <widget class="QToolBar" name="toolBarRepoActions">
@@ -454,6 +479,20 @@
    <addaction name="actionCreateIndex"/>
   </widget>
 
+  <widget class="QToolBar" name="toolBarUndoRedo">
+   <property name="windowTitle">
+    <string>Undo/Redo</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionUndo"/>
+   <addaction name="actionRedo"/>
+  </widget>
+   
   <widget class="QToolBar" name="toolBarTextManip">
    <property name="windowTitle">
     <string>Edit</string>
@@ -464,17 +503,37 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionUndo"/>
-   <addaction name="actionRedo"/>
-   <addaction name="separator"/>
    <addaction name="actionCut"/>
    <addaction name="actionCopy"/>
    <addaction name="actionPaste"/>
-   <addaction name="separator"/>
+  </widget>
+  
+  <widget class="QToolBar" name="toolBarXEditor">
+   <property name="windowTitle">
+    <string>External Editor</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
    <addaction name="actionXEditor"/>
-   <addaction name="separator"/>
+  </widget>
+  
+  <widget class="QToolBar" name="toolBarFind">
+   <property name="windowTitle">
+    <string>Find</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
    <addaction name="actionFind"/>
   </widget>
+
   <widget class="QToolBar" name="toolBarInsertions">
    <property name="windowTitle">
     <string>Insert</string>

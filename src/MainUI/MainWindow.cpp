@@ -5216,9 +5216,14 @@ void MainWindow::ExtendUI()
     m_ValidationResultsView->toggleViewAction()->setShortcut(QKeySequence(Qt::ALT + Qt::Key_F2));
 
     // Create the view menu to hide and show toolbars.
+    ui.menuToolbars->addAction(ui.toolBarNewActions->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarFileActions->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarAddExisting->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarRepoActions->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarUndoRedo->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextManip->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarXEditor->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarFind->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarInsertions->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarBack->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarDonate->toggleViewAction());
