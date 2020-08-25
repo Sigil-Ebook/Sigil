@@ -68,7 +68,10 @@
         <file>edit-select-all_16px.png</file>
         <file>edit-select-all_22px.png</file>
         <file>edit-select-all_48px.png</file>
-        <file>edit-undo_16px.png</file>
+        <file>edit-toc_16px.png</file>
+        <file>edit-toc_22px.png</file>
+        <file>edit-toc_48px.png</file>
+	<file>edit-undo_16px.png</file>
         <file>edit-undo_22px.png</file>
         <file>edit-undo_48px.png</file>
         <file>emblem-favorite_16px.png</file>

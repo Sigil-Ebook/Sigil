@@ -5815,6 +5815,11 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/generate-toc_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/generate-toc_22px.png"));
     ui.actionGenerateTOC->setIcon(icon);
+
+    icon = ui.actionEditTOC->icon();
+    icon.addFile(QString::fromUtf8(":/main/edit-toc_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/edit-toc_22px.png"));
+    ui.actionEditTOC->setIcon(icon);
 }
 
 

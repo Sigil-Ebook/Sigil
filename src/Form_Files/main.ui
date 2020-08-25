@@ -587,6 +587,7 @@
    </attribute>
    <addaction name="actionMetaEditor"/>
    <addaction name="actionGenerateTOC"/>
+   <addaction name="actionEditTOC"/>
    <addaction name="actionSpellcheckEditor"/>
   </widget>
   <widget class="QToolBar" name="toolBarPlugins">
@@ -1209,6 +1210,10 @@
    </property>
   </action>
   <action name="actionEditTOC">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/edit-toc_48px.png</normaloff>:/main/edit-toc_48px.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Edit Table Of Contents...</string>
    </property>
