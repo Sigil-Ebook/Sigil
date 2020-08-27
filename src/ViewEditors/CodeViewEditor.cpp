@@ -563,7 +563,12 @@ int CodeViewEditor::CalculateLineNumberAreaWidth()
         num_digits++;
     }
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
     return LINE_NUMBER_MARGIN * 2 + fontMetrics().horizontalAdvance(QChar('0')) * num_digits;
+#else
+    return LINE_NUMBER_MARGIN * 2 + fontMetrics().width(QChar('0')) * num_digits;
+#endif
+
 }
 
 
@@ -2129,7 +2134,11 @@ void CodeViewEditor::ResetFont()
     // But just in case, say we want a fixed width font if font is not present
     font.setStyleHint(QFont::TypeWriter);
     setFont(font);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
     setTabStopDistance(TAB_SPACES_WIDTH * QFontMetrics(font).horizontalAdvance(' '));
+#else
+    setTabStopWidth(TAB_SPACES_WIDTH * QFontMetrics(font).width(' '));
+#endif
     UpdateLineNumberAreaFont(font);
 }
 
