@@ -5801,6 +5801,11 @@ void MainWindow::ExtendIconSizes()
     icon.addFile(QString::fromUtf8(":/main/edit-find_22px.png"));
     ui.actionFind->setIcon(icon);
 
+    icon = ui.actionSearchEditor->icon();
+    icon.addFile(QString::fromUtf8(":/main/saved-search_16px.png"));
+    icon.addFile(QString::fromUtf8(":/main/saved-search_22px.png"));
+    ui.actionSearchEditor->setIcon(icon);
+
     icon = ui.actionDonate->icon();
     icon.addFile(QString::fromUtf8(":/main/emblem-favorite_16px.png"));
     icon.addFile(QString::fromUtf8(":/main/emblem-favorite_22px.png"));

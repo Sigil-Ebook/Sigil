@@ -532,6 +532,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionFind"/>
+   <addaction name="actionSearchEditor"/>
   </widget>
 
   <widget class="QToolBar" name="toolBarInsertions">
@@ -1953,6 +1954,10 @@
    </property>
   </action>
   <action name="actionSearchEditor">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/saved-search_48px.png</normaloff>:/main/saved_search_48px.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Saved Searches...</string>
    </property>
