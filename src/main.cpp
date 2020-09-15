@@ -409,7 +409,11 @@ int main(int argc, char *argv[])
         if (!force_sigil_darkmode_palette.isEmpty()) {
             // Apply custom dark style
             app.setStyle(new SigilDarkStyle);
+#if QT_VERSION == QT_VERSION_CHECK(5, 15, 0)
+            // Qt keeps breaking my custom dark theme.
+            // This was apparently only necessary for Qt5.15.0!!
             app.setPalette(QApplication::style()->standardPalette());
+#endif
         }
 #else
         if (Utility::WindowsShouldUseDarkMode()) {
