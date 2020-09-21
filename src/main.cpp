@@ -570,9 +570,7 @@ int main(int argc, char *argv[])
             appquit_action->setMenuRole(QAction::QuitRole);
             appquit_action->setShortcut(QKeySequence("Ctrl+Q"));
             icon = appquit_action->icon();
-            icon.addFile(QString::fromUtf8(":/main/process-stop_16px.png"));
-            icon.addFile(QString::fromUtf8(":/main/process-stop_22px.png"));
-            icon.addFile(QString::fromUtf8(":/main/process-stop_48px.png"));
+            icon.addFile(QString::fromUtf8(":/main/process-stop.svg"));
             appquit_action->setIcon(icon);
             QObject::connect(appquit_action, &QAction::triggered, AppExit);
             app_menu->addAction(appquit_action);
@@ -581,9 +579,7 @@ int main(int argc, char *argv[])
             QAction* about_action = new QAction(QObject::tr("About"));
             about_action->setMenuRole(QAction::AboutRole);
             icon = about_action->icon();
-            icon.addFile(QString::fromUtf8(":/main/help-browser_16px.png"));
-            icon.addFile(QString::fromUtf8(":/main/help-browser_22px.png"));
-            icon.addFile(QString::fromUtf8(":/main/help-browser_48px.png"));
+            icon.addFile(QString::fromUtf8(":/main/help-browser.svg"));
             about_action->setIcon(icon);
             QObject::connect(about_action, &QAction::triggered, AboutDialog);
             app_menu->addAction(about_action);
@@ -603,9 +599,7 @@ int main(int argc, char *argv[])
             QAction * new_action = new QAction(QObject::tr("New"));
             new_action->setShortcut(QKeySequence("Ctrl+N"));
             icon = new_action->icon();
-            icon.addFile(QString::fromUtf8(":/main/document-new_16px.png"));
-            icon.addFile(QString::fromUtf8(":/main/document-new_22px.png"));
-            icon.addFile(QString::fromUtf8(":/main/document-new_48px.png"));
+            icon.addFile(QString::fromUtf8(":/main/document-new.svg"));
             new_action->setIcon(icon);
             QObject::connect(new_action, &QAction::triggered, file_new);
             file_menu->addAction(new_action);
@@ -614,9 +608,7 @@ int main(int argc, char *argv[])
             QAction* open_action = new QAction(QObject::tr("Open"));
             open_action->setShortcut(QKeySequence("Ctrl+O"));
             icon = open_action->icon();
-            icon.addFile(QString::fromUtf8(":/main/document-open_16px.png"));
-            icon.addFile(QString::fromUtf8(":/main/document-open_22px.png"));
-            icon.addFile(QString::fromUtf8(":/main/document-open_48px.png"));
+            icon.addFile(QString::fromUtf8(":/main/document-open.svg"));
             open_action->setIcon(icon);
             QObject::connect(open_action, &QAction::triggered, file_open);
             file_menu->addAction(open_action);
