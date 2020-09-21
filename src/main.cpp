@@ -35,6 +35,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMessageBox>
 #include <QXmlStreamReader>
+#include <QResource>
 #include <QFile>
 #include <QFileInfo>
 #include <QTextStream>
@@ -525,6 +526,17 @@ int main(int argc, char *argv[])
         // the reply has time to return.
         UpdateChecker *checker = new UpdateChecker(&app);
         checker->CheckForUpdate();
+
+        // select the icon set to use
+        // see .rcc files stored in Sigil.app/Contents/Resources on macOS
+        // need to figure out where these go on Linux and Windows
+        QDir exedir(QCoreApplication::applicationDirPath());
+        exedir.cdUp();
+        QString RCCResourcePath = exedir.absolutePath() + "/Resources";
+        qDebug() << RCCResourcePath;
+        // QResource::registerResource(RCCResourcePath + "/main.rcc");
+        // QResource::registerResource(RCCResourcePath + "/material.rcc");
+        QResource::registerResource(RCCResourcePath + "/fluent.rcc");
 
         QStringList arguments = QCoreApplication::arguments();
 

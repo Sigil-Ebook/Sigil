@@ -563,11 +563,20 @@ set( SOURCEUPDATE_FILES
     )
 
 set( QRC_FILES
-    Resource_Files/main/main.qrc
     Resource_Files/About/About.qrc
     Resource_Files/javascript/javascript.qrc
     Resource_Files/icon/icon.qrc
     Resource_Files/dark/dark.qrc
+    )
+
+set( MAIN_BINARY_QRC_FILES
+    Resource_Files/main/main.qrc
+    )
+set( FLUENT_BINARY_QRC_FILES
+    Resource_Files/fluent/fluent.qrc
+    )
+set( MATERIAL_BINARY_QRC_FILES
+    Resource_Files/material/material.qrc
     )
 
 if ( APPLE )
@@ -636,6 +645,9 @@ set_property( SOURCE ${UI_FILES_H} PROPERTY SKIP_AUTOMOC ON )
 # Runs RCC on specified files
 qt5_add_resources( QRC_FILES_CPP ${QRC_FILES} )
 set_property( SOURCE ${QRC_FILES_CPP} PROPERTY SKIP_AUTOMOC ON )
+qt5_add_binary_resources( main  ${MAIN_BINARY_QRC_FILES} )
+qt5_add_binary_resources( fluent ${FLUENT_BINARY_QRC_FILES} )
+qt5_add_binary_resources( material ${MATERIAL_BINARY_QRC_FILES} )
 # Runs lrelease on the specified files
 qt5_add_translation( QM_FILES ${TS_FILES} )
 
@@ -855,6 +867,7 @@ if( APPLE )
     if ( PKG_SYSTEM_PYTHON )
         add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_add_python_framework.py )
     endif()
+    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.rcc ${WORK_DIR}/Sigil.app/Contents/Resources/ )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/examples/* ${WORK_DIR}/Sigil.app/Contents/examples )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/../lib/*.dylib ${WORK_DIR}/Sigil.app/Contents/lib/ )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND install_name_tool -rpath ${CMAKE_BINARY_DIR}/lib "@executable_path/../lib" ${WORK_DIR}/Sigil.app/Contents/MacOS/Sigil )
