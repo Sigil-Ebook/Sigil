@@ -6,10 +6,8 @@
         <file>arrow-up.svg</file>
         <file>back-to-link-style.svg</file>
         <file>case-change.svg</file>
-        <file>chevron-down_16px.png</file>
-        <file>chevron-down_48px.png</file>
-        <file>chevron-up_16px.png</file>
-        <file>chevron-up_48px.png</file>
+        <file>chevron-down.svg</file>
+        <file>chevron-up.svg</file>
         <file>document-add.svg</file>
         <file>document-edit.svg</file>
         <file>document-new.svg</file>
@@ -90,8 +88,6 @@
         <file>reload-page.svg</file>
         <file>saved-search.svg</file>
         <file>split-section.svg</file>
-        <file>widget-close-16.png</file>
-        <file>widget-close-22.png</file>
-        <file>widget-close-48.png</file>
+        <file>widget-close.svg</file>
     </qresource>
 </RCC>

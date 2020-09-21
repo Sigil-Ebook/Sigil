@@ -1083,10 +1083,10 @@ void FindReplace::ShowHideAdvancedOptions()
     QIcon icon;
 
     if (show_advanced) {
-        icon.addFile(QString::fromUtf8(":/main/chevron-up_16px.png"));
+        icon.addFile(QString::fromUtf8(":/main/chevron-up.svg"));
         ui.advancedShowHide->setIcon(icon);
     } else {
-        icon.addFile(QString::fromUtf8(":/main/chevron-down_16px.png"));
+        icon.addFile(QString::fromUtf8(":/main/chevron-down.svg"));
         ui.advancedShowHide->setIcon(icon);
     }
 }
