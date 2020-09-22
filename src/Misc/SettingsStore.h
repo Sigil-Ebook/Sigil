@@ -60,6 +60,7 @@ public:
 
     QString uiFont();
     QString originalUIFont();
+    QString uiIconTheme();
 
     int uiDragDistanceTweak();
 
@@ -260,6 +261,8 @@ public slots:
     void setUIFont(const QString &font_data);
 
     void setOriginalUIFont(const QString &font_data);
+
+    void setUIIconTheme(const QString &iconthemename);
 
     void setUiDragDistanceTweak(int tweak);
 

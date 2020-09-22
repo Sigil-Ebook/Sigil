@@ -528,15 +528,26 @@ int main(int argc, char *argv[])
         checker->CheckForUpdate();
 
         // select the icon set to use
-        // see .rcc files stored in Sigil.app/Contents/Resources on macOS
-        // need to figure out where these go on Linux and Windows
         QDir exedir(QCoreApplication::applicationDirPath());
+        QString RCCResourcePath;
+#ifdef Q_OS_MAC
         exedir.cdUp();
-        QString RCCResourcePath = exedir.absolutePath() + "/Resources";
+        RCCResourcePath = exedir.absolutePath() + "/Resources";
+#elif defined(Q_OS_WIN32)
+        RCCResourcePath = exedir + "/iconsthemes";
+#else
+        // user supplied environment variable to 'share/sigil' directory overrides everything
+        if (!sigil_extra_root.isEmpty()) {
+            RCCResourcePath = sigil_extra_root + "/iconthemes";
+        } else {
+            RCCResourcePath = sigil_share_root + "/iconthemes";
+        }
+#endif
         qDebug() << RCCResourcePath;
         // QResource::registerResource(RCCResourcePath + "/main.rcc");
         // QResource::registerResource(RCCResourcePath + "/material.rcc");
-        QResource::registerResource(RCCResourcePath + "/fluent.rcc");
+        
+        QResource::registerResource(RCCResourcePath + "/" + settings.uiIconTheme() + ".rcc");
 
         QStringList arguments = QCoreApplication::arguments();
 

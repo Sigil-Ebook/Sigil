@@ -39,6 +39,7 @@ static QString KEY_DEFAULT_METADATA_LANGUAGE = SETTINGS_GROUP + "/" + "default_m
 static QString KEY_UI_LANGUAGE = SETTINGS_GROUP + "/" + "ui_language";
 static QString KEY_UI_FONT = SETTINGS_GROUP + "/" + "ui_font";
 static QString KEY_ORIGINAL_UI_FONT = SETTINGS_GROUP + "/" + "original_ui_font";
+static QString KEY_UI_ICON_THEME = SETTINGS_GROUP + "/" + "ui_icon_theme";
 static QString KEY_DRAG_DISTANCE_TWEAK = SETTINGS_GROUP + "/" + "drag_distance_tweak";
 static QString KEY_ZOOM_IMAGE = SETTINGS_GROUP + "/" + "zoom_image";
 static QString KEY_ZOOM_TEXT = SETTINGS_GROUP + "/" + "zoom_text";
@@ -157,6 +158,12 @@ QString SettingsStore::originalUIFont()
 {
     clearSettingsGroup();
     return value(KEY_ORIGINAL_UI_FONT, "").toString();
+}
+
+QString SettingsStore::uiIconTheme()
+{
+    clearSettingsGroup();
+    return value(KEY_UI_ICON_THEME, "main").toString();
 }
 
 int SettingsStore::uiDragDistanceTweak()
@@ -485,6 +492,12 @@ void SettingsStore::setOriginalUIFont(const QString &font_data)
 {
     clearSettingsGroup();
     setValue(KEY_ORIGINAL_UI_FONT, font_data);
+}
+
+void SettingsStore::setUIIconTheme(const QString &iconthemename)
+{
+    clearSettingsGroup();
+    setValue(KEY_UI_ICON_THEME, iconthemename);
 }
 
 void SettingsStore::setUiDragDistanceTweak(int tweak)
@@ -816,6 +829,7 @@ void SettingsStore::clearAppearanceSettings()
     remove(KEY_SHOWFULLPATH_ON);
     remove(KEY_HIGHDPI_SETTING);
     remove(KEY_UI_FONT);
+    remove(KEY_UI_ICON_THEME);
     remove(KEY_DRAG_DISTANCE_TWEAK);
     remove(KEY_PREVIEW_DARK_IN_DM);
     ;

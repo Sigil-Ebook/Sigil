@@ -651,6 +651,13 @@ qt5_add_binary_resources( material ${MATERIAL_BINARY_QRC_FILES} )
 # Runs lrelease on the specified files
 qt5_add_translation( QM_FILES ${TS_FILES} )
 
+# Compiled binary resource files
+set( EXT_RCC_FILES
+    ${PROJECT_BINARY_DIR}/main.rcc
+    ${PROJECT_BINARY_DIR}/fluent.rcc
+    ${PROJECT_BINARY_DIR}/material.rcc
+    )
+
 # Define the Sigil version string for use in source files
 set_source_files_properties( Dialogs/About.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
 set_source_files_properties( Misc/Utility.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
@@ -986,6 +993,10 @@ elseif (MSVC)
                         COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/windows_python_gather.py )
     endif()
 
+    # Add external binary resource files
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/iconthemes/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${EXT_RCC_FILES} ${MAIN_PACKAGE_DIR}/iconthemes )
+
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/examples/ )
     foreach( EXAMPLE ${EXAMPLE_FILES} )
@@ -1131,6 +1142,7 @@ if( UNIX AND NOT APPLE )
     if ( INSTALL_BUNDLED_DICTS )
         install( FILES ${DIC_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/hunspell_dictionaries/ )
     endif()
+    install( FILES ${EXT_RCC_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/iconthemes/ )
     if ( MATHJAX_DIR )
         install( FILES ${CMAKE_SOURCE_DIR}/src/Resource_Files/polyfills/SIGIL_EBOOK_MML_SVG.js DESTINATION ${MATHJAX_DIR}/config/local/ )
     else()
