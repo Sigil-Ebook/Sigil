@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <rect x="0" y="0" width="24" height="24" style="fill:none;"/>
-    <g transform="matrix(1.42015,0,0,1.42015,-2.66325,1.53256)">
-        <text x="3.675px" y="11.592px" style="font-family:'CodeSaver-Bold', 'Code Saver', monospace;font-weight:700;font-size:12px;fill:rgb(26,188,156);">Ab</text>
-    </g>
-    <g transform="matrix(1,0,0,1.15524,0,-3.41528)">
-        <rect x="3" y="20.269" width="9.006" height="1.731" style="fill:rgb(26,188,156);"/>
-    </g>
-</svg>
+<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m0 0h24v24h-24z" fill="none"/><g fill="#1abc9c"><path d="m3 20.269h9.006v1.731h-9.006z" transform="matrix(1 0 0 1.15524 0 -3.41528)"/><path d="m.523-.245c0-.159-.077-.257-.204-.257-.065 0-.112.025-.139.075v-.288h-.118v.715h.11v-.08c.027.061.076.092.147.092.127 0 .204-.098.204-.257zm-.12 0c0 .095-.042.151-.111.151-.068 0-.112-.055-.112-.14v-.022c0-.085.044-.14.112-.14.069 0 .111.056.111.151z" fill-rule="nonzero" transform="matrix(17.0418 0 0 17.0418 12.0992 17.9949)"/><path d="m.412 0h.122l-.191-.66h-.126l-.191.66h.115l.039-.141h.193zm-.204-.245.069-.273.068.273z" fill-rule="nonzero" transform="matrix(17.0418 0 0 17.0418 2.5558 17.9949)"/></g></svg>

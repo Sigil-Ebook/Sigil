@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g transform="matrix(1,0,0,1,-2,-2)">
-        <path d="M10.586,2C10.984,2 11.365,2.158 11.646,2.439L15.561,6.354C15.842,6.635 16,7.016 16,7.414L16,16C16,17.105 15.105,18 14,18L6,18C4.895,18 4,17.105 4,16L4,4C4,2.895 4.895,2 6,2L10.586,2ZM10,3L6,3C5.448,3 5,3.448 5,4L5,16C5,16.552 5.448,17 6,17L14,17C14.552,17 15,16.552 15,16L15,8L11.5,8C10.672,8 10,7.328 10,6.5L10,3ZM11,3.207L11,6.5C11,6.776 11.224,7 11.5,7L14.793,7L11,3.207Z" style="fill:rgb(26,188,156);fill-rule:nonzero;"/>
-    </g>
-</svg>
+<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="m10.586 2c.398 0 .779.158 1.06.439l3.915 3.915c.281.281.439.662.439 1.06v8.586c0 1.105-.895 2-2 2h-8c-1.105 0-2-.895-2-2v-12c0-1.105.895-2 2-2zm-.586 1h-4c-.552 0-1 .448-1 1v12c0 .552.448 1 1 1h8c.552 0 1-.448 1-1v-8h-3.5c-.828 0-1.5-.672-1.5-1.5zm1 .207v3.293c0 .276.224.5.5.5h3.293z" fill="#1abc9c" fill-rule="nonzero" transform="translate(-2 -2)"/></svg>
