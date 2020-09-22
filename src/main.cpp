@@ -528,13 +528,13 @@ int main(int argc, char *argv[])
         checker->CheckForUpdate();
 
         // select the icon set to use
-        QDir exedir(QCoreApplication::applicationDirPath());
         QString RCCResourcePath;
 #ifdef Q_OS_MAC
+        QDir exedir(QCoreApplication::applicationDirPath());
         exedir.cdUp();
         RCCResourcePath = exedir.absolutePath() + "/Resources";
 #elif defined(Q_OS_WIN32)
-        RCCResourcePath = exedir + "/iconsthemes";
+        RCCResourcePath = QCoreApplication::applicationDirPath() + "/iconthemes";
 #else
         // user supplied environment variable to 'share/sigil' directory overrides everything
         if (!sigil_extra_root.isEmpty()) {
