@@ -89,5 +89,6 @@
         <file>saved-search.svg</file>
         <file>split-section.svg</file>
         <file>widget-close.svg</file>
-    </qresource>
+        <file>wrapindicator.png</file>
+   </qresource>
 </RCC>
