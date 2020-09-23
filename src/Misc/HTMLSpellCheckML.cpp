@@ -117,23 +117,33 @@ bool HTMLSpellCheckML::IsBoundary(QChar prev_c, QChar c, QChar next_c, const QSt
 }
 
 
-QList<HTMLSpellCheckML::AWord> HTMLSpellCheckML::GetWords(const QString &text)
+QList<HTMLSpellCheckML::AWord> HTMLSpellCheckML::GetWords(const QString &text, const QString &default_lang)
 {
-    SettingsStore ss;
-    return GetWordList(text, ss.defaultMetadataLang().replace("_","-"));
+    if (default_lang.isEmpty()) {
+        SettingsStore ss;
+        return GetWordList(text, ss.defaultMetadataLang().replace("_","-"));
+    }
+    return GetWordList(text, default_lang);
 }
 
 
-QStringList HTMLSpellCheckML::GetAllWords(const QString &text)
+QStringList HTMLSpellCheckML::GetAllWords(const QString &text, const QString& default_lang)
 {
-    SettingsStore ss;
-    QList<HTMLSpellCheckML::AWord> words = GetWordList(text, ss.defaultMetadataLang().replace("_","-"));
+    QList<HTMLSpellCheckML::AWord> words;
+
+    if (default_lang.isEmpty()) {
+        SettingsStore ss;
+        words = GetWordList(text, ss.defaultMetadataLang().replace("_","-"));
+    } else {
+        words = GetWordList(text, default_lang);
+    }
     QStringList all_words_text;
     foreach(HTMLSpellCheckML::AWord word, words) {
         all_words_text.append(word.text);
     }
     return all_words_text;
 }
+
 
 QString HTMLSpellCheckML::textOf(const QString& word) 
 {
@@ -142,6 +152,7 @@ QString HTMLSpellCheckML::textOf(const QString& word)
     return word.mid(p+2,-1);
 }
 
+
 QString HTMLSpellCheckML::langOf(const QString& word)
 {
     int p = word.indexOf(":",0);
@@ -149,6 +160,7 @@ QString HTMLSpellCheckML::langOf(const QString& word)
     SettingsStore ss;
     return ss.defaultMetadataLang().replace("_","-");
 }
+
 
 int HTMLSpellCheckML::WordPosition(QString text, QString word, int start_pos)
 {

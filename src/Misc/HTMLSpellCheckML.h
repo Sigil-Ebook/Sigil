@@ -38,9 +38,9 @@ public:
         int length;
     };
 
-    static QList<AWord> GetWordList(const QString &text, const QString & default_lang = "en-US");
-    static QList<AWord> GetWords(const QString &text);
-    static QStringList GetAllWords(const QString &text);
+    static QList<AWord> GetWordList(const QString &text, const QString &default_lang = "");
+    static QList<AWord> GetWords(const QString &text, const QString &default_lang="");
+    static QStringList GetAllWords(const QString &text, const QString &default_lang="");
     static int WordPosition(QString text, QString word, int start_pos);
     static QString textOf(const QString &word);
     static QString langOf(const QString &word);

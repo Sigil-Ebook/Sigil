@@ -224,7 +224,7 @@ public:
     QStringList GetClassesInHTMLFile(HTMLResource* html_resource);
 
     QSet<QString> GetWordsInHTMLFiles();
-    static QStringList GetWordsInHTMLFileMapped(HTMLResource *html_resource);
+    static QStringList GetWordsInHTMLFileMapped(HTMLResource *html_resource, const QString &default_lang);
 
     QHash<QString, int> GetUniqueWordsInHTMLFiles();
 

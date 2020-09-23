@@ -3057,8 +3057,10 @@ void MainWindow::UpdateWord(QString old_word, QString new_word)
             html_resources.append(html_resource);
         }
     }
+    QString default_lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
+    default_lang.replace('_','-');
 
-    WordUpdates::UpdateWordInAllFiles(html_resources, old_word, new_word);
+    WordUpdates::UpdateWordInAllFiles(html_resources, default_lang, old_word, new_word);
     m_Book->SetModified();
     m_SpellcheckEditor->Refresh();
     ShowMessageOnStatusBar(tr("Word updated."));

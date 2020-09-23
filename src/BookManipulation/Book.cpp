@@ -1060,8 +1060,12 @@ std::pair<HTMLResource*, bool> Book::ResourceWellFormedMap(HTMLResource * html_r
 QSet<QString> Book::GetWordsInHTMLFiles()
 {
     QStringList all_words;
+    QString default_lang = GetConstOPF()->GetPrimaryBookLanguage();
+    default_lang.replace('_','-');
     const QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
-    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetWordsInHTMLFileMapped);
+    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, std::bind(GetWordsInHTMLFileMapped,
+										 std::placeholders::_1,
+										 default_lang));
 
     for (int i = 0; i < future.results().count(); i++) {
         QStringList result = future.resultAt(i);
@@ -1071,17 +1075,23 @@ QSet<QString> Book::GetWordsInHTMLFiles()
     return all_words.toSet();  // Qt 5.15:  QSet<QString>(all_words.begin(), all_words.end());
 }
 
-QStringList Book::GetWordsInHTMLFileMapped(HTMLResource *html_resource)
+QStringList Book::GetWordsInHTMLFileMapped(HTMLResource *html_resource, const QString& default_lang)
 {
-    return HTMLSpellCheckML::GetAllWords(html_resource->GetText());
+    
+    return HTMLSpellCheckML::GetAllWords(html_resource->GetText(), default_lang);
     // return HTMLSpellCheck::GetAllWords(html_resource->GetText());
 }
 
 QHash<QString, int> Book::GetUniqueWordsInHTMLFiles()
 {
+    QString default_lang = GetConstOPF()->GetPrimaryBookLanguage();
+    default_lang.replace('_','-');
+
     QHash<QString, int> all_words;
     const QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
-    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetWordsInHTMLFileMapped);
+    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, std::bind(GetWordsInHTMLFileMapped,
+										 std::placeholders::_1,
+										 default_lang));
 
     for (int i = 0; i < future.results().count(); i++) {
         QStringList result = future.resultAt(i);
