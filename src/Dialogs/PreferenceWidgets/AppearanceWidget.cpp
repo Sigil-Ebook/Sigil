@@ -87,6 +87,12 @@ AppearanceWidget::AppearanceWidget()
 #endif
 
     ui.setupUi(this);
+
+    // attempt to use a png image as a tooltip for the icon theme selection
+    ui.Default->setToolTip("<img src=':/icon/Main.png'>");
+    ui.Fluent->setToolTip("<img src=':/icon/Fluent.png'>");
+    ui.Material->setToolTip("<img src=':/icon/Material.png'>");
+    
     // Custom delegate for painting the color swatches
     ui.codeViewColorsList->setItemDelegate(new ColorSwatchDelegate(ui.codeViewColorsList));
     ui.comboHighDPI->addItems({tr("Detect"), tr("On"), tr("Off")});

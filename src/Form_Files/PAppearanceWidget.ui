@@ -446,7 +446,7 @@ if a sans-serif font-family specified in your CSS</string>
           <item>
            <widget class="QRadioButton" name="Default">
             <property name="toolTip">
-             <string>Sigil's default icon set</string>
+             <string>Sigil's default icon theme.</string>
             </property>
             <property name="text">
              <string>Default Icons</string>
@@ -459,7 +459,7 @@ if a sans-serif font-family specified in your CSS</string>
           <item>
            <widget class="QRadioButton" name="Fluent">
             <property name="toolTip">
-             <string>Icons based on the Fluent theme.</string>
+             <string>Icons based on the Fluent theme:</string>
             </property>
             <property name="text">
              <string>Fluent Icons</string>
@@ -472,7 +472,7 @@ if a sans-serif font-family specified in your CSS</string>
           <item>
            <widget class="QRadioButton" name="Material">
             <property name="toolTip">
-             <string>Icons based on Google's Material theme.</string>
+             <string>Icons based on Google's Material theme:</string>
             </property>
             <property name="text">
              <string>Material Icons</string>
