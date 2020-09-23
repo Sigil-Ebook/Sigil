@@ -9,5 +9,8 @@
     <file>Main.png</file>
     <file>Fluent.png</file>
     <file>Material.png</file>
+    <file>Main_dark.png</file>
+    <file>Fluent_dark.png</file>
+    <file>Material_dark.png</file>
 </qresource>
 </RCC>

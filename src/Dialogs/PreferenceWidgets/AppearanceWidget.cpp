@@ -89,9 +89,15 @@ AppearanceWidget::AppearanceWidget()
     ui.setupUi(this);
 
     // attempt to use a png image as a tooltip for the icon theme selection
-    ui.Default->setToolTip("<img src=':/icon/Main.png'>");
-    ui.Fluent->setToolTip("<img src=':/icon/Fluent.png'>");
-    ui.Material->setToolTip("<img src=':/icon/Material.png'>");
+    if (Utility::IsDarkMode()) {
+        ui.Default->setToolTip("<img src=':/icon/Main_dark.png'>");
+        ui.Fluent->setToolTip("<img src=':/icon/Fluent_dark.png'>");
+        ui.Material->setToolTip("<img src=':/icon/Material_dark.png'>");
+    } else {
+        ui.Default->setToolTip("<img src=':/icon/Main.png'>");
+        ui.Fluent->setToolTip("<img src=':/icon/Fluent.png'>");
+        ui.Material->setToolTip("<img src=':/icon/Material.png'>");
+    }
     
     // Custom delegate for painting the color swatches
     ui.codeViewColorsList->setItemDelegate(new ColorSwatchDelegate(ui.codeViewColorsList));
