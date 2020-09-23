@@ -118,6 +118,14 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     settings.setAppearancePrefsTabIndex(ui.tabAppearance->currentIndex());
     settings.setShowFullPathOn(ui.ShowFullPath->isChecked() ? 1 : 0);
     settings.setPreviewDark(ui.PreviewDarkInDM->isChecked() ? 1 : 0);
+    // handle icon theme
+    QString icon_theme = "main";
+    if (ui.Fluent->isChecked()) {
+        icon_theme = "fluent";
+    } else if (ui.Material->isChecked()) {
+        icon_theme = "material";
+    }
+    settings.setUIIconTheme(icon_theme);
     // Don't try to get the index of a disabled combobox
     if (m_isHighDPIComboEnabled) {
         settings.setHighDPI(ui.comboHighDPI->currentIndex());
@@ -204,6 +212,10 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     if (m_PreviewDark != (ui.PreviewDarkInDM->isChecked() ? 1 : 0)) {
         results = results | PreferencesWidget::ResultAction_ReloadPreview;
     }
+    // if icon theme change set need for restart
+    if (m_currentIconTheme != icon_theme) {
+        results = results | PreferencesWidget::ResultAction_RestartSigil;
+    }
     // Don't try to get the index of a disabled combobox
     if (m_isHighDPIComboEnabled) {
         if (m_HighDPI != (ui.comboHighDPI->currentIndex())) {
@@ -227,6 +239,14 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     ui.tabAppearance->setCurrentIndex(settings.appearancePrefsTabIndex());
     m_ShowFullPathOn = settings.showFullPathOn();
     ui.ShowFullPath->setChecked(settings.showFullPathOn());
+
+    // Handle Icon Theme
+    QString icon_theme = settings.uiIconTheme();
+    m_currentIconTheme = icon_theme;
+    ui.Default->setChecked(icon_theme == "main");
+    ui.Fluent->setChecked(icon_theme == "fluent");
+    ui.Material->setChecked(icon_theme == "material");
+
     // Don't try to set the index of disabled widgets
     if (m_isHighDPIComboEnabled) {
         m_HighDPI = settings.highDPI();
