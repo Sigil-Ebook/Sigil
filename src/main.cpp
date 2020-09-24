@@ -527,7 +527,7 @@ int main(int argc, char *argv[])
         UpdateChecker *checker = new UpdateChecker(&app);
         checker->CheckForUpdate();
 
-        // select the icon set to use
+        // select the icon theme to use
         QString RCCResourcePath;
 #ifdef Q_OS_MAC
         QDir exedir(QCoreApplication::applicationDirPath());
@@ -543,11 +543,23 @@ int main(int argc, char *argv[])
             RCCResourcePath = sigil_share_root + "/iconthemes";
         }
 #endif
+	QString icon_theme = settings.uiIconTheme();
+        // First check if user wants the Custom Icon Theme
+	if (icon_theme == "custom") {
+	    // it must exist and be loadable
+	    QString CustomRCCPath = Utility::DefinePrefsDir() + "/" + CUSTOM_ICON_THEME_FILENAME;
+            bool loaded = false;
+	    if (QFileInfo(CustomRCCPath).exists()) {
+		loaded = QResource::registerResource(Utility::DefinePrefsDir() + "/" + CUSTOM_ICON_THEME_FILENAME);
+	    }
+	    if (!loaded) {
+		// revert to using main
+		icon_theme = "main";
+		settings.setUIIconTheme("main");
+	    }
+	}
         qDebug() << RCCResourcePath;
-        // QResource::registerResource(RCCResourcePath + "/main.rcc");
-        // QResource::registerResource(RCCResourcePath + "/material.rcc");
-        
-        QResource::registerResource(RCCResourcePath + "/" + settings.uiIconTheme() + ".rcc");
+        QResource::registerResource(RCCResourcePath + "/" + icon_theme + ".rcc");
 
         QStringList arguments = QCoreApplication::arguments();
 

@@ -483,6 +483,19 @@ if a sans-serif font-family specified in your CSS</string>
            </widget>
           </item>
           <item>
+           <widget class="QRadioButton" name="Custom">
+            <property name="toolTip">
+             <string>Custom Icon Theme:</string>
+            </property>
+            <property name="text">
+             <string>Custom Icons</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="tabhorizontalSpacer_4">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>

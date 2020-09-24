@@ -153,7 +153,8 @@ static const QString TAB_STYLE_SHEET              = "#managerframe {border-top: 
 static const QString HTML_TOC_FILE = "TOC.xhtml";
 static const QString HTML_INDEX_FILE = "Index.xhtml";
 const QString HTML_COVER_FILENAME = "cover.xhtml";
-
+const QString CUSTOM_ICON_THEME_FILENAME = "custom_icon_theme.rcc";
+    
 // External constant (sigil_contants.h) used to consolidate the upper clipboard history limit.
 const int CLIPBOARD_HISTORY_MAX = 20;
 

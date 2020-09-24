@@ -29,10 +29,12 @@
 #include <QtWidgets/QStyledItemDelegate>
 #include <QtWebEngineWidgets/QWebEngineSettings>
 #include <QFontDialog>
+#include <QFileInfo>
 
 #include "AppearanceWidget.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "sigil_constants.h"
 
 class ColorSwatchDelegate : public QStyledItemDelegate
 {
@@ -87,7 +89,12 @@ AppearanceWidget::AppearanceWidget()
 #endif
 
     ui.setupUi(this);
-
+    ui.Default->setEnabled(true);
+    ui.Fluent->setEnabled(true);
+    ui.Material->setEnabled(true);
+    ui.Custom->setEnabled(QFileInfo(Utility::DefinePrefsDir() + "/" + CUSTOM_ICON_THEME_FILENAME).exists());
+    
+    ui.Custom->setToolTip(tr("Custom icon theme provided by the user"));
     // attempt to use a png image as a tooltip for the icon theme selection
     if (Utility::IsDarkMode()) {
         ui.Default->setToolTip("<img src=':/icon/Main_dark.png'>");
@@ -136,7 +143,9 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
         icon_theme = "fluent";
     } else if (ui.Material->isChecked()) {
         icon_theme = "material";
-    }
+    } else if (ui.Custom->isEnabled() && ui.Custom->isChecked()) {
+        icon_theme = "custom";
+    }	
     settings.setUIIconTheme(icon_theme);
     // Don't try to get the index of a disabled combobox
     if (m_isHighDPIComboEnabled) {
@@ -255,10 +264,17 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     // Handle Icon Theme
     QString icon_theme = settings.uiIconTheme();
     m_currentIconTheme = icon_theme;
+    if (ui.Custom->isEnabled()) {
+	ui.Custom->setChecked(icon_theme == "custom");
+    } else {
+	ui.Custom->setChecked(false);
+	if (icon_theme == "custom") {
+	    icon_theme = "main";
+	}
+    }
     ui.Default->setChecked(icon_theme == "main");
     ui.Fluent->setChecked(icon_theme == "fluent");
     ui.Material->setChecked(icon_theme == "material");
-
     // Don't try to set the index of disabled widgets
     if (m_isHighDPIComboEnabled) {
         m_HighDPI = settings.highDPI();
