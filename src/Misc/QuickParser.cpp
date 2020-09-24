@@ -58,7 +58,7 @@ QuickParser::MarkupInfo QuickParser::parse_next()
     mi.pos = -1;
     QStringRef markup = parseML();
     if (!markup.isNull()) {
-	if ((markup.front() == "<") && (markup.back() == ">")) {
+	if ((markup.at(0) == "<") && (markup.at(markup.size() - 1) == ">")) {
 	    parseTag(markup, mi);
 	    if (mi.ttype == "begin") {
 		m_TagPath << mi.tname;
@@ -174,8 +174,8 @@ QStringRef QuickParser::parseML()
 
 void QuickParser::parseTag(const QStringRef& tagstring, QuickParser::MarkupInfo& mi)
 {
-    Q_ASSERT(tagstring.front() == "<");
-    Q_ASSERT(tagstring.back() == ">");
+    Q_ASSERT(tagstring.at(0) == "<");
+    Q_ASSERT(tagstring.at(tagstring.size() - 1) == ">");
     int taglen = tagstring.length();
     QChar c = tagstring.at(1);
     int p = 0;
