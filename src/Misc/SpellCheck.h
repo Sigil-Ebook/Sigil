@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -23,9 +24,10 @@
 #ifndef SPELLCHECK_H
 #define SPELLCHECK_H
 
-#include <QtCore/QHash>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
+#include <QHash>
+#include <QString>
+#include <QStringList>
+#include <QMutex>
 
 class Hunspell;
 class QStringList;
@@ -37,24 +39,42 @@ class QTextCodec;
 class SpellCheck
 {
 public:
+    struct HDictionary {
+        QString    name;
+        Hunspell   *handle;
+        QTextCodec *codec;
+        QString    wordchars;
+    };
+
     static SpellCheck *instance();
     ~SpellCheck();
 
     QStringList userDictionaries();
     QStringList dictionaries();
-    QString currentDictionary() const;
+    QString currentPrimaryDictionary() const;
+
     bool spell(const QString &word);
     QStringList suggest(const QString &word);
+
+    bool spellPS(const QString &word);
+    QStringList suggestPS(const QString &word);
+
     void clearIgnoredWords();
     void ignoreWord(const QString &word);
-    void ignoreWordInDictionary(const QString &word);
+    bool isIgnored(const QString &word);
 
-    QString getWordChars();
+    QString getWordChars(const QString &lang="");
+    void loadDictionary(const QString &dname);
+    void UnloadDictionary(const QString &dname);
+    void UnloadAllDictionaries();
 
-    void setDictionary(const QString &name, bool forceReplace = false);
-    void reloadDictionary();
+    void setDictionary(const QString &dname, bool forceReplace = false);
 
     void addToUserDictionary(const QString &word, QString dict_name = "");
+    void addWordToDictionary(const QString &word, const QString &dname);
+
+    void dicDeltaWords(const QString &delta_path, QStringList &deltaWords);
+
     QStringList allUserDictionaryWords();
     QStringList userDictionaryWords(QString dict_name);
 
@@ -70,14 +90,11 @@ public:
 
 private:
     SpellCheck();
-
-    Hunspell *m_hunspell;
-    QTextCodec *m_codec;
-    QString m_wordchars;
-    QString m_dictionaryName;
-    //
     QHash<QString, QString> m_dictionaries;
-    QStringList m_ignoredWords;
+    QHash<QString, QString> m_langcode2dict;
+    mutable QMutex mutex;
+    QHash<QString, struct HDictionary> m_opendicts;
+    QHash<QString, int> m_ignoredWords;
 
     static SpellCheck *m_instance;
 };

@@ -375,8 +375,9 @@ void EditTOC::SelectTarget()
     // convert bookpath (epub root relative href) to relative to ncx or nav as appropriate
     QString ahref = item->text();
     if (ahref.indexOf(':') == -1) {
-        std::pair<QString,QString> parts = Utility::parseHREF(ahref);
-        ahref = Utility::buildRelativePath(m_BaseResource->GetRelativePath(), parts.first) + parts.second;
+        std::pair<QString,QString> parts = Utility::parseRelativeHREF(ahref);
+        ahref = Utility::buildRelativeHREF(Utility::buildRelativePath(m_BaseResource->GetRelativePath(),
+                                                                      parts.first), parts.second);
     }
 
     SelectHyperlink select_target(ahref, m_BaseResource, "toc", m_Resources, m_Book, this);
@@ -384,8 +385,9 @@ void EditTOC::SelectTarget()
     if (select_target.exec() == QDialog::Accepted) {
 	QString href = select_target.GetTarget();
         // now convert ncx or nav relative path back to bookpath epub root relative)
-	QString bookpath = Utility::buildBookPath(href, m_BaseResource->GetFolder());
-        item->setText(bookpath);
+        std::pair<QString,QString> parts = Utility::parseRelativeHREF(href);
+	QString bookpath = Utility::buildBookPath(parts.first, m_BaseResource->GetFolder());
+        item->setText(Utility::buildRelativeHREF(bookpath, parts.second));
     }
 }
 

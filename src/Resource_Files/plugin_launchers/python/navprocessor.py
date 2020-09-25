@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
@@ -25,65 +25,17 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from __future__ import unicode_literals, division, absolute_import, print_function
-
 import sys
-import os
 import re
 from quickparser import QuickXHTMLParser
-
-PY3 = sys.version_info[0] >= 3
-
-if PY3:
-    text_type = str
-    binary_type = bytes
-else:
-    text_type = unicode
-    binary_type = str
-
-try:
-    from urllib.parse import unquote
-    from urllib.parse import urlsplit
-except ImportError:
-    from urllib import unquote
-    from urlparse import urlsplit
 
 SIGIL_REPLACE_LANDMARKS_HERE = "<!-- SIGIL_REPLACE_LANDMARKS_HERE -->"
 SIGIL_REPLACE_PAGELIST_HERE  = "<!-- SIGIL_REPLACE_PAGELIST_HERE -->"
 SIGIL_REPLACE_TOC_HERE       = "<!-- SIGIL_REPLACE_TOC_HERE -->"
 
-NAV_TOC_PATTERN       = re.compile(r'''^\s*<!--\s*SIGIL_REPLACE_TOC_HERE\s*-->\s*$''',re.M)
-NAV_PAGELIST_PATTERN  = re.compile(r'''^\s*<!--\s*SIGIL_REPLACE_PAGELIST_HERE\s*-->\s*$''',re.M)
-NAV_LANDMARKS_PATTERN = re.compile(r'''^\s*<!--\s*SIGIL_REPLACE_LANDMARKS_HERE\s*-->\s*$''',re.M)
-
-ASCII_CHARS   = set(chr(x) for x in range(128))
-URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-                    'abcdefghijklmnopqrstuvwxyz'
-                    '0123456789' '#' '_.-/~')
-IRI_UNSAFE = ASCII_CHARS - URL_SAFE
-
-# returns a quoted IRI (not a URI)
-# modified to be scheme aware as external resources are possible in epub3
-def quoteurl(href):
-    if isinstance(href,binary_type):
-        href = href.decode('utf-8')
-    (ascheme, anetloc, apath, aquery, afragment) = urlsplit(href, scheme="", allow_fragments=True)
-    if ascheme != "":
-        ascheme += "://"
-        href = href[len(ascheme):]
-    result = []
-    for char in href:
-        if char in IRI_UNSAFE:
-            char = "%%%02x" % ord(char)
-        result.append(char)
-    return ascheme + ''.join(result)
-
-# unquotes url/iri
-def unquoteurl(href):
-    if isinstance(href,binary_type):
-        href = href.decode('utf-8')
-    href = unquote(href)
-    return href
+NAV_TOC_PATTERN       = re.compile(r'''^\s*<!--\s*SIGIL_REPLACE_TOC_HERE\s*-->\s*$''', re.M)
+NAV_PAGELIST_PATTERN  = re.compile(r'''^\s*<!--\s*SIGIL_REPLACE_PAGELIST_HERE\s*-->\s*$''', re.M)
+NAV_LANDMARKS_PATTERN = re.compile(r'''^\s*<!--\s*SIGIL_REPLACE_LANDMARKS_HERE\s*-->\s*$''', re.M)
 
 # encode/escape text to make it xml safe
 def xmlencode(data):
@@ -110,16 +62,16 @@ def xmldecode(data):
 
 class NavProcessor(object):
 
-    def __init__(self, navsrc, codec = 'utf-8'):
+    def __init__(self, navsrc, codec='utf-8'):
         if navsrc is None:
             navsrc = ""
-        if isinstance(navsrc, binary_type):
+        if isinstance(navsrc, bytes):
             self.content = navsrc.decode(codec)
         else:
             self.content = navsrc
 
     # returns ordered list of tuples (play_order, nesting_level, href, title)
-    # href is unquoted (percent encodings removed)
+    # href is in url encoded form (percent encodings used if needed)
     # title has been xml decoded/unescaped
     def getTOC(self):
         # parse the nav to get the table of contents
@@ -144,8 +96,8 @@ class NavProcessor(object):
                     nav_type = tattr.get("epub:type", None)
                     continue
                 if tname == "nav" and ttype == "end":
-                	nav_type = None
-                	continue
+                    nav_type = None
+                    continue
                 if nav_type is not None and nav_type == "toc":
                     if tname == "ol":
                         if ttype == "begin": lvl += 1
@@ -153,7 +105,8 @@ class NavProcessor(object):
                         continue
                     if tname == "a" and ttype == "begin":
                         href = tattr.get("href", "")
-                        href = unquoteurl(href)
+                        # must leave all url hrefs in raw url encoded form
+                        # if they can ever contain fragments
                         continue
                     if tname == "a" and ttype == "end":
                         po += 1
@@ -166,10 +119,10 @@ class NavProcessor(object):
         return toclist
 
     # replace the TOC with ordered list of tuples (play_order, nesting_level, href, title)
-    # href should be unquoted (percent encodings removed)
+    # href should be url encoded (percent encodings present if needed)
     # title should be xml decoded/unescaped
     def setTOC(self, toclist):
-        toc_xhtml =  self.buildTOC(toclist)
+        toc_xhtml = self.buildTOC(toclist)
         # replace the TOC in the current navsrc with a placeholder
         navsrc = self.content
         qp = QuickXHTMLParser()
@@ -205,13 +158,13 @@ class NavProcessor(object):
         return True
 
     # returns ordered list of tuples (epubtype, href, title)
-    # href is unquoted (percent encodings removed)
+    # href is url encoded (percent encodings present if needed)
     # title has been xml decoded/unescaped
     def getLandmarks(self):
         # parse the nav to get the landmarks
         navsrc = self.content
         landmarks = []
-        
+
         qp = QuickXHTMLParser()
         qp.setContent(navsrc)
         title = ""
@@ -232,10 +185,11 @@ class NavProcessor(object):
                     nav_type = None
                     continue
 
-                if nav_type is not None and nav_type == "landmarks": 
+                if nav_type is not None and nav_type == "landmarks":
                     if tname == "a" and ttype == "begin":
                         href = tattr.get("href", "")
-                        href = unquoteurl(href)
+                        # must leave all hrefs in raw url encoded form
+                        # if they can contain fragments
                         epubtype = tattr.get("epub:type", None)
                         continue
                     if tname == "a" and ttype == "end":
@@ -244,15 +198,15 @@ class NavProcessor(object):
                             landmarks.append((epubtype, href, title))
                         title = ""
                         epubtype = None
-                        href=None
+                        href = None
                         continue
         return landmarks
 
     # replace the landmarks with ordered list of tuples (epubtype, href, title)
-    # href should be unquoted (percent encodings removed)
+    # href should be url encoded (percent encodings present if needed)
     # title should be xml decoded/unescaped
     def setLandmarks(self, landmarks):
-        landmarks_xhtml =  self.buildLandmarks(landmarks)
+        landmarks_xhtml = self.buildLandmarks(landmarks)
         # replace the landmarks from the navsrc with a placeholer
         navsrc = self.content
         qp = QuickXHTMLParser()
@@ -288,7 +242,7 @@ class NavProcessor(object):
         return True
 
     # returns ordered list of tuples (page_number, href, title)
-    # href is unquoted (percent encodings removed)
+    # href is url encoded (percent encodings if needed should be present))
     # title has been xml decoded/unescaped
     def getPageList(self):
         # parse the nav source to get the page-list
@@ -317,7 +271,7 @@ class NavProcessor(object):
                 if nav_type is not None and nav_type == "page-list":
                     if tname == "a" and ttype == "begin" and nav_type == "page-list":
                         href = tattr.get("href", "")
-                        href = unquoteurl(href)
+                        # hrefs must be kept in raw urlencoded form that may contain fragments
                         continue
                     if tname == "a" and ttype == "end":
                         pgcnt += 1
@@ -329,10 +283,10 @@ class NavProcessor(object):
         return pagelist
 
     # replace the page with ordered list of tuples (page_number, href, title)
-    # href should be unquoted (percent encodings removed)
+    # href should be url encoded (percent encodings present if needed))
     # title should be xml decoded/unescaped
     def setPageList(self, pagelist):
-        pagelist_xhtml =  self.buildPageList(pagelist)
+        pagelist_xhtml = self.buildPageList(pagelist)
         # replace the pagelist from the navsrc with a placeholer
         navsrc = self.content
         qp = QuickXHTMLParser()
@@ -341,7 +295,7 @@ class NavProcessor(object):
         res = []
         skip_output = False
         found_page_list = False
-        
+
         for txt, tp, tname, ttype, tattr in qp.parse_iter():
             if txt is not None:
                 if not skip_output:
@@ -367,7 +321,7 @@ class NavProcessor(object):
 
                 if not skip_output:
                     res.append(qp.tag_info_to_xml(tname, ttype, tattr))
-        
+
         navsrc = "".join(res)
         m = re.search(NAV_PAGELIST_PATTERN, navsrc)
         if m is None:
@@ -377,93 +331,86 @@ class NavProcessor(object):
         return True
 
     # self.toclist is an ordered list of tuples (play_order, nesting_level, href, title)
-    # href is unquoted in self.toclist is unquoted
+    # hrefs should be in url encoded form (percent encodings present if needed)  
     def buildTOC(self, toclist):
         navres = []
         ind = '  '
-        ibase = ind*3
-        incr = ind*2
+        ibase = ind * 3
+        incr = ind * 2
         # start with the toc
-        navres.append(ind*2 + '<nav epub:type="toc" id="toc">\n')
-        navres.append(ind*3 + '<h1>Table of Contents</h1>\n')
+        navres.append(ind * 2 + '<nav epub:type="toc" id="toc">\n')
+        navres.append(ind * 3 + '<h1>Table of Contents</h1>\n')
         navres.append(ibase + '<ol>\n')
         curlvl = 1
         initial = True
         for po, lvl, href, lbl in toclist:
-            href = quoteurl(href)
             lbl = xmlencode(lbl)
             if lvl > curlvl:
                 while lvl > curlvl:
-                    indent = ibase + incr*(curlvl)
-                    navres.append(indent + "<ol>\n")
+                    indent = ibase + incr * (curlvl)
+                    navres.append(indent + '<ol>\n')
                     navres.append(indent + ind + '<li>\n')
-                    navres.append(indent + ind*2 + '<a href="%s">%s</a>\n' % (href, lbl))
+                    navres.append(indent + ind * 2 + '<a href="%s">%s</a>\n' % (href, lbl))
                     curlvl += 1
-            elif lvl <  curlvl:
+            elif lvl < curlvl:
                 while lvl < curlvl:
-                    indent = ibase + incr*(curlvl-1)
-                    navres.append(indent + ind + "</li>\n")
-                    navres.append(indent + "</ol>\n")
+                    indent = ibase + incr * (curlvl - 1)
+                    navres.append(indent + ind + '</li>\n')
+                    navres.append(indent + '</ol>\n')
                     curlvl -= 1
-                indent = ibase + incr*(lvl-1)
-                navres.append(indent + ind +  "</li>\n")
+                indent = ibase + incr * (lvl - 1)
+                navres.append(indent + ind + '</li>\n')
                 navres.append(indent + ind + '<li>\n')
-                navres.append(indent + ind*2 + '<a href="%s">%s</a>\n' % (href, lbl))
+                navres.append(indent + ind * 2 + '<a href="%s">%s</a>\n' % (href, lbl))
             else:
-                indent = ibase + incr*(lvl-1)
+                indent = ibase + incr * (lvl - 1)
                 if not initial:
-                    navres.append(indent + ind + '</li>\n')    
+                    navres.append(indent + ind + '</li>\n')
                 navres.append(indent + ind + '<li>\n')
-                navres.append(indent + ind*2 + '<a href="%s">%s</a>\n' % (href, lbl))
+                navres.append(indent + ind * 2 + '<a href="%s">%s</a>\n' % (href, lbl))
             initial = False
-            curlvl=lvl
+            curlvl = lvl
         while(curlvl > 0):
-            indent = ibase + incr*(curlvl-1)
+            indent = ibase + incr * (curlvl - 1)
             navres.append(indent + ind + "</li>\n")
             navres.append(indent + "</ol>\n")
             curlvl -= 1
-        navres.append(ind*2 + '</nav>\n')
+        navres.append(ind * 2 + '</nav>\n')
         return "".join(navres)
 
 
     # self.pagelist is an ordered list of tuples (page_number, href, title)
-    # href is unquoted in self.pagelist
+    # href should be url encoded (percent encodings present if needed)
     def buildPageList(self, pagelist):
         navres = []
         ind = '  '
-        ibase = ind*3
-        incr = ind*2
         # add any existing page-list if need be
         if len(pagelist) > 0:
-            navres.append(ind*2 + '<nav epub:type="page-list" id="page-list" hidden="">\n')
-            navres.append(ind*3 + '<ol>\n')
+            navres.append(ind * 2 + '<nav epub:type="page-list" id="page-list" hidden="">\n')
+            navres.append(ind * 3 + '<ol>\n')
             for pn, href, title in pagelist:
-                href = quoteurl(href)
                 title = xmlencode(title)
-                navres.append(ind*4 + '<li><a href="%s">%s</a></li>\n' % (href, title))
-            navres.append(ind*3 + '</ol>\n')
-            navres.append(ind*2 + '</nav>\n')
+                navres.append(ind * 4 + '<li><a href="%s">%s</a></li>\n' % (href, title))
+            navres.append(ind * 3 + '</ol>\n')
+            navres.append(ind * 2 + '</nav>\n')
         return "".join(navres)
 
 
     # self.landmarks is an ordered list of tuples (epub_type, href, title)
-    # href is unquoted in self.landmarks
+    # href should be url encoded (percent encodings present if needed) 
     def buildLandmarks(self, landmarks):
         navres = []
         ind = '  '
-        ibase = ind*3
-        incr = ind*2
-        navres.append(ind*2 + '<nav epub:type="landmarks" id="landmarks" hidden="">\n')
-        navres.append(ind*3 + '<h2>Guide</h2>\n')
-        navres.append(ind*3 + '<ol>\n')
+        navres.append(ind * 2 + '<nav epub:type="landmarks" id="landmarks" hidden="">\n')
+        navres.append(ind * 3 + '<h2>Guide</h2>\n')
+        navres.append(ind * 3 + '<ol>\n')
         for etyp, href, title in landmarks:
-            href = quoteurl(href)
             title = xmlencode(title)
-            navres.append(ind*4 + '<li>\n')
-            navres.append(ind*5 + '<a epub:type="%s" href="%s">%s</a>\n' % (etyp, href, title))
-            navres.append(ind*4 + '</li>\n')
-        navres.append(ind*3 + '</ol>\n')
-        navres.append(ind*2 + '</nav>\n')
+            navres.append(ind * 4 + '<li>\n')
+            navres.append(ind * 5 + '<a epub:type="%s" href="%s">%s</a>\n' % (etyp, href, title))
+            navres.append(ind * 4 + '</li>\n')
+        navres.append(ind * 3 + '</ol>\n')
+        navres.append(ind * 2 + '</nav>\n')
         return "".join(navres)
 
     # returns the nav source code as a unicode string in its current form
@@ -477,7 +424,7 @@ def main(argv=sys.argv):
         return -1
     navpath = argv[1]
     navsrc = ""
-    with open(navpath,'rb') as f:
+    with open(navpath, 'rb') as f:
         navsrc = f.read()
     navsrc = navsrc.decode('utf-8')
     np = NavProcessor(navsrc)

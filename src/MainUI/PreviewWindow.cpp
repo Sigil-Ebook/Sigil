@@ -179,16 +179,16 @@ void PreviewWindow::SetupView()
     m_Layout->setContentsMargins(0, 0, 0, 0);
     m_Layout->addWidget(m_Preview);
 
-    m_inspectAction = new QAction(QIcon(":main/inspect_48px.png"),"", this);
+    m_inspectAction = new QAction(QIcon(":/main/inspect.svg"),"", this);
     m_inspectAction->setToolTip(tr("Inspect Page"));
 
-    m_selectAction  = new QAction(QIcon(":main/edit-select-all_48px.png"),"", this);
+    m_selectAction  = new QAction(QIcon(":/main/edit-select-all.svg"),"", this);
     m_selectAction->setToolTip(tr("Select-All"));
 
-    m_copyAction    = new QAction(QIcon(":main/edit-copy_48px.png"),"", this);
+    m_copyAction    = new QAction(QIcon(":/main/edit-copy.svg"),"", this);
     m_copyAction->setToolTip(tr("Copy Selection To ClipBoard"));
 
-    m_reloadAction  = new QAction(QIcon(":main/reload-page_48px.png"),"", this);
+    m_reloadAction  = new QAction(QIcon(":/main/reload-page.svg"),"", this);
     m_reloadAction->setToolTip(tr("Update Preview Window"));
 
     QToolBar * tb = new QToolBar();
@@ -216,7 +216,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         DBG qDebug() << "ignoring PV UpdatePage since PV is not visible";
         return true;
     }
-   
+
     if (m_updatingPage) {
         DBG qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
 	return false;

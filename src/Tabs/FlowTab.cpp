@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019  Kevin B Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2020  Kevin B Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012       John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012       Dave Heiland
 **  Copyright (C) 2012       Grant Drake
@@ -250,22 +250,18 @@ void FlowTab::ResourceModified()
 
 void FlowTab::HandleViewImage(const QUrl &url) 
 {
-    QString url_string = url.toString();
-
-    if (url_string.isEmpty()) {
-      return;
+    if (url.toString().isEmpty()) {
+        return;
     }
-    if (url_string.indexOf(':') != -1) return;
+    if (!url.isRelative()) return;
 
     // we have a relative url, so build an internal
-    // book: scheme url book:///bookpath#fragment
-    QString attpath = Utility::URLDecodePath(url_string);
-    QString dest_bookpath;
-    if (attpath.isEmpty()) return;
+    // book: scheme url book:///bookpath
+    if (url.path().isEmpty()) return;
 
     QString startdir = m_HTMLResource->GetFolder();
-    dest_bookpath = Utility::buildBookPath(attpath, startdir);
-    url_string = "book:///" + dest_bookpath;
+    QString dest_bookpath = Utility::buildBookPath(url.path(), startdir);
+    QString url_string = "book:///" + Utility::URLEncodePath(dest_bookpath);
     emit ViewImageRequest(QUrl(url_string));
 }
 
@@ -432,7 +428,7 @@ bool FlowTab::AddToIndexEnabled()
 bool FlowTab::MarkForIndexEnabled()
 {
     if (m_wCodeView) {
-        return true;
+        return m_wCodeView->textCursor().hasSelection();
     }
     return false;
 }

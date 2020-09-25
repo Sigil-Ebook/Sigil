@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
@@ -26,15 +26,11 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from __future__ import unicode_literals, division, absolute_import, print_function
-
-from compatibility_utils import PY3, text_type, utf8_str, unicode_str, unescapeit
-from compatibility_utils import unicode_argv, add_cp65001_codec, quoteurl
 
 # Sigil Python Script Launcher
 #
 # This launcher script is aways invoked by the script manager
-# for python scripts (both Python 2.7 and 3.4 and later).  It is passed in:
+# for python scripts.  It is passed in a number of things including
 # ebook_root, output directory, script type, and path to target script location
 #
 # This launcher script will parse the opf and make available
@@ -50,10 +46,7 @@ from compatibility_utils import unicode_argv, add_cp65001_codec, quoteurl
 # to Sigil before the launcher script exits
 
 import sys
-import os, os.path
-import codecs
-import unipath
-from unipath import pathof
+import os
 
 from opf_parser import Opf_Parser
 from wrapper import Wrapper
@@ -61,25 +54,40 @@ from bookcontainer import BookContainer
 from inputcontainer import InputContainer
 from outputcontainer import OutputContainer
 from validationcontainer import ValidationContainer
+from hrefutils import urlencodepart
 
+import html
 from xml.sax.saxutils import escape as xmlescape
 
 import traceback
 
-add_cp65001_codec()
+def _utf8str(p):
+    if p is None:
+        return None
+    if isinstance(p, bytes):
+        return p
+    return p.encode('utf-8', errors='replace')
 
-_DEBUG=False
+def _unicodestr(p):
+    if p is None:
+        return None
+    if isinstance(p, str):
+        return p
+    return p.decode('utf-8', errors='replace')
+
+
+_DEBUG = False
 
 SUPPORTED_SCRIPT_TYPES = ['input', 'output', 'edit', 'validation']
 
 _XML_HEADER = '<?xml version="1.0" encoding="UTF-8"?>\n'
 
-EXTRA_ENTITIES = {'"':'&quot;', "'":"&apos;"}
+EXTRA_ENTITIES = {'"': '&quot;', "'": "&apos;"}
 
 def escapeit(sval, EXTRAS=None):
     if EXTRAS:
-        return xmlescape(unescapeit(sval), EXTRAS)
-    return xmlescape(unescapeit(sval))
+        return xmlescape(html.unescape(sval), EXTRAS)
+    return xmlescape(html.unescape(sval))
 
 # Wrap a stream so that output gets saved
 # using utf-8 encoding
@@ -89,20 +97,18 @@ class SavedStream:
         self.encoding = stream.encoding
         self.ps = ps
         self.stype = stype
-        if self.encoding == None:
+        if self.encoding is None:
             self.encoding = 'utf-8'
     def write(self, data):
-        if isinstance(data, text_type):
+        if isinstance(data, str):
             data = data.encode('utf-8')
-        elif self.encoding not in ['utf-8','UTF-8','cp65001','CP65001']:
+        elif self.encoding not in ['utf-8', 'UTF-8', 'cp65001', 'CP65001']:
             udata = data.decode(self.encoding)
             data = udata.encode('utf-8')
         if self.stype == 'stdout':
             self.ps.stdouttext.append(data)
-            if PY3:
-                self.stream.buffer.write(data)
-            else:
-                self.stream.write(data)
+            self.stream.flush()
+            self.stream.buffer.write(data)
         else:
             self.ps.stderrtext.append(data)
     def __getattr__(self, attr):
@@ -151,6 +157,8 @@ class ProcessScript(object):
             # write out the final updated opf to the outdir
             container._w.write_opf()
         # save the wrapper results to a file before exiting the thread
+        # Note: the hrefs generated for the result xml are all relative paths
+        #       with no fragments since they must refer to entire files
         self.wrapout.append(_XML_HEADER)
         self.wrapout.append('<wrapper type="%s">\n' % script_type)
         self.wrapout.append('<result>success</result>\n')
@@ -164,7 +172,7 @@ class ProcessScript(object):
                     bookhref = id
                     id = ""
                     mime = container._w.getmime(bookhref)
-                self.wrapout.append('<deleted href="%s" id="%s" media-type="%s" />\n' % (quoteurl(bookhref), id, mime))
+                self.wrapout.append('<deleted href="%s" id="%s" media-type="%s" />\n' % (urlencodepart(bookhref), id, mime))
         if script_type in ['input', 'edit']:
             for id in container._w.added:
                 if id in container._w.id_to_bookpath:
@@ -174,7 +182,7 @@ class ProcessScript(object):
                     bookhref = id
                     id = ""
                     mime = container._w.getmime(bookhref)
-                self.wrapout.append('<added href="%s" id="%s" media-type="%s" />\n' % (quoteurl(bookhref), id, mime))
+                self.wrapout.append('<added href="%s" id="%s" media-type="%s" />\n' % (urlencodepart(bookhref), id, mime))
         if script_type == 'edit':
             for id in container._w.modified:
                 if id in container._w.id_to_bookpath:
@@ -184,7 +192,7 @@ class ProcessScript(object):
                     bookhref = id
                     id = ""
                     mime = container._w.getmime(bookhref)
-                self.wrapout.append('<modified href="%s" id="%s" media-type="%s" />\n' % (quoteurl(bookhref), id, mime))
+                self.wrapout.append('<modified href="%s" id="%s" media-type="%s" />\n' % (urlencodepart(bookhref), id, mime))
         if script_type == 'validation':
             for vres in container.results:
                 self.wrapout.append('<validationresult type="%s" bookpath="%s" linenumber="%s" charoffset="%s" message="%s" />\n' % (vres.restype, vres.bookpath, vres.linenumber, vres.charoffset, vres.message))
@@ -201,10 +209,8 @@ def failed(script_type, msg):
         wrapper += '<wrapper type="%s">\n<result>failed</result>\n<changes/>\n' % script_type
     wrapper += '<msg>%s</msg>\n</wrapper>\n' % msg
     # write it to stdout and exit
-    if PY3:
-        sys.stdout.buffer.write(utf8_str(wrapper))
-    else:
-        sys.stdout.write(utf8_str(wrapper))
+    sys.stdout.flush()
+    sys.stdout.buffer.write(_utf8str(wrapper))
 
 
 # uses the unicode_arv call to convert all command line paths to full unicode
@@ -214,7 +220,7 @@ def failed(script_type, msg):
 #      script type ("input", "output", "edit")
 #      path to script target file
 
-def main(argv=unicode_argv()):
+def main(argv=sys.argv):
 
     if len(argv) != 5:
         failed(None, msg="Launcher: improper number of arguments passed to launcher.py")
@@ -241,10 +247,10 @@ def main(argv=unicode_argv()):
         failed(None, msg="Launcher: script type %s is not supported" % script_type)
         return -1
 
-    ok = unipath.exists(ebook_root) and unipath.isdir(ebook_root)
-    ok = ok and unipath.exists(outdir) and unipath.isdir(outdir)
-    ok = ok and unipath.exists(script_home) and unipath.isdir(script_home)
-    ok = ok and unipath.exists(target_file) and unipath.isfile(target_file)
+    ok = os.path.exists(ebook_root) and os.path.isdir(ebook_root)
+    ok = ok and os.path.exists(outdir) and os.path.isdir(outdir)
+    ok = ok and os.path.exists(script_home) and os.path.isdir(script_home)
+    ok = ok and os.path.exists(target_file) and os.path.isfile(target_file)
     if not ok:
         failed(None, msg="Launcher: missing or incorrect paths passed in")
         return -1
@@ -261,7 +267,7 @@ def main(argv=unicode_argv()):
     cfg_lst = cfg.split("\n")
     opfbookpath = cfg_lst[0]
     opf_path = os.path.join(ebook_root, opfbookpath.replace("/", os.sep))
-    if unipath.exists(opf_path) and unipath.isfile(opf_path):
+    if os.path.exists(opf_path) and os.path.isfile(opf_path):
         op = Opf_Parser(opf_path, opfbookpath)
     # create a wrapper for record keeping and safety
     rk = Wrapper(ebook_root, outdir, op, plugin_dir, plugin_name)
@@ -283,11 +289,11 @@ def main(argv=unicode_argv()):
     # get standard error and standard out from the target script
     successmsg = ''
     for data in ps.stdouttext:
-        successmsg += unicode_str(data)
-    successmsg =  escapeit(successmsg)
+        successmsg += _unicodestr(data)
+    successmsg = escapeit(successmsg)
     errorlog = ''
     for data in ps.stderrtext:
-        errorlog += unicode_str(data)
+        errorlog += _unicodestr(data)
     errorlog = escapeit(errorlog)
 
     # get the target's script wrapper xml
@@ -300,13 +306,11 @@ def main(argv=unicode_argv()):
     else:
         resultxml += successmsg
         resultxml += errorlog
-    resultxml +='</msg>\n</wrapper>\n'
+    resultxml += '</msg>\n</wrapper>\n'
 
     # write it to stdout and exit
-    if PY3:
-        sys.stdout.buffer.write(utf8_str(resultxml))
-    else:
-        sys.stdout.write(utf8_str(resultxml))
+    sys.stdout.flush
+    sys.stdout.buffer.write(_utf8str(resultxml))
     return 0
 
 if __name__ == "__main__":

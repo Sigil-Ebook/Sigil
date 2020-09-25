@@ -1,8 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
-
-from __future__ import unicode_literals, print_function
 
 # Copyright 2015 Kevin B. Hendricks Stratford Ontario Canada
 # Copyright 2012 Google Inc. All Rights Reserved.
@@ -19,48 +17,25 @@ from __future__ import unicode_literals, print_function
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-import sys
-import re
-
-PY3 = sys.version_info[0] >= 3
-
-if PY3:
-    text_type = str
-    binary_type = bytes
-else:
-    text_type = unicode
-    binary_type = str
-
-def _remove_xml_header(data):
-    return re.sub(br'<\s*\?xml\s*[^\?>]*\?*>\s*',b'',data, flags=re.I)
-
-# When supporting both python 2 and 3 using one code base, using str(obj) is confusing
-# at best since its return type is python version specific
-# Notes:
-#   - The unicode(obj) operator does not exist in PY3
-#   - The bytes(obj) exists and works on python >= 2.6 (as it aliased to str in python 2.X)
-
 """CTypes bindings for the Gumbo HTML5 parser.
 
 This exports the raw interface of the library as a set of very thin ctypes
 wrappers.  It's intended to be wrapped by other libraries to provide a more
 Pythonic API.
 """
+import os
+import re
+import contextlib
+import ctypes
+from ctypes.util import find_library
+import sigil_gumboc_tags as gumboc_tags
 
 __author__ = 'jdtang@google.com (Jonathan Tang)'
 
-import contextlib
-
-import ctypes
-from ctypes.util import find_library
-
-import os
-import os.path
-import sigil_gumboc_tags as gumboc_tags
-
-
 _sigilgumbolibpath = None
+
+def _remove_xml_header(data):
+    return re.sub(br'<\s*\?xml\s*[^\?>]*\?*>\s*', b'', data, flags=re.I)
 
 if 'SigilGumboLibPath' in os.environ:
     _sigilgumbolibpath = os.environ['SigilGumboLibPath']
@@ -142,11 +117,7 @@ class StringPiece(ctypes.Structure):
         return self.length
 
     def __str__(self):
-        # Warning: in Python 3 the str() operator method may **never** return bytes
-        #  to write code that employs gumboc.py that will work underboth Python 2 and 3 use bytes() instead
-        if PY3:
-            return ctypes.string_at(self.data, self.length).decode('utf-8')
-        return ctypes.string_at(self.data, self.length)
+        return ctypes.string_at(self.data, self.length).decode('utf-8')
 
     def __bytes__(self):
         return ctypes.string_at(self.data, self.length)
@@ -179,7 +150,7 @@ class OutputStatus(Enum):
         'OK',
         'Document tree depth limit exceeded',
         'System allocator returned NULL during parsing',
-     ]
+    ]
     _values_ = ['STATUS_OK', 'STATUS_TREE_TOO_DEEP', 'STATUS_OUT_OF_MEMORY']
 
     def to_string(self):
@@ -329,9 +300,7 @@ class Element(ctypes.Structure):
         return _tagname(self.tag)
 
     def __repr__(self):
-        return ('<%r>\n' % self.tag +
-                '\n'.join(repr(child) for child in self.children) +
-                '</%r>' % self.tag)
+        return ('<%r>\n' % self.tag + '\n'.join(repr(child) for child in self.children) + '</%r>' % self.tag)
 
 
 class Text(ctypes.Structure):
@@ -434,7 +403,7 @@ def parse(text, **kwargs):
     # call, it creates a temporary buffer which is destroyed when the call
     # completes, and then the original_text pointers point into invalid memory.
     # convert string to be utf-8 encoded
-    if isinstance(text, text_type):
+    if isinstance(text, str):
         text = text.encode('utf-8')
     text = _remove_xml_header(text)
     text_ptr = ctypes.c_char_p(text)

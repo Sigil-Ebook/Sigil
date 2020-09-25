@@ -61,8 +61,8 @@ private:
     QStringList   m_blockmap;
     QString       m_filepath;
     TextView*     m_view;
-    Navigator2*   m_nav;
     QLabel*       m_lbl;
+    Navigator2*   m_nav;
     QString       m_data;
     QVBoxLayout*  m_layout;
     TextView::HighlighterType m_hightype;

@@ -1,6 +1,6 @@
-# FIRST:  See Building_Qt5_From_Source_with_QtWebkit_Added_Back_on_MacOSX.txt
+# FIRST:  See Building_Qt5_From_Source_on_MacOSX.txt
 #
-# SECOND: See Building_A_Relocatable_Python_3.7_Framework_on_MacOSX.txt
+# SECOND: See Building_A_Relocatable_Python_3.8_Framework_on_MacOSX.txt
 #
 
 #         Also make sure you have the latest XCode and ** Command Line tools** Installed
@@ -12,14 +12,14 @@
 export MACOSX_DEPLOYMENT_TARGET=10.12
 
 # Set the location of where the relocatable Python framework was installed
-# See "Building_A_Relocatable_Python_3.7_Framework_on_MacOSX.txt
+# See "Building_A_Relocatable_Python_3.8_Framework_on_MacOSX.txt
 
 # Remember to stay away from /tmp locations as Mac OSX has a daemon that will delete 
 # files in tmp older than 3 days right out from underneath the user
 export MYDEST=/Users/$USER/devtools/Frameworks
 
 # Set the location of where Qt is installed
-export MYQTHOME=~/Qt512
+export MYQTHOME=~/Qt5129
 
 # Set the location of where you want your Sigil repo to be stored
 export MYSIGILREPO=~/repo
@@ -34,7 +34,7 @@ export PATH=${PATH}:${MYQTHOME}/bin
 # Make sure the newly created relocatable python framework is found first
 # **before** any system version of Python3
 
-export PATH=${MYDEST}/Python.framework/Versions/3.7/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.8/bin:${PATH}
 
 mkdir build
 cd build
@@ -42,7 +42,7 @@ cd build
 # Select the appropriate cmake command from thge following depending
 # on XCode version installed and macOS version
 
-# Mac OS Sierra (OSX 10.12) shoud use the following with XCode 8 or XCode 9
+# Mac OS Sierra (OSX 10.12) use the following with XCode 8 or XCode 9
 cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
       -DCMAKE_BUILD_TYPE=Release \
@@ -51,7 +51,7 @@ cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/ \
       ../Sigil
 
-# Mac OS High Sierra (OSX 10.13) shoud use the following with XCode 9 or 10 
+# Mac OS High Sierra (OSX 10.13) use the following with XCode 9 or 10 
 cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
       -DCMAKE_BUILD_TYPE=Release \
@@ -60,13 +60,23 @@ cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/ \
       ../Sigil
 
-# Mac OS Mojave (OSX 10.14) shoud use the following with XCode 10 
+# Mac OS Mojave (OSX 10.14) use the following with XCode 10 or XCode 11
 cmake -DPKG_SYSTEM_PYTHON=1 \
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
       -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
       -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/ \
+      ../Sigil
+
+
+# Mac OS Catalina (OSX 10.15) should use the following with XCode 11 
+cmake -DPKG_SYSTEM_PYTHON=1 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
+      -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
+      -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/ \
       ../Sigil
 
 
@@ -113,7 +123,7 @@ install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Conte
 
 # To test if the newly bundled python 3 version of Sigil is working properly ypou can do the following:
 
-1. download testplugin_v017.zip from https://github.com/Sigil-Ebook/Sigil/tree/master/docs
+1. download testplugin_v018.zip from https://github.com/Sigil-Ebook/Sigil/tree/master/docs
 2. open Sigil.app to the normal nearly blank template epub it generates when opened
 3. use Plugins->Manage Plugins menu and make sure the "Use Bundled Python" checkbox is checked
 4. use the "Add Plugin" button to navigate to and add testplugin.zip and then hit "Okay" to exit the Manage Plugins Dialog

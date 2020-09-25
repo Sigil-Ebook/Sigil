@@ -91,6 +91,7 @@
 #include "MainUI/TableOfContents.h"
 #include "MainUI/ValidationResultsView.h"
 #include "Misc/HTMLSpellCheck.h"
+#include "Misc/HTMLSpellCheckML.h"
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/Landmarks.h"
 #include "Misc/MediaTypes.h"
@@ -152,7 +153,8 @@ static const QString TAB_STYLE_SHEET              = "#managerframe {border-top: 
 static const QString HTML_TOC_FILE = "TOC.xhtml";
 static const QString HTML_INDEX_FILE = "Index.xhtml";
 const QString HTML_COVER_FILENAME = "cover.xhtml";
-
+const QString CUSTOM_ICON_THEME_FILENAME = "custom_icon_theme.rcc";
+    
 // External constant (sigil_contants.h) used to consolidate the upper clipboard history limit.
 const int CLIPBOARD_HISTORY_MAX = 20;
 
@@ -189,7 +191,6 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_lbZoomLabel(NULL),
     c_SaveFilters(GetSaveFiltersMap()),
     c_LoadFilters(GetLoadFiltersMap()),
-    m_headingActionGroup(new QActionGroup(this)),
     m_casingChangeGroup(new QActionGroup(this)),
     m_SearchEditor(new SearchEditor(this)),
     m_ClipEditor(new ClipEditor(this)),
@@ -218,7 +219,8 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_menuPluginsValidation(NULL),
     m_pluginList(QStringList()),
     m_SaveCSS(false),
-    m_IsClosing(false)
+    m_IsClosing(false),
+    m_headingActionGroup(new QActionGroup(this))
 {
     createJumpList();
     ui.setupUi(this);
@@ -338,7 +340,7 @@ void MainWindow::loadPluginsMenu()
     // Do we need this?  Aren't these set in Form_Files/main.ui
     i = 1;
     foreach(QAction* pa, m_qlactions) {
-        QString resource = ":/main/plugin_48px_" + QString::number(i) + "pips.png";
+        QString resource = ":/main/plugin_" + QString::number(i) + "pips.svg";
         pa->setIcon(QIcon(resource));
         i++;
     }
@@ -1034,7 +1036,7 @@ void MainWindow::GoToBookmark(MainWindow::LocationBookmark *locationBookmark)
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(locationBookmark->bookpath);
         OpenResource(resource, -1, locationBookmark->cv_cursor_position, locationBookmark->bv_caret_location_update);
         ShowMessageOnStatusBar();
-    } catch (ResourceDoesNotExist) {
+    } catch (ResourceDoesNotExist&) {
         // Nothing. Old file must have been deleted.
         ShowMessageOnStatusBar(tr("Navigation cancelled as location no longer exists."));
         ResetLocationBookmark(locationBookmark);
@@ -1685,7 +1687,7 @@ void MainWindow::ViewImageDialog(const QUrl &url)
         if (resource->Type() == Resource::ImageResourceType || resource->Type() == Resource::SVGResourceType) {
             m_ViewImage->ShowImage(resource->GetFullPath());
         }
-    } catch (ResourceDoesNotExist) {
+    } catch (ResourceDoesNotExist&) {
         QMessageBox::warning(this, tr("Sigil"), tr("Image does not exist: ") + image_bookpath);
     }
 }
@@ -1955,7 +1957,7 @@ void MainWindow::AddCover()
         } else {
             Utility::DisplayStdErrorDialog(tr("Unexpected error. Only image files can be used for the cover."));
         }
-    } catch (ResourceDoesNotExist) {
+    } catch (ResourceDoesNotExist&) {
         //
     }
 
@@ -2062,10 +2064,10 @@ void MainWindow::GenerateNCXGuideFromNav()
 
     QString ncxdir = Utility::startingDir(ncx_resource->GetRelativePath());
 
-    QList<QVariant> mvalues = m_Book->GetConstOPF()->GetDCMetadataValues("dc:title");
+    QStringList mvalues = m_Book->GetConstOPF()->GetDCMetadataValues("dc:title");
     QString doctitle = "UNKNOWN";
     if (!mvalues.isEmpty()) {
-        doctitle = mvalues.at(0).toString();
+        doctitle = mvalues.at(0);
     } 
     QString mainid = m_Book->GetConstOPF()->GetMainIdentifierValue();
 
@@ -2339,7 +2341,7 @@ void MainWindow::OpenFile(QString bookpath, int line, int position)
     try {
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
         OpenResource(resource, line, position);
-    } catch (ResourceDoesNotExist) {
+    } catch (ResourceDoesNotExist&) {
         //
     }
 }
@@ -2357,7 +2359,7 @@ void MainWindow::DeleteFilenames(QStringList files_to_delete)
         try {
             Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(file_path);
             resources.append(resource);
-        } catch (ResourceDoesNotExist) {
+        } catch (ResourceDoesNotExist&) {
             continue;
         }
     }
@@ -2567,7 +2569,7 @@ void MainWindow::InsertFiles(const QStringList &selected_files)
                     }
 
                     flow_tab->InsertFile(html);
-                } catch (ResourceDoesNotExist) {
+                } catch (ResourceDoesNotExist&) {
                     Utility::DisplayStdErrorDialog(tr("The file \"%1\" does not exist.") .arg(selected_file));
                 }
             }
@@ -3027,14 +3029,15 @@ void MainWindow::FindWord(QString word)
         }
         QString text = html_resource->GetText();
 
-        int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
+        int found_pos = HTMLSpellCheckML::WordPosition(text, word, start_pos);
+        // int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
         if (found_pos >= 0) {
             if (resource->ShortPathName() != current_html_filename) {
                 OpenResourceAndWaitUntilLoaded(resource, -1, found_pos);
             }
             FlowTab *flow_tab = GetCurrentFlowTab();
             if (flow_tab) {
-                flow_tab->HighlightWord(word, found_pos);
+                flow_tab->HighlightWord(HTMLSpellCheckML::textOf(word), found_pos);
                 break;
             }
         }
@@ -3055,8 +3058,10 @@ void MainWindow::UpdateWord(QString old_word, QString new_word)
             html_resources.append(html_resource);
         }
     }
+    QString default_lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
+    default_lang.replace('_','-');
 
-    WordUpdates::UpdateWordInAllFiles(html_resources, old_word, new_word);
+    WordUpdates::UpdateWordInAllFiles(html_resources, default_lang, old_word, new_word);
     m_Book->SetModified();
     m_SpellcheckEditor->Refresh();
     ShowMessageOnStatusBar(tr("Word updated."));
@@ -3150,7 +3155,7 @@ void MainWindow::EditTOCDialog()
     ShowMessageOnStatusBar(tr("Table Of Contents edited."));
 }
 
-// For epub2 this set the NCX for epub3 this sets the Nac TOC section
+// For epub2 this set the NCX, for epub3 this sets the Nav TOC section
 void MainWindow::GenerateToc()
 {
     SaveTabData();
@@ -3284,9 +3289,14 @@ void MainWindow::CreateHTMLTOC()
         htmlResources.insert(0, tocResource);
         m_Book->GetOPF()->UpdateSpineOrder(htmlResources);
     }
+
+    // Get Primary language from the OPF and use it to Translate "toc" for title
+    QString lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
+    QString title = Landmarks::instance()->GetTitle("toc", lang); 
     TOCHTMLWriter toc(tocResource->GetRelativePath(), 
 		      css_resource->GetRelativePath(),
-		      m_TableOfContents->GetRootEntry());
+		      m_TableOfContents->GetRootEntry(),
+		      title);
     tocResource->SetText(toc.WriteXML(version));
 
     // For epub3 now allow multiple landmarks with the toc semantic set, this is legal as long
@@ -4291,7 +4301,7 @@ void MainWindow::ReadSettings()
     web_settings->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, false);
     web_settings->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, false);
     web_settings->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, (settings.remoteOn() == 1));
-    web_settings->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, false);
+    web_settings->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
     web_settings->setAttribute(QWebEngineSettings::PluginsEnabled, false);
     web_settings->setAttribute(QWebEngineSettings::AutoLoadIconsForPage, false);
     web_settings->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, true);
@@ -4335,24 +4345,26 @@ void MainWindow::ReadSettings()
     // On Mac OS X QCoreApplication::applicationDirPath() points to Sigil.app/Contents/MacOS/ 
     QDir execdir(QCoreApplication::applicationDirPath());
     execdir.cdUp();
-    mathjaxurl = execdir.absolutePath() + "/polyfills/MJ/MathJax.js";
+    mathjaxurl = execdir.absolutePath() + "/polyfills/MJ/";
 #elif defined(Q_OS_WIN32)
-    mathjaxurl = "/" + QCoreApplication::applicationDirPath() + "/polyfills/MJ/MathJax.js";
+    mathjaxurl = "/" + QCoreApplication::applicationDirPath() + "/polyfills/MJ/";
 #else
     // all flavours of linux / unix
     // First check if system MathJax was configured to be used at compile time
     if (!mathjax_dir.isEmpty()) {
-        mathjaxurl = mathjax_dir + "/MathJax.js";
+        mathjaxurl = mathjax_dir;
     } else {
         // otherwise user supplied environment variable to 'share/sigil'
         // takes precedence over Sigil's usual share location.
         if (!sigil_extra_root.isEmpty()) {
-	    mathjaxurl = sigil_extra_root + "/polyfills/MJ/MathJax.js";
+	    mathjaxurl = sigil_extra_root + "/polyfills/MJ/";
         } else {
-	    mathjaxurl = sigil_share_root + "/polyfills/MJ/MathJax.js";
+	    mathjaxurl = sigil_share_root + "/polyfills/MJ/";
         }
     }
 #endif
+    m_mathjaxfolder = mathjaxurl;
+    mathjaxurl = mathjaxurl + "MathJax.js";
     mathjaxurl = "file://" + Utility::URLEncodePath(mathjaxurl);
     mathjaxurl = mathjaxurl + "?config=local/SIGIL_EBOOK_MML_SVG";
     m_PreviewWindow->setMathJaxURL(mathjaxurl);
@@ -4658,13 +4670,13 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
 
             return true;
         }
-   } catch (FileEncryptedWithDrm) {
+   } catch (FileEncryptedWithDrm&) {
        ShowMessageOnStatusBar();
        QApplication::restoreOverrideCursor();
        Utility::DisplayStdErrorDialog(
            tr("The creator of this file has encrypted it with DRM. "
               "Sigil cannot open such files."));
-   } catch (EPUBLoadParseError epub_load_error) {
+   } catch (EPUBLoadParseError& epub_load_error) {
        ShowMessageOnStatusBar();
        QApplication::restoreOverrideCursor();
        const QString errors = QString(epub_load_error.what());
@@ -4676,7 +4688,7 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
        Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
                                              .arg(QDir::toNativeSeparators(fullfilepath))
                                              .arg(e.what()));
-   } catch (QString err) {
+   } catch (QString& err) {
        ShowMessageOnStatusBar();
        QApplication::restoreOverrideCursor();
        Utility::DisplayStdErrorDialog(err);
@@ -4906,7 +4918,7 @@ void MainWindow::SetInsertedFileWatchResourceFile(const QString &bookpath)
     try {
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
         m_Book->GetFolderKeeper()->WatchResourceFile(resource);
-    } catch (ResourceDoesNotExist) {
+    } catch (ResourceDoesNotExist&) {
         // nothing
     }
 }
@@ -5209,9 +5221,14 @@ void MainWindow::ExtendUI()
     m_ValidationResultsView->toggleViewAction()->setShortcut(QKeySequence(Qt::ALT + Qt::Key_F2));
 
     // Create the view menu to hide and show toolbars.
+    ui.menuToolbars->addAction(ui.toolBarNewActions->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarFileActions->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarAddExisting->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarRepoActions->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarUndoRedo->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarTextManip->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarXEditor->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarFind->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarInsertions->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarBack->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarDonate->toggleViewAction());
@@ -5438,7 +5455,6 @@ void MainWindow::ExtendUI()
     ui.tbCase->setFont(font);
 #endif
 
-    ExtendIconSizes();
     UpdateClipsUI();
 }
 
@@ -5469,340 +5485,6 @@ void MainWindow::UpdateClipsUI()
     foreach(QAction * clipaction, m_clactions) {
         UpdateClipButton(clipaction);
     }
-}
-
-void MainWindow::ExtendIconSizes()
-{
-    QIcon icon;
-    icon = ui.actionNew->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-new_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/document-new_22px.png"));
-    ui.actionNew->setIcon(icon);
-
-    icon = ui.actionNewEpub2->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-new-epub2_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/document-new-epub2_22px.png"));
-    ui.actionNewEpub2->setIcon(icon);
-
-    icon = ui.actionNewEpub3->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-new-epub3_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/document-new-epub3_22px.png"));
-    ui.actionNewEpub3->setIcon(icon);
-
-    icon = ui.actionAddExistingFile->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-add_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/document-add_22px.png"));
-    ui.actionAddExistingFile->setIcon(icon);
-
-    icon = ui.actionSave->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-save_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/document-save_22px.png"));
-    ui.actionSave->setIcon(icon);
-
-    icon = ui.actionCommit->icon();
-    icon.addFile(QString::fromUtf8(":/main/git-commit_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/git-commit_22px.png"));
-    ui.actionCommit->setIcon(icon);
-
-    icon = ui.actionCheckout->icon();
-    icon.addFile(QString::fromUtf8(":/main/git-checkout_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/git-checkout_22px.png"));
-    ui.actionCheckout->setIcon(icon);
-
-    icon = ui.actionDiff->icon();
-    icon.addFile(QString::fromUtf8(":/main/git-diff_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/git-diff_22px.png"));
-    ui.actionDiff->setIcon(icon);
-
-    icon = ui.actionManageRepo->icon();
-    icon.addFile(QString::fromUtf8(":/main/git-manage_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/git-manage_22px.png"));
-    ui.actionManageRepo->setIcon(icon);
-
-    icon = ui.actionIndexEditor->icon();
-    icon.addFile(QString::fromUtf8(":/main/index-edit_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/index-edit_22px.png"));
-    ui.actionIndexEditor->setIcon(icon);
-
-    icon = ui.actionAddToIndex->icon();
-    icon.addFile(QString::fromUtf8(":/main/index-add_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/index-add_22px.png"));
-    ui.actionAddToIndex->setIcon(icon);
-
-    icon = ui.actionMarkForIndex->icon();
-    icon.addFile(QString::fromUtf8(":/main/index-mark_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/index-mark_22px.png"));
-    ui.actionMarkForIndex->setIcon(icon);
-
-    icon = ui.actionCreateIndex->icon();
-    icon.addFile(QString::fromUtf8(":/main/index-create_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/index-create_22px.png"));
-    ui.actionCreateIndex->setIcon(icon);
-
-    icon = ui.actionXEditor->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-edit_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/document-edit_22px.png"));
-    ui.actionXEditor->setIcon(icon);
-
-    icon = ui.actionSpellcheckEditor->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-spellcheck_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/document-spellcheck_22px.png"));
-    ui.actionSpellcheckEditor->setIcon(icon);
-
-    icon = ui.actionCut->icon();
-    icon.addFile(QString::fromUtf8(":/main/edit-cut_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/edit-cut_22px.png"));
-    ui.actionCut->setIcon(icon);
-
-    icon = ui.actionPaste->icon();
-    icon.addFile(QString::fromUtf8(":/main/edit-paste_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/edit-paste_22px.png"));
-    ui.actionPaste->setIcon(icon);
-
-    icon = ui.actionUndo->icon();
-    icon.addFile(QString::fromUtf8(":/main/edit-undo_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/edit-undo_22px.png"));
-    ui.actionUndo->setIcon(icon);
-
-    icon = ui.actionRedo->icon();
-    icon.addFile(QString::fromUtf8(":/main/edit-redo_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/edit-redo_22px.png"));
-    ui.actionRedo->setIcon(icon);
-
-    icon = ui.actionCopy->icon();
-    icon.addFile(QString::fromUtf8(":/main/edit-copy_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/edit-copy_22px.png"));
-    ui.actionCopy->setIcon(icon);
-
-    icon = ui.actionAlignLeft->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-justify-left_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-justify-left_22px.png"));
-    ui.actionAlignLeft->setIcon(icon);
-
-    icon = ui.actionAlignRight->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-justify-right_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-justify-right_22px.png"));
-    ui.actionAlignRight->setIcon(icon);
-
-    icon = ui.actionAlignCenter->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-justify-center_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-justify-center_22px.png"));
-    ui.actionAlignCenter->setIcon(icon);
-
-    icon = ui.actionAlignJustify->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-justify-fill_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-justify-fill_22px.png"));
-    ui.actionAlignJustify->setIcon(icon);
-
-    icon = ui.actionBold->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-text-bold_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-text-bold_22px.png"));
-    ui.actionBold->setIcon(icon);
-
-    icon = ui.actionItalic->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-text-italic_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-text-italic_22px.png"));
-    ui.actionItalic->setIcon(icon);
-
-    icon = ui.actionUnderline->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-text-underline_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-text-underline_22px.png"));
-    ui.actionUnderline->setIcon(icon);
-
-    icon = ui.actionStrikethrough->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-text-strikethrough_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-text-strikethrough_22px.png"));
-    ui.actionStrikethrough->setIcon(icon);
-
-    icon = ui.actionSubscript->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-text-subscript_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-text-subscript_22px.png"));
-    ui.actionSubscript->setIcon(icon);
-
-    icon = ui.actionSuperscript->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-text-superscript_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-text-superscript_22px.png"));
-    ui.actionSuperscript->setIcon(icon);
-
-    icon = ui.actionInsertNumberedList->icon();
-    icon.addFile(QString::fromUtf8(":/main/insert-numbered-list_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/insert-numbered-list_22px.png"));
-    ui.actionInsertNumberedList->setIcon(icon);
-
-    icon = ui.actionInsertBulletedList->icon();
-    icon.addFile(QString::fromUtf8(":/main/insert-bullet-list_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/insert-bullet-list_22px.png"));
-    ui.actionInsertBulletedList->setIcon(icon);
-
-    icon = ui.actionIncreaseIndent->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-indent-more_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-indent-more_22px.png"));
-    ui.actionIncreaseIndent->setIcon(icon);
-
-    icon = ui.actionDecreaseIndent->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-indent-less_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-indent-less_22px.png"));
-    ui.actionDecreaseIndent->setIcon(icon);
-
-    icon = ui.actionCasingLowercase->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-case-lowercase_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-case-lowercase_22px.png"));
-    ui.actionCasingLowercase->setIcon(icon);
-
-    icon = ui.actionCasingUppercase->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-case-uppercase_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-case-uppercase_22px.png"));
-    ui.actionCasingUppercase->setIcon(icon);
-
-    icon = ui.actionCasingTitlecase->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-case-titlecase_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-case-titlecase_22px.png"));
-    ui.actionCasingTitlecase->setIcon(icon);
-
-    icon = ui.actionCasingCapitalize->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-case-capitalize_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-case-capitalize_22px.png"));
-    ui.actionCasingCapitalize->setIcon(icon);
-
-    icon = ui.tbCase->icon();
-    icon.addFile(QString::fromUtf8(":/main/case-change_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/case-change_22px.png"));
-    ui.tbCase->setIcon(icon);
-
-    icon = ui.actionTextDirectionLTR->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-direction-ltr_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-direction-ltr_22px.png"));
-    ui.actionTextDirectionLTR->setIcon(icon);
-
-    icon = ui.actionTextDirectionRTL->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-direction-rtl_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-direction-rtl_22px.png"));
-    ui.actionTextDirectionRTL->setIcon(icon);
-
-    icon = ui.actionTextDirectionDefault->icon();
-    icon.addFile(QString::fromUtf8(":/main/format-direction-default_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/format-direction-default_22px.png"));
-    ui.actionTextDirectionDefault->setIcon(icon);
-
-    icon = ui.actionHeading1->icon();
-    icon.addFile(QString::fromUtf8(":/main/heading-1_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/heading-1_22px.png"));
-    ui.actionHeading1->setIcon(icon);
-
-    icon = ui.actionHeading2->icon();
-    icon.addFile(QString::fromUtf8(":/main/heading-2_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/heading-2_22px.png"));
-    ui.actionHeading2->setIcon(icon);
-
-    icon = ui.actionHeading3->icon();
-    icon.addFile(QString::fromUtf8(":/main/heading-3_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/heading-3_22px.png"));
-    ui.actionHeading3->setIcon(icon);
-
-    icon = ui.actionHeading4->icon();
-    icon.addFile(QString::fromUtf8(":/main/heading-4_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/heading-4_22px.png"));
-    ui.actionHeading4->setIcon(icon);
-
-    icon = ui.actionHeading5->icon();
-    icon.addFile(QString::fromUtf8(":/main/heading-5_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/heading-5_22px.png"));
-    ui.actionHeading5->setIcon(icon);
-
-    icon = ui.actionHeading6->icon();
-    icon.addFile(QString::fromUtf8(":/main/heading-6_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/heading-6_22px.png"));
-    ui.actionHeading6->setIcon(icon);
-
-    icon = ui.tbHeadings->icon();
-    icon.addFile(QString::fromUtf8(":/main/heading-all_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/heading-all_22px.png"));
-    ui.tbHeadings->setIcon(icon);
-
-    icon = ui.actionHeadingNormal->icon();
-    icon.addFile(QString::fromUtf8(":/main/heading-normal_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/heading-normal_22px.png"));
-    ui.actionHeadingNormal->setIcon(icon);
-
-    icon = ui.actionOpen->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-open_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/document-open_22px.png"));
-    ui.actionOpen->setIcon(icon);
-
-    icon = ui.actionExit->icon();
-    icon.addFile(QString::fromUtf8(":/main/process-stop_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/process-stop_22px.png"));
-    ui.actionExit->setIcon(icon);
-
-    icon = ui.actionAbout->icon();
-    icon.addFile(QString::fromUtf8(":/main/help-browser_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/help-browser_22px.png"));
-    ui.actionAbout->setIcon(icon);
-
-    icon = ui.actionSplitSection->icon();
-    icon.addFile(QString::fromUtf8(":/main/split-section_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/split-section_22px.png"));
-    ui.actionSplitSection->setIcon(icon);
-
-    icon = ui.actionInsertFile->icon();
-    icon.addFile(QString::fromUtf8(":/main/insert-image_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/insert-image_22px.png"));
-    ui.actionInsertFile->setIcon(icon);
-
-    icon = ui.actionInsertSpecialCharacter->icon();
-    icon.addFile(QString::fromUtf8(":/main/insert-special-character_16px.png"));  // Was not working for Becky on Windows
-    icon.addFile(QString::fromUtf8(":/main/insert-special-character_22px.png"));
-    ui.actionInsertSpecialCharacter->setIcon(icon);
-
-    icon = ui.actionInsertId->icon();
-    icon.addFile(QString::fromUtf8(":/main/insert-id_16px.png"));  // Was not working for Becky on Windows
-    icon.addFile(QString::fromUtf8(":/main/insert-id_22px.png"));
-    ui.actionInsertId->setIcon(icon);
-
-    icon = ui.actionInsertHyperlink->icon();
-    icon.addFile(QString::fromUtf8(":/main/insert-hyperlink_16px.png"));  // Was not working for Becky on Windows
-    icon.addFile(QString::fromUtf8(":/main/insert-hyperlink_22px.png"));
-    ui.actionInsertHyperlink->setIcon(icon);
-
-    icon = ui.actionPrint->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-print_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/document-print_22px.png"));
-    ui.actionPrint->setIcon(icon);
-
-    icon = ui.actionPrintPreview->icon();
-    icon.addFile(QString::fromUtf8(":/main/document-print-preview_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/document-print-preview_22px.png"));
-    ui.actionPrintPreview->setIcon(icon);
-
-    icon = ui.actionZoomIn->icon();
-    icon.addFile(QString::fromUtf8(":/main/list-add_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/list-add_22px.png"));
-    ui.actionZoomIn->setIcon(icon);
-
-    icon = ui.actionZoomOut->icon();
-    icon.addFile(QString::fromUtf8(":/main/list-remove_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/list-remove_22px.png"));
-    ui.actionZoomOut->setIcon(icon);
-
-    icon = ui.actionFind->icon();
-    icon.addFile(QString::fromUtf8(":/main/edit-find_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/edit-find_22px.png"));
-    ui.actionFind->setIcon(icon);
-
-    icon = ui.actionDonate->icon();
-    icon.addFile(QString::fromUtf8(":/main/emblem-favorite_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/emblem-favorite_22px.png"));
-    ui.actionDonate->setIcon(icon);
-
-    icon = ui.actionMetaEditor->icon();
-    icon.addFile(QString::fromUtf8(":/main/metadata-editor_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/metadata-editor_22px.png"));
-    ui.actionMetaEditor->setIcon(icon);
-
-    icon = ui.actionGenerateTOC->icon();
-    icon.addFile(QString::fromUtf8(":/main/generate-toc_16px.png"));
-    icon.addFile(QString::fromUtf8(":/main/generate-toc_22px.png"));
-    ui.actionGenerateTOC->setIcon(icon);
 }
 
 

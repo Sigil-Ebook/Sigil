@@ -48,6 +48,15 @@ void RETable::SetTable(const QList<Resource*> &resources)
         QString bkpath = resource->GetRelativePath();
         QString beforefn = bkpath.split('/').last();
 	QString afterfn =  beforefn.replace(retext,m_ReplaceText);
+	// prevent REX Renaming from inserting uri_delimiters
+	const QString uri_delimiters = ":/?#[]@";
+	QString cleaned_name;
+	foreach(QChar c, afterfn) {
+	    if (!uri_delimiters.contains(c)) {
+	        cleaned_name.append(c);
+	    }
+	}
+	afterfn = cleaned_name;
 	QString basedir = Utility::startingDir(bkpath);
         QString afterpath = afterfn;
         if (!basedir.isEmpty()) afterpath = basedir + "/" + afterfn;

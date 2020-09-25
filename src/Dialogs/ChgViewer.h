@@ -70,9 +70,9 @@ private:
     QString       m_filepath2;
     TextView*     m_view1;
     TextView*     m_view2;
-    Navigator*    m_nav;
     QLabel*       m_lbl1;
     QLabel*       m_lbl2;
+    Navigator*    m_nav;
     QVBoxLayout*  m_layout;
 
     QStringList    m_leftno;

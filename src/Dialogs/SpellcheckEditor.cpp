@@ -33,6 +33,8 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/Utility.h"
+#include "Misc/HTMLSpellCheckML.h"
+#include "Misc/Language.h"
 #include "ResourceObjects/Resource.h"
 
 static const QString SETTINGS_GROUP = "spellcheck_editor";
@@ -160,7 +162,7 @@ void SpellcheckEditor::Ignore()
 
     SpellCheck *sc = SpellCheck::instance();
     foreach (QStandardItem *item, GetSelectedItems()) {
-        sc->ignoreWord(item->text());
+        sc->ignoreWord(HTMLSpellCheckML::textOf(item->text()));
         MarkSpelledOkay(item->row());
     }
 
@@ -252,6 +254,7 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
     QStringList header;
     header.append(tr("Word"));
     header.append(tr("Count"));
+    header.append(tr("Language"));
     header.append(tr("Misspelled?"));
     m_SpellcheckEditorModel->setHorizontalHeaderLabels(header);
     ui.SpellcheckEditorTree->header()->setSectionResizeMode(0, QHeaderView::Stretch);
@@ -262,14 +265,17 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
 
     int total_misspelled_words = 0;
     SpellCheck *sc = SpellCheck::instance();
+    Language *lp = Language::instance();
 
     QHashIterator<QString, int> i(unique_words);
     while (i.hasNext()) {
         i.next();
-        QString word = i.key();
-        int count = unique_words.value(word);
-
-        bool misspelled = !sc->spell(word);
+        QString lcword = i.key();
+        QString code = HTMLSpellCheckML::langOf(lcword);
+        QString lang = lp->GetLanguageName(code);
+        QString word = HTMLSpellCheckML::textOf(lcword);
+        int count = unique_words.value(lcword);
+        bool misspelled = !sc->spell(lcword);
         if (misspelled) {
             total_misspelled_words++;
         }
@@ -282,17 +288,22 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
 
         if (ui.CaseInsensitiveSort->checkState() == Qt::Unchecked) {
             QStandardItem *word_item = new QStandardItem(word);
+            word_item->setData(code);
             word_item->setEditable(false);
             row_items << word_item;
         } else {
             CaseInsensitiveItem *word_item = new CaseInsensitiveItem();
             word_item->setText(word);
+            word_item->setData(code);
             word_item->setEditable(false);
             row_items << word_item;
         }
         NumericItem *count_item = new NumericItem();
         count_item->setText(QString::number(count));
         row_items << count_item;
+
+        QStandardItem *lang_item = new QStandardItem(lang);
+        row_items << lang_item;
 
         QStandardItem *misspelled_item = new QStandardItem();
         misspelled_item->setEditable(false);
@@ -371,7 +382,9 @@ QString SpellcheckEditor::GetSelectedWord()
     }
 
     QModelIndex index = ui.SpellcheckEditorTree->selectionModel()->selectedRows(0).first();
-    word = m_SpellcheckEditorModel->itemFromIndex(index)->text();
+    // word = m_SpellcheckEditorModel->itemFromIndex(index)->text();
+    word = m_SpellcheckEditorModel->itemFromIndex(index)->data().toString() + ": " +
+        m_SpellcheckEditorModel->itemFromIndex(index)->text();
     return word;
 }
 

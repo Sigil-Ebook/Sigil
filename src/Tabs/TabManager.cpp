@@ -201,35 +201,29 @@ void TabManager::LinkClicked(const QUrl &url)
 {
     QString url_string = url.toString();
 
-    if (url_string.isEmpty()) {
+    if (url.toString().isEmpty()) {
         return;
     }
     
     ContentTab *tab = GetCurrentContentTab();
 
-    if (url_string.indexOf(':') == -1) {
+    if (url.isRelative()) {
 
         // we have a relative url, so build an internal
         // book: scheme url book:///bookpath#fragment
-        QString attpath = Utility::URLDecodePath(url_string);
+        QString attpath = url.path();
+        QString fragment = "";
+        if (url.hasFragment()) {
+            fragment = url.fragment();
+        }
 	QString dest_bookpath;
-	int fragpos = attpath.lastIndexOf('#');
-	bool has_fragment = fragpos != -1;
-	QString fragment = "";
-	if (has_fragment) {
-	    fragment = url_string.mid(fragpos+1, -1);
-	    attpath = attpath.mid(0, fragpos);
-	}
 	if (attpath.isEmpty()) {
 	    dest_bookpath = tab->GetLoadedResource()->GetRelativePath();
 	} else {
 	    QString startdir = tab->GetLoadedResource()->GetFolder();
 	    dest_bookpath = Utility::buildBookPath(attpath, startdir);
 	}
-	if (!fragment.isEmpty()) {
-	    dest_bookpath = dest_bookpath + "#" + fragment;
-	}
-	url_string = "book:///" + dest_bookpath;
+        url_string = "book:///" + Utility::buildRelativeHREF(dest_bookpath, fragment);
 	// QUrl will take care of encoding the url path
     } else {
         // we have a scheme and are absolute

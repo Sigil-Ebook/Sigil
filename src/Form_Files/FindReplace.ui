@@ -62,7 +62,7 @@
           </property>
           <property name="icon">
            <iconset resource="../Resource_Files/main/main.qrc">
-            <normaloff>:/main/widget-close-48.png</normaloff>:/main/widget-close-48.png</iconset>
+            <normaloff>:/main/widget-close.svg</normaloff>:/main/widget-close.svg</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -110,7 +110,7 @@
           </property>
           <property name="icon">
            <iconset resource="../Resource_Files/main/main.qrc">
-            <normaloff>:/main/chevron-down_48px.png</normaloff>:/main/chevron-down_48px.png
+            <normaloff>:/main/chevron-down.svg</normaloff>:/main/chevron-down.svg
            </iconset>
           </property>
           <property name="iconSize">

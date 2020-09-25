@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2013 Dave Heiland
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -24,30 +25,38 @@
 #include <QtCore/QtCore>
 #include <QtCore/QString>
 #include <QtConcurrent/QtConcurrent>
+#include <QDebug>
 
-#include "Misc/HTMLSpellCheck.h"
+#include "Misc/HTMLSpellCheckML.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "SourceUpdates/WordUpdates.h"
 
-void WordUpdates::UpdateWordInAllFiles(const QList<HTMLResource *> &html_resources, const QString old_word, QString new_word)
+void WordUpdates::UpdateWordInAllFiles(const QList<HTMLResource *> &html_resources,
+				       const QString& default_lang,
+				       const QString& old_word,
+				       const QString& new_word)
 {
-    QtConcurrent::blockingMap(html_resources, std::bind(UpdateWordsInOneFile, std::placeholders::_1, old_word, new_word));
+    QtConcurrent::blockingMap(html_resources, std::bind(UpdateWordsInOneFile, std::placeholders::_1, default_lang, old_word, new_word));
 }
 
-void WordUpdates::UpdateWordsInOneFile(HTMLResource *html_resource, QString old_word, QString new_word)
+void WordUpdates::UpdateWordsInOneFile(HTMLResource *html_resource,
+				       const QString& default_lang,
+				       const QString& old_word,
+				       const QString& new_word)
 {
+    qDebug() << "UpdateWordsInOneFile " << html_resource->Filename() << old_word << new_word;
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
     QString text = html_resource->GetText();
-    QList<HTMLSpellCheck::MisspelledWord> words = HTMLSpellCheck::GetWords(text);
+    QList<HTMLSpellCheckML::AWord> words = HTMLSpellCheckML::GetWords(text, default_lang);
 
     // Change in reverse to preserve location information
     for (int i = words.count() - 1; i >= 0; i--) {
-        HTMLSpellCheck::MisspelledWord word = words[i];
+        HTMLSpellCheckML::AWord word = words[i];
         if (word.text != old_word) {
             continue;
         }
-        text.replace(word.offset, word.length, new_word);
+        text.replace(word.offset, word.length, HTMLSpellCheckML::textOf(new_word));
     }
     html_resource->SetText(text);
 }

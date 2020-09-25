@@ -115,7 +115,7 @@ void ClassesInHTMLFilesWidget::AddTableData(const QList<BookReports::StyleData *
 	try {
 	    Resource * res = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
 	    shortname = res->ShortPathName();
-	} catch (ResourceDoesNotExist) {
+	} catch (ResourceDoesNotExist&) {
 	} 
         filename_item->setText(shortname);
 	filename_item->setData(bookpath);
@@ -252,7 +252,7 @@ void ClassesInHTMLFilesWidget::Save()
 
     try {
         Utility::WriteUnicodeTextFile(report_info, destination);
-    } catch (CannotOpenFile) {
+    } catch (CannotOpenFile&) {
         QMessageBox::warning(this, tr("Sigil"), tr("Cannot save report file."));
     }
 

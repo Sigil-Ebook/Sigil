@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2020 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -62,7 +62,7 @@ bool HTMLResource::LoadFromDisk()
         SetText(text);
         emit LoadedFromDisk();
         return true;
-    } catch (CannotOpenFile) {
+    } catch (CannotOpenFile&) {
         //
     }
 
@@ -106,7 +106,10 @@ QStringList HTMLResource::GetLinkedStylesheets()
     QString startdir = GetFolder();
     QStringList stylesheet_bookpaths;
     foreach(QString ahref, hreflist) {
-        stylesheet_bookpaths << Utility::buildBookPath(ahref,startdir); 
+        if (ahref.indexOf(":") == -1) {
+            std::pair<QString, QString> parts = Utility::parseRelativeHREF(ahref);
+            stylesheet_bookpaths << Utility::buildBookPath(parts.first, startdir);
+        }
     }
     return stylesheet_bookpaths;
 }
@@ -163,16 +166,20 @@ QStringList HTMLResource::GetPathsToLinkedResources()
         }
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
         if (attr) {
-	    QString attpath = Utility::URLDecodePath(QString::fromUtf8(attr->value));
-	    if (attpath.indexOf(":") == -1) {
+	    QString href = QString::fromUtf8(attr->value);
+	    if (href.indexOf(":") == -1) {
+                QUrl target_url(href);
+                QString attpath = target_url.path();
 	        linked_resources.append(Utility::buildBookPath(attpath,GetFolder()));
 	    }
             continue;
         }
         attr = gumbo_get_attribute(&node->v.element.attributes, "src");
         if (attr) {
-	    QString attpath = Utility::URLDecodePath(QString::fromUtf8(attr->value));
-	    if (attpath.indexOf(":") == -1) {
+	    QString href = QString::fromUtf8(attr->value);
+	    if (href.indexOf(":") == -1) {
+                QUrl target_url(href);
+                QString attpath = target_url.path();
 	        linked_resources.append(Utility::buildBookPath(attpath,GetFolder()));
 	    }
         }

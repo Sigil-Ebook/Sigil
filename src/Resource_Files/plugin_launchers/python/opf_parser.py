@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
@@ -26,18 +26,17 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from __future__ import unicode_literals, division, absolute_import, print_function
+import sys
+import os
 
-import sys, os
-from unipath import pathof
-from hrefutils import unquoteurl, buildBookPath, startingDir, longestCommonPath
-from hrefutils import ext_mime_map, mime_group_map
+from hrefutils import urldecodepart, buildBookPath, startingDir, longestCommonPath
+from hrefutils import mime_group_map
 from collections import OrderedDict
 
 SPECIAL_HANDLING_TAGS = OrderedDict([
-    ('?xml',('xmlheader', -1)),
+    ('?xml', ('xmlheader', -1)),
     ('!--', ('comment', -3)),
-    ('!DOCTYPE',('doctype', -1))
+    ('!DOCTYPE', ('doctype', -1))
 ])
 
 SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
@@ -49,19 +48,19 @@ def build_short_name(bookpath, lvl):
     if lvl == 1: return pieces.pop()
     n = len(pieces)
     if lvl >= n: return "^" + bookpath
-    pieces = pieces[n-lvl:n]
+    pieces = pieces[n - lvl:n]
     return "/".join(pieces)
-    
+
 class Opf_Parser(object):
 
-    def __init__(self, opf_path, opf_bookpath, debug = False):
+    def __init__(self, opf_path, opf_bookpath, debug=False):
         self._debug = debug
-        opf_path = pathof(opf_path)
+        opf_path = os.fsdecode(opf_path)
         self.opfname = os.path.basename(opf_path)
         self.opf_bookpath = opf_bookpath
         self.opf_dir = startingDir(opf_bookpath)
         self.opf = None
-        with open(opf_path,'rb') as fp:
+        with open(opf_path, 'rb') as fp:
             self.opf = fp.read().decode('utf-8')
         self.opos = 0
         self.package = None
@@ -84,7 +83,7 @@ class Opf_Parser(object):
         self.spine_ppd = None
         self.guide = []
         self.bindings = []
-        
+
         # determine folder structure
         self.group_folder = OrderedDict()
         self.group_count = OrderedDict()
@@ -95,7 +94,7 @@ class Opf_Parser(object):
 
         # self.bookpaths = []
         # self.bookpaths.append(self.opf_bookpath)
-        
+
         self._parseData()
 
 
@@ -109,7 +108,7 @@ class Opf_Parser(object):
                 break
             if text is not None:
                 tcontent = text.rstrip(" \t\v\f\r\n")
-            else: # we have a tag
+            else:  # we have a tag
                 ttype, tname, tattr = self._parsetag(tag)
                 if ttype == "begin":
                     tcontent = None
@@ -118,7 +117,7 @@ class Opf_Parser(object):
                         yield ".".join(prefix), tname, tattr, tcontent
                     else:
                         last_tattr = tattr
-                else: # single or end
+                else:  # single or end
                     if ttype == "end":
                         prefix.pop()
                         tattr = last_tattr
@@ -136,11 +135,11 @@ class Opf_Parser(object):
         cnt = 0
         for prefix, tname, tattr, tcontent in self._opf_tag_iter():
             if self._debug:
-                print ("   Parsing OPF: ", prefix, tname, tattr, tcontent)
+                print("   Parsing OPF: ", prefix, tname, tattr, tcontent)
             # package
             if tname == "package":
                 ver = tattr.pop("version", "2.0")
-                uid = tattr.pop("unique-identifier","bookid")
+                uid = tattr.pop("unique-identifier", "bookid")
                 self.package = (ver, uid, tattr)
                 continue
             # metadata
@@ -149,27 +148,31 @@ class Opf_Parser(object):
                 continue
             if tname in ["meta", "link"] or tname.startswith("dc:") and "metadata" in prefix:
                 self.metadata.append((tname, tattr, tcontent))
-                if tattr.get("name","") == "cover":
-                    self.cover_id = tattr.get("content",None)
+                if tattr.get("name", "") == "cover":
+                    self.cover_id = tattr.get("content", None)
                 continue
             # manifest
+            # Note: manifest hrefs when relative may not contain a fragment
+            # as they must refer to and entire file
             if tname == "item" and "manifest" in prefix:
-                nid = "xid%03d" %  cnt
+                nid = "xid%03d" % cnt
                 cnt += 1
                 id = tattr.pop("id", nid)
-                href = tattr.pop("href",'')
-                mtype = tattr.pop("media-type",'')
+                href = tattr.pop("href", '')
+                mtype = tattr.pop("media-type", '')
                 if mtype == "text/html":
                     mtype = "application/xhtml+xml"
                 if mtype not in mime_group_map:
-                    print("****Opf_Parser Warning****: Unknown MediaType: ",mtype)
-                href = unquoteurl(href)
-                properties = tattr.pop("properties",None)
-                fallback = tattr.pop("fallback",None)
-                overlay = tattr.pop("media-overlay",None)
+                    print("****Opf_Parser Warning****: Unknown MediaType: ", mtype)
+                # url decode all relative hrefs since no fragment can be present
+                # meaning no ambiguity in the meaning of any # chars in path
+                if href.find(':') == -1:
+                    href = urldecodepart(href)
+                properties = tattr.pop("properties", None)
+                fallback = tattr.pop("fallback", None)
+                overlay = tattr.pop("media-overlay", None)
 
                 # external resources are now allowed in the opf under epub3
-                # we can ignore fragments here as these are links to files
                 self.manifest_id_to_href[id] = href
 
                 bookpath = ""
@@ -178,10 +181,10 @@ class Opf_Parser(object):
                 self.manifest_id_to_bookpath[id] = bookpath
                 self.manifest_id_to_mime[id] = mtype
                 # self.bookpaths.append(bookpath)
-                group = mime_group_map.get(mtype,'')
+                group = mime_group_map.get(mtype, '')
                 if bookpath != "" and group != "":
-                    folderlst = self.group_folder.get(group,[])
-                    countlst = self.group_count.get(group,[])
+                    folderlst = self.group_folder.get(group, [])
+                    countlst = self.group_count.get(group, [])
                     sdir = startingDir(bookpath)
                     if sdir not in folderlst:
                         folderlst.append(sdir)
@@ -207,16 +210,19 @@ class Opf_Parser(object):
                 self.spine.append((idref, linear, properties))
                 continue
             # guide
-            if tname == "reference" and  "guide" in prefix:
-                type = tattr.pop("type",'')
-                title = tattr.pop("title",'')
-                href = unquoteurl(tattr.pop("href",''))
+            # Note: guide hrefs may have fragments, so leave any
+            # guide hrefs in their raw urlencoded form to prevent
+            # errors
+            if tname == "reference" and "guide" in prefix:
+                type = tattr.pop("type", '')
+                title = tattr.pop("title", '')
+                href = tattr.pop("href", '')
                 self.guide.append((type, title, href))
                 continue
             # bindings (stored but ignored for now)
             if tname in ["mediaType", "mediatype"] and "bindings" in prefix:
-                mtype = tattr.pop("media-type","")
-                handler = tattr.pop("handler","")
+                mtype = tattr.pop("media-type", "")
+                handler = tattr.pop("handler", "")
                 self.bindings.append((mtype, handler))
                 continue
 
@@ -261,7 +267,7 @@ class Opf_Parser(object):
         for group in self.group_folder.keys():
             folders = self.group_folder[group]
             cnts = self.group_count[group]
-            folders = [x for _,x in sorted(zip(cnts,folders), reverse=True)]
+            folders = [x for _, x in sorted(zip(cnts, folders), reverse=True)]
             self.group_folder[group] = folders
             if group in ["Text", "Styles", "Images", "Audio", "Fonts", "Video", "Misc"]:
                 afolder = folders[0]
@@ -275,14 +281,14 @@ class Opf_Parser(object):
         if commonbase == "/":
             commonbase = ""
         for group in ["Styles", "Images", "Audio", "Fonts", "Video", "Misc"]:
-            folders = self.group_folder.get(group,[])
+            folders = self.group_folder.get(group, [])
             gname = group
             if use_lower_case:
                 gname = gname.lower()
             if not folders:
                 folders = [commonbase + gname]
                 self.group_folder[group] = folders
-      
+
 
     # parse and return either leading text or the next tag
     def _parseopf(self):
@@ -290,24 +296,24 @@ class Opf_Parser(object):
         if p >= len(self.opf):
             return None, None
         if self.opf[p] != '<':
-            res = self.opf.find('<',p)
+            res = self.opf.find('<', p)
             if res == -1 :
                 res = len(self.opf)
             self.opos = res
             return self.opf[p:res], None
         # handle comment as a special case
-        if self.opf[p:p+4] == '<!--':
-            te = self.opf.find('-->',p+1)
+        if self.opf[p:p + 4] == '<!--':
+            te = self.opf.find('-->', p + 1)
             if te != -1:
-                te = te+2
+                te = te + 2
         else:
-            te = self.opf.find('>',p+1)
-            ntb = self.opf.find('<',p+1)
+            te = self.opf.find('>', p + 1)
+            ntb = self.opf.find('<', p + 1)
             if ntb != -1 and ntb < te:
                 self.opos = ntb
                 return self.opf[p:ntb], None
         self.opos = te + 1
-        return None, self.opf[p:te+1]
+        return None, self.opf[p:te + 1]
 
     # parses tag to identify:  [tname, ttype, tattr]
     #    tname: tag name,    ttype: tag type ('begin', 'end' or 'single');
@@ -318,22 +324,22 @@ class Opf_Parser(object):
         tname = None
         ttype = None
         tattr = OrderedDict()
-        while p < n and s[p:p+1] == ' ' : p += 1
-        if s[p:p+1] == '/':
+        while p < n and s[p:p + 1] == ' ' : p += 1
+        if s[p:p + 1] == '/':
             ttype = 'end'
             p += 1
-            while p < n and s[p:p+1] == ' ' : p += 1
+            while p < n and s[p:p + 1] == ' ' : p += 1
         b = p
-        # handle comment special case as there may be no spaces to 
-        # delimit name begin or end 
+        # handle comment special case as there may be no spaces to
+        # delimit name begin or end
         if s[b:].startswith('!--'):
-            p = b+3
+            p = b + 3
             tname = '!--'
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
             tattr['special'] = s[p:backstep].strip()
             return tname, ttype, tattr
-        while p < n and s[p:p+1] not in ('>', '/', ' ', '"', "'","\r","\n") : p += 1
-        tname=s[b:p].lower()
+        while p < n and s[p:p + 1] not in ('>', '/', ' ', '"', "'", "\r", "\n") : p += 1
+        tname = s[b:p].lower()
         # remove redundant opf: namespace prefixes on opf tags
         if tname.startswith("opf:"):
             tname = tname[4:]
@@ -345,29 +351,29 @@ class Opf_Parser(object):
             tattr['special'] = s[p:backstep]
         if ttype is None:
             # parse any attributes of begin or single tags
-            while s.find('=',p) != -1 :
-                while p < n and s[p:p+1] == ' ' : p += 1
+            while s.find('=', p) != -1 :
+                while p < n and s[p:p + 1] == ' ' : p += 1
                 b = p
-                while p < n and s[p:p+1] != '=' : p += 1
+                while p < n and s[p:p + 1] != '=' : p += 1
                 aname = s[b:p].lower()
                 aname = aname.rstrip(' ')
                 p += 1
-                while p < n and s[p:p+1] == ' ' : p += 1
-                if s[p:p+1] in ('"', "'") :
-                    qt = s[p:p+1]
+                while p < n and s[p:p + 1] == ' ' : p += 1
+                if s[p:p + 1] in ('"', "'") :
+                    qt = s[p:p + 1]
                     p = p + 1
                     b = p
-                    while p < n and s[p:p+1] != qt: p += 1
+                    while p < n and s[p:p + 1] != qt: p += 1
                     val = s[b:p]
                     p += 1
                 else :
                     b = p
-                    while p < n and s[p:p+1] not in ('>', '/', ' ') : p += 1
+                    while p < n and s[p:p + 1] not in ('>', '/', ' '): p += 1
                     val = s[b:p]
                 tattr[aname] = val
         if ttype is None:
             ttype = 'begin'
-            if s.find('/',p) >= 0:
+            if s.find('/', p) >= 0:
                 ttype = 'single'
         return ttype, tname, tattr
 
@@ -375,7 +381,7 @@ class Opf_Parser(object):
         if '"' in value:
             value = value.replace('"', "&quot;")
         return value
-        
+
     def taginfo_toxml(self, taginfo):
         res = []
         tname, tattr, tcontent = taginfo
@@ -383,7 +389,7 @@ class Opf_Parser(object):
         if tattr is not None:
             for key in tattr:
                 val = self.handle_quoted_attribute_values(tattr[key])
-                res.append(' ' + key + '="'+val+'"' )
+                res.append(' ' + key + '="' + val + '"')
         if tcontent is not None:
             res.append('>' + tcontent + '</' + tname + '>\n')
         else:
@@ -412,7 +418,7 @@ class Opf_Parser(object):
         if tattr is not None:
             for key in tattr:
                 val = self.handle_quoted_attribute_values(tattr[key])
-                tag += ' ' + key + '="'+val+'"'
+                tag += ' ' + key + '="' + val + '"'
         tag += '>\n'
         data.append(tag)
         for taginfo in self.metadata:
@@ -423,7 +429,7 @@ class Opf_Parser(object):
     def get_metadata_attr(self):
         return self.metadata_attr
 
-    # list of (tname, tattr, tcontent) 
+    # list of (tname, tattr, tcontent)
     def get_metadata(self):
         return self.metadata
 
@@ -467,9 +473,6 @@ class Opf_Parser(object):
 
 def main():
     argv = sys.argv
-
-    opfpath = None
-    data = None
     if len(argv) > 1:
         filepath = argv[1]
     if filepath:
@@ -477,61 +480,61 @@ def main():
 
         print('Epub Version')
         print(op.get_epub_version())
-        print (' ')
+        print(' ')
 
         print('Package Tag')
         print(op.get_package_tag())
-        print (' ')
+        print(' ')
 
         print('Metadata')
         print(op.get_metadataxml())
-        print (' ')
+        print(' ')
 
         print('Guide')
         for gentry in op.get_guide():
-            print('    ',gentry)
-        print (' ')
+            print('    ', gentry)
+        print(' ')
 
         print('Spine')
         for spentry in op.get_spine():
-            print('    ',spentry)
-        print (' ')
+            print('    ', spentry)
+        print(' ')
 
         print('Dict: id to href')
         d = op.get_manifest_id_to_href_dict()
         for k, v in d.items():
             print('    ', k, ' : ', v)
-        print (' ')
+        print(' ')
 
         print('Dict: id to mime')
         d = op.get_manifest_id_to_mime_dict()
         for k, v in d.items():
             print('    ', k, ' : ', v)
-        print (' ')
+        print(' ')
 
         print('Dict: id to bookpath')
         d = op.get_manifest_id_to_bookpath_dict()
         for k, v in d.items():
             print('    ', k, ' : ', v)
-        print (' ')
+        print(' ')
 
         print('Dict: id to properties')
         d = op.get_manifest_id_to_properties_dict()
         for k, v in d.items():
             print('    ', k, ' : ', v)
-        print (' ')
+        print(' ')
 
         print('Dict: id to overlay')
         d = op.get_manifest_id_to_overlay_dict()
         for k, v in d.items():
             print('    ', k, ' : ', v)
-        print (' ')
+        print(' ')
 
         print('Group Paths')
         d = op.get_group_paths()
         for k, v in d.items():
             print('    ', k, ' : ', v)
-        print (' ')
+        print(' ')
 
     return 0
 

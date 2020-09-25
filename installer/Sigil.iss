@@ -49,8 +49,10 @@ Name: dicon; Description: "Create a desktop icon"; Types: full custom
 ; File associations
 Name: afiles; Description: "Associate ebook files with {#AppName}"
 Name: afiles\epub; Description: "EPUB"
-; Cancel runtime install if desired.
-Name: vcruntime; Description: "Install bundled VS ${VCREDIST_VER} runtime if necessary? (admin required)"; Types: full custom
+; Cancel runtime query/install if desired.
+;Name: vcruntime; Description: "Check if bundled VS runtime install is necessary? (admin required)"; Types: full custom
+Name: vcruntimeadmin; Description: "Check if bundled VS runtime install is necessary? (admin required)"; Types: full custom; Check: IsAdminInstallMode
+Name: vcruntimeuser; Description: "Check if bundled VS runtime install is necessary? (admin required)"; Types: full custom; Check: not IsAdminInstallMode
 
 [Registry]
 ; Add Sigil as a global file handler for EPUB and HTML.
@@ -96,7 +98,9 @@ Type: files; Name: "{app}\sigil-python3.exe"
 
 [Run]
 ; The following command detects whether or not the vc++ runtime needs to be installed.
-Components: vcruntime; Filename: {tmp}\vcredist.exe; Check: NeedsVCRedistInstall; Parameters: "/passive /norestart /Q:a /c:""msiexec /qb /i vcredist.msi"" "; StatusMsg: Checking for VC++ RunTime ...
+;Components: vcruntime; Filename: {tmp}\vcredist.exe; Check: NeedsVCRedistInstall; Parameters: "/passive /norestart /Q:a /c:""msiexec /qb /i vcredist.msi"" "; StatusMsg: Checking for VC++ RunTime ...
+Components: vcruntimeadmin; Filename: {tmp}\vcredist.exe; Check: IsAdminInstallMode and NeedsVCRedistInstall; Parameters: "/passive /norestart /Q:a /c:""msiexec /qb /i vcredist.msi"" "; StatusMsg: Checking for VC++ RunTime ...
+Components: vcruntimeuser; Filename: {tmp}\vcredist.exe; Check: (not IsAdminInstallMode) and NeedsVCRedistInstall; Parameters: "/passive /norestart /Q:a /c:""msiexec /qb /i vcredist.msi"" "; Flags: runasoriginaluser; StatusMsg: Checking for VC++ RunTime ...
 
 [Code]
 
@@ -187,7 +191,50 @@ begin
   if CurPageID = wpSelectComponents then
     if not IsAdminInstallMode then
     begin
+      // Runtime query/install component unchecked by default
+      // in User mode installs. Checked in Admin installs.
       WizardForm.ComponentsList.Checked[4] := False;
-      // WizardForm.ComponentsList.ItemEnabled[4] := False;
+      //WizardForm.ComponentsList.ItemEnabled[4] := False;
     end;
 end;
+
+// Warn when unchecking component to check for, and install
+// if necessary, the Visual Studio runtime distributable.
+function NextButtonClick(CurPageID: Integer): Boolean;
+var
+  msg: String;
+begin
+  Result := True;
+  msg := 'The option to check for/install the VS' + #13#10 +
+        'runtime is unchecked. Please make sure a' + #13#10 +
+        'compatible version of the Visual Studio' + #13#10 +
+        'VC++ runtime is already installed (by you' + #13#10 +
+        'or an admin), or click "No" and check' + #13#10 +
+        'the box before proceeding.' + #13#10 + #13#10 +
+        'You will need admin privileges to' + #13#10 +
+        'to install the runtime.' + #13#10 + #13#10 +
+        'Do you wish to proceed as is?';
+  if CurPageID = wpSelectComponents then begin
+    if IsAdminInstallMode then begin
+      if (not WizardIsComponentSelected('vcruntimeadmin')) then
+        Result := MsgBox( msg, mbInformation, MB_YESNO) = IDYES
+    end else
+      if (not WizardIsComponentSelected('vcruntimeuser')) then
+        Result := MsgBox( msg, mbInformation, MB_YESNO) = IDYES;
+  end;
+end;
+
+
+// Old version of above.
+(* function NextButtonClick(CurPageID: Integer): Boolean ;
+begin
+  Result := True;
+  if CurPageID = wpSelectComponents then
+  begin
+    if (not WizardIsComponentSelected('vcruntime')) and (not IsAdminInstallMode)  then
+      Result := MsgBox('When installing for the current user only, you are' + #13#10 +
+        'responsible for insuring that the proper Visual Studio' + #13#10 +
+        'runtime distributable is installed.' + #13#10 + #13#10 +
+        'Do you wish to continue?' , mbInformation, MB_YESNO) = IDYES;
+  end;
+end; *)

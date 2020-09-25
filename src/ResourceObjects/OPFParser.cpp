@@ -23,13 +23,18 @@
 #include "Misc/EmbeddedPython.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/OPFParser.h"
+#include <QDebug>
+
+// Note: all hrefs/urls should always be kept in URLEncoded form
+// as decoding urls before splitting into component parts can lead
+// to data loss (paths can legally contain url delimiters when decoded - such as #)
 
 /**
  * Package tag
  */
 
 PackageEntry::PackageEntry(const QString& version, const QString& uniqueid, 
-  					       const QStringList& keylist, const QStringList& vallist) 
+                           const QStringList& keylist, const QStringList& vallist) 
     : m_version(version), m_uniqueid(uniqueid)
 {
     int n = keylist.size();
@@ -122,7 +127,7 @@ QString MetaNSEntry::convert_to_xml() const
  */
  
 MetaEntry::MetaEntry(const QString& name, const QString& content, 
-  					 const QStringList& keylist, const QStringList& vallist) 
+                     const QStringList& keylist, const QStringList& vallist) 
     : m_name(name), m_content(content)
 {
     int n = keylist.size();
@@ -210,7 +215,7 @@ QString ManifestEntry::convert_to_xml() const
 {
   QStringList xmlres;
   xmlres << "    <item id=\"" + m_id + "\"";
-  xmlres << " href=\"" + Utility::URLEncodePath(m_href) + "\"";
+  xmlres << " href=\"" + m_href + "\"";
   xmlres << " media-type=\"" + m_mtype+ "\"";
   foreach (QString kv, m_atts.keys()) {
       QString val = m_atts.value(kv,"");
@@ -336,7 +341,7 @@ QString GuideEntry::convert_to_xml() const
   QStringList xmlres;
   xmlres << "    <reference type=\"" + m_type + "\"";
   xmlres << " title=\"" + m_title + "\"";
-  xmlres << " href=\"" + Utility::URLEncodePath(m_href) + "\"";
+  xmlres << " href=\"" + m_href + "\"";
   xmlres << "/>\n";
   return xmlres.join(QString(""));
 }
@@ -480,5 +485,6 @@ QString OPFParser::convert_to_xml() const
         xmlres << "  </bindings>\n";
     }
     xmlres << "</package>\n";
+    qDebug() << "new_opf" << xmlres;
     return xmlres.join("");
 }

@@ -1,17 +1,4 @@
-from __future__ import unicode_literals, division, absolute_import, print_function
-
 import sys
-PY3 = sys.version_info[0] >= 3
-if PY3:
-    text_type = str
-    binary_type = bytes
-    unicode = str
-    basestring = str
-else:
-    range = xrange
-    text_type = unicode
-    binary_type = str
-    chr = unichr
 
 from collections import defaultdict
 from collections import OrderedDict
@@ -178,7 +165,7 @@ class TreeBuilder(object):
                     # value is a whitespace-separated list of
                     # values. Split it into a list.
                     value = attrs[attr]
-                    if isinstance(value, basestring):
+                    if isinstance(value, str):
                         values = whitespace_re.split(value)
                     else:
                         # html5lib sometimes calls setAttributes twice

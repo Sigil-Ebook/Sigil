@@ -49,14 +49,14 @@ public:
         int c = 0;
 
 	// previous change
-        m_bp->setIcon(QIcon(":/main/back.png"));
+        m_bp->setIcon(QIcon(":/main/back.svg"));
 	m_bp->setToolTip(tr("Go to previous page - [p]"));
 	m_bp->setToolButtonStyle(Qt::ToolButtonIconOnly);
 	m_layout->addWidget(m_bp, r, c);
 	c++;
 
 	// next change
-        m_bn->setIcon(QIcon(":/main/forward.png"));
+        m_bn->setIcon(QIcon(":/main/forward.svg"));
 	m_bn->setToolTip(tr("Go to next page - [n]"));
 	m_bn->setToolButtonStyle(Qt::ToolButtonIconOnly);
 	m_layout->addWidget(m_bn, r, c);
@@ -68,14 +68,14 @@ public:
 	c++;
 
 	// find next
-        m_sn->setIcon(QIcon(":/main/arrow-down.png"));
+        m_sn->setIcon(QIcon(":/main/arrow-down.svg"));
 	m_sn->setToolTip(tr("Find Next"));
 	m_sn->setToolButtonStyle(Qt::ToolButtonIconOnly);
 	m_layout->addWidget(m_sn, r, c);
 	c++;
 
 	// find previous
-        m_sp->setIcon(QIcon(":/main/arrow-up.png"));
+        m_sp->setIcon(QIcon(":/main/arrow-up.svg"));
 	m_sp->setToolTip(tr("Find Previous"));
 	m_sp->setToolButtonStyle(Qt::ToolButtonIconOnly);
 	m_layout->addWidget(m_sp, r, c);

@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada 
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -24,10 +24,9 @@
 #ifndef BOOK_H
 #define BOOK_H
 
-#include <QtCore/QHash>
-#include <QtCore/QObject>
-#include <QtCore/QUrl>
-#include <QtCore/QVariant>
+#include <QHash>
+#include <QObject>
+#include <QUrl>
 #include "ResourceObjects/OPFParser.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "ResourceObjects/Resource.h"
@@ -115,7 +114,7 @@ public:
      *
      * @return A list of values
      */
-    QList<QVariant> GetMetadataValues(QString text) const;
+    QStringList GetMetadataValues(QString text) const;
 
     /**
      * Replaces the book's current meta information with the received metadata.
@@ -225,7 +224,7 @@ public:
     QStringList GetClassesInHTMLFile(HTMLResource* html_resource);
 
     QSet<QString> GetWordsInHTMLFiles();
-    static QStringList GetWordsInHTMLFileMapped(HTMLResource *html_resource);
+    static QStringList GetWordsInHTMLFileMapped(HTMLResource *html_resource, const QString &default_lang);
 
     QHash<QString, int> GetUniqueWordsInHTMLFiles();
 
@@ -433,7 +432,6 @@ private:
      */
     FolderKeeper *m_Mainfolder;
 
-
     /**
      * Stores the modified state of the book.
      */
@@ -442,5 +440,3 @@ private:
 };
 
 #endif // BOOK_H
-
-

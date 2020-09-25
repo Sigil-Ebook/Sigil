@@ -47,6 +47,7 @@ public:
      bool operator==(const TagAtts &other);
      bool operator!=(const TagAtts &other);
      QString& operator[](const QString &key);
+     const QString operator[](const QString &key) const noexcept;
      
     ~TagAtts();
     
@@ -71,9 +72,9 @@ public:
 
 private:
     unsigned int m_n;
+    QHash<QString, TAttribute*> m_mapping;
     // anchor for the circular doubly linked list
     TAttribute* m_anchor;
-    QHash<QString, TAttribute*> m_mapping;
 };
 
 #endif // TAGATTS_H

@@ -214,8 +214,8 @@ void CodeViewEditor::HighlightMarkedText()
     QList<QTextEdit::ExtraSelection> extraSelections;
     QTextEdit::ExtraSelection selection;
     selection.cursor = textCursor();
-
-    selection.format.setFontUnderline(QTextCharFormat::DotLine);
+    selection.format.setUnderlineStyle(QTextCharFormat::DotLine);
+    selection.format.setFontUnderline(true);
     selection.cursor.clearSelection();
     selection.cursor.setPosition(0);
     int textlen = textLength();
@@ -227,7 +227,8 @@ void CodeViewEditor::HighlightMarkedText()
     if (m_MarkedTextStart < 0 || m_MarkedTextEnd > textlen) {
         return;
     }
-    selection.format.setFontUnderline(QTextCharFormat::DotLine);
+    selection.format.setUnderlineStyle(QTextCharFormat::DotLine);
+    selection.format.setFontUnderline(true);
     selection.cursor = textCursor();
     selection.cursor.clearSelection();
     selection.cursor.setPosition(m_MarkedTextStart);
@@ -562,7 +563,12 @@ int CodeViewEditor::CalculateLineNumberAreaWidth()
         num_digits++;
     }
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
+    return LINE_NUMBER_MARGIN * 2 + fontMetrics().horizontalAdvance(QChar('0')) * num_digits;
+#else
     return LINE_NUMBER_MARGIN * 2 + fontMetrics().width(QChar('0')) * num_digits;
+#endif
+
 }
 
 
@@ -1212,7 +1218,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
         // If a misspelled word is selected try to offer spelling suggestions.
         if (offer_spelling) {
             SpellCheck *sc = SpellCheck::instance();
-            QStringList suggestions = sc->suggest(selected_word);
+            QStringList suggestions = sc->suggestPS(selected_word);
             QAction *suggestAction = 0;
 
             // We want to limit the number of suggestions so we don't
@@ -1294,7 +1300,7 @@ QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
         // additionalFormats property. Thus we have to check if the cursor is within
         // an additionalFormat for the block and if that format is for a misspelled word.
         int pos = c.positionInBlock();
-        foreach(QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
+        foreach(QTextLayout::FormatRange r, textCursor().block().layout()->formats()) {
             if (pos > r.start && pos < r.start + r.length && r.format.underlineStyle() == QTextCharFormat::WaveUnderline/*QTextCharFormat::SpellCheckUnderline*/) {
                 if (select_word) {
                     c.setPosition(c.block().position() + r.start);
@@ -1311,7 +1317,7 @@ QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
     else {
         int selStart = c.selectionStart() - c.block().position();
         int selLen = c.selectionEnd() - c.block().position() - selStart;
-        foreach(QTextLayout::FormatRange r, textCursor().block().layout()->additionalFormats()) {
+        foreach(QTextLayout::FormatRange r, textCursor().block().layout()->formats()) {
             if (r.start == selStart && selLen == r.length && r.format.underlineStyle() == QTextCharFormat::WaveUnderline/*QTextCharFormat::SpellCheckUnderline*/) {
                 return c.selectedText();
             }
@@ -2128,7 +2134,11 @@ void CodeViewEditor::ResetFont()
     // But just in case, say we want a fixed width font if font is not present
     font.setStyleHint(QFont::TypeWriter);
     setFont(font);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
+    setTabStopDistance(TAB_SPACES_WIDTH * QFontMetrics(font).horizontalAdvance(' '));
+#else
     setTabStopWidth(TAB_SPACES_WIDTH * QFontMetrics(font).width(' '));
+#endif
     UpdateLineNumberAreaFont(font);
 }
 

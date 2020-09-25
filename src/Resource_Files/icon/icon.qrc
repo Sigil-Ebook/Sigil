@@ -6,5 +6,11 @@
     <file>app_icon_128.png</file>
     <file>app_icon_256.png</file>
     <file>app_icon_512.png</file>
-  </qresource>
+    <file>Main.png</file>
+    <file>Fluent.png</file>
+    <file>Material.png</file>
+    <file>Main_dark.png</file>
+    <file>Fluent_dark.png</file>
+    <file>Material_dark.png</file>
+</qresource>
 </RCC>

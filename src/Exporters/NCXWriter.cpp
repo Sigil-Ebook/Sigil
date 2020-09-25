@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -108,12 +108,12 @@ void NCXWriter::WriteHead()
 void NCXWriter::WriteDocTitle()
 {
     QString document_title;
-    QList<QVariant> titles = m_Book->GetMetadataValues("dc:title");
+    QStringList titles = m_Book->GetMetadataValues("dc:title");
 
     if (titles.isEmpty()) {
         document_title = "Unknown";
     } else { // FIXME: handle multiple titles
-        document_title = titles.first().toString();
+        document_title = titles.first();
     }
 
     m_Writer->writeStartElement("docTitle");
@@ -184,11 +184,9 @@ TOCModel::TOCEntry NCXWriter::ConvertHeadingWalker(const Headings::Heading &head
         // If this heading appears right after a section break,
         // then it "represents" and links to its file; otherwise,
         // we link to the heading element directly
-        if (heading.at_file_start) {
-            toc_child.target = Utility::URLEncodePath(heading_file);
-        } else {
-            QString path = heading_file + "#" + id_to_use;
-            toc_child.target = Utility::URLEncodePath(path);
+        toc_child.target = Utility::URLEncodePath(heading_file);
+        if (!heading.at_file_start) {
+            toc_child.target = toc_child.target + "#" + Utility::URLEncodePath(id_to_use);
         }
     }
 
@@ -199,7 +197,7 @@ TOCModel::TOCEntry NCXWriter::ConvertHeadingWalker(const Headings::Heading &head
 }
 
 
-// Note TOCModel::TOCEntry target is now a book path with a possible fragment added
+// Note TOCModel::TOCEntry target is now a URLEncoded book path with a possible fragment added
 // This allows mixing targets created from the Nav and the NCX to both be properly
 // represented in a TOCEntry since they are properly converted to book paths
 void NCXWriter::WriteNavPoint(const TOCModel::TOCEntry &entry, int &play_order)
@@ -256,7 +254,8 @@ QString NCXWriter::ConvertBookPathToNCXRelative(const QString & bookpath)
     QString dest_bkpath = pieces.at(0);
     QString fragment = "";
     if (pieces.size() > 1) fragment = pieces.at(1);
-    QString new_href = Utility::buildRelativePath(ncx_bkpath, dest_bkpath);
+    QString new_href = Utility::buildRelativePath(ncx_bkpath, Utility::URLDecodePath(dest_bkpath));
+    new_href = Utility::URLEncodePath(new_href);
     if (!fragment.isEmpty()) {
         new_href = new_href + "#" + fragment;
     }

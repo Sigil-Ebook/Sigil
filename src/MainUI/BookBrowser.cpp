@@ -123,7 +123,7 @@ void BookBrowser::SetBook(QSharedPointer<Book> book)
         EmitResourceActivated(m_OPFModel->GetFirstHTMLModelIndex());
     }
     // No exception variable since we don't use it
-    catch (NoHTMLFiles) {
+    catch (NoHTMLFiles&) {
         // Do nothing. No HTML files, no first file opened.
     }
 }
@@ -131,6 +131,7 @@ void BookBrowser::SetBook(QSharedPointer<Book> book)
 void BookBrowser::RefreshCounts()
 {
     int  mainfolder_length = m_Book->GetFolderKeeper()->GetFullPathToMainFolder().length();
+    Q_UNUSED(mainfolder_length);
     for (int i = 0; i < m_OPFModel->invisibleRootItem()->rowCount(); i++) {
         QStandardItem *folder = m_OPFModel->invisibleRootItem()->child(i);
 	QString tooltip;
@@ -275,7 +276,7 @@ Resource *BookBrowser::GetUrlResource(const QUrl &url)
         try {
             Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
             return resource;
-        } catch (ResourceDoesNotExist) {
+        } catch (ResourceDoesNotExist&) {
             Utility::DisplayStdErrorDialog(tr("The file \"%1\" does not exist.").arg(bookpath));
         }
     }
@@ -715,7 +716,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
 		        CoverImageSemanticsSet = m_Book->GetOPF()->IsCoverImage(image_resource);
 		    }
                     old_resource->Delete();
-                } catch (ResourceDoesNotExist) {
+                } catch (ResourceDoesNotExist&) {
                     Utility::DisplayStdErrorDialog(tr("Unable to delete or replace file \"%1\".").arg(filename)
                     );
                     continue;
@@ -992,6 +993,7 @@ void BookBrowser::Rename()
     }
 
     Resource::ResourceType resource_type = resources.first()->Type();
+    Q_UNUSED(resource_type);
 
     if (resources.count() == 1) {
         // Save the resource so it can be re-selected
@@ -1012,7 +1014,8 @@ void BookBrowser::REXRename()
     }
 
     Resource::ResourceType resource_type = resources.first()->Type();
-
+    Q_UNUSED(resource_type);
+    
     QString retext;
     QString replacetext;
     int trycnt = 4;
@@ -1668,7 +1671,7 @@ void BookBrowser::SetupTreeView()
 {
     m_TreeView->setEditTriggers(QAbstractItemView::EditKeyPressed);
     m_TreeView->setSortingEnabled(false);
-    m_TreeView->sortByColumn(-1);
+    m_TreeView->sortByColumn(-1, Qt::AscendingOrder);
     m_TreeView->setUniformRowHeights(true);
     m_TreeView->setDragEnabled(true);
     m_TreeView->setAcceptDrops(false);

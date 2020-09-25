@@ -60,6 +60,7 @@ public:
 
     QString uiFont();
     QString originalUIFont();
+    QString uiIconTheme();
 
     int uiDragDistanceTweak();
 
@@ -91,6 +92,9 @@ public:
     QString dictionary();
 
     QStringList enabledUserDictionaries();
+
+    QString secondary_dictionary();
+
 
     /**
      * Get the list of entities/code pairs to preserve
@@ -258,6 +262,8 @@ public slots:
 
     void setOriginalUIFont(const QString &font_data);
 
+    void setUIIconTheme(const QString &iconthemename);
+
     void setUiDragDistanceTweak(int tweak);
 
     /**
@@ -288,6 +294,8 @@ public slots:
     void setDictionary(const QString &name);
 
     void setEnabledUserDictionaries(const QStringList name);
+
+    void setSecondaryDictionary(const QString &name);
 
     /**
      * Set the list of paired code, entity strings to preserve.

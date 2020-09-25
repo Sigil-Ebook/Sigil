@@ -8,7 +8,7 @@
 # directly from source.
 
 # We do highly recommend you use the same Qt versions as official Sigil builds on Mac OS X.
-# which is now Qt 5.12.8 or later
+# which is now Qt 5.12.9 or later
 
 # These instructions will lead you through building from source
 # FIRST:  make sure you have XCode 10 or later installed and the Command Line Tools
@@ -63,28 +63,29 @@ make
 sudo make install
 
 
-# Building Qt5.12.8 from source
+# Building Qt5.12.9 from source
 # -----------------------------
 
-# download qt-everywhere-src-5.12.8.tar.xz directly from Qt
-# from:  http://download.qt.io/archive/qt/5.12/5.12.8/single/
+# download qt-everywhere-src-5.12.9.tar.xz directly from Qt
+# from:  http://download.qt.io/archive/qt/5.12/5.12.9/single/
 
 # and then unpack it
-# Note to get unxz - you may need to download and build xz-5.2.4.tar.gz
+# Note to get unxz - you may need to download and build xz-5.2.5.tar.gz
 # see the docs on building a relocatable python for instruction on building xz
 
-unxz qt-everywhere-src-5.12.8.tar.xz
-tar -xvf qt-everywhere-src-5.12.8.tar
+unxz qt-everywhere-src-5.12.9.tar.xz
+tar -xvf qt-everywhere-src-5.12.9.tar
 
 cd qt-everywhere-src-5.12.8
 
-# now copy 5 required patches from Sigil/docs/ into this directory
+# now copy 6 required patches from Sigil/docs/ into this directory (they are the same patches needed for Qt 5.12.8 as well)
 
 cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.8_avoid_qtabbar_segfault.patch ./
 cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.8_fix_h6_insertParagraph.patch ./
 cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.8_fix_missing_macos_menubar.patch ./
 cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.8_remove_bad_workaround.patch ./
 cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.8_qmenu_hide_bug_fix_f579be9.patch ./
+cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt512.8_qtwebengine_bad_chrome_merge_repair.patch ./
 
 # apply mouse press and flick on qtabbar tab fix to prevent segfault
 # See https://bugreports.qt.io/browse/QTBUG-74478
@@ -93,6 +94,10 @@ patch -p0 < ./qt512.8_avoid_qtabbar_segfault.patch
 # then apply an obvious fix for insertParagraph execcommand and h6 (see w3c spec)
 # See https://bugreports.qt.io/browse/QTBUG-79778
 patch -p0 < ./qt512.8_fix_h6_insertParagraph.patch
+
+# then apply an patch to repair breakage instroduced by a bad chrome merge
+# See https://bugreports.qt.io/browse/QTBUG-85160
+patch -p0 < ./qt512.8_qtwebengine_bad_chrome_merge_repair.patch
 
 # the remaining patches are ONLY important for Qt on macOS
 
@@ -118,21 +123,21 @@ export MACOSX_DEPLOYMENT_TARGET=10.12
 # Create a destination directory to house your complete Qt binary in your home directory
 # to be similar to how stock Qt does it
 cd ~/
-mkdir Qt5128
+mkdir Qt5129
 
 # Now return and create a shadow build inside a new directory to keep your Qt 5.12.X sources clean
 cd ${MYQTSRC}
-mkdir buildqt5128
-cd buildqt5128
+mkdir buildqt5129
+cd buildqt5129
 
 
 # Remember to include the -webengine-proprietary-codecs configure switch
 
-../qt-everywhere-src-5.12.8/configure --prefix=/Users/${USER}/Qt5128 -webengine-proprietary-codecs -opensource -nomake examples -nomake tests
+../qt-everywhere-src-5.12.9/configure --prefix=/Users/${USER}/Qt5129 -webengine-proprietary-codecs -opensource -nomake examples -nomake tests
 
 # note the build itself can take a couple of hours depending on memory available, disk and cpus used
 make -j4
 make install
 
-# After the install phase completes your newly built Qt should exist in ~/Qt5128 ready to be used
+# After the install phase completes your newly built Qt should exist in ~/Qt5129 ready to be used
 # to build Sigil and PageEdit

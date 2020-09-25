@@ -134,7 +134,7 @@ public:
      *
      * @return A list of values
      */
-    QList<QVariant> GetDCMetadataValues(QString text) const;
+    QStringList GetDCMetadataValues(QString text) const;
 
     void SetNavResource(HTMLResource* nav);
     HTMLResource* GetNavResource() const;

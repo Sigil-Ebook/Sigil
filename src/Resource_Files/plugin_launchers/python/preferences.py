@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
@@ -26,20 +26,9 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
 # WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from __future__ import unicode_literals, division, absolute_import, print_function
-
 import os
 import json
 from collections import OrderedDict
-
-from compatibility_utils import PY2
-
-if PY2:
-    import codecs
-    file_open = codecs.open
-else:
-    file_open = open
-
 
 class JSONPrefs(dict):
 
@@ -51,19 +40,19 @@ class JSONPrefs(dict):
         self.defaults = OrderedDict()
         pfolder = os.path.join(os.path.dirname(plugin_dir), "plugins_prefs", plugin_name)
         # in a plugins_prefs dir (/plugin_name subdir just to be safe)
-        self.file_path = os.path.join(pfolder,  '{0}{1}'.format(plugin_name, self.EXTENSION))
+        self.file_path = os.path.join(pfolder, '{0}{1}'.format(plugin_name, self.EXTENSION))
         self.file_path = os.path.abspath(self.file_path)
         self.refresh()
 
     def refresh(self, clear_current=True):
         d = OrderedDict()
         if os.path.exists(self.file_path):
-            with file_open(self.file_path, 'r', encoding='utf-8') as f:
+            with open(self.file_path, 'r', encoding='utf-8') as f:
                 try:
                     d = json.load(f)
                 except SystemError:
                     pass
-                except:
+                except Exception:
                     import traceback
                     traceback.print_exc()
                     d = OrderedDict()
@@ -94,7 +83,7 @@ class JSONPrefs(dict):
             dict.__delitem__(self, key)
         except KeyError:
             pass  # ignore missing keys
-        except:
+        except Exception:
             import traceback
             traceback.print_exc()
 
@@ -103,5 +92,5 @@ class JSONPrefs(dict):
             dpath = os.path.dirname(self.file_path)
             if not os.path.exists(dpath):
                 os.makedirs(dpath, 0o700)
-            with file_open(self.file_path, 'w', encoding='utf-8') as f:
+            with open(self.file_path, 'w', encoding='utf-8') as f:
                 return json.dump(self, f, indent=2, ensure_ascii=False)

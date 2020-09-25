@@ -27,7 +27,13 @@
    Encryption is not supported.
 */
 
+#define NOCRYPT 1
+#define NOUNCRYPT 1
+
 #define CRC32(c, b) ((*(pcrc_32_tab+(((int)(c) ^ (b)) & 0xff))) ^ ((c) >> 8))
+
+#if !defined(NOUNCRYPT) && !defined(NOCRYPT)
+
 
 /***********************************************************************
  * Return the next byte in the pseudo-random sequence
@@ -56,7 +62,6 @@ static int update_keys(unsigned long* pkeys,const unsigned long* pcrc_32_tab,int
     }
     return c;
 }
-
 
 /***********************************************************************
  * Initialize the encryption keys and the random header according to
@@ -127,5 +132,6 @@ static int crypthead(const char* passwd,      /* password string */
     buf[n++] = (unsigned char)zencode(pkeys, pcrc_32_tab, (int)(crcForCrypting >> 24) & 0xff, t);
     return n;
 }
+#endif
 
 #endif

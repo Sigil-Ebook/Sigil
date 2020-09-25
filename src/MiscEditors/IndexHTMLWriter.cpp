@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **
@@ -127,11 +127,10 @@ void IndexHTMLWriter::WriteEntries(QStandardItem *parent_item)
             // If the entry has no children then its a target id.
             if (item->child(j, 0)->rowCount() == 0) {
 		QString target = item->child(j,0)->text();
-	        std::pair<QString,QString> parts = Utility::parseHREF(target);
+	        std::pair<QString,QString> parts = Utility::parseRelativeHREF(target);
                 QString fragment = parts.second;
                 target = Utility::buildRelativePath(m_IndexBookPath, parts.first);
-		if (!fragment.isEmpty()) target = target + fragment;
-		target = Utility::URLEncodePath(target);
+                target = Utility::buildRelativeHREF(target, fragment);
                 if (ref_count > 1) {
                     m_IndexHTMLFile += ", ";
                 }

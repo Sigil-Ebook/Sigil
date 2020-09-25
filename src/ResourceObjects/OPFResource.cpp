@@ -31,6 +31,7 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QDateTime>
+#include <QDebug>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
@@ -189,7 +190,7 @@ bool OPFResource::LoadFromDisk()
 	SetText(text);
         emit LoadedFromDisk();
 	return true;
-    } catch (CannotOpenFile) {
+    } catch (CannotOpenFile&) {
         //
     }
     return false;
@@ -198,6 +199,7 @@ bool OPFResource::LoadFromDisk()
 QList<Resource*> OPFResource::GetSpineOrderResources( const QList<Resource *> &resources)
 {
     QReadLocker locker(&GetLock());
+    qDebug() << "GetSpineOrderResources";
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
@@ -215,6 +217,7 @@ QList<Resource*> OPFResource::GetSpineOrderResources( const QList<Resource *> &r
 QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource *> resources)
 {
     QReadLocker locker(&GetLock());
+    qDebug() << "GetReadingOrderAll";
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
@@ -225,8 +228,10 @@ QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource 
     }
     QHash<Resource *, QString> id_mapping = GetResourceManifestIDMapping(resources, p);
     foreach(Resource *resource, resources) {
+        qDebug() << "   " << resource << id_order[id_mapping[resource]];
         reading_order[resource] = id_order[id_mapping[resource]];
     }
+    
     return reading_order;
 }
 
@@ -234,11 +239,13 @@ QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource 
 int OPFResource::GetReadingOrder(const HTMLResource *html_resource) const
 {
     QReadLocker locker(&GetLock());
+    qDebug() << "GetReadingOrder";
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     const Resource *resource = static_cast<const Resource *>(html_resource);
     QString resource_id = GetResourceManifestID(resource, p);
+    qDebug() << "   " << "looking for " << resource_id;
     for (int i = 0; i < p.m_spine.count(); ++i) {
         QString idref = p.m_spine.at(i).m_idref;
         if (resource_id == idref) {
@@ -355,7 +362,7 @@ QString OPFResource::AddNCXItem(const QString &ncx_path, QString id)
     int n = p.m_manifest.count();
     ManifestEntry me;
     me.m_id = GetUniqueID(id, p);
-    me.m_href = ncx_rel_path;
+    me.m_href = Utility::URLEncodePath(ncx_rel_path);
     me.m_mtype = "application/x-dtbncx+xml";
     p.m_manifest.append(me);
     p.m_idpos[me.m_id] = n;
@@ -400,7 +407,7 @@ void OPFResource::UpdateNCXLocationInManifest(const NCXResource *ncx)
     if (pos > -1) {
         ManifestEntry me = p.m_manifest.at(pos);
         QString href = me.m_href;
-	QString new_href = GetRelativePathToResource(ncx);
+	QString new_href = Utility::URLEncodePath(GetRelativePathToResource(ncx));
         me.m_href = new_href;
         p.m_manifest.replace(pos, me);
         p.m_hrefpos.remove(href);
@@ -479,6 +486,7 @@ void OPFResource::AutoFixWellFormedErrors()
 
 QStringList OPFResource::GetSpineOrderBookPaths() const
 {
+    qDebug() << "GetSpineOrderBookPaths";
     QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
@@ -489,8 +497,8 @@ QStringList OPFResource::GetSpineOrderBookPaths() const
         QString idref = sp.m_idref;
         int pos = p.m_idpos.value(idref,-1);
         if (pos > -1) {
-            QString href = p.m_manifest.at(pos).m_href;
-            book_paths_in_reading_order.append(Utility::buildBookPath(href,GetFolder()));
+            QString apath = Utility::URLDecodePath(p.m_manifest.at(pos).m_href);
+            book_paths_in_reading_order.append(Utility::buildBookPath(apath,GetFolder()));
         }
     }
     return book_paths_in_reading_order;
@@ -499,9 +507,9 @@ QStringList OPFResource::GetSpineOrderBookPaths() const
 QString OPFResource::GetPrimaryBookTitle() const
 {
     QString title = "";
-    QList<QVariant> titles = GetDCMetadataValues("dc:title");
+    QStringList titles = GetDCMetadataValues("dc:title");
     if (!titles.isEmpty()) {
-         title = titles.at(0).toString();
+	title = titles.at(0);
     }
     return title;
 }
@@ -510,9 +518,9 @@ QString OPFResource::GetPrimaryBookLanguage() const
 {
     SettingsStore settings;
     QString lang = settings.defaultMetadataLang();
-    QList<QVariant> languages = GetDCMetadataValues("dc:language");
+    QStringList languages = GetDCMetadataValues("dc:language");
     if (!languages.isEmpty()) {
-        lang = languages.at(0).toString();
+        lang = languages.at(0);
     }
     return lang;
 }
@@ -534,15 +542,15 @@ QList<MetaEntry> OPFResource::GetDCMetadata() const
 }
 
 
-QList<QVariant> OPFResource::GetDCMetadataValues(QString text) const
+QStringList OPFResource::GetDCMetadataValues(QString text) const
 {
-    QList<QVariant> values;
+    QStringList metavalues;
     foreach(MetaEntry meta, GetDCMetadata()) {
         if (meta.m_name == text) {
-            values.append(meta.m_content);
+            metavalues.append(meta.m_content);
         }
     }
-    return values;
+    return metavalues;
 }
 
 
@@ -571,7 +579,7 @@ void OPFResource::AddResource(const Resource *resource)
     p.parse(source);
     ManifestEntry me;
     me.m_id = GetUniqueID(GetValidID(resource->Filename()),p);
-    me.m_href = GetRelativePathToResource(resource);
+    me.m_href = Utility::URLEncodePath(GetRelativePathToResource(resource));
     me.m_mtype = GetResourceMimetype(resource);
     // Argh! If this is an new blank resource - it will have no content yet
     // so trying to parse it here to check for manifest properties is a mistake
@@ -677,7 +685,7 @@ void OPFResource::RemoveResource(const Resource *resource)
     OPFParser p;
     p.parse(source);
     if (p.m_manifest.isEmpty()) return;
-    QString href = GetRelativePathToResource(resource);
+    QString href = Utility::URLEncodePath(GetRelativePathToResource(resource));
     int pos = p.m_hrefpos.value(href, -1);
     QString item_id = "";
 
@@ -764,7 +772,7 @@ QString OPFResource::GetGuideSemanticCodeForResource(const Resource *resource, c
 
 int OPFResource::GetGuideReferenceForResourcePos(const Resource *resource, const OPFParser &p) const
 {
-  QString href_to_resource_from_opf = GetRelativePathToResource(resource);
+  QString href_to_resource_from_opf = Utility::URLEncodePath(GetRelativePathToResource(resource));
     for (int i=0; i < p.m_guide.count(); ++i) {
         GuideEntry ge = p.m_guide.at(i);
         QString href = ge.m_href;
@@ -823,7 +831,7 @@ void OPFResource::SetGuideSemanticCodeForResource(QString code, const Resource *
         GuideEntry ge;
         ge.m_type = code;
         ge.m_title = title;
-        ge.m_href = GetRelativePathToResource(resource);
+        ge.m_href = Utility::URLEncodePath(GetRelativePathToResource(resource));
         p.m_guide.append(ge);
     }
 }
@@ -856,7 +864,8 @@ QHash <QString, QString>  OPFResource::GetSemanticCodeForPaths()
   foreach(GuideEntry ge, p.m_guide) {
     QString href = ge.m_href;
     QStringList parts = href.split('#', QString::KeepEmptyParts);
-    QString bkpath = Utility::buildBookPath(parts.at(0),GetFolder());
+    QString apath = Utility::URLDecodePath(parts.at(0));
+    QString bkpath = Utility::buildBookPath(apath, GetFolder());
     QString gtype = ge.m_type;
     semantic_types[bkpath] = gtype;
   }
@@ -876,7 +885,8 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
         QString href = ge.m_href;
         QStringList parts = href.split('#', QString::KeepEmptyParts);
         QString gtype = ge.m_type;
-	QString bkpath = Utility::buildBookPath(parts.at(0),GetFolder());
+        QString apath = Utility::URLDecodePath(parts.at(0));
+	QString bkpath = Utility::buildBookPath(apath, GetFolder());
         semantic_types[bkpath] = GuideItems::instance()->GetName(gtype);
     }
 
@@ -886,9 +896,9 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
         MetaEntry me = p.m_metadata.at(pos);
         QString cover_id = me.m_atts.value(QString("content"),QString(""));
         ManifestEntry man = p.m_manifest.at(p.m_idpos[cover_id]);
-        QString href = man.m_href;
-	href = Utility::buildBookPath(href, GetFolder());
-        semantic_types[href] = GuideItems::instance()->GetName("cover");
+        QString apath = Utility::URLDecodePath(man.m_href);
+	QString bkpath = Utility::buildBookPath(apath, GetFolder());
+        semantic_types[bkpath] = GuideItems::instance()->GetName("cover");
     }
     return semantic_types;
 }
@@ -933,6 +943,7 @@ void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
 
 void OPFResource::UpdateSpineOrder(const QList<::HTMLResource *> html_files)
 {
+    qDebug() << "UpdateSpineOrder";
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
@@ -971,7 +982,7 @@ void OPFResource::ResourceRenamed(const Resource *resource, QString old_full_pat
     p.parse(source);
     // first convert old_full_path to old_bkpath
     QString old_bkpath = old_full_path.right(old_full_path.length() - GetFullPathToBookFolder().length() - 1);
-    QString old_href = Utility::buildRelativePath(GetRelativePath(), old_bkpath);
+    QString old_href = Utility::URLEncodePath(Utility::buildRelativePath(GetRelativePath(), old_bkpath));
     QString old_id;
     QString new_id;
     for (int i=0; i < p.m_manifest.count(); ++i) {
@@ -979,7 +990,8 @@ void OPFResource::ResourceRenamed(const Resource *resource, QString old_full_pat
         if (href == old_href) {
             ManifestEntry me = p.m_manifest.at(i);
             QString old_me_href = me.m_href;
-            me.m_href = GetRelativePathToResource(resource);
+            me.m_href = Utility::URLEncodePath(GetRelativePathToResource(resource));
+            qDebug() << "renaming resource to" << me.m_href;
             old_id = me.m_id;
             p.m_idpos.remove(old_id);
             new_id = GetUniqueID(GetValidID(resource->Filename()),p);
@@ -1029,14 +1041,14 @@ void OPFResource::ResourceMoved(const Resource *resource, QString old_full_path)
     p.parse(source);
     // first convert old_full_path to old_bkpath
     QString old_bkpath = old_full_path.right(old_full_path.length() - GetFullPathToBookFolder().length() - 1);
-    QString old_href = Utility::buildRelativePath(GetRelativePath(), old_bkpath);
+    QString old_href = Utility::URLEncodePath(Utility::buildRelativePath(GetRelativePath(), old_bkpath));
     // a move should not impact the id so leave the old unique manifest id unchanged
     for (int i=0; i < p.m_manifest.count(); ++i) {
         QString href = p.m_manifest.at(i).m_href;
         if (href == old_href) {
             ManifestEntry me = p.m_manifest.at(i);
             QString old_me_href = me.m_href;
-            me.m_href = GetRelativePathToResource(resource);
+            me.m_href = Utility::URLEncodePath(GetRelativePathToResource(resource));
             p.m_idpos[me.m_id] = i;
             p.m_hrefpos.remove(old_me_href);
             p.m_hrefpos[me.m_href] = i;
@@ -1083,7 +1095,7 @@ QHash<QString, Resource*>OPFResource::GetManifestIDResourceMapping(const QList<R
 {
     QHash<QString, Resource*> id_mapping;
     foreach(Resource * resource, resources) {
-        QString href_path = GetRelativePathToResource(resource);
+        QString href_path = Utility::URLEncodePath(GetRelativePathToResource(resource));
         int pos = p.m_hrefpos.value(href_path,-1);
         if (pos > -1) { 
 	    id_mapping[ p.m_manifest.at(pos).m_id ] = resource;
@@ -1095,11 +1107,12 @@ QHash<QString, Resource*>OPFResource::GetManifestIDResourceMapping(const QList<R
 
 QString OPFResource::GetResourceManifestID(const Resource *resource, const OPFParser& p) const
 {
-    QString href_path = GetRelativePathToResource(resource);
+    QString href_path = Utility::URLEncodePath(GetRelativePathToResource(resource));
     int pos = p.m_hrefpos.value(href_path,-1);
     if (pos > -1) { 
         return QString(p.m_manifest.at(pos).m_id); 
     }
+    qDebug() << "GetResourceMainfestID returning null" << href_path;
     return QString();
 }
 
@@ -1107,12 +1120,19 @@ QString OPFResource::GetResourceManifestID(const Resource *resource, const OPFPa
 QHash<Resource *, QString> OPFResource::GetResourceManifestIDMapping(const QList<Resource *> &resources, 
                                                                      const OPFParser& p)
 {
+    qDebug() << "In GetResourceMainifestIDMapping";
     QHash<Resource *, QString> id_mapping;
+    QStringList keys = p.m_hrefpos.keys();
+    foreach(QString key, keys) {
+        qDebug() << "p.m_hrefpos: " << key;
+    }
     foreach(Resource * resource, resources) {
-      QString href_path = GetRelativePathToResource(resource);
+        QString href_path = Utility::URLEncodePath(GetRelativePathToResource(resource));
         int pos = p.m_hrefpos.value(href_path,-1);
         if (pos > -1) { 
             id_mapping[ resource ] = p.m_manifest.at(pos).m_id;
+        } else {
+          qDebug() << "GetResourceMainifestIDMapping no map for" << href_path;
         }
     }
     return id_mapping;
@@ -1341,7 +1361,7 @@ void OPFResource::UpdateManifestProperties(const QList<Resource*> resources)
         const HTMLResource* html_resource = static_cast<const HTMLResource *>(resource);
         // do not overwrite the nav property, it must stay no matter what
         if (html_resource != m_NavResource) {
-	    QString href = GetRelativePathToResource(html_resource);
+            QString href = Utility::URLEncodePath(GetRelativePathToResource(html_resource));
             int pos = p.m_hrefpos.value(href, -1);
             if ((pos >= 0) && (pos < p.m_manifest.count())) {
                 ManifestEntry me = p.m_manifest.at(pos);
@@ -1384,7 +1404,7 @@ QString OPFResource::GetManifestPropertiesForResource(const Resource * resource)
     if (!p.m_package.m_version.startsWith("3")) {
         return properties;
     }
-    QString href = GetRelativePathToResource(resource);
+    QString href = Utility::URLEncodePath(GetRelativePathToResource(resource));
     int pos = p.m_hrefpos.value(href, -1);
     if ((pos >= 0) && (pos < p.m_manifest.count())) {
         ManifestEntry me = p.m_manifest.at(pos);
@@ -1406,11 +1426,11 @@ QHash <QString, QString>  OPFResource::GetManifestPropertiesForPaths()
     OPFParser p;
     p.parse(source);
     foreach(ManifestEntry me, p.m_manifest) {
-        QString href = me.m_href;
+        QString apath = Utility::URLDecodePath(me.m_href);
         if (me.m_atts.contains("properties")){
             QString properties = me.m_atts["properties"];
-	    href = Utility::buildBookPath(href,GetFolder());
-            manifest_properties_all[href] = properties;
+	    apath = Utility::buildBookPath(apath, GetFolder());
+            manifest_properties_all[apath] = properties;
         }
     }
     return manifest_properties_all;
@@ -1432,7 +1452,7 @@ void OPFResource::SetNavResource(HTMLResource * nav_resource)
         QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
         OPFParser p;
         p.parse(source);
-        QString href = GetRelativePathToResource(m_NavResource);
+        QString href = Utility::URLEncodePath(GetRelativePathToResource(m_NavResource));
         int pos = p.m_hrefpos.value(href, -1);
         if ((pos >= 0) && (pos < p.m_manifest.count())) {
             ManifestEntry me = p.m_manifest.at(pos);
@@ -1450,7 +1470,7 @@ void OPFResource::SetItemRefLinear(Resource * resource, bool linear)
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
-    QString resource_href_path = GetRelativePathToResource(resource);
+    QString resource_href_path = Utility::URLEncodePath(GetRelativePathToResource(resource));
     int pos = p.m_hrefpos.value(resource_href_path, -1);
     QString item_id = "";
     if (pos > -1) {

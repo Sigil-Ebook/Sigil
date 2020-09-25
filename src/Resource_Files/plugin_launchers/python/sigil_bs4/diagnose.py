@@ -1,24 +1,9 @@
 """Diagnostic functions, mainly for use when doing tech support."""
-from __future__ import unicode_literals, division, absolute_import, print_function
-
 import sys
-PY3 = sys.version_info[0] >= 3
-if PY3:
-    text_type = str
-    binary_type = bytes
-else:
-    range = xrange
-    text_type = unicode
-    binary_type = str
-
 import cProfile
 
-if PY3:
-    from io import StringIO
-    from html.parser import HTMLParser
-else:
-    from StringIO import StringIO
-    from HTMLParser import HTMLParser
+from io import StringIO
+from html.parser import HTMLParser
 
 import sigil_bs4
 from sigil_bs4 import BeautifulSoup, __version__

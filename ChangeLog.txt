@@ -1,16 +1,30 @@
-pre-1.3.0
+Sigil-1.3.0
     New Features:
       - Added FontTab to show a specific font by double-clicking in BookBrowser
-      - Reorganized the source code to add a Widgets folder to reduce code duplication
-      - Updated to use Qt 5.12.8 with added patches and backported crash fixes
+      - Added Index Toolbar
+      - Windows/macOS release build updated to Qt 5.12.9 with added bug fixes
+      - Windows/macOS release build updated to Python 3.8.3
+      - Added increased protection against evil epubs manipulating file: urls
+      - Changes to support building with Visual Studio 2019 on Windows
+      - Improved Windows Installer and handling of C++ runtime libraries
+      - Updated Build instructions for MacOS, Windows, and Linux
 
     Bug Fixes:
+      - Reorganized the source code to add a Widgets folder to reduce code duplication
       - Fixed spelling mistakes in MetaEditor user interface and xmlsanitycheck error messages
       - Fixed mistakes handling font files (and other files) whose names start with a "." on macOS/Linux
       - Improved embedded python error messages
+      - Improved some error messages on epub load
       - Fix TabConnections to properly handle the new FontTab tabs
-      - grew Preferences Colour widths to better handle non-Enlgish colour names (Thanks BeckyEbook)
-      - Better handle missing local links when using Add Existing ...
+      - grew Preferences Colour widths to better handle non-English colour names (Thanks BeckyEbook)
+      - Fixed bug in handling missing local links when using Add Existing ...
+      - Removed all python2 remanants from the Sigil plugin and pythonlib code
+      - If "Mend on Open" set, better handle import of huge file of of run-on lines
+      - Bug fix for css url updating
+      - Fix bug that prevented css updates from being shown in Preview without reload
+      - Fix gcc8 build warnings where possible
+      - Prevent BookBrowser's Rename and RERename from using URI delimiters ("#",etc) in file names
+
 
 Sigil-1.2.1
     Bug Fix:

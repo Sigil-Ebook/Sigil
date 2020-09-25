@@ -231,7 +231,7 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="53"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="119"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="309"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="318"/>
         <source>Font Size:</source>
         <translation>Teckenstorlek:</translation>
     </message>
@@ -277,141 +277,141 @@
         <translation>Anpassad färg...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="260"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="269"/>
         <source>Preview</source>
         <translation>Förhandsgranskning</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="266"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="497"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="275"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="506"/>
         <source>Fonts:</source>
         <translation>Typsnitt:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="275"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="284"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
         <translation>Om inget typsnitt anges i CSS för din sida, kommer följande typsnitt att användas för att visas inom Sigil. Dessa typsnitt kommer inte att användas i din faktiska e-boken.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="305"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="314"/>
         <source>Default font size to be used for Preview
 if no font-size specified in your CSS</source>
         <translation>Standard teckenstorlek som ska användas för förhandsgranskning
 om ingen teckenstorlek anges i din CSS</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="316"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="325"/>
         <source>Default font family to be used for Preview
 if no font-family specified in your CSS</source>
         <translation>Standard typsnittsfamilj som ska användas för förhandsgranskning
 om ingen typsnittsfamilj anges i din CSS</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="320"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="329"/>
         <source>Standard:</source>
         <translation>Standard:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="343"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="352"/>
         <source>Default font family to be used for Preview
 if a serif font-family specified in your CSS</source>
         <translation>Standard typsnittsfamilj som ska användas för förhandsgranskning
 om ingen serif-typsnittsfamilj anges i din CSS</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="347"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="356"/>
         <source>Serif:</source>
         <translation>Serif:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="360"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="369"/>
         <source>Default font family to be used for Preview
 if a sans-serif font-family specified in your CSS</source>
         <translation>Standard typsnittsfamilj som ska användas för förhandsgranskning
 om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="364"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="373"/>
         <source>Sans-Serif:</source>
         <translation>Sans-Serif:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="391"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="400"/>
         <source>Make Preview simulate a dark appearance in dark mode</source>
         <translation>Gör att förhandsgranskning simulerar ett mörkt utseende i mörkt läge</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="415"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="424"/>
         <source>Main UI</source>
         <translation>Huvudanvändargränssnitt</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="421"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="430"/>
         <source>Main Menu Icon Size:</source>
         <translation>Ikonstorlek i huvudmeny:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="427"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="436"/>
         <source>Adjust the size of the icons in the main menu.</source>
         <translation>Justera storleken på ikonerna i huvudmenyn.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="465"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="474"/>
         <source>High DPI Setting:</source>
         <translation>Hög DPI inställning:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="474"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="483"/>
         <source>(Needs Sigil Restart)</source>
         <translation>(Kräver att Sigil startas om)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="503"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="512"/>
         <source>UI Font:</source>
         <translation>Typsnitt i användargränsnittet:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="513"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="522"/>
         <source>Change the font used by Sigil&apos;s menus, buttons, etc...</source>
         <translation>Ändra typsnittet som används av Sigils menyer, knappar o.s.v...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="516"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="525"/>
         <source>Change Font (Needs Sigil Restart)</source>
         <translation>Ändra typsnitt (Kräver att Sigil startas om)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="539"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="548"/>
         <source>Determine if the BookBrowser should show full paths</source>
         <translation>Bestäm om BookBrowser ska visa fullständiga sökvägar</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="542"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="551"/>
         <source>Control Book Browser Appearance:</source>
         <translation>Kontrollera bokbläddrarens utseende:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="551"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="560"/>
         <source>Check to make BookBrowser show full paths.</source>
         <translation>Kontrollera för att göra att BookBrowser visar hela sökvägar.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="554"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="563"/>
         <source>BookBrowser should show full paths.</source>
         <translation>BookBrowser ska visa fullständiga sökvägar.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="567"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="576"/>
         <source>Tweak Drag Distance (Needs Sigil Restart):</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="600"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="609"/>
         <source>Reset all fonts and colors to the default values</source>
         <translation>Återställ alla typsnitt och färger till standardvärdena</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="603"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="612"/>
         <source>Reset All</source>
         <translation>Återställ alla</translation>
     </message>
@@ -441,7 +441,7 @@ om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="94"/>
         <source>Defers to any Qt environment variables that are set to control high dpi behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Använder mot alla Qt-miljövariabler som är inställda på att styra högt dpi-beteende.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="95"/>
@@ -466,12 +466,12 @@ om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="102"/>
         <source>Adjust the distance necessary to drag an item before a move event is triggered.</source>
-        <translation type="unfinished"/>
+        <translation>Justera det avstånd som krävs för att dra ett objekt innan en rörelsehändelse utlöses.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="103"/>
         <source>-20 to +20 pixel range</source>
-        <translation type="unfinished"/>
+        <translation>-20 till +20 pixelintervall</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="287"/>
@@ -581,49 +581,49 @@ om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="82"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1714"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1836"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1719"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1841"/>
         <source>Open With</source>
         <translation>Öppna med</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="141"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="142"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n fil</numerusform><numerusform>%n filer</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="244"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="691"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="722"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="780"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="894"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1178"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1283"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="245"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="694"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="725"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="783"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="897"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1183"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="244"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="245"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Är du säker på att du vill sortera de valda filerna alfanumeriskt?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="244"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="245"/>
         <source>This action cannot be reversed.</source>
         <translation>Denna åtgärd kan inte ångras.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="279"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="280"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Filen &quot;%1&quot; finns inte.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="622"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="625"/>
         <source>Add Existing Files</source>
         <translation>Lägg till befintliga filer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="661"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="664"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -632,7 +632,7 @@ om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="670"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="673"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -641,7 +641,7 @@ om ingen sans-serif-typsnittsfamilj anges i din CSS</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="692"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="695"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -650,12 +650,12 @@ OK to replace?</source>
 Ok för att ersätta?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="717"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="720"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Det går inte att radera eller ersätta filen &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="722"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="725"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -664,7 +664,7 @@ A file with this name already exists in the book.</source>
 En fil med det här namnet finns redan i boken.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="781"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="784"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -673,222 +673,222 @@ En fil med det här namnet finns redan i boken.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="795"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="798"/>
         <source>File(s) added.</source>
         <translation>Fil(er) tillagd(a).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="835"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="838"/>
         <source>Save As File</source>
         <translation>Spara som fil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="858"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="861"/>
         <source>Unable to save the file.</source>
         <translation>Det går inte att spara filen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="872"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="875"/>
         <source>Choose the directory to save the files to</source>
         <translation>Välj mapp att spara filer till
 
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="894"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="897"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>En eller flera filer finns redan. Okej att skriva över?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="911"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="914"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Det går inte att spara filer. Destination kan vara en mapp.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="919"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="922"/>
         <source>Unable to save files.</source>
         <translation>Det går inte att spara filer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1178"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1183"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Det går inte att byta namn på filer eftersom detta skulle resultera i dubbla filnamn.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1249"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1254"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>Målmappen har ogiltig sökväg &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1283"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation>Det går inte att flytta filer eftersom detta skulle resultera i dubbla filnamn.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1330"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1335"/>
         <source>The Nav document can not be removed.</source>
         <translation>Nav-dokumentet kan inte tas bort.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1338"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1343"/>
         <source>The NCX can not be removed.</source>
         <translation>NCX kan inte tas bort.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1345"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1350"/>
         <source>The OPF is required for epub and can not be removed.</source>
         <translation>OPF krävs för epub och kan inte tas bort.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1354"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1359"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Du kan inte ta bort alla html-filer.
 Det måste alltid finnas minst en.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1495"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1500"/>
         <source>Unable to set file as cover image.</source>
         <translation>Det går inte att ställa in filen som omslagsbild.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1693"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1698"/>
         <source>Select All</source>
         <translation>Välj alla</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1694"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1699"/>
         <source>Add Blank HTML File</source>
         <translation>Lägg till en tom HTML-fil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1695"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1700"/>
         <source>Add Blank Stylesheet</source>
         <translation>Lägg till tom formatmall</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1696"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1701"/>
         <source>Add Blank SVG Image</source>
         <translation>Lägg till tom SVG-bild</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1697"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1702"/>
         <source>Add Existing Files...</source>
         <translation>Lägg till befintliga filer...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1698"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1699"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1703"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1704"/>
         <source>Add Copy</source>
         <translation>Lägg till kopia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1700"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1705"/>
         <source>Rename</source>
         <translation>Byt namn</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1701"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1706"/>
         <source>RegEx Rename</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1702"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1707"/>
         <source>Move</source>
         <translation>Flytta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1703"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1708"/>
         <source>Delete</source>
         <translation>Ta bort</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1704"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1709"/>
         <source>Cover Image</source>
         <translation>Omslagsbild</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1705"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1710"/>
         <source>Merge</source>
         <translation>Sammanfoga</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1706"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1711"/>
         <source>None</source>
         <translation>Ingen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1707"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1712"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Använd Adobes metod</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1708"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1713"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Använd IDPF:s metod</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1709"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1714"/>
         <source>Sort</source>
         <translation>Sortera</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1710"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1715"/>
         <source>Renumber TOC Entries</source>
         <translation>Numrera om innehållsförteckning</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1711"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1716"/>
         <source>Link Stylesheets...</source>
         <translation>Länka formatmallar...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1712"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1717"/>
         <source>Add Semantics...</source>
         <translation>Lägg till semantik...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1713"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1718"/>
         <source>Validate with W3C</source>
         <translation>Validera med W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1715"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1720"/>
         <source>Save As</source>
         <translation>Spara som</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1729"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1734"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Sammanfoga med föregående fil, eller sammanfoga flera filer till en.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1732"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1737"/>
         <source>Rename selected file(s)</source>
         <translation>Byt namn på vald fil(er)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1734"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1739"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation>Använd reguljära uttryck för att byta namn på vald fil/valda filer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1737"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1742"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>Flytta vald fil/valda filer till en ny mapp</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1739"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1744"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Länka formatmallar till markerad fil/markerade filer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1741"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1746"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Lägg till semantik till vald(a) fil(er).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1871"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1876"/>
         <source>Other Application</source>
         <translation>Andra program</translation>
     </message>
@@ -898,56 +898,58 @@ Det måste alltid finnas minst en.</translation>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="81"/>
         <source>Files Only in Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Filer endast i kontrollpunkt</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="81"/>
         <location filename="../../Dialogs/CPCompare.cpp" line="82"/>
         <location filename="../../Dialogs/CPCompare.cpp" line="83"/>
         <source>View</source>
-        <translation type="unfinished"/>
+        <translation>Visa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="82"/>
         <source>Files Only in Current ePub</source>
-        <translation type="unfinished"/>
+        <translation>Filer endast i nuvarande ePub</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="83"/>
         <source>Modified since Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Ändrad sedan kontrollpunkt</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="84"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="191"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="193"/>
         <source>Results of Comparison</source>
-        <translation type="unfinished"/>
+        <translation>Resultat av jämförelse</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="85"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Klar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="193"/>
-        <source>These binary files differ in content:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="194"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="187"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="196"/>
         <source>Checkpoint:</source>
-        <translation type="unfinished"/>
+        <translation>Kontrollpunkt:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="194"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="195"/>
-        <source>bytes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="195"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="187"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="197"/>
         <source>Current:</source>
-        <translation type="unfinished"/>
+        <translation>Aktuell:</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/CPCompare.cpp" line="195"/>
+        <source>These binary files differ in content:</source>
+        <translation>Dessa binära filer skiljer sig åt i innehåll:</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/CPCompare.cpp" line="196"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="197"/>
+        <source>bytes</source>
+        <translation>bytes</translation>
     </message>
 </context>
 <context>
@@ -1176,7 +1178,7 @@ Det måste alltid finnas minst en.</translation>
     <name>ClipEditor</name>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="538"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="539"/>
         <source>Clip Editor</source>
         <translation>Klippredigerare</translation>
     </message>
@@ -1207,13 +1209,13 @@ Det måste alltid finnas minst en.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="91"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="649"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
         <source>Add Entry</source>
         <translation>Lägg till en post</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="98"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
         <source>Add Group</source>
         <translation>Lägg till grupp</translation>
     </message>
@@ -1301,112 +1303,112 @@ Det måste alltid finnas minst en.</translation>
         <translation>Klipposter lästa från fil.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="195"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="196"/>
         <source>You cannot select an entry and a group containing the entry.</source>
         <translation>Du kan inte välja en post och en grupp som innehåller posten.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="282"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="283"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
         <translation>Du kan inte Kopiera eller Klippa ut grupper - använd dra-och-släpp.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="354"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="355"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="354"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="355"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>Är du säker på att du vill uppdatera alla poster? Detta kommer att skriva över eventuella osparade ändringar.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="375"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="376"/>
         <source>Import Entries</source>
         <translation>Importera poster</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="456"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="457"/>
         <source>Export Selected Entries</source>
         <translation>Exportera valda poster</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ClipEditor.cpp" line="538"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="539"/>
         <source>CSS entries added: %n</source>
         <translation><numerusform>CSS-post tillagd: %n</numerusform><numerusform>CSS-poster tillagda: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
         <source>Edit</source>
         <translation>Redigera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
         <source>Cut</source>
         <translation>Klipp ut</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="654"/>
         <source>Copy</source>
         <translation>Kopiera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="654"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="655"/>
         <source>Paste</source>
         <translation>Klistra in</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="655"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="656"/>
         <source>Delete</source>
         <translation>Ta bort</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="656"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="657"/>
         <source>Import</source>
         <translation>Importera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="657"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="658"/>
         <source>Reload</source>
         <translation>Uppdatera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="658"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="659"/>
         <source>Export</source>
         <translation>Exportera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="659"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="660"/>
         <source>Export All</source>
         <translation>Exportera alla</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="660"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="661"/>
         <source>Collapse All</source>
         <translation>Kollapsa alla</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="661"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="662"/>
         <source>Expand All</source>
         <translation>Expandera alla</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="662"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="663"/>
         <source>Autofill</source>
         <translation>Autofyll</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="742"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="745"/>
         <source>Clip entries saved.</source>
         <translation>Klipposter sparade.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="771"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="774"/>
         <source>Sigil: Clip Editor</source>
         <translation>Sigil: Klippredigerare</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="772"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="775"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
         <translation>Klipposterna kan ha ändrats.
@@ -1457,17 +1459,17 @@ Vill du spara dina ändringar?</translation>
 <context>
     <name>ClipsWindow</name>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="36"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="37"/>
         <source>Clips</source>
         <translation>Klipp</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="101"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="102"/>
         <source>Collapse All</source>
         <translation>Kollapsa alla</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="102"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="103"/>
         <source>Expand All</source>
         <translation>Expandera alla</translation>
     </message>
@@ -1475,112 +1477,112 @@ Vill du spara dina ändringar?</translation>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="441"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="443"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>Det går inte att infoga stängningstagg på den här positionen.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="450"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="452"/>
         <source>No open tags found at this position.</source>
         <translation>Inga öppna taggar hittades i denna position.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1233"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1241"/>
         <source>Add To Default Dictionary</source>
         <translation>Lägg till i standard ordboken</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1246"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1254"/>
         <source>Add To Dictionary</source>
         <translation>Lägg till i ordboken</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1263"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1271"/>
         <source>Ignore</source>
         <translation>Ignorera</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1325"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1333"/>
         <source>Reformat CSS</source>
         <translation>Formatera om CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1327"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1335"/>
         <source>Multiple Lines Per Style</source>
         <translation>Flera rader per stil</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1328"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1336"/>
         <source>Single Line Per Style</source>
         <translation>En rad per stil</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1353"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1361"/>
         <source>Reformat HTML</source>
         <translation>Formatera om HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1355"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1363"/>
         <source>Mend and Prettify Code</source>
         <translation>Förbättra och försköna kod</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1356"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1364"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Förbättra och försökan kod - Alla HTML-filer</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1357"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1365"/>
         <source>Mend Code</source>
         <translation>Förbättra kod</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1358"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1366"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Förbättra kod - Alla HTML-filer</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1388"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1396"/>
         <source>Go To Link Or Style</source>
         <translation>Gå till länk eller stil</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1410"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1418"/>
         <source>View Image</source>
         <translation>Visa bild</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1411"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1419"/>
         <source>Open Tab For Image</source>
         <translation>Öppna fliken för bild</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1437"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1445"/>
         <source>Mark Selected Text</source>
         <translation>Markera vald text</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1439"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1447"/>
         <source>Unmark Marked Text</source>
         <translation>Avmarkera vald text</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1465"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1473"/>
         <source>Clips</source>
         <translation>Klipp</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1475"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1483"/>
         <source>Add To Clips</source>
         <translation>Lägg till klipp</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1601"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1609"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Du måste vara i en inledande HTML-tagg för att använda den här funktionen.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1611"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1619"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Du måste vara inne i en inledande HTML-tagg för att använda den här funktionen.</translation>
     </message>
@@ -1766,7 +1768,7 @@ Du kan också använda höger piltangent.</translation>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../Misc/EmbeddedPython.cpp" line="617"/>
+        <location filename="../../Misc/EmbeddedPython.cpp" line="636"/>
         <source>Embedded Python Error</source>
         <translation>Integrerat Python-fel</translation>
     </message>
@@ -1892,7 +1894,7 @@ platser och namn för OPF, NCX och/eller Nav.</translation>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="147"/>
         <source>Misc files</source>
-        <translation type="unfinished"/>
+        <translation>Diverse filer</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="148"/>
@@ -2320,12 +2322,12 @@ andra änden för att fortsätta söka.</translation>
 <context>
     <name>FindReplaceQLineEdit</name>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="60"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="61"/>
         <source>Tokenise Selection</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="73"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="74"/>
         <source>Save Search</source>
         <translation>Spara sökning</translation>
     </message>
@@ -2341,9 +2343,37 @@ andra änden för att fortsätta söka.</translation>
 <context>
     <name>FontResource</name>
     <message>
-        <location filename="../../ResourceObjects/FontResource.cpp" line="74"/>
+        <location filename="../../ResourceObjects/FontResource.cpp" line="70"/>
         <source>No reliable font data</source>
         <translation>Inga tillförlitliga typsnittsdata</translation>
+    </message>
+</context>
+<context>
+    <name>FontView</name>
+    <message>
+        <location filename="../../Widgets/FontView.cpp" line="121"/>
+        <source>No reliable font data</source>
+        <translation>Inga tillförlitliga typsnittsdata</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/FontView.cpp" line="132"/>
+        <source>abcdefghijklmnopqrstuvwxyz</source>
+        <translation>abcdefghijklmnopqrstuvwxyz</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/FontView.cpp" line="133"/>
+        <source>ABCDEFGHIJKLMNOPQRSTUVWXYZ</source>
+        <translation>ABCDEFGHIJKLMNOPQRSTUVWXYZ</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/FontView.cpp" line="134"/>
+        <source>0123456789.:,;(*!?&apos;\/&quot;)$%^&amp;-+@=_-~&gt;&lt;</source>
+        <translation>0123456789.:,;(*!?&apos;\/&quot;)$%^&amp;-+@=_-~&gt;&lt;</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/FontView.cpp" line="135"/>
+        <source>The quick brown fox jumps over the lazy dog</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3284,31 +3314,54 @@ Du kan sedan kontrollera eller avmarkera enskilda rubriker i listan ovan.</trans
         <translation>Färg</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="307"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="365"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="368"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="309"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="367"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="370"/>
         <source>Open With</source>
         <translation>Öppna med</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="343"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="345"/>
         <source>Other Application</source>
         <translation>Andra program</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="366"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="368"/>
         <source>Save As</source>
         <translation>Spara som</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="367"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="369"/>
         <source>Copy Image</source>
         <translation>Kopiera bild</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="415"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="417"/>
         <source>Print %1</source>
         <translation>Skriv ut %1</translation>
+    </message>
+</context>
+<context>
+    <name>ImageView</name>
+    <message>
+        <location filename="../../Widgets/ImageView.cpp" line="84"/>
+        <source>shades</source>
+        <translation>nyanser</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/ImageView.cpp" line="84"/>
+        <source>colors</source>
+        <translation>färger</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/ImageView.cpp" line="85"/>
+        <source>Grayscale</source>
+        <translation>Gråskala</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/ImageView.cpp" line="85"/>
+        <source>Color</source>
+        <translation>Färg</translation>
     </message>
 </context>
 <context>
@@ -3319,26 +3372,24 @@ Du kan sedan kontrollera eller avmarkera enskilda rubriker i listan ovan.</trans
         <translation>Filer finns i epub som inte är listade i manifestet, de kommer att ignoreras</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="186"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="198"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="187"/>
-        <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this can result in minor data loss.
+        <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
+        <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this may result in minor data loss in extreme circumstances.
 
 Do you want to automatically fix the files?</source>
-        <translation>Denna EPUB har HTML-filer som inte är välformade. Sigil kan försöka att automatiskt åtgärda dessa filer, även om detta kan leda till mindre dataförlust.
-
-Vill du automatiskt åtgärda filerna?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="557"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="569"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation>Epub har saknad eller felaktigt specificerad OPF.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="597"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="609"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
         <translation>Denna epub har flera tolkningar (flera OPF-filer). Redigera denna epub i Sigil kommer att producera en normal återgivning som epub med endast de viktigaste (första) OPF-Filen hittade.</translation>
     </message>
@@ -3503,17 +3554,17 @@ Vill du automatiskt åtgärda filerna?</translation>
         <translation>Välj alla</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="520"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="522"/>
         <source>Index entries saved.</source>
         <translation>Indexposter sparade.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="549"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="551"/>
         <source>Sigil: Index Editor</source>
         <translation>Sigil: Indexredigerare</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="550"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="552"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
         <translation>Indexposterna kan ha ändrats.
@@ -7234,7 +7285,7 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     <message>
         <location filename="../../Dialogs/ListSelector.h" line="48"/>
         <source>View selected</source>
-        <translation type="unfinished"/>
+        <translation>Visa vald</translation>
     </message>
 </context>
 <context>
@@ -7361,114 +7412,119 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="388"/>
-        <location filename="../../Form_Files/main.ui" line="427"/>
+        <location filename="../../Form_Files/main.ui" line="428"/>
         <source>Checkpoints</source>
-        <translation type="unfinished"/>
+        <translation>Kontrollpunkter</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="411"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1157"/>
         <source>File</source>
         <translation>Arkiv</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="442"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
+        <location filename="../../Form_Files/main.ui" line="443"/>
+        <source>Index</source>
+        <translation>Index</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="391"/>
         <source>Edit</source>
         <translation>Redigera</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="463"/>
+        <location filename="../../Form_Files/main.ui" line="480"/>
         <source>Insert</source>
         <translation>Infoga</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="480"/>
+        <location filename="../../Form_Files/main.ui" line="497"/>
         <source>Back</source>
         <translation>Tillbaka</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="492"/>
+        <location filename="../../Form_Files/main.ui" line="509"/>
         <source>Donate</source>
         <translation>Donera</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="504"/>
+        <location filename="../../Form_Files/main.ui" line="521"/>
         <source>Tools</source>
         <translation>Verktyg</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="518"/>
+        <location filename="../../Form_Files/main.ui" line="535"/>
         <source>Plugins Set 1</source>
         <translation>Insticksmodulsuppsättning 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="534"/>
+        <location filename="../../Form_Files/main.ui" line="551"/>
         <source>Plugins Set 2</source>
         <translation>Insticksmodulsuppsättning 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="550"/>
+        <location filename="../../Form_Files/main.ui" line="567"/>
         <source>Heading</source>
         <translation>Rubrik</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="564"/>
+        <location filename="../../Form_Files/main.ui" line="581"/>
         <source>set Heading Level of Selected Text</source>
-        <translation>ange rubriknivå för markerad text</translation>
+        <translation>Ange rubriknivå för markerad text</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="577"/>
+        <location filename="../../Form_Files/main.ui" line="594"/>
         <source>Format</source>
         <translation>Format</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="594"/>
+        <location filename="../../Form_Files/main.ui" line="611"/>
         <source>Align</source>
         <translation>Justera</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="609"/>
+        <location filename="../../Form_Files/main.ui" line="626"/>
         <source>List</source>
         <translation>Lista</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="622"/>
+        <location filename="../../Form_Files/main.ui" line="639"/>
         <source>Indent</source>
         <translation>Stycke</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="635"/>
+        <location filename="../../Form_Files/main.ui" line="652"/>
         <source>Change Case</source>
         <translation>Ändra stor/liten inledande bokstav</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="649"/>
+        <location filename="../../Form_Files/main.ui" line="666"/>
         <source>set Case of Selected Text</source>
-        <translation>ange skiftläge för markerad text</translation>
+        <translation>Ange skiftläge för markerad text</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="659"/>
+        <location filename="../../Form_Files/main.ui" line="676"/>
         <source>Text Direction</source>
         <translation>Textriktningen</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="673"/>
+        <location filename="../../Form_Files/main.ui" line="690"/>
         <source>Clip Bar</source>
         <translation>Klippfält</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="704"/>
+        <location filename="../../Form_Files/main.ui" line="721"/>
         <source>Clip Bar2</source>
-        <translation type="unfinished"/>
+        <translation>Klippfät2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="740"/>
+        <location filename="../../Form_Files/main.ui" line="757"/>
         <source>New Default</source>
         <translation>Ny standard</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="743"/>
+        <location filename="../../Form_Files/main.ui" line="760"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new default book.&lt;/p&gt;</source>
@@ -7477,17 +7533,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Skapa en ny standardbok.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="748"/>
+        <location filename="../../Form_Files/main.ui" line="765"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="758"/>
+        <location filename="../../Form_Files/main.ui" line="775"/>
         <source>ePub&amp;2</source>
         <translation>ePub&amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="761"/>
+        <location filename="../../Form_Files/main.ui" line="778"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub2 book.&lt;/p&gt;</source>
@@ -7496,12 +7552,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Skapa en ny ePub2 bok.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="773"/>
+        <location filename="../../Form_Files/main.ui" line="790"/>
         <source>ePub&amp;3</source>
         <translation>ePub&amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="776"/>
+        <location filename="../../Form_Files/main.ui" line="793"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub3 book.&lt;/p&gt;</source>
@@ -7510,12 +7566,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Skapa en ny ePub3 bok.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="788"/>
+        <location filename="../../Form_Files/main.ui" line="805"/>
         <source>&amp;Save</source>
         <translation>&amp;Spara</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="791"/>
+        <location filename="../../Form_Files/main.ui" line="808"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
@@ -7524,17 +7580,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Spara den aktuella boken.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="796"/>
+        <location filename="../../Form_Files/main.ui" line="813"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="801"/>
+        <location filename="../../Form_Files/main.ui" line="818"/>
         <source>Save &amp;As...</source>
         <translation>Spara &amp;som...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="804"/>
+        <location filename="../../Form_Files/main.ui" line="821"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
@@ -7543,27 +7599,27 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Spara den aktuella boken med ett annat filnamn.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="809"/>
+        <location filename="../../Form_Files/main.ui" line="826"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="814"/>
+        <location filename="../../Form_Files/main.ui" line="831"/>
         <source>Save A &amp;Copy...</source>
         <translation>Spara en &amp;kopia...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="817"/>
+        <location filename="../../Form_Files/main.ui" line="834"/>
         <source>Save a copy of your book to another file name.</source>
         <translation>Spara en kopia av din bok till ett annat filnamn.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="826"/>
+        <location filename="../../Form_Files/main.ui" line="843"/>
         <source>Cu&amp;t</source>
         <translation>Klipp u&amp;t</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="829"/>
+        <location filename="../../Form_Files/main.ui" line="846"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
@@ -7572,12 +7628,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Klipp ut den markerade texten från dokumentet och lägger den i urklipp.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="840"/>
+        <location filename="../../Form_Files/main.ui" line="857"/>
         <source>&amp;Paste</source>
         <translation>&amp;Klistra in</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="843"/>
+        <location filename="../../Form_Files/main.ui" line="860"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
@@ -7586,27 +7642,27 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Klistrar in innehållet från urklipp i boken.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="850"/>
+        <location filename="../../Form_Files/main.ui" line="867"/>
         <source>&amp;Closing Tag</source>
         <translation>&amp;Avslutande tagg</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="853"/>
+        <location filename="../../Form_Files/main.ui" line="870"/>
         <source>Insert a closing tag in Code View.</source>
         <translation>Infoga en avslutande tagg i Kodvy.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="856"/>
+        <location filename="../../Form_Files/main.ui" line="873"/>
         <source>Ctrl+.</source>
         <translation>Ctrl+.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="865"/>
+        <location filename="../../Form_Files/main.ui" line="882"/>
         <source>&amp;Undo</source>
         <translation>&amp;Ångra</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="868"/>
+        <location filename="../../Form_Files/main.ui" line="885"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
@@ -7615,17 +7671,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ändrar ändringarna i föregående operation.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="873"/>
+        <location filename="../../Form_Files/main.ui" line="890"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="882"/>
+        <location filename="../../Form_Files/main.ui" line="899"/>
         <source>&amp;Redo</source>
         <translation>&amp;Gör om</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="885"/>
+        <location filename="../../Form_Files/main.ui" line="902"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
@@ -7634,17 +7690,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Återställer ändringarna som återställts av föregående Ångra-åtgärd.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="890"/>
+        <location filename="../../Form_Files/main.ui" line="907"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="899"/>
+        <location filename="../../Form_Files/main.ui" line="916"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopiera</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="902"/>
+        <location filename="../../Form_Files/main.ui" line="919"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
@@ -7653,12 +7709,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kopierar den markerade texten och lägger den i urklipp.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="916"/>
+        <location filename="../../Form_Files/main.ui" line="933"/>
         <source>Align &amp;Left</source>
         <translation>&amp;Vänsterjustera</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="919"/>
+        <location filename="../../Form_Files/main.ui" line="936"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
@@ -7667,12 +7723,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Justera stycket till vänster.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="933"/>
+        <location filename="../../Form_Files/main.ui" line="950"/>
         <source>Align &amp;Right</source>
         <translation>&amp;Högerjustera</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="936"/>
+        <location filename="../../Form_Files/main.ui" line="953"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
@@ -7681,12 +7737,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Justera stycket till höger.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="950"/>
+        <location filename="../../Form_Files/main.ui" line="967"/>
         <source>&amp;Center</source>
         <translation>&amp;Centrera</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="953"/>
+        <location filename="../../Form_Files/main.ui" line="970"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
@@ -7695,17 +7751,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Centrerar stycket.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="958"/>
+        <location filename="../../Form_Files/main.ui" line="975"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="970"/>
+        <location filename="../../Form_Files/main.ui" line="987"/>
         <source>&amp;Justify</source>
         <translation>&amp;Justera</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="973"/>
+        <location filename="../../Form_Files/main.ui" line="990"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
@@ -7714,17 +7770,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Justera stycket till både vänster och höger marginaler.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="978"/>
+        <location filename="../../Form_Files/main.ui" line="995"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="990"/>
+        <location filename="../../Form_Files/main.ui" line="1007"/>
         <source>&amp;Bold</source>
         <translation>&amp;Fet</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="993"/>
+        <location filename="../../Form_Files/main.ui" line="1010"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
@@ -7733,17 +7789,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Gör den markerade texten fet.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="998"/>
+        <location filename="../../Form_Files/main.ui" line="1015"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1010"/>
+        <location filename="../../Form_Files/main.ui" line="1027"/>
         <source>&amp;Italic</source>
         <translation>&amp;Kursiv</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1013"/>
+        <location filename="../../Form_Files/main.ui" line="1030"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
@@ -7752,17 +7808,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Gör den markerade texten kursiv.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1018"/>
+        <location filename="../../Form_Files/main.ui" line="1035"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1027"/>
+        <location filename="../../Form_Files/main.ui" line="1044"/>
         <source>&amp;Open...</source>
         <translation>&amp;Öppna...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1030"/>
+        <location filename="../../Form_Files/main.ui" line="1047"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
@@ -7771,17 +7827,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Öppna en bok från disken.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1035"/>
+        <location filename="../../Form_Files/main.ui" line="1052"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1047"/>
+        <location filename="../../Form_Files/main.ui" line="1064"/>
         <source>&amp;Underline</source>
         <translation>&amp;Understryk</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1050"/>
+        <location filename="../../Form_Files/main.ui" line="1067"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
@@ -7790,42 +7846,42 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Stryk under den markerade texten.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1055"/>
+        <location filename="../../Form_Files/main.ui" line="1072"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1067"/>
+        <location filename="../../Form_Files/main.ui" line="1084"/>
         <source>&amp;Quit</source>
         <translation>&amp;Avsluta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1070"/>
+        <location filename="../../Form_Files/main.ui" line="1087"/>
         <source>Exit</source>
         <translation>Avsluta</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1073"/>
+        <location filename="../../Form_Files/main.ui" line="1090"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1085"/>
+        <location filename="../../Form_Files/main.ui" line="1102"/>
         <source>&amp;About...</source>
         <translation>&amp;Om...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1088"/>
+        <location filename="../../Form_Files/main.ui" line="1105"/>
         <source>Show information about Sigil.</source>
         <translation>Visa information om Sigil.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1093"/>
+        <location filename="../../Form_Files/main.ui" line="1110"/>
         <source>Add &amp;Cover...</source>
         <translation>Lägg till &amp;omslag...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1096"/>
+        <location filename="../../Form_Files/main.ui" line="1113"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
@@ -7834,12 +7890,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Lägg till ett omslag.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1107"/>
+        <location filename="../../Form_Files/main.ui" line="1124"/>
         <source>&amp;Metadata Editor...</source>
         <translation>&amp;Metadataredigerare...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1110"/>
+        <location filename="../../Form_Files/main.ui" line="1127"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
@@ -7848,17 +7904,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Redigera och visa information om din bok, inklusive författaren och titeln.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1115"/>
+        <location filename="../../Form_Files/main.ui" line="1132"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1124"/>
+        <location filename="../../Form_Files/main.ui" line="1141"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation>&amp;Generera innehållsförteckning...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1127"/>
+        <location filename="../../Form_Files/main.ui" line="1144"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
@@ -7867,17 +7923,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Skapa en ny innehållsförteckning från rubriker i din bok.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1132"/>
+        <location filename="../../Form_Files/main.ui" line="1149"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1137"/>
+        <location filename="../../Form_Files/main.ui" line="1154"/>
         <source>&amp;Edit Table Of Contents...</source>
         <translation>&amp;Redigera innehållsförteckning...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1140"/>
+        <location filename="../../Form_Files/main.ui" line="1157"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
@@ -7886,12 +7942,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Redigera direkt den befintliga innehållsförteckningen.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1151"/>
+        <location filename="../../Form_Files/main.ui" line="1168"/>
         <source>&amp;Split At Cursor</source>
         <translation>&amp;Dela vid markören</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1154"/>
+        <location filename="../../Form_Files/main.ui" line="1171"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
@@ -7900,17 +7956,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Dela den aktuella filen i två filer med markörplatsen som delningspunkt.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1159"/>
+        <location filename="../../Form_Files/main.ui" line="1176"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Retur</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1168"/>
+        <location filename="../../Form_Files/main.ui" line="1185"/>
         <source>&amp;File...</source>
         <translation>&amp;Fil...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1171"/>
+        <location filename="../../Form_Files/main.ui" line="1188"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
@@ -7923,17 +7979,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Du kan lägga till filer i din bok med hjälp av menyn Arkiv - Lägg till - Befintliga filer.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1178"/>
+        <location filename="../../Form_Files/main.ui" line="1195"/>
         <source>Ctrl+Shift+I</source>
         <translation>Ctrl+Shift+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1187"/>
+        <location filename="../../Form_Files/main.ui" line="1204"/>
         <source>&amp;Special Character...</source>
         <translation>&amp;Specialtecknet...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1190"/>
+        <location filename="../../Form_Files/main.ui" line="1207"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
@@ -7942,12 +7998,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Välj ett tecken att infoga i din text.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1201"/>
+        <location filename="../../Form_Files/main.ui" line="1218"/>
         <source>I&amp;D...</source>
         <translation>I&amp;D...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1204"/>
+        <location filename="../../Form_Files/main.ui" line="1221"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
@@ -7956,12 +8012,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Infoga eller redigera ett ankare med ett ID-namn som ska användas som länkmål.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1215"/>
+        <location filename="../../Form_Files/main.ui" line="1232"/>
         <source>&amp;Link...</source>
         <translation>&amp;Länk...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1218"/>
+        <location filename="../../Form_Files/main.ui" line="1235"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
@@ -7970,12 +8026,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Infoga eller redigera ett ankare med en hyperlänk till ett mål.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1232"/>
+        <location filename="../../Form_Files/main.ui" line="1249"/>
         <source>&amp;Numbered List</source>
         <translation>&amp;Numrerad lista</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1235"/>
+        <location filename="../../Form_Files/main.ui" line="1252"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
@@ -7984,12 +8040,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Skapa en numrerad lista.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1249"/>
+        <location filename="../../Form_Files/main.ui" line="1266"/>
         <source>Bulle&amp;ted List</source>
         <translation>&amp;Punktlista</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1252"/>
+        <location filename="../../Form_Files/main.ui" line="1269"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
@@ -7998,17 +8054,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Skapa en punktlista.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1257"/>
+        <location filename="../../Form_Files/main.ui" line="1274"/>
         <source>Ctrl+Shift+L</source>
         <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1269"/>
+        <location filename="../../Form_Files/main.ui" line="1286"/>
         <source>Stri&amp;kethrough</source>
         <translation>&amp;Genomstruken</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1272"/>
+        <location filename="../../Form_Files/main.ui" line="1289"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
@@ -8017,12 +8073,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Rita en linje genom den markerade texten.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1286"/>
+        <location filename="../../Form_Files/main.ui" line="1303"/>
         <source>&amp;Subscript</source>
         <translation>&amp;Nedsänkt</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1289"/>
+        <location filename="../../Form_Files/main.ui" line="1306"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
@@ -8031,12 +8087,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ställ in den markerade texten något mindre och under den normala raden.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1303"/>
+        <location filename="../../Form_Files/main.ui" line="1320"/>
         <source>Su&amp;perscript</source>
         <translation>&amp;Upphöjt</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1306"/>
+        <location filename="../../Form_Files/main.ui" line="1323"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
@@ -8045,88 +8101,88 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ställ in den markerade texten något mindre och ovanför den normala raden.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1317"/>
+        <location filename="../../Form_Files/main.ui" line="1334"/>
         <source>&amp;Print...</source>
         <translation>Skriv &amp;ut...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1320"/>
+        <location filename="../../Form_Files/main.ui" line="1337"/>
         <source>Print</source>
         <translation>Skriv ut</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1323"/>
+        <location filename="../../Form_Files/main.ui" line="1340"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1332"/>
+        <location filename="../../Form_Files/main.ui" line="1349"/>
         <source>Print Pre&amp;view...</source>
         <translation>&amp;Förhandsgranska...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1335"/>
+        <location filename="../../Form_Files/main.ui" line="1352"/>
         <source>Print Preview</source>
         <translation>Förhandsgranska</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1340"/>
-        <location filename="../../Form_Files/main.ui" line="1343"/>
+        <location filename="../../Form_Files/main.ui" line="1357"/>
+        <location filename="../../Form_Files/main.ui" line="1360"/>
         <source>Close</source>
         <translation>Stäng</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1346"/>
+        <location filename="../../Form_Files/main.ui" line="1363"/>
         <source>Ctrl+Shift+W</source>
         <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1351"/>
+        <location filename="../../Form_Files/main.ui" line="1368"/>
         <source>Restructure Epub to Sigil Norm</source>
         <translation>Omstrukturera Epub till Sigil norm</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1354"/>
+        <location filename="../../Form_Files/main.ui" line="1371"/>
         <source>Restructure Epub to Sigil Standard Form</source>
         <translation>Omstrukturera Epub till Sigil-standardform</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1363"/>
+        <location filename="../../Form_Files/main.ui" line="1380"/>
         <source>Zoom &amp;In</source>
         <translation>Zooma &amp;in</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1366"/>
+        <location filename="../../Form_Files/main.ui" line="1383"/>
         <source>Zoom In</source>
         <translation>Zooma in</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1369"/>
+        <location filename="../../Form_Files/main.ui" line="1386"/>
         <source>Ctrl+=</source>
         <translation>Ctrl+=</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1378"/>
+        <location filename="../../Form_Files/main.ui" line="1395"/>
         <source>Zoom &amp;Out</source>
         <translation>Zooma &amp;ut</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1381"/>
+        <location filename="../../Form_Files/main.ui" line="1398"/>
         <source>Zoom Out</source>
         <translation>Zooma ut</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1384"/>
+        <location filename="../../Form_Files/main.ui" line="1401"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1393"/>
+        <location filename="../../Form_Files/main.ui" line="1410"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation>&amp;Hitta &amp;&amp; ersätt...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1396"/>
+        <location filename="../../Form_Files/main.ui" line="1413"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
@@ -8135,17 +8191,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Hitta och ersätt text i dokumentet.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1401"/>
+        <location filename="../../Form_Files/main.ui" line="1418"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1410"/>
+        <location filename="../../Form_Files/main.ui" line="1427"/>
         <source>Incre&amp;ase Indent</source>
         <translation>Ök&amp;a indrag</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1413"/>
+        <location filename="../../Form_Files/main.ui" line="1430"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
@@ -8154,17 +8210,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Öka indragsnivån i stycket.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1418"/>
+        <location filename="../../Form_Files/main.ui" line="1435"/>
         <source>Ctrl+Alt+M</source>
         <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1427"/>
+        <location filename="../../Form_Files/main.ui" line="1444"/>
         <source>&amp;Decrease Indent</source>
         <translation>&amp;Minska indrag</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1430"/>
+        <location filename="../../Form_Files/main.ui" line="1447"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
@@ -8173,18 +8229,18 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Minska indragsnivån i stycket.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1435"/>
-        <location filename="../../Form_Files/main.ui" line="1846"/>
+        <location filename="../../Form_Files/main.ui" line="1452"/>
+        <location filename="../../Form_Files/main.ui" line="1868"/>
         <source>Ctrl+Shift+M</source>
         <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1444"/>
+        <location filename="../../Form_Files/main.ui" line="1461"/>
         <source>Te&amp;xt Direction LTR</source>
         <translation>Te&amp;xtriktning VTH</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1447"/>
+        <location filename="../../Form_Files/main.ui" line="1464"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
@@ -8197,12 +8253,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1460"/>
+        <location filename="../../Form_Files/main.ui" line="1477"/>
         <source>T&amp;ext Direction RTL</source>
         <translation>T&amp;extriktning HTV</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1463"/>
+        <location filename="../../Form_Files/main.ui" line="1480"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
@@ -8215,12 +8271,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1476"/>
+        <location filename="../../Form_Files/main.ui" line="1493"/>
         <source>Text Directi&amp;on Default</source>
         <translation>Textri&amp;ktning standard</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1479"/>
+        <location filename="../../Form_Files/main.ui" line="1496"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
@@ -8233,22 +8289,22 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1488"/>
+        <location filename="../../Form_Files/main.ui" line="1505"/>
         <source>Remove &amp;Formatting</source>
         <translation>Ta bort &amp;formatering</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1491"/>
+        <location filename="../../Form_Files/main.ui" line="1508"/>
         <source>Ctrl+Space</source>
         <translation>Ctrl+Mellanslag</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1500"/>
+        <location filename="../../Form_Files/main.ui" line="1517"/>
         <source>&amp;Lowercase</source>
         <translation>&amp;Gemener</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1503"/>
+        <location filename="../../Form_Files/main.ui" line="1520"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -8261,17 +8317,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1510"/>
+        <location filename="../../Form_Files/main.ui" line="1527"/>
         <source>Alt+L</source>
         <translation>Alt+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1519"/>
+        <location filename="../../Form_Files/main.ui" line="1536"/>
         <source>&amp;Uppercase</source>
         <translation>&amp;Versaler</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1522"/>
+        <location filename="../../Form_Files/main.ui" line="1539"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -8284,17 +8340,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1529"/>
+        <location filename="../../Form_Files/main.ui" line="1546"/>
         <source>Alt+U</source>
         <translation>Alt+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1538"/>
+        <location filename="../../Form_Files/main.ui" line="1555"/>
         <source>&amp;Titlecase</source>
         <translation>&amp;Inledande versal</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1541"/>
+        <location filename="../../Form_Files/main.ui" line="1558"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -8307,12 +8363,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1554"/>
+        <location filename="../../Form_Files/main.ui" line="1571"/>
         <source>&amp;Capitalize</source>
         <translation>&amp;Kapitalisera</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1557"/>
+        <location filename="../../Form_Files/main.ui" line="1574"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -8325,127 +8381,127 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1566"/>
+        <location filename="../../Form_Files/main.ui" line="1583"/>
         <source>Sigil Website...</source>
         <translation>Sigils webbplats...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1571"/>
+        <location filename="../../Form_Files/main.ui" line="1588"/>
         <source>&amp;Next Tab</source>
         <translation>&amp;Nästa flik</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1574"/>
+        <location filename="../../Form_Files/main.ui" line="1591"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1579"/>
+        <location filename="../../Form_Files/main.ui" line="1596"/>
         <source>&amp;Previous Tab</source>
         <translation>&amp;Föregående flik</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1582"/>
+        <location filename="../../Form_Files/main.ui" line="1599"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1587"/>
+        <location filename="../../Form_Files/main.ui" line="1604"/>
         <source>&amp;Close Tab</source>
         <translation>&amp;Stäng flik</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1590"/>
+        <location filename="../../Form_Files/main.ui" line="1607"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1595"/>
+        <location filename="../../Form_Files/main.ui" line="1612"/>
         <source>Split At &amp;Markers</source>
         <translation>Dela vid &amp;markörer</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1598"/>
+        <location filename="../../Form_Files/main.ui" line="1615"/>
         <source>Split At Sigil split file markers</source>
         <translation>Dela vid Sigils delnings filmarkörer</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1601"/>
+        <location filename="../../Form_Files/main.ui" line="1618"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1606"/>
+        <location filename="../../Form_Files/main.ui" line="1623"/>
         <source>Split &amp;Marker</source>
         <translation>Del&amp;markör</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1609"/>
+        <location filename="../../Form_Files/main.ui" line="1626"/>
         <source>Insert Sigil split file marker</source>
         <translation>Infoga Sigil dela fil markör</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1612"/>
+        <location filename="../../Form_Files/main.ui" line="1629"/>
         <source>Ctrl+Shift+Return</source>
         <translation>Ctrl+Shift+Retur</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1617"/>
+        <location filename="../../Form_Files/main.ui" line="1634"/>
         <source>User &amp;Guide...</source>
         <translation>Användar&amp;handbok...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1620"/>
+        <location filename="../../Form_Files/main.ui" line="1637"/>
         <source>User Guide</source>
         <translation>Användarhandbok</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1623"/>
+        <location filename="../../Form_Files/main.ui" line="1640"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1628"/>
+        <location filename="../../Form_Files/main.ui" line="1645"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation>&amp;Vanliga frågor...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1631"/>
+        <location filename="../../Form_Files/main.ui" line="1648"/>
         <source>Frequently Asked Questions</source>
         <translation>Vanliga frågor</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1636"/>
+        <location filename="../../Form_Files/main.ui" line="1653"/>
         <source>&amp;Tutorials...</source>
         <translation>&amp;Handledning...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1639"/>
+        <location filename="../../Form_Files/main.ui" line="1656"/>
         <source>Tutorials</source>
         <translation>Handledning</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1644"/>
+        <location filename="../../Form_Files/main.ui" line="1661"/>
         <source>Well-Formed Check &amp;EPUB</source>
         <translation>Kontroll av välformad &amp;EPUB</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1647"/>
+        <location filename="../../Form_Files/main.ui" line="1664"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Kontroll av välformad EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Kontrollera att dokumentet uppfyller minimikrav som krävs för att kunna analyseras. Detta tyder inte på överensstämmelse med relevanta epub-standarder.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1650"/>
+        <location filename="../../Form_Files/main.ui" line="1667"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1655"/>
+        <location filename="../../Form_Files/main.ui" line="1672"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation>Validera formatmallar med &amp;W3C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1658"/>
+        <location filename="../../Form_Files/main.ui" line="1675"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -8458,12 +8514,12 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1671"/>
+        <location filename="../../Form_Files/main.ui" line="1688"/>
         <source>&amp;Spellcheck...</source>
         <translation>&amp;Stavningskontroll...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1674"/>
+        <location filename="../../Form_Files/main.ui" line="1691"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
@@ -8472,102 +8528,102 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Hitta alla felstavade ord och lägg till dem i en ordbok eller ignorera dem.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1679"/>
+        <location filename="../../Form_Files/main.ui" line="1696"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1687"/>
+        <location filename="../../Form_Files/main.ui" line="1704"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation>&amp;Markera felstavade ord</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1690"/>
+        <location filename="../../Form_Files/main.ui" line="1707"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation>Aktivera eller inaktivera markering av felstavade ord i Kodvy.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1695"/>
+        <location filename="../../Form_Files/main.ui" line="1712"/>
         <source>&amp;Next Misspelled Word</source>
         <translation>&amp;Nästa felstavade ord</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1698"/>
+        <location filename="../../Form_Files/main.ui" line="1715"/>
         <source>Find the next misspelled word in the book.</source>
         <translation>Hitta nästa felstavade ord i boken.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1701"/>
+        <location filename="../../Form_Files/main.ui" line="1718"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1706"/>
+        <location filename="../../Form_Files/main.ui" line="1723"/>
         <source>&amp;Add Misspelled Word</source>
         <translation>&amp;Lägg till felstavade ord</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1709"/>
+        <location filename="../../Form_Files/main.ui" line="1726"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation>Lägg till det aktuella felstavade ordet under caret i standardanvändarordlistan.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1714"/>
+        <location filename="../../Form_Files/main.ui" line="1731"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation>&amp;Ignorera felstavade ord</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1717"/>
+        <location filename="../../Form_Files/main.ui" line="1734"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation>Ignorera det aktuella felstavade ordet under caret tills Sigil startas om.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1722"/>
+        <location filename="../../Form_Files/main.ui" line="1739"/>
         <source>&amp;Clear Ignored Words</source>
         <translation>&amp;Rensa ignorerade ord</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1725"/>
+        <location filename="../../Form_Files/main.ui" line="1742"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation>Rensa för närvarande ignorerade ord från Stavningskontroll utan att behöva starta om Sigil.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1730"/>
+        <location filename="../../Form_Files/main.ui" line="1747"/>
         <source>&amp;Index Editor...</source>
         <translation>&amp;Indexredigerare...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1733"/>
+        <location filename="../../Form_Files/main.ui" line="1755"/>
         <source>Ctrl+Alt+I</source>
         <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1738"/>
+        <location filename="../../Form_Files/main.ui" line="1760"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation>&amp;Ta bort oanvända mediefiler...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1743"/>
+        <location filename="../../Form_Files/main.ui" line="1765"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
         <translation>Ta bort &amp;oanvända formatmallsklasser...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1748"/>
+        <location filename="../../Form_Files/main.ui" line="1770"/>
         <source>&amp;Reports...</source>
         <translation>&amp;Rapporter...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1751"/>
+        <location filename="../../Form_Files/main.ui" line="1773"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Skift+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1760"/>
+        <location filename="../../Form_Files/main.ui" line="1782"/>
         <source>&amp;Donate...</source>
         <translation>&amp;Donera...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1763"/>
+        <location filename="../../Form_Files/main.ui" line="1785"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -8578,627 +8634,627 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1771"/>
+        <location filename="../../Form_Files/main.ui" line="1793"/>
         <source>Close &amp;Other Tabs</source>
         <translation>Stäng &amp;andra flikar</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1774"/>
+        <location filename="../../Form_Files/main.ui" line="1796"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1779"/>
+        <location filename="../../Form_Files/main.ui" line="1801"/>
         <source>Go To &amp;Line...</source>
         <translation>Gå till &amp;rad...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1782"/>
+        <location filename="../../Form_Files/main.ui" line="1804"/>
         <source>Ctrl+/</source>
         <translation>Ctrl+/</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1787"/>
+        <location filename="../../Form_Files/main.ui" line="1809"/>
         <source>Find &amp;Next</source>
         <translation>Hitta &amp;nästa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1790"/>
+        <location filename="../../Form_Files/main.ui" line="1812"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1795"/>
+        <location filename="../../Form_Files/main.ui" line="1817"/>
         <source>Find &amp;Previous</source>
         <translation>Hitta &amp;föregående</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1798"/>
+        <location filename="../../Form_Files/main.ui" line="1820"/>
         <source>Ctrl+Shift+G</source>
         <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1803"/>
+        <location filename="../../Form_Files/main.ui" line="1825"/>
         <source>Replace</source>
         <translation>Ersätt</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1806"/>
+        <location filename="../../Form_Files/main.ui" line="1828"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1811"/>
+        <location filename="../../Form_Files/main.ui" line="1833"/>
         <source>&amp;Replace/Find Next</source>
         <translation>&amp;Ersätt/Hitta nästa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1814"/>
+        <location filename="../../Form_Files/main.ui" line="1836"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1819"/>
+        <location filename="../../Form_Files/main.ui" line="1841"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation>E&amp;rsätt/Hitta föregående</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1822"/>
+        <location filename="../../Form_Files/main.ui" line="1844"/>
         <source>Ctrl+[</source>
         <translation>Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1827"/>
+        <location filename="../../Form_Files/main.ui" line="1849"/>
         <source>Replace &amp;All</source>
         <translation>Ersätt &amp;alla</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1830"/>
+        <location filename="../../Form_Files/main.ui" line="1852"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1835"/>
+        <location filename="../../Form_Files/main.ui" line="1857"/>
         <source>&amp;Count All</source>
         <translation>&amp;Räkna alla</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1838"/>
+        <location filename="../../Form_Files/main.ui" line="1860"/>
         <source>Alt+C</source>
         <translation>Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1843"/>
+        <location filename="../../Form_Files/main.ui" line="1865"/>
         <source>Mar&amp;k Selected Text</source>
         <translation>Mar&amp;kera vald text</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1851"/>
+        <location filename="../../Form_Files/main.ui" line="1873"/>
         <source>Find &amp;Next In File</source>
         <translation>Hitta &amp;nästa i fil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1856"/>
+        <location filename="../../Form_Files/main.ui" line="1878"/>
         <source>&amp;Replace Next In File</source>
         <translation>&amp;Ersätt nästa i fil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1861"/>
+        <location filename="../../Form_Files/main.ui" line="1883"/>
         <source>Replace &amp;All In File</source>
         <translation>Ersätt &amp;alla i fil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1866"/>
+        <location filename="../../Form_Files/main.ui" line="1888"/>
         <source>&amp;Count All In File</source>
         <translation>&amp;Räkna alla i fil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1871"/>
+        <location filename="../../Form_Files/main.ui" line="1893"/>
         <source>&amp;Saved Searches...</source>
         <translation>&amp;Sparade sökningar...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1874"/>
+        <location filename="../../Form_Files/main.ui" line="1896"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1879"/>
+        <location filename="../../Form_Files/main.ui" line="1901"/>
         <source>&amp;Clip Editor...</source>
         <translation>&amp;Klippredigerare...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1882"/>
+        <location filename="../../Form_Files/main.ui" line="1904"/>
         <source>Open the Clip Editor.</source>
         <translation>Öppna Klippredigeraren.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1885"/>
+        <location filename="../../Form_Files/main.ui" line="1907"/>
         <source>Ctrl+Alt+C</source>
         <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1890"/>
+        <location filename="../../Form_Files/main.ui" line="1912"/>
         <source>Clip &amp;1</source>
         <translation>Klipp &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1893"/>
+        <location filename="../../Form_Files/main.ui" line="1915"/>
         <source>Insert Clip 1</source>
         <translation>Infoga klipp 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1896"/>
+        <location filename="../../Form_Files/main.ui" line="1918"/>
         <source>Ctrl+Alt+1</source>
         <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1901"/>
+        <location filename="../../Form_Files/main.ui" line="1923"/>
         <source>Clip &amp;2</source>
         <translation>Klipp &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1904"/>
+        <location filename="../../Form_Files/main.ui" line="1926"/>
         <source>Insert Clip 2</source>
         <translation>Infoga klipp 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1907"/>
+        <location filename="../../Form_Files/main.ui" line="1929"/>
         <source>Ctrl+Alt+2</source>
         <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1912"/>
+        <location filename="../../Form_Files/main.ui" line="1934"/>
         <source>Clip &amp;3</source>
         <translation>Klipp &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1915"/>
+        <location filename="../../Form_Files/main.ui" line="1937"/>
         <source>Insert Clip 3</source>
         <translation>Infoga klipp 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1918"/>
+        <location filename="../../Form_Files/main.ui" line="1940"/>
         <source>Ctrl+Alt+3</source>
         <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1923"/>
+        <location filename="../../Form_Files/main.ui" line="1945"/>
         <source>Clip &amp;4</source>
         <translation>Klipp &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1926"/>
+        <location filename="../../Form_Files/main.ui" line="1948"/>
         <source>Insert Clip 4</source>
         <translation>Infoga klipp 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1929"/>
+        <location filename="../../Form_Files/main.ui" line="1951"/>
         <source>Ctrl+Alt+4</source>
         <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1934"/>
+        <location filename="../../Form_Files/main.ui" line="1956"/>
         <source>Clip &amp;5</source>
         <translation>Klipp &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1937"/>
+        <location filename="../../Form_Files/main.ui" line="1959"/>
         <source>Insert Clip 5</source>
         <translation>Infoga klipp 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1940"/>
+        <location filename="../../Form_Files/main.ui" line="1962"/>
         <source>Ctrl+Alt+5</source>
         <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1945"/>
+        <location filename="../../Form_Files/main.ui" line="1967"/>
         <source>Clip &amp;6</source>
         <translation>Klipp &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1948"/>
+        <location filename="../../Form_Files/main.ui" line="1970"/>
         <source>Insert Clip 6</source>
         <translation>Infoga klipp 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1951"/>
+        <location filename="../../Form_Files/main.ui" line="1973"/>
         <source>Ctrl+Alt+6</source>
         <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1956"/>
+        <location filename="../../Form_Files/main.ui" line="1978"/>
         <source>Clip &amp;7</source>
         <translation>Klipp &amp;7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1959"/>
+        <location filename="../../Form_Files/main.ui" line="1981"/>
         <source>Insert Clip 7</source>
         <translation>Infoga klipp 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1962"/>
+        <location filename="../../Form_Files/main.ui" line="1984"/>
         <source>Ctrl+Alt+7</source>
         <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1967"/>
+        <location filename="../../Form_Files/main.ui" line="1989"/>
         <source>Clip &amp;8</source>
         <translation>Klipp &amp;8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1970"/>
+        <location filename="../../Form_Files/main.ui" line="1992"/>
         <source>Insert Clip 8</source>
         <translation>Infoga klipp 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1973"/>
+        <location filename="../../Form_Files/main.ui" line="1995"/>
         <source>Ctrl+Alt+8</source>
         <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1978"/>
+        <location filename="../../Form_Files/main.ui" line="2000"/>
         <source>Clip &amp;9</source>
         <translation>Klipp &amp;9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1981"/>
+        <location filename="../../Form_Files/main.ui" line="2003"/>
         <source>Insert Clip 9</source>
         <translation>Infoga klipp 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1984"/>
+        <location filename="../../Form_Files/main.ui" line="2006"/>
         <source>Ctrl+Alt+9</source>
         <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1989"/>
+        <location filename="../../Form_Files/main.ui" line="2011"/>
         <source>Clip 1&amp;0</source>
         <translation>Klipp 1&amp;0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1992"/>
+        <location filename="../../Form_Files/main.ui" line="2014"/>
         <source>Insert Clip 10</source>
         <translation>Infoga klipp 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1995"/>
+        <location filename="../../Form_Files/main.ui" line="2017"/>
         <source>Ctrl+Alt+0</source>
         <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2000"/>
+        <location filename="../../Form_Files/main.ui" line="2022"/>
         <source>Clip 11</source>
         <translation>Klipp 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2003"/>
+        <location filename="../../Form_Files/main.ui" line="2025"/>
         <source>Insert Clip 11</source>
         <translation>Infoga klipp 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2008"/>
+        <location filename="../../Form_Files/main.ui" line="2030"/>
         <source>Clip 12</source>
         <translation>Klipp 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2011"/>
+        <location filename="../../Form_Files/main.ui" line="2033"/>
         <source>Insert Clip 12</source>
         <translation>Infoga klipp 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2016"/>
+        <location filename="../../Form_Files/main.ui" line="2038"/>
         <source>Clip 13</source>
         <translation>Klipp 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2019"/>
+        <location filename="../../Form_Files/main.ui" line="2041"/>
         <source>Insert Clip 13</source>
         <translation>Infoga klipp 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2024"/>
+        <location filename="../../Form_Files/main.ui" line="2046"/>
         <source>Clip 14</source>
         <translation>Klipp 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2027"/>
+        <location filename="../../Form_Files/main.ui" line="2049"/>
         <source>Insert Clip 14</source>
         <translation>Infoga klipp 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2032"/>
+        <location filename="../../Form_Files/main.ui" line="2054"/>
         <source>Clip 15</source>
         <translation>Klipp 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2035"/>
+        <location filename="../../Form_Files/main.ui" line="2057"/>
         <source>Insert Clip 15</source>
         <translation>Infoga klipp 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2040"/>
+        <location filename="../../Form_Files/main.ui" line="2062"/>
         <source>Clip 16</source>
         <translation>Klipp 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2043"/>
+        <location filename="../../Form_Files/main.ui" line="2065"/>
         <source>Insert Clip 16</source>
         <translation>Infoga klipp 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2048"/>
+        <location filename="../../Form_Files/main.ui" line="2070"/>
         <source>Clip 17</source>
         <translation>Klipp 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2051"/>
+        <location filename="../../Form_Files/main.ui" line="2073"/>
         <source>Insert Clip 17</source>
         <translation>Infoga klipp 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2056"/>
+        <location filename="../../Form_Files/main.ui" line="2078"/>
         <source>Clip 18</source>
         <translation>Klipp 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2059"/>
+        <location filename="../../Form_Files/main.ui" line="2081"/>
         <source>Insert Clip 18</source>
         <translation>Infoga klipp 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2064"/>
+        <location filename="../../Form_Files/main.ui" line="2086"/>
         <source>Clip 19</source>
         <translation>Klipp 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2067"/>
+        <location filename="../../Form_Files/main.ui" line="2089"/>
         <source>Insert Clip 19</source>
         <translation>Infoga klipp 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2072"/>
+        <location filename="../../Form_Files/main.ui" line="2094"/>
         <source>Clip 20</source>
         <translation>Klipp 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2075"/>
+        <location filename="../../Form_Files/main.ui" line="2097"/>
         <source>Insert Clip 20</source>
         <translation>Infoga klipp 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2081"/>
+        <location filename="../../Form_Files/main.ui" line="2103"/>
         <source>Clip 21</source>
         <translation>Klipp 21</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2084"/>
+        <location filename="../../Form_Files/main.ui" line="2106"/>
         <source>Insert Clip 21</source>
         <translation>Infoga klipp 21</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2089"/>
+        <location filename="../../Form_Files/main.ui" line="2111"/>
         <source>Clip 22</source>
         <translation>Klipp 22</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2092"/>
+        <location filename="../../Form_Files/main.ui" line="2114"/>
         <source>Insert Clip 22</source>
         <translation>Infoga klipp 22</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2097"/>
+        <location filename="../../Form_Files/main.ui" line="2119"/>
         <source>Clip 23</source>
         <translation>Klipp 23</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2100"/>
+        <location filename="../../Form_Files/main.ui" line="2122"/>
         <source>Insert Clip 23</source>
         <translation>Infoga klipp 23</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2105"/>
+        <location filename="../../Form_Files/main.ui" line="2127"/>
         <source>Clip 24</source>
         <translation>Klipp 24</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2108"/>
+        <location filename="../../Form_Files/main.ui" line="2130"/>
         <source>Insert Clip 24</source>
         <translation>Infoga klipp 24</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2113"/>
+        <location filename="../../Form_Files/main.ui" line="2135"/>
         <source>Clip 25</source>
         <translation>Klipp 25</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2116"/>
+        <location filename="../../Form_Files/main.ui" line="2138"/>
         <source>Insert Clip 25</source>
         <translation>Infoga klipp 25</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2121"/>
+        <location filename="../../Form_Files/main.ui" line="2143"/>
         <source>Clip 26</source>
         <translation>Klipp 26</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2124"/>
+        <location filename="../../Form_Files/main.ui" line="2146"/>
         <source>Insert Clip 26</source>
         <translation>Infoga klipp 26</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2129"/>
+        <location filename="../../Form_Files/main.ui" line="2151"/>
         <source>Clip 27</source>
         <translation>Klipp 27</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2132"/>
+        <location filename="../../Form_Files/main.ui" line="2154"/>
         <source>Insert Clip 27</source>
         <translation>Infoga klipp 27</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2137"/>
+        <location filename="../../Form_Files/main.ui" line="2159"/>
         <source>Clip 28</source>
         <translation>Klipp 28</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2140"/>
+        <location filename="../../Form_Files/main.ui" line="2162"/>
         <source>Insert Clip 28</source>
         <translation>Infoga klipp 28</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2145"/>
+        <location filename="../../Form_Files/main.ui" line="2167"/>
         <source>Clip 29</source>
         <translation>Klipp 29</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2148"/>
+        <location filename="../../Form_Files/main.ui" line="2170"/>
         <source>Insert Clip 29</source>
         <translation>Infoga klipp 29</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2153"/>
+        <location filename="../../Form_Files/main.ui" line="2175"/>
         <source>Clip 30</source>
         <translation>Klipp 30</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2156"/>
+        <location filename="../../Form_Files/main.ui" line="2178"/>
         <source>Insert Clip 30</source>
         <translation>Infoga klipp 30</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2161"/>
+        <location filename="../../Form_Files/main.ui" line="2183"/>
         <source>Clip 31</source>
         <translation>Klipp 31</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2164"/>
+        <location filename="../../Form_Files/main.ui" line="2186"/>
         <source>Insert Clip 31</source>
         <translation>Infoga klipp 31</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2169"/>
+        <location filename="../../Form_Files/main.ui" line="2191"/>
         <source>Clip 32</source>
         <translation>Klipp 32</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2172"/>
+        <location filename="../../Form_Files/main.ui" line="2194"/>
         <source>Insert Clip 32</source>
         <translation>Infoga klipp 32</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2177"/>
+        <location filename="../../Form_Files/main.ui" line="2199"/>
         <source>Clip 33</source>
         <translation>Klipp 33</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2180"/>
+        <location filename="../../Form_Files/main.ui" line="2202"/>
         <source>Insert Clip 33</source>
         <translation>Infoga klipp 33</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2185"/>
+        <location filename="../../Form_Files/main.ui" line="2207"/>
         <source>Clip 34</source>
         <translation>Klipp 34</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2188"/>
+        <location filename="../../Form_Files/main.ui" line="2210"/>
         <source>Insert Clip 34</source>
         <translation>Infoga klipp 34</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2193"/>
+        <location filename="../../Form_Files/main.ui" line="2215"/>
         <source>Clip 35</source>
         <translation>Klipp 35</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2196"/>
+        <location filename="../../Form_Files/main.ui" line="2218"/>
         <source>Insert Clip 35</source>
         <translation>Infoga klipp 35</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2201"/>
+        <location filename="../../Form_Files/main.ui" line="2223"/>
         <source>Clip 36</source>
         <translation>Klipp 36</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2204"/>
+        <location filename="../../Form_Files/main.ui" line="2226"/>
         <source>Insert Clip 36</source>
         <translation>Infoga klipp 36</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2209"/>
+        <location filename="../../Form_Files/main.ui" line="2231"/>
         <source>Clip 37</source>
         <translation>Klipp 37</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2212"/>
+        <location filename="../../Form_Files/main.ui" line="2234"/>
         <source>Insert Clip 37</source>
         <translation>Infoga klipp 37</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2217"/>
+        <location filename="../../Form_Files/main.ui" line="2239"/>
         <source>Clip 38</source>
         <translation>Klipp 38</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2220"/>
+        <location filename="../../Form_Files/main.ui" line="2242"/>
         <source>Insert Clip 38</source>
         <translation>Infoga klipp 38</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2225"/>
+        <location filename="../../Form_Files/main.ui" line="2247"/>
         <source>Clip 39</source>
         <translation>Klipp 39</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2228"/>
+        <location filename="../../Form_Files/main.ui" line="2250"/>
         <source>Insert Clip 39</source>
         <translation>Infoga klipp 39</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2233"/>
+        <location filename="../../Form_Files/main.ui" line="2255"/>
         <source>Clip 40</source>
         <translation>Klipp 40</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2236"/>
+        <location filename="../../Form_Files/main.ui" line="2258"/>
         <source>Insert Clip 40</source>
         <translation>Infoga klipp 40</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2245"/>
+        <location filename="../../Form_Files/main.ui" line="2267"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;Inställningar...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2248"/>
+        <location filename="../../Form_Files/main.ui" line="2270"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2253"/>
+        <location filename="../../Form_Files/main.ui" line="2275"/>
         <source>&amp;Zoom Reset</source>
         <translation>&amp;Zoom återställning</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2256"/>
+        <location filename="../../Form_Files/main.ui" line="2278"/>
         <source>Zoom Reset</source>
         <translation>Zoomåterställning</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2259"/>
+        <location filename="../../Form_Files/main.ui" line="2281"/>
         <source>Ctrl+0</source>
         <translation>Ctrl+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2271"/>
+        <location filename="../../Form_Files/main.ui" line="2293"/>
         <source>Heading &amp;1</source>
         <translation>Rubrik &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2274"/>
+        <location filename="../../Form_Files/main.ui" line="2296"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
@@ -9207,17 +9263,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycket som en rubrik på nivå 1.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2279"/>
+        <location filename="../../Form_Files/main.ui" line="2301"/>
         <source>Ctrl+1</source>
         <translation>Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2291"/>
+        <location filename="../../Form_Files/main.ui" line="2313"/>
         <source>Heading &amp;2</source>
         <translation>Rubrik &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2294"/>
+        <location filename="../../Form_Files/main.ui" line="2316"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
@@ -9226,17 +9282,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycket som en rubrik på nivå 2.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2299"/>
+        <location filename="../../Form_Files/main.ui" line="2321"/>
         <source>Ctrl+2</source>
         <translation>Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2311"/>
+        <location filename="../../Form_Files/main.ui" line="2333"/>
         <source>Heading &amp;3</source>
         <translation>Rubrik &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2314"/>
+        <location filename="../../Form_Files/main.ui" line="2336"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
@@ -9245,17 +9301,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycket som en rubrik på nivå 3.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2319"/>
+        <location filename="../../Form_Files/main.ui" line="2341"/>
         <source>Ctrl+3</source>
         <translation>Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2331"/>
+        <location filename="../../Form_Files/main.ui" line="2353"/>
         <source>Heading &amp;4</source>
         <translation>Rubrik &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2334"/>
+        <location filename="../../Form_Files/main.ui" line="2356"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
@@ -9264,17 +9320,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycket som en rubrik på nivå 4.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2339"/>
+        <location filename="../../Form_Files/main.ui" line="2361"/>
         <source>Ctrl+4</source>
         <translation>Ctrl+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2351"/>
+        <location filename="../../Form_Files/main.ui" line="2373"/>
         <source>Heading &amp;5</source>
         <translation>Rubrik &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2354"/>
+        <location filename="../../Form_Files/main.ui" line="2376"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
@@ -9283,17 +9339,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycket som en rubrik på nivå 5.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2359"/>
+        <location filename="../../Form_Files/main.ui" line="2381"/>
         <source>Ctrl+5</source>
         <translation>Ctrl+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2371"/>
+        <location filename="../../Form_Files/main.ui" line="2393"/>
         <source>Heading &amp;6</source>
         <translation>Rubrik &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2374"/>
+        <location filename="../../Form_Files/main.ui" line="2396"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
@@ -9302,17 +9358,17 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycket som en rubrik på nivå 6.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2379"/>
+        <location filename="../../Form_Files/main.ui" line="2401"/>
         <source>Ctrl+6</source>
         <translation>Ctrl+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2391"/>
+        <location filename="../../Form_Files/main.ui" line="2413"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normal</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2394"/>
+        <location filename="../../Form_Files/main.ui" line="2416"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
@@ -9321,37 +9377,37 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Formatera stycke som ett normalt stycke.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2399"/>
+        <location filename="../../Form_Files/main.ui" line="2421"/>
         <source>Ctrl+7</source>
         <translation>Ctrl+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2407"/>
+        <location filename="../../Form_Files/main.ui" line="2429"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation>&amp;Bevara befintliga attribut</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2410"/>
+        <location filename="../../Form_Files/main.ui" line="2432"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation>När du använder denna stil, bevara alla befintliga attribut på taggen</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2415"/>
+        <location filename="../../Form_Files/main.ui" line="2437"/>
         <source>Blank HTML File</source>
         <translation>Tom HTML-fil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2418"/>
+        <location filename="../../Form_Files/main.ui" line="2440"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation>Lägg till en ny tom HTML-fil i boken.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2427"/>
+        <location filename="../../Form_Files/main.ui" line="2449"/>
         <source>Existing Files...</source>
         <translation>Befintliga filer...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2430"/>
+        <location filename="../../Form_Files/main.ui" line="2452"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
@@ -9360,127 +9416,127 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Lägg till filer från din dator till boken.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2437"/>
+        <location filename="../../Form_Files/main.ui" line="2459"/>
         <source>Blank Stylesheet</source>
         <translation>Tom formatmall</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2440"/>
+        <location filename="../../Form_Files/main.ui" line="2462"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation>Lägg till en ny tom formatmall i boken.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2445"/>
+        <location filename="../../Form_Files/main.ui" line="2467"/>
         <source>Blank SVG Image</source>
         <translation>Tom SVG-bild</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2448"/>
+        <location filename="../../Form_Files/main.ui" line="2470"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation>Lägg till en ny tom svg-bildfil i boken.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2453"/>
+        <location filename="../../Form_Files/main.ui" line="2475"/>
         <source>Pre&amp;vious File</source>
         <translation>För&amp;egående fil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2456"/>
+        <location filename="../../Form_Files/main.ui" line="2478"/>
         <source>Open previous file of the same type.</source>
         <translation>Öppna föregående fil av samma typ.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2459"/>
+        <location filename="../../Form_Files/main.ui" line="2481"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2464"/>
+        <location filename="../../Form_Files/main.ui" line="2486"/>
         <source>Next &amp;File</source>
         <translation>Nästa &amp;fil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2467"/>
+        <location filename="../../Form_Files/main.ui" line="2489"/>
         <source>Open next file of the same type.</source>
         <translation>Öppna nästa fil av samma typ.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2470"/>
+        <location filename="../../Form_Files/main.ui" line="2492"/>
         <source>Alt+PgDown</source>
         <translation>Alt+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2475"/>
+        <location filename="../../Form_Files/main.ui" line="2497"/>
         <source>&amp;Add To Index Editor</source>
         <translation>&amp;Lägg till Indexredigerare</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2478"/>
+        <location filename="../../Form_Files/main.ui" line="2504"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation>Lägg till den markerade texten i Indexredigeraren.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2483"/>
+        <location filename="../../Form_Files/main.ui" line="2509"/>
         <source>&amp;Mark For Index</source>
         <translation>&amp;Markera för index</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2486"/>
+        <location filename="../../Form_Files/main.ui" line="2516"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation>Markera den markerade texten för inkludering i indexet.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2489"/>
+        <location filename="../../Form_Files/main.ui" line="2519"/>
         <source>Ctrl+Shift+X</source>
         <translation>Ctrl+Shift+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2494"/>
+        <location filename="../../Form_Files/main.ui" line="2524"/>
         <source>&amp;Create Index</source>
         <translation>&amp;Skapa index</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2497"/>
+        <location filename="../../Form_Files/main.ui" line="2531"/>
         <source>Generate a new Index HTML file.</source>
         <translation>Generera en ny Index HTML-fil.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2502"/>
+        <location filename="../../Form_Files/main.ui" line="2536"/>
         <source>&amp;Create HTML Table Of Contents</source>
         <translation>&amp;Skapa HTML-innehållsförteckning</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2505"/>
+        <location filename="../../Form_Files/main.ui" line="2539"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation>Skapa en ny HTML-fil med den aktuella innehållsförteckningen.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2510"/>
+        <location filename="../../Form_Files/main.ui" line="2544"/>
         <source>Book&amp;mark Location</source>
         <translation>Bok&amp;märk plats</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2513"/>
+        <location filename="../../Form_Files/main.ui" line="2547"/>
         <source>Ctrl+Alt+B</source>
         <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2518"/>
+        <location filename="../../Form_Files/main.ui" line="2552"/>
         <source>&amp;Go To Link Or Style</source>
         <translation>&amp;Gå till länk eller stil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2521"/>
+        <location filename="../../Form_Files/main.ui" line="2555"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2530"/>
+        <location filename="../../Form_Files/main.ui" line="2564"/>
         <source>&amp;Back</source>
         <translation>&amp;Tillbaka</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2533"/>
+        <location filename="../../Form_Files/main.ui" line="2567"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
@@ -9491,320 +9547,320 @@ Formatmallar som listas först har företräde framför senare formatmallar.</tr
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2539"/>
+        <location filename="../../Form_Files/main.ui" line="2573"/>
         <source>Ctrl+\</source>
         <translation>Ctrl+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2544"/>
+        <location filename="../../Form_Files/main.ui" line="2578"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
         <translation>Redigera/Klistra in från urklipps&amp;historiken...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2547"/>
+        <location filename="../../Form_Files/main.ui" line="2581"/>
         <source>Ctrl+Alt+V</source>
         <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2552"/>
+        <location filename="../../Form_Files/main.ui" line="2586"/>
         <source>&amp;Delete Line</source>
         <translation>&amp;Ta bort rad</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2555"/>
+        <location filename="../../Form_Files/main.ui" line="2589"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2560"/>
+        <location filename="../../Form_Files/main.ui" line="2594"/>
         <source>Manage Plugins</source>
         <translation>Hantera insticksmoduler</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2569"/>
+        <location filename="../../Form_Files/main.ui" line="2603"/>
         <source>Run Plugin 1</source>
         <translation>Kör insticksmodul 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2578"/>
+        <location filename="../../Form_Files/main.ui" line="2612"/>
         <source>Run Plugin 2</source>
         <translation>Kör insticksmodul 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2587"/>
+        <location filename="../../Form_Files/main.ui" line="2621"/>
         <source>Run Plugin 3</source>
         <translation>Kör insticksmodul 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2596"/>
+        <location filename="../../Form_Files/main.ui" line="2630"/>
         <source>Run Plugin 4</source>
         <translation>Kör insticksmodul 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2605"/>
+        <location filename="../../Form_Files/main.ui" line="2639"/>
         <source>Run Plugin 5</source>
         <translation>Kör insticksmodul 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2614"/>
+        <location filename="../../Form_Files/main.ui" line="2648"/>
         <source>Run Plugin 6</source>
         <translation>Kör insticksmodul 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2623"/>
+        <location filename="../../Form_Files/main.ui" line="2657"/>
         <source>Run Plugin 7</source>
         <translation>Kör insticksmodul 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2632"/>
+        <location filename="../../Form_Files/main.ui" line="2666"/>
         <source>Run Plugin 8</source>
         <translation>Kör insticksmodul 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2641"/>
+        <location filename="../../Form_Files/main.ui" line="2675"/>
         <source>Run Plugin 9</source>
         <translation>Kör insticksmodul 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2650"/>
+        <location filename="../../Form_Files/main.ui" line="2684"/>
         <source>Run Plugin 10</source>
         <translation>Kör insticksmodul 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2659"/>
+        <location filename="../../Form_Files/main.ui" line="2693"/>
         <source>Launch External Xhtml Editor</source>
         <translation>Starta extern XHTML-redigerare</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2662"/>
+        <location filename="../../Form_Files/main.ui" line="2696"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2667"/>
+        <location filename="../../Form_Files/main.ui" line="2701"/>
         <source>Mend and &amp;Prettify All HTML Files</source>
         <translation>Reparera och &amp;försköna alla HTML-filer</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2672"/>
+        <location filename="../../Form_Files/main.ui" line="2706"/>
         <source>&amp;Mend All HTML Files</source>
         <translation>&amp;Reparera alla HTML-filer</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2677"/>
+        <location filename="../../Form_Files/main.ui" line="2711"/>
         <source>&amp;Update Manifest Properties</source>
         <translation>&amp;Uppdatera manifestets egenskaper</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2682"/>
+        <location filename="../../Form_Files/main.ui" line="2716"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
         <translation>Skapa &amp;NCX/Guide för epub2 e-läsenehter</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2687"/>
+        <location filename="../../Form_Files/main.ui" line="2721"/>
         <source>Create a Custom Empty Epub</source>
         <translation>Skapa en anpassad tom Epub</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2692"/>
+        <location filename="../../Form_Files/main.ui" line="2726"/>
         <source>Remove the NCX and Guide</source>
         <translation>Ta bort NCX och Guide</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2701"/>
+        <location filename="../../Form_Files/main.ui" line="2735"/>
         <source>Create Checkpoint for Epub</source>
-        <translation type="unfinished"/>
+        <translation>Skapa kontrollpunkt för Epub</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2710"/>
+        <location filename="../../Form_Files/main.ui" line="2744"/>
         <source>Create Epub from previous Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Skapa Epub från föregående kontrollpunkt</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2719"/>
+        <location filename="../../Form_Files/main.ui" line="2753"/>
         <source>Compare Epub against Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Jämför Epub mot kontrollpunkt</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2728"/>
+        <location filename="../../Form_Files/main.ui" line="2762"/>
         <source>Manage Checkpoint Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Hantera kontrollpunktförråd</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="367"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
         <source>Input</source>
         <translation>Inmatning</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="373"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="385"/>
         <source>Output</source>
         <translation>Utmatning</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="385"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="397"/>
         <source>Validation</source>
         <translation>Validering</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="434"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="447"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="455"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="462"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1437"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1672"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1814"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2295"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2390"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2458"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2466"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="446"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="467"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="474"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1121"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1689"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1831"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2312"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2407"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2475"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2483"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2495"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2600"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2616"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2621"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2634"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2647"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2500"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2617"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2633"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2651"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2664"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2674"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2679"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2838"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2845"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2859"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2864"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2888"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2920"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4087"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4093"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4099"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4134"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4140"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4146"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4400"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4420"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4718"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4928"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2681"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2691"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2696"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2855"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2862"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2876"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2881"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2905"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2937"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4104"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4110"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4151"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4157"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4163"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4439"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4737"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4947"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="435"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="447"/>
         <source>Are you sure you want to restructure this epub?
 This action cannot be reversed.</source>
         <translation>Är du säker på att du vill omstrukturera denna epub?
 Denna åtgärd kan inte ångras.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="448"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="456"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="463"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="468"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="475"/>
         <source>Restructure cancelled: %1, XML not well formed.</source>
         <translation>Omstrukturering avbruten: %1, XML inte välformad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="532"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="544"/>
         <source>Restructure completed.</source>
         <translation>Omstrukturering är klar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="634"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="651"/>
         <source>Checkpoint generation failed.</source>
-        <translation type="unfinished"/>
+        <translation>Generering av kontrollpunkt misslyckades.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="640"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="657"/>
         <source>Checkpoint saved.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="676"/>
-        <source>Checkout Failed. No checkpoints found</source>
-        <translation type="unfinished"/>
+        <translation>Kontrollpunkt sparad.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="693"/>
+        <source>Checkout Failed. No checkpoints found</source>
+        <translation>Kontroll misslyckades. Inga kontrollpunkter hittades</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="710"/>
         <source>Checkout Failed. No checkpoint selected</source>
-        <translation type="unfinished"/>
+        <translation>Kontroll misslyckades. Inga kontrollpunkt vald</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="735"/>
         <source>Epub Generate from Tag Failed.</source>
-        <translation type="unfinished"/>
+        <translation>Epub-generering från tagg misslyckades.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="740"/>
         <source>Epub Generation succeeded</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="737"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="754"/>
         <source>Repository Checkout</source>
-        <translation type="unfinished"/>
+        <translation>Förrådsutcheckning</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="755"/>
         <source>Your current book will be replaced losing any unsaved changes ... Are you sure you want to proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Din aktuella bok kommer att ersättas och förlorar eventuella osparade ändringar ... Är du säker på att du vill fortsätta?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="762"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="786"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="803"/>
         <source>Diff Failed. No checkpoints found</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="819"/>
         <source>Diff Failed. No checkpoint selected for comparison</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="833"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="850"/>
         <source>Results of Comparison</source>
-        <translation type="unfinished"/>
+        <translation>Resultat av jämförelse</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="833"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="850"/>
         <source>No differences were found.</source>
-        <translation type="unfinished"/>
+        <translation>Inga skillnader hittades.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="864"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="881"/>
         <source>External XHtml Editor works only on Html Resources or OPF Resources!</source>
         <translation>Externa XHtml-redigerare fungerar endast med Html-resurser eller OPF-resurser!</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="871"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="888"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
         <translation>Ingen extern XHTML-redigerare har angetts: se Inställningar</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="878"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="895"/>
         <source>Specified External Xhtml Editor path does not exist</source>
         <translation>Angiven sökväg för extern XHTML-redigerare saknas</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="922"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="939"/>
         <source>Executing External Xhtml Editor</source>
         <translation>Exekvera extern XHTML-redigerare</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="925"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="942"/>
         <source>Failed to Launch External Xhtml Editor</source>
         <translation>Det gick inte att starta extern XHTML-redigerare</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1022"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1039"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>Navigering avbruten eftersom platsen inte längre existerar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1039"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1056"/>
         <source>Location bookmarked.</source>
         <translation>Plats bokmärkt.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1121"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -9813,441 +9869,441 @@ Denna åtgärd kan inte ångras.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1157"/>
         <source>was updated</source>
         <translation>uppdaterades</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1147"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1164"/>
         <source>Warning</source>
         <translation>Varning</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1147"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1164"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>Filen var INTE välformad och kan vara skadad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1175"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1192"/>
         <source>Opening this EPUB generated warnings.</source>
         <translation>Öppnar denna EPUB:s genererade varningar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1194"/>
         <source>Select Show Details for more information.</source>
         <translation>Välj Visa information för mer information.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1305"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1322"/>
         <source>Sigil is closing...</source>
         <translation>Sigil stängs...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1371"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
         <source>New file created.</source>
         <translation>Ny fil skapad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1396"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1413"/>
         <source>Open File</source>
         <translation>Öppna fil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1436"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1453"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Den här filen finns inte längre. Klicka på OK för att ta bort den från menyn.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1531"/>
         <source>Save File</source>
         <translation>Spara fil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1568"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1585"/>
         <source>Save a Copy</source>
         <translation>Spara en kopia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1607"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1624"/>
         <source>Epub layout discarded.</source>
         <translation>Epub layout kasserad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1614"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1631"/>
         <source>New epub created.</source>
         <translation>Ny epub skapad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1649"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1666"/>
         <source>Go To Line</source>
         <translation>Gå till rad</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1649"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1666"/>
         <source>Line #</source>
         <translation>Rad #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1672"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1689"/>
         <source>Image does not exist: </source>
         <translation>Bilden finns inte:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1742"/>
         <source>or</source>
         <translation>eller</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1733"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1750"/>
         <source>No CSS styles named</source>
         <translation>Inga CSS-stilar som heter</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1733"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1750"/>
         <source>found, or stylesheet not linked.</source>
         <translation>hittad, eller formatmall inte länkad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1810"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1827"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1834"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1851"/>
         <source>Add Cover</source>
         <translation>Lägg till omslag</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1883"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1900"/>
         <source>An existing Cover file has been found.</source>
         <translation>Ett befintligt omslag har hittats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1939"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1956"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Oväntat fel. Endast bildfiler kan användas för omslaget.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1956"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1973"/>
         <source>Cover added.</source>
         <translation>Omslag tillagt.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1965"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1982"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2014"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1999"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2031"/>
         <source>Not Available for epub2.</source>
         <translation>Inte tillgänglig för epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1973"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1990"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>OPF-manifestets egenskaper uppdaterades.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2004"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2021"/>
         <source>NCX and Guide removed.</source>
         <translation>NCX och Guide borttagna.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2031"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2063"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2048"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2080"/>
         <source>NCX and Guide generation failed.</source>
         <translation>NCX och Guide skapande misslyckats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2118"/>
         <source>NCX and Guide generated.</source>
         <translation>NCX och Guide skapade.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2185"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2202"/>
         <source>An existing Index file has been found.</source>
         <translation>En befintlig indexfil har hittats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2276"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2293"/>
         <source>Styles deleted.</source>
         <translation>Stilar borttagna.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2284"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2301"/>
         <source>Reports Being Generated.</source>
         <translation>Rapporter genereras.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2312"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Rapporter avbruten på grund av XML inte välformade.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2390"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2407"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Ta bort oanvända mediefiler avbruten på grund av att XML inte är välformad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2456"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2473"/>
         <source>Unused media files deleted.</source>
         <translation>Oanvända mediefiler borttagna.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2458"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2475"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Det finns inga oanvända bild-, video- eller ljudfiler att ta bort.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2466"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2483"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Ta bort oanvända stilar avbruten på grund av att XML inte är välformad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2483"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2500"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation>Det finns inga oanvända formatmallsklasser att ta bort.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2495"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2512"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Du kan inte infoga en fil i den här positionen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2502"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2519"/>
         <source>Insert File</source>
         <translation>Infoga fil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2554"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2571"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Filen &quot;%1&quot; finns inte.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2600"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2617"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2638"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Du kan inte infoga ett id i denna position.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2616"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2633"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID är ogiltigt - måste börja med en bokstav, följt av bokstavsnummer _ : - eller .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2634"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2651"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2669"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Du kan inte infoga en länk i denna position.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2647"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2664"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Länken är ogiltig - kan inte innehålla &quot;&lt;&quot; eller &quot;&gt;&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2664"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2681"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Du kan inte markera ett index på den här positionen eller utan att markera text.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2674"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2691"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Posten är ogiltig - kan inte innehålla &quot;&lt;&quot; eller &quot;&gt;&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2679"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2696"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Du kan inte markera ett index i denna position.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2746"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2768"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2785"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2804"/>
         <source>Select the destination to paste into first.</source>
         <translation>Välj den destination som ska klistras in först.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2776"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2793"/>
         <source>Pasted clip entry %1.</source>
         <translation>Klistrade in klippost %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2838"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2855"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>En resurs vald och det finns ingen tidigare resurs att slå samman med.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2845"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2862"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Är du säker på att du vill slå samman de valda filerna?
 Denna åtgärd kan inte ångras.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2859"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2876"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
         <translation>Sammanfogning avbruten: %1, XML är inte välformad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2864"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2881"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>Sammanfogning avbruten på grund av att XML inte var välformade.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2888"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2905"/>
         <source>Cannot merge file %1</source>
         <translation>Det går inte att sammanfoga filen %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2902"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2919"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Sammanfogning klar. Du kan behöva regenerera eller redigera innehållsförteckningen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2920"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2937"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Länka formatmallar avbruten: %1, XML inte välformad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3045"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3062"/>
         <source>Word updated.</source>
         <translation>Ordet uppdaterat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3117"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
         <source>File(s) deleted.</source>
         <translation>Fil/filer borttagna.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3128"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3145"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Redigera innehållsförteckning avbruten.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3133"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3150"/>
         <source>Table Of Contents edited.</source>
         <translation>Innehållsförteckning redigerad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3151"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3168"/>
         <source>Generate TOC cancelled.</source>
         <translation>Generera innehållsförteckning avbruten.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3193"/>
         <source>Table Of Contents generated.</source>
         <translation>Innehållsförteckning genererad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3178"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3195"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Inga ändringar av innehållsförteckningen var nödvändiga.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3251"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3268"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>En befintlig HTML-innehållsförteckningsfil har hittats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3329"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3346"/>
         <source>Text selection marked.</source>
         <translation>Vald text markerad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3331"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3366"/>
         <source>Text selection unmarked.</source>
         <translation>Vald text avmarkerad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3398"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3415"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Metadata-redigerare avbruten.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3401"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3418"/>
         <source>Metadata edited.</source>
         <translation>Metadata redigerad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3509"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3526"/>
         <source>RunPlugin</source>
         <translation>RunPlugin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3534"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3551"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Denna EPUB innehåller inga CSS-formatmallar att validera.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4001"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4018"/>
         <source>Line: %1, Col: %2</source>
         <translation>Rad: %1, Kol: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4087"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4104"/>
         <source>File cannot be split at this position.</source>
         <translation>Filen kan inte delas i denna position.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4093"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4110"/>
         <source>Cannot split since it may not be an HTML file.</source>
         <translation>Det går inte att dela eftersom det kanske inte är en HTML-fil.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4099"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
         <source>The Nav file cannot be split.</source>
         <translation>Nav-filen kan inte delas upp.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4133"/>
         <source>Split completed.</source>
         <translation>Delning klar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4151"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Det går inte att dela eftersom minst en fil inte är en HTML-fil.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4157"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Det går inte att dela: %1 XML är inte välformad</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4146"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4163"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Det går inte att dela eftersom minst en fil kanske inte är en HTML-fil.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4179"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4196"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Delning klar. Du kan behöva uppdatera innehållsförteckningen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4181"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4198"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Inga delningsfilmarkörer hittades. Använd Infoga-&gt;Delningsmarkör.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4401"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4420"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokumentet har ändrats.
 Vill du spara dina ändringar?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4422"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4441"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Ska Sigil skriva över den här filen?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4593"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4612"/>
         <source>No importer for file type: %1</source>
         <translation>Ingen importör för filtyp: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4600"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4619"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -10260,113 +10316,113 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Prova att ställa in Rensa källkod inställningen för att reparera XHTML-källkod på Öppna och läs om filen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4605"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4624"/>
         <source>Loading file...</source>
         <translation>Läser in fil...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4638"/>
         <source>File loaded.</source>
         <translation>Filen inläst.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4646"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4665"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Skaparen av den här filen har krypterat den med DRM. Sigil kan inte öppna sådana filer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4653"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4672"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Kan inte läsa in EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4657"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4676"/>
         <source>Cannot load file %1: %2</source>
         <translation>Det går inte att läsa filen %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4685"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4704"/>
         <source>Saving EPUB...</source>
         <translation>Sparar EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4694"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4713"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil kan inte spara filer av typen %1.
 Vänligen välj ett annat format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4719"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4738"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in some data loss.
 
 Do you want to automatically mend the files before saving?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4757"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4776"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB sparad, men alla HTML-filer är inte välformade.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4759"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4778"/>
         <source>EPUB saved.</source>
         <translation>EPUB sparad.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4784"/>
         <source>Cannot save file %1: %2</source>
         <translation>Det går inte att spara filen %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4898"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4917"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB-filer (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4899"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4900"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4901"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4918"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4919"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4920"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML-filer (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4902"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4921"/>
         <source>Text files (*.txt)</source>
         <translation>Textfiler (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4903"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4922"/>
         <source>All files (*.*)</source>
         <translation>Alla filer (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4911"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4930"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB-fil (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4928"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4947"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5006"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5025"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Bevara befintliga rubrikattribut är nu:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5026"/>
         <source>ON</source>
         <translation>PÅ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5026"/>
         <source>OFF</source>
         <translation>AV</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5032"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5051"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -10376,17 +10432,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="14"/>
         <source>Manage Checkpoint Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Hantera kontrollpunktsförråd</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="22"/>
         <source>Checkpoint Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Kontrollpunktsförråd</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="69"/>
         <source>ePub FileName</source>
-        <translation type="unfinished"/>
+        <translation>ePub-filnamn</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="74"/>
@@ -10396,7 +10452,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="79"/>
         <source>Modified</source>
-        <translation type="unfinished"/>
+        <translation>Ändrad</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="84"/>
@@ -10406,12 +10462,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="89"/>
         <source>ePub:UUID</source>
-        <translation type="unfinished"/>
+        <translation>ePub:UUID</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="112"/>
         <source>Show Log</source>
-        <translation type="unfinished"/>
+        <translation>Visa logg</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="120"/>
@@ -10432,17 +10488,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="161"/>
         <source>Repository Log</source>
-        <translation type="unfinished"/>
+        <translation>Förrådslogg</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="196"/>
         <source>Remove All Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort alla förråd</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="197"/>
         <source>Are you sure sure you want to remove all checkpoint repositories?</source>
-        <translation type="unfinished"/>
+        <translation>Är du säker på att du vill ta bort alla kontrollpunktsförråd?</translation>
     </message>
 </context>
 <context>
@@ -10465,7 +10521,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>Använd för en person eller organisation som huvudsakligen uppvisar skådespelande färdigheter i en musikalisk eller dramatisk presentation eller underhållning.</translation>
+        <translation>Används för en person eller organisation som huvudsakligen uppvisar skådespelande färdigheter i en musikalisk eller dramatisk presentation eller underhållning.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
@@ -10475,7 +10531,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
-        <translation>Använd för en person eller organisation som 1) omarbetar en musikalisk komposition, vanligtvis för ett annat medium eller 2) skriver om romaner eller berättelser för rörliga bilder eller annat audiovisuellt medium.</translation>
+        <translation>Används för en person eller organisation som 1) omarbetar en musikalisk komposition, vanligtvis för ett annat medium eller 2) skriver om romaner eller berättelser för rörliga bilder eller annat audiovisuellt medium.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
@@ -10485,7 +10541,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
-        <translation>Använd för en person eller organisation som granskar, undersöker och tolkar data eller information inom ett visst område.</translation>
+        <translation>Används för en person eller organisation som granskar, undersöker och tolkar data eller information inom ett visst område.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
@@ -10495,7 +10551,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
-        <translation>Använd för en person eller organisation som drar de tvådimensionella figurerna, manipulerar de tredimensionella objekten och/eller programmerar datorn för att flytta objekt och bilder för animerad filmbehandling. Animeringskameror, stativ, celluloidskärmar, OH-film och bläck är några av animatörens verktyg.</translation>
+        <translation>Används för en person eller organisation som drar de tvådimensionella figurerna, manipulerar de tredimensionella objekten och/eller programmerar datorn för att flytta objekt och bilder för animerad filmbehandling. Animeringskameror, stativ, celluloidskärmar, OH-film och bläck är några av animatörens verktyg.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
@@ -10505,7 +10561,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
-        <translation>Använd för en person som skriver manuskript anteckningar på ett tryckt objekt.</translation>
+        <translation>Används för en person som skriver manuskript anteckningar på ett tryckt objekt.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
@@ -10545,7 +10601,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
-        <translation>Använd för en person eller organisation som designar strukturer eller övervakar deras konstruktion.</translation>
+        <translation>Används för en person eller organisation som designar strukturer eller övervakar deras konstruktion.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
@@ -10555,7 +10611,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation>Använd för en person eller organisation som transkriberar en musikalisk komposition, vanligtvis för ett annat medium än originalet; i ett arrangemang förblir den musikaliska substansen väsentligen oförändrad.</translation>
+        <translation>Används för en person eller organisation som transkriberar en musikalisk komposition, vanligtvis för ett annat medium än originalet; i ett arrangemang förblir den musikaliska substansen väsentligen oförändrad.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
@@ -10565,7 +10621,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation>Använd för en person (t.ex. en målare eller skulptör) som gör kopior av konstverk.</translation>
+        <translation>Används för en person (t.ex. en målare eller skulptör) som gör kopior av konstverk.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
@@ -10585,17 +10641,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation>Använd för en person (t. ex. en målare) eller organisation som tänker, och kanske också genomför, en original grafisk design eller konstverk, om specifika koder (t.ex. [egr], [etr]) inte önskas. För bokillustratörer, föredrar illustratör [ill].</translation>
+        <translation>Används för en person (t. ex. en målare) eller organisation som tänker, och kanske också genomför, en original grafisk design eller konstverk, om specifika koder (t.ex. [egr], [etr]) inte önskas. För bokillustratörer, föredrar illustratör [ill].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Artistic director</source>
-        <translation>Konstnärlig ledare</translation>
+        <translation>Konstnärlig regissör</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation>Använd för en person som ansvarar för att kontrollera utvecklingen av den konstnärliga stilen i en hel produktion, inklusive valet av verk som ska presenteras och urval av senior produktionspersonal.</translation>
+        <translation>Används för en person som ansvarar för att kontrollera utvecklingen av den konstnärliga stilen i en hel produktion, inklusive valet av verk som ska presenteras och urval av senior produktionspersonal.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
@@ -10605,7 +10661,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation>Använd för en person eller organisation till vilken en licens för utskrift eller publicering har överförts.</translation>
+        <translation>Används för en person eller organisation till vilken en licens för utskrift eller publicering har överförts.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
@@ -10645,7 +10701,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
-        <translation>Använd för en person eller organisation som huvudsakligen ansvarar för det intellektuella eller konstnärliga innehållet i ett arbete, vanligtvis tryckt text. Denna term kan också användas när mer än en person eller ett organ bär sådant ansvar.</translation>
+        <translation>Används för en person eller organisation som huvudsakligen ansvarar för det intellektuella eller konstnärliga innehållet i ett arbete, vanligtvis tryckt text. Denna term kan också användas när mer än en person eller ett organ bär sådant ansvar.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
@@ -10665,27 +10721,27 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
-        <translation>Använd för en person eller organisation som ansvarar för ett efterord, efterfas, kolofon, o.s.v. men vem är inte chefsförfattaren till ett arbete.</translation>
+        <translation>Används för en person eller organisation som ansvarar för ett efterord, efterfas, kolofon, o.s.v. men vem är inte chefsförfattaren till ett arbete.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Author of dialog</source>
-        <translation>Författare till dialog</translation>
+        <translation>Författare av dialog</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
-        <translation>Använd för en person eller organisation som ansvarar för dialogrutan eller talad kommentar för ett manus eller ljudinspelning.</translation>
+        <translation>Används för en person eller organisation som ansvarar för dialogrutan eller talad kommentar för ett manus eller ljudinspelning.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Author of introduction, etc.</source>
-        <translation>Författare till introduktion o.s.v.</translation>
+        <translation>Författare av introduktion o.s.v.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
-        <translation>Använd för en person eller organisation som ansvarar för en introduktion, inledning, förord eller annan kritisk inledande fråga, men som inte är huvudförfattare.</translation>
+        <translation>Används för en person eller organisation som ansvarar för en introduktion, inledning, förord eller annan kritisk inledande fråga, men som inte är huvudförfattare.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
@@ -10695,7 +10751,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
-        <translation>Använd för en person eller organisation som ansvarar för en film manus, dialog, talade kommentarer, o.s.v.</translation>
+        <translation>Används för en person eller organisation som ansvarar för en film manus, dialog, talade kommentarer, o.s.v.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
@@ -10715,7 +10771,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
-        <translation>Använd för en person eller organisation som ansvarar för ett arbete på vilket det arbete som representeras av katalogposten är baserat. Detta kan vara lämpligt för anpassningar, uppföljningar, fortsättningar, index, o.s.v.</translation>
+        <translation>Används för en person eller organisation som ansvarar för ett arbete på vilket det arbete som representeras av katalogposten är baserat. Detta kan vara lämpligt för anpassningar, uppföljningar, fortsättningar, index, o.s.v.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
@@ -10725,22 +10781,22 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation>Använd för en person eller organisation som ansvarar för bindningen av tryckt eller manuskriptmaterial.</translation>
+        <translation>Används för en person eller organisation som ansvarar för bindningen av tryckt eller manuskriptmaterial.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Binding designer</source>
-        <translation>Bindningsformgivare</translation>
+        <translation>Bindningsdesigner</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation>Använd för en person eller organisation som ansvarar för bindning av en bok, inklusive typ av bindning, vilken typ av material som används och eventuella dekorativa aspekter av bindningen.</translation>
+        <translation>Används för en person eller organisation som ansvarar för bindning av en bok, inklusive typ av bindning, vilken typ av material som används och eventuella dekorativa aspekter av bindningen.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Blurb writer</source>
-        <translation type="unfinished"/>
+        <translation>Pufförfattare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
@@ -10755,7 +10811,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation>Använd för en person eller organisation som ansvarar för hela den grafiska utformningen av en bok, inklusive arrangemang av typ och illustration, materialval och process som används.</translation>
+        <translation>Används för en person eller organisation som ansvarar för hela den grafiska utformningen av en bok, inklusive arrangemang av typ och illustration, materialval och process som används.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
@@ -10765,12 +10821,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
-        <translation>Använd för en person eller organisation som ansvarar för produktion av böcker och andra tryckta medier, om specifika koder (t.ex. [bkd], [egr], [tyd], [prt]) inte önskas.</translation>
+        <translation>Används för en person eller organisation som ansvarar för produktion av böcker och andra tryckta medier, om specifika koder (t.ex. [bkd], [egr], [tyd], [prt]) inte önskas.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Bookjacket designer</source>
-        <translation type="unfinished"/>
+        <translation>Skyddsomslagsdesigner</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
@@ -10780,7 +10836,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Bookplate designer</source>
-        <translation type="unfinished"/>
+        <translation>Bokplattedesigner</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
@@ -10795,7 +10851,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation>Använd för en person eller organisation som gör böcker och andra bibliografiska material tillgängliga för köp. Intresset för materialen är främst lukrativt.</translation>
+        <translation>Används för en person eller organisation som gör böcker och andra bibliografiska material tillgängliga för köp. Intresset för materialen är främst lukrativt.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
@@ -10825,7 +10881,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation>Använd för en person eller organisation som skriver i en konstnärlig hand, vanligtvis som en kopist och eller fängslare.</translation>
+        <translation>Används för en person eller organisation som skriver i en konstnärlig hand, vanligtvis som en kopist och eller fängslare.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
@@ -10835,7 +10891,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
-        <translation>Använd för en person eller organisation som ansvarar för skapandet av kartor och andra kartografiska material.</translation>
+        <translation>Används för en person eller organisation som ansvarar för skapandet av kartor och andra kartografiska material.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
@@ -10850,7 +10906,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Censor</source>
-        <translation type="unfinished"/>
+        <translation>Censuerare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
@@ -10865,7 +10921,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
-        <translation>Använd för en person eller organisation som komponerar eller arrangerar danser eller andra rörelser (t.ex. &quot;svärdets mästare&quot;) för en musikalisk eller dramatisk presentation eller underhållning.</translation>
+        <translation>Används för en person eller organisation som komponerar eller arrangerar danser eller andra rörelser (t.ex. &quot;svärdets mästare&quot;) för en musikalisk eller dramatisk presentation eller underhållning.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
@@ -10875,7 +10931,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
-        <translation>Använd för en person eller organisation som ansvarar för de bilder som tagits för en film. Filmfotografen arbetar under överinseende av en regissör och kan också kallas fotograferingschef. Förväxla inte med videograf.</translation>
+        <translation>Används för en person eller organisation som ansvarar för de bilder som tagits för en film. Filmfotografen arbetar under överinseende av en regissör och kan också kallas fotograferingschef. Förväxla inte med videograf.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
@@ -10885,12 +10941,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
-        <translation>Använd för en person eller organisation för vilken en annan person eller organisation agerar.</translation>
+        <translation>Används för en person eller organisation för vilken en annan person eller organisation agerar.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Collection registrar</source>
-        <translation type="unfinished"/>
+        <translation>Insamlingsregistrator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
@@ -10905,22 +10961,22 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
-        <translation>Använd för en person eller organisation som har samlat material från olika källor som har ordnats, beskrivits och katalogiserats som en samling. En samlare är varken skaparen av materialet eller en person till vilken manuskript i samlingen kan ha adresserats.</translation>
+        <translation>Används för en person eller organisation som har samlat material från olika källor som har ordnats, beskrivits och katalogiserats som en samling. En samlare är varken skaparen av materialet eller en person till vilken manuskript i samlingen kan ha adresserats.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Collotyper</source>
-        <translation>Kollotypare</translation>
+        <translation>Ljustryckare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
-        <translation>Använd för en person eller organisation som ansvarar för produktion av fotografiska tryck från film eller annan kolloid som har bläckmottagande och bläckavvisande ytor.</translation>
+        <translation>Används för en person eller organisation som ansvarar för produktion av fotografiska tryck från film eller annan kolloid som har bläckmottagande och bläckavvisande ytor.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Colorist</source>
-        <translation>Kolorist</translation>
+        <translation>Färgsättare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
@@ -10935,7 +10991,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
-        <translation>Använd för en person eller organisation som tillhandahåller tolkning, analys eller en diskussion om ämnet på en inspelning, film eller annat audiovisuellt medium.</translation>
+        <translation>Används för en person eller organisation som tillhandahåller tolkning, analys eller en diskussion om ämnet på en inspelning, film eller annat audiovisuellt medium.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
@@ -10945,12 +11001,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation>Använd för en person eller organisation som ansvarar för kommentaren eller förklarande anteckningar om en text. För författaren av manuskript anteckningar i en tryckt bok, använd Annotator [ann].</translation>
+        <translation>Används för en person eller organisation som ansvarar för kommentaren eller förklarande anteckningar om en text. För författaren av manuskript anteckningar i en tryckt bok, använd Annotator [ann].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Compiler</source>
-        <translation type="unfinished"/>
+        <translation>Kompilator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
@@ -10995,7 +11051,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
-        <translation>Använd för en person eller organisation som skapar ett musikaliskt arbete, vanligtvis en musikstycke i manuskript eller tryckt form.</translation>
+        <translation>Används för en person eller organisation som skapar ett musikaliskt arbete, vanligtvis en musikstycke i manuskript eller tryckt form.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
@@ -11005,12 +11061,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
-        <translation>Använd för en person eller organisation som ansvarar för skapandet av metall slug, eller formar av andra material, som används för att producera text och bilder i trycksaker.</translation>
+        <translation>Används för en person eller organisation som ansvarar för skapandet av metall slug, eller formar av andra material, som används för att producera text och bilder i trycksaker.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Conceptor</source>
-        <translation type="unfinished"/>
+        <translation>Konceptor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
@@ -11025,7 +11081,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation>Använd för en person som leder en scengrupp (orkester, kör, opera, o.s.v.) i en musikalisk eller dramatisk presentation eller underhållning.</translation>
+        <translation>Används för en person som leder en scengrupp (orkester, kör, opera, o.s.v.) i en musikalisk eller dramatisk presentation eller underhållning.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
@@ -11045,7 +11101,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
-        <translation>Använd för en person eller organisation som är relevant för en resurs, som är uppmanad till professionell rådgivning eller tjänster inom ett specialiserat kunskapsområde eller utbildning.</translation>
+        <translation>Används för en person eller organisation som är relevant för en resurs, som är uppmanad till professionell rådgivning eller tjänster inom ett specialiserat kunskapsområde eller utbildning.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
@@ -11055,7 +11111,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
-        <translation>Använd för en person eller organisation som är relevant för en resurs, som är engagerad specifikt för att ge en intellektuell översikt över en strategisk eller operativ uppgift och genom analys, specifikation eller instruktion, för att skapa eller föreslå en kostnadseffektiv åtgärd eller lösning.</translation>
+        <translation>Används för en person eller organisation som är relevant för en resurs, som är engagerad specifikt för att ge en intellektuell översikt över en strategisk eller operativ uppgift och genom analys, specifikation eller instruktion, för att skapa eller föreslå en kostnadseffektiv åtgärd eller lösning.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
@@ -11070,7 +11126,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Contestant-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Tävlande-sökande</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
@@ -11080,7 +11136,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Contestant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Tävlande-motpart</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
@@ -11090,7 +11146,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Contestee</source>
-        <translation type="unfinished"/>
+        <translation>Tävlande</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
@@ -11100,7 +11156,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Contestee-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Tävlande-sökande</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
@@ -11110,7 +11166,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Contestee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Tävlande-motpart</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
@@ -11125,7 +11181,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
-        <translation>Använd för en person eller organisation som är relevant för en resurs, som ingår ett kontrakt med en annan person eller organisation för att utföra en viss uppgift.</translation>
+        <translation>Används för en person eller organisation som är relevant för en resurs, som ingår ett kontrakt med en annan person eller organisation för att utföra en viss uppgift.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
@@ -11145,7 +11201,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
-        <translation>Använd för en person eller organisation som anges som upphovsrättsinnehavare vid tidpunkten för registreringen. Upphovsrätt kan beviljas eller senare överföras till en annan person eller organisation, vid vilken tidpunkt sökanden blir upphovsrättsinnehavare.</translation>
+        <translation>Används för en person eller organisation som anges som upphovsrättsinnehavare vid tidpunkten för registreringen. Upphovsrätt kan beviljas eller senare överföras till en annan person eller organisation, vid vilken tidpunkt sökanden blir upphovsrättsinnehavare.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
@@ -11155,17 +11211,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
-        <translation>Använd för en person eller organisation till vilken kopia och juridiska rättigheter har beviljats eller överförts för det intellektuella innehållet i ett arbete. Upphovsrättsinnehavaren, även om den inte nödvändigtvis är upphovsman till verket, har vanligtvis ensamrätt att ekonomiskt dra nytta av försäljning och användning av det verk som det tillhörande upphovsrättsskyddet gäller för.</translation>
+        <translation>Används för en person eller organisation till vilken kopia och juridiska rättigheter har beviljats eller överförts för det intellektuella innehållet i ett arbete. Upphovsrättsinnehavaren, även om den inte nödvändigtvis är upphovsman till verket, har vanligtvis ensamrätt att ekonomiskt dra nytta av försäljning och användning av det verk som det tillhörande upphovsrättsskyddet gäller för.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Corrector</source>
-        <translation>Rättare</translation>
+        <translation>Korrekturläsare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
-        <translation>Använd för en person eller organisation som är en korrektor av manuskript, till exempel scriptorium-tjänstemannen som korrigerade arbetet med en skrivare. För trycksaker, använd korrekturläsare.</translation>
+        <translation>Används för en person eller organisation som är en korrektor av manuskript, till exempel scriptorium-tjänstemannen som korrigerade arbetet med en skrivare. För trycksaker, använd korrekturläsare.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
@@ -11175,7 +11231,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
-        <translation>Använd för en person eller organisation som var antingen författaren eller mottagaren av ett brev eller annan kommunikation.</translation>
+        <translation>Används för en person eller organisation som var antingen författaren eller mottagaren av ett brev eller annan kommunikation.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
@@ -11185,12 +11241,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
-        <translation>Använd för en person eller organisation som designar eller gör kostymer, fixar hår o.s.v., för en musikalisk eller dramatisk presentation eller underhållning.</translation>
+        <translation>Används för en person eller organisation som designar eller gör kostymer, fixar hår o.s.v., för en musikalisk eller dramatisk presentation eller underhållning.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Court governed</source>
-        <translation type="unfinished"/>
+        <translation>Domstolsstyrd</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
@@ -11215,7 +11271,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
-        <translation>Använd för en person eller organisation som ansvarar för den grafiska utformningen av ett bokomslag, skivomslag, slipcase, låda, behållare o.s.v. För en person eller organisation som ansvarar för den grafiska utformningen av en hel bok, använd Bokdesigner; för skyddsomslag, använd skyddsomslagsdesigner.</translation>
+        <translation>Används för en person eller organisation som ansvarar för den grafiska utformningen av ett bokomslag, skivomslag, slipcase, låda, behållare o.s.v. För en person eller organisation som ansvarar för den grafiska utformningen av en hel bok, använd Bokdesigner; för skyddsomslag, använd skyddsomslagsdesigner.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
@@ -11225,12 +11281,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
-        <translation>Använd för en person eller organisation som ansvarar för det intellektuella eller konstnärliga innehållet i ett arbete.</translation>
+        <translation>Används för en person eller organisation som ansvarar för det intellektuella eller konstnärliga innehållet i ett arbete.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Curator of an exhibition</source>
-        <translation type="unfinished"/>
+        <translation>Kurator för en utställning</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
@@ -11245,7 +11301,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation>Använd för en person eller organisation som huvudsakligen uppvisar dansförmåga i en musikalisk eller dramatisk presentation eller underhållning.</translation>
+        <translation>Används för en person eller organisation som huvudsakligen uppvisar dansförmåga i en musikalisk eller dramatisk presentation eller underhållning.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
@@ -11255,7 +11311,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
-        <translation>Använd för en person eller organisation som lämnar in data för införande i en databas eller annan datainsamling.</translation>
+        <translation>Används för en person eller organisation som lämnar in data för införande i en databas eller annan datainsamling.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
@@ -11265,7 +11321,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
-        <translation>Använd för en person eller organisation som ansvarar för att hantera databaser eller andra datakällor.</translation>
+        <translation>Används för en person eller organisation som ansvarar för att hantera databaser eller andra datakällor.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
@@ -11330,7 +11386,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Delineator</source>
-        <translation type="unfinished"/>
+        <translation>Avgränsare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
@@ -11355,7 +11411,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
-        <translation>Använd för en person eller organisation som placerar material i fysisk förvaring av ett bibliotek eller förråd utan att överföra den juridiska titeln.</translation>
+        <translation>Används för en person eller organisation som placerar material i fysisk förvaring av ett bibliotek eller förråd utan att överföra den juridiska titeln.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
@@ -11375,7 +11431,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
-        <translation>Använd för en person eller organisation som ansvarar för den allmänna förvaltningen av ett arbete eller som övervakar produktionen av en prestanda för scen, skärm eller ljudinspelning.</translation>
+        <translation>Används för en person eller organisation som ansvarar för den allmänna förvaltningen av ett arbete eller som övervakar produktionen av en prestanda för scen, skärm eller ljudinspelning.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
@@ -11385,7 +11441,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
-        <translation>Använd för en person som presenterar en avhandling för en högskoleexamen eller högre utbildningsgrad.</translation>
+        <translation>Används för en person som presenterar en avhandling för en högskoleexamen eller högre utbildningsgrad.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
@@ -11405,7 +11461,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
-        <translation>Använd för en person eller organisation som har exklusiva eller delade marknadsföringsrättigheter för ett objekt.</translation>
+        <translation>Används för en person eller organisation som har exklusiva eller delade marknadsföringsrättigheter för ett objekt.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
@@ -11415,7 +11471,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
-        <translation>Använd för en person eller organisation som är donator av en bok, manuskript o.s.v., till sin nuvarande ägare. Donatorer till tidigare ägare utses till Tidigare ägare [fmo] eller Inscriber [ins].</translation>
+        <translation>Används för en person eller organisation som är donator av en bok, manuskript o.s.v., till sin nuvarande ägare. Donatorer till tidigare ägare utses till Tidigare ägare [fmo] eller Inscriber [ins].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
@@ -11425,7 +11481,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
-        <translation>Använd för en person eller organisation som förbereder konstnärliga eller tekniska ritningar.</translation>
+        <translation>Används för en person eller organisation som förbereder konstnärliga eller tekniska ritningar.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
@@ -11435,17 +11491,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
-        <translation>Använd för en person eller organisation till vilken författarskap har tvivelaktigt eller felaktigt tillskrivits.</translation>
+        <translation>Används för en person eller organisation till vilken författarskap har tvivelaktigt eller felaktigt tillskrivits.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Editor</source>
-        <translation>Redigerare</translation>
+        <translation>Redaktör</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
-        <translation>Använd för en person eller organisation som förbereder sig för publicering ett verk som inte i första hand är hans/hennes egna, till exempel genom att belysa text, lägga till inledande eller annan kritisk fråga eller tekniskt styra en redaktion.</translation>
+        <translation>Används för en person eller organisation som förbereder sig för publicering ett verk som inte i första hand är hans/hennes egna, till exempel genom att belysa text, lägga till inledande eller annan kritisk fråga eller tekniskt styra en redaktion.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
@@ -11475,7 +11531,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
-        <translation>Använd för en person som ansvarar för att inrätta en belysningsrigg och fokusera lamporna för en produktion, och kör belysningen på en prestanda.</translation>
+        <translation>Används för en person som ansvarar för att inrätta en belysningsrigg och fokusera lamporna för en produktion, och kör belysningen på en prestanda.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
@@ -11485,17 +11541,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
-        <translation>Använd för en person eller organisation som skapar en dubbel utskriftsyta genom tryckgjutning och elektrodepositing av metall som sedan backas upp med bly för utskrift.</translation>
+        <translation>Används för en person eller organisation som skapar en dubbel utskriftsyta genom tryckgjutning och elektrodepositing av metall som sedan backas upp med bly för utskrift.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Engineer</source>
-        <translation>Konstruktör</translation>
+        <translation>Ingenjör</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
-        <translation>Använd för en person eller organisation som ansvarar för teknisk planering och design, särskilt med konstruktion.</translation>
+        <translation>Används för en person eller organisation som ansvarar för teknisk planering och design, särskilt med konstruktion.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
@@ -11505,17 +11561,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
-        <translation>Använd för en person eller organisation som skär bokstäver, siffror o.s.v. på en yta, såsom en trä-eller metallplatta, för utskrift.</translation>
+        <translation>Används för en person eller organisation som skär bokstäver, siffror o.s.v. på en yta, såsom en trä-eller metallplatta, för utskrift.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Etcher</source>
-        <translation type="unfinished"/>
+        <translation>Etsare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
-        <translation>Använd för en person eller organisation som producerar text eller bilder för utskrift genom att utsätta metall, glas eller någon annan yta för syra eller frätande verkan av något annat ämne.</translation>
+        <translation>Används för en person eller organisation som producerar text eller bilder för utskrift genom att utsätta metall, glas eller någon annan yta för syra eller frätande verkan av något annat ämne.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
@@ -11535,7 +11591,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
-        <translation>Använd för en person eller organisation som ansvarar för beskrivningen och bedömningen av värdet av varor, särskilt sällsynta föremål, konstverk o.s.v.</translation>
+        <translation>Används för en person eller organisation som ansvarar för beskrivningen och bedömningen av värdet av varor, särskilt sällsynta föremål, konstverk o.s.v.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
@@ -11585,7 +11641,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
-        <translation>Använd för en person eller organisation som är redaktör för en film. Denna term används oberoende av det medium på vilket filmbilden produceras eller tillverkas (t.ex. acetatfilm, videoband).</translation>
+        <translation>Används för en person eller organisation som är redaktör för en film. Denna term används oberoende av det medium på vilket filmbilden produceras eller tillverkas (t.ex. acetatfilm, videoband).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
@@ -11610,7 +11666,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>First party</source>
-        <translation type="unfinished"/>
+        <translation>Första part</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
@@ -11625,7 +11681,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
-        <translation>Använd för en person eller organisation som gör eller imiterar något av värde eller betydelse, särskilt med avsikt att lura.</translation>
+        <translation>Används för en person eller organisation som gör eller imiterar något av värde eller betydelse, särskilt med avsikt att lura.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
@@ -11635,7 +11691,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
-        <translation>Använd för en person eller organisation som ägde ett objekt när som helst tidigare. Inkluderar de som materialet en gång presenterades för. En person eller organisation som ger objektet till den nuvarande ägaren betecknas som Donator [dnr].</translation>
+        <translation>Används för en person eller organisation som ägde ett objekt när som helst tidigare. Inkluderar de som materialet en gång presenterades för. En person eller organisation som ger objektet till den nuvarande ägaren betecknas som Donator [dnr].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
@@ -11645,12 +11701,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
-        <translation>Använd för en person eller organisation som tillhandahöll ekonomiskt stöd för produktion av arbetet.</translation>
+        <translation>Används för en person eller organisation som tillhandahöll ekonomiskt stöd för produktion av arbetet.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Geographic information specialist</source>
-        <translation>Geografisk information specialist</translation>
+        <translation>Geografisk informationsspecialist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
@@ -11675,12 +11731,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
-        <translation>Använd för en person som är inbjuden eller regelbundet leder ett program (ofta sänds) som inkluderar andra gäster, artister o.s.v. (t.ex. talkshow värd).</translation>
+        <translation>Används för en person som är inbjuden eller regelbundet leder ett program (ofta sänds) som inkluderar andra gäster, artister o.s.v. (t.ex. talkshow värd).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Host institution</source>
-        <translation type="unfinished"/>
+        <translation>Värdinstitution</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
@@ -11690,7 +11746,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Illuminator</source>
-        <translation type="unfinished"/>
+        <translation>Belysningsanordnare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="235"/>
@@ -11705,7 +11761,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
-        <translation>Använd för en person eller organisation som uppfattar, och kanske också implementerar, en design eller illustration, vanligtvis att följa med en skriftlig text.</translation>
+        <translation>Används för en person eller organisation som uppfattar, och kanske också implementerar, en design eller illustration, vanligtvis att följa med en skriftlig text.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
@@ -11715,7 +11771,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Use for a person who has written a statement of dedication or gift.</source>
-        <translation>Använd för en person som har skrivit ett uttalande om engagemang eller gåva.</translation>
+        <translation>Används för en person som har skrivit ett uttalande om engagemang eller gåva.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="238"/>
@@ -11735,7 +11791,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
-        <translation>Använd för en person eller organisation som intervjuas vid ett samråd eller möte, vanligtvis av en reporter, opinionsundersökare eller någon annan informationsinsamlingsagent.</translation>
+        <translation>Används för en person eller organisation som intervjuas vid ett samråd eller möte, vanligtvis av en reporter, opinionsundersökare eller någon annan informationsinsamlingsagent.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
@@ -11745,7 +11801,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
-        <translation>Använd för en person eller organisation som fungerar som reporter, opinionsundersökare eller annan informationsinsamlingsagent i ett samråd eller möte som involverar en eller flera individer.</translation>
+        <translation>Används för en person eller organisation som fungerar som reporter, opinionsundersökare eller annan informationsinsamlingsagent i ett samråd eller möte som involverar en eller flera individer.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
@@ -11755,7 +11811,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
-        <translation>Använd för en person eller organisation som först producerar ett visst användbart föremål, eller utvecklar en ny process för att få ett känt föremål eller resultat.</translation>
+        <translation>Används för en person eller organisation som först producerar ett visst användbart föremål, eller utvecklar en ny process för att få ett känt föremål eller resultat.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
@@ -11780,7 +11836,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Jurisdiction governed</source>
-        <translation>Tillämplig jurisdiktion</translation>
+        <translation>Jurisdiktionsstyrd</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
@@ -11805,7 +11861,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
-        <translation>Använd för en person eller organisation som hanterar eller övervakar arbete i en kontrollerad miljö.</translation>
+        <translation>Används för en person eller organisation som hanterar eller övervakar arbete i en kontrollerad miljö.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
@@ -11815,12 +11871,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
-        <translation>Använd för en person eller organisation vars arbete innebär att samordna arrangemanget av befintliga och föreslagna markfunktioner och strukturer.</translation>
+        <translation>Används för en person eller organisation vars arbete innebär att samordna arrangemanget av befintliga och föreslagna markfunktioner och strukturer.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Lead</source>
-        <translation type="unfinished"/>
+        <translation>Ledning</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
@@ -11830,7 +11886,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Lender</source>
-        <translation type="unfinished"/>
+        <translation>Långivare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
@@ -11900,7 +11956,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Librettist</source>
-        <translation type="unfinished"/>
+        <translation>Librettist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
@@ -11915,7 +11971,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
-        <translation>Använd för en person eller organisation som är en originalmottagare av rätten att skriva ut eller publicera.</translation>
+        <translation>Används för en person eller organisation som är en originalmottagare av rätten att skriva ut eller publicera.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
@@ -11935,7 +11991,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
-        <translation>Använd för en person eller organisation som utformar belysningssystemet för en teaterpresentation, underhållning, spelfilm o.s.v.</translation>
+        <translation>Används för en person eller organisation som utformar belysningssystemet för en teaterpresentation, underhållning, spelfilm o.s.v.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
@@ -11945,7 +12001,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
-        <translation>Använd för en person eller organisation som förbereder stenen eller plattan för litografisk utskrift, inklusive en grafisk konstnär som skapar en design direkt på ytan från vilken utskrift kommer att göras.</translation>
+        <translation>Används för en person eller organisation som förbereder stenen eller plattan för litografisk utskrift, inklusive en grafisk konstnär som skapar en design direkt på ytan från vilken utskrift kommer att göras.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
@@ -11955,7 +12011,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
-        <translation>Använd för en person eller organisation som är en författare av texten i en låt.</translation>
+        <translation>Används för en person eller organisation som är en författare av texten i en låt.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
@@ -11975,7 +12031,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
-        <translation>Använd för en person eller organisation som gör ett artefaktuellt arbete (ett objekt gjort eller modifierat av en eller flera personer). Exempel på artefaktuella verk inkluderar vaser, kanoner eller möbler.</translation>
+        <translation>Används för en person eller organisation som gör ett artefaktuellt arbete (ett objekt gjort eller modifierat av en eller flera personer). Exempel på artefaktuella verk inkluderar vaser, kanoner eller möbler.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
@@ -12010,7 +12066,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Metadata contact</source>
-        <translation type="unfinished"/>
+        <translation>Metadatakontakt</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
@@ -12020,17 +12076,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Metal-engraver</source>
-        <translation type="unfinished"/>
+        <translation>Metallgravör</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
-        <translation>Använd för en person eller organisation som ansvarar för dekorationer, illustrationer, bokstäver o.s.v. klipp på en metallyta för utskrift eller dekoration.</translation>
+        <translation>Används för en person eller organisation som ansvarar för dekorationer, illustrationer, bokstäver o.s.v. klipp på en metallyta för utskrift eller dekoration.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Minute taker</source>
-        <translation type="unfinished"/>
+        <translation>Minuttagare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="269"/>
@@ -12040,7 +12096,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Moderator</source>
-        <translation type="unfinished"/>
+        <translation>Moderator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
@@ -12055,12 +12111,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
-        <translation>Använd för en person eller organisation som övervakar att kontraktet följs och ansvarar för rapporten och kontrollerar distributionen.</translation>
+        <translation>Används för en person eller organisation som övervakar att kontraktet följs och ansvarar för rapporten och kontrollerar distributionen.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Music copyist</source>
-        <translation type="unfinished"/>
+        <translation>Musikkopist</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="272"/>
@@ -12070,7 +12126,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Musical director</source>
-        <translation type="unfinished"/>
+        <translation>Musikalisk regissör</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
@@ -12085,12 +12141,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
-        <translation>Använd för en person eller organisation som utför musik eller bidrar till det musikaliska innehållet i ett arbete när det inte är möjligt eller önskvärt att identifiera funktionen mer exakt.</translation>
+        <translation>Används för en person eller organisation som utför musik eller bidrar till det musikaliska innehållet i ett arbete när det inte är möjligt eller önskvärt att identifiera funktionen mer exakt.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Narrator</source>
-        <translation type="unfinished"/>
+        <translation>Berättare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
@@ -12110,12 +12166,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Opponent</source>
-        <translation>Opponent</translation>
+        <translation>Motståndare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
-        <translation>Använd för en person eller organisation som är ansvarig för att motsätta sig en avhandling eller avhandling.</translation>
+        <translation>Används för en person eller organisation som är ansvarig för att motsätta sig en avhandling eller avhandling.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
@@ -12125,12 +12181,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
-        <translation>Använd för en person eller organisation som ansvarar för att organisera ett möte för vilket en vara är rapporten eller förfarandet.</translation>
+        <translation>Används för en person eller organisation som ansvarar för att organisera ett möte för vilket en vara är rapporten eller förfarandet.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Originator</source>
-        <translation type="unfinished"/>
+        <translation>Upphovsman</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
@@ -12155,12 +12211,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
-        <translation>Använd för en person eller organisation som för närvarande äger ett objekt eller en samling.</translation>
+        <translation>Används för en person eller organisation som för närvarande äger ett objekt eller en samling.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>Panelist</source>
-        <translation type="unfinished"/>
+        <translation>Paneldeltagare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
@@ -12170,7 +12226,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Papermaker</source>
-        <translation type="unfinished"/>
+        <translation>Papperstillverkare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
@@ -12180,7 +12236,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Patent applicant</source>
-        <translation type="unfinished"/>
+        <translation>Patentsökande</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
@@ -12205,7 +12261,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
-        <translation>Använd för en person eller organisation som ansvarar för driftsättning av ett arbete. Vanligtvis använder en beskyddare sina medel eller inflytande för att stödja konstnärers, författares arbete o.s.v. Detta inkluderar de som beställer och betalar för enskilda verk.</translation>
+        <translation>Används för en person eller organisation som ansvarar för driftsättning av ett arbete. Vanligtvis använder en beskyddare sina medel eller inflytande för att stödja konstnärers, författares arbete o.s.v. Detta inkluderar de som beställer och betalar för enskilda verk.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
@@ -12215,7 +12271,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
-        <translation>Använd för en person eller organisation som uppvisar musikaliska eller skådespelande färdigheter i en musikalisk eller dramatisk presentation eller underhållning, om specifika koder för dessa funktioner ([act], [dnc], [itr], [voc] o.s.v.) används inte. Om särskilda koder används används [prf] för en person vars huvudsakliga skicklighet inte är känd eller specificerad.</translation>
+        <translation>Används för en person eller organisation som uppvisar musikaliska eller skådespelande färdigheter i en musikalisk eller dramatisk presentation eller underhållning, om specifika koder för dessa funktioner ([act], [dnc], [itr], [voc] o.s.v.) används inte. Om särskilda koder används används [prf] för en person vars huvudsakliga skicklighet inte är känd eller specificerad.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="288"/>
@@ -12235,12 +12291,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
-        <translation>Använd för en person eller organisation som ansvarar för att ta fotografier, oavsett om de används i sin ursprungliga form eller som reproduktioner.</translation>
+        <translation>Används för en person eller organisation som ansvarar för att ta fotografier, oavsett om de används i sin ursprungliga form eller som reproduktioner.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Plaintiff</source>
-        <translation type="unfinished"/>
+        <translation>Målsägande</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
@@ -12250,7 +12306,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Plaintiff-appellant</source>
-        <translation type="unfinished"/>
+        <translation>Målsägande-sökande</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
@@ -12260,7 +12316,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Plaintiff-appellee</source>
-        <translation type="unfinished"/>
+        <translation>Målsägande-motpart</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
@@ -12270,12 +12326,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Platemaker</source>
-        <translation>Plattskapare</translation>
+        <translation>Tallriksskapare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
-        <translation>Använd för en person eller organisation som ansvarar för produktion av plattor, vanligtvis för produktion av tryckta bilder och/eller text.</translation>
+        <translation>Används för en person eller organisation som ansvarar för produktion av plattor, vanligtvis för produktion av tryckta bilder och/eller text.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
@@ -12305,7 +12361,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
-        <translation>Använd för en person eller organisation som skriver ut texter, vare sig från typ eller plattor.</translation>
+        <translation>Används för en person eller organisation som skriver ut texter, vare sig från typ eller plattor.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
@@ -12315,12 +12371,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
-        <translation>Använd för en person eller organisation som skriver ut illustrationer från plattor.</translation>
+        <translation>Används för en person eller organisation som skriver ut illustrationer från plattor.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Printmaker</source>
-        <translation type="unfinished"/>
+        <translation>Grafiker</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
@@ -12330,7 +12386,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Process contact</source>
-        <translation type="unfinished"/>
+        <translation>Processkontakt</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
@@ -12345,7 +12401,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
-        <translation>Använd för en person eller organisation som ansvarar för att skapa en film, inklusive affärsaspekter, hantering av produktionerna och arbetets kommersiella framgång.</translation>
+        <translation>Används för en person eller organisation som ansvarar för att skapa en film, inklusive affärsaspekter, hantering av produktionerna och arbetets kommersiella framgång.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
@@ -12360,7 +12416,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>Production designer</source>
-        <translation type="unfinished"/>
+        <translation>Produktionsdesigner</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
@@ -12370,7 +12426,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Production manager</source>
-        <translation type="unfinished"/>
+        <translation>Produktionschef</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
@@ -12380,7 +12436,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Production personnel</source>
-        <translation type="unfinished"/>
+        <translation>Produktionspersonal</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
@@ -12390,7 +12446,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>Production place</source>
-        <translation type="unfinished"/>
+        <translation>Produktionsplats</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
@@ -12405,12 +12461,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
-        <translation>Använd för en person eller organisation som ansvarar för skapande och/eller underhåll av datorprogramdesigndokument, källkod och maskinkörbara digitala filer och stödjande dokumentation.</translation>
+        <translation>Används för en person eller organisation som ansvarar för skapande och/eller underhåll av datorprogramdesigndokument, källkod och maskinkörbara digitala filer och stödjande dokumentation.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Project director</source>
-        <translation type="unfinished"/>
+        <translation>Projektledare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
@@ -12425,7 +12481,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
-        <translation>Använd för en person som korrigerar trycksaker. För manuskript, använd Corrector [crr].</translation>
+        <translation>Används för en person som korrigerar trycksaker. För manuskript, använd Corrector [crr].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
@@ -12440,7 +12496,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Publication place </source>
-        <translation>Publikationsplats </translation>
+        <translation>Publiceringsplats</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
@@ -12460,7 +12516,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Publishing director</source>
-        <translation type="unfinished"/>
+        <translation>Förlagsdirektör</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
@@ -12470,7 +12526,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Puppeteer</source>
-        <translation type="unfinished"/>
+        <translation>Dockspelare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
@@ -12505,18 +12561,18 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
-        <translation>Använd för en person eller organisation till vilken korrespondens adresseras.</translation>
+        <translation>Används för en person eller organisation till vilken korrespondens adresseras.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Recording engineer</source>
-        <translation>Inspelningstekniker</translation>
+        <translation>Inspelningsingenjör</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
-        <translation>Använd för en person eller organisation som övervakar de tekniska aspekterna av en ljud- eller videoinspelningssession.</translation>
+        <translation>Används för en person eller organisation som övervakar de tekniska aspekterna av en ljud- eller videoinspelningssession.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
@@ -12536,7 +12592,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Renderer</source>
-        <translation type="unfinished"/>
+        <translation>Renderare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
@@ -12546,7 +12602,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Reporter</source>
-        <translation type="unfinished"/>
+        <translation>Reporter</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="321"/>
@@ -12556,7 +12612,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Repository</source>
-        <translation type="unfinished"/>
+        <translation>Förråd</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="322"/>
@@ -12566,7 +12622,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Research team head</source>
-        <translation type="unfinished"/>
+        <translation>Forskningsgruppschef</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="323"/>
@@ -12581,7 +12637,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
-        <translation>Använd för en person som deltog i ett forskningsprojekt men vars roll inte innebar riktning eller förvaltning av den.</translation>
+        <translation>Används för en person som deltog i ett forskningsprojekt men vars roll inte innebar riktning eller förvaltning av den.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="325"/>
@@ -12591,7 +12647,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Use for a person or organization responsible for performing research. </source>
-        <translation>Använd för en person eller organisation som ansvarar för att utföra forskning. </translation>
+        <translation>Används för en person eller organisation som ansvarar för att utföra forskning. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="326"/>
@@ -12626,7 +12682,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Responsible party</source>
-        <translation type="unfinished"/>
+        <translation>Ansvarig part</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="329"/>
@@ -12646,7 +12702,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>Restorationist</source>
-        <translation type="unfinished"/>
+        <translation>Restaurerare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="331"/>
@@ -12661,12 +12717,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
-        <translation>Använd för en person eller organisation som ansvarar för översynen av en bok, spelfilm, prestanda o.s.v.</translation>
+        <translation>Används för en person eller organisation som ansvarar för översynen av en bok, spelfilm, prestanda o.s.v.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Rubricator</source>
-        <translation type="unfinished"/>
+        <translation>Rubricerare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="333"/>
@@ -12681,7 +12737,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
-        <translation>Använd för en person eller organisation som är författare till ett filmmanus.</translation>
+        <translation>Används för en person eller organisation som är författare till ett filmmanus.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="335"/>
@@ -12691,12 +12747,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
-        <translation>Använd för en person eller organisation som ger vetenskaplig, pedagogisk eller historisk kompetens till uppfattningen och förverkligandet av ett arbete, särskilt när det gäller audiovisuella föremål.</translation>
+        <translation>Används för en person eller organisation som ger vetenskaplig, pedagogisk eller historisk kompetens till uppfattningen och förverkligandet av ett arbete, särskilt när det gäller audiovisuella föremål.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Scribe</source>
-        <translation type="unfinished"/>
+        <translation>Skriftlärd</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
@@ -12711,17 +12767,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
-        <translation>Använd för en person eller organisation som modellerar eller skulpterar figurer som är tredimensionella representationer.</translation>
+        <translation>Används för en person eller organisation som modellerar eller skulpterar figurer som är tredimensionella representationer.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Second party</source>
-        <translation>Andra parten</translation>
+        <translation>Andra part</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
-        <translation>Använd för en person eller organisation som identifieras som parti i andra delen. Vid överföring av rättigheter är detta överlåtaren, mottagaren, licenstagaren, mottagaren o.s.v. Flera parter kan namnges gemensamt som den andra parten.</translation>
+        <translation>Används för en person eller organisation som identifieras som parti i andra delen. Vid överföring av rättigheter är detta överlåtaren, mottagaren, licenstagaren, mottagaren o.s.v. Flera parter kan namnges gemensamt som den andra parten.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="339"/>
@@ -12736,7 +12792,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>Seller</source>
-        <translation>Försäljare</translation>
+        <translation>Säljare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="340"/>
@@ -12746,7 +12802,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Set designer</source>
-        <translation type="unfinished"/>
+        <translation>Scenograf</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="341"/>
@@ -12766,7 +12822,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Signer</source>
-        <translation type="unfinished"/>
+        <translation>Signerare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="343"/>
@@ -12781,12 +12837,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
-        <translation>Använd för en person eller organisation som använder sin röst med eller utan instrumentalt ackompanjemang för att producera musik. En prestation kan eller får inte innehålla faktiska ord.</translation>
+        <translation>Används för en person eller organisation som använder sin röst med eller utan instrumentalt ackompanjemang för att producera musik. En prestation kan eller får inte innehålla faktiska ord.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Sound designer</source>
-        <translation>Ljuddesignern</translation>
+        <translation>Ljuddesigner</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="345"/>
@@ -12801,7 +12857,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
-        <translation>Använd för en person som deltar i ett program (ofta sänds) och gör ett formaliserat bidrag eller presentation i allmänhet förberedd i förväg.</translation>
+        <translation>Används för en person som deltar i ett program (ofta sänds) och gör ett formaliserat bidrag eller presentation i allmänhet förberedd i förväg.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
@@ -12811,7 +12867,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
-        <translation>Använd för en person eller organisation som utfärdat ett kontrakt eller under vars överinseende ett arbete har skrivits, tryckts, publicerats o.s.v.</translation>
+        <translation>Används för en person eller organisation som utfärdat ett kontrakt eller under vars överinseende ett arbete har skrivits, tryckts, publicerats o.s.v.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
@@ -12826,12 +12882,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Stage manager</source>
-        <translation>Scenchef</translation>
+        <translation>Scenansvarig</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
-        <translation>Använd för en person som ansvarar för allt som sker på ett prestationsstadium, och som fungerar som chef för alla besättningar och assistent till en regissör under repetitionerna.</translation>
+        <translation>Används för en person som ansvarar för allt som sker på ett prestationsstadium, och som fungerar som chef för alla besättningar och assistent till en regissör under repetitionerna.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="350"/>
@@ -12851,7 +12907,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
-        <translation>Använd för en person eller organisation som skapar en ny platta för utskrift genom gjutning eller kopiering av en annan utskriftsyta.</translation>
+        <translation>Används för en person eller organisation som skapar en ny platta för utskrift genom gjutning eller kopiering av en annan utskriftsyta.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="352"/>
@@ -12861,27 +12917,27 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
-        <translation>Använd för en person som förmedlar en historia med kreativ och/eller teatralisk tolkning.</translation>
+        <translation>Används för en person som förmedlar en berättelse med kreativ och/eller teatralisk tolkning.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Supporting host</source>
-        <translation>Stödvärd</translation>
+        <translation>Stödande värd</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
-        <translation>Använd för en person eller organisation som stöder (genom att fördela anläggningar, personal eller andra resurser) ett projekt, program, möte, händelse, dataobjekt, materialkulturobjekt eller andra enheter som kan stödja.</translation>
+        <translation>Används för en person eller organisation som stöder (genom att fördela anläggningar, personal eller andra resurser) ett projekt, program, möte, händelse, dataobjekt, materialkulturobjekt eller andra enheter som kan stödja.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Surveyor</source>
-        <translation>Inspektör</translation>
+        <translation>Besiktningsman</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
-        <translation>Använd för en person eller organisation som gör mätningar av landområden o.s.v. för att bestämma plats, former och gränser.</translation>
+        <translation>Används för en person eller organisation som gör mätningar av landområden o.s.v. för att bestämma plats, former och gränser.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
@@ -12891,7 +12947,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
-        <translation>Använd för en person som i samband med en resurs ger undervisning i ett intellektuellt ämne eller demonstrerar medan du undervisar fysiska färdigheter.</translation>
+        <translation>Används för en person som i samband med en resurs ger undervisning i ett intellektuellt ämne eller demonstrerar medan du undervisar fysiska färdigheter.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
@@ -12901,12 +12957,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
-        <translation>Använd för en person som i slutändan ansvarar för landskap, rekvisita, ljus och ljud för en produktion.</translation>
+        <translation>Används för en person som i slutändan ansvarar för landskap, rekvisita, ljus och ljud för en produktion.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Television director</source>
-        <translation>Tv-regissör</translation>
+        <translation>TV-direktör</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
@@ -12916,7 +12972,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>Television producer</source>
-        <translation>Tv-producent</translation>
+        <translation>TV-producent</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="358"/>
@@ -12931,7 +12987,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
-        <translation>Använd för en person under vars överinseende en examen kandidat utvecklar och presenterar en avhandling, mémoire, eller text av en avhandling.</translation>
+        <translation>Används för en person under vars överinseende en examen kandidat utvecklar och presenterar en avhandling, mémoire, eller text av en avhandling.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="360"/>
@@ -12941,7 +12997,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
-        <translation>Använd för en person som förbereder en handskriven eller maskinskriven kopia från originalmaterial, inklusive från dikterat eller muntligt inspelat material. För tillverkare av penna-facsimiles, använd Facsimilist [fac].</translation>
+        <translation>Används för en person som förbereder en handskriven eller maskinskriven kopia från originalmaterial, inklusive från dikterat eller muntligt inspelat material. För tillverkare av penna-facsimiles, använd Facsimilist [fac].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="361"/>
@@ -12951,7 +13007,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
-        <translation>Använd för en person eller organisation som tolkar en text från ett språk till ett annat, eller från en äldre form av ett språk till modern form.</translation>
+        <translation>Används för en person eller organisation som tolkar en text från ett språk till ett annat, eller från en äldre form av ett språk till modern form.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
@@ -12961,7 +13017,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
-        <translation>Använd för en person eller organisation som utformade typytan som används i ett visst objekt.</translation>
+        <translation>Används för en person eller organisation som utformade typytan som används i ett visst objekt.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
@@ -12971,7 +13027,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
-        <translation>Använd för en person eller organisation som är primärt ansvarig för val och arrangemang av typ som används i ett objekt. Om typografen också ansvarar för andra aspekter av den grafiska utformningen av en bok (t.ex. Bokdesigner [bkd]) kan koder för båda funktionerna behövas.</translation>
+        <translation>Används för en person eller organisation som är primärt ansvarig för val och arrangemang av typ som används i ett objekt. Om typografen också ansvarar för andra aspekter av den grafiska utformningen av en bok (t.ex. Bokdesigner [bkd]) kan koder för båda funktionerna behövas.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="364"/>
@@ -13011,7 +13067,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="367"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
-        <translation>Använd för en person som verifierar sanningen av en händelse eller handling.</translation>
+        <translation>Används för en person som verifierar sanningen av en händelse eller handling.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="368"/>
@@ -13021,17 +13077,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="368"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
-        <translation>Använd för en person eller organisation som gör utskrifter genom att skära bilden i lättnad på slutet av ett träblock.</translation>
+        <translation>Används för en person eller organisation som gör utskrifter genom att skära bilden i lättnad på slutet av ett träblock.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="369"/>
         <source>Woodcutter</source>
-        <translation>Träskärare</translation>
+        <translation>Träsnidare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="369"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
-        <translation>Använd för en person eller organisation som gör utskrifter genom att skära bilden i lättnad på planksidan av ett träblock.</translation>
+        <translation>Används för en person eller organisation som gör utskrifter genom att skära bilden i lättnad på planksidan av ett träblock.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="370"/>
@@ -13041,7 +13097,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="370"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
-        <translation>Använd för en person eller organisation som skriver betydande material som åtföljer en ljudinspelning eller annat audiovisuellt material.</translation>
+        <translation>Används för en person eller organisation som skriver betydande material som åtföljer en ljudinspelning eller annat audiovisuellt material.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="371"/>
@@ -13164,8 +13220,8 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="172"/>
-        <source>Use OK to commit your metdata changes to the epub, otherwise use Cancel.</source>
-        <translation>Använd OK för att göra dina metdataändringar i epub:en, annars använd Avbryt.</translation>
+        <source>Use OK to commit your metadata changes to the epub, otherwise use Cancel.</source>
+        <translation>Använd OK för att göra dina metadataändringar i epuben, använd annars Avbryt.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
@@ -13567,37 +13623,37 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
         <source>Title Type: main</source>
-        <translation type="unfinished"/>
+        <translation>Titeltyp: huvud</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
-        <translation type="unfinished"/>
+        <translation>Anger den tillhörande titeln är huvudtiteln i publikationen. Endast en huvudtitel bör finnas.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
         <source>Title Type: subtitle</source>
-        <translation type="unfinished"/>
+        <translation>Titeltyp: undertext</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
-        <translation type="unfinished"/>
+        <translation>Anger att den tillhörande titeln är en undertext av publikationen om en sådan finns...</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
         <source>Title Type: short</source>
-        <translation type="unfinished"/>
+        <translation>Titeltyp: kort</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
-        <translation type="unfinished"/>
+        <translation>Anger att den tillhörande titeln är en förkortad titel på publikationen om en sådan finns.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
         <source>Title Type: collection</source>
-        <translation type="unfinished"/>
+        <translation>Titeltyp: samling</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
@@ -13607,7 +13663,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
         <source>Title Type: edition</source>
-        <translation type="unfinished"/>
+        <translation>Titeltyp: upplaga</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
@@ -13617,12 +13673,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
         <source>Title Type: expanded</source>
-        <translation type="unfinished"/>
+        <translation>Titeltyp: utökad</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
         <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
-        <translation type="unfinished"/>
+        <translation>Anger att den tillhörande titeln är en utökad titel för denna publikation om en sådan finns.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
@@ -13647,7 +13703,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>Collection Type: set</source>
-        <translation type="unfinished"/>
+        <translation>Samlingstyp: uppsättning</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
@@ -13657,7 +13713,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
         <source>Collection Type: series</source>
-        <translation type="unfinished"/>
+        <translation>Samlingstyp: serie</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
@@ -13880,7 +13936,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="706"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
-        <translation type="unfinished"/>
+        <translation>Detta attribut läggs vanligtvis till elementet dc:date för att ange datumtyp: publicering, skapande eller modifiering.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
@@ -13910,97 +13966,97 @@ Do you want to automatically mend the files before saving?</source>
 <context>
     <name>Navigator</name>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="48"/>
+        <location filename="../../Widgets/Navigator.h" line="48"/>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>Vänster</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="49"/>
+        <location filename="../../Widgets/Navigator.h" line="49"/>
         <source>Right</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="55"/>
+        <location filename="../../Widgets/Navigator.h" line="55"/>
         <source>Go to previous change - [p]</source>
-        <translation type="unfinished"/>
+        <translation>Gå till föregående ändring - [p]</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="61"/>
+        <location filename="../../Widgets/Navigator.h" line="61"/>
         <source>Go to next change - [n]</source>
-        <translation type="unfinished"/>
+        <translation>Gå till nästa ändring - [n]</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="67"/>
+        <location filename="../../Widgets/Navigator.h" line="67"/>
         <source>Search ...</source>
-        <translation type="unfinished"/>
+        <translation>Sök ...</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="71"/>
+        <location filename="../../Widgets/Navigator.h" line="71"/>
         <source>Find Next</source>
-        <translation type="unfinished"/>
+        <translation>Hitta nästa</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="77"/>
+        <location filename="../../Widgets/Navigator.h" line="77"/>
         <source>Find Previous</source>
-        <translation type="unfinished"/>
+        <translation>Hitta tidigare</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="82"/>
+        <location filename="../../Widgets/Navigator.h" line="82"/>
         <source>Use Left Panel</source>
-        <translation type="unfinished"/>
+        <translation>Använd vänster panel</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="85"/>
+        <location filename="../../Widgets/Navigator.h" line="85"/>
         <source>Use Right Panel</source>
-        <translation type="unfinished"/>
+        <translation>Använd höger panel</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="90"/>
+        <location filename="../../Widgets/Navigator.h" line="90"/>
         <source>Close this window</source>
-        <translation type="unfinished"/>
+        <translation>Stäng det här fönstret</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator.h" line="91"/>
+        <location filename="../../Widgets/Navigator.h" line="91"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Klar</translation>
     </message>
 </context>
 <context>
     <name>Navigator2</name>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="53"/>
+        <location filename="../../Widgets/Navigator2.h" line="53"/>
         <source>Go to previous page - [p]</source>
-        <translation type="unfinished"/>
+        <translation>Gå till föregående sida - [p]</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="60"/>
+        <location filename="../../Widgets/Navigator2.h" line="60"/>
         <source>Go to next page - [n]</source>
-        <translation type="unfinished"/>
+        <translation>Gå till nästa sida - [n]</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="67"/>
+        <location filename="../../Widgets/Navigator2.h" line="67"/>
         <source>Search ...</source>
-        <translation type="unfinished"/>
+        <translation>Sök ...</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="72"/>
+        <location filename="../../Widgets/Navigator2.h" line="72"/>
         <source>Find Next</source>
-        <translation type="unfinished"/>
+        <translation>Hitta nästa</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="79"/>
+        <location filename="../../Widgets/Navigator2.h" line="79"/>
         <source>Find Previous</source>
-        <translation type="unfinished"/>
+        <translation>Hitta tidigare</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="85"/>
+        <location filename="../../Widgets/Navigator2.h" line="85"/>
         <source>Close this window</source>
-        <translation type="unfinished"/>
+        <translation>Stäng det här fönstret</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/Navigator2.h" line="86"/>
+        <location filename="../../Widgets/Navigator2.h" line="86"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Klar</translation>
     </message>
 </context>
 <context>
@@ -14038,12 +14094,12 @@ Do you want to automatically mend the files before saving?</source>
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1241"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1255"/>
         <source>[Title here]</source>
         <translation>[Titel här]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1247"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1261"/>
         <source>[Main title here]</source>
         <translation>[Huvudtitel här]</translation>
     </message>
@@ -14567,8 +14623,8 @@ Enheter kan separeras med rader, kommatecken eller mellanslag.</translation>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="57"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="67"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="344"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="352"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="350"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="358"/>
         <source>Preview</source>
         <translation>Förhandsgranskning</translation>
     </message>
@@ -14643,102 +14699,102 @@ Enheter kan separeras med rader, kommatecken eller mellanslag.</translation>
         <translation>Kan inte läsa EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="245"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="257"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation>OPF-filen innehåller inte en giltig ryggrad.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="246"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="860"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="258"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="872"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil har skapat en ny för dig.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="290"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="302"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>Fel tolkning av krypterings xml.
 Rad: %1 Kolumn %2- %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="406"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="418"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation>Det går inte att packa upp EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="462"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="474"/>
         <source>Possible evil or corrupt epub file name: %1</source>
         <translation>Eventuellt ont eller korrupt epub-filnamn: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="489"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="498"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="515"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="523"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="501"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="510"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="527"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="535"/>
         <source>Cannot extract file: %1</source>
         <translation>Det går inte att extrahera filen: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="535"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="547"/>
         <source>Cannot open EPUB: %1</source>
         <translation>Det går inte att öppna EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="589"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="601"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>Det går inte att tolka filen conatiner.xml.
 Rad: %1 Kolumn %2- %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="601"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="613"/>
         <source>No appropriate OPF file found</source>
         <translation>Ingen lämplig OPF-fil hittades</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="652"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="664"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>Det går inte att läsa OPF-filen.
 Rad: %1 Kolumn %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="739"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="751"/>
         <source>The OPF uses an unrecognized media type &quot;%1&quot; for file &quot;%2&quot;</source>
         <translation>OPF använder en okänd medietyp &quot;%1&quot; för filen &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="740"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="752"/>
         <source>A temporary media type of &quot;%1&quot; has been assigned. You should edit your OPF file to fix this problem.</source>
         <translation>En tillfällig medietyp av &quot;%1&quot; har tilldelats. Du bör redigera OPF-filen för att åtgärda problemet.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="763"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="775"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>OPF-manifestet innehåller dubbla id för: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="764"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="776"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>Ett tillfälligt id har tilldelats för att läsa in denna EPUB. Du bör redigera OPF-filen för att ta bort dubbleringen.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="835"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="847"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>OPF-filen identifierade inte NCX-filen korrekt.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="836"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="848"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil har använt följande fil som NCX:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="859"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="871"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>OPF-filen innehåller inte en NCX-fil.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="641"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="644"/>
         <source>Adding Existing Files..</source>
         <translation>Lägger till befintliga filer..</translation>
     </message>
@@ -14773,19 +14829,19 @@ Rad: %1 Kolumn %2 - %3</translation>
         <translation>&lt;p&gt;En nyare version av Sigil är tillgänglig, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Vill du gå till hämtningssidan?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="505"/>
+        <location filename="../../Misc/Utility.cpp" line="490"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Det går inte att läsa filen %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="632"/>
+        <location filename="../../Misc/Utility.cpp" line="617"/>
         <source>Sigil has encountered a problem.</source>
         <translation>Sigil har stött på ett problem.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="633"/>
+        <location filename="../../Misc/Utility.cpp" line="618"/>
         <source>Sigil may need to close.</source>
         <translation>Sigil kan behöva stängas.</translation>
     </message>
@@ -14796,43 +14852,43 @@ Rad: %1 Kolumn %2 - %3</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="211"/>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="279"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="282"/>
         <source>Invalid HTML file: %1</source>
         <translation>Ogiltig HTML-fil: %1</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="324"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="327"/>
         <source>Invalid OPF file: %1</source>
         <translation>Ogiltig OPF-fil: %1</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="350"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="353"/>
         <source>Invalid NCX file: %1</source>
         <translation>Ogiltig NCX-fil: %1</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="587"/>
-        <location filename="../../main.cpp" line="643"/>
+        <location filename="../../main.cpp" line="565"/>
+        <location filename="../../main.cpp" line="621"/>
         <source>Quit</source>
         <translation>Avsluta</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="599"/>
+        <location filename="../../main.cpp" line="577"/>
         <source>About</source>
         <translation>Om</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="610"/>
+        <location filename="../../main.cpp" line="588"/>
         <source>Preferences</source>
         <translation>Inställningar</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="621"/>
+        <location filename="../../main.cpp" line="599"/>
         <source>New</source>
         <translation>Ny</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="632"/>
+        <location filename="../../main.cpp" line="610"/>
         <source>Open</source>
         <translation>Öppna</translation>
     </message>
@@ -15156,112 +15212,112 @@ inklusive poster i valda grupper.</translation>
         <translation>Du kan inte välja en grupp för den här åtgärden.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="260"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="261"/>
         <source>You cannot select an entry and a group containing the entry.</source>
         <translation>Du kan inte välja en post och en grupp som innehåller posten.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="343"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="344"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
         <translation>Du kan inte Kopiera eller Klippa ut grupper - använd dra-och-släpp.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="410"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="411"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="410"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="411"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>Är du säker på att du vill uppdatera alla poster? Detta kommer att skriva över eventuella osparade ändringar.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="430"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="431"/>
         <source>Import Search Entries</source>
         <translation>Importera Sökposter</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="510"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="511"/>
         <source>Export Selected Searches</source>
         <translation>Exportera Valda sökningar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="676"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="677"/>
         <source>Add Entry</source>
         <translation>Lägg till en post</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="677"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="678"/>
         <source>Add Group</source>
         <translation>Lägg till grupp</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="678"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="679"/>
         <source>Edit</source>
         <translation>Redigera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="679"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="680"/>
         <source>Cut</source>
         <translation>Klipp ut</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="680"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="681"/>
         <source>Copy</source>
         <translation>Kopiera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="681"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="682"/>
         <source>Paste</source>
         <translation>Klistra in</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="682"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="683"/>
         <source>Delete</source>
         <translation>Ta bort</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="683"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="684"/>
         <source>Import</source>
         <translation>Importera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="684"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="685"/>
         <source>Reload</source>
         <translation>Uppdatera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="685"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="686"/>
         <source>Export</source>
         <translation>Exportera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="686"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="687"/>
         <source>Export All</source>
         <translation>Exportera alla</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="687"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="688"/>
         <source>Collapse All</source>
         <translation>Kollapsa alla</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="688"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="689"/>
         <source>Expand All</source>
         <translation>Expandera alla</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="765"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="768"/>
         <source>Search entries saved.</source>
         <translation>Sökposter sparade.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="794"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="797"/>
         <source>Sigil: Saved Searches</source>
         <translation>Sigil: Sparade sökningar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="795"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="798"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
         <translation>Sökposterna kan ha ändrats.
@@ -15304,12 +15360,12 @@ Vill du spara dina ändringar?</translation>
     <message>
         <location filename="../../Form_Files/SelectCheckpoint.ui" line="14"/>
         <source>Select Checkpoint Version</source>
-        <translation type="unfinished"/>
+        <translation>Välj kontrollpunktsversion</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectCheckpoint.ui" line="56"/>
         <source>Description of Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Beskrivning av kontrollpunkt</translation>
     </message>
 </context>
 <context>
@@ -15347,52 +15403,52 @@ din bok och automatiskt infoga i dokumentet.</translation>
         <translation>Miniatyrbildsstorlek:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="85"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="112"/>
         <source>All</source>
         <translation>Alla</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="86"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="113"/>
         <source>Images</source>
         <translation>Bilder</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="87"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="114"/>
         <source>Video</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="88"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="115"/>
         <source>Audio</source>
         <translation>Ljud</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="136"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="163"/>
         <source>Files In the Book</source>
         <translation>Filer i boken</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="139"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="166"/>
         <source>Thumbnails</source>
         <translation>Miniatyrbilder</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="299"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="326"/>
         <source>shades</source>
         <translation>nyanser</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="299"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="326"/>
         <source>colors</source>
         <translation>färger</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="300"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="327"/>
         <source>Grayscale</source>
         <translation>Gråskala</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="300"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="327"/>
         <source>Color</source>
         <translation>Färg</translation>
     </message>
@@ -15938,7 +15994,7 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
 <context>
     <name>TabBar</name>
     <message>
-        <location filename="../../Tabs/TabBar.cpp" line="83"/>
+        <location filename="../../Tabs/TabBar.cpp" line="84"/>
         <source>Close Other Tabs</source>
         <translation>Stäng andra flikar</translation>
     </message>
@@ -15946,7 +16002,7 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
 <context>
     <name>TabManager</name>
     <message>
-        <location filename="../../Tabs/TabManager.cpp" line="264"/>
+        <location filename="../../Tabs/TabManager.cpp" line="265"/>
         <source>Cannot edit file</source>
         <translation>Det går inte att redigera filen</translation>
     </message>
@@ -15954,22 +16010,22 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
 <context>
     <name>TableOfContents</name>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="42"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="43"/>
         <source>Table Of Contents</source>
         <translation>Innehållsförteckning</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="127"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="128"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Filen &quot;%1&quot; finns inte.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="158"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="159"/>
         <source>Collapse All</source>
         <translation>Kollapsa alla</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="159"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="160"/>
         <source>Expand All</source>
         <translation>Expandera alla</translation>
     </message>
@@ -15985,27 +16041,27 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
 <context>
     <name>TextView</name>
     <message>
-        <location filename="../../ViewEditors/TextView.cpp" line="436"/>
+        <location filename="../../Widgets/TextView.cpp" line="420"/>
         <source>Reformat HTML</source>
         <translation>Formatera om HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/TextView.cpp" line="438"/>
+        <location filename="../../Widgets/TextView.cpp" line="422"/>
         <source>Mend and Prettify Code</source>
         <translation>Förbättra och försköna kod</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/TextView.cpp" line="439"/>
+        <location filename="../../Widgets/TextView.cpp" line="423"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Förbättra och försökan kod - Alla HTML-filer</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/TextView.cpp" line="440"/>
+        <location filename="../../Widgets/TextView.cpp" line="424"/>
         <source>Mend Code</source>
         <translation>Förbättra kod</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/TextView.cpp" line="441"/>
+        <location filename="../../Widgets/TextView.cpp" line="425"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Förbättra kod - Alla HTML-filer</translation>
     </message>
@@ -16013,12 +16069,20 @@ Använd om du redigerar HTML-filer medan Stavningskontroll är öppen.</translat
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="740"/>
+        <location filename="../../Misc/Utility.cpp" line="727"/>
+        <location filename="../../Misc/Utility.cpp" line="737"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="741"/>
+        <location filename="../../Misc/Utility.cpp" line="728"/>
+        <source>The requested file name contains one or more url/uri delimiter characters:  : / ? # [ ] @  that should NOT appear in url/uri link targets such as filenames.
+
+</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/Utility.cpp" line="738"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -16070,80 +16134,40 @@ Fortsätt använda det begärda filnamnet?</translation>
 <context>
     <name>ViewAV</name>
     <message>
-        <location filename="../../Dialogs/ViewAV.cpp" line="86"/>
+        <location filename="../../Dialogs/ViewAV.cpp" line="50"/>
         <source>Close this window</source>
-        <translation type="unfinished"/>
+        <translation>Stäng det här fönstret</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ViewAV.cpp" line="87"/>
+        <location filename="../../Dialogs/ViewAV.cpp" line="51"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Klar</translation>
     </message>
 </context>
 <context>
     <name>ViewFont</name>
     <message>
-        <location filename="../../Dialogs/ViewFont.cpp" line="88"/>
+        <location filename="../../Dialogs/ViewFont.cpp" line="45"/>
         <source>Close this window</source>
-        <translation type="unfinished"/>
+        <translation>Stäng det här fönstret</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ViewFont.cpp" line="89"/>
+        <location filename="../../Dialogs/ViewFont.cpp" line="46"/>
         <source>Done</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewFont.cpp" line="147"/>
-        <source>abcdefghijklmnopqrstuvwxyz</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewFont.cpp" line="148"/>
-        <source>ABCDEFGHIJKLMNOPQRSTUVWXYZ</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewFont.cpp" line="149"/>
-        <source>0123456789.:,;(*!?&apos;\/&quot;)$%^&amp;-+@=_-~&gt;&lt;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewFont.cpp" line="150"/>
-        <source>The quick brown fox jumps over the lazy dog</source>
-        <translation type="unfinished"/>
+        <translation>Klar</translation>
     </message>
 </context>
 <context>
     <name>ViewImage</name>
     <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="76"/>
+        <location filename="../../Dialogs/ViewImage.cpp" line="50"/>
         <source>Close this window</source>
-        <translation type="unfinished"/>
+        <translation>Stäng det här fönstret</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="77"/>
+        <location filename="../../Dialogs/ViewImage.cpp" line="51"/>
         <source>Done</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="106"/>
-        <source>shades</source>
-        <translation>nyanser</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="106"/>
-        <source>colors</source>
-        <translation>färger</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="107"/>
-        <source>Grayscale</source>
-        <translation>Gråskala</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="107"/>
-        <source>Color</source>
-        <translation>Färg</translation>
+        <translation>Klar</translation>
     </message>
 </context>
 <context>

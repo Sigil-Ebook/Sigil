@@ -176,7 +176,19 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
             if (ss.cleanOn() & CLEANON_OPEN) {
                 if (!XhtmlDoc::IsDataWellFormed(hresource->GetText(),hresource->GetEpubVersion())) {
                     non_well_formed << hresource;
-                }
+                } else {
+		    QString txt = hresource->GetText();
+		    // had cases of large files with no line breaks
+		    if (txt.size() > 307200) {
+			int lines = 0;
+			QChar *uc = txt.data();
+			QChar *e = uc + txt.size();
+			for (; uc != e; ++uc) {
+			    if (uc->unicode() == 0x000A) lines++;
+			}
+			if (lines < 5) non_well_formed << hresource;
+		    }
+		}
             }
         }
     }
@@ -186,7 +198,7 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
                 tr("Sigil"),
                 tr("This EPUB has HTML files that are not well formed. "
                    "Sigil can attempt to automatically fix these files, although this "
-                   "can result in minor data loss.\n\n"
+                   "may result in minor data loss in extreme circumstances.\n\n"
                    "Do you want to automatically fix the files?"),
                 QMessageBox::Yes|QMessageBox::No)) 
         {
@@ -280,6 +292,7 @@ QHash<QString, QString> ImportEPUB::ParseEncryptionXml()
             if (encryption.name() == "EncryptionMethod") {
                 encryption_algo = encryption.attributes().value("", "Algorithm").toString();
             } else if (encryption.name() == "CipherReference") {
+                // Note: fragments are not part of the CipherReference specs so this is okay
                 uri = Utility::URLDecodePath(encryption.attributes().value("", "URI").toString());
                 encrypted_files[ uri ] = encryption_algo;
             }
@@ -544,7 +557,7 @@ void ImportEPUB::LocateOPF()
     QXmlStreamReader container;
     try {
         container.addData(Utility::ReadUnicodeTextFile(fullpath));
-    } catch (CannotOpenFile) {
+    } catch (CannotOpenFile&) {
         // Find the first OPF file.
         QString OPFfile;
         QDirIterator files(m_ExtractedFolderPath, QStringList() << "*.opf", QDir::NoFilter, QDirIterator::Subdirectories);
@@ -728,59 +741,71 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     QString href = opf_reader->attributes().value("", "href").toString();
     QString type = opf_reader->attributes().value("", "media-type").toString();
     QString properties = opf_reader->attributes().value("", "properties").toString();
-    // Paths are percent encoded in the OPF, we use "normal" paths internally.
-    href = Utility::URLDecodePath(href);
-    QString extension = QFileInfo(href).suffix().toLower();
+    // FIXME: can epub3 OPF Manifest href attributes include fragments?
+    // FIXME: under epub2 fragments are explicitly outlawed in spec
+    // For robustness sake we will assume they can but ...
+    // Note:  Under epub3 they can point outside the epub so need to handle full url
+
+    QString apath;
+    if (href.indexOf(':') == -1) {
+	// we know we have a relative href to a file so no fragments can exist
+	apath = Utility::URLDecodePath(href);
+    }
+    // for hrefs pointing outside the epub, apath will be empty
+    qDebug() << "ImportEpub with Manifest item: " << href << apath;
+    QString extension = QFileInfo(apath).suffix().toLower();
 
     // validate the media type if we can, and warn otherwise
     QString group = MediaTypes::instance()->GetGroupFromMediaType(type,"");
     QString ext_mtype = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
     if (type.isEmpty() || group.isEmpty()) {
-	const QString load_warning = QObject::tr("The OPF uses an unrecognized media type \"%1\" for file \"%2\"").arg(type).arg(QFileInfo(href).fileName()) +
+	const QString load_warning = QObject::tr("The OPF uses an unrecognized media type \"%1\" for file \"%2\"").arg(type).arg(QFileInfo(apath).fileName()) +
 	    " - " + QObject::tr("A temporary media type of \"%1\" has been assigned. You should edit your OPF file to fix this problem.").arg(ext_mtype);
         AddLoadWarning(load_warning);
     }
 
-    // find the epub root relative file path from the opf location and the item href
-    QString file_path = m_opfDir.absolutePath() + "/" + href;
-    file_path = Utility::resolveRelativeSegmentsInFilePath(file_path,"/");
-    file_path = file_path.remove(0, m_ExtractedFolderPath.length() + 1); 
+    if (!apath.isEmpty()) {
+        // find the epub root relative file path from the opf location and the item href
+        QString file_path = m_opfDir.absolutePath() + "/" + apath;
+        file_path = Utility::resolveRelativeSegmentsInFilePath(file_path,"/");
+        file_path = file_path.remove(0, m_ExtractedFolderPath.length() + 1); 
     
-    if (type != NCX_MIMETYPE && extension != NCX_EXTENSION) {
-        if (!m_ManifestFilePaths.contains(file_path)) {
-            if (m_Files.contains(id)) {
-                // We have an error situation with a duplicate id in the epub.
-                // We must warn the user, but attempt to use another id so the epub can still be loaded.
-                QString base_id = QFileInfo(href).fileName();
-                QString new_id(base_id);
-                int duplicate_index = 0;
+        if (type != NCX_MIMETYPE && extension != NCX_EXTENSION) {
+            if (!m_ManifestFilePaths.contains(file_path)) {
+                if (m_Files.contains(id)) {
+                    // We have an error situation with a duplicate id in the epub.
+                    // We must warn the user, but attempt to use another id so the epub can still be loaded.
+                    QString base_id = QFileInfo(apath).fileName();
+                    QString new_id(base_id);
+                    int duplicate_index = 0;
 
-                while (m_Files.contains(new_id)) {
-                    duplicate_index++;
-                    new_id = QString("%1%2").arg(base_id).arg(duplicate_index);
+                    while (m_Files.contains(new_id)) {
+                        duplicate_index++;
+                        new_id = QString("%1%2").arg(base_id).arg(duplicate_index);
+                    }
+
+                    const QString load_warning = QObject::tr("The OPF manifest contains duplicate ids for: %1").arg(id) +
+                  " - " + QObject::tr("A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.");
+                    id = new_id;
+                    AddLoadWarning(load_warning);
                 }
 
-                const QString load_warning = QObject::tr("The OPF manifest contains duplicate ids for: %1").arg(id) +
-                  " - " + QObject::tr("A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.");
-                id = new_id;
-                AddLoadWarning(load_warning);
-            }
+                m_Files[ id ] = apath;
+                m_FileMimetypes[ id ] = type;
+                m_ManifestFilePaths << file_path;
+	        m_ManifestMediaTypes << type;
 
-            m_Files[ id ] = href;
-            m_FileMimetypes[ id ] = type;
-            m_ManifestFilePaths << file_path;
+                // store information about any nav document
+                if (properties.contains("nav")) {
+                    m_NavId = id;
+                    m_NavHref = apath;
+                }
+            }
+        } else {
+            m_NcxCandidates[ id ] = apath;
+	    m_ManifestFilePaths << file_path;
 	    m_ManifestMediaTypes << type;
-
-            // store information about any nav document
-            if (properties.contains("nav")) {
-                m_NavId = id;
-                m_NavHref = href;
-            }
         }
-    } else {
-        m_NcxCandidates[ id ] = href;
-	m_ManifestFilePaths << file_path;
-	m_ManifestMediaTypes << type;
     }
 }
 
@@ -949,7 +974,7 @@ std::tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const 
         }
         QString newpath = resource->GetRelativePath();
         return std::make_tuple(currentpath, newpath);
-    } catch (FileDoesNotExist) {
+    } catch (FileDoesNotExist&) {
         return std::make_tuple(UPDATE_ERROR_STRING, UPDATE_ERROR_STRING);
     }
 }

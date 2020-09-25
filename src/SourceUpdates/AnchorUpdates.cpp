@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -100,6 +100,7 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
 {
     // qDebug() << "in UpdateAnchorsInOneFile";
     // qDebug() << "ID_locations" << ID_locations;
+    QStringList bookpaths_impacted = ID_locations.values();
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
     QString version = html_resource->GetEpubVersion();
@@ -112,32 +113,43 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
     for (int i = 0; i < anchor_nodes.length(); ++i) {
         GumboNode* node = anchor_nodes.at(i);
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
-        if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
+        if (attr) {
             QString href = QString::fromUtf8(attr->value);
-	    href = Utility::URLDecodePath(href);
-            QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
+            if (href.indexOf(':') == -1) {
+                std::pair<QString, QString> parts = Utility::parseRelativeHREF(href);
+		// if fragment exists
+                if (!parts.second.isEmpty()) {
+		    QString base_href = parts.first;
+                    QString fragment_id = parts.second;
+                    if (fragment_id.startsWith("#")) fragment_id = fragment_id.mid(1, -1);
+		    QString dest_bookpath = Utility::buildBookPath(base_href, Utility::startingDir(resource_bookpath));
+		    QString file_id = ID_locations.value(fragment_id);
 
-            if (parts.length() > 1) {
-                QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
-		QString base_href = parts.at(0);
-                QString file_id = ID_locations.value(fragment_id);
-		// qDebug() << "fragment_id" << fragment_id;
-		// qDebug() << "file_id" << file_id;
-		// qDebug() << "resource_bookpath" << resource_bookpath;
-		// qDebug() << "base_href" << base_href;
+		    // qDebug() << "destination bookpath" << dest_bookpath;
+		    // qDebug() << "fragment_id" << fragment_id;
+		    // qDebug() << "file_id" << file_id;
+		    // qDebug() << "resource_bookpath" << resource_bookpath;
 
-                // If the ID is in a different file, update the link
-                if (file_id != resource_bookpath && !file_id.isEmpty()) {
-		    QString attribute_value = Utility::buildRelativePath(resource_bookpath, file_id) + "#" + fragment_id;
-		    attribute_value = Utility::URLEncodePath(attribute_value);
-                    gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
-                    is_changed = true;
-                } else if ((file_id == resource_bookpath) && !base_href.isEmpty()) {
-		    // this is a local internal link that needs to be fixed
-                    QString attribute_value = QString("#").append(fragment_id);
-                    gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
-                    is_changed = true;
-		}
+		    // Duplicates of this id may exist in other xhtml files in the epub
+		    // not involved in the split, so only set the target file_id if the
+		    // original dest_bookpath is one that was impacted by split
+		    if (!bookpaths_impacted.contains(dest_bookpath)) {
+		        file_id = ""; 
+		    }
+		    
+                    // If the ID is in a different file, update the link
+                    if (file_id != resource_bookpath && !file_id.isEmpty()) {
+                        QString attpath = Utility::buildRelativePath(resource_bookpath, file_id);
+		        QString attribute_value = Utility::buildRelativeHREF(attpath, fragment_id);
+                        gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
+                        is_changed = true;
+                    } else if ((file_id == resource_bookpath) && !base_href.isEmpty()) {
+		        // this is a local internal link that needs to be fixed
+                        QString attribute_value = QString("#").append(fragment_id);
+                        gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
+                        is_changed = true;
+		    }
+                }
             }
         }
     }
@@ -167,21 +179,22 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
         // We're only interested in hrefs of the form "originating_filename#fragment_id".
         // But must be wary of hrefs that are "originating_filename", "originating_filename#" or "#fragment_id"
         // First, we find the hrefs that are relative and contain a fragment id.
-        if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
+        if (attr) {
             QString href = QString::fromUtf8(attr->value);
-	    href = Utility::URLDecodePath(href);
-            QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
-	    QString target_bookpath = Utility::buildBookPath(parts.at(0),startdir);
+            if (href.indexOf(':') == -1) {
+                std::pair<QString, QString> parts = Utility::parseRelativeHREF(href);
+                QString target_bookpath = Utility::buildBookPath(parts.first, startdir);
 
-            // If the href pointed to the original file then update the file_id.
-            if (parts.length() > 1 && target_bookpath == originating_bookpath && !parts.at(1).isEmpty()) {
-                QString fragment_id = href.right(href.size() - (parts.at(0).length() + 1));
-		target_bookpath = ID_locations.value(fragment_id);
-                QString attribute_value = Utility::buildRelativePath(html_resource->GetRelativePath(), target_bookpath);
-                attribute_value = attribute_value + "#" + fragment_id;
-		attribute_value = Utility::URLEncodePath(attribute_value);
-                gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
-                is_changed = true;
+                // If the href pointed to the original file then update the file_id.
+                if (!parts.second.isEmpty() && (target_bookpath == originating_bookpath) && !(parts.second == "#")) {
+                    QString fragment_id = parts.second;
+                    if (fragment_id.startsWith('#')) fragment_id = fragment_id.mid(1, -1);
+		    target_bookpath = ID_locations.value(fragment_id);
+                    QString attpath = Utility::buildRelativePath(html_resource->GetRelativePath(), target_bookpath);
+                    QString attribute_value = Utility::buildRelativeHREF(attpath, fragment_id);
+                    gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
+                    is_changed = true;
+                }
             }
         }
     }
@@ -214,23 +227,19 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
 
         // We find the hrefs that are relative and contain an href.
-        if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
+        if (attr) {
             QString href = QString::fromUtf8(attr->value);
-	    href = Utility::URLDecodePath(href);
+            if (href.indexOf(':') == -1) {
+                std::pair<QString, QString> parts = Utility::parseRelativeHREF(href);
 
-            // Does this href point to a bookpath in the originating_bookpaths
-            QStringList parts = href.split(QChar('#'), QString::KeepEmptyParts);
-	    QString target_bookpath = Utility::buildBookPath(parts.at(0), startdir);
-	    if (originating_bookpaths.contains(target_bookpath)) {
-		QString attribute_value = Utility::buildRelativePath(html_resource->GetRelativePath(), sink_bookpath);
-		QString fragment_id;
-		if (parts.count() > 1) fragment_id = parts.at(1);
-                if (!fragment_id.isEmpty()) {
-		    attribute_value = attribute_value + "#" + fragment_id;
-		}
-		attribute_value = Utility::URLEncodePath(attribute_value);
-                gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
-                is_changed = true;
+                // Does this href point to a bookpath in the originating_bookpaths
+	        QString target_bookpath = Utility::buildBookPath(parts.first, startdir);
+	        if (originating_bookpaths.contains(target_bookpath)) {
+                    QString attpath = Utility::buildRelativePath(html_resource->GetRelativePath(), sink_bookpath);
+		    QString attribute_value = Utility::buildRelativeHREF(attpath, parts.second); 
+                    gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
+                    is_changed = true;
+                }
             }
         }
     }

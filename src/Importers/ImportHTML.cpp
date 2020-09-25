@@ -218,17 +218,28 @@ void ImportHTML::UpdateFiles(HTMLResource *html_resource,
     QFileInfo hinfo = QFileInfo(m_FullFilePath);
     QDir folder(hinfo.absoluteDir());
     foreach(QString target, TargetPaths) {
-	QString target_file = hinfo.absolutePath() + "/" + target;
-	target_file = Utility::resolveRelativeSegmentsInFilePath(target_file, "/");
-	if (!QFile::exists(target_file)) {
-            html_updates[target_file] = "";
-	} else {
-	    // do not touch javascript links when importing html
-	    // even when they do exist as we do not import them
-	    if (QFileInfo(target_file).suffix() == "js") {
+        if (target.indexOf(":") == -1) {
+            std::pair<QString, QString> parts = Utility::parseRelativeHREF(target);
+	    QString target_file = hinfo.absolutePath() + "/" + parts.first;
+	    target_file = Utility::resolveRelativeSegmentsInFilePath(target_file, "/");
+	    if (!QFile::exists(target_file)) {
                 html_updates[target_file] = "";
+	    } else {
+		QString extension = QFileInfo(target_file).suffix();
+	        // do not touch javascript links when importing html
+	        // even when they do exist as we do not import them
+	        if (extension == "js") {
+                    html_updates[target_file] = "";
+	        }
+		// we also do not touch links to *other* xhtml files
+		if ((target_file != currentpath) &&
+		    (extension == "htm" ||
+		     extension == "html" ||
+		     extension == "xhtml")) {
+                    html_updates[target_file] = "";
+		}
 	    }
-	}
+        }
     }
     html_resource->SetText(PerformHTMLUpdates(newsource, newbookpath, html_updates, css_updates, currentpath, version)());
     html_resource->SetCurrentBookRelPath("");
@@ -284,7 +295,7 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
             }
 
             updates[ fullfilepath ] = newpath;
-        } catch (FileDoesNotExist) {
+        } catch (FileDoesNotExist&) {
             // Do not touch link if it is already broken
             QString target_file = hinfo.absolutePath() + "/" + file_path;
             target_file = Utility::resolveRelativeSegmentsInFilePath(target_file, "/");
@@ -319,7 +330,7 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_path
             }
 
             updates[ fullfilepath ] = newpath;
-        } catch (FileDoesNotExist) {
+        } catch (FileDoesNotExist&) {
             // Do not touch link if it is already broken
             QString target_file = hinfo.absolutePath() + "/" + file_path;
             target_file = Utility::resolveRelativeSegmentsInFilePath(target_file, "/");

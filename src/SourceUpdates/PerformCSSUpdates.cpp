@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -33,9 +33,9 @@
 static const QChar FORWARD_SLASH = QChar::fromLatin1('/');
 
 PerformCSSUpdates::PerformCSSUpdates(const QString &source, 
-				     const QString& newbookpath, 
-				     const QHash<QString, QString> &css_updates, 
-				     const QString &currentpath)
+                     const QString& newbookpath, 
+                     const QHash<QString, QString> &css_updates, 
+                     const QString &currentpath)
     :
     m_Source(source),
     m_CSSUpdates(css_updates),
@@ -83,8 +83,8 @@ QString PerformCSSUpdates::operator()()
             int frag_start_index = 0;
             QString fragment = mo.captured(i);
             QRegularExpressionMatch frag_mo = urls.match(fragment, frag_start_index);
-	    // only loop if at least one match was found
-	    if (frag_mo.hasMatch()) {
+            // only loop if at least one match was found
+            if (frag_mo.hasMatch()) {
                 do {
                     for (int j = 1; j <= urls.captureCount(); ++j) {
                         if (frag_mo.captured(j).trimmed().isEmpty()) {
@@ -92,21 +92,26 @@ QString PerformCSSUpdates::operator()()
                         }
                         QString apath = Utility::URLDecodePath(frag_mo.captured(j));
                         QString dest_oldbkpath = Utility::buildBookPath(apath, origDir);
-			// targets may not have moved but we may have
+                        // targets may not have moved but we may have
                         QString dest_newbkpath = m_CSSUpdates.value(dest_oldbkpath,dest_oldbkpath);
-			if (!dest_newbkpath.isEmpty() && !m_newbookpath.isEmpty()) {
-			    QString new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
-			    if (new_href.isEmpty()) new_href = destfile;
-			    new_href = Utility::URLEncodePath(new_href);
+                        if (!dest_newbkpath.isEmpty() && !m_newbookpath.isEmpty()) {
+                            QString new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
+                            if (new_href.isEmpty()) new_href = destfile;
                             // Replace the old url with the new one
-                            fragment.replace(frag_mo.capturedStart(j), frag_mo.capturedLength(j), new_href);
-                            changes_made = true;
+                            // But only replace if string has changed. Otherwise any matched
+                            // quoted string content could potentially be unnecessarily url encoded.
+                            // The hope is to only encode urls that were actually modified by renames.
+                            if (new_href != frag_mo.captured(j)) {
+                                new_href = Utility::URLEncodePath(new_href);
+                                fragment.replace(frag_mo.capturedStart(j), frag_mo.capturedLength(j), new_href);
+                                changes_made = true;
+                            }
                         }
                     }
                     frag_start_index += frag_mo.capturedLength();
                     frag_mo = urls.match(fragment, frag_start_index);
                 } while (frag_mo.hasMatch());
-	    }
+            }
             // Replace the original attribute string fragment with the new one
             if (changes_made) {
                 result.replace(mo.capturedStart(i), mo.capturedLength(i), fragment);

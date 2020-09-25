@@ -106,7 +106,7 @@ public:
 	       const QString version = QString(),
 	       bool is_internal = false, 
 	       QWidget *parent = 0, 
-	       Qt::WindowFlags flags = 0);
+	       Qt::WindowFlags flags = Qt::WindowFlags());
     ~MainWindow();
 
     void maybe_fixup_dockwidget_geometry(QDockWidget * widget);
@@ -204,7 +204,10 @@ public:
     QString GetCurrentFilePath();
 
     void DebugCurrentWidgetSizes();
-    
+
+    QString GetMathJaxFolder() { return m_mathjaxfolder; };
+
+
 public slots:
 
     void OpenUrl(const QUrl &url);
@@ -1021,6 +1024,8 @@ private:
      * Collects signals and sends specific parameters to the connected slots.
      */
     QActionGroup *m_headingActionGroup;
+
+    QString m_mathjaxfolder;
 
     /**
      * Holds all the widgets Qt Designer created for us.

@@ -54,6 +54,9 @@ endif()
 
 #############################################################################
 
+# quiet Qt 5.15 deprecat4ed warnings for now as we must support Qt 5.12.X and even earlier
+add_definitions(-DQT_NO_DEPRECATED_WARNINGS)
+
 if( UNIX AND NOT APPLE )
     # Qt5 packages minimum version 5.9 for Linux
     set(QT5_NEEDED 5.9)
@@ -292,6 +295,8 @@ set( MISC_FILES
     Misc/AppEventFilter.h
     Misc/UpdateChecker.cpp
     Misc/UpdateChecker.h
+    Misc/URLInterceptor.cpp
+    Misc/URLInterceptor.h
     Misc/Utility.cpp
     Misc/Utility.h
     Misc/SleepFunctions.h
@@ -310,6 +315,8 @@ set( MISC_FILES
     Misc/HTMLEncodingResolver.h
     Misc/HTMLSpellCheck.cpp
     Misc/HTMLSpellCheck.h
+    Misc/HTMLSpellCheckML.cpp
+    Misc/HTMLSpellCheckML.h
     Misc/PasteTargetComboBox.cpp
     Misc/PasteTargetComboBox.h
     Misc/PasteTarget.h
@@ -321,6 +328,8 @@ set( MISC_FILES
     Misc/QCodePage437Codec.h
     Misc/SearchOperations.cpp
     Misc/SearchOperations.h
+    Misc/SigilDarkStyle.cpp
+    Misc/SigilDarkStyle.h
     Misc/Language.cpp
     Misc/Language.h
     Misc/DescriptiveInfo.h
@@ -372,6 +381,8 @@ set( MISC_FILES
     Misc/MediaTypes.h
     Misc/TagAtts.cpp
     Misc/TagAtts.h
+    Misc/QuickParser.cpp
+    Misc/QuickParser.h
     )
 
 set( MISC_EDITORS_FILES
@@ -552,11 +563,20 @@ set( SOURCEUPDATE_FILES
     )
 
 set( QRC_FILES
-    Resource_Files/main/main.qrc
     Resource_Files/About/About.qrc
     Resource_Files/javascript/javascript.qrc
     Resource_Files/icon/icon.qrc
     Resource_Files/dark/dark.qrc
+    )
+
+set( MAIN_BINARY_QRC_FILES
+    Resource_Files/main/main.qrc
+    )
+set( FLUENT_BINARY_QRC_FILES
+    Resource_Files/fluent/fluent.qrc
+    )
+set( MATERIAL_BINARY_QRC_FILES
+    Resource_Files/material/material.qrc
     )
 
 if ( APPLE )
@@ -625,8 +645,18 @@ set_property( SOURCE ${UI_FILES_H} PROPERTY SKIP_AUTOMOC ON )
 # Runs RCC on specified files
 qt5_add_resources( QRC_FILES_CPP ${QRC_FILES} )
 set_property( SOURCE ${QRC_FILES_CPP} PROPERTY SKIP_AUTOMOC ON )
+qt5_add_binary_resources( main  ${MAIN_BINARY_QRC_FILES} )
+qt5_add_binary_resources( fluent ${FLUENT_BINARY_QRC_FILES} )
+qt5_add_binary_resources( material ${MATERIAL_BINARY_QRC_FILES} )
 # Runs lrelease on the specified files
 qt5_add_translation( QM_FILES ${TS_FILES} )
+
+# Compiled binary resource files
+set( EXT_RCC_FILES
+    ${PROJECT_BINARY_DIR}/main.rcc
+    ${PROJECT_BINARY_DIR}/fluent.rcc
+    ${PROJECT_BINARY_DIR}/material.rcc
+    )
 
 # Define the Sigil version string for use in source files
 set_source_files_properties( Dialogs/About.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
@@ -844,6 +874,7 @@ if( APPLE )
     if ( PKG_SYSTEM_PYTHON )
         add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_add_python_framework.py )
     endif()
+    add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.rcc ${WORK_DIR}/Sigil.app/Contents/Resources/ )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/examples/* ${WORK_DIR}/Sigil.app/Contents/examples )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/../lib/*.dylib ${WORK_DIR}/Sigil.app/Contents/lib/ )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND install_name_tool -rpath ${CMAKE_BINARY_DIR}/lib "@executable_path/../lib" ${WORK_DIR}/Sigil.app/Contents/MacOS/Sigil )
@@ -961,6 +992,10 @@ elseif (MSVC)
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
                         COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/windows_python_gather.py )
     endif()
+
+    # Add external binary resource files
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/iconthemes/ )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${EXT_RCC_FILES} ${MAIN_PACKAGE_DIR}/iconthemes )
 
     # Copy the example files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/examples/ )
@@ -1107,6 +1142,7 @@ if( UNIX AND NOT APPLE )
     if ( INSTALL_BUNDLED_DICTS )
         install( FILES ${DIC_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/hunspell_dictionaries/ )
     endif()
+    install( FILES ${EXT_RCC_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/iconthemes/ )
     if ( MATHJAX_DIR )
         install( FILES ${CMAKE_SOURCE_DIR}/src/Resource_Files/polyfills/SIGIL_EBOOK_MML_SVG.js DESTINATION ${MATHJAX_DIR}/config/local/ )
     else()

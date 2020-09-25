@@ -24,8 +24,8 @@
 TagAtts::TagAtts()
     : m_n(0), m_mapping(QHash<QString, TagAtts::TAttribute*>()), m_anchor(new TagAtts::TAttribute("",""))
 {
-	m_anchor->prev = m_anchor;
-	m_anchor->next = m_anchor;
+    m_anchor->prev = m_anchor;
+    m_anchor->next = m_anchor;
 }
 
 // copy constructor linear time
@@ -45,9 +45,9 @@ TagAtts& TagAtts::operator=(const TagAtts &other)
 {
     if (m_n > 0) {
         m_mapping.clear();
-	TagAtts::TAttribute * patt = m_anchor->next;
+        TagAtts::TAttribute * patt = m_anchor->next;
         while(patt && (patt != m_anchor)) {
-	    TagAtts::TAttribute * natt = patt->next;
+            TagAtts::TAttribute * natt = patt->next;
             delete patt;
             patt = natt;
             m_n--;
@@ -66,24 +66,29 @@ TagAtts& TagAtts::operator=(const TagAtts &other)
 // comparison
 bool TagAtts::operator==(const TagAtts &other)
 {
-	if (m_n != other.size()) return false;
-	if (other.keys() != keys()) return false;
-	if (other.values() != values()) return false;
-	return true;
+    if (m_n != other.size()) return false;
+    if (other.keys() != keys()) return false;
+    if (other.values() != values()) return false;
+    return true;
 }
 
 bool TagAtts::operator!=(const TagAtts &other)
 {
-	if (m_n != other.size()) return true;
-	if (other.keys() != keys()) return true;
-	if (other.values() != values()) return true;
-	return false;
+    if (m_n != other.size()) return true;
+    if (other.keys() != keys()) return true;
+    if (other.values() != values()) return true;
+    return false;
 }
 
 QString& TagAtts::operator[](const QString & key)
 {
-	if (!m_mapping.contains(key)) insert(key, "");
-	return m_mapping[key]->value;
+    if (!m_mapping.contains(key)) insert(key, "");
+    return m_mapping[key]->value;
+}
+
+const QString TagAtts::operator[](const QString & key) const noexcept
+{
+    return value(key);
 }
 
 TagAtts::~TagAtts()
@@ -92,7 +97,7 @@ TagAtts::~TagAtts()
     m_mapping.clear();
     TagAtts::TAttribute * patt = m_anchor->next;
     while(patt && (patt != m_anchor)) {
-	TagAtts::TAttribute * natt = patt->next;
+        TagAtts::TAttribute * natt = patt->next;
         delete patt;
         patt = natt;
     }
@@ -103,13 +108,13 @@ TagAtts::~TagAtts()
 void TagAtts::insert(const QString &key, const QString &value)
 {
     if (m_mapping.contains(key)) {
-	TagAtts::TAttribute* patt = m_mapping[key];
+        TagAtts::TAttribute* patt = m_mapping[key];
         patt->value = value;
     } else {
-	TagAtts::TAttribute* patt = new TAttribute(key, value);
+        TagAtts::TAttribute* patt = new TAttribute(key, value);
         // circular all prev and next values should exist
         // insert at end of list (just before anchor)
-	TagAtts::TAttribute* last = m_anchor->prev;
+        TagAtts::TAttribute* last = m_anchor->prev;
         last->next = patt;
         patt->prev = last;
         patt->next = m_anchor;

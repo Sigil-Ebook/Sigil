@@ -106,6 +106,7 @@ extern const QString AUDIO_HTML_BASE;
 
 extern const QString SGC_TOC_CSS_FILENAME;
 extern const QString SGC_INDEX_CSS_FILENAME;
+extern const QString CUSTOM_ICON_THEME_FILENAME;
 
 extern const QString HTML_NAV_FILENAME;
 extern const QString EMPTY_NAV_FILE_START;
@@ -126,6 +127,9 @@ extern const QString PYTHON_MAIN_PATH;
 extern const QString PYTHON_MAIN_BIN_PATH;
 #if defined(__APPLE__)
 extern const QString PYTHON_SITE_PACKAGES;
+extern const QString PYTHON_MAIN_PREFIX;
+extern const QString PYTHON_MAIN_BIN_PATH;
+extern const QString PYTHON_LIB_PATH;
 #endif
 extern const QStringList PYTHON_SYS_PATHS;
 

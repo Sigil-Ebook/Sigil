@@ -386,14 +386,14 @@ QStringList XhtmlDoc::GetSGFSectionSplits(const QString &source,
     return sections;
 }
 
-
+// return all links in raw encoded form
 QStringList XhtmlDoc::GetLinkedStylesheets(const QString &source)
 {
     QList<XhtmlDoc::XMLElement> link_tag_nodes;
 
     try {
         link_tag_nodes = XhtmlDoc::GetTagsInHead(source, "link");
-    } catch (ErrorParsingXml) {
+    } catch (ErrorParsingXml&) {
         // Nothing really. If we can't get the CSS style tags,
         // than that's it. No CSS returned.
     }
@@ -408,7 +408,7 @@ QStringList XhtmlDoc::GetLinkedStylesheets(const QString &source)
             element.attributes.contains("rel") &&
             (element.attributes.value("rel").toLower() == "stylesheet") &&
             element.attributes.contains("href")) {
-            linked_css_paths.append(Utility::URLDecodePath(element.attributes.value("href")));
+           linked_css_paths.append(element.attributes.value("href"));
         }
     }
     return linked_css_paths;
@@ -544,16 +544,16 @@ GumboNode *XhtmlDoc::GetAncestorIDElement(GumboInterface &gi, GumboNode *node)
 }
 
 
-// the returned paths are the href attribute values url decoded
+// the returned paths are the raw href attribute values url encoded
 QStringList XhtmlDoc::GetHrefSrcPaths(const QString &source)
 {
     QStringList destination_paths;
     GumboInterface gi = GumboInterface(source, "any_version");
     foreach(QString apath, gi.get_all_values_for_attribute("src")) {
-	destination_paths << Utility::URLDecodePath(apath);
+	destination_paths << apath;
     }
     foreach(QString apath, gi.get_all_values_for_attribute("href")) {
-	destination_paths << Utility::URLDecodePath(apath);
+	destination_paths << apath;
     }
     destination_paths.removeDuplicates();
     return destination_paths;
@@ -580,10 +580,13 @@ QStringList XhtmlDoc::GetPathsToStyleFiles(const QString &source)
         GumboNode* node = nodes.at(i);
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
         if (attr) {
-            QString relative_path = Utility::URLDecodePath(QString::fromUtf8(attr->value));
-            QFileInfo file_info(relative_path);
-            if (file_info.suffix().toLower() == "css") {
-                style_paths << relative_path;
+            QString relative_path = QString::fromUtf8(attr->value);
+            if (relative_path.indexOf(":") == -1) {
+                std::pair<QString, QString> parts = Utility::parseRelativeHREF(relative_path);
+                QFileInfo file_info(parts.first);
+                if (file_info.suffix().toLower() == "css") {
+                    style_paths << parts.first;
+                }
             }
         }
   }
@@ -639,8 +642,11 @@ QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const QString & source, 
             if (attr && attr->attr_namespace != GUMBO_ATTR_NAMESPACE_XLINK) attr = NULL;
         }
         if (attr) {
-            QString relative_path = Utility::URLDecodePath(QString::fromUtf8(attr->value));
-            media_paths << relative_path;
+            QString relative_path = QString::fromUtf8(attr->value);
+            if (relative_path.indexOf(":") == -1) {
+                std::pair<QString, QString> parts = Utility::parseRelativeHREF(relative_path);
+                media_paths << parts.first;
+            }
         }
     }
     return media_paths;

@@ -217,7 +217,8 @@ def main():
     os.symlink(os.path.join('Versions', 'Current', 'Resources'), 'Resources')
 
     os.chdir(os.path.join(app_dir, 'Python.framework', 'Versions', pversion, 'lib'))
-    dylibname = 'libpython' + pversion + 'm.dylib'
+    # dylibname = 'libpython' + pversion + 'm.dylib'
+    dylibname = 'libpython' + pversion + '.dylib'
     os.symlink('../Python', dylibname)
 
     # Change any Python.framework rpaths in the Sigil executable to point to the new local Python.framework

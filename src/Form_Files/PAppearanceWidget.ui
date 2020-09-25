@@ -419,6 +419,114 @@ if a sans-serif font-family specified in your CSS</string>
        </item>
       </layout>
      </widget>
+
+     <widget class="QWidget" name="IconThemeTab">
+      <attribute name="title">
+       <string>Icon Themes</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="tabverticalLayout">
+       <item>
+        <widget class="QGroupBox" name="tabgroupBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>Choose which icon theme you want to use (requires Sigil restart).</string>
+         </property>
+         <property name="title">
+          <string>Select your icon theme:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <layout class="QHBoxLayout" name="tabversionLayout">
+          <item>
+           <widget class="QRadioButton" name="Default">
+            <property name="toolTip">
+             <string>Sigil's default icon theme.</string>
+            </property>
+            <property name="text">
+             <string>Default Icons</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="Fluent">
+            <property name="toolTip">
+             <string>Icons based on the Fluent theme:</string>
+            </property>
+            <property name="text">
+             <string>Fluent Icons</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="Material">
+            <property name="toolTip">
+             <string>Icons based on Google's Material theme:</string>
+            </property>
+            <property name="text">
+             <string>Material Icons</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="Custom">
+            <property name="toolTip">
+             <string>Custom Icon Theme:</string>
+            </property>
+            <property name="text">
+             <string>Custom Icons</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="tabhorizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="tabverticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     
      <widget class="QWidget" name="AppUiTab">
       <attribute name="title">
        <string>Main UI</string>

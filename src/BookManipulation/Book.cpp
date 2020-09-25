@@ -34,6 +34,7 @@
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
 #include "Misc/HTMLSpellCheck.h"
+#include "Misc/HTMLSpellCheckML.h"
 #include "Misc/Landmarks.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
@@ -278,7 +279,7 @@ QList<MetaEntry> Book::GetMetadata() const
     return GetConstOPF()->GetDCMetadata();
 }
 
-QList<QVariant> Book::GetMetadataValues(QString text) const
+QStringList Book::GetMetadataValues(QString text) const
 {
     return GetConstOPF()->GetDCMetadataValues(text);
 }
@@ -1059,27 +1060,38 @@ std::pair<HTMLResource*, bool> Book::ResourceWellFormedMap(HTMLResource * html_r
 QSet<QString> Book::GetWordsInHTMLFiles()
 {
     QStringList all_words;
+    QString default_lang = GetConstOPF()->GetPrimaryBookLanguage();
+    default_lang.replace('_','-');
     const QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
-    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetWordsInHTMLFileMapped);
+    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, std::bind(GetWordsInHTMLFileMapped,
+										 std::placeholders::_1,
+										 default_lang));
 
     for (int i = 0; i < future.results().count(); i++) {
         QStringList result = future.resultAt(i);
         all_words.append(result);
     }
 
-    return all_words.toSet();
+    return all_words.toSet();  // Qt 5.15:  QSet<QString>(all_words.begin(), all_words.end());
 }
 
-QStringList Book::GetWordsInHTMLFileMapped(HTMLResource *html_resource)
+QStringList Book::GetWordsInHTMLFileMapped(HTMLResource *html_resource, const QString& default_lang)
 {
-    return HTMLSpellCheck::GetAllWords(html_resource->GetText());
+    
+    return HTMLSpellCheckML::GetAllWords(html_resource->GetText(), default_lang);
+    // return HTMLSpellCheck::GetAllWords(html_resource->GetText());
 }
 
 QHash<QString, int> Book::GetUniqueWordsInHTMLFiles()
 {
+    QString default_lang = GetConstOPF()->GetPrimaryBookLanguage();
+    default_lang.replace('_','-');
+
     QHash<QString, int> all_words;
     const QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
-    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, GetWordsInHTMLFileMapped);
+    QFuture<QStringList> future = QtConcurrent::mapped(html_resources, std::bind(GetWordsInHTMLFileMapped,
+										 std::placeholders::_1,
+										 default_lang));
 
     for (int i = 0; i < future.results().count(); i++) {
         QStringList result = future.resultAt(i);
@@ -1118,7 +1130,8 @@ std::tuple<QString, QStringList> Book::GetStylesheetsInHTMLFileMapped(HTMLResour
     QStringList link_bookpaths;
     foreach(QString ahref, link_hrefs) {
         if (ahref.indexOf(":") == -1) {
-            link_bookpaths << Utility::buildBookPath(ahref, startdir);
+            std::pair<QString, QString> parts = Utility::parseRelativeHREF(ahref);
+            link_bookpaths << Utility::buildBookPath(parts.first, startdir);
         }
     }
     return std::make_tuple(html_bookpath, link_bookpaths);
@@ -1126,12 +1139,15 @@ std::tuple<QString, QStringList> Book::GetStylesheetsInHTMLFileMapped(HTMLResour
 
 QStringList Book::GetStylesheetsInHTMLFile(HTMLResource *html_resource)
 {
-    // convert links relative to a html resource to their book paths
+    // convert encoded links relative to a html resource to their book paths
     QStringList stylelinks = XhtmlDoc::GetLinkedStylesheets(html_resource->GetText());
     QStringList results;
     QString html_folder = html_resource->GetFolder();
     foreach(QString stylelink, stylelinks) {
-       results.append(Utility::buildBookPath(stylelink, html_folder));
+       if (stylelink.indexOf(":") == -1) {
+           std::pair<QString, QString> parts = Utility::parseRelativeHREF(stylelink);
+           results.append(Utility::buildBookPath(parts.first, html_folder));
+       }
     }
     return results;
 }
@@ -1271,7 +1287,8 @@ std::tuple<bool, QString, QString> Book::HasUndefinedURLFragments()
 {
     QList<HTMLResource *> html_resources = GetHTMLResources();
     bool hasUndefinedUrlFrags = false;
-
+    Q_UNUSED(hasUndefinedUrlFrags);
+    
     QStringList html_bookpaths;
     foreach(HTMLResource *html_resource, html_resources) {
         html_bookpaths.append(html_resource->GetRelativePath());
@@ -1285,9 +1302,9 @@ std::tuple<bool, QString, QString> Book::HasUndefinedURLFragments()
         QString bookpath = html_resource->GetRelativePath();
 	QString htmldir = html_resource->GetFolder();
         foreach(QString ahref, links[bookpath]) {
-	    // each links is relative to the bookpath resource and already unquoted
+	    // each links is relative to the bookpath resource and raw
             // convert this href to a bookpath href
-	    std::pair<QString,QString> hrefparts = Utility::parseHREF(ahref);
+	    std::pair<QString,QString> hrefparts = Utility::parseRelativeHREF(ahref);
 	    QString attpath = hrefparts.first;
 	    QString dest_bookpath;
 	    if (attpath.isEmpty()) {
@@ -1377,7 +1394,7 @@ Book::NewSectionResult Book::CreateOneNewSection(NewSection section_info,
     return section;
 }
 
-// Links hrefs are unquoted but otherwise untouched 
+// Links hrefs are raw (untouched) 
 QPair<QString, QStringList> Book::GetRelLinksInOneFile(HTMLResource *html_resource)
 {
     Q_ASSERT(html_resource);
@@ -1393,8 +1410,7 @@ QPair<QString, QStringList> Book::GetRelLinksInOneFile(HTMLResource *html_resour
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
         // We find the hrefs that are relative and contain an href.
         if (attr && QUrl(QString::fromUtf8(attr->value)).isRelative()) {
-	    QString attpath = Utility::URLDecodePath(QString::fromStdString(attr->value));
-            hreflist.append(attpath);
+            hreflist.append(QString::fromStdString(attr->value));
         }
     }
     link_pair.first = html_resource->GetRelativePath();

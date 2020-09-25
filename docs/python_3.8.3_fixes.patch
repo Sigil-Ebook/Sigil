@@ -1,0 +1,76 @@
+--- configure.keep	2020-06-27 19:43:04.000000000 -0400
++++ configure	2020-06-27 19:59:28.000000000 -0400
+@@ -11506,7 +11506,7 @@
+  clock confstr copy_file_range ctermid dup3 execv explicit_bzero explicit_memset \
+  faccessat fchmod fchmodat fchown fchownat \
+  fdwalk fexecve fdopendir fork fpathconf fstatat ftime ftruncate futimesat \
+- futimens futimes gai_strerror getentropy \
++ futimes gai_strerror \
+  getgrgid_r getgrnam_r \
+  getgrouplist getgroups getlogin getloadavg getpeername getpgid getpid \
+  getpriority getresuid getresgid getpwent getpwnam_r getpwuid_r getspnam getspent getsid getwd \
+@@ -11525,7 +11525,7 @@
+  sigaction sigaltstack sigfillset siginterrupt sigpending sigrelse \
+  sigtimedwait sigwait sigwaitinfo snprintf strftime strlcpy strsignal symlinkat sync \
+  sysconf tcgetpgrp tcsetpgrp tempnam timegm times tmpfile tmpnam tmpnam_r \
+- truncate uname unlinkat unsetenv utimensat utimes waitid waitpid wait3 wait4 \
++ truncate uname unlinkat unsetenv utimes waitid waitpid wait3 wait4 \
+  wcscoll wcsftime wcsxfrm wmemcmp writev _getpty rtpSpawn
+ do :
+   as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
+@@ -12921,7 +12921,8 @@
+ 
+ fi
+ 
+-
++if test "`uname -s`" != "Darwin"
++then
+ for ac_func in clock_gettime
+ do :
+   ac_fn_c_check_func "$LINENO" "clock_gettime" "ac_cv_func_clock_gettime"
+@@ -12983,7 +12984,9 @@
+ fi
+ done
+ 
+-
++fi
++if test "`uname -s`" != "Darwin"
++then
+ for ac_func in clock_getres
+ do :
+   ac_fn_c_check_func "$LINENO" "clock_getres" "ac_cv_func_clock_getres"
+@@ -13040,8 +13043,10 @@
+ 
+ fi
+ done
++fi
+ 
+-
++if test "`uname -s`" != "Darwin"
++then
+ for ac_func in clock_settime
+ do :
+   ac_fn_c_check_func "$LINENO" "clock_settime" "ac_cv_func_clock_settime"
+@@ -13098,6 +13103,7 @@
+ 
+ fi
+ done
++fi
+ 
+ 
+ { $as_echo "$as_me:${as_lineno-$LINENO}: checking for major" >&5
+--- setup.py.keep	2020-06-27 19:51:19.000000000 -0400
++++ setup.py	2020-06-27 20:37:09.000000000 -0400
+@@ -1832,10 +1832,10 @@
+ 
+         self.add(Extension('_tkinter', ['_tkinter.c', 'tkappinit.c'],
+                            define_macros=[('WITH_APPINIT', 1)],
+-                           include_dirs=include_dirs,
++                           include_dirs=['/Library/Frameworks/Tcl.framework/Headers', '/Library/Frameworks/Tk.framework/Headers'] + include_dirs,
+                            libraries=[],
+                            extra_compile_args=frameworks[2:],
+-                           extra_link_args=frameworks))
++                           extra_link_args = ['-F/Library/Frameworks'] + frameworks))
+         return True
+ 
+     def detect_tkinter(self):

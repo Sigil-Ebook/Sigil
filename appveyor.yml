@@ -42,26 +42,26 @@ environment:
   global:
       INNO: C:\Program Files (x86)\Inno Setup 6
       REDIST: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Redist\MSVC\%RedistVersion%\vcredist_%PLATFORM%.exe
-      DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/MyQt%PLATFORM%_5.12.7_VS2017_WE.7z
-      GDRIVE: https://github.com/gdrive-org/gdrive/releases/download/2.1.0/gdrive-windows-x64.exe
+      DOWNLOAD: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/MyQt%PLATFORM%_5.12.9_VS2017_WE.7z
+      GDRIVE: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/gdrive-windows-x64.exe
       GDRIVE_REFRESH_TOKEN:
         secure: +J2q/4lkiBXik5Ttvt06vpNiWBjNIXx+jFnYw1rOR9sLkyksyXGj+NeNKQB8kPwE
       GDRIVE_DIR:
         secure: e/trZFJnPzo9saqwWWn6+E3ZPoItqflSviT92eeH3Qk76GuEHrPk9DrcG1bh3SNX
   matrix:
-    - PYTHON: C:\Python37
+    - PYTHON: C:\Python38
       QT: C:\MyQt32\Qt5.12.2
       CMAKE64BIT:
-    - PYTHON: C:\Python37-x64
-      QT: C:\MyQtx64_WE\Qt5.12.7
+    - PYTHON: C:\Python38-x64
+      QT: C:\MyQtx64_WE\Qt5.12.9
       CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
 
 matrix:
   exclude:
     - platform: x86
-      PYTHON: C:\Python37
+      PYTHON: C:\Python38
     - platform: x64
-      PYTHON: C:\Python37
+      PYTHON: C:\Python38
   fast_finish: true
 
 
@@ -88,18 +88,18 @@ before_build:
     set PATH=%PYTHON%;%PYTHON%\Scripts;%QT%\bin;%INNO%;%PATH%
     echo 'PATH = %PATH%'
     python -m pip install --upgrade pip
-    pip3.7 install six==1.13.0
-    pip3.7 install html5lib==1.0.1
-    pip3.7 install regex==2019.11.1
-    pip3.7 install css-parser==1.0.4
-    pip3.7 install cssselect==1.0.3
-    pip3.7 install urllib3==1.25.8
-    pip3.7 install certifi==2019.11.28
-    pip3.7 install dulwich==0.19.15 --global-option="--pure"
-    pip3.7 install chardet==3.0.4
-    pip3.7 install pillow==6.2.1
-    pip3.7 install PyQt5==5.12.3 PyQt5-sip==4.19.18
-    pip3.7 install lxml==4.4.2
+    pip3.8 install six==1.15.0
+    pip3.8 install html5lib==1.1
+    pip3.8 install regex==2020.6.8
+    pip3.8 install css-parser==1.0.4
+    pip3.8 install cssselect==1.1.0
+    pip3.8 install urllib3==1.25.9
+    pip3.8 install certifi==2020.6.20
+    pip3.8 install dulwich==0.20.5 --global-option="--pure"
+    pip3.8 install chardet==3.0.4
+    pip3.8 install pillow==7.1.2
+    pip3.8 install PyQt5==5.12.3 PyQt5-sip==4.19.19
+    pip3.8 install lxml==4.5.1
     cd project\sigil\build
     curl.exe -L -o gdrive.exe %GDRIVE%
     c:\project\sigil\build\gdrive.exe version

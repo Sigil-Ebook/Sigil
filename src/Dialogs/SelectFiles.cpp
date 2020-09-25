@@ -289,7 +289,7 @@ void SelectFiles::resizeEvent(QResizeEvent *event)
 void SelectFiles::SetPreviewImage()
 {
     m_PreviewReady = false;
-    QPixmap(pixmap);
+    QPixmap pixmap;
     QString details = "";
     QStandardItem *item = GetLastSelectedImageItem();
     
