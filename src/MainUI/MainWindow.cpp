@@ -4127,6 +4127,8 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *origina
         return;
     }
 
+    qDebug() << "   invoking split at cursor for " << originating_resource;
+
     HTMLResource *html_resource = m_Book->CreateSectionBreakOriginalResource(content, originating_resource);
     m_BookBrowser->Refresh();
     // Open the old shortened content in a new tab preceding the current one.
