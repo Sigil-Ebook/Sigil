@@ -6,8 +6,6 @@ branches:
   - appearance
   - /\d+\.\d+\.\d+(-\d+)?/
   
-#clone_folder: c:\project\sigil
-
 image:
 - Visual Studio 2019
 - Ubuntu1804
@@ -127,7 +125,6 @@ deploy_script:
 - ps: >-
     if($isWindows -and (-not $env:APPVEYOR_PULL_REQUEST_NUMBER)) {
         python --version
-        $env:APPVEYOR_BUILD_FOLDER\build\gdrive.exe version
         python ..\ci_scripts\gddeploy.py
     }
 
