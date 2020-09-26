@@ -6,10 +6,9 @@ branches:
   - appearance
   - /\d+\.\d+\.\d+(-\d+)?/
   
-clone_folder: c:\project\sigil
-
 image:
 - Visual Studio 2019
+- Ubuntu1804
 
 configuration: Release
 
@@ -17,26 +16,26 @@ platform:
 - x64
 
 init:
-  - set /p RedistVersion=<"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\Microsoft.VCRedistVersion.default.txt"
-  - ps: $commit = $env:appveyor_repo_commit.SubString(0,7)
-  - ps: $timestamp = $env:appveyor_repo_commit_timestamp.SubString(0,10)
-  - ps: Update-AppveyorBuild -Version ("{0}-{1}-{2}" -f $env:appveyor_repo_branch, $commit, $timestamp)
+  - cmd: set /p RedistVersion=<"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\Microsoft.VCRedistVersion.default.txt"
+  - ps: $commit = $env:APPVEYOR_REPO_COMMIT.SubString(0,7)
+  - ps: $timestamp = $env:APPVEYOR_REPO_COMMIT_TIMESTAMP.SubString(0,10)
+  - ps: Update-AppveyorBuild -Version ("{0}-{1}-{2}" -f $env:APPVEYOR_REPO_BRANCH, $commit, $timestamp)
 
 clone_script:
 - ps: >-
-    if(-not $env:appveyor_pull_request_number) {
-      git clone -q --depth=1 --branch=$env:appveyor_repo_branch https://github.com/$env:appveyor_repo_name.git $env:appveyor_build_folder
-      git checkout -qf $env:appveyor_repo_commit
+    if(-not $env:APPVEYOR_PULL_REQUEST_NUMBER) {
+      git clone -q --depth=1 --branch=$env:APPVEYOR_REPO_BRANCH https://github.com/$env:APPVEYOR_REPO_NAME.git $env:APPVEYOR_BUILD_FOLDER
+      git checkout -qf $env:APPVEYOR_REPO_COMMIT
     } else {
-      git clone -q --depth=1 https://github.com/$env:appveyor_repo_name.git $env:appveyor_build_folder 
-      git fetch -q origin +refs/pull/$env:appveyor_pull_request_number/merge:
+      git clone -q --depth=1 https://github.com/$env:appveyor_repo_name.git $env:APPVEYOR_BUILD_FOLDER
+      git fetch -q origin +refs/pull/$env:APPVEYOR_PULL_REQUEST_NUMBER/merge:
       git checkout -qf FETCH_HEAD
     }
     
-    Set-Location $env:appveyor_build_folder
+    Set-Location $env:APPVEYOR_BUILD_FOLDER
 
 install:
-  - choco install ninja
+  - cmd: choco install ninja
 
 environment:
   global:
@@ -48,22 +47,9 @@ environment:
         secure: +J2q/4lkiBXik5Ttvt06vpNiWBjNIXx+jFnYw1rOR9sLkyksyXGj+NeNKQB8kPwE
       GDRIVE_DIR:
         secure: e/trZFJnPzo9saqwWWn6+E3ZPoItqflSviT92eeH3Qk76GuEHrPk9DrcG1bh3SNX
-  matrix:
-    - PYTHON: C:\Python38
-      QT: C:\MyQt32\Qt5.12.2
-      CMAKE64BIT:
-    - PYTHON: C:\Python38-x64
       QT: C:\MyQtx64_WE\Qt5.12.9
+      PYTHON: C:\Python38-x64
       CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
-
-matrix:
-  exclude:
-    - platform: x86
-      PYTHON: C:\Python38
-    - platform: x64
-      PYTHON: C:\Python38
-  fast_finish: true
-
 
 only_commits:
   files:
@@ -71,17 +57,18 @@ only_commits:
     - appveyor.yml
     - installer/Sigil.iss
     - src/
+    - ci_scripts/
     - internal/
     - cmake_extras/
     - 3rdparty/
 
 before_build:
+- mkdir build
 - cmd: |-
     rmdir c:\cygwin /s /q
     rmdir c:\Python35 /s /q
     rmdir c:\Python35-x64 /s /q
     cp '%REDIST%' installer/
-    mkdir build
     cd ..\..
     curl.exe -L -o webkit.7z %DOWNLOAD%
     7z x webkit.7z -y
@@ -100,9 +87,9 @@ before_build:
     pip3.8 install pillow==7.1.2
     pip3.8 install PyQt5==5.12.3 PyQt5-sip==4.19.19
     pip3.8 install lxml==4.5.1
-    cd project\sigil\build
+    cd %APPVEYOR_BUILD_FOLDER%\build
     curl.exe -L -o gdrive.exe %GDRIVE%
-    c:\project\sigil\build\gdrive.exe version
+    %APPVEYOR_BUILD_FOLDER%\build\gdrive.exe version
     call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" %PLATFORM% -vcvars_ver=14.1
     echo 'LIB = %LIB%'
     echo 'LIBPATH = %LIBPATH%'
@@ -110,10 +97,24 @@ before_build:
     echo 'CL = %CL%'
     cmake .. -G "Ninja" -DCMAKE_BUILD_TYPE=%configuration% -DQt5_DIR=%QT%\lib\cmake\Qt5 %CMAKE64BIT%
 
+- sh: |-
+    sudo apt-get update && apt-get install -y pkg-config cmake cmake-data zlib1g-dev build-essential ninja
+    sudo apt-get install -y qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine5-dev qt5-default qtchooser
+    sudo apt-get install -y libhunspell-dev libminizip-dev libpcre3-dev
+    sudo apt-get install -y python3-dev python3-pip python3-lxml python3-six
+    cd $APPVEYOR_BUILD_FOLDER/build
+    which qmake
+    qmake -v
+    python3 --version
+    gcc --version
+    cmake .. -DCMAKE_BUILD_TYPE=RELEASE -DUSE_SYSTEM_LIBS=1 -DSYSTEM_LIBS_REQUIRED=1
+
     
 build_script:
 - cmd: |-
     ninja -j4
+- sh: |-
+    make -j4
  
 
 after_build:
@@ -122,9 +123,8 @@ after_build:
 
 deploy_script:
 - ps: >-
-    if(-not $env:appveyor_pull_request_number) {
+    if($isWindows -and (-not $env:APPVEYOR_PULL_REQUEST_NUMBER)) {
         python --version
-        c:\project\sigil\build\gdrive.exe version
         python ..\ci_scripts\gddeploy.py
     }
 
