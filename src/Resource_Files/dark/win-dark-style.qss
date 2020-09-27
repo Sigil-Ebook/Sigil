@@ -62,6 +62,14 @@ QTabBar::close-button:pressed {
   image: url(:/dark/closetab-pressed.svg);
 }
 
+QToolBar::handle:horizontal {
+  image: url(:/dark/toolbar-handle-horizontal.svg);
+}
+
+QToolBar::handle:vertical {
+  image: url(:/dark/toolbar-handle-vertical.svg);
+}
+
 QLabel#logo {
   qproperty-pixmap: url(:/dark/sigil_logo_blue.png);
 }
