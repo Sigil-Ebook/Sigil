@@ -565,7 +565,7 @@ class Wrapper(object):
                 type = "other." + type
             if title is None:
                 title = 'title missing'
-            thref = urldecodepath(href.split('#')[0])
+            thref = urldecodepart(href.split('#')[0])
             if thref not in self.href_to_id:
                 raise WrapperException('guide href not in manifest')
             guide.append((type, title, href))
