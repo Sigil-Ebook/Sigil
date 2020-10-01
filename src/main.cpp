@@ -319,8 +319,8 @@ int main(int argc, char *argv[])
 
 #ifndef Q_OS_MAC
     setupHighDPI();
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
+    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 
     // many qtbugs related to mixing 32 and 64 bit qt apps when shader disk cache is used
     // Only use if using Qt5.9.0 or higher
