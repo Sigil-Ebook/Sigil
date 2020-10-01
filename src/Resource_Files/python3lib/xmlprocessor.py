@@ -174,15 +174,14 @@ def IsWellFormedXML(data, mtype=""):
 # note: bs4 with lxml for xml strips whitespace so always prettyprint xml
 def repairXML(data, mtype="", indent_chars="  "):
     newdata = _remove_xml_header(data)
-    # if well-formed - don't mess with it
-    if _well_formed(newdata):
-        return data
-    newdata = _make_it_sane(newdata)
+    okay = _well_formed(newdata)
+    if okay:
+        if not mtype == "application/oebps-package+xml":
+            return data
+    if not okay:
+        newdata = _make_it_sane(newdata)
     if not _well_formed(newdata):
         newdata = _reformat(newdata)
-        if mtype == "application/oebps-package+xml":
-            newdata = newdata.decode('utf-8')
-            newdata = Opf_Parser(newdata).rebuild_opfxml()
     # lxml requires utf-8 on Mac, won't work with unicode
     if isinstance(newdata, str):
         newdata = newdata.encode('utf-8')
@@ -190,6 +189,10 @@ def repairXML(data, mtype="", indent_chars="  "):
     xmlbuilder = LXMLTreeBuilderForXML(parser=None, empty_element_tags=voidtags)
     soup = BeautifulSoup(newdata, features=None, from_encoding="utf-8", builder=xmlbuilder)
     newdata = soup.decodexml(indent_level=0, formatter='minimal', indent_chars=indent_chars)
+    if mtype == "application/oebps-package+xml":
+        if isinstance(newdata, bytes):
+            newdata = newdata.decode('utf-8')
+        newdata = Opf_Parser(newdata).rebuild_opfxml()
     return newdata
 
 

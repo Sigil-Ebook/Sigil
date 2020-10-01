@@ -97,7 +97,9 @@ class Opf_Parser(object):
         self.spine=[]
         self.guide=[]
         self.bindings=[]
+        self.ns_remap = False
         self._parseData()
+
 
     # OPF tag iterator
     def _opf_tag_iter(self):
@@ -111,6 +113,10 @@ class Opf_Parser(object):
                 tcontent = text.rstrip(" \r\n")
             else: # we have a tag
                 ttype, tname, tattr = self._parsetag(tag)
+                # remap opf namespace on tags if needed
+                if tname.startswith('opf:'):
+                    self.ns_remap = True
+                    tname = tname[4:]
                 if ttype == "begin":
                     tcontent = None
                     prefix.append(tname)
@@ -139,10 +145,17 @@ class Opf_Parser(object):
             if tname == "package":
                 ver = tattr.pop("version", "2.0")
                 uid = tattr.pop("unique-identifier","bookid")
+                if self.ns_remap:
+                    if "xmlns:opf" in tattr:
+                        tattr.pop("xmlns:opf")
+                        tattr["xmlns"] = "http://www/idpf.org/2007/opf"
                 self.package = (ver, uid, tattr)
                 continue
             # metadata
             if tname == "metadata":
+                if self.ns_remap:
+                    if not "xmlns:opf" in tattr:
+                        tattr["xmlns:opf"] = "http://www/idpf.org/2007/opf"
                 self.metadata_attr = tattr
                 continue
             if tname in ["meta", "link"] or tname.startswith("dc:") and "metadata" in prefix:
@@ -236,8 +249,8 @@ class Opf_Parser(object):
         while p < n and s[p:p+1] not in ('>', '/', ' ', '"', "'","\r","\n") : p += 1
         tname=s[b:p].lower()
         # remove redundant opf: namespace prefixes on opf tags
-        if tname.startswith("opf:"):
-            tname = tname[4:]
+        # if tname.startswith("opf:"):
+        #    tname = tname[4:]
         # more special cases
         if tname == '!doctype':
             tname = '!DOCTYPE'
