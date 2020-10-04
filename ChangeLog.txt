@@ -30,6 +30,7 @@ pre-1.4.0
       - Fix split code to better handle duplicate target ids that reside in different files
       - Bug fixes for the plugin interface from wrCisco (Thank you!)
       - Bug fixes for the plugin interface setguide from BeckyDTP (Thank you!)
+      - Fix bug in OPF parsing when valid but non-traditional namespace prefixes are used
 
 
 Sigil-1.3.0
