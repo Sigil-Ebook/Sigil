@@ -1,3 +1,37 @@
+pre-1.4.0
+    New Features:
+      - Two different types of Multiple Language Spellchecking support added:
+          - A user can now specify a Primary and a Secondary Language dictionary 
+               for real-time spellchecking (red squiggley underline).
+          - The Spellcheck Dialog will now support spell checking as determined by
+               xml:lang and lag attributes in any languages with dictionaries
+      - Main UI icons now use scalable svg files to better serve higher res displays.
+        All provided by BeckyEbook (ala BeckDTP).  A huge Thank You! to BeckyEbook
+      - New brighter Sigil Application Icon is now being used.
+      - Alternate Sigil main Application Icon now available as a build-time option
+      - Sigil now provides 3 different Icon Themes for the user: Main, Fluent, and Material
+           Again all thanks goes to BeckEbook for creating/collecting all of the icon themes!
+      - Sigil will now support a custom user-determined Icon theme via a custom .rcc file.
+          - pre-made icon themes for Legacy and Material themes in different base colors 
+            are now available with more user-contributed theme files to hopefully come.
+            Again Thank BeckyEbook!
+      - New main toolbar icons are now available and improved icon groupings have
+          been made to provide the user with a greater degree of toolbar customization.
+          Users may need to drag and drop icon grouping and modfy their selections of Toolbars
+          to see some of these new options.
+
+    Bug Fixes:
+      - Fix bugs in Marking for Index
+      - Perform major URL en/decode refactoring to properly handle '#' 
+            (and other reserved chars) in file names
+      - Translate "Table of Contents" using book language not ui langauge
+      - Fix handling of links when using Add Existing on xhtml files with links
+            to other xhtml files
+      - Fix split code to better handle duplicate target ids that reside in different files
+      - Bug fixes for the plugin interface from wrCisco (Thank you!)
+      - Bug fixes for the plugin interface setguide from BeckyDTP (Thank you!)
+
+
 Sigil-1.3.0
     New Features:
       - Added FontTab to show a specific font by double-clicking in BookBrowser
