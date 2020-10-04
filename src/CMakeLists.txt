@@ -609,7 +609,7 @@ set( LINUX_DESKTOP_FILE
     )
 
 set( LINUX_DESKTOP_ICON_FILE
-    app_icon_64.png
+    app_icon_48.png
     )
 
 set( LINUX_LAUNCH_INSTALL_SCRIPT
@@ -904,7 +904,12 @@ elseif (MSVC)
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     set( PYTHON_DEST_DIR ${MAIN_PACKAGE_DIR}/python3 )
-    set( VCREDIST_VER "2017" ) 
+    set( VCREDIST_VER "2017" )
+    if ( USE_ALT_ICONS )
+        set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_alt )
+    else()
+        set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_orig )
+    endif()
 
     # ISS conf file for the Inno Setup compiler
     # We first create a CMake configured version of the ISS file,
@@ -1059,11 +1064,11 @@ elseif (MSVC)
 
     # Copy the icon file (used on Linux for the application icon)
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icon_48.png ${MAIN_PACKAGE_DIR}/misc/ )
+                        COMMAND cmake -E copy ${ICON_SRC_PATH}/app_icon_48.png ${MAIN_PACKAGE_DIR}/misc/ )
 
     # Copy the SGF ICO file (used on Windows as the SGF file type icon)
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-                        COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/icon/sgf.ico ${MAIN_PACKAGE_DIR}/misc/ )
+    #add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
+    #                    COMMAND cmake -E copy ${PROJECT_SOURCE_DIR}/Resource_Files/icon/sgf.ico ${MAIN_PACKAGE_DIR}/misc/ )
 
     # Remove the temp directory used for building the installer
     add_custom_command( TARGET makeinstaller POST_BUILD
