@@ -68,6 +68,11 @@ endif()
 set( PKGS_TO_FIND Core Network WebEngine WebEngineWidgets Widgets Xml Concurrent PrintSupport LinguistTools )
 if ( WIN32 )
     list( APPEND PKGS_TO_FIND WinExtras )
+    if ( USE_ALT_ICONS )
+        set(APP_ICON_PATH "${CMAKE_SOURCE_DIR}/src/Resource_Files/icon/app_icons_alt/app.ico" )
+    else()
+        set(APP_ICON_PATH "${CMAKE_SOURCE_DIR}/src/Resource_Files/icon/app_icons_orig/app.ico" )
+    endif()
 endif()
 find_package( Qt5 ${QT5_NEEDED} COMPONENTS ${PKGS_TO_FIND} )
 
@@ -568,6 +573,13 @@ set( QRC_FILES
     Resource_Files/icon/icon.qrc
     Resource_Files/dark/dark.qrc
     )
+if( UNIX AND NOT APPLE )
+    if ( USE_ALT_ICONS )
+        LIST( APPEND QRC_FILES Resource_Files/icon/app_icons_alt/app_icons.qrc )
+    else()
+        LIST( APPEND QRC_FILES Resource_Files/icon/app_icons_orig/app_icons.qrc )
+    endif()
+endif()
 
 set( MAIN_BINARY_QRC_FILES
     Resource_Files/main/main.qrc
@@ -597,7 +609,7 @@ set( LINUX_DESKTOP_FILE
     )
 
 set( LINUX_DESKTOP_ICON_FILE
-    Resource_Files/icon/app_icon_48.png
+    app_icon_64.png
     )
 
 set( LINUX_LAUNCH_INSTALL_SCRIPT
@@ -694,9 +706,10 @@ set( MATHJAX_ZIP "${CMAKE_SOURCE_DIR}/src/Resource_Files/polyfills/ML.zip" )
 # Grab the current year so copyright notice is updated on Windows file properties
 string( TIMESTAMP SIGIL_BUILD_YEAR "%Y" )
 if ( WIN32 )
+    configure_file( Resource_files/windows/icon.rc.in ${PROJECT_BINARY_DIR}/icon.rc )
     configure_file( Resource_files/windows/version.rc.in ${PROJECT_BINARY_DIR}/version.rc )
     set( WINDOWS_RC_FILES
-         Resource_Files/icon/icon.rc
+         ${PROJECT_BINARY_DIR}/icon.rc
          ${PROJECT_BINARY_DIR}/version.rc
          )
     list( APPEND ALL_SOURCES ${WINDOWS_RC_FILES} )
@@ -1137,15 +1150,22 @@ if( UNIX AND NOT APPLE )
         install( FILES ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libxml2.so.2 DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil )
     endif()
     install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/applications/ )
-    install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
+
+    if ( USE_ALT_ICONS )
+        set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_alt )
+    else()
+        set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_orig )
+    endif()
     if( INSTALL_HICOLOR_ICONS )
         set( ICON_SIZE 16 32 48 64 128 256 512)
         foreach( SIZE ${ICON_SIZE} )
-            install( FILES ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icon_${SIZE}.png DESTINATION
+            install( FILES ${ICON_SRC_PATH}/app_icon_${SIZE}.png DESTINATION
                                ${SHARE_INSTALL_PREFIX}/share/icons/hicolor/${SIZE}x${SIZE}/apps RENAME sigil.png )
         endforeach( SIZE )
-        install( FILES ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icon_scalable.svg DESTINATION
+        install( FILES ${ICON_SRC_PATH}/app_icon_scalable.svg DESTINATION
                                ${SHARE_INSTALL_PREFIX}/share/icons/hicolor/scalable/apps RENAME sigil.svg )
+    else()
+        install( FILES ${ICON_SRC_PATH}/${LINUX_DESKTOP_ICON_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
     endif()
     install( FILES ${QM_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/translations/ )
     if ( INSTALL_BUNDLED_DICTS )

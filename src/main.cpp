@@ -147,12 +147,12 @@ static QIcon GetApplicationIcon()
     QIcon app_icon;
     // This 16x16 one looks wrong for some reason
     //app_icon.addFile( ":/icon/app_icon_16.png", QSize( 16, 16 ) );
-    app_icon.addFile(":/icon/app_icon_32.png",  QSize(32, 32));
-    app_icon.addFile(":/icon/app_icon_48.png",  QSize(48, 48));
-    app_icon.addFile(":/icon/app_icon_64.png",  QSize(64, 64));
-    app_icon.addFile(":/icon/app_icon_128.png", QSize(128, 128));
-    app_icon.addFile(":/icon/app_icon_256.png", QSize(256, 256));
-    app_icon.addFile(":/icon/app_icon_512.png", QSize(512, 512));
+    app_icon.addFile(":/app_icons/app_icon_32.png",  QSize(32, 32));
+    app_icon.addFile(":/app_icons/app_icon_48.png",  QSize(48, 48));
+    app_icon.addFile(":/app_icons/app_icon_64.png",  QSize(64, 64));
+    app_icon.addFile(":/app_icons/app_icon_128.png", QSize(128, 128));
+    app_icon.addFile(":/app_icons/app_icon_256.png", QSize(256, 256));
+    app_icon.addFile(":/app_icons/app_icon_512.png", QSize(512, 512));
     return app_icon;
 }
 #endif
