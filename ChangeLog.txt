@@ -4,13 +4,13 @@ pre-1.4.0
           - A user can now specify a Primary and a Secondary Language dictionary 
                for real-time spellchecking (red squiggley underline).
           - The Spellcheck Dialog will now support spell checking as determined by
-               xml:lang and lag attributes in any languages with dictionaries
+               xml:lang and lang attributes in any languages with dictionaries
       - Main UI icons now use scalable svg files to better serve higher res displays.
-        All provided by BeckyEbook (ala BeckDTP).  A huge Thank You! to BeckyEbook
+        All provided by BeckyEbook (ala BeckyDTP).  A huge Thank You! to BeckyEbook
       - New brighter Sigil Application Icon is now being used.
       - Alternate Sigil main Application Icon now available as a build-time option
       - Sigil now provides 3 different Icon Themes for the user: Main, Fluent, and Material
-           Again all thanks goes to BeckEbook for creating/collecting all of the icon themes!
+           Again all thanks goes to BeckyEbook for creating/collecting all of the icon themes!
       - Sigil will now support a custom user-determined Icon theme via a custom .rcc file.
           - pre-made icon themes for Legacy and Material themes in different base colors 
             are now available with more user-contributed theme files to hopefully come.
@@ -130,7 +130,7 @@ Sigil-1.1.0
 Sigil-1.0.0
     Bug Fixes:
       - All bugs reported in alpha release have been fixed. 
-        Special thanks to Vroni, BeckEBook, Doitsu, Odamizu, 
+        Special thanks to Vroni, BeckyEBook, Doitsu, Odamizu, 
         Un_Pogaz, snarkophilus, and many others who ran tests and reported bugs.
       - Fix for crash on macOS opening Preferences following New MainWindow
       - Workaround Qt bug in restoreState after maximize with Find and Replace open
@@ -158,7 +158,7 @@ Sigil-1.0.0
 Sigil-0.9.991 (pre1.0 Alpha Release)
     Bug Fixes:
       - handle javascript location.href style in Preview 
-      - use CaseInsensitive sort in Plugins menu (Thank you BeckDTP)
+      - use CaseInsensitive sort in Plugins menu (Thank you BeckyDTP)
       - use Locale aware sort routines for AddMetadata, and MetaData Names (Thankyou Doitsu)
       - recognize x-font-otf style media types
       - recognize vnd.adobe.page-template+xml media type
@@ -256,7 +256,7 @@ Sigil-0.9.15 - A Beta Release of Sigil ported to QtWebEngine to replace QtWebKit
      - adds action to launch one preferred external xhtml editor via shortcut or icon
            (can be used to fast launch PageEdit app or any other xhtml open-with editor)
      - adds 5 more plugin quicklaunch buttons to main menu for a total of 10
-           (with all new icons! Thanks so much Becky!)
+           (with all new icons! Thanks so much BeckyEbook!)
 
 It also includes all of the fixes and updates from Sigil-0.9.14.
 
