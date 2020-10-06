@@ -6,5 +6,6 @@
     <file>Main_dark.png</file>
     <file>Fluent_dark.png</file>
     <file>Material_dark.png</file>
+    <file>wrapindicator.png</file>
 </qresource>
 </RCC>

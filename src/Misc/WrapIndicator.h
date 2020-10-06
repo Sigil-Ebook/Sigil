@@ -1,5 +1,6 @@
 /**************************************************************************
 **
+** Copyright (c) 2020 Kevin B. Hendricks, Stratford Ontario Canada
 ** Copyright (c) 2012 Nokia Corporation and/or its subsidiary(-ies).
 **
 ** Contact: Nokia Corporation (qt-info@nokia.com)
@@ -67,7 +68,7 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *) {
-        static QPixmap foreground(QLatin1String(":/main/wrapindicator.png"));
+        static QPixmap foreground(QLatin1String(":/icon/wrapindicator.png"));
         QPainter p(this);
         p.setOpacity(m_opacity);
         p.drawPixmap(rect(), foreground);
