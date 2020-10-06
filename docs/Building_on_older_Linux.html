@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="generator" content="ReText 7.0.4">
+<meta name="generator" content="ReText 7.1.0">
 <title>Building_on_older_Linux</title>
 </head>
 <body>
 <h1><center>Building Sigil on Older Linux Systems</centers></h1>
-<p>If your system's software repositories provide Qt5.9.x or higher and Python 3.4.x or higher, you may be able to compile Sigil using entirely repo-provided dependencies. These systems will likely be Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable. If your system qualifies, check out the <a href="./Building_on_Linux.html">Building on Linux</a> documentation.</p>
+<p>If your system's software repositories provide Qt5.9.x or higher and Python 3.4.x or higher, you may be able to compile Sigil using entirely repo-provided dependencies. These systems will likely be Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable. If your system qualifies, check out the <a href="./Building_on_Linux.md">Building on Linux</a> documentation.</p>
 <p>Otherwise, continue on ...</p>
 <h2>General Overview</h2>
 <p>To build Sigil on older Linux systems, you need to get/do the following things:</p>
@@ -156,6 +156,8 @@
 <p>-DINSTALL_BUNDLED_DICTS=(0|1) Default is 1. Can be used to enable/disable the installation of the bundled Hunspell dictionaries used for spellchecking. If this is disabled (-DINSTALL_BUNDLED_DICTS=0), then the standard system spell-check dictionary location of /usr/share/hunspell will be searched for eligible dictionaries. If additional system paths need to be searched for dictionaries, they can be added using the -DEXTRA_DICT_DIRS option. Setting this to 0 will require that you manually install the language-specific hunspell dictionaries (from your software repos) yourself (e.g. <code>sudo apt-get install hunspell-en-us</code>).</p>
 <p>-DEXTRA_DICT_DIRS=<code>&lt;path1&gt;</code>:<code>&lt;path2&gt;</code> Path(s) that should be searched for eligible spellcheck dictionaries (in addition to /usr/share/hunspell). Multiple paths should be separated by colons. This option is only relevant if -DINSTALL_BUNDLED_DICTS=0 is also specified.</p>
 <p>-DMATHJAX_DIR=<code>&lt;path&gt;</code> If you would like use your system's MathJax implementation instead of the one that comes bundled with Sigil, use this cmake directive when first configuring. A minimum of MathJax v2.7.0 is required to work with Sigil. NOTE: if -DMATHJAX_DIR=<code>&lt;path&gt;</code> is used, Sigil will install a config script to <code>&lt;path&gt;</code>/config/local. This file is required for Sigil's Preview to be able properly render MathML. This feature was added between Sigil 0.9.12 and 0.9.13.</p>
+<p>-DINSTALL_HICOLOR_ICONS=(0|1) Install various-sized Sigil application icons to the typical hicolor theme directories (<code>&lt;INSTALL_PREFIX&gt;/share/icons/hicolor</code>). The default is 0, which installs a single icon to the <code>&lt;INSTALL_PREFIX&gt;/share/pixmap</code> folder.</p>
+<p>-DUSE_ALT_ICONS=(0|1) Defaults to 0. Install/use alternative teal-colored Sigil application icon(s). You still need to specify -DINSTALL_HICOLOR_ICONS=1 if you want all the alternative teal-colored icons installed the hicolor theme.</p>
 <p>The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version.</p>
 <p>-DPYTHON_LIBRARY=<code>&lt;the path to the python3.4 shared library&gt;</code></p>
 <p>-DPYTHON_INCLUDE_DIR=<code>&lt;the path to the directory where python3.4's header files can be found&gt;</code></p>

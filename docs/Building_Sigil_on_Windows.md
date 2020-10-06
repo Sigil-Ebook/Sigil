@@ -147,6 +147,8 @@ Leave off "Win64" and -DWIN_INSTALLER_USE_64BIT_CRT=1 if you're building the 32-
 
 You can also use cmake-gui (double-click on cmake-gui in the cmake/bin directory) and avoid using the command-prompt altogether if you wish (although you're on your own in figuring out how to enter all the cmake configuration options in the gui).
 
+-DUSE_ALT_ICONS=(0|1) Defaults to 0. Install/use alternative teal-colored Sigil application icon.
+
 The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version. They can come in handy it you have multiple versions of Python 3 installed on your computer.
 
 -DPYTHON_LIBRARY=`<the full path to the python3.x library (ex. python38.lib)>`

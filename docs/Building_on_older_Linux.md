@@ -194,6 +194,10 @@ There are several configuration and environment variable options that can tailor
 
 -DMATHJAX_DIR=`<path>` If you would like use your system's MathJax implementation instead of the one that comes bundled with Sigil, use this cmake directive when first configuring. A minimum of MathJax v2.7.0 is required to work with Sigil. NOTE: if -DMATHJAX_DIR=`<path>` is used, Sigil will install a config script to `<path>`/config/local. This file is required for Sigil's Preview to be able properly render MathML. This feature was added between Sigil 0.9.12 and 0.9.13.
 
+-DINSTALL_HICOLOR_ICONS=(0|1) Install various-sized Sigil application icons to the typical hicolor theme directories (`<INSTALL_PREFIX>/share/icons/hicolor`). The default is 0, which installs a single icon to the `<INSTALL_PREFIX>/share/pixmap` folder.
+
+-DUSE_ALT_ICONS=(0|1) Defaults to 0. Install/use alternative teal-colored Sigil application icon(s). You still need to specify -DINSTALL_HICOLOR_ICONS=1 if you want all the alternative teal-colored icons installed the hicolor theme.
+
 The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version.
 
 -DPYTHON_LIBRARY=`<the path to the python3.4 shared library>`
