@@ -1,29 +1,21 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
-
-from __future__ import unicode_literals, division, absolute_import, print_function
 
 import sys
 import os
 
 from collections import OrderedDict
 
-PY3 = sys.version_info[0] >= 3
-
-if PY3:
-    binary_type = bytes
-else:
-    binary_type = str
-
 SPECIAL_HANDLING_TAGS = OrderedDict([
     ('?xml', ('xmlheader', -1)), 
     ('!--', ('comment', -3)),
     ('!DOCTYPE', ('doctype', -1)),
+    ('![CDATA[', ('cdata', -3)),
     ('?', ('pi', -1))
 ])
 
-SPECIAL_HANDLING_TYPES = ['xmlheader', 'comment', 'doctype', 'pi']
+SPECIAL_HANDLING_TYPES = ['xmlheader', 'comment', 'doctype', 'cdata', 'pi']
 
 MAX_TAG_LEN = 20
 
@@ -37,7 +29,7 @@ class SanityCheck(object):
     def __init__(self, data, codec = 'utf-8'):
         if data is None:
             data = ''
-        if isinstance(data, binary_type):
+        if isinstance(data, bytes):
             data = data.decode(codec)
         self.content = data
         self.clen = len(self.content)
@@ -103,6 +95,13 @@ class SanityCheck(object):
         if s[b:b+3] == "!--":
             p = b+3
             tname = "!--"
+            ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
+            tattr['special'] = s[p:backstep]
+            return tname, ttype, tattr
+        # handle cdata special case as there may be no spaces to delimit name begin or end
+        if s[b:b+8] == "![CDATA[":
+            p = b+8
+            tname = "![CDATA["
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
             tattr['special'] = s[p:backstep]
             return tname, ttype, tattr
@@ -195,6 +194,12 @@ class SanityCheck(object):
             te = self.content.find('-->',p+1)
             if te != -1:
                 te = te+2
+        # handle cdata section as a special case to deal with multi-line 
+        elif self.content[p:p+9] == '<![CDATA[':
+            tb = p
+            te = self.content.find(']]>',p+9)
+            if te != -1:
+                te = te+2
         else :
             tb = p
             te = self.content.find('>',p+1)
@@ -220,11 +225,18 @@ class SanityCheck(object):
             if text is not None:
                 tname = ttype = tattr = None
                 # walk the text and keep track of  line and col info
+                # while checking for illegal < and > chars
                 for c in text:
+                    if c in '><':
+                       error_msg='illegal character in text'
+                       self.errors.append((self.line, self.col, error_msg))
+                       self.has_error=True
                     self.col += 1
                     if c == '\n':
                         self.line += 1
                         self.col = 0
+                if self.has_error:
+                    break
 
             if tag is not None:
                 # walk the text of the tag to keep track of line/col info
