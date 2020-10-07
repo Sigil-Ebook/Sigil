@@ -2,15 +2,8 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<style type="text/css">
-td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
-table { border-collapse: collapse; }
-img { max-width: 100%; }
-</style>
 <meta name="generator" content="ReText 7.1.0">
 <title>Building_Sigil_on_Windows</title>
-<style type="text/css">
-</style>
 </head>
 <body>
 <h1><center>Building Sigil on Windows</center></h1>
@@ -122,6 +115,7 @@ img { max-width: 100%; }
 </blockquote>
 <p>Leave off "Win64" and -DWIN_INSTALLER_USE_64BIT_CRT=1 if you're building the 32-bit version of Sigil.</p>
 <p>You can also use cmake-gui (double-click on cmake-gui in the cmake/bin directory) and avoid using the command-prompt altogether if you wish (although you're on your own in figuring out how to enter all the cmake configuration options in the gui).</p>
+<p>-DUSE_ALT_ICONS=(0|1) Defaults to 0. Install/use alternative teal-colored Sigil application icon.</p>
 <p>The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version. They can come in handy it you have multiple versions of Python 3 installed on your computer.</p>
 <p>-DPYTHON_LIBRARY=<code>&lt;the full path to the python3.x library (ex. python38.lib)&gt;</code></p>
 <p>-DPYTHON_INCLUDE_DIR=<code>&lt;the path to the directory where python3.x's header files (python.h) can be found&gt;</code></p>
