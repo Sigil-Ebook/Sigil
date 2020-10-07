@@ -312,19 +312,20 @@ Plugin *PluginDB::load_plugin(const QString &name)
     }
 
     // First look for a persistent custom user-specified
-    // icon in the plugin's preference folder.
-    QString iconpath = pluginsPath() + "/../plugins_prefs/" + name + "/plugin.png";
-    QFileInfo fileinfo(iconpath);
-    if (fileinfo.exists() && fileinfo.isFile() && fileinfo.isReadable()) {
-        plugin->set_iconpath(iconpath);
-    } else {
-        // If no custom user-supplied icon, look in the
-        // plugin folder for a plugin dev-supplied icon.
-        iconpath = pluginsPath() + "/" + name + "/plugin.png";
-        QFileInfo fileinfo(iconpath);
-        if (fileinfo.exists() && fileinfo.isFile() && fileinfo.isReadable()) {
-            plugin->set_iconpath(iconpath);
-        }
+    // icon in the plugin's preference folder. And then
+    // next look in the plugin folder itself for a dev
+    // supplied icon. Prefer svg versions to png versions
+    QStringList iconpaths;
+    iconpaths << pluginsPath() + "/../plugins_prefs/" + name + "/plugin.svg";
+    iconpaths << pluginsPath() + "/../plugins_prefs/" + name + "/plugin.png";
+    iconpaths << pluginsPath() + "/" + name + "/plugin.svg";
+    iconpaths << pluginsPath() + "/" + name + "/plugin.png";
+    foreach(QString ipath, iconpaths) {
+	QFileInfo iconinfo(ipath);
+        if (iconinfo.exists() && iconinfo.isFile() && iconinfo.isReadable()) {
+            plugin->set_iconpath(iconinfo.absoluteFilePath());
+	    break;
+	}
     }
 
     if (!plugin->isvalid()) {
