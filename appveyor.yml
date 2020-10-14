@@ -95,7 +95,7 @@ before_build:
     echo 'LIBPATH = %LIBPATH%'
     echo 'INCLUDE = %INCLUDE%'
     echo 'CL = %CL%'
-    cmake .. -G "Ninja" -DCMAKE_BUILD_TYPE=%configuration% -DQt5_DIR=%QT%\lib\cmake\Qt5 %CMAKE64BIT%
+    cmake .. -G "Ninja" -DCMAKE_BUILD_TYPE=%configuration% -DUSE_ALT_ICONS=1 -DQt5_DIR=%QT%\lib\cmake\Qt5 %CMAKE64BIT%
 
 - sh: |-
     sudo apt-get update && apt-get install -y pkg-config cmake cmake-data zlib1g-dev build-essential ninja
