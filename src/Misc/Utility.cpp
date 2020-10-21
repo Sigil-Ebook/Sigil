@@ -68,6 +68,8 @@
 #include "Misc/SleepFunctions.h"
 #include "MainUI/MainApplication.h"
 
+static const QString URL_SAFE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-/~";
+
 static const QString DARK_STYLE =
     "<style>:root { background-color: %1; color: %2; } ::-webkit-scrollbar { display: none; }</style>"
     "<link rel=\"stylesheet\" type=\"text/css\" href=\"%3\" />";
@@ -586,24 +588,55 @@ QString Utility::EncodeXML(const QString &text)
 
 
 // this is meant to work on paths, not paths and fragments
-// thereofre do not leave # chars unencoded
+// therefore do not leave # chars unencoded
 QString Utility::URLEncodePath(const QString &path)
 {
-    QString newpath = URLDecodePath(path);
+    // some very poorly written software uses xml escaping of the 
+    // "&" instead of url encoding when building hrefs
+    // So run xmldecode first to convert them to normal characters before 
+    // url encoding them
+    QString newpath = DecodeXML(path);
+    // then undo any existing url encoding first
+    newpath = URLDecodePath(newpath);
+    QString result = "";
+    int n = newpath.size();
+    for (int i=0; i < n; i++) {
+        QChar c = newpath.at(i);
+        if ((c.unicode() < 128) && !URL_SAFE.contains(c)) {
+            QString val = QString::number(c.unicode(), 16);
+            val = val.toUpper();
+            if (val.size() == 1) val.prepend("0");
+            val.prepend("%");
+            result.append(val);
+        } else {
+            result.append(c); 
+        }       
+    }
+    qDebug() << "In Utility URLEncodePath: " << result;
+    return result;
+#if 0
     QUrl href = QUrl(newpath);
     QString scheme = href.scheme();
     if (!scheme.isEmpty()) {
         scheme = scheme + "://";
         newpath.remove(0, scheme.length());
+        href.setScheme("");
     }
-
-    // some very poorly written software uses xml escaping of the 
-    // "&" instead of url encoding when building hrefs
-    // So run xmldecode first to convert them to normal characters before 
-    // url encoding them
-    newpath = DecodeXML(newpath);
-    QByteArray encoded_url = QUrl::toPercentEncoding(newpath, QByteArray("/"), QByteArray("#"));
-    return scheme + QString::fromUtf8(encoded_url.constData(), encoded_url.count());
+    // we want an IRI so do not EncodeUnicode
+    QUrl::FormattingOptions options = QUrl::FormattingOptions() | QUrl::EncodeSpaces | QUrl::EncodeDelimiters | QUrl::EncodeReserved;
+    qDebug() << "Formatting options: " << options;
+    QString encoded_path;
+    QByteArray encoded_url;
+    // #if 1
+    encoded_url = href.toEncoded(options);
+    encoded_path = scheme + QString::fromUtf8(encoded_url.constData(), encoded_url.count());
+    qDebug() << "In Utility URLEncodePath: " << encoded_path;
+    // #else
+    encoded_url = QUrl::toPercentEncoding(newpath, QByteArray("/"), QByteArray("#"));
+    encoded_path = scheme + QString::fromUtf8(encoded_url.constData(), encoded_url.count());
+    // #endif
+    return encoded_path;
+#endif
 }
 
 

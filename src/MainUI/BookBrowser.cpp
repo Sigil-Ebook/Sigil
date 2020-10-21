@@ -745,6 +745,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
             bool extract_metadata = false;
             html_import.GetBook(extract_metadata);
 	    QStringList importedbookpaths = html_import.GetAddedBookPaths();
+            qDebug() << importedbookpaths;
             Resource *added_resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(importedbookpaths.at(0));
             HTMLResource *added_html_resource = qobject_cast<HTMLResource *>(added_resource);
 	    added_book_paths.append(importedbookpaths);
