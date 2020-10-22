@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -23,7 +24,6 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/XMLResource.h"
-
 
 XMLResource::XMLResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
     : TextResource(mainfolder, fullfilepath, parent)
@@ -65,34 +65,55 @@ XhtmlDoc::WellFormedError XMLResource::WellFormedErrorLocation() const
     return error;
 }
 
+// The actual xml spec for allowed char in xml ids
+//
+//  NameStartChar ::=   ":" | [A-Z] | "_" | [a-z] | [#xC0-#xD6] |
+//                            [#xD8-#xF6] | [#xF8-#x2FF] |
+//                            [#x370-#x37D] | [#x37F-#x1FFF] |
+//                            [#x200C-#x200D] | [#x2070-#x218F] |
+//                            [#x2C00-#x2FEF] | [#x3001-#xD7FF] |
+//                            [#xF900-#xFDCF] | [#xFDF0-#xFFFD] |
+//                            [#x10000-#xEFFFF]
+// 
+// NameChar     ::=      NameStartChar | "-" | "." | [0-9] | #xB7 |
+//                         [#x0300-#x036F] | [#x203F-#x2040]
+// 
+
+// to create an epub that will work with even old readers
+// we will limit ourselves to the ascii set as the old
+// standard proscribed when creating new ids from scratch
+
+static const QString ID_VALID_FIRST_CHAR = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+static const QString ID_VALID_CHARS = ID_VALID_FIRST_CHAR + "_-.0123456789";
 
 QString XMLResource::GetValidID(const QString &value)
 {
-    QString new_value = value.simplified();
+    // simplify and remove any extension
+    QString new_value = value.simplified().split(".").at(0);
     int i = 0;
-
     // Remove all forbidden characters.
     while (i < new_value.size()) {
         if (!IsValidIDCharacter(new_value.at(i))) {
-            new_value.replace(i, 1, "_");
+            new_value.remove(i, 1);
         } else {
             ++i;
         }
     }
 
-    if (new_value.isEmpty()) {
-        return Utility::CreateUUID();
-    }
+    if (new_value.isEmpty()) new_value = Utility::CreateUUID();
 
     QChar first_char = new_value.at(0);
 
     // IDs cannot start with a number, a dash or a dot
-    if (first_char.isNumber()      ||
-        first_char == QChar('-') ||
-        first_char == QChar('.')
-       ) {
+    // and should start with a character in range [A-Z,a-z]
+    if (!ID_VALID_FIRST_CHAR.contains(first_char)) {
         new_value.prepend("x");
     }
+#if 0
+    if (first_char.isNumber() || first_char == QChar('-') || first_char == QChar('.')) {
+        new_value.prepend("x");
+    }
+#endif
 
     return new_value;
 }
@@ -103,10 +124,13 @@ QString XMLResource::GetValidID(const QString &value)
 // (spec ref: http://www.w3.org/TR/xml-id/#processing)
 bool XMLResource::IsValidIDCharacter(const QChar &character)
 {
+    return ID_VALID_CHARS.contains(character);
+#if 0
     return character.isLetterOrNumber() ||
            character == QChar('-')    ||
            character == QChar('_')    ||
            character == QChar('.')
            ;
+#endif
 }
 
