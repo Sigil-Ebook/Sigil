@@ -122,17 +122,48 @@ _URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
                      'abcdefghijklmnopqrstuvwxyz'
                      '0123456789' '_.-/~')
 
-_IRI_UNSAFE = _ASCII_CHARS - _URL_SAFE
+
+# From the IRI spec rfc3987
+# iunreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~" / ucschar
+# 
+#    ucschar        = %xA0-D7FF / %xF900-FDCF / %xFDF0-FFEF
+#                   / %x10000-1FFFD / %x20000-2FFFD / %x30000-3FFFD
+#                   / %x40000-4FFFD / %x50000-5FFFD / %x60000-6FFFD
+#                   / %x70000-7FFFD / %x80000-8FFFD / %x90000-9FFFD
+#                   / %xA0000-AFFFD / %xB0000-BFFFD / %xC0000-CFFFD
+#                   / %xD0000-DFFFD / %xE1000-EFFFD
+# But currently nothing *after* the 0x30000 plane is even defined
+def need_to_percent_encode(char):
+    cp = ord(char)
+    if cp < 128:
+        if char in _URL_SAFE: return False;
+        return True;
+    if cp <  0xA0: return True;
+    if cp <= 0xD7FF: return False;
+    if cp <  0xF900: return True;
+    if cp <= 0xFDCF: return False;
+    if cp <  0xFDF0: return True;
+    if cp <= 0xFFEF: return False;
+    if cp <  0x10000: return True;
+    if cp <= 0x1FFFD: return False;
+    if cp <  0x20000: return True;
+    if cp <= 0x2FFFD: return False;
+    if cp <  0x30000: return True;
+    if cp <= 0x3FFFD: return False;
+    return True;
 
 
 def urlencodepart(part):
     if isinstance(part,bytes):
-        parts = part.decode('utf-8')
+        part = part.decode('utf-8')
     result = []
     for char in part:
-        if char in _IRI_UNSAFE:
-            char = "%%%02x" % ord(char)
-        result.append(char)
+        if need_to_percent_encode(char):
+            bs = char.encode('utf-8')
+            for b in bs:
+                result.append("%%%02x" % b)
+        else:
+            result.append(char)
     return ''.join(result)
 
 

@@ -11,13 +11,8 @@ from lxml import etree
 from io import BytesIO
 from opf_newparser import Opf_Parser
 from hrefutils import startingDir, buildBookPath, buildRelativePath
+from hrefutils import urldecodepart, urlencodepart
 from collections import OrderedDict
-
-ASCII_CHARS   = set(chr(x) for x in range(128))
-URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-                    'abcdefghijklmnopqrstuvwxyz'
-                    '0123456789' '_.-/~')
-IRI_UNSAFE = ASCII_CHARS - URL_SAFE
 
 TEXT_FOLDER_NAME = "Text"
 ebook_xml_empty_tags = ["meta", "item", "itemref", "reference", "content"]
@@ -35,22 +30,6 @@ def get_void_tags(mtype):
     else:
         voidtags = ebook_xml_empty_tags
     return voidtags
-
-def urlencodepart(part):
-    if isinstance(part,bytes):
-        parts = part.decode('utf-8')
-    result = []
-    for char in part:
-        if char in IRI_UNSAFE:
-            char = "%%%02x" % ord(char)
-        result.append(char)
-    return ''.join(result)
-
-def urldecodepart(part):
-    if isinstance(part,bytes):
-        part = part.decode('utf-8')
-    part = unquote(part)
-    return part
 
 def _remove_xml_header(data):
     newdata = data

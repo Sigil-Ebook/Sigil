@@ -6,31 +6,7 @@ import sys
 import os
 from quickparser import QuickXHTMLParser
 from hrefutils import startingDir, buildBookPath, buildRelativePath, relativePath
-
-from urllib.parse import unquote
-
-ASCII_CHARS   = set(chr(x) for x in range(128))
-URL_SAFE      = set('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-                    'abcdefghijklmnopqrstuvwxyz'
-                    '0123456789' '_.-/~')
-IRI_UNSAFE = ASCII_CHARS - URL_SAFE
-
-def urlencodepart(part):
-    if isinstance(part,bytes):
-        parts = part.decode('utf-8')
-    result = []
-    for char in part:
-        if char in IRI_UNSAFE:
-            char = "%%%02x" % ord(char)
-        result.append(char)
-    return ''.join(result)
-
-def urldecodepart(part):
-    if isinstance(part,bytes):
-        part = part.decode('utf-8')
-    part = unquote(part)
-    return part
-
+from hrefutils import urldecodepart, urlencodepart
 
 _epubtype_guide_map = {
      'acknowledgements' : 'acknowledgments',

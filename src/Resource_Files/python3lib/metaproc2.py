@@ -29,7 +29,9 @@
 
 import sys
 import os
-from metadata_utils import urlencodepart, urldecodepart, xmldecode, buildxml, valid_id, OPFMetadataParser
+from hrefutils import urldecodepart, urlencodepart
+from metadata_utils import xmldecode, buildxml, valid_id, OPFMetadataParser
+
 from collections import OrderedDict
 
 import re

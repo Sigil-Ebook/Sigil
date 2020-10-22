@@ -59,6 +59,7 @@
 #include <QFileInfo>
 #include <QCollator>
 #include <QMenu>
+#include <QVector>
 #include <QDebug>
 
 #include "sigil_constants.h"
@@ -587,6 +588,40 @@ QString Utility::EncodeXML(const QString &text)
 }
 
 
+
+// From the IRI spec rfc3987
+// iunreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~" / ucschar
+// 
+//    ucschar        = %xA0-D7FF / %xF900-FDCF / %xFDF0-FFEF
+//                   / %x10000-1FFFD / %x20000-2FFFD / %x30000-3FFFD
+//                   / %x40000-4FFFD / %x50000-5FFFD / %x60000-6FFFD
+//                   / %x70000-7FFFD / %x80000-8FFFD / %x90000-9FFFD
+//                   / %xA0000-AFFFD / %xB0000-BFFFD / %xC0000-CFFFD
+//                   / %xD0000-DFFFD / %xE1000-EFFFD
+// But currently nothing *after* the 0x30000 plane is even defined
+
+bool Utility::NeedToPercentEncode(uint cp)
+{
+    // sequence matters for both correctness and speed
+    if (cp < 128) {
+        if (URL_SAFE.contains(QChar(cp))) return false;
+        return true;
+    }
+    if (cp < 0xA0) return true;
+    if (cp <= 0xD7FF) return false;
+    if (cp < 0xF900) return true;
+    if (cp <= 0xFDCF) return false;
+    if (cp < 0xFDF0) return true;
+    if (cp <= 0xFFEF) return false;
+    if (cp < 0x10000) return true;
+    if (cp <= 0x1FFFD) return false;
+    if (cp < 0x20000) return true;
+    if (cp <= 0x2FFFD) return false;
+    if (cp < 0x30000) return true;
+    if (cp <= 0x3FFFD) return false;
+    return true;
+}
+
 // this is meant to work on paths, not paths and fragments
 // therefore do not leave # chars unencoded
 QString Utility::URLEncodePath(const QString &path)
@@ -596,25 +631,33 @@ QString Utility::URLEncodePath(const QString &path)
     // So run xmldecode first to convert them to normal characters before 
     // url encoding them
     QString newpath = DecodeXML(path);
-    // then undo any existing url encoding first
+
+    // then undo any existing url encoding
     newpath = URLDecodePath(newpath);
+
     QString result = "";
-    int n = newpath.size();
-    for (int i=0; i < n; i++) {
-        QChar c = newpath.at(i);
-        if ((c.unicode() < 128) && !URL_SAFE.contains(c)) {
-            QString val = QString::number(c.unicode(), 16);
-            val = val.toUpper();
-            if (val.size() == 1) val.prepend("0");
-            val.prepend("%");
-            result.append(val);
+    QVector<uint> codepoints = newpath.toUcs4();
+    for (int i = 0; i < codepoints.size(); i++) {
+        uint cp = codepoints.at(i);
+        QString s = QString::fromUcs4(&cp, 1);
+        if (NeedToPercentEncode(cp)) {
+            QByteArray b = s.toUtf8();
+            for (int j = 0; j < b.size(); j++) {
+                QString val = QString::number(b.at(j),16);
+                val = val.toUpper();
+                if (val.size() == 1) val.prepend("0");
+                val.prepend("%");
+                result.append(val);
+            }
         } else {
-            result.append(c); 
-        }       
+            result.append(s);
+        }
     }
     qDebug() << "In Utility URLEncodePath: " << result;
     return result;
+
 #if 0
+    // do we still need to handle a possible scheme on the path
     QUrl href = QUrl(newpath);
     QString scheme = href.scheme();
     if (!scheme.isEmpty()) {
@@ -622,16 +665,6 @@ QString Utility::URLEncodePath(const QString &path)
         newpath.remove(0, scheme.length());
         href.setScheme("");
     }
-    // we want an IRI so do not EncodeUnicode
-    QUrl::FormattingOptions options = QUrl::FormattingOptions() | QUrl::EncodeSpaces | QUrl::EncodeDelimiters | QUrl::EncodeReserved;
-    qDebug() << "Formatting options: " << options;
-    QString encoded_path;
-    QByteArray encoded_url;
-    // #if 1
-    encoded_url = href.toEncoded(options);
-    encoded_path = scheme + QString::fromUtf8(encoded_url.constData(), encoded_url.count());
-    qDebug() << "In Utility URLEncodePath: " << encoded_path;
-    // #else
     encoded_url = QUrl::toPercentEncoding(newpath, QByteArray("/"), QByteArray("#"));
     encoded_path = scheme + QString::fromUtf8(encoded_url.constData(), encoded_url.count());
     // #endif

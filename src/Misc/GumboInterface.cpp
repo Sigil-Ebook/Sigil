@@ -845,7 +845,7 @@ std::string GumboInterface::update_attribute_value(const std::string &attvalue)
     QString dest_newbkpath = m_sourceupdates.value(dest_oldbkpath, dest_oldbkpath);
     if (!dest_newbkpath.isEmpty() && !m_newbookpath.isEmpty()) {
         QString new_path = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
-        QString new_href(QUrl::toPercentEncoding(Utility::DecodeXML(new_path), QByteArray("/")));
+        QString new_href(Utility::URLEncodePath(new_path));
         if (has_fragment) {
             new_href.append("#");
             new_href.append(QUrl::toPercentEncoding(fragment));
