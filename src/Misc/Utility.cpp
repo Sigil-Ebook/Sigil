@@ -600,7 +600,7 @@ QString Utility::EncodeXML(const QString &text)
 //                   / %xD0000-DFFFD / %xE1000-EFFFD
 // But currently nothing *after* the 0x30000 plane is even defined
 
-bool Utility::NeedToPercentEncode(uint cp)
+bool Utility::NeedToPercentEncode(uint32_t cp)
 {
     // sequence matters for both correctness and speed
     if (cp < 128) {
@@ -636,14 +636,15 @@ QString Utility::URLEncodePath(const QString &path)
     newpath = URLDecodePath(newpath);
 
     QString result = "";
-    QVector<uint> codepoints = newpath.toUcs4();
+    QVector<uint32_t> codepoints = newpath.toUcs4();
     for (int i = 0; i < codepoints.size(); i++) {
-        uint cp = codepoints.at(i);
+        uint32_t cp = codepoints.at(i);
         QString s = QString::fromUcs4(&cp, 1);
         if (NeedToPercentEncode(cp)) {
             QByteArray b = s.toUtf8();
             for (int j = 0; j < b.size(); j++) {
-                QString val = QString::number(b.at(j),16);
+                uint8_t bval = b.at(j);
+                QString val = QString::number(bval,16);
                 val = val.toUpper();
                 if (val.size() == 1) val.prepend("0");
                 val.prepend("%");
