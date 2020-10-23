@@ -622,7 +622,7 @@ bool Utility::NeedToPercentEncode(uint32_t cp)
     return true;
 }
 
-// this is meant to work on paths, not paths and fragments
+// this is meant to work on paths, not paths and fragments and schemes
 // therefore do not leave # chars unencoded
 QString Utility::URLEncodePath(const QString &path)
 {
@@ -654,23 +654,11 @@ QString Utility::URLEncodePath(const QString &path)
             result.append(s);
         }
     }
-    qDebug() << "In Utility URLEncodePath: " << result;
+    // qDebug() << "In Utility URLEncodePath: " << result;
+    // Previously was:
+    // encoded_url = QUrl::toPercentEncoding(newpath, QByteArray("/"), QByteArray("#"));
+    // encoded_path = scheme + QString::fromUtf8(encoded_url.constData(), encoded_url.count());
     return result;
-
-#if 0
-    // do we still need to handle a possible scheme on the path
-    QUrl href = QUrl(newpath);
-    QString scheme = href.scheme();
-    if (!scheme.isEmpty()) {
-        scheme = scheme + "://";
-        newpath.remove(0, scheme.length());
-        href.setScheme("");
-    }
-    encoded_url = QUrl::toPercentEncoding(newpath, QByteArray("/"), QByteArray("#"));
-    encoded_path = scheme + QString::fromUtf8(encoded_url.constData(), encoded_url.count());
-    // #endif
-    return encoded_path;
-#endif
 }
 
 

@@ -81,13 +81,7 @@ SpellCheck::SpellCheck()
     // Load the dictionary the user has selected if one was saved.
     SettingsStore settings;
 
-    qDebug() << "settings primary dictionary: " << settings.dictionary();
-    qDebug() << "settings secondary dictionary: " << settings.secondary_dictionary();
-
     QApplication::restoreOverrideCursor();
-    foreach(QString key, m_dictionaries.keys()) {
-        qDebug() << "    " << key << " -> " << m_dictionaries[key];
-    }
 
     // create langauge code to dictionary name mapping
     foreach(QString dname, m_dictionaries.keys()) {
@@ -96,14 +90,15 @@ SpellCheck::SpellCheck()
         m_langcode2dict[lc] = dname;
         if (lc.length() > 2) {
             lc = lc.mid(0,2);
-            qDebug() << "huh " << lc << dname;
             m_langcode2dict[lc] = dname;
         }
     }
+#if 0
     qDebug() << "langcode2dict";
     foreach(QString lc, m_langcode2dict.keys()) {
         qDebug() << lc << " -> " << m_langcode2dict[lc];
     }
+#endif
 
     // make sure 2 letter mapping equivalent is properly set
     // for primary and secondary dictionaries
@@ -313,8 +308,8 @@ void SpellCheck::loadDictionary(const QString &dname)
     QString dic = QString("%1%2.dic").arg(m_dictionaries.value(dname)).arg(dname);
     QString dic_delta = QString("%1/%2.dic_delta").arg(dictionaryDirectory()).arg(dname);
     QString alt_dic_delta = QString("%1%2.dic_delta").arg(m_dictionaries.value(dname)).arg(dname);
-    qDebug() << dic_delta;
-    qDebug() << alt_dic_delta;
+    // qDebug() << dic_delta;
+    // qDebug() << alt_dic_delta;
 
     // Create a new hunspell object.
     HDictionary hdic;

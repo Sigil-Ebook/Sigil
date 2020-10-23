@@ -485,6 +485,5 @@ QString OPFParser::convert_to_xml() const
         xmlres << "  </bindings>\n";
     }
     xmlres << "</package>\n";
-    qDebug() << "new_opf" << xmlres;
     return xmlres.join("");
 }

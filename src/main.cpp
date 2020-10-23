@@ -559,7 +559,7 @@ int main(int argc, char *argv[])
 		settings.setUIIconTheme("main");
 	    }
 	}
-        qDebug() << RCCResourcePath;
+        // qDebug() << RCCResourcePath;
         QResource::registerResource(RCCResourcePath + "/" + icon_theme + ".rcc");
 
         QStringList arguments = QCoreApplication::arguments();
