@@ -23,6 +23,7 @@
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
+#include "Misc/AsciiFy.h"
 #include "ResourceObjects/XMLResource.h"
 
 XMLResource::XMLResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
@@ -90,6 +91,8 @@ QString XMLResource::GetValidID(const QString &value)
 {
     // simplify and remove any extension
     QString new_value = value.simplified().split(".").at(0);
+    // convert it to a close pure ascii representation
+    new_value = AsciiFy::instance()->convertToPlainAscii(new_value);
     int i = 0;
     // Remove all forbidden characters.
     while (i < new_value.size()) {

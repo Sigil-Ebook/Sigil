@@ -298,6 +298,8 @@ set( IMPORTER_FILES
 set( MISC_FILES
     Misc/AppEventFilter.cpp
     Misc/AppEventFilter.h
+    Misc/AsciiFy.cpp
+    Misc/AsciiFy.h
     Misc/UpdateChecker.cpp
     Misc/UpdateChecker.h
     Misc/URLInterceptor.cpp
