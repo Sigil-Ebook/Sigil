@@ -280,7 +280,6 @@ XhtmlDoc::WellFormedError XhtmlDoc::GumboWellFormedErrorForSource(const QString 
 XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source, QString version)
 {
     QXmlStreamReader reader(source);
-    int nxmlheaders = 0;
     int ndoctypes = 0;
     int nhtmltags = 0;
     int nheadtags = 0;
@@ -288,7 +287,6 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
 
     while (!reader.atEnd()) {
         reader.readNext();
-        if (reader.isStartDocument()) nxmlheaders++;
         if (reader.isDTD()) ndoctypes++;
         if (reader.isStartElement()) {
             if (reader.name() == "html") nhtmltags++;
@@ -304,13 +302,6 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
         return error;
     }
     // make sure basic structure in place
-    if (nxmlheaders != 1) {
-        XhtmlDoc::WellFormedError error;
-        error.line    = 1;
-        error.column  = 1;
-        error.message = "Missing xml header";
-        return error;
-    }
     if (ndoctypes != 1) {
         XhtmlDoc::WellFormedError error;
         error.line    = 1;
