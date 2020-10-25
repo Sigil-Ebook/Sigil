@@ -196,9 +196,10 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
         QApplication::restoreOverrideCursor();
         if (QMessageBox::Yes == QMessageBox::warning(QApplication::activeWindow(),
                 tr("Sigil"),
-                tr("This EPUB has HTML files that are not well formed. "
-                   "Sigil can attempt to automatically fix these files, although this "
-                   "may result in minor data loss in extreme circumstances.\n\n"
+                tr("This EPUB has HTML files that are not well formed or are "
+                   "missing a xml header, DOCTYPE, html, head or body "
+                   "elements. Sigil can automatically fix these files, although "
+                   "this may result in minor data loss in extreme circumstances.\n\n"
                    "Do you want to automatically fix the files?"),
                 QMessageBox::Yes|QMessageBox::No)) 
         {

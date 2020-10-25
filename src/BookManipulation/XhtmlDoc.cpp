@@ -280,14 +280,63 @@ XhtmlDoc::WellFormedError XhtmlDoc::GumboWellFormedErrorForSource(const QString 
 XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &source, QString version)
 {
     QXmlStreamReader reader(source);
+    int nxmlheaders = 0;
+    int ndoctypes = 0;
+    int nhtmltags = 0;
+    int nheadtags = 0;
+    int nbodytags = 0;
+
     while (!reader.atEnd()) {
         reader.readNext();
+        if (reader.isStartDocument()) nxmlheaders++;
+        if (reader.isDTD()) ndoctypes++;
+        if (reader.isStartElement()) {
+            if (reader.name() == "html") nhtmltags++;
+            if (reader.name() == "head") nheadtags++;
+            if (reader.name() == "body") nbodytags++;
+        }
     }
     if (reader.hasError()) {
         XhtmlDoc::WellFormedError error;
         error.line    = reader.lineNumber();
         error.column  = reader.columnNumber();
         error.message = QString(reader.errorString());
+        return error;
+    }
+    // make sure basic structure in place
+    if (nxmlheaders != 1) {
+        XhtmlDoc::WellFormedError error;
+        error.line    = 1;
+        error.column  = 1;
+        error.message = "Missing xml header";
+        return error;
+    }
+    if (ndoctypes != 1) {
+        XhtmlDoc::WellFormedError error;
+        error.line    = 1;
+        error.column  = 1;
+        error.message = "Missing DOCTYPE";
+        return error;
+    }
+    if (nhtmltags != 1) {
+        XhtmlDoc::WellFormedError error;
+        error.line    = 1;
+        error.column  = 1;
+        error.message = "Missing html tag";
+        return error;
+    }
+    if (nheadtags != 1) {
+        XhtmlDoc::WellFormedError error;
+        error.line    = 1;
+        error.column  = 1;
+        error.message = "Missing head tag";
+        return error;
+    }
+    if (nbodytags != 1) {
+        XhtmlDoc::WellFormedError error;
+        error.line    = 1;
+        error.column  = 1;
+        error.message = "Missing body tag";
         return error;
     }
     return XhtmlDoc::WellFormedError();
