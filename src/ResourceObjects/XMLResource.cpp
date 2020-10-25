@@ -89,9 +89,9 @@ static const QString ID_VALID_CHARS = ID_VALID_FIRST_CHAR + "_-.0123456789";
 
 QString XMLResource::GetValidID(const QString &value)
 {
-    // simplify and remove any extension
-    QString new_value = value.simplified().split(".").at(0);
-    // convert it to a close pure ascii representation
+    // simplify to trim any leading or trailing whitespace
+    QString new_value = value.simplified();
+    // convert it to a "close" pure ascii representation
     new_value = AsciiFy::instance()->convertToPlainAscii(new_value);
     int i = 0;
     // Remove all forbidden characters.
