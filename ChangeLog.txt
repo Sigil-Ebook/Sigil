@@ -19,6 +19,8 @@ Sigil-1.4.0
           been made to provide the user with a greater degree of toolbar customization.
           Users may need to drag and drop icon grouping and modfy their selections of Toolbars
           to see some of these new options.
+      - Improved support for IRI (international) hrefs.  OPF newly added file manifest ids 
+          now converted to plain ascii to prevent issues with older readers
 
     Bug Fixes:
       - Fix bugs in Marking for Index
