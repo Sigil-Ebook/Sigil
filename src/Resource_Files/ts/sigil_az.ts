@@ -283,7 +283,7 @@
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="275"/>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="506"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="614"/>
         <source>Fonts:</source>
         <translation type="unfinished"/>
     </message>
@@ -337,220 +337,280 @@ if a sans-serif font-family specified in your CSS</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="424"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="425"/>
+        <source>Icon Themes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="437"/>
+        <source>Choose which icon theme you want to use (requires Sigil restart).</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="440"/>
+        <source>Select your icon theme:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="449"/>
+        <source>Sigil&apos;s default icon theme.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="452"/>
+        <source>Default Icons</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="462"/>
+        <source>Icons based on the Fluent theme:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="465"/>
+        <source>Fluent Icons</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="475"/>
+        <source>Icons based on Google&apos;s Material theme:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="478"/>
+        <source>Material Icons</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="488"/>
+        <source>Custom Icon Theme:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="491"/>
+        <source>Custom Icons</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="532"/>
         <source>Main UI</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="430"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="538"/>
         <source>Main Menu Icon Size:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="436"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="544"/>
         <source>Adjust the size of the icons in the main menu.</source>
         <translation>Ana menyudakı simgələrin ölçülərinin tənzimlənməsi</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="474"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="582"/>
         <source>High DPI Setting:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="483"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="591"/>
         <source>(Needs Sigil Restart)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="512"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="620"/>
         <source>UI Font:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="522"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="630"/>
         <source>Change the font used by Sigil&apos;s menus, buttons, etc...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="525"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="633"/>
         <source>Change Font (Needs Sigil Restart)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="548"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="656"/>
         <source>Determine if the BookBrowser should show full paths</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="551"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="659"/>
         <source>Control Book Browser Appearance:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="560"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="668"/>
         <source>Check to make BookBrowser show full paths.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="563"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="671"/>
         <source>BookBrowser should show full paths.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="576"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="684"/>
         <source>Tweak Drag Distance (Needs Sigil Restart):</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="609"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="717"/>
         <source>Reset all fonts and colors to the default values</source>
         <translation>Bütün şriftlərin və rənglərin susqunluq qiymətlərini yenidən yükləmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PAppearanceWidget.ui" line="612"/>
+        <location filename="../../Form_Files/PAppearanceWidget.ui" line="720"/>
         <source>Reset All</source>
         <translation>Hamısını ilkin vəziyyətə qaytarmaq</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="92"/>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="93"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="97"/>
+        <source>Custom icon theme provided by the user</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="111"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="112"/>
         <source>Detect</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="92"/>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="95"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="111"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="114"/>
         <source>On</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="92"/>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="97"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="111"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="116"/>
         <source>Off</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="93"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="112"/>
         <source>Detect whether any high dpi scaling should take place.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="94"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="113"/>
         <source>Defers to any Qt environment variables that are set to control high dpi behavior.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="95"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="114"/>
         <source>Turns on high dpi scaling and ignores any Qt environment variables</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="96"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="115"/>
         <source>that are set controlling high dpi behavior.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="97"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="116"/>
         <source>Turns off high dpi scaling regardless if any Qt environment</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="98"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="117"/>
         <source>variables controlling high dpi behavior are set.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="102"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="121"/>
         <source>Adjust the distance necessary to drag an item before a move event is triggered.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="103"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="122"/>
         <source>-20 to +20 pixel range</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="287"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="335"/>
         <source>CSS Comment</source>
         <translation>CSS Şərhi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="288"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="336"/>
         <source>CSS Property</source>
         <translation>CSS Xassəsi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="289"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="337"/>
         <source>CSS Quote</source>
         <translation>CSS Dırnağı</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="290"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="338"/>
         <source>CSS Selector</source>
         <translation>CSS Selektor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="291"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="339"/>
         <source>CSS Value</source>
         <translation>CSS Qiyməti</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="292"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="340"/>
         <source>Line Highlight</source>
         <translation>Sətiri Qeyd etmək</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="293"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="341"/>
         <source>Line# Background</source>
         <translation>Sətir# Arxa plan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="294"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="342"/>
         <source>Line# Foreground</source>
         <translation>Sətir# Ön plan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="295"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="343"/>
         <source>Spelling Underline</source>
         <translation>Altdan xətt çəkilənlərin orfoqrafik yoxlanılması</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="296"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="344"/>
         <source>XHTML Attribute Name</source>
         <translation>XHTML Atribut Adı</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="297"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="345"/>
         <source>XHTML Attribute Value</source>
         <translation>XHTML Atributun qiyməti</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="298"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="346"/>
         <source>XHTML CSS</source>
         <translation>XHTML CSS</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="299"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="347"/>
         <source>XHTML CSS Comment</source>
         <translation>XHTML CSS Şərhi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="300"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="348"/>
         <source>XHTML DocType</source>
         <translation>XHTML DocType</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="301"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="349"/>
         <source>XHTML Entity</source>
         <translation>XHTML Obyekti</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="302"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="350"/>
         <source>XHTML HTML Tag</source>
         <translation>XHTML HTML Teqi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="303"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="351"/>
         <source>XHTML HTML Comment</source>
         <translation>XHTML HTML Şərhi</translation>
     </message>
@@ -558,7 +618,7 @@ if a sans-serif font-family specified in your CSS</source>
 <context>
     <name>Book</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="415"/>
+        <location filename="../../BookManipulation/Book.cpp" line="416"/>
         <source>Start</source>
         <translation>Başlamaq</translation>
     </message>
@@ -577,8 +637,8 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="82"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1719"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1841"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1720"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1842"/>
         <source>Open With</source>
         <translation>Proqramı ilə Aç</translation>
     </message>
@@ -591,10 +651,10 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="245"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="694"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="725"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="783"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="897"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1183"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="784"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="898"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1184"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1289"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -660,7 +720,7 @@ A file with this name already exists in the book.</source>
 Bu adlı fayl artıq kitabda mövcuddur.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="784"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="785"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -669,220 +729,220 @@ Bu adlı fayl artıq kitabda mövcuddur.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="798"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="799"/>
         <source>File(s) added.</source>
         <translation>Fayl(lar) əlavə olundu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="838"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="839"/>
         <source>Save As File</source>
         <translation>Fayl  Olaraq Yadda saxla</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="861"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="862"/>
         <source>Unable to save the file.</source>
         <translation>Faylı yadda saxlamaq mümkün deyildir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="875"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="876"/>
         <source>Choose the directory to save the files to</source>
         <translation>Faylları yadda saxlamaq üçün kataloqu seçin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="897"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="898"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Bir vəya daha çox fayl artıq mövcuddur. Üstünə yazmaq üçün OK?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="914"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="915"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Faylları yadda saxlamaq olmur. Səbəb karaloq ola bilər.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="922"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="923"/>
         <source>Unable to save files.</source>
         <translation>Faylları yadda saxlamaq olmur.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1183"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1184"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Faylın adını dəyişdirmək olmur, bu fayl adının dublikasiyasının nəticəsində ola bilir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1254"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1255"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1288"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1289"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1335"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1336"/>
         <source>The Nav document can not be removed.</source>
         <translation>Nav sənəd silinə bilməz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1343"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1344"/>
         <source>The NCX can not be removed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1350"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1351"/>
         <source>The OPF is required for epub and can not be removed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1359"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1360"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Bütün HTML fayllarını silə bilməzsiniz. Həmişə, ən azından,  bir dənə olmalıdır.
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1500"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1501"/>
         <source>Unable to set file as cover image.</source>
         <translation>Faylı qapak şəkli olaraq təyin etmək mümkünsüzdür.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1698"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1699"/>
         <source>Select All</source>
         <translation>Hamısını Seç</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1699"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1700"/>
         <source>Add Blank HTML File</source>
         <translation>Boş HTML Faylını Əlavə ET</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1700"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1701"/>
         <source>Add Blank Stylesheet</source>
         <translation>Boş Stil Səhifəsi Əlavə Et</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1701"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1702"/>
         <source>Add Blank SVG Image</source>
         <translation>Boş SVG Rəsm Əaləvə Et</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1702"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1703"/>
         <source>Add Existing Files...</source>
         <translation>Mövcud Faylları Əlavə Et...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1703"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1704"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1705"/>
         <source>Add Copy</source>
         <translation>Surətini Əlavə Et</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1705"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1706"/>
         <source>Rename</source>
         <translation>Yenidən Adlandır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1706"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1707"/>
         <source>RegEx Rename</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1707"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1708"/>
         <source>Move</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1708"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1709"/>
         <source>Delete</source>
         <translation>Sil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1709"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1710"/>
         <source>Cover Image</source>
         <translation>Qapak Rəsmi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1710"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1711"/>
         <source>Merge</source>
         <translation>Birləştir</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1711"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1712"/>
         <source>None</source>
         <translation>Yoxdur</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1712"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1713"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Adobe metodlarından istifadə et;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1713"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1714"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>IDPF&apos;in Metodunu İstifadə Et</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1714"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1715"/>
         <source>Sort</source>
         <translation>Sırala</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1715"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1716"/>
         <source>Renumber TOC Entries</source>
         <translation>Mündəricat girişlərini təkrar sırala</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1716"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1717"/>
         <source>Link Stylesheets...</source>
         <translation>Stil Səhifəsini İşarələ...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1717"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1718"/>
         <source>Add Semantics...</source>
         <translation>Semantikaları Əlavə Et...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1718"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1719"/>
         <source>Validate with W3C</source>
         <translation>W3C ilə Təsdiqlə</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1720"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1721"/>
         <source>Save As</source>
         <translation>... Kimi Yadda Saxla</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1734"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1735"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Əvvəlki faylları birləşdir, vəya çox faylı birində birləşdir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1737"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1738"/>
         <source>Rename selected file(s)</source>
         <translation>Seçilmiş faylın(faylların) adını dərişdir</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1739"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1740"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1742"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1743"/>
         <source>Move selected file(s) to a new folder</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1744"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1745"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Üslublar cədvəlini seçilmiş faylla(fayllarla) əlaqələndir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1746"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1747"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Seçilmiş fayla(fayllara)  semantika əlavə edin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1876"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
         <source>Other Application</source>
         <translation>Diğər Tətbiq</translation>
     </message>
@@ -1422,7 +1482,7 @@ Dəyişikliklərinizi yadda saxlamaq istəyirsinizmi?</translation>
         <translation>Mətn</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="680"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="702"/>
         <source>Unable to create file %1</source>
         <translation>%1 faylını yaratmaq mümkün deyildir</translation>
     </message>
@@ -1481,102 +1541,102 @@ Dəyişikliklərinizi yadda saxlamaq istəyirsinizmi?</translation>
         <translation>Bu pozisiyada açılış teqləri tapılmadı</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1241"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1246"/>
         <source>Add To Default Dictionary</source>
         <translation>Susqunluqla Lüğətini Əlavə Et</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1254"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1259"/>
         <source>Add To Dictionary</source>
         <translation>Lüğəti Əlavə Et</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1271"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1276"/>
         <source>Ignore</source>
         <translation>Nəzərə alma</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1333"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1338"/>
         <source>Reformat CSS</source>
         <translation>CSS&apos;i Yenidən Formatla</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1335"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1340"/>
         <source>Multiple Lines Per Style</source>
         <translation>Stil Başına Çoxlu Sətir</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1336"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1341"/>
         <source>Single Line Per Style</source>
         <translation>Stil Başına Tək Sətir</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1361"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1366"/>
         <source>Reformat HTML</source>
         <translation>HTML&apos;i Yenidən Formatla</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1363"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1368"/>
         <source>Mend and Prettify Code</source>
         <translation>Kodu Dəyişdir və Dəqiqləşdir</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1364"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1369"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Kodu Dəyişdir və Dəqiqləşdir- Bütün HTML Faylları</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1365"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1370"/>
         <source>Mend Code</source>
         <translation>Kodu Dəyişdir</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1366"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1371"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Kodu Dəyişdir - Bütün  HTML Faylları</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1396"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1401"/>
         <source>Go To Link Or Style</source>
         <translation>Linkə vəya Stilə  Get</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1418"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1423"/>
         <source>View Image</source>
         <translation>Rəsmi Görüntülə</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1419"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1424"/>
         <source>Open Tab For Image</source>
         <translation>Rəsm üçün Səkmə Aç</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1445"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1450"/>
         <source>Mark Selected Text</source>
         <translation>Seçilmiş  Mətni İşarələ</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1447"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1452"/>
         <source>Unmark Marked Text</source>
         <translation>İşarəli Mətnin İşarəsini  Qaldır</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1473"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1478"/>
         <source>Clips</source>
         <translation>Kliplər</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1483"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1488"/>
         <source>Add To Clips</source>
         <translation>Kliplərə Əlavə Et</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1609"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1614"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Bu özelliği kullanmak için bir HTML açılış etiketinde olmanız gerekiyor.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1619"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1624"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Bu xüsusiyyətdən istifadə etmək üçün Siz açılmış HTML teqi daxilində olmalısınız..</translation>
     </message>
@@ -1584,22 +1644,22 @@ Dəyişikliklərinizi yadda saxlamaq istəyirsinizmi?</translation>
 <context>
     <name>ColorSwatchDelegate</name>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="59"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="61"/>
         <source>Background</source>
         <translation>Arxaplan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="61"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="63"/>
         <source>Foreground</source>
         <translation>Önplan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="63"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="65"/>
         <source>Selection Background</source>
         <translation>Arxaplan Seçimi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="65"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="67"/>
         <source>Selection Foreground</source>
         <translation>Önplan Seçimi</translation>
     </message>
@@ -1689,7 +1749,7 @@ Dəyişikliklərinizi yadda saxlamaq istəyirsinizmi?</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="75"/>
-        <location filename="../../Dialogs/EditTOC.cpp" line="465"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="467"/>
         <source>Delete</source>
         <translation>Sil</translation>
     </message>
@@ -1734,27 +1794,27 @@ Siz, ayrıca,  sağ ox düyməsindən də istifadə edə bilərsiniz.</translati
         <translation>Hədəf</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="464"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="466"/>
         <source>Rename</source>
         <translation>Yenidən Adlandır</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="472"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="474"/>
         <source>Move Up</source>
         <translation>Yuxarı Daşı</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="473"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="475"/>
         <source>Move Down</source>
         <translation>Aşağı Daşı</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="479"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="481"/>
         <source>Expand All</source>
         <translation>Hamısını Genişlət</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="480"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="482"/>
         <source>Collapse All</source>
         <translation>Hamısını  Daralt</translation>
     </message>
@@ -2323,7 +2383,7 @@ axtarış edin və axtarışa davam etmək üçün
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="853"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="849"/>
         <source>Print %1</source>
         <translation>Çap et %1</translation>
     </message>
@@ -3372,18 +3432,18 @@ Siz yuxarıdakı siyahıda ayrı ayrı başlıqların qarşısındakı bayraqcı
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
-        <source>This EPUB has HTML files that are not well formed. Sigil can attempt to automatically fix these files, although this may result in minor data loss in extreme circumstances.
+        <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements. Sigil can automatically fix these files, although this may result in minor data loss in extreme circumstances.
 
 Do you want to automatically fix the files?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="569"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="571"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation>Epub itmişdir vəya OPF düzgün göstərilməmişdir</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="609"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="611"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
         <translation type="unfinished"/>
     </message>
@@ -7406,160 +7466,185 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="388"/>
-        <location filename="../../Form_Files/main.ui" line="428"/>
+        <location filename="../../Form_Files/main.ui" line="453"/>
         <source>Checkpoints</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="411"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1157"/>
+        <location filename="../../Form_Files/main.ui" line="412"/>
+        <source>New</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="426"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1159"/>
         <source>File</source>
         <translation>Fayl</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="443"/>
+        <location filename="../../Form_Files/main.ui" line="440"/>
+        <source>Add Existing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="468"/>
         <source>Index</source>
         <translation>İndeks</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="459"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="391"/>
+        <location filename="../../Form_Files/main.ui" line="484"/>
+        <source>Undo/Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="498"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="393"/>
         <source>Edit</source>
         <translation>Düzəliş et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="480"/>
+        <location filename="../../Form_Files/main.ui" line="513"/>
+        <source>External Editor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="526"/>
+        <source>Find</source>
+        <translation>Tap</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="540"/>
         <source>Insert</source>
         <translation>Daxil et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="497"/>
+        <location filename="../../Form_Files/main.ui" line="557"/>
         <source>Back</source>
         <translation>Geri</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="509"/>
+        <location filename="../../Form_Files/main.ui" line="569"/>
         <source>Donate</source>
         <translation>Layihəyə ianə vermək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="521"/>
+        <location filename="../../Form_Files/main.ui" line="581"/>
         <source>Tools</source>
         <translation>Alətlər</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="535"/>
+        <location filename="../../Form_Files/main.ui" line="596"/>
         <source>Plugins Set 1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="551"/>
+        <location filename="../../Form_Files/main.ui" line="612"/>
         <source>Plugins Set 2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="567"/>
+        <location filename="../../Form_Files/main.ui" line="628"/>
         <source>Heading</source>
         <translation>Başlıq</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="581"/>
+        <location filename="../../Form_Files/main.ui" line="642"/>
         <source>set Heading Level of Selected Text</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="594"/>
+        <location filename="../../Form_Files/main.ui" line="655"/>
         <source>Format</source>
         <translation>Format</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="611"/>
+        <location filename="../../Form_Files/main.ui" line="672"/>
         <source>Align</source>
         <translation>Sıralama</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="626"/>
+        <location filename="../../Form_Files/main.ui" line="687"/>
         <source>List</source>
         <translation>Siyahı</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="639"/>
+        <location filename="../../Form_Files/main.ui" line="700"/>
         <source>Indent</source>
         <translation>Sətirbaşı</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="652"/>
+        <location filename="../../Form_Files/main.ui" line="713"/>
         <source>Change Case</source>
         <translation>Registri Dəyiş</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="666"/>
+        <location filename="../../Form_Files/main.ui" line="727"/>
         <source>set Case of Selected Text</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="676"/>
+        <location filename="../../Form_Files/main.ui" line="737"/>
         <source>Text Direction</source>
         <translation>Metnin İstiqaməti</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="690"/>
+        <location filename="../../Form_Files/main.ui" line="751"/>
         <source>Clip Bar</source>
         <translation>Klip Paneli</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="721"/>
+        <location filename="../../Form_Files/main.ui" line="782"/>
         <source>Clip Bar2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="757"/>
+        <location filename="../../Form_Files/main.ui" line="818"/>
         <source>New Default</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="760"/>
+        <location filename="../../Form_Files/main.ui" line="821"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new default book.&lt;/p&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="765"/>
+        <location filename="../../Form_Files/main.ui" line="826"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="775"/>
+        <location filename="../../Form_Files/main.ui" line="836"/>
         <source>ePub&amp;2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="778"/>
+        <location filename="../../Form_Files/main.ui" line="839"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub2 book.&lt;/p&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="790"/>
+        <location filename="../../Form_Files/main.ui" line="851"/>
         <source>ePub&amp;3</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="793"/>
+        <location filename="../../Form_Files/main.ui" line="854"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub3 book.&lt;/p&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="805"/>
+        <location filename="../../Form_Files/main.ui" line="866"/>
         <source>&amp;Save</source>
         <translation>&amp;Yadda saxla</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="808"/>
+        <location filename="../../Form_Files/main.ui" line="869"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
@@ -7568,17 +7653,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Cari kitabı yadda saxla.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="813"/>
+        <location filename="../../Form_Files/main.ui" line="874"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="818"/>
+        <location filename="../../Form_Files/main.ui" line="879"/>
         <source>Save &amp;As...</source>
         <translation>&amp;...Kimi yadda saxla</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="821"/>
+        <location filename="../../Form_Files/main.ui" line="882"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
@@ -7587,27 +7672,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Cari kitabı fərqli fayl adı ilə yadda saxla</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="826"/>
+        <location filename="../../Form_Files/main.ui" line="887"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="831"/>
+        <location filename="../../Form_Files/main.ui" line="892"/>
         <source>Save A &amp;Copy...</source>
         <translation>&amp;Surəti yadda saxla...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="834"/>
+        <location filename="../../Form_Files/main.ui" line="895"/>
         <source>Save a copy of your book to another file name.</source>
         <translation>Kitabın surətii fərqli fayl adı ilə yadda saxla</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="843"/>
+        <location filename="../../Form_Files/main.ui" line="904"/>
         <source>Cu&amp;t</source>
         <translation>Kə&amp;s</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="846"/>
+        <location filename="../../Form_Files/main.ui" line="907"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
@@ -7616,12 +7701,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt; Seçilmiş mətni sənəddən kəsir və mübadilə buferinə yerləşdirir.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="857"/>
+        <location filename="../../Form_Files/main.ui" line="918"/>
         <source>&amp;Paste</source>
         <translation>&amp;Yapışdır</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="860"/>
+        <location filename="../../Form_Files/main.ui" line="921"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
@@ -7630,27 +7715,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Mübadilə buferindən mətni kitabın içərisinə qoyur.&lt;/pgt</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="867"/>
+        <location filename="../../Form_Files/main.ui" line="928"/>
         <source>&amp;Closing Tag</source>
         <translation>Taqın bağlanması</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="870"/>
+        <location filename="../../Form_Files/main.ui" line="931"/>
         <source>Insert a closing tag in Code View.</source>
         <translation>Code View-ə bağlanma kodu əlavə edin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="873"/>
+        <location filename="../../Form_Files/main.ui" line="934"/>
         <source>Ctrl+.</source>
         <translation>Ctrl+</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="882"/>
+        <location filename="../../Form_Files/main.ui" line="943"/>
         <source>&amp;Undo</source>
         <translation>Ləğv etmə</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="885"/>
+        <location filename="../../Form_Files/main.ui" line="946"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
@@ -7659,17 +7744,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt; Əvvəlki əməliyyatın dəyişikliklərini qaytarır.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="890"/>
+        <location filename="../../Form_Files/main.ui" line="951"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="899"/>
+        <location filename="../../Form_Files/main.ui" line="960"/>
         <source>&amp;Redo</source>
         <translation>Təkrar icra etmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="902"/>
+        <location filename="../../Form_Files/main.ui" line="963"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
@@ -7678,17 +7763,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt; Əvvəlki Ləğv etmə  əməliyyatı tərəfindən ləğv edilən  dəyişiklikləri bərpa edir.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="907"/>
+        <location filename="../../Form_Files/main.ui" line="968"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="916"/>
+        <location filename="../../Form_Files/main.ui" line="977"/>
         <source>&amp;Copy</source>
         <translation>Köçürmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="919"/>
+        <location filename="../../Form_Files/main.ui" line="980"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
@@ -7698,12 +7783,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="933"/>
+        <location filename="../../Form_Files/main.ui" line="994"/>
         <source>Align &amp;Left</source>
         <translation>Sıralamaq &amp;Sol</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="936"/>
+        <location filename="../../Form_Files/main.ui" line="997"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
@@ -7712,12 +7797,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Paraqrafı sola görə sıralamaq.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="950"/>
+        <location filename="../../Form_Files/main.ui" line="1011"/>
         <source>Align &amp;Right</source>
         <translation>Sıralamaq &amp;Sağ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="953"/>
+        <location filename="../../Form_Files/main.ui" line="1014"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
@@ -7726,12 +7811,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt; Paraqrafı sağa görə sıralamaq.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="967"/>
+        <location filename="../../Form_Files/main.ui" line="1028"/>
         <source>&amp;Center</source>
         <translation>Mərkəz</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="970"/>
+        <location filename="../../Form_Files/main.ui" line="1031"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
@@ -7740,17 +7825,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Paraqrafı mərkəzləşdir.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="975"/>
+        <location filename="../../Form_Files/main.ui" line="1036"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="987"/>
+        <location filename="../../Form_Files/main.ui" line="1048"/>
         <source>&amp;Justify</source>
         <translation>Düzləndirmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="990"/>
+        <location filename="../../Form_Files/main.ui" line="1051"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
@@ -7760,17 +7845,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="995"/>
+        <location filename="../../Form_Files/main.ui" line="1056"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1007"/>
+        <location filename="../../Form_Files/main.ui" line="1068"/>
         <source>&amp;Bold</source>
         <translation>Qalın</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1010"/>
+        <location filename="../../Form_Files/main.ui" line="1071"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
@@ -7779,17 +7864,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Seçilmiş mətni qalın edin.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1015"/>
+        <location filename="../../Form_Files/main.ui" line="1076"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1027"/>
+        <location filename="../../Form_Files/main.ui" line="1088"/>
         <source>&amp;Italic</source>
         <translation>&amp;Italic</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1030"/>
+        <location filename="../../Form_Files/main.ui" line="1091"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
@@ -7798,17 +7883,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt; Seçilmiş mətni italic edin.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1035"/>
+        <location filename="../../Form_Files/main.ui" line="1096"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1044"/>
+        <location filename="../../Form_Files/main.ui" line="1105"/>
         <source>&amp;Open...</source>
         <translation>&amp;Aç...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1047"/>
+        <location filename="../../Form_Files/main.ui" line="1108"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
@@ -7817,17 +7902,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Kitabı diskdən aç.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1052"/>
+        <location filename="../../Form_Files/main.ui" line="1113"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1064"/>
+        <location filename="../../Form_Files/main.ui" line="1125"/>
         <source>&amp;Underline</source>
         <translation>&amp;Altını çizmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1067"/>
+        <location filename="../../Form_Files/main.ui" line="1128"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
@@ -7836,42 +7921,42 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Seçilmiş mətnin altını çizmək.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1072"/>
+        <location filename="../../Form_Files/main.ui" line="1133"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1084"/>
+        <location filename="../../Form_Files/main.ui" line="1145"/>
         <source>&amp;Quit</source>
         <translation>&amp;Çıxış</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1087"/>
+        <location filename="../../Form_Files/main.ui" line="1148"/>
         <source>Exit</source>
         <translation>Çıxış</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1090"/>
+        <location filename="../../Form_Files/main.ui" line="1151"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1102"/>
+        <location filename="../../Form_Files/main.ui" line="1163"/>
         <source>&amp;About...</source>
         <translation>Haqqında...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1105"/>
+        <location filename="../../Form_Files/main.ui" line="1166"/>
         <source>Show information about Sigil.</source>
         <translation>Sigil haqqında məlumatı göstərin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1110"/>
+        <location filename="../../Form_Files/main.ui" line="1171"/>
         <source>Add &amp;Cover...</source>
         <translation>Üz qabığı əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1113"/>
+        <location filename="../../Form_Files/main.ui" line="1174"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
@@ -7880,12 +7965,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Qapaq Əlavə et.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1124"/>
+        <location filename="../../Form_Files/main.ui" line="1185"/>
         <source>&amp;Metadata Editor...</source>
         <translation>Metadata Redaktoru...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1127"/>
+        <location filename="../../Form_Files/main.ui" line="1188"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
@@ -7894,17 +7979,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt; Müəllif və başlıq daxil olmaqla kitabınız haqqında məlumatları redaktə edin və göstərin.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1132"/>
+        <location filename="../../Form_Files/main.ui" line="1193"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1141"/>
+        <location filename="../../Form_Files/main.ui" line="1202"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation>&amp;Mündəricat yaradın ...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1144"/>
+        <location filename="../../Form_Files/main.ui" line="1205"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
@@ -7913,17 +7998,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt; Kitapınızdaki başlıqlardan ibarət yeni bir Mündəricat yaradın.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1149"/>
+        <location filename="../../Form_Files/main.ui" line="1210"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1154"/>
+        <location filename="../../Form_Files/main.ui" line="1219"/>
         <source>&amp;Edit Table Of Contents...</source>
         <translation>&amp;Mündəricatın redaktəsi...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1157"/>
+        <location filename="../../Form_Files/main.ui" line="1222"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
@@ -7932,12 +8017,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot; margin-left: 0.5em;&quot;&gt;Mövcud Mündəricatın birbaşa redaktəsi.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1168"/>
+        <location filename="../../Form_Files/main.ui" line="1233"/>
         <source>&amp;Split At Cursor</source>
         <translation>&amp;Kursorla Ayırma</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1171"/>
+        <location filename="../../Form_Files/main.ui" line="1236"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
@@ -7947,17 +8032,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1176"/>
+        <location filename="../../Form_Files/main.ui" line="1241"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1185"/>
+        <location filename="../../Form_Files/main.ui" line="1250"/>
         <source>&amp;File...</source>
         <translation>&amp;Fayl...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1188"/>
+        <location filename="../../Form_Files/main.ui" line="1253"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
@@ -7971,17 +8056,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1195"/>
+        <location filename="../../Form_Files/main.ui" line="1260"/>
         <source>Ctrl+Shift+I</source>
         <translation>Ctrl+Shift+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1204"/>
+        <location filename="../../Form_Files/main.ui" line="1269"/>
         <source>&amp;Special Character...</source>
         <translation>&amp;Xüsusi Simvol...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1207"/>
+        <location filename="../../Form_Files/main.ui" line="1272"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
@@ -7991,12 +8076,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1218"/>
+        <location filename="../../Form_Files/main.ui" line="1283"/>
         <source>I&amp;D...</source>
         <translation>I&amp;D...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1221"/>
+        <location filename="../../Form_Files/main.ui" line="1286"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
@@ -8006,12 +8091,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1232"/>
+        <location filename="../../Form_Files/main.ui" line="1297"/>
         <source>&amp;Link...</source>
         <translation>&amp;Əlaqə...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1235"/>
+        <location filename="../../Form_Files/main.ui" line="1300"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
@@ -8021,12 +8106,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1249"/>
+        <location filename="../../Form_Files/main.ui" line="1314"/>
         <source>&amp;Numbered List</source>
         <translation>&amp;Nömrələnmiş Siyahı</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1252"/>
+        <location filename="../../Form_Files/main.ui" line="1317"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
@@ -8036,12 +8121,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1266"/>
+        <location filename="../../Form_Files/main.ui" line="1331"/>
         <source>Bulle&amp;ted List</source>
         <translation>Marker&amp;li Siyahı</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1269"/>
+        <location filename="../../Form_Files/main.ui" line="1334"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
@@ -8051,17 +8136,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1274"/>
+        <location filename="../../Form_Files/main.ui" line="1339"/>
         <source>Ctrl+Shift+L</source>
         <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1286"/>
+        <location filename="../../Form_Files/main.ui" line="1351"/>
         <source>Stri&amp;kethrough</source>
         <translation>Üstündən xətt&amp;çəkmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1289"/>
+        <location filename="../../Form_Files/main.ui" line="1354"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
@@ -8071,12 +8156,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1303"/>
+        <location filename="../../Form_Files/main.ui" line="1368"/>
         <source>&amp;Subscript</source>
         <translation>&amp;Aşağı indeks</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1306"/>
+        <location filename="../../Form_Files/main.ui" line="1371"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
@@ -8086,12 +8171,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1320"/>
+        <location filename="../../Form_Files/main.ui" line="1385"/>
         <source>Su&amp;perscript</source>
         <translation>Yuxarı&amp;İndeks</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1323"/>
+        <location filename="../../Form_Files/main.ui" line="1388"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
@@ -8101,88 +8186,88 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1334"/>
+        <location filename="../../Form_Files/main.ui" line="1399"/>
         <source>&amp;Print...</source>
         <translation>&amp;Çap et...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1337"/>
+        <location filename="../../Form_Files/main.ui" line="1402"/>
         <source>Print</source>
         <translation>Çap et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1340"/>
+        <location filename="../../Form_Files/main.ui" line="1405"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1349"/>
+        <location filename="../../Form_Files/main.ui" line="1414"/>
         <source>Print Pre&amp;view...</source>
         <translation>Çap Öncə&amp;baxış...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1352"/>
+        <location filename="../../Form_Files/main.ui" line="1417"/>
         <source>Print Preview</source>
         <translation>Çap öngörüntüsü</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1357"/>
-        <location filename="../../Form_Files/main.ui" line="1360"/>
+        <location filename="../../Form_Files/main.ui" line="1422"/>
+        <location filename="../../Form_Files/main.ui" line="1425"/>
         <source>Close</source>
         <translation>Bağla</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1363"/>
+        <location filename="../../Form_Files/main.ui" line="1428"/>
         <source>Ctrl+Shift+W</source>
         <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1368"/>
+        <location filename="../../Form_Files/main.ui" line="1433"/>
         <source>Restructure Epub to Sigil Norm</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1371"/>
+        <location filename="../../Form_Files/main.ui" line="1436"/>
         <source>Restructure Epub to Sigil Standard Form</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1380"/>
+        <location filename="../../Form_Files/main.ui" line="1445"/>
         <source>Zoom &amp;In</source>
         <translation>Yaxınlaşdır </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1383"/>
+        <location filename="../../Form_Files/main.ui" line="1448"/>
         <source>Zoom In</source>
         <translation>Yaxınlaşdır</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1386"/>
+        <location filename="../../Form_Files/main.ui" line="1451"/>
         <source>Ctrl+=</source>
         <translation>Ctrl+=</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1395"/>
+        <location filename="../../Form_Files/main.ui" line="1460"/>
         <source>Zoom &amp;Out</source>
         <translation>&amp;Uzaqlaşdır</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1398"/>
+        <location filename="../../Form_Files/main.ui" line="1463"/>
         <source>Zoom Out</source>
         <translation>Uzaqlaşdır</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1401"/>
+        <location filename="../../Form_Files/main.ui" line="1466"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1410"/>
+        <location filename="../../Form_Files/main.ui" line="1475"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation>&amp;Tap və Əvəz et...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1413"/>
+        <location filename="../../Form_Files/main.ui" line="1478"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
@@ -8192,17 +8277,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1418"/>
+        <location filename="../../Form_Files/main.ui" line="1483"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1427"/>
+        <location filename="../../Form_Files/main.ui" line="1492"/>
         <source>Incre&amp;ase Indent</source>
         <translation>Sətirbaşını&amp;Artır</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1430"/>
+        <location filename="../../Form_Files/main.ui" line="1495"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
@@ -8212,17 +8297,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1435"/>
+        <location filename="../../Form_Files/main.ui" line="1500"/>
         <source>Ctrl+Alt+M</source>
         <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1444"/>
+        <location filename="../../Form_Files/main.ui" line="1509"/>
         <source>&amp;Decrease Indent</source>
         <translation>Sətirbaşını&amp;Azalt</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1447"/>
+        <location filename="../../Form_Files/main.ui" line="1512"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
@@ -8232,18 +8317,18 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1452"/>
-        <location filename="../../Form_Files/main.ui" line="1868"/>
+        <location filename="../../Form_Files/main.ui" line="1517"/>
+        <location filename="../../Form_Files/main.ui" line="1933"/>
         <source>Ctrl+Shift+M</source>
         <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1461"/>
+        <location filename="../../Form_Files/main.ui" line="1526"/>
         <source>Te&amp;xt Direction LTR</source>
         <translation>Mətnin istiqaməti s&amp;oldan sağa</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1464"/>
+        <location filename="../../Form_Files/main.ui" line="1529"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
@@ -8255,12 +8340,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1477"/>
+        <location filename="../../Form_Files/main.ui" line="1542"/>
         <source>T&amp;ext Direction RTL</source>
         <translation>Mətnin istiqaməti s&amp;ağdan sola</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1480"/>
+        <location filename="../../Form_Files/main.ui" line="1545"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
@@ -8271,12 +8356,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Paraqrafın istiqamətini Sağdan-Sola təyin et.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1493"/>
+        <location filename="../../Form_Files/main.ui" line="1558"/>
         <source>Text Directi&amp;on Default</source>
         <translation>Mətn İstiqaməti&amp;Susmaya görə</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1496"/>
+        <location filename="../../Form_Files/main.ui" line="1561"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
@@ -8287,22 +8372,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Paraqraf istiqaməti susmaya görə təyin edilir.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1505"/>
+        <location filename="../../Form_Files/main.ui" line="1570"/>
         <source>Remove &amp;Formatting</source>
         <translation>Formatı &amp;Silmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1508"/>
+        <location filename="../../Form_Files/main.ui" line="1573"/>
         <source>Ctrl+Space</source>
         <translation>Ctrl+Space</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1517"/>
+        <location filename="../../Form_Files/main.ui" line="1582"/>
         <source>&amp;Lowercase</source>
         <translation>&amp;Alt registr</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1520"/>
+        <location filename="../../Form_Files/main.ui" line="1585"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -8312,17 +8397,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1527"/>
+        <location filename="../../Form_Files/main.ui" line="1592"/>
         <source>Alt+L</source>
         <translation>Alt+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1536"/>
+        <location filename="../../Form_Files/main.ui" line="1601"/>
         <source>&amp;Uppercase</source>
         <translation>&amp;Yuxarı registr</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1539"/>
+        <location filename="../../Form_Files/main.ui" line="1604"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -8333,17 +8418,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Seçilmiş mətn üçün yuxarı registri təyin edin.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1546"/>
+        <location filename="../../Form_Files/main.ui" line="1611"/>
         <source>Alt+U</source>
         <translation>Alt+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1555"/>
+        <location filename="../../Form_Files/main.ui" line="1620"/>
         <source>&amp;Titlecase</source>
         <translation>&amp;Başlıq registri</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1558"/>
+        <location filename="../../Form_Files/main.ui" line="1623"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -8353,12 +8438,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt; &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Seçilmiş hər bir sözün ilk hərfini böyük yazın.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1571"/>
+        <location filename="../../Form_Files/main.ui" line="1636"/>
         <source>&amp;Capitalize</source>
         <translation>&amp;Böyük hərflərlə yazmaq</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1574"/>
+        <location filename="../../Form_Files/main.ui" line="1639"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -8370,127 +8455,127 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
    </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1583"/>
+        <location filename="../../Form_Files/main.ui" line="1648"/>
         <source>Sigil Website...</source>
         <translation>Sigil Web saytı...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1588"/>
+        <location filename="../../Form_Files/main.ui" line="1653"/>
         <source>&amp;Next Tab</source>
         <translation>&amp;Növbəti Səkmə</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1591"/>
+        <location filename="../../Form_Files/main.ui" line="1656"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1596"/>
+        <location filename="../../Form_Files/main.ui" line="1661"/>
         <source>&amp;Previous Tab</source>
         <translation>&amp;Əvvəlki Səkmə</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1599"/>
+        <location filename="../../Form_Files/main.ui" line="1664"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1604"/>
+        <location filename="../../Form_Files/main.ui" line="1669"/>
         <source>&amp;Close Tab</source>
         <translation>&amp;Səkməni Bağla</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1607"/>
+        <location filename="../../Form_Files/main.ui" line="1672"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1612"/>
+        <location filename="../../Form_Files/main.ui" line="1677"/>
         <source>Split At &amp;Markers</source>
         <translation>Markerlərə görə &amp;Ayırma</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1615"/>
+        <location filename="../../Form_Files/main.ui" line="1680"/>
         <source>Split At Sigil split file markers</source>
         <translation>Sigildə markerlərin ayırma faylina görə ayır</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1618"/>
+        <location filename="../../Form_Files/main.ui" line="1683"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1623"/>
+        <location filename="../../Form_Files/main.ui" line="1688"/>
         <source>Split &amp;Marker</source>
         <translation>Ayırma &amp;Marker</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1626"/>
+        <location filename="../../Form_Files/main.ui" line="1691"/>
         <source>Insert Sigil split file marker</source>
         <translation>Sigil markerlə ayırma faylını əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1629"/>
+        <location filename="../../Form_Files/main.ui" line="1694"/>
         <source>Ctrl+Shift+Return</source>
         <translation>Ctrl+Shift+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1634"/>
+        <location filename="../../Form_Files/main.ui" line="1699"/>
         <source>User &amp;Guide...</source>
         <translation>&amp;İstifadəçi Təlimatı ...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1637"/>
+        <location filename="../../Form_Files/main.ui" line="1702"/>
         <source>User Guide</source>
         <translation>İstifadəçi Təlimatı</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1640"/>
+        <location filename="../../Form_Files/main.ui" line="1705"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1645"/>
+        <location filename="../../Form_Files/main.ui" line="1710"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation>&amp;Tez tez Soruşulan Suallar...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1648"/>
+        <location filename="../../Form_Files/main.ui" line="1713"/>
         <source>Frequently Asked Questions</source>
         <translation>Tez tez Soruşulan Suallar</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1653"/>
+        <location filename="../../Form_Files/main.ui" line="1718"/>
         <source>&amp;Tutorials...</source>
         <translation>&amp;Dərslər...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1656"/>
+        <location filename="../../Form_Files/main.ui" line="1721"/>
         <source>Tutorials</source>
         <translation>Dərslər</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1661"/>
+        <location filename="../../Form_Files/main.ui" line="1726"/>
         <source>Well-Formed Check &amp;EPUB</source>
         <translation>Yaxşı təşkil edilən yoxlama &amp;EPUB</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1664"/>
+        <location filename="../../Form_Files/main.ui" line="1729"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Yaxşı təşkil olunmuş Yoxlama EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt; Sənədinizin tələb olunan minimuma uyğun olduğunu yoxlayın. Bu, müvafiq ePub standartlarına uyğun olmadığını göstərmir.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1667"/>
+        <location filename="../../Form_Files/main.ui" line="1732"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1672"/>
+        <location filename="../../Form_Files/main.ui" line="1737"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation>Üslublar cədvəlini W3C ilə &amp;yoxlayın</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1675"/>
+        <location filename="../../Form_Files/main.ui" line="1740"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -8502,114 +8587,114 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1688"/>
+        <location filename="../../Form_Files/main.ui" line="1753"/>
         <source>&amp;Spellcheck...</source>
         <translation>&amp;İmla yoxlaması...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1691"/>
+        <location filename="../../Form_Files/main.ui" line="1756"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt; &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Bütün yanlış yazılmış sözləri tapın və onları bir lüğətə əlavə edin və ya onlara baxmayın.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1696"/>
+        <location filename="../../Form_Files/main.ui" line="1761"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1704"/>
+        <location filename="../../Form_Files/main.ui" line="1769"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation>&amp;Yanlış Sözləri İşarələyin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1707"/>
+        <location filename="../../Form_Files/main.ui" line="1772"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation>Kod Baxışda  yanlış yazılmış sözlərin vurğulanmasını aktivləşdirin və ya söndürün</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1712"/>
+        <location filename="../../Form_Files/main.ui" line="1777"/>
         <source>&amp;Next Misspelled Word</source>
         <translation>&amp;Növbəti yanlış Söz</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1715"/>
+        <location filename="../../Form_Files/main.ui" line="1780"/>
         <source>Find the next misspelled word in the book.</source>
         <translation>Kitabdakı növbəti yanlış sözü tap</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1718"/>
+        <location filename="../../Form_Files/main.ui" line="1783"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1723"/>
+        <location filename="../../Form_Files/main.ui" line="1788"/>
         <source>&amp;Add Misspelled Word</source>
         <translation>&amp; Yanlış Sözü Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1726"/>
+        <location filename="../../Form_Files/main.ui" line="1791"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation>Cari yanlış sözü, susmaya görə, istifadəçinin lüğətinə əlavə etmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1731"/>
+        <location filename="../../Form_Files/main.ui" line="1796"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation>&amp;Yanlış Sözü Rədd etmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1734"/>
+        <location filename="../../Form_Files/main.ui" line="1799"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation>Sigil yenidən yüklənənə qədər cari yanlış sözü rədd etmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1739"/>
+        <location filename="../../Form_Files/main.ui" line="1804"/>
         <source>&amp;Clear Ignored Words</source>
         <translation>&amp; Rədd edilmiş sözləri təmizləmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1742"/>
+        <location filename="../../Form_Files/main.ui" line="1807"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation>Sigili yenidən yükləmədən İmla yoxlayıcından cari rədd edilmiş sözlərdən təmizlmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1747"/>
+        <location filename="../../Form_Files/main.ui" line="1812"/>
         <source>&amp;Index Editor...</source>
         <translation>&amp;İndeks Redaktoru...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1755"/>
+        <location filename="../../Form_Files/main.ui" line="1820"/>
         <source>Ctrl+Alt+I</source>
         <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1760"/>
+        <location filename="../../Form_Files/main.ui" line="1825"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation>İstifadə olunmayan mediya fayllarını sil...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1765"/>
+        <location filename="../../Form_Files/main.ui" line="1830"/>
         <source>Delete &amp;Unused Stylesheet Classes...</source>
         <translation>Sil &amp;İstifadə olunmayan Üslub Cədvəlləri Siniflərini...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1770"/>
+        <location filename="../../Form_Files/main.ui" line="1835"/>
         <source>&amp;Reports...</source>
         <translation>&amp;Hesabatlar...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1773"/>
+        <location filename="../../Form_Files/main.ui" line="1838"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1782"/>
+        <location filename="../../Form_Files/main.ui" line="1847"/>
         <source>&amp;Donate...</source>
         <translation>&amp;İanə...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1785"/>
+        <location filename="../../Form_Files/main.ui" line="1850"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -8620,644 +8705,644 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1793"/>
+        <location filename="../../Form_Files/main.ui" line="1858"/>
         <source>Close &amp;Other Tabs</source>
         <translation>Bağla &amp;Digər Səkmələr</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1796"/>
+        <location filename="../../Form_Files/main.ui" line="1861"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1801"/>
+        <location filename="../../Form_Files/main.ui" line="1866"/>
         <source>Go To &amp;Line...</source>
         <translation>Get &amp;Sətir...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1804"/>
+        <location filename="../../Form_Files/main.ui" line="1869"/>
         <source>Ctrl+/</source>
         <translation>Ctrl+/</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1809"/>
+        <location filename="../../Form_Files/main.ui" line="1874"/>
         <source>Find &amp;Next</source>
         <translation>Tap &amp;Növbəti</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1812"/>
+        <location filename="../../Form_Files/main.ui" line="1877"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1817"/>
+        <location filename="../../Form_Files/main.ui" line="1882"/>
         <source>Find &amp;Previous</source>
         <translation>Tap &amp;Əvvəlki</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1820"/>
+        <location filename="../../Form_Files/main.ui" line="1885"/>
         <source>Ctrl+Shift+G</source>
         <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1825"/>
+        <location filename="../../Form_Files/main.ui" line="1890"/>
         <source>Replace</source>
         <translation>Əvəz et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1828"/>
+        <location filename="../../Form_Files/main.ui" line="1893"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1833"/>
+        <location filename="../../Form_Files/main.ui" line="1898"/>
         <source>&amp;Replace/Find Next</source>
         <translation>&amp;Əvəz et/Növbətini tap</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1836"/>
+        <location filename="../../Form_Files/main.ui" line="1901"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1841"/>
+        <location filename="../../Form_Files/main.ui" line="1906"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation>Ə&amp;vəz et/Əvvəlkini tap</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1844"/>
+        <location filename="../../Form_Files/main.ui" line="1909"/>
         <source>Ctrl+[</source>
         <translation>Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1849"/>
+        <location filename="../../Form_Files/main.ui" line="1914"/>
         <source>Replace &amp;All</source>
         <translation>Əvəz et&amp;Hamısını</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1852"/>
+        <location filename="../../Form_Files/main.ui" line="1917"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1857"/>
+        <location filename="../../Form_Files/main.ui" line="1922"/>
         <source>&amp;Count All</source>
         <translation>&amp;Hamısını Say</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1860"/>
+        <location filename="../../Form_Files/main.ui" line="1925"/>
         <source>Alt+C</source>
         <translation>Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1865"/>
+        <location filename="../../Form_Files/main.ui" line="1930"/>
         <source>Mar&amp;k Selected Text</source>
         <translation>Seçilmiş mətni&amp;İşarələ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1873"/>
+        <location filename="../../Form_Files/main.ui" line="1938"/>
         <source>Find &amp;Next In File</source>
         <translation>Tap &amp;Növbəti Faylda</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1878"/>
+        <location filename="../../Form_Files/main.ui" line="1943"/>
         <source>&amp;Replace Next In File</source>
         <translation>&amp;Faylda Növbətini Əvəz et </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1883"/>
+        <location filename="../../Form_Files/main.ui" line="1948"/>
         <source>Replace &amp;All In File</source>
         <translation>Faylda olan hamısını əvəz et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1888"/>
+        <location filename="../../Form_Files/main.ui" line="1953"/>
         <source>&amp;Count All In File</source>
         <translation>&amp;Faylda Hamısını Say</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1893"/>
+        <location filename="../../Form_Files/main.ui" line="1962"/>
         <source>&amp;Saved Searches...</source>
         <translation>&amp;Saxlanılan axtarışlar...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1896"/>
+        <location filename="../../Form_Files/main.ui" line="1965"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1901"/>
+        <location filename="../../Form_Files/main.ui" line="1970"/>
         <source>&amp;Clip Editor...</source>
         <translation>&amp;Klip Redaktoru...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1904"/>
+        <location filename="../../Form_Files/main.ui" line="1973"/>
         <source>Open the Clip Editor.</source>
         <translation>Klip Redaktorunu Aç.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1907"/>
+        <location filename="../../Form_Files/main.ui" line="1976"/>
         <source>Ctrl+Alt+C</source>
         <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1912"/>
+        <location filename="../../Form_Files/main.ui" line="1981"/>
         <source>Clip &amp;1</source>
         <translation>Klip &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1915"/>
+        <location filename="../../Form_Files/main.ui" line="1984"/>
         <source>Insert Clip 1</source>
         <translation>Klip 1-i Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1918"/>
+        <location filename="../../Form_Files/main.ui" line="1987"/>
         <source>Ctrl+Alt+1</source>
         <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1923"/>
+        <location filename="../../Form_Files/main.ui" line="1992"/>
         <source>Clip &amp;2</source>
         <translation>Klip &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1926"/>
+        <location filename="../../Form_Files/main.ui" line="1995"/>
         <source>Insert Clip 2</source>
         <translation>Klip 2-ni Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1929"/>
+        <location filename="../../Form_Files/main.ui" line="1998"/>
         <source>Ctrl+Alt+2</source>
         <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1934"/>
+        <location filename="../../Form_Files/main.ui" line="2003"/>
         <source>Clip &amp;3</source>
         <translation>Klip &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1937"/>
+        <location filename="../../Form_Files/main.ui" line="2006"/>
         <source>Insert Clip 3</source>
         <translation>Klip 3-ü Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1940"/>
+        <location filename="../../Form_Files/main.ui" line="2009"/>
         <source>Ctrl+Alt+3</source>
         <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1945"/>
+        <location filename="../../Form_Files/main.ui" line="2014"/>
         <source>Clip &amp;4</source>
         <translation>Klip &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1948"/>
+        <location filename="../../Form_Files/main.ui" line="2017"/>
         <source>Insert Clip 4</source>
         <translation>Klip 4-ü Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1951"/>
+        <location filename="../../Form_Files/main.ui" line="2020"/>
         <source>Ctrl+Alt+4</source>
         <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1956"/>
+        <location filename="../../Form_Files/main.ui" line="2025"/>
         <source>Clip &amp;5</source>
         <translation>Klip &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1959"/>
+        <location filename="../../Form_Files/main.ui" line="2028"/>
         <source>Insert Clip 5</source>
         <translation>Klip 5-i Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1962"/>
+        <location filename="../../Form_Files/main.ui" line="2031"/>
         <source>Ctrl+Alt+5</source>
         <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1967"/>
+        <location filename="../../Form_Files/main.ui" line="2036"/>
         <source>Clip &amp;6</source>
         <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1970"/>
+        <location filename="../../Form_Files/main.ui" line="2039"/>
         <source>Insert Clip 6</source>
         <translation>Klip 6-nı Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1973"/>
+        <location filename="../../Form_Files/main.ui" line="2042"/>
         <source>Ctrl+Alt+6</source>
         <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1978"/>
+        <location filename="../../Form_Files/main.ui" line="2047"/>
         <source>Clip &amp;7</source>
         <translation>Klip &amp;7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1981"/>
+        <location filename="../../Form_Files/main.ui" line="2050"/>
         <source>Insert Clip 7</source>
         <translation>Klip 7-ni Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1984"/>
+        <location filename="../../Form_Files/main.ui" line="2053"/>
         <source>Ctrl+Alt+7</source>
         <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1989"/>
+        <location filename="../../Form_Files/main.ui" line="2058"/>
         <source>Clip &amp;8</source>
         <translation>Clip &amp;8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1992"/>
+        <location filename="../../Form_Files/main.ui" line="2061"/>
         <source>Insert Clip 8</source>
         <translation>Klip 8-i Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1995"/>
+        <location filename="../../Form_Files/main.ui" line="2064"/>
         <source>Ctrl+Alt+8</source>
         <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2000"/>
+        <location filename="../../Form_Files/main.ui" line="2069"/>
         <source>Clip &amp;9</source>
         <translation>Klip &amp;9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2003"/>
+        <location filename="../../Form_Files/main.ui" line="2072"/>
         <source>Insert Clip 9</source>
         <translation>Klip 9-u Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2006"/>
+        <location filename="../../Form_Files/main.ui" line="2075"/>
         <source>Ctrl+Alt+9</source>
         <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2011"/>
+        <location filename="../../Form_Files/main.ui" line="2080"/>
         <source>Clip 1&amp;0</source>
         <translation>Klip 1&amp;0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2014"/>
+        <location filename="../../Form_Files/main.ui" line="2083"/>
         <source>Insert Clip 10</source>
         <translation>Klip 10-u Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2017"/>
+        <location filename="../../Form_Files/main.ui" line="2086"/>
         <source>Ctrl+Alt+0</source>
         <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2022"/>
+        <location filename="../../Form_Files/main.ui" line="2091"/>
         <source>Clip 11</source>
         <translation>Klip 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2025"/>
+        <location filename="../../Form_Files/main.ui" line="2094"/>
         <source>Insert Clip 11</source>
         <translation>Klip 11-i Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2030"/>
+        <location filename="../../Form_Files/main.ui" line="2099"/>
         <source>Clip 12</source>
         <translation>KLip 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2033"/>
+        <location filename="../../Form_Files/main.ui" line="2102"/>
         <source>Insert Clip 12</source>
         <translation>Klip 12-ni Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2038"/>
+        <location filename="../../Form_Files/main.ui" line="2107"/>
         <source>Clip 13</source>
         <translation>Klip 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2041"/>
+        <location filename="../../Form_Files/main.ui" line="2110"/>
         <source>Insert Clip 13</source>
         <translation>Klip 13-ü Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2046"/>
+        <location filename="../../Form_Files/main.ui" line="2115"/>
         <source>Clip 14</source>
         <translation>Klip 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2049"/>
+        <location filename="../../Form_Files/main.ui" line="2118"/>
         <source>Insert Clip 14</source>
         <translation>Klip 14-ü Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2054"/>
+        <location filename="../../Form_Files/main.ui" line="2123"/>
         <source>Clip 15</source>
         <translation>KLip 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2057"/>
+        <location filename="../../Form_Files/main.ui" line="2126"/>
         <source>Insert Clip 15</source>
         <translation>Klip 15-i Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2062"/>
+        <location filename="../../Form_Files/main.ui" line="2131"/>
         <source>Clip 16</source>
         <translation>Klip 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2065"/>
+        <location filename="../../Form_Files/main.ui" line="2134"/>
         <source>Insert Clip 16</source>
         <translation>Klip 16-nı Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2070"/>
+        <location filename="../../Form_Files/main.ui" line="2139"/>
         <source>Clip 17</source>
         <translation>Klip 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2073"/>
+        <location filename="../../Form_Files/main.ui" line="2142"/>
         <source>Insert Clip 17</source>
         <translation>Klip 17-ni Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2078"/>
+        <location filename="../../Form_Files/main.ui" line="2147"/>
         <source>Clip 18</source>
         <translation>Klip 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2081"/>
+        <location filename="../../Form_Files/main.ui" line="2150"/>
         <source>Insert Clip 18</source>
         <translation>Klip 18-i Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2086"/>
+        <location filename="../../Form_Files/main.ui" line="2155"/>
         <source>Clip 19</source>
         <translation>Klip 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2089"/>
+        <location filename="../../Form_Files/main.ui" line="2158"/>
         <source>Insert Clip 19</source>
         <translation>Klip 19-u Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2094"/>
+        <location filename="../../Form_Files/main.ui" line="2163"/>
         <source>Clip 20</source>
         <translation>Klip 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2097"/>
+        <location filename="../../Form_Files/main.ui" line="2166"/>
         <source>Insert Clip 20</source>
         <translation>Klip 20-ni Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2103"/>
+        <location filename="../../Form_Files/main.ui" line="2172"/>
         <source>Clip 21</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2106"/>
+        <location filename="../../Form_Files/main.ui" line="2175"/>
         <source>Insert Clip 21</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2111"/>
+        <location filename="../../Form_Files/main.ui" line="2180"/>
         <source>Clip 22</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2114"/>
+        <location filename="../../Form_Files/main.ui" line="2183"/>
         <source>Insert Clip 22</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2119"/>
+        <location filename="../../Form_Files/main.ui" line="2188"/>
         <source>Clip 23</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2122"/>
+        <location filename="../../Form_Files/main.ui" line="2191"/>
         <source>Insert Clip 23</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2127"/>
+        <location filename="../../Form_Files/main.ui" line="2196"/>
         <source>Clip 24</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2130"/>
+        <location filename="../../Form_Files/main.ui" line="2199"/>
         <source>Insert Clip 24</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2135"/>
+        <location filename="../../Form_Files/main.ui" line="2204"/>
         <source>Clip 25</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2138"/>
+        <location filename="../../Form_Files/main.ui" line="2207"/>
         <source>Insert Clip 25</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2143"/>
+        <location filename="../../Form_Files/main.ui" line="2212"/>
         <source>Clip 26</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2146"/>
+        <location filename="../../Form_Files/main.ui" line="2215"/>
         <source>Insert Clip 26</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2151"/>
+        <location filename="../../Form_Files/main.ui" line="2220"/>
         <source>Clip 27</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2154"/>
+        <location filename="../../Form_Files/main.ui" line="2223"/>
         <source>Insert Clip 27</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2159"/>
+        <location filename="../../Form_Files/main.ui" line="2228"/>
         <source>Clip 28</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2162"/>
+        <location filename="../../Form_Files/main.ui" line="2231"/>
         <source>Insert Clip 28</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2167"/>
+        <location filename="../../Form_Files/main.ui" line="2236"/>
         <source>Clip 29</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2170"/>
+        <location filename="../../Form_Files/main.ui" line="2239"/>
         <source>Insert Clip 29</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2175"/>
+        <location filename="../../Form_Files/main.ui" line="2244"/>
         <source>Clip 30</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2178"/>
+        <location filename="../../Form_Files/main.ui" line="2247"/>
         <source>Insert Clip 30</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2183"/>
+        <location filename="../../Form_Files/main.ui" line="2252"/>
         <source>Clip 31</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2186"/>
+        <location filename="../../Form_Files/main.ui" line="2255"/>
         <source>Insert Clip 31</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2191"/>
+        <location filename="../../Form_Files/main.ui" line="2260"/>
         <source>Clip 32</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2194"/>
+        <location filename="../../Form_Files/main.ui" line="2263"/>
         <source>Insert Clip 32</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2199"/>
+        <location filename="../../Form_Files/main.ui" line="2268"/>
         <source>Clip 33</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2202"/>
+        <location filename="../../Form_Files/main.ui" line="2271"/>
         <source>Insert Clip 33</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2207"/>
+        <location filename="../../Form_Files/main.ui" line="2276"/>
         <source>Clip 34</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2210"/>
+        <location filename="../../Form_Files/main.ui" line="2279"/>
         <source>Insert Clip 34</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2215"/>
+        <location filename="../../Form_Files/main.ui" line="2284"/>
         <source>Clip 35</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2218"/>
+        <location filename="../../Form_Files/main.ui" line="2287"/>
         <source>Insert Clip 35</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2223"/>
+        <location filename="../../Form_Files/main.ui" line="2292"/>
         <source>Clip 36</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2226"/>
+        <location filename="../../Form_Files/main.ui" line="2295"/>
         <source>Insert Clip 36</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2231"/>
+        <location filename="../../Form_Files/main.ui" line="2300"/>
         <source>Clip 37</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2234"/>
+        <location filename="../../Form_Files/main.ui" line="2303"/>
         <source>Insert Clip 37</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2239"/>
+        <location filename="../../Form_Files/main.ui" line="2308"/>
         <source>Clip 38</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2242"/>
+        <location filename="../../Form_Files/main.ui" line="2311"/>
         <source>Insert Clip 38</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2247"/>
+        <location filename="../../Form_Files/main.ui" line="2316"/>
         <source>Clip 39</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2250"/>
+        <location filename="../../Form_Files/main.ui" line="2319"/>
         <source>Insert Clip 39</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2255"/>
+        <location filename="../../Form_Files/main.ui" line="2324"/>
         <source>Clip 40</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2258"/>
+        <location filename="../../Form_Files/main.ui" line="2327"/>
         <source>Insert Clip 40</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2267"/>
+        <location filename="../../Form_Files/main.ui" line="2336"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;Üstün tutulanlar...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2270"/>
+        <location filename="../../Form_Files/main.ui" line="2339"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2275"/>
+        <location filename="../../Form_Files/main.ui" line="2344"/>
         <source>&amp;Zoom Reset</source>
         <translation>&amp;Zoom sıfırlama</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2278"/>
+        <location filename="../../Form_Files/main.ui" line="2347"/>
         <source>Zoom Reset</source>
         <translation>Zoom sıfırlama</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2281"/>
+        <location filename="../../Form_Files/main.ui" line="2350"/>
         <source>Ctrl+0</source>
         <translation>Ctrl+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2293"/>
+        <location filename="../../Form_Files/main.ui" line="2362"/>
         <source>Heading &amp;1</source>
         <translation>Başlıq &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2296"/>
+        <location filename="../../Form_Files/main.ui" line="2365"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt; &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Paraqrafı 1-ci səviyyəli başlıq kimi format edin.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2301"/>
+        <location filename="../../Form_Files/main.ui" line="2370"/>
         <source>Ctrl+1</source>
         <translation>Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2313"/>
+        <location filename="../../Form_Files/main.ui" line="2382"/>
         <source>Heading &amp;2</source>
         <translation>Başlıq &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2316"/>
+        <location filename="../../Form_Files/main.ui" line="2385"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
@@ -9267,17 +9352,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2321"/>
+        <location filename="../../Form_Files/main.ui" line="2390"/>
         <source>Ctrl+2</source>
         <translation>Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2333"/>
+        <location filename="../../Form_Files/main.ui" line="2402"/>
         <source>Heading &amp;3</source>
         <translation>Başlıq &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2336"/>
+        <location filename="../../Form_Files/main.ui" line="2405"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
@@ -9287,17 +9372,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2341"/>
+        <location filename="../../Form_Files/main.ui" line="2410"/>
         <source>Ctrl+3</source>
         <translation>Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2353"/>
+        <location filename="../../Form_Files/main.ui" line="2422"/>
         <source>Heading &amp;4</source>
         <translation>Başlıq &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2356"/>
+        <location filename="../../Form_Files/main.ui" line="2425"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
@@ -9306,17 +9391,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Paraqrafı səviyyə 4 bağlığı kimi Format et.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2361"/>
+        <location filename="../../Form_Files/main.ui" line="2430"/>
         <source>Ctrl+4</source>
         <translation>Ctrl+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2373"/>
+        <location filename="../../Form_Files/main.ui" line="2442"/>
         <source>Heading &amp;5</source>
         <translation>Başlıq &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2376"/>
+        <location filename="../../Form_Files/main.ui" line="2445"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
@@ -9325,17 +9410,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Paraqrafı səviyyə 5 bağlığı kimi Format et.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2381"/>
+        <location filename="../../Form_Files/main.ui" line="2450"/>
         <source>Ctrl+5</source>
         <translation>Ctrl+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2393"/>
+        <location filename="../../Form_Files/main.ui" line="2462"/>
         <source>Heading &amp;6</source>
         <translation>Başlıq &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2396"/>
+        <location filename="../../Form_Files/main.ui" line="2465"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
@@ -9344,17 +9429,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt; Paraqrafı səviyyə 6 bağlığı kimi Format et.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2401"/>
+        <location filename="../../Form_Files/main.ui" line="2470"/>
         <source>Ctrl+6</source>
         <translation>Ctrl+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2413"/>
+        <location filename="../../Form_Files/main.ui" line="2482"/>
         <source>&amp;Normal</source>
         <translation>&amp;Normal</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2416"/>
+        <location filename="../../Form_Files/main.ui" line="2485"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
@@ -9363,164 +9448,164 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Paraqrafı normal paraqrraf kimi format et.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2421"/>
+        <location filename="../../Form_Files/main.ui" line="2490"/>
         <source>Ctrl+7</source>
         <translation>Ctrl+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2429"/>
+        <location filename="../../Form_Files/main.ui" line="2498"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation>&amp; Mövcud atributları qoruyun</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2432"/>
+        <location filename="../../Form_Files/main.ui" line="2501"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation>Bu üslubu tətbiq edərkən, istənilənı mövcud atributları  teqdə saxlayın</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2437"/>
+        <location filename="../../Form_Files/main.ui" line="2506"/>
         <source>Blank HTML File</source>
         <translation>Boş HTML faylı</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2440"/>
+        <location filename="../../Form_Files/main.ui" line="2509"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation>Boş HTML faylını kitaba Əlavə edin.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2449"/>
+        <location filename="../../Form_Files/main.ui" line="2518"/>
         <source>Existing Files...</source>
         <translation>Mövcud fayllar...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2452"/>
+        <location filename="../../Form_Files/main.ui" line="2521"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt; &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Kompüterdən faylı kitabınıza əlavə edin.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2459"/>
+        <location filename="../../Form_Files/main.ui" line="2528"/>
         <source>Blank Stylesheet</source>
         <translation>Boş Üsublar cədvəli</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2462"/>
+        <location filename="../../Form_Files/main.ui" line="2531"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation>Yeni boş Üslub cədvəlini kitaba əlavə edin.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2467"/>
+        <location filename="../../Form_Files/main.ui" line="2536"/>
         <source>Blank SVG Image</source>
         <translation>Boş CVG Təsviri</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2470"/>
+        <location filename="../../Form_Files/main.ui" line="2539"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation>Yeni Boş CVG Təsvirini kitaba əlavə edin.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2475"/>
+        <location filename="../../Form_Files/main.ui" line="2544"/>
         <source>Pre&amp;vious File</source>
         <translation>Əvvəl&amp;ki Fayl</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2478"/>
+        <location filename="../../Form_Files/main.ui" line="2547"/>
         <source>Open previous file of the same type.</source>
         <translation>Eyni tip olan əvvəlki faylı açın.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2481"/>
+        <location filename="../../Form_Files/main.ui" line="2550"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2486"/>
+        <location filename="../../Form_Files/main.ui" line="2555"/>
         <source>Next &amp;File</source>
         <translation>Növbəti &amp;Fayl</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2489"/>
+        <location filename="../../Form_Files/main.ui" line="2558"/>
         <source>Open next file of the same type.</source>
         <translation>Eyni tip olan növbəti faylı açın</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2492"/>
+        <location filename="../../Form_Files/main.ui" line="2561"/>
         <source>Alt+PgDown</source>
         <translation>Alt+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2497"/>
+        <location filename="../../Form_Files/main.ui" line="2566"/>
         <source>&amp;Add To Index Editor</source>
         <translation>&amp;Index Editor-a Əlavə edin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2504"/>
+        <location filename="../../Form_Files/main.ui" line="2573"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation>Seçilən mətni Index Editor-a əlavə edin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2509"/>
+        <location filename="../../Form_Files/main.ui" line="2578"/>
         <source>&amp;Mark For Index</source>
         <translation>&amp;İndeks üçün qeyd et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2516"/>
+        <location filename="../../Form_Files/main.ui" line="2585"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation>İndeksə daxil etmək üçün seçilmiş mətni qeyd edin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2519"/>
+        <location filename="../../Form_Files/main.ui" line="2588"/>
         <source>Ctrl+Shift+X</source>
         <translation>Ctrl+Shift+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2524"/>
+        <location filename="../../Form_Files/main.ui" line="2593"/>
         <source>&amp;Create Index</source>
         <translation>&amp;İndeks Yarat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2531"/>
+        <location filename="../../Form_Files/main.ui" line="2600"/>
         <source>Generate a new Index HTML file.</source>
         <translation>Yeni bir Index HTML faylı yaradın.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2536"/>
+        <location filename="../../Form_Files/main.ui" line="2605"/>
         <source>&amp;Create HTML Table Of Contents</source>
         <translation>Yeni bir Məzmunun HTML Cədvəli yaradın.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2539"/>
+        <location filename="../../Form_Files/main.ui" line="2608"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation>Cari Mündəricatdan istifadə edərək yeni HTML faylı yaradın</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2544"/>
+        <location filename="../../Form_Files/main.ui" line="2613"/>
         <source>Book&amp;mark Location</source>
         <translation>Əlfəcin&amp;Yeri</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2547"/>
+        <location filename="../../Form_Files/main.ui" line="2616"/>
         <source>Ctrl+Alt+B</source>
         <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2552"/>
+        <location filename="../../Form_Files/main.ui" line="2621"/>
         <source>&amp;Go To Link Or Style</source>
         <translation>&amp;Linkə vəya Üsluba Keçid</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2555"/>
+        <location filename="../../Form_Files/main.ui" line="2624"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2564"/>
+        <location filename="../../Form_Files/main.ui" line="2633"/>
         <source>&amp;Back</source>
         <translation>&amp;Geriyə</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2567"/>
+        <location filename="../../Form_Files/main.ui" line="2636"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
@@ -9528,759 +9613,759 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt; &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Son bir linkə və ya üsluba getdiyiniz yerə qayıdın və ya yerinizi nişanlayın.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2573"/>
+        <location filename="../../Form_Files/main.ui" line="2642"/>
         <source>Ctrl+\</source>
         <translation>Ctrl+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2578"/>
+        <location filename="../../Form_Files/main.ui" line="2647"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
         <translation>Mübadilə buferindən Redaktə/Yapışdır&amp;Fəaliyyət Tarixçəsi...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2581"/>
+        <location filename="../../Form_Files/main.ui" line="2650"/>
         <source>Ctrl+Alt+V</source>
         <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2586"/>
+        <location filename="../../Form_Files/main.ui" line="2655"/>
         <source>&amp;Delete Line</source>
         <translation>&amp;Sətiri Sil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2589"/>
+        <location filename="../../Form_Files/main.ui" line="2658"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2594"/>
+        <location filename="../../Form_Files/main.ui" line="2663"/>
         <source>Manage Plugins</source>
         <translation>Plaginləri idarəet</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2603"/>
+        <location filename="../../Form_Files/main.ui" line="2672"/>
         <source>Run Plugin 1</source>
         <translation>Plagin 1-i İşə sal</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2612"/>
+        <location filename="../../Form_Files/main.ui" line="2681"/>
         <source>Run Plugin 2</source>
         <translation>Plagin 2-ni İşə sal</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2621"/>
+        <location filename="../../Form_Files/main.ui" line="2690"/>
         <source>Run Plugin 3</source>
         <translation>Plagin 3-ü İşə sal</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2630"/>
+        <location filename="../../Form_Files/main.ui" line="2699"/>
         <source>Run Plugin 4</source>
         <translation>Plagin 4-2 İşə sal</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2639"/>
+        <location filename="../../Form_Files/main.ui" line="2708"/>
         <source>Run Plugin 5</source>
         <translation>Plagin 5-i İşə sal</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2648"/>
+        <location filename="../../Form_Files/main.ui" line="2717"/>
         <source>Run Plugin 6</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2657"/>
+        <location filename="../../Form_Files/main.ui" line="2726"/>
         <source>Run Plugin 7</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2666"/>
+        <location filename="../../Form_Files/main.ui" line="2735"/>
         <source>Run Plugin 8</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2675"/>
+        <location filename="../../Form_Files/main.ui" line="2744"/>
         <source>Run Plugin 9</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2684"/>
+        <location filename="../../Form_Files/main.ui" line="2753"/>
         <source>Run Plugin 10</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2693"/>
+        <location filename="../../Form_Files/main.ui" line="2762"/>
         <source>Launch External Xhtml Editor</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2696"/>
+        <location filename="../../Form_Files/main.ui" line="2765"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2701"/>
+        <location filename="../../Form_Files/main.ui" line="2770"/>
         <source>Mend and &amp;Prettify All HTML Files</source>
         <translation>Bütün HTML fayllarını düzəltmək&amp; və önə çəkmək</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2706"/>
+        <location filename="../../Form_Files/main.ui" line="2775"/>
         <source>&amp;Mend All HTML Files</source>
         <translation>&amp; Bütün HTML fayllarını düzəlt</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2711"/>
+        <location filename="../../Form_Files/main.ui" line="2780"/>
         <source>&amp;Update Manifest Properties</source>
         <translation>&amp;Manifestin xüsusiyyətlərini yeniləyin</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2716"/>
+        <location filename="../../Form_Files/main.ui" line="2785"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2721"/>
+        <location filename="../../Form_Files/main.ui" line="2790"/>
         <source>Create a Custom Empty Epub</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2726"/>
+        <location filename="../../Form_Files/main.ui" line="2795"/>
         <source>Remove the NCX and Guide</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2735"/>
+        <location filename="../../Form_Files/main.ui" line="2804"/>
         <source>Create Checkpoint for Epub</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2744"/>
+        <location filename="../../Form_Files/main.ui" line="2813"/>
         <source>Create Epub from previous Checkpoint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2753"/>
+        <location filename="../../Form_Files/main.ui" line="2822"/>
         <source>Compare Epub against Checkpoint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2762"/>
+        <location filename="../../Form_Files/main.ui" line="2831"/>
         <source>Manage Checkpoint Repositories</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="381"/>
         <source>Input</source>
         <translation>Giriş</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="385"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="387"/>
         <source>Output</source>
         <translation>Çıxış</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="397"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="399"/>
         <source>Validation</source>
         <translation>Validasiya</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="446"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="459"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="467"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="474"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1121"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1454"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1689"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1831"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2312"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2407"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2475"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2483"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2500"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2512"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2617"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2633"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2638"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2651"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2664"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2669"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2681"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2691"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2696"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2855"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2862"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2881"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2905"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2937"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4104"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4110"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4151"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4157"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4163"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4419"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4439"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4737"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4947"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="448"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="461"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="469"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1123"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1456"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1695"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1837"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2318"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2413"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2481"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2489"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2506"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2623"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2639"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2644"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2657"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2670"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2675"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2687"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2697"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2861"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2868"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2882"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2887"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2911"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2943"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4124"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4130"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4165"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4171"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4433"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4453"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4961"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="447"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="449"/>
         <source>Are you sure you want to restructure this epub?
 This action cannot be reversed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="460"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="468"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="462"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="477"/>
         <source>Restructure cancelled: %1, XML not well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="544"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="546"/>
         <source>Restructure completed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="651"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="653"/>
         <source>Checkpoint generation failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="657"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="659"/>
         <source>Checkpoint saved.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="693"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="695"/>
         <source>Checkout Failed. No checkpoints found</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="710"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="712"/>
         <source>Checkout Failed. No checkpoint selected</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="735"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="737"/>
         <source>Epub Generate from Tag Failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="740"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="742"/>
         <source>Epub Generation succeeded</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="754"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="756"/>
         <source>Repository Checkout</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="755"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="757"/>
         <source>Your current book will be replaced losing any unsaved changes ... Are you sure you want to proceed?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="779"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="803"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="781"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="805"/>
         <source>Diff Failed. No checkpoints found</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="819"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="821"/>
         <source>Diff Failed. No checkpoint selected for comparison</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="850"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="852"/>
         <source>Results of Comparison</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="850"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="852"/>
         <source>No differences were found.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="881"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="883"/>
         <source>External XHtml Editor works only on Html Resources or OPF Resources!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="888"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="890"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="895"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="897"/>
         <source>Specified External Xhtml Editor path does not exist</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="939"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="941"/>
         <source>Executing External Xhtml Editor</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="942"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="944"/>
         <source>Failed to Launch External Xhtml Editor</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1039"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1041"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>Mövqe artıq mövcud deyil, çünki naviqasiya ləğv olundu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1056"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1058"/>
         <source>Location bookmarked.</source>
         <translation>Əlfəcin qoyuldu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1121"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1123"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
         <translation>Bu xarici linki açmaq istədiyinizə əminsinizmi?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1157"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1159"/>
         <source>was updated</source>
         <translation>Yeniləndi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1166"/>
         <source>Warning</source>
         <translation>Xəbərdarlıq</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1166"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>Fayl yaxşı formalaşdırılmamışdır və zədələnmiş ola bilər</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1192"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1194"/>
         <source>Opening this EPUB generated warnings.</source>
         <translation>Bu EPUB  açılanda xəbərdarlıqlar yarandı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1194"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1196"/>
         <source>Select Show Details for more information.</source>
         <translation>Daha ətraflı məlumat üçün Shoü Details seçin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1322"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1324"/>
         <source>Sigil is closing...</source>
         <translation>Sigil bağlanır...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1390"/>
         <source>New file created.</source>
         <translation>Yeni fayl yaradıldı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1413"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1415"/>
         <source>Open File</source>
         <translation>Faylı Aç</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1453"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1455"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Bu fayl artıq mövcud deyildir. Onu menyudan çıxarmaq üçün OK düyməsini klik edin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1533"/>
         <source>Save File</source>
         <translation>Faylı Yadda saxla</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1585"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1587"/>
         <source>Save a Copy</source>
         <translation>Surətini Yadda saxla</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1624"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1626"/>
         <source>Epub layout discarded.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1631"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1633"/>
         <source>New epub created.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1666"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1672"/>
         <source>Go To Line</source>
         <translation>Sətirə Gedin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1666"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1672"/>
         <source>Line #</source>
         <translation>Sətir #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1689"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1695"/>
         <source>Image does not exist: </source>
         <translation>Təsvir mövcud deyildir</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1742"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1748"/>
         <source>or</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1750"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1756"/>
         <source>No CSS styles named</source>
         <translation>Adı çəkilən CSS üslubları yoxdur</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1750"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1756"/>
         <source>found, or stylesheet not linked.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1827"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1833"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; mövcud deyildir (və daha çox ola bilər). Bu şərtlər altında parçalanma və ya birləşmə pozulmuş linklərə səbəb ola bilər.&lt;/p&gt;&lt;p&gt; Hələ də davam etmək istəyirsiniz?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1851"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1857"/>
         <source>Add Cover</source>
         <translation>Qapaq səhifəsi Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1900"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1906"/>
         <source>An existing Cover file has been found.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1956"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1962"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Gözlənilməz səhv. Qapaq səhifəsi üçün yalnız təsvir faylları istifadə edilə bilər</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1973"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1979"/>
         <source>Cover added.</source>
         <translation>Qapaq səhifəsi Əlavə edildi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1982"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1999"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2031"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1988"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2005"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2037"/>
         <source>Not Available for epub2.</source>
         <translation>Epub2 üçün mövcud deyil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1990"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1996"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>OPF Manifest Xüsusiyyətləri Yenliəndi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2021"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2027"/>
         <source>NCX and Guide removed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2048"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2080"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2054"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2086"/>
         <source>NCX and Guide generation failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2124"/>
         <source>NCX and Guide generated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2202"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2208"/>
         <source>An existing Index file has been found.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2293"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2299"/>
         <source>Styles deleted.</source>
         <translation>Üslublar silindilər</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2301"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2307"/>
         <source>Reports Being Generated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2312"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2318"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>XML-in yaxşı  formalaşmadığı səbəbindən Hesabatların hazırlanması ləğv edildi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2407"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2413"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>XML-in  yaxşı  formalaşmadığı səbəbindən İstifadə Olunmayan Mediya Faylları silin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2473"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2479"/>
         <source>Unused media files deleted.</source>
         <translation>İstifadə Olunmayan Mediya Faylları silindi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2481"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Silmək üçün istifadə olunmayan təsvir, video və ya audio faylları yoxdur.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2483"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2489"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>XML-in  yaxşı  formalaşmadığı səbəbindən İstifadə Olunmayan Üslubları  silin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2500"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2506"/>
         <source>There are no unused stylesheet classes to delete.</source>
         <translation>Silmək üçün istifadə olunmayan üslub  cədvəli sinfləri yoxdur</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2518"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Bu mövqedə  fayl əlavə edə bilməzsiniz</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2519"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2525"/>
         <source>Insert File</source>
         <translation>Fayl Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2571"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2577"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Fayl&quot;%1&quot; mövcud deyildir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2617"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2623"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2644"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Bu mövqedə id idxal edə bilməzsiniz</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2633"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2639"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID etibarsızdır - hərf ilə başlamalıdır və sonra istənilən sayda hərf, rəqəm  _: ola bilər və ya.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2651"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2657"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2675"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Bu mövqedə bir link əlavə edə bilməzsiniz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2664"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2670"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Link etibarsızdır - &apos;&lt;&apos; vəya &apos;&gt;apos ehtiva edə bilməz;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2681"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2687"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Siz indeksi bu mövqedə qeyd edə vəya mətni seçmədən işarələyə bilməzsiniz</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2691"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2697"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Giriş etibarsızdır-&apos;&lt;&apos; vəya &apos;&gt;&apos; ehtiva edə biməz</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2696"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Siz bu pozisiyada indeksi qeyd edə bilməzsiniz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2763"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2785"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2804"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2769"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2791"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2810"/>
         <source>Select the destination to paste into first.</source>
         <translation>İlk növbədə yapışdırmaq üçün təyinat yerini seçin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2793"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2799"/>
         <source>Pasted clip entry %1.</source>
         <translation>Yapışdırılmış klip girişi % 1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2855"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2861"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Bir resurs seçilmişdir və birləşmə üçün bir əvvəlki resurs yoxdur.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2862"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2868"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Seçilmiş faylları birləşdirmək istədiyinizə əminsinizmi?
 Bu hərəkət bərpa edilə bilməz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2876"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2882"/>
         <source>Merge cancelled: %1, XML not well formed.</source>
         <translation>Birləşdirmə dayandırıldı: %1, XML yaxşı formalaşdırılmamışdır.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2881"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2887"/>
         <source>Merge cancelled due to XML not well formed.</source>
         <translation>XML yaxşı formalaşdırılmadığı üçün birləşdirmə dayandırıldı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2905"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2911"/>
         <source>Cannot merge file %1</source>
         <translation>%1 faylını birləşdirmək mümkün deyildir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2919"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2925"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Birləşmə tamamlandı. Sizə Məzmunlar Cədvəlinin yenilənməsi və ya redaktə edilməsi  lazım ola bilər</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2937"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2943"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Üslublar cədvəli linki dayandırıldı: %1, XML yaxşı formalaşdırılmamışdır.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3062"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3071"/>
         <source>Word updated.</source>
         <translation>Söz yeniləndi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
         <source>File(s) deleted.</source>
         <translation>Fayl(lar) silindi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3145"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3154"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Məzmunlar Cədvəlinin redaktəsi dayandırıldı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3150"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3159"/>
         <source>Table Of Contents edited.</source>
         <translation>Məzmunlar Cədvəli redaktə edildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3168"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3177"/>
         <source>Generate TOC cancelled.</source>
         <translation>Mündəricatın generasiyası dayandırıldı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3193"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3202"/>
         <source>Table Of Contents generated.</source>
         <translation>Məzmunlar Cədvəli generasiya olundu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3195"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3204"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Məzmunlar Cədvəlini dəyişməyə zərurət yoxdur.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3268"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3277"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3346"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3360"/>
         <source>Text selection marked.</source>
         <translation>Mətn seçimi qeyd edildi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3348"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3366"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3362"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3380"/>
         <source>Text selection unmarked.</source>
         <translation>Mətn seçimi qeyd   edilməmişdir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3415"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3429"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Metadata Redaktoru dayandırıldı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3418"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3432"/>
         <source>Metadata edited.</source>
         <translation>Metadata redaktə olundu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3526"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3540"/>
         <source>RunPlugin</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3551"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3565"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Bu EPUB, validasiya  üçün heç bir CSS üslublar cədvəlini ehtiva etmir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4018"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4032"/>
         <source>Line: %1, Col: %2</source>
         <translation>Sətir: %1, Sütun: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4104"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4118"/>
         <source>File cannot be split at this position.</source>
         <translation>Fayl bu mövqedə bölüşdürülə bilməz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4110"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4124"/>
         <source>Cannot split since it may not be an HTML file.</source>
         <translation>Fayl bu mövqedə bölüşdürülə bilməz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4130"/>
         <source>The Nav file cannot be split.</source>
         <translation>Nav faylının bölünməsi mümkün deyil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4133"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4147"/>
         <source>Split completed.</source>
         <translation>Bölüşdürmə tamamlandı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4151"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4165"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Ən azı bir fayl HTML faylı olmadığı üçün bölüşdürmə edilə bilməz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4157"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4171"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Bölüşdürmə mümkün deyildir: %1 XML yaxşı formalaşmamışdır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4163"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4177"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Bölüşdürmə mümkün deyildir,çünki ən azı bir fayl HTML faylı olmaya bilər.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4196"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4210"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Bölüşdürmə tamamlandı. Sizə Məzmunlar Cədvəlinin yenilənməsi lazım ola bilər</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4198"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4212"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Faylı bölmə markerləri tapılmadı. Əlavəetmə İstifadə edin-&gt;Bölmə Marküeri.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4420"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4434"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Bu sənəd modifikasiya edilmişdir
 Dəyişiklikləri yadda saxlamaq istəyirsinizmi?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4441"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4455"/>
         <source>Should Sigil overwrite this file?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4612"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4626"/>
         <source>No importer for file type: %1</source>
         <translation>Fayl tipi üçün idxalçı yoxdur:% 1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4633"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -10294,113 +10379,113 @@ Açılışda və Yadda saxlayanda Mənbə Kodu yerinə XHTML  Mənbə Kodunun d�
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4624"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4638"/>
         <source>Loading file...</source>
         <translation>Fayl yüklənir...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4652"/>
         <source>File loaded.</source>
         <translation>Fayl yükləndi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4665"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4679"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Bu faylın yaradıcısı DRM ilə şifrələnmişdir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4672"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4686"/>
         <source>Cannot load EPUB: %1</source>
         <translation>EPUB-ı yükləmək mümkün olmur: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4676"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4690"/>
         <source>Cannot load file %1: %2</source>
         <translation>Faylı yükləmək mümkün olmur %1: %2 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4704"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4718"/>
         <source>Saving EPUB...</source>
         <translation>EPUB yadda saxlanılır...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4713"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4727"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil  bu tip faylları yadda saxlaya bilmir &quot;%1&quot;.
 Xahiş edirik ki, başqa format seçəsiniz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4752"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in some data loss.
 
 Do you want to automatically mend the files before saving?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4776"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4790"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB yadda  saxlandı, amma bütün HTML faylları yaxşı formalaşmamışdır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4778"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4792"/>
         <source>EPUB saved.</source>
         <translation>EPUB yadda saxlandı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4798"/>
         <source>Cannot save file %1: %2</source>
         <translation>Fayla yadda saxlamaq mümkün olmadı %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4917"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4931"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB faylları (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4918"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4919"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4920"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4932"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4933"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4934"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML faylları (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4921"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4935"/>
         <source>Text files (*.txt)</source>
         <translation>Mətn faylları (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4922"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4936"/>
         <source>All files (*.*)</source>
         <translation>Bütün fayllar (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4930"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4944"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB faylı (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4947"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4961"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5025"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5039"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>İndi mövcud başlıq atributlarını qoruyun :</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5026"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5040"/>
         <source>ON</source>
         <translation>AÇIQ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5026"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5040"/>
         <source>OFF</source>
         <translation>QAPALI</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5051"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5065"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -14070,12 +14155,12 @@ Do you want to automatically mend the files before saving?</source>
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1255"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1265"/>
         <source>[Title here]</source>
         <translation>[Başlıq burada]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1261"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1271"/>
         <source>[Main title here]</source>
         <translation>[Əsas başlıq burada]</translation>
     </message>
@@ -14599,8 +14684,8 @@ Obyektlər sətır, vergül və ya boşluqlarla ayrıla bilər.</translation>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="57"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="67"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="350"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="358"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="344"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="352"/>
         <source>Preview</source>
         <translation>Ön Baxış</translation>
     </message>
@@ -14628,7 +14713,7 @@ Obyektlər sətır, vergül və ya boşluqlarla ayrıla bilər.</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="1149"/>
+        <location filename="../../BookManipulation/Book.cpp" line="1165"/>
         <source>Merging Files..</source>
         <translation>Fayyların birləşdirilməsi...</translation>
     </message>
@@ -14675,97 +14760,97 @@ Obyektlər sətır, vergül və ya boşluqlarla ayrıla bilər.</translation>
         <translation>EPUB-ı oxumaq olmur: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="257"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="258"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation>OPF faylı etibarlı simvolu özündə saxlamır</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="258"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="872"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="259"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="886"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil sizin üçün yeni birisini  yaratdı.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="302"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="304"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>xml Şifrələmə  təhlilində səhv.
 Sətir:% 1 Sütun% 2 -% 3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="418"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="420"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation>EPUB-ı  arxivdən açmaq olmur: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="474"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="476"/>
         <source>Possible evil or corrupt epub file name: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="501"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="510"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="527"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="535"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="503"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="512"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="529"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="537"/>
         <source>Cannot extract file: %1</source>
         <translation>Faylı çıxarmaq mümkün deyil:% 1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="547"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="549"/>
         <source>Cannot open EPUB: %1</source>
         <translation>EPUB-ı açmaq olmur: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="601"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="603"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>Container.xml faylını ayırmaq mümkün deyildir.
 Sətir:% 1 Sütun% 2 -% 3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="613"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="615"/>
         <source>No appropriate OPF file found</source>
         <translation>Müvafiq OPF fayl tapılmadı</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="664"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="666"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>OPF faylını oxumaq mümkün deyildir.
 Sətir:% 1 Sütun% 2 -% 3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="751"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="763"/>
         <source>The OPF uses an unrecognized media type &quot;%1&quot; for file &quot;%2&quot;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="752"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="764"/>
         <source>A temporary media type of &quot;%1&quot; has been assigned. You should edit your OPF file to fix this problem.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="775"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="788"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>OPF manifestində: % 1 üçün dublikat identifikasiyası var</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="776"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="789"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>Bu EPUB-nun yüklənməsi üçün müvəqqəti id təyin edilmişdir. Dublikat;  aradan qaldırmaq üçün OPF faylınızı redaktə etməlisiniz.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="847"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="861"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>OPF faylı NCX faylını düzgün identifikasiya etməmişdir.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="848"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="862"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil aşağıdakı faylı NCX kimi  istifadə etdi:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="871"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="885"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation type="unfinished"/>
     </message>
@@ -14790,11 +14875,6 @@ Sətir:% 1 Sütun% 2 -% 3</translation>
         <translation>Axtarış terminin əvəz olunması...</translation>
     </message>
     <message>
-        <location filename="../../Misc/TOCHTMLWriter.cpp" line="111"/>
-        <source>Table of Contents</source>
-        <translation>Mündəricat</translation>
-    </message>
-    <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
@@ -14805,19 +14885,19 @@ Sətir:% 1 Sütun% 2 -% 3</translation>
         <translation>&lt;p&gt;Daha yeni  versiyası olan Sigil, versiyası &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Yükləmə səhifəsinə getmək istəyirsiniz?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="490"/>
+        <location filename="../../Misc/Utility.cpp" line="503"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Fayl oxunmur %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="617"/>
+        <location filename="../../Misc/Utility.cpp" line="685"/>
         <source>Sigil has encountered a problem.</source>
         <translation>Sigil bir problemlə qarşılaşdı.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="618"/>
+        <location filename="../../Misc/Utility.cpp" line="686"/>
         <source>Sigil may need to close.</source>
         <translation>Sigilin bağlanması lazımdır.</translation>
     </message>
@@ -14843,28 +14923,34 @@ Sətir:% 1 Sütun% 2 -% 3</translation>
         <translation>Yanlış NCX faylı: %1</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="565"/>
-        <location filename="../../main.cpp" line="621"/>
+        <location filename="../../main.cpp" line="605"/>
+        <location filename="../../main.cpp" line="653"/>
+        <location filename="../../main.cpp~" line="605"/>
+        <location filename="../../main.cpp~" line="653"/>
         <source>Quit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../main.cpp" line="577"/>
+        <location filename="../../main.cpp" line="615"/>
+        <location filename="../../main.cpp~" line="615"/>
         <source>About</source>
         <translation>Haqqında</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="588"/>
+        <location filename="../../main.cpp" line="624"/>
+        <location filename="../../main.cpp~" line="624"/>
         <source>Preferences</source>
         <translation>Üstün tutmalar</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="599"/>
+        <location filename="../../main.cpp" line="635"/>
+        <location filename="../../main.cpp~" line="635"/>
         <source>New</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../main.cpp" line="610"/>
+        <location filename="../../main.cpp" line="644"/>
+        <location filename="../../main.cpp~" line="644"/>
         <source>Open</source>
         <translation>Aç</translation>
     </message>
@@ -15529,54 +15615,59 @@ ID names must be unique and start with a letter.</source>
         <translation>İmla Yoxlaması Lüğətləri</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="22"/>
-        <source>Dictionary:</source>
-        <translation>Lüğət:</translation>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="23"/>
+        <source>Primary Language Dictionary:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="52"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="53"/>
+        <source>Secondary Language Dictionary:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="83"/>
         <source>Highlight misspelled words in Code View.</source>
         <translation>Yanlış yazılmış sözləri  Code Wiev-də vurğula.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="55"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="86"/>
         <source>Highlight Misspelled Words</source>
         <translation>Yanlış Yazılmış Sözlər Vurğula</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="75"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="106"/>
         <source>Check words with numbers in them.</source>
         <translation>Sözləri onlardakı nömrələrlə yoxlayın</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="78"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="109"/>
         <source>Check Numbers</source>
         <translation>Nömrələri yoxlayın</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="149"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="180"/>
         <source>User Dictionaries</source>
         <translation>İstifadəçi Lüğətləri</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="159"/>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="264"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="190"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="295"/>
         <source>Add</source>
         <translation>Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="166"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="217"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="197"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="221"/>
         <source>Rename</source>
         <translation>Yenidən Adlandır</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="173"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="204"/>
         <source>Copy</source>
         <translation>Kopyala</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="180"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="211"/>
         <source>Remove the selected dictionary.
 
 You cannot remove the last dictionary.</source>
@@ -15585,13 +15676,13 @@ You cannot remove the last dictionary.</source>
 Siz son lüğəti silə bilməzsiniz</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="185"/>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="278"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="216"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="309"/>
         <source>Remove</source>
         <translation>Sil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="223"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="254"/>
         <source>Mark which dictionaries are enabled for
 spell checking.
 
@@ -15602,40 +15693,40 @@ Sözlərini göstərəmək üçün lüğət seçin və onu susmaya görə lüğ�
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="250"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="281"/>
         <source>User Dictionary Word List</source>
         <translation>İstifadəçi Lüğətinin Söz siyahısı</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="260"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="291"/>
         <source>Enter or paste words to add to the dictionary.
 Words can be separated by lines, commas, or spaces.</source>
         <translation>Lüğətə əlavə etmək üçün sözləri daxil edin və ya yapışdırın.
 Sözlər sətirlar, vergüllər və ya boşluqlar ilə ayrılmış ola bilər.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="271"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="302"/>
         <source>Edit</source>
         <translation>Redaktə et</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="285"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="316"/>
         <source>Remove All</source>
         <translation>Hamısını Sil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="348"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="379"/>
         <source>The default dictionary is used when you add words to the
 default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <translation>Susmaya görə lüğətdən o zaman istifadə olunur ki, susmaya görə lüğətə söz əlavə edirsiniz vəya yanlış sözləri əlavə etək üçün qisayoldan istifadə edirsiniz</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="352"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="383"/>
         <source>Default Dictionary:</source>
         <translation>Susmaya görə Lüğət</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="359"/>
+        <location filename="../../Form_Files/PSpellCheckWidget.ui" line="390"/>
         <source>none</source>
         <translation>heç nə</translation>
     </message>
@@ -15650,53 +15741,53 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <translation>Lüğət</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="114"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="118"/>
         <source>Add Dictionary</source>
         <translation>Lüğət Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="114"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="217"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="118"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="221"/>
         <source>Name:</source>
         <translation>Adı:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="168"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="230"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="238"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="257"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="132"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="172"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="234"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="242"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="261"/>
         <source>Error</source>
         <translation>Xəta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="128"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="230"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="132"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="234"/>
         <source>A user dictionary already exists with this name!</source>
         <translation>Bu adla  bir istifadəçi lüğəti artıq mövcuddur!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="137"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="141"/>
         <source>Add Words</source>
         <translation>Sözləri Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="137"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="141"/>
         <source>Words:</source>
         <translation>Sözlər:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="168"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="172"/>
         <source>Could not create file!</source>
         <translation>Fayl yaradılamadı!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="238"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="242"/>
         <source>Could not rename file!</source>
         <translation>Fayl adı  yenidən adlandırmaq mümkün olmadı!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="257"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="261"/>
         <source>You cannot delete the last dictionary.</source>
         <translation>Son lüğəti  siləmezsiniz</translation>
     </message>
@@ -15727,7 +15818,7 @@ qədər vəya yeni bir kitab açılana qədər  yox hesab edin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="62"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="541"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="554"/>
         <source>Ignore</source>
         <translation>Yox hesab et</translation>
     </message>
@@ -15785,104 +15876,109 @@ Orfoqrafia yoxlayıcısı açıq olduqda hər hansı bir HTML faylını redaktə
         <translation>Yenilə</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="54"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="56"/>
         <source>f</source>
         <comment>Filter</comment>
         <translation>f</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="55"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="57"/>
         <source>s</source>
         <comment>ShowAllWords</comment>
         <translation>s</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="56"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="58"/>
         <source>c</source>
         <comment>Case-InsensitiveSort</comment>
         <translation>c</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="57"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="59"/>
         <source>r</source>
         <comment>Refresh</comment>
         <translation>r</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="155"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="178"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="217"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="157"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="180"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="219"/>
         <source>No words selected.</source>
         <translation>Heç bir söz seçilməyib.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="171"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="173"/>
         <source>Ignored word(s).</source>
         <translation>Yox hesab edilən söz(lər)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="206"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="208"/>
         <source>Added word(s) to dictionary.</source>
         <translation>Lüğətə əlavə edilən söz(lər)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="208"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="210"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
         <translation>Lüğətə söz əlavə edildi. Sözlük Preferences-də mümkün deyil.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="223"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="225"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
         <translation>Yeni söz bunlardan ola bilməz &quot;&lt;&quot;, &quot;&gt;&quot;, vəya &quot;&amp;&quot;.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="234"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="302"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="236"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="313"/>
         <source>No</source>
         <translation>Xeyr</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="253"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="255"/>
         <source>Word</source>
         <translation>Söz</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="254"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="256"/>
         <source>Count</source>
         <translation>Saymaq</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="255"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="257"/>
+        <source>Language</source>
+        <translation>Dil</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="258"/>
         <source>Misspelled?</source>
         <translation>Yanlış?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="300"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="311"/>
         <source>Yes</source>
         <translation>Hə</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="318"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="329"/>
         <source>Misspelled Words</source>
         <translation>Yanlış Yazılmış Sözlər</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="318"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="329"/>
         <source>Total Unique Words</source>
         <translation>Unikal Sözlər Yekun olaraq</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="542"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="555"/>
         <source>Add to Dictionary</source>
         <translation>Lüğətə Əlavə et</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="543"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="556"/>
         <source>Find in Text</source>
         <translation>Mətndə Tap</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="544"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="557"/>
         <source>Select All</source>
         <translation>Hamısını Seç</translation>
     </message>
@@ -15966,7 +16062,7 @@ Orfoqrafia yoxlayıcısı açıq olduqda hər hansı bir HTML faylını redaktə
 <context>
     <name>TabManager</name>
     <message>
-        <location filename="../../Tabs/TabManager.cpp" line="265"/>
+        <location filename="../../Tabs/TabManager.cpp" line="259"/>
         <source>Cannot edit file</source>
         <translation>Fayl Redaktə edilmir.</translation>
     </message>
@@ -16005,27 +16101,27 @@ Orfoqrafia yoxlayıcısı açıq olduqda hər hansı bir HTML faylını redaktə
 <context>
     <name>TextView</name>
     <message>
-        <location filename="../../Widgets/TextView.cpp" line="420"/>
+        <location filename="../../Widgets/TextView.cpp" line="425"/>
         <source>Reformat HTML</source>
         <translation>HTML&apos;i Yenidən Formatla</translation>
     </message>
     <message>
-        <location filename="../../Widgets/TextView.cpp" line="422"/>
+        <location filename="../../Widgets/TextView.cpp" line="427"/>
         <source>Mend and Prettify Code</source>
         <translation>Kodu Dəyişdir və Dəqiqləşdir</translation>
     </message>
     <message>
-        <location filename="../../Widgets/TextView.cpp" line="423"/>
+        <location filename="../../Widgets/TextView.cpp" line="428"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Kodu Dəyişdir və Dəqiqləşdir- Bütün HTML Faylları</translation>
     </message>
     <message>
-        <location filename="../../Widgets/TextView.cpp" line="424"/>
+        <location filename="../../Widgets/TextView.cpp" line="429"/>
         <source>Mend Code</source>
         <translation>Kodu Dəyişdir</translation>
     </message>
     <message>
-        <location filename="../../Widgets/TextView.cpp" line="425"/>
+        <location filename="../../Widgets/TextView.cpp" line="430"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Kodu Dəyişdir - Bütün  HTML Faylları</translation>
     </message>
@@ -16033,20 +16129,20 @@ Orfoqrafia yoxlayıcısı açıq olduqda hər hansı bir HTML faylını redaktə
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="727"/>
-        <location filename="../../Misc/Utility.cpp" line="737"/>
+        <location filename="../../Misc/Utility.cpp" line="796"/>
+        <location filename="../../Misc/Utility.cpp" line="807"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="728"/>
+        <location filename="../../Misc/Utility.cpp" line="797"/>
         <source>The requested file name contains one or more url/uri delimiter characters:  : / ? # [ ] @  that should NOT appear in url/uri link targets such as filenames.
 
 </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="738"/>
+        <location filename="../../Misc/Utility.cpp" line="808"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
