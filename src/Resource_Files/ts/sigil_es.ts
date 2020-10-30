@@ -3438,7 +3438,9 @@ Después puede marcar o desmarcar las entradas individuales de la lista de arrib
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements. Sigil can automatically fix these files, although this may result in minor data loss in extreme circumstances.
 
 Do you want to automatically fix the files?</source>
-        <translation type="unfinished"/>
+        <translation>Este EPUB contiene archivos HTML que no son correctos o que carecen de elementos DOCTYPE, html, head o body. Sigil puede corregirlos automáticamente, pero esto puede ocasionar alguna pérdida de datos en circunstancias extremas.
+
+¿Quiere corregir automáticamente los archivos?</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="571"/>

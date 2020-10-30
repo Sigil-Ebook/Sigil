@@ -3440,7 +3440,9 @@ Vous pouvez alors cocher ou non chaque rubriques de la liste ci-dessus.</transla
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements. Sigil can automatically fix these files, although this may result in minor data loss in extreme circumstances.
 
 Do you want to automatically fix the files?</source>
-        <translation type="unfinished"/>
+        <translation>Cet ePub contient des fichiers HTML qui ne sont pas correctement formés ou auxquels il manque un DOCTYPE, un html, des éléments head ou body. Sigil peut réparer automatiquement ces fichiers, bien que cela puisse entraîner des pertes de données mineures dans des circonstances extrêmes.
+
+Voulez-vous réparer automatiquement les fichiers ?</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="571"/>
