@@ -1943,6 +1943,7 @@ void MainWindow::AddCover()
 
             // Add the filename and dimensions of the image to the HTML source.
             QString image_relative_path = image_resource->GetRelativePathFromResource(html_cover_resource);
+	    image_relative_path = Utility::URLEncodePath(image_relative_path);
             QImage img(image_resource->GetFullPath());
             QString text = html_cover_resource->GetText();
             QString width = QString::number(img.width());
@@ -2555,6 +2556,7 @@ void MainWindow::InsertFiles(const QStringList &selected_files)
                 try {
                     Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(selected_file);
                     QString relative_path = resource->GetRelativePathFromResource(tab_resource);
+		    relative_path = Utility::URLEncodePath(relative_path);
 
 		    // extract just the filename without extension to create a text label
 		    QString filename = resource->Filename();
