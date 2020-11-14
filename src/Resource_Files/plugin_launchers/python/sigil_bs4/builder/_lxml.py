@@ -6,10 +6,14 @@ __all__ = [
     'LXMLTreeBuilder',
     ]
 
+try:
+    from collections.abc import Callable # Python 3.6
+except ImportError as e:
+    from collections import Callable
+
 from io import BytesIO
 from io import StringIO
 
-import collections
 from lxml import etree
 from sigil_bs4.element import (
     Comment,
@@ -70,7 +74,7 @@ class LXMLTreeBuilderForXML(TreeBuilder):
         # Use the default parser.
         parser = self.default_parser(encoding)
 
-        if isinstance(parser, collections.Callable):
+        if isinstance(parser, Callable):
             # Instantiate the parser with default arguments
             if self.is_xml:
                 parser = parser(target=self, strip_cdata=False, encoding=encoding, resolve_entities=False)
