@@ -1652,10 +1652,6 @@ void MainWindow::Exit()
 
 void MainWindow::Find()
 {
-    if (m_FindReplace->isVisible()) {
-        m_FindReplace->hide();
-        return;
-    }
     SaveTabData();
     m_FindReplace->SetUpFindText();
     m_FindReplace->show();
