@@ -583,7 +583,7 @@ QString Utility::DecodeXML(const QString &text)
 
 QString Utility::EncodeXML(const QString &text)
 {
-    QString newtext(text);
+    QString newtext = Utility::DecodeXML(text);
     return newtext.toHtmlEscaped();
 }
 

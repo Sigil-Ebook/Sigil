@@ -35,7 +35,7 @@ from hrefutils import urldecodepart, urlencodepart
 def xmlencode(data):
     if data is None:
         return ''
-    newdata = data
+    newdata = xmldecode(data)
     newdata = newdata.replace('&', '&amp;')
     newdata = newdata.replace('<', '&lt;')
     newdata = newdata.replace('>', '&gt;')
