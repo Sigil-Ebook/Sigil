@@ -1,3 +1,8 @@
+Sigil-1.4.1
+    Bug Fixes:
+      - critical bug fix for *over* xml encoding html used inside metadata in the opf
+      - return use of ctrl-f to its long standing functionality
+
 Sigil-1.4.0
     New Features:
       - Two different types of Multiple Language Spellchecking support added:
