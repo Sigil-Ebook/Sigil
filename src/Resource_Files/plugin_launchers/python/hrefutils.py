@@ -161,7 +161,7 @@ def urlencodepart(part):
         if need_to_percent_encode(char):
             bs = char.encode('utf-8')
             for b in bs:
-                result.append("%%%02x" % b)
+                result.append("%%%02X" % b)
         else:
             result.append(char)
     return ''.join(result)
