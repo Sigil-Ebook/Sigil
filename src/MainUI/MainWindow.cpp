@@ -3011,6 +3011,9 @@ void MainWindow::FindWord(QString word)
     }
 
     // Search for the word.
+    QString default_lang = m_Book->GetConstOPF()->GetPrimaryBookLanguage();
+    default_lang.replace('_','-');
+
     bool done_current = false;
     foreach (Resource *resource, html_resources) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
@@ -3030,8 +3033,7 @@ void MainWindow::FindWord(QString word)
             done_current = true;
         }
         QString text = html_resource->GetText();
-
-        int found_pos = HTMLSpellCheckML::WordPosition(text, word, start_pos);
+        int found_pos = HTMLSpellCheckML::WordPosition(text, word, start_pos, default_lang);
         // int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
         if (found_pos >= 0) {
             if (resource->ShortPathName() != current_html_filename) {
