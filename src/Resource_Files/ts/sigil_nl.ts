@@ -3444,7 +3444,9 @@ U kunt dan de afzonderlijke koppen aan- of uitvinken in de bovenstaande lijst.</
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements. Sigil can automatically fix these files, although this may result in minor data loss in extreme circumstances.
 
 Do you want to automatically fix the files?</source>
-        <translation type="unfinished"/>
+        <translation>Deze EPUB bevat HTML-bestanden die grammaticaal incorrect zijn of waaraan een DOCTYPE, html-, head- of body-elementen ontbreken. Sigil kan automatisch deze bestanden repareren, alhoewel dit kan leiden tot klein gegevensverlies in uitzonderlijke omstandigheden.
+
+Wilt u de bestanden automatisch laten repareren?</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="571"/>

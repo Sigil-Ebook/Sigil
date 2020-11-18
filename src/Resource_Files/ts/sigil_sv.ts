@@ -10641,7 +10641,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Annotator</source>
-        <translation>Annotator</translation>
+        <translation>Antecknare</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
@@ -11086,7 +11086,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation>Används för en person eller organisation som ansvarar för kommentaren eller förklarande anteckningar om en text. För författaren av manuskript anteckningar i en tryckt bok, använd Annotator [ann].</translation>
+        <translation>Används för en person eller organisation som ansvarar för kommentaren eller förklarande anteckningar om en text. För författaren av manuskript anteckningar i en tryckt bok, använd Antecknare [ann].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>

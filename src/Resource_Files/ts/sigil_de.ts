@@ -8022,7 +8022,7 @@ Zuerst aufgeführte Stylesheets haben Vorrang vor später hinzugefügten Stylesh
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bearbeite Inhaltsverzeichnis&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Inhaltsverzeichnis bearbeiten&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Direktes Bearbeiten des vorhandenen Inhaltsverzeichnisses.&lt;/p&gt;</translation>
     </message>
