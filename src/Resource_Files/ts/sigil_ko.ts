@@ -734,7 +734,7 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="839"/>
         <source>Save As File</source>
-        <translation>파일로 저장하기</translation>
+        <translation>파일로 저장</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="862"/>
@@ -892,7 +892,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1717"/>
         <source>Link Stylesheets...</source>
-        <translation>Stylesheets를 연결...</translation>
+        <translation>Stylesheets 연결...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1718"/>
@@ -907,7 +907,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1721"/>
         <source>Save As</source>
-        <translation>다른 이름으로 저장하기</translation>
+        <translation>다른 이름으로 저장</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1735"/>
@@ -1337,7 +1337,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save your changes.</source>
-        <translation>변경사항 저장하기</translation>
+        <translation>변경사항 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
@@ -3500,7 +3500,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
         <source>Save your changes.</source>
-        <translation>변경사항 저장하기</translation>
+        <translation>변경사항 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
@@ -3590,7 +3590,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="444"/>
         <source>Save As</source>
-        <translation>다른 이름으로 저장하기</translation>
+        <translation>다른 이름으로 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="445"/>
@@ -7657,7 +7657,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="879"/>
         <source>Save &amp;As...</source>
-        <translation>다른 이름으로 저장하기(&amp;A)...</translation>
+        <translation>다른 이름으로 저장(&amp;A)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="882"/>
@@ -7676,7 +7676,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="892"/>
         <source>Save A &amp;Copy...</source>
-        <translation>사본으로 저장하기(&amp;C)...</translation>
+        <translation>사본으로 저장(&amp;C)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="895"/>
@@ -9983,7 +9983,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1587"/>
         <source>Save a Copy</source>
-        <translation>사본으로 저장하기</translation>
+        <translation>사본으로 저장</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1626"/>
@@ -14425,7 +14425,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="28"/>
         <source>Path to Interpreter Executable</source>
-        <translation>인터프리터 실행 경로</translation>
+        <translation>파이선(인터프리터) 실행 경로</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="38"/>
@@ -14500,7 +14500,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="241"/>
         <source>Shortcuts</source>
-        <translation>단축키</translation>
+        <translation>도구 아이콘 연결</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="249"/>
@@ -15041,7 +15041,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="45"/>
         <source>Rename Files Starting At: </source>
-        <translation>다음에서 시작하는 파일 이름 바꾸기:</translation>
+        <translation>시작할 파일 명:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RenameTemplate.ui" line="52"/>
@@ -15239,7 +15239,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
         <source>Save your changes.</source>
-        <translation>변경사항 저장하기</translation>
+        <translation>변경사항 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>

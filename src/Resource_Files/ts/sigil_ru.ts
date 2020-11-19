@@ -343,57 +343,57 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="425"/>
         <source>Icon Themes</source>
-        <translation type="unfinished"/>
+        <translation>Темы значков</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="437"/>
         <source>Choose which icon theme you want to use (requires Sigil restart).</source>
-        <translation type="unfinished"/>
+        <translation>Выберите, какую тему значков вы хотите использовать (требуется перезапуск Sigil).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="440"/>
         <source>Select your icon theme:</source>
-        <translation type="unfinished"/>
+        <translation>Выберите тему значков:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="449"/>
         <source>Sigil&apos;s default icon theme.</source>
-        <translation type="unfinished"/>
+        <translation>Тема значков по умолчанию для Sigil.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="452"/>
         <source>Default Icons</source>
-        <translation type="unfinished"/>
+        <translation>Значки по умолчанию</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="462"/>
         <source>Icons based on the Fluent theme:</source>
-        <translation type="unfinished"/>
+        <translation>Значки на основе темы Fluent:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="465"/>
         <source>Fluent Icons</source>
-        <translation type="unfinished"/>
+        <translation>Значки Fluent</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="475"/>
         <source>Icons based on Google&apos;s Material theme:</source>
-        <translation type="unfinished"/>
+        <translation>Значки на основе темы Google Material:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="478"/>
         <source>Material Icons</source>
-        <translation type="unfinished"/>
+        <translation>Material значки</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="488"/>
         <source>Custom Icon Theme:</source>
-        <translation type="unfinished"/>
+        <translation>Пользовательская тема значков:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="491"/>
         <source>Custom Icons</source>
-        <translation type="unfinished"/>
+        <translation>Пользовательские значки</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="532"/>
@@ -473,7 +473,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="97"/>
         <source>Custom icon theme provided by the user</source>
-        <translation type="unfinished"/>
+        <translation>Настраиваемая тема значков, предоставленная пользователем</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="111"/>
@@ -3440,7 +3440,9 @@ You can then check or uncheck individual headings in the list above.</source>
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements. Sigil can automatically fix these files, although this may result in minor data loss in extreme circumstances.
 
 Do you want to automatically fix the files?</source>
-        <translation type="unfinished"/>
+        <translation>Этот EPUB содержит файлы неправильно сформированные HTML или с отсутствующими элементами DOCTYPE, html, head или body. Sigil может автоматически исправить эти файлы, хотя в экстремальных обстоятельствах это может привести к незначительной потере данных.
+
+Вы хотите автоматически исправить файлы?</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="571"/>
@@ -7489,7 +7491,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="440"/>
         <source>Add Existing</source>
-        <translation type="unfinished"/>
+        <translation>Добавить существующий</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="468"/>
@@ -7499,7 +7501,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="484"/>
         <source>Undo/Redo</source>
-        <translation type="unfinished"/>
+        <translation>Отменить/Вернуть</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="498"/>
@@ -7510,7 +7512,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="513"/>
         <source>External Editor</source>
-        <translation type="unfinished"/>
+        <translation>Внешний редактор</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="526"/>
@@ -15648,12 +15650,12 @@ ID должен быть уникален и начинаться с буквы.
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="23"/>
         <source>Primary Language Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Словарь основного языка:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="53"/>
         <source>Secondary Language Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Словарь дополнительного языка:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="83"/>
