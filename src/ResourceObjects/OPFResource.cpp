@@ -69,9 +69,8 @@ static const QString TEMPLATE_TEXT =
     "    <dc:title>%3</dc:title>\n"
     "  </metadata>\n\n"
     "  <manifest>\n"
-    "    <item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n"
     "  </manifest>\n\n"
-    "  <spine toc=\"ncx\">\n"
+    "  <spine>\n"
     "  </spine>\n\n"
     "</package>";
 

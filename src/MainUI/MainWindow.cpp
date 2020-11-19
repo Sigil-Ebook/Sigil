@@ -4600,9 +4600,15 @@ void MainWindow::CreateNewBook(const QString version, const QStringList &book_pa
         // ncx is optional in epub3 so wait until user asks for it to be generated before creating it
         // if (!ncxbookpath.isEmpty()) {
         //     new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath, first_textdir);
+        //     NCXResource * ncxresource = new_book->GetNCX();
+        //     QString NCXId = new_book->GetOPF()->AddNCXItem(ncxresource->GetFullPath(),"ncx");
+        //     new_book->GetOPF()->UpdateNCXOnSpine(NCXId);
 	// }
     } else {
         new_book->GetFolderKeeper()->AddNCXToFolder(epubversion, ncxbookpath, first_textdir);
+        NCXResource * ncxresource = new_book->GetNCX();
+        QString NCXId = new_book->GetOPF()->AddNCXItem(ncxresource->GetFullPath(),"ncx");
+        new_book->GetOPF()->UpdateNCXOnSpine(NCXId);
     }
     SetNewBook(new_book);
     new_book->SetModified(false);
