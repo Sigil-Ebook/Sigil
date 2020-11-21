@@ -180,7 +180,7 @@ class PageElement(object):
 
     XML_FORMATTERS = {
         "html" : EntitySubstitution.substitute_html,
-        "minimal" : EntitySubstitution.substitute_xml,
+        "minimal" : EntitySubstitution.substitute_xml_containing_entities,
         None : None
         }
 
