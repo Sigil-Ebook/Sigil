@@ -1,9 +1,14 @@
+pre-1.5.0
+    Bug Fixes:
+      - fix multiple mismatched wait cursor setting and restoring in MainWindow
+
 Sigil-1.4.2
     Bug Fixes:
       - fix bug in "Add Existing" files when file names would require percent encoding
       - fix bug in multiple language spellchecking dialog word lookup 
             when no language attributes used
       - update de, nl, sv, ko, ru translations that missed the Sigil 1.4.0 initial release
+      - fix bug in OPF metadata attributes that use named entities
 
 Sigil-1.4.1
     Bug Fixes:
