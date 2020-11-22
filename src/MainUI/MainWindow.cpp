@@ -460,6 +460,7 @@ void MainWindow::StandardizeEpub()
         if (!hresource->FileIsWellFormed()) {
 	    QMessageBox::warning(this, tr("Sigil"), 
 				 tr("Restructure cancelled: %1, XML not well formed.").arg(hresource->ShortPathName()));
+            QApplication::restoreOverrideCursor();
 	    return;
         }
     }
@@ -468,6 +469,7 @@ void MainWindow::StandardizeEpub()
     if (!opfresource->FileIsWellFormed()) {
         QMessageBox::warning(this, tr("Sigil"),
 			     tr("Restructure cancelled: %1, XML not well formed.").arg(opfresource->ShortPathName()));
+        QApplication::restoreOverrideCursor();
         return;
     }
     // ditto for ncx if one exists
@@ -475,6 +477,7 @@ void MainWindow::StandardizeEpub()
     if (ncxresource && !ncxresource->FileIsWellFormed()) {
         QMessageBox::warning(this, tr("Sigil"),
 			     tr("Restructure cancelled: %1, XML not well formed.").arg(ncxresource->ShortPathName()));
+        QApplication::restoreOverrideCursor();
         return;
     }
     // we really should parse validate each css file here but
@@ -2050,6 +2053,7 @@ void MainWindow::GenerateNCXGuideFromNav()
     if ((!nav_resource) || navdata.isEmpty()) {
         ShowMessageOnStatusBar(tr("NCX and Guide generation failed."));
         QApplication::restoreOverrideCursor();
+        return;
     }
 
     NCXResource * ncx_resource = m_Book->GetNCX();
@@ -2231,6 +2235,7 @@ void MainWindow::CreateIndex()
     // Scan the book, add ids for any tag containing at least one index entry and store the
     // document index entry at the same time (including custom and from the index editor).
     if (!Index::BuildIndex(html_resources)) {
+        QApplication::restoreOverrideCursor();
         return;
     }
 
@@ -2313,6 +2318,7 @@ void MainWindow::ReportsDialog()
 
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
         QMessageBox::warning(this, tr("Sigil"), tr("Reports cancelled due to XML not well formed."));
+        QApplication::restoreOverrideCursor();
         return;
     }
 
@@ -4674,25 +4680,25 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
         }
    } catch (FileEncryptedWithDrm&) {
        ShowMessageOnStatusBar();
-       QApplication::restoreOverrideCursor();
+       // QApplication::restoreOverrideCursor();
        Utility::DisplayStdErrorDialog(
            tr("The creator of this file has encrypted it with DRM. "
               "Sigil cannot open such files."));
    } catch (EPUBLoadParseError& epub_load_error) {
        ShowMessageOnStatusBar();
-       QApplication::restoreOverrideCursor();
+       // QApplication::restoreOverrideCursor();
        const QString errors = QString(epub_load_error.what());
        Utility::DisplayStdErrorDialog(
            tr("Cannot load EPUB: %1").arg(QDir::toNativeSeparators(fullfilepath)), errors);
    } catch (const std::runtime_error &e) {
        ShowMessageOnStatusBar();
-       QApplication::restoreOverrideCursor();
+       // QApplication::restoreOverrideCursor();
        Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
                                              .arg(QDir::toNativeSeparators(fullfilepath))
                                              .arg(e.what()));
    } catch (QString& err) {
        ShowMessageOnStatusBar();
-       QApplication::restoreOverrideCursor();
+       // QApplication::restoreOverrideCursor();
        Utility::DisplayStdErrorDialog(err);
    }
 
