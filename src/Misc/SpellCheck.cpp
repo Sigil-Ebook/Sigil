@@ -185,6 +185,7 @@ bool SpellCheck::spell(const QString &word)
     if (!m_opendicts.contains(dname)) {
         loadDictionary(dname);
     }
+    if (!m_opendicts.contains(dname)) return true;
     HDictionary hdic = m_opendicts[dname];
     Q_ASSERT(hdic.codec != nullptr);
     Q_ASSERT(hdic.handle != nullptr);
@@ -199,12 +200,16 @@ bool SpellCheck::spellPS(const QString &word)
 {
     SettingsStore settings;
     QString dname = settings.dictionary();
+    // if primary dictionary does not exist simply return true (no error)
+    if (!m_opendicts.contains(dname)) {
+        return true;
+    }
     HDictionary hdic = m_opendicts[dname];
     bool res = hdic.handle->spell(hdic.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData()) != 0;
     res = res || isIgnored(word);
     if (res) return res;
     dname = settings.secondary_dictionary();
-    if (dname.isEmpty()) return res;
+    if (dname.isEmpty() || !m_opendicts.contains(dname)) return res;
     hdic = m_opendicts[dname];
     Q_ASSERT(hdic.codec != nullptr);
     Q_ASSERT(hdic.handle != nullptr);
@@ -241,6 +246,7 @@ QStringList SpellCheck::suggestPS(const QString &word)
     char **suggestedWords;
     char **suggestedWords2;
     QString dname = settings.dictionary();
+    if (!m_opendicts.contains(dname)) return suggestions;
     HDictionary hdic = m_opendicts[dname];
     Q_ASSERT(hdic.codec != nullptr);
     Q_ASSERT(hdic.handle != nullptr);
@@ -317,6 +323,7 @@ void SpellCheck::loadDictionary(const QString &dname)
     hdic.handle = new Hunspell(aff.toLocal8Bit().constData(), dic.toLocal8Bit().constData());
     if (!hdic.handle) {
         qDebug() << "failed to load new Hunspell dictionary " << dname;
+        return;
     }
 
     // Get the encoding for the text in the dictionary.
@@ -326,6 +333,7 @@ void SpellCheck::loadDictionary(const QString &dname)
     }
     if (!hdic.codec) {
         qDebug() << "failed to load codec " << dname;
+        return;
     }
 
     // Get the extra wordchars used for tokenization
