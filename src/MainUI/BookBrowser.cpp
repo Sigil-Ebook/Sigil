@@ -262,12 +262,21 @@ void BookBrowser::RenumberTOC()
 
 Resource *BookBrowser::GetUrlResource(const QUrl &url)
 {
+    qDebug() << "In BookBrowser::GetUrlResource with url: " << url;
     QString bookpath;
     if (url.scheme() == "book") {
         // handle our own internal links (strip root / from absolute path to make it relative)
         bookpath = url.path().remove(0,1);
     } else if (url.scheme() == "file") {
         QString fullfilepath = url.toLocalFile();
+        QString main_folder_path = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+        // Note main_folder_path *never* ends with a path separator - see Misc/TempFolder.cpp
+        bookpath = fullfilepath.right(fullfilepath.length() - main_folder_path.length() - 1);
+    } else if (url.scheme() == "sigil") {
+        QUrl newurl(url);
+        newurl.setScheme("file");
+        qDebug() << "what? " << newurl <<  newurl.path();
+        QString fullfilepath = newurl.toLocalFile();
         QString main_folder_path = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
         // Note main_folder_path *never* ends with a path separator - see Misc/TempFolder.cpp
         bookpath = fullfilepath.right(fullfilepath.length() - main_folder_path.length() - 1);

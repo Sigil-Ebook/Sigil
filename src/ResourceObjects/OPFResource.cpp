@@ -1313,6 +1313,7 @@ QString OPFResource::GetFileMimetype(const QString &filepath) const
 
 void OPFResource::UpdateText(const OPFParser &p)
 {
+  qDebug() << "In UpdateText with: " << p.convert_to_xml();
     TextResource::SetText(p.convert_to_xml());
 }
 

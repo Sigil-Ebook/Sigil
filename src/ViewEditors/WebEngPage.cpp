@@ -25,7 +25,7 @@
 #include "Misc/Utility.h"
 #include "ViewEditors/WebEngPage.h"
 
-#define DBG if(0)
+#define DBG if(1)
  
 WebEngPage::WebEngPage(QObject *parent)
     : QWebEnginePage(parent)
@@ -51,11 +51,15 @@ WebEngPage::WebEngPage(QObject *parent)
 
 bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType type, bool isMainFrame)
 {
-    if ((type == QWebEnginePage::NavigationTypeLinkClicked) || (type == QWebEnginePage::NavigationTypeOther)) {
+  if ((type == QWebEnginePage::NavigationTypeLinkClicked) || (type == QWebEnginePage::NavigationTypeOther)) {
         DBG qDebug() << "acceptNavigationRequest " << url.toString() << " , " << type << " , " << isMainFrame;
         m_url = url;
 	QTimer::singleShot(20,this,SLOT(EmitLinkClicked()));
         return false;
+    }
+    if (type == QWebEnginePage::NavigationTypeTyped) {
+        DBG qDebug() << "acceptNavigationRequest from scheme handler load" << url.toString();
+        return true;
     }
     DBG qDebug() << " Unhandled acceptNavigationRequest with type: " << type;
     return true;

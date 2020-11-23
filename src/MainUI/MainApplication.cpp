@@ -48,6 +48,16 @@ MainApplication::MainApplication(int &argc, char **argv)
 #endif
 }
 
+void MainApplication::saveInPreviewCache(const QString &key, const QString& xhtml)
+{
+    m_PreviewCache[key] = xhtml;
+}
+
+QString MainApplication::loadFromPreviewCache(const QString &key)
+{
+    return m_PreviewCache.take(key);
+}
+
 void MainApplication::fixMacDarkModePalette(QPalette &pal)
 {
 # ifdef Q_OS_MAC

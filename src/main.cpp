@@ -42,6 +42,10 @@
 #include <QFontMetrics>
 #include <QtWebEngineWidgets/QWebEngineProfile>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#include <QWebEngineUrlScheme>
+#endif
+
 #include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
 #include "MainUI/MainApplication.h"
@@ -53,6 +57,7 @@
 #include "Misc/UpdateChecker.h"
 #include "Misc/Utility.h"
 #include "Misc/URLInterceptor.h"
+#include "Misc/URLSchemeHandler.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
@@ -308,6 +313,7 @@ int main(int argc, char *argv[])
 }
 #endif
 
+
 #ifndef QT_DEBUG
     qInstallMessageHandler(MessageHandler);
 #endif
@@ -317,6 +323,18 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain("sigil-ebook.com");
     QCoreApplication::setApplicationName("sigil");
     QCoreApplication::setApplicationVersion(SIGIL_VERSION);
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+    // register the our own url scheme (this is required since Qt 5.12)
+    QWebEngineUrlScheme sigilScheme("sigil");
+    sigilScheme.setFlags(QWebEngineUrlScheme::SecureScheme |
+                         QWebEngineUrlScheme::LocalScheme |
+                         QWebEngineUrlScheme::LocalAccessAllowed |
+                         QWebEngineUrlScheme::ContentSecurityPolicyIgnored);
+    // sigilScheme.setSyntax(QWebEngineUrlScheme::Syntax::Host);
+    sigilScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
+    QWebEngineUrlScheme::registerScheme(sigilScheme);
+#endif
 
 #ifndef Q_OS_MAC
     setupHighDPI();
@@ -513,6 +531,10 @@ int main(int argc, char *argv[])
         app.setDesktopFileName(QStringLiteral("sigil.desktop"));
 #endif
 #endif
+
+        // Install our own URLSchemeHandler for QtWebEngine to bypass 2mb url limit
+        URLSchemeHandler handlescheme; 
+        QWebEngineProfile::defaultProfile()->installUrlSchemeHandler("sigil", &handlescheme);
 
         // Install our own URLInterceptor for QtWebEngine to protect
         // against bad file:: urls

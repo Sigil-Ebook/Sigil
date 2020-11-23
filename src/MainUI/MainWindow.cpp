@@ -1101,7 +1101,7 @@ void MainWindow::OpenUrl(const QUrl &url)
     BookmarkLinkOrStyleLocation();
 
     // note: TabManager generates book: urls and PreviewWindow generates file: urls
-    if (url.scheme() == "book" || url.scheme() == "file") {
+    if (url.scheme() == "book" || url.scheme() == "file" || url.scheme() == "sigil") {
         Resource *resource = m_BookBrowser->GetUrlResource(url);
 
         if (resource == NULL) {

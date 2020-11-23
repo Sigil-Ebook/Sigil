@@ -36,13 +36,14 @@
 #include <QGuiApplication>
 #include <QDebug>
 
+#include "MainUI/MainApplication.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
 #include "ViewEditors/WebEngPage.h"
 #include "ViewEditors/ViewPreview.h"
 
-#define DBG if(0)
+#define DBG if(1)
 
 const QString SET_CURSOR_JS2 =
     "var range = document.createRange();"
@@ -194,7 +195,13 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
     // Sigil as well as catering for section splits etc.
     QString replaced_html = html;
     replaced_html = replaced_html.replace("<html>", "<html xmlns=\"http://www.w3.org/1999/xhtml\">");
-    setContent(replaced_html.toUtf8(), "application/xhtml+xml;charset=UTF-8", QUrl::fromLocalFile(path));
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+    QString key = Utility::CreateUUID();
+    mainApplication->saveInPreviewCache(key, replaced_html);
+    QString tgt = "sigil://" + path + "?sigilpreview=" + key; 
+    QUrl tgturl = QUrl(tgt);
+    page()->load(tgturl);
+    // setContent(replaced_html.toUtf8(), "application/xhtml+xml;charset=UTF-8", QUrl::fromLocalFile(path));
 }
 
 bool ViewPreview::IsLoadingFinished()

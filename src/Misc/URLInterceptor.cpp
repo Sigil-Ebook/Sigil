@@ -28,9 +28,9 @@
 #include "BookManipulation/Book.h"
 #include "MainUI/MainWindow.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "URLInterceptor.h"
+#include "Misc/URLInterceptor.h"
 
-#define INTERCEPTDEBUG 0
+#define INTERCEPTDEBUG 1
 
 URLInterceptor::URLInterceptor(QObject *parent)
     : QWebEngineUrlRequestInterceptor(parent)
@@ -58,14 +58,25 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
     }
     
     QUrl destination(info.requestUrl());
+    QUrl sourceurl(info.firstPartyUrl());
 
-    // verify all url file schemes before allowing
+    // note: need to handle our "sigil" scheme but toLocalFile will NOT work on a "sigil" scheme url
+    // so temporarily remap them to local file scheme for the purposes of this routine
+    if (destination.scheme() == "sigil") {
+        destination.setScheme("file");
+        destination.setQuery(QString());
+        sourceurl.setScheme("file");
+        sourceurl.setQuery(QString());
+    }
+ 
+    // verify all url file and sigil schemes before allowing
+    // if ((destination.scheme() == "file") || (destination.scheme() == "sigil")) {
     if (destination.scheme() == "file") {
         // find the relavent MainWindow
 	QString bookfolder;
         QString mathjaxfolder;
         QString usercssfolder = Utility::DefinePrefsDir() + "/";
-	QString sourcefolder = info.firstPartyUrl().toLocalFile();
+	QString sourcefolder = sourceurl.toLocalFile();
 	const QWidgetList topwidgets = qApp->topLevelWidgets();
 	foreach(QWidget* widget, topwidgets) {
 	    MainWindow * mw = qobject_cast<MainWindow *>(widget);

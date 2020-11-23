@@ -28,6 +28,8 @@
 
 #include <QEvent>
 #include <QtWidgets/QApplication>
+#include <QString>
+#include <QHash>
 
 class QStyle;
 
@@ -41,6 +43,9 @@ public:
     bool isDarkMode() { return m_isDark; }
     void fixMacDarkModePalette(QPalette &pal);
 
+    void saveInPreviewCache(const QString &key, const QString& xhtml);
+    QString loadFromPreviewCache(const QString &key);
+    
 signals:
     void applicationActivated();
     void applicationDeactivated();
@@ -55,6 +60,7 @@ protected:
 private:
     QStyle * m_Style;
     bool m_isDark;
+    QHash<QString, QString> m_PreviewCache;
 };
 
 #endif // MAINAPPLICATION_H
