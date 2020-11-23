@@ -162,10 +162,10 @@ QString HTMLSpellCheckML::langOf(const QString& word)
 }
 
 
-int HTMLSpellCheckML::WordPosition(QString text, QString word, int start_pos)
+int HTMLSpellCheckML::WordPosition(QString text, QString word, int start_pos, const QString &default_lang)
 {
     SettingsStore ss;
-    QList<HTMLSpellCheckML::AWord> words = GetWordList(text, ss.defaultMetadataLang().replace("_","-"));
+    QList<HTMLSpellCheckML::AWord> words = GetWordList(text, default_lang);
     foreach (HTMLSpellCheckML::AWord w, words) {
         if (w.offset < start_pos) {
             continue;

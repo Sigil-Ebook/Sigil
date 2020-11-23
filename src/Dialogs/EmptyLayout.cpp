@@ -208,8 +208,6 @@ bool EmptyLayout::cleanEpubRoot()
     m_hasOPF = false;
     m_hasNCX = false;
     m_hasNAV = false;
-    m_BookPaths = QStringList();
-
     return success;
 }
 
@@ -244,6 +242,7 @@ void EmptyLayout::loadDesign()
     if (bookpaths.isEmpty()) return;
 
     cleanEpubRoot();
+    m_BookPaths = QStringList();
 
     // first write the files you have loaded
     QDir eroot(m_MainFolder + "/EpubRoot");
@@ -497,6 +496,7 @@ void EmptyLayout::saveData()
 
     WriteSettings();
     cleanEpubRoot();
+    // do not reset m_BookPaths here
     QDialog::accept();
 }
 
@@ -506,6 +506,7 @@ void EmptyLayout::reject()
 
     WriteSettings();
     cleanEpubRoot();
+    m_BookPaths = QStringList();
     QDialog::reject();
 }
 

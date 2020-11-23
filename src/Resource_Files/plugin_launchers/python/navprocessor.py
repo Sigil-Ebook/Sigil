@@ -41,7 +41,7 @@ NAV_LANDMARKS_PATTERN = re.compile(r'''^\s*<!--\s*SIGIL_REPLACE_LANDMARKS_HERE\s
 def xmlencode(data):
     if data is None:
         return ''
-    newdata = data
+    newdata = xmldecode(data)
     newdata = newdata.replace('&', '&amp;')
     newdata = newdata.replace('<', '&lt;')
     newdata = newdata.replace('>', '&gt;')

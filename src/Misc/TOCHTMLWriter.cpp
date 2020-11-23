@@ -92,6 +92,7 @@ void TOCHTMLWriter::WriteHead()
     // TOC
     m_Writer->writeStartElement("link");
     QString href = Utility::buildRelativePath(m_TOCBookPath, m_CSSBookPath);
+    href = Utility::URLEncodePath(href);
     m_Writer->writeAttribute("href", href);
     m_Writer->writeAttribute("rel", "stylesheet");
     m_Writer->writeAttribute("type", "text/css");

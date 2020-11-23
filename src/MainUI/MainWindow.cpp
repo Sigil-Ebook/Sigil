@@ -460,6 +460,7 @@ void MainWindow::StandardizeEpub()
         if (!hresource->FileIsWellFormed()) {
 	    QMessageBox::warning(this, tr("Sigil"), 
 				 tr("Restructure cancelled: %1, XML not well formed.").arg(hresource->ShortPathName()));
+            QApplication::restoreOverrideCursor();
 	    return;
         }
     }
@@ -468,6 +469,7 @@ void MainWindow::StandardizeEpub()
     if (!opfresource->FileIsWellFormed()) {
         QMessageBox::warning(this, tr("Sigil"),
 			     tr("Restructure cancelled: %1, XML not well formed.").arg(opfresource->ShortPathName()));
+        QApplication::restoreOverrideCursor();
         return;
     }
     // ditto for ncx if one exists
@@ -475,6 +477,7 @@ void MainWindow::StandardizeEpub()
     if (ncxresource && !ncxresource->FileIsWellFormed()) {
         QMessageBox::warning(this, tr("Sigil"),
 			     tr("Restructure cancelled: %1, XML not well formed.").arg(ncxresource->ShortPathName()));
+        QApplication::restoreOverrideCursor();
         return;
     }
     // we really should parse validate each css file here but
@@ -1652,10 +1655,6 @@ void MainWindow::Exit()
 
 void MainWindow::Find()
 {
-    if (m_FindReplace->isVisible()) {
-        m_FindReplace->hide();
-        return;
-    }
     SaveTabData();
     m_FindReplace->SetUpFindText();
     m_FindReplace->show();
@@ -1943,6 +1942,7 @@ void MainWindow::AddCover()
 
             // Add the filename and dimensions of the image to the HTML source.
             QString image_relative_path = image_resource->GetRelativePathFromResource(html_cover_resource);
+	    image_relative_path = Utility::URLEncodePath(image_relative_path);
             QImage img(image_resource->GetFullPath());
             QString text = html_cover_resource->GetText();
             QString width = QString::number(img.width());
@@ -2053,6 +2053,7 @@ void MainWindow::GenerateNCXGuideFromNav()
     if ((!nav_resource) || navdata.isEmpty()) {
         ShowMessageOnStatusBar(tr("NCX and Guide generation failed."));
         QApplication::restoreOverrideCursor();
+        return;
     }
 
     NCXResource * ncx_resource = m_Book->GetNCX();
@@ -2234,6 +2235,7 @@ void MainWindow::CreateIndex()
     // Scan the book, add ids for any tag containing at least one index entry and store the
     // document index entry at the same time (including custom and from the index editor).
     if (!Index::BuildIndex(html_resources)) {
+        QApplication::restoreOverrideCursor();
         return;
     }
 
@@ -2316,6 +2318,7 @@ void MainWindow::ReportsDialog()
 
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
         QMessageBox::warning(this, tr("Sigil"), tr("Reports cancelled due to XML not well formed."));
+        QApplication::restoreOverrideCursor();
         return;
     }
 
@@ -2555,6 +2558,7 @@ void MainWindow::InsertFiles(const QStringList &selected_files)
                 try {
                     Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(selected_file);
                     QString relative_path = resource->GetRelativePathFromResource(tab_resource);
+		    relative_path = Utility::URLEncodePath(relative_path);
 
 		    // extract just the filename without extension to create a text label
 		    QString filename = resource->Filename();
@@ -3013,6 +3017,9 @@ void MainWindow::FindWord(QString word)
     }
 
     // Search for the word.
+    QString default_lang = m_Book->GetConstOPF()->GetPrimaryBookLanguage();
+    default_lang.replace('_','-');
+
     bool done_current = false;
     foreach (Resource *resource, html_resources) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
@@ -3032,8 +3039,7 @@ void MainWindow::FindWord(QString word)
             done_current = true;
         }
         QString text = html_resource->GetText();
-
-        int found_pos = HTMLSpellCheckML::WordPosition(text, word, start_pos);
+        int found_pos = HTMLSpellCheckML::WordPosition(text, word, start_pos, default_lang);
         // int found_pos = HTMLSpellCheck::WordPosition(text, word, start_pos);
         if (found_pos >= 0) {
             if (resource->ShortPathName() != current_html_filename) {
@@ -4600,9 +4606,15 @@ void MainWindow::CreateNewBook(const QString version, const QStringList &book_pa
         // ncx is optional in epub3 so wait until user asks for it to be generated before creating it
         // if (!ncxbookpath.isEmpty()) {
         //     new_book->GetFolderKeeper()->AddNCXToFolder(version, ncxbookpath, first_textdir);
+        //     NCXResource * ncxresource = new_book->GetNCX();
+        //     QString NCXId = new_book->GetOPF()->AddNCXItem(ncxresource->GetFullPath(),"ncx");
+        //     new_book->GetOPF()->UpdateNCXOnSpine(NCXId);
 	// }
     } else {
         new_book->GetFolderKeeper()->AddNCXToFolder(epubversion, ncxbookpath, first_textdir);
+        NCXResource * ncxresource = new_book->GetNCX();
+        QString NCXId = new_book->GetOPF()->AddNCXItem(ncxresource->GetFullPath(),"ncx");
+        new_book->GetOPF()->UpdateNCXOnSpine(NCXId);
     }
     SetNewBook(new_book);
     new_book->SetModified(false);
@@ -4674,24 +4686,28 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
         }
    } catch (FileEncryptedWithDrm&) {
        ShowMessageOnStatusBar();
+       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
        QApplication::restoreOverrideCursor();
        Utility::DisplayStdErrorDialog(
            tr("The creator of this file has encrypted it with DRM. "
               "Sigil cannot open such files."));
    } catch (EPUBLoadParseError& epub_load_error) {
        ShowMessageOnStatusBar();
+       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
        QApplication::restoreOverrideCursor();
        const QString errors = QString(epub_load_error.what());
        Utility::DisplayStdErrorDialog(
            tr("Cannot load EPUB: %1").arg(QDir::toNativeSeparators(fullfilepath)), errors);
    } catch (const std::runtime_error &e) {
        ShowMessageOnStatusBar();
+       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
        QApplication::restoreOverrideCursor();
        Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
                                              .arg(QDir::toNativeSeparators(fullfilepath))
                                              .arg(e.what()));
    } catch (QString& err) {
        ShowMessageOnStatusBar();
+       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
        QApplication::restoreOverrideCursor();
        Utility::DisplayStdErrorDialog(err);
    }

@@ -583,7 +583,7 @@ QString Utility::DecodeXML(const QString &text)
 
 QString Utility::EncodeXML(const QString &text)
 {
-    QString newtext(text);
+    QString newtext = Utility::DecodeXML(text);
     return newtext.toHtmlEscaped();
 }
 
@@ -1207,20 +1207,21 @@ std::pair<QString, QString> Utility::parseRelativeHREF(const QString &relative_h
 }
 
 // return a url encoded string for given decoded path and fragment (if any)
-// any fragment will start with a "#", Use Qurl to handle building and Percent Encoding
+// Note: Any fragment will start with a "#" ! to allow links to root as just "#"
 QString Utility::buildRelativeHREF(const QString &apath, const QString &afrag)
 {
-    QUrl href;
-    href.setScheme("");
-    href.setPath(apath);
-    QString id(afrag);
-    bool add_empty_fragment = id == QString("#");
-    if (id.startsWith("#")) {
-        id = id.mid(1, -1);
+    QString newhref = URLEncodePath(apath);
+    QString id = afrag;
+    if (!id.isEmpty()) {
+        if (id.startsWith("#")) {
+            id = id.mid(1, -1);
+	    // technically fragments should be percent encoded if needed
+	    id = URLEncodePath(id);
+	    newhref = newhref + "#" + id;
+        } else {
+	    qDebug() << "Error: buildRelativeHREF has fragment that does not start with #" << afrag;
+	}
     }
-    href.setFragment(id);
-    QString newhref = QString::fromUtf8(href.toEncoded());
-    if (add_empty_fragment) newhref = newhref + "#";  
     return newhref;
 }
 

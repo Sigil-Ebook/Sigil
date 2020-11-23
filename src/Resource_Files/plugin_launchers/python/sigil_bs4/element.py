@@ -1,8 +1,11 @@
+try:
+    from collections.abc import Callable # Python 3.6
+except ImportError as e:
+    from collections import Callable
 import sys
 from collections import OrderedDict
 
 from pdb import set_trace
-import collections
 import re
 import warnings
 from sigil_bs4.dammit import EntitySubstitution
@@ -177,13 +180,13 @@ class PageElement(object):
 
     XML_FORMATTERS = {
         "html" : EntitySubstitution.substitute_html,
-        "minimal" : EntitySubstitution.substitute_xml,
+        "minimal" : EntitySubstitution.substitute_xml_containing_entities,
         None : None
         }
 
     def format_string(self, s, formatter='minimal'):
         """Format the given string using the given formatter."""
-        if not isinstance(formatter, collections.Callable):
+        if not isinstance(formatter, Callable):
             formatter = self._formatter_for_name(formatter)
         if formatter is None:
             output = s
@@ -1099,7 +1102,7 @@ class Tag(PageElement):
 
         # First off, turn a string formatter into a function. This
         # will stop the lookup from happening over and over again.
-        if not isinstance(formatter, collections.Callable):
+        if not isinstance(formatter, Callable):
             formatter = self._formatter_for_name(formatter)
 
         attrs = []
@@ -1203,7 +1206,7 @@ class Tag(PageElement):
         """
         # First off, turn a string formatter into a function. This
         # will stop the lookup from happening over and over again.
-        if not isinstance(formatter, collections.Callable):
+        if not isinstance(formatter, Callable):
             formatter = self._formatter_for_name(formatter)
 
         pretty_print = (indent_level is not None)
@@ -1229,7 +1232,7 @@ class Tag(PageElement):
 
         # First off, turn a string formatter into a function. This
         # will stop the lookup from happening over and over again.
-        if not isinstance(formatter, collections.Callable):
+        if not isinstance(formatter, Callable):
             formatter = self._formatter_for_name(formatter)
 
         is_xmlparent = self.name.lower() in EBOOK_XML_PARENT_TAGS
@@ -1307,7 +1310,7 @@ class Tag(PageElement):
         """
         # First off, turn a string formatter into a function. This
         # will stop the lookup from happening over and over again.
-        if not isinstance(formatter, collections.Callable):
+        if not isinstance(formatter, Callable):
             formatter = self._formatter_for_name(formatter)
 
         is_xmlparent = self.name.lower() in EBOOK_XML_PARENT_TAGS
@@ -1330,7 +1333,7 @@ class Tag(PageElement):
     def serialize_xhtml(self, eventual_encoding=DEFAULT_OUTPUT_ENCODING, formatter="minimal"):
         # First off, turn a string formatter into a function. This
         # will stop the lookup from happening over and over again.
-        if not isinstance(formatter, collections.Callable):
+        if not isinstance(formatter, Callable):
             formatter = self._formatter_for_name(formatter)
 
         prefix = ''
@@ -1393,7 +1396,7 @@ class Tag(PageElement):
 
         # First off, turn a string formatter into a function. This
         # will stop the lookup from happening over and over again.
-        if not isinstance(formatter, collections.Callable):
+        if not isinstance(formatter, Callable):
             formatter = self._formatter_for_name(formatter)
 
         s = []
@@ -1417,7 +1420,7 @@ class Tag(PageElement):
 
         # First off, turn a string formatter into a function. This
         # will stop the lookup from happening over and over again.
-        if not isinstance(formatter, collections.Callable):
+        if not isinstance(formatter, Callable):
             formatter = self._formatter_for_name(formatter)
 
         is_structural = self.name in STRUCTURAL_TAGS
@@ -1512,7 +1515,7 @@ class Tag(PageElement):
         """
         # First off, turn a string formatter into a function. This
         # will stop the lookup from happening over and over again.
-        if not isinstance(formatter, collections.Callable):
+        if not isinstance(formatter, Callable):
             formatter = self._formatter_for_name(formatter)
 
         is_structural = self.name in STRUCTURAL_TAGS
@@ -1942,7 +1945,7 @@ class SoupStrainer(object):
     def _normalize_search_value(self, value):
         # Leave it alone if it's a Unicode string, a callable, a
         # regular expression, a boolean, or None.
-        if (isinstance(value, str) or isinstance(value, collections.Callable) or hasattr(value, 'match')
+        if (isinstance(value, str) or isinstance(value, Callable) or hasattr(value, 'match')
             or isinstance(value, bool) or value is None):
             return value
 
@@ -1980,7 +1983,7 @@ class SoupStrainer(object):
             markup = markup_name
             markup_attrs = markup
         call_function_with_tag_data = (
-            isinstance(self.name, collections.Callable)
+            isinstance(self.name, Callable)
             and not isinstance(markup_name, Tag))
 
         if ((not self.name)
@@ -2066,7 +2069,7 @@ class SoupStrainer(object):
             # True matches any non-None value.
             return markup is not None
 
-        if isinstance(match_against, collections.Callable):
+        if isinstance(match_against, Callable):
             return match_against(markup)
 
         # Custom callables take the tag as an argument, but all

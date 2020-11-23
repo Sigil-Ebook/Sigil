@@ -41,7 +41,7 @@ def _well_formed(data):
     if isinstance(newdata, str):
         newdata = newdata.encode('utf-8')
     try:
-        parser = etree.XMLParser(encoding='utf-8', recover=False, resolve_entities=False)
+        parser = etree.XMLParser(encoding='utf-8', recover=False, resolve_entities=True)
         tree = etree.parse(BytesIO(newdata), parser)
     except Exception:
         result = False
@@ -53,7 +53,7 @@ def _reformat(data):
     if isinstance(newdata, str):
         newdata = newdata.encode('utf-8')
     parser = etree.XMLParser(encoding='utf-8', recover=True, ns_clean=True,
-                             remove_comments=True, remove_pis=True, strip_cdata=True, resolve_entities=False)
+                             remove_comments=True, remove_pis=True, strip_cdata=True, resolve_entities=True)
     tree = etree.parse(BytesIO(newdata), parser)
     newdata = etree.tostring(tree.getroot(),encoding='UTF-8', xml_declaration=False)
     return newdata 
@@ -125,7 +125,7 @@ def WellFormedXMLErrorCheck(data, mtype=""):
     column = "-1"
     message = "well-formed"
     try:
-        parser = etree.XMLParser(encoding='utf-8', recover=False, resolve_entities=False)
+        parser = etree.XMLParser(encoding='utf-8', recover=False, resolve_entities=True)
         tree = etree.parse(BytesIO(newdata), parser)
     except Exception:
         line = "0"
