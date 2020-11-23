@@ -44,7 +44,9 @@ void URLSchemeHandler::requestStarted(QWebEngineUrlRequestJob *request)
 {
     qDebug() << "In URLSchemeHandler with url: " << request->requestUrl();
     qDebug() << "In URLSchemeHandler with method: " << request->requestMethod();
+#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
     qDebug() << "In URLSchemeHandler with initiator: " << request->initiator();
+#endif
 
     QUrl url = request->requestUrl();
     qDebug() << "   query is: " << url.query();
