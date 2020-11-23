@@ -1,6 +1,7 @@
 pre-1.5.0
     Bug Fixes:
       - fix multiple mismatched wait cursor setting and restoring in MainWindow
+      - fix issue with custom ncx names in non-standard empty epub layouts
 
 Sigil-1.4.2
     Bug Fixes:
