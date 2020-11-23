@@ -235,7 +235,7 @@ QStringList SettingsStore::enabledUserDictionaries()
 bool SettingsStore::spellCheck()
 {
     clearSettingsGroup();
-    return static_cast<bool>(value(KEY_SPELL_CHECK, true).toBool());
+    return static_cast<bool>(value(KEY_SPELL_CHECK, false).toBool());
 }
 
 bool SettingsStore::spellCheckNumbers()
