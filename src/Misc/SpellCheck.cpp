@@ -305,7 +305,7 @@ void SpellCheck::loadDictionary(const QString &dname)
     QMutexLocker locker(&mutex);
     // If we don't have a dictionary we cannot continue.
     if (dname.isEmpty() || !m_dictionaries.contains(dname)) {
-        qDebug() << "attempted to load a non-exsitant dictionary: " << dname;
+        qDebug() << "attempted to load a non-existent dictionary: " << dname;
         return;
     }
 
@@ -396,6 +396,7 @@ QString SpellCheck::getWordChars(const QString &lang)
     if (!m_opendicts.contains(dname)) {
         loadDictionary(dname);
     }
+    if (!m_opendicts.contains(dname)) return "";
     HDictionary hdic = m_opendicts[dname];
     Q_ASSERT(hdic.codec != nullptr);
     Q_ASSERT(hdic.handle != nullptr);
