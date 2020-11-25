@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  copyright (C) 2020  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2020  Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -34,6 +34,10 @@
 #include "Misc/Utility.h"
 #include "Misc/URLSchemeHandler.h"
 
+
+#define DBG if(0)
+
+
 URLSchemeHandler::URLSchemeHandler(QObject *parent)
     : QWebEngineUrlSchemeHandler(parent)
 {
@@ -42,24 +46,21 @@ URLSchemeHandler::URLSchemeHandler(QObject *parent)
 
 void URLSchemeHandler::requestStarted(QWebEngineUrlRequestJob *request)
 {
-    qDebug() << "In URLSchemeHandler with url: " << request->requestUrl();
-    qDebug() << "In URLSchemeHandler with method: " << request->requestMethod();
+    DBG qDebug() << "In URLSchemeHandler with url: " << request->requestUrl();
+    DBG qDebug() << "In URLSchemeHandler with method: " << request->requestMethod();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
-    qDebug() << "In URLSchemeHandler with initiator: " << request->initiator();
+    DBG qDebug() << "In URLSchemeHandler with initiator: " << request->initiator();
 #endif
 
     QUrl url = request->requestUrl();
-    qDebug() << "   query is: " << url.query();
     QByteArray data;
     QString content_type;  // must NOT include ";charset=UTF-8"
     if (url.hasQuery() && url.query().contains("sigilpreview=")) {
         QString key = url.query();
         key = key.mid(key.indexOf("=")+1);
         content_type = QString("application/xhtml+xml");
-        qDebug() << "key: " << key;
         MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
         QString xhtml = mainApplication->loadFromPreviewCache(key);
-        qDebug() << "xhtml: " << xhtml;
         data = xhtml.toUtf8();
     } else {
         QUrl fileurl("file://" + url.path());
@@ -76,13 +77,13 @@ void URLSchemeHandler::requestStarted(QWebEngineUrlRequestJob *request)
         }
     }
     if (!data.isEmpty()) {
-        qDebug() << "I am here in Scheme Handler";
         QBuffer *replybuffer = new QBuffer();
         replybuffer->setData(data);
         replybuffer->open(QIODevice::ReadOnly);
         connect(request, SIGNAL(destroyed()), replybuffer, SLOT(deleteLater()));
         request->reply(content_type.toUtf8(), replybuffer);
     } else {
+        qDebug() << "URLSchemeHandler failed request for: " << url;
         request->fail(QWebEngineUrlRequestJob::UrlNotFound);
     }
 }

@@ -25,7 +25,7 @@
 #include "Misc/Utility.h"
 #include "ViewEditors/WebEngPage.h"
 
-#define DBG if(1)
+#define DBG if(0)
  
 WebEngPage::WebEngPage(QObject *parent)
     : QWebEnginePage(parent)

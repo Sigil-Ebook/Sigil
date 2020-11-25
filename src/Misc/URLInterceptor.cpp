@@ -30,7 +30,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "Misc/URLInterceptor.h"
 
-#define INTERCEPTDEBUG 1
+#define DBG if(0)
 
 URLInterceptor::URLInterceptor(QObject *parent)
     : QWebEngineUrlRequestInterceptor(parent)
@@ -39,17 +39,14 @@ URLInterceptor::URLInterceptor(QObject *parent)
 
 void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 {
-
-#if INTERCEPTDEBUG
     // Debug:  output all requests
-    qDebug() << "-----";
-    qDebug() << "method: " << info.requestMethod();
-    qDebug() << "party: " << info.firstPartyUrl();
-    qDebug() << "request" << info.requestUrl();
-    qDebug() << "navtype: " << info.navigationType();
-    qDebug() << "restype: " << info.resourceType();
-    qDebug() << "ActiveWindow: " <<  qApp->activeWindow();
-#endif
+    DBG qDebug() << "-----";
+    DBG qDebug() << "method: " << info.requestMethod();
+    DBG qDebug() << "party: " << info.firstPartyUrl();
+    DBG qDebug() << "request" << info.requestUrl();
+    DBG qDebug() << "navtype: " << info.navigationType();
+    DBG qDebug() << "restype: " << info.resourceType();
+    DBG qDebug() << "ActiveWindow: " <<  qApp->activeWindow();
 
     if (info.requestMethod() != "GET") {
         info.block(true);
@@ -87,14 +84,12 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 		if (sourcefolder.startsWith(path_to_book)) {
 		    bookfolder = path_to_book;
 		    mathjaxfolder = path_to_mathjax;
-#if INTERCEPTDEBUG
-                    qDebug() << "mainwin: " <<  mw;
-                    qDebug() << "book: " << bookfolder;
-                    qDebug() << "mathjax: " << mathjaxfolder;
-                    qDebug() << "usercss: " << usercssfolder;
-		    qDebug() << "party: " << info.firstPartyUrl();
-		    qDebug() << "source: " << sourcefolder;
-#endif
+                    DBG qDebug() << "mainwin: " <<  mw;
+                    DBG qDebug() << "book: " << bookfolder;
+                    DBG qDebug() << "mathjax: " << mathjaxfolder;
+                    DBG qDebug() << "usercss: " << usercssfolder;
+		    DBG qDebug() << "party: " << info.firstPartyUrl();
+		    DBG qDebug() << "source: " << sourcefolder;
 		    break;
 		}
 	    }
@@ -102,7 +97,7 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
         // if can not determine book folder block it
         if (bookfolder.isEmpty()) {
             info.block(true);
-            qDebug() << "Error: URLInterceptor can not determine book folder so all file: requests blocked";
+            qDebug() << "Error: URLInterceptor can not determine book folder so all file requests blocked";
             return;
         }
         // path must be inside of bookfolder, Note it is legal for it not to exist
@@ -121,7 +116,7 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
             info.block(false);
             return;
         }
-        // otherwise block it to prevent access to any user file path
+        // otherwise block it to prevent access to any outside Sigil user file path
         info.block(true);
         qDebug() << "Warning: URLInterceptor blocking access to url " << destination;
         qDebug() << "    from " << info.firstPartyUrl();

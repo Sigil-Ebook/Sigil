@@ -753,7 +753,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
 	apath = Utility::URLDecodePath(href);
     }
     // for hrefs pointing outside the epub, apath will be empty
-    qDebug() << "ImportEpub with Manifest item: " << href << apath;
+    // qDebug() << "ImportEpub with Manifest item: " << href << apath;
     QString extension = QFileInfo(apath).suffix().toLower();
 
     // validate the media type if we can, and warn otherwise
