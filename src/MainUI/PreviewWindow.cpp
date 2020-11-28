@@ -50,7 +50,7 @@ static const QStringList HEADERTAGS = QStringList() << "h1" << "h2" << "h3" << "
 
 static const QString SETTINGS_GROUP = "previewwindow";
 
-#define DBG if(0)
+#define DBG if(1)
 
 PreviewWindow::PreviewWindow(QWidget *parent)
     :
