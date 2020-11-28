@@ -198,8 +198,10 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
     MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
     QString key = Utility::CreateUUID();
     mainApplication->saveInPreviewCache(key, replaced_html);
-    QString tgt = "sigil://" + path + "?sigilpreview=" + key; 
-    QUrl tgturl = QUrl(tgt);
+    QUrl tgturl = QUrl::fromLocalFile(path);
+    tgturl.setScheme("sigil");
+    tgturl.setHost("");
+    tgturl.setQuery("sigilpreview=" + key); 
     page()->load(tgturl);
     // setContent(replaced_html.toUtf8(), "application/xhtml+xml;charset=UTF-8", QUrl::fromLocalFile(path));
 }
