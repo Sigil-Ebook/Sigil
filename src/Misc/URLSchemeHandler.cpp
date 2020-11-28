@@ -35,7 +35,7 @@
 #include "Misc/URLSchemeHandler.h"
 
 
-#define DBG if(1)
+#define DBG if(0)
 
 
 URLSchemeHandler::URLSchemeHandler(QObject *parent)
