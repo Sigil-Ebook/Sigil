@@ -81,6 +81,7 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
         QString mathjaxfolder;
         QString usercssfolder = Utility::DefinePrefsDir() + "/";
 	QString sourcefolder = sourceurl.toLocalFile();
+        DBG qDebug() << "sourcefolder: " << sourcefolder;
 	const QWidgetList topwidgets = qApp->topLevelWidgets();
 	foreach(QWidget* widget, topwidgets) {
 	    MainWindow * mw = qobject_cast<MainWindow *>(widget);
