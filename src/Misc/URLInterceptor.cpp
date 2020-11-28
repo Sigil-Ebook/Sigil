@@ -66,6 +66,13 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
         sourceurl.setQuery(QString());
     }
  
+    // Finally let the navigation type determine what to verify against:
+    // Use firstPartyURL when NavigationTypeLink or NavigationTypeOther (ie. a true source url)
+    // Otherwise if we Typed it in it is from our own PreviewUpdate page
+    if (info.navigationType() == QWebEngineUrlRequestInfo::NavigationTypeTyped) {
+        sourceurl = destination;
+    }
+
     // verify all url file and sigil schemes before allowing
     // if ((destination.scheme() == "file") || (destination.scheme() == "sigil")) {
     if (destination.scheme() == "file") {
