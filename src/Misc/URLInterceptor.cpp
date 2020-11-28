@@ -30,7 +30,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "Misc/URLInterceptor.h"
 
-#define DBG if(0)
+#define DBG if(1)
 
 URLInterceptor::URLInterceptor(QObject *parent)
     : QWebEngineUrlRequestInterceptor(parent)
@@ -80,6 +80,7 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 	    if (mw) {
 		QSharedPointer<Book> book = mw->GetCurrentBook();
 		QString path_to_book = book->GetFolderKeeper()->GetFullPathToMainFolder() + "/";
+                DBG qDebug() << "path_to_book: " << path_to_book;
 		QString path_to_mathjax = mw->GetMathJaxFolder();
 		if (sourcefolder.startsWith(path_to_book)) {
 		    bookfolder = path_to_book;
