@@ -99,6 +99,11 @@ public:
 
     bool DeleteCSStyles(QList<CSSInfo::CSSSelector *> css_selectors);
 
+    QString GetLanguageAttribute();
+    void SetLanguageAttribute(const QString& langcode);
+
+
+
 signals:
     void LinkedResourceUpdated();
     void TextChanging();
