@@ -94,6 +94,7 @@ PreferencesWidget::ResultActions SpellCheckWidget::saveSettings()
     if (!settings.secondary_dictionary().isEmpty()) {
         sc->setDictionary(settings.secondary_dictionary(), true);
     }
+    sc->UpdateLangCodeToDictMapping();
 
     results = results | PreferencesWidget::ResultAction_RefreshSpelling;
     results = results & PreferencesWidget::ResultAction_Mask;

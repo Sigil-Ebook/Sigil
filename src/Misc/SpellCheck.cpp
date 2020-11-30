@@ -79,16 +79,28 @@ SpellCheck::SpellCheck()
     }
 
     // Load the dictionary the user has selected if one was saved.
-    SettingsStore settings;
-
     QApplication::restoreOverrideCursor();
 
-    // create langauge code to dictionary name mapping
+    UpdateLangCodeToDictMapping();
+
+    // now open primary and secondary dictionaries
+    SettingsStore settings;
+    loadDictionary(settings.dictionary());
+    if (!settings.secondary_dictionary().isEmpty()) {
+        loadDictionary(settings.secondary_dictionary());
+    }
+}
+
+void SpellCheck::UpdateLangCodeToDictMapping()
+{
+    m_langcode2dict.clear();
+
+    // create language code to dictionary name mapping
     foreach(QString dname, m_dictionaries.keys()) {
         QString lc = dname;
         lc.replace("_","-");
         m_langcode2dict[lc] = dname;
-        if (lc.length() > 2) {
+        if (lc.length() > 3) {
             lc = lc.mid(0,2);
             m_langcode2dict[lc] = dname;
         }
@@ -103,21 +115,16 @@ SpellCheck::SpellCheck()
     // make sure 2 letter mapping equivalent is properly set
     // for primary and secondary dictionaries
     // Note: must be done last to overwrite any earlier values
+    SettingsStore settings;
     QString cd = settings.secondary_dictionary();
     cd.replace("_","-");
-    if (!cd.isEmpty() && (cd.length() > 2)) {
+    if (!cd.isEmpty() && (cd.length() > 3)) {
         m_langcode2dict[cd.mid(0,2)] = settings.secondary_dictionary();
     }
     cd = settings.dictionary();
     cd.replace("_","-");
-    if (!cd.isEmpty() && (cd.length() > 2)) {
+    if (!cd.isEmpty() && (cd.length() > 3)) {
         m_langcode2dict[cd.mid(0,2)] = settings.dictionary();
-    }
-
-    // now open primary and secondary dictionaries
-    loadDictionary(settings.dictionary());
-    if (!settings.secondary_dictionary().isEmpty()) {
-        loadDictionary(settings.secondary_dictionary());
     }
 }
 

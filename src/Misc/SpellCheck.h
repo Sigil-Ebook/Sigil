@@ -49,6 +49,8 @@ public:
     static SpellCheck *instance();
     ~SpellCheck();
 
+    void UpdateLangCodeToDictMapping();
+
     QStringList userDictionaries();
     QStringList dictionaries();
     QString currentPrimaryDictionary() const;
