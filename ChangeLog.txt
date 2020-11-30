@@ -1,6 +1,9 @@
-pre-1.5.0
+Sigil-1.4.3
     Bug Fixes:
       - fix multiple mismatched wait cursor setting and restoring in MainWindow
+      - fix crashes if no dictionaries or preferred dictionary does not exist on start-up
+      - fix link breakage when runing split on a file with bare internal links
+      - properly update the language code to dictionary mappings when a user changes Primary/Secondary dictionaries
 
 Sigil-1.4.2
     Bug Fixes:
