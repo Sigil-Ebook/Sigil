@@ -573,6 +573,7 @@ HTMLResource *Book::CreateSectionBreakOriginalResource(const QString &content, H
     // assume that each id is unique (if they aren't then the references were broken anyway).
     QList<HTMLResource *> new_files;
     new_files.append(originating_resource);
+    // The originating resource must always be first in the list
     new_files.append(new_resource);
     AnchorUpdates::UpdateAllAnchorsWithIDs(new_files);
     // Remove the original and new files from the list of html resources as we want to scan all
@@ -639,6 +640,7 @@ void Book::CreateNewSections(const QStringList &new_sections, HTMLResource *orig
 
     sync.waitForFinished();
     QList<HTMLResource *> new_files;
+    // the original_resource must always be first in the new_files list
     new_files.append(original_resource);
     QList<QFuture<NewSectionResult>> futures = sync.futures();
 

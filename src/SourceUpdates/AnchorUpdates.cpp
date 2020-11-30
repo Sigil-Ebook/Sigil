@@ -41,7 +41,10 @@
 void AnchorUpdates::UpdateAllAnchorsWithIDs(const QList<HTMLResource *> &html_resources)
 {
     const QHash<QString, QString> &ID_locations = GetIDLocations(html_resources);
-    QtConcurrent::blockingMap(html_resources, std::bind(UpdateAnchorsInOneFile, std::placeholders::_1, ID_locations));
+    // The first file in the list is the orginating resource of the split
+    QtConcurrent::blockingMap(html_resources, std::bind(UpdateAnchorsInOneFile, 
+                                                        std::placeholders::_1, 
+                                                        ID_locations));
 }
 
 
@@ -96,11 +99,12 @@ std::tuple<QString, QList<QString>> AnchorUpdates::GetOneFileIDs(HTMLResource *h
 
 
 void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
-        const QHash<QString, QString> ID_locations)
+                                           const QHash<QString, QString> ID_locations)
 {
     // qDebug() << "in UpdateAnchorsInOneFile";
     // qDebug() << "ID_locations" << ID_locations;
     QStringList bookpaths_impacted = ID_locations.values();
+    // qDebug() << "bookpaths impacted: " << bookpaths_impacted;
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
     QString version = html_resource->GetEpubVersion();
@@ -119,12 +123,13 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
                 std::pair<QString, QString> parts = Utility::parseRelativeHREF(href);
 		// if fragment exists
                 if (!parts.second.isEmpty()) {
-		    QString base_href = parts.first;
+                    QString base_href = parts.first;
                     QString fragment_id = parts.second;
                     if (fragment_id.startsWith("#")) fragment_id = fragment_id.mid(1, -1);
-		    QString dest_bookpath = Utility::buildBookPath(base_href, Utility::startingDir(resource_bookpath));
+                    QString dest_bookpath = Utility::buildBookPath(base_href, Utility::startingDir(resource_bookpath));
 		    QString file_id = ID_locations.value(fragment_id);
 
+                    // qDebug() << "base_href" << base_href;
 		    // qDebug() << "destination bookpath" << dest_bookpath;
 		    // qDebug() << "fragment_id" << fragment_id;
 		    // qDebug() << "file_id" << file_id;
@@ -133,14 +138,15 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
 		    // Duplicates of this id may exist in other xhtml files in the epub
 		    // not involved in the split, so only set the target file_id if the
 		    // original dest_bookpath is one that was impacted by split
-		    if (!bookpaths_impacted.contains(dest_bookpath)) {
-		        file_id = ""; 
+		    if (!base_href.isEmpty() && !bookpaths_impacted.contains(dest_bookpath)) {
+		        file_id = "";
+                        // qDebug() << "Not in bookpaths_impacted!" << dest_bookpath; 
 		    }
 		    
                     // If the ID is in a different file, update the link
                     if (file_id != resource_bookpath && !file_id.isEmpty()) {
                         QString attpath = Utility::buildRelativePath(resource_bookpath, file_id);
-		        QString attribute_value = Utility::buildRelativeHREF(attpath, fragment_id);
+		        QString attribute_value = Utility::buildRelativeHREF(attpath, "#" + fragment_id);
                         gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
                         is_changed = true;
                     } else if ((file_id == resource_bookpath) && !base_href.isEmpty()) {
