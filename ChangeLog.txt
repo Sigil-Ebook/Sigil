@@ -4,6 +4,8 @@ pre-1.5.0
       - fix issue with custom ncx names in non-standard empty epub layouts
       - add "sigil" url scheme and schemehandler to break 2mb limit on single xhtml file size
       - fix crashes if no dictionaries or preferred dictionary does not exist on start-up
+      - fix link breakage when runing spliton a file with bare internal links
+      - properly update the language code to dictionary mappings when a user changes Primary/Secondary dictionaries
 
 Sigil-1.4.2
     Bug Fixes:
