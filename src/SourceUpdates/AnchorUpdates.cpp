@@ -250,13 +250,12 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
             QString href = QString::fromUtf8(attr->value);
             if (href.indexOf(':') == -1) {
                 std::pair<QString, QString> parts = Utility::parseRelativeHREF(href);
-                qDebug() << "Arrgghhh" << parts.first << parts.second;
-
+                DBG qDebug() << "In UpdateAllAnchorsInOneFile doing merge: " << parts.first << parts.second;
                 // Does this href point to a bookpath in the originating_bookpaths
 	        QString target_bookpath = Utility::buildBookPath(parts.first, startdir);
 	        if (originating_bookpaths.contains(target_bookpath)) {
                     QString attpath = Utility::buildRelativePath(html_resource->GetRelativePath(), sink_bookpath);
-		    QString attribute_value = Utility::buildRelativeHREF(attpath, '#' + parts.second); 
+                    QString attribute_value = Utility::buildRelativeHREF(attpath, parts.second);
                     gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
                     is_changed = true;
                 }
