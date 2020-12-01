@@ -29,6 +29,7 @@
 #include <QtWidgets/QApplication>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QDebug>
 
 #include "BookManipulation/FolderKeeper.h"
 #include "sigil_constants.h"

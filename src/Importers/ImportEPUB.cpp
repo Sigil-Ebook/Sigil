@@ -295,6 +295,9 @@ QHash<QString, QString> ImportEPUB::ParseEncryptionXml()
             } else if (encryption.name() == "CipherReference") {
                 // Note: fragments are not part of the CipherReference specs so this is okay
                 uri = Utility::URLDecodePath(encryption.attributes().value("", "URI").toString());
+                // hack to handle non-spec encryption file url relative to META-INF instead
+                // of being absolute from epub root as the spec calls for
+                if (uri.startsWith("../")) uri = uri.mid(3,-1);
                 encrypted_files[ uri ] = encryption_algo;
             }
         }
