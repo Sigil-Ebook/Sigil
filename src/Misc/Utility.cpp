@@ -1215,12 +1215,12 @@ QString Utility::buildRelativeHREF(const QString &apath, const QString &afrag)
     if (!id.isEmpty()) {
         if (id.startsWith("#")) {
             id = id.mid(1, -1);
-	    // technically fragments should be percent encoded if needed
-	    id = URLEncodePath(id);
-	    newhref = newhref + "#" + id;
         } else {
-	    qDebug() << "Error: buildRelativeHREF has fragment that does not start with #" << afrag;
-	}
+	    qDebug() << "Warning: buildRelativeHREF has fragment that does not start with #" << afrag;
+        }
+	// technically fragments should be percent encoded if needed
+	id = URLEncodePath(id);
+	newhref = newhref + "#" + id;
     }
     return newhref;
 }
