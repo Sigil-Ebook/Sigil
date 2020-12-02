@@ -62,6 +62,8 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
     if (destination.scheme() == "sigil") {
         destination.setScheme("file");
         destination.setQuery(QString());
+    }
+    if (sourceurl.scheme() == "sigil") {
         sourceurl.setScheme("file");
         sourceurl.setQuery(QString());
     }
