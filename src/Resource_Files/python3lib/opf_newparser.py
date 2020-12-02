@@ -125,14 +125,14 @@ class Opf_Parser(object):
                 if self.ns_remap:
                     if "xmlns:opf" in tattr:
                         tattr.pop("xmlns:opf")
-                        tattr["xmlns"] = "http://www/idpf.org/2007/opf"
+                        tattr["xmlns"] = "http://www.idpf.org/2007/opf"
                 self.package = (ver, uid, tattr)
                 continue
             # metadata
             if tname == "metadata":
                 if self.ns_remap:
                     if not "xmlns:opf" in tattr:
-                        tattr["xmlns:opf"] = "http://www/idpf.org/2007/opf"
+                        tattr["xmlns:opf"] = "http://www.idpf.org/2007/opf"
                 self.metadata_attr = tattr
                 continue
             if tname in ["meta", "link"] or tname.startswith("dc:") and "metadata" in prefix:
