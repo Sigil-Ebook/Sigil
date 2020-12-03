@@ -1,13 +1,14 @@
 Sigil-1.4.3
     Bug Fixes:
-      - fix multiple mismatched wait cursor setting and restoring in MainWindow
-      - fix crashes if no dictionaries or preferred dictionary does not exist on start-up
-      - update langcode2dict mapping when dictionaries change without restart
-      - fix critical bug which causes split to break links that are bare fragments
-      - fix critical additional bugs which causes split to lose fragments from link targets
-      - fix link breakage when running split on a file with bare internal links
+      - fix mismatched override wait cursor usage
+      - fix crashes when dictionaries are missing on load or during first spellcheck
+      - update the mapping of language codes to dictionaries without the need to restart
+      - fix critical bug which caused split to break links that are bare fragments
+      - fix additional critical bugs which caused split to lose fragments from link targets
       - fix double # chars in fragment ids during merge
+      - fix hang on load with bad encryption.xml font uris
       - quiet unneeded debug output when importing an epub
+      - fix opf cleanup bug when identical xmlns values are used with two different prefixes on the same tag
 
 Sigil-1.4.2
     Bug Fixes:
