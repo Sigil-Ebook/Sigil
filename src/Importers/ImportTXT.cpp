@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -28,6 +28,8 @@
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/NCXResource.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
@@ -60,7 +62,9 @@ QSharedPointer<Book> ImportTXT::GetBook(bool extract_metadata)
     } 
 
     QString source = LoadSource();
-    InitializeHTMLResource(source, CreateHTMLResource(source));
+    HTMLResource * new_resource = CreateHTMLResource(source);
+    InitializeHTMLResource(source, new_resource);
+
     // Before returning the new book, if it is epub3, make sure it has a nav
     if (m_EpubVersion.startsWith('3')) {
         HTMLResource* nav_resource = m_Book->GetConstOPF()->GetNavResource();
@@ -70,22 +74,29 @@ QSharedPointer<Book> ImportTXT::GetBook(bool extract_metadata)
             m_Book->GetOPF()->SetItemRefLinear(nav_resource, false);
         }
     }
+
+    // Before returning the new book, if it is epub2, make sure it has an ncx
+    if (m_EpubVersion.startsWith('2')) {
+        NCXResource* ncx_resource = m_Book->GetNCX();
+        if (!ncx_resource) {
+            // add NCX using "toc.ncx" with id "ncx" right beside the opf
+            QString ncxbookpath = Utility::startingDir(m_Book->GetOPF()->GetRelativePath()) + "/toc.ncx";
+            ncx_resource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_EpubVersion, ncxbookpath);
+            QString NCXId = m_Book->GetOPF()->AddNCXItem(ncx_resource->GetFullPath(),"ncx");
+            m_Book->GetOPF()->UpdateNCXOnSpine(NCXId);
+            QString first_xhtml_bookpath = new_resource->GetRelativePath();
+            ncx_resource->FillWithDefaultTextToBookPath(m_EpubVersion, first_xhtml_bookpath);
+        }
+    }
     return m_Book;
 }
 
 
 QString ImportTXT::LoadSource() const
 {
-    SettingsStore ss;
-    QString version = ss.defaultVersion();
     QString source = Utility::ReadUnicodeTextFile(m_FullFilePath);
     source = CreateParagraphs(source.split(QChar('\n')));
-
-    if (ss.cleanOn() & CLEANON_OPEN) {
-        return CleanSource::Mend(source, version);
-    }
-
-    return source;
+    return CleanSource::Mend(source, m_EpubVersion);
 }
 
 
