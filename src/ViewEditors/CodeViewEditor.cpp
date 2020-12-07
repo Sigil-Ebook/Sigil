@@ -1981,11 +1981,27 @@ void CodeViewEditor::HighlightCurrentLine(bool highlight_tags)
     extraSelections.append(selection_line);
 
     if (highlight_tags) {
+
         // If and only if cursor is inside a tag, highlight open and matching close
+        // current cursor position is just before this char at position pos in text
         QString text = toPlainText();
         int pos = textCursor().position();
+
+        // find previous begin tag marker
         int pb = text.lastIndexOf('<', pos);
-        if ((pb > text.lastIndexOf('>', pos)) && (text.indexOf('>',pos) >= pos)) {
+
+        // find next end tag marker
+        int ne = text.indexOf('>', pos);
+
+        // find next begin tag marker *after* this char
+        // and handle case if missing
+        int nb = text.indexOf('<', pos+1);   
+        if (nb == -1) nb = text.length()+1;
+
+        // in tag if '<' is closer than '>' when search backwards
+        // and if '>' is closer but than '<' (if it exists) but >= pos  when search forward
+        if ((pb > text.lastIndexOf('>', pos-1)) && (ne >= pos) && (nb > ne)) {
+
             // in a tag
             int open_tag_pos = -1;
             int open_tag_len = -1;
