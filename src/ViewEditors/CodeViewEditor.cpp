@@ -54,6 +54,7 @@
 #include "Misc/TextDocument.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/Utility.h"
+#include "Misc/TagLister.h"
 #include "PCRE/PCRECache.h"
 #include "ViewEditors/CodeViewEditor.h"
 #include "ViewEditors/LineNumberArea.h"
@@ -136,7 +137,7 @@ void CodeViewEditor::SetAppearance()
 
     SetAppearanceColors();
     UpdateLineNumberAreaMargin();
-    HighlightCurrentLine();
+    HighlightCurrentLine(false);
     setFrameStyle(QFrame::NoFrame);
     // Set the Zoom factor but be sure no signals are set because of this.
     m_CurrentZoomFactor = settings.zoomText();
@@ -203,7 +204,7 @@ bool CodeViewEditor::ClearMarkedText()
     bool marked = IsMarkedText();
     m_MarkedTextStart = -1;
     m_MarkedTextEnd = -1;
-    HighlightCurrentLine();
+    HighlightCurrentLine(false);
     return marked;
 }
 
@@ -1967,7 +1968,7 @@ void CodeViewEditor::UpdateLineNumberArea(const QRect &area_to_update, int verti
 }
 
 
-void CodeViewEditor::HighlightCurrentLine()
+void CodeViewEditor::HighlightCurrentLine(bool highlight_tags)
 {
     QList<QTextEdit::ExtraSelection> extraSelections;
 
@@ -1978,6 +1979,67 @@ void CodeViewEditor::HighlightCurrentLine()
     selection_line.cursor = textCursor();
     selection_line.cursor.clearSelection();
     extraSelections.append(selection_line);
+
+    if (highlight_tags) {
+        // If and only if cursor is inside a tag, highlight open and matching close
+        QString text = toPlainText();
+        int pos = textCursor().position();
+        int pb = text.lastIndexOf('<', pos);
+        if ((pb > text.lastIndexOf('>', pos)) && (text.indexOf('>',pos) >= pos)) {
+            // in a tag
+            int open_tag_pos = -1;
+            int open_tag_len = -1;
+            int close_tag_pos = -1;
+            int close_tag_len = -1;
+            TagLister taglister(text);
+            TagLister::TagInfo ti = taglister.get_next();
+            while((ti.pos + ti.len < pos) && (ti.len != -1)) {
+                ti = taglister.get_next();
+            }
+            if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
+                if(ti.ttype == "end") {
+                    open_tag_pos = ti.open_pos;
+                    open_tag_len = ti.open_len;
+                    close_tag_pos = ti.pos;
+                    close_tag_len = ti.len;
+                } else {
+                    open_tag_pos = ti.pos;
+                    open_tag_len = ti.len;
+                }
+                if (ti.ttype == "begin") {
+                    // need to search ahead for the close tag
+                    open_tag_pos = ti.pos;
+                    open_tag_len = ti.len;
+                    ti = taglister.get_next();
+                    while((ti.len != -1) && (ti.open_pos != open_tag_pos)) {
+                        ti = taglister.get_next();
+                    }
+                    if (ti.len != -1) {
+                        close_tag_pos = ti.pos;
+                        close_tag_len = ti.len;
+                    } 
+                }
+            }
+            if (open_tag_len != -1) {
+                QTextEdit::ExtraSelection selection_open;
+                selection_open.format.setBackground(m_codeViewAppearance.line_number_background_color);
+                selection_open.cursor = textCursor();
+                selection_open.cursor.clearSelection();
+                selection_open.cursor.setPosition(open_tag_pos);
+                selection_open.cursor.setPosition(open_tag_pos + open_tag_len, QTextCursor::KeepAnchor);
+                extraSelections.append(selection_open);
+            }
+            if (close_tag_len != -1) {
+                QTextEdit::ExtraSelection selection_close;
+                selection_close.format.setBackground(m_codeViewAppearance.line_number_background_color);
+                selection_close.cursor = textCursor();
+                selection_close.cursor.clearSelection();
+                selection_close.cursor.setPosition(close_tag_pos);
+                selection_close.cursor.setPosition(close_tag_pos + close_tag_len, QTextCursor::KeepAnchor);
+                extraSelections.append(selection_close);
+            } 
+        }
+    }
 
     // Add highlighting of the marked text
     if (IsMarkedText()) {

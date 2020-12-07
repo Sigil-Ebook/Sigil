@@ -534,7 +534,7 @@ private slots:
     /**
      * Highlights the line the user is editing.
      */
-    void HighlightCurrentLine();
+    void HighlightCurrentLine(bool highlight_tags=true);
 
     /**
      * Wrapper slot for the Scroll One Line Up shortcut.

@@ -51,6 +51,7 @@ QString TextDocument::toText()
     QString txt;
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5,9,0))
+    if (isEmpty()) return txt;
     txt = toRawText();
 #else
     // is the TextDocument itself is empty just return an empty string

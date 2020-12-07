@@ -392,6 +392,8 @@ set( MISC_FILES
     Misc/TagAtts.h
     Misc/QuickParser.cpp
     Misc/QuickParser.h
+    Misc/TagLister.cpp
+    Misc/TagLister.h
     )
 
 set( MISC_EDITORS_FILES
