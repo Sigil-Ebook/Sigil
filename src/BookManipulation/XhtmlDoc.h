@@ -147,6 +147,7 @@ public:
 
     static QStringList GetAllMediaPathsFromMediaChildren(const QString &source, QList<GumboTag> tags);
 
+    static QStringList GetUnmatchedTagsForPosition(const int &split_position, const QString &text);
 
 private:
 
