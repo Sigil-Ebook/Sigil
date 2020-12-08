@@ -35,6 +35,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "Misc/TextDocument.h"
+#include "Misc/TagLister.h"
 #include "MiscEditors/ClipEditorModel.h"
 #include "MiscEditors/IndexEditorModel.h"
 #include "ViewEditors/ViewEditor.h"
@@ -567,6 +568,8 @@ private slots:
 private:
     bool IsMarkedText();
 
+    void RegenerateTagList(const QString& text);
+
     QString RemoveFirstTag(const QString &text, const QString &tagname);
     QString RemoveLastTag(const QString &text, const QString &tagname);
 
@@ -867,6 +870,10 @@ private:
      */
     bool m_pendingSpellingHighlighting;
     QString m_element_name;
+
+    QList<TagLister::TagInfo> m_TagList;
+    bool m_regen_taglist;
+
 };
 
 #endif // CODEVIEWEDITOR_H

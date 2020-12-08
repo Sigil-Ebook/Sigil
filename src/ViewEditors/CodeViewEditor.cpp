@@ -54,7 +54,6 @@
 #include "Misc/TextDocument.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/Utility.h"
-#include "Misc/TagLister.h"
 #include "PCRE/PCRECache.h"
 #include "ViewEditors/CodeViewEditor.h"
 #include "ViewEditors/LineNumberArea.h"
@@ -103,7 +102,8 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     m_clipMapper(new QSignalMapper(this)),
     m_MarkedTextStart(-1),
     m_MarkedTextEnd(-1),
-    m_ReplacingInMarkedText(false)
+    m_ReplacingInMarkedText(false),
+    m_regen_taglist(true)
 {
     if (high_type == CodeViewEditor::Highlight_XHTML) {
         m_Highlighter = new XHTMLHighlighter(check_spelling, this);
@@ -1910,6 +1910,8 @@ void CodeViewEditor::EmitFilteredCursorMoved()
 
 void CodeViewEditor::TextChangedFilter()
 {
+    m_regen_taglist = true;
+
     // Clear marked text to prevent marked area not matching entered text
     // if user types text, uses Undo, etc.
     if (!m_ReplacingInMarkedText && IsMarkedText()) {
@@ -1968,6 +1970,24 @@ void CodeViewEditor::UpdateLineNumberArea(const QRect &area_to_update, int verti
 }
 
 
+void CodeViewEditor::RegenerateTagList(const QString &text)
+{
+    // qDebug() << "regenerating the tag list";
+    TagLister lister(text);
+    m_TagList.clear();
+    TagLister::TagInfo ti;
+    ti = lister.get_next();
+    while(ti.len != -1) {
+        m_TagList << ti;
+        ti = lister.get_next();
+    }
+    // set stop indicator as last record
+    ti.pos = -1;
+    ti.len = -1;
+    m_TagList << ti;
+}
+
+
 void CodeViewEditor::HighlightCurrentLine(bool highlight_tags)
 {
     QList<QTextEdit::ExtraSelection> extraSelections;
@@ -2002,15 +2022,22 @@ void CodeViewEditor::HighlightCurrentLine(bool highlight_tags)
         // and if '>' is closer but than '<' (if it exists) but >= pos  when search forward
         if ((pb > text.lastIndexOf('>', pos-1)) && (ne >= pos) && (nb > ne)) {
 
+            // if text has changed since last time regenerate the tag list
+            if (m_regen_taglist) {
+                RegenerateTagList(text);
+                m_regen_taglist = false;
+            }
+
             // in a tag
             int open_tag_pos = -1;
             int open_tag_len = -1;
             int close_tag_pos = -1;
             int close_tag_len = -1;
-            TagLister taglister(text);
-            TagLister::TagInfo ti = taglister.get_next();
+            int i = 0;
+            TagLister::TagInfo ti = m_TagList.at(i);
             while((ti.pos + ti.len < pos) && (ti.len != -1)) {
-                ti = taglister.get_next();
+                i++;
+                ti = m_TagList.at(i);
             }
             if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
                 if(ti.ttype == "end") {
@@ -2026,9 +2053,11 @@ void CodeViewEditor::HighlightCurrentLine(bool highlight_tags)
                     // need to search ahead for the close tag
                     open_tag_pos = ti.pos;
                     open_tag_len = ti.len;
-                    ti = taglister.get_next();
+                    i++;
+                    ti = m_TagList.at(i);
                     while((ti.len != -1) && (ti.open_pos != open_tag_pos)) {
-                        ti = taglister.get_next();
+                        i++;
+                        ti = m_TagList.at(i);
                     }
                     if (ti.len != -1) {
                         close_tag_pos = ti.pos;
