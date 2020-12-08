@@ -101,6 +101,8 @@ static QString KEY_CODE_VIEW_XHTML_ENTITY_COLOR = SETTINGS_GROUP + "/" + "code_v
 static QString KEY_CODE_VIEW_XHTML_HTML_COLOR = SETTINGS_GROUP + "/" + "code_view_xhtml_html_color";
 static QString KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR = SETTINGS_GROUP + "/" + "code_view_xhtml_html_comment_color";
 
+static QString KEY_CODE_VIEW_HIGHLIGHT_OPEN_CLOSE_TAGS = SETTINGS_GROUP + "/" + "code_view_highlight_open_close_tags";
+
 // Dark Appearance
 static QString KEY_CV_DARK_CSS_COMMENT_COLOR = SETTINGS_GROUP + "/" + "cv_dark_css_comment_color";
 static QString KEY_CV_DARK_CSS_PROPERTY_COLOR = SETTINGS_GROUP + "/" + "cv_dark_css_property_color";
@@ -420,6 +422,12 @@ SettingsStore::CodeViewAppearance SettingsStore::codeViewAppearance()
     return appearance;
 }
 
+bool SettingsStore::highlightOpenCloseTags()
+{
+    clearSettingsGroup();
+    return static_cast<bool>(value(KEY_CODE_VIEW_HIGHLIGHT_OPEN_CLOSE_TAGS, true).toBool());
+}
+
 SettingsStore::CodeViewAppearance SettingsStore::codeViewDarkAppearance()
 {
     clearSettingsGroup();
@@ -730,6 +738,12 @@ void SettingsStore::setCodeViewAppearance(const SettingsStore::CodeViewAppearanc
     setValue(KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR, code_view_appearance.xhtml_html_comment_color);
 }
 
+void SettingsStore::setHighlightOpenCloseTags(bool enabled)
+{
+    clearSettingsGroup();
+    setValue(KEY_CODE_VIEW_HIGHLIGHT_OPEN_CLOSE_TAGS, enabled);
+}
+
 void SettingsStore::setCodeViewDarkAppearance(const SettingsStore::CodeViewAppearance &code_view_appearance)
 {
     clearSettingsGroup();
@@ -823,6 +837,7 @@ void SettingsStore::clearAppearanceSettings()
         remove(KEY_CV_DARK_XHTML_HTML_COMMENT_COLOR);
     }
 
+    remove(KEY_CODE_VIEW_HIGHLIGHT_OPEN_CLOSE_TAGS);
     remove(KEY_SPECIAL_CHARACTER_FONT_FAMILY);
     remove(KEY_SPECIAL_CHARACTER_FONT_SIZE);
     remove(KEY_MAIN_MENU_ICON_SIZE);
