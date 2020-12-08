@@ -125,6 +125,7 @@ AppearanceWidget::AppearanceWidget()
     ui.dragTweakSpinBox->setMaximum(20);
     // The Drag start-distance setting is unused/unnecessary on Mac
     ui.dragTweakSpinBox->setEnabled(m_isHighDPIComboEnabled);
+    ui.chkHightlightTags->setToolTip("<p>" + tr("Highlight matching tags in Code View when cursor is inside tags."));
     m_codeViewAppearance = readSettings();
     loadCodeViewColorsList(m_codeViewAppearance);
     m_uiFontResetFlag = false;
@@ -188,6 +189,7 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
             settings.setCodeViewAppearance(codeViewAppearance);
         }
     }
+    settings.setHighlightOpenCloseTags(ui.chkHightlightTags->isChecked());
     SettingsStore::SpecialCharacterAppearance specialCharacterAppearance;
     specialCharacterAppearance.font_family = ui.cbSpecialCharacterFont->currentText();
     specialCharacterAppearance.font_size   = ui.specialCharacterFontSizeSpin->value();
@@ -300,6 +302,7 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
         codeViewAppearance = settings.codeViewAppearance();
         m_wasDark = false;
     }
+    ui.chkHightlightTags->setChecked(settings.highlightOpenCloseTags() == true);
     SettingsStore::SpecialCharacterAppearance specialCharacterAppearance = settings.specialCharacterAppearance();
     loadComboValueOrDefault(ui.cbPreviewFontStandard,  PVAppearance.font_family_standard,    "Arial");
     loadComboValueOrDefault(ui.cbPreviewFontSerif,     PVAppearance.font_family_serif,       "Times New Roman");

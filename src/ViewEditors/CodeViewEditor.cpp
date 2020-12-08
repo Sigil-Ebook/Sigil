@@ -1992,6 +1992,8 @@ void CodeViewEditor::HighlightCurrentLine(bool highlight_tags)
 {
     QList<QTextEdit::ExtraSelection> extraSelections;
 
+    SettingsStore settings;
+
     // Draw the full width line color.
     QTextEdit::ExtraSelection selection_line;
     selection_line.format.setBackground(m_codeViewAppearance.line_highlight_color);
@@ -2000,7 +2002,7 @@ void CodeViewEditor::HighlightCurrentLine(bool highlight_tags)
     selection_line.cursor.clearSelection();
     extraSelections.append(selection_line);
 
-    if (highlight_tags) {
+    if (highlight_tags && settings.highlightOpenCloseTags()) {
 
         // If and only if cursor is inside a tag, highlight open and matching close
         // current cursor position is just before this char at position pos in text

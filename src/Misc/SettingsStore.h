@@ -200,6 +200,11 @@ public:
     };
 
     /**
+     * Highlight the matching open/close tag when the cursor is in a tag
+     */
+    bool highlightOpenCloseTags();
+
+    /**
      * All appearance settings related to Special Characters.
      */
     struct SpecialCharacterAppearance {
@@ -375,6 +380,11 @@ public slots:
      * Set the appearance settings to use for editing in Code View
      */
     void setCodeViewAppearance(const CodeViewAppearance &code_view_appearance);
+
+    /**
+     * Set whether to highlight the matching open/close tag when the cursor is in a tag
+     */
+    void setHighlightOpenCloseTags(bool enabled);
 
     void setCodeViewDarkAppearance(const CodeViewAppearance &code_view_appearance);
     /**
