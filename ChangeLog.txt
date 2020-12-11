@@ -1,10 +1,23 @@
 pre-1.5.0
     Bug Fixes:
-      - fix multiple mismatched wait cursor setting and restoring in MainWindow
       - fix issue with custom ncx names in non-standard empty epub layouts
-      - add "sigil" url scheme and schemehandler to break 2mb limit on single xhtml file size
+      - Fix Import TXT to properly add ncx if missing for epub2
+
+    New Features:
+      - Use "sigil" url scheme and schemehandler to break 2mb limit on single xhtml file size
+      - Highlight matched open close tag pairs while editing in CodeView
+      - Extend Split on Sigil Split Marker capabilities to work better with nested tags
+
+Sigil-1.4.3
+    Bug Fixes:
+      - fix multiple mismatched wait cursor setting and restoring in MainWindow
       - fix crashes if no dictionaries or preferred dictionary does not exist on start-up
-      - fix link breakage when runing spliton a file with bare internal links
+      - fix link breakage when runing split on a file with bare internal links
+      - fix bug which caused split to lose fragments from some link targets
+      - fix double # chars in fragment ids during merge
+      - fix hang on load with bad encryption.xml font uris
+      - quiet uneeded debug output
+      - fix opf cleanup bug when identical xmlns values are used with two different prefixes
       - properly update the language code to dictionary mappings when a user changes Primary/Secondary dictionaries
 
 Sigil-1.4.2
