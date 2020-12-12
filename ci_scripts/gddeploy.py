@@ -10,17 +10,14 @@ import glob
 gparent = os.path.expandvars('$GDRIVE_DIR')
 grefresh_token = os.path.expandvars('$GDRIVE_REFRESH_TOKEN')
 
+appveyor_branch = os.path.expandvars('$APPVEYOR_REPO_BRANCH')
+appveyor_commit = os.path.expandvars('$APPVEYOR_REPO_COMMIT')
+appveyor_build_number = os.path.expandvars('$APPVEYOR_BUILD_NUMBER')
+
 if sys.platform.lower().startswith('darwin'):
-    travis_branch = os.path.expandvars('$TRAVIS_BRANCH')
-    travis_commit = os.path.expandvars('$TRAVIS_COMMIT')
-    travis_build_number = os.path.expandvars('$TRAVIS_BUILD_NUMBER')
-    
     origfilename = './bin/Sigil.tar.xz'
-    newfilename = './bin/Sigil-{}-{}-build_num-{}.tar.xz'.format(travis_branch, travis_commit[:7],travis_build_number)
+    newfilename = './bin/Sigil-{}-{}-build_num-{}.tar.xz'.format(appveyor_branch, appveyor_commit[:7],appveyor_build_number)
 else:
-    appveyor_branch = os.path.expandvars('$APPVEYOR_REPO_BRANCH')
-    appveyor_commit = os.path.expandvars('$APPVEYOR_REPO_COMMIT')
-    appveyor_build_number = os.path.expandvars('$APPVEYOR_BUILD_NUMBER')
     names = glob.glob('.\\installer\\Sigil-*-Setup.exe')
     if not names:
         exit(1)
