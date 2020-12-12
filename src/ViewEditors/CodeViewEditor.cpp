@@ -1890,6 +1890,7 @@ void CodeViewEditor::focusInEvent(QFocusEvent *event)
     RehighlightDocument();
     emit FocusGained(this);
     QPlainTextEdit::focusInEvent(event);
+    HighlightCurrentLine(false);
 }
 
 
@@ -1898,6 +1899,7 @@ void CodeViewEditor::focusOutEvent(QFocusEvent *event)
 {
     emit FocusLost(this);
     QPlainTextEdit::focusOutEvent(event);
+    HighlightCurrentLine(false);
 }
 
 void CodeViewEditor::EmitFilteredCursorMoved()
@@ -1996,7 +1998,11 @@ void CodeViewEditor::HighlightCurrentLine(bool highlight_tags)
 
     // Draw the full width line color.
     QTextEdit::ExtraSelection selection_line;
-    selection_line.format.setBackground(m_codeViewAppearance.line_highlight_color);
+    if (hasFocus()) {
+        selection_line.format.setBackground(m_codeViewAppearance.line_highlight_color);
+    } else {
+        selection_line.format.setBackground(m_codeViewAppearance.line_number_background_color);
+    }
     selection_line.format.setProperty(QTextFormat::FullWidthSelection, true);
     selection_line.cursor = textCursor();
     selection_line.cursor.clearSelection();
