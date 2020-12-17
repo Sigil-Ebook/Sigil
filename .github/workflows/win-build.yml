@@ -10,6 +10,7 @@ env:
   QT: C:\MyQtx64_WE\Qt5.12.9
   INNO: C:\Program Files (x86)\Inno Setup 6
   CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
+  PYTHON: C:\hostedtoolcache\windows\Python\3.7.9\x64
 
 jobs:
   build:
@@ -38,13 +39,13 @@ jobs:
         where python
         where pip
         where curl
-        where ninja
+        where iscc
         choco install ninja curl
-        cd C:\
-        curl -L -o webkit.7z "%DOWNLOADQT%"
+        cd c:\
+        curl -L -o webkit.7z "%DOWNLOADQT%""
         7z x webkit.7z -y
-        set PATH="%QT%\bin;%INNO%;%PATH%"
-        echo "%PATH%"
+        set PATH=%PYTHON%;%PYTHON%\Scripts;%QT%\bin;%INNO%;%PATH%
+        echo %PATH%
         pip install six==1.15.0
         pip install html5lib==1.1
         pip install regex==2020.6.8
