@@ -32,10 +32,11 @@ jobs:
         restore-keys: |
             ${{ runner.os }}-pip-test-build
     - name: Install dependencies
+      shell: cmd
       run: |
         choco install ninja curl
         cd C:\
-        curl -L -o webkit.7z $DOWNLOADQT
+        curl -L -o webkit.7z %DOWNLOADQT%
         7z x webkit.7z -y
         set PATH=%QT%\bin;%INNO%;%PATH%
         pip install six==1.15.0
@@ -51,6 +52,7 @@ jobs:
         pip install PyQt5==5.12.3 PyQt5-sip==4.19.19
         pip install lxml==4.5.1
     - name: Create Build Environment
+      shell: bash
       run: |
         mkdir ${{runner.workspace}}/build
         cd ${{runner.workspace}}/build
@@ -70,7 +72,7 @@ jobs:
       run: cmake $GITHUB_WORKSPACE -G "Ninja" -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DUSE_ALT_ICONS=1 -DQt5_DIR=$QT\lib\cmake\Qt5 $CMAKE64BIT
 
     - name: Build
-      working-directory: ${{runner.workspace}}/build
       shell: bash
+      working-directory: ${{runner.workspace}}/build
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: ninja -j2
