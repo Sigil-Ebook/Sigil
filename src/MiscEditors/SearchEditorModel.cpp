@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018, 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2018-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -26,6 +26,7 @@
 #include <QByteArray>
 #include <QDataStream>
 #include <QtCore/QTime>
+#include <QFileInfo>
 #include <QRegularExpression>
 
 #include "MiscEditors/SearchEditorModel.h"
@@ -319,6 +320,39 @@ void SearchEditorModel::LoadData(const QString &filename, QStandardItem *item)
     }
     ss.endArray();
 }
+
+
+void SearchEditorModel::LoadTextData(const QString &filename, QStandardItem *item, const QChar &sep)
+{
+    QFileInfo fi(filename);
+    QString groupname = fi.fileName() + "/";
+    int cnt = 1;
+    if (fi.exists()) {
+        QString data = Utility::ReadUnicodeTextFile(filename);
+        QStringList datalines = data.split('\n');
+        foreach(QString aline, datalines) {
+            if (!aline.isEmpty()) {
+                QStringList findreplace = aline.split(sep);
+                QString localname = "rep" + QStringLiteral("%1").arg(cnt, 5, 10, QLatin1Char('0'));
+                SearchEditorModel::searchEntry *entry = new SearchEditorModel::searchEntry();
+                QString fullname = groupname + localname;
+                fullname.replace(QRegularExpression("\\s*/+\\s*"), "/");
+                fullname.replace(QRegularExpression("^/"), "");
+                entry->is_group = fullname.endsWith("/");
+                // Name is set to fullname only while looping through parent groups when adding
+                entry->name = fullname;
+                entry->fullname = fullname;
+                entry->find = findreplace.at(0);
+                entry->replace = findreplace.at(1);
+                AddFullNameEntry(entry, item);
+	        // done with the temporary entry so remove it
+	        delete entry;
+                cnt++;
+            }
+        }
+    }
+}
+
 
 void SearchEditorModel::AddFullNameEntry(SearchEditorModel::searchEntry *entry, QStandardItem *parent_item, int row)
 {

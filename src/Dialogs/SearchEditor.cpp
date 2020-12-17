@@ -422,7 +422,17 @@ void SearchEditor::Import()
     }
 
     // Get the filename to import from
-    QString filter_string = "*." % FILE_EXTENSION;
+    QMap<QString,QString> file_filters;
+    file_filters[ "ini" ] = tr("Sigil INI files (*.ini)");
+    file_filters[ "csv" ] = tr("CSV files (*.csv)");
+    file_filters[ "txt" ] = tr("Text files (*.txt)");
+    QStringList filters = file_filters.values();
+    QString filter_string = "";
+    foreach(QString filter, filters) {
+        filter_string += filter + ";;";
+    }
+    QString default_filter = file_filters.value("ini");
+
     QFileDialog::Options options = QFileDialog::Options();
 #ifdef Q_OS_MAC
     options = options | QFileDialog::DontUseNativeDialog;
@@ -431,19 +441,31 @@ void SearchEditor::Import()
                        tr("Import Search Entries"),
                        m_LastFolderOpen,
 		       filter_string,
-		       NULL,
+		       &default_filter,
                        options
                                                    );
 
     // Load the file and save the last folder opened
     if (!filename.isEmpty()) {
+        QFileInfo fi(filename);
+        QString ext = fi.suffix().toLower();
+        QChar sep;
+        if (ext == "txt") {
+            sep = QChar(9);
+        } else if (ext == "csv") {
+            sep = QChar(',');
+        }
         // Create a new group for the imported items after the selected item
         // Avoids merging with existing groups, etc.
         QStandardItem *item = AddGroup();
 
         if (item) {
             m_SearchEditorModel->Rename(item, "Imported");
-            m_SearchEditorModel->LoadData(filename, item);
+            if (ext == "ini") {
+                m_SearchEditorModel->LoadData(filename, item);
+            } else {
+                m_SearchEditorModel->LoadTextData(filename, item, sep);
+            }
             m_LastFolderOpen = QFileInfo(filename).absolutePath();
             WriteSettings();
         }

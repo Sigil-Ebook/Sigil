@@ -57,6 +57,7 @@ public:
 
     void LoadInitialData();
     void LoadData(const QString &filename = QString(), QStandardItem *parent_item = NULL);
+    void LoadTextData(const QString &filename = QString(), QStandardItem *parent_item = NULL, const QChar& sep = QChar(9));
 
     void AddFullNameEntry(SearchEditorModel::searchEntry *entry = NULL, QStandardItem *parent_item = NULL, int row = -1);
 
