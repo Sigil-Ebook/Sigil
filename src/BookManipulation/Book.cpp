@@ -94,7 +94,7 @@ const QString EMPTY_NAV_FILE_START =
     "<body epub:type=\"frontmatter\">\n";
 
 const QString EMPTY_NAV_FILE_TOC = 
-    "  <nav epub:type=\"toc\" id=\"toc\">\n"
+    "  <nav epub:type=\"toc\" id=\"toc\" role=\"doc-toc\">\n"
     "    <h1>%1</h1>\n"
     "    <ol>\n"
     "      <li>\n"

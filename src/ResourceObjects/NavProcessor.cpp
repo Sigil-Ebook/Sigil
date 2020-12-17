@@ -60,7 +60,7 @@ NavProcessor::NavProcessor(HTMLResource * nav_resource)
             "  </style>\n"
             "</head>\n"
             "<body epub:type=\"frontmatter\">\n"
-            "  <nav epub:type=\"toc\" id=\"toc\">\n"
+            "  <nav epub:type=\"toc\" id=\"toc\" role=\"doc-toc\">\n"
             "  </nav>\n"
             "  <nav epub:type=\"landmarks\" id=\"landmarks\" hidden=\"\">\n"
             "  </nav>\n"
@@ -271,7 +271,7 @@ QString NavProcessor::BuildTOC(const QList<NavTOCEntry> & toclist)
     bool initial = true;
     QString step = "  ";
     QString base = step.repeated(2);
-    res << "\n" + step + "<nav epub:type=\"toc\" id=\"toc\">\n";
+    res << "\n" + step + "<nav epub:type=\"toc\" id=\"toc\" role=\"doc-toc\">\n";
     res << base + "<h1>" + Landmarks::instance()->GetTitle("toc", m_language) + "</h1>\n";
     res << base + "<ol>\n";
     foreach(NavTOCEntry te, toclist) {
@@ -346,7 +346,7 @@ QString NavProcessor::BuildPageList(const QList<NavPageListEntry> & pagelist)
     QStringList res;
     QString step = "  ";
     QString base = step.repeated(3);
-    res << "\n" + step + "<nav epub:type=\"page-list\" id=\"page-list\" hidden=\"\">\n";
+    res << "\n" + step + "<nav epub:type=\"page-list\" id=\"page-list\" role=\"doc-pagelist\" hidden=\"\">\n";
     res << base + "<h1>" + Landmarks::instance()->GetTitle("page-list", m_language) + "</h1>\n";
     res << "\n" + base + "<ol>\n";
     foreach(NavPageListEntry pe, pagelist) {
