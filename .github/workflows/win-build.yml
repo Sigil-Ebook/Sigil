@@ -42,9 +42,9 @@ jobs:
         where iscc
         choco install ninja curl
         cd c:\
-        curl -L -o webkit.7z "%DOWNLOADQT%""
+        curl -L -o webkit.7z "%DOWNLOADQT%"
         7z x webkit.7z -y
-        set PATH=%PYTHON%;%PYTHON%\Scripts;%QT%\bin;%INNO%;%PATH%
+        set PATH=%PYTHON%;%PYTHON%\Scripts;%QT%\bin;%PATH%
         echo %PATH%
         pip install six==1.15.0
         pip install html5lib==1.1
@@ -59,11 +59,11 @@ jobs:
         pip install PyQt5==5.12.3 PyQt5-sip==4.19.19
         pip install lxml==4.5.1
     - name: Create Build Environment
-      shell: bash
+      shell: cmd
       run: |
-        mkdir ${{runner.workspace}}/build
+        mkdir ${{runner.workspace}}\build
         cd ${{runner.workspace}}/build
-        curl -L -o gdrive.exe $GDRIVE
+        curl -L -o gdrive.exe "%GDRIVE%"
         gdrive version
         qmake -v
         python --version
