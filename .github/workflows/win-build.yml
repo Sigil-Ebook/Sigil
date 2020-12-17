@@ -41,6 +41,7 @@ jobs:
         where curl
         where iscc
         choco install ninja curl
+        c:
         cd \
         echo %CD%
         curl -L -o webkit.7z "%DOWNLOADQT%"
