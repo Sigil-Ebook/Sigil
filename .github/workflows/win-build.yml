@@ -25,20 +25,22 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
-    - uses: actions/cache@main
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-test-build
-        restore-keys: |
-            ${{ runner.os }}-pip-test-build
+#    - uses: actions/cache@mainv2
+#      with:
+#        path: [a, b]
+#        key: ${{ runner.os }}-pip-test-build
+#        restore-keys: |
+#            ${{ runner.os }}-pip-test-build
+      
     - name: Install dependencies
       shell: cmd
       run: |
+        where python
         choco install ninja curl
         cd C:\
-        curl -L -o webkit.7z %DOWNLOADQT%
+        curl -L -o webkit.7z "%DOWNLOADQT%"
         7z x webkit.7z -y
-        set PATH=%QT%\bin;%INNO%;%PATH%
+        set PATH="%QT%\bin;%INNO%;%PATH%"
         pip install six==1.15.0
         pip install html5lib==1.1
         pip install regex==2020.6.8
