@@ -37,7 +37,7 @@ jobs:
         cd C:\
         curl -L -o webkit.7z $DOWNLOADQT
         7z x webkit.7z -y
-        set PATH=$PYTHON;$PYTHON\Scripts;$QT\bin;$INNO;$PATH
+        set PATH=%QT%\bin;%INNO%;%PATH%
         pip install six==1.15.0
         pip install html5lib==1.1
         pip install regex==2020.6.8
