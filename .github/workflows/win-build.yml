@@ -1,4 +1,4 @@
-name: Build Sigil pn Windows
+name: Build Sigil on Windows
 
 on: [push]
 
@@ -36,6 +36,9 @@ jobs:
       shell: cmd
       run: |
         where python
+        where pip
+        where curl
+        where ninja
         choco install ninja curl
         cd C:\
         curl -L -o webkit.7z "%DOWNLOADQT%"
