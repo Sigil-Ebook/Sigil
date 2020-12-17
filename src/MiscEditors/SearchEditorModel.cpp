@@ -332,7 +332,14 @@ void SearchEditorModel::LoadTextData(const QString &filename, QStandardItem *ite
         QStringList datalines = data.split('\n');
         foreach(QString aline, datalines) {
             if (!aline.isEmpty()) {
-                QStringList findreplace = aline.split(sep);
+                QStringList findreplace;
+                if (sep == ',') {
+                    findreplace  = Utility::parseCSVLine(aline);
+                } else { 
+                    findreplace = aline.split(sep);
+                }
+                // add to end to prevent errors
+                findreplace << "" << "";
                 QString localname = "rep" + QStringLiteral("%1").arg(cnt, 5, 10, QLatin1Char('0'));
                 SearchEditorModel::searchEntry *entry = new SearchEditorModel::searchEntry();
                 QString fullname = groupname + localname;

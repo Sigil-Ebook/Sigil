@@ -1331,3 +1331,44 @@ QBrush Utility::ValidationResultBrush(const Val_Msg_Type &valres)
         }
     }
 }
+
+QStringList Utility::parseCSVLine(const QString &data)
+{
+    auto unquote_val = [](const QString &av) {
+        QString nv(av);
+        if (nv.startsWith('"')) nv = nv.mid(1);
+        if (nv.endsWith('"')) nv = nv.mid(0, nv.length()-1);
+        return nv;
+    };
+    
+    bool in_quote = false;
+    QStringList vals;
+    QString v;
+    int n = data.size();
+    int i = 0;
+    while(i < n) {
+        QChar c = data.at(i);
+        if (!in_quote) {
+            if (c == ',') {
+                vals.append(unquote_val(v.trimmed()));
+                v = "";
+            } else  {
+                v.append(c);
+                if (c == '"') in_quote = true;
+            }
+        } else {
+            v.append(c);
+            if (c == '"') {
+                if ((i+1 < n) && (data.at(i+1) == '"')) { 
+                    i++;
+                } else {
+                    in_quote = false;
+                }
+            }
+        }
+        i++;
+    }
+    if (!v.isEmpty()) vals.append(unquote_val(v.trimmed()));
+    return vals;
+}
+
