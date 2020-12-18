@@ -2558,6 +2558,29 @@ void CodeViewEditor::FormatBlock(const QString &element_name, bool preserve_attr
     emit selectionChanged();
     // Going to assume that the user is allowed to click anywhere within or just after the block
     // Also makes assumptions about being well formed, or else crazy things may happen...
+    if (!textCursor().hasSelection()) {
+        QTextCursor newcursor(textCursor());
+        newcursor.select(QTextCursor::LineUnderCursor);
+        QString newtxt = newcursor.selectedText();
+        int startpos = newcursor.selectionStart();
+        QString cleantxt(newtxt);
+        cleantxt = cleantxt.trimmed();
+        if (cleantxt.startsWith("<")) {
+             int p = cleantxt.indexOf(">");
+             if (p > -1) cleantxt = cleantxt.mid(p+1, -1);
+        }
+        if (cleantxt.endsWith(">")) {
+            int p = cleantxt.lastIndexOf("<");
+            if (p > -1) cleantxt = cleantxt.mid(0, p);
+        }
+        int pos =  newtxt.indexOf(cleantxt, 0);
+        if (pos > 0) startpos = startpos + pos;
+        newcursor.clearSelection();
+        newcursor.setPosition(startpos);
+        newcursor.setPosition(startpos + cleantxt.length(), QTextCursor::KeepAnchor); 
+        setTextCursor(newcursor);
+    }
+
     int pos = textCursor().selectionStart();
     QString text = toPlainText();
 
@@ -2911,6 +2934,11 @@ void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QS
     emit selectionChanged();
     // Going to assume that the user is allowed to click anywhere within or just after the block
     // Also makes assumptions about being well formed, or else crazy things may happen...
+    if (!textCursor().hasSelection()) {
+        QTextCursor newcursor(textCursor());
+        newcursor.select(QTextCursor::WordUnderCursor);
+        setTextCursor(newcursor);
+    }
     int pos = textCursor().selectionStart();
     QString text = toPlainText();
 
