@@ -72,7 +72,8 @@ jobs:
         set PATH=C:\%PYTHON%;%QT%\bin;%PATH%
         set /p RedistVersion=<"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\Microsoft.VCRedistVersion.default.txt"
         set REDIST=C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Redist\MSVC\%RedistVersion%\vcredist_x64.exe
-        cp '%REDIST%' ../installer/
+        echo "%REDIST%"
+        cp '%REDIST%' %GITHUB_WORKSPACE%\installer\
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
         echo ${{runner.workspace}}
         echo %GITHUB_WORKSPACE%
