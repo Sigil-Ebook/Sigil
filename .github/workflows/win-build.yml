@@ -36,6 +36,7 @@ jobs:
     - name: Install dependencies
       shell: cmd
       run: |
+        choco install ninja --y --skipviruscheck --no-progress --ignorechecksum
         c:
         cd \
         curl -L -o webkit.7z "%DOWNLOADQT%"
@@ -70,15 +71,11 @@ jobs:
       working-directory: ${{runner.workspace}}\build
       run: |
         set PATH=C:\%PYTHON%;%QT%\bin;%PATH%
-        set /p RedistVersion=<"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\Microsoft.VCRedistVersion.default.txt"
-        set REDIST=C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Redist\MSVC\%RedistVersion%\vcredist_x64.exe
-        echo "%REDIST%"
-        cp '%REDIST%' %GITHUB_WORKSPACE%\installer\
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
         echo ${{runner.workspace}}
         echo %GITHUB_WORKSPACE%
         cmake %GITHUB_WORKSPACE% ^
-        -G "NMake Makefiles" ^
+        -G Ninja ^
         -DCMAKE_BUILD_TYPE=$BUILD_TYPE ^
         -DPYTHON_LIBRARY="C:\%PYTHON%\libs\python38.lib" ^
         -DPYTHON_INCLUDE_DIR="C:\%PYTHON%\include" ^
@@ -86,15 +83,21 @@ jobs:
         -DUSE_ALT_ICONS=1 ^
         -DQt5_DIR="$QT\lib\cmake\Qt5" ^
         %CMAKE64BIT%
-        nmake
+        ninja -j2
     - name: Build Installer
       shell: cmd
       working-directory: ${{runner.workspace}}\build
+      if: "contains(github.event.head_commit.message, '[build]') && github.event_name == 'pull_request'"
       run: |
         set PATH=C:\%PYTHON%;%INNO%;%QT%\bin;%PATH%
+        set /p RedistVersion=<"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\Microsoft.VCRedistVersion.default.txt"
+        set REDIST=C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Redist\MSVC\%RedistVersion%\vcredist_x64.exe
+        echo "%REDIST%"
+        cp '%REDIST%' %GITHUB_WORKSPACE%\installer\
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
-        nmake makeinstaller
+        ninja -j2 makeinstaller
     - uses: actions/upload-artifact@v2
+      if: "contains(github.event.head_commit.message, '[build]') && github.event_name == 'pull_request'"
       with:
         name: sigil-installer (unzip)
         path: ${{runner.workspace}}\build\installer\*.exe
