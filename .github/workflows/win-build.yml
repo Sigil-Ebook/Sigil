@@ -95,6 +95,7 @@ jobs:
         cp '%REDIST%' %GITHUB_WORKSPACE%\installer\
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
         nmake makeinstaller
+
     - uses: actions/upload-artifact@v2
       # if: "contains(github.event.head_commit.message, '[build]') && github.event_name != 'pull_request'"
       if: "contains(github.event.head_commit.message, '[build]')"
