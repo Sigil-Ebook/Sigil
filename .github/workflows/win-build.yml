@@ -100,8 +100,8 @@ jobs:
     - name: Build Installer
       shell: cmd
       working-directory: ${{runner.workspace}}\build
-      # if: "contains(github.event.head_commit.message, '[build]') && github.event_name != 'pull_request'"
-      if: "contains(github.event.head_commit.message, '[build]')"
+      # if: "contains(github.event.head_commit.message, '[deploy]') && github.event_name != 'pull_request'"
+      if: "contains(github.event.head_commit.message, '[deploy]')"
       run: |
         set PATH=C:\%PYTHON%;%INNO%;%QT%\bin;%PATH%
         set /p RedistVersion=<"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\Microsoft.VCRedistVersion.default.txt"
@@ -112,8 +112,8 @@ jobs:
         nmake makeinstaller
 
     - uses: actions/upload-artifact@v2
-      # if: "contains(github.event.head_commit.message, '[build]') && github.event_name != 'pull_request'"
-      if: "contains(github.event.head_commit.message, '[build]')"
+      # if: "contains(github.event.head_commit.message, '[deploy]') && github.event_name != 'pull_request'"
+      if: "contains(github.event.head_commit.message, '[deploy]')"
       with:
         name: sigil-installer (unzip)
         path: ${{runner.workspace}}\build\installer\*.exe
