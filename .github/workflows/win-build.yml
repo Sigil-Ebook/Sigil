@@ -95,4 +95,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: sigil-installer (unzip)
-        path: ${{runner.workspace}\build\installer\*.exe
+        path: ${{runner.workspace}}\build\installer\*.exe
