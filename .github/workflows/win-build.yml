@@ -78,8 +78,6 @@ jobs:
         echo ${{runner.workspace}}
         mkdir ${{runner.workspace}}\build
         cd ${{runner.workspace}}\build
-        curl -L -o gdrive.exe "%GDRIVE%"
-        gdrive version
         qmake -v
         python --version
     - name: Build Sigil
@@ -88,8 +86,7 @@ jobs:
       run: |
         set PATH=C:\%PYTHON%;%QT%\bin;%PATH%
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
-        echo ${{runner.workspace}}
-        echo %GITHUB_WORKSPACE%
+        echo %PATH%
         cmake %GITHUB_WORKSPACE% ^
         -G "NMake Makefiles" ^
         -DCMAKE_BUILD_TYPE=%BUILD_TYPE% ^
