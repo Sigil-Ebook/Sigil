@@ -65,18 +65,17 @@ jobs:
         gdrive version
         qmake -v
         python --version
-        
-    - name: Configure CMake
+    - name: Build Sigil
       shell: cmd
-      working-directory: ${{runner.workspace}}
+      working-directory: ${{runner.workspace}\build}
       run: |
         set PATH=C:\%PYTHON%;%QT%\bin;%PATH%
+        set /p RedistVersion=<"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\Microsoft.VCRedistVersion.default.txt"
+        set REDIST=C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Redist\MSVC\%RedistVersion%\vcredist_x64.exe
+        cp '%REDIST%' ../installer/
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
         echo ${{runner.workspace}}
         echo %GITHUB_WORKSPACE%
-        cd %GITHUB_WORKSPACE%
-        dir
-        cd ..\build
         cmake %GITHUB_WORKSPACE% ^
         -G "NMake Makefiles" ^
         -DCMAKE_BUILD_TYPE=$BUILD_TYPE ^
@@ -87,4 +86,13 @@ jobs:
         -DQt5_DIR="$QT\lib\cmake\Qt5" ^
         %CMAKE64BIT%
         nmake
-
+    - name: Build Installer
+      shell: cmd
+      working-directory: ${{runner.workspace}\build}
+      run: |
+        set PATH=C:\%PYTHON%;%INNO%;%PATH%
+        nmake makeinstaller
+    - uses: actions/upload-artifact@v2
+      with:
+        name: sigil-installer (unzip)
+        path: ${{runner.workspace}\build\installer\*.exe
