@@ -36,11 +36,13 @@ jobs:
     - name: Install dependencies
       shell: cmd
       run: |
+        echo %PATH%
         where python
+        c:
         cd %PYTHON
         echo %CD%
         dir
-        cd C:\hostedtoolcache\windows\Python\3.8.6\x64
+        cd c:\hostedtoolcache\windows\Python\3.8.6\x64
         echo %CD%
         dir
 # c:
