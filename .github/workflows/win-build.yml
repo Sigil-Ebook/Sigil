@@ -26,7 +26,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8.6
-    - uses: actions/cache@mainv2
+    - uses: actions/cache@main
       with:
         path: C:\hostedtoolcache\windows\Python\3.8.6\x64\lib\site-packages
         key: ${{ runner.os }}-pip-site-packages1
