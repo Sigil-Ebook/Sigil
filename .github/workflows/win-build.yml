@@ -10,7 +10,7 @@ env:
   QT: C:\MyQtx64_WE\Qt5.12.9
   INNO: C:\Program Files (x86)\Inno Setup 6
   CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
-  PYTHON: C:\hostedtoolcache\windows\Python\3.7.9\x64
+  PYTHON: C:\Users\runneradmin\AppData\Roaming\Python\Python38
 
 jobs:
   build:
@@ -76,7 +76,7 @@ jobs:
       shell: cmd
       working-directory: ${{runner.workspace}}\build
       run: |
-        cmake $GITHUB_WORKSPACE ^
+        cmake %GITHUB_WORKSPACE% ^
         -G "NMake Makefiles" ^
         -DCMAKE_BUILD_TYPE=$BUILD_TYPE ^
         -DPYTHON_LIBRARY=%PYTHON%\libs\python38.lib ^
