@@ -91,6 +91,7 @@ jobs:
       working-directory: ${{runner.workspace}}\build
       run: |
         set PATH=C:\%PYTHON%;%INNO%;%PATH%
+        call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
         nmake makeinstaller
     - uses: actions/upload-artifact@v2
       with:
