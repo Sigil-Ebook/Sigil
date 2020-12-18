@@ -64,6 +64,7 @@ jobs:
     - name: Create Build Environment
       shell: cmd
       run: |
+        set PATH=%QT%\bin;%PATH%
         mkdir ${{runner.workspace}}\build
         cd ${{runner.workspace}}\build
         curl -L -o gdrive.exe "%GDRIVE%"
@@ -71,11 +72,13 @@ jobs:
         echo %PATH%
         where qmake
         python --version
-        call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
+        
     - name: Configure CMake
       shell: cmd
       working-directory: ${{runner.workspace}}\build
       run: |
+        call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
+        echo %PATH%
         cmake %GITHUB_WORKSPACE% ^
         -G "NMake Makefiles" ^
         -DCMAKE_BUILD_TYPE=$BUILD_TYPE ^
