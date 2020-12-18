@@ -32,11 +32,11 @@ jobs:
 #        key: ${{ runner.os }}-pip-test-build
 #        restore-keys: |
 #            ${{ runner.os }}-pip-test-build
-      
+    - name: Install ninja
+      run: choco install ninja --y --skipviruscheck --no-progress --ignorechecksum  
     - name: Install dependencies
       shell: cmd
       run: |
-        choco install ninja --y --skipviruscheck --no-progress --ignorechecksum
         c:
         cd \
         curl -L -o webkit.7z "%DOWNLOADQT%"
@@ -87,7 +87,8 @@ jobs:
     - name: Build Installer
       shell: cmd
       working-directory: ${{runner.workspace}}\build
-      if: "contains(github.event.head_commit.message, '[build]') && github.event_name == 'pull_request'"
+      # if: "contains(github.event.head_commit.message, '[build]') && github.event_name != 'pull_request'"
+      if: "contains(github.event.head_commit.message, '[build]')"
       run: |
         set PATH=C:\%PYTHON%;%INNO%;%QT%\bin;%PATH%
         set /p RedistVersion=<"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\Microsoft.VCRedistVersion.default.txt"
@@ -97,7 +98,8 @@ jobs:
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
         ninja makeinstaller
     - uses: actions/upload-artifact@v2
-      if: "contains(github.event.head_commit.message, '[build]') && github.event_name == 'pull_request'"
+      # if: "contains(github.event.head_commit.message, '[build]') && github.event_name != 'pull_request'"
+      if: "contains(github.event.head_commit.message, '[build]')"
       with:
         name: sigil-installer (unzip)
         path: ${{runner.workspace}}\build\installer\*.exe
