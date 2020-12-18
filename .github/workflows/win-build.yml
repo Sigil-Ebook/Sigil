@@ -88,7 +88,7 @@ jobs:
         nmake
     - name: Build Installer
       shell: cmd
-      working-directory: ${{runner.workspace}\build}
+      working-directory: ${{runner.workspace}}\build
       run: |
         set PATH=C:\%PYTHON%;%INNO%;%PATH%
         nmake makeinstaller
