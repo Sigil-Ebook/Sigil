@@ -75,15 +75,15 @@ jobs:
         echo ${{runner.workspace}}
         echo %GITHUB_WORKSPACE%
         cmake %GITHUB_WORKSPACE% ^
-        -G Ninja ^
-        -DCMAKE_BUILD_TYPE=$BUILD_TYPE ^
+        -G "Ninja" ^
+        -DCMAKE_BUILD_TYPE=%BUILD_TYPE% ^
         -DPYTHON_LIBRARY="C:\%PYTHON%\libs\python38.lib" ^
         -DPYTHON_INCLUDE_DIR="C:\%PYTHON%\include" ^
         -DPYTHON_EXECUTABLE="C:\%PYTHON%\python.exe" ^
         -DUSE_ALT_ICONS=1 ^
         -DQt5_DIR="$QT\lib\cmake\Qt5" ^
         %CMAKE64BIT%
-        ninja -j2
+        ninja
     - name: Build Installer
       shell: cmd
       working-directory: ${{runner.workspace}}\build
@@ -95,7 +95,7 @@ jobs:
         echo "%REDIST%"
         cp '%REDIST%' %GITHUB_WORKSPACE%\installer\
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
-        ninja -j2 makeinstaller
+        ninja makeinstaller
     - uses: actions/upload-artifact@v2
       if: "contains(github.event.head_commit.message, '[build]') && github.event_name == 'pull_request'"
       with:
