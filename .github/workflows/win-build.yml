@@ -1,9 +1,30 @@
 name: Build Sigil on Windows
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+    - 'docs/**'
+    - 'installer/win_installer_note.txt'
+    - 'ChangeLog.txt'
+    - 'COPYING.txt'
+    - 'version.xml'
+    - 'appveyor.yml'
+    - '.retired_travis.yml'
+    - '**.md'
+  pull_request:
+    branches: [ master ]
+    paths-ignore:
+    - 'docs/**'
+    - 'installer/win_installer_note.txt'
+    - 'ChangeLog.txt'
+    - 'COPYING.txt'
+    - 'version.xml'
+    - 'appveyor.yml'
+    - '.retired_travis.yml'
+    - '**.md'
 
 env:
-  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
   DOWNLOADQT: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/MyQtx64_5.12.9_VS2017_WE.7z
   GDRIVE: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/gdrive-windows-x64.exe
@@ -14,10 +35,7 @@ env:
 
 jobs:
   build:
-    # The CMake configure and build commands are platform agnostic and should work equally
-    # well on Windows or Mac.  You can convert this to a matrix build if you need
-    # cross-platform coverage.
-    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: windows-latest
 
     steps:
