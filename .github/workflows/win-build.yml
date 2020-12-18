@@ -26,14 +26,12 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8.6
-#    - uses: actions/cache@mainv2
-#      with:
-#        path: [a, b]
-#        key: ${{ runner.os }}-pip-test-build
-#        restore-keys: |
-#            ${{ runner.os }}-pip-test-build
-    - name: Install ninja
-      run: choco install ninja --y --skipviruscheck --no-progress --ignorechecksum  
+    - uses: actions/cache@mainv2
+      with:
+        path: C:\hostedtoolcache\windows\Python\3.8.6\x64\lib\site-packages
+        key: ${{ runner.os }}-pip-site-packages1
+        restore-keys: |
+            ${{ runner.os }}-pip-site-packages1
     - name: Install dependencies
       shell: cmd
       run: |
@@ -75,7 +73,7 @@ jobs:
         echo ${{runner.workspace}}
         echo %GITHUB_WORKSPACE%
         cmake %GITHUB_WORKSPACE% ^
-        -G "Ninja" ^
+        -G "NMake Makefiles" ^
         -DCMAKE_BUILD_TYPE=%BUILD_TYPE% ^
         -DPYTHON_LIBRARY="C:\%PYTHON%\libs\python38.lib" ^
         -DPYTHON_INCLUDE_DIR="C:\%PYTHON%\include" ^
@@ -83,7 +81,7 @@ jobs:
         -DUSE_ALT_ICONS=1 ^
         -DQt5_DIR="$QT\lib\cmake\Qt5" ^
         %CMAKE64BIT%
-        ninja
+        nmake
     - name: Build Installer
       shell: cmd
       working-directory: ${{runner.workspace}}\build
@@ -96,7 +94,7 @@ jobs:
         echo "%REDIST%"
         cp '%REDIST%' %GITHUB_WORKSPACE%\installer\
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
-        ninja makeinstaller
+        nmake makeinstaller
     - uses: actions/upload-artifact@v2
       # if: "contains(github.event.head_commit.message, '[build]') && github.event_name != 'pull_request'"
       if: "contains(github.event.head_commit.message, '[build]')"
