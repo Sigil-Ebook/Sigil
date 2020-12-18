@@ -41,7 +41,6 @@ jobs:
         curl -L -o webkit.7z "%DOWNLOADQT%"
         7z x webkit.7z -y
         set PATH=C:\%PYTHON%;C:\%PYTHON%\Scripts;%PATH%
-        echo %PATH%
         python -m pip install --upgrade pip
         pip install six==1.15.0
         pip install html5lib==1.1
@@ -59,6 +58,7 @@ jobs:
       shell: cmd
       run: |
         set PATH=%QT%\bin;%PATH%
+        echo ${{runner.workspace}}
         mkdir ${{runner.workspace}}\build
         cd ${{runner.workspace}}\build
         curl -L -o gdrive.exe "%GDRIVE%"
@@ -70,9 +70,9 @@ jobs:
       shell: cmd
       working-directory: ${{runner.workspace}}\build
       run: |
-        set PATH=%PYTHON%;%QT%\bin;%PATH%
+        set PATH=C:\%PYTHON%;%QT%\bin;%PATH%
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
-        echo %PATH%
+        echo %GITHUB_WORKSPACE%
         cmake %GITHUB_WORKSPACE%\src ^
         -G "NMake Makefiles" ^
         -DCMAKE_BUILD_TYPE=$BUILD_TYPE ^
