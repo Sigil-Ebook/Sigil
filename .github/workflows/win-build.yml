@@ -67,7 +67,7 @@ jobs:
         python --version
     - name: Build Sigil
       shell: cmd
-      working-directory: ${{runner.workspace}\build}
+      working-directory: ${{runner.workspace}}\build
       run: |
         set PATH=C:\%PYTHON%;%QT%\bin;%PATH%
         set /p RedistVersion=<"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\Microsoft.VCRedistVersion.default.txt"
