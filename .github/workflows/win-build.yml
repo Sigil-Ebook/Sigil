@@ -68,17 +68,13 @@ jobs:
         cd ${{runner.workspace}}\build
         curl -L -o gdrive.exe "%GDRIVE%"
         gdrive version
+        echo %PATH%
         where qmake
         python --version
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
     - name: Configure CMake
-      # Use a bash shell so we can use the same syntax for environment variable
-      # access regardless of the host operating system
       shell: cmd
       working-directory: ${{runner.workspace}}\build
-      # Note the current convention is to use the -S and -B options here to specify source 
-      # and build directories, but this is only available with CMake 3.13 and higher.  
-      # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       run: |
         cmake $GITHUB_WORKSPACE ^
         -G "NMake Makefiles" ^
@@ -88,7 +84,7 @@ jobs:
         -DPYTHON_EXECUTABLE=%PYTHON%\python.exe ^
         -DUSE_ALT_ICONS=1 ^
         -DQt5_DIR=$QT\lib\cmake\Qt5 ^
-        $CMAKE64BIT
+        %CMAKE64BIT%
 
     - name: Build
       shell: cmd
