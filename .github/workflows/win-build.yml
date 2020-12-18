@@ -39,10 +39,10 @@ jobs:
         echo %PATH%
         where python
         c:
-        cd %PYTHON
+        cd \hostedtoolcache\windows\Python\3.8.6\x64
         echo %CD%
         dir
-        cd c:\hostedtoolcache\windows\Python\3.8.6\x64
+        cd \Users\runneradmin\AppData\Roaming\Python\Python38
         echo %CD%
         dir
 # c:
