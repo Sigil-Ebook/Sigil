@@ -72,11 +72,12 @@ jobs:
       run: |
         set PATH=C:\%PYTHON%;%QT%\bin;%PATH%
         call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.1
+        echo ${{runner.workspace}}
         echo %GITHUB_WORKSPACE%
-        echo %CD%
+        cd %GITHUB_WORKSPACE%
         dir
-        cd .\build
-        cmake ..\%GITHUB_WORKSPACE%\src ^
+        cd ..\build
+        cmake %GITHUB_WORKSPACE% ^
         -G "NMake Makefiles" ^
         -DCMAKE_BUILD_TYPE=$BUILD_TYPE ^
         -DPYTHON_LIBRARY="C:\%PYTHON%\libs\python38.lib" ^
