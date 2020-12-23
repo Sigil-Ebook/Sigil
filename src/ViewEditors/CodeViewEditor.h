@@ -568,7 +568,7 @@ private slots:
 private:
     bool IsMarkedText();
 
-    void RegenerateTagList(const QString& text);
+    void MaybeRegenerateTagList(const QString& doctext);
 
     QString RemoveFirstTag(const QString &text, const QString &tagname);
     QString RemoveLastTag(const QString &text, const QString &tagname);
@@ -705,12 +705,12 @@ private:
     /**
      * Is this position within the <body> tag of this text.
      */
-    bool IsPositionInBody(const int &pos = -1, const QString &text = QString());
-    bool IsPositionInTag(const int &pos = -1, const QString &text = QString());
-    bool IsPositionInOpeningTag(const int &pos = -1, const QString &text = QString());
-    bool IsPositionInClosingTag(const int &pos = -1, const QString &text = QString());
-    QString GetOpeningTagName(const int &pos, const QString &text);
-    QString GetClosingTagName(const int &pos, const QString &text);
+    bool IsPositionInBody(int pos, const QString &text);
+    bool IsPositionInTag(int pos, const QString &text);
+    bool IsPositionInOpeningTag(int pos, const QString &text);
+    bool IsPositionInClosingTag(int pos, const QString &text);
+    QString GetOpeningTagName(int pos, const QString &text);
+    QString GetClosingTagName(int pos, const QString &text);
 
     void FormatSelectionWithinElement(const QString &element_name, const int &previous_tag_index, const QString &text);
 
@@ -750,7 +750,7 @@ private:
 
     void ReformatHTML(bool all, bool to_valid);
 
-    QStringList GetUnmatchedTagsForBlock(const int &pos, const QString &text) const;
+    QStringList GetUnmatchedTagsForBlock(int pos, const QString &text);
 
     void SelectAndScrollIntoView(int start_position, int end_position, Searchable::Direction direction, bool wrapped);
 
@@ -873,7 +873,8 @@ private:
 
     QList<TagLister::TagInfo> m_TagList;
     bool m_regen_taglist;
-
+    int m_body_start_pos;
+    int m_body_end_pos;
 };
 
 #endif // CODEVIEWEDITOR_H

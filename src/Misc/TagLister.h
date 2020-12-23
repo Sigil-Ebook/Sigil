@@ -27,6 +27,7 @@
 class QString;
 class QStringRef;
 class QStringList;
+class TagAtts;
 
 class TagLister
 {
@@ -46,13 +47,15 @@ public:
     ~TagLister() {};
     void reload_lister(const QString &source);
     TagInfo get_next();
+    static void parseAttributes(const QStringRef &tagstring, TagAtts& tattr);
+    static QString serialize(const TagInfo &ti, const TagAtts & tattr);
     
 private:
     QStringRef parseML();
     void parseTag(const QStringRef &tagstring, TagInfo &mi);
     int findTarget(const QString &tgt, int p, bool after=false);
-    int skipAnyBlanks(const QStringRef &segment, int p);
-    int stopWhenContains(const QStringRef &segment, const QString& stopchars, int p);
+    static int skipAnyBlanks(const QStringRef &segment, int p);
+    static int stopWhenContains(const QStringRef &segment, const QString& stopchars, int p);
     
     QString      m_source;
     int          m_pos;
