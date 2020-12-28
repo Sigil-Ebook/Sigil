@@ -227,11 +227,11 @@ void TagLister::parseAttribute(const QStringRef &tagstring, const QString &attri
     // handle the possibility of attributes (so begin or single tag type)
     while (tagstring.indexOf("=", p) != -1) {
         p = skipAnyBlanks(tagstring, p);
-        int b = p;
+        int s = p;
         p = stopWhenContains(tagstring, "=", p);
-        QString aname = Utility::Substring(b, p, tagstring).trimmed();
+        QString aname = Utility::Substring(s, p, tagstring).trimmed();
         if (aname == attribute_name) {
-            ainfo.pos = b;
+            ainfo.pos = s;
             ainfo.aname = aname;
         }
         QString avalue;
@@ -240,21 +240,21 @@ void TagLister::parseAttribute(const QStringRef &tagstring, const QString &attri
         if ((tagstring.at(p) == "'") || (tagstring.at(p) == "\"")) {
             QString qc = tagstring.at(p);
             p++;
-            b = p;
+            int b = p;
             p = stopWhenContains(tagstring, qc, p);
             avalue = Utility::Substring(b, p, tagstring);
             if (aname == attribute_name) {
                 ainfo.avalue = avalue;
-                ainfo.len = p - b;
+                ainfo.len = p - s + 1;
             }
             p++;
         } else {
-            b = p;
+            int b = p;
             p = stopWhenContains(tagstring, ">/ ", p);
             avalue = Utility::Substring(b, p, tagstring);
             if (aname == attribute_name) {
                 ainfo.avalue = avalue;
-                ainfo.len = p - b;
+                ainfo.len = p - s;
             }
         }
     }
