@@ -1566,7 +1566,7 @@ bool CodeViewEditor::InViewableImage()
 
     if (url_name.isEmpty()) {
         // We do not know what namespace may have been used
-        url_name = GetAttribute(":href", IMAGE_TAGS, true);
+        url_name = GetAttribute("xlink:href", IMAGE_TAGS, true);
     }
 
     return !url_name.isEmpty();
@@ -1579,7 +1579,7 @@ void CodeViewEditor::OpenImageAction()
 
     if (url_name.isEmpty()) {
         // We do not know what namespace may have been used
-        url_name = GetAttribute(":href", IMAGE_TAGS, true);
+        url_name = GetAttribute("xlink:href", IMAGE_TAGS, true);
     }
 
     emit LinkClicked(QUrl(url_name));
@@ -1601,7 +1601,7 @@ void CodeViewEditor::GoToLinkOrStyle()
 
     if (url_name.isEmpty()) {
         // We do not know what namespace may have been used
-        url_name = GetAttribute(":href", IMAGE_TAGS, true);
+        url_name = GetAttribute("xlink:href", IMAGE_TAGS, true);
     }
 
     if (!url_name.isEmpty()) {
@@ -3094,19 +3094,36 @@ QString CodeViewEditor::GetAttributeId()
     return GetAttribute("id", tag_list, false, true);
 }
 
-QString CodeViewEditor::GetAttribute(const QString &attribute_name, QStringList tag_list, bool must_be_in_attribute, bool skip_paired_tags)
+QString CodeViewEditor::GetAttribute(const QString &attribute_name,
+                                     QStringList tag_list,
+                                     bool must_be_in_attribute,
+                                     bool skip_paired_tags)
 {
-    return ProcessAttribute(attribute_name, tag_list, QString(), false, must_be_in_attribute, skip_paired_tags);
+    return ProcessAttribute(attribute_name, tag_list, QString(), 
+                            false, must_be_in_attribute, skip_paired_tags);
 }
 
 
-QString CodeViewEditor::SetAttribute(const QString &attribute_name, QStringList tag_list, const QString &attribute_value, bool must_be_in_attribute, bool skip_paired_tags)
+QString CodeViewEditor::SetAttribute(const QString &attribute_name,
+                                     QStringList tag_list,
+                                     const QString &attribute_value,
+                                     bool must_be_in_attribute,
+                                     bool skip_paired_tags)
 {
-    return ProcessAttribute(attribute_name, tag_list, attribute_value, true, must_be_in_attribute, skip_paired_tags);
+    return ProcessAttribute(attribute_name, tag_list, attribute_value, 
+                            true, must_be_in_attribute, skip_paired_tags);
 }
 
-QString CodeViewEditor::ProcessAttribute(const QString &attribute_name, QStringList tag_list, const QString &attribute_value, bool set_attribute, bool must_be_in_attribute, bool skip_paired_tags)
+
+QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
+                                               QStringList tag_list,
+                                               const QString &attribute_value,
+                                               bool set_attribute,
+                                               bool must_be_in_attribute,
+                                               bool skip_paired_tags)
 {
+    qDebug() << "In ProcessAttribute: " << attribute_name << tag_list << attribute_value << set_attribute << must_be_in_attribute << skip_paired_tags;
+
     if (attribute_name.isEmpty()) {
         return QString();
     }
@@ -3115,16 +3132,110 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name, QStringL
         tag_list = BLOCK_LEVEL_TAGS;
     }
 
+    // Makes assumptions about being well formed, or else crazy things may happen...
     // Given the code <p>abc</p>, users can click between first < and > and
     // one character to the left of the first <.
-    // Makes assumptions about being well formed, or else crazy things may happen...
     int pos = textCursor().selectionStart();
     int original_position = textCursor().position();
     QString text = toPlainText();
 
-    if (!IsPositionInBody(pos, text)) {
-        return QString();
+#if 1
+    // The old implementation did not properly handle pi, multi-line comments, cdata
+    // nor attribute values delimited by single quotes
+
+    MaybeRegenerateTagList(text);
+
+    if (!IsPositionInBody(pos, text)) return QString();
+
+    // If we're in a closing tag, move to the text between tags to make parsing easier.
+    if (IsPositionInClosingTag(pos, text)) {
+        while (pos > 0 && text[pos] != QChar('<')) {
+            pos--;
+        }
     }
+    if (pos < 0) return QString();
+
+    // now find the tag just after position pos
+    int i = 0;
+    TagLister::TagInfo ti = m_TagList.at(i);
+    while((ti.pos + ti.len <= pos) && (ti.len != -1)) {
+        i++;
+        ti = m_TagList.at(i);
+    }
+    // taginfo i comes after pos
+    // so start looking for tag in taglist starting at i-1
+    i--;
+    if (i < 0) return QString();
+    QList<int> paired_tags;
+    while((i >= 0) && (m_TagList.at(i).tname != "body")) {
+        ti = m_TagList.at(i);
+        if (ti.ttype == "end") {
+            if (skip_paired_tags && !BLOCK_LEVEL_TAGS.contains(ti.tname)) {
+                paired_tags << ti.open_pos;
+            }
+            if (tag_list.contains(ti.tname) || BLOCK_LEVEL_TAGS.contains(ti.tname)) {
+                return QString();
+            }
+        } else if ((ti.ttype == "begin") || (ti.ttype == "single")) {
+            if (skip_paired_tags && paired_tags.contains(ti.pos)) {
+                paired_tags.removeOne(ti.pos);
+            } else {
+                // found what we want
+                if (tag_list.contains(ti.tname) || BLOCK_LEVEL_TAGS.contains(ti.tname)) break; 
+            }
+        }
+        // skip all special tags like doctype, cdata, pi, xmlheaders, and comments
+        i--;
+    }     
+    if (ti.tname == "body") return QString();
+    QStringRef opening_tag_text(&text, ti.pos, ti.len);
+
+    // Now look for the attribute, which may or may not already exist
+    TagLister::AttInfo ainfo;
+    TagLister::parseAttribute(opening_tag_text, attribute_name, ainfo);
+
+    qDebug() << " in tag: " << opening_tag_text;
+    qDebug() << " found attribute: " << ainfo.aname << ainfo.avalue << ainfo.pos << ainfo.len;
+    // set absolute attribute start and end locations in text
+    int attribute_start = ti.pos + ti.len - 1;  // right before the tag '>'
+    int attribute_end = attribute_start;
+    if (ainfo.pos != -1) {
+        // attribute exists
+        attribute_start = ti.pos + ainfo.pos - 1; // include single leading space as part of attribute 
+        attribute_end = attribute_start + 1 + ainfo.len; // and compensate when setting the end position
+        if (must_be_in_attribute && (original_position <= attribute_start  || original_position >= attribute_end)) {
+            return "";
+        }
+    }
+
+    if (!set_attribute) return ainfo.avalue;
+
+    // setting an attribute value to a empty or null value deletes the attribute
+    // if no attribute found and doing a delete then just return since nopthing to delete
+    if ((ainfo.pos == -1) && attribute_value.isEmpty()) return QString();
+
+    QString attribute_text;
+    if (!attribute_value.isEmpty()) {
+        attribute_text = " " + TagLister::serializeAttribute(attribute_name, attribute_value);
+    }
+
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+    cursor.setPosition(attribute_end);
+    cursor.setPosition(attribute_start, QTextCursor::KeepAnchor);
+    cursor.removeSelectedText();
+    if (!attribute_text.isEmpty()) {
+        cursor.insertText(attribute_text);
+    }
+
+    // Now place the cursor at the end of this opening tag, taking into account difference in attributes.
+    cursor.setPosition(ti.pos + ti.len - (attribute_end - attribute_start) + attribute_text.length());
+    cursor.endEditBlock();
+    setTextCursor(cursor);
+    return attribute_value;
+}
+
+#else
 
     QString old_attribute_value;
     QString tag_name;
@@ -3141,6 +3252,8 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name, QStringL
     QRegularExpression tag_name_search(TAG_NAME_SEARCH);
     QRegularExpression attribute_name_search(attribute_name % ATTRIBUTE_NAME_POSTFIX_SEARCH, QRegularExpression::CaseInsensitiveOption);
     QRegularExpression attrib_values_search(ATTRIB_VALUES_SEARCH);
+
+    if (!IsPositionInBody(pos, text)) return QString();
 
     // If we're in a closing tag, move to the text between tags
     // just before/at < to make parsing easier.
@@ -3296,6 +3409,7 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name, QStringL
     textCursor().setPosition(original_position);
     return QString();
 }
+#endif
 
 void CodeViewEditor::FormatTextDir(const QString &attribute_value)
 {
