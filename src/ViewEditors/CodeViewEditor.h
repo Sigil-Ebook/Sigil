@@ -578,11 +578,6 @@ private:
     bool PasteClipEntry(ClipEditorModel::clipEntry *clip);
 
     /**
-     * Returns the text inside < > if cursor is in < >
-     */
-    QString GetTagText();
-
-    /**
      * Resets the currently used font.
      */
     void ResetFont();

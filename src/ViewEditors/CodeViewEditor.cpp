@@ -171,6 +171,8 @@ void CodeViewEditor::CustomSetDocument(TextDocument &document)
 
     ResetFont();
     m_isLoadFinished = true;
+    m_regen_taglist = true;
+
     emit DocumentSet();
 }
 
@@ -585,17 +587,6 @@ void CodeViewEditor::ReplaceDocumentText(const QString &new_text)
     cursor.removeSelectedText();
     cursor.insertText(new_text);
     cursor.endEditBlock();
-
-#if 0
-    // should we instead be calling clear on the underlying document
-    // and then inserting the new text?  Does this impact memory consumption?
-    document()->clear();
-    QTextCursor cursor = textCursor();
-    cursor.beginEditBlock();
-    cursor.setPosition(0);
-    cursor.insertText(new_text);
-    cursor.endEditBlock();
-#endif
 }
 
 
@@ -1698,32 +1689,6 @@ void CodeViewEditor::ReformatHTMLToValidAllAction()
     ReformatHTML(true, true);
 }
 
-QString CodeViewEditor::GetTagText()
-{
-    QString tag;
-    QString text = toPlainText();
-    int pos = textCursor().position();
-
-    // Find the start of the tag
-    while (pos > 0 && text[pos] != QChar('<') && text[pos] != QChar('>')) {
-        pos--;
-    }
-
-    // Ignore if not in a tag
-    if (pos <= 0 || text[pos] == QChar('>')) {
-        return tag;
-    }
-
-    pos++;
-
-    while (pos < text.length() && text[pos] != QChar('>')) {
-        tag.append(text[pos]);
-        pos++;
-    }
-
-    return tag;
-}
-
 void CodeViewEditor::AddToIndex()
 {
     if (!TextIsSelectedAndNotInStartOrEndTag()) {
@@ -1806,7 +1771,7 @@ bool CodeViewEditor::InsertId(const QString &attribute_value)
     QString text = toPlainText();
     const QString &element_name = "a";
     const QString &attribute_name = "id";
-    // If we're in an a tag we can update the id even if not in the opening tag
+    // If we're in an "a" tag we can update the id even if not in the opening tag
     QStringList tag_list = ID_TAGS;
 
     if (GetOpeningTagName(pos, text).isEmpty()) {
@@ -1831,7 +1796,11 @@ bool CodeViewEditor::InsertHyperlink(const QString &attribute_value)
     return InsertTagAttribute(element_name, attribute_name, safe_attribute_value, ANCHOR_TAGS);
 }
 
-bool CodeViewEditor::InsertTagAttribute(const QString &element_name, const QString &attribute_name, const QString &attribute_value, const QStringList &tag_list, bool ignore_selection)
+bool CodeViewEditor::InsertTagAttribute(const QString &element_name,
+                                        const QString &attribute_name,
+                                        const QString &attribute_value,
+                                        const QStringList &tag_list,
+                                        bool ignore_selection)
 {
     bool inserted = false;
 
@@ -2280,34 +2249,6 @@ void CodeViewEditor::SetAppearanceColors()
     QPalette app_pal = qApp->palette();
     setPalette(app_pal);
     return;
-
-#if 0
-    // Linux and other platforms, let the user specify the colors
-    QPalette pal = palette();
-    if (m_codeViewAppearance.background_color.isValid()) {
-        pal.setColor(QPalette::Base, m_codeViewAppearance.background_color);
-        pal.setColor(QPalette::Window, m_codeViewAppearance.background_color);
-        setBackgroundVisible(true);
-        // qDebug() << "setting background color" << m_codeViewAppearance.background_color.name();
-    } else {
-        setBackgroundVisible(false);
-    }
-
-    if (m_codeViewAppearance.foreground_color.isValid()) {
-        pal.setColor(QPalette::Text, m_codeViewAppearance.foreground_color);
-        // qDebug() << "setting foreground color" << m_codeViewAppearance.foreground_color.name();
-    }
-
-    if (m_codeViewAppearance.selection_background_color.isValid()) {
-        pal.setColor(QPalette::Highlight, m_codeViewAppearance.selection_background_color);
-    }
-
-    if (m_codeViewAppearance.selection_foreground_color.isValid()) {
-        pal.setColor(QPalette::HighlightedText, m_codeViewAppearance.selection_foreground_color);
-    }
-    setPalette(pal);
-#endif
-
 }
 
 
@@ -2692,7 +2633,10 @@ void CodeViewEditor::FormatBlock(const QString &element_name, bool preserve_attr
                 closing_tag_start, closing_tag_end, closing_tag_text);
 }
 
-void CodeViewEditor::InsertHTMLTagAroundText(const QString &left_element_name, const QString &right_element_name, const QString &attributes, const QString &text)
+void CodeViewEditor::InsertHTMLTagAroundText(const QString &left_element_name,
+                                             const QString &right_element_name,
+                                             const QString &attributes,
+                                             const QString &text)
 {
     QTextCursor cursor = textCursor();
     QString new_attributes = attributes;
@@ -2712,7 +2656,9 @@ void CodeViewEditor::InsertHTMLTagAroundText(const QString &left_element_name, c
     setTextCursor(cursor);
 }
 
-void CodeViewEditor::InsertHTMLTagAroundSelection(const QString &left_element_name, const QString &right_element_name, const QString &attributes)
+void CodeViewEditor::InsertHTMLTagAroundSelection(const QString &left_element_name,
+                                                  const QString &right_element_name,
+                                                  const QString &attributes)
 {
     QTextCursor cursor = textCursor();
     QString new_attributes = attributes;
@@ -3139,7 +3085,6 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
     int original_position = textCursor().position();
     QString text = toPlainText();
 
-#if 1
     // The old implementation did not properly handle pi, multi-line comments, cdata
     // nor attribute values delimited by single quotes
 
@@ -3155,20 +3100,20 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
     }
     if (pos < 0) return QString();
 
-    // now find the tag just after position pos
+    // now find the tag that starts immediately *after* position pos
     int i = 0;
     TagLister::TagInfo ti = m_TagList.at(i);
-    while((ti.pos + ti.len <= pos) && (ti.len != -1)) {
+    while((ti.pos <= pos) && (ti.len != -1)) {
         i++;
         ti = m_TagList.at(i);
     }
-    // taginfo i comes after pos
-    // so start looking for tag in taglist starting at i-1
+    // start looking for tag in taglist starting at i-1
     i--;
-    if (i < 0) return QString();
+
     QList<int> paired_tags;
     while((i >= 0) && (m_TagList.at(i).tname != "body")) {
         ti = m_TagList.at(i);
+        qDebug() << " checking the tag: " << ti.tname << ti.ttype << ti.pos;
         if (ti.ttype == "end") {
             if (skip_paired_tags && !BLOCK_LEVEL_TAGS.contains(ti.tname)) {
                 paired_tags << ti.open_pos;
@@ -3187,7 +3132,7 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
         // skip all special tags like doctype, cdata, pi, xmlheaders, and comments
         i--;
     }     
-    if (ti.tname == "body") return QString();
+    if ((i < 0) || (ti.tname == "body")) return QString();
     QStringRef opening_tag_text(&text, ti.pos, ti.len);
 
     // Now look for the attribute, which may or may not already exist
@@ -3235,181 +3180,6 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
     return attribute_value;
 }
 
-#else
-
-    QString old_attribute_value;
-    QString tag_name;
-    QString opening_tag_text;
-    QString opening_tag_attributes;
-    QString attribute_text;
-    int opening_tag_start = -1;
-    int opening_tag_end = -1;
-    int attribute_start = -1;
-    int attribute_end = -1;
-    int previous_tag_index = -1;
-    int tag_name_index = -1;
-    QRegularExpression tag_search(NEXT_TAG_LOCATION);
-    QRegularExpression tag_name_search(TAG_NAME_SEARCH);
-    QRegularExpression attribute_name_search(attribute_name % ATTRIBUTE_NAME_POSTFIX_SEARCH, QRegularExpression::CaseInsensitiveOption);
-    QRegularExpression attrib_values_search(ATTRIB_VALUES_SEARCH);
-
-    if (!IsPositionInBody(pos, text)) return QString();
-
-    // If we're in a closing tag, move to the text between tags
-    // just before/at < to make parsing easier.
-    if (IsPositionInClosingTag(pos, text)) {
-        while (pos > 0 && text[pos] != QChar('<')) {
-            pos--;
-        }
-    }
-
-    // If you highlight a pasage of text including the entire opening p tag itself
-    // The selection start position shows text[pos] = "<" so there is no need
-    // to decrement the starting position for some reason as was done here
-
-    // pos--;
-
-    if (pos <=  0) {
-        return QString();
-    }
-
-    QStringList pairs;
-
-    // Search forwards for the last opening tag before pos
-    while (true) {
-        QRegularExpressionMatchIterator i = tag_search.globalMatch(text);
-        while (i.hasNext()) {
-            QRegularExpressionMatch mo = i.next();
-            int start = mo.capturedStart();
-            if (start > pos) {
-                break;
-            }
-            previous_tag_index = start;
-        }
-
-        if (previous_tag_index < 0) {
-            return QString();
-        }
-
-        // We found a tag. It could be opening or closing.
-        QRegularExpressionMatch tag_name_search_mo = tag_name_search.match(text, previous_tag_index);
-        tag_name_index = tag_name_search_mo.capturedStart();
-
-        if (tag_name_index < 0) {
-            pos = previous_tag_index - 1;
-            // If no name skip
-            continue;
-        }
-
-        tag_name = tag_name_search_mo.captured(1).toLower();
-
-        // Isolate whether it was opening or closing tag.
-        if (tag_name.startsWith('/')) {
-            tag_name = tag_name.right(tag_name.length() - 1);
-
-            // If we're ignoring paired tags before us and this isn't a block tag
-            // then save this tag for skipping later
-            if (skip_paired_tags && !BLOCK_LEVEL_TAGS.contains(tag_name)) {
-                pairs.prepend(tag_name);
-                pos = previous_tag_index - 1;
-                continue;
-            }
-
-            // If this is the closing tag of something we're checking then skip
-            // since we are outside of a relevant tag pair.
-            if (tag_list.contains(tag_name) || BLOCK_LEVEL_TAGS.contains(tag_name)) {
-                break;
-            }
-
-            pos = previous_tag_index - 1;
-            continue;
-        }
-
-        // We have an opening tag
-
-        // If we are skipping tag pairs and this opening tag is partner to the last
-        // found closed tag then keep searching
-        if (skip_paired_tags && !pairs.isEmpty() && tag_name == pairs.first()) {
-            pairs.removeFirst();
-            pos = previous_tag_index - 1;
-            continue;
-        }
-
-        // Is this one of the tags we want - if not keep searching
-        if (!tag_list.contains(tag_name) && !BLOCK_LEVEL_TAGS.contains(tag_name)) {
-            pos = previous_tag_index - 1;
-            continue;
-        }
-
-        // If we reached a block level tag and still haven't matched a tag we need then abort.
-        // And if we've reach body, then skip it.
-        if (!tag_list.contains(tag_name) || tag_name.toLower() == "body") {
-            break;
-        }
-
-        // If we got to here we know we have an opening tag that we can
-        // apply the attribute to. Figure out boundaries of this tag.
-        opening_tag_start = previous_tag_index;
-        opening_tag_end = text.indexOf('>', opening_tag_start) + 1;
-        // Now look for the attribute, which may or may not already exist
-        QRegularExpressionMatch attribute_name_search_mo = attribute_name_search.match(text, opening_tag_start);
-        attribute_start = attribute_name_search_mo.capturedStart();
-
-        if ((attribute_start < 0) || (attribute_start >= opening_tag_end)) {
-            // There is no attribute currently on this tag.
-            attribute_start = opening_tag_end - 1;
-            attribute_end = attribute_start;
-        } else {
-            // We have an existing attribute on this tag, need to parse it to rewrite it.
-            attribute_start--;
-            attribute_end = attribute_start + attribute_name_search_mo.capturedLength() + 1;
-            QRegularExpressionMatch attrib_values_search_mo = attrib_values_search.match(text, attribute_start);
-            old_attribute_value = attrib_values_search_mo.captured(1).trimmed();
-
-            // If not in the attribute string return nothing
-            if (must_be_in_attribute && (original_position <= attribute_start || original_position >= attribute_end)) {
-                return "";
-            }
-
-            // If not setting the value, just return the found value
-            if (!set_attribute) {
-                return old_attribute_value;
-            }
-        }
-
-        // If nothing to do, stop and don't move cursor if nothing to do
-        if (attribute_start == attribute_end && attribute_value.isEmpty()) {
-            break;
-        }
-
-        // Define the new attribute name/values to use.
-        // Delete the attribute if no attribute value was given.
-        if (!attribute_value.isNull()) {
-            attribute_text = QString(" %1=\"%2\"").arg(attribute_name).arg(attribute_value);
-        }
-
-        // Now perform the replacement/insertion of the style attribute on this tag
-        QTextCursor cursor = textCursor();
-        cursor.beginEditBlock();
-        cursor.setPosition(attribute_end);
-        cursor.setPosition(attribute_start, QTextCursor::KeepAnchor);
-        cursor.removeSelectedText();
-
-        if (!attribute_text.isEmpty()) {
-            cursor.insertText(attribute_text);
-        }
-
-        // Now place the cursor at the end of this opening tag, taking into account difference in attributes.
-        cursor.setPosition(opening_tag_end - (attribute_end - attribute_start) + attribute_text.length());
-        cursor.endEditBlock();
-        setTextCursor(cursor);
-        return attribute_value;
-    }
-
-    textCursor().setPosition(original_position);
-    return QString();
-}
-#endif
 
 void CodeViewEditor::FormatTextDir(const QString &attribute_value)
 {
