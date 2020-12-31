@@ -262,10 +262,41 @@ void TagLister::parseAttribute(const QStringRef &tagstring, const QString &attri
 }
 
 
-QString TagLister:: serializeAttribute(const QString& aname, const QString &avalue)
+QString TagLister::serializeAttribute(const QString& aname, const QString &avalue)
 {
     QString qc = "\"";
     if (avalue.contains("\"")) qc = "'";
     QString res = aname + "=" + qc + avalue + qc;
+    return res;
+}
+
+// extracts a copy of all attributes if any exist o.w. returns empty string
+QString TagLister::extractAllAttributes(const QStringRef &tagstring)
+{
+    int taglen = tagstring.length();
+    QChar c = tagstring.at(1);
+    int p = 0;
+
+    // ignore comments, doctypes, cdata, pi, and xmlheaders
+    if ((c == '?') || (c == '!')) return QString();
+    // normal tag, skip over any blanks before tag name
+    p = skipAnyBlanks(tagstring, 1);
+
+    if (tagstring.at(p) == "/") return QString(); // end tag has no attributes
+
+    // skip over tag name itself
+    p = stopWhenContains(tagstring, ">/ \f\t\r\n", p);
+
+    // skip any leading blanks before first attribute or tag end
+    p = skipAnyBlanks(tagstring, p);
+
+    // if any attributes exist
+    // Note: xml/xhtml does not support boolean attribute values without =)
+    if (tagstring.indexOf("=", p) == -1) return QString();
+    // properly handle both begin and single tags
+    QString res = tagstring.mid(p, taglen - 1 - p).toString(); // skip ending '>'
+    res = res.trimmed();
+    if (res.endsWith("/")) res = res.mid(0, res.length() - 1);
+    res = res.trimmed();
     return res;
 }

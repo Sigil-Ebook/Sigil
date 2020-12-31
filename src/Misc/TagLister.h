@@ -49,12 +49,14 @@ public:
         QString avalue;   // attribute value
     };
 
+
     TagLister(const QString &source);
     ~TagLister() {};
     void reload_lister(const QString &source);
     TagInfo get_next();
     static void parseAttribute(const QStringRef &tagstring, const QString &attribute_name, AttInfo& ainfo);
     static QString serializeAttribute(const QString &aname, const QString &avalue);
+    static QString extractAllAttributes(const QStringRef &tagstring);
     
 private:
     QStringRef parseML();

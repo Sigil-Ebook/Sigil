@@ -2503,11 +2503,7 @@ void CodeViewEditor::FormatBlock(const QString &element_name, bool preserve_attr
         return;
     }
 
-    // Emit a selection changed event, so we can make sure the style buttons are updated
-    // to uncheck any heading buttons check states.
-    emit selectionChanged();
-    // Going to assume that the user is allowed to click anywhere within or just after the block
-    // Also makes assumptions about being well formed, or else crazy things may happen...
+    // create a default selection when no user selection is provided
     if (!textCursor().hasSelection()) {
         QTextCursor newcursor(textCursor());
         newcursor.select(QTextCursor::LineUnderCursor);
@@ -2531,107 +2527,78 @@ void CodeViewEditor::FormatBlock(const QString &element_name, bool preserve_attr
         setTextCursor(newcursor);
     }
 
+    // Emit a selection changed event, so we can make sure the style buttons are updated
+    // to uncheck any heading buttons check states.
+    emit selectionChanged();
+
+    // Going to assume that the user is allowed to click anywhere within or just after the block
+    // Also makes assumptions about being well formed, or else crazy things may happen...
     int pos = textCursor().selectionStart();
     QString text = toPlainText();
 
-    if (!IsPositionInBody(pos, text)) {
-        // User is outside the body so not allowed to change or insert a block tag
-        return;
+    MaybeRegenerateTagList(text);
+
+    if (!IsPositionInBody(pos, text)) return;
+
+    // find that tag that starts immediately **after** pos and then
+    // then use its predecessor when working backwards
+    int i = 0;
+    TagLister::TagInfo ti = m_TagList.at(i);
+    while((ti.pos <= pos) && (ti.len != -1)) {
+      i++;
+      ti = m_TagList.at(i);
     }
+    i--;
 
-    QString tag_name;
-    QString opening_tag_text;
-    QString opening_tag_attributes;
-    QString closing_tag_text;
-    int opening_tag_start = -1;
-    int opening_tag_end = -1;
-    int closing_tag_start = -1;
-    int closing_tag_end = -1;
-    QRegularExpression tag_search(NEXT_TAG_LOCATION);
-    QRegularExpression tag_name_search(TAG_NAME_SEARCH);
-    // Search backwards for the next block tag
-    pos--;
+    while(i >= 0) {
+        ti = m_TagList.at(i);
 
-    while (true) {
-        int previous_tag_index = text.lastIndexOf(tag_search, pos);
+        if (BLOCK_LEVEL_TAGS.contains(ti.tname)) {
 
-        if (previous_tag_index < 0) {
-            return;
-        }
-
-        // We found a tag. It could be opening or closing.
-        QRegularExpressionMatch mo = tag_name_search.match(text, previous_tag_index);
-        int tag_name_index = mo.capturedStart();
-
-        if (tag_name_index < 0) {
-            pos = previous_tag_index - 1;
-            continue;
-        }
-
-        tag_name = mo.captured(1).toLower();
-        // Isolate whether it was opening or closing tag.
-        bool is_closing_tag = false;
-
-        if (tag_name.startsWith('/')) {
-            is_closing_tag = true;
-            tag_name = tag_name.right(tag_name.length() - 1);
-        }
-
-        // Is this a block level tag? If not, keep searching...
-        if (!BLOCK_LEVEL_TAGS.contains(tag_name)) {
-            pos = previous_tag_index - 1;
-            continue;
-        }
-
-        // Has the user clicked inside a closing block tag?
-        // If so, keep searching backwards
-        if (is_closing_tag) {
-            closing_tag_end = text.indexOf(QChar('>'), tag_name_index);
-
-            if (closing_tag_end >= textCursor().selectionStart()) {
-                pos = previous_tag_index - 1;
+            // we do not want a closing block tag if that is where the cursor is now, look earlier
+            if ((ti.ttype == "end") && ((pos >= ti.pos) && (pos < ti.pos + ti.len))) {
+                i--;
                 continue;
             }
-        }
 
-        // Special case for the body tag or clicked past a previous closing block tag
-        // In these situations we just insert html around our selection.
-        if (tag_name == "body" || is_closing_tag) {
-            InsertHTMLTagAroundSelection(element_name, "/" % element_name);
+            // special case for body tag or closing tag that we did not start in
+            // just insert the element around the current selection
+            if ((ti.tname == "body") || (ti.ttype == "end")) {
+                InsertHTMLTagAroundSelection(element_name, "/" % element_name);
+                return;
+            }
+
+            // if we reached here we have an opening block tag we need to replace
+            QStringRef opening_tag_text(&text, ti.pos, ti.len);
+            QString all_attributes = TagLister::extractAllAttributes(opening_tag_text);
+            
+            // look for matching closing tag from here to the end
+            int j = i+1;
+            TagLister::TagInfo et = m_TagList.at(j);
+            while((et.len != -1) && (et.open_pos != ti.pos)) {
+                j++;
+                et = m_TagList.at(j);
+            }
+            if (et.len == -1) return; // no matching closing tag found
+
+            // ready to now format this block
+            QString new_opening_tag_text;
+            if (preserve_attributes && (all_attributes.length() > 0)) {
+                new_opening_tag_text = "<" + element_name + " " + all_attributes + ">";
+            } else {
+                new_opening_tag_text = "<" + element_name + ">";
+            }
+
+            QString new_closing_tag_text = "</" + element_name + ">";
+            ReplaceTags(ti.pos, ti.pos + ti.len, new_opening_tag_text,
+                        et.pos, et.pos + et.len, new_closing_tag_text);
             return;
         }
-
-        // If we got to here we know we have an opening block tag we shall replace.
-        opening_tag_start = previous_tag_index;
-        // Grab any attributes applied to this opening tag
-        int attribute_start_index = tag_name_index + mo.capturedLength();
-        opening_tag_end = text.indexOf('>', attribute_start_index) + 1;
-        opening_tag_attributes = text.mid(attribute_start_index, opening_tag_end - attribute_start_index - 1).trimmed();
-        // Now find the closing tag for this block.
-        QRegularExpression closing_tag_search("</\\s*" % tag_name % "\\s*>", QRegularExpression::CaseInsensitiveOption);
-        QRegularExpressionMatch closing_tag_search_mo = closing_tag_search.match(text, opening_tag_end);
-        closing_tag_start = closing_tag_search_mo.capturedStart();
-
-        if (closing_tag_start < 0) {
-            // Could not find a closing tag for this block name. Invalid HTML.
-            return;
-        }
-
-        closing_tag_end = closing_tag_start + closing_tag_search_mo.capturedLength();
-        // Success
-        break;
+        i--;
     }
-
-    if (preserve_attributes && opening_tag_attributes.length() > 0) {
-        opening_tag_text = "<" % element_name % " " % opening_tag_attributes % ">";
-    } else {
-        opening_tag_text = "<" % element_name % ">";
-    }
-
-    closing_tag_text = "</" % element_name % ">";
-    ReplaceTags(opening_tag_start, opening_tag_end, opening_tag_text,
-                closing_tag_start, closing_tag_end, closing_tag_text);
+    return;
 }
+
 
 void CodeViewEditor::InsertHTMLTagAroundText(const QString &left_element_name,
                                              const QString &right_element_name,
