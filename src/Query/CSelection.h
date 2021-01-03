@@ -35,7 +35,7 @@
 #ifndef CSELECTION_H_
 #define CSELECTION_H_
 
-#include "CObject.h"
+#include "Query/CObject.h"
 #include <vector>
 #include <string>
 #include "gumbo.h"

@@ -64,7 +64,7 @@
 #include "sigil_exception.h"
 
 #if TEST_GUMBO_QUERY
-#include "Query/CDocument.h"
+#include "Misc/GumboInterface.h"
 #include "Query/CSelection.h"
 #include "Query/CNode.h"
 #endif
@@ -690,39 +690,35 @@ int main(int argc, char *argv[])
 
 #if TEST_GUMBO_QUERY
             if (1) {
-                std::string page("<h1><a>wrong link</a><a class=\"special\"\\>some link</a></h1>");
-                CDocument doc;
-                doc.parse(page.c_str());
-
-                CSelection c = doc.find("h1 a.special");
+                QString page = "<h1><a>wrong link</a><a class=\"special\"\\>some link</a></h1>";
+                GumboInterface gi = GumboInterface(page, "any_version");
+                CSelection c = gi.find("h1 a.special");
                 CNode node = c.nodeAt(0);
-                printf("Node: %s\n", node.text().c_str());
-                std::string content = page.substr(node.startPos(), node.endPos()-node.startPos());
-                printf("Node: %s\n", content.c_str());
+                std::cout << node.text() << std::endl;
             };
             if (1) {
-                std::string page = "<html><div><span>1\n</span>2\n</div></html>";
-                CDocument doc;
-                doc.parse(page.c_str());
-                CNode pNode = doc.find("div").nodeAt(0);
-                std::string content = page.substr(pNode.startPos(), pNode.endPos() - pNode.startPos());
-                printf("Node: #%s#\n", content.c_str());
-            };
+                QString page = "<html><div><span>1\n</span>2\n</div></html>";
+                GumboInterface gi = GumboInterface(page, "any_version");
+                CNode pNode = gi.find("div").nodeAt(0);
+                std::cout << pNode.text() << std::endl;
+            }
             if (1) {
-                std::string page = "<html><div><span id=\"that's\">1\n</span>2\n</div></html>";
-                CDocument doc;
-                doc.parse(page.c_str());
-                CNode pNode = doc.find("span[id=\"that's\"]").nodeAt(0);
-                std::string content = page.substr(pNode.startPos(), pNode.endPos() - pNode.startPos());
-                printf("Node: #%s#\n", content.c_str());
-            };
+                QString page = "<html><div><span id=\"that's\">1\n</span>2\n</div></html>";
+                GumboInterface gi = GumboInterface(page, "any_version");
+                CNode pNode = gi.find("span[id=\"that's\"]").nodeAt(0);
+                std::cout << pNode.text() << std::endl;
+            }
             if (1) {
-                std::string page("<h1><a>some link</a></h1>");
-                CDocument doc;
-                doc.parse(page.c_str());
-
-                CSelection c = doc.find("h1 a");
+                QString page = "<h1><a>some link</a></h1>";
+                GumboInterface gi = GumboInterface(page, "any_version");
+                CSelection c = gi.find("h1 a");
                 std::cout << c.nodeAt(0).text() << std::endl; // some link
+            }
+            if (1) {
+                QString page = "<html><div class=\"chapter\"><p class=\"flush\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p><p>second child</p></div></html>";
+                GumboInterface gi = GumboInterface(page, "any_version");
+                CNode pNode = gi.find(".chapter > p:first-child:first-of-type").nodeAt(0);
+                std::cout << pNode.text() << std::endl; // some link
             }
 #endif
 

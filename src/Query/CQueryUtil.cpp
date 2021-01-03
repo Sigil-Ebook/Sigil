@@ -32,7 +32,7 @@
  **
  *************************************************************************/
 
-#include "CQueryUtil.h"
+#include "Query/CQueryUtil.h"
 
 std::string CQueryUtil::tolower(std::string s)
 {

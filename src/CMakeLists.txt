@@ -296,8 +296,6 @@ set( IMPORTER_FILES
     )
 
 set ( QUERY_FILES
-    Query/CDocument.cpp
-    Query/CDocument.h
     Query/CNode.cpp
     Query/CNode.h
     Query/CObject.cpp

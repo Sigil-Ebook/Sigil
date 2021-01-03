@@ -38,7 +38,7 @@
 #include <string>
 #include "gumbo.h"
 #include "gumbo_edit.h"
-#include "CSelector.h"
+#include "Query/CSelector.h"
 
 class CParser
 {

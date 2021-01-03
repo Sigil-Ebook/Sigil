@@ -32,8 +32,8 @@
  **
  *************************************************************************/
 
-#include "CSelector.h"
-#include "CQueryUtil.h"
+#include "Query/CSelector.h"
+#include "Query/CQueryUtil.h"
 
 bool CSelector::match(GumboNode* apNode)
 {

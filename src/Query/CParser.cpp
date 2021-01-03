@@ -32,9 +32,9 @@
  **
  *************************************************************************/
 
-#include "CParser.h"
-#include "CSelector.h"
-#include "CQueryUtil.h"
+#include "Query/CParser.h"
+#include "Query/CSelector.h"
+#include "Query/CQueryUtil.h"
 
 CParser::CParser(std::string aInput)
 {

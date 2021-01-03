@@ -80,6 +80,8 @@ class CNode
 
 		std::string tag();
 
+                GumboNode* raw();
+
 		CSelection find(std::string aSelector);
 
 	private:

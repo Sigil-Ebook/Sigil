@@ -33,7 +33,7 @@
  *************************************************************************/
 
 #include <QDebug>
-#include "CObject.h"
+#include "Query/CObject.h"
 
 CObject::CObject()
 {

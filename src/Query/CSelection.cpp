@@ -32,10 +32,10 @@
  **
  *************************************************************************/
 
-#include "CSelection.h"
-#include "CParser.h"
-#include "CQueryUtil.h"
-#include "CNode.h"
+#include "Query/CSelection.h"
+#include "Query/CParser.h"
+#include "Query/CQueryUtil.h"
+#include "Query/CNode.h"
 
 CSelection::CSelection(GumboNode* apNode)
 {

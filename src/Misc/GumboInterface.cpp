@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020  Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2015-2021  Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -29,6 +29,8 @@
 // #include <QDebug>
 
 #include "Misc/Utility.h"
+#include "Query/CSelection.h"
+#include "Query/CNode.h"
 #include "Misc/GumboInterface.h"
 #include "string_buffer.h"
 #include "error.h"
@@ -252,6 +254,36 @@ QString GumboInterface::getxhtml()
         result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     }
     return result;
+}
+
+QList<GumboNode *> GumboInterface::findnodes(const QString &aSelector)
+{
+    QList<GumboNode*> nodes;
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+        std::string as = aSelector.toStdString();
+        CSelection sel(m_output->root);
+        CSelection res = sel.find(as);
+        for (int i=0; i < res.nodeNum(); i++) {
+            nodes << res.nodeAt(i).raw();
+        }
+    }
+    return nodes;
+}
+
+CSelection GumboInterface::find(const QString &aSelector)
+{
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+        std::string as = aSelector.toStdString();
+        CSelection sel(m_output->root);
+        return sel.find(as);
+    }
+    return CSelection(NULL);
 }
 
 

@@ -40,7 +40,7 @@
 
 #include <string>
 #include <vector>
-#include "CObject.h"
+#include "Query/CObject.h"
 
 class CSelector: public CObject
 {

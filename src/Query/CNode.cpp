@@ -32,9 +32,9 @@
  **
  *************************************************************************/
 
-#include "CNode.h"
-#include "CSelection.h"
-#include "CQueryUtil.h"
+#include "Query/CNode.h"
+#include "Query/CSelection.h"
+#include "Query/CQueryUtil.h"
 
 CNode::CNode(GumboNode* apNode)
 {
@@ -47,140 +47,149 @@ CNode::~CNode()
 
 CNode CNode::parent()
 {
-	return CNode(mpNode->parent);
+    if (valid()) return CNode(mpNode->parent);
+    return CNode();
 }
 
 CNode CNode::nextSibling()
 {
-	return parent().childAt(mpNode->index_within_parent + 1);
+    if (valid() && parent().valid()) return parent().childAt(mpNode->index_within_parent + 1);
+    return CNode();
 }
 
 CNode CNode::prevSibling()
 {
-	return parent().childAt(mpNode->index_within_parent - 1);
+    if (valid() && parent().valid()) return parent().childAt(mpNode->index_within_parent - 1);
+    return CNode();
 }
 
 unsigned int CNode::childNum()
 {
-	if (mpNode->type != GUMBO_NODE_ELEMENT)
-	{
-		return 0;
-	}
-
-	return mpNode->v.element.children.length;
-
+    if (!valid() || mpNode->type != GUMBO_NODE_ELEMENT) {
+        return 0;
+    }
+    return mpNode->v.element.children.length;
 }
 
 bool CNode::valid()
 {
-	return mpNode != NULL;
+    return mpNode != NULL;
 }
 
 CNode CNode::childAt(size_t i)
 {
-	if (mpNode->type != GUMBO_NODE_ELEMENT || i >= mpNode->v.element.children.length)
-	{
-		return CNode();
-	}
-
-	return CNode((GumboNode*) mpNode->v.element.children.data[i]);
+    if (!valid() || mpNode->type != GUMBO_NODE_ELEMENT || i >= mpNode->v.element.children.length) {
+        return CNode();
+    }
+    return CNode((GumboNode*) mpNode->v.element.children.data[i]);
 }
 
 std::string CNode::attribute(std::string key)
 {
-	if (mpNode->type != GUMBO_NODE_ELEMENT)
-	{
-		return "";
+    if (!valid() || mpNode->type != GUMBO_NODE_ELEMENT) {
+        return "";
+    }
+    GumboVector attributes = mpNode->v.element.attributes;
+    for (unsigned int i = 0; i < attributes.length; i++) {
+        GumboAttribute* attr = (GumboAttribute*) attributes.data[i];
+	if (key == attr->name){
+	    return attr->value;
 	}
-
-	GumboVector attributes = mpNode->v.element.attributes;
-	for (unsigned int i = 0; i < attributes.length; i++)
-	{
-		GumboAttribute* attr = (GumboAttribute*) attributes.data[i];
-		if (key == attr->name)
-		{
-			return attr->value;
-		}
-	}
-
-	return "";
+    }
+    return "";
 }
 
 std::string CNode::text()
 {
-	return CQueryUtil::nodeText(mpNode);
+    if (valid()) return CQueryUtil::nodeText(mpNode);
+    return "";
 }
 
 std::string CNode::ownText()
 {
-	return CQueryUtil::nodeOwnText(mpNode);
+    if (valid()) return CQueryUtil::nodeOwnText(mpNode);
+    return "";
 }
 
 size_t CNode::startPos()
 {
-	switch(mpNode->type)
-	{
-	  case GUMBO_NODE_ELEMENT:
-		  return mpNode->v.element.start_pos.offset + mpNode->v.element.original_tag.length;
-	  case GUMBO_NODE_TEXT:
-		  return mpNode->v.text.start_pos.offset;
-	  default:
-		  return 0;
-  }
+    if (!valid()) return 0;
+
+    switch(mpNode->type)
+    {
+        case GUMBO_NODE_ELEMENT:
+	    return mpNode->v.element.start_pos.offset + mpNode->v.element.original_tag.length;
+        case GUMBO_NODE_TEXT:
+	    return mpNode->v.text.start_pos.offset;
+        default:
+	    return 0;
+    }
 }
 
 size_t CNode::endPos()
 {
-	switch(mpNode->type)
-	{
-	  case GUMBO_NODE_ELEMENT:
-		  return mpNode->v.element.end_pos.offset;
-	  case GUMBO_NODE_TEXT:
-		  return mpNode->v.text.original_text.length + startPos();
-	  default:
-		  return 0;
-	}
+    if (!valid()) return 0;
+
+    switch(mpNode->type)
+    {
+        case GUMBO_NODE_ELEMENT:
+	    return mpNode->v.element.end_pos.offset;
+	case GUMBO_NODE_TEXT:
+	    return mpNode->v.text.original_text.length + startPos();
+	default:
+	    return 0;
+    }
 }
 
 size_t CNode::startPosOuter()
 {
-	switch(mpNode->type)
-	{
-	case GUMBO_NODE_ELEMENT:
-		return mpNode->v.element.start_pos.offset;
-	case GUMBO_NODE_TEXT:
-		return mpNode->v.text.start_pos.offset;
+    if (!valid()) return 0;
+
+    switch(mpNode->type)
+    {
+        case GUMBO_NODE_ELEMENT:
+	    return mpNode->v.element.start_pos.offset;
+        case GUMBO_NODE_TEXT:
+	    return mpNode->v.text.start_pos.offset;
 	default:
-		return 0;
-	}
+	    return 0;
+    }
 }
 
 size_t CNode::endPosOuter()
 {
-	switch(mpNode->type)
-	{
+    if (!valid()) return 0;
+
+    switch(mpNode->type)
+    {
 	case GUMBO_NODE_ELEMENT:
-		return mpNode->v.element.end_pos.offset + mpNode->v.element.original_end_tag.length;
+	    return mpNode->v.element.end_pos.offset + mpNode->v.element.original_end_tag.length;
 	case GUMBO_NODE_TEXT:
-		return mpNode->v.text.original_text.length + startPos();
+	    return mpNode->v.text.original_text.length + startPos();
 	default:
-		return 0;
-	}
+	    return 0;
+    }
 }
 
 std::string CNode::tag()
 {
-	if (mpNode->type != GUMBO_NODE_ELEMENT)
-	{
-		return "";
-	}
+    if (!valid() || mpNode->type != GUMBO_NODE_ELEMENT) {
+        return "";
+    }
 
-	return gumbo_normalized_tagname(mpNode->v.element.tag);
+    return gumbo_normalized_tagname(mpNode->v.element.tag);
+}
+
+GumboNode* CNode::raw() {
+    return mpNode;
 }
 
 CSelection CNode::find(std::string aSelector)
 {
+    if (valid()) {
 	CSelection c(mpNode);
 	return c.find(aSelector);
+    }
+    return CSelection(NULL);
 }
 /* vim: set ts=4 sw=4 sts=4 tw=100 noet: */
