@@ -32,10 +32,12 @@
  **
  *************************************************************************/
 
-#include "Query/CSelection.h"
+#include <exception>
+#include <QDebug>
 #include "Query/CParser.h"
 #include "Query/CQueryUtil.h"
 #include "Query/CNode.h"
+#include "Query/CSelection.h"
 
 CSelection::CSelection(GumboNode* apNode)
 {
@@ -53,16 +55,23 @@ CSelection::~CSelection()
 
 CSelection CSelection::find(std::string aSelector)
 {
+    // parsing the any selector can throw exceptions
+    // try to fail gracefully 
+    try {
 	CSelector* sel = CParser::create(aSelector);
-	std::vector<GumboNode*> ret;
-	for (std::vector<GumboNode*>::iterator it = mNodes.begin(); it != mNodes.end(); it++)
-	{
-		GumboNode* pNode = *it;
-		std::vector<GumboNode*> matched = sel->matchAll(pNode);
-		ret = CQueryUtil::unionNodes(ret, matched);
-	}
-	sel->release();
-	return CSelection(ret);
+        std::vector<GumboNode*> ret;
+        for (std::vector<GumboNode*>::iterator it = mNodes.begin(); it != mNodes.end(); it++)
+        {
+	    GumboNode* pNode = *it;
+	    std::vector<GumboNode*> matched = sel->matchAll(pNode);
+	    ret = CQueryUtil::unionNodes(ret, matched);
+        }
+        sel->release();
+        return CSelection(ret);
+    } catch(const std::runtime_error &e) {
+        qDebug() << "Query Parser Error: " << e.what();
+        return CSelection(NULL);
+    }
 }
 
 CNode CSelection::nodeAt(size_t i)

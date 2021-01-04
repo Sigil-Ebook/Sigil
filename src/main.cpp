@@ -720,6 +720,12 @@ int main(int argc, char *argv[])
                 CNode pNode = gi.find(".chapter > p:first-child:first-of-type").nodeAt(0);
                 std::cout << pNode.text() << std::endl; // some link
             }
+            if (1) {
+                QString page = "<html><div class=\"chapter\"><p class=\"flush\" lang=\"it\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p><p>second child</p></div></html>";
+                GumboInterface gi = GumboInterface(page, "any_version");
+                CNode pNode = gi.find("p.flsuh:lang(it)").nodeAt(0);
+                std::cout << pNode.text() << std::endl;
+            }
 #endif
 
             VerifyPlugins();
