@@ -41,7 +41,7 @@
 
 CSelection::CSelection(GumboNode* apNode)
 {
-	mNodes.push_back(apNode);
+    if(apNode) mNodes.push_back(apNode);
 }
 
 CSelection::CSelection(std::vector<GumboNode*> aNodes)
