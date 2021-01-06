@@ -38,13 +38,7 @@
 
 CSSParser::CSSParser()
 { 
-    properties = 0;
-    selectors = 0;
-    charset = "";
-    namesp = "";
-    line = 1;
     tokens = "{};:()@='\"/,\\!$%&*+.<>?[]^`|~";
-    css_level = "CSS3.0";
 
     // Used for printing parsed css
     csstemplate.push_back("");        // string before @rule
@@ -75,8 +69,94 @@ CSSParser::CSSParser()
     at_rules["-o-keyframes"] = at;
     at_rules["-webkit-keyframes"] = at;
 
+    // descriptive names for each token type
+    token_type_names.push_back("AT_START");
+    token_type_names.push_back("AT_END");
+    token_type_names.push_back("SEL_START");
+    token_type_names.push_back("SEL_END");
+    token_type_names.push_back("PROPERTY");
+    token_type_names.push_back("VALUE");
+    token_type_names.push_back("COMMENT");
+    token_type_names.push_back("CSS_END");
+
+    css_level = "CSS3.0";
 } 
-    
+
+
+void CSSParser::set_level(std::string level)
+{
+    if ((level == "CSS1.0") || (level == "CSS2.0") ||
+        (level == "CSS2.1") || (level == "CSS3.0"))
+    {
+        css_level = level;
+    }
+}
+
+
+void CSSParser::reset_parser()
+{
+    token_ptr = 0;
+    properties = 0;
+    selectors = 0;
+    charset = "";
+    namesp = "";
+    line = 1;
+    import.clear();
+    csstokens.clear();
+    cur_selector.clear();
+    cur_at.clear();
+    cur_property.clear();
+    cur_function.clear();
+    cur_sub_value.clear();
+    cur_value.clear();
+    cur_string.clear();
+    cur_selector.clear();
+    sel_separate.clear();
+}
+
+
+std::string CSSParser::get_charset()
+{
+    return charset;
+}
+
+std::string CSSParser::get_namespace()
+{
+    return namesp;
+}
+
+std::vector<std::string> CSSParser::get_import()
+{
+    return import;
+}
+
+
+CSSParser::token CSSParser::get_next_token(int start_ptr)
+{
+    if ((start_ptr >= 0) && (start_ptr < csstokens.size()))
+    {
+        token_ptr = start_ptr;
+    }
+
+    token atoken;
+    atoken.type = CSS_END;
+    atoken.data = "";
+
+    if (token_ptr < csstokens.size())
+    {
+        atoken = csstokens[token_ptr];
+        token_ptr++;
+    }
+    return atoken;
+}
+
+
+std::string CSSParser::get_type_name(CSSParser::token_type t)
+{
+    return token_type_names[t];
+}
+
+
 void CSSParser::add_token(const token_type ttype, const std::string data, const bool force)
 {
     token temp;
@@ -260,6 +340,9 @@ void CSSParser::print_css(std::string filename)
             case COMMENT:
                 *out << csstemplate[11] <<  "/*" << csstokens[i].data << "*/" << csstemplate[12];
                 break;
+
+            case CSS_END:
+                break;
         }
     }
 
@@ -271,19 +354,8 @@ void CSSParser::print_css(std::string filename)
     } 
     else {
         file_output << output_string;
+        file_output.close();
     }
-
-    if(logs.size() > 0)
-    {
-        for(std::map<int, std::vector<message> >::iterator j = logs.begin(); j != logs.end(); j++ )
-        {
-            for(int i = 0; i < j->second.size(); ++i)
-            {
-                std::cout << j->first << ": " << j->second[i].m << "\n" ;
-            }
-        }
-    }
-    file_output.close();
 }
 
 void CSSParser::parseInAtBlock(std::string& css_input, int& i, parse_status& status, parse_status& from)
@@ -753,13 +825,10 @@ void CSSParser::parseInString(std::string& css_input, int& i, parse_status& stat
 
 void CSSParser::parse_css(std::string css_input)
 {
-    input_size = css_input.length();
+    reset_parser();
     css_input = CSSUtils::str_replace("\r\n","\n",css_input); // Replace all double-newlines
     css_input += "\n";
     parse_status status = is, from;
-    cur_property = "";
-    cur_function = "";
-
     std::string cur_comment;
 
     cur_sub_value_arr.clear();
@@ -823,4 +892,41 @@ bool CSSParser::property_is_next(std::string istring, int pos)
     }
     istring = CSSUtils::strtolower(CSSUtils::trim(istring.substr(0,pos)));
     return CSSProperties::instance()->contains(istring);
+}
+
+
+std::vector<std::string> CSSParser::get_parse_errors()
+{ 
+    return get_logs(CSSParser::Error);
+}
+
+
+std::vector<std::string> CSSParser::get_parse_warnings()
+{
+    return get_logs(CSSParser::Warning);
+}
+
+
+std::vector<std::string> CSSParser::get_parse_info()
+{
+    return get_logs(CSSParser::Information);
+}
+
+
+std::vector<std::string> CSSParser::get_logs(CSSParser::message_type mt)
+{
+    std::vector<std::string> res;
+    if(logs.size() > 0)
+    {
+        for(std::map<int, std::vector<message> >::iterator j = logs.begin(); j != logs.end(); j++ )
+        {
+            for(int i = 0; i < j->second.size(); ++i)
+            {
+                if (j->second[i].t == mt) {
+                    res.push_back(std::to_string(j->first) + ": " + j->second[i].m);
+                }
+            }
+        }
+    }
+    return res;
 }
