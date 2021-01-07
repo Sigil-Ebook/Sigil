@@ -39,14 +39,16 @@
 #include "Query/CNode.h"
 #include "Query/CSelection.h"
 
-CSelection::CSelection(GumboNode* apNode)
+CSelection::CSelection(GumboNode* apNode, bool error)
 {
     if(apNode) mNodes.push_back(apNode);
+    mparseError = error;
 }
 
-CSelection::CSelection(std::vector<GumboNode*> aNodes)
+CSelection::CSelection(std::vector<GumboNode*> aNodes, bool error)
 {
 	mNodes = aNodes;
+    mparseError = error;
 }
 
 CSelection::~CSelection()
@@ -70,7 +72,7 @@ CSelection CSelection::find(std::string aSelector)
         return CSelection(ret);
     } catch(const std::runtime_error &e) {
         qDebug() << "Query Parser Error: " << e.what();
-        return CSelection(NULL);
+        return CSelection(NULL, true);
     }
 }
 
