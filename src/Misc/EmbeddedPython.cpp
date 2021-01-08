@@ -166,6 +166,7 @@ QMutex EmbeddedPython::m_mutex;
 
 EmbeddedPython* EmbeddedPython::m_instance = 0;
 int EmbeddedPython::m_pyobjmetaid = 0;
+int EmbeddedPython::m_listintmetaid = 0;
 PyThreadState * EmbeddedPython::m_threadstate = NULL;
 
 EmbeddedPython* EmbeddedPython::instance()
@@ -235,6 +236,7 @@ EmbeddedPython::EmbeddedPython()
     PyEval_InitThreads();
     m_threadstate = PyEval_SaveThread();
     m_pyobjmetaid = qMetaTypeId<PyObjectPtr>();
+    m_listintmetaid = qMetaTypeId<QList<int> >();
 }
 
 
@@ -245,6 +247,7 @@ EmbeddedPython::~EmbeddedPython()
         m_instance = 0;
     }
     m_pyobjmetaid = 0;
+    m_listintmetaid = 0;
     PyEval_RestoreThread(m_threadstate);
     Py_Finalize();
 }
@@ -579,12 +582,20 @@ PyObject* EmbeddedPython::QVariantToPyObject(const QVariant &v)
           {
             if ((QMetaType::Type)v.type() >= QMetaType::User && (v.userType() ==  m_pyobjmetaid))
             {
-
               PyObjectPtr op = v.value<PyObjectPtr>();
               value = op.object();
               // Need to increment object count otherwise will go away when Py_XDECREF used on pyargs
               Py_XINCREF(value);
 
+            } else if ((QMetaType::Type)v.type() >= QMetaType::User && (v.userType() ==  m_listintmetaid))
+            {
+              QList<int> alist = v.value<QList<int> >();
+              value = PyList_New(alist.size());
+              int pos = 0;
+              foreach(int i, alist) {
+                  PyList_SetItem(value, pos, Py_BuildValue("i", i));
+                  pos++;
+              }
             } else {
 
               // Ensure we don't have any holes.

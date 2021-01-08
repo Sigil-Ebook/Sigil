@@ -76,5 +76,6 @@ private:
     static EmbeddedPython *m_instance;
     static int m_pyobjmetaid;
     static PyThreadState *m_threadstate;
+    static int m_listintmetaid;
 };
 #endif // EMBEDDEDPYTHON_H

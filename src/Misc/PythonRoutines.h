@@ -25,6 +25,8 @@
 
 #include <QString>
 #include <QStringList>
+#include <QVariant>
+#include <QMetaType>
 
 #include "Misc/DiffRec.h"
 
@@ -98,4 +100,5 @@ private:
     
 };
 
+Q_DECLARE_METATYPE(QList<int>);
 #endif // PYTHONROUTINES_H
