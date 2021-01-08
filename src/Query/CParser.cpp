@@ -33,6 +33,8 @@
  *************************************************************************/
 
 #include <exception>
+#include <stdexcept>
+
 #include <string>
 
 class QueryParserException : public std::runtime_error

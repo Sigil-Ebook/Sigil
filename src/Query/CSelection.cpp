@@ -33,6 +33,8 @@
  *************************************************************************/
 
 #include <exception>
+#include <stdexcept>
+
 #include <QDebug>
 #include "Query/CParser.h"
 #include "Query/CQueryUtil.h"
