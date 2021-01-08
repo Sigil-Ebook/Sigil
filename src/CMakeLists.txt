@@ -295,6 +295,23 @@ set( IMPORTER_FILES
     Importers/ImportTXT.h
     )
 
+set ( QUERY_FILES
+    Query/CNode.cpp
+    Query/CNode.h
+    Query/CObject.cpp
+    Query/CObject.h
+    Query/CParser.cpp
+    Query/CParser.h
+    Query/CQueryUtil.cpp
+    Query/CQueryUtil.h
+    Query/CSelection.cpp
+    Query/CSelection.h
+    Query/CSelector.cpp
+    Query/CSelector.h
+    )
+
+
+
 set( MISC_FILES
     Misc/AppEventFilter.cpp
     Misc/AppEventFilter.h
@@ -319,6 +336,12 @@ set( MISC_FILES
     Misc/CSSHighlighter.h
     Misc/CSSInfo.cpp
     Misc/CSSInfo.h
+    Misc/CSSParser.cpp
+    Misc/CSSParser.h
+    Misc/CSSUtils.cpp
+    Misc/CSSUtils.h
+    Misc/CSSProperties.cpp
+    Misc/CSSProperties.h
     Misc/DiffRec.h
     Misc/HTMLEncodingResolver.cpp
     Misc/HTMLEncodingResolver.h
@@ -653,7 +676,7 @@ if ( NOT DEFINED INSTALL_BUNDLED_DICTS )
     set ( INSTALL_BUNDLED_DICTS 1 )
 endif()
 
-set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${WIDGET_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITORS_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
+set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${WIDGET_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITORS_FILES} ${QUERY_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 #############################################################################
 
@@ -693,6 +716,7 @@ source_group( "Exporters"         FILES ${EXPORTER_FILES} )
 source_group( "Importers"         FILES ${IMPORTER_FILES} )
 source_group( "Misc"              FILES ${MISC_FILES} )
 source_group( "MiscEditors"       FILES ${MISC_EDITORS_FILES} )
+source_group( "Query"             FILES ${QUERY_FILES} )
 source_group( "SPCRE"             FILES ${SPCRE_FILES} )
 source_group( "View Editors"      FILES ${VIEW_EDITOR_FILES} )
 source_group( "Tabs"              FILES ${TAB_FILES} )

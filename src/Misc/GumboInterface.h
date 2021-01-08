@@ -30,6 +30,8 @@
 #include "gumbo.h"
 #include "gumbo_edit.h"
 
+#include "Query/CSelection.h"
+
 #include <QString>
 #include <QList>
 #include <QHash>
@@ -58,6 +60,10 @@ public:
     QString getxhtml();
     QString get_fragment_xhtml();
     
+    // gumbo-query interface
+    QList<GumboNode *> findnodes(const QString &aSelector);
+    CSelection find(const QString &aSelector);
+
     QString prettyprint(QString indent_chars="  ");
 
     // returns list tags that match manifest properties
