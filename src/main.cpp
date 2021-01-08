@@ -42,7 +42,7 @@
 #include <QFontMetrics>
 #include <QtWebEngineWidgets/QWebEngineProfile>
 
-#define TEST_GUMBO_QUERY 1
+#define TEST_GUMBO_QUERY 0
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
 #include <QWebEngineUrlScheme>
