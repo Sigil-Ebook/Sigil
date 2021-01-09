@@ -107,5 +107,7 @@ public:
     static const std::string rtrim(const std::string istring, const std::string chars);
     static const std::string ltrim(const std::string istring);
 
+    // creates proper indent level
+    static const std::string indent(int lvl, const std::string &base);
 };
 #endif // HEADER_CSSUTILS

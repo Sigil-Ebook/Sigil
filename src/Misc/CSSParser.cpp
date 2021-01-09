@@ -28,48 +28,51 @@
 #include "Misc/CSSProperties.h"
 #include "Misc/CSSParser.h"
 
-/* is = in selector
- * ip = in property
- * iv = in value
- * instr = in string (-> ",',( => ignore } and ; etc.)
- * ic = in comment (ignore everything)
- * at = in @-block
+/* PIS = in selector
+ * PIP = in property
+ * PIV = in value
+ * PINSTR = in string (-> ",',( => ignore } and ; etc.)
+ * PIC = in comment (ignore everything)
+ * PAT = in @-block
  */
 
 CSSParser::CSSParser()
 { 
     tokens = "{};:()@='\"/,\\!$%&*+.<>?[]^`|~";
 
-    // Used for printing parsed css
-    csstemplate.push_back("");        // string before @rule
-    csstemplate.push_back(" {\n");    // bracket after @-rule
-    csstemplate.push_back("");        // string before selector
-    csstemplate.push_back(" {\n");    // bracket after selector was "\n{\n"
-    csstemplate.push_back("    ");    // string before property was /t
-    csstemplate.push_back("");        // string after property before value
-    csstemplate.push_back(";\n");     // string after value
-    csstemplate.push_back("}");       // closing bracket - selector
-    csstemplate.push_back("\n\n");    // space between blocks {...}
-    csstemplate.push_back("\n}\n\n"); // closing bracket @-rule
-    csstemplate.push_back("    ");    // indent in @-rule was /t
-    csstemplate.push_back("");        // before comment
-    csstemplate.push_back("\n");      // after comment
-    csstemplate.push_back("\n");      // after last line @-rule
+    // Used for serializing parsed css
+    csstemplate.push_back("    ");    //  0 - standard indentation
+    csstemplate.push_back(" {\n");    //  1 - bracket after @-rule
+    csstemplate.push_back("");        //  2 - unused
+    csstemplate.push_back(" {\n");    //  3 - bracket after selector was "\n{\n"
+    csstemplate.push_back("");        //  4 - unused
+    csstemplate.push_back("");        //  5 - string after property before value
+    csstemplate.push_back(";\n");     //  6 - string after value
+    csstemplate.push_back("}");       //  7 - closing bracket - selector
+    csstemplate.push_back("\n\n");    //  8 - space between blocks {...}
+    csstemplate.push_back("}\n\n");   //  9 - closing bracket @-rule
+    csstemplate.push_back("");        // 10 - unused
+    csstemplate.push_back("");        // 11 - before comment
+    csstemplate.push_back("\n");      // 12 - after comment
+    csstemplate.push_back("\n");      // 13 - after last line @-rule
 
     // at_rule to parser state map
-    at_rules["page"] = is;
-    at_rules["font-face"] = is;
-    at_rules["charset"] = iv;
-    at_rules["import"] = iv;
-    at_rules["namespace"] = iv;
-    at_rules["media"] = at;
-    at_rules["keyframes"] = at;
-    at_rules["-moz-keyframes"] = at;
-    at_rules["-ms-keyframes"] = at;
-    at_rules["-o-keyframes"] = at;
-    at_rules["-webkit-keyframes"] = at;
+    at_rules["page"] = PIS;
+    at_rules["font-face"] = PIS;
+    at_rules["charset"] = PIV;
+    at_rules["import"] = PIV;
+    at_rules["namespace"] = PIV;
+    at_rules["media"] = PAT;
+    at_rules["keyframes"] = PAT;
+    at_rules["-moz-keyframes"] = PAT;
+    at_rules["-ms-keyframes"] = PAT;
+    at_rules["-o-keyframes"] = PAT;
+    at_rules["-webkit-keyframes"] = PAT;
 
     // descriptive names for each token type
+    token_type_names.push_back("CHARSET");
+    token_type_names.push_back("IMPORT");
+    token_type_names.push_back("NAMESP");
     token_type_names.push_back("AT_START");
     token_type_names.push_back("AT_END");
     token_type_names.push_back("SEL_START");
@@ -96,8 +99,6 @@ void CSSParser::set_level(std::string level)
 void CSSParser::reset_parser()
 {
     token_ptr = 0;
-    properties = 0;
-    selectors = 0;
     charset = "";
     namesp = "";
     line = 1;
@@ -161,6 +162,7 @@ void CSSParser::add_token(const token_type ttype, const std::string data, const 
 {
     token temp;
     temp.type = ttype;
+    temp.pos = spos;
     temp.data = (ttype == COMMENT) ? data : CSSUtils::trim(data);
     csstokens.push_back(temp);
 }
@@ -261,7 +263,7 @@ int CSSParser::_seeknocomment(const int key, int move)
 }
 
 
-void CSSParser::print_css(std::string filename)
+std::string CSSParser::serialize_css(std::string filename, bool tostdout)
 {
     if(charset == "" && namesp == "" && import.empty() && csstokens.empty())
     {
@@ -275,70 +277,67 @@ void CSSParser::print_css(std::string filename)
          if(file_output.bad())
          {
              std::cout << "Error when trying to save the output file!" << std::endl;
-             return;
+             return "";
          }
     }
 
-    std::stringstream output, in_at_out;
-
-    if(charset != "")
-    {
-        output << csstemplate[0] << "@charset " << csstemplate[5] << charset << csstemplate[6];
-    }
-
-    if(import.size() > 0)
-    {
-        for(int i = 0; i < import.size(); i ++)
-        {
-            output << csstemplate[0] << "@import" << csstemplate[5] << import[i] << csstemplate[6];
-        }
-    }
-
-    if(namesp != "")
-    {
-        output << csstemplate[0] << "@namespace " << csstemplate[5] << namesp << csstemplate[6];
-    }
-
-    output << csstemplate[13];
-    std::stringstream* out =& output;
+    std::stringstream output;
+    int lvl = 0;
+    std::string indent = "";
 
     for (int i = 0; i < csstokens.size(); ++i)
     {
         switch (csstokens[i].type)
         {
+            case CHARSET:
+                output << "@charset " << csstemplate[5] << csstokens[i].data << csstemplate[6];
+                break;
+
+            case IMPORT:
+                indent = CSSUtils::indent(lvl, csstemplate[0]);
+                output << indent << "@import " << csstemplate[5] << csstokens[i].data << csstemplate[6];
+                break;
+
+            case NAMESP:
+                output << "@namespace " << csstemplate[5] << csstokens[i].data << csstemplate[6];
+                break;
+
             case AT_START:
-                *out << csstemplate[0] << csstokens[i].data + csstemplate[1];
-                out =& in_at_out;
+                indent = CSSUtils::indent(lvl, csstemplate[0]);
+                output << indent << csstokens[i].data << csstemplate[1];
+                lvl++;
                 break;
 
             case SEL_START:
-                *out << ((csstokens[i].data[0] != '@') ? csstemplate[2] + csstokens[i].data : csstemplate[0] + csstokens[i].data);
-                *out << csstemplate[3];
+                indent = CSSUtils::indent(lvl, csstemplate[0]);
+                output << indent << csstokens[i].data << csstemplate[3];
+                lvl++;
                 break;
 
             case PROPERTY:
-                *out << csstemplate[4] << csstokens[i].data << ":" << csstemplate[5];
+                indent = CSSUtils::indent(lvl, csstemplate[0]);
+                output << indent << csstokens[i].data << ":" << csstemplate[5];
                 break;
 
             case VALUE:
-                *out << csstokens[i].data;
-                *out << csstemplate[6];
+                output << csstokens[i].data << csstemplate[6];
                 break;
 
             case SEL_END:
-                *out << csstemplate[7];
-                if(_seeknocomment(i, 1) != AT_END) *out << csstemplate[8];
+                lvl--;
+                indent = CSSUtils::indent(lvl, csstemplate[0]);
+                output << indent + csstemplate[7];
+                if(_seeknocomment(i, 1) != AT_END) output << csstemplate[8];
                 break;
 
             case AT_END:
-                out =& output;
-                *out << csstemplate[10] << CSSUtils::str_replace("\n", "\n" + csstemplate[10], in_at_out.str());
-                in_at_out.str("");
-                *out << csstemplate[9];
+                lvl--;
+                indent = CSSUtils::indent(lvl, csstemplate[0]);
+                output << csstemplate[13] << indent << csstemplate[9];
                 break;
 
             case COMMENT:
-                *out << csstemplate[11] <<  "/*" << csstokens[i].data << "*/" << csstemplate[12];
+                output << csstemplate[11] <<  "/*" << csstokens[i].data << "*/" << csstemplate[12];
                 break;
 
             case CSS_END:
@@ -348,28 +347,31 @@ void CSSParser::print_css(std::string filename)
 
     std::string output_string = CSSUtils::trim(output.str());
 
-    if(filename == "")
+    if(tostdout)
     {
         std::cout << output_string << "\n";
-    } 
-    else {
+    }
+    if(filename != "")
+    {
         file_output << output_string;
         file_output.close();
     }
+    return output_string;
 }
 
-void CSSParser::parseInAtBlock(std::string& css_input, int& i, parse_status& status, parse_status& from)
+
+void CSSParser::parseInAtBlock(std::string& css_input, int& i, parse_status& astatus, parse_status& afrom)
 {
     if(is_token(css_input,i))
     {
         if(css_input[i] == '/' && CSSUtils::s_at(css_input,i+1) == '*')
         {
-            status = ic; i += 2;
-            from = at;
+            astatus = PIC; i += 2;
+            afrom = PAT;
         }
         else if(css_input[i] == '{')
         {
-            status = is;
+            astatus = PIS;
             add_token(AT_START, cur_at);
         }
         else if(css_input[i] == ',')
@@ -404,7 +406,7 @@ void CSSParser::parseInAtBlock(std::string& css_input, int& i, parse_status& sta
 }
 
 
-void CSSParser::parseInSelector(std::string& css_input, int& i, parse_status& status, parse_status& from,
+void CSSParser::parseInSelector(std::string& css_input, int& i, parse_status& astatus, parse_status& afrom,
                                 bool& invalid_at, char& str_char, int str_size)
 {
     if(is_token(css_input,i))
@@ -413,8 +415,8 @@ void CSSParser::parseInSelector(std::string& css_input, int& i, parse_status& st
         // trim(cur_selector) == "") selector as dep doesn't make any sense here, huh?
         if(css_input[i] == '/' && CSSUtils::s_at(css_input,i+1) == '*')
         {
-            status = ic; ++i;
-            from = is;
+            astatus = PIC; ++i;
+            afrom = PIS;
         }
         else if(css_input[i] == '@' && CSSUtils::trim(cur_selector) == "")
         {
@@ -424,8 +426,8 @@ void CSSParser::parseInSelector(std::string& css_input, int& i, parse_status& st
             {
                 if(CSSUtils::strtolower(css_input.substr(i+1,j->first.length())) == j->first)
                 {
-                    (j->second == at) ? cur_at = "@" + j->first : cur_selector = "@" + j->first;
-                    status = j->second;
+                    (j->second == PAT) ? cur_at = "@" + j->first : cur_selector = "@" + j->first;
+                    astatus = j->second;
                     i += j->first.length();
                     invalid_at = false;
                 }
@@ -448,20 +450,19 @@ void CSSParser::parseInSelector(std::string& css_input, int& i, parse_status& st
         else if(css_input[i] == '"' || css_input[i] == '\'')
         {
             cur_string = css_input[i];
-            status = instr;
+            astatus = PINSTR;
             str_char = css_input[i];
-            from = is;
+            afrom = PIS;
         }
         else if(invalid_at && css_input[i] == ';')
         {
             invalid_at = false;
-            status = is;
+            astatus = PIS;
         }
         else if (css_input[i] == '{')
         {
-            status = ip;
+            astatus = PIP;
             add_token(SEL_START, cur_selector);
-            ++selectors;
         }
         else if (css_input[i] == '}')
         {
@@ -496,7 +497,7 @@ void CSSParser::parseInSelector(std::string& css_input, int& i, parse_status& st
 }
 
 
-void CSSParser::parseInProperty(std::string& css_input, int& i, parse_status& status, parse_status& from,
+void CSSParser::parseInProperty(std::string& css_input, int& i, parse_status& astatus, parse_status& afrom,
                                 bool& invalid_at)
 {
 
@@ -504,7 +505,7 @@ void CSSParser::parseInProperty(std::string& css_input, int& i, parse_status& st
     {
         if (css_input[i] == ':' || (css_input[i] == '=' && cur_property != ""))
         {
-            status = iv;
+            astatus = PIV;
             bool valid = true || (CSSProperties::instance()->contains(cur_property) && 
                                   CSSProperties::instance()->levels(cur_property).find(css_level,0) != std::string::npos);
             if(valid) {
@@ -513,13 +514,13 @@ void CSSParser::parseInProperty(std::string& css_input, int& i, parse_status& st
         }
         else if(css_input[i] == '/' && CSSUtils::s_at(css_input,i+1) == '*' && cur_property == "")
         {
-            status = ic; ++i;
-            from = ip;
+            astatus = PIC; ++i;
+            afrom = PIP;
         }
         else if(css_input[i] == '}')
         {
             explode_selectors();
-            status = is;
+            astatus = PIS;
             invalid_at = false;
             add_token(SEL_END, cur_selector);
             cur_selector = "";
@@ -561,7 +562,7 @@ void CSSParser::parseInProperty(std::string& css_input, int& i, parse_status& st
 }
 
 
-void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& status, parse_status& from,
+void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astatus, parse_status& afrom,
                              bool& invalid_at, char& str_char, bool& pn, int str_size)
 {
     pn = (((css_input[i] == '\n' || css_input[i] == '\r') && property_is_next(css_input,i+1)) || i == str_size-1);
@@ -573,16 +574,16 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& statu
     {
         if(css_input[i] == '/' && CSSUtils::s_at(css_input,i+1) == '*')
         {
-            status = ic; ++i;
-            from = iv;
+            astatus = PIC; ++i;
+            afrom = PIV;
         }
         else if(css_input[i] == '"' || css_input[i] == '\'' ||
                 (css_input[i] == '(' && cur_sub_value == "url") )
         {
             str_char = (css_input[i] == '(') ? ')' : css_input[i];
             cur_string = css_input[i];
-            status = instr;
-            from = iv;
+            astatus = PINSTR;
+            afrom = PIV;
         }
         else if(css_input[i] == '(')
         {
@@ -606,15 +607,27 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& statu
         {
             if(cur_selector.substr(0,1) == "@" && 
                at_rules.count(cur_selector.substr(1)) > 0 &&
-               at_rules[cur_selector.substr(1)] == iv)
+               at_rules[cur_selector.substr(1)] == PIV)
             {
                 cur_sub_value_arr.push_back(CSSUtils::trim(cur_sub_value));
-                status = is;
+                astatus = PIS;
 
-                if(cur_selector == "@charset") charset = cur_sub_value_arr[0];
-                if(cur_selector == "@namespace") namesp = CSSUtils::implode(" ",cur_sub_value_arr);
-                if(cur_selector == "@import") import.push_back(CSSUtils::build_value(cur_sub_value_arr));
-
+                if(cur_selector == "@charset")
+                {
+                     charset = cur_sub_value_arr[0];
+                     add_token(CHARSET, charset);
+                }
+                else if(cur_selector == "@import")
+                {
+                     std::string aimport = CSSUtils::build_value(cur_sub_value_arr);
+                     add_token(IMPORT, aimport);
+                     import.push_back(aimport);
+                }
+                else if(cur_selector == "@namespace")
+                {
+                    namesp = CSSUtils::implode(" ",cur_sub_value_arr);
+                    add_token(NAMESP, namesp);
+                }
                 cur_sub_value_arr.clear();
                 cur_sub_value = "";
                 cur_selector = "";
@@ -622,7 +635,7 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& statu
             }
             else
             {
-                status = ip;
+                astatus = PIP;
             }
         }
         else if (css_input[i] == '!') 
@@ -667,9 +680,6 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& statu
         if( (css_input[i] == '}' || css_input[i] == ';' || pn) && !cur_selector.empty())
         {
             // End of value: normalize, optimize and store property
-                    
-            ++properties;
-
             if(cur_at == "")
             {
                 cur_at = "standard";
@@ -725,7 +735,7 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& statu
         {
             explode_selectors();
             add_token(SEL_END, cur_selector);
-            status = is;
+            astatus = PIS;
             invalid_at = false;
             cur_selector = "";
         }
@@ -746,13 +756,13 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& statu
 }
 
 
-void CSSParser::parseInComment(std::string& css_input, int& i, parse_status& status, parse_status& from,
+void CSSParser::parseInComment(std::string& css_input, int& i, parse_status& astatus, parse_status& afrom,
                                std::string& cur_comment)
 {
 
     if(css_input[i] == '*' && CSSUtils::s_at(css_input,i+1) == '/')
     {
-        status = from;
+        astatus = afrom;
         ++i;
         add_token(COMMENT, cur_comment);
         cur_comment = "";
@@ -764,7 +774,7 @@ void CSSParser::parseInComment(std::string& css_input, int& i, parse_status& sta
 }
 
 
-void CSSParser::parseInString(std::string& css_input, int& i, parse_status& status, parse_status& from,
+void CSSParser::parseInString(std::string& css_input, int& i, parse_status& astatus, parse_status& afrom,
                               char& str_char, bool& str_in_str)
 {
 
@@ -792,7 +802,7 @@ void CSSParser::parseInString(std::string& css_input, int& i, parse_status& stat
     }
     if(css_input[i] == str_char && !CSSUtils::escaped(css_input,i) && str_in_str == false)
     {
-        status = from;
+        astatus = afrom;
         if (cur_function == "" && 
             cur_string.find_first_of(" \n\t\r\0xb") == std::string::npos &&
             cur_property != "content" && cur_sub_value != "format")
@@ -811,11 +821,11 @@ void CSSParser::parseInString(std::string& css_input, int& i, parse_status& stat
                 cur_string = cur_string[0] + cur_string.substr(2, cur_string.length() - 4) + cur_string[cur_string.length()-1];
             }
         }
-        if(from == iv)
+        if(afrom == PIV)
         {
             cur_sub_value += cur_string;
         }
-        else if(from == is)
+        else if(afrom == PIS)
         {
             cur_selector += cur_string;
         }
@@ -826,9 +836,11 @@ void CSSParser::parseInString(std::string& css_input, int& i, parse_status& stat
 void CSSParser::parse_css(std::string css_input)
 {
     reset_parser();
-    css_input = CSSUtils::str_replace("\r\n","\n",css_input); // Replace all double-newlines
+    css_input = CSSUtils::str_replace("\r\n","\n",css_input); // Replace newlines
     css_input += "\n";
-    parse_status status = is, from;
+    parse_status astatus = PIS, afrom;
+    parse_status old_status = PIS;
+    record_position(PIS, PIS, css_input, 0, true);
     std::string cur_comment;
 
     cur_sub_value_arr.clear();
@@ -846,36 +858,45 @@ void CSSParser::parse_css(std::string css_input)
             ++line;
         }
 
-        switch(status)
+
+        // record current position for selected state transitions
+        if (old_status != astatus)
+        {
+            record_position(old_status, astatus, css_input, i);
+        }
+        old_status = astatus;
+
+
+        switch(astatus)
         {
             /* Case in-at-block */
-            case at:
-                parseInAtBlock(css_input, i, status, from);
+            case PAT:
+                parseInAtBlock(css_input, i, astatus, afrom);
                 break;
 
             /* Case in-selector */
-            case is:
-                parseInSelector(css_input, i, status, from, invalid_at, str_char, str_size);
+            case PIS:
+                parseInSelector(css_input, i, astatus, afrom, invalid_at, str_char, str_size);
                 break;
 
             /* Case in-property */
-            case ip:
-                parseInProperty(css_input, i, status, from, invalid_at);
+            case PIP:
+                parseInProperty(css_input, i, astatus, afrom, invalid_at);
                 break;
 
             /* Case in-value */
-            case iv:
-                parseInValue(css_input, i, status, from, invalid_at, str_char, pn, str_size);
+            case PIV:
+                parseInValue(css_input, i, astatus, afrom, invalid_at, str_char, pn, str_size);
                 break;
 
             /* Case in-string */
-            case instr:
-                parseInString(css_input, i, status, from, str_char, str_in_str);
+            case PINSTR:
+                parseInString(css_input, i, astatus, afrom, str_char, str_in_str);
                 break;
 
             /* Case in-comment */
-            case ic:
-                parseInComment(css_input, i, status, from, cur_comment);
+            case PIC:
+                parseInComment(css_input, i, astatus, afrom, cur_comment);
                 break;
         }
     }
@@ -929,4 +950,45 @@ std::vector<std::string> CSSParser::get_logs(CSSParser::message_type mt)
         }
     }
     return res;
+}
+
+
+// allow a new set of csstokens to be loaded and then serialized
+void CSSParser::set_csstokens(const std::vector<CSSParser::token> &ntokens)
+{
+    csstokens.clear();
+    for(int i = 0; i < ntokens.size(); i++)
+    {
+        token atemp = ntokens[i];
+        csstokens.push_back(atemp);
+    }
+}
+
+
+// update the position only for selected state transitions
+void CSSParser::record_position(parse_status old_status, parse_status new_status,
+                                std::string &css_input, int i, bool force)
+{
+    // to reach here old_status must be != new_status
+    bool record = false;
+
+    // any state into a  comment
+    if (new_status == PIC) record = true;
+
+    // start of a property
+    if ((old_status == PIS) && (new_status == PIP)) record = true;
+    if ((old_status == PIV) && (new_status == PIP)) record = true;
+
+    // from properties to values or from @charset, @namespace, and @import into values
+    if ((old_status == PAT) && (new_status == PIV)) record = true;
+    if ((old_status == PIP) && (new_status == PIV)) record = true;
+
+    // starting a new selector
+    if ((old_status == PAT) && (new_status == PIS)) record = true;
+    if ((old_status == PIV) && (new_status == PIS)) record = true;
+    if ((old_status == PIP) && (new_status == PIS)) record = true;
+
+    if (record || force) {
+        spos = css_input.find_first_not_of(" \n\t\r\0xb", i);
+    }
 }

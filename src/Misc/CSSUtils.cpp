@@ -417,3 +417,12 @@ const std::string CSSUtils::rtrim(const std::string istring, const std::string c
     std::string::size_type last = istring.find_last_not_of(chars); /// must succeed
     return istring.substr( 0, last + 1);
 }
+
+const std::string CSSUtils::indent(int lvl, const std::string &base)
+{
+    std::string ind = "";
+    for (int i = 0; i < lvl; i++) {
+        ind = ind + base;
+    }
+    return ind;
+}
