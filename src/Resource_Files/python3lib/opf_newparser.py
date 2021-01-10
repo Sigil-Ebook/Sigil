@@ -52,7 +52,7 @@ def xmldecode(data):
     return newdata
 
 SPECIAL_HANDLING_TAGS = OrderedDict([
-    ('?xml', ('xmlheader', -1)), 
+    ('?xml', ('xmlheader', -1)),
     ('!--',  ('comment', -3)),
     ('!DOCTYPE', ('doctype', -1))
     ])
@@ -215,8 +215,8 @@ class Opf_Parser(object):
             p += 1
             while p < n and s[p:p+1] == ' ' : p += 1
         b = p
-        # handle comment special case as there may be no spaces to 
-        # delimit name begin or end 
+        # handle comment special case as there may be no spaces to
+        # delimit name begin or end
         if s[b:].startswith('!--'):
             p = b+3
             tname = '!--'
@@ -311,7 +311,7 @@ class Opf_Parser(object):
         for (gtype, gtitle,  ghref) in self.guide:
             guide.append((gtype, gtitle, ghref))
         return guide
-    
+
     def get_bindings(self):
         bindings = []
         for (mtype, handler) in self.bindings:
@@ -328,7 +328,7 @@ class Opf_Parser(object):
             xmlres.append(' %s="%s"' % (key, val))
         xmlres.append('>\n')
         return "".join(xmlres)
-                          
+
     def convert_metadata_attr_to_xml(self):
         xmlres = []
         attr = self.metadata_attr
@@ -339,7 +339,7 @@ class Opf_Parser(object):
             xmlres.append(' %s="%s"' % (key, val))
         xmlres.append('>\n')
         return "".join(xmlres)
-        
+
     def convert_metadata_entries_to_xml(self):
         xmlres = []
         for (mname, mcontent, attr) in self.metadata:
@@ -358,7 +358,7 @@ class Opf_Parser(object):
     def convert_manifest_entries_to_xml(self):
         xmlres = []
         for (id, href, mtype, attr) in self.manifest:
-            # all hrefs should be kept in quoted (encoded) form 
+            # all hrefs should be kept in quoted (encoded) form
             xmlres.append('    <item id="%s" href="%s" media-type="%s"' % (id, href, mtype))
             for key in attr:
                 val= attr[key]
@@ -390,14 +390,14 @@ class Opf_Parser(object):
                     xmlres.append(' %s="%s"' % (key, val))
             xmlres.append('/>\n')
         return "".join(xmlres)
-    
+
     def convert_guide_entries_to_xml(self):
         xmlres=[]
         for (gtype, gtitle, ghref) in self.guide:
             # all hrefs should already be in quoted (encoded) form
             xmlres.append('    <reference type="%s" title="%s" href="%s"/>\n' % (gtype, gtitle, ghref))
         return "".join(xmlres)
-                          
+
     def convert_binding_entries_to_xml(self):
         xmlres=[]
         for (mtype, handler) in self.bindings:
@@ -422,7 +422,7 @@ class Opf_Parser(object):
             xmlres.append('  <guide>\n')
             xmlres.append(self.convert_guide_entries_to_xml())
             xmlres.append('  </guide>\n')
-        if len(self.bindings) > 0 and opver.startswith('3'):
+        if len(self.bindings) > 0 and opfver.startswith('3'):
             xmlres.append('  <bindings>\n')
             xmlres.append(self.guide.convert_binding_entries_to_xml())
             xmlres.append('  </bindings>\n')
@@ -457,10 +457,7 @@ def main():
     # print(op.get_guide())
     # print(op.get_bindings())
     print(op.rebuild_opfxml())
-    return 0    
-
-
-
+    return 0
 
 if __name__ == '__main__':
     sys.exit(main())
