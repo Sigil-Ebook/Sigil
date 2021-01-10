@@ -324,14 +324,14 @@ std::string CSSParser::serialize_css(std::string filename, bool tostdout)
                 break;
 
             case SEL_END:
-                lvl--;
+                lvl--; if (lvl < 0) lvl = 0;
                 indent = CSSUtils::indent(lvl, csstemplate[0]);
                 output << indent + csstemplate[7];
                 if(_seeknocomment(i, 1) != AT_END) output << csstemplate[8];
                 break;
 
             case AT_END:
-                lvl--;
+                lvl--; if (lvl < 0) lvl = 0;
                 indent = CSSUtils::indent(lvl, csstemplate[0]);
                 output << csstemplate[13] << indent << csstemplate[9];
                 break;
@@ -572,6 +572,12 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astat
     }
     if(is_token(css_input,i) || pn)
     {
+        if((css_input[i] == '{') && (cur_selector == "@import" ||
+                                     cur_selector == "@charset" ||
+                                     cur_selector == "@namespace"))
+        {
+            log("Unexpected character '" + std::string(1, css_input[i]) + "' in " + cur_selector, Error);
+        }
         if(css_input[i] == '/' && CSSUtils::s_at(css_input,i+1) == '*')
         {
             astatus = PIC; ++i;

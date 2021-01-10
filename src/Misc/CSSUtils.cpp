@@ -298,24 +298,6 @@ std::string CSSUtils::str_replace(const std::string find, const std::string repl
 }
 
 
-std::string CSSUtils::str_replace(const std::vector<std::string>& find, const std::string replace, std::string str)
-{
-    int replace_len = replace.length();
-    
-    for(int i = 0; i < find.size(); ++i)
-    {
-        int len = find[i].length();
-        int pos = str.find(find[i]);
-    
-        while(pos != std::string::npos)
-        {  
-            str.replace(pos, len, replace);
-            pos = str.find(find[i], pos + replace_len);
-        }
-    }
-    return str;
-}
-
 
 bool CSSUtils::in_char_arr(const char* haystack, const char needle)
 {
@@ -333,19 +315,6 @@ bool CSSUtils::in_char_arr(const char* haystack, const char needle)
 bool CSSUtils::in_str_array(const std::string& haystack, const char needle)
 {
     return (haystack.find_first_of(needle,0) != std::string::npos);
-}
-
-
-bool CSSUtils::in_str_array(const std::vector<std::string>& haystack, const std::string needle)
-{
-    for(int i = 0; i < haystack.size(); ++i)
-    {
-        if(haystack[i] == needle)
-        {
-            return true;
-        }
-    }
-    return false;
 }
 
 

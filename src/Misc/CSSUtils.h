@@ -87,13 +87,9 @@ public:
     // Replaces <find> with <replace> in <str>
     static std::string str_replace(const std::string find, const std::string replace, std::string str);
 
-    // Replaces all values of <find> with <replace> in <str>
-    static std::string str_replace(const std::vector<std::string>& find, const std::string replace, std::string str);
-
     // Checks if a std::string exists in a std::string-array
     static bool in_char_arr(const char* haystack, const char needle);
     static bool in_str_array(const std::string& haystack, const char needle);
-    static bool in_str_array(const std::vector<std::string>& haystack, const std::string needle);
 
     // isspace() and isdigit() do not work correctly with UTF-8 std::strings
     static bool ctype_space(const char c);
