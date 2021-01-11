@@ -95,7 +95,7 @@ QSharedPointer<Book> ImportTXT::GetBook(bool extract_metadata)
 QString ImportTXT::LoadSource() const
 {
     QString source = Utility::ReadUnicodeTextFile(m_FullFilePath);
-    source = CreateParagraphs(source.split(QChar('\n')));
+    source = CreateParagraphs(source.split(QChar::ParagraphSeparator));
     return CleanSource::Mend(source, m_EpubVersion);
 }
 
