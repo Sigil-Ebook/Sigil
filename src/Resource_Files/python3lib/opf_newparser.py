@@ -424,7 +424,7 @@ class Opf_Parser(object):
             xmlres.append('  </guide>\n')
         if len(self.bindings) > 0 and opfver.startswith('3'):
             xmlres.append('  <bindings>\n')
-            xmlres.append(self.guide.convert_binding_entries_to_xml())
+            xmlres.append(self.convert_binding_entries_to_xml())
             xmlres.append('  </bindings>\n')
         xmlres.append('</package>\n')
         return "".join(xmlres)
