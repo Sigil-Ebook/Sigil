@@ -215,7 +215,7 @@ bool CSSUtils::escaped(const std::string &istring, const int pos)
 // Safe replacement for .at()
 char CSSUtils::s_at(const std::string &istring, const int pos)
 {
-    if(pos > (istring.length()-1) && pos < 0)
+    if(pos > (istring.length()-1) || pos < 0)
     {
         return 0;
     } 

@@ -41,8 +41,6 @@
 #include <fstream>
 #include <map>
 #include <algorithm>
-#include "Misc/CSSProperties.h"
-#include "Misc/CSSUtils.h"
 
 class CSSParser 
 { 
@@ -97,7 +95,7 @@ public:
     // walk the csstokens list, token by token
     // set start_ptr to the position you woud like to start at in the list
     // leaving it as -1 will simply start at 0 and increment
-    // last token is a dummy token with type set to CSS_END
+    // last token is a dummy token with type set to CSS_END 
     token get_next_token(int start_ptr = -1);
 
     // covert token type enum value to a descriptive string
@@ -137,7 +135,7 @@ private:
     // filter the logs by message type
     std::vector<std::string> get_logs(message_type t);
 
-    // Pparses unicode notations
+    // parses unicode notations
     std::string unicode(std::string& istring, int& i);
         
     // checks if the chat in istring at i is a token

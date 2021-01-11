@@ -26,6 +26,7 @@
  *************************************************************************/
  
 #include "Misc/CSSProperties.h"
+#include "Misc/CSSUtils.h"
 #include "Misc/CSSParser.h"
 
 /* PIS = in selector
@@ -249,7 +250,7 @@ int CSSParser::_seeknocomment(const int key, int move)
     int go = (move > 0) ? 1 : -1;
     for (int i = key + 1; abs(key-i)-1 < abs(move); i += go)
     {
-        if (i < 0 || i > csstokens.size()) {
+        if (i < 0 || i >= csstokens.size()) {
             return -1;
         }
         if (csstokens[i].type == COMMENT) {
@@ -489,7 +490,9 @@ void CSSParser::parseInSelector(std::string& css_input, int& i, parse_status& as
     else
     {
         int lastpos = cur_selector.length()-1;
-        if(!( (CSSUtils::ctype_space(cur_selector[lastpos]) || (is_token(cur_selector,lastpos) && cur_selector[lastpos] == ',')) && CSSUtils::ctype_space(css_input[i])))
+        if((lastpos == -1) || !( (CSSUtils::ctype_space(cur_selector[lastpos]) ||
+                                  (is_token(cur_selector,lastpos) && cur_selector[lastpos] == ',')) &&
+                                 CSSUtils::ctype_space(css_input[i])))
         {
             cur_selector += css_input[i];
         }
