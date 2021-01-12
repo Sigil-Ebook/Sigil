@@ -18,16 +18,30 @@
  **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
  **
  ** Extracted and modified from:
- ** CSSTidy Copyright 2005-2007 Florian Schmitz
- ** Available under the LGPL 2.1
+ ** CSSTidy (https://github.com/csstidy-c/csstidy)
+ **
+ ** CSSTidy Portions Copyright:
+ **   Florian Schmitz <floele@gmail.com>
+ **   Thierry Charbonnel
+ **   Will Mitchell <aethon@gmail.com>
+ **   Brett Zamir <brettz9@yahoo.com>
+ **   sined_ <sined_@users.sourceforge.net>
+ **   Dmitry Leskov <git@dmitryleskov.com>
+ **   Kevin Coyner <kcoyner@debian.org>
+ **   Tuukka Pasanen <pasanen.tuukka@gmail.com>
+ **   Frank W. Bergmann <csstidy-c@tuxad.com>
+ **   Frank Dana <ferdnyc@gmail.com>
+ **
+ ** CSSTidy us Available under the LGPL 2.1
  ** You should have received a copy of the GNU Lesser General Public License
  ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
  **
  *************************************************************************/
- 
-#include "Misc/CSSProperties.h"
-#include "Misc/CSSUtils.h"
-#include "Misc/CSSParser.h"
+
+#include <QTextStream>
+#include "Misc/qCSSProperties.h"
+#include "Misc/qCSSUtils.h"
+#include "Misc/qCSSParser.h"
 
 /* PIS = in selector
  * PIP = in property
@@ -47,7 +61,7 @@ CSSParser::CSSParser()
     csstemplate.push_back("");        //  2 - unused
     csstemplate.push_back(" {\n");    //  3 - bracket after selector was "\n{\n"
     csstemplate.push_back("");        //  4 - unused
-    csstemplate.push_back("");        //  5 - string after property before value
+    csstemplate.push_back(" ");        //  5 - string after property before value
     csstemplate.push_back(";\n");     //  6 - string after value
     csstemplate.push_back("}");       //  7 - closing bracket - selector
     csstemplate.push_back("\n\n");    //  8 - space between blocks {...}
@@ -87,7 +101,7 @@ CSSParser::CSSParser()
 } 
 
 
-void CSSParser::set_level(std::string level)
+void CSSParser::set_level(QString level)
 {
     if ((level == "CSS1.0") || (level == "CSS2.0") ||
         (level == "CSS2.1") || (level == "CSS3.0"))
@@ -103,6 +117,7 @@ void CSSParser::reset_parser()
     charset = "";
     namesp = "";
     line = 1;
+    selector_nest_level = 0;
     import.clear();
     csstokens.clear();
     cur_selector.clear();
@@ -117,17 +132,17 @@ void CSSParser::reset_parser()
 }
 
 
-std::string CSSParser::get_charset()
+QString CSSParser::get_charset()
 {
     return charset;
 }
 
-std::string CSSParser::get_namespace()
+QString CSSParser::get_namespace()
 {
     return namesp;
 }
 
-std::vector<std::string> CSSParser::get_import()
+QVector<QString> CSSParser::get_import()
 {
     return import;
 }
@@ -153,22 +168,25 @@ CSSParser::token CSSParser::get_next_token(int start_ptr)
 }
 
 
-std::string CSSParser::get_type_name(CSSParser::token_type t)
+QString CSSParser::get_type_name(CSSParser::token_type t)
 {
     return token_type_names[t];
 }
 
 
-void CSSParser::add_token(const token_type ttype, const std::string data, const bool force)
+void CSSParser::add_token(const token_type ttype, const QString data)
 {
     token temp;
     temp.type = ttype;
     temp.pos = spos;
+    temp.line = sline;
     temp.data = (ttype == COMMENT) ? data : CSSUtils::trim(data);
     csstokens.push_back(temp);
+    if (ttype == SEL_START) selector_nest_level++;
+    if (ttype == SEL_END) selector_nest_level++;
 }
 
-void CSSParser::log(const std::string msg, const message_type type, int iline)
+void CSSParser::log(const QString msg, const message_type type, int iline)
 {
     message new_msg;
     new_msg.m = msg;
@@ -190,10 +208,10 @@ void CSSParser::log(const std::string msg, const message_type type, int iline)
     logs[line].push_back(new_msg);
 }
 
-std::string CSSParser::unicode(std::string& istring, int& i)
+QString CSSParser::unicode(QString& istring, int& i)
 {
     ++i;
-    std::string add = "";
+    QString add = "";
     bool replaced = false;
     
     while(i < istring.length() && (CSSUtils::ctype_xdigit(istring[i]) ||
@@ -211,7 +229,7 @@ std::string CSSParser::unicode(std::string& istring, int& i)
         (CSSUtils::hexdec(add) > 64 && CSSUtils::hexdec(add) < 91) ||
         (CSSUtils::hexdec(add) > 96 && CSSUtils::hexdec(add) < 123))
     {
-        std::string msg = "Replaced unicode notation: Changed \\" + CSSUtils::rtrim(add) + " to ";
+        QString msg = "Replaced unicode notation: Changed \\" + CSSUtils::rtrim(add) + " to ";
         add = static_cast<int>(CSSUtils::hexdec(add));
         msg += add;
         log(msg,Information);
@@ -233,15 +251,15 @@ std::string CSSParser::unicode(std::string& istring, int& i)
 }
 
 
-bool CSSParser::is_token(std::string& istring, const int i)
+bool CSSParser::is_token(QString& istring, const int i)
 {
-    return (CSSUtils::in_str_array(tokens, istring[i]) && !CSSUtils::escaped(istring,i));
+    return (tokens.contains(istring[i]) && !CSSUtils::escaped(istring,i));
 }
 
 
 void CSSParser::explode_selectors()
 {
-    sel_separate = std::vector<int>();
+    sel_separate = QVector<int>();
 }
 
 
@@ -259,32 +277,17 @@ int CSSParser::_seeknocomment(const int key, int move)
         }
         return csstokens[i].type;
     }
-    // FIXME: control can reach end of non-void function
     return -1;
 }
 
 
-std::string CSSParser::serialize_css(std::string filename, bool tostdout)
+QString CSSParser::serialize_css(bool tostdout)
 {
-    if(charset == "" && namesp == "" && import.empty() && csstokens.empty())
-    {
-        std::cout << "Warning: empty CSS output!" << std::endl;
-    }
+    QString output_string;
+    QTextStream output(&output_string);
 
-    std::ofstream file_output;
-    if(filename != "")
-    {
-         file_output.open(filename.c_str(),std::ios::binary);
-         if(file_output.bad())
-         {
-             std::cout << "Error when trying to save the output file!" << std::endl;
-             return "";
-         }
-    }
-
-    std::stringstream output;
     int lvl = 0;
-    std::string indent = "";
+    QString indent = "";
 
     for (int i = 0; i < csstokens.size(); ++i)
     {
@@ -327,7 +330,7 @@ std::string CSSParser::serialize_css(std::string filename, bool tostdout)
             case SEL_END:
                 lvl--; if (lvl < 0) lvl = 0;
                 indent = CSSUtils::indent(lvl, csstemplate[0]);
-                output << indent + csstemplate[7];
+                output << indent << csstemplate[7];
                 if(_seeknocomment(i, 1) != AT_END) output << csstemplate[8];
                 break;
 
@@ -346,22 +349,18 @@ std::string CSSParser::serialize_css(std::string filename, bool tostdout)
         }
     }
 
-    std::string output_string = CSSUtils::trim(output.str());
+    output_string = CSSUtils::trim(output_string);
 
     if(tostdout)
     {
-        std::cout << output_string << "\n";
-    }
-    if(filename != "")
-    {
-        file_output << output_string;
-        file_output.close();
+        QTextStream out(stdout, QIODevice::WriteOnly);
+        out << output_string << "\n";
     }
     return output_string;
 }
 
 
-void CSSParser::parseInAtBlock(std::string& css_input, int& i, parse_status& astatus, parse_status& afrom)
+void CSSParser::parseInAtBlock(QString& css_input, int& i, parse_status& astatus, parse_status& afrom)
 {
     if(is_token(css_input,i))
     {
@@ -385,10 +384,10 @@ void CSSParser::parseInAtBlock(std::string& css_input, int& i, parse_status& ast
         }
         else /*if((css_input[i] == '(') || (css_input[i] == ':') || (css_input[i] == ')') || (css_input[i] == '.'))*/
         {
-            if(!CSSUtils::in_char_arr("():/.", css_input[i]))
+            if(!QString("():/.").contains(css_input[i]))
             {
                 // Strictly speaking, these are only permitted in @media rules 
-                log("Unexpected symbol '" + std::string(css_input, i, 1) + "' in @-rule", Warning);
+                log("Unexpected symbol '" + css_input[i] + "' in @-rule", Warning);
             }
             cur_at += css_input[i];  /* append tokens after media selector */
         }
@@ -407,13 +406,11 @@ void CSSParser::parseInAtBlock(std::string& css_input, int& i, parse_status& ast
 }
 
 
-void CSSParser::parseInSelector(std::string& css_input, int& i, parse_status& astatus, parse_status& afrom,
-                                bool& invalid_at, char& str_char, int str_size)
+void CSSParser::parseInSelector(QString& css_input, int& i, parse_status& astatus, parse_status& afrom,
+                                bool& invalid_at, QChar& str_char, int str_size)
 {
     if(is_token(css_input,i))
     {
-        // if(css_input[i] == '/' && CSSUtils::s_at(css_input,i+1) == '*' && 
-        // trim(cur_selector) == "") selector as dep doesn't make any sense here, huh?
         if(css_input[i] == '/' && CSSUtils::s_at(css_input,i+1) == '*')
         {
             astatus = PIC; ++i;
@@ -423,20 +420,20 @@ void CSSParser::parseInSelector(std::string& css_input, int& i, parse_status& as
         {
             // Check for at-rule
             invalid_at = true;
-            for(std::map<std::string,parse_status>::iterator j = at_rules.begin(); j != at_rules.end(); ++j )
+            for(QMap<QString,parse_status>::iterator j = at_rules.begin(); j != at_rules.end(); ++j )
             {
-                if(CSSUtils::strtolower(css_input.substr(i+1,j->first.length())) == j->first)
+                if(CSSUtils::strtolower(css_input.mid(i+1,j.key().length())) == j.key())
                 {
-                    (j->second == PAT) ? cur_at = "@" + j->first : cur_selector = "@" + j->first;
-                    astatus = j->second;
-                    i += j->first.length();
+                    (j.value() == PAT) ? cur_at = "@" + j.key() : cur_selector = "@" + j.key();
+                    astatus = j.value();
+                    i += j.key().length();
                     invalid_at = false;
                 }
             }
             if (invalid_at)
             {
                 cur_selector = "@";
-                std::string invalid_at_name = "";
+                QString invalid_at_name = "";
                 for(int j = i+1; j < str_size; ++j)
                 {
                     if(!CSSUtils::ctype_alpha(css_input[j]))
@@ -470,7 +467,7 @@ void CSSParser::parseInSelector(std::string& css_input, int& i, parse_status& as
             add_token(AT_END, cur_at);
             cur_at = "";
             cur_selector = "";
-            sel_separate = std::vector<int>();
+            sel_separate = QVector<int>();
         }
         else if(css_input[i] == ',')
         {
@@ -490,9 +487,7 @@ void CSSParser::parseInSelector(std::string& css_input, int& i, parse_status& as
     else
     {
         int lastpos = cur_selector.length()-1;
-        if((lastpos == -1) || !( (CSSUtils::ctype_space(cur_selector[lastpos]) ||
-                                  (is_token(cur_selector,lastpos) && cur_selector[lastpos] == ',')) &&
-                                 CSSUtils::ctype_space(css_input[i])))
+        if( (lastpos == -1) || !( (CSSUtils::ctype_space(cur_selector[lastpos]) || (is_token(cur_selector,lastpos) && cur_selector[lastpos] == ',')) && CSSUtils::ctype_space(css_input[i])))
         {
             cur_selector += css_input[i];
         }
@@ -500,7 +495,7 @@ void CSSParser::parseInSelector(std::string& css_input, int& i, parse_status& as
 }
 
 
-void CSSParser::parseInProperty(std::string& css_input, int& i, parse_status& astatus, parse_status& afrom,
+void CSSParser::parseInProperty(QString& css_input, int& i, parse_status& astatus, parse_status& afrom,
                                 bool& invalid_at)
 {
 
@@ -510,7 +505,7 @@ void CSSParser::parseInProperty(std::string& css_input, int& i, parse_status& as
         {
             astatus = PIV;
             bool valid = true || (CSSProperties::instance()->contains(cur_property) && 
-                                  CSSProperties::instance()->levels(cur_property).find(css_level,0) != std::string::npos);
+                                  CSSProperties::instance()->levels(cur_property).indexOf(css_level,0) != -1);
             if(valid) {
                 add_token(PROPERTY, cur_property);
             }
@@ -548,7 +543,7 @@ void CSSParser::parseInProperty(std::string& css_input, int& i, parse_status& as
         }
         else
         {
-            log("Unexpected character '" + std::string(1, css_input[i]) + "'in property name", Error);
+            log("Unexpected character '" + QString(1, css_input[i]) + "'in property name", Error);
         }
     }
     else if(!CSSUtils::ctype_space(css_input[i]))
@@ -565,8 +560,8 @@ void CSSParser::parseInProperty(std::string& css_input, int& i, parse_status& as
 }
 
 
-void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astatus, parse_status& afrom,
-                             bool& invalid_at, char& str_char, bool& pn, int str_size)
+void CSSParser::parseInValue(QString& css_input, int& i, parse_status& astatus, parse_status& afrom,
+                             bool& invalid_at, QChar& str_char, bool& pn, int str_size)
 {
     pn = (((css_input[i] == '\n' || css_input[i] == '\r') && property_is_next(css_input,i+1)) || i == str_size-1);
     if(pn)
@@ -579,7 +574,7 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astat
                                      cur_selector == "@charset" ||
                                      cur_selector == "@namespace"))
         {
-            log("Unexpected character '" + std::string(1, css_input[i]) + "' in " + cur_selector, Error);
+            log("Unexpected character '" + QString(1, css_input[i]) + "' in " + cur_selector, Error);
         }
         if(css_input[i] == '/' && CSSUtils::s_at(css_input,i+1) == '*')
         {
@@ -589,7 +584,7 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astat
         else if(css_input[i] == '"' || css_input[i] == '\'' ||
                 (css_input[i] == '(' && cur_sub_value == "url") )
         {
-            str_char = (css_input[i] == '(') ? ')' : css_input[i];
+            str_char = (css_input[i] == QChar('(')) ? QChar(')') : css_input[i];
             cur_string = css_input[i];
             astatus = PINSTR;
             afrom = PIV;
@@ -614,9 +609,9 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astat
         }
         else if(css_input[i] == ';' || pn)
         {
-            if(cur_selector.substr(0,1) == "@" && 
-               at_rules.count(cur_selector.substr(1)) > 0 &&
-               at_rules[cur_selector.substr(1)] == PIV)
+            if(cur_selector.mid(0,1) == "@" && 
+               at_rules.count(cur_selector.mid(1)) > 0 &&
+               at_rules[cur_selector.mid(1)] == PIV)
             {
                 cur_sub_value_arr.push_back(CSSUtils::trim(cur_sub_value));
                 astatus = PIS;
@@ -628,7 +623,7 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astat
                 }
                 else if(cur_selector == "@import")
                 {
-                     std::string aimport = CSSUtils::build_value(cur_sub_value_arr);
+                     QString aimport = CSSUtils::build_value(cur_sub_value_arr);
                      add_token(IMPORT, aimport);
                      import.push_back(aimport);
                 }
@@ -640,7 +635,7 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astat
                 cur_sub_value_arr.clear();
                 cur_sub_value = "";
                 cur_selector = "";
-                sel_separate = std::vector<int>();
+                sel_separate = QVector<int>();
             }
             else
             {
@@ -664,7 +659,7 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astat
             bool drop = false;
             if (css_input[i] == ')')
             {
-                if (cur_function_arr.empty())
+                if (cur_function_arr.isEmpty())
                 {
                     // No matching open parenthesis, drop this closing one
                     log("Unexpected closing parenthesis, dropping", Warning);
@@ -674,19 +669,19 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astat
                 {
                     // Pop function from the stack
                     cur_function_arr.pop_back();
-                    cur_function = cur_function_arr.empty() ? "" : cur_function_arr.back();
+                    cur_function = cur_function_arr.isEmpty() ? "" : cur_function_arr.back();
                             
                 }
             }
             if (!drop) {
-                cur_sub_value_arr.push_back(std::string(1,css_input[i]));
+                cur_sub_value_arr.push_back(QString(1,css_input[i]));
             }
         }
         else if(css_input[i] != '}')
         {
             cur_sub_value += css_input[i];
         }
-        if( (css_input[i] == '}' || css_input[i] == ';' || pn) && !cur_selector.empty())
+        if( (css_input[i] == '}' || css_input[i] == ';' || pn) && !cur_selector.isEmpty())
         {
             // End of value: normalize, optimize and store property
             if(cur_at == "")
@@ -710,9 +705,9 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astat
             }
 
             // Check for leftover open parentheses
-            if (!cur_function_arr.empty())
+            if (!cur_function_arr.isEmpty())
             {
-                std::vector<std::string>::reverse_iterator rit;
+                QVector<QString>::reverse_iterator rit;
                 for (rit = cur_function_arr.rbegin(); rit != cur_function_arr.rend(); ++rit)
                 {
                     log("Closing parenthesis missing for '" + *rit + "', inserting", Warning);
@@ -724,7 +719,7 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astat
 
 
             bool valid = (CSSProperties::instance()->contains(cur_property) &&
-                          CSSProperties::instance()->levels(cur_property).find(css_level,0) != std::string::npos);
+                          CSSProperties::instance()->levels(cur_property).indexOf(css_level,0) != -1);
             if(1)
             {
                 //add(cur_at,cur_selector,cur_property,cur_value);
@@ -765,8 +760,8 @@ void CSSParser::parseInValue(std::string& css_input, int& i, parse_status& astat
 }
 
 
-void CSSParser::parseInComment(std::string& css_input, int& i, parse_status& astatus, parse_status& afrom,
-                               std::string& cur_comment)
+void CSSParser::parseInComment(QString& css_input, int& i, parse_status& astatus, parse_status& afrom,
+                               QString& cur_comment)
 {
 
     if(css_input[i] == '*' && CSSUtils::s_at(css_input,i+1) == '/')
@@ -783,8 +778,8 @@ void CSSParser::parseInComment(std::string& css_input, int& i, parse_status& ast
 }
 
 
-void CSSParser::parseInString(std::string& css_input, int& i, parse_status& astatus, parse_status& afrom,
-                              char& str_char, bool& str_in_str)
+void CSSParser::parseInString(QString& css_input, int& i, parse_status& astatus, parse_status& afrom,
+                              QChar& str_char, bool& str_in_str)
 {
 
     if(str_char == ')' && (css_input[i] == '"' || css_input[i] == '\'') &&
@@ -797,23 +792,24 @@ void CSSParser::parseInString(std::string& css_input, int& i, parse_status& asta
     {
         str_in_str = false;
     }
-    std::string temp_add = ""; temp_add += css_input[i];
+    QString temp_add = ""; temp_add += css_input[i];
     if( (css_input[i] == '\n' || css_input[i] == '\r') &&
         !(css_input[i-1] == '\\' && !CSSUtils::escaped(css_input,i-1)) )
     {
         temp_add = "\\A ";
         log("Fixed incorrect newline in string",Warning);
     }
-    if (!(str_char == ')' && 
-          CSSUtils::char2str(css_input[i]).find_first_of(" \n\t\r\0xb") != std::string::npos && !str_in_str))
+    if (!(str_char == ')' && QString(" \n\t\r\0xb").contains(css_input[i]) && !str_in_str))
     {
         cur_string += temp_add;
     }
     if(css_input[i] == str_char && !CSSUtils::escaped(css_input,i) && str_in_str == false)
     {
         astatus = afrom;
+        // Quotes are optional so leave them alone (ie. act like a parser not an optimizer)
+#if 0
         if (cur_function == "" && 
-            cur_string.find_first_of(" \n\t\r\0xb") == std::string::npos &&
+            CSSUtils::find_first_of(cur_string, " \n\t\r\0xb") == -1 &&
             cur_property != "content" && cur_sub_value != "format")
         {
             // If the string is not inside a function call, contains no whitespace, 
@@ -824,12 +820,13 @@ void CSSParser::parseInString(std::string& css_input, int& i, parse_status& asta
             {
                 // If the string is in double or single quotes, remove them
                 // FIXME: once url() is handled separately, this may always be the case.
-                cur_string = cur_string.substr(1, cur_string.length() - 2);
+                cur_string = cur_string.mid(1, cur_string.length() - 2);
             } else if (cur_string.length() > 3 && (cur_string[1] == '"' || cur_string[1] == '\'')) /* () */ 
             {
-                cur_string = cur_string[0] + cur_string.substr(2, cur_string.length() - 4) + cur_string[cur_string.length()-1];
+                cur_string = cur_string[0] + cur_string.mid(2, cur_string.length() - 4) + cur_string[cur_string.length()-1];
             }
         }
+#endif
         if(afrom == PIV)
         {
             cur_sub_value += cur_string;
@@ -842,19 +839,19 @@ void CSSParser::parseInString(std::string& css_input, int& i, parse_status& asta
 }
 
 
-void CSSParser::parse_css(std::string css_input)
+void CSSParser::parse_css(QString css_input)
 {
     reset_parser();
-    css_input = CSSUtils::str_replace("\r\n","\n",css_input); // Replace newlines
+    css_input = css_input.replace("\r\n","\n"); // Replace newlines
     css_input += "\n";
     parse_status astatus = PIS, afrom;
     parse_status old_status = PIS;
     record_position(PIS, PIS, css_input, 0, true);
-    std::string cur_comment;
+    QString cur_comment;
 
     cur_sub_value_arr.clear();
     cur_function_arr.clear(); // Stack of nested function calls
-    char str_char;
+    QChar str_char;
     bool str_in_str = false;
     bool invalid_at = false;
     bool pn = false;
@@ -862,11 +859,8 @@ void CSSParser::parse_css(std::string css_input)
     int str_size = css_input.length();
     for(int i = 0; i < str_size; ++i)
     {
-        if(css_input[i] == '\n' || css_input[i] == '\r')
-        {
-            ++line;
-        }
-
+        // track line number
+        if(css_input[i] == '\n') ++line;
 
         // record current position for selected state transitions
         if (old_status != astatus)
@@ -909,51 +903,56 @@ void CSSParser::parse_css(std::string css_input)
                 break;
         }
     }
+    // validate that every selector start had its own selector end
+    if (selector_nest_level != 0)
+    {
+        log("Unbalanced selector braces in style sheet", Error, line);
+    }
 }
 
 
-bool CSSParser::property_is_next(std::string istring, int pos)
+bool CSSParser::property_is_next(QString istring, int pos)
 {
-    istring = istring.substr(pos,istring.length()-pos);
-    pos = istring.find_first_of(':',0);
-    if(pos == std::string::npos)
+    istring = istring.mid(pos,istring.length()-pos);
+    pos = CSSUtils::find_first_of(istring, ":");
+    if(pos == -1)
     {
         return false;
     }
-    istring = CSSUtils::strtolower(CSSUtils::trim(istring.substr(0,pos)));
+    istring = CSSUtils::strtolower(CSSUtils::trim(istring.mid(0,pos)));
     return CSSProperties::instance()->contains(istring);
 }
 
 
-std::vector<std::string> CSSParser::get_parse_errors()
+QVector<QString> CSSParser::get_parse_errors()
 { 
     return get_logs(CSSParser::Error);
 }
 
 
-std::vector<std::string> CSSParser::get_parse_warnings()
+QVector<QString> CSSParser::get_parse_warnings()
 {
     return get_logs(CSSParser::Warning);
 }
 
 
-std::vector<std::string> CSSParser::get_parse_info()
+QVector<QString> CSSParser::get_parse_info()
 {
     return get_logs(CSSParser::Information);
 }
 
 
-std::vector<std::string> CSSParser::get_logs(CSSParser::message_type mt)
+QVector<QString> CSSParser::get_logs(CSSParser::message_type mt)
 {
-    std::vector<std::string> res;
+    QVector<QString> res;
     if(logs.size() > 0)
     {
-        for(std::map<int, std::vector<message> >::iterator j = logs.begin(); j != logs.end(); j++ )
+        for(QMap<int, QVector<message> >::iterator j = logs.begin(); j != logs.end(); j++ )
         {
-            for(int i = 0; i < j->second.size(); ++i)
+            for(int i = 0; i < j.value().size(); ++i)
             {
-                if (j->second[i].t == mt) {
-                    res.push_back(std::to_string(j->first) + ": " + j->second[i].m);
+                if (j.value()[i].t == mt) {
+                    res.push_back(QString::number(j.key()) + ": " + j.value()[i].m);
                 }
             }
         }
@@ -963,7 +962,7 @@ std::vector<std::string> CSSParser::get_logs(CSSParser::message_type mt)
 
 
 // allow a new set of csstokens to be loaded and then serialized
-void CSSParser::set_csstokens(const std::vector<CSSParser::token> &ntokens)
+void CSSParser::set_csstokens(const QVector<CSSParser::token> &ntokens)
 {
     csstokens.clear();
     for(int i = 0; i < ntokens.size(); i++)
@@ -976,7 +975,7 @@ void CSSParser::set_csstokens(const std::vector<CSSParser::token> &ntokens)
 
 // update the position only for selected state transitions
 void CSSParser::record_position(parse_status old_status, parse_status new_status,
-                                std::string &css_input, int i, bool force)
+                                QString &css_input, int i, bool force)
 {
     // to reach here old_status must be != new_status
     bool record = false;
@@ -998,6 +997,10 @@ void CSSParser::record_position(parse_status old_status, parse_status new_status
     if ((old_status == PIP) && (new_status == PIS)) record = true;
 
     if (record || force) {
-        spos = css_input.find_first_not_of(" \n\t\r\0xb", i);
+        spos = CSSUtils::find_first_not_of(css_input, " \n\t\r\0xb", i);
+        sline = line;
+        for(int j = i+1; j <= spos; j++) {
+            if (css_input[j] == '\n') sline++;
+        }
     }
 }

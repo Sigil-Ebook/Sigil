@@ -336,12 +336,12 @@ set( MISC_FILES
     Misc/CSSHighlighter.h
     Misc/CSSInfo.cpp
     Misc/CSSInfo.h
-    Misc/CSSParser.cpp
-    Misc/CSSParser.h
-    Misc/CSSUtils.cpp
-    Misc/CSSUtils.h
-    Misc/CSSProperties.cpp
-    Misc/CSSProperties.h
+    Misc/qCSSParser.cpp
+    Misc/qCSSParser.h
+    Misc/qCSSUtils.cpp
+    Misc/qCSSUtils.h
+    Misc/qCSSProperties.cpp
+    Misc/qCSSProperties.h
     Misc/DiffRec.h
     Misc/HTMLEncodingResolver.cpp
     Misc/HTMLEncodingResolver.h

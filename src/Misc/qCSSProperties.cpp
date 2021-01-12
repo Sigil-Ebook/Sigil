@@ -1,32 +1,45 @@
 /************************************************************************
-**
-**  Copyright (C) 2021  Kevin B. Hendricks, Stratford, Ontario, Canada
-**
-**  This file is part of Sigil.
-**
-**  Sigil is free software: you can redistribute it and/or modify
-**  it under the terms of the GNU General Public License as published by
-**  the Free Software Foundation, either version 3 of the License, or
-**  (at your option) any later version.
-**
-**  Sigil is distributed in the hope that it will be useful,
-**  but WITHOUT ANY WARRANTY; without even the implied warranty of
-**  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-**  GNU General Public License for more details.
-**
-**  You should have received a copy of the GNU General Public License
-**  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
-**
-** Extracted and modified from:
-** CSSTidy Copyright 2005-2007 Florian Schmitz
-** Available under the LGPL 2.1
-** You should have received a copy of the GNU Lesser General Public License
-** along with this program.  If not, see <http://www.gnu.org/licenses/>.
-**
-*************************************************************************/
+ **
+ **  Copyright (C) 2021  Kevin B. Hendricks, Stratford, Ontario, Canada
+ **
+ **  This file is part of Sigil.
+ **
+ **  Sigil is free software: you can redistribute it and/or modify
+ **  it under the terms of the GNU General Public License as published by
+ **  the Free Software Foundation, either version 3 of the License, or
+ **  (at your option) any later version.
+ **
+ **  Sigil is distributed in the hope that it will be useful,
+ **  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ **  GNU General Public License for more details.
+ **
+ **  You should have received a copy of the GNU General Public License
+ **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
+ **
+ ** Extracted and modified from:
+ ** CSSTidy (https://github.com/csstidy-c/csstidy)
+ **
+ ** CSSTidy Portions Copyright:
+ **   Florian Schmitz <floele@gmail.com>
+ **   Thierry Charbonnel
+ **   Will Mitchell <aethon@gmail.com>
+ **   Brett Zamir <brettz9@yahoo.com>
+ **   sined_ <sined_@users.sourceforge.net>
+ **   Dmitry Leskov <git@dmitryleskov.com>
+ **   Kevin Coyner <kcoyner@debian.org>
+ **   Tuukka Pasanen <pasanen.tuukka@gmail.com>
+ **   Frank W. Bergmann <csstidy-c@tuxad.com>
+ **   Frank Dana <ferdnyc@gmail.com>
+ **
+ ** CSSTidy us Available under the LGPL 2.1
+ ** You should have received a copy of the GNU Lesser General Public License
+ ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ **
+ *************************************************************************/
 
-#include <string>
-#include "Misc/CSSProperties.h"
+#include <QString>
+#include "Misc/qCSSProperties.h"
 
 CSSProperties *CSSProperties::m_instance = 0;
 
@@ -39,13 +52,13 @@ CSSProperties *CSSProperties::instance()
 }
 
 
-bool CSSProperties::contains(std::string pname)
+bool CSSProperties::contains(QString pname)
 {
-    return m_all_properties.count(pname) == 1;
+    return m_all_properties.contains(pname);
 }
 
 
-std::string CSSProperties::levels(std::string pname)
+QString CSSProperties::levels(QString pname)
 {
     if (contains(pname)) {
         return m_all_properties[pname];
@@ -339,5 +352,16 @@ CSSProperties::CSSProperties()
         m_all_properties["word-wrap"] = "CSS3.0";
         m_all_properties["z-index"] = "CSS2.0,CSS2.1,CSS3.0";
         m_all_properties["zoom"] = "CSS3.0";
+        m_all_properties["-epub-text-orientation"] = "CSS3.0";
+        m_all_properties["-epub-writing-mode"] = "CSS3.0";
+        m_all_properties["-epub-text-combine"] = "CSS3.0";
+        m_all_properties["-epub-hyphens"] = "CSS3.0";
+        m_all_properties["-epub-line-break"] = "CSS3.0";
+        m_all_properties["-epub-text-align-last"] = "CSS3.0";
+        m_all_properties["-epub-word-break"] = "CSS3.0";
+        m_all_properties["-epub-text-emphasis-color"] = "CSS3.0";
+        m_all_properties["-epub-text-emphasis-position"] = "CSS3.0";
+        m_all_properties["-epub-text-emphasis-style"] = "CSS3.0";
+        m_all_properties["-epub-text-underline-position"] = "CSS3.0";
     }
 }
