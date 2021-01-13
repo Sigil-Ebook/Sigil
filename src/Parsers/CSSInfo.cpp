@@ -22,11 +22,11 @@
 **
 *************************************************************************/
 
-#include "Misc/EmbeddedPython.h"
+#include "EmbedPython/EmbeddedPython.h"
 
 #include <QRegularExpression>
 #include "Misc/Utility.h"
-#include "Misc/CSSInfo.h"
+#include "Parsers/CSSInfo.h"
 
 const int TAB_SPACES_WIDTH = 4;
 const QString LINE_MARKER("[SIGIL_NEWLINE]");

@@ -30,12 +30,12 @@
 #include <QtGui/QStandardItem>
 #include <QtCore/QUrl>
 
-#include "Misc/CSSInfo.h"
+#include "Parsers/CSSInfo.h"
 #include "Misc/PasteTarget.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
-#include "Misc/TextDocument.h"
-#include "Misc/TagLister.h"
+#include "Widgets/TextDocument.h"
+#include "Parsers/TagLister.h"
 #include "MiscEditors/ClipEditorModel.h"
 #include "MiscEditors/IndexEditorModel.h"
 #include "ViewEditors/ViewEditor.h"

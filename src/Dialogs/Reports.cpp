@@ -26,7 +26,7 @@
 
 #include "Dialogs/Reports.h"
 #include "Misc/SettingsStore.h"
-#include "Misc/CSSInfo.h"
+#include "Parsers/CSSInfo.h"
 #include "ReportsWidgets/AllFilesWidget.h"
 #include "ReportsWidgets/HTMLFilesWidget.h"
 #include "ReportsWidgets/LinksWidget.h"

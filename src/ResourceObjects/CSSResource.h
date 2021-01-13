@@ -26,7 +26,7 @@
 #ifndef CSSRESOURCE_H
 #define CSSRESOURCE_H
 
-#include "Misc/CSSInfo.h"
+#include "Parsers/CSSInfo.h"
 #include "ResourceObjects/TextResource.h"
 
 /**

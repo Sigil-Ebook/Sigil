@@ -21,7 +21,7 @@
 **
 *************************************************************************/
 
-#include "Misc/EmbeddedPython.h"
+#include "EmbedPython/EmbeddedPython.h"
 #include <iostream>
 
 #include <QtCore/QCoreApplication>
@@ -64,7 +64,7 @@
 #include "sigil_exception.h"
 
 #if TEST_GUMBO_QUERY
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "Query/CSelection.h"
 #include "Query/CNode.h"
 #endif

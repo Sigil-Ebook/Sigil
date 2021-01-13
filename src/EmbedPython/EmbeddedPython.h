@@ -28,7 +28,7 @@
 #include <QString>
 #include <QVariant>
 #include <QMutex>
-#include "Misc/PyObjectPtr.h"
+#include "EmbedPython/PyObjectPtr.h"
 
 /**
  * Singleton.

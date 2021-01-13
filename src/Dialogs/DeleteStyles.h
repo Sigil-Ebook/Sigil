@@ -25,7 +25,7 @@
 
 #include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
-#include "Misc/CSSInfo.h"
+#include "Parsers/CSSInfo.h"
 
 #include "ui_DeleteStyles.h"
 

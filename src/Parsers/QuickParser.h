@@ -22,7 +22,7 @@
 #ifndef QUICK_PARSER
 #define QUICK_PARSER
 
-#include "Misc/TagAtts.h"
+#include "Parsers/TagAtts.h"
 
 class TagAtts;
 class QString;

@@ -98,7 +98,7 @@
 #include "Misc/OpenExternally.h"
 #include "Misc/Plugin.h"
 #include "Misc/PluginDB.h"
-#include "Misc/PythonRoutines.h"
+#include "EmbedPython/PythonRoutines.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SleepFunctions.h"
 #include "Misc/SpellCheck.h"

@@ -30,7 +30,7 @@
 #include "BookManipulation/Book.h"
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
 #include "Misc/HTMLSpellCheck.h"

@@ -20,7 +20,7 @@
 **
 *************************************************************************/
 
-#include "Misc/EmbeddedPython.h"
+#include "EmbedPython/EmbeddedPython.h"
 
 #include <QtCore/QString>
 #include <QtCore/QStringList>
@@ -32,7 +32,7 @@
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"

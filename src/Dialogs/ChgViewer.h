@@ -28,7 +28,7 @@
 #include <QLabel>
 #include <QDialog>
 
-#include "Misc/DiffRec.h"
+#include "EmbedPython/DiffRec.h"
 
 class Navigator;
 class TextView;

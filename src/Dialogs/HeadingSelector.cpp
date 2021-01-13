@@ -28,7 +28,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Dialogs/HeadingSelector.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"

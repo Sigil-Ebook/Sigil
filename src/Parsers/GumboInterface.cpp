@@ -31,7 +31,7 @@
 #include "Misc/Utility.h"
 #include "Query/CSelection.h"
 #include "Query/CNode.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "string_buffer.h"
 #include "error.h"
 

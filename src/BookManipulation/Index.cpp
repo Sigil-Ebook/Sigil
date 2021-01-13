@@ -31,7 +31,7 @@
 #include <QDebug>
 
 #include "ResourceObjects/HTMLResource.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "MiscEditors/IndexEditorModel.h"
 #include "BookManipulation/Index.h"

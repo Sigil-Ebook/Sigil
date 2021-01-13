@@ -39,7 +39,7 @@
 #include "Dialogs/ViewImage.h"
 #include "MainUI/FindReplace.h"
 #include "MainUI/TOCModel.h"
-#include "Misc/CSSInfo.h"
+#include "Parsers/CSSInfo.h"
 #include "Misc/PasteTarget.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/ValidationResult.h"

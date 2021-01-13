@@ -39,7 +39,7 @@
  *************************************************************************/
 
 #include <QString>
-#include "Misc/qCSSProperties.h"
+#include "Parsers/qCSSProperties.h"
 
 CSSProperties *CSSProperties::m_instance = 0;
 

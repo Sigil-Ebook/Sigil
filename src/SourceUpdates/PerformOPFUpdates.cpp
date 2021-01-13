@@ -20,7 +20,7 @@
 **
 *************************************************************************/
 
-#include "Misc/EmbeddedPython.h"
+#include "EmbedPython/EmbeddedPython.h"
 #include <QStringList>
 #include <QFileInfo>
 #include <QDir>

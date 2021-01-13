@@ -25,7 +25,7 @@
 #define TEXTRESOURCE_H
 
 #include <QtCore/QMutex>
-#include "Misc/TextDocument.h"
+#include "Widgets/TextDocument.h"
 #include "ResourceObjects/Resource.h"
 
 

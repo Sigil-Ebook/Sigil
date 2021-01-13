@@ -26,7 +26,7 @@
 #include <QDebug>
 
 #include "Misc/Utility.h"
-#include "Misc/TagLister.h"
+#include "Parsers/TagLister.h"
 
 TagLister::TagLister(const QString &source)
     : m_source(source),

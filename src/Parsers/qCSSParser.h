@@ -46,8 +46,6 @@
 #include <QString>
 #include <QVector>
 #include <QMap>
-#include "Misc/qCSSProperties.h"
-#include "Misc/qCSSUtils.h"
 
 class CSSParser 
 { 

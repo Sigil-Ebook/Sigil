@@ -26,7 +26,7 @@
 
 #include <memory>
 
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "ViewEditors/ViewEditor.h"
 
 class QString;

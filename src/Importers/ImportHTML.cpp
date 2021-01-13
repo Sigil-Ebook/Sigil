@@ -35,7 +35,7 @@
 #include "BookManipulation/HTMLMetadata.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Importers/ImportHTML.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "Misc/HTMLEncodingResolver.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/TempFolder.h"

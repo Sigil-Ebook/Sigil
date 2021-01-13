@@ -42,8 +42,8 @@
 #include "Dialogs/ChgViewer.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
-#include "Misc/DiffRec.h"
-#include "Misc/PythonRoutines.h"
+#include "EmbedPython/DiffRec.h"
+#include "EmbedPython/PythonRoutines.h"
 
 #include "Dialogs/CPCompare.h"
 

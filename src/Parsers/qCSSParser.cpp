@@ -39,9 +39,9 @@
  *************************************************************************/
 
 #include <QTextStream>
-#include "Misc/qCSSProperties.h"
-#include "Misc/qCSSUtils.h"
-#include "Misc/qCSSParser.h"
+#include "Parsers/qCSSProperties.h"
+#include "Parsers/qCSSUtils.h"
+#include "Parsers/qCSSParser.h"
 
 /* PIS = in selector
  * PIP = in property

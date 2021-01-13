@@ -33,7 +33,7 @@
 
 #include "Misc/Utility.h"
 #include "Misc/SettingsStore.h"
-#include "Misc/PythonRoutines.h"
+#include "EmbedPython/PythonRoutines.h"
 #include "Dialogs/RepoLog.h"
 #include "Dialogs/ManageRepos.h"
 

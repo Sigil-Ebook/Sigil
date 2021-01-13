@@ -18,13 +18,13 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
+#include "EmbedPython/EmbeddedPython.h"
 
-#include "Misc/EmbeddedPython.h"
 #include <QString>
 #include <QList>
 #include <QVariant>
 
-#include "Misc/PythonRoutines.h"
+#include "EmbedPython/PythonRoutines.h"
 
 
 QString PythonRoutines::GenerateNcxInPython(const QString &navdata, const QString &navbkpath, 

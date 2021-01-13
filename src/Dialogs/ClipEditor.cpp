@@ -33,7 +33,7 @@
 
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/ClipEditor.h"
-#include "Misc/CSSInfo.h"
+#include "Parsers/CSSInfo.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/CSSResource.h"
 

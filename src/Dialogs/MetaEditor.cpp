@@ -32,7 +32,7 @@
 #include "MainUI/MainWindow.h"
 #include "Misc/Language.h"
 #include "Misc/SettingsStore.h"
-#include "Misc/PythonRoutines.h"
+#include "EmbedPython/PythonRoutines.h"
 
 static const QString SETTINGS_GROUP = "meta_editor";
 

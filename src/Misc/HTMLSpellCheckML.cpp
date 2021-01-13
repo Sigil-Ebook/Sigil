@@ -23,7 +23,7 @@
 #include "Misc/Utility.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
-#include "Misc/QuickParser.h"
+#include "Parsers/QuickParser.h"
 #include "Misc/HTMLSpellCheckML.h"
 
 const int MAX_WORD_LENGTH  = 90;

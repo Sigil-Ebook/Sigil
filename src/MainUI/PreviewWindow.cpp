@@ -39,7 +39,7 @@
 
 #include "MainUI/PreviewWindow.h"
 #include "Dialogs/Inspector.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "Misc/SleepFunctions.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"

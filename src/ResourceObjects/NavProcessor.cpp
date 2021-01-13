@@ -29,7 +29,6 @@
 
 #include "Misc/Utility.h"
 #include "Misc/SettingsStore.h"
-#include "Misc/GumboInterface.h"
 #include "Misc/Landmarks.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "ResourceObjects/Resource.h"

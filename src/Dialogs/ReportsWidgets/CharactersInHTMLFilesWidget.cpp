@@ -36,7 +36,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "Misc/XMLEntities.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "ResourceObjects/HTMLResource.h"
 
 static const QString SETTINGS_GROUP = "reports";

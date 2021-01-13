@@ -26,7 +26,7 @@
 
 #include <QtCore/QHash>
 
-#include "Misc/CSSInfo.h"
+#include "Parsers/CSSInfo.h"
 #include "ResourceObjects/XMLResource.h"
 
 class QString;

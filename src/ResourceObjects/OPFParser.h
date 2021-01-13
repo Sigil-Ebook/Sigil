@@ -27,7 +27,7 @@
 #include <QStringList>
 #include <QHash>
 #include <QVariant>
-#include "Misc/TagAtts.h"
+#include "Parsers/TagAtts.h"
 
 // Note: all hrefs should always be kept in URLEncoded form
 // as decoding urls before splitting into component parts can lead

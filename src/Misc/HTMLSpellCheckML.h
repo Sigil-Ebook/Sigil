@@ -25,7 +25,6 @@
 #define HTMLSPELLCHECKML_H
 
 #include <QStringList>
-#include "Misc/QuickParser.h"
 
 class HTMLSpellCheckML
 {

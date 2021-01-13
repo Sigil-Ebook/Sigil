@@ -29,7 +29,7 @@
 
 #include "ResourceObjects/HTMLResource.h"
 #include "Misc/Utility.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "BookManipulation/CleanSource.h"
 #include "sigil_constants.h"
 #include "SourceUpdates/LinkUpdates.h"

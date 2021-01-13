@@ -20,7 +20,7 @@
 **
 *************************************************************************/
 
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "BookManipulation/CleanSource.h"
 #include "SourceUpdates/PerformCSSUpdates.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"

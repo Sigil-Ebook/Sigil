@@ -22,7 +22,7 @@
 #include <QChar>
 #include <QTextCursor>
 
-#include "Misc/TextDocument.h"
+#include "Widgets/TextDocument.h"
 
 TextDocument::TextDocument(QObject *parent)
  :

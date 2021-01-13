@@ -24,9 +24,8 @@
 #ifndef IMPORTHTML_H
 #define IMPORTHTML_H
 
-#include "Misc/GumboInterface.h"
-#include "BookManipulation/XhtmlDoc.h"
 #include "Importers/Importer.h"
+#include "BookManipulation/XhtmlDoc.h"
 
 class HTMLResource;
 class CSSResource;

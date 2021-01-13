@@ -19,7 +19,7 @@
 **
 *************************************************************************/
 #include <QDebug>
-#include "Misc/TagAtts.h"
+#include "Parsers/TagAtts.h"
 
 TagAtts::TagAtts()
     : m_n(0), m_mapping(QHash<QString, TagAtts::TAttribute*>()), m_anchor(new TagAtts::TAttribute("",""))

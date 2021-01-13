@@ -38,7 +38,7 @@
  **
  *************************************************************************/
  
-#include "Misc/qCSSUtils.h"
+#include "Parsers/qCSSUtils.h"
 
 QString CSSUtils::strtolower(QString istring)
 {

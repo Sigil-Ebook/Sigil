@@ -26,7 +26,7 @@
 #include <QHash>
 #include <QObject>
 
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "ResourceObjects/OPFParser.h"
 
 class QMutex;

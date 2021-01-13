@@ -28,7 +28,7 @@
 #include <QVariant>
 #include <QMetaType>
 
-#include "Misc/DiffRec.h"
+#include "EmbedPython/DiffRec.h"
 
 struct MetadataPieces {
     QString data;

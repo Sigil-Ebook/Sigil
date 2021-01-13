@@ -34,7 +34,7 @@
 #include "BookManipulation/Book.h"
 #include "BookManipulation/BookReports.h"
 #include "BookManipulation/FolderKeeper.h"
-#include "Misc/CSSInfo.h"
+#include "Parsers/CSSInfo.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 

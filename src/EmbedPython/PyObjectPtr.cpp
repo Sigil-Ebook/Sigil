@@ -38,7 +38,7 @@
  *  date    2006-05
  */
 
-#include "PyObjectPtr.h"
+#include "EmbedPython/PyObjectPtr.h"
 
 PyObjectPtr::PyObjectPtr(PyObject* o)
 {

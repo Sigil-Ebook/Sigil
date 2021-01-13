@@ -26,7 +26,7 @@
 #include "BookManipulation/Book.h"
 #include "BookManipulation/Headings.h"
 #include "ResourceObjects/HTMLResource.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "MainUI/TOCModel.h"
 
 struct NavTOCEntry {

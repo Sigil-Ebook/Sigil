@@ -30,7 +30,7 @@
 
 #include "BookManipulation/Headings.h"
 #include "BookManipulation/XhtmlDoc.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "sigil_constants.h"

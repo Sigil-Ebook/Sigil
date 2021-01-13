@@ -20,7 +20,7 @@
 **
 *************************************************************************/
 
-#include "Misc/EmbeddedPython.h"
+#include "EmbedPython/EmbeddedPython.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/OPFParser.h"
 #include <QDebug>

@@ -29,7 +29,7 @@
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "sigil_exception.h"
 

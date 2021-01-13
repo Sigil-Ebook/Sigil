@@ -23,7 +23,7 @@
 #include <memory>
 #include <functional>
 
-#include "Misc/EmbeddedPython.h"
+#include "EmbedPython/EmbeddedPython.h"
 #include <QtCore/QtCore>
 #include <QtCore/QString>
 #include <QtCore/QHash>
@@ -31,7 +31,7 @@
 #include <QDebug>
 
 #include "Misc/Utility.h"
-#include "Misc/GumboInterface.h"
+#include "Parsers/GumboInterface.h"
 #include "BookManipulation/CleanSource.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"

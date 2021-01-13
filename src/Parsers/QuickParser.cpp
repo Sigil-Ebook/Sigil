@@ -24,9 +24,9 @@
 #include <QStringList>
 #include <QDebug>
 
-#include "Misc/TagAtts.h"
+#include "Parsers/TagAtts.h"
 #include "Misc/Utility.h"
-#include "Misc/QuickParser.h"
+#include "Parsers/QuickParser.h"
 
 QuickParser::QuickParser(const QString &source, QString default_lang)
         : m_source(source),

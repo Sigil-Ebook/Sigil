@@ -32,7 +32,7 @@
 #include "sigil_exception.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/ReportsWidgets/StylesInCSSFilesWidget.h"
-#include "Misc/CSSInfo.h"
+#include "Parsers/CSSInfo.h"
 #include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
