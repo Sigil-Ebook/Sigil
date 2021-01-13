@@ -54,6 +54,7 @@ public:
         int position;               /* The position in the file of the full selector name          */
         int openingBracePos;        /* Location of the opening brace which contains properties     */
         int closingBracePos;        /* Location of the closing brace which contains properties     */
+        bool combinator;            /* indicates if selector uses a combinator " +>~"              */
 
         bool operator<(const CSSSelector &rhs) const {
             return line < rhs.line;

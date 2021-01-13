@@ -32,6 +32,8 @@ const int TAB_SPACES_WIDTH = 4;
 const QString LINE_MARKER("[SIGIL_NEWLINE]");
 static const QString DELIMITERS = "}{;";
 
+static QRegularExpression COMBRE("[ \\r\\t\\n\\f\\+>\\~]"); 
+
 
 // Note: CSSProperties and CSSSelectors are simple struct that this code
 // created with new and so need to be manually cleaned up to prevent
@@ -533,13 +535,19 @@ void CSSInfo::parseCSSSelectors(const QString &text, const int &offsetLines, con
             selector->closingBracePos = close_brace_pos + offsetPos;
             // Need to parse our selector text to determine what sort of selector it contains.
             // First strip out any attributes and then identifiers
+            match = match.trimmed();
+            selector->combinator = match.indexOf(COMBRE, 0);
             match.replace(strip_attributes_regex, "");
             match.replace(strip_ids_regex, "");
             // Also replace any other characters like > or + not of interest
             match.replace(strip_non_name_chars_regex, QChar(' '));
             // Now break it down into the element components
             QStringList elements = match.trimmed().split(QChar(' '), QString::SkipEmptyParts);
+            int i = 0;
             foreach(QString element, elements) {
+                // for safety if in combinator, use only base class or element
+                if (selector->combinator && (i > 0)) continue;
+
                 if (element.contains(QChar('.'))) {
                     QStringList parts = element.split('.');
 
@@ -553,6 +561,7 @@ void CSSInfo::parseCSSSelectors(const QString &text, const int &offsetLines, con
                 } else {
                     selector->elementNames.append(element);
                 }
+                i++;
             }
             m_CSSSelectors.append(selector);
         }
