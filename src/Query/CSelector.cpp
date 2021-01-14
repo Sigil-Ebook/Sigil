@@ -75,7 +75,7 @@ bool CSelector::match(GumboNode* apNode)
 			{
 				GumboNode* child = (GumboNode*) parent->v.element.children.data[i];
 				if (child->type != GUMBO_NODE_ELEMENT
-						|| (mOfType && apNode->v.element.tag == child->v.element.tag))
+						|| (mOfType && apNode->v.element.tag != child->v.element.tag))
 				{
 					continue;
 				}
@@ -107,7 +107,7 @@ bool CSelector::match(GumboNode* apNode)
 			{
 				GumboNode* child = (GumboNode*) parent->v.element.children.data[j];
 				if (child->type != GUMBO_NODE_ELEMENT
-						|| (mOfType && apNode->v.element.tag == child->v.element.tag))
+						|| (mOfType && apNode->v.element.tag != child->v.element.tag))
 				{
 					continue;
 				}
