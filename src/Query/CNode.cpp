@@ -36,6 +36,22 @@
 #include "Query/CSelection.h"
 #include "Query/CQueryUtil.h"
 
+
+static std::unordered_set<std::string> void_tags          = {
+    "area","base","basefont","bgsound","br","col","command","embed",
+    "event-source","frame","hr","img","input","keygen","link",
+    "meta","param","source","spacer","track","wbr", 
+    "mbp:pagebreak", "mglyph", "mspace", "mprescripts", "none",
+    "maligngroup", "malignmark", "msline"
+};
+
+
+bool CNode::in_set(std::unordered_set<std::string> &s, std::string key)
+{
+    return s.find(key) != s.end();
+}
+
+
 CNode::CNode(GumboNode* apNode)
 {
 	mpNode = apNode;
@@ -111,6 +127,7 @@ std::string CNode::ownText()
     return "";
 }
 
+// starting position of possible contents of tag or text
 size_t CNode::startPos()
 {
     if (!valid()) return 0;
@@ -118,14 +135,20 @@ size_t CNode::startPos()
     switch(mpNode->type)
     {
         case GUMBO_NODE_ELEMENT:
-	    return mpNode->v.element.start_pos.offset + mpNode->v.element.original_tag.length;
+            if (in_set(void_tags, tag())) {
+                // nothing is contained in a void tag so where should this point?
+                // after the void tag closing '>" makes no sense
+                return 0;
+            }
+	        return mpNode->v.element.start_pos.offset + mpNode->v.element.original_tag.length;
         case GUMBO_NODE_TEXT:
-	    return mpNode->v.text.start_pos.offset;
+	        return mpNode->v.text.start_pos.offset;
         default:
-	    return 0;
+	        return 0;
     }
 }
 
+// ending position of possible contents
 size_t CNode::endPos()
 {
     if (!valid()) return 0;
@@ -133,14 +156,20 @@ size_t CNode::endPos()
     switch(mpNode->type)
     {
         case GUMBO_NODE_ELEMENT:
-	    return mpNode->v.element.end_pos.offset;
-	case GUMBO_NODE_TEXT:
-	    return mpNode->v.text.original_text.length + startPos();
-	default:
-	    return 0;
+            if (in_set(void_tags, tag())) {
+                // nothing is contained in a void tag so where should this point?
+                // mpNode->v.element.end_pos.offset + mpNode->v.element.original_tag_length;
+                return 0;
+            }
+	        return mpNode->v.element.end_pos.offset;
+	    case GUMBO_NODE_TEXT:
+	        return mpNode->v.text.original_text.length + startPos();
+	    default:
+	        return 0;
     }
 }
 
+// starting point of tag or text itself 
 size_t CNode::startPosOuter()
 {
     if (!valid()) return 0;
@@ -156,6 +185,7 @@ size_t CNode::startPosOuter()
     }
 }
 
+// ending position of its closing tag or end of text
 size_t CNode::endPosOuter()
 {
     if (!valid()) return 0;
@@ -163,6 +193,9 @@ size_t CNode::endPosOuter()
     switch(mpNode->type)
     {
 	case GUMBO_NODE_ELEMENT:
+        if (in_set(void_tags, tag())) {
+            return mpNode->v.element.end_pos.offset + mpNode->v.element.original_tag.length;
+        }
 	    return mpNode->v.element.end_pos.offset + mpNode->v.element.original_end_tag.length;
 	case GUMBO_NODE_TEXT:
 	    return mpNode->v.text.original_text.length + startPos();

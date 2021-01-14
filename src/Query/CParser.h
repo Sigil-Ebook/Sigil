@@ -98,6 +98,8 @@ class CParser
 
 		std::string error(std::string message);
 
+        std::string str_replace(const std::string& find, const std::string &replace, std::string str);
+
 	private:
 
 		std::string mInput;

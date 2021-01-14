@@ -34,7 +34,7 @@
 
 #include <exception>
 #include <stdexcept>
-
+#include <vector>
 #include <string>
 
 class QueryParserException : public std::runtime_error
@@ -47,11 +47,58 @@ public:
 #include "Query/CSelector.h"
 #include "Query/CQueryUtil.h"
 
+// The following CSS Pseudo Classes do not actually select an element statically
+// and instead rely on an active user's input inside the browser.
+// Therefore they should be stripped out before being passed to the parser
+//
+// Remove:
+//   :active, :checked, :disabled, :enabled, :focus, :hover, :in-range
+//   :invalid, :link, :optional, :out-of-range, :read-only, :read-write
+//   :required, :target, :valid, :visited 
+//   And Pseudo Elements: ::after, ::before, ::first_letter, ::first_line, ::selection
+
+static const std::vector<std::string> FILTER_PSEUDOS = {
+    ":active",":checked",":disabled",":enabled",":focus",":hover",":in-range",":invalid",
+    ":link",":optional",":out-of-range",":read-only",":read-write",":required",":target",
+    ":valid",":visited","::after",":after","::before",":before","::first-letter",
+    ":first-letter", "::first-line", ":first-line", "::selection", ":selection"
+};
+
+// Supported:
+//   :empty, :first_child, :first_of_type, :last-child,
+//   :last-of_type, :nth-child(n), :nth-last-child(n),
+//   :nth-last-of-type(n), :nth-of_type(n), :only-of-type, :only-child, 
+//   :not(), :has(), :haschild(), contains(), containsown()
+//
+// Currently unsupported (yet)
+//    :root, lang(language)
+//
+
+std::string CParser::str_replace(const std::string &find, const std::string &replace, std::string str)
+{
+    int len = find.length();
+    int replace_len = replace.length();
+    int pos = str.find(find);
+
+    while(pos != std::string::npos)
+        {  
+            str.replace(pos, len, replace);
+            pos = str.find(find, pos + replace_len);
+        }
+    return str;
+}
+
+
 CParser::CParser(std::string aInput)
 {
-	mInput = aInput;
+    std::string filtered_input = aInput;
+    for(int i=0; i < FILTER_PSEUDOS.size(); i++) {
+        filtered_input = str_replace(FILTER_PSEUDOS[i], "", filtered_input);
+    }
+	mInput = filtered_input;
 	mOffset = 0;
 }
+
 
 CParser::~CParser()
 {
@@ -264,7 +311,7 @@ void CParser::parseNth(int& aA, int& aB)
 			}
 			else
 			{
-                            throw QueryParserException(error("expected 'odd' or 'even', invalid found"));
+                throw QueryParserException(error("expected 'odd' or 'even', invalid found"));
 			}
 			return;
 		}
@@ -497,7 +544,7 @@ CSelector* CParser::parsePseudoclassSelector()
 	else if (name == "matches" || name == "matchesown")
 	{
 		//TODO
-                throw QueryParserException(error("unsupported regex"));
+        throw QueryParserException(error("unsupported regex"));
 	}
 	else if (name == "nth-child" || name == "nth-last-child" || name == "nth-of-type"
 			|| name == "nth-last-of-type")
@@ -548,7 +595,7 @@ CSelector* CParser::parsePseudoclassSelector()
 	}
 	else
 	{
-            throw QueryParserException(error("unsupported op:" + name));
+        throw QueryParserException(error("unsupported op:" + name));
 	}
 }
 

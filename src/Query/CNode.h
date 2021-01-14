@@ -39,54 +39,57 @@
 #include "gumbo_edit.h"
 
 #include <string>
+#include <unordered_set>
 
 class CSelection;
 
 class CNode
 {
-	public:
+    public:
 
-		CNode(GumboNode* apNode = NULL);
+        CNode(GumboNode* apNode = NULL);
 
-		virtual ~CNode();
+        virtual ~CNode();
 
-	public:
+    public:
 
-		bool valid();
+        bool valid();
 
-		CNode parent();
+        CNode parent();
 
-		CNode nextSibling();
+        CNode nextSibling();
 
-		CNode prevSibling();
+        CNode prevSibling();
 
-		unsigned int childNum();
+        unsigned int childNum();
 
-		CNode childAt(size_t i);
+        CNode childAt(size_t i);
 
-		std::string attribute(std::string key);
+        std::string attribute(std::string key);
 
-		std::string text();
+        std::string text();
 
-		std::string ownText();
+        std::string ownText();
 
-		size_t startPos();
+        size_t startPos();
 
-		size_t endPos();
+        size_t endPos();
 
-		size_t startPosOuter();
+        size_t startPosOuter();
 
-		size_t endPosOuter();
+        size_t endPosOuter();
 
-		std::string tag();
+        std::string tag();
 
-                GumboNode* raw();
+        GumboNode* raw();
 
-		CSelection find(std::string aSelector);
+        CSelection find(std::string aSelector);
 
-	private:
+    private:
 
-		GumboNode* mpNode;
+        static bool in_set(std::unordered_set<std::string> &s, std::string key);
+
+        GumboNode* mpNode;
 };
 
 #endif /* CNODE_H_ */
