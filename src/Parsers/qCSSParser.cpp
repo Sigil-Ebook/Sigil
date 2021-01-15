@@ -79,6 +79,7 @@ CSSParser::CSSParser()
     at_rules["namespace"] = PIV;
     at_rules["media"] = PAT;
     at_rules["keyframes"] = PAT;
+    at_rules["supports"] = PAT;
     at_rules["-moz-keyframes"] = PAT;
     at_rules["-ms-keyframes"] = PAT;
     at_rules["-o-keyframes"] = PAT;
@@ -183,7 +184,7 @@ void CSSParser::add_token(const token_type ttype, const QString data)
     temp.data = (ttype == COMMENT) ? data : CSSUtils::trim(data);
     csstokens.push_back(temp);
     if (ttype == SEL_START) selector_nest_level++;
-    if (ttype == SEL_END) selector_nest_level++;
+    if (ttype == SEL_END) selector_nest_level--;
 }
 
 void CSSParser::log(const QString msg, const message_type type, int iline)
