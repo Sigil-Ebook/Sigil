@@ -136,6 +136,20 @@ bool CSelector::match(GumboNode* apNode)
 		}
 		case ETag:
 			return apNode->type == GUMBO_NODE_ELEMENT && apNode->v.element.tag == mTag;
+		case ERoot:
+		{
+			if (apNode->type != GUMBO_NODE_ELEMENT)
+			{
+				return false;
+			}
+
+			GumboNode* parent = apNode->parent;
+			if (parent == NULL)
+			{
+				return false;
+			}
+			return parent->type == GUMBO_NODE_DOCUMENT;
+		}
 		default:
 			return false;
 	}

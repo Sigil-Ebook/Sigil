@@ -58,6 +58,8 @@ class CSelector: public CObject
 			ENthChild,
 			//
 			ETag,
+			//
+			ERoot,
 		} TOperator;
 	public:
 

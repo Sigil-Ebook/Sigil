@@ -68,10 +68,10 @@ static const std::vector<std::string> FILTER_PSEUDOS = {
 //   :empty, :first_child, :first_of_type, :last-child,
 //   :last-of_type, :nth-child(n), :nth-last-child(n),
 //   :nth-last-of-type(n), :nth-of_type(n), :only-of-type, :only-child, 
-//   :not(), :has(), :haschild(), contains(), containsown()
+//   :not(), :has(), :haschild(), :contains(), :containsown(), :root
 //
 // Currently unsupported (yet)
-//    :root, lang(language)
+//    lang(language)
 //
 
 std::string CParser::str_replace(const std::string &find, const std::string &replace, std::string str)
@@ -592,6 +592,10 @@ CSelector* CParser::parsePseudoclassSelector()
 	else if (name == "empty")
 	{
 		return new CSelector(CSelector::EEmpty);
+	}
+	else if (name == "root")
+	{
+		return new CSelector(CSelector::ERoot);
 	}
 	else
 	{
