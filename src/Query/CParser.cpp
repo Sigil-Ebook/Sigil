@@ -68,10 +68,8 @@ static const std::vector<std::string> FILTER_PSEUDOS = {
 //   :empty, :first_child, :first_of_type, :last-child,
 //   :last-of_type, :nth-child(n), :nth-last-child(n),
 //   :nth-last-of-type(n), :nth-of_type(n), :only-of-type, :only-child, 
-//   :not(), :has(), :haschild(), :contains(), :containsown(), :root
-//
-// Currently unsupported (yet)
-//    lang(language)
+//   :not(), :has(), :haschild(), :contains(), :containsown(), :root,
+//   :lang()
 //
 
 std::string CParser::str_replace(const std::string &find, const std::string &replace, std::string str)
@@ -540,6 +538,35 @@ CSelector* CParser::parsePseudoclassSelector()
                     throw QueryParserException(error("impossibile"));
 		}
 		return new CTextSelector(op, value);
+	}
+	else if (name == "lang")
+	{
+		if (!consumeParenthesis() || mOffset >= mInput.size())
+		{
+                    throw QueryParserException(error("expected '(' but didn't find it"));
+		}
+
+		std::string alang;
+		char c = mInput[mOffset];
+		if (c == '\'' || c == '"')
+		{
+			alang = parseString();
+		}
+		else
+		{
+			alang = parseIdentifier();
+		}
+		alang = CQueryUtil::tolower(alang);
+		skipWhitespace();
+
+		if (!consumeClosingParenthesis())
+		{
+                   throw QueryParserException(error("expected ')' but didn't find it"));
+		}
+		if (alang.empty()) {
+                   throw QueryParserException(error("lang(language) must be a valid identifier"));
+		}
+		return new CSelector(alang);
 	}
 	else if (name == "matches" || name == "matchesown")
 	{

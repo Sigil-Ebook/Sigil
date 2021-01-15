@@ -60,6 +60,8 @@ class CSelector: public CObject
 			ETag,
 			//
 			ERoot,
+			//
+			ELang,
 		} TOperator;
 	public:
 
@@ -93,6 +95,13 @@ class CSelector: public CObject
 			mTag = aTag;
 		}
 
+                CSelector(std::string aLang)
+		{
+			init();
+			mOp = ELang;
+			mLang = aLang;
+		}
+
 		virtual ~CSelector()
 		{
 		}
@@ -114,6 +123,7 @@ class CSelector: public CObject
 			mB = 0;
 			mLast = false;
 			mTag = GumboTag(0);
+			mLang = "";
 		}
 
 		void matchAllInto(GumboNode* apNode, std::vector<GumboNode*>& nodes);
@@ -131,6 +141,8 @@ class CSelector: public CObject
 		bool mLast;
 
 		GumboTag mTag;
+
+                std::string mLang;
 };
 
 class CUnarySelector: public CSelector

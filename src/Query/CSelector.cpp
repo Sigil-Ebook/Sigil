@@ -150,7 +150,31 @@ bool CSelector::match(GumboNode* apNode)
 			}
 			return parent->type == GUMBO_NODE_DOCUMENT;
 		}
-		default:
+	        case ELang:
+		{
+		    std::string elemLang;
+		    GumboNode * node = apNode;
+		    do {
+			if (node->type == GUMBO_NODE_ELEMENT)
+			{
+			    GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "xml:lang");
+			    if (!attr)
+			    {
+				attr = gumbo_get_attribute(&node->v.element.attributes, "lang");
+			    }
+			    if (attr)
+			    {
+				elemLang = attr->value;
+				elemLang = CQueryUtil::tolower(elemLang);
+				return (elemLang == mLang) || (elemLang.find(mLang + "-") == 0);
+			    }
+			}
+			node = node->parent;
+		    } while(node && node->type == GUMBO_NODE_ELEMENT);
+		    return false;
+		}
+
+	        default:
 			return false;
 	}
 }
