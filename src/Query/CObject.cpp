@@ -1,81 +1,77 @@
-/************************************************************************
+/**********************************************************************************
  **
- **  Copyright (C) 2021 Kevin B. Hendricks, Stratford, ON, Canada
+ **  SigilQuery for Gumbo
  **
- **  This file is part of Sigil.
+ **  A C++ library that provides jQuery-like selectors for Google's Gumbo-Parser.
+ **  Selector engine is an implementation based on cascadia.
  **
- **  Sigil is free software: you can redistribute it and/or modify
- **  it under the terms of the GNU General Public License as published by
- **  the Free Software Foundation, either version 3 of the License, or
- **  (at your option) any later version.
+ **  Based on: "gumbo-query" https://github.com/lazytiger/gumbo-query
+ **  With bug fixes, extensions and improvements
  **
- **  Sigil is distributed in the hope that it will be useful,
- **  but WITHOUT ANY WARRANTY; without even the implied warranty of
- **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- **  GNU General Public License for more details.
- **
- **  You should have received a copy of the GNU General Public License
- **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
+ **  The MIT License (MIT)
+ **  Copyright (c) 2021 Kevin B. Hendricks, Stratford, Ontario Canada
+ **  Copyright (c) 2015 baimashi.com. 
+ **  Copyright (c) 2011 Andy Balholm. All rights reserved.
  **
  **
- ** Taken from:
- ** 
- ** gumbo-query
- ** https://github.com/lazytiger/gumbo-query
+ **  Permission is hereby granted, free of charge, to any person obtaining a copy
+ **  of this software and associated documentation files (the "Software"), to deal
+ **  in the Software without restriction, including without limitation the rights
+ **  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ **  copies of the Software, and to permit persons to whom the Software is
+ **  furnished to do so, subject to the following conditions:
  **
- ** A C++ library that provides jQuery-like selectors for Google's Gumbo-Parser.
- ** Selector engine is an implementation based on cascadia.
+ **  The above copyright notice and this permission notice shall be included in
+ **  all copies or substantial portions of the Software.
  **
- ** Available under the MIT License  
- ** See ORIGINAL_LICENSE file in the source code 
- ** hoping@baimashi.com, Copyright (C) 2016
+ **  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ **  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ **  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ **  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ **  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ **  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ **  THE SOFTWARE.
  **
- *************************************************************************/
+ **********************************************************************************/
 
-#include <QDebug>
 #include "Query/CObject.h"
 
 CObject::CObject()
 {
-	mReferences = 1;
+    mReferences = 1;
 }
 
 CObject::~CObject()
 {
-	if (mReferences != 1)
-	{
-               qDebug() << "something wrong, reference count not zero";
-               // throw "something wrong, reference count not zero";
-	}
+    if (mReferences != 1)
+    {
+        // throw "something wrong, reference count not zero";
+    }
 }
 
 void CObject::retain()
 {
-	mReferences++;
+    mReferences++;
 }
 
 void CObject::release()
 {
-	if (mReferences < 0)
-	{
-                qDebug() << "something wrong, reference count is negative";
-		// throw "something wrong, reference count is negative";
-	}
+    if (mReferences < 0)
+    {
+        // throw "something wrong, reference count is negative";
+    }
 
-	if (mReferences == 1)
-	{
-		delete this;
-	}
-	else
-	{
-		mReferences--;
-	}
+    if (mReferences == 1)
+    {
+        delete this;
+    }
+    else
+    {
+        mReferences--;
+    }
 }
 
 unsigned int CObject::references()
 {
-	return mReferences;
+    return mReferences;
 }
-
-/* vim: set ts=4 sw=4 sts=4 tw=100 noet: */
-

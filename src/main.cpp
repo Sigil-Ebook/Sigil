@@ -42,7 +42,7 @@
 #include <QFontMetrics>
 #include <QtWebEngineWidgets/QWebEngineProfile>
 
-#define TEST_GUMBO_QUERY 0
+#define TEST_GUMBO_QUERY 1
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
 #include <QWebEngineUrlScheme>
@@ -721,9 +721,9 @@ int main(int argc, char *argv[])
                 std::cout << pNode.text() << std::endl; // some link
             }
             if (1) {
-                QString page = "<html><div class=\"chapter\"><p class=\"flush\" lang=\"it\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p><p>second child</p></div></html>";
+                QString page = "<html lang=\"en\"><div lang=\"it\" class=\"chapter\"><p class=\"flush\">This inherits the it language tag of the parent div</p><p>second child</p></div></html>";
                 GumboInterface gi = GumboInterface(page, "any_version");
-                CNode pNode = gi.find("p.flsuh:lang(it)").nodeAt(0);
+                CNode pNode = gi.find("p.flush:lang(it)").nodeAt(0);
                 std::cout << pNode.text() << std::endl;
             }
 #endif

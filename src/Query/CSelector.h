@@ -1,36 +1,38 @@
-/************************************************************************
+/**********************************************************************************
  **
- **  Copyright (C) 2021 Kevin B. Hendricks, Stratford, ON, Canada
+ **  SigilQuery for Gumbo
  **
- **  This file is part of Sigil.
+ **  A C++ library that provides jQuery-like selectors for Google's Gumbo-Parser.
+ **  Selector engine is an implementation based on cascadia.
  **
- **  Sigil is free software: you can redistribute it and/or modify
- **  it under the terms of the GNU General Public License as published by
- **  the Free Software Foundation, either version 3 of the License, or
- **  (at your option) any later version.
+ **  Based on: "gumbo-query" https://github.com/lazytiger/gumbo-query
+ **  With bug fixes, extensions and improvements
  **
- **  Sigil is distributed in the hope that it will be useful,
- **  but WITHOUT ANY WARRANTY; without even the implied warranty of
- **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- **  GNU General Public License for more details.
- **
- **  You should have received a copy of the GNU General Public License
- **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
+ **  The MIT License (MIT)
+ **  Copyright (c) 2021 Kevin B. Hendricks, Stratford, Ontario Canada
+ **  Copyright (c) 2015 baimashi.com. 
+ **  Copyright (c) 2011 Andy Balholm. All rights reserved.
  **
  **
- ** Taken from:
- ** 
- ** gumbo-query
- ** https://github.com/lazytiger/gumbo-query
+ **  Permission is hereby granted, free of charge, to any person obtaining a copy
+ **  of this software and associated documentation files (the "Software"), to deal
+ **  in the Software without restriction, including without limitation the rights
+ **  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ **  copies of the Software, and to permit persons to whom the Software is
+ **  furnished to do so, subject to the following conditions:
  **
- ** A C++ library that provides jQuery-like selectors for Google's Gumbo-Parser.
- ** Selector engine is an implementation based on cascadia.
+ **  The above copyright notice and this permission notice shall be included in
+ **  all copies or substantial portions of the Software.
  **
- ** Available under the MIT License  
- ** See ORIGINAL_LICENSE file in the source code 
- ** hoping@baimashi.com, Copyright (C) 2016
+ **  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ **  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ **  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ **  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ **  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ **  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ **  THE SOFTWARE.
  **
- *************************************************************************/
+ **********************************************************************************/
 
 #ifndef CSELECTOR_H_
 #define CSELECTOR_H_
@@ -45,269 +47,268 @@
 class CSelector: public CObject
 {
 
-	public:
-		typedef enum
-		{
-			//
-			EDummy,
-			//
-			EEmpty,
-			//
-			EOnlyChild,
-			//
-			ENthChild,
-			//
-			ETag,
-			//
-			ERoot,
-			//
-			ELang,
-		} TOperator;
-	public:
+    public:
+        typedef enum
+        {
+            //
+            EDummy,
+            //
+            EEmpty,
+            //
+            EOnlyChild,
+            //
+            ENthChild,
+            //
+            ETag,
+            //
+            ERoot,
+            //
+            ELang,
+        } TOperator;
+    public:
 
-		CSelector(TOperator aOp = EDummy)
-		{
-			init();
-			mOp = aOp;
-		}
+        CSelector(TOperator aOp = EDummy)
+        {
+            init();
+            mOp = aOp;
+        }
 
-		CSelector(bool aOfType)
-		{
-			init();
-			mOp = EOnlyChild;
-			mOfType = aOfType;
-		}
+        CSelector(bool aOfType)
+        {
+            init();
+            mOp = EOnlyChild;
+            mOfType = aOfType;
+        }
 
-		CSelector(unsigned int aA, unsigned int aB, bool aLast, bool aOfType)
-		{
-			init();
-			mOp = ENthChild;
-			mA = aA;
-			mB = aB;
-			mLast = aLast;
-			mOfType = aOfType;
-		}
+        CSelector(int aA, int aB, bool aLast, bool aOfType)
+        {
+            init();
+            mOp = ENthChild;
+            mA = aA;
+            mB = aB;
+            mLast = aLast;
+            mOfType = aOfType;
+        }
 
-		CSelector(GumboTag aTag)
-		{
-			init();
-			mOp = ETag;
-			mTag = aTag;
-		}
+        CSelector(GumboTag aTag)
+        {
+            init();
+            mOp = ETag;
+            mTag = aTag;
+        }
 
                 CSelector(std::string aLang)
-		{
-			init();
-			mOp = ELang;
-			mLang = aLang;
-		}
+        {
+            init();
+            mOp = ELang;
+            mLang = aLang;
+        }
 
-		virtual ~CSelector()
-		{
-		}
+        virtual ~CSelector()
+        {
+        }
 
-	public:
+    public:
 
-		virtual bool match(GumboNode* apNode);
+        virtual bool match(GumboNode* apNode);
 
-		std::vector<GumboNode*> filter(std::vector<GumboNode*> nodes);
+        std::vector<GumboNode*> filter(std::vector<GumboNode*> nodes);
 
-		std::vector<GumboNode*> matchAll(GumboNode* apNode);
+        std::vector<GumboNode*> matchAll(GumboNode* apNode);
 
-	private:
+    private:
 
-		void init()
-		{
-			mOfType = false;
-			mA = 0;
-			mB = 0;
-			mLast = false;
-			mTag = GumboTag(0);
-			mLang = "";
-		}
+        void init()
+        {
+            mOfType = false;
+            mA = 0;
+            mB = 0;
+            mLast = false;
+            mTag = GumboTag(0);
+            mLang = "";
+        }
 
-		void matchAllInto(GumboNode* apNode, std::vector<GumboNode*>& nodes);
+        void matchAllInto(GumboNode* apNode, std::vector<GumboNode*>& nodes);
 
-	private:
+    private:
 
-		TOperator mOp;
+        TOperator mOp;
 
-		bool mOfType;
+        bool mOfType;
 
-		unsigned int mA;
+        int mA;
 
-		unsigned int mB;
+        int mB;
 
-		bool mLast;
+        bool mLast;
 
-		GumboTag mTag;
+        GumboTag mTag;
 
                 std::string mLang;
 };
 
 class CUnarySelector: public CSelector
 {
-	public:
-		typedef enum
-		{
-			//
-			ENot,
-			//
-			EHasDescendant,
-			//
-			EHasChild,
-		} TOperator;
+    public:
+        typedef enum
+        {
+            //
+            ENot,
+            //
+            EHasDescendant,
+            //
+            EHasChild,
+        } TOperator;
 
-	public:
+    public:
 
-		CUnarySelector(TOperator aOp, CSelector* apS);
+        CUnarySelector(TOperator aOp, CSelector* apS);
 
-		virtual ~CUnarySelector();
+        virtual ~CUnarySelector();
 
-	public:
+    public:
 
-		virtual bool match(GumboNode* apNode);
+        virtual bool match(GumboNode* apNode);
 
-	private:
+    private:
 
-		bool hasDescendantMatch(GumboNode* apNode, CSelector* apS);
+        bool hasDescendantMatch(GumboNode* apNode, CSelector* apS);
 
-		bool hasChildMatch(GumboNode* apNode, CSelector* apS);
+        bool hasChildMatch(GumboNode* apNode, CSelector* apS);
 
-	private:
+    private:
 
-		CSelector* mpS;
+        CSelector* mpS;
 
-		TOperator mOp;
+        TOperator mOp;
 };
 
 class CBinarySelector: public CSelector
 {
-	public:
-		typedef enum
-		{
-			// || 操作符
-			EUnion,
-			// && 操作符
-			EIntersection,
-			//
-			EChild,
-			//
-			EDescendant,
-			//
-			EAdjacent,
-		} TOperator;
+    public:
+        typedef enum
+        {
+            //
+            EUnion,
+            //
+            EIntersection,
+            //
+            EChild,
+            //
+            EDescendant,
+            //
+            ESibling,
+            
+        } TOperator;
 
-	public:
+    public:
 
-		CBinarySelector(TOperator aOp, CSelector* apS1, CSelector* apS2);
+        CBinarySelector(TOperator aOp, CSelector* apS1, CSelector* apS2);
 
-		CBinarySelector(CSelector* apS1, CSelector* apS2, bool aAdjacent);
+        CBinarySelector(CSelector* apS1, CSelector* apS2, bool aAdjacent);
 
-		~CBinarySelector();
+        ~CBinarySelector();
 
-	public:
+    public:
 
-		virtual bool match(GumboNode* apNode);
+        virtual bool match(GumboNode* apNode);
 
-	private:
+    private:
 
-		CSelector* mpS1;
+        CSelector* mpS1;
 
-		CSelector* mpS2;
+        CSelector* mpS2;
 
-		TOperator mOp;
+        TOperator mOp;
 
-		bool mAdjacent;
+        bool mAdjacent;
 };
 
 class CAttributeSelector: public CSelector
 {
-	public:
-		typedef enum
-		{
-			/**
-			 * 是否存在
-			 */
-			EExists,
-			/**
-			 * 是否相等
-			 */
-			EEquals,
-			/**
-			 * 是否包含
-			 */
-			EIncludes,
-			/**
-			 * 是否-开始
-			 */
-			EDashMatch,
-			/**
-			 * 是否前缀
-			 */
-			EPrefix,
-			/**
-			 * 是否后缀
-			 */
-			ESuffix,
-			/**
-			 * 是否子串
-			 */
-			ESubString,
-		} TOperator;
+    public:
+        typedef enum
+        {
+            /**
+             * 是否存在
+             */
+            EExists,
+            /**
+             * 是否相等
+             */
+            EEquals,
+            /**
+             * 是否包含
+             */
+            EIncludes,
+            /**
+             * 是否-开始
+             */
+            EDashMatch,
+            /**
+             * 是否前缀
+             */
+            EPrefix,
+            /**
+             * 是否后缀
+             */
+            ESuffix,
+            /**
+             * 是否子串
+             */
+            ESubString,
+        } TOperator;
 
-	public:
+    public:
 
-		CAttributeSelector(TOperator aOp, std::string aKey, std::string aValue = "");
+        CAttributeSelector(TOperator aOp, std::string aKey, std::string aValue = "");
 
-	public:
+    public:
 
-		virtual bool match(GumboNode* apNode);
+        virtual bool match(GumboNode* apNode);
 
-	private:
+    private:
 
-		std::string mKey;
+        std::string mKey;
 
-		std::string mValue;
+        std::string mValue;
 
-		TOperator mOp;
+        TOperator mOp;
 };
 
 class CTextSelector: public CSelector
 {
-	public:
-		typedef enum
-		{
-			//
-			EOwnContains,
-			//
-			EContains,
-		} TOperator;
+    public:
+        typedef enum
+        {
+            //
+            EOwnContains,
+            //
+            EContains,
+        } TOperator;
 
-	public:
-		CTextSelector(TOperator aOp, std::string aValue)
-		{
-			mValue = aValue;
-			mOp = aOp;
-		}
+    public:
+        CTextSelector(TOperator aOp, std::string aValue)
+        {
+            mValue = aValue;
+            mOp = aOp;
+        }
 
-		~CTextSelector()
-		{
-		}
+        ~CTextSelector()
+        {
+        }
 
-	public:
+    public:
 
-		virtual bool match(GumboNode* apNode);
+        virtual bool match(GumboNode* apNode);
 
-	private:
+    private:
 
-	private:
+    private:
 
-		std::string mValue;
+        std::string mValue;
 
-		TOperator mOp;
+        TOperator mOp;
 };
 
 #endif /* CSELECTOR_H_ */
-
-/* vim: set ts=4 sw=4 sts=4 tw=100 noet: */

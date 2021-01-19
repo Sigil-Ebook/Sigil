@@ -34,35 +34,36 @@
  **
  **********************************************************************************/
 
-#ifndef CQUERYUTIL_H_
-#define CQUERYUTIL_H_
+#ifndef CDOCUMENT_H_
+#define CDOCUMENT_H_
 
 #include "gumbo.h"
 #include "gumbo_edit.h"
 
 #include <string>
-#include <vector>
+#include "Query/CObject.h"
+#include "Query/CSelection.h"
 
-class CQueryUtil
+class CDocument: public CObject
 {
     public:
 
-        static std::string tolower(std::string s);
+        CDocument(const std::string& aInput);
 
-        static std::vector<GumboNode*> unionNodes(std::vector<GumboNode*> aNodes1,
-                std::vector<GumboNode*> aNode2);
+        void parse();
 
-        static bool nodeExists(std::vector<GumboNode*> aNodes, GumboNode* apNode);
+        virtual ~CDocument();
 
-        static std::string nodeText(GumboNode* apNode);
-    
-        static std::string nodeOwnText(GumboNode* apNode);
+        CSelection find(const std::string& aSelector);
 
     private:
 
-        static void writeNodeText(GumboNode* apNode, std::string& aText);
-    
+        void reset();
 
+    private:
+
+        GumboOutput* mpOutput;
+        std::string mSource;
 };
 
-#endif /* CQUERYUTIL_H_ */
+#endif /* CDOCUMENT_H_ */

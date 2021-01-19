@@ -34,35 +34,47 @@
  **
  **********************************************************************************/
 
-#ifndef CQUERYUTIL_H_
-#define CQUERYUTIL_H_
+#include "Query/CDocument.h"
 
-#include "gumbo.h"
-#include "gumbo_edit.h"
-
-#include <string>
-#include <vector>
-
-class CQueryUtil
+CDocument::CDocument(const std::string& aInput)
 {
-    public:
+    mpOutput = NULL;
+    mSource = aInput;
+}
 
-        static std::string tolower(std::string s);
 
-        static std::vector<GumboNode*> unionNodes(std::vector<GumboNode*> aNodes1,
-                std::vector<GumboNode*> aNode2);
+void CDocument::parse()
+{
+    reset();
+    mpOutput = gumbo_parse(mSource.c_str());
+}
 
-        static bool nodeExists(std::vector<GumboNode*> aNodes, GumboNode* apNode);
 
-        static std::string nodeText(GumboNode* apNode);
-    
-        static std::string nodeOwnText(GumboNode* apNode);
+CDocument::~CDocument()
+{
+    reset();
+}
 
-    private:
 
-        static void writeNodeText(GumboNode* apNode, std::string& aText);
-    
+CSelection CDocument::find(const std::string& aSelector)
+{
+    if (!mSource.empty())
+    {
+        if (mpOutput == NULL) {
+            parse();
+        }
+        std::string as = aSelector;
+        CSelection sel(mpOutput->root);
+        return sel.find(as);
+    }
+    return CSelection(NULL);
+}
 
-};
-
-#endif /* CQUERYUTIL_H_ */
+void CDocument::reset()
+{
+    if (mpOutput != NULL)
+    {
+        gumbo_destroy_output(mpOutput);
+        mpOutput = NULL;
+    }
+}

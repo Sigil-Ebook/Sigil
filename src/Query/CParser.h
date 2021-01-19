@@ -1,36 +1,38 @@
-/************************************************************************
+/**********************************************************************************
  **
- **  Copyright (C) 2021 Kevin B. Hendricks, Stratford, ON, Canada
+ **  SigilQuery for Gumbo
  **
- **  This file is part of Sigil.
+ **  A C++ library that provides jQuery-like selectors for Google's Gumbo-Parser.
+ **  Selector engine is an implementation based on cascadia.
  **
- **  Sigil is free software: you can redistribute it and/or modify
- **  it under the terms of the GNU General Public License as published by
- **  the Free Software Foundation, either version 3 of the License, or
- **  (at your option) any later version.
+ **  Based on: "gumbo-query" https://github.com/lazytiger/gumbo-query
+ **  With bug fixes, extensions and improvements
  **
- **  Sigil is distributed in the hope that it will be useful,
- **  but WITHOUT ANY WARRANTY; without even the implied warranty of
- **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- **  GNU General Public License for more details.
- **
- **  You should have received a copy of the GNU General Public License
- **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
+ **  The MIT License (MIT)
+ **  Copyright (c) 2021 Kevin B. Hendricks, Stratford, Ontario Canada
+ **  Copyright (c) 2015 baimashi.com. 
+ **  Copyright (c) 2011 Andy Balholm. All rights reserved.
  **
  **
- ** Taken from:
- ** 
- ** gumbo-query
- ** https://github.com/lazytiger/gumbo-query
+ **  Permission is hereby granted, free of charge, to any person obtaining a copy
+ **  of this software and associated documentation files (the "Software"), to deal
+ **  in the Software without restriction, including without limitation the rights
+ **  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ **  copies of the Software, and to permit persons to whom the Software is
+ **  furnished to do so, subject to the following conditions:
  **
- ** A C++ library that provides jQuery-like selectors for Google's Gumbo-Parser.
- ** Selector engine is an implementation based on cascadia.
+ **  The above copyright notice and this permission notice shall be included in
+ **  all copies or substantial portions of the Software.
  **
- ** Available under the MIT License  
- ** See ORIGINAL_LICENSE file in the source code 
- ** hoping@baimashi.com, Copyright (C) 2016
+ **  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ **  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ **  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ **  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ **  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ **  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ **  THE SOFTWARE.
  **
- *************************************************************************/
+ **********************************************************************************/
 
 #ifndef CPARSER_H_
 #define CPARSER_H_
@@ -42,71 +44,68 @@
 
 class CParser
 {
-	private:
+    private:
 
-		CParser(std::string aInput);
+        CParser(std::string aInput);
 
-	public:
+    public:
 
-		virtual ~CParser();
+        virtual ~CParser();
 
-	public:
+    public:
 
-		static CSelector* create(std::string aInput);
+        static CSelector* create(std::string aInput);
 
-	private:
+    private:
 
-		CSelector* parseSelectorGroup();
+        CSelector* parseSelectorGroup();
 
-		CSelector* parseSelector();
+        CSelector* parseSelector();
 
-		CSelector* parseSimpleSelectorSequence();
+        CSelector* parseSimpleSelectorSequence();
 
-		void parseNth(int& aA, int& aB);
+        void parseNth(int& aA, int& aB);
 
-		int parseInteger();
+        int parseInteger();
 
-		CSelector* parsePseudoclassSelector();
+        CSelector* parsePseudoclassSelector();
 
-		CSelector* parseAttributeSelector();
+        CSelector* parseAttributeSelector();
 
-		CSelector* parseClassSelector();
+        CSelector* parseClassSelector();
 
-		CSelector* parseIDSelector();
+        CSelector* parseIDSelector();
 
-		CSelector* parseTypeSelector();
+        CSelector* parseTypeSelector();
 
-		bool consumeClosingParenthesis();
+        bool consumeClosingParenthesis();
 
-		bool consumeParenthesis();
+        bool consumeParenthesis();
 
-		bool skipWhitespace();
+        bool skipWhitespace();
 
-		std::string parseString();
+        std::string parseString();
 
-		std::string parseName();
+        std::string parseName();
 
-		std::string parseIdentifier();
+        std::string parseIdentifier();
 
-		bool nameChar(char c);
+        bool nameChar(char c);
 
-		bool nameStart(char c);
+        bool nameStart(char c);
 
-		bool hexDigit(char c);
+        bool hexDigit(char c);
 
-		std::string parseEscape();
+        std::string parseEscape();
 
-		std::string error(std::string message);
+        std::string error(std::string message);
 
-        std::string str_replace(const std::string& find, const std::string &replace, std::string str);
 
-	private:
+    private:
 
-		std::string mInput;
+        std::string mInput;
 
-		size_t mOffset;
+        size_t mOffset;
 };
 
 #endif /* CPARSER_H_ */
-
-/* vim: set ts=4 sw=4 sts=4 tw=100 noet: */

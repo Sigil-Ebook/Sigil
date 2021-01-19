@@ -1,40 +1,72 @@
-/************************************************************************
+/**********************************************************************************
  **
- **  Copyright (C) 2021 Kevin B. Hendricks, Stratford, ON, Canada
+ **  SigilQuery for Gumbo
  **
- **  This file is part of Sigil.
+ **  A C++ library that provides jQuery-like selectors for Google's Gumbo-Parser.
+ **  Selector engine is an implementation based on cascadia.
  **
- **  Sigil is free software: you can redistribute it and/or modify
- **  it under the terms of the GNU General Public License as published by
- **  the Free Software Foundation, either version 3 of the License, or
- **  (at your option) any later version.
+ **  Based on: "gumbo-query" https://github.com/lazytiger/gumbo-query
+ **  With bug fixes, extensions and improvements
  **
- **  Sigil is distributed in the hope that it will be useful,
- **  but WITHOUT ANY WARRANTY; without even the implied warranty of
- **  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- **  GNU General Public License for more details.
- **
- **  You should have received a copy of the GNU General Public License
- **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
+ **  The MIT License (MIT)
+ **  Copyright (c) 2021 Kevin B. Hendricks, Stratford, Ontario Canada
+ **  Copyright (c) 2015 baimashi.com. 
+ **  Copyright (c) 2011 Andy Balholm. All rights reserved.
  **
  **
- ** Taken from:
- ** 
- ** gumbo-query
- ** https://github.com/lazytiger/gumbo-query
+ **  Permission is hereby granted, free of charge, to any person obtaining a copy
+ **  of this software and associated documentation files (the "Software"), to deal
+ **  in the Software without restriction, including without limitation the rights
+ **  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ **  copies of the Software, and to permit persons to whom the Software is
+ **  furnished to do so, subject to the following conditions:
  **
- ** A C++ library that provides jQuery-like selectors for Google's Gumbo-Parser.
- ** Selector engine is an implementation based on cascadia.
+ **  The above copyright notice and this permission notice shall be included in
+ **  all copies or substantial portions of the Software.
  **
- ** Available under the MIT License  
- ** See ORIGINAL_LICENSE file in the source code 
- ** hoping@baimashi.com, Copyright (C) 2016 **
+ **  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ **  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ **  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ **  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ **  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ **  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ **  THE SOFTWARE.
  **
- *************************************************************************/
+ **********************************************************************************/
 
 #include "Query/CNode.h"
 #include "Query/CSelection.h"
 #include "Query/CQueryUtil.h"
+
+/** Gumbo Node Types
+ ** ----------------
+ **
+ ** GUMBO_NODE_DOCUMENT
+ ** Document node.  v will be a GumboDocument.
+ **
+ ** GUMBO_NODE_ELEMENT
+ ** Element node.  v will be a GumboElement.
+ **
+ ** GUMBO_NODE_TEXT
+ ** Text node.  v will be a GumboText.
+ **
+ ** GUMBO_NODE_CDATA
+ ** CDATA node. v will be a GumboText.
+ **
+ ** GUMBO_NODE_COMMENT
+ ** Comment node.  v will be a GumboText, excluding comment delimiters.
+ **
+ ** GUMBO_NODE_WHITESPACE
+ ** Text node, where all contents is whitespace.  v will be a GumboText.
+ **
+ ** GUMBO_NODE_TEMPLATE
+ ** Template node.  This is separate from GUMBO_NODE_ELEMENT because many
+ ** client libraries will want to ignore the contents of template nodes, as
+ ** the spec suggests.  Recursing on GUMBO_NODE_ELEMENT will do the right thing
+ ** here, while clients that want to include template contents should also
+ ** check for GUMBO_NODE_TEMPLATE.  v will be a GumboElement.
+ **
+ **/
 
 
 static std::unordered_set<std::string> void_tags          = {
@@ -163,6 +195,7 @@ size_t CNode::endPos()
             }
 	        return mpNode->v.element.end_pos.offset;
 	    case GUMBO_NODE_TEXT:
+        case GUMBO_NODE_WHITESPACE:
 	        return mpNode->v.text.original_text.length + startPos();
 	    default:
 	        return 0;
@@ -177,9 +210,10 @@ size_t CNode::startPosOuter()
     switch(mpNode->type)
     {
         case GUMBO_NODE_ELEMENT:
-	    return mpNode->v.element.start_pos.offset;
+	        return mpNode->v.element.start_pos.offset;
         case GUMBO_NODE_TEXT:
-	    return mpNode->v.text.start_pos.offset;
+        case GUMBO_NODE_WHITESPACE:
+	        return mpNode->v.text.start_pos.offset;
 	default:
 	    return 0;
     }
@@ -198,6 +232,7 @@ size_t CNode::endPosOuter()
         }
 	    return mpNode->v.element.end_pos.offset + mpNode->v.element.original_end_tag.length;
 	case GUMBO_NODE_TEXT:
+    case GUMBO_NODE_WHITESPACE:
 	    return mpNode->v.text.original_text.length + startPos();
 	default:
 	    return 0;
@@ -206,23 +241,76 @@ size_t CNode::endPosOuter()
 
 std::string CNode::tag()
 {
-    if (!valid() || mpNode->type != GUMBO_NODE_ELEMENT) {
-        return "";
-    }
+    if (!valid()) return "";
 
-    return gumbo_normalized_tagname(mpNode->v.element.tag);
+    GumboNode* node = mpNode;
+    std::string tagname;
+    if (node->type == GUMBO_NODE_DOCUMENT) {
+        tagname = "#document";
+        return tagname;
+    } else if ((node->type == GUMBO_NODE_TEXT) || (node->type == GUMBO_NODE_WHITESPACE)) {
+        tagname = "#text";
+        return tagname;
+    } else if (node->type == GUMBO_NODE_CDATA) {
+        tagname = "#cdata";
+        return tagname;
+    } else if (node->type == GUMBO_NODE_COMMENT) {
+        tagname = "#comment";
+        return tagname;
+    }
+    tagname = gumbo_normalized_tagname(node->v.element.tag);
+    if ((tagname.empty()) ||
+        (node->v.element.tag_namespace == GUMBO_NAMESPACE_SVG)) {
+
+        // set up to examine original text of tag.
+        GumboStringPiece gsp = node->v.element.original_tag;
+        gumbo_tag_from_original_text(&gsp);
+
+        // special handling for some svg tag names.
+        if (node->v.element.tag_namespace  == GUMBO_NAMESPACE_SVG) {
+            const char * data = gumbo_normalize_svg_tagname(&gsp);
+            // NOTE: data may not be null-terminated!
+            // since case change only - length must be same as original
+            // if no replacement found returns null, not original tag!
+            if (data != NULL) {
+                return std::string(data, gsp.length);
+            }
+        }
+        
+        if (tagname.empty()) {
+            tagname = std::string(gsp.data, gsp.length); 
+            // replace any quotes in tag name with underscores for safety
+            replace_all(tagname, "'", "_");
+            replace_all(tagname, "\"", "_");
+            return tagname;
+        }
+    }
+    return tagname;
 }
+
 
 GumboNode* CNode::raw() {
     return mpNode;
 }
 
+
+void CNode::replace_all(std::string &s, const char * s1, const char * s2)
+{
+    std::string t1(s1);
+    size_t len = t1.length();
+    size_t pos = s.find(t1);
+    while (pos != std::string::npos) {
+        s.replace(pos, len, s2);
+        pos = s.find(t1, pos + len);
+    }
+}
+
+
 CSelection CNode::find(std::string aSelector)
 {
     if (valid()) {
-	CSelection c(mpNode);
-	return c.find(aSelector);
+	    CSelection c(mpNode);
+	    return c.find(aSelector);
     }
     return CSelection(NULL);
 }
-/* vim: set ts=4 sw=4 sts=4 tw=100 noet: */
