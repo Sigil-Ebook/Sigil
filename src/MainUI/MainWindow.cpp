@@ -2476,9 +2476,14 @@ void MainWindow::DeleteUnusedStyles()
         return;
     }
 
+#if 1
+    // This one handles all selector types
+    QList<BookReports::StyleData *> css_selector_usage = BookReports::GetAllCSSSelectorsUsed(m_Book, true);
+#else
     QList<BookReports::StyleData *> html_class_usage = BookReports::GetAllHTMLClassUsage(m_Book, true);
     QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_Book, html_class_usage);
     qDeleteAll(html_class_usage);
+#endif
     QList<BookReports::StyleData *> css_selectors_to_delete;
     foreach(BookReports::StyleData *selector, css_selector_usage) {
         if (selector->html_filename.isEmpty()) {
