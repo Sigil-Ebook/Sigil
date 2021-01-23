@@ -57,7 +57,7 @@ public:
 								bool show_progress = false);
 
     static QList<BookReports::StyleData *> AllClassesUsedInHTMLFileMapped(HTMLResource* html_resource, 
-									  const QHash<QString, QString> &css_text);
+									  const QHash<QString, CSSInfo*> &css_parsers);
 
 
     static QList<BookReports::StyleData *> GetCSSSelectorUsage(QSharedPointer<Book> book, 
