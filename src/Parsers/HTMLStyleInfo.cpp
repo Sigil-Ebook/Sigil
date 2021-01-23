@@ -19,8 +19,7 @@
 **
 *************************************************************************/
 
-#include "EmbedPython/EmbeddedPython.h"
-
+#include <QString>
 #include <QRegularExpression>
 #include "Misc/Utility.h"
 #include "Parsers/CSSInfo.h"
@@ -102,57 +101,25 @@ QStringList HTMLStyleInfo::getAllPropertyValues(QString property)
 }
 
 
-// not sure how to do this except to do it piece by piece but using
-// this will invalidate the CSSInfo pointers stored here
-// so disable this for now
 QString HTMLStyleInfo::getReformattedCSSText(bool multipleLineFormat)
 {
-#if 0
-    QString csstext(m_source);
-
-    // Note, the EmbeddedPython interface does not handle bool properly
-    // So convert to int with 0 or 1 value for the time being
-    int useoneline = 1;
-    if (multipleLineFormat) useoneline = 0;
-
-    int rv = 0;
-    QString error_traceback;
-    QList<QVariant> args;
-    args.append(QVariant(csstext));
-    args.append(QVariant(useoneline));
-    EmbeddedPython * epython  = EmbeddedPython::instance();
-
-    QVariant res = epython->runInPython( QString("cssreformatter"),
-                                         QString("reformat_css"),
-                                         args,
-                                         &rv,
-                                         error_traceback);
-    if (rv != 0) {
-        Utility::DisplayStdWarningDialog(QString("Error in cssreformatter: ") + QString::number(rv), 
-				         error_traceback);
-        // an error happened, return unchanged original
-        return QString(csstext);
+    QStringList style_texts;
+    foreach(CSSInfo * cp, m_styles) {
+        QString text = cp->getReformattedCSSText(multipleLineFormat);
+        style_texts << text;
     }
-    // QVariant results are a String List (new_css_text, errors, warnings)
-    QStringList results = res.toStringList();
-    QString new_csstext = results[0];
-    QString errors = results[1];
-    QString warnings = results[2];
-
-    if (!errors.isEmpty()) {
-        Utility::DisplayStdWarningDialog(QString("Error in cssreformatter: "), errors);
-        // an error happened, return unchanged original
-        return QString(csstext);
+    // now work *backwards* to substitute in each new piece of text
+    // while keeping earlier start and length values correct. 
+    for(int i = style_texts.length() - 1; i >= 0; i--) {
+        QString ntext = style_texts.at(i);
+        QString top = m_source.left(m_starts[i]);
+        QString bottom = m_source.mid(m_starts[i] + m_lengths[i]);
+        m_source = top + ntext + bottom;
     }
-
-    if (!warnings.isEmpty()) {
-        Utility::DisplayStdWarningDialog(QString("Warnings from cssreformatter: "), warnings);
-    }
-
-    return new_csstext;
-#else
+    // IMPORTANT: After reformatting the styles users *must*
+    // Initialize a new HTMLStyleInfo object to work on the new text.
+    // This HTMLStyleInfo is now obsolete.
     return m_source;
-#endif
 }
 
 

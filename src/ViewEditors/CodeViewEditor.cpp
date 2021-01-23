@@ -3315,7 +3315,6 @@ void CodeViewEditor::ApplyChangeToProperties(QList<HTMLStyleInfo::CSSProperty > 
     }
 }
 
-// FIXME! In HTMLStyleInfo code
 void CodeViewEditor::ReformatCSS(bool multiple_line_format)
 {
     const QString original_text = toPlainText();
