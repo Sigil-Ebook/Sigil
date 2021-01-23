@@ -125,7 +125,7 @@ void DeleteFiles::DoubleClick(const QModelIndex index)
     QString filepath = m_Model.item(index.row(), 1)->text();
     // MainWindow OpenFile() will handle a ShortPathName or a Book Path
     // since both are unique
-    emit OpenFileRequest(filepath, 1);
+    emit OpenFileRequest(filepath, 1, -1);
 }
 
 void DeleteFiles::ConnectSignals()

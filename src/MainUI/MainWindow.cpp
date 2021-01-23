@@ -106,6 +106,7 @@
 #include "Misc/TOCHTMLWriter.h"
 #include "Misc/Utility.h"
 #include "MiscEditors/IndexHTMLWriter.h"
+#include "Parsers/HTMLStyleInfo.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
@@ -1722,7 +1723,7 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
                 first_css_resource = css_resource;
             }
             if (css_resource) {
-                CSSInfo css_info(css_resource->GetText(), true);
+                CSSInfo css_info(css_resource->GetText());
                 CSSInfo::CSSSelector *selector = css_info.getCSSSelectorForElementClass(element_name, style_class_name);
 
                 // If we fail to find a matching class, search again with just the element
@@ -1731,7 +1732,7 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
                 }
 
                 if (selector) {
-                    m_TabManager->OpenResource(css_resource, selector->line);
+                    m_TabManager->OpenResource(css_resource, -1, selector->pos);
                     found_match = true;
                     break;
                 }
@@ -2269,14 +2270,14 @@ void MainWindow::DeleteReportsStyles(QList<BookReports::StyleData *> reports_sty
     QHash<QString, QList<CSSInfo::CSSSelector *>> css_styles_to_delete;
     foreach(BookReports::StyleData * report_style, reports_styles_to_delete) {
         CSSInfo::CSSSelector *selector = new CSSInfo::CSSSelector();
-        selector->groupText = report_style->css_selector_text;
-        selector->line = report_style->css_selector_line;
+        selector->text = report_style->css_selector_text;
+        selector->pos = report_style->css_selector_position;
         QString css_filename = report_style->css_filename;
         css_styles_to_delete[css_filename].append(selector);
     }
     // Confirm which styles to delete
     DeleteStyles delete_styles(css_styles_to_delete, this);
-    connect(&delete_styles, SIGNAL(OpenFileRequest(QString, int)), this, SLOT(OpenFile(QString, int)));
+    connect(&delete_styles, SIGNAL(OpenFileRequest(QString, int, int)), this, SLOT(OpenFile(QString, int, int)));
 
     if (delete_styles.exec() != QDialog::Accepted) {
         return;
@@ -2423,7 +2424,7 @@ void MainWindow::DeleteUnusedMedia()
     // hash key is media bookpath which returns a list of all html bookpaths that use it
     QHash<QString, QStringList> html_files_hash = m_Book->GetHTMLFilesUsingMedia();
 
-    // Get file urls from HTML inline styles
+    // Get file urls from HTML internal style tags
     QStringList style_bookpaths = m_Book->GetStyleUrlsInHTMLFiles();
 
     // Get files urls from CSS files
@@ -2431,35 +2432,17 @@ void MainWindow::DeleteUnusedMedia()
     foreach(Resource *resource, css_resources) {
         CSSResource *css_resource = qobject_cast<CSSResource *>(resource);
         QString startdir = css_resource->GetFolder();
-        CSSInfo css_info(css_resource->GetText(), true);
-	QStringList urllist = css_info.getAllPropertyValues("");
-	foreach (QString url, urllist) {
-	    QRegularExpressionMatch match = url_file_search.match(url);
-	    if (match.hasMatch()) {
+        CSSInfo css_info(css_resource->GetText());
+	    QStringList urllist = css_info.getAllPropertyValues("");
+	    foreach (QString url, urllist) {
+	        QRegularExpressionMatch match = url_file_search.match(url);
+	        if (match.hasMatch()) {
                 QString ahref = match.captured(1);
                 if (ahref.indexOf(":") == -1) {
 	            style_bookpaths << Utility::buildBookPath(ahref, startdir);
                 }
+	        }
 	    }
-	}
-    }
-
-    // Get file urls from HTML CSS files
-    QList<Resource *> html_resources = GetAllHTMLResources();
-    foreach(Resource *resource, html_resources) {
-        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        QString startdir = html_resource->GetFolder();
-        CSSInfo css_info(html_resource->GetText(), false);
-	QStringList urllist = css_info.getAllPropertyValues("");
-	foreach (QString url, urllist) {
-	    QRegularExpressionMatch match = url_file_search.match(url);
-	    if (match.hasMatch()) {
-                QString ahref = match.captured(1);
-                if (ahref.indexOf(":") == -1) {
-	            style_bookpaths << Utility::buildBookPath(ahref, startdir);
-                }
-	    }
-	}
     }
 
     style_bookpaths.removeDuplicates();
@@ -5779,7 +5762,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_BookBrowser, SIGNAL(MergeResourcesRequest(QList<Resource *>)), this, SLOT(MergeResources(QList<Resource *>)));
     connect(m_BookBrowser, SIGNAL(LinkStylesheetsToResourcesRequest(QList<Resource *>)), this, SLOT(LinkStylesheetsToResources(QList<Resource *>)));
     connect(m_BookBrowser, SIGNAL(RemoveResourcesRequest()), this, SLOT(RemoveResources()));
-    connect(m_BookBrowser, SIGNAL(OpenFileRequest(QString, int)), this, SLOT(OpenFile(QString, int)));
+    connect(m_BookBrowser, SIGNAL(OpenFileRequest(QString, int, int)), this, SLOT(OpenFile(QString, int, int)));
     connect(m_TableOfContents, SIGNAL(OpenResourceRequest(Resource *, int, int, const QString &, const QUrl &)),
             this,     SLOT(OpenResource(Resource *, int, int, const QString &, const QUrl &)));
     connect(m_ValidationResultsView, SIGNAL(OpenResourceRequest(Resource *, int, int, const QString &)),
@@ -5831,7 +5814,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_SpellcheckEditor,   SIGNAL(ShowStatusMessageRequest(const QString &)),
             this,  SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_Reports,       SIGNAL(Refresh()), this, SLOT(ReportsDialog()));
-    connect(m_Reports,       SIGNAL(OpenFileRequest(QString, int)), this, SLOT(OpenFile(QString, int)));
+    connect(m_Reports,       SIGNAL(OpenFileRequest(QString, int, int)), this, SLOT(OpenFile(QString, int, int)));
     connect(m_Reports,       SIGNAL(DeleteFilesRequest(QStringList)), this, SLOT(DeleteFilenames(QStringList)));
     connect(m_Reports,       SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)), this, SLOT(DeleteReportsStyles(QList<BookReports::StyleData *>)));
     connect(m_Reports,       SIGNAL(FindText(QString)), m_FindReplace, SLOT(FindAnyText(QString)));

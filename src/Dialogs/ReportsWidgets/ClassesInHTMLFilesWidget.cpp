@@ -184,7 +184,7 @@ void ClassesInHTMLFilesWidget::DoubleClick()
 {
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
     QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
-    emit OpenFileRequest(bookpath, 1);
+    emit OpenFileRequest(bookpath, 1, -1);
 }
 
 void ClassesInHTMLFilesWidget::Save()

@@ -38,6 +38,8 @@
  **
  *************************************************************************/
 
+#include <QChar>
+#include <QString>
 #include <QTextStream>
 #include "Parsers/qCSSProperties.h"
 #include "Parsers/qCSSUtils.h"
@@ -909,6 +911,56 @@ void CSSParser::parse_css(QString css_input)
     {
         log("Unbalanced selector braces in style sheet", Error, line);
     }
+}
+
+
+// We want to split a possible group selector on commas.
+// The issue is that attribute values may legally contain commas
+// and selector functions (ie.  contains()) may legally contain commas.
+// To make it worse, attribute values can contain [,],(,) as well
+// in unmatched sets in any order as they may be in quoted strings.
+// This is true for selector functions as well.
+// So we need to keep track of brackets and parens.
+// And we need to ignore any spurious [, ], (, ), ', or " in any quoted strings.
+// Luckily AFAIK  no nesting of [] or () allowed (yet) in the selector.
+QStringList CSSParser::splitGroupSelector(const QString& sel)
+{
+    QStringList res;
+    int pos = 0;
+    bool insquote = false;
+    bool indquote = false;
+    bool inbracket = false;
+    bool inparen = false;
+    for (int i = 0; i < sel.length(); i++)
+    {
+        QChar c = sel.at(i);
+        // keep track of current state
+        if (c == '[' && !insquote && !indquote)  inbracket = true;
+        if (c == ']' && !insquote && !indquote)  inbracket = false;
+
+        if (c == '(' && !insquote && !indquote)  inparen = true;
+        if (c == ')' && !insquote && !indquote)  inparen = false;
+
+        if (c == '\'' && insquote && !indquote)  insquote = false;
+        if (c == '\'' && !insquote && !indquote) insquote = true;
+
+        if (c == '"' && !insquote && !indquote)  indquote = true;
+        if (c == '"' && !insquote && indquote)   indquote = false;
+
+        if (c == ',' && !inbracket && !inparen) 
+        {
+            // found split point
+            res << sel.mid(pos, i-pos).trimmed();
+            pos = i + 1;
+        }
+        else if (i == sel.length() - 1)
+        {
+            // we reached the end of the selector
+            res << sel.mid(pos, sel.length()-pos).trimmed();
+            pos = sel.length();
+        }
+    }
+    return res;
 }
 
 

@@ -502,19 +502,19 @@ void ClipEditor::AutoFill()
     QList<CSSResource *> css_resources = m_Book->GetFolderKeeper()->GetResourceTypeList<CSSResource>(false);
 
     foreach(CSSResource * css_resource, css_resources) {
-        CSSInfo css_info(css_resource->GetText(), true);
+        CSSInfo css_info(css_resource->GetText());
         QList<CSSInfo::CSSSelector *> selectors = css_info.getClassSelectors();
         foreach(CSSInfo::CSSSelector *selector, selectors) {
-            QString group = selector->groupText;
-            if (!group.contains(".")) {
+            QString text = selector->text;
+            if (!text.contains(".")) {
                 continue;
             }
-            if (group.startsWith(".")) {
-                css_list.append("p" % group);
-                css_list.append("span" % group);
-                css_list.append("div" % group);
+            if (text.startsWith(".")) {
+                css_list.append("p" % text);
+                css_list.append("span" % text);
+                css_list.append("div" % text);
             } else {
-                css_list.append(group);
+                css_list.append(text);
             }
         }
     }

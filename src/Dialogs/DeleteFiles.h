@@ -46,7 +46,7 @@ public:
     QStringList GetFilesToDelete();
 
 signals:
-    void OpenFileRequest(QString, int);
+    void OpenFileRequest(QString, int, int);
 
 private slots:
     void SaveFilesToDelete();

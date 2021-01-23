@@ -58,7 +58,7 @@ public:
 signals:
     void CloseDialog();
     void DeleteFilesRequest(QStringList);
-    void OpenFileRequest(QString, int);
+    void OpenFileRequest(QString, int, int);
 
 private slots:
     void OpenContextMenu(const QPoint &point);

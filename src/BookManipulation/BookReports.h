@@ -25,7 +25,9 @@
 
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/CSSResource.h"
+#include "Parsers/CSSInfo.h"
 #include "BookManipulation/Book.h"
+
 
 class QString;
 
@@ -42,7 +44,6 @@ public:
         QString html_class_name;
         QString css_filename;
         QString css_selector_text;
-        int css_selector_line;
         int css_selector_position;
     };
 
@@ -50,7 +51,7 @@ public:
 							     bool show_progress = false);
 
     static QList<BookReports::StyleData *> ClassesUsedInHTMLFileMapped(HTMLResource* html_resource, 
-								       const QHash<QString,QString> &css_text);
+								       const QHash<QString,CSSInfo*> &css_parsers);
 
     static QList<BookReports::StyleData *> GetAllHTMLClassUsage(QSharedPointer<Book> book, 
 								bool show_progress = false);

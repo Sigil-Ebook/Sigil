@@ -51,7 +51,7 @@ public:
 
 signals:
     void CloseDialog();
-    void OpenFileRequest(QString, int);
+    void OpenFileRequest(QString, int, int);
 
 private slots:
     void FilterEditTextChangedSlot(const QString &text);

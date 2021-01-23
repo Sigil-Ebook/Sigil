@@ -55,7 +55,7 @@ public:
 
 signals:
     void CloseDialog();
-    void OpenFileRequest(QString, int);
+    void OpenFileRequest(QString, int, int);
     void DeleteStylesRequest(QList<BookReports::StyleData *>);
 
 private slots:

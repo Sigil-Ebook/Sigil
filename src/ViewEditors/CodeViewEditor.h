@@ -31,6 +31,7 @@
 #include <QtCore/QUrl>
 
 #include "Parsers/CSSInfo.h"
+#include "Parsers/HTMLStyleInfo.h"
 #include "Misc/PasteTarget.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -739,7 +740,7 @@ private:
      * Given a list of CSS properties perform any pruning/replacing/adding as necessary to
      * ensure that property_name:property_value is added (or removed if it already exists).
      */
-    void ApplyChangeToProperties(QList<CSSInfo::CSSProperty *> &css_properties, const QString &property_name, const QString &property_value);
+    void ApplyChangeToProperties(QList<HTMLStyleInfo::CSSProperty> &css_properties, const QString &property_name, const QString &property_value);
 
     void ReformatCSS(bool multiple_line_format);
 

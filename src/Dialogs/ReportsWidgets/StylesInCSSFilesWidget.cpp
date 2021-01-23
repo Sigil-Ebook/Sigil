@@ -113,7 +113,7 @@ void StylesInCSSFilesWidget::AddTableData(const QList<BookReports::StyleData *> 
         // Selector
         QStandardItem *selector_text_item = new QStandardItem();
         selector_text_item->setText(selector_usage->css_selector_text);
-        selector_text_item->setData(selector_usage->css_selector_line);
+        selector_text_item->setData(selector_usage->css_selector_position);
         rowItems << selector_text_item;
         // Found in
         QStandardItem *found_in_item = new QStandardItem();
@@ -166,8 +166,8 @@ void StylesInCSSFilesWidget::DoubleClick()
 {
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
     QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
-    int line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
-    emit OpenFileRequest(bookpath, line);
+    int pos = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
+    emit OpenFileRequest(bookpath, -1, pos);
 }
 
 void StylesInCSSFilesWidget::Delete()
@@ -197,7 +197,7 @@ void StylesInCSSFilesWidget::Delete()
         BookReports::StyleData *style = new BookReports::StyleData();
         style->css_filename = m_ItemModel->itemFromIndex(index)->data().toString();
         style->css_selector_text = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
-        style->css_selector_line = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
+        style->css_selector_position = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->data().toInt();
         styles_to_delete.append(style);
     }
     emit DeleteStylesRequest(styles_to_delete);

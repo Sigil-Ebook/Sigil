@@ -293,7 +293,7 @@ void LinksWidget::DoubleClick()
         // This should match order of header above
         QString bookpath = m_ItemModel->item(index.row(), 0)->data().toString();
         QString lineno = m_ItemModel->item(index.row(), 1)->text();
-        emit OpenFileRequest(bookpath, lineno.toInt());
+        emit OpenFileRequest(bookpath, lineno.toInt(), -1);
     }
 }
 

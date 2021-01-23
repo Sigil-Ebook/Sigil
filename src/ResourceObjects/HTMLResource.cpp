@@ -30,6 +30,7 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
 #include "Parsers/GumboInterface.h"
+#include "Parsers/HTMLStyleInfo.h"
 #include "ResourceObjects/HTMLResource.h"
 #include "sigil_exception.h"
 
@@ -310,9 +311,9 @@ void HTMLResource::TrackNewResources(const QStringList &filepaths)
 
 bool HTMLResource::DeleteCSStyles(QList<CSSInfo::CSSSelector *> css_selectors)
 {
-    CSSInfo css_info(GetText(), false);
+    HTMLStyleInfo htmlcss_info(GetText());
     // Search for selectors with the same definition and line and remove from text
-    const QString &new_resource_text = css_info.removeMatchingSelectors(css_selectors);
+    const QString &new_resource_text = htmlcss_info.removeMatchingSelectors(css_selectors);
 
     if (!new_resource_text.isNull()) {
         // At least one of the selector(s) was removed.

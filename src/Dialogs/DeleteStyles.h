@@ -47,7 +47,7 @@ public:
     QHash<QString, QList<CSSInfo::CSSSelector *>> GetStylesToDelete();
 
 signals:
-    void OpenFileRequest(QString, int);
+    void OpenFileRequest(QString, int, int);
 
 private slots:
     void SaveStylesToDelete();

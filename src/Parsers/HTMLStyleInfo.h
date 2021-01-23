@@ -1,9 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, ON, Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2012 Grant Drake
+**  Copyright (C) 2021 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -23,16 +20,16 @@
 *************************************************************************/
 
 #pragma once
-#ifndef CSSINFO_H
-#define CSSINFO_H
+#ifndef HTMLSTYLEINFO_H
+#define HTMLSTYLEINFO_H
 
 #include <QObject>
 #include <QStringList>
-#include "Parsers/qCSSParser.h"
+#include "Parsers/CSSInfo.h"
 
 class QStringList;
 
-class CSSInfo : public QObject
+class HTMLStyleInfo : public QObject
 {
     Q_OBJECT
 
@@ -40,34 +37,24 @@ public:
     /**
      * Parse the supplied css text
      */
-    CSSInfo(const QString &text, int offset = 0);
+    HTMLStyleInfo(const QString &htmltext);
 
-    ~CSSInfo();
+    ~HTMLStyleInfo();
 
-    struct CSSSelector {
-        int pos;                    /* The position in the file of the full selector name          */
-        QString text;               /* The text of this selector                  */
-        QString className;          /* The classname(s) (stripped of periods) if a class selector  */
-        QString elementName;        /* The element names if any (stripped of any ids/attributes)   */
-
-        bool operator<(const CSSSelector &rhs) const {
-            return pos < rhs.pos;
-        }
+    struct CSSProperty {
+        QString name;
+        QString value;
     };
 
-    QList<CSSSelector*> getAllSelectors();
 
-    /**
-     * Return selectors subset for only class based CSS declarations.
-     */
-    QList<CSSSelector *> getClassSelectors(const QString filterClassName = "");
+    QList<CSSInfo::CSSSelector *> getAllSelectors();
 
     /**
      * Search for a matching class selector  given an element name and an optional
      * class name for the style.
      * Looks in order of: elementName.style, .style
      */
-    CSSSelector *getCSSSelectorForElementClass(const QString &elementName, const QString &className);
+    CSSInfo::CSSSelector *getCSSSelectorForElementClass(const QString &elementName, const QString &className);
 
     /**
      * Search for *all* CSS selector that match an elementName, and classname
@@ -75,7 +62,7 @@ public:
      * relate to more than one style
      */
 
-    QList<CSSSelector *> getAllCSSSelectorsForElementClass(const QString &elementName, const QString &className);
+    QList<CSSInfo::CSSSelector *> getAllCSSSelectorsForElementClass(const QString &elementName, const QString &className);
 
     /**
      * Return a list of all property values for the given property in the CSS.
@@ -92,27 +79,29 @@ public:
      * Search for a CSSSelector with the same definition of original group text and pos as this,
      * and if found remove from the document text
      * If not found returns a null string.
-     * Note the caller must intialise a new CSSInfo object to re-parse the updated text for another remove.
+     * Note the caller must intialise a new HTMLStyleInfo object to re-parse the updated text for another remove.
      */
-    QString removeMatchingSelectors(QList<CSSSelector *> cssSelectors);
+    QString removeMatchingSelectors(QList<CSSInfo::CSSSelector *> cssSelectors);
 
+    static QList<CSSProperty> getCSSProperties(const QString &text, const int &styleTextStartPos, const int &styleTextEndPos);
+    static QString formatCSSProperties(QList<CSSProperty> new_properties, bool multipleLineFormat, const int &selectorIndent = 0);
 
 private:
-    void parseStyles(const QString &text, int offsetPos);
+    bool findInlineStyleBlock(const QString &text, const int &offset, int &styleStart, int &styleEnd);
     void generateSelectorsList();
 
-    QList<CSSSelector *> m_CSSSelectors;
-    QVector<CSSParser::token> m_csstokens;
-
+    QList<CSSInfo *> m_styles;
+    QList<int> m_starts;
+    QList<int> m_lengths;
     QString m_source;
-    int m_posoffset;
 };
 
+#if 0
 template<class T>
 bool dereferencedLessThan(T *o1, T *o2)
 {
     return *o1 < *o2;
 }
-
-#endif // CSSINFO_H
+#endif
+#endif // HTMLSTYLEINFO_H
 

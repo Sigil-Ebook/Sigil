@@ -208,7 +208,7 @@ void AllFilesWidget::DoubleClick()
 
     if (index.row() != m_ItemModel->rowCount() - 1) {
         QString filepath = m_ItemModel->itemFromIndex(index)->data().toString();
-        emit OpenFileRequest(filepath, 1);
+        emit OpenFileRequest(filepath, 1, -1);
     }
 }
 

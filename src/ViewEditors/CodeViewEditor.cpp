@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2019-2020 Doug Massay
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -53,6 +53,7 @@
 #include "Misc/SpellCheck.h"
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/Utility.h"
+#include "Parsers/HTMLStyleInfo.h"
 #include "PCRE/PCRECache.h"
 #include "ViewEditors/CodeViewEditor.h"
 #include "ViewEditors/LineNumberArea.h"
@@ -1620,8 +1621,8 @@ void CodeViewEditor::GoToStyleDefinition()
         return;
     }
 
-    CSSInfo css_info(toPlainText(), false);
-    CSSInfo::CSSSelector *selector = css_info.getCSSSelectorForElementClass(element.name, element.classStyle);
+    HTMLStyleInfo htmlcss_info(toPlainText());
+    CSSInfo::CSSSelector *selector = htmlcss_info.getCSSSelectorForElementClass(element.name, element.classStyle);
 
     if (!selector) {
         // We didn't find the style - escalate as an event to look in linked stylesheets
@@ -1630,7 +1631,7 @@ void CodeViewEditor::GoToStyleDefinition()
         // Emit a signal to bookmark our code location, enabling the "Back to" feature
         emit BookmarkLinkOrStyleLocationRequest();
         // Scroll to the line after bookmarking or we lose our place
-        ScrollToPosition(selector->position);
+        ScrollToPosition(selector->pos);
     }
 }
 
@@ -3190,7 +3191,7 @@ void CodeViewEditor::FormatStyle(const QString &property_name, const QString &pr
     } else {
         // We have an existing style attribute on this tag, need to parse it to rewrite it.
         // Apply the name=value replacement getting a list of our new property pairs
-        QList<CSSInfo::CSSProperty *> css_properties = CSSInfo::getCSSProperties(style_attribute_value, 0, style_attribute_value.length());
+        QList<HTMLStyleInfo::CSSProperty> css_properties = HTMLStyleInfo::getCSSProperties(style_attribute_value, 0, style_attribute_value.length());
         // Apply our property value, adding if not present currently, toggling if it is.
         ApplyChangeToProperties(css_properties, property_name, property_value);
 
@@ -3198,15 +3199,12 @@ void CodeViewEditor::FormatStyle(const QString &property_name, const QString &pr
             style_attribute_value = QString();
         } else {
             QStringList property_values;
-            foreach(CSSInfo::CSSProperty * css_property, css_properties) {
-                if (css_property->value.isNull()) {
-                    property_values.append(css_property->name);
+            foreach(HTMLStyleInfo::CSSProperty css_property, css_properties) {
+                if (css_property.value.isNull()) {
+                    property_values.append(css_property.name);
                 } else {
-                    property_values.append(QString("%1: %2").arg(css_property->name).arg(css_property->value));
+                    property_values.append(QString("%1: %2").arg(css_property.name).arg(css_property.value));
                 }
-		// CSSInfo.getCSSProperties creates each CSSProperty pointer with new
-		// and it must be cleaned by caller to prevent memory leak
-		if (css_property) delete css_property;
             }
             style_attribute_value = QString("%1;").arg(property_values.join("; "));
         }
@@ -3267,14 +3265,14 @@ void CodeViewEditor::FormatCSSStyle(const QString &property_name, const QString 
         return;
     }
 
-    // Now parse the CSS style content
-    QList<CSSInfo::CSSProperty *> css_properties = CSSInfo::getCSSProperties(text, bracket_start + 1, bracket_end);
+    // Now parse the HTML style content
+    QList<HTMLStyleInfo::CSSProperty> css_properties = HTMLStyleInfo::getCSSProperties(text, bracket_start + 1, bracket_end);
     // Apply our property value, adding if not present currently, toggling if it is.
     ApplyChangeToProperties(css_properties, property_name, property_value);
     // Figure out the formatting to be applied to these style properties to write prettily
     // preserving any multi-line/single line style the CSS had before we changed things.
     bool is_single_line_format = (block.position() < bracket_start) && (bracket_end <= (block.position() + block.length()));
-    const QString &style_attribute_text = CSSInfo::formatCSSProperties(css_properties, !is_single_line_format);
+    const QString &style_attribute_text = HTMLStyleInfo::formatCSSProperties(css_properties, !is_single_line_format);
     // Now perform the replacement/insertion of the style properties into the CSS
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
@@ -3288,41 +3286,42 @@ void CodeViewEditor::FormatCSSStyle(const QString &property_name, const QString 
     setTextCursor(cursor);
 }
 
-void CodeViewEditor::ApplyChangeToProperties(QList<CSSInfo::CSSProperty *> &css_properties, const QString &property_name, const QString &property_value)
+void CodeViewEditor::ApplyChangeToProperties(QList<HTMLStyleInfo::CSSProperty > &css_properties, const QString &property_name, const QString &property_value)
 {
     // Apply our property value, adding if not present currently, toggling if it is.
     bool has_property = false;
 
     for (int i = css_properties.length() - 1; i >= 0; i--) {
-        CSSInfo::CSSProperty *css_property = css_properties.at(i);
+        HTMLStyleInfo::CSSProperty css_property = css_properties.at(i);
 
-        if (css_property->name.toLower() == property_name) {
+        if (css_property.name.toLower() == property_name) {
             has_property = true;
 
             // We will treat this as a toggle - if we already have the value then remove it
-            if (css_property->value.toLower() == property_value) {
+            if (css_property.value.toLower() == property_value) {
                 css_properties.removeAt(i);
                 continue;
             } else {
-                css_property->value = property_value;
+                css_property.value = property_value;
             }
         }
     }
 
     if (!has_property) {
-        CSSInfo::CSSProperty *new_property = new CSSInfo::CSSProperty();
-        new_property->name = property_name;
-        new_property->value = property_value;
+        HTMLStyleInfo::CSSProperty new_property;
+        new_property.name = property_name;
+        new_property.value = property_value;
         css_properties.append(new_property);
     }
 }
 
+// FIXME! In HTMLStyleInfo code
 void CodeViewEditor::ReformatCSS(bool multiple_line_format)
 {
-    const QString &original_text = toPlainText();
+    const QString original_text = toPlainText();
     // Currently this feature is only enabled for CSS content, no inline HTML
-    CSSInfo css_info(original_text, true);
-    const QString &new_text = css_info.getReformattedCSSText(multiple_line_format);
+    HTMLStyleInfo htmlcss_info(original_text);
+    QString new_text = htmlcss_info.getReformattedCSSText(multiple_line_format);
 
     if (original_text != new_text) {
         QTextCursor cursor = textCursor();

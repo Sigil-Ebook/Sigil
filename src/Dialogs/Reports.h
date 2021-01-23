@@ -51,7 +51,7 @@ public:
 
 signals:
     void Refresh();
-    void OpenFileRequest(QString, int);
+    void OpenFileRequest(QString, int, int);
     void DeleteFilesRequest(QStringList);
     void DeleteStylesRequest(QList<BookReports::StyleData *>);
     void FindText(QString);

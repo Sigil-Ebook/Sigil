@@ -117,6 +117,8 @@ public:
     QVector<QString> get_parse_warnings();
     QVector<QString> get_parse_info();
 
+    // utility routine to properly split group selectors into individual selectors
+    static QStringList splitGroupSelector(const QString &sel);
 
 private:
 

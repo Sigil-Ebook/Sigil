@@ -252,7 +252,7 @@ signals:
 
     void RemoveResourcesRequest();
 
-    void OpenFileRequest(QString, int);
+    void OpenFileRequest(QString, int, int);
 
 private slots:
 

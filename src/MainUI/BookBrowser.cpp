@@ -1383,7 +1383,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     // Confirm and select which files to delete
     // Note: DeleteFiles requires bookpaths for safety
     DeleteFiles delete_files(files_to_delete, this);
-    connect(&delete_files, SIGNAL(OpenFileRequest(QString, int)), this, SIGNAL(OpenFileRequest(QString, int)));
+    connect(&delete_files, SIGNAL(OpenFileRequest(QString, int, int)), this, SIGNAL(OpenFileRequest(QString, int, int)));
 
     if (delete_files.exec() != QDialog::Accepted) {
         return;
