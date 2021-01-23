@@ -3315,12 +3315,15 @@ void CodeViewEditor::ApplyChangeToProperties(QList<HTMLStyleInfo::CSSProperty > 
     }
 }
 
+// FIXME: Detect the type of document we are editing and handle both
+// internal xhtml style elements and external css stylesheets.
+// This routine is now only enabled when editing a CSS Stylesheet
 void CodeViewEditor::ReformatCSS(bool multiple_line_format)
 {
     const QString original_text = toPlainText();
     // Currently this feature is only enabled for CSS content, no inline HTML
-    HTMLStyleInfo htmlcss_info(original_text);
-    QString new_text = htmlcss_info.getReformattedCSSText(multiple_line_format);
+    CSSInfo css_info(original_text);
+    QString new_text = css_info.getReformattedCSSText(multiple_line_format);
 
     if (original_text != new_text) {
         QTextCursor cursor = textCursor();
