@@ -2494,7 +2494,11 @@ void MainWindow::DeleteUnusedStyles()
     if (css_selectors_to_delete.count() > 0) {
         DeleteReportsStyles(css_selectors_to_delete);
     } else {
+#if 1
+        QMessageBox::information(this, tr("Sigil"), tr("There are no unused stylesheet selectors to delete."));
+#else
         QMessageBox::information(this, tr("Sigil"), tr("There are no unused stylesheet classes to delete."));
+#endif
     }
     qDeleteAll(css_selector_usage);
 }

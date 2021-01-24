@@ -40,7 +40,7 @@
 #include "ResourceObjects/CSSResource.h"
 
 static const QString SETTINGS_GROUP = "reports";
-static const QString DEFAULT_REPORT_FILE = "StyleClassesInCSSFilesReport.csv";
+static const QString DEFAULT_REPORT_FILE = "StyleSelectorsInCSSFilesReport.csv";
 
 StylesInCSSFilesWidget::StylesInCSSFilesWidget()
     :
@@ -62,11 +62,15 @@ void StylesInCSSFilesWidget::CreateReport(QSharedPointer<Book> book)
 {
     m_Book = book;
     SetupTable();
+#if 1
+    QList<BookReports::StyleData *> css_selector_usage = BookReports::GetAllCSSSelectorsUsed(m_Book, true);
+#else
     // Get the list of classes in HTML and what selectors they match
     QList<BookReports::StyleData *> html_classes_usage = BookReports::GetAllHTMLClassUsage(m_Book);
     // Get the list of selectors in CSS files and if they were matched by HTML classes
     QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_Book, html_classes_usage);
     qDeleteAll(html_classes_usage);
+#endif
     AddTableData(css_selector_usage);
     qDeleteAll(css_selector_usage);
 
@@ -84,17 +88,29 @@ void StylesInCSSFilesWidget::SetupTable()
     m_ItemModel->clear();
     QStringList header;
     header.append(tr("CSS File"));
+#if 1
+    header.append(tr("CSS Selector"));
+#else
     header.append(tr("Class Selector"));
+#endif
     header.append(tr("Used In HTML File"));
     m_ItemModel->setHorizontalHeaderLabels(header);
     ui.fileTree->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui.fileTree->setModel(m_ItemModel);
     ui.fileTree->header()->setSortIndicatorShown(true);
+#if 1
+    ui.fileTree->header()->setToolTip(
+        tr("<p>This is a list of the CSS selectors in all CSS files and whether or not the selector was matched in an HTML file.<p>") %
+        tr("<p>NOTE:</p>") %
+        tr("<p>Due to the complexities of CSS you must check your code manually to be absolutely certain if a selector is used or not.</p>") % tr("<p>Note: Only one HTML File is listed among the many possible matches.</p>")
+    );
+#else
     ui.fileTree->header()->setToolTip(
         tr("<p>This is a list of the class based selectors in all CSS files and whether or not the selector was matched from a style in an HTML file.<p>") %
         tr("<p>NOTE:</p>") %
         tr("<p>Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.</p>")
     );
+#endif
 }
 
 void StylesInCSSFilesWidget::AddTableData(const QList<BookReports::StyleData *> css_selectors_usage)
