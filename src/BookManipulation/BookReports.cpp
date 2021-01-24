@@ -21,7 +21,6 @@
 **
 *************************************************************************/
 
-#include <QDebug>
 #include <QString>
 #include <QStringList>
 #include <QMultiHash>
@@ -35,6 +34,7 @@
 #include "BookManipulation/BookReports.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Parsers/CSSInfo.h"
+#include "Parsers/HTMLStyleInfo.h"
 #include "Parsers/GumboInterface.h"
 #include "Query/CSelection.h"
 #include "Query/CNode.h"
@@ -277,6 +277,8 @@ QList<BookReports::StyleData *> BookReports::GetCSSSelectorUsage(QSharedPointer<
 
 QList<BookReports::StyleData *> BookReports::GetAllCSSSelectorsUsed(QSharedPointer<Book> book, bool show_progress)
 {
+    QMultiHash<QString, QString> selectors_used;
+
     QList<CSSResource *> css_resources = book->GetFolderKeeper()->GetResourceTypeList<CSSResource>(false);
 
     // Parse each css file once and store its parser object
@@ -289,7 +291,6 @@ QList<BookReports::StyleData *> BookReports::GetAllCSSSelectorsUsed(QSharedPoint
         }
     }
 
-    QMultiHash<QString, QString> selectors_used;
     QList<HTMLResource *> html_resources = book->GetFolderKeeper()->GetResourceTypeList<HTMLResource>(false);
 
     QFuture< QList< std::pair<QString,QString> > > usage_future;
@@ -307,6 +308,7 @@ QList<BookReports::StyleData *> BookReports::GetAllCSSSelectorsUsed(QSharedPoint
         }
     }
 
+    // Now build up the list of StyleData in css stylesheets
     QList<BookReports::StyleData *> css_selector_usage;
     foreach(QString css_filename, css_parsers.keys()) {
         if (css_parsers.contains(css_filename)) {
@@ -318,6 +320,25 @@ QList<BookReports::StyleData *> BookReports::GetAllCSSSelectorsUsed(QSharedPoint
                 sd->css_selector_text = selector->text;
                 sd->css_selector_position = selector->pos;
                 QString key = css_filename + USEP + QString::number(selector->pos) + USEP + selector->text;
+                QList<QString> htmlfiles = selectors_used.values(key);
+                if (!htmlfiles.isEmpty()) {
+                    sd->html_filename = htmlfiles.at(0);
+                }
+                css_selector_usage.append(sd);
+            }
+        }
+    }
+    // Now build up the list of StyleData in html internal style tags
+    foreach(HTMLResource* hresource, html_resources) {
+        HTMLStyleInfo hp(hresource->GetText());
+        if (hp.hasStyles()) {
+            QList<CSSInfo::CSSSelector *> selectors = hp.getAllSelectors();
+            foreach(CSSInfo::CSSSelector * selector, selectors) {
+                BookReports::StyleData* sd = new BookReports::StyleData();
+                sd->css_filename = hresource->GetRelativePath();
+                sd->css_selector_text = selector->text;
+                sd->css_selector_position = selector->pos;
+                QString key = hresource->GetRelativePath() + USEP + QString::number(selector->pos) + USEP + selector->text;
                 QList<QString> htmlfiles = selectors_used.values(key);
                 if (!htmlfiles.isEmpty()) {
                     sd->html_filename = htmlfiles.at(0);
@@ -343,14 +364,14 @@ QList< std::pair<QString,QString> > BookReports::AllSelectorsUsedInHTMLFileMappe
 {
     QList< std::pair<QString, QString> > selectors_used;
 
-    // Get the list of stylesheets linked in this file
     QStringList linked_stylesheets = html_resource->GetLinkedStylesheets();
     
     GumboInterface gi = GumboInterface(html_resource->GetText(), "any_version");
     
-    // Look at each selector from linked CSS files and see if they match
-    // something in this html file
-    // css_filename here is a bookpath as used above                                                                                          
+    // Look at each selector from linked CSS files and internal html style tags
+    // and see if they match something in this html file
+    // file names are all bookpaths
+
     foreach(QString css_filename, linked_stylesheets) {
         if (css_parsers.contains(css_filename)) {
             CSSInfo * cp = css_parsers[css_filename];
@@ -361,11 +382,32 @@ QList< std::pair<QString,QString> > BookReports::AllSelectorsUsedInHTMLFileMappe
                 // if Query selector parse error occurs to be most safe
                 // assume this selector is used in this file
                 std::pair<QString, QString> res;
+                QString foundin = html_resource->GetRelativePath();
+                if (c.parseError()) foundin = "*** Selector Parse Error ***";
                 if (c.parseError() || (c.nodeNum() > 0 && c.nodeAt(0).valid())) {
                     res.first = css_filename + USEP + QString::number(selector->pos) + USEP + selector->text;
-                    res.second = html_resource->GetRelativePath();
+                    res.second = foundin;
                     selectors_used.append(res);
                 }
+            }
+        }
+    }
+
+    // now look for internal <style> tags in this HTML File and test their selectors as well
+    HTMLStyleInfo hp(html_resource->GetText());
+    if (hp.hasStyles()) {
+        QList<CSSInfo::CSSSelector *> selectors = hp.getAllSelectors();
+        foreach(CSSInfo::CSSSelector * selector, selectors) {
+            CSelection c = gi.find(selector->text);
+            // if Query selector parse error occurs to be most safe
+            // assume this selector is used in this file
+            std::pair<QString, QString> res;
+            QString foundin = html_resource->GetRelativePath();
+            if (c.parseError()) foundin = "*** Selector Parse Error ***";
+            if (c.parseError() || (c.nodeNum() > 0 && c.nodeAt(0).valid())) {
+                res.first = html_resource->GetRelativePath() + USEP + QString::number(selector->pos) + USEP + selector->text;
+                res.second = foundin;
+                selectors_used.append(res);
             }
         }
     }
