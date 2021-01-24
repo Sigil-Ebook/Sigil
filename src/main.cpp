@@ -42,8 +42,6 @@
 #include <QFontMetrics>
 #include <QtWebEngineWidgets/QWebEngineProfile>
 
-#define TEST_GUMBO_QUERY 1
-
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
 #include <QWebEngineUrlScheme>
 #endif
@@ -62,12 +60,6 @@
 #include "Misc/URLSchemeHandler.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
-
-#if TEST_GUMBO_QUERY
-#include "Parsers/GumboInterface.h"
-#include "Query/CSelection.h"
-#include "Query/CNode.h"
-#endif
 
 #ifdef Q_OS_WIN32
 #include <QtWidgets/QPlainTextEdit>
@@ -686,46 +678,6 @@ int main(int argc, char *argv[])
             file_menu->addAction(quit_action);
 
             mac_bar->addMenu(file_menu);
-#endif
-
-#if TEST_GUMBO_QUERY
-            if (1) {
-                QString page = "<h1><a>wrong link</a><a class=\"special\"\\>some link</a></h1>";
-                GumboInterface gi = GumboInterface(page, "any_version");
-                CSelection c = gi.find("h1 a.special");
-                CNode node = c.nodeAt(0);
-                std::cout << node.text() << std::endl;
-            };
-            if (1) {
-                QString page = "<html><div><span>1\n</span>2\n</div></html>";
-                GumboInterface gi = GumboInterface(page, "any_version");
-                CNode pNode = gi.find("div").nodeAt(0);
-                std::cout << pNode.text() << std::endl;
-            }
-            if (1) {
-                QString page = "<html><div><span id=\"that's\">1\n</span>2\n</div></html>";
-                GumboInterface gi = GumboInterface(page, "any_version");
-                CNode pNode = gi.find("span[id=\"that's\"]").nodeAt(0);
-                std::cout << pNode.text() << std::endl;
-            }
-            if (1) {
-                QString page = "<h1><a>some link</a></h1>";
-                GumboInterface gi = GumboInterface(page, "any_version");
-                CSelection c = gi.find("h1 a");
-                std::cout << c.nodeAt(0).text() << std::endl; // some link
-            }
-            if (1) {
-                QString page = "<html><div class=\"chapter\"><p class=\"flush\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p><p>second child</p></div></html>";
-                GumboInterface gi = GumboInterface(page, "any_version");
-                CNode pNode = gi.find(".chapter > p:first-child:first-of-type").nodeAt(0);
-                std::cout << pNode.text() << std::endl; // some link
-            }
-            if (1) {
-                QString page = "<html lang=\"en\"><div lang=\"it\" class=\"chapter\"><p class=\"flush\">This inherits the it language tag of the parent div</p><p>second child</p></div></html>";
-                GumboInterface gi = GumboInterface(page, "any_version");
-                CNode pNode = gi.find("p.flush:lang(it)").nodeAt(0);
-                std::cout << pNode.text() << std::endl;
-            }
 #endif
 
             VerifyPlugins();
