@@ -112,10 +112,14 @@ QString HTMLStyleInfo::getReformattedCSSText(bool multipleLineFormat)
     // while keeping earlier start and length values correct. 
     for(int i = style_texts.length() - 1; i >= 0; i--) {
         QString ntext = style_texts.at(i);
+        ntext = "\n" + ntext + "\n";
         QString top = m_source.left(m_starts[i]);
         QString bottom = m_source.mid(m_starts[i] + m_lengths[i]);
         m_source = top + ntext + bottom;
     }
+    
+
+    
     // IMPORTANT: After reformatting the styles users *must*
     // Initialize a new HTMLStyleInfo object to work on the new text.
     // This HTMLStyleInfo is now obsolete.
@@ -135,6 +139,7 @@ QString HTMLStyleInfo::removeMatchingSelectors(QList<CSSInfo::CSSSelector *> css
     // while keeping earlier start and length values correct. 
     for(int i = style_texts.length() - 1; i >= 0; i--) {
         QString ntext = style_texts.at(i);
+        ntext = "\n" + ntext + "\n";
         QString top = m_source.left(m_starts[i]);
         QString bottom = m_source.mid(m_starts[i] + m_lengths[i]);
         m_source = top + ntext + bottom;
@@ -214,9 +219,9 @@ QString HTMLStyleInfo::formatCSSProperties(QList<HTMLStyleInfo::CSSProperty> new
 }
 
 
-bool HTMLStyleInfo::findInlineStyleBlock(const QString &text, const int &offset, int &styleStart, int &styleEnd)
+bool HTMLStyleInfo::findInlineStyleBlock(const QString &text, int offset, int &styleStart, int &styleEnd)
 {
-    QRegularExpression inline_styles_search("<\\s*style\\s[^>]+>", QRegularExpression::CaseInsensitiveOption|QRegularExpression::InvertedGreedinessOption);
+    QRegularExpression inline_styles_search("<\\s*style\\s*[^>]*>", QRegularExpression::CaseInsensitiveOption|QRegularExpression::InvertedGreedinessOption);
     int style_len = 0;
     styleEnd = -1;
     styleStart = -1;

@@ -47,6 +47,8 @@ public:
     };
 
 
+    bool hasStyles() { return m_styles.size() > 0; };
+
     QList<CSSInfo::CSSSelector *> getAllSelectors();
 
     /**
@@ -87,7 +89,7 @@ public:
     static QString formatCSSProperties(QList<CSSProperty> new_properties, bool multipleLineFormat, const int &selectorIndent = 0);
 
 private:
-    bool findInlineStyleBlock(const QString &text, const int &offset, int &styleStart, int &styleEnd);
+    bool findInlineStyleBlock(const QString &text, int offset, int &styleStart, int &styleEnd);
     void generateSelectorsList();
 
     QList<CSSInfo *> m_styles;
@@ -96,12 +98,5 @@ private:
     QString m_source;
 };
 
-#if 0
-template<class T>
-bool dereferencedLessThan(T *o1, T *o2)
-{
-    return *o1 < *o2;
-}
-#endif
 #endif // HTMLSTYLEINFO_H
 
