@@ -140,6 +140,7 @@ QList<BookReports::StyleData *> BookReports::ClassesUsedInHTMLFileMapped(HTMLRes
 }
 
 
+#if 0
 
 // These are used to determine is Class Selectors are Unued or Not for DeleteUnusedStyles
 // They are needed because one use of a class in html can actually match more than one selector with same specificity
@@ -269,7 +270,7 @@ QList<BookReports::StyleData *> BookReports::GetCSSSelectorUsage(QSharedPointer<
     }
     return css_selectors_usage;
 }
-
+#endif
 
 
 // These are used with the new Query gumbo query to help determine if selectors of all
