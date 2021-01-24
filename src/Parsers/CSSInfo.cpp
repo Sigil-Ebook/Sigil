@@ -243,6 +243,7 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
     int i = 0;
     while(i < m_csstokens.size()) {
         CSSParser::token atoken = m_csstokens[i];
+        bool store_it = true;
         if (atoken.type == CSSParser::SEL_START && !atoken.data.startsWith('@')) {
             // we have a selector
             QStringList sels = CSSParser::splitGroupSelector(atoken.data);
@@ -272,17 +273,17 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
                     atoken.data = sels.join(',');
                 }
             } else {
-                // skip this selector completely
-                i++;
-                while (i < m_csstokens.size()) {
-                    atoken = m_csstokens[i];
-                    if (atoken.type == CSSParser::SEL_END) break;
+                // skip this SEL_START all of the way to the SEL_END
+                store_it = false;
+                while(atoken.type != CSSParser::SEL_END) {
                     i++;
+                    if (i >=  m_csstokens.size()) break;
+                    atoken = m_csstokens[i];
                 }
             }
         }
+        if (store_it) new_csstokens.push_back(atoken);
         i++;
-        new_csstokens.push_back(atoken);
     }
     CSSParser cp;
     cp.set_level("CSS3.0");
