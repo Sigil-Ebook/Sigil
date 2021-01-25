@@ -269,44 +269,6 @@ ClipEditorModel::clipEntry *ClipEditorModel::GetEntryFromNumber(int clip_number)
     return GetEntry(GetItemFromNumber(clip_number));
 }
 
-#if 0
-// this original code had too many exit paths with the potential for off
-// by one for valid item in final row since row is incremented early
-
-QStandardItem *ClipEditorModel::GetItemFromNumber(int clip_number)
-{
-    QStandardItem *item = NULL;
-    
-    clip_number--;
-
-    if (clip_number < 0) {
-        return item;
-    }
-
-    // Get the entry for the number, skipping over group entries so that
-    // the entries can be at top or bottom, or anywhere, in the list.
-    int row = 0;
-    int rows = invisibleRootItem()->rowCount();
-    for (int i = 0; i <= clip_number; i++) {
-        while (row < rows) {
-            item = invisibleRootItem()->child(row, 0);
-            row++;
-            if (!item || !item->data(IS_GROUP_ROLE).toBool()) {
-                break;
-            }
-        }
-        if (row >= rows) {
-            break;
-        }
-        if (i == clip_number) {
-            return item;
-        }
-    }
-
-    return NULL;
-}
-#endif
-
 
 // Let's try this approach to try to address those concerns
 QStandardItem *ClipEditorModel::GetItemFromNumber(int clip_number)

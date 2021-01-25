@@ -99,4 +99,3 @@ private:
 };
 
 #endif // HTMLSTYLEINFO_H
-

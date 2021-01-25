@@ -55,15 +55,6 @@ public:
      */
     virtual bool IsLoadingFinished() = 0;
 
-#if 0
-    virtual int GetCursorLine() const {
-        return -1;
-    }
-    virtual int GetCursorColumn() const {
-        return -1;
-    }
-#endif
-
     /**
      * Returns an "encoded" location of the caret element.
      * The returned list of elements represents a "chain"

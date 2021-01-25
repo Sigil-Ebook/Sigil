@@ -63,7 +63,7 @@ CSSParser::CSSParser()
     csstemplate.push_back("");        //  2 - unused
     csstemplate.push_back(" {\n");    //  3 - bracket after selector was "\n{\n"
     csstemplate.push_back("");        //  4 - unused
-    csstemplate.push_back(" ");        //  5 - string after property before value
+    csstemplate.push_back(" ");       //  5 - string after property before value
     csstemplate.push_back(";\n");     //  6 - string after value
     csstemplate.push_back("}");       //  7 - closing bracket - selector
     csstemplate.push_back("\n\n");    //  8 - space between blocks {...}
@@ -482,7 +482,10 @@ void CSSParser::parseInSelector(QString& css_input, int& i, parse_status& astatu
             cur_selector += unicode(css_input,i);
         }
         // remove unnecessary universal selector,  FS#147
-        else if(!(css_input[i] == '*' && (CSSUtils::s_at(css_input,i+1) == '.' || CSSUtils::s_at(css_input,i+1) == '[' || CSSUtils::s_at(css_input,i+1) == ':' || CSSUtils::s_at(css_input,i+1) == '#')))
+        else if(!(css_input[i] == '*' && (CSSUtils::s_at(css_input,i+1) == '.' ||
+                                          CSSUtils::s_at(css_input,i+1) == '[' ||
+                                          CSSUtils::s_at(css_input,i+1) == ':' ||
+                                          CSSUtils::s_at(css_input,i+1) == '#')))
         {
             cur_selector += css_input[i];
         }
@@ -490,7 +493,9 @@ void CSSParser::parseInSelector(QString& css_input, int& i, parse_status& astatu
     else
     {
         int lastpos = cur_selector.length()-1;
-        if( (lastpos == -1) || !( (CSSUtils::ctype_space(cur_selector[lastpos]) || (is_token(cur_selector,lastpos) && cur_selector[lastpos] == ',')) && CSSUtils::ctype_space(css_input[i])))
+        if( (lastpos == -1) || !( (CSSUtils::ctype_space(cur_selector[lastpos]) ||
+                                   (is_token(cur_selector,lastpos) && cur_selector[lastpos] == ',')) &&
+                                  CSSUtils::ctype_space(css_input[i])))
         {
             cur_selector += css_input[i];
         }
@@ -810,26 +815,6 @@ void CSSParser::parseInString(QString& css_input, int& i, parse_status& astatus,
     {
         astatus = afrom;
         // Quotes are optional so leave them alone (ie. act like a parser not an optimizer)
-#if 0
-        if (cur_function == "" && 
-            CSSUtils::find_first_of(cur_string, " \n\t\r\0xb") == -1 &&
-            cur_property != "content" && cur_sub_value != "format")
-        {
-            // If the string is not inside a function call, contains no whitespace, 
-            // and the current property is not 'content', it may be safe to remove quotes.
-            // TODO: Are there any properties other than 'content' where this is unsafe?
-            // TODO: What if the string contains a comma or slash, and the property is a list or shorthand?
-            if (str_char == '"' || str_char == '\'')
-            {
-                // If the string is in double or single quotes, remove them
-                // FIXME: once url() is handled separately, this may always be the case.
-                cur_string = cur_string.mid(1, cur_string.length() - 2);
-            } else if (cur_string.length() > 3 && (cur_string[1] == '"' || cur_string[1] == '\'')) /* () */ 
-            {
-                cur_string = cur_string[0] + cur_string.mid(2, cur_string.length() - 4) + cur_string[cur_string.length()-1];
-            }
-        }
-#endif
         if(afrom == PIV)
         {
             cur_sub_value += cur_string;

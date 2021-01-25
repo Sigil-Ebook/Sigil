@@ -413,49 +413,6 @@ void TextView::contextMenuEvent(QContextMenuEvent *event)
     }
 }
 
-#if 0
-void TextView::AddReformatHTMLContextMenu(QMenu *menu)
-{
-    QAction *topAction = 0;
-
-    if (!menu->actions().isEmpty()) {
-        topAction = menu->actions().at(0);
-    }
-
-    QMenu *reformatMenu = new QMenu(tr("Reformat HTML"), menu);
-
-    QAction *cleanAction = new QAction(tr("Mend and Prettify Code"), reformatMenu);
-    QAction *cleanAllAction = new QAction(tr("Mend and Prettify Code - All HTML Files"), reformatMenu);
-    QAction *toValidAction = new QAction(tr("Mend Code"), reformatMenu);
-    QAction *toValidAllAction = new QAction(tr("Mend Code - All HTML Files"), reformatMenu);
-    connect(cleanAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLCleanAction()));
-    connect(cleanAllAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLCleanAllAction()));
-    connect(toValidAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLToValidAction()));
-    connect(toValidAllAction, SIGNAL(triggered()), this, SLOT(ReformatHTMLToValidAllAction()));
-    reformatMenu->addAction(cleanAction);
-    reformatMenu->addAction(cleanAllAction);
-    reformatMenu->addSeparator();
-    reformatMenu->addAction(toValidAction);
-    reformatMenu->addAction(toValidAllAction);
-
-    if (!topAction) {
-        menu->addMenu(reformatMenu);
-    } else {
-        menu->insertMenu(topAction, reformatMenu);
-    }
-
-    if (topAction) {
-        menu->insertSeparator(topAction);
-    }
-}
-#endif
-
-#if 0
-void TextView::GoToLinkOrStyle()
-{
-    // emit LinkClicked(QUrl(url_name));
-}
-#endif
 
 // Overridden so we can emit the FocusGained() signal.
 void TextView::focusInEvent(QFocusEvent *event)
@@ -472,35 +429,6 @@ void TextView::focusOutEvent(QFocusEvent *event)
     emit FocusLost(this);
     QPlainTextEdit::focusOutEvent(event);
 }
-
-#if 0
-void TextView::ScrollOneLineUp()
-{
-    ScrollByLine(false);
-}
-
-void TextView::ScrollOneLineDown()
-{
-    ScrollByLine(true);
-}
-#endif
-
-#if 0
-void TextView::ResetFont()
-{
-    // Let's try to use our user specified value as our font (default Courier New)
-    QFont font(m_textViewAppearance.font_family, m_textViewAppearance.font_size);
-    // But just in case, say we want a fixed width font if font is not present
-    font.setStyleHint(QFont::TypeWriter);
-    setFont(font);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
-    setTabStopDistance(TAB_SPACES_WIDTH * QFontMetrics(font).horizontalAdvance(' '));
-#else
-    setTabStopWidth(TAB_SPACES_WIDTH * QFontMetrics(font).width(' '));
-#endif
-    UpdateLineNumberAreaFont(font);
-}
-#endif
 
 
 void TextView::SetAppearanceColors()

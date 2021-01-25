@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020  Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -29,9 +29,9 @@
 #include "Parsers/QuickParser.h"
 
 QuickParser::QuickParser(const QString &source, QString default_lang)
-        : m_source(source),
-          m_pos(0),
-          m_next(0)
+    : m_source(source),
+      m_pos(0),
+      m_next(0)
 {
     m_LangPath << default_lang;
     m_TagPath << "root";
@@ -58,24 +58,24 @@ QuickParser::MarkupInfo QuickParser::parse_next()
     mi.pos = -1;
     QStringRef markup = parseML();
     if (!markup.isNull()) {
-	if ((markup.at(0) == "<") && (markup.at(markup.size() - 1) == ">")) {
-	    parseTag(markup, mi);
-	    if (mi.ttype == "begin") {
-		m_TagPath << mi.tname;
-		QString lang = mi.tattr.value("lang", QString());
-		if (lang.isEmpty()) lang = mi.tattr.value("xml:lang", QString());
-		if (lang.isEmpty()) lang = m_LangPath.last();
-		m_LangPath << lang;
-	    } else if (mi.ttype == "end") {
-		m_TagPath.removeLast();
-		m_LangPath.removeLast();
-	    }
-	} else {
+        if ((markup.at(0) == "<") && (markup.at(markup.size() - 1) == ">")) {
+            parseTag(markup, mi);
+            if (mi.ttype == "begin") {
+                m_TagPath << mi.tname;
+                QString lang = mi.tattr.value("lang", QString());
+                if (lang.isEmpty()) lang = mi.tattr.value("xml:lang", QString());
+                if (lang.isEmpty()) lang = m_LangPath.last();
+                m_LangPath << lang;
+            } else if (mi.ttype == "end") {
+                m_TagPath.removeLast();
+                m_LangPath.removeLast();
+            }
+        } else {
             mi.text = markup.toString();
-	}
+        }
         mi.pos = m_pos;
         mi.lang = m_LangPath.last();
-	mi.tpath = m_TagPath.join(".");
+        mi.tpath = m_TagPath.join(".");
     }
     return mi;
 }
@@ -87,7 +87,7 @@ QString QuickParser::serialize_markup(const QuickParser::MarkupInfo& mi)
     QString res;
     // handle leading text
     if (!mi.text.isEmpty()) {
-	res = mi.text;
+        res = mi.text;
     }
 
     // if not tag info provided return just the text
@@ -95,41 +95,41 @@ QString QuickParser::serialize_markup(const QuickParser::MarkupInfo& mi)
     
     // handle any end tags
     if (mi.ttype == "end") {
-	res = res + "</" + mi.tname + ">";
-	return res;
+        res = res + "</" + mi.tname + ">";
+        return res;
     }
     
     // handle the special cases
     if (mi.ttype == "xmlheader") {
-	res = res + "<" + mi.tname + " " + mi.tattr["special"] + ">";
-	return res;
+        res = res + "<" + mi.tname + " " + mi.tattr["special"] + ">";
+        return res;
     }
     if (mi.ttype == "comment") {
-	res = res + "<" + mi.tname + " " + mi.tattr["special"] + "-->";
-	return res;
+        res = res + "<" + mi.tname + " " + mi.tattr["special"] + "-->";
+        return res;
     }
     if (mi.ttype == "cdata") {
-	res = res + "<" + mi.tname + " " + mi.tattr["special"] + "]]>";
-	return res;
+        res = res + "<" + mi.tname + " " + mi.tattr["special"] + "]]>";
+        return res;
     }
     if (mi.ttype == "doctype") {
-	res = res + "<" + mi.tname + " " + mi.tattr["special"] + ">";
-	return res;
+        res = res + "<" + mi.tname + " " + mi.tattr["special"] + ">";
+        return res;
     }
     // finally begin and single tags
     res = res + "<" + mi.tname;
     foreach(QString key, mi.tattr.keys()) {
-	QString val = mi.tattr[key];
-	if (val.contains("\"")) {
-	    res = res + " " + key + "=" + "'" + val + "'";
-	} else {
-	    res = res + " " + key + "=" + "\"" + val + "\"";
-	}
+        QString val = mi.tattr[key];
+        if (val.contains("\"")) {
+            res = res + " " + key + "=" + "'" + val + "'";
+        } else {
+            res = res + " " + key + "=" + "\"" + val + "\"";
+        }
     }
     if (mi.ttype == "single") {
-	res = res + "/>";
+        res = res + "/>";
     } else {
-	res = res + ">";
+        res = res + ">";
     }
     return res;
 }
@@ -144,22 +144,22 @@ QStringRef QuickParser::parseML()
     m_pos = p;
     if (p >= m_source.length()) return QStringRef();
     if (m_source.at(p) != "<") {
-	// we have text leading up to a tag start
-	m_next = findTarget("<", p+1);
-	return Utility::SubstringRef(m_pos, m_next, m_source);
+        // we have text leading up to a tag start
+        m_next = findTarget("<", p+1);
+        return Utility::SubstringRef(m_pos, m_next, m_source);
     }
     // we have a tag or special case
     // handle special cases first
     QString tstart = Utility::Substring(p, p+9, m_source);
     if (tstart.startsWith("<!--")) {
-	// include ending > as part of the string
+        // include ending > as part of the string
         m_next = findTarget("-->", p+4, true);
-	return Utility::SubstringRef(m_pos, m_next, m_source);
+        return Utility::SubstringRef(m_pos, m_next, m_source);
     }
     if (tstart.startsWith("<![CDATA[")) {
-	// include ending > as part of the string
+        // include ending > as part of the string
         m_next = findTarget("]]>", p+9, true);
-	return Utility::SubstringRef(m_pos, m_next, m_source);
+        return Utility::SubstringRef(m_pos, m_next, m_source);
     }
     // include ending > as part of the string
     m_next = findTarget(">", p+1, true);
@@ -183,69 +183,69 @@ void QuickParser::parseTag(const QStringRef& tagstring, QuickParser::MarkupInfo&
     // first handle special cases
     if (c == '?') {
         if (tagstring.startsWith("<?xml")) {
-	    mi.tname = "?xml";
-	    mi.ttype = "xmlheader";
-	} else {
-	    mi.tname = "?";
-	    mi.ttype = "pi";
-	}
-	mi.tattr["special"] = Utility::Substring(1, taglen-1, tagstring);
-	return;
+            mi.tname = "?xml";
+            mi.ttype = "xmlheader";
+        } else {
+            mi.tname = "?";
+            mi.ttype = "pi";
+        }
+        mi.tattr["special"] = Utility::Substring(1, taglen-1, tagstring);
+        return;
     }
     if (c == '!') {
         if (tagstring.startsWith("<!--")) {
-	    mi.tname = "!--";
-	    mi.ttype = "comment"; 
-	    mi.tattr["special"] = Utility::Substring(1, taglen-3, tagstring);
-	} else if (tagstring.startsWith("<!DOCTYPE")) {
-	    mi.tname = "!DOCTYPE";
-	    mi.ttype = "doctype";
-	    mi.tattr["special"] = Utility::Substring(1, taglen-1, tagstring);
-	} else if (tagstring.startsWith("<![CDATA[")) {
-	    mi.tname = "![CDATA[";
-	    mi.ttype = "cdata";
-	    mi.tattr["special"] = Utility::Substring(1, taglen-3, tagstring);
-	}
-	return;
+            mi.tname = "!--";
+            mi.ttype = "comment"; 
+            mi.tattr["special"] = Utility::Substring(1, taglen-3, tagstring);
+        } else if (tagstring.startsWith("<!DOCTYPE")) {
+            mi.tname = "!DOCTYPE";
+            mi.ttype = "doctype";
+            mi.tattr["special"] = Utility::Substring(1, taglen-1, tagstring);
+        } else if (tagstring.startsWith("<![CDATA[")) {
+            mi.tname = "![CDATA[";
+            mi.ttype = "cdata";
+            mi.tattr["special"] = Utility::Substring(1, taglen-3, tagstring);
+        }
+        return;
     }
 
     // normal tag, extract tag name
     p = skipAnyBlanks(tagstring, 1);
     if (tagstring.at(p) == "/") {
-	mi.ttype = "end";
-	p++;
-	p = skipAnyBlanks(tagstring, p);
-    };
+        mi.ttype = "end";
+        p++;
+        p = skipAnyBlanks(tagstring, p);
+    }
     int b = p;
     p = stopWhenContains(tagstring, ">/ \f\t\r\n", p);
     mi.tname = Utility::Substring(b, p, tagstring);
 
     // handle the possibility of attributes (so begin or single tag type, not end)
     if (mi.ttype.isEmpty()) {
-	while (tagstring.indexOf("=", p) != -1) {
-	    p = skipAnyBlanks(tagstring, p);
-	    b = p;
-	    p = stopWhenContains(tagstring, "=", p);
-	    QString aname = Utility::Substring(b, p, tagstring).trimmed();
-	    QString avalue;
-	    p++;
-	    p = skipAnyBlanks(tagstring, p);
-	    if ((tagstring.at(p) == "'") || (tagstring.at(p) == "\"")) {
-		QString qc = tagstring.at(p);
-		p++;
-		b = p;
-		p = stopWhenContains(tagstring, qc, p);
-		avalue = Utility::Substring(b, p, tagstring);
-		p++;
-	    } else {
-		b = p;
-		p = stopWhenContains(tagstring, ">/ ", p);
-		avalue = Utility::Substring(b, p, tagstring);
-	    }
-	    mi.tattr[aname] = avalue;
-	}
-	mi.ttype = "begin";
-	if (tagstring.indexOf("/", p) >= 0) mi.ttype = "single";
+        while (tagstring.indexOf("=", p) != -1) {
+            p = skipAnyBlanks(tagstring, p);
+            b = p;
+            p = stopWhenContains(tagstring, "=", p);
+            QString aname = Utility::Substring(b, p, tagstring).trimmed();
+            QString avalue;
+            p++;
+            p = skipAnyBlanks(tagstring, p);
+            if ((tagstring.at(p) == "'") || (tagstring.at(p) == "\"")) {
+                QString qc = tagstring.at(p);
+                p++;
+                b = p;
+                p = stopWhenContains(tagstring, qc, p);
+                avalue = Utility::Substring(b, p, tagstring);
+                p++;
+            } else {
+                b = p;
+                p = stopWhenContains(tagstring, ">/ ", p);
+                avalue = Utility::Substring(b, p, tagstring);
+            }
+            mi.tattr[aname] = avalue;
+        }
+        mi.ttype = "begin";
+        if (tagstring.indexOf("/", p) >= 0) mi.ttype = "single";
     }
     return;
 }
@@ -273,4 +273,3 @@ int QuickParser::stopWhenContains(const QStringRef &tgt, const QString& stopchar
     while((p < tgt.length()) && !stopchars.contains(tgt.at(p))) p++;
     return p;
 }
-

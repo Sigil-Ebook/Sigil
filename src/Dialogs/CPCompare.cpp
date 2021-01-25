@@ -211,36 +211,6 @@ CPCompare::~CPCompare()
     WriteSettings();
 }
 
-#if 0
-void CPCompare::keyPressEvent(QKeyEvent * ev)
-{
-    if ((ev->key() == Qt::Key_Enter) || (ev->key() == Qt::Key_Return)) return;
-
-    if (ev->key() == Qt::Key_Slash) {
-	m_nav->set_focus_on_search();
-	return;
-    }
-
-    if (ev->matches(QKeySequence::Copy)) {
-	QString text = m_view1->GetSelectedText() + m_view2->GetSelectedText();
-	if (!text.isEmpty()) {
-	    QApplication::clipboard()->setText(text);
-	}
-	return;
-    }
-
-    if (ev->matches(QKeySequence::FindNext)) {
-	do_search(false);
-        return;
-    }
-    if (ev->matches(QKeySequence::FindPrevious)) {
-	do_search(true);
-        return;
-    }
-    return QDialog::keyPressEvent(ev);
-}
-#endif
-
 void CPCompare::ReadSettings()
 {
     SettingsStore settings;

@@ -51,27 +51,6 @@ QString CleanSource::Mend(const QString &source, const QString &version)
 {
     SettingsStore settings;
     QString newsource = PreprocessSpecialCases(source);
-
-    // This hack should not be needed anymore as the epub version is known
-    // so missing doctypes should be properly recreated by gumbo
-#if 0
-    // This is a real hackjob just to test the impact of doctype on gumbo repair functioning
-    // Better code here would handle the case of the xml declaration if present
-    // Instead of blindly prepending a doctype if none can be found 
-    const int SAFE_LENGTH = 200;
-    QRegularExpression doctype_present("<!DOCTYPE\\s*html", QRegularExpression::CaseInsensitiveOption);
-    int index = newsource.indexOf(doctype_present);
-    if (!(index > 0 && index < SAFE_LENGTH)) {
-        QString doctype;
-        if (version == "2.0") {
-            doctype = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n  \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n";
-        } else {
-            doctype = "<!DOCTYPE html>\n";
-        }
-        newsource = doctype + newsource;
-    }
-#endif
-
     GumboInterface gp = GumboInterface(newsource, version);
     newsource = gp.repair();
     newsource = CharToEntity(newsource, version);

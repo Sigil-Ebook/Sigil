@@ -112,11 +112,6 @@ QString XMLResource::GetValidID(const QString &value)
     if (!ID_VALID_FIRST_CHAR.contains(first_char)) {
         new_value.prepend("x");
     }
-#if 0
-    if (first_char.isNumber() || first_char == QChar('-') || first_char == QChar('.')) {
-        new_value.prepend("x");
-    }
-#endif
 
     return new_value;
 }
@@ -128,12 +123,5 @@ QString XMLResource::GetValidID(const QString &value)
 bool XMLResource::IsValidIDCharacter(const QChar &character)
 {
     return ID_VALID_CHARS.contains(character);
-#if 0
-    return character.isLetterOrNumber() ||
-           character == QChar('-')    ||
-           character == QChar('_')    ||
-           character == QChar('.')
-           ;
-#endif
 }
 

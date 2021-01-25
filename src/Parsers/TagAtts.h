@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -52,12 +52,12 @@ public:
     ~TagAtts();
     
     struct TAttribute {
-	    QString key;
-	    QString value;
-	    struct TAttribute * prev;
-	    struct TAttribute * next;
-	    TAttribute(const QString &akey, const QString &avalue): key(akey), value(avalue) { prev = nullptr; next=nullptr; };
-	    ~TAttribute() { prev=nullptr; next=nullptr; }
+        QString key;
+        QString value;
+        struct TAttribute * prev;
+        struct TAttribute * next;
+        TAttribute(const QString &akey, const QString &avalue): key(akey), value(avalue) { prev = nullptr; next=nullptr; };
+        ~TAttribute() { prev=nullptr; next=nullptr; }
     };
 
     void insert(const QString &key, const QString &value);

@@ -281,26 +281,6 @@ MainWindow::~MainWindow()
 
 }
 
-#if 0
-// The problem is this routine does not help!
-void MainWindow::maybe_fixup_dockwidget_geometry(QDockWidget* dw) 
-{
-    QRect screen_rect = qApp->desktop()->availableGeometry(dw);
-    qDebug() << "dockwidget screen: " << screen_rect;
-    qDebug() << "dockwidget widget: " << dw->geometry() << dw->isFloating();
-    qDebug() << "mainwindow screen: " << qApp->desktop()->availableGeometry(this);
-    if (dw->isFloating()) {
-        if (!dw->geometry().intersects(screen_rect)) {
-            qDebug() << "on a no longer available screen";
-            // shrink it to fit the current screen and move it here
-            int w = std::min(dw->width(), screen_rect.width() - 10);
-	    int h = std::min(dw->height(), screen_rect.height() - 10);
-	    dw->resize(w, h);
-	    dw->move((screen_rect.width() - w)/2, (screen_rect.height() - h)/2);
-	}
-    }
-}
-#endif
 
 void MainWindow::createJumpList()
 {
@@ -1237,11 +1217,6 @@ void MainWindow::DebugCurrentWidgetSizes()
 // has been set.
 bool MainWindow::isMaxOrFull() {
     bool result = isMaximized() || isFullScreen();
-#if 0
-    QRect w = geometry();
-    QRect s = qApp->primaryScreen()->availableGeometry();
-    result = result || ((w.height() >= (s.height() - 50)) && (w.width() >= (s.width() - 50)));
-#endif
     return result; 
 }
 
@@ -1818,10 +1793,6 @@ void MainWindow::clearMemoryCaches()
 
     //      setCachPath()
     //      cachePath()
-
-#if 0
-    QWebSettings::clearMemoryCaches();
-#endif
 }
 
 
@@ -2476,14 +2447,8 @@ void MainWindow::DeleteUnusedStyles()
         return;
     }
 
-#if 1
     // This one handles all selector types
     QList<BookReports::StyleData *> css_selector_usage = BookReports::GetAllCSSSelectorsUsed(m_Book, true);
-#else
-    QList<BookReports::StyleData *> html_class_usage = BookReports::GetAllHTMLClassUsage(m_Book, true);
-    QList<BookReports::StyleData *> css_selector_usage = BookReports::GetCSSSelectorUsage(m_Book, html_class_usage);
-    qDeleteAll(html_class_usage);
-#endif
     QList<BookReports::StyleData *> css_selectors_to_delete;
     foreach(BookReports::StyleData *selector, css_selector_usage) {
         if (selector->html_filename.isEmpty()) {
@@ -2494,11 +2459,7 @@ void MainWindow::DeleteUnusedStyles()
     if (css_selectors_to_delete.count() > 0) {
         DeleteReportsStyles(css_selectors_to_delete);
     } else {
-#if 1
         QMessageBox::information(this, tr("Sigil"), tr("There are no unused stylesheet selectors to delete."));
-#else
-        QMessageBox::information(this, tr("Sigil"), tr("There are no unused stylesheet classes to delete."));
-#endif
     }
     qDeleteAll(css_selector_usage);
 }
@@ -2769,16 +2730,6 @@ void MainWindow::PasteTextIntoCurrentTarget(const QString &text)
     ShowMessageOnStatusBar();
     m_LastPasteTarget->PasteText(text);
 }
-
-#if 0
-void MainWindow::PasteClipIntoCurrentTarget(QAction * act)
-{
-    int clip_number = act->data().toInt();
-    if ((clip_number > 0) && (clip_number <= m_clactions.count())) { 
-        PasteClipIntoCurrentTarget(clip_number);
-    }
-}
-#endif
 
 
 void MainWindow::PasteClipIntoCurrentTarget(int clip_number)
@@ -4770,15 +4721,6 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
                 }
             }
         }
-#if 0 
-	else {
-            if (not_well_formed) {
-                // they have broken xhtml resources but do NOT have clean 
-                // on save set. Should we be doing anything here?  
-                // We do warn them at the end.
-	    }
-	}
-#endif
 
         ExporterFactory().GetExporter(fullfilepath, m_Book)->WriteBook();
 
@@ -5457,14 +5399,6 @@ void MainWindow::ExtendUI()
     // Change Case QToolButton
     ui.tbCase->setPopupMode(QToolButton::InstantPopup);
 
-#if 0
-    // stop gap until an icon can be made
-    ui.tbCase->setToolButtonStyle(Qt::ToolButtonTextOnly);
-    QFont font = ui.tbCase->font();
-    font.setPointSize(18);
-    ui.tbCase->setFont(font);
-#endif
-
     UpdateClipsUI();
 }
 
@@ -5533,7 +5467,6 @@ void MainWindow::UpdateLastSizes() {
 // so keep the code
 void MainWindow::RestoreLastNormalGeometry()
 {
-#if 1 //def Q_OS_WIN32
     // record the current sizes before changing then as they
     // are updated in the resize event
     QByteArray WindowSize = m_LastWindowSize;
@@ -5546,7 +5479,6 @@ void MainWindow::RestoreLastNormalGeometry()
     m_SaveLastEnabled=true;
 
     DWINGEO DebugCurrentWidgetSizes();
-#endif
 }
 
 void MainWindow::changeEvent(QEvent *e) 
@@ -5566,13 +5498,11 @@ void MainWindow::changeEvent(QEvent *e)
 	    DWINGEO qDebug() << "Main Window new state: maximized";
         } else if (isFullScreen()) {
 	    DWINGEO qDebug() << "Main Window new state: fullscreen";
-	} else {
+	    } else {
             // NORMAL
-	    DWINGEO qDebug() << "Main Window new state: normal";
-#if 1  //def Q_OS_WIN32
+	        DWINGEO qDebug() << "Main Window new state: normal";
             // This is still be needed for Windows and Linux to restore after maximize
-	    QTimer::singleShot(0, this, SLOT(RestoreLastNormalGeometry()));
-#endif
+	        QTimer::singleShot(0, this, SLOT(RestoreLastNormalGeometry()));
         }
     }
     if (e->type() == QEvent::ActivationChange) {

@@ -105,12 +105,6 @@ void SpellCheck::UpdateLangCodeToDictMapping()
             m_langcode2dict[lc] = dname;
         }
     }
-#if 0
-    qDebug() << "langcode2dict";
-    foreach(QString lc, m_langcode2dict.keys()) {
-        qDebug() << lc << " -> " << m_langcode2dict[lc];
-    }
-#endif
 
     // make sure 2 letter mapping equivalent is properly set
     // for primary and secondary dictionaries

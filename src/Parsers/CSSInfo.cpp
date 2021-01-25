@@ -193,7 +193,7 @@ QString CSSInfo::getReformattedCSSText(bool multipleLineFormat)
                                          error_traceback);
     if (rv != 0) {
         Utility::DisplayStdWarningDialog(QString("Error in cssreformatter: ") + QString::number(rv), 
-				         error_traceback);
+                         error_traceback);
         // an error happened, return unchanged original
         return QString(csstext);
     }

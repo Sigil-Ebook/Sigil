@@ -224,9 +224,7 @@ void UniversalUpdates::UpdateOneCSSFile(CSSResource *css_resource,
     const QString source = css_resource->GetText();
     const QString newbookpath = css_resource->GetRelativePath();
     css_resource->SetText(PerformCSSUpdates(source, newbookpath, css_updates, currentpath)());
-#if 1
     css_resource->SaveToDisk();
-#endif
     css_resource->SetCurrentBookRelPath("");
 }
 

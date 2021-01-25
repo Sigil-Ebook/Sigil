@@ -137,39 +137,7 @@ void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
             insert_with_background(tc1, diff.line + "\n", _redColor);
 	    insert_with_background(tc2, pad.repeated(n) + "\n", _grayColor);
 
-#if 0
-	} else if (diff.code == "3") { // changed
-
-	    // This code although simpler did not work efficiently with
-            // inserting characters with different background colors one by one
-	    m_changelst << blockno;
-            int l1 = diff.line.length();
-	    int l2 = diff.newline.length();
-            int n = std::max(l1, l2);
-            int lc = diff.leftchanges.length();
-	    int rc = diff.rightchanges.length();
-	    for(int i=0; i < l1; i++) {
-		QChar c = diff.line.at(i);
-		if ((i < lc) && (diff.leftchanges.at(i) != " ")) {
-		    insert_with_background(tc1, c, _darkredColor);
-		} else {
-		    insert_with_background(tc1, c, _redColor);
-		}
-	    }
-	    tc1.insertText(pad.repeated(n-l1) + "\n");
-	    for(int i=0; i < l2; i++) {
-		QChar c = diff.newline.at(i);
-		if ((i < rc) && (diff.rightchanges.at(i) != " ")) {
-		    insert_with_background(tc2, c, _darkgreenColor);
-		} else {
-		    insert_with_background(tc2, c, _greenColor);
-		}
-	    }
-	    tc2.insertText(pad.repeated(n-l2) + "\n");
-	}
-#else 
-
-        } else if (diff.code == "3") { // changed                                                                                   
+    } else if (diff.code == "3") { // changed                                                                                   
 	    m_changelst << blockno;
 	    int l1 = diff.line.length();
 	    int l2 = diff.newline.length();
@@ -249,7 +217,6 @@ void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
 	    }
             tc2.insertText(pad.repeated(n-l2) + "\n");
         }
-#endif
 
 	blockno++;
 	// map out block to line numbers

@@ -234,15 +234,4 @@ private:
     QString m_hoverUrl;
 };
 
-#if 0
-
-    /**
-     * Exposed for the Windows clipboard error workaround to
-     * retry a clipboard copy operation.
-     */
-    void copy();
-
-    // void InspectElement();
-#endif
-
 #endif // VIEWPREVIEW_H

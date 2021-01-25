@@ -788,20 +788,6 @@ bool Utility::has_non_ascii_chars(const QString &str)
 
 bool Utility::use_filename_warning(const QString &filename)
 {
-#if 0
-    const QString uri_delimiters = ":/?#[]@";
-    foreach(QChar c, uri_delimiters) {
-        if (filename.contains(c)) {
-            QMessageBox::warning(QApplication::activeWindow(),
-                   tr("Sigil"),
-                               tr("The requested file name contains one or more url/uri delimiter characters: "
-                  " : / ? # [ ] @  "
-                  "that should NOT appear in url/uri link targets such as filenames.\n\n"),
-                   QMessageBox::Ok);
-            return false;
-        }
-    }
-#endif
     if (has_non_ascii_chars(filename)) {
         return QMessageBox::Apply == QMessageBox::warning(QApplication::activeWindow(),
                 tr("Sigil"),
@@ -1024,48 +1010,6 @@ QStringList Utility::ZipInspect(const QString &zippath)
 
 // some utilities for working with absolute and book relative paths
 
-#if 0
-// brute force method
-QString Utility::longestCommonPath(const QStringList& filepaths, const QString& sep)
-{
-    // handle special cases
-    if (filepaths.isEmpty()) return QString();
-    if (filepaths.length() == 1) return QFileInfo(filepaths.at(0)).absolutePath() + sep;
-    
-    // split each path into its component segments
-    QList<QStringList> fpaths;
-    int minlen = -1;
-    foreach(QString apath, filepaths) {
-        QStringList segs = apath.split(sep);
-        int n = segs.length();
-        if (minlen == -1) minlen = n;
-        if (n < minlen) minlen = n;
-        fpaths.append(segs);
-    }
-
-    // now build up the results
-    QStringList res;
-    int numpaths = fpaths.length();
-    for(int i=0; i < minlen; i++) {
-        QString aseg = fpaths.at(0).at(i);
-        bool amatch = true;
-        int j = 1;
-        while(amatch && j < numpaths) {
-            amatch = (aseg == fpaths.at(j).at(i));
-            j++;
-        }
-        if (amatch) {
-            res << aseg;
-        } else {
-            break;
-        }
-    }
-    if (res.isEmpty()) return "";
-    return res.join(sep) + sep;
-}
-
-#else
-
 QString Utility::longestCommonPath(const QStringList& filepaths, const QString& sep)
 {
     if (filepaths.isEmpty()) return QString();
@@ -1083,8 +1027,6 @@ QString Utility::longestCommonPath(const QStringList& filepaths, const QString& 
     if (res.length() == 0) return sep;
     return res.join(sep) + sep;
 }
-
-#endif
 
 
 // works with absolute paths and book (internal to epub) paths
