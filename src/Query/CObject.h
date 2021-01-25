@@ -39,23 +39,24 @@
 
 class CObject
 {
-    public:
 
-        CObject();
+ public:
 
-        virtual ~CObject();
+    CObject();
 
-    public:
+    virtual ~CObject();
 
-        virtual void retain();
+ public:
 
-        virtual void release();
+    virtual void retain();
 
-        unsigned int references();
+    virtual void release();
 
-    private:
+    unsigned int references();
 
-        int mReferences;
+ private:
+
+    int mReferences;
 };
 
 #endif /* COBJECT_H_ */

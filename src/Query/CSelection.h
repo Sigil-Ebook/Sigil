@@ -48,28 +48,28 @@ class CNode;
 class CSelection: public CObject
 {
 
-    public:
+ public:
 
-        CSelection(GumboNode* apNode, bool error = false);
+    CSelection(GumboNode* apNode, bool error = false);
 
-        CSelection(std::vector<GumboNode*> aNodes, bool error = false);
+    CSelection(std::vector<GumboNode*> aNodes, bool error = false);
 
-        virtual ~CSelection();
+    virtual ~CSelection();
 
-    public:
+ public:
 
-        CSelection find(std::string aSelector);
+    CSelection find(std::string aSelector);
 
-        CNode nodeAt(size_t i);
+    CNode nodeAt(size_t i);
 
-        size_t nodeNum();
+    size_t nodeNum();
 
-        bool parseError() { return mparseError; }
+    bool parseError() { return mparseError; }
 
-    private:
+ private:
 
-        std::vector<GumboNode*> mNodes;
-        bool mparseError;
+    std::vector<GumboNode*> mNodes;
+    bool mparseError;
 };
 
 #endif /* CSELECTION_H_ */

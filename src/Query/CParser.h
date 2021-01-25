@@ -44,68 +44,68 @@
 
 class CParser
 {
-    private:
 
-        CParser(std::string aInput);
+ private:
 
-    public:
+    CParser(std::string aInput);
 
-        virtual ~CParser();
+ public:
 
-    public:
+    virtual ~CParser();
 
-        static CSelector* create(std::string aInput);
+ public:
 
-    private:
+    static CSelector* create(std::string aInput);
 
-        CSelector* parseSelectorGroup();
+ private:
 
-        CSelector* parseSelector();
+    CSelector* parseSelectorGroup();
 
-        CSelector* parseSimpleSelectorSequence();
+    CSelector* parseSelector();
 
-        void parseNth(int& aA, int& aB);
+    CSelector* parseSimpleSelectorSequence();
 
-        int parseInteger();
+    void parseNth(int& aA, int& aB);
 
-        CSelector* parsePseudoclassSelector();
+    int parseInteger();
 
-        CSelector* parseAttributeSelector();
+    CSelector* parsePseudoclassSelector();
 
-        CSelector* parseClassSelector();
+    CSelector* parseAttributeSelector();
 
-        CSelector* parseIDSelector();
+    CSelector* parseClassSelector();
 
-        CSelector* parseTypeSelector();
+    CSelector* parseIDSelector();
 
-        bool consumeClosingParenthesis();
+    CSelector* parseTypeSelector();
 
-        bool consumeParenthesis();
+    bool consumeClosingParenthesis();
 
-        bool skipWhitespace();
+    bool consumeParenthesis();
 
-        std::string parseString();
+    bool skipWhitespace();
 
-        std::string parseName();
+    std::string parseString();
 
-        std::string parseIdentifier();
+    std::string parseName();
 
-        bool nameChar(char c);
+    std::string parseIdentifier();
 
-        bool nameStart(char c);
+    bool nameChar(char c);
 
-        bool hexDigit(char c);
+    bool nameStart(char c);
 
-        std::string parseEscape();
+    bool hexDigit(char c);
 
-        std::string error(std::string message);
+    std::string parseEscape();
+
+    std::string error(std::string message);
 
 
-    private:
+ private:
 
-        std::string mInput;
-
-        size_t mOffset;
+    std::string mInput;
+    size_t mOffset;
 };
 
 #endif /* CPARSER_H_ */

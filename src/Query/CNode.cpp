@@ -86,7 +86,7 @@ bool CNode::in_set(std::unordered_set<std::string> &s, std::string key)
 
 CNode::CNode(GumboNode* apNode)
 {
-	mpNode = apNode;
+    mpNode = apNode;
 }
 
 CNode::~CNode()
@@ -140,9 +140,9 @@ std::string CNode::attribute(std::string key)
     GumboVector attributes = mpNode->v.element.attributes;
     for (unsigned int i = 0; i < attributes.length; i++) {
         GumboAttribute* attr = (GumboAttribute*) attributes.data[i];
-	if (key == attr->name){
-	    return attr->value;
-	}
+    if (key == attr->name){
+        return attr->value;
+    }
     }
     return "";
 }
@@ -172,11 +172,11 @@ size_t CNode::startPos()
                 // after the void tag closing '>" makes no sense
                 return 0;
             }
-	        return mpNode->v.element.start_pos.offset + mpNode->v.element.original_tag.length;
+            return mpNode->v.element.start_pos.offset + mpNode->v.element.original_tag.length;
         case GUMBO_NODE_TEXT:
-	        return mpNode->v.text.start_pos.offset;
+            return mpNode->v.text.start_pos.offset;
         default:
-	        return 0;
+            return 0;
     }
 }
 
@@ -193,12 +193,12 @@ size_t CNode::endPos()
                 // mpNode->v.element.end_pos.offset + mpNode->v.element.original_tag_length;
                 return 0;
             }
-	        return mpNode->v.element.end_pos.offset;
-	    case GUMBO_NODE_TEXT:
+            return mpNode->v.element.end_pos.offset;
+        case GUMBO_NODE_TEXT:
         case GUMBO_NODE_WHITESPACE:
-	        return mpNode->v.text.original_text.length + startPos();
-	    default:
-	        return 0;
+            return mpNode->v.text.original_text.length + startPos();
+        default:
+            return 0;
     }
 }
 
@@ -210,12 +210,12 @@ size_t CNode::startPosOuter()
     switch(mpNode->type)
     {
         case GUMBO_NODE_ELEMENT:
-	        return mpNode->v.element.start_pos.offset;
+            return mpNode->v.element.start_pos.offset;
         case GUMBO_NODE_TEXT:
         case GUMBO_NODE_WHITESPACE:
-	        return mpNode->v.text.start_pos.offset;
-	default:
-	    return 0;
+            return mpNode->v.text.start_pos.offset;
+    default:
+        return 0;
     }
 }
 
@@ -226,16 +226,16 @@ size_t CNode::endPosOuter()
 
     switch(mpNode->type)
     {
-	case GUMBO_NODE_ELEMENT:
+    case GUMBO_NODE_ELEMENT:
         if (in_set(void_tags, tag())) {
             return mpNode->v.element.end_pos.offset + mpNode->v.element.original_tag.length;
         }
-	    return mpNode->v.element.end_pos.offset + mpNode->v.element.original_end_tag.length;
-	case GUMBO_NODE_TEXT:
+        return mpNode->v.element.end_pos.offset + mpNode->v.element.original_end_tag.length;
+    case GUMBO_NODE_TEXT:
     case GUMBO_NODE_WHITESPACE:
-	    return mpNode->v.text.original_text.length + startPos();
-	default:
-	    return 0;
+        return mpNode->v.text.original_text.length + startPos();
+    default:
+        return 0;
     }
 }
 
@@ -309,8 +309,8 @@ void CNode::replace_all(std::string &s, const char * s1, const char * s2)
 CSelection CNode::find(std::string aSelector)
 {
     if (valid()) {
-	    CSelection c(mpNode);
-	    return c.find(aSelector);
+        CSelection c(mpNode);
+        return c.find(aSelector);
     }
     return CSelection(NULL);
 }

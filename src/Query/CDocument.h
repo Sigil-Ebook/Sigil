@@ -46,24 +46,25 @@
 
 class CDocument: public CObject
 {
-    public:
 
-        CDocument(const std::string& aInput);
+ public:
 
-        void parse();
+    CDocument(const std::string& aInput);
 
-        virtual ~CDocument();
+    void parse();
 
-        CSelection find(const std::string& aSelector);
+    virtual ~CDocument();
 
-    private:
+    CSelection find(const std::string& aSelector);
 
-        void reset();
+ private:
 
-    private:
+    void reset();
 
-        GumboOutput* mpOutput;
-        std::string mSource;
+ private:
+
+    GumboOutput* mpOutput;
+    std::string mSource;
 };
 
 #endif /* CDOCUMENT_H_ */

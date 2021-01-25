@@ -47,268 +47,267 @@
 class CSelector: public CObject
 {
 
-    public:
-        typedef enum
-        {
-            //
-            EDummy,
-            //
-            EEmpty,
-            //
-            EOnlyChild,
-            //
-            ENthChild,
-            //
-            ETag,
-            //
-            ERoot,
-            //
-            ELang,
-        } TOperator;
-    public:
+ public:
 
-        CSelector(TOperator aOp = EDummy)
-        {
-            init();
-            mOp = aOp;
-        }
+    typedef enum
+    {
+        //
+        EDummy,
+        //
+        EEmpty,
+        //
+        EOnlyChild,
+        //
+        ENthChild,
+        //
+        ETag,
+        //
+        ERoot,
+        //
+        ELang,
+    } TOperator;
 
-        CSelector(bool aOfType)
-        {
-            init();
-            mOp = EOnlyChild;
-            mOfType = aOfType;
-        }
+ public:
 
-        CSelector(int aA, int aB, bool aLast, bool aOfType)
-        {
-            init();
-            mOp = ENthChild;
-            mA = aA;
-            mB = aB;
-            mLast = aLast;
-            mOfType = aOfType;
-        }
+    CSelector(TOperator aOp = EDummy)
+    {
+        init();
+        mOp = aOp;
+    }
 
-        CSelector(GumboTag aTag)
-        {
-            init();
-            mOp = ETag;
-            mTag = aTag;
-        }
+    CSelector(bool aOfType)
+    {
+        init();
+        mOp = EOnlyChild;
+        mOfType = aOfType;
+    }
 
-                CSelector(std::string aLang)
-        {
-            init();
-            mOp = ELang;
-            mLang = aLang;
-        }
+    CSelector(int aA, int aB, bool aLast, bool aOfType)
+    {
+        init();
+        mOp = ENthChild;
+        mA = aA;
+        mB = aB;
+        mLast = aLast;
+        mOfType = aOfType;
+    }
 
-        virtual ~CSelector()
-        {
-        }
+    CSelector(GumboTag aTag)
+    {
+        init();
+        mOp = ETag;
+        mTag = aTag;
+    }
 
-    public:
+    CSelector(std::string aLang)
+    {
+        init();
+        mOp = ELang;
+        mLang = aLang;
+    }
 
-        virtual bool match(GumboNode* apNode);
+    virtual ~CSelector()
+    {
+    }
 
-        std::vector<GumboNode*> filter(std::vector<GumboNode*> nodes);
+ public:
 
-        std::vector<GumboNode*> matchAll(GumboNode* apNode);
+    virtual bool match(GumboNode* apNode);
 
-    private:
+    std::vector<GumboNode*> filter(std::vector<GumboNode*> nodes);
 
-        void init()
-        {
-            mOfType = false;
-            mA = 0;
-            mB = 0;
-            mLast = false;
-            mTag = GumboTag(0);
-            mLang = "";
-        }
+    std::vector<GumboNode*> matchAll(GumboNode* apNode);
 
-        void matchAllInto(GumboNode* apNode, std::vector<GumboNode*>& nodes);
+ private:
 
-    private:
+    void init()
+    {
+        mOfType = false;
+        mA = 0;
+        mB = 0;
+        mLast = false;
+        mTag = GumboTag(0);
+        mLang = "";
+    }
 
-        TOperator mOp;
+    void matchAllInto(GumboNode* apNode, std::vector<GumboNode*>& nodes);
 
-        bool mOfType;
+ private:
 
-        int mA;
+    TOperator mOp;
 
-        int mB;
+    bool mOfType;
 
-        bool mLast;
+    int mA;
 
-        GumboTag mTag;
+    int mB;
 
-                std::string mLang;
+    bool mLast;
+
+    GumboTag mTag;
+
+    std::string mLang;
 };
+
 
 class CUnarySelector: public CSelector
 {
-    public:
-        typedef enum
-        {
-            //
-            ENot,
-            //
-            EHasDescendant,
-            //
-            EHasChild,
-        } TOperator;
 
-    public:
+ public:
 
-        CUnarySelector(TOperator aOp, CSelector* apS);
+    typedef enum
+    {
+        //
+        ENot,
+        //
+        EHasDescendant,
+        //
+        EHasChild,
+    } TOperator;
 
-        virtual ~CUnarySelector();
+ public:
 
-    public:
+    CUnarySelector(TOperator aOp, CSelector* apS);
 
-        virtual bool match(GumboNode* apNode);
+    virtual ~CUnarySelector();
 
-    private:
+ public:
 
-        bool hasDescendantMatch(GumboNode* apNode, CSelector* apS);
+    virtual bool match(GumboNode* apNode);
 
-        bool hasChildMatch(GumboNode* apNode, CSelector* apS);
+ private:
 
-    private:
+    bool hasDescendantMatch(GumboNode* apNode, CSelector* apS);
 
-        CSelector* mpS;
+    bool hasChildMatch(GumboNode* apNode, CSelector* apS);
 
-        TOperator mOp;
+ private:
+
+    CSelector* mpS;
+
+    TOperator mOp;
 };
+
 
 class CBinarySelector: public CSelector
 {
-    public:
-        typedef enum
-        {
-            //
-            EUnion,
-            //
-            EIntersection,
-            //
-            EChild,
-            //
-            EDescendant,
-            //
-            ESibling,
+
+ public:
+
+    typedef enum
+    {
+        //
+        EUnion,
+        //
+        EIntersection,
+        //
+        EChild,
+        //
+        EDescendant,
+        //
+        ESibling,
             
-        } TOperator;
+    } TOperator;
 
-    public:
+ public:
 
-        CBinarySelector(TOperator aOp, CSelector* apS1, CSelector* apS2);
+    CBinarySelector(TOperator aOp, CSelector* apS1, CSelector* apS2);
 
-        CBinarySelector(CSelector* apS1, CSelector* apS2, bool aAdjacent);
+    CBinarySelector(CSelector* apS1, CSelector* apS2, bool aAdjacent);
 
-        ~CBinarySelector();
+    ~CBinarySelector();
 
-    public:
+ public:
 
-        virtual bool match(GumboNode* apNode);
+    virtual bool match(GumboNode* apNode);
 
-    private:
+ private:
 
-        CSelector* mpS1;
+    CSelector* mpS1;
 
-        CSelector* mpS2;
+    CSelector* mpS2;
 
-        TOperator mOp;
+    TOperator mOp;
 
-        bool mAdjacent;
+    bool mAdjacent;
 };
+
 
 class CAttributeSelector: public CSelector
 {
-    public:
-        typedef enum
-        {
-            /**
-             * 是否存在
-             */
-            EExists,
-            /**
-             * 是否相等
-             */
-            EEquals,
-            /**
-             * 是否包含
-             */
-            EIncludes,
-            /**
-             * 是否-开始
-             */
-            EDashMatch,
-            /**
-             * 是否前缀
-             */
-            EPrefix,
-            /**
-             * 是否后缀
-             */
-            ESuffix,
-            /**
-             * 是否子串
-             */
-            ESubString,
-        } TOperator;
 
-    public:
+ public:
 
-        CAttributeSelector(TOperator aOp, std::string aKey, std::string aValue = "");
+    typedef enum
+    {
+        //
+        EExists,
+        //
+        EEquals,
+        //
+        EIncludes,
+        //
+        EDashMatch,
+        //
+        EPrefix,
+        //
+        ESuffix,
+        //
+        ESubString,
+    } TOperator;
 
-    public:
+ public:
 
-        virtual bool match(GumboNode* apNode);
+    CAttributeSelector(TOperator aOp, std::string aKey, std::string aValue = "");
 
-    private:
+ public:
 
-        std::string mKey;
+    virtual bool match(GumboNode* apNode);
 
-        std::string mValue;
+ private:
 
-        TOperator mOp;
+     std::string mKey;
+
+     std::string mValue;
+
+     TOperator mOp;
 };
+
 
 class CTextSelector: public CSelector
 {
-    public:
-        typedef enum
-        {
-            //
-            EOwnContains,
-            //
-            EContains,
-        } TOperator;
 
-    public:
-        CTextSelector(TOperator aOp, std::string aValue)
-        {
-            mValue = aValue;
-            mOp = aOp;
-        }
+ public:
 
-        ~CTextSelector()
-        {
-        }
+    typedef enum
+    {
+        //
+        EOwnContains,
+        //
+        EContains,
+    } TOperator;
 
-    public:
+ public:
 
-        virtual bool match(GumboNode* apNode);
+    CTextSelector(TOperator aOp, std::string aValue)
+    {
+        mValue = aValue;
+        mOp = aOp;
+    }
 
-    private:
+    ~CTextSelector()
+    {
+    }
 
-    private:
+ public:
 
-        std::string mValue;
+     virtual bool match(GumboNode* apNode);
 
-        TOperator mOp;
+ private:
+
+    std::string mValue;
+
+    TOperator mOp;
 };
 
 #endif /* CSELECTOR_H_ */

@@ -47,55 +47,54 @@ class CSelection;
 
 class CNode
 {
-    public:
 
-        CNode(GumboNode* apNode = NULL);
+ public:
 
-        virtual ~CNode();
+    CNode(GumboNode* apNode = NULL);
 
-    public:
+    virtual ~CNode();
 
-        bool valid();
+ public:
 
-        CNode parent();
+    bool valid();
 
-        CNode nextSibling();
+    CNode parent();
 
-        CNode prevSibling();
+    CNode nextSibling();
 
-        unsigned int childNum();
+    CNode prevSibling();
 
-        CNode childAt(size_t i);
+    unsigned int childNum();
 
-        std::string attribute(std::string key);
+    CNode childAt(size_t i);
 
-        std::string text();
+    std::string attribute(std::string key);
 
-        std::string ownText();
+    std::string text();
 
-        size_t startPos();
+    std::string ownText();
 
-        size_t endPos();
+    size_t startPos();
 
-        size_t startPosOuter();
+    size_t endPos();
 
-        size_t endPosOuter();
+    size_t startPosOuter();
 
-        std::string tag();
+    size_t endPosOuter();
 
-        GumboNode* raw();
+    std::string tag();
 
-        CSelection find(std::string aSelector);
+    GumboNode* raw();
 
-    private:
+    CSelection find(std::string aSelector);
 
-        static bool in_set(std::unordered_set<std::string> &s, std::string key);
+ private:
 
-        void replace_all(std::string &s, const char * s1, const char * s2);
+    static bool in_set(std::unordered_set<std::string> &s, std::string key);
+
+    void replace_all(std::string &s, const char * s1, const char * s2);
     
-        GumboNode* mpNode;
+    GumboNode* mpNode;
 };
 
 #endif /* CNODE_H_ */
-
-/* vim: set ts=4 sw=4 sts=4 tw=100 noet: */
