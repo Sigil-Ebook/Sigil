@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -39,11 +39,11 @@ class CPCompare : public QDialog
 public:
 
     CPCompare(const QString& bookroot, 
-	      const QString& cpdir, 
-	      const QStringList& dlist,
-	      const QStringList& alist,
-	      const QStringList& mlist,
-	      QWidget* parent);
+              const QString& cpdir, 
+              const QStringList& dlist,
+              const QStringList& alist,
+              const QStringList& mlist,
+              QWidget* parent);
 
     ~CPCompare();
 

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, Ontario, CA
+**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, Ontario, CA
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -39,7 +39,7 @@ class PerformXMLUpdates
 public:
 
     PerformXMLUpdates(const QString &source,
-		      const QString &newbookpath,
+                      const QString &newbookpath,
                       const QHash<QString, QString> &xml_updates,
                       const QString& currentpath,
                       const QString& mtype);

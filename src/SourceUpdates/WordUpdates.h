@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2013 Dave Heiland
 **
 **  This file is part of Sigil.
@@ -31,15 +32,15 @@ class WordUpdates
 public:
 
     static void UpdateWordInAllFiles(const QList<HTMLResource *> &html_resources,
-				     const QString& default_lang,
-				     const QString& old_word,
-				     const QString& new_word);
+                                     const QString& default_lang,
+                                     const QString& old_word,
+                                     const QString& new_word);
 
 private:
     static void UpdateWordsInOneFile(HTMLResource *html_resource,
-				     const QString &default_lang,
-				     const QString &old_word,
-				     const QString &new_word);
+                                     const QString &default_lang,
+                                     const QString &old_word,
+                                     const QString &new_word);
 };
 
 #endif // WORDUPDATES_H

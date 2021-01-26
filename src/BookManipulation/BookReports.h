@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -48,10 +49,10 @@ public:
     };
 
     static QList<BookReports::StyleData *> GetHTMLClassUsage(QSharedPointer<Book> book, 
-							     bool show_progress = false);
+                                                             bool show_progress = false);
 
     static QList<BookReports::StyleData *> ClassesUsedInHTMLFileMapped(HTMLResource* html_resource, 
-								       const QHash<QString,CSSInfo*> &css_parsers);
+                                                                       const QHash<QString,CSSInfo*> &css_parsers);
 
 
     static QList<BookReports::StyleData *> GetAllCSSSelectorsUsed(QSharedPointer<Book> book,

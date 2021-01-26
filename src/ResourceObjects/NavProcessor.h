@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2016-2021 Kevin B. Hendricks Stratford, ON, Canada 
 **
 **  This file is part of Sigil.
 **
@@ -84,7 +84,7 @@ private:
     void SetTOC(const QList<NavTOCEntry> & toclist);
     void SetLandmarks(const QList<NavLandmarkEntry> & landlist);
     void SetPageList(const QList<NavPageListEntry> & pagelist);
-	
+
     int GetResourceLandmarkPos(const Resource * resource, const QList<NavLandmarkEntry> & landlist);
     QList<NavTOCEntry> GetNodeTOC(GumboInterface & gi, const GumboNode* node, int lvl);
     QList<NavTOCEntry> HeadingWalker(const Headings::Heading & heading, int lvl);

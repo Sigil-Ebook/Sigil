@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -42,7 +42,7 @@ class ChgViewer : public QDialog
 public:
 
     ChgViewer(const QList<DiffRecord::DiffRec>& diffinfo, const QString& file1,
-	      const QString& file2, QWidget *parent);
+              const QString& file2, QWidget *parent);
     ~ChgViewer();
 
     void insert_with_background(QTextCursor&  tc, const QString& sval, const QString& cval);

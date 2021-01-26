@@ -1,9 +1,9 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2012      Dave Heiland
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -103,10 +103,11 @@ public:
      * @param flags The flags used to modify window behavior.
      */
     MainWindow(const QString &openfilepath = QString(), 
-	       const QString version = QString(),
-	       bool is_internal = false, 
-	       QWidget *parent = 0, 
-	       Qt::WindowFlags flags = Qt::WindowFlags());
+               const QString version = QString(),
+               bool is_internal = false, 
+               QWidget *parent = 0, 
+               Qt::WindowFlags flags = Qt::WindowFlags());
+
     ~MainWindow();
 
     void maybe_fixup_dockwidget_geometry(QDockWidget * widget);

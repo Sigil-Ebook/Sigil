@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -52,22 +52,22 @@ public:
     QString SetNewMetadataInPython(const MetadataPieces& mdp, const QString& opfdata, const QString& version);
 
     QString PerformRepoCommitInPython(  const QString&     localRepo,
-				        const QString&     bookid,
+                                        const QString&     bookid,
                                         const QStringList& bookinfo,
-				        const QString&     bookroot,
-				        const QStringList& bookfiles );
+                                        const QString&     bookroot,
+                                        const QStringList& bookfiles );
 
     bool PerformRepoEraseInPython(      const QString& localRepo, 
-				        const QString& bookid ); 
+                                        const QString& bookid ); 
 
     QStringList GetRepoTagsInPython(    const QString& localRepo, 
-				        const QString& bookid );
+                                        const QString& bookid );
 
     QString GenerateEpubFromTagInPython(const QString& localRepo, 
-				        const QString& bookid,
-				        const QString& tagname,
+                                        const QString& bookid,
+                                        const QString& tagname,
                                         const QString& filename, 
-				        const QString& destpath );
+                                        const QString& destpath );
 
     QString GenerateDiffFromCheckPoints(const QString& localRepo,
                         const QString& bookid,
@@ -75,21 +75,21 @@ public:
                         const QString& rightchkpoint);
 
     QString GenerateRepoLogSummaryInPython(const QString& localRepo,
-					   const QString& bookid);
+                                           const QString& bookid);
 
     QList<DiffRecord::DiffRec> GenerateParsedNDiffInPython(const QString& path1, const QString& path2);
 
     QString GenerateUnifiedDiffInPython(const QString& path1, const QString& path2);
 
     QString CopyTagToDestDirInPython(const QString& localRepo,
-				     const QString& bookid,
-				     const QString& tagname,
-				     const QString& destdir);
+                                     const QString& bookid,
+                                     const QString& tagname,
+                                     const QString& destdir);
 
     // returns 3 stringlists in the following order: deleted, added, modified
     QList<QStringList> GetCurrentStatusVsDestDirInPython(const QString& bookroot,
-							 const QStringList& bookfiles,
-							 const QString& destdir);
+                                                         const QStringList& bookfiles,
+                                                         const QString& destdir);
     
 
 private:

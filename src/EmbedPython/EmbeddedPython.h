@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks, John Schember
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015      John Schember
 **
 **  This file is part of Sigil.
 **
@@ -70,7 +71,7 @@ private:
     PyObject *QVariantToPyObject(const QVariant &v);
 
     QString getPythonErrorTraceback(const QString& default_error = "Error: traceback report is missing",
-				    bool useMsgBox = true);
+                                    bool useMsgBox = true);
 
     static QMutex m_mutex;
     static EmbeddedPython *m_instance;

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -93,8 +93,8 @@ public:
     Resource *AddContentFileToFolder(const QString &fullfilepath,
                                      bool update_opf = true,
                                      const QString &mimetype = QString(),
-				     const QString &bookpath = QString(),
-				     const QString &folderpath = QString("\\"));
+                                     const QString &bookpath = QString(),
+                                     const QString &folderpath = QString("\\"));
 
     /**
      * Returns the highest reading order number present in the book.
@@ -179,8 +179,8 @@ public:
     NCXResource *GetNCX() const;
 
     NCXResource* AddNCXToFolder(const QString &version,
-				const QString& bookpath=QString(),
-				const QString& first_textdir=QString("\\"));
+                                const QString& bookpath=QString(),
+                                const QString& first_textdir=QString("\\"));
 
     void RemoveNCXFromFolder();
 

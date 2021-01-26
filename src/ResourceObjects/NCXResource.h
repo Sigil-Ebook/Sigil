@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada 
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada 
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -43,9 +43,9 @@ public:
      * @param parent The object's parent.
      */
     NCXResource(const QString &mainfolder, 
-		const QString &fullfilepath, 
+                const QString &fullfilepath, 
                 const QString &version = QString(),
-		QObject *parent = NULL);
+                QObject *parent = NULL);
 
     // inherited
 

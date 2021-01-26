@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON Canada 
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2021 Kevin B. Hendricks Stratford, ON Canada 
+**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -134,8 +134,8 @@ public:
     bool IsInsertIdAllowed();
     bool IsInsertHyperlinkAllowed();
     bool InsertTagAttribute(const QString &element_name, const QString &attribute_name, 
-			    const QString &attribute_value, const QStringList &tag_list, 
-			    bool ignore_seletion = false);
+                            const QString &attribute_value, const QStringList &tag_list, 
+                            bool ignore_seletion = false);
 
     /**
     * Splits the section and returns the "upper" content.

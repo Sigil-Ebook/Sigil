@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -40,40 +40,40 @@ class ListSelector : public QWidget
 public:
     ListSelector(const QString& lbl, const QString& btext, const QStringList& alist, QWidget* parent = 0)
         : QWidget(parent),
-	m_lbl(new QLabel(lbl, this)),
-	m_bp(new QToolButton(this)),
-	m_lw(new QListWidget(this)),
-	m_layout(new QVBoxLayout(this))
+        m_lbl(new QLabel(lbl, this)),
+        m_bp(new QToolButton(this)),
+        m_lw(new QListWidget(this)),
+        m_layout(new QVBoxLayout(this))
     {
-	m_bp->setToolTip(tr("View selected"));
-	m_bp->setText(btext);
-	m_bp->setToolButtonStyle(Qt::ToolButtonTextOnly);
-	QStringList sortedlist = Utility::LocaleAwareSort(alist);
-	foreach(QString aitem, sortedlist) {
-	    m_lw->addItem(aitem);
-	}
-	m_lw->setSelectionMode(QAbstractItemView::ExtendedSelection);
-	m_lw->setUniformItemSizes(true);
-	m_layout->addWidget(m_lbl);
-	m_layout->addWidget(m_lw);
-	QHBoxLayout* hl = new QHBoxLayout();
-	hl->addStretch(0);
-	hl->addWidget(m_bp);
-	m_layout->addLayout(hl);
-	connect(m_bp, SIGNAL(clicked()), this, SLOT(view_request()));
-	connect(m_lw, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(view_request()));
+        m_bp->setToolTip(tr("View selected"));
+        m_bp->setText(btext);
+        m_bp->setToolButtonStyle(Qt::ToolButtonTextOnly);
+        QStringList sortedlist = Utility::LocaleAwareSort(alist);
+        foreach(QString aitem, sortedlist) {
+            m_lw->addItem(aitem);
+        }
+        m_lw->setSelectionMode(QAbstractItemView::ExtendedSelection);
+        m_lw->setUniformItemSizes(true);
+        m_layout->addWidget(m_lbl);
+        m_layout->addWidget(m_lw);
+        QHBoxLayout* hl = new QHBoxLayout();
+        hl->addStretch(0);
+        hl->addWidget(m_bp);
+        m_layout->addLayout(hl);
+        connect(m_bp, SIGNAL(clicked()), this, SLOT(view_request()));
+        connect(m_lw, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(view_request()));
     }
 
     QStringList get_selections() 
     {
-	QStringList selected;
-	foreach(QListWidgetItem* wi, m_lw->selectedItems()) {
-	    QString apath = wi->text();
-	    if (!apath.isEmpty()) {
-	        selected << apath;
-	    }
-	}
-	return selected;
+        QStringList selected;
+        foreach(QListWidgetItem* wi, m_lw->selectedItems()) {
+            QString apath = wi->text();
+            if (!apath.isEmpty()) {
+                selected << apath;
+            }
+        }
+        return selected;
     }
 
  signals:
