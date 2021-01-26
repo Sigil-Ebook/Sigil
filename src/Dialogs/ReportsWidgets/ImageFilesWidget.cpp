@@ -336,9 +336,8 @@ void ImageFilesWidget::Save()
                           tr("Save Report As Comma Separated File"),
                           save_path,
                           filter_string,
-			  &default_filter,
-                          options
-                                                      );
+                          &default_filter,
+                          options);
 
     if (destination.isEmpty()) {
         return;
@@ -409,10 +408,10 @@ void ImageFilesWidget::Delete()
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
         foreach(QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
-	    QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
-	    if (!bookpath.isEmpty()) {
-	        files_to_delete.append(bookpath);
-	    }
+            QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
+            if (!bookpath.isEmpty()) {
+                files_to_delete.append(bookpath);
+            }
         }
     }
     emit DeleteFilesRequest(files_to_delete);

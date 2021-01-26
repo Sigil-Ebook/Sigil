@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -54,7 +54,7 @@ bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::Navig
   if ((type == QWebEnginePage::NavigationTypeLinkClicked) || (type == QWebEnginePage::NavigationTypeOther)) {
         DBG qDebug() << "acceptNavigationRequest " << url.toString() << " , " << type << " , " << isMainFrame;
         m_url = url;
-	QTimer::singleShot(20,this,SLOT(EmitLinkClicked()));
+        QTimer::singleShot(20,this,SLOT(EmitLinkClicked()));
         return false;
     }
     if (type == QWebEnginePage::NavigationTypeTyped) {
@@ -71,9 +71,8 @@ void WebEngPage::EmitLinkClicked()
 }
 
 void WebEngPage::javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level, 
-				  const QString & message, int lineNumber, const QString & sourceID)
+                  const QString & message, int lineNumber, const QString & sourceID)
 {
     const QString logEntry = message + " on line:" % QString::number(lineNumber) % " Source:" + sourceID;
     qDebug() << "Javascript error: " << level << logEntry;
 }
-

@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -55,7 +55,7 @@ void SelectFolder::SetList()
     QStringList folders = m_Book->GetFolderKeeper()->GetFoldersForGroup(m_group);
     foreach(QString folder, folders) {
         if (folder.isEmpty()) {
-	    ui.fold->addItem(PLACEHOLDER);
+            ui.fold->addItem(PLACEHOLDER);
         } else{ 
             ui.fold->addItem(folder);
         }

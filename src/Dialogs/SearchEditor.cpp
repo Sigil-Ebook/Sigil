@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -440,10 +440,9 @@ void SearchEditor::Import()
     QString filename = QFileDialog::getOpenFileName(this,
                        tr("Import Search Entries"),
                        m_LastFolderOpen,
-		       filter_string,
-		       &default_filter,
-                       options
-                                                   );
+                       filter_string,
+                       &default_filter,
+                       options);
 
     // Load the file and save the last folder opened
     if (!filename.isEmpty()) {
@@ -533,9 +532,8 @@ void SearchEditor::ExportItems(QList<QStandardItem *> items)
                        tr("Export Selected Searches"),
                        m_LastFolderOpen,
                        filter_string,
-		       &default_filter,
-                       options
-                                                   );
+                       &default_filter,
+                       options);
 
     if (filename.isEmpty()) {
         return;

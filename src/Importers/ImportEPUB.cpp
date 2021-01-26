@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -138,10 +138,10 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
         // skip mimetype and anything in META-INF and the opf itself
         if (file_path == "mimetype") continue;
         if (file_path.startsWith("META-INF")) continue;
-	if (m_OPFFilePath.contains(file_path)) continue;
-	if (!m_ManifestFilePaths.contains(file_path)) {
-	    notInManifest << file_path;
-	}
+        if (m_OPFFilePath.contains(file_path)) continue;
+        if (!m_ManifestFilePaths.contains(file_path)) {
+            notInManifest << file_path;
+        }
     }
     
     if (!notInManifest.isEmpty()) {
@@ -177,18 +177,18 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
                 if (!XhtmlDoc::IsDataWellFormed(hresource->GetText(),hresource->GetEpubVersion())) {
                     non_well_formed << hresource;
                 } else {
-		    QString txt = hresource->GetText();
-		    // had cases of large files with no line breaks
-		    if (txt.size() > 307200) {
-			int lines = 0;
-			QChar *uc = txt.data();
-			QChar *e = uc + txt.size();
-			for (; uc != e; ++uc) {
-			    if (uc->unicode() == 0x000A) lines++;
-			}
-			if (lines < 5) non_well_formed << hresource;
-		    }
-		}
+                    QString txt = hresource->GetText();
+                    // had cases of large files with no line breaks
+                    if (txt.size() > 307200) {
+                        int lines = 0;
+                        QChar *uc = txt.data();
+                        QChar *e = uc + txt.size();
+                        for (; uc != e; ++uc) {
+                            if (uc->unicode() == 0x000A) lines++;
+                        }
+                        if (lines < 5) non_well_formed << hresource;
+                    }
+                }
             }
         }
     }
@@ -203,10 +203,10 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
                    "Do you want to automatically fix the files?"),
                 QMessageBox::Yes|QMessageBox::No)) 
         {
-	    foreach(HTMLResource* htmlres, non_well_formed) {
-		QString fixed_text = CleanSource::Mend(htmlres->GetText(),htmlres->GetEpubVersion());
+            foreach(HTMLResource* htmlres, non_well_formed) {
+                QString fixed_text = CleanSource::Mend(htmlres->GetText(),htmlres->GetEpubVersion());
                 htmlres->SetText(fixed_text);
-	    }
+            }
             non_well_formed.clear();
         }
         QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -443,35 +443,35 @@ void ImportEPUB::ExtractContainer()
             // If there is no file name then we can't do anything with it.
             if (!qfile_name.isEmpty()) {
 
-	        // for security reasons against maliciously crafted zip archives
+                // for security reasons against maliciously crafted zip archives
                 // we need the file path to always be inside the target folder 
                 // and not outside, so we will remove all illegal backslashes
                 // and all relative upward paths segments "/../" from the zip's local 
                 // file name/path before prepending the target folder to create 
                 // the final path
 
-	        QString original_path = qfile_name;
-	        bool evil_or_corrupt_epub = false;
+                QString original_path = qfile_name;
+                bool evil_or_corrupt_epub = false;
 
                 if (qfile_name.contains("\\")) evil_or_corrupt_epub = true; 
-	        qfile_name = "/" + qfile_name.replace("\\","");
+                qfile_name = "/" + qfile_name.replace("\\","");
 
                 if (qfile_name.contains("/../")) evil_or_corrupt_epub = true;
-	        qfile_name = qfile_name.replace("/../","/");
+                qfile_name = qfile_name.replace("/../","/");
 
                 while(qfile_name.startsWith("/")) { 
-		    qfile_name = qfile_name.remove(0,1);
-		}
+                    qfile_name = qfile_name.remove(0,1);
+                }
 
                 if (cp437_file_name.contains("\\")) evil_or_corrupt_epub = true; 
                 cp437_file_name = "/" + cp437_file_name.replace("\\","");
 
                 if (cp437_file_name.contains("/../")) evil_or_corrupt_epub = true;
-	        cp437_file_name = cp437_file_name.replace("/../","/");
+                cp437_file_name = cp437_file_name.replace("/../","/");
 
                 while(cp437_file_name.startsWith("/")) { 
-		    cp437_file_name = cp437_file_name.remove(0,1);
-		}
+                    cp437_file_name = cp437_file_name.remove(0,1);
+                }
 
                 if (evil_or_corrupt_epub) {
                     unzCloseCurrentFile(zfile);
@@ -491,13 +491,13 @@ void ImportEPUB::ExtractContainer()
                     dir.mkpath(qfile_name);
                     continue;
                 } else {
-		    if (!qfile_info.path().isEmpty()) dir.mkpath(qfile_info.path());
-		    // add it to the list of files found inside the zip
-		    if (cp437_file_name.isEmpty()) {
-		        m_ZipFilePaths << qfile_name;
-		    } else {
+                    if (!qfile_info.path().isEmpty()) dir.mkpath(qfile_info.path());
+                    // add it to the list of files found inside the zip
+                    if (cp437_file_name.isEmpty()) {
+                        m_ZipFilePaths << qfile_name;
+                    } else {
                         m_ZipFilePaths << cp437_file_name;
-		    }
+                    }
                 }
 
                 // Open the file entry in the archive for reading.
@@ -592,10 +592,10 @@ void ImportEPUB::LocateOPF()
                 container.attributes().value("", "media-type") == OEBPS_MIMETYPE) {
                 // As per OCF spec, the first rootfile element
                 // with the OEBPS mimetype is considered the "main" one.
-	        if (m_OPFFilePath.isEmpty()) {
+                if (m_OPFFilePath.isEmpty()) {
                     m_OPFFilePath = m_ExtractedFolderPath + "/" + container.attributes().value("", "full-path").toString();
-		}
-		num_opf++;
+                }
+                num_opf++;
 
             }
         }
@@ -637,17 +637,17 @@ void ImportEPUB::ReadOPF()
             m_UniqueIdentifierId = opf_reader.attributes().value("", "unique-identifier").toString();
             m_PackageVersion = opf_reader.attributes().value("", "version").toString();
             if (m_PackageVersion == "1.0") m_PackageVersion = "2.0";
-	}
+        }
 
         else if (opf_reader.name() == "identifier") {
             ReadIdentifierElement(&opf_reader);
-	}
+        }
 
         // epub3 look for linked metadata resources that are included inside the epub 
         // but that are not and must not be included in the manifest
         else if (opf_reader.name() == "link") {
             ReadMetadataLinkElement(&opf_reader);
-	}
+        }
 
         // Get the list of content files that
         // make up the publication
@@ -710,32 +710,32 @@ void ImportEPUB::ReadMetadataLinkElement(QXmlStreamReader *opf_reader)
     if (!href.isEmpty()) {
         QUrl url = QUrl(href);
         if (url.isRelative()) {
-	    // we have a local unmanifested metadata file to handle
-	    // attempt to map deprecated record types into proper media-types
-	    if (relation == "marc21xml-record") {
+            // we have a local unmanifested metadata file to handle
+            // attempt to map deprecated record types into proper media-types
+            if (relation == "marc21xml-record") {
                 mtype = "application/marcxml+xml";
-	    }
-	    else if (relation == "mods-record") {
+            }
+            else if (relation == "mods-record") {
                 mtype = "application/mods+xml";
-	    }
-	    else if (relation == "onix-record") {
+            }
+            else if (relation == "onix-record") {
                 mtype = "application/xml;onix";
             }
-	    else if (relation == "xmp-record") {
+            else if (relation == "xmp-record") {
                 mtype = "application/xml;xmp";
-	    }
+            }
             else if (relation == "record") {
                 if (props == "onix") mtype = "application/xml;onix";
                 if (props == "xmp") mtype = "application/xml;xmp";
-	    }
+            }
             QDir opf_dir = QFileInfo(m_OPFFilePath).dir();
-	    QString path = opf_dir.absolutePath() + "/" + url.path();
-	    if (QFile::exists(path)) {
-	        QString id = Utility::CreateUUID();
-		m_Files[ id ]  = opf_dir.relativeFilePath(path);
-		m_FileMimetypes[ id ] = mtype;
-	    }
-	}
+            QString path = opf_dir.absolutePath() + "/" + url.path();
+            if (QFile::exists(path)) {
+                QString id = Utility::CreateUUID();
+                m_Files[ id ]  = opf_dir.relativeFilePath(path);
+                m_FileMimetypes[ id ] = mtype;
+            }
+        }
     }
 }
 
@@ -752,8 +752,8 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
 
     QString apath;
     if (href.indexOf(':') == -1) {
-	// we know we have a relative href to a file so no fragments can exist
-	apath = Utility::URLDecodePath(href);
+        // we know we have a relative href to a file so no fragments can exist
+        apath = Utility::URLDecodePath(href);
     }
     // for hrefs pointing outside the epub, apath will be empty
     // qDebug() << "ImportEpub with Manifest item: " << href << apath;
@@ -763,8 +763,8 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     QString group = MediaTypes::instance()->GetGroupFromMediaType(type,"");
     QString ext_mtype = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
     if (type.isEmpty() || group.isEmpty()) {
-	const QString load_warning = QObject::tr("The OPF uses an unrecognized media type \"%1\" for file \"%2\"").arg(type).arg(QFileInfo(apath).fileName()) +
-	    " - " + QObject::tr("A temporary media type of \"%1\" has been assigned. You should edit your OPF file to fix this problem.").arg(ext_mtype);
+        const QString load_warning = QObject::tr("The OPF uses an unrecognized media type \"%1\" for file \"%2\"").arg(type).arg(QFileInfo(apath).fileName()) +
+            " - " + QObject::tr("A temporary media type of \"%1\" has been assigned. You should edit your OPF file to fix this problem.").arg(ext_mtype);
         AddLoadWarning(load_warning);
     }
 
@@ -797,7 +797,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
                 m_Files[ id ] = apath;
                 m_FileMimetypes[ id ] = type;
                 m_ManifestFilePaths << file_path;
-	        m_ManifestMediaTypes << type;
+                m_ManifestMediaTypes << type;
 
                 // store information about any nav document
                 if (properties.contains("nav")) {
@@ -807,8 +807,8 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
             }
         } else {
             m_NcxCandidates[ id ] = apath;
-	    m_ManifestFilePaths << file_path;
-	    m_ManifestMediaTypes << type;
+            m_ManifestFilePaths << file_path;
+            m_ManifestMediaTypes << type;
         }
     }
 }
@@ -825,8 +825,8 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
         QString bookpath;
         ncx_href = m_NcxCandidates[ m_NCXId ];
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
-	m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
-	bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
+        m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
+        bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
         m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
         m_NCXNotInManifest = false;
         return;
@@ -847,7 +847,7 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
                 // we found a file with an ncx extension
                 m_NCXId = ncxSearch.key();
                 found = true;
-		break;
+                break;
             }
         }
     }
@@ -856,9 +856,9 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
         // m_NCXId has been properly set
         ncx_href = m_NcxCandidates[ m_NCXId ];
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
-	m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
+        m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
 
-	QString bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
+        QString bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
         m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
         m_NCXNotInManifest = false;
         load_warning = QObject::tr("The OPF file did not identify the NCX file correctly.") + "\n" + 
@@ -954,10 +954,10 @@ bool ImportEPUB::LoadFolderStructure()
 
     for (int i = 0; i < num_futures; ++i) {
         std::tuple<QString, QString> result = futures.at(i).result();
-	if (std::get<0>(result) != std::get<1>(result)) {
-	    qDebug() << "LoadFolderStructure Issue: " << std::get<0>(result) << std::get<1>(result);
-	    success = false;
-	}
+        if (std::get<0>(result) != std::get<1>(result)) {
+            qDebug() << "LoadFolderStructure Issue: " << std::get<0>(result) << std::get<1>(result);
+            success = false;
+        }
     }
 
     return success;

@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -55,7 +55,7 @@ static const QStringList TEXT_EXTENSIONS = QStringList() << "css" << "htm" << "h
                                                             "xml" << "xpgt";
 
 static const QStringList IMAGE_EXTENSIONS = QStringList() << "bm" << "bmp" << "gif" << "jpeg" << "jpg" <<
-							     "png" << "tif" << "tiff" << "webp";
+                                                             "png" << "tif" << "tiff" << "webp";
 
 
 static const QStringList AUDIO_EXTENSIONS = QStringList() << "aac"   << "m4a"  << "mp3" << "mpeg" << 
@@ -67,11 +67,11 @@ static const QStringList VIDEO_EXTENSIONS = QStringList() << "m4v"   << "mp4"  <
 static const QStringList FONT_EXTENSIONS = QStringList() << "ttf"   << "ttc"  << "otf" << "woff" << "woff2";
 
 CPCompare::CPCompare(const QString& bookroot,
-		     const QString& cpdir,
-		     const QStringList& dlist,
-		     const QStringList& alist,
-		     const QStringList& mlist,
-		     QWidget * parent)
+                     const QString& cpdir,
+                     const QStringList& dlist,
+                     const QStringList& alist,
+                     const QStringList& mlist,
+                     QWidget * parent)
     : QDialog(parent),
       m_bookroot(bookroot),
       m_cpdir(cpdir),
@@ -102,32 +102,32 @@ void CPCompare::handle_del_request()
     // only exists in checkpoint
     QStringList pathlist = m_dlist->get_selections();
     foreach(QString apath, pathlist) {
-	QString filepath = m_cpdir + "/" + apath;
-	QFileInfo fi(filepath);
-	QString ext = fi.suffix().toLower();
-	if (TEXT_EXTENSIONS.contains(ext)) {
-	    QString data = Utility::ReadUnicodeTextFile(filepath);
-	    SourceViewer* sv = new SourceViewer(apath, data, this);
-	    sv->show();
-	    sv->raise();
-	} else if (IMAGE_EXTENSIONS.contains(ext)) {
-	    ViewImage * vi = new ViewImage(this);
-	    vi->ShowImage(filepath);
-	    vi->show();
-	    vi->raise();
-	} else if (AUDIO_EXTENSIONS.contains(ext) || VIDEO_EXTENSIONS.contains(ext)) {
-	    ViewAV * av = new ViewAV(this);
-	    av->ShowAV(filepath);
-	    av->show();
-	    av->raise();
-	} else if (FONT_EXTENSIONS.contains(ext)) {
-	    ViewFont * vf = new ViewFont(this);
-	    vf->ShowFont(filepath);
-	    vf->show();
-	    vf->raise();
-	} else {
-	    qDebug() << "attempted to show a binary file " << apath;
-	}
+        QString filepath = m_cpdir + "/" + apath;
+        QFileInfo fi(filepath);
+        QString ext = fi.suffix().toLower();
+        if (TEXT_EXTENSIONS.contains(ext)) {
+            QString data = Utility::ReadUnicodeTextFile(filepath);
+            SourceViewer* sv = new SourceViewer(apath, data, this);
+            sv->show();
+            sv->raise();
+        } else if (IMAGE_EXTENSIONS.contains(ext)) {
+            ViewImage * vi = new ViewImage(this);
+            vi->ShowImage(filepath);
+            vi->show();
+            vi->raise();
+        } else if (AUDIO_EXTENSIONS.contains(ext) || VIDEO_EXTENSIONS.contains(ext)) {
+            ViewAV * av = new ViewAV(this);
+            av->ShowAV(filepath);
+            av->show();
+            av->raise();
+        } else if (FONT_EXTENSIONS.contains(ext)) {
+            ViewFont * vf = new ViewFont(this);
+            vf->ShowFont(filepath);
+            vf->show();
+            vf->raise();
+        } else {
+            qDebug() << "attempted to show a binary file " << apath;
+        }
     }
 }
 
@@ -137,31 +137,31 @@ void CPCompare::handle_add_request()
     QStringList pathlist = m_alist->get_selections();
     foreach(QString apath, pathlist) {
         QString filepath = m_bookroot + "/" + apath;
-	QFileInfo fi(filepath);
-	QString ext = fi.suffix().toLower();
-	if (TEXT_EXTENSIONS.contains(ext)) {
-	    QString data = Utility::ReadUnicodeTextFile(filepath);
-	    SourceViewer* sv = new SourceViewer(apath, data, this);
-	    sv->show();
-	    sv->raise();
-	} else if (IMAGE_EXTENSIONS.contains(ext)) {
-	    ViewImage * vi = new ViewImage(this);
-	    vi->ShowImage(filepath);
-	    vi->show();
-	    vi->raise();
-	} else if (AUDIO_EXTENSIONS.contains(ext) || VIDEO_EXTENSIONS.contains(ext)) {
-	    ViewAV * av = new ViewAV(this);
-	    av->ShowAV(filepath);
-	    av->show();
-	    av->raise();
-	} else if (FONT_EXTENSIONS.contains(ext)) {
-	    ViewFont * vf = new ViewFont(this);
-	    vf->ShowFont(filepath);
-	    vf->show();
-	    vf->raise();
-	} else {
-	    qDebug() << "attempted to show a binary file " << apath;
-	}
+        QFileInfo fi(filepath);
+        QString ext = fi.suffix().toLower();
+        if (TEXT_EXTENSIONS.contains(ext)) {
+            QString data = Utility::ReadUnicodeTextFile(filepath);
+            SourceViewer* sv = new SourceViewer(apath, data, this);
+            sv->show();
+            sv->raise();
+        } else if (IMAGE_EXTENSIONS.contains(ext)) {
+            ViewImage * vi = new ViewImage(this);
+            vi->ShowImage(filepath);
+            vi->show();
+            vi->raise();
+        } else if (AUDIO_EXTENSIONS.contains(ext) || VIDEO_EXTENSIONS.contains(ext)) {
+            ViewAV * av = new ViewAV(this);
+            av->ShowAV(filepath);
+            av->show();
+            av->raise();
+        } else if (FONT_EXTENSIONS.contains(ext)) {
+            ViewFont * vf = new ViewFont(this);
+            vf->ShowFont(filepath);
+            vf->show();
+            vf->raise();
+        } else {
+            qDebug() << "attempted to show a binary file " << apath;
+        }
     }
 }
 
@@ -170,35 +170,35 @@ void CPCompare::handle_mod_request()
     QStringList pathlist = m_mlist->get_selections();
     PythonRoutines pr;
     foreach(QString apath, pathlist) {
-	QString leftpath = m_cpdir + "/" + apath;
-	QString rightpath = m_bookroot + "/" + apath;
-	QFileInfo fi(rightpath);
-	QFileInfo lfi(leftpath);
-	QString ext = fi.suffix().toLower();
-	if (TEXT_EXTENSIONS.contains(ext)) {
+        QString leftpath = m_cpdir + "/" + apath;
+        QString rightpath = m_bookroot + "/" + apath;
+        QFileInfo fi(rightpath);
+        QFileInfo lfi(leftpath);
+        QString ext = fi.suffix().toLower();
+        if (TEXT_EXTENSIONS.contains(ext)) {
 
-	    QApplication::setOverrideCursor(Qt::WaitCursor);
-	    QFuture<QList<DiffRecord::DiffRec>> bfuture =
-		QtConcurrent::run(&pr, &PythonRoutines::GenerateParsedNDiffInPython, leftpath, rightpath);
-	    bfuture.waitForFinished();
-	    QList<DiffRecord::DiffRec> diffinfo = bfuture.result();
-	    QApplication::restoreOverrideCursor();
+            QApplication::setOverrideCursor(Qt::WaitCursor);
+            QFuture<QList<DiffRecord::DiffRec>> bfuture =
+                QtConcurrent::run(&pr, &PythonRoutines::GenerateParsedNDiffInPython, leftpath, rightpath);
+            bfuture.waitForFinished();
+            QList<DiffRecord::DiffRec> diffinfo = bfuture.result();
+            QApplication::restoreOverrideCursor();
 
-	    ChgViewer* cv = new ChgViewer(diffinfo, tr("Checkpoint:") + " " + apath, tr("Current:") + " " + apath, this);
-	    cv->show();
-	    cv->raise();
-	} else {
-	    QMessageBox * msgbox = new QMessageBox(this);
-	    msgbox->setIcon(QMessageBox::Information);
-	    msgbox->setWindowTitle(tr("Results of Comparison"));
-	    msgbox->setStandardButtons(QMessageBox::Ok);
-	    QString amsg = tr("These binary files differ in content:") + "\n";
-	    amsg += tr("Checkpoint:") + " " + apath + " " + QString::number(lfi.size()) + tr("bytes") + "\n";
-	    amsg += tr("Current:") + " " + apath + " " + QString::number(fi.size()) + tr("bytes") + "\n";
-	    msgbox->setText(amsg);
-	    msgbox->show();
-	    msgbox->raise();
-	}
+            ChgViewer* cv = new ChgViewer(diffinfo, tr("Checkpoint:") + " " + apath, tr("Current:") + " " + apath, this);
+            cv->show();
+            cv->raise();
+        } else {
+            QMessageBox * msgbox = new QMessageBox(this);
+            msgbox->setIcon(QMessageBox::Information);
+            msgbox->setWindowTitle(tr("Results of Comparison"));
+            msgbox->setStandardButtons(QMessageBox::Ok);
+            QString amsg = tr("These binary files differ in content:") + "\n";
+            amsg += tr("Checkpoint:") + " " + apath + " " + QString::number(lfi.size()) + tr("bytes") + "\n";
+            amsg += tr("Current:") + " " + apath + " " + QString::number(fi.size()) + tr("bytes") + "\n";
+            msgbox->setText(amsg);
+            msgbox->show();
+            msgbox->raise();
+        }
     }
 }
 

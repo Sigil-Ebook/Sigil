@@ -106,7 +106,7 @@ FlowTab::~FlowTab()
 
     if (!GetResourceWasDeleted()) {
         // was: disconnect(m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
-	disconnect(m_HTMLResource, 0, this , 0);
+        disconnect(m_HTMLResource, 0, this , 0);
     }
 
     m_WellFormedCheckComponent->deleteLater();

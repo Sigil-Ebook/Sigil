@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020 Kevin B. Hendricks
+ **  Copyright (C) 2020-2021 Kevin B. Hendricks
  **
  **  This file is part of Sigil.
  **
@@ -88,7 +88,7 @@ void ViewAV::ReadSettings()
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
     } else {
-	resize(sizeHint());
+        resize(sizeHint());
     }
     settings.endGroup();
 }

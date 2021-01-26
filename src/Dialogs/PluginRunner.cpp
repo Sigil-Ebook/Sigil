@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2014-2020 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2014-2021 Kevin B. Hendricks, Stratford Ontario Canada
  **  Copyright (C) 2020      Doug Massay
  **
  **  This file is part of Sigil.
@@ -320,9 +320,9 @@ void PluginRunner::startPlugin()
     if (settings.useBundledInterp()) {
          // determine path to site-packages/certifi/cacert.pem to set SSL_CERT_FILE
          QDir exedir(QCoreApplication::applicationDirPath());
-	 exedir.cdUp();
+         exedir.cdUp();
          QString cert_path = exedir.absolutePath() + PYTHON_SITE_PACKAGES + "/certifi/cacert.pem";
-	 env.insert("SSL_CERT_FILE", cert_path);
+         env.insert("SSL_CERT_FILE", cert_path);
          env.insert("QT_PLUGIN_PATH", QDir(QCoreApplication::applicationDirPath() + "/../PlugIns").absolutePath());
          env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir(QCoreApplication::applicationDirPath() + "/../PlugIns/platforms").absolutePath());
     }
@@ -638,8 +638,8 @@ bool PluginRunner::processResultXML()
                 if (reader.name() == "deleted") {
                     m_filesToDelete.append(fileinfo);
                     if (mime == "application/xhtml+xml") {
-		        // only count deleting xhtml files that are 
-		        // currently resources (skip unmanifested files)
+                        // only count deleting xhtml files that are 
+                        // currently resources (skip unmanifested files)
                         if (m_xhtmlFiles.contains(href)) {
                             m_xhtml_net_change--;
                             m_xhtmlFiles.remove(href);
@@ -806,24 +806,24 @@ bool PluginRunner::deleteFiles(const QStringList &files)
         QString id   = fdata[ idField   ];
         QString mime = fdata[ mimeField ];
         // opf and ncx files can not be added or deleted
-	// if they are current resources
+        // if they are current resources
         if (mime == "application/oebps-package+xml") {
-	    if (m_hrefToRes.contains(href)) {
+            if (m_hrefToRes.contains(href)) {
                 continue;
-	    }
+            }
         }
         if (mime == "application/x-dtbncx+xml") {
-	    if (m_hrefToRes.contains(href)) {
-	        QString version = m_book->GetConstOPF()->GetEpubVersion();
-	        NCXResource * ncx_resource = m_book->GetNCX();
-	        if (ncx_resource && version.startsWith('3')) {
-		    m_book->GetOPF()->RemoveNCXOnSpine();
-		    m_book->GetFolderKeeper()->RemoveNCXFromFolder();
-		    ncx_resource->Delete();
+            if (m_hrefToRes.contains(href)) {
+                QString version = m_book->GetConstOPF()->GetEpubVersion();
+                NCXResource * ncx_resource = m_book->GetNCX();
+                if (ncx_resource && version.startsWith('3')) {
+                    m_book->GetOPF()->RemoveNCXOnSpine();
+                    m_book->GetFolderKeeper()->RemoveNCXFromFolder();
+                    ncx_resource->Delete();
                     changes_made = true;
-	        }
+                }
                 continue;
-	    }
+            }
         }
         // under epub3 the nav can not be deleted either
         Resource * nav_resource = m_book->GetConstOPF()->GetNavResource();
@@ -882,7 +882,7 @@ bool PluginRunner::addFiles(const QStringList &files)
             MainWindow *new_window = new MainWindow(epubPath, "", true);
             new_window->show();
             // will this be allowed if PluginRunner is Application Modal
-	    new_window->activateWindow();
+            new_window->activateWindow();
 #else
             // For Linux and Windows will replace current book
             // So Throw Up a Dialog to See if they want to proceed
@@ -911,20 +911,20 @@ bool PluginRunner::addFiles(const QStringList &files)
             continue;
         }
         if (mime == "application/x-dtbncx+xml") {
-	    // under epub3 you can add an ncx
+            // under epub3 you can add an ncx
             QString version = m_book->GetConstOPF()->GetEpubVersion();
-	    NCXResource * ncx_resource = m_book->GetNCX();
-	    if (!ncx_resource && version.startsWith('3')) {
+            NCXResource * ncx_resource = m_book->GetNCX();
+            if (!ncx_resource && version.startsWith('3')) {
                 QString inpath = m_outputDir + "/" + href;
                 QFileInfo fi(inpath);
                 ui.statusLbl->setText(tr("Status: adding") + " " + fi.fileName());
-	        ncx_resource = m_book->GetFolderKeeper()->AddNCXToFolder(version, href);
-		ncx_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
-		ncx_resource->SaveToDisk();
-		// now add it to the opf with the preferred id
+                ncx_resource = m_book->GetFolderKeeper()->AddNCXToFolder(version, href);
+                ncx_resource->SetText(Utility::ReadUnicodeTextFile(inpath));
+                ncx_resource->SaveToDisk();
+                // now add it to the opf with the preferred id
                 // QString ncx_id = m_book->GetOPF()->AddNCXItem(ncx_resource->GetFullPath(),id);
-		// m_book->GetOPF()->UpdateNCXOnSpine(ncx_id);
-	    }
+                // m_book->GetOPF()->UpdateNCXOnSpine(ncx_id);
+            }
             continue;
         }
 

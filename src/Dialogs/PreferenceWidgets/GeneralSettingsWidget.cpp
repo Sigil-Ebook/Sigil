@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -96,9 +96,9 @@ PreferencesWidget::ResultActions GeneralSettingsWidget::saveSettings()
     QString new_xeditor_path = "";
     if (!ui.lineEdit7->text().isEmpty()) {
          QString xeditorpath = ui.lineEdit7->text();
-	 if (QFileInfo(xeditorpath).exists()) {
-	     new_xeditor_path = xeditorpath;
-	 }
+         if (QFileInfo(xeditorpath).exists()) {
+             new_xeditor_path = xeditorpath;
+         }
     }
 
     SettingsStore settings;
@@ -178,10 +178,10 @@ void GeneralSettingsWidget::setXEditorPath()
 
     // Qt Bug - you must use a native FileDialog on macOS otherwise it treats .app as a normal directory
     QString xeditorPath = QFileDialog::getOpenFileName(this,
-						       QObject::tr("Select External Xhtml Editor"),
-						       LAST_LOCATION,
-						       NAME_FILTER,
-						       0,
+                                                       QObject::tr("Select External Xhtml Editor"),
+                                                       LAST_LOCATION,
+                                                       NAME_FILTER,
+                                                       0,
                                                        options);
     ui.lineEdit7->setText(xeditorPath);
 }
@@ -214,9 +214,9 @@ void GeneralSettingsWidget::setTempFolder()
 #endif
 
     QString name = QFileDialog::getExistingDirectory(this, 
-						     tr("Select Folder for Temporary Files"),
-						     QString(),
-						     options);
+                                                     tr("Select Folder for Temporary Files"),
+                                                     QString(),
+                                                     options);
     if (name.isEmpty()) {
         return;
     }

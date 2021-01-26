@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -63,7 +63,7 @@ Inspector::Inspector(QWidget *parent, Qt::WindowFlags flags) :
     QString inspectorStorePath = Utility::DefinePrefsDir() + "/local-devtools";
     QDir storageDir(inspectorStorePath);
     if (!storageDir.exists()) {
-	storageDir.mkpath(inspectorStorePath);
+        storageDir.mkpath(inspectorStorePath);
     }
     m_inspectView->page()->profile()->setPersistentStoragePath(inspectorStorePath);
 
@@ -74,7 +74,7 @@ Inspector::Inspector(QWidget *parent, Qt::WindowFlags flags) :
     connect(m_ZoomOut,             SIGNAL(activated()),        this, SLOT(ZoomOut()));
     connect(m_ZoomReset,           SIGNAL(activated()),        this, SLOT(ZoomReset()));
 }
-	       
+       
 
 Inspector::~Inspector()
 {
@@ -152,7 +152,7 @@ void Inspector::InspectPageofView(QWebEngineView* view)
     if (m_view) {
         QString not_supported = tr("The Inspector functionality is not supported before Qt 5.11");
         QString response = "<html><head><title>Warning</title></head><body><p>" + 
-	                    not_supported + "</p></body></html>";
+                    not_supported + "</p></body></html>";
         m_inspectView->setHtml(response);
         show();
     }

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -310,22 +310,21 @@ void OPFModel::ItemChangedHandler(QStandardItem *item)
         // extract just the filename from the ShortPathName or BookPath
         QString new_filename = item->text();
         if (!new_filename.isEmpty()) {
-	    new_filename = new_filename.split('/').last();
+            new_filename = new_filename.split('/').last();
         }
 
         if (new_filename != resource->Filename()) {
             if (!Utility::use_filename_warning(new_filename)) {
-	        SettingsStore ss;
-		if (ss.showFullPathOn()) {
-	            item->setText(resource->GetRelativePath());
-		} else {
-	            item->setText(resource->ShortPathName());
-		}
+                SettingsStore ss;
+                if (ss.showFullPathOn()) {
+                    item->setText(resource->GetRelativePath());
+                } else {
+                    item->setText(resource->ShortPathName());
+                }
                 return;
             }
             RenameResource(resource, new_filename);
-	}
-
+        }
     }
     emit ResourceRenamed();
 }
@@ -356,7 +355,7 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
         QString new_filename_with_extension = new_filename;
 
         // do not rename files in META-INF
-	if (old_bookpath.startsWith("META-INF/")) continue;
+        if (old_bookpath.startsWith("META-INF/")) continue;
 
         if (!new_filename.contains('.')) {
             new_filename_with_extension.append(extension);
@@ -367,36 +366,36 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
         }
 
         if (!FilenameIsValid(old_bookpath, new_filename_with_extension)) {
-	    if (ss.showFullPathOn()) {
-	        not_renamed.append(resource->GetRelativePath());
-	    } else {
-	        not_renamed.append(resource->ShortPathName());
-	    }
+            if (ss.showFullPathOn()) {
+                not_renamed.append(resource->GetRelativePath());
+            } else {
+                not_renamed.append(resource->ShortPathName());
+            }
 
             continue;
         }
 
-	bool rename_success = false;
-	// special case the OPFResource and the NCXResource
-	if (resource->Type() == Resource::OPFResourceType) {
-	    OPFResource* opfres = qobject_cast<OPFResource*>(resource);
-	    if (opfres) {
-	        rename_success = opfres->RenameTo(new_filename_with_extension);
-	    }
-	} else if (resource->Type() == Resource::NCXResourceType) {
-	    NCXResource* ncxres = qobject_cast<NCXResource*>(resource);
-	    if (ncxres) {
-	        rename_success = ncxres->RenameTo(new_filename_with_extension);
-	    }
-	} else {
+        bool rename_success = false;
+        // special case the OPFResource and the NCXResource
+        if (resource->Type() == Resource::OPFResourceType) {
+            OPFResource* opfres = qobject_cast<OPFResource*>(resource);
+            if (opfres) {
+                rename_success = opfres->RenameTo(new_filename_with_extension);
+            }
+        } else if (resource->Type() == Resource::NCXResourceType) {
+            NCXResource* ncxres = qobject_cast<NCXResource*>(resource);
+            if (ncxres) {
+                rename_success = ncxres->RenameTo(new_filename_with_extension);
+            }
+        } else {
             rename_success = resource->RenameTo(new_filename_with_extension);
-	}
+        }
         if (!rename_success) {
-	    if (ss.showFullPathOn()) {
-		not_renamed.append(resource->GetRelativePath());
-	    } else {
-		not_renamed.append(resource->ShortPathName());
-	    }
+            if (ss.showFullPathOn()) {
+                not_renamed.append(resource->GetRelativePath());
+            } else {
+                not_renamed.append(resource->ShortPathName());
+            }
             continue;
         }
 
@@ -430,37 +429,37 @@ bool OPFModel::MoveResourceList(const QList<Resource *> &resources, const QStrin
         QString newbookpath = new_bookpaths.at(i++);
 
         // do not move files out of META-INF
-	if (oldbookpath.startsWith("META-INF/")) continue;
+        if (oldbookpath.startsWith("META-INF/")) continue;
 
         if (!BookPathIsValid(oldbookpath, newbookpath)) {
-	    // qDebug() << "OPFModel: invalid bookpath " << oldbookpath, newbookpath;
+            // qDebug() << "OPFModel: invalid bookpath " << oldbookpath, newbookpath;
             not_moved.append(oldbookpath);
             continue;
         }
 
-	bool move_success = false;
-	// special case the OPFResource and the NCXResource
-	if (resource->Type() == Resource::OPFResourceType) {
-	    OPFResource* opfres = qobject_cast<OPFResource*>(resource);
-	    if (opfres) {
-	        move_success = opfres->MoveTo(newbookpath);
-	    }
-	} else if (resource->Type() == Resource::NCXResourceType) {
-	    NCXResource* ncxres = qobject_cast<NCXResource*>(resource);
-	    if (ncxres) {
-	        move_success = ncxres->MoveTo(newbookpath);
-	    }
-	} else {
+        bool move_success = false;
+        // special case the OPFResource and the NCXResource
+        if (resource->Type() == Resource::OPFResourceType) {
+            OPFResource* opfres = qobject_cast<OPFResource*>(resource);
+            if (opfres) {
+                move_success = opfres->MoveTo(newbookpath);
+            }
+        } else if (resource->Type() == Resource::NCXResourceType) {
+            NCXResource* ncxres = qobject_cast<NCXResource*>(resource);
+            if (ncxres) {
+                move_success = ncxres->MoveTo(newbookpath);
+            }
+        } else {
             move_success = resource->MoveTo(newbookpath);
-	}
+        }
 
         if (!move_success) {
             not_moved.append(oldbookpath);
-	    // qDebug() << "OPFModel: not moved " << oldbookpath;
+            // qDebug() << "OPFModel: not moved " << oldbookpath;
             continue;
         }
 
-	resource->SetCurrentBookRelPath(oldbookpath);
+        resource->SetCurrentBookRelPath(oldbookpath);
         update[ oldbookpath ] = resource->GetRelativePath();
     }
 
@@ -503,17 +502,17 @@ void OPFModel::InitializeModel()
             item = new AlphanumericItem(resource->Icon(), resource->GetRelativePath());
         } else {
             item = new AlphanumericItem(resource->Icon(), resource->ShortPathName());
-	}
+        }
         item->setDropEnabled(false);
         item->setData(resource->GetIdentifier());
         QString tooltip = resource->GetRelativePath();
         QString path = resource->GetRelativePath();
-	if (resource->Type() == Resource::FontResourceType) {
-	    FontResource* font_res = qobject_cast<FontResource *>(resource);
-	    if (font_res) {
-	        tooltip = tooltip + " (" + font_res->GetDescription() + ")";
-	    }
-	}
+        if (resource->Type() == Resource::FontResourceType) {
+            FontResource* font_res = qobject_cast<FontResource *>(resource);
+            if (font_res) {
+                tooltip = tooltip + " (" + font_res->GetDescription() + ")";
+            }
+        }
 
         if (semantic_type_all.contains(path)) {
             tooltip += " (" + semantic_type_all[path] + ")";
@@ -533,12 +532,12 @@ void OPFModel::InitializeModel()
 
             item->setData(reading_order, READING_ORDER_ROLE);
             // Remove the extension for alphanumeric sorting
-	    QString name;
+            QString name;
             if (ss.showFullPathOn()) {
                 name = resource->GetRelativePath().left(resource->GetRelativePath().lastIndexOf('.'));
-	    } else {
+            } else {
                 name = resource->ShortPathName().left(resource->ShortPathName().lastIndexOf('.'));
-	    }
+            }
             item->setData(name, ALPHANUMERIC_ORDER_ROLE);
             m_TextFolderItem->appendRow(item);
         } else if (resource->Type() == Resource::CSSResourceType) {
@@ -562,7 +561,7 @@ void OPFModel::InitializeModel()
                    resource->Type() == Resource::NCXResourceType) {
             item->setEditable(true);
             item->setDragEnabled(false);
-	    item->setToolTip(resource->GetRelativePath());
+            item->setToolTip(resource->GetRelativePath());
             appendRow(item);
         } else {
             item->setDragEnabled(false);
@@ -584,8 +583,8 @@ void OPFModel::UpdateHTMLReadingOrders()
                                            m_Book->GetFolderKeeper()->GetResourceByIdentifier(html_item->data().toString()));
 
         if (html_resource != NULL) {
-	    // for some reason icons can be lost during drag and drop
-	    html_item->setIcon(html_resource->Icon());
+            // for some reason icons can be lost during drag and drop
+            html_item->setIcon(html_resource->Icon());
             reading_order_htmls.append(html_resource);
         }
     }
@@ -733,7 +732,7 @@ bool OPFModel::FilenameIsValid(const QString &old_bookpath, const QString &new_f
     const QStringList existing_bookpaths = m_Book->GetFolderKeeper()->GetAllBookPaths();
     if (existing_bookpaths.contains(proposed_bookpath, Qt::CaseInsensitive)) {
         Utility::DisplayStdErrorDialog(
-	    tr("The filename \"%1\" is already in use.\n").arg(new_filename));
+            tr("The filename \"%1\" is already in use.\n").arg(new_filename));
         return false;
     }
     return true;

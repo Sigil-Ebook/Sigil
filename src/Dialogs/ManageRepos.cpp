@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -70,8 +70,8 @@ QStringList ManageRepos::GetBookInfo(const QString& reponame)
     QString infopath = Utility::DefinePrefsDir() + "/repo/" + reponame + "/.bookinfo";
     QFileInfo fi(infopath);
     if (fi.exists() && fi.isFile() && fi.isReadable()) {
-	QString data = Utility::ReadUnicodeTextFile(infopath);
-	bookinfo = data.split("\n");
+        QString data = Utility::ReadUnicodeTextFile(infopath);
+        bookinfo = data.split("\n");
     }
     return bookinfo;
 }
@@ -86,12 +86,12 @@ void ManageRepos::InitializeTable()
         ui.repoTable->removeRow(0);
     }
     foreach(QString rp, m_repoList) {
-	QStringList fields = GetBookInfo(rp);
-	if (!fields.isEmpty() && (fields.count() >= 5)) {
-	    ui.repoTable->insertRow(nrows);
-	    SetRepoTableRow(fields,nrows);
+        QStringList fields = GetBookInfo(rp);
+        if (!fields.isEmpty() && (fields.count() >= 5)) {
+            ui.repoTable->insertRow(nrows);
+            SetRepoTableRow(fields,nrows);
             nrows++;
-	}
+        }
     }
     ui.repoTable->resizeColumnsToContents();
 }
@@ -200,11 +200,11 @@ void ManageRepos::RemoveAllRepos()
     msgBox.setDefaultButton(noButton);
     msgBox.exec();
     if (msgBox.clickedButton() == yesButton) {
-	foreach(QString reponame, m_repoList) {
+        foreach(QString reponame, m_repoList) {
             QString repopath = Utility::DefinePrefsDir() + "/repo/" + reponame;
             Utility::removeDir(repopath);
-	}
-	InitializeTable();
+        }
+        InitializeTable();
     }
 }
 

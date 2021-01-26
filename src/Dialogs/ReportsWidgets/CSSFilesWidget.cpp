@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **
@@ -103,7 +103,7 @@ void CSSFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QStandardItem *name_item = new QStandardItem();
         name_item->setText(css_resource->ShortPathName());
         name_item->setToolTip(filepath);
-	name_item->setData(filepath);
+        name_item->setData(filepath);
         rowItems << name_item;
         // File Size
         double ffsize = QFile(path).size() / 1024.0;
@@ -216,8 +216,8 @@ void CSSFilesWidget::Delete()
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
         foreach(QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
-	    QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
-	    files_to_delete.append(bookpath);
+            QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
+            files_to_delete.append(bookpath);
         }
     }
 
@@ -280,9 +280,8 @@ void CSSFilesWidget::Save()
                           tr("Save Report As Comma Separated File"),
                           save_path,
                           filter_string,
-			  &default_filter,
-                          options
-                                                      );
+                          &default_filter,
+                          options);
 
     if (destination.isEmpty()) {
         return;

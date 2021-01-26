@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -79,32 +79,32 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
     // if ((destination.scheme() == "file") || (destination.scheme() == "sigil")) {
     if (destination.scheme() == "file") {
         // find the relavent MainWindow
-	QString bookfolder;
+        QString bookfolder;
         QString mathjaxfolder;
         QString usercssfolder = Utility::DefinePrefsDir() + "/";
-	QString sourcefolder = sourceurl.toLocalFile();
+        QString sourcefolder = sourceurl.toLocalFile();
         DBG qDebug() << "sourcefolder: " << sourcefolder;
-	const QWidgetList topwidgets = qApp->topLevelWidgets();
-	foreach(QWidget* widget, topwidgets) {
-	    MainWindow * mw = qobject_cast<MainWindow *>(widget);
-	    if (mw) {
-		QSharedPointer<Book> book = mw->GetCurrentBook();
-		QString path_to_book = book->GetFolderKeeper()->GetFullPathToMainFolder() + "/";
+        const QWidgetList topwidgets = qApp->topLevelWidgets();
+        foreach(QWidget* widget, topwidgets) {
+            MainWindow * mw = qobject_cast<MainWindow *>(widget);
+            if (mw) {
+                QSharedPointer<Book> book = mw->GetCurrentBook();
+                QString path_to_book = book->GetFolderKeeper()->GetFullPathToMainFolder() + "/";
                 DBG qDebug() << "path_to_book: " << path_to_book;
-		QString path_to_mathjax = mw->GetMathJaxFolder();
-		if (sourcefolder.startsWith(path_to_book)) {
-		    bookfolder = path_to_book;
-		    mathjaxfolder = path_to_mathjax;
+                QString path_to_mathjax = mw->GetMathJaxFolder();
+                if (sourcefolder.startsWith(path_to_book)) {
+                    bookfolder = path_to_book;
+                    mathjaxfolder = path_to_mathjax;
                     DBG qDebug() << "mainwin: " <<  mw;
                     DBG qDebug() << "book: " << bookfolder;
                     DBG qDebug() << "mathjax: " << mathjaxfolder;
                     DBG qDebug() << "usercss: " << usercssfolder;
-		    DBG qDebug() << "party: " << info.firstPartyUrl();
-		    DBG qDebug() << "source: " << sourcefolder;
-		    break;
-		}
-	    }
-	}
+                    DBG qDebug() << "party: " << info.firstPartyUrl();
+                    DBG qDebug() << "source: " << sourcefolder;
+                    break;
+                }
+            }
+        }
         // if can not determine book folder block it
         if (bookfolder.isEmpty()) {
             info.block(true);

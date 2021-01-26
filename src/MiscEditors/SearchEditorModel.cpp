@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2018-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -315,8 +315,8 @@ void SearchEditorModel::LoadData(const QString &filename, QStandardItem *item)
         entry->find = ss.value(ENTRY_FIND).toString();
         entry->replace = ss.value(ENTRY_REPLACE).toString();
         AddFullNameEntry(entry, item);
-	// done with the temporary entry so remove it
-	delete entry;
+        // done with the temporary entry so remove it
+        delete entry;
     }
     ss.endArray();
 }
@@ -352,8 +352,8 @@ void SearchEditorModel::LoadTextData(const QString &filename, QStandardItem *ite
                 entry->find = findreplace.at(0);
                 entry->replace = findreplace.at(1);
                 AddFullNameEntry(entry, item);
-	        // done with the temporary entry so remove it
-	        delete entry;
+                // done with the temporary entry so remove it
+                delete entry;
                 cnt++;
             }
         }
@@ -402,7 +402,7 @@ void SearchEditorModel::AddFullNameEntry(SearchEditorModel::searchEntry *entry, 
                 new_entry->is_group = true;
                 new_entry->name = group_name;
                 parent_item = AddEntryToModel(new_entry, new_entry->is_group, parent_item, parent_item->rowCount());
-		delete new_entry;
+                delete new_entry;
             }
         }
         row = parent_item->rowCount();
@@ -624,9 +624,9 @@ QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry *> entr
         QList<QStandardItem *> items = GetNonParentItems(invisibleRootItem());
 
         if (!items.isEmpty()) {
-	    // GetEntries calls GetEntry which creates each entry with new
+            // GetEntries calls GetEntry which creates each entry with new
             entries = GetEntries(items);
-	    clean_up_needed = true;
+            clean_up_needed = true;
         }
     }
 
@@ -645,12 +645,12 @@ QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry *> entr
             message = tr("Unable to create file %1").arg(filename);
             // Watch the file again
             m_FSWatcher->addPath(settings_path);
-	    // delete each entry if we created them above   
-	    if (clean_up_needed) {
-	        foreach(SearchEditorModel::searchEntry* entry, entries) {
-	            delete entry;
-	        }
-	    }
+            // delete each entry if we created them above   
+            if (clean_up_needed) {
+                foreach(SearchEditorModel::searchEntry* entry, entries) {
+                    delete entry;
+                }
+            }
             return message;
         }
 
@@ -670,9 +670,9 @@ QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry *> entr
     
         // delete each entry if we created them above
         if (clean_up_needed) {
-	    foreach(SearchEditorModel::searchEntry* entry, entries) {
-	        delete entry;
-	    }
+            foreach(SearchEditorModel::searchEntry* entry, entries) {
+                delete entry;
+            }
         }
 
         ss.endArray();

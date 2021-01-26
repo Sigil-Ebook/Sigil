@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
@@ -32,19 +32,19 @@
 #include "SourceUpdates/WordUpdates.h"
 
 void WordUpdates::UpdateWordInAllFiles(const QList<HTMLResource *> &html_resources,
-				       const QString& default_lang,
-				       const QString& old_word,
-				       const QString& new_word)
+                                       const QString& default_lang,
+                                       const QString& old_word,
+                                       const QString& new_word)
 {
     QtConcurrent::blockingMap(html_resources, std::bind(UpdateWordsInOneFile, std::placeholders::_1, default_lang, old_word, new_word));
 }
 
 void WordUpdates::UpdateWordsInOneFile(HTMLResource *html_resource,
-				       const QString& default_lang,
-				       const QString& old_word,
-				       const QString& new_word)
+                                       const QString& default_lang,
+                                       const QString& old_word,
+                                       const QString& new_word)
 {
-    qDebug() << "UpdateWordsInOneFile " << html_resource->Filename() << old_word << new_word;
+    // qDebug() << "UpdateWordsInOneFile " << html_resource->Filename() << old_word << new_word;
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
     QString text = html_resource->GetText();

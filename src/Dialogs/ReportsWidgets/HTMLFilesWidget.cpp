@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -108,7 +108,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QStandardItem *name_item = new QStandardItem();
         name_item->setText(filename);
         name_item->setToolTip(filepath);
-	name_item->setData(filepath);
+        name_item->setData(filepath);
         rowItems << name_item;
         // File Size
         double ffsize = QFile(path).size() / 1024.0;
@@ -118,7 +118,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         size_item->setText(fsize);
         rowItems << size_item;
         // All words
-	std::pair<int, int> counts = word_count_hash[filepath];
+        std::pair<int, int> counts = word_count_hash[filepath];
         total_all_words += counts.first;
         NumericItem *words_item = new NumericItem();
         words_item->setText(QString::number(counts.first));
@@ -338,9 +338,8 @@ void HTMLFilesWidget::Save()
                           tr("Save Report As Comma Separated File"),
                           save_path,
                           filter_string,
-			  &default_filter,
-                          options
-                                                      );
+                          &default_filter,
+                          options);
 
     if (destination.isEmpty()) {
         return;
@@ -363,8 +362,8 @@ void HTMLFilesWidget::Delete()
 
     if (ui.fileTree->selectionModel()->hasSelection()) {
         foreach(QModelIndex index, ui.fileTree->selectionModel()->selectedRows(0)) {
-	    QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
-	    files_to_delete.append(bookpath);
+            QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
+            files_to_delete.append(bookpath);
         }
     }
 

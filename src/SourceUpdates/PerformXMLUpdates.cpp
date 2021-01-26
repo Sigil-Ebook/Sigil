@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -31,7 +31,7 @@
 
 
 PerformXMLUpdates::PerformXMLUpdates(const QString &source,
-				     const QString &newbookpath,
+                                     const QString &newbookpath,
                                      const QHash<QString, QString> &xml_updates,
                                      const QString &currentpath,
                                      const QString &mtype)
@@ -73,11 +73,11 @@ QString PerformXMLUpdates::operator()()
         if (m_MediaType == "application/smil+xml") {
             routine = "performSMILUpdates";
         } else if ((m_MediaType == "application/oebps-page-map+xml") || 
-		   (m_MediaType == "application/vnd.adobe-page-map+xml"))  {
+           (m_MediaType == "application/vnd.adobe-page-map+xml"))  {
             routine = "performPageMapUpdates";
         } else {
             // We allow editing, but currently have no python parsing/repair/link-updating routines. 
-	    // Make no changes.
+            // Make no changes.
             // application/adobe-page-template+xml, application/vnd.adobe-page-template+xml, "application/pls+xml"
             return newsource;
         }
@@ -104,5 +104,3 @@ QString PerformXMLUpdates::operator()()
 
     return res.toString();
 }
-
-

@@ -1,7 +1,7 @@
 /************************************************************************
  **
- **  Copyright (C) 2020 Kevin B. Hendricks, Stratford Ontario Canada
- **  Copyright (C) 2020 Doug Massay
+ **  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020      Doug Massay
  **
  **  This file is part of Sigil.
  **
@@ -53,7 +53,7 @@ static const QString _darkgreenColor    = "#50c96e";
 
 
 ChgViewer::ChgViewer(const QList<DiffRecord::DiffRec>& diffinfo, 
-		     const QString&file1, const QString& file2, QWidget *parent)
+                     const QString&file1, const QString& file2, QWidget *parent)
     : QDialog(parent),
       m_view1(new TextView(this)),
       m_view2(new TextView(this)),
@@ -123,61 +123,61 @@ void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
     QString pad = "" + _PAD;
     // codes: 0 = Similar, 1 = RightOnly, 2 = LeftOnly, 3 = Changed
     foreach(DiffRecord::DiffRec diff, diffinfo) {
-	if (diff.code == "0") { // similar
-	    tc1.insertText(diff.line + "\n");
-	    tc2.insertText(diff.line + "\n");
-	} else if (diff.code == "1") { // rightonly
-	    m_changelst << blockno;
-	    int n = diff.line.length();
-	    insert_with_background(tc1, pad.repeated(n) + "\n", _grayColor);
-	    insert_with_background(tc2, diff.line + "\n", _greenColor);
-	} else if (diff.code == "2") { // leftonly
-	    m_changelst << blockno;
+        if (diff.code == "0") { // similar
+            tc1.insertText(diff.line + "\n");
+            tc2.insertText(diff.line + "\n");
+        } else if (diff.code == "1") { // rightonly
+            m_changelst << blockno;
+            int n = diff.line.length();
+            insert_with_background(tc1, pad.repeated(n) + "\n", _grayColor);
+            insert_with_background(tc2, diff.line + "\n", _greenColor);
+        } else if (diff.code == "2") { // leftonly
+            m_changelst << blockno;
             int n = diff.line.length();
             insert_with_background(tc1, diff.line + "\n", _redColor);
-	    insert_with_background(tc2, pad.repeated(n) + "\n", _grayColor);
+            insert_with_background(tc2, pad.repeated(n) + "\n", _grayColor);
 
-    } else if (diff.code == "3") { // changed                                                                                   
-	    m_changelst << blockno;
-	    int l1 = diff.line.length();
-	    int l2 = diff.newline.length();
-	    int n = std::max(l1, l2);
+        } else if (diff.code == "3") { // changed                                                                                   
+            m_changelst << blockno;
+            int l1 = diff.line.length();
+            int l2 = diff.newline.length();
+            int n = std::max(l1, l2);
 
             // Handle the left side changes first
 
-	    // pad out left changes to match line
-	    int lc = diff.leftchanges.length();
-	    QString leftchanges = diff.leftchanges + QString(" ").repeated(l1 - lc);
+            // pad out left changes to match line
+            int lc = diff.leftchanges.length();
+            QString leftchanges = diff.leftchanges + QString(" ").repeated(l1 - lc);
 
-	    int l = 0;
-	    while (l < l1) {
-	        int i = l;
-	        QString txt = "";
+            int l = 0;
+            while (l < l1) {
+                int i = l;
+                QString txt = "";
 
                 // first check for emphasized chars
                 // if any exist output them
-	        while((i < l1) && (leftchanges.at(i) != " ")) {
-	            txt.append(diff.line.at(i));
-	            i++;
-	        }
-	        if (l != i) {
-	            insert_with_background(tc1, txt, _darkredColor);
-	            l = i;
-	        }
+                while((i < l1) && (leftchanges.at(i) != " ")) {
+                    txt.append(diff.line.at(i));
+                    i++;
+                }
+                if (l != i) {
+                    insert_with_background(tc1, txt, _darkredColor);
+                    l = i;
+                }
 
                 txt = "";
 
                 // next check for background chars
                 // if any exist output them
-	        while((i < l1) && (leftchanges.at(i) == " ")) {
-	            txt.append(diff.line.at(i));
-	            i++;
+                while((i < l1) && (leftchanges.at(i) == " ")) {
+                    txt.append(diff.line.at(i));
+                    i++;
                 }
                 if (l != i) {
-	            insert_with_background(tc1, txt, _redColor);
-	            l = i;
+                    insert_with_background(tc1, txt, _redColor);
+                    l = i;
                 }
-	    }
+            }
             tc1.insertText(pad.repeated(n-l1) + "\n");
 
             // Now Handle the right side changes
@@ -194,13 +194,13 @@ void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
                 // first check for emphasized chars
                 // if any exist output them
                 while((i < l2) && (rightchanges.at(i) != " ")) {
-		    txt.append(diff.newline.at(i));
-		    i++;
-	        }
+                    txt.append(diff.newline.at(i));
+                    i++;
+                }
                 if (r != i) {
                     insert_with_background(tc2, txt, _darkgreenColor);
                     r = i;
-	        }
+                }
 
                 txt = "";
 
@@ -208,32 +208,32 @@ void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
                 // if any exist output them
                 while((i < l2) && (rightchanges.at(i) == " ")) {
                     txt.append(diff.newline.at(i));
-		    i++;
-	        }
+                    i++;
+                }
                 if (r != i) {
                     insert_with_background(tc2, txt, _greenColor);
                     r = i;
                 }
-	    }
+            }
             tc2.insertText(pad.repeated(n-l2) + "\n");
         }
 
-	blockno++;
-	// map out block to line numbers
-	if (diff.code == "2") { // leftonly
-	    m_leftno << QString::number(leftlineno);
-	    m_rightno << "";
-	    leftlineno++;
-	} else if (diff.code == "1") { // rightonly
-	    m_rightno << QString::number(rightlineno);
-	    m_leftno << "";
-	    rightlineno++;
-	} else { // 
-	    m_leftno << QString::number(leftlineno);
-	    m_rightno << QString::number(rightlineno);
-	    leftlineno++;
-	    rightlineno++;
-	} 
+        blockno++;
+        // map out block to line numbers
+        if (diff.code == "2") { // leftonly
+            m_leftno << QString::number(leftlineno);
+            m_rightno << "";
+            leftlineno++;
+        } else if (diff.code == "1") { // rightonly
+            m_rightno << QString::number(rightlineno);
+            m_leftno << "";
+            rightlineno++;
+        } else { // 
+            m_leftno << QString::number(leftlineno);
+            m_rightno << QString::number(rightlineno);
+            leftlineno++;
+            rightlineno++;
+        } 
     }
     tc1.endEditBlock();
     tc2.endEditBlock();
@@ -248,11 +248,11 @@ void ChgViewer::cross_link_scrollbars(bool link)
     QScrollBar* sb1 = m_view1->GetVerticalScrollBar();
     QScrollBar* sb2 = m_view2->GetVerticalScrollBar();
     if (link) {
-	connect(sb1, SIGNAL(valueChanged(int)), sb2, SLOT(setValue(int)));
-	connect(sb2, SIGNAL(valueChanged(int)), sb1, SLOT(setValue(int)));
+        connect(sb1, SIGNAL(valueChanged(int)), sb2, SLOT(setValue(int)));
+        connect(sb2, SIGNAL(valueChanged(int)), sb1, SLOT(setValue(int)));
     } else {
-	disconnect(sb1, SIGNAL(valueChanged(int)), sb2, SLOT(setValue(int)));
-	disconnect(sb2, SIGNAL(valueChanged(int)), sb1, SLOT(setValue(int)));
+        disconnect(sb1, SIGNAL(valueChanged(int)), sb2, SLOT(setValue(int)));
+        disconnect(sb2, SIGNAL(valueChanged(int)), sb1, SLOT(setValue(int)));
     }
 }
 
@@ -263,16 +263,16 @@ void ChgViewer::slideraction()
     int v1 = m_view1->GetVerticalScrollBar()->value();
     int v2 = m_view2->GetVerticalScrollBar()->value();
     if (v1 != v2) {
-	if (f1) {
-	    cross_link_scrollbars(false);
-	    m_view2->GetVerticalScrollBar()->setValue(v1);
-	    cross_link_scrollbars(true);
-	}
-	if (f2) {
-	    cross_link_scrollbars(false);
-	    m_view1->GetVerticalScrollBar()->setValue(v2);
-	    cross_link_scrollbars(true);
-	}
+        if (f1) {
+            cross_link_scrollbars(false);
+            m_view2->GetVerticalScrollBar()->setValue(v1);
+            cross_link_scrollbars(true);
+        }
+        if (f2) {
+            cross_link_scrollbars(false);
+            m_view1->GetVerticalScrollBar()->setValue(v2);
+            cross_link_scrollbars(true);
+        }
     }
 }
 
@@ -297,11 +297,11 @@ void ChgViewer::next_change(int dir)
     TextView * other = nullptr;
     // determine selected and other viewer
     if (m_nav->use_left_panel()) {
-	viewer = m_view1;
-	other = m_view2;
+        viewer = m_view1;
+        other = m_view2;
     } else {
-	viewer = m_view2;
-	other = m_view1;
+        viewer = m_view2;
+        other = m_view1;
     }
     // get block number of current viewer
     // and look for block number of prev and next changes
@@ -309,24 +309,24 @@ void ChgViewer::next_change(int dir)
     int prev = -1;
     int next = -1;
     foreach(int i, m_changelst) {
-	if (i < bnum) prev = i;
-	if (i > bnum) {
-	    next = i;
-	    break;
-	}
+        if (i < bnum) prev = i;
+        if (i > bnum) {
+            next = i;
+            break;
+        }
     }
     int nnum = -1;
     if (dir < 0) {
-	if (prev != -1) nnum = prev;
+        if (prev != -1) nnum = prev;
     } else {
-	if (next != -1) nnum = next;
+        if (next != -1) nnum = next;
     }
     // if a next change exists, move both viewers to it
     if (nnum != -1) {
-	cross_link_scrollbars(false);
+        cross_link_scrollbars(false);
         QTextCursor a = QTextCursor(viewer->document()->findBlockByNumber(nnum));
         int pos = a.position();
-	QTextCursor nc = viewer->textCursor();
+        QTextCursor nc = viewer->textCursor();
         nc.setPosition(pos);
         viewer->setTextCursor(nc);
         viewer->centerCursor();
@@ -346,11 +346,11 @@ void ChgViewer::do_search(bool reverse)
     TextView * other = nullptr;
     // determine selected and other viewer
     if (m_nav->use_left_panel()) {
-	viewer = m_view1;
-	other = m_view2;
+        viewer = m_view1;
+        other = m_view2;
     } else {
-	viewer = m_view2;
-	other = m_view1;
+        viewer = m_view2;
+        other = m_view1;
     }
     QTextDocument::FindFlags ff = QTextDocument::FindFlags();
     if (reverse) ff = ff | QTextDocument::FindBackward;
@@ -359,12 +359,12 @@ void ChgViewer::do_search(bool reverse)
     cross_link_scrollbars(false);
     bool found = viewer->find(stext, ff);
     if (found) {
-	QTextCursor c = viewer->textCursor();
-	viewer->centerCursor();
-	QTextCursor d = other->textCursor();
-	d.setPosition(c.position());
-	other->setTextCursor(d);
-	other->centerCursor();
+        QTextCursor c = viewer->textCursor();
+        viewer->centerCursor();
+        QTextCursor d = other->textCursor();
+        d.setPosition(c.position());
+        other->setTextCursor(d);
+        other->centerCursor();
     }
     cross_link_scrollbars(true);
 }
@@ -374,24 +374,24 @@ void ChgViewer::keyPressEvent(QKeyEvent * ev)
     if ((ev->key() == Qt::Key_Enter) || (ev->key() == Qt::Key_Return)) return;
 
     if (ev->key() == Qt::Key_Slash) {
-	m_nav->set_focus_on_search();
-	return;
+        m_nav->set_focus_on_search();
+        return;
     }
 
     if (ev->matches(QKeySequence::Copy)) {
-	QString text = m_view1->GetSelectedText() + m_view2->GetSelectedText();
-	if (!text.isEmpty()) {
-	    QApplication::clipboard()->setText(text);
-	}
-	return;
+        QString text = m_view1->GetSelectedText() + m_view2->GetSelectedText();
+        if (!text.isEmpty()) {
+            QApplication::clipboard()->setText(text);
+        }
+        return;
     }
 
     if (ev->matches(QKeySequence::FindNext)) {
-	do_search(false);
+        do_search(false);
         return;
     }
     if (ev->matches(QKeySequence::FindPrevious)) {
-	do_search(true);
+        do_search(true);
         return;
     }
     return QDialog::keyPressEvent(ev);

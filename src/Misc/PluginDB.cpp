@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2019  Kevin Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2018-2021  Kevin Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2014  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -321,11 +321,11 @@ Plugin *PluginDB::load_plugin(const QString &name)
     iconpaths << pluginsPath() + "/" + name + "/plugin.svg";
     iconpaths << pluginsPath() + "/" + name + "/plugin.png";
     foreach(QString ipath, iconpaths) {
-	QFileInfo iconinfo(ipath);
+        QFileInfo iconinfo(ipath);
         if (iconinfo.exists() && iconinfo.isFile() && iconinfo.isReadable()) {
             plugin->set_iconpath(iconinfo.absoluteFilePath());
-	    break;
-	}
+            break;
+        }
     }
 
     if (!plugin->isvalid()) {

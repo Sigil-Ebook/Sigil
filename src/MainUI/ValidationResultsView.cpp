@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -99,7 +99,7 @@ void ValidationResultsView::ValidateCurrentBook()
     foreach (Resource * resource, resources) {
         if (resource->Type() == Resource::HTMLResourceType) {
             QString apath = resource->GetFullPath();
-	    QString bookpath = resource->GetRelativePath();
+            QString bookpath = resource->GetRelativePath();
             QStringList reslst = ValidateFile(apath);
             if (!reslst.isEmpty()) {
                 foreach (QString res, reslst) {
@@ -225,19 +225,19 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
 
         m_ResultTable->insertRow(rownum);
  
-	QString path;
-	QString bookpath = result.BookPath();
-	try {
-	    Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
-	    path = resource->ShortPathName();
-	} catch (ResourceDoesNotExist&) {
+        QString path;
+        QString bookpath = result.BookPath();
+        try {
+            Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
+            path = resource->ShortPathName();
+        } catch (ResourceDoesNotExist&) {
             if (bookpath.isEmpty()) {
-	        path = "***Invalid Book Path Provided ***";
+                path = "***Invalid Book Path Provided ***";
             } else {
                 path = bookpath;
-	    }
-	}
-	
+            }
+        }
+
         item = new QTableWidgetItem(RemoveEpubPathPrefix(path));
         item->setData(Qt::UserRole+1, bookpath);
         SetItemPalette(item, row_brush);

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -27,51 +27,51 @@
 #include "SourceUpdates/PerformNCXUpdates.h"
 
 PerformNCXUpdates::PerformNCXUpdates(const QString &source,
-				     const QString & newbookpath,
+                                     const QString & newbookpath,
                                      const QHash<QString, QString> &xml_updates,
                                      const QString& currentpath)
-  :
-  m_XMLUpdates(xml_updates),
-  m_CurrentPath(currentpath),
-  m_source(source),
-  m_newbookpath(newbookpath)
+    :
+    m_XMLUpdates(xml_updates),
+    m_CurrentPath(currentpath),
+    m_source(source),
+    m_newbookpath(newbookpath)
 {
 }
 
 
 QString PerformNCXUpdates::operator()()
 {
-  QString newsource = m_source;
+    QString newsource = m_source;
 
-  // serialize the hash for passing to python
-  QStringList dictkeys = m_XMLUpdates.keys();
-  QStringList dictvals;
-  foreach(QString key, dictkeys) {
-      dictvals.append(m_XMLUpdates.value(key));
-  }
+    // serialize the hash for passing to python
+    QStringList dictkeys = m_XMLUpdates.keys();
+    QStringList dictvals;
+    foreach(QString key, dictkeys) {
+        dictvals.append(m_XMLUpdates.value(key));
+    }
 
-  int rv = 0;
-  QString error_traceback;
+    int rv = 0;
+    QString error_traceback;
 
-  QList<QVariant> args;
-  args.append(QVariant(m_source));
-  args.append(QVariant(m_newbookpath));
-  args.append(QVariant(m_CurrentPath));
-  args.append(QVariant(dictkeys));
-  args.append(QVariant(dictvals));
+    QList<QVariant> args;
+    args.append(QVariant(m_source));
+    args.append(QVariant(m_newbookpath));
+    args.append(QVariant(m_CurrentPath));
+    args.append(QVariant(dictkeys));
+    args.append(QVariant(dictvals));
 
-  EmbeddedPython * epython  = EmbeddedPython::instance();
+    EmbeddedPython * epython  = EmbeddedPython::instance();
 
-  QVariant res = epython->runInPython( QString("xmlprocessor"),
-                                       QString("performNCXSourceUpdates"),
-                                       args,
-                                       &rv,
-                                       error_traceback);    
-  if (rv != 0) {
-      Utility::DisplayStdWarningDialog(QString("error in xmlprocessor performNCXSourceUpdates: ") + QString::number(rv), 
+    QVariant res = epython->runInPython( QString("xmlprocessor"),
+                                         QString("performNCXSourceUpdates"),
+                                         args,
+                                         &rv,
+                                         error_traceback);    
+    if (rv != 0) {
+        Utility::DisplayStdWarningDialog(QString("error in xmlprocessor performNCXSourceUpdates: ") + QString::number(rv), 
                                      error_traceback);
-      // an error happened - make no changes
-      return newsource;
-  }
-  return res.toString();
+        // an error happened - make no changes
+        return newsource;
+    }
+    return res.toString();
 }

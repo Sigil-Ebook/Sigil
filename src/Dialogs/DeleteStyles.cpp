@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
@@ -40,7 +40,7 @@ DeleteStyles::DeleteStyles(QHash<QString, QList<CSSInfo::CSSSelector *>> css_sty
 
     while (stylesheets.hasNext()) {
         stylesheets.next();
-	// css_filename has been converted to a book path
+        // css_filename has been converted to a book path
         QString css_filename = stylesheets.key();
         foreach(CSSInfo::CSSSelector * s, stylesheets.value()) {
             QList<QStandardItem *> rowItems;

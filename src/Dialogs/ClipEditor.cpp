@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -264,7 +264,7 @@ bool ClipEditor::Copy()
     while (m_SavedClipEntries.count()) {
         // these were previously generated with new
         ClipEditorModel::clipEntry * p = m_SavedClipEntries.at(0);
-	delete p;
+        delete p;
         m_SavedClipEntries.removeAt(0);
     }
 
@@ -281,10 +281,10 @@ bool ClipEditor::Copy()
 
         if (entry->is_group) {
             Utility::DisplayStdErrorDialog(tr("You cannot Copy or Cut groups - use drag-and-drop.")) ;
-	    delete entry;
+            delete entry;
             return false;
         }
-	delete entry;
+        delete entry;
     }
     foreach(ClipEditorModel::clipEntry * entry, entries) {
         // need to clean up m_SavedClipEntries when done to prevent memory leak
@@ -375,10 +375,9 @@ void ClipEditor::Import()
     QString filename = QFileDialog::getOpenFileName(this,
                        tr("Import Entries"),
                        m_LastFolderOpen,
-		       filter_string,
-		       NULL,
-                       options
-                                                   );
+                       filter_string,
+                       NULL,
+                       options);
 
     // Load the file and save the last folder opened
     if (!filename.isEmpty()) {
@@ -436,7 +435,7 @@ void ClipEditor::ExportItems(QList<QStandardItem *> items)
             parent_path = m_ClipEditorModel->GetFullName(item->parent());
         }
 
-	// Note GetEntry creates the clipEntry with new and it is just a struct
+        // Note GetEntry creates the clipEntry with new and it is just a struct
         foreach(QStandardItem * item, sub_items) {
             ClipEditorModel::clipEntry *entry = m_ClipEditorModel->GetEntry(item);
             // Remove the top level paths since we're exporting a subset
@@ -457,9 +456,8 @@ void ClipEditor::ExportItems(QList<QStandardItem *> items)
                        tr("Export Selected Entries"),
                        m_LastFolderOpen,
                        filter_string,
-		       &default_filter,
-                       options
-                                                   );
+                       &default_filter,
+                       options);
 
     if (filename.isEmpty()) {
         return;

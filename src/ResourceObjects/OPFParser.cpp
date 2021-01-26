@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks
+**  Copyright (C) 2015-2021 Kevin B. Hendricks
 **  Copyright (C) 2015      John Schember
 **
 **  This file is part of Sigil.
@@ -87,9 +87,9 @@ MetaNSEntry::MetaNSEntry(const QStringList& keylist, const QStringList& vallist)
 {
     int n = keylist.size();
     if (n == vallist.size()) {
-	for (int i=0; i < n; i++) {
+        for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-	}
+        }
     }
 }
 
@@ -134,7 +134,7 @@ MetaEntry::MetaEntry(const QString& name, const QString& content,
     if (n == vallist.size()) {
         for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-	    }
+        }
     }
 }
 
@@ -180,12 +180,12 @@ QString MetaEntry::convert_to_xml() const
  */
  
 ManifestEntry::ManifestEntry(const QString& id, const QString& href, const QString& mtype, 
-  					         const QStringList& keylist, const QStringList& vallist) 
+                             const QStringList& keylist, const QStringList& vallist) 
 : m_id(id), m_href(href), m_mtype(mtype)
 {
     int n = keylist.size();
     if (n == vallist.size()) {
-	    for (int i=0; i < n; i++) {
+        for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
         }
     }
@@ -234,9 +234,9 @@ SpineAttrEntry::SpineAttrEntry(const QStringList& keylist, const QStringList& va
 {
     int n = keylist.size();
     if (n == vallist.size()) {
-	    for (int i=0; i < n; i++) {
+        for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-	    }
+        }
     }
 }
 
@@ -258,15 +258,15 @@ SpineAttrEntry::SpineAttrEntry(const QVariant& qv)
 
 QString SpineAttrEntry::convert_to_xml() const
 {
-  QStringList xmlres;
-  xmlres << "  <spine";
-  foreach (QString kv, m_atts.keys()) {
-      QString val = m_atts.value(kv,"");
-      val.replace("\"", "&quot;");
-      xmlres <<  " " + kv + "=\"" + val + "\"";
-  }
-  xmlres << ">\n";
-  return xmlres.join(QString(""));
+    QStringList xmlres;
+    xmlres << "  <spine";
+    foreach (QString kv, m_atts.keys()) {
+        QString val = m_atts.value(kv,"");
+        val.replace("\"", "&quot;");
+        xmlres <<  " " + kv + "=\"" + val + "\"";
+    }
+    xmlres << ">\n";
+    return xmlres.join(QString(""));
 }
 
 /**
@@ -278,9 +278,9 @@ SpineEntry::SpineEntry(const QString& idref, const QStringList& keylist, const Q
 {
     int n = keylist.size();
     if (n == vallist.size()) {
-	    for (int i=0; i < n; i++) {
+        for (int i=0; i < n; i++) {
             m_atts[keylist.at(i)] = vallist.at(i);
-	    }
+        }
     }
 }
 
@@ -338,12 +338,12 @@ GuideEntry::GuideEntry(const QVariant& qv)
 
 QString GuideEntry::convert_to_xml() const
 {
-  QStringList xmlres;
-  xmlres << "    <reference type=\"" + m_type + "\"";
-  xmlres << " title=\"" + m_title + "\"";
-  xmlres << " href=\"" + m_href + "\"";
-  xmlres << "/>\n";
-  return xmlres.join(QString(""));
+    QStringList xmlres;
+    xmlres << "    <reference type=\"" + m_type + "\"";
+    xmlres << " title=\"" + m_title + "\"";
+    xmlres << " href=\"" + m_href + "\"";
+    xmlres << "/>\n";
+    return xmlres.join(QString(""));
 }
 
 /**

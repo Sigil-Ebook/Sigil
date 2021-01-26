@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -407,9 +407,9 @@ void XHTMLHighlighter::HighlightLine(const QString &text, int state)
 
         // Special Spaces State should always be case (1) but has no ending regex
         if (state == State_SpSpace) {
-  	    right_bracket_index = left_bracket_index + left_bracket_len;
-	    right_bracket_len = 0;
-	}
+            right_bracket_index = left_bracket_index + left_bracket_len;
+            right_bracket_len = 0;
+        }
 
         // Every node/state has a left "bracket", a right "bracket" and the inside body.
         // This example uses HTML tags, but the principle is the same for every node/state.

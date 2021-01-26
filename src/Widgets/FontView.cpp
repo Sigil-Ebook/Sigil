@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020 Kevin B. Hendricks
+ **  Copyright (C) 2020-2021 Kevin B. Hendricks
  **
  **  This file is part of Sigil.
  **
@@ -123,10 +123,10 @@ void FontView::ShowFont(QString path)
     const QUrl furl = QUrl::fromLocalFile(path);
     QString html = FONT_HTML_BASE.arg(furl.toString())
                                  .arg(font_name)
-	                         .arg(weight_name)
+                                 .arg(weight_name)
                                  .arg(style_name)
-	                         .arg(desc)
-	                         .arg(file_name)
+                                 .arg(desc)
+                                 .arg(file_name)
                                  .arg(QString::number(file_size));
     // allow translators to control over what the font is displaying
     html = html.replace("LOWERCASE_LETTERS", tr("abcdefghijklmnopqrstuvwxyz"));

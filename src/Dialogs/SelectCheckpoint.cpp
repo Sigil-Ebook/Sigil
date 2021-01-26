@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -36,14 +36,14 @@ SelectCheckpoint::SelectCheckpoint(const QStringList &checkpointlst, QWidget *pa
     ui.setupUi(this);
     QString key0;
     foreach(QString atag, checkpointlst) {
-	QStringList fields = atag.split("|");
-	if (fields.length() == 3) {
-	    QString key = fields.at(0);
-	    if (key0.isEmpty()) key0 = key;
-	    QString dinfo = fields.at(1) + "\n" + fields.at(2);
-	    m_CheckpointInfo[key] = dinfo;
+        QStringList fields = atag.split("|");
+        if (fields.length() == 3) {
+            QString key = fields.at(0);
+            if (key0.isEmpty()) key0 = key;
+            QString dinfo = fields.at(1) + "\n" + fields.at(2);
+            m_CheckpointInfo[key] = dinfo;
             ui.lwProperties->addItem(key);
-	}
+        }
     }
     ui.lwProperties->setCurrentRow(0);
     ui.lbDescription->setText(m_CheckpointInfo[key0]);
@@ -89,9 +89,9 @@ void SelectCheckpoint::SaveSelection()
     m_SelectedEntries.clear();
     foreach(QListWidgetItem * item, ui.lwProperties->selectedItems()) {
         QString key = item->text();
-	if (!key.isEmpty()) {
+        if (!key.isEmpty()) {
             m_SelectedEntries.append(key);
-	}
+        }
     }
 }
 

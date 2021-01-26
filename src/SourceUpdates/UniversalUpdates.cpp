@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019  Kevin B. Hendricks  Stratford, Ontario Canada
+**  Copyright (C) 2015-2021  Kevin B. Hendricks  Stratford, Ontario Canada
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -70,7 +70,6 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
     for (int i = 0; i < num_files; ++i) {
         Resource *resource = resources.at(i);
 
-
         if (resource->Type() == Resource::HTMLResourceType) {
             html_resources.append(qobject_cast<HTMLResource *>(resource));
         } else if (resource->Type() == Resource::CSSResourceType) {
@@ -113,7 +112,7 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
     foreach(XMLResource * xml_resource, xml_resources) {
         QString mtype = xml_resource->GetMediaType();
         QString currentpath = xml_resource->GetCurrentBookRelPath();
-	QString new_bookpath = xml_resource->GetRelativePath();
+        QString new_bookpath = xml_resource->GetRelativePath();
         QString version = xml_resource->GetEpubVersion();
         const QString &source = Utility::ReadUnicodeTextFile(xml_resource->GetFullPath());
         xml_resource->SetText(PerformXMLUpdates(source, new_bookpath, xml_updates, currentpath, mtype)());
@@ -199,7 +198,7 @@ QString UniversalUpdates::UpdateOneHTMLFile(HTMLResource *html_resource,
         QString version = html_resource->GetEpubVersion();
         QString source = html_resource->GetText();
         QString newsource = source;
-	QString newbookpath = html_resource->GetRelativePath();
+        QString newbookpath = html_resource->GetRelativePath();
         newsource = PerformHTMLUpdates(newsource, newbookpath, html_updates, css_updates, currentpath, version)();
         html_resource->SetText(newsource);
         html_resource->SetCurrentBookRelPath("");

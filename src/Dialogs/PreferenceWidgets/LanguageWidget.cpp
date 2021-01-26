@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -92,7 +92,7 @@ void LanguageWidget::readSettings()
 
     // try again with just part of language code that exists before the "-"
     if (index == -1) {
-	langcode = langcode.split("-").at(0);
+        langcode = langcode.split("-").at(0);
         index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName(langcode));
     }
 

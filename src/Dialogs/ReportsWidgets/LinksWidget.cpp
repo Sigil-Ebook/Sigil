@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2013      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2013      Dave Heiland
 **
@@ -112,7 +112,7 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
             QString source_file = file_spname;
             item->setText(source_file);
             item->setToolTip(filepath);
-	    item->setData(filepath);
+            item->setData(filepath);
             rowItems << item;
 
             // Source Line Number
@@ -157,17 +157,17 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 
             // Target exists in book
             QString target_valid = tr("n/a");
-	    QString bkpath;
+            QString bkpath;
             if (is_target_file) {
                 if (!href.isEmpty()) {
                     target_valid = tr("no");
                     // first handle the case of local internal link (just fragment)
-		    if (href_file.isEmpty()) {
-		        bkpath = filepath;
-		    } else {
+                    if (href_file.isEmpty()) {
+                        bkpath = filepath;
+                    } else {
                         // find bookpath of target
-		        bkpath = Utility::buildBookPath(href_file, resource->GetFolder());
-		    }	
+                        bkpath = Utility::buildBookPath(href_file, resource->GetFolder());
+                    }
                     if (html_filenames.contains(bkpath)) {
                         if (href_id.isEmpty() || all_ids[bkpath].contains(href_id)) {
                             target_valid = tr("yes");
@@ -220,14 +220,14 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
                     item->setText(target_href_id);
                     rowItems << item;
 
-		    QString target_bkpath;
+                    QString target_bkpath;
                     // Match - destination link points to source
                     if (target_href_file.isEmpty()) {
-		        target_bkpath = bkpath;
+                        target_bkpath = bkpath;
                     } else {
-		        Resource * res =  m_Book->GetFolderKeeper()->GetResourceByBookPath(bkpath);
-		        target_bkpath = Utility::buildBookPath(target_href_file, res->GetFolder());
-		    }
+                        Resource * res =  m_Book->GetFolderKeeper()->GetResourceByBookPath(bkpath);
+                        target_bkpath = Utility::buildBookPath(target_href_file, res->GetFolder());
+                    }
                     QString match = tr("no");
                     if (!source_id.isEmpty() && filepath == target_bkpath && source_id == target_href_id) {
                         match = tr("yes");
@@ -352,9 +352,8 @@ void LinksWidget::Save()
                           tr("Save Report As Comma Separated File"),
                           save_path,
                           filter_string,
-			  &default_filter,
-                          options
-                                                      );
+                          &default_filter,
+                          options);
 
     if (destination.isEmpty()) {
         return;

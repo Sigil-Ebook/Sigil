@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -123,40 +123,40 @@ void AnchorUpdates::UpdateAnchorsInOneFile(HTMLResource *html_resource,
             QString href = QString::fromUtf8(attr->value);
             if (href.indexOf(':') == -1) {
                 std::pair<QString, QString> parts = Utility::parseRelativeHREF(href);
-		// if fragment exists
+                 // if fragment exists
                 if (!parts.second.isEmpty()) {
                     QString base_href = parts.first;
                     QString fragment_id = parts.second;
                     if (fragment_id.startsWith("#")) fragment_id = fragment_id.mid(1, -1);
                     QString dest_bookpath = Utility::buildBookPath(base_href, Utility::startingDir(resource_bookpath));
-		    QString file_id = ID_locations.value(fragment_id);
+                    QString file_id = ID_locations.value(fragment_id);
 
                     DBG qDebug() << "base_href" << base_href;
-		    DBG qDebug() << "destination bookpath" << dest_bookpath;
-		    DBG qDebug() << "fragment_id" << fragment_id;
-		    DBG qDebug() << "file_id" << file_id;
-		    DBG qDebug() << "resource_bookpath" << resource_bookpath;
+                    DBG qDebug() << "destination bookpath" << dest_bookpath;
+                    DBG qDebug() << "fragment_id" << fragment_id;
+                    DBG qDebug() << "file_id" << file_id;
+                    DBG qDebug() << "resource_bookpath" << resource_bookpath;
 
-		    // Duplicates of this id may exist in other xhtml files in the epub
-		    // not involved in the split, so only set the target file_id if the
-		    // original dest_bookpath is one that was impacted by split
-		    if (!base_href.isEmpty() && !bookpaths_impacted.contains(dest_bookpath)) {
-		        file_id = "";
+                    // Duplicates of this id may exist in other xhtml files in the epub
+                    // not involved in the split, so only set the target file_id if the
+                    // original dest_bookpath is one that was impacted by split
+                    if (!base_href.isEmpty() && !bookpaths_impacted.contains(dest_bookpath)) {
+                        file_id = "";
                         DBG qDebug() << "Not in bookpaths_impacted!" << dest_bookpath; 
-		    }
-		    
+                    }
+            
                     // If the ID is in a different file, update the link
                     if (file_id != resource_bookpath && !file_id.isEmpty()) {
                         QString attpath = Utility::buildRelativePath(resource_bookpath, file_id);
-		        QString attribute_value = Utility::buildRelativeHREF(attpath, "#" + fragment_id);
+                        QString attribute_value = Utility::buildRelativeHREF(attpath, "#" + fragment_id);
                         gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
                         is_changed = true;
                     } else if ((file_id == resource_bookpath) && !base_href.isEmpty()) {
-		        // this is a local internal link that needs to be fixed
+                        // this is a local internal link that needs to be fixed
                         QString attribute_value = QString("#").append(fragment_id);
                         gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
                         is_changed = true;
-		    }
+                    }
                 }
             }
         }
@@ -204,7 +204,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
                     DBG qDebug() << "....... fragment_id" << fragment_id;
                    
                     if (fragment_id.startsWith('#')) fragment_id = fragment_id.mid(1, -1);
-		    target_bookpath = ID_locations.value(fragment_id);
+                    target_bookpath = ID_locations.value(fragment_id);
                     DBG qDebug() << "....... NEW target_bookpath" << target_bookpath;
 
                     QString attpath = Utility::buildRelativePath(html_resource->GetRelativePath(), target_bookpath);
@@ -230,7 +230,7 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
 void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
         const QList<QString> &originating_bookpaths,
         const QHash<QString, QString> ID_locations,
-	const QString & sink_bookpath)
+        const QString & sink_bookpath)
 {
     Q_ASSERT(html_resource);
     QWriteLocker locker(&html_resource->GetLock());
@@ -252,8 +252,8 @@ void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
                 std::pair<QString, QString> parts = Utility::parseRelativeHREF(href);
                 DBG qDebug() << "In UpdateAllAnchorsInOneFile doing merge: " << parts.first << parts.second;
                 // Does this href point to a bookpath in the originating_bookpaths
-	        QString target_bookpath = Utility::buildBookPath(parts.first, startdir);
-	        if (originating_bookpaths.contains(target_bookpath)) {
+                QString target_bookpath = Utility::buildBookPath(parts.first, startdir);
+                if (originating_bookpaths.contains(target_bookpath)) {
                     QString attpath = Utility::buildRelativePath(html_resource->GetRelativePath(), sink_bookpath);
                     QString attribute_value = Utility::buildRelativeHREF(attpath, parts.second);
                     gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
@@ -304,10 +304,10 @@ void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &o
                                          &rv,
                                          error_traceback);    
     if (rv != 0) {
-      Utility::DisplayStdWarningDialog(QString("error in xmlprocessor anchorNCXUpdates: ") + QString::number(rv), 
+        Utility::DisplayStdWarningDialog(QString("error in xmlprocessor anchorNCXUpdates: ") + QString::number(rv), 
                                        error_traceback);
-      // an error happened - make no changes
-      return;
+        // an error happened - make no changes
+        return;
     }
     ncx_resource->SetText(res.toString());
 }
@@ -340,11 +340,10 @@ void AnchorUpdates::UpdateTOCEntriesAfterMerge(NCXResource *ncx_resource, const 
                                          &rv,
                                          error_traceback);    
     if (rv != 0) {
-      Utility::DisplayStdWarningDialog(QString("error in xmlprocessor anchorNCXUpdatesAfterMerge: ") + QString::number(rv), 
+        Utility::DisplayStdWarningDialog(QString("error in xmlprocessor anchorNCXUpdatesAfterMerge: ") + QString::number(rv), 
                                        error_traceback);
-      // an error happened - make no changes
-      return;
+        // an error happened - make no changes
+        return;
     }
     ncx_resource->SetText(res.toString());
 }
-

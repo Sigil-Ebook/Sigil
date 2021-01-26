@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Grant Drake
 **  Copyright (C) 2012      Dave Heiland
@@ -66,7 +66,7 @@ void MainApplication::fixMacDarkModePalette(QPalette &pal)
     if (m_isDark) {
         // make alternating base color change not so sharp
         pal.setColor(QPalette::AlternateBase, pal.color(QPalette::Base).lighter(150));
-	// make link color better for dark mode (try to match calibre for consistency)
+        // make link color better for dark mode (try to match calibre for consistency)
         pal.setColor(QPalette::Link, QColor("#6cb4ee"));
     }
 #endif
@@ -82,7 +82,7 @@ bool MainApplication::event(QEvent *pEvent)
 #ifdef Q_OS_MAC
     if (pEvent->type() == QEvent::ApplicationPaletteChange) {
         // qDebug() << "Application Palette Changed";
-	QTimer::singleShot(0, this, SLOT(EmitPaletteChanged()));
+        QTimer::singleShot(0, this, SLOT(EmitPaletteChanged()));
     }
 #endif
     return QApplication::event(pEvent);

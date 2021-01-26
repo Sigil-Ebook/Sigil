@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2014      John Schember <john@nachtimwald.com> 
 **
 **  This file is part of Sigil.
@@ -48,25 +48,25 @@ ValidationResult::~ValidationResult()
 
 ValidationResult::ResType ValidationResult::Type()
 {
-	return m_type;
+    return m_type;
 }
 
 QString ValidationResult::BookPath()
 {
-	return m_bookpath;
+    return m_bookpath;
 }
 
 int ValidationResult::LineNumber()
 {
-	return m_linenumber;
+    return m_linenumber;
 }
 
 int ValidationResult::CharOffset()
 {
-	return m_charoffset;
+    return m_charoffset;
 }
 
 QString ValidationResult::Message()
 {
-	return m_message;
+    return m_message;
 }

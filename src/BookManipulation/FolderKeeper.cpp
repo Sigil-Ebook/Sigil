@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -61,7 +61,7 @@ static const QString CONTAINER_XML       = "<?xml version=\"1.0\" encoding=\"UTF
         "    <rootfiles>\n"
         "        <rootfile full-path=\"%1\" media-type=\"application/oebps-package+xml\"/>\n"
         "   </rootfiles>\n"
-	"</container>\n";
+        "</container>\n";
 
 FolderKeeper::FolderKeeper(QObject *parent)
     :
@@ -115,9 +115,9 @@ QString FolderKeeper::DetermineFileGroup(const QString &filepath, const QString 
         // try again just in case provided mediatype is wrong and use the one based
         // on the file extension only this time
         mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
-	if (!mt.isEmpty()) {
+        if (!mt.isEmpty()) {
             group = MediaTypes::instance()->GetGroupFromMediaType(mt, "");
-	}
+        }
     }
     if (group.isEmpty()) group = "Misc";
     return group;
@@ -126,10 +126,10 @@ QString FolderKeeper::DetermineFileGroup(const QString &filepath, const QString 
 // This routine should never process the opf or the ncx as they 
 // are special cased elsewhere in FolderKeeper
 Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath, 
-					       bool update_opf, 
-					       const QString &mimetype, 
-					       const QString &bookpath,
-					       const QString &folderpath)
+                                               bool update_opf, 
+                                               const QString &mimetype, 
+                                               const QString &bookpath,
+                                               const QString &folderpath)
 {
     if (!QFileInfo(fullfilepath).exists()) {
         throw(FileDoesNotExist(fullfilepath.toStdString()));
@@ -150,7 +150,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
     // try using the extension to determine the mediatype
     if (mt.isEmpty()) {
         QString extension = fi.suffix().toLower();
-	mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, mimetype);
+        mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, mimetype);
     }
 
     QString group = DetermineFileGroup(norm_file_path, mt);
@@ -171,12 +171,12 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
 
         if (!bookpath.isEmpty()) {
             // use the specified bookpath to determine both file name and location
-	    if (!Utility::startingDir(bookpath).isEmpty()) {
-	        folder.mkpath(Utility::startingDir(bookpath));
-	    }
-	    new_file_path = m_FullPathToMainFolder + "/" + bookpath;
+            if (!Utility::startingDir(bookpath).isEmpty()) {
+                folder.mkpath(Utility::startingDir(bookpath));
+            }
+            new_file_path = m_FullPathToMainFolder + "/" + bookpath;
         } else {
-	    // Use either the provided folder path or the default folder to store the file
+            // Use either the provided folder path or the default folder to store the file
  
             // Rename files that start with a '.'
             // These merely introduce needless difficulties
@@ -184,18 +184,18 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
                 norm_file_path = fi.absolutePath() % "/" % filename.right(filename.size() - 1);
             }
             filename  = GetUniqueFilenameVersion(QFileInfo(norm_file_path).fileName());
-	    QString folder_to_use = folderpath;
-	    if (folder_to_use == "\\") folder_to_use = GetDefaultFolderForGroup(group);
-	    if (!folder_to_use.isEmpty()) {
-	        folder.mkpath(folder_to_use);
-	        new_file_path = m_FullPathToMainFolder + "/" + folder_to_use + "/" + filename;
-	    } else {
-	        new_file_path = m_FullPathToMainFolder + "/" + filename;
-	    }
+            QString folder_to_use = folderpath;
+            if (folder_to_use == "\\") folder_to_use = GetDefaultFolderForGroup(group);
+            if (!folder_to_use.isEmpty()) {
+                folder.mkpath(folder_to_use);
+                new_file_path = m_FullPathToMainFolder + "/" + folder_to_use + "/" + filename;
+            } else {
+                new_file_path = m_FullPathToMainFolder + "/" + filename;
+            }
         }
 
         if (fullfilepath.contains(FILE_EXCEPTIONS)) {
-	    // This is used for all files inside the META-INF directory
+            // This is used for all files inside the META-INF directory
             // This is a big hack that assumes the new and old filepaths use root paths
             // of the same length. I can't see how to fix this without refactoring
             // a lot of the code to provide a more generalised interface.
@@ -228,10 +228,10 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
         m_Resources[ resource->GetIdentifier() ] = resource;
 
         // Note:  m_FullPathToMainFolder **never** ends with a "/"
-	QString book_path = bookpath;
-	if (book_path.isEmpty()) {
+        QString book_path = bookpath;
+        if (book_path.isEmpty()) {
             book_path = new_file_path.right(new_file_path.length() - m_FullPathToMainFolder.length() - 1);
-	}
+        }
         m_Path2Resource[ book_path ] = resource;
         resource->SetEpubVersion(m_OPF->GetEpubVersion());
         resource->SetMediaType(mt);
@@ -350,12 +350,12 @@ QString FolderKeeper::GetBookPathByPathEnd(const QString& path_end) const
     foreach(Resource *resource, m_Resources.values()) {
         QString bookpath = resource->GetRelativePath();
         if (bookpath.endsWith(path_end, Qt::CaseInsensitive)) {
-	    // make sure full file names match too
-	    QString filename = bookpath.split('/').last();
-	    QString othername = path_end.split('/').last();
+            // make sure full file names match too
+            QString filename = bookpath.split('/').last();
+            QString othername = path_end.split('/').last();
             if (filename.compare(othername, Qt::CaseInsensitive) == 0) {
                 return bookpath ;
-	    }
+            }
         }
     }
     return "";
@@ -409,9 +409,9 @@ OPFResource*FolderKeeper::AddOPFToFolder(const QString &version, const QString &
     // otherwise the default of AutoConnection screws us when
     // AddContentFileToFolder is called from multiple threads.
     connect(this,  SIGNAL(ResourceAdded(const Resource *)),
-	    m_OPF, SLOT(AddResource(const Resource *)), Qt::DirectConnection);
+            m_OPF, SLOT(AddResource(const Resource *)), Qt::DirectConnection);
     connect(this,  SIGNAL(ResourceRemoved(const Resource *)),
-	    m_OPF, SLOT(RemoveResource(const Resource *)));
+            m_OPF, SLOT(RemoveResource(const Resource *)));
     connect(m_OPF, SIGNAL(Renamed(const Resource *, QString)),
             this,     SLOT(ResourceRenamed(const Resource *, QString)), Qt::DirectConnection);
     connect(m_OPF, SIGNAL(Moved(const Resource *, QString)),
@@ -430,8 +430,8 @@ void FolderKeeper::UpdateContainerXML(const QString& FullPathToMainFolder, const
 
 
 NCXResource*FolderKeeper::AddNCXToFolder(const QString &version, 
-					 const QString &bookpath, 
-					 const QString &first_textdir)
+                                         const QString &bookpath, 
+                                         const QString &first_textdir)
 {
     QString ncxdir = GetDefaultFolderForGroup("ncx");
     QString NCXBookPath = "toc.ncx";
@@ -471,9 +471,9 @@ void FolderKeeper::RemoveNCXFromFolder()
     }
     disconnect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
     disconnect(m_NCX, SIGNAL(Renamed(const Resource *, QString)),
-	       this,     SLOT(ResourceRenamed(const Resource *, QString)));
+               this,     SLOT(ResourceRenamed(const Resource *, QString)));
     disconnect(m_NCX, SIGNAL(Moved(const Resource *, QString)),
-	       this,     SLOT(ResourceMoved(const Resource *, QString)));
+               this,     SLOT(ResourceMoved(const Resource *, QString)));
     RemoveResource(m_NCX);    
     m_NCX = NULL;
     return;
@@ -710,14 +710,14 @@ void FolderKeeper::updateShortPathNames()
             QStringList bklst = NameToBooks[aname];
             NameToBooks.remove(aname);
             foreach(QString bkpath, bklst) {
-	        QString newname = buildShortName(bkpath, lvl);
-	        BookToSPN[bkpath] = newname;
-	        if (NameToBooks.contains(newname)) {
-	            DupSet.insert(newname);
-	            NameToBooks[newname].append(bkpath);
-	        } else {
-	            NameToBooks[newname] = QStringList() << bkpath;
-	        }
+                QString newname = buildShortName(bkpath, lvl);
+                BookToSPN[bkpath] = newname;
+                if (NameToBooks.contains(newname)) {
+                    DupSet.insert(newname);
+                    NameToBooks[newname].append(bkpath);
+                } else {
+                    NameToBooks[newname] = QStringList() << bkpath;
+                }
             }
         }
         todolst = DupSet.values();
@@ -725,11 +725,11 @@ void FolderKeeper::updateShortPathNames()
     // now set the short path name for each resource
     foreach(QString bookpath, bookpaths) {
         Resource * resource = GetResourceByBookPath(bookpath);
-	QString shortname = BookToSPN[bookpath];
-	if (shortname.startsWith('^')) shortname = shortname.remove(0,1);
-	if (resource->ShortPathName() != shortname) {
-	    resource->SetShortPathName(shortname);
-	}
+        QString shortname = BookToSPN[bookpath];
+        if (shortname.startsWith('^')) shortname = shortname.remove(0,1);
+        if (resource->ShortPathName() != shortname) {
+            resource->SetShortPathName(shortname);
+        }
     }
 }
 
@@ -782,25 +782,25 @@ void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringLi
     if (update_only) {
         // do not drop an empty folders as they may be filled later
         foreach(QString group, groupA) {
-	    QStringList folderlst = group_folder.value(group, QStringList());
-	    QStringList current_folders = GetFoldersForGroup(group);
-	    foreach(QString folder, current_folders) {
-	        if (!folderlst.contains(folder)) folderlst << folder;
-	    }
-	    group_folder[group] = folderlst;
+            QStringList folderlst = group_folder.value(group, QStringList());
+            QStringList current_folders = GetFoldersForGroup(group);
+            foreach(QString folder, current_folders) {
+                if (!folderlst.contains(folder)) folderlst << folder;
+            }
+            group_folder[group] = folderlst;
         }
     } else {
         // now back fill any missing group folders
         QString commonbase = Utility::longestCommonPath(dirlst, "/");
         if (commonbase == "/") commonbase ="";
         foreach(QString group, groupA) {
-	    QStringList folderlst = group_folder.value(group, QStringList());
-	    QString gname = group;
-	    if (use_lower_case) gname = gname.toLower();
-	    if (folderlst.isEmpty()) {
-	        folderlst << commonbase + gname;
-	        group_folder[group] = folderlst;
-	    }
+            QStringList folderlst = group_folder.value(group, QStringList());
+            QString gname = group;
+            if (use_lower_case) gname = gname.toLower();
+            if (folderlst.isEmpty()) {
+                folderlst << commonbase + gname;
+                group_folder[group] = folderlst;
+            }
         }
     }
 
@@ -828,8 +828,8 @@ void FolderKeeper::PerformInitialLoads()
     QList<Resource *> resources = GetResourceList();
     foreach(Resource * resource, resources) {
         TextResource * text_resource = qobject_cast<TextResource*>(resource);
-	if (text_resource) {
-	    text_resource->InitialLoad();
-	}
+        if (text_resource) {
+            text_resource->InitialLoad();
+        }
     }
 }

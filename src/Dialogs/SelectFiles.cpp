@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B, Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B, Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -339,9 +339,9 @@ void SelectFiles::SetPreviewImage()
         // MainWindow::clearMemoryCaches();
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
         QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
-	if (Utility::IsDarkMode()) {
+        if (Utility::IsDarkMode()) {
             html = Utility::AddDarkCSS(html);
-	}
+        }
         m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
         m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
@@ -354,9 +354,9 @@ void SelectFiles::SetPreviewImage()
         MainWindow::clearMemoryCaches();
         html = VIDEO_HTML_BASE.arg(resourceUrl.toString());
         m_PreviewLoaded = false;
-	if (Utility::IsDarkMode()) {
+        if (Utility::IsDarkMode()) {
             html = Utility::AddDarkCSS(html);
-	}
+        }
         m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
         m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
@@ -367,9 +367,9 @@ void SelectFiles::SetPreviewImage()
         const QUrl resourceUrl = QUrl::fromLocalFile(path);
         // MainWindow::clearMemoryCaches();
         html = AUDIO_HTML_BASE.arg(resourceUrl.toString());
-	if (Utility::IsDarkMode()) {
+        if (Utility::IsDarkMode()) {
             html = Utility::AddDarkCSS(html);
-	}
+        }
         m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
         m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
@@ -390,10 +390,10 @@ void SelectFiles::SetPreviewImage()
 
 void SelectFiles::PreviewLoadComplete(bool okay) 
 {
-	if (!okay) {
-	    m_WebView->stop();
-	}
-	m_PreviewLoaded = true;
+    if (!okay) {
+        m_WebView->stop();
+    }
+    m_PreviewLoaded = true;
 }
 
 bool SelectFiles::IsPreviewLoaded()

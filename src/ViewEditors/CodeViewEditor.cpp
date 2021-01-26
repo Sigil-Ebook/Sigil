@@ -377,7 +377,6 @@ QString CodeViewEditor::SplitSection()
         split_position = body_tag_end;
     } else {
         int next_close_tag_index = text.indexOf(QRegularExpression(NEXT_CLOSE_TAG_LOCATION), split_position);
-
         if (next_close_tag_index == -1) {
             // Cursor is at end of file
             split_position = body_contents_end;
@@ -2351,7 +2350,7 @@ QList<ElementIndex> CodeViewEditor::GetCaretLocation()
     QString element_name;
     foreach(ElementIndex ei, hierarchy) {
         if (BLOCK_LEVEL_TAGS.contains(ei.name)) {
-	    element_name = ei.name;
+        element_name = ei.name;
         }
     }
     m_element_name = element_name;
@@ -3035,7 +3034,6 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
                                                bool must_be_in_attribute,
                                                bool skip_paired_tags)
 {
-    qDebug() << "In ProcessAttribute: " << attribute_name << tag_list << attribute_value << set_attribute << must_be_in_attribute << skip_paired_tags;
 
     if (attribute_name.isEmpty()) {
         return QString();
@@ -3359,13 +3357,13 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
         }
 
         if (original_text != new_text) {
-	    StoreCaretLocationUpdate(GetCaretLocation());
+        StoreCaretLocationUpdate(GetCaretLocation());
             QTextCursor cursor = textCursor();
             cursor.beginEditBlock();
             cursor.select(QTextCursor::Document);
             cursor.insertText(new_text);
             cursor.endEditBlock();
-	    ExecuteCaretUpdate();
+        ExecuteCaretUpdate();
         }
     }
 }
@@ -3390,8 +3388,8 @@ QString CodeViewEditor::RemoveLastTag(const QString &text, const QString &tagnam
     if (p > -1) {
         QString tag = result.mid(p,-1);
         if (tag.contains(tagname)) {
-	    result = result.mid(0,p);
-	}
+        result = result.mid(0,p);
+    }
     }
     return result;
 }
@@ -3427,7 +3425,7 @@ void CodeViewEditor::WrapSelectionInElement(const QString& element, bool unwrap)
     QString indent;
     if (indent_mo.hasMatch()) {
         indent = indent_mo.captured(1);
-	indent = indent.replace("\t","    ");
+    indent = indent.replace("\t","    ");
     }
  
     QRegularExpression open_tag_at_start(OPEN_TAG_STARTS_SELECTION);
@@ -3440,18 +3438,18 @@ void CodeViewEditor::WrapSelectionInElement(const QString& element, bool unwrap)
     if (unwrap) {
         if (tagname == element) {
             new_text = RemoveFirstTag(new_text, element);
-	    new_text = RemoveLastTag(new_text, element);
-	    new_text = new_text.trimmed();
-	    new_text = indent + new_text;
-	}
+        new_text = RemoveLastTag(new_text, element);
+        new_text = new_text.trimmed();
+        new_text = indent + new_text;
+    }
     }
     else {
         new_text = new_text.trimmed();
         QStringList result;
-	result.append(indent + "<" + element + ">");
-	result.append(indent + "    " + new_text);
-	result.append(indent + "</" + element + ">\n");
-	new_text = result.join('\n');
+    result.append(indent + "<" + element + ">");
+    result.append(indent + "    " + new_text);
+    result.append(indent + "</" + element + ">\n");
+    new_text = result.join('\n');
     }
     
     if (new_text == selected_text) {
@@ -3485,7 +3483,7 @@ void CodeViewEditor::ApplyListToSelection(const QString &element)
     QString indent;
     if (indent_mo.hasMatch()) {
         indent = indent_mo.captured(1);
-	indent = indent.replace("\t","    ");
+        indent = indent.replace("\t","    ");
     }
  
     QRegularExpression open_tag_at_start(OPEN_TAG_STARTS_SELECTION);
@@ -3496,30 +3494,29 @@ void CodeViewEditor::ApplyListToSelection(const QString &element)
     }
 
     if (((tagname == "ol") && (element == "ol")) || 
-	((tagname == "ul") && (element == "ul"))) 
-    {
+        ((tagname == "ul") && (element == "ul"))) {
         new_text = RemoveFirstTag(new_text, element);
-	new_text = RemoveLastTag(new_text, element);
-	new_text = new_text.trimmed();
-	// now split remaining text by new lines and 
-	// remove any beginning and ending li tags
-	QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
-	QStringList result;
-	foreach(QString aitem, alist) {
-	    result.append(indent + RemoveLastTag(RemoveFirstTag(aitem,"li"), "li"));
-	}
-	result.append("");
-	new_text = result.join("\n");
+        new_text = RemoveLastTag(new_text, element);
+        new_text = new_text.trimmed();
+        // now split remaining text by new lines and 
+        // remove any beginning and ending li tags
+        QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
+        QStringList result;
+        foreach(QString aitem, alist) {
+            result.append(indent + RemoveLastTag(RemoveFirstTag(aitem,"li"), "li"));
+        }
+        result.append("");
+        new_text = result.join("\n");
     }
     else if ((tagname == "p") || tagname.isEmpty()) {
         QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
-	QStringList result;
-	result.append(indent + "<" + element + ">");
-	foreach(QString aitem, alist) {
-	    result.append(indent + "    " + "<li>" + aitem.trimmed() + "</li>"); 
-	}
-	result.append(indent + "</" + element + ">\n");
-	new_text = result.join('\n');
+        QStringList result;
+        result.append(indent + "<" + element + ">");
+        foreach(QString aitem, alist) {
+            result.append(indent + "    " + "<li>" + aitem.trimmed() + "</li>"); 
+        }
+        result.append(indent + "</" + element + ">\n");
+        new_text = result.join('\n');
     }
     
     if (new_text == selected_text) {

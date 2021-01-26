@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -75,8 +75,8 @@ void RepoLog::LoadViewer()
 {
     QStringList recs = m_data.split("\n");
     foreach(QString rec, recs) {
-	m_view->insertPlainText(rec + "\n");
-	m_blockmap << "";
+        m_view->insertPlainText(rec + "\n");
+        m_blockmap << "";
     }
     m_view->setBlockMap(m_blockmap);
 
@@ -106,8 +106,8 @@ void RepoLog::do_search(bool reverse)
     if (reverse) ff = ff | QTextDocument::FindBackward;
     bool found = m_view->find(stext, ff);
     if (found) {
-	QTextCursor c = m_view->textCursor();
-	m_view->centerCursor();
+        QTextCursor c = m_view->textCursor();
+        m_view->centerCursor();
     }
 }
 
@@ -116,24 +116,24 @@ void RepoLog::keyPressEvent(QKeyEvent * ev)
     if ((ev->key() == Qt::Key_Enter) || (ev->key() == Qt::Key_Return)) return;
 
     if (ev->key() == Qt::Key_Slash) {
-	m_nav->set_focus_on_search();
-	return;
+        m_nav->set_focus_on_search();
+        return;
     }
 
     if (ev->matches(QKeySequence::Copy)) {
-	QString text = m_view->GetSelectedText();
-	if (!text.isEmpty()) {
-	    QApplication::clipboard()->setText(text);
-	}
-	return;
+        QString text = m_view->GetSelectedText();
+        if (!text.isEmpty()) {
+            QApplication::clipboard()->setText(text);
+        }
+        return;
     }
 
     if (ev->matches(QKeySequence::FindNext)) {
-	do_search(false);
+        do_search(false);
         return;
     }
     if (ev->matches(QKeySequence::FindPrevious)) {
-	do_search(true);
+        do_search(true);
         return;
     }
     return QDialog::keyPressEvent(ev);

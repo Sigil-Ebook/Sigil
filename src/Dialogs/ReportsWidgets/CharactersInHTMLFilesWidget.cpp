@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -140,9 +140,9 @@ QList <QChar> CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList<HTMLReso
     foreach (HTMLResource *resource, resources) {
         QString replaced_html = resource->GetText();
         replaced_html = replaced_html.replace("<html>", "<html xmlns=\"http://www.w3.org/1999/xhtml\">");
-	QString version = "any_version";
-	GumboInterface gi = GumboInterface(replaced_html, version);
-	QString text = gi.get_body_text();
+        QString version = "any_version";
+        GumboInterface gi = GumboInterface(replaced_html, version);
+        QString text = gi.get_body_text();
         all_characters.append(text);
     }
 
@@ -254,9 +254,8 @@ void CharactersInHTMLFilesWidget::Save()
                           tr("Save Report As Comma Separated File"),
                           save_path,
                           filter_string,
-			  &default_filter,
-                          options
-                                                      );
+                          &default_filter,
+                          options);
 
     if (destination.isEmpty()) {
         return;

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2021 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -173,22 +173,22 @@ QStringList HTMLResource::GetPathsToLinkedResources()
         }
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
         if (attr) {
-	    QString href = QString::fromUtf8(attr->value);
-	    if (href.indexOf(":") == -1) {
+            QString href = QString::fromUtf8(attr->value);
+            if (href.indexOf(":") == -1) {
                 QUrl target_url(href);
                 QString attpath = target_url.path();
-	        linked_resources.append(Utility::buildBookPath(attpath,GetFolder()));
-	    }
+                linked_resources.append(Utility::buildBookPath(attpath,GetFolder()));
+            }
             continue;
         }
         attr = gumbo_get_attribute(&node->v.element.attributes, "src");
         if (attr) {
-	    QString href = QString::fromUtf8(attr->value);
-	    if (href.indexOf(":") == -1) {
+            QString href = QString::fromUtf8(attr->value);
+            if (href.indexOf(":") == -1) {
                 QUrl target_url(href);
                 QString attpath = target_url.path();
-	        linked_resources.append(Utility::buildBookPath(attpath,GetFolder()));
-	    }
+                linked_resources.append(Utility::buildBookPath(attpath,GetFolder()));
+            }
         }
     }
     return linked_resources;

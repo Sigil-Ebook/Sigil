@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -80,10 +80,10 @@ NavProcessor::NavProcessor(HTMLResource * nav_resource)
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "lang");
         if (attr) {
             lang = QString::fromUtf8(attr->value);
-	} else {
+        } else {
             attr = gumbo_get_attribute(&node->v.element.attributes, "xml:lang");
             if (attr) lang = QString::fromUtf8(attr->value);
-	}
+        }
     }
     m_language = lang;
 }
@@ -247,8 +247,8 @@ QList<NavTOCEntry> NavProcessor::GetNodeTOC(GumboInterface & gi, const GumboNode
                             te.lvl = lvl;
                             GumboAttribute* hrefattr = gumbo_get_attribute(&li_child->v.element.attributes, "href");
                             if (hrefattr) { 
-			        te.href = QString::fromUtf8(hrefattr->value);
-			    }
+                                te.href = QString::fromUtf8(hrefattr->value);
+                            }
                             te.title = Utility::DecodeXML(gi.get_local_text_of_node(li_child));
                             toclist.append(te);
                         } else if (li_child->v.element.tag == GUMBO_TAG_OL) {
@@ -513,9 +513,9 @@ void NavProcessor::AddLandmarkCode(const Resource *resource, QString new_code, b
             le.title = title;
             le.href = ConvertBookPathToNavRelative(resource->GetRelativePath());
             // special case the nav setting the toc semantic on itself
-	    if ((resource == m_NavResource) && (new_code == "toc")) {
+            if ((resource == m_NavResource) && (new_code == "toc")) {
                 le.href = "#toc";
-	    }
+            }
             landlist.append(le);
         }
     } else {
@@ -768,7 +768,7 @@ QString NavProcessor::ConvertHREFToBookPath(const QString & nav_rel_href)
         // this link ends in the nav itself
         bookpath = Utility::URLEncodePath(m_NavResource->GetRelativePath());
         if (!fragment.isEmpty()) bookpath = bookpath + "#" + fragment; 
-	return bookpath;
+        return bookpath;
     }
     bookpath = Utility::buildBookPath(basepath, m_NavResource->GetFolder());
     bookpath = Utility::URLEncodePath(bookpath);

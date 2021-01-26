@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2019-2020 Doug Massay
 **
 **  This file is part of Sigil.
@@ -149,10 +149,10 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
         // This next line really causes problems as it happens to interfere with later loading
         // StoreCurrentCaretLocation();
  
-	// keep memory footprint small clear any caches when a new page loads
-	if (url().toLocalFile() != path) {
-	    page()->profile()->clearHttpCache();
-	} 
+        // keep memory footprint small clear any caches when a new page loads
+        if (url().toLocalFile() != path) {
+            page()->profile()->clearHttpCache();
+        } 
     }
 
     m_isLoadFinished = false;
@@ -282,11 +282,11 @@ void ViewPreview::LoadingStarted()
 // and set it to finished when progress hits 100
 void ViewPreview::LoadingProgress(int progress)
 {
-  DBG qDebug() << "Loading progress " << progress;
-  if (progress >= 100 && !m_CustomSetDocumentInProgress) {
-      m_isLoadFinished = true;
-      m_LoadOkay = true;
-  }
+    DBG qDebug() << "Loading progress " << progress;
+    if (progress >= 100 && !m_CustomSetDocumentInProgress) {
+        m_isLoadFinished = true;
+        m_LoadOkay = true;
+    }
 }
 
 void ViewPreview::UpdateFinishedState(bool okay)
@@ -324,7 +324,7 @@ QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
         delete pres;
     } else {
         qDebug() << "Error: VP EvaluateJavascript timed out";
-	qDebug() << "   ... intentionally leaking the JSResult structure";
+        qDebug() << "   ... intentionally leaking the JSResult structure";
     }
     return res;
 }
@@ -371,7 +371,7 @@ void ViewPreview::WebPageJavascriptOnLoad()
         } else {
             executeCaretUpdateInternal();
         }
-	m_CustomSetDocumentInProgress = false;
+        m_CustomSetDocumentInProgress = false;
     }
 }
 

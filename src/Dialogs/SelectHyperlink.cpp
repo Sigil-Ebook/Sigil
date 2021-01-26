@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -30,11 +30,11 @@
 static QString SETTINGS_GROUP = "select_hyperlink";
 
 SelectHyperlink::SelectHyperlink(QString default_href, 
-				 Resource *base_resource, 
-				 const QString & restype,
-				 QList<Resource *> resources, 
-				 QSharedPointer<Book> book, 
-				 QWidget *parent)
+                                 Resource *base_resource, 
+                                 const QString & restype,
+                                 QList<Resource *> resources, 
+                                 QSharedPointer<Book> book, 
+                                 QWidget *parent)
     :
     QDialog(parent),
     m_CurrentResource(base_resource),
@@ -101,22 +101,22 @@ void SelectHyperlink::AddEntry(Resource *resource)
         }
 
         // filepath is a relative link from m_CurrentResource to resource
-	// target is a short unique name for this resource for use in table only
+        // target is a short unique name for this resource for use in table only
         QString target;
         QString filepath;
-	if (!(m_CurrentResource == resource)) {
-	   filepath = resource->GetRelativePathFromResource(m_CurrentResource);
-	   target = filename;
-	}
-	
+        if (!(m_CurrentResource == resource)) {
+           filepath = resource->GetRelativePathFromResource(m_CurrentResource);
+           target = filename;
+        }
+        
         if (!id.isEmpty()) {
             QString fragment = "#" + id;
-	    target = target + fragment;
-	    filepath = filepath + fragment;
-	}
+            target = target + fragment;
+            filepath = filepath + fragment;
+        }
 
-	if (target.isEmpty()) target = filename;
-	if (filepath.isEmpty()) filepath = "#";
+        if (target.isEmpty()) target = filename;
+        if (filepath.isEmpty()) filepath = "#";
 
         QList<QStandardItem *> rowItems;
         QStandardItem *target_item = new QStandardItem();
@@ -156,7 +156,7 @@ void SelectHyperlink::SelectText(QString &text)
         QString target = text;
 
         if (target.startsWith("#") && m_CurrentResource && m_restype == "html") {
-	    target = m_CurrentResource->ShortPathName() + text;
+            target = m_CurrentResource->ShortPathName() + text;
         }
 
         for (int row = 0; row < root_item->rowCount(); row++) {

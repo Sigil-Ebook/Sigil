@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2019 Kevin B. Hendricks Stratford, ON, Canada 
+ **  Copyright (C) 2019-2021 Kevin B. Hendricks Stratford, ON, Canada 
  **
  **  This file is part of Sigil.
  **
@@ -25,8 +25,8 @@
 #include "Widgets/TextDocument.h"
 
 TextDocument::TextDocument(QObject *parent)
- :
-  QTextDocument(parent)
+    :
+    QTextDocument(parent)
 {
 }
 
@@ -72,10 +72,10 @@ QString TextDocument::toText()
             case 0xfdd1: // QTextEndOfFrame                                                          
             case QChar::ParagraphSeparator:
             case QChar::LineSeparator:
-	        *uc = QLatin1Char('\n');
-	        break;
+                *uc = QLatin1Char('\n');
+            break;
             default:
-	    ;
+        ;
         }
     }
 

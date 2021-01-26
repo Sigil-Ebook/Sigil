@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -175,7 +175,7 @@ void PluginWidget::readSettings()
     // initialize each combo box current index from settings
     for (int i=0; i < 10; i++) {
         int t = m_qlcbxs.at(i)->findText(pluginmap.at(i));
-	m_qlcbxs.at(i)->setCurrentIndex(t);
+        m_qlcbxs.at(i)->setCurrentIndex(t);
     }
 
     // If the python bundled interpreter is present/ready, enable the checkbox and set it
@@ -206,11 +206,11 @@ void PluginWidget::addPlugin()
     options = options | QFileDialog::DontUseNativeDialog;
 #endif
     QString zippath = QFileDialog::getOpenFileName(this, 
-						   tr("Select Plugin Zip Archive"), 
-						   m_LastFolderOpen, 
-						   tr("Plugin Files (*.zip)"),
-						   NULL,
-						   options);
+                                                   tr("Select Plugin Zip Archive"), 
+                                                   m_LastFolderOpen, 
+                                                   tr("Plugin Files (*.zip)"),
+                                                   NULL,
+                                                   options);
     if (zippath.isEmpty()) {
         return;
     }
@@ -299,7 +299,7 @@ void PluginWidget::removePlugin()
     int item_to_remove = ui.comboBox->findText(pluginname);
     if (item_to_remove > -1) {
         foreach(QComboBox* cb, m_qlcbxs) {
-	    cb->removeItem(item_to_remove);
+            cb->removeItem(item_to_remove);
         }
     }
     // now put back their current assigned plugins
@@ -338,7 +338,7 @@ void PluginWidget::removeAllPlugins()
     }
     foreach(QComboBox* cb, m_qlcbxs) {
         cb->clear();
-	cb->setCurrentIndex(-1);
+        cb->setCurrentIndex(-1);
     }
 }
 
@@ -379,11 +379,11 @@ void PluginWidget::SetPy3()
     options = options | QFileDialog::DontUseNativeDialog;
 #endif
     QString name = QFileDialog::getOpenFileName(this, 
-						tr("Select Interpreter"),
-						QString(),
-						QString(),
-						NULL,
-						options);
+                                                tr("Select Interpreter"),
+                                                QString(),
+                                                QString(),
+                                                NULL,
+                                                options);
     if (name.isEmpty()) {
         return;
     }

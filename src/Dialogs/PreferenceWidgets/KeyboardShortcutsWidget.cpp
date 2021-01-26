@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2011      Grzegorz Wolszczak <grzechu81@gmail.com>
 **
@@ -252,7 +252,7 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
         nextKey == Qt::Key_AltGr      ||
         nextKey == Qt::Key_CapsLock   ||
         nextKey == Qt::Key_NumLock    ||
-	nextKey == Qt::Key_ScrollLock ||
+        nextKey == Qt::Key_ScrollLock ||
         nextKey == 0                  ||
         nextKey == Qt::Key_unknown    ||
         nextKey == Qt::Key_Backspace  || // This button cannot be assigned, because we want to 'clear' shortcut after backspace push

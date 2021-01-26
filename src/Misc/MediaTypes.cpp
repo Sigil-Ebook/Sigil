@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -43,16 +43,16 @@ const QStringList SVG_MIMETYPES        = QStringList() << "image/svg+xml";
 const QStringList TEXT_MIMETYPES       = QStringList() << "application/xhtml+xml" << "application/x-dtbook+xml";
 const QStringList STYLE_MIMETYPES      = QStringList() << "text/css";
 const QStringList FONT_MIMETYPES       = QStringList() << "application/x-font-ttf" << "application/x-font-opentype" 
-						       << "application/vnd.ms-opentype" << "application/font-woff" 
+                                                       << "application/vnd.ms-opentype" << "application/font-woff" 
                                                        << "application/font-sfnt" << "font/woff2";
 const QStringList AUDIO_MIMETYPES      = QStringList() << "audio/mpeg" << "audio/mp3" << "audio/ogg" << "audio/mp4";
 const QStringList VIDEO_MIMETYPES      = QStringList() << "video/mp4" << "video/ogg" << "video/webm" 
                                                        << "text/vtt" << "application/ttml+xml";
 const QStringList MISC_XML_MIMETYPES   = QStringList() << "application/oebps-page-map+xml" 
                                                        << "application/vnd.adobe-page-map+xml"
-						       << "application/smil+xml" 
-						       << "application/adobe-page-template+xml" 
-						       << "application/vnd.adobe-page-template+xml" 
+                                                       << "application/smil+xml" 
+                                                       << "application/adobe-page-template+xml" 
+                                                       << "application/vnd.adobe-page-template+xml" 
                                                        << "application/pls+xml";
 
 
@@ -83,7 +83,7 @@ QString MediaTypes::GetGroupFromMediaType(const QString &media_type, const QStri
         if (media_type.startsWith("font/"))  group = "Fonts";
         if (media_type.startsWith("audio/")) group = "Audio";
         if (media_type.startsWith("video/")) group = "Video";
-	if (media_type.contains("adobe") && media_type.contains("template")) group = "Misc";
+        if (media_type.contains("adobe") && media_type.contains("template")) group = "Misc";
     }
     if (group.isEmpty()) return fallback;
     return group;
@@ -101,7 +101,7 @@ QString MediaTypes::GetResourceDescFromMediaType(const QString &media_type, cons
         if (media_type.startsWith("font/"))  desc = "FontResource";
         if (media_type.startsWith("audio/")) desc = "AudioResource";
         if (media_type.startsWith("video/")) desc = "VideoResource";
-	if (media_type.contains("adobe") && media_type.contains("template")) desc = "XMLResource";
+        if (media_type.contains("adobe") && media_type.contains("template")) desc = "XMLResource";
     }
     if (desc.isEmpty()) return fallback;
     return desc;

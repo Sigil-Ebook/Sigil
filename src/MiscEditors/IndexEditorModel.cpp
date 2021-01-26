@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -190,7 +190,7 @@ void IndexEditorModel::LoadData(const QString &filename, QStandardItem *item)
                 entry->pattern = line;
             }
             AddFullNameEntry(entry, item);
-	    delete entry;
+            delete entry;
         }
         return;
     }
@@ -213,7 +213,7 @@ void IndexEditorModel::LoadData(const QString &filename, QStandardItem *item)
         if (!entry->pattern.isEmpty() || !entry->index_entry.isEmpty()) {
             AddFullNameEntry(entry, item);
         }
-	delete entry;
+        delete entry;
     }
 
     ss.endArray();
@@ -251,7 +251,7 @@ QStandardItem *IndexEditorModel::AddEntryToModel(IndexEditorModel::indexEntry *e
         entry = new IndexEditorModel::indexEntry();
         entry->pattern = "";
         entry->index_entry = "";
-	clean_up = true;
+        clean_up = true;
     }
 
     QList<QStandardItem *> rowItems;
@@ -328,7 +328,7 @@ QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry *> entries
         if (!items.isEmpty()) {
             // GetEntries calls GetEntry which creates each entry with new
             entries = GetEntries(items);
-	    clean_up_needed = true;
+            clean_up_needed = true;
         }
     }
 
@@ -350,9 +350,9 @@ QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry *> entries
 
             // delete each entry if we created them above 
             if (clean_up_needed) {
-	        foreach(IndexEditorModel::indexEntry* entry, entries) {
-	            delete entry;
-	        }
+                foreach(IndexEditorModel::indexEntry* entry, entries) {
+                    delete entry;
+                }
             }
             return message;
         }
@@ -375,9 +375,9 @@ QString IndexEditorModel::SaveData(QList<IndexEditorModel::indexEntry *> entries
 
         // delete each entry if we created them above 
         if (clean_up_needed) {
-	    foreach(IndexEditorModel::indexEntry* entry, entries) {
-	        delete entry;
-	    }
+            foreach(IndexEditorModel::indexEntry* entry, entries) {
+                delete entry;
+            }
         }
         ss.endArray();
         // Make sure file is created/updated so it can be checked

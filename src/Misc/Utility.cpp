@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2016-2020 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -1158,11 +1158,11 @@ QString Utility::buildRelativeHREF(const QString &apath, const QString &afrag)
         if (id.startsWith("#")) {
             id = id.mid(1, -1);
         } else {
-	    qDebug() << "Warning: buildRelativeHREF has fragment that does not start with #" << afrag;
+            qDebug() << "Warning: buildRelativeHREF has fragment that does not start with #" << afrag;
         }
-	// technically fragments should be percent encoded if needed
-	id = URLEncodePath(id);
-	newhref = newhref + "#" + id;
+        // technically fragments should be percent encoded if needed
+        id = URLEncodePath(id);
+        newhref = newhref + "#" + id;
     }
     return newhref;
 }

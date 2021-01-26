@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -103,7 +103,7 @@ void StylesInCSSFilesWidget::AddTableData(const QList<BookReports::StyleData *> 
         QString css_short_filename = selector_usage->css_filename;
         css_short_filename = css_short_filename.right(css_short_filename.length() - css_short_filename.lastIndexOf('/') - 1);
         filename_item->setText(css_short_filename);
-	filename_item->setData(selector_usage->css_filename);
+        filename_item->setData(selector_usage->css_filename);
         filename_item->setToolTip(selector_usage->css_filename);
         rowItems << filename_item;
         // Selector
@@ -254,9 +254,8 @@ void StylesInCSSFilesWidget::Save()
                           tr("Save Report As Comma Separated File"),
                           save_path,
                           filter_string,
-			  &default_filter,
-                          options
-                                                      );
+                          &default_filter,
+                          options);
 
     if (destination.isEmpty()) {
         return;

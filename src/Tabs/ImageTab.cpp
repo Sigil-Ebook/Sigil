@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -197,7 +197,7 @@ void ImageTab::RefreshContent()
                          .arg(grayscale_color).arg(colorsInfo);
 
     if (Utility::IsDarkMode()) {
-	html = Utility::AddDarkCSS(html);
+        html = Utility::AddDarkCSS(html);
     }
     m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
     m_WebView->setHtml(html, imgUrl);
@@ -229,7 +229,7 @@ void ImageTab::openWith()
 
         if (!editorPath.isEmpty()) {
             if (OpenExternally::openFile(resourceUrl.toLocalFile(), editorPath)) {
-	        const QString bookpath= GetLoadedResource()->GetRelativePath();
+                const QString bookpath= GetLoadedResource()->GetRelativePath();
                 emit InsertedFileOpenedExternally(bookpath);
             }
         }
@@ -246,25 +246,25 @@ void ImageTab::openWithEditor(int slotnum)
     if (slotnum == 4) oeaction = m_OpenWithEditor4;
     if (oeaction) {
         const QVariant &data = oeaction->data();
-	const QUrl resourceUrl = data.toUrl();
-	const QString action_name = oeaction->text();
+        const QUrl resourceUrl = data.toUrl();
+        const QString action_name = oeaction->text();
         const QStringList editor_paths = OpenExternally::editorsForResourceType(
                                             (Resource::ResourceType) resourceUrl.port());
         const QStringList editor_names = OpenExternally::editorDescriptionsForResourceType(
                                             (Resource::ResourceType) resourceUrl.port());
-	QString editor_path = QString();
-	int i = 0;
-	foreach(QString ename, editor_names) {
-	    if (ename == action_name) {
-	        editor_path = editor_paths[i];
-		break;
-	    }
-	    i = i + 1;
-	}
+        QString editor_path = QString();
+        int i = 0;
+        foreach(QString ename, editor_names) {
+            if (ename == action_name) {
+                editor_path = editor_paths[i];
+                break;
+            }
+            i = i + 1;
+        }
         if (data.isValid() && !editor_path.isEmpty()) {
             const QUrl &resourceUrl = data.toUrl();
             if (OpenExternally::openFile(resourceUrl.toLocalFile(), editor_path)) {
-	        const QString bookpath = GetLoadedResource()->GetRelativePath();
+                const QString bookpath = GetLoadedResource()->GetRelativePath();
                 emit InsertedFileOpenedExternally(bookpath);
             }
         }
@@ -298,7 +298,7 @@ bool ImageTab::SuccessfullySetupContextMenu(const QPoint &point)
 
         imageUrl.setPort(imageType);   // "somewhat" ugly, but cheaper than using a QList<QVariant>
         QStringList editors = OpenExternally::editorsForResourceType(imageType);
-	QStringList editor_names = OpenExternally::editorDescriptionsForResourceType(imageType);
+        QStringList editor_names = OpenExternally::editorDescriptionsForResourceType(imageType);
 
         if (editors.isEmpty()) {
             m_OpenWithEditor0->setData(QVariant::Invalid);
@@ -310,38 +310,38 @@ bool ImageTab::SuccessfullySetupContextMenu(const QPoint &point)
             m_OpenWith->setData(imageUrl);
             m_ContextMenu->addAction(m_OpenWith);
         } else {
-	    // clear previous open with action info                                                                 
-	    for (int k = 0; k < 5; k++) {
-	        QAction * oeaction = NULL;
-	        if (k==0) oeaction = m_OpenWithEditor0;
-	        if (k==1) oeaction = m_OpenWithEditor1;
-	        if (k==2) oeaction = m_OpenWithEditor2;
-	        if (k==3) oeaction = m_OpenWithEditor3;
-	        if (k==4) oeaction = m_OpenWithEditor4;
-	        if (oeaction) {
-	            oeaction->setData(QVariant::Invalid);
-	            oeaction->setText("");
-	            oeaction->setEnabled(false);
-	            oeaction->setVisible(false);
-	        }
-	    }
-	    int i = 0;
-	    foreach(QString editor, editors) {
-	        const QString aname = editor_names[i];
-		QAction * oeaction = NULL;
-		if (i == 0) oeaction = m_OpenWithEditor0;
-		if (i == 1) oeaction = m_OpenWithEditor1;
-		if (i == 2) oeaction = m_OpenWithEditor2;
-		if (i == 3) oeaction = m_OpenWithEditor3;
-		if (i == 4) oeaction = m_OpenWithEditor4;
-		if (oeaction) {
+            // clear previous open with action info                                                                 
+            for (int k = 0; k < 5; k++) {
+                QAction * oeaction = NULL;
+                if (k==0) oeaction = m_OpenWithEditor0;
+                if (k==1) oeaction = m_OpenWithEditor1;
+                if (k==2) oeaction = m_OpenWithEditor2;
+                if (k==3) oeaction = m_OpenWithEditor3;
+                if (k==4) oeaction = m_OpenWithEditor4;
+                if (oeaction) {
+                    oeaction->setData(QVariant::Invalid);
+                    oeaction->setText("");
+                    oeaction->setEnabled(false);
+                    oeaction->setVisible(false);
+                }
+            }
+            int i = 0;
+            foreach(QString editor, editors) {
+                const QString aname = editor_names[i];
+                QAction * oeaction = NULL;
+                if (i == 0) oeaction = m_OpenWithEditor0;
+                if (i == 1) oeaction = m_OpenWithEditor1;
+                if (i == 2) oeaction = m_OpenWithEditor2;
+                if (i == 3) oeaction = m_OpenWithEditor3;
+                if (i == 4) oeaction = m_OpenWithEditor4;
+                if (oeaction) {
                     oeaction->setText(aname);
                     oeaction->setData(imageUrl);
-		    oeaction->setEnabled(true);
-		    oeaction->setVisible(true);
-		}
-		i = i + 1;
-	    }
+                    oeaction->setEnabled(true);
+                    oeaction->setVisible(true);
+                }
+                i = i + 1;
+            }
             m_OpenWith->setText(tr("Other Application") + "...");
             m_OpenWith->setData(imageUrl);
             m_ContextMenu->addMenu(m_OpenWithContextMenu);
@@ -359,11 +359,11 @@ bool ImageTab::SuccessfullySetupContextMenu(const QPoint &point)
 
 void ImageTab::CreateContextMenuActions()
 {
-    m_OpenWithEditor0 = new QAction("",          this);
-    m_OpenWithEditor1 = new QAction("",          this);
-    m_OpenWithEditor2 = new QAction("",          this);
-    m_OpenWithEditor3 = new QAction("",          this);
-    m_OpenWithEditor4 = new QAction("",          this);
+    m_OpenWithEditor0 = new QAction("", this);
+    m_OpenWithEditor1 = new QAction("", this);
+    m_OpenWithEditor2 = new QAction("", this);
+    m_OpenWithEditor3 = new QAction("", this);
+    m_OpenWithEditor4 = new QAction("", this);
     m_OpenWith        = new QAction(tr("Open With") + "...",  this);
     m_SaveAs          = new QAction(tr("Save As") + "...",  this);
     m_CopyImage       = new QAction(tr("Copy Image"),  this);
@@ -378,21 +378,28 @@ void ImageTab::CreateContextMenuActions()
 
 void ImageTab::ConnectSignalsToSlots()
 {
-    connect(m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(RefreshContent()));
+    connect(m_Resource, SIGNAL(ResourceUpdatedOnDisk()),   this, SLOT(RefreshContent()));
     connect(m_Resource, SIGNAL(Deleted(const Resource *)), this, SLOT(Close()));
+
     connect(m_WebView, SIGNAL(customContextMenuRequested(const QPoint &)),  this, SLOT(OpenContextMenu(const QPoint &)));
+
     connect(m_OpenWith,       SIGNAL(triggered()),   this, SLOT(openWith()));
     connect(m_OpenWithEditor0, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
     m_openWithMapper->setMapping(m_OpenWithEditor0, 0);
+
     connect(m_OpenWithEditor1, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
     m_openWithMapper->setMapping(m_OpenWithEditor1, 1);
+
     connect(m_OpenWithEditor2, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
     m_openWithMapper->setMapping(m_OpenWithEditor2, 2);
+
     connect(m_OpenWithEditor3, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
     m_openWithMapper->setMapping(m_OpenWithEditor3, 3);
+
     connect(m_OpenWithEditor4, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
     m_openWithMapper->setMapping(m_OpenWithEditor4, 4);
-    connect(m_openWithMapper, SIGNAL(mapped(int)), this, SLOT(openWithEditor(int)));
+
+    connect(m_openWithMapper, SIGNAL(mapped(int)),   this, SLOT(openWithEditor(int)));
     connect(m_SaveAs,         SIGNAL(triggered()),   this, SLOT(saveAs()));
     connect(m_CopyImage,      SIGNAL(triggered()),   this, SLOT(copyImage()));
 }
@@ -420,4 +427,3 @@ void ImageTab::Print()
         // m_WebView->print(&printer);
     }
 }
-

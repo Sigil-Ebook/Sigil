@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
@@ -37,13 +37,13 @@
 #include "ReportsWidgets/CharactersInHTMLFilesWidget.h"
 
 static const QStringList REPORT_TYPES = QStringList() << "AllFiles"
-						      << "HTMLFiles" 
-						      << "Links"
-						      << "ImageFiles"
-						      << "CSSFiles"
-						      << "ClassesInHTMLFiles"
-						      << "StylesInCSSFiles"
-						      << "CharactersInHTMLFiles";
+                                                      << "HTMLFiles" 
+                                                      << "Links"
+                                                      << "ImageFiles"
+                                                      << "CSSFiles"
+                                                      << "ClassesInHTMLFiles"
+                                                      << "StylesInCSSFiles"
+                                                      << "CharactersInHTMLFiles";
 
 static const QString SETTINGS_GROUP = "reports_dialog";
 

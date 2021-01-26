@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -134,10 +134,10 @@ void Resource::SetCurrentBookRelPath(const QString& current_path)
 
 QString Resource::GetCurrentBookRelPath()
 {
-  if (m_CurrentBookRelPath.isEmpty()) {
-      return GetRelativePath();
-  }
-  return m_CurrentBookRelPath;
+    if (m_CurrentBookRelPath.isEmpty()) {
+        return GetRelativePath();
+    }
+    return m_CurrentBookRelPath;
 }
 
 void Resource::SetEpubVersion(const QString& version)
@@ -201,7 +201,7 @@ bool Resource::RenameTo(const QString &new_filename)
     if (successful) {
         QString old_path = m_FullFilePath;
         m_FullFilePath = new_path;
-	SetShortPathName(new_filename);
+        SetShortPathName(new_filename);
         emit Renamed(this, old_path);
     }
 
@@ -214,7 +214,7 @@ bool Resource::MoveTo(const QString &new_bookpath)
     bool successful = false;
     {
         QWriteLocker locker(&m_ReadWriteLock);
-	new_path = GetFullPathToBookFolder() + "/" + new_bookpath;
+        new_path = GetFullPathToBookFolder() + "/" + new_bookpath;
         successful = Utility::SMoveFile(m_FullFilePath, new_path);
     }
 
@@ -238,8 +238,8 @@ bool Resource::Delete()
     if (successful) {
         emit Deleted(this);
         // try to prevent any resource modified signals from going out
-	// while we wait for delete to actually happen
-	disconnect(this, 0, 0, 0);
+        // while we wait for delete to actually happen
+        disconnect(this, 0, 0, 0);
         deleteLater();
     }
 

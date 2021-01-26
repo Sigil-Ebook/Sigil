@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -47,17 +47,17 @@ void RETable::SetTable(const QList<Resource*> &resources)
     foreach(Resource * resource, resources) {
         QString bkpath = resource->GetRelativePath();
         QString beforefn = bkpath.split('/').last();
-	QString afterfn =  beforefn.replace(retext,m_ReplaceText);
-	// prevent REX Renaming from inserting uri_delimiters
-	const QString uri_delimiters = ":/?#[]@";
-	QString cleaned_name;
-	foreach(QChar c, afterfn) {
-	    if (!uri_delimiters.contains(c)) {
-	        cleaned_name.append(c);
-	    }
-	}
-	afterfn = cleaned_name;
-	QString basedir = Utility::startingDir(bkpath);
+        QString afterfn =  beforefn.replace(retext,m_ReplaceText);
+        // prevent REX Renaming from inserting uri_delimiters
+        const QString uri_delimiters = ":/?#[]@";
+        QString cleaned_name;
+        foreach(QChar c, afterfn) {
+            if (!uri_delimiters.contains(c)) {
+                cleaned_name.append(c);
+            }
+        }
+        afterfn = cleaned_name;
+        QString basedir = Utility::startingDir(bkpath);
         QString afterpath = afterfn;
         if (!basedir.isEmpty()) afterpath = basedir + "/" + afterfn;
         newbookpaths << afterpath;
@@ -69,7 +69,7 @@ void RETable::SetTable(const QList<Resource*> &resources)
     int r = 0;
     foreach(QString bpath, bookpaths) {
         QString apath = newbookpaths.at(r);
-	ui.tableWidget->setItem(r, 0, new QTableWidgetItem(bpath));
+        ui.tableWidget->setItem(r, 0, new QTableWidgetItem(bpath));
         ui.tableWidget->setItem(r, 1, new QTableWidgetItem(apath));
         r++;
     }

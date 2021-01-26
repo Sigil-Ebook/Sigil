@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2015-2020 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
@@ -167,10 +167,10 @@ static const QString CUSTOM_PREVIEW_STYLE_FILENAME = "custom_preview_style.css";
 QStringList MainWindow::s_RecentFiles = QStringList();
 
 MainWindow::MainWindow(const QString &openfilepath, 
-		       const QString version,
-		       bool is_internal,
-		       QWidget *parent,
-		       Qt::WindowFlags flags)
+                       const QString version,
+                       bool is_internal,
+                       QWidget *parent,
+                       Qt::WindowFlags flags)
     :
     QMainWindow(parent, flags),
     m_LastOpenFileWarnings(QStringList()),
@@ -336,7 +336,7 @@ void MainWindow::loadPluginsMenu()
             if (p != NULL) {
                 QString iconpath = p->get_iconpath();
                 if (!iconpath.isEmpty()) {
-		    m_qlactions.at(pos)->setIcon(QIcon(iconpath));
+                    m_qlactions.at(pos)->setIcon(QIcon(iconpath));
                 }
             }
         }
@@ -427,8 +427,8 @@ void MainWindow::StandardizeEpub()
     // ask to be sure
     QMessageBox::StandardButton button_pressed;
     button_pressed = QMessageBox::warning(this, tr("Sigil"), 
-				      tr("Are you sure you want to restructure this epub?\nThis action cannot be reversed."), 
-				      QMessageBox::Ok | QMessageBox::Cancel);
+                                      tr("Are you sure you want to restructure this epub?\nThis action cannot be reversed."), 
+                                      QMessageBox::Ok | QMessageBox::Cancel);
     if (button_pressed != QMessageBox::Ok) {
       return;
     }
@@ -439,17 +439,17 @@ void MainWindow::StandardizeEpub()
     QList<HTMLResource *> htmlresources = m_Book->GetHTMLResources();
     foreach (HTMLResource * hresource, htmlresources) {
         if (!hresource->FileIsWellFormed()) {
-	    QMessageBox::warning(this, tr("Sigil"), 
-				 tr("Restructure cancelled: %1, XML not well formed.").arg(hresource->ShortPathName()));
+            QMessageBox::warning(this, tr("Sigil"), 
+                                 tr("Restructure cancelled: %1, XML not well formed.").arg(hresource->ShortPathName()));
             QApplication::restoreOverrideCursor();
-	    return;
+            return;
         }
     }
     // make sure opf is in good shape as well
     OPFResource* opfresource = m_Book->GetOPF();
     if (!opfresource->FileIsWellFormed()) {
         QMessageBox::warning(this, tr("Sigil"),
-			     tr("Restructure cancelled: %1, XML not well formed.").arg(opfresource->ShortPathName()));
+                             tr("Restructure cancelled: %1, XML not well formed.").arg(opfresource->ShortPathName()));
         QApplication::restoreOverrideCursor();
         return;
     }
@@ -457,7 +457,7 @@ void MainWindow::StandardizeEpub()
     NCXResource* ncxresource = m_Book->GetNCX();
     if (ncxresource && !ncxresource->FileIsWellFormed()) {
         QMessageBox::warning(this, tr("Sigil"),
-			     tr("Restructure cancelled: %1, XML not well formed.").arg(ncxresource->ShortPathName()));
+                             tr("Restructure cancelled: %1, XML not well formed.").arg(ncxresource->ShortPathName()));
         QApplication::restoreOverrideCursor();
         return;
     }
@@ -497,17 +497,17 @@ void MainWindow::StandardizeEpub()
     if (!fs_case_sensitive) {
         // opf is first to handle OEBPS before fighting with its subdirectories
         QStringList groups = QStringList() << "opf" << "Text" << "Styles" << "Images" 
-	                                   << "Fonts" << "Audio" << "Video" << "Misc";
+                                           << "Fonts" << "Audio" << "Video" << "Misc";
         // try renaming all matching existing directories to what we want
         QDir mf(mainfolder);
         foreach(QString group, groups) {
-	    QString folderpath = m_Book->GetFolderKeeper()->GetStdFolderForGroup(group);
-	    apath = mainfolder + "/" + folderpath.toLower();
-	    bpath = mainfolder + "/" + folderpath;
-	    if (QFileInfo(apath).exists() && QFileInfo(apath).isDir()) {
-	        bool result = mf.rename(folderpath.toLower(), folderpath);
-		DBG qDebug() << "rename directory: " << folderpath << result;
-	    }
+            QString folderpath = m_Book->GetFolderKeeper()->GetStdFolderForGroup(group);
+            apath = mainfolder + "/" + folderpath.toLower();
+            bpath = mainfolder + "/" + folderpath;
+            if (QFileInfo(apath).exists() && QFileInfo(apath).isDir()) {
+                bool result = mf.rename(folderpath.toLower(), folderpath);
+                DBG qDebug() << "rename directory: " << folderpath << result;
+            }
         }
     }
 
@@ -572,10 +572,10 @@ void MainWindow::MoveContentFilesToStdFolders()
             newbookpath = stdfolder + "/" + filename;
         }
         if (newbookpath != resource->GetRelativePath()) {
-	    // remember to create the destination directory if needed
-	    if (!stdfolder.isEmpty()) {
-	        epub_root.mkpath(stdfolder);
-	    }
+            // remember to create the destination directory if needed
+            if (!stdfolder.isEmpty()) {
+                epub_root.mkpath(stdfolder);
+            }
             resources_to_move << resource;
             newbookpaths << newbookpath;
         }
@@ -629,13 +629,13 @@ void MainWindow::RepoCommit()
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
     QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::PerformRepoCommitInPython, 
-						localRepo, bookid, bookinfo, bookroot, bookfiles);
+                                                localRepo, bookid, bookinfo, bookroot, bookfiles);
     future.waitForFinished();
     QString commit_result = future.result();
 
     if (commit_result.isEmpty()) {
         ShowMessageOnStatusBar(tr("Checkpoint generation failed."));
-	QApplication::restoreOverrideCursor();
+        QApplication::restoreOverrideCursor();
         return;
     }
 
@@ -649,7 +649,7 @@ void MainWindow::RepoCheckout(QString bookid, QString destdir, QString filename,
     QString localRepo = Utility::DefinePrefsDir() + "/repo";
 
     if (destdir.isEmpty()) {
-	destdir = Utility::DefinePrefsDir() + "/checkouts";
+        destdir = Utility::DefinePrefsDir() + "/checkouts";
     }
     QDir coDir(destdir);
     if (!coDir.exists()) {
@@ -672,12 +672,12 @@ void MainWindow::RepoCheckout(QString bookid, QString destdir, QString filename,
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
     QFuture<QStringList> future = QtConcurrent::run(&pr, &PythonRoutines::GetRepoTagsInPython, 
-						         localRepo, bookid);
+                                                         localRepo, bookid);
     future.waitForFinished();
     QStringList tag_results = future.result();
     if (tag_results.isEmpty()) {
         ShowMessageOnStatusBar(tr("Checkout Failed. No checkpoints found"));
-	QApplication::restoreOverrideCursor();
+        QApplication::restoreOverrideCursor();
         return;
     }
 
@@ -687,10 +687,10 @@ void MainWindow::RepoCheckout(QString bookid, QString destdir, QString filename,
     QString tagname;
     SelectCheckpoint gettag(tag_results, this);
     if (gettag.exec() == QDialog::Accepted) {
-	QStringList taglst  = gettag.GetSelectedEntries();
-	if (!taglst.isEmpty()) {
-	    tagname = taglst.at(0);
-	}
+        QStringList taglst  = gettag.GetSelectedEntries();
+        if (!taglst.isEmpty()) {
+            tagname = taglst.at(0);
+        }
     }
     if (tagname.isEmpty()) {
         ShowMessageOnStatusBar(tr("Checkout Failed. No checkpoint selected"));
@@ -702,11 +702,11 @@ void MainWindow::RepoCheckout(QString bookid, QString destdir, QString filename,
     QList<int> open_tab_positions;
     Resource * current_resource = m_TabManager->GetCurrentContentTab()->GetLoadedResource();
     foreach(ContentTab* tab, m_TabManager->GetContentTabs()) {
-	Resource* res = tab->GetLoadedResource();
-	if (res != current_resource) {
-	    open_tab_bookpaths << res->GetRelativePath();
-	    open_tab_positions << tab->GetCursorPosition();
-	}
+        Resource* res = tab->GetLoadedResource();
+        if (res != current_resource) {
+            open_tab_bookpaths << res->GetRelativePath();
+            open_tab_positions << tab->GetCursorPosition();
+        }
     }
     open_tab_bookpaths << current_resource->GetRelativePath();
     open_tab_positions << m_TabManager->GetCurrentContentTab()->GetCursorPosition();
@@ -714,45 +714,45 @@ void MainWindow::RepoCheckout(QString bookid, QString destdir, QString filename,
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     QFuture<QString> afuture = QtConcurrent::run(&pr, &PythonRoutines::GenerateEpubFromTagInPython, 
-						 localRepo, bookid, tagname, filename, destdir);
+                                                 localRepo, bookid, tagname, filename, destdir);
     afuture.waitForFinished();
     QString epub_result = afuture.result();
     if (epub_result.isEmpty()) {
         ShowMessageOnStatusBar(tr("Epub Generate from Tag Failed."));
-	QApplication::restoreOverrideCursor();
+        QApplication::restoreOverrideCursor();
         return;
     }
     QApplication::restoreOverrideCursor();
     ShowMessageOnStatusBar(tr("Epub Generation succeeded"));
 
     if (loadnow) {
-	// on macOS bad things with checkpoints could happen if we have 
+        // on macOS bad things with checkpoints could happen if we have 
         // two different epubs open but both with the exact same book id
-	// so treat macOS just like Linux and Windows when restoring from 
-	// a checkpoint
+        // so treat macOS just like Linux and Windows when restoring from 
+        // a checkpoint
 
-	// For Linux and Windows (and macOS in this one case) will replace 
-	// current book So Throw Up a Dialog to See if they want to proceed
-	bool proceed = false;
-	QMessageBox msgBox;
-	msgBox.setIcon(QMessageBox::Warning);
-	msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
-	msgBox.setWindowTitle(tr("Repository Checkout"));
-	msgBox.setText(tr("Your current book will be replaced losing any unsaved changes ... Are you sure you want to proceed?"));
-	QPushButton *yesButton = msgBox.addButton(QMessageBox::Yes);
-	QPushButton *noButton =  msgBox.addButton(QMessageBox::No);
-	msgBox.setDefaultButton(noButton);
-	msgBox.exec();
-	if (msgBox.clickedButton() == yesButton) {
-	    proceed = true;
-	}
-	if (proceed) {
-	    LoadFile(epub_result, true);
-	    // restore what we can of the open tabs
-	    for(int i=0; i < open_tab_bookpaths.length(); i++) {
-		OpenFile(open_tab_bookpaths.at(i), -1, open_tab_positions.at(i));
-	    }
-	}
+        // For Linux and Windows (and macOS in this one case) will replace 
+        // current book So Throw Up a Dialog to See if they want to proceed
+        bool proceed = false;
+        QMessageBox msgBox;
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
+        msgBox.setWindowTitle(tr("Repository Checkout"));
+        msgBox.setText(tr("Your current book will be replaced losing any unsaved changes ... Are you sure you want to proceed?"));
+        QPushButton *yesButton = msgBox.addButton(QMessageBox::Yes);
+        QPushButton *noButton =  msgBox.addButton(QMessageBox::No);
+        msgBox.setDefaultButton(noButton);
+        msgBox.exec();
+        if (msgBox.clickedButton() == yesButton) {
+            proceed = true;
+        }
+        if (proceed) {
+            LoadFile(epub_result, true);
+            // restore what we can of the open tabs
+            for(int i=0; i < open_tab_bookpaths.length(); i++) {
+                OpenFile(open_tab_bookpaths.at(i), -1, open_tab_positions.at(i));
+            }
+        }
     }
 }
 
@@ -782,7 +782,7 @@ void MainWindow::RepoDiff(QString bookid)
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
     QFuture<QStringList> future = QtConcurrent::run(&pr, &PythonRoutines::GetRepoTagsInPython, 
-						          localRepo, bookid);
+                                                          localRepo, bookid);
     future.waitForFinished();
     QStringList tag_results = future.result();
     if (tag_results.isEmpty()) {
@@ -810,7 +810,7 @@ void MainWindow::RepoDiff(QString bookid)
     TempFolder destdir;
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QFuture<QString> cfuture = QtConcurrent::run(&pr, &PythonRoutines::CopyTagToDestDirInPython, 
-						 localRepo, bookid, chkpoint1, destdir.GetPath() );
+                                                 localRepo, bookid, chkpoint1, destdir.GetPath() );
     cfuture.waitForFinished();
     QString copied = cfuture.result();
     QApplication::restoreOverrideCursor();
@@ -822,8 +822,8 @@ void MainWindow::RepoDiff(QString bookid)
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QFuture<QList<QStringList> > dfuture = QtConcurrent::run(&pr, 
-					     &PythonRoutines::GetCurrentStatusVsDestDirInPython, 
-				             bookroot, bookfiles, destdir.GetPath());
+                                             &PythonRoutines::GetCurrentStatusVsDestDirInPython, 
+                                             bookroot, bookfiles, destdir.GetPath());
     dfuture.waitForFinished();
     QList<QStringList> sres = dfuture.result();
     QApplication::restoreOverrideCursor();
@@ -833,8 +833,8 @@ void MainWindow::RepoDiff(QString bookid)
     QStringList mlist(sres.at(2));
 
     if (dlist.isEmpty() && alist.isEmpty() && mlist.isEmpty()) {
-	QMessageBox::information(this, tr("Results of Comparison"), tr("No differences were found."));
-	return;
+        QMessageBox::information(this, tr("Results of Comparison"), tr("No differences were found."));
+        return;
     } 
 
     // use CPCompare dialog modally to allow the user to explore the changes
@@ -860,7 +860,7 @@ void MainWindow::launchExternalXEditor()
     ContentTab *tab = GetCurrentContentTab();
     if (tab != NULL) {
         html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
-	opf_resource = qobject_cast<OPFResource *>(tab->GetLoadedResource());
+        opf_resource = qobject_cast<OPFResource *>(tab->GetLoadedResource());
     }
 
     if (!html_resource && !opf_resource) {
@@ -886,30 +886,30 @@ void MainWindow::launchExternalXEditor()
 
     if (opf_resource) {
 
-	resource = qobject_cast<Resource *>(opf_resource);
+        resource = qobject_cast<Resource *>(opf_resource);
 
         // an OPF Resource could be used to access every xhtml file in the spine
         // so save all of these resources to disk and set a fswatcher on them
         QList<Resource *> all_resources = m_Book->GetFolderKeeper()->GetResourceList();
-	QList<Resource*> spine_resources = m_Book->GetOPF()->GetSpineOrderResources(all_resources);
+        QList<Resource*> spine_resources = m_Book->GetOPF()->GetSpineOrderResources(all_resources);
 
         // first suspend file watching and then save all of these to disk
         m_Book->GetFolderKeeper()->SuspendWatchingResources();
-	resource->SaveToDisk();
-	foreach(Resource * spineres, spine_resources) {
-	    HTMLResource* xhtmlres = qobject_cast<HTMLResource *>(spineres);
-	    if (xhtmlres) {
+        resource->SaveToDisk();
+        foreach(Resource * spineres, spine_resources) {
+            HTMLResource* xhtmlres = qobject_cast<HTMLResource *>(spineres);
+            if (xhtmlres) {
                 spineres->SaveToDisk();
-	    }
-	}
+            }
+        }
         m_Book->GetFolderKeeper()->ResumeWatchingResources();
         // after re-enabling file watching, add all of these to list of files to be watched
-	foreach(Resource * spineres, spine_resources) {
-	    HTMLResource* xhtmlres = qobject_cast<HTMLResource *>(spineres);
-	    if (xhtmlres) {
-	        m_Book->GetFolderKeeper()->WatchResourceFile(spineres);
-	    }
-	}
+        foreach(Resource * spineres, spine_resources) {
+            HTMLResource* xhtmlres = qobject_cast<HTMLResource *>(spineres);
+            if (xhtmlres) {
+                m_Book->GetFolderKeeper()->WatchResourceFile(spineres);
+            }
+        }
 
     } else {
 
@@ -921,7 +921,7 @@ void MainWindow::launchExternalXEditor()
     }
 
     if (OpenExternally::openFile(resource->GetFullPath(), XEditorPath)) {
-	m_Book->GetFolderKeeper()->WatchResourceFile(resource);
+        m_Book->GetFolderKeeper()->WatchResourceFile(resource);
         ShowMessageOnStatusBar(tr("Executing External Xhtml Editor"));
         return;
     }
@@ -1066,11 +1066,11 @@ void MainWindow::ScrollCVToFragment(const QString &fragment)
         if (html_resource) {
             FlowTab *flow_tab = qobject_cast<FlowTab *>(tab);
             if (flow_tab) {
-	        if (fragment.isEmpty()) {
-	            flow_tab->ScrollToLine(1);
-	        } else {
-	            flow_tab->ScrollToFragment(fragment);
-	        }
+                if (fragment.isEmpty()) {
+                    flow_tab->ScrollToLine(1);
+                } else {
+                    flow_tab->ScrollToFragment(fragment);
+                }
             }
         }
     }
@@ -1228,9 +1228,9 @@ void MainWindow::moveEvent(QMoveEvent *event)
     // Workaround for Qt bug - see WriteSettings() for details.
     if (!m_PendingLastSizeUpdate && !isMaxOrFull()) {
         DWINGEO qDebug() << "issuing a LastSizeUpdate request";
-	m_PendingLastSizeUpdate = true;
+        m_PendingLastSizeUpdate = true;
         // delay long enough for WindowState to be properly set if Maximized or FullScreened
-	QTimer::singleShot(1000, this, SLOT(UpdateLastSizes()));
+        QTimer::singleShot(1000, this, SLOT(UpdateLastSizes()));
     }
 
     DWINGEO DebugCurrentWidgetSizes();
@@ -1294,11 +1294,11 @@ void MainWindow::closeEvent(QCloseEvent *event)
 #ifdef Q_OS_MAC
         // since we are closing this window, disconnect signals that might be invoked
         // by a user during closing operations to help prevent segfaults on close
-	disconnect(ui.actionNew,           SIGNAL(triggered()), this, SLOT(NewDefault()));
-	disconnect(ui.actionNewEpub2,      SIGNAL(triggered()), this, SLOT(NewEpub2()));
-	disconnect(ui.actionNewEpub3,      SIGNAL(triggered()), this, SLOT(NewEpub3()));
-	disconnect(ui.actionOpen,          SIGNAL(triggered()), this, SLOT(Open()));
-	disconnect(ui.actionPreferences,   SIGNAL(triggered()), this, SLOT(PreferencesDialog()));
+        disconnect(ui.actionNew,           SIGNAL(triggered()), this, SLOT(NewDefault()));
+        disconnect(ui.actionNewEpub2,      SIGNAL(triggered()), this, SLOT(NewEpub2()));
+        disconnect(ui.actionNewEpub3,      SIGNAL(triggered()), this, SLOT(NewEpub3()));
+        disconnect(ui.actionOpen,          SIGNAL(triggered()), this, SLOT(Open()));
+        disconnect(ui.actionPreferences,   SIGNAL(triggered()), this, SLOT(PreferencesDialog()));
 #endif
         ShowMessageOnStatusBar(tr("Sigil is closing..."));
 
@@ -1324,7 +1324,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
         }
 
         if ((m_PreviewWindow)  && m_PreviewWindow->isVisible()) {
-	    DBG qDebug() << "in close event hiding Preview Window";
+            DBG qDebug() << "in close event hiding Preview Window";
             m_PreviewWindow->hide();
         }
 
@@ -1335,10 +1335,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
         event->accept();
     } else {
         event->ignore();
-	SetupPreviewTimer();
+        SetupPreviewTimer();
         // re-enable the ability to record good last normal sizes
         m_SaveLastEnabled = true;
-	m_IsClosing = false;
+        m_IsClosing = false;
     }
 }
 
@@ -1360,7 +1360,7 @@ void MainWindow::New(const QString version)
 #ifdef Q_OS_MAC
         MainWindow *new_window = new MainWindow("", version);
         new_window->show();
-	new_window->activateWindow();
+        new_window->activateWindow();
 #else
         CreateNewBook(version);
 #endif
@@ -1386,24 +1386,24 @@ void MainWindow::Open()
             filter_string += filter + ";;";
         }
         QString default_filter = c_LoadFilters.value("epub");
-	QFileDialog::Options options = QFileDialog::Options();
+        QFileDialog::Options options = QFileDialog::Options();
 #ifdef Q_OS_MAC
-	options = options | QFileDialog::DontUseNativeDialog;
+        options = options | QFileDialog::DontUseNativeDialog;
 #endif
         QString filename = QFileDialog::getOpenFileName(this,
                            tr("Open File"),
                            m_LastFolderOpen,
                            filter_string,
-			   &default_filter,
-			   options
+                           &default_filter,
+                           options
                                                        );
 
         if (!filename.isEmpty()) {
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(filename);
             new_window->show();
-	    new_window->activateWindow();
-	    qApp->processEvents();
+            new_window->activateWindow();
+            qApp->processEvents();
 #else
             LoadFile(filename);
 #endif
@@ -1446,7 +1446,7 @@ void MainWindow::OpenRecentFile()
 #ifdef Q_OS_MAC
             MainWindow *new_window = new MainWindow(filename);
             new_window->show();
-	    new_window->activateWindow();
+            new_window->activateWindow();
             qApp->processEvents();
 
 #else
@@ -1566,7 +1566,7 @@ bool MainWindow::SaveACopy()
                        tr("Save a Copy"),
                        m_SaveACopyFilename,
                        filter_string,
-		       &default_filter,
+                       &default_filter,
                        options
                                                    );
 
@@ -1692,8 +1692,8 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
         bool found_match = false;
         CSSResource *first_css_resource = 0;
         foreach(QString bookpath, stylesheets) {
-	    Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
-	    CSSResource *css_resource = qobject_cast<CSSResource*>( resource ); 
+            Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
+            CSSResource *css_resource = qobject_cast<CSSResource*>( resource ); 
             if (!first_css_resource) {
                 first_css_resource = css_resource;
             }
@@ -1831,7 +1831,7 @@ void MainWindow::AddCover()
     
     if (select_files.exec() == QDialog::Accepted) {
         if (select_files.IsInsertFromDisk()) {
-	    // m_BookBrowser->AddExisting returns the full file paths
+            // m_BookBrowser->AddExisting returns the full file paths
             QStringList added_book_paths = m_BookBrowser->AddExisting(false, true);
             foreach(QString bookpath, added_book_paths) {
                 selected_files.append(bookpath);
@@ -1862,9 +1862,9 @@ void MainWindow::AddCover()
             if (version.startsWith('3')) {
                 NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
                 semantic_code = navproc.GetLandmarkCodeForResource(html_resource);
-	    } else {
-	        semantic_code = m_Book->GetOPF()->GetGuideSemanticCodeForResource(html_resource);
-	    }
+            } else {
+                semantic_code = m_Book->GetOPF()->GetGuideSemanticCodeForResource(html_resource);
+            }
             if (semantic_code == "cover") {
                 html_cover_resource = html_resource;
             } else if (resource->Filename().toLower() == HTML_COVER_FILENAME && html_cover_resource == NULL) {
@@ -1875,9 +1875,9 @@ void MainWindow::AddCover()
 
     if (html_cover_resource != NULL) {
         QString msg = tr("An existing Cover file has been found.");
-	if (!ProceedToOverwrite(msg, html_cover_resource->ShortPathName())) {
-	    html_cover_resource = NULL;
-	}
+        if (!ProceedToOverwrite(msg, html_cover_resource->ShortPathName())) {
+            html_cover_resource = NULL;
+        }
     }
 
     // Populate the HTML cover file with the necessary text.
@@ -1914,7 +1914,7 @@ void MainWindow::AddCover()
 
             // Add the filename and dimensions of the image to the HTML source.
             QString image_relative_path = image_resource->GetRelativePathFromResource(html_cover_resource);
-	    image_relative_path = Utility::URLEncodePath(image_relative_path);
+            image_relative_path = Utility::URLEncodePath(image_relative_path);
             QImage img(image_resource->GetFullPath());
             QString text = html_cover_resource->GetText();
             QString width = QString::number(img.width());
@@ -2032,11 +2032,11 @@ void MainWindow::GenerateNCXGuideFromNav()
     // generate a new empty NCX if one does not exist in this epub3
     if (!ncx_resource) {
         ncx_resource = m_Book->GetFolderKeeper()->AddNCXToFolder(version);
-	// We manually created an NCX file because there wasn't one in the manifest.
+        // We manually created an NCX file because there wasn't one in the manifest.
         // Need to create a new manifest id for it.
         // and take that manifest id and add it to the spine attribute
         QString NCXId = m_Book->GetOPF()->AddNCXItem(ncx_resource->GetFullPath(),"ncx");
-	m_Book->GetOPF()->UpdateNCXOnSpine(NCXId);
+        m_Book->GetOPF()->UpdateNCXOnSpine(NCXId);
     }
 
     QString ncxdir = Utility::startingDir(ncx_resource->GetRelativePath());
@@ -2051,7 +2051,7 @@ void MainWindow::GenerateNCXGuideFromNav()
     // Now build the ncx in python in a separate thread since may be an long job
     PythonRoutines pr;
     QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNcxInPython, navdata, 
-						navbkpath, ncxdir, doctitle, mainid);
+                                                navbkpath, ncxdir, doctitle, mainid);
     future.waitForFinished();
     QString ncxdata = future.result();
 
@@ -2076,17 +2076,17 @@ void MainWindow::GenerateNCXGuideFromNav()
     // lookup its equivalent in the guide and set it if it exists
     QList<Resource *> html_resources = GetAllHTMLResources();
     foreach(Resource * resource, html_resources) {
-	HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
         if (html_resource) {
-	    QString respath = resource->GetRelativePath();
-	    if (nav_landmark_codes.contains(respath)) {
-	        QString landmark_code = nav_landmark_codes[respath];
+            QString respath = resource->GetRelativePath();
+            if (nav_landmark_codes.contains(respath)) {
+                QString landmark_code = nav_landmark_codes[respath];
                 QString guide_code =  Landmarks::instance()->GuideLandMapping(landmark_code);
                 if (!guide_code.isEmpty()) {
-		    m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code, false);
-	        }
-	    }
-	}
+                    m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code, false);
+                }
+            }
+        }
     }
 
     m_TableOfContents->Refresh();
@@ -2124,7 +2124,7 @@ void MainWindow::CreateIndex()
             styleresource = m_BookBrowser->CreateIndexCSSFile();
         } else {
             styleresource = m_Book->GetFolderKeeper()->AddContentFileToFolder(css_path, true, "text/css");
-	}
+        }
         CSSResource *css_resource = qobject_cast<CSSResource *> (styleresource);
         // Need to make sure InitialLoad is done in newly added css resource object to prevent
         // blank css issues after a save to disk
@@ -2139,7 +2139,7 @@ void MainWindow::CreateIndex()
         if (nav_resource) {
             NavProcessor navproc(nav_resource);
             semantic_types = navproc.GetLandmarkCodeForPaths();
-	}
+        }
     } else {
         semantic_types = m_Book->GetOPF()->GetSemanticCodeForPaths();
     }
@@ -2404,16 +2404,16 @@ void MainWindow::DeleteUnusedMedia()
         CSSResource *css_resource = qobject_cast<CSSResource *>(resource);
         QString startdir = css_resource->GetFolder();
         CSSInfo css_info(css_resource->GetText());
-	    QStringList urllist = css_info.getAllPropertyValues("");
-	    foreach (QString url, urllist) {
-	        QRegularExpressionMatch match = url_file_search.match(url);
-	        if (match.hasMatch()) {
-                QString ahref = match.captured(1);
-                if (ahref.indexOf(":") == -1) {
-	            style_bookpaths << Utility::buildBookPath(ahref, startdir);
+            QStringList urllist = css_info.getAllPropertyValues("");
+            foreach (QString url, urllist) {
+                QRegularExpressionMatch match = url_file_search.match(url);
+                if (match.hasMatch()) {
+                    QString ahref = match.captured(1);
+                    if (ahref.indexOf(":") == -1) {
+                        style_bookpaths << Utility::buildBookPath(ahref, startdir);
+                    }
                 }
-	        }
-	    }
+            }
     }
 
     style_bookpaths.removeDuplicates();
@@ -2501,20 +2501,20 @@ void MainWindow::InsertFiles(const QStringList &selected_files)
             return;
         }
 
-	HTMLResource* tab_resource = qobject_cast<HTMLResource *>(flow_tab->GetLoadedResource());
-	if (!tab_resource) {
-	    return;
-	}
+        HTMLResource* tab_resource = qobject_cast<HTMLResource *>(flow_tab->GetLoadedResource());
+        if (!tab_resource) {
+            return;
+        }
 
         if (flow_tab->InsertFileEnabled()) {
             foreach(QString selected_file, selected_files) {
                 try {
                     Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(selected_file);
                     QString relative_path = resource->GetRelativePathFromResource(tab_resource);
-		    relative_path = Utility::URLEncodePath(relative_path);
+                    relative_path = Utility::URLEncodePath(relative_path);
 
-		    // extract just the filename without extension to create a text label
-		    QString filename = resource->Filename();
+                    // extract just the filename without extension to create a text label
+                    QString filename = resource->Filename();
                     if (filename.contains(".")) {
                         filename = filename.left(filename.lastIndexOf("."));
                     }
@@ -2709,12 +2709,12 @@ void MainWindow::QuickLaunchPlugin(int i)
     if ((i >= 0) && (namemap.count() > i)) {
         QString pname = namemap.at(i);
         if (m_pluginList.contains(pname)) {
-	    // QApplication keeps a single modalWindowList across multiple main
-	    // windows and this list is not updated until modal dialog is deleted
+            // QApplication keeps a single modalWindowList across multiple main
+            // windows and this list is not updated until modal dialog is deleted
             { 
                 PluginRunner prunner(m_TabManager, this);
                 prunner.exec(pname);
-	    }
+            }
             qApp->processEvents();
         }
     }
@@ -2755,9 +2755,9 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
 {
     if (m_LastPasteTarget == NULL) {
         ShowMessageOnStatusBar(tr("Select the destination to paste into first."));
-	foreach(ClipEditorModel::clipEntry * entry, clips) {
-	    if (entry) delete entry;
-	}
+        foreach(ClipEditorModel::clipEntry * entry, clips) {
+            if (entry) delete entry;
+        }
         return;
     }
 
@@ -2782,7 +2782,7 @@ void MainWindow::PasteClipEntriesIntoPreviousTarget(const QList<ClipEditorModel:
     if (flow_tab && flow_tab->PasteClipEntries(clips)) {
         flow_tab->setFocus();
         ShowMessageOnStatusBar();
-	return;
+        return;
     }
     CSSTab * css_tab = qobject_cast<CSSTab *>(tab);
     if (css_tab && css_tab->PasteClipEntries(clips)) {
@@ -2812,7 +2812,9 @@ void MainWindow::MergeResources(QList <Resource *> resources)
         resources.prepend(resource);
     } else {
         QMessageBox::StandardButton button_pressed;
-        button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to merge the selected files?\nThis action cannot be reversed."), QMessageBox::Ok | QMessageBox::Cancel);
+        button_pressed = QMessageBox::warning(this, tr("Sigil"),
+                                              tr("Are you sure you want to merge the selected files?\nThis action cannot be reversed."),
+                                              QMessageBox::Ok | QMessageBox::Cancel);
 
         if (button_pressed != QMessageBox::Ok) {
             return;
@@ -3199,24 +3201,24 @@ void MainWindow::CreateHTMLTOC()
         HTMLResource *htmlResource = qobject_cast<HTMLResource *>(resource);
         if (htmlResource) {
 
-	    htmlResources.append(htmlResource);
+            htmlResources.append(htmlResource);
 
             // prevent the nav resource from being chosen or used for an html toc
             if (htmlResource != navResource) {
 
-		// Check if this is an existing HTML toc file.
-		QString semantic_code;
-		if (version.startsWith('3')) {
-		    NavProcessor navproc(navResource);
-		    semantic_code = navproc.GetLandmarkCodeForResource(htmlResource);
-		} else {
-		    semantic_code = m_Book->GetOPF()->GetGuideSemanticCodeForResource(htmlResource);
-		}
-		if (semantic_code == "toc") {
-		    tocResource = htmlResource;
-		} else if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
-		    tocResource = htmlResource;
-		}
+                // Check if this is an existing HTML toc file.
+                QString semantic_code;
+                if (version.startsWith('3')) {
+                    NavProcessor navproc(navResource);
+                    semantic_code = navproc.GetLandmarkCodeForResource(htmlResource);
+                } else {
+                    semantic_code = m_Book->GetOPF()->GetGuideSemanticCodeForResource(htmlResource);
+                }
+                if (semantic_code == "toc") {
+                    tocResource = htmlResource;
+                } else if (resource->Filename() == HTML_TOC_FILE && tocResource == NULL) {
+                    tocResource = htmlResource;
+                }
             }
         }
     }
@@ -3226,7 +3228,7 @@ void MainWindow::CreateHTMLTOC()
         QString msg = tr("An existing HTML Table of Contents file has been found.");
         if (!ProceedToOverwrite(msg, tocResource->ShortPathName())) {
             tocResource = NULL;
-	}
+        }
     }
 
     // If you found an existing one, close the tab so the focus 
@@ -3247,9 +3249,9 @@ void MainWindow::CreateHTMLTOC()
     QString lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
     QString title = Landmarks::instance()->GetTitle("toc", lang); 
     TOCHTMLWriter toc(tocResource->GetRelativePath(), 
-		      css_resource->GetRelativePath(),
-		      m_TableOfContents->GetRootEntry(),
-		      title);
+                      css_resource->GetRelativePath(),
+                      m_TableOfContents->GetRootEntry(),
+                      title);
     tocResource->SetText(toc.WriteXML(version));
 
     // For epub3 now allow multiple landmarks with the toc semantic set, this is legal as long
@@ -3258,8 +3260,8 @@ void MainWindow::CreateHTMLTOC()
     // Setting a semantic on a resource that already has it set will remove the semantic.
     // Unless you pass toggle as false as the final parameter
     if (version.startsWith('3')) {
-	NavProcessor navproc(navResource);
-	navproc.AddLandmarkCode(tocResource, "toc", false);
+        NavProcessor navproc(navResource);
+        navproc.AddLandmarkCode(tocResource, "toc", false);
     } else {
         m_Book->GetOPF()->AddGuideSemanticCode(tocResource, "toc", false);
     }
@@ -3458,7 +3460,7 @@ void MainWindow::ManagePluginsDialog()
     // other preferences may have been changed as well
     if (prefers.isReloadTabsRequired()) {
         m_TabManager->ReopenTabs();
-	m_BookBrowser->Refresh();
+        m_BookBrowser->Refresh();
     } else if (prefers.isRefreshBookBrowserRequired()) {
         m_BookBrowser->Refresh();
     } else if (prefers.isRefreshSpellingHighlightingRequired()) {
@@ -3893,7 +3895,7 @@ void MainWindow::ScrollPreview()
                 }
                 location = flow_tab->GetCaretLocation();
                 m_PreviewWindow->ScrollTo(location);
-	    }
+            }
         }
     }
 }
@@ -3923,45 +3925,45 @@ void MainWindow::UpdatePreview()
 
         html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
 
-	// handle any memory cache clearing inside Preview
+        // handle any memory cache clearing inside Preview
 
         // handles all cases of non-html resource in front tab
-	if (!html_resource) {
-	    // note: must handle case of m_PreviousHTMLResource being deleted by user
-	    // see RemoveResources()
-	    html_resource = m_PreviousHTMLResource;
-	} else {
-	    m_PreviousHTMLResource = NULL;
-	}
+        if (!html_resource) {
+            // note: must handle case of m_PreviousHTMLResource being deleted by user
+            // see RemoveResources()
+            html_resource = m_PreviousHTMLResource;
+        } else {
+            m_PreviousHTMLResource = NULL;
+        }
 
-	if (html_resource) {
-	    FlowTab *flow_tab = qobject_cast<FlowTab *>(tab);
-	    if (flow_tab) {
-	        // Make sure the document is loaded.  As soon as the views are created
-	        // signals are sent that it has changed which requests Preview to update
-	        // so these need to be ignored.  Once the document is loaded it signals again.
-	        if (!flow_tab->IsLoadingFinished()) {
-	            return;
-	        }
+        if (html_resource) {
+            FlowTab *flow_tab = qobject_cast<FlowTab *>(tab);
+            if (flow_tab) {
+                // Make sure the document is loaded.  As soon as the views are created
+                // signals are sent that it has changed which requests Preview to update
+                // so these need to be ignored.  Once the document is loaded it signals again.
+                if (!flow_tab->IsLoadingFinished()) {
+                    return;
+                }
                 text = flow_tab->GetText();
                 location = flow_tab->GetCaretLocation();
             } else {
                 text = m_PreviousHTMLText;
                 if (m_PreviousHTMLResource) {
-	            location = m_PreviewWindow->GetCaretLocation();
+                    location = m_PreviewWindow->GetCaretLocation();
                 } else {
-	            location = m_PreviousHTMLLocation;
+                    location = m_PreviousHTMLLocation;
                 }
 
-	    }
-	    m_PreviousHTMLResource = html_resource;
-	    m_PreviousHTMLText = text;
-	    m_PreviousHTMLLocation = location;
+            }
+            m_PreviousHTMLResource = html_resource;
+            m_PreviousHTMLText = text;
+            m_PreviousHTMLLocation = location;
 
             bool res = m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), text, location);
-	    if (!res) {
-	        m_PreviewTimer.start();
-	    }
+            if (!res) {
+                m_PreviewTimer.start();
+            }
         }
     }
 }
@@ -4283,8 +4285,8 @@ void MainWindow::ReadSettings()
     // Check for existing custom Preview stylesheet in Prefs dir and tell Preview about it
     QFileInfo CustomPreviewStylesheetInfo(QDir(Utility::DefinePrefsDir()).filePath(CUSTOM_PREVIEW_STYLE_FILENAME));
     if (CustomPreviewStylesheetInfo.exists() && 
-	CustomPreviewStylesheetInfo.isFile() && 
-	CustomPreviewStylesheetInfo.isReadable()) {
+        CustomPreviewStylesheetInfo.isFile() && 
+        CustomPreviewStylesheetInfo.isReadable()) {
         QString usercssurl = QUrl::fromLocalFile(CustomPreviewStylesheetInfo.absoluteFilePath()).toString();
         m_PreviewWindow->setUserCSSURL(usercssurl);
     }
@@ -4308,9 +4310,9 @@ void MainWindow::ReadSettings()
         // otherwise user supplied environment variable to 'share/sigil'
         // takes precedence over Sigil's usual share location.
         if (!sigil_extra_root.isEmpty()) {
-	    mathjaxurl = sigil_extra_root + "/polyfills/MJ/";
+            mathjaxurl = sigil_extra_root + "/polyfills/MJ/";
         } else {
-	    mathjaxurl = sigil_share_root + "/polyfills/MJ/";
+            mathjaxurl = sigil_share_root + "/polyfills/MJ/";
         }
     }
 #endif
@@ -4399,10 +4401,10 @@ bool MainWindow::ProceedToOverwrite(const QString& msg, const QString &filename)
 {
     QMessageBox::StandardButton button_pressed;
     button_pressed = QMessageBox::warning(this,
-					  tr("Sigil"),
-				          msg + "\n" + filename + "\n\n" +
-				          tr("Should Sigil overwrite this file?"),
-					  QMessageBox::Yes | QMessageBox::No);
+                                          tr("Sigil"),
+                                          msg + "\n" + filename + "\n\n" +
+                                          tr("Should Sigil overwrite this file?"),
+                                          QMessageBox::Yes | QMessageBox::No);
     if (button_pressed == QMessageBox::Yes) return true;
     return false;
 }
@@ -4461,10 +4463,10 @@ void MainWindow::CreateNewBook(const QString version, const QStringList &book_pa
         if (QFile::exists(empty_epub_ini_path)) {
             SettingsStore ss(empty_epub_ini_path);
             const QString SETTINGS_GROUP = "bookpaths";
-	    const QString KEY_BOOKPATHS = SETTINGS_GROUP + "/" + "empty_epub_bookpaths";
-	    while (!ss.group().isEmpty()) {
-	        ss.endGroup();
-	    }
+            const QString KEY_BOOKPATHS = SETTINGS_GROUP + "/" + "empty_epub_bookpaths";
+            while (!ss.group().isEmpty()) {
+                ss.endGroup();
+            }
             bookpaths = ss.value(KEY_BOOKPATHS,QStringList()).toStringList();
         }
     }
@@ -4482,7 +4484,7 @@ void MainWindow::CreateNewBook(const QString version, const QStringList &book_pa
             if (bkpath.endsWith(".ncx")) hasNCX = true;
             if (bkpath.endsWith("marker.css")) hasSTYLE = true;
             if (bkpath.endsWith("marker.xhtml")) hasTEXT = true;
-	    if (bkpath.endsWith(".xhtml") && !bkpath.endsWith("marker.xhtml")) hasNAV = true;
+            if (bkpath.endsWith(".xhtml") && !bkpath.endsWith("marker.xhtml")) hasNAV = true;
         }
         if (epubversion.startsWith('3')) {
             is_valid = hasOPF && hasNAV && hasTEXT && hasSTYLE;
@@ -4497,9 +4499,9 @@ void MainWindow::CreateNewBook(const QString version, const QStringList &book_pa
         bookpaths << "OEBPS/content.opf"      << "OEBPS/Text/marker.xhtml" << "OEBPS/Styles/marker.css"
                   << "OEBPS/Fonts/marker.otf" << "OEBPS/Images/marker.jpg" << "OEBPS/Audio/marker.mp3"
                   << "OEBPS/Video/marker.mp4" << "OEBPS/Misc/marker.xml" << "OEBPS/toc.ncx";
-	if (epubversion.startsWith('3')) {
+        if (epubversion.startsWith('3')) {
             bookpaths << "OEBPS/Text/nav.xhtml" << "OEBPS/Misc/marker.js";
-	}
+        }
     }
 
     // extract the information we need from the bookpaths
@@ -4518,11 +4520,11 @@ void MainWindow::CreateNewBook(const QString version, const QStringList &book_pa
         if (filename.endsWith(".opf")) opfbookpath = bkpath;
         if (filename.endsWith(".ncx")) ncxbookpath = bkpath;
         if (filename.endsWith("marker.xhtml")) textdirs << folder;
-	if (filename.endsWith(".xhtml") && !filename.endsWith("marker.xhtml")) {
-	    navdir = folder;
-	    navfile = filename;
+        if (filename.endsWith(".xhtml") && !filename.endsWith("marker.xhtml")) {
+            navdir = folder;
+            navfile = filename;
             continue;
-	}
+        }
         mtypes << mt;
         finalpaths << bkpath;
     }
@@ -4552,7 +4554,7 @@ void MainWindow::CreateNewBook(const QString version, const QStringList &book_pa
         //     NCXResource * ncxresource = new_book->GetNCX();
         //     QString NCXId = new_book->GetOPF()->AddNCXItem(ncxresource->GetFullPath(),"ncx");
         //     new_book->GetOPF()->UpdateNCXOnSpine(NCXId);
-	// }
+        // }
     } else {
         new_book->GetFolderKeeper()->AddNCXToFolder(epubversion, ncxbookpath, first_textdir);
         NCXResource * ncxresource = new_book->GetNCX();
@@ -5415,8 +5417,8 @@ void MainWindow::UpdateClipButton(QAction *ui_action)
         clip_text.replace('&', "&amp;").replace('<', "&lt;").replace('>', "&gt;");
         ui_action->setToolTip(clip_text);
         ui_action->setVisible(true);
-	// prevent memory leak
-	delete clip_entry;
+        // prevent memory leak
+        delete clip_entry;
     } else {
         ui_action->setText("");
         ui_action->setToolTip("");
@@ -5486,54 +5488,54 @@ void MainWindow::changeEvent(QEvent *e)
     DWINGEO qDebug() << "------";
     DWINGEO qDebug() << "In ChangeEvent: " << e;
     if(e->type() == QEvent::WindowStateChange) {
-	const QWindowStateChangeEvent* wsevent = static_cast<QWindowStateChangeEvent*>(e);
+        const QWindowStateChangeEvent* wsevent = static_cast<QWindowStateChangeEvent*>(e);
         DWINGEO qDebug() << "old state" << wsevent->oldState();
 
         DWINGEO DebugCurrentWidgetSizes();
 
         if(isMinimized()) {
             // MINIMIZED
-	    DWINGEO qDebug() << "Main Window new state: minimized";
+            DWINGEO qDebug() << "Main Window new state: minimized";
         } else if (isMaximized()) {
-	    DWINGEO qDebug() << "Main Window new state: maximized";
+            DWINGEO qDebug() << "Main Window new state: maximized";
         } else if (isFullScreen()) {
-	    DWINGEO qDebug() << "Main Window new state: fullscreen";
-	    } else {
+            DWINGEO qDebug() << "Main Window new state: fullscreen";
+            } else {
             // NORMAL
-	        DWINGEO qDebug() << "Main Window new state: normal";
+                DWINGEO qDebug() << "Main Window new state: normal";
             // This is still be needed for Windows and Linux to restore after maximize
-	        QTimer::singleShot(0, this, SLOT(RestoreLastNormalGeometry()));
+                QTimer::singleShot(0, this, SLOT(RestoreLastNormalGeometry()));
         }
     }
     if (e->type() == QEvent::ActivationChange) {
         if(isActiveWindow()) {
             DWINGEO qDebug() << "------";
-	    DWINGEO qDebug() << "Main Window is transitioning from inactive to active: " << isMaxOrFull();
+            DWINGEO qDebug() << "Main Window is transitioning from inactive to active: " << isMaxOrFull();
 
             if (m_FirstTime) {
                 if (!m_LastState.isEmpty()) {
                     restoreState(m_LastState);
-		}
+                }
 
-	        DWINGEO {
+                DWINGEO {
                     int numscreens = qApp->desktop()->numScreens();
-		    for (int i = 0; i < numscreens; i++) {
+                    for (int i = 0; i < numscreens; i++) {
                         qDebug() << "Screen: " << i;
-		        qDebug() << "    screen  geo: " << qApp->desktop()->screenGeometry(i);
+                        qDebug() << "    screen  geo: " << qApp->desktop()->screenGeometry(i);
                         QScreen *srn = QApplication::screens().at(i);
-		        qDebug() << "    avail   geo: " << srn->availableGeometry();
-		        qDebug() << "    geo        : " << srn->geometry();
+                        qDebug() << "    avail   geo: " << srn->availableGeometry();
+                        qDebug() << "    geo        : " << srn->geometry();
                         qDebug() << "    devideRatio: " << srn->devicePixelRatio();
                         qDebug() << "    logical dpi: " << srn->logicalDotsPerInchX() << srn->logicalDotsPerInchY();
                         qDebug() << "    physic  dpi: " << srn->physicalDotsPerInchX() << srn->physicalDotsPerInchY();
-		    }
-		}
+                    }
+                }
 
                 // restoreState properly handles moving floating Preview Window
                 // back to main screen if needed but keeps it hidden, only need to 
                 // use View to display it, at least on macOSX
 
-	    }
+            }
             m_FirstTime = false;
 
             // moved here from showEvent to make sure it comes after state restoration
@@ -5547,8 +5549,8 @@ void MainWindow::changeEvent(QEvent *e)
             m_PendingLastSizeUpdate = true;
             UpdateLastSizes();
 
-	} else {
-	    DWINGEO qDebug() << "Main Window is transitioning from active to inactive";
+        } else {
+            DWINGEO qDebug() << "Main Window is transitioning from active to inactive";
         }
     }
 
@@ -5666,9 +5668,9 @@ void MainWindow::ConnectSignalsToSlots()
 
     // Clips
     foreach(QAction* clipaction, m_clactions) {
-	// Use the new signal/slot syntax and use a lambda to
-	// eliminate the need for the obsoleted QSignalMapper.
-	// [captured variables]() {...anonymous processing to do...;}
+        // Use the new signal/slot syntax and use a lambda to
+        // eliminate the need for the obsoleted QSignalMapper.
+        // [captured variables]() {...anonymous processing to do...;}
         int i = clipaction->data().toInt();
         connect(clipaction, &QAction::triggered, this, [this,i]() {
                 MainWindow::PasteClipIntoCurrentTarget(i);

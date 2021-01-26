@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018, 2019 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2018-2021 Kevin B. Hendricks, Stratford, Ontario
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -280,9 +280,9 @@ QStandardItem *ClipEditorModel::GetItemFromNumber(int clip_number)
     int rows = invisibleRootItem()->rowCount();
     for (int r = 0; r < rows; r++) {
         item = invisibleRootItem()->child(r, 0);
-	if (!item || !item->data(IS_GROUP_ROLE).toBool()) cnt++;
-	if (cnt > clip_number) return NULL;
-	if (cnt == clip_number) return item;
+        if (!item || !item->data(IS_GROUP_ROLE).toBool()) cnt++;
+        if (cnt > clip_number) return NULL;
+        if (cnt == clip_number) return item;
     }
     return NULL;
 }
@@ -350,7 +350,7 @@ void ClipEditorModel::LoadData(const QString &filename, QStandardItem *item)
         entry->fullname = fullname;
         entry->text = ss.value(ENTRY_TEXT).toString();
         AddFullNameEntry(entry, item);
-	delete entry;
+        delete entry;
     }
     ss.endArray();
 }
@@ -396,8 +396,8 @@ void ClipEditorModel::AddFullNameEntry(ClipEditorModel::clipEntry *entry, QStand
                 new_entry->is_group = true;
                 new_entry->name = group_name;
                 parent_item = AddEntryToModel(new_entry, new_entry->is_group, parent_item, parent_item->rowCount());
-		// fix memory leak
-		delete new_entry;
+                // fix memory leak
+                delete new_entry;
             }
         }
         row = parent_item->rowCount();
@@ -645,9 +645,9 @@ QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry *> entries, c
         QList<QStandardItem *> items = GetNonParentItems(invisibleRootItem());
 
         if (!items.isEmpty()) {
-  	    // GetEntries calls GetEntry which creates each entry with new
+            // GetEntries calls GetEntry which creates each entry with new
             entries = GetEntries(items);
-	    clean_up_needed = true;
+            clean_up_needed = true;
         }
     }
 
@@ -667,9 +667,9 @@ QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry *> entries, c
 
             // delete each entry if we created them above 
             if (clean_up_needed) {
-	        foreach(ClipEditorModel::clipEntry* entry, entries) {
-	            delete entry;
-	        }
+                foreach(ClipEditorModel::clipEntry* entry, entries) {
+                    delete entry;
+                }
             }
             return message;
         }
@@ -689,7 +689,7 @@ QString ClipEditorModel::SaveData(QList<ClipEditorModel::clipEntry *> entries, c
         // delete each entry if we created them above
         if (clean_up_needed) {
             foreach(ClipEditorModel::clipEntry* entry, entries) {
-	        delete entry;
+                delete entry;
             }
         }
         ss.endArray();

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -234,7 +234,7 @@ void EmptyLayout::loadDesign()
         const QString SETTINGS_GROUP = "bookpaths";
         const QString KEY_BOOKPATHS = SETTINGS_GROUP + "/" + "empty_epub_bookpaths";
         while (!ss.group().isEmpty()) {
-	    ss.endGroup();
+            ss.endGroup();
         }
         bookpaths = ss.value(KEY_BOOKPATHS,QStringList()).toStringList();
     }
@@ -252,13 +252,13 @@ void EmptyLayout::loadDesign()
         if (bkpath.endsWith(".ncx")) m_hasNCX = true;
         if (bkpath.endsWith(".xhtml") && !bkpath.contains("marker.xhtml")) m_hasNAV = true;
         if (bkpath.startsWith('/')) bkpath.remove(0,1);
-	QString sdir = Utility::startingDir(bkpath);
+        QString sdir = Utility::startingDir(bkpath);
         if (!sdir.isEmpty()) eroot.mkpath(sdir);
         // now we are finally ready to create the file itself
         // use the equivalent of "touch" to create files
-	QString fpath = m_MainFolder + "/EpubRoot" + "/" + bkpath;
-	QFile afile(fpath);
-	if (afile.open(QFile::WriteOnly)) afile.close();
+        QString fpath = m_MainFolder + "/EpubRoot" + "/" + bkpath;
+        QFile afile(fpath);
+        if (afile.open(QFile::WriteOnly)) afile.close();
     }
 
     // Now finally create a new Model and reset the view
@@ -322,10 +322,10 @@ void EmptyLayout::saveDesign()
 #endif
 
     QString destination = QFileDialog::getSaveFileName(this,
-						       tr("Save current design to an ini File"),
-						       save_path,
-						       filter_string,
-						       &default_filter,
+                                                       tr("Save current design to an ini File"),
+                                                       save_path,
+                                                       filter_string,
+                                                       &default_filter,
                                                        options);
     if (destination.isEmpty()) {
         return;
@@ -337,7 +337,7 @@ void EmptyLayout::saveDesign()
         const QString SETTINGS_GROUP = "bookpaths";
         const QString KEY_BOOKPATHS = SETTINGS_GROUP + "/" + "empty_epub_bookpaths";
         while (!ss.group().isEmpty()) {
-	    ss.endGroup();
+            ss.endGroup();
         }
         ss.setValue(KEY_BOOKPATHS, bookpaths);
     }
@@ -355,7 +355,7 @@ void EmptyLayout::addFolder()
     if (!index.isValid()) return;
     if (m_fsmodel->isDir(index)) {
         QString newname = GetInput(tr("Add a Folder"), tr("New Folder Name?"), tr("untitled_folder"));
-	if (newname.isEmpty()) return;
+        if (newname.isEmpty()) return;
         m_fsmodel->mkdir(index, newname);
     }
     view->expand(index);
@@ -370,12 +370,12 @@ void EmptyLayout::addFile(QAction * act)
     if (!index.isValid()) return;
     if (m_fsmodel->isDir(index)) {
         QString fpath = m_fsmodel->filePath(index) + "/" + filedata;
-	QFile afile(fpath);
-	if (afile.open(QFile::WriteOnly)) afile.close(); 
+        QFile afile(fpath);
+        if (afile.open(QFile::WriteOnly)) afile.close(); 
         if (filedata == "content.opf") m_hasOPF=true;
         if (filedata == "toc.ncx") m_hasNCX=true;
         if (filedata == "nav.xhtml") m_hasNAV=true;
-	QFileInfo file_info = m_fsmodel->fileInfo(m_fsmodel->index(fpath));
+        QFileInfo file_info = m_fsmodel->fileInfo(m_fsmodel->index(fpath));
     }
     view->expand(index);
     updateActions();
@@ -392,24 +392,24 @@ void EmptyLayout::renameCurrent()
     if (current_name.startsWith("marker.")) return;
     if (m_fsmodel->isDir(index)) {
         QString newname = GetInput(tr("Rename a Folder"), tr("New Name for Folder?"), current_name);
-	if (newname.isEmpty()) return;
+        if (newname.isEmpty()) return;
         if ((newname != "EpubRoot") && (newname != current_name)) {
-	    QDir folder(dpath);
-	    bool success = folder.rename(current_name, newname);
-	    if (!success) qDebug() << "folder rename failed";
-	}
+            QDir folder(dpath);
+            bool success = folder.rename(current_name, newname);
+            if (!success) qDebug() << "folder rename failed";
+        }
         view->expand(index);
     } else {
         // renaming a file
-	QFileInfo fi = m_fsmodel->fileInfo(index);
+        QFileInfo fi = m_fsmodel->fileInfo(index);
         QString newname = GetInput(tr("Rename a File"), tr("New Name for File?"), fi.baseName());
-	if (newname.isEmpty()) return;
-	newname = newname + "." + fi.suffix();
-	if (newname != current_name) {
-	    QDir folder(dpath);
-	    bool success = folder.rename(current_name, newname);
-	    if (!success) qDebug() << "file rename failed";
-	}
+        if (newname.isEmpty()) return;
+        newname = newname + "." + fi.suffix();
+        if (newname != current_name) {
+            QDir folder(dpath);
+            bool success = folder.rename(current_name, newname);
+            if (!success) qDebug() << "file rename failed";
+        }
         view->expand(index.parent());
     }
     updateActions();
@@ -430,9 +430,9 @@ void EmptyLayout::deleteCurrent()
        QModelIndex parent = index.parent();
        bool success = m_fsmodel->remove(index);
        if (success) {
-	   if (current_name.endsWith(".opf")) m_hasOPF = false;
+           if (current_name.endsWith(".opf")) m_hasOPF = false;
            if (current_name.endsWith(".ncx")) m_hasNCX = false;
-	   if (!current_name.startsWith("marker.") && current_name.endsWith(".xhtml")) m_hasNAV = false;
+           if (!current_name.startsWith("marker.") && current_name.endsWith(".xhtml")) m_hasNAV = false;
        }
        if (!success) qDebug() << "file removal failed";
        view->expand(parent);
@@ -478,20 +478,20 @@ void EmptyLayout::saveData()
 
     // allow the user to set this layout as Sigil's default empty epub layout
     bool make_default = QMessageBox::Yes == QMessageBox::warning(this, tr("Sigil"),
-				   tr("Do you want to set this layout as the default empty "
-				      "Epub layout for Sigil?\n\n"),
-				   QMessageBox::Yes|QMessageBox::No);
+                                   tr("Do you want to set this layout as the default empty "
+                                      "Epub layout for Sigil?\n\n"),
+                                   QMessageBox::Yes|QMessageBox::No);
 
     if (make_default) {
         // create a sigil_empty_epub.ini file in Sigil Preferences folder
         QString empty_epub_ini_path = Utility::DefinePrefsDir() + "/" + "sigil_empty_epub.ini";
-	SettingsStore ss(empty_epub_ini_path);
-	const QString SETTINGS_GROUP = "bookpaths";
-	const QString KEY_BOOKPATHS = SETTINGS_GROUP + "/" + "empty_epub_bookpaths";
-	while (!ss.group().isEmpty()) {
-	    ss.endGroup();
-	}
-	ss.setValue(KEY_BOOKPATHS, bookpaths);
+        SettingsStore ss(empty_epub_ini_path);
+        const QString SETTINGS_GROUP = "bookpaths";
+        const QString KEY_BOOKPATHS = SETTINGS_GROUP + "/" + "empty_epub_bookpaths";
+        while (!ss.group().isEmpty()) {
+            ss.endGroup();
+        }
+        ss.setValue(KEY_BOOKPATHS, bookpaths);
     }
 
     WriteSettings();
@@ -518,7 +518,7 @@ void EmptyLayout::updateActions()
     bool hasCurrent = index.isValid();
     QString name = "";
     if (hasCurrent) {
-	name = m_fsmodel->filePath(index).split("/").last();
+        name = m_fsmodel->filePath(index).split("/").last();
     }
     bool isFile = name.startsWith("marker.") || name.endsWith(".opf") || name.endsWith(".ncx");
     bool isEpubRoot = name == "EpubRoot";
@@ -534,10 +534,10 @@ void EmptyLayout::updateActions()
     foreach(QAction * act, menuacts) {
         bool enable = true;
         QString filedata = act->data().toString();
-	if ((filedata == "content.opf") && m_hasOPF) enable = false;
-	if ((filedata == "toc.ncx") && m_hasNCX) enable = false;
-	if ((filedata == "nav.xhtml") && m_hasNAV) enable = false;
-	act->setEnabled(enable);
+        if ((filedata == "content.opf") && m_hasOPF) enable = false;
+        if ((filedata == "toc.ncx") && m_hasNCX) enable = false;
+        if ((filedata == "nav.xhtml") && m_hasNAV) enable = false;
+        act->setEnabled(enable);
     }
 }
 
@@ -579,13 +579,13 @@ QStringList EmptyLayout::GetPathsToFilesInFolder(const QString &fullfolderpath, 
     QStringList paths;
     foreach(QFileInfo fi, folder.entryInfoList()) {
         if ((fi.fileName() != ".") && (fi.fileName() != "..")) {
-	    if (fi.isFile()) {
-	        QString filepath = fi.absoluteFilePath();
-	        QString bookpath = filepath.right(filepath.length() - basepath.length() - 1);
-	        paths.append(bookpath);
-	    } else {
-	        paths.append(GetPathsToFilesInFolder(fi.absoluteFilePath(), basepath));
-	    }
+            if (fi.isFile()) {
+                QString filepath = fi.absoluteFilePath();
+                QString bookpath = filepath.right(filepath.length() - basepath.length() - 1);
+                paths.append(bookpath);
+            } else {
+                paths.append(GetPathsToFilesInFolder(fi.absoluteFilePath(), basepath));
+            }
         }
     }
     return paths;

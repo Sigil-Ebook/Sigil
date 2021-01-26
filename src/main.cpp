@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2020  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019-2020  Doug Massay
+**  Copyright (C) 2018-2021  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2021  Doug Massay
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -249,7 +249,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
         ts << qt_debug_message << Qt::endl;
 #else
         ts << qt_debug_message << endl;
-#endif	
+#endif  
     }
 }
 
@@ -285,7 +285,7 @@ void setupHighDPI()
         QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, false);
         foreach(QString v, env_vars) {
             bool irrel = qunsetenv(v.toUtf8().constData());
-	    Q_UNUSED(irrel);
+        Q_UNUSED(irrel);
         }
     }
 }
@@ -307,9 +307,9 @@ int main(int argc, char *argv[])
         QStringList env_vars = {"QT_QPA_PLATFORMTHEME", "QT_STYLE_OVERRIDE"};
         foreach(QString v, env_vars) {
             bool irrel = qunsetenv(v.toUtf8().constData());
-	    Q_UNUSED(irrel);
+        Q_UNUSED(irrel);
         }
-}
+    }
 #endif
 
 
@@ -461,8 +461,7 @@ int main(int argc, char *argv[])
         settings.setOriginalUIFont(f.toString());
         if (!settings.uiFont().isEmpty()) {
             QFont font;
-            if (font.fromString(settings.uiFont()))
-                QApplication::setFont(font);
+            if (font.fromString(settings.uiFont())) QApplication::setFont(font);
         }
 #ifndef Q_OS_MAC
         // redo on a timer to ensure in all cases
@@ -563,21 +562,21 @@ int main(int argc, char *argv[])
             RCCResourcePath = sigil_share_root + "/iconthemes";
         }
 #endif
-	QString icon_theme = settings.uiIconTheme();
+        QString icon_theme = settings.uiIconTheme();
         // First check if user wants the Custom Icon Theme
-	if (icon_theme == "custom") {
-	    // it must exist and be loadable
-	    QString CustomRCCPath = Utility::DefinePrefsDir() + "/" + CUSTOM_ICON_THEME_FILENAME;
+        if (icon_theme == "custom") {
+            // it must exist and be loadable
+            QString CustomRCCPath = Utility::DefinePrefsDir() + "/" + CUSTOM_ICON_THEME_FILENAME;
             bool loaded = false;
-	    if (QFileInfo(CustomRCCPath).exists()) {
-		loaded = QResource::registerResource(Utility::DefinePrefsDir() + "/" + CUSTOM_ICON_THEME_FILENAME);
-	    }
-	    if (!loaded) {
-		// revert to using main
-		icon_theme = "main";
-		settings.setUIIconTheme("main");
-	    }
-	}
+            if (QFileInfo(CustomRCCPath).exists()) {
+                loaded = QResource::registerResource(Utility::DefinePrefsDir() + "/" + CUSTOM_ICON_THEME_FILENAME);
+            }
+            if (!loaded) {
+                // revert to using main
+                icon_theme = "main";
+                settings.setUIIconTheme("main");
+            }
+        }
         // qDebug() << RCCResourcePath;
         QResource::registerResource(RCCResourcePath + "/" + icon_theme + ".rcc");
 
@@ -617,7 +616,6 @@ int main(int argc, char *argv[])
 
             // Create the Application Menu
             QMenu *app_menu = new QMenu("Sigil");
-
             QIcon icon;
 
             // Quit

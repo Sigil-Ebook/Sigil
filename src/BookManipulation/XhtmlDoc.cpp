@@ -1,5 +1,5 @@
 /***************************************************************************
-**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2021 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -546,10 +546,10 @@ QStringList XhtmlDoc::GetHrefSrcPaths(const QString &source)
     QStringList destination_paths;
     GumboInterface gi = GumboInterface(source, "any_version");
     foreach(QString apath, gi.get_all_values_for_attribute("src")) {
-	destination_paths << apath;
+        destination_paths << apath;
     }
     foreach(QString apath, gi.get_all_values_for_attribute("href")) {
-	destination_paths << apath;
+        destination_paths << apath;
     }
     destination_paths.removeDuplicates();
     return destination_paths;

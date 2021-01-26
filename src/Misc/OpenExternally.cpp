@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2019  Doug Massay
-**  Copyright (C) 2012  Daniel Pavel <daniel.pavel@gmail.com>
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019      Doug Massay
+**  Copyright (C) 2012      Daniel Pavel <daniel.pavel@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -170,13 +170,13 @@ const QStringList OpenExternally::editorsForResourceType(const Resource::Resourc
         settings.beginGroup(SETTINGS_GROUP);
         const QString editorsKey = QString("editors_") + RESOURCE_TYPE_NAME(type);
         if (settings.contains(editorsKey)) {
-	    QStringList editors = settings.value(editorsKey).toStringList();
-	    foreach(QString editor, editors) {
-  	        const QStringList edata = editor.split(SEP);
-		const QString editor_name = edata[nameField];
-		const QString editor_path = edata[pathField];
-	        if (QFile::exists(editor_path)) editorPaths.append(editor_path);
-	    }
+            QStringList editors = settings.value(editorsKey).toStringList();
+            foreach(QString editor, editors) {
+                const QStringList edata = editor.split(SEP);
+                const QString editor_name = edata[nameField];
+                const QString editor_path = edata[pathField];
+                if (QFile::exists(editor_path)) editorPaths.append(editor_path);
+            }   
         }
     }
     return editorPaths;
@@ -190,16 +190,16 @@ const QStringList OpenExternally::editorDescriptionsForResourceType(const Resour
         settings.beginGroup(SETTINGS_GROUP);
         const QString editorsKey = QString("editors_") + RESOURCE_TYPE_NAME(type);
         if (settings.contains(editorsKey)) {
-	    QStringList editors = settings.value(editorsKey).toStringList();
-	    foreach(QString editor, editors) {
-  	        const QStringList edata = editor.split(SEP);
-		QString editor_name = edata[nameField];
-		const QString editor_path = edata[pathField];
-	        if (QFile::exists(editor_path)) {
-  		    if (editor_name.isEmpty()) editor_name = prettyApplicationName(editor_path);
-		    editorDescriptions.append(editor_name);
-		}
-	    }
+            QStringList editors = settings.value(editorsKey).toStringList();
+            foreach(QString editor, editors) {
+                const QStringList edata = editor.split(SEP);
+                QString editor_name = edata[nameField];
+                const QString editor_path = edata[pathField];
+                if (QFile::exists(editor_path)) {
+                    if (editor_name.isEmpty()) editor_name = prettyApplicationName(editor_path);
+                    editorDescriptions.append(editor_name);
+                }
+            }
         }
     }
     return editorDescriptions;
@@ -230,8 +230,8 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
     QString last_name;
     if (!editors.isEmpty()) {
         QStringList edata = editors[0].split(SEP);
-	last_name = edata[nameField];
-	last_editor = edata[pathField];
+        last_name = edata[nameField];
+        last_editor = edata[pathField];
     }
     if (last_editor.isEmpty() || !QFile::exists(last_editor)) {
         last_editor = LAST_LOCATION;
@@ -263,7 +263,7 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
                                  last_editor,
                                  NAME_FILTER,
                                  0,
-				 options);
+                                 options);
 
     if (!selectedFile.isEmpty()) {
         // Let the user choose a friendly menu name for the application
@@ -277,12 +277,12 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
             editorDescription = prettyName;
         }
         const QString editor_data = editorDescription + SEP + selectedFile;
-	editors.removeOne(editor_data);
-	editors.prepend(editor_data);
-	// limit of 5 editors per resource type
-	while(editors.size() > 5) {
-	    editors.removeLast();
-	}
+        editors.removeOne(editor_data);
+        editors.prepend(editor_data);
+        // limit of 5 editors per resource type
+        while(editors.size() > 5) {
+            editors.removeLast();
+        }
         settings.setValue(editorsKey, editors);
         LAST_LOCATION = selectedFile;
     }

@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2021 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -265,7 +265,7 @@ QString CleanSource::CharToEntity(const QString &source, const QString &version)
     foreach(epair, codenames) {
         QString codename = epair.second.toLower();
         if (NUMERIC_NBSP.contains(codename)) {
-	    has_numeric_nbsp = true;
+            has_numeric_nbsp = true;
         } 
     }
     // now intelligently handle the replacements
@@ -273,14 +273,14 @@ QString CleanSource::CharToEntity(const QString &source, const QString &version)
         QString codename = epair.second.toLower();
         if (version.startsWith("2")) {
             new_source.replace(QChar(epair.first), codename);
-	} else if (version.startsWith("3")) {
-	    // only use numeric entities in epub3
-	    if (codename.startsWith("&#")) { 
+        } else if (version.startsWith("3")) {
+            // only use numeric entities in epub3
+            if (codename.startsWith("&#")) { 
                 new_source.replace(QChar(epair.first), codename);
-	    } else if ((codename == "&nbsp;") && !has_numeric_nbsp) {
+            } else if ((codename == "&nbsp;") && !has_numeric_nbsp) {
                 new_source.replace(QChar(epair.first), "&#160;");
-	    }
-	}
+            }
+        }
     }
     return new_source;
 }

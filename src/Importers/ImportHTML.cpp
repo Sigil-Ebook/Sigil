@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -106,7 +106,7 @@ QSharedPointer<Book> ImportHTML::GetBook(bool extract_metadata)
             HTMLResource * nav_resource = m_Book->CreateEmptyNavFile(true);
             m_Book->GetOPF()->SetNavResource(nav_resource);
             m_Book->GetOPF()->SetItemRefLinear(nav_resource, false);
-	    m_AddedBookPaths << nav_resource->GetRelativePath();
+            m_AddedBookPaths << nav_resource->GetRelativePath();
         }
     }
 
@@ -219,25 +219,25 @@ void ImportHTML::UpdateFiles(HTMLResource *html_resource,
     foreach(QString target, TargetPaths) {
         if (target.indexOf(":") == -1) {
             std::pair<QString, QString> parts = Utility::parseRelativeHREF(target);
-	    QString target_file = hinfo.absolutePath() + "/" + parts.first;
-	    target_file = Utility::resolveRelativeSegmentsInFilePath(target_file, "/");
-	    if (!QFile::exists(target_file)) {
+            QString target_file = hinfo.absolutePath() + "/" + parts.first;
+            target_file = Utility::resolveRelativeSegmentsInFilePath(target_file, "/");
+            if (!QFile::exists(target_file)) {
                 html_updates[target_file] = "";
-	    } else {
-		QString extension = QFileInfo(target_file).suffix();
-	        // do not touch javascript links when importing html
-	        // even when they do exist as we do not import them
-	        if (extension == "js") {
+            } else {
+                QString extension = QFileInfo(target_file).suffix();
+                // do not touch javascript links when importing html
+                // even when they do exist as we do not import them
+                if (extension == "js") {
                     html_updates[target_file] = "";
-	        }
-		// we also do not touch links to *other* xhtml files
-		if ((target_file != currentpath) &&
-		    (extension == "htm" ||
-		     extension == "html" ||
-		     extension == "xhtml")) {
-                    html_updates[target_file] = "";
-		}
-	    }
+                }
+                // we also do not touch links to *other* xhtml files
+                if ((target_file != currentpath) &&
+                    (extension == "htm" ||
+                     extension == "html" ||
+                     extension == "xhtml")) {
+                     html_updates[target_file] = "";
+                }
+            }
         }
     }
     html_resource->SetText(PerformHTMLUpdates(newsource, newbookpath, html_updates, css_updates, currentpath, version)());
@@ -286,7 +286,7 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
             QString existing_book_path = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(filename);
 
             if (m_IgnoreDuplicates && !existing_book_path.isEmpty()) {
-	        newpath = newpath = existing_book_path;
+                newpath = newpath = existing_book_path;
             } else {
                 Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath);
                 newpath = resource->GetRelativePath();
@@ -318,10 +318,10 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_path
             QString filename = QFileInfo(file_path).fileName();
             QString fullfilepath  = QFileInfo(folder, file_path).absoluteFilePath();
             QString newpath;
-	    QString existing_book_path = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(filename);
+            QString existing_book_path = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(filename);
 
             if (m_IgnoreDuplicates && !existing_book_path.isEmpty()) {
-	        newpath = existing_book_path;
+                newpath = existing_book_path;
             } else {
                 Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath);
                 newpath = resource->GetRelativePath();

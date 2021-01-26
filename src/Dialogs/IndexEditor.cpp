@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -300,10 +300,9 @@ void IndexEditor::Open()
     QString filename = QFileDialog::getOpenFileName(this,
                        tr("Load Entries From File"),
                        m_LastFolderOpen,
-		       filter_string, 
-		       NULL,
-                       options
-                                                   );
+                       filter_string, 
+                       NULL,
+                       options);
 
     // Load the file and save the last folder opened
     if (!filename.isEmpty()) {
@@ -342,9 +341,8 @@ void IndexEditor::SaveAs()
                        tr("Save Entries to File"),
                        m_LastFolderOpen,
                        filter_string,
-		       &default_filter,
-                       options
-                                                   );
+                       &default_filter,
+                       options);
 
     if (filename.isEmpty()) {
         return;

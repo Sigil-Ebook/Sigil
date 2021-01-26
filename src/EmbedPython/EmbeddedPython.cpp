@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020  Kevin Hendricks
+**  Copyright (C) 2015-2021  Kevin Hendricks
 **  Copyright (C) 2015       John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -38,30 +38,30 @@
 /**
  * Possibly Useful QMetaTypes::Type types
  *
- * QMetaType::Bool             1	bool
- * QMetaType::Int              2	int
- * QMetaType::UInt             3	unsigned int
- * QMetaType::Double           6	double
- * QMetaType::QChar            7	QChar
- * QMetaType::QString         10	QString
- * QMetaType::QByteArray      12	QByteArray
- * QMetaType::Long            32	long
- * QMetaType::LongLong         4	LongLong
- * QMetaType::Short           33	short
- * QMetaType::Char            34	char
- * QMetaType::ULong           35	unsigned long
- * QMetaType::ULongLong        5	ULongLong
- * QMetaType::UShort          36	unsigned short
- * QMetaType::SChar           40	signed char
- * QMetaType::UChar           37	unsigned char
- * QMetaType::Float           38	float
- * QMetaType::QVariant        41	QVariant
- * QMetaType::QVariantList     9	QVariantList
- * QMetaType::QStringList     11	QStringList
- * QMetaType::QVariantMap      8	QVariantMap
- * QMetaType::QVariantHash    28	QVariantHash
- * QMetaType::User           1024       Base value for User registered Type
- * QMetaType::UnknownType      0	This is an invalid type id. It is returned from QMetaType for types that are not registered
+ * QMetaType::Bool             1    bool
+ * QMetaType::Int              2    int
+ * QMetaType::UInt             3    unsigned int
+ * QMetaType::Double           6    double
+ * QMetaType::QChar            7    QChar
+ * QMetaType::QString         10    QString
+ * QMetaType::QByteArray      12    QByteArray
+ * QMetaType::Long            32    long
+ * QMetaType::LongLong         4    LongLong
+ * QMetaType::Short           33    short
+ * QMetaType::Char            34    char
+ * QMetaType::ULong           35    unsigned long
+ * QMetaType::ULongLong        5    ULongLong
+ * QMetaType::UShort          36    unsigned short
+ * QMetaType::SChar           40    signed char
+ * QMetaType::UChar           37    unsigned char
+ * QMetaType::Float           38    float
+ * QMetaType::QVariant        41    QVariant
+ * QMetaType::QVariantList     9    QVariantList
+ * QMetaType::QStringList     11    QStringList
+ * QMetaType::QVariantMap      8    QVariantMap
+ * QMetaType::QVariantHash    28    QVariantHash
+ * QMetaType::User          1024    Base value for User registered Type
+ * QMetaType::UnknownType      0    This is an invalid type id. It is returned from QMetaType for types that are not registered
  */
 
 

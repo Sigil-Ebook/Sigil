@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020  Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2016-2021  Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2016-2020  Doug Massay
 **  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013  Grant Drake
@@ -146,7 +146,7 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
         icon_theme = "material";
     } else if (ui.Custom->isEnabled() && ui.Custom->isChecked()) {
         icon_theme = "custom";
-    }	
+    }
     settings.setUIIconTheme(icon_theme);
     // Don't try to get the index of a disabled combobox
     if (m_isHighDPIComboEnabled) {
@@ -267,12 +267,12 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     QString icon_theme = settings.uiIconTheme();
     m_currentIconTheme = icon_theme;
     if (ui.Custom->isEnabled()) {
-	ui.Custom->setChecked(icon_theme == "custom");
+        ui.Custom->setChecked(icon_theme == "custom");
     } else {
-	ui.Custom->setChecked(false);
-	if (icon_theme == "custom") {
-	    icon_theme = "main";
-	}
+        ui.Custom->setChecked(false);
+        if (icon_theme == "custom") {
+            icon_theme = "main";
+        }
     }
     ui.Default->setChecked(icon_theme == "main");
     ui.Fluent->setChecked(icon_theme == "fluent");

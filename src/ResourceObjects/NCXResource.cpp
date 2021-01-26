@@ -82,9 +82,9 @@ static const QString TEMPLATE3_TEXT =
 
 
 NCXResource::NCXResource(const QString &mainfolder, 
-			 const QString &fullfilepath, 
-			 const QString & version, 
-			 QObject *parent)
+                         const QString &fullfilepath, 
+                         const QString & version, 
+                         QObject *parent)
     : XMLResource(mainfolder, fullfilepath, parent)
 {
     FillWithDefaultText(version, "OEBPS/Text");

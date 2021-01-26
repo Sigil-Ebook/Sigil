@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2013      Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -367,29 +367,29 @@ void SpellCheckWidget::readSettings()
     foreach(QString dict, dicts) {
         QString name;
         QString fix_dict = dict;
-	fix_dict.replace("_", "-");
-	QStringList parts = fix_dict.split("-");
-	int n = parts.count();
-	if (n == 1) {
+        fix_dict.replace("_", "-");
+        QStringList parts = fix_dict.split("-");
+        int n = parts.count();
+        if (n == 1) {
             name = lang->GetLanguageName(fix_dict);
-	} else {
-	    // try with the first two parts
-	    fix_dict = parts.at(0) + "-" + parts.at(1);
-	    name = lang->GetLanguageName(fix_dict);
-	    if (!name.isEmpty()) {
-	        // append any extra information to end
-	        for(int j=2; j < n; j++) name.append(" - " + parts.at(j)); 
-	    }
-	    if (name.isEmpty()) {
-	        // try with just the first part
-	        name = lang->GetLanguageName(parts.at(0));
-		if (!name.isEmpty()) {
-	            // append any extra information to end
-	            for(int j=1; j < n; j++) name.append(" - " + parts.at(j)); 
-		}
-	    }
-	}
-	if (name.isEmpty()) name = dict;
+        } else {
+            // try with the first two parts
+            fix_dict = parts.at(0) + "-" + parts.at(1);
+            name = lang->GetLanguageName(fix_dict);
+            if (!name.isEmpty()) {
+                // append any extra information to end
+                for(int j=2; j < n; j++) name.append(" - " + parts.at(j)); 
+            }
+            if (name.isEmpty()) {
+                // try with just the first part
+                name = lang->GetLanguageName(parts.at(0));
+                if (!name.isEmpty()) {
+                    // append any extra information to end
+                    for(int j=1; j < n; j++) name.append(" - " + parts.at(j)); 
+                }
+            }
+        }
+        if (name.isEmpty()) name = dict;
         ui.dictionaries->addItem(name, dict);
         ui.dictionaries2d->addItem(name, dict);
     }

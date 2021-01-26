@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -29,7 +29,7 @@
 
 QString PythonRoutines::GenerateNcxInPython(const QString &navdata, const QString &navbkpath, 
                                             const QString &ncxdir, const QString &doctitle, 
-					    const QString &mainid)
+                                            const QString &mainid)
 {
     QString results;
     int rv = -1;
@@ -124,10 +124,10 @@ QString PythonRoutines::SetNewMetadataInPython(const MetadataPieces& mdp, const 
 
 
 QString PythonRoutines::PerformRepoCommitInPython(const QString &localRepo, 
-						  const QString &bookid, 
-						  const QStringList &bookinfo,
-						  const QString &bookroot, 
-						  const QStringList &bookfiles) 
+                                                  const QString &bookid, 
+                                                  const QStringList &bookinfo,
+                                                  const QString &bookroot, 
+                                                  const QStringList &bookfiles) 
 {
     QString results;
     int rv = -1;
@@ -199,10 +199,10 @@ QStringList PythonRoutines::GetRepoTagsInPython(const QString& localRepo, const 
 
 
 QString PythonRoutines::GenerateEpubFromTagInPython(const QString& localRepo,
-				                    const QString& bookid,
-				                    const QString& tagname,
-				                    const QString& filename,
-				                    const QString& destpath)
+                                                    const QString& bookid,
+                                                    const QString& tagname,
+                                                    const QString& filename,
+                                                    const QString& destpath)
 {
     QString results;
     int rv = -1;
@@ -256,7 +256,7 @@ QString PythonRoutines::GenerateDiffFromCheckPoints(const QString& localRepo,
 }
 
 QString PythonRoutines::GenerateRepoLogSummaryInPython(const QString& localRepo,
-						       const QString& bookid)
+                                                       const QString& bookid)
 {
     QString results;
     int rv = -1;
@@ -280,7 +280,7 @@ QString PythonRoutines::GenerateRepoLogSummaryInPython(const QString& localRepo,
 
 
 QList<DiffRecord::DiffRec> PythonRoutines::GenerateParsedNDiffInPython(const QString& path1,
-						                  const QString& path2)
+                                                                       const QString& path2)
 {
     QList<DiffRecord::DiffRec> results;
     int rv = -1;
@@ -297,17 +297,17 @@ QList<DiffRecord::DiffRec> PythonRoutines::GenerateParsedNDiffInPython(const QSt
                                          &rv,
                                          error_traceback);
     if (rv == 0) {
-	QVariantList vlist = res.toList();
-	foreach(QVariant qv, vlist) {
-	    QStringList fields = qv.toStringList();
-	    DiffRecord::DiffRec dr;
-	    dr.code = fields.at(0);
-	    dr.line = fields.at(1);
-	    dr.newline = fields.at(2);
-	    dr.leftchanges = fields.at(3);
-	    dr.rightchanges = fields.at(4);
-	    results << dr;
-	}
+        QVariantList vlist = res.toList();
+        foreach(QVariant qv, vlist) {
+            QStringList fields = qv.toStringList();
+            DiffRecord::DiffRec dr;
+            dr.code = fields.at(0);
+            dr.line = fields.at(1);
+            dr.newline = fields.at(2);
+            dr.leftchanges = fields.at(3);
+            dr.rightchanges = fields.at(4);
+            results << dr;
+        }
     }
     return results;
 }
@@ -339,8 +339,8 @@ QString PythonRoutines::GenerateUnifiedDiffInPython(const QString& path1, const 
 
 // returns 3 string lists: deleted, added, and modified (in that order)
 QList<QStringList> PythonRoutines::GetCurrentStatusVsDestDirInPython(const QString&bookroot,
-						                     const QStringList& bookfiles,
-						                     const QString& destdir)
+                                                                     const QStringList& bookfiles,
+                                                                     const QString& destdir)
 {
     QList<QStringList> results;
     int rv = -1;
@@ -358,19 +358,19 @@ QList<QStringList> PythonRoutines::GetCurrentStatusVsDestDirInPython(const QStri
                                          &rv,
                                          error_traceback);
     if (rv == 0) {
-	QVariantList vlist = res.toList();
-	foreach(QVariant qv, vlist) {
-	    results << qv.toStringList();
-	}
+        QVariantList vlist = res.toList();
+        foreach(QVariant qv, vlist) {
+            results << qv.toStringList();
+        }
     }
     return results;
 }
 
 
 QString PythonRoutines::CopyTagToDestDirInPython(const QString& localRepo,
-				                 const QString& bookid,
-				                 const QString& tagname,
-				                 const QString& destdir)
+                                                 const QString& bookid,
+                                                 const QString& tagname,
+                                                 const QString& destdir)
 {
     QString results;
     int rv = -1;

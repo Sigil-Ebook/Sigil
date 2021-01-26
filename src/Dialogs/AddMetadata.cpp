@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, ON, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -36,7 +36,7 @@ AddMetadata::AddMetadata(const QHash<QString, DescriptiveInfo> &metainfo, QWidge
 {
     ui.setupUi(this);
     connect(ui.lwProperties, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)),
-            this,	          SLOT(UpdateDescription(QListWidgetItem *)));
+            this, SLOT(UpdateDescription(QListWidgetItem *)));
     connect(this, SIGNAL(accepted()), this, SLOT(WriteSettings()));
     connect(ui.lwProperties, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(accept()));
     // Fill the dialog with sorted translated metadata names

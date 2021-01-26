@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2020 Kevin B. Hendricks
+**  Copyright (C) 2019-2021 Kevin B. Hendricks
 **  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
@@ -90,13 +90,13 @@ void ImageView::ShowImage(QString path)
         colorsInfo = QString(" %1bpp (%2 %3)").arg(img.bitPlaneCount()).arg(img.colorCount()).arg(colors_shades);
     }
     QString html = IMAGE_HTML_BASE.arg(imgUrl.toString())
-	                          .arg(img.width())
-                                  .arg(img.height())
-                                  .arg(fsize)
-                                  .arg(grayscale_color)
-                                  .arg(colorsInfo);
+                              .arg(img.width())
+                              .arg(img.height())
+                              .arg(fsize)
+                              .arg(grayscale_color)
+                              .arg(colorsInfo);
     if (Utility::IsDarkMode()) {
-	html = Utility::AddDarkCSS(html);
+        html = Utility::AddDarkCSS(html);
     }
     m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
     m_WebView->setHtml(html, imgUrl);
