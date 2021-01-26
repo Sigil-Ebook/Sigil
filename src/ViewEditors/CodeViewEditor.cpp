@@ -361,7 +361,8 @@ QString CodeViewEditor::SplitSection()
 
     // Abort splitting the section if user is within a tag - MainWindow will display a status message
     if (IsPositionInTag(split_position, text)) {
-        return QString();
+        // exempt the case of cursor |<tag>
+        if (text[split_position]!= '<') return QString();
     }
 
     QRegularExpression body_search(BODY_START, QRegularExpression::CaseInsensitiveOption);
