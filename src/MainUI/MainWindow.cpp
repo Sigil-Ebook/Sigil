@@ -4070,6 +4070,13 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *origina
         return;
     }
 
+    // The test for nav is done in FlowTab::SplitSection via a signal OldTabRequest
+    //  so it need not be repeated.
+    // The xml file test can not be done here as it is already too late for the
+    // originating tab. Since this comes from a FlowTab assume that it is 
+    // an xhtml file even if called .xml to avoid doing damage.
+
+#if 0
     // XXX: This should be using the mime type not the extension.
     if (!TEXT_EXTENSIONS.contains(QFileInfo(originating_resource->Filename()).suffix().toLower())) {
         QMessageBox::warning(this, tr("Sigil"), tr("Cannot split since it may not be an HTML file."));
@@ -4081,6 +4088,7 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *origina
         QMessageBox::warning(this, tr("Sigil"), tr("The Nav file cannot be split."));
         return;
     }
+#endif
 
     HTMLResource *html_resource = m_Book->CreateSectionBreakOriginalResource(content, originating_resource);
     m_BookBrowser->Refresh();
