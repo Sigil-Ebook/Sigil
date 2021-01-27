@@ -2739,15 +2739,14 @@ QString CodeViewEditor::GetClosingTagName(int pos, const QString &text)
     return tag_name;
 }
 
+
+// FIXME: Convert this routine to use TagLister as has been done for most of the similar methods
 void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QString property_name, const QString property_value)
 {
     if (element_name.isEmpty()) {
         return;
     }
 
-    // Emit a selection changed event, so we can make sure the style buttons are updated
-    // to uncheck any style buttons check states.
-    emit selectionChanged();
     // Going to assume that the user is allowed to click anywhere within or just after the block
     // Also makes assumptions about being well formed, or else crazy things may happen...
     if (!textCursor().hasSelection()) {
@@ -2755,6 +2754,11 @@ void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QS
         newcursor.select(QTextCursor::WordUnderCursor);
         setTextCursor(newcursor);
     }
+
+    // Emit a selection changed event, so we can make sure the style buttons are updated
+    // to uncheck any style buttons check states.
+    emit selectionChanged();
+
     int pos = textCursor().selectionStart();
     QString text = toPlainText();
 
@@ -2838,6 +2842,7 @@ void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QS
     }
 }
 
+// FIXME: Convert this routine to use TagLister as has been done for most of the similar methods 
 void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, const int &previous_tag_index, const QString &text)
 {
     // We are inside an existing occurrence. Are we immediately adjacent to it?
@@ -2924,6 +2929,7 @@ void CodeViewEditor::ReplaceTags(const int &opening_tag_start, const int &openin
     setTextCursor(cursor);
 }
 
+// FIXME: Convert this routine to use TagLister as has been done for most of the similar methods 
 CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
 {
     // Look at the current cursor position, and return a struct representing the
@@ -3169,6 +3175,7 @@ void CodeViewEditor::FormatStyle(const QString &property_name, const QString &pr
     // Emit a selection changed event, so we can make sure the style buttons are updated
     // to uncheck any buttons check states.
     emit selectionChanged();
+
     // Going to assume that the user is allowed to click anywhere within or just after the block
     // Also makes assumptions about being well formed, or else crazy things may happen...
     int pos = textCursor().selectionStart();
