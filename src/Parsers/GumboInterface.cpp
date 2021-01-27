@@ -1395,11 +1395,9 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
                 contents.append(indent_space);
                 ltrim(val);
             }
-            if (!keep_whitespace) {
-                if (!is_structural || tagname == "body") {
-                    // okay to condense whitespace
-                    condense_whitespace(val);
-                }
+            if (!keep_whitespace && is_structural) {
+                // okay to condense whitespace
+                condense_whitespace(val);
             }
             contents.append(val);
 
