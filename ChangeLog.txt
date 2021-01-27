@@ -1,8 +1,9 @@
 pre-1.5.0
     Bug Fixes:
       - fix issue with custom ncx names in non-standard empty epub layouts
-      - fix Import TXT to properly add ncx if missing for epub2
+      - fix Import Text to properly add ncx if missing for epub2
       - fix issue with "Delete Unused Styles" not properly detecting all used selectors
+      - fix issues with repeated use of Mend and Prettify on bare text in structural tags
 
     New Features:
       - added "sigil" url scheme and schemehandler to break 2mb limit on single xhtml file size
@@ -12,6 +13,7 @@ pre-1.5.0
       - Reports tool for "CSS Selectors" now lists all CSS selectors not just classes
       - "Delete Unused Styles" tool now handles all unused CSS Selectors not just classes
       - Reports for "CSS Selectors" and "Delete Unused Selectors" now handle selectors in XHTML Style tags
+      - Add ability to load text and csv files to Group Saved Searches to automate lists of replacements
 
 
 Sigil-1.4.3
