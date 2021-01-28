@@ -311,7 +311,7 @@ bool CodeViewEditor::TextIsSelectedAndNotInStartOrEndTag()
     }
 
     QString text = toPlainText();
-    if (IsPositionInTag(textCursor().selectionStart(), text) || IsPositionInTag(textCursor().selectionEnd(), text)) {
+    if (IsPositionInTag(textCursor().selectionStart(), text) || IsPositionInTag(textCursor().selectionEnd()-1, text)) {
         return false;
     }
 
@@ -2768,13 +2768,15 @@ void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QS
         if (!property_name.isEmpty()) {
             FormatCSSStyle(property_name, property_value);
         }
-
         return;
     }
 
     // We might have a selection that begins or ends in a tag < > itself
+    // As with QRegularExpressionMatch End() is the position immediately
+    // after the last char selected (ie. one past)
+    // For example: think of python substring selections
     if (IsPositionInTag(textCursor().selectionStart(), text) ||
-        IsPositionInTag(textCursor().selectionEnd(), text)) {
+        IsPositionInTag(textCursor().selectionEnd()-1, text)) {
         // Not allowed to toggle style if caret placed on a tag
         return;
     }
@@ -3085,7 +3087,7 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
     QList<int> paired_tags;
     while((i >= 0) && (m_TagList.at(i).tname != "body")) {
         ti = m_TagList.at(i);
-        qDebug() << " checking the tag: " << ti.tname << ti.ttype << ti.pos;
+        // qDebug() << " checking the tag: " << ti.tname << ti.ttype << ti.pos;
         if (ti.ttype == "end") {
             if (skip_paired_tags && !BLOCK_LEVEL_TAGS.contains(ti.tname)) {
                 paired_tags << ti.open_pos;
@@ -3111,8 +3113,8 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
     TagLister::AttInfo ainfo;
     TagLister::parseAttribute(opening_tag_text, attribute_name, ainfo);
 
-    qDebug() << " in tag: " << opening_tag_text;
-    qDebug() << " found attribute: " << ainfo.aname << ainfo.avalue << ainfo.pos << ainfo.len;
+    // qDebug() << " in tag: " << opening_tag_text;
+    // qDebug() << " found attribute: " << ainfo.aname << ainfo.avalue << ainfo.pos << ainfo.len;
     // set absolute attribute start and end locations in text
     int attribute_start = ti.pos + ti.len - 1;  // right before the tag '>'
     int attribute_end = attribute_start;
