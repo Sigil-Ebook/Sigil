@@ -1366,6 +1366,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
     bool keep_whitespace        = in_set(preserve_whitespace, tagname);
     bool is_inline              = in_set(nonbreaking_inline, tagname);
     bool is_structural          = in_set(structural_tags, tagname);
+    bool is_other               = in_set(other_text_holders, tagname);
     char c                      = indent_chars.at(0);
     int  n                      = indent_chars.length(); 
     std::string indent_space    = std::string((lvl-1)*n,c);
@@ -1395,7 +1396,8 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
                 contents.append(indent_space);
                 ltrim(val);
             }
-            if (!keep_whitespace && is_structural) {
+            if (!keep_whitespace) {
+                // this includes structural, inline, and other text holders 
                 // okay to condense whitespace
                 condense_whitespace(val);
             }
