@@ -69,6 +69,8 @@ public:
     int findFirstTagOnOrAfter(int pos);
     int findOpenTagForClose(int i);
     int findCloseTagForOpen(int i);
+    int findBodyOpenTag();
+    int findBodyCloseTag();
 
     const QString& getSource();
 
@@ -97,6 +99,8 @@ private:
     QList<TagInfo> m_Tags;
     int            m_bodyStartPos;
     int            m_bodyEndPos;
+    int            m_bodyOpenTag;
+    int            m_bodyCloseTag;
 };
 
 #endif

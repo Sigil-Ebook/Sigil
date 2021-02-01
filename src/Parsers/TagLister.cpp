@@ -31,17 +31,22 @@
 
 // public interface
 
+// Default Constructor
 TagLister::TagLister()
     : m_source(""),
       m_pos(0),
-      m_next(0)
+      m_next(0),
+      m_bodyStartPos(-1),
+      m_bodyEndPos(-1),
+      m_bodyOpenTag(-1),
+      m_bodyCloseTag(-1)
 {
     m_TagPath << "root";
     m_TagPos << -1;
     m_TagLen << 0;
 }
 
-
+// Normal Constructor
 TagLister::TagLister(const QString &source)
     : m_source(source),
       m_pos(0),
@@ -73,16 +78,11 @@ const TagLister::TagInfo& TagLister::at(int i)
     return m_Tags.at(i);
 }
 
-size_t TagLister::size()
-{
-    return m_Tags.size();
-}
+
+size_t TagLister::size() { return m_Tags.size(); }
 
 
-const QString& TagLister::getSource()
-{
-    return m_source;    
-}
+const QString& TagLister::getSource() { return m_source; }
 
 bool TagLister::isPositionInBody(int pos)
 {
@@ -178,6 +178,11 @@ int TagLister::findFirstTagOnOrAfter(int pos)
     }
     return i;
 }
+
+
+int TagLister::findBodyOpenTag() { return m_bodyOpenTag; }
+
+int TagLister::findBodyCloseTag() { return m_bodyOpenTag; }
 
 
 // static
@@ -437,12 +442,22 @@ void TagLister::buildTagList()
         m_Tags.clear();
         m_bodyStartPos = -1;
         m_bodyEndPos = -1;
+        m_bodyOpenTag = -1;
+        m_bodyCloseTag = -1;
+        int i = 0;
         TagLister::TagInfo ti = getNext();
         while(ti.len != -1) {
-            if ((ti.tname == "body") && (ti.ttype == "begin")) m_bodyStartPos = ti.pos + ti.len;
-            if ((ti.tname == "body") && (ti.ttype == "end")) m_bodyEndPos = ti.pos - 1;
+            if ((ti.tname == "body") && (ti.ttype == "begin")) {
+                m_bodyStartPos = ti.pos + ti.len;
+                m_bodyOpenTag = i;
+            }
+            if ((ti.tname == "body") && (ti.ttype == "end")) {
+                m_bodyEndPos = ti.pos - 1;
+                m_bodyCloseTag = i;
+            }
             TagLister::TagInfo temp = ti;
             m_Tags << temp;
+            i++;
             ti = getNext();
         }
         // set stop indicator as last record
@@ -453,5 +468,3 @@ void TagLister::buildTagList()
         temp.open_len = -1;
         m_Tags << temp;
 }
-
-

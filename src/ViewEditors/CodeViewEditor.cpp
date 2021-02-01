@@ -352,21 +352,25 @@ QString CodeViewEditor::StripCodeTags(QString text)
 
 QString CodeViewEditor::SplitSection()
 {
-    QString text = toPlainText();
     int split_position = textCursor().position();
 
+    MaybeRegenerateTagList();
+    QString text = m_TagList.getSource();
+    
     // Abort splitting the section if user is within a tag - MainWindow will display a status message
     if (IsPositionInTag(split_position)) {
         // exempt the case of cursor |<tag>
         if (text[split_position]!= '<') return QString();
     }
 
-    QRegularExpression body_search(BODY_START, QRegularExpression::CaseInsensitiveOption);
-    QRegularExpressionMatch body_search_mo = body_search.match(text);
-    int body_tag_start = body_search_mo.capturedStart();
-    int body_tag_end   = body_tag_start + body_search_mo.capturedLength();
-    QRegularExpression body_end_search(BODY_END, QRegularExpression::CaseInsensitiveOption);
-    int body_contents_end = text.indexOf(body_end_search);
+    // abort if no body tags exist
+    int bo = m_TagList.findBodyOpenTag();
+    int bc = m_TagList.findBodyCloseTag();
+    if (bo == -1 || bc == -1) return QString();
+    
+    int body_tag_start = m_TagList.at(bo).pos;
+    int body_tag_end   = body_tag_start + m_TagList.at(bo).len;
+    int body_contents_end = m_TagList.at(bc).pos;
     QString head = text.left(body_tag_start);
 
     if (split_position < body_tag_end) {
@@ -380,9 +384,14 @@ QString CodeViewEditor::SplitSection()
         }
     }
 
+    const QStringList &opening_tags = GetUnmatchedTagsForBlock(split_position);
+
     const QString &text_segment = split_position != body_tag_end
                                   ? Utility::Substring(body_tag_start, split_position, text)
                                   : QString("<p>&#160;</p>");
+    
+
+    // This splits off from contents of body from top to the split position
     // Remove the text that will be in the new section from the View.
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
@@ -395,35 +404,11 @@ QString CodeViewEditor::SplitSection()
         cursor.insertBlock();
     }
 
-    // There is a scenario which can cause disaster - if our split point is next to
-    // a <br/> tag then parsing may discard all content after the end of the current block.
-    // e.g. If split point is: <br/></p><p>More text</p> then anything after first </p> is lost
-    //      from within AnchorUpdates.cpp when it replaces the resource text by re-serializing.
-    // An additional problem occurs if the user splits inside the last block in the body,
-    // as previous logic would always give you a blank new page without the split off text.
-    // So instead we will identify any open tags for the current caret position, and repeat
+    // We identify any open tags for the current caret position, and repeat
     // those at the caret position to ensure we have valid html 
-    const QStringList &opening_tags = GetUnmatchedTagsForBlock(split_position);
-
     if (!opening_tags.isEmpty()) {
         cursor.insertText(opening_tags.join(""));
     }
-
-    cursor.endEditBlock();
-
-    cursor.beginEditBlock();
-
-    // Prevent current file from having an empty body which
-    // causes Book View to insert text outside the body.
-    text = toPlainText();
-    QRegularExpression empty_body_search("<body>\\s</body>");
-    QRegularExpressionMatch empty_body_search_mo = empty_body_search.match(text);
-    int empty_body_tag_start = empty_body_search_mo.capturedStart();
-    if (empty_body_tag_start != - 1) {
-        int empty_body_tag_end = empty_body_tag_start + QString("<body>").length();
-        cursor.setPosition(empty_body_tag_end);
-        cursor.insertText("\n  <p>&#160;</p>");
-    };
 
     cursor.endEditBlock();
 
@@ -582,6 +567,7 @@ void CodeViewEditor::ReplaceDocumentText(const QString &new_text)
     cursor.removeSelectedText();
     cursor.insertText(new_text);
     cursor.endEditBlock();
+    m_regen_taglist = true; // just in case
 }
 
 
