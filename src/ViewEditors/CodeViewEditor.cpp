@@ -2797,7 +2797,8 @@ void CodeViewEditor::ReplaceTags(const int &opening_tag_start, const int &openin
     setTextCursor(cursor);
 }
 
-// FIXME: Convert this routine to use TagLister as has been done for most of the similar methods 
+
+
 CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
 {
     // Look at the current cursor position, and return a struct representing the
@@ -2805,66 +2806,58 @@ CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
     // If caret not on a style name, returns the first style class name.
     // If no style class specified, only the element tag name will be populated.
     CodeViewEditor::StyleTagElement element;
-    QString text = toPlainText();
-    int pos = textCursor().selectionStart() - 1;
-    int tag_name_index = -1;
-    int tag_name_search_len = 0;
-    QString tag_name_search_cap1;
-    QRegularExpression tag_name_search(TAG_NAME_SEARCH);
-    QRegularExpressionMatchIterator i = tag_name_search.globalMatch(text);
-    while (i.hasNext()) {
-        QRegularExpressionMatch mo = i.next();
-        int start = mo.capturedStart();
-        if (start > pos) {
-            break;
-        }
-        tag_name_index = start;
-        tag_name_search_len = mo.capturedLength();
-        tag_name_search_cap1 = mo.captured(1);
+    MaybeRegenerateTagList();
+
+    int pos = textCursor().selectionStart();
+
+    if (!IsPositionInOpeningTag(pos)) return element;
+    
+    QString text = m_TagList.getSource();
+    
+    int i = m_TagList.findLastTagOnOrBefore(pos);
+    TagLister::TagInfo ti = m_TagList.at(i);
+    QStringRef tagstring(&text, ti.pos, ti.len);
+    element.name = ti.tname;
+
+    TagLister::AttInfo attr;
+    TagLister::parseAttribute(tagstring, "class", attr);
+    if (attr.pos < 0) {
+        return element;
     }
 
-    if (tag_name_index >= 0) {
-        element.name = tag_name_search_cap1;
-        int closing_tag_index = text.indexOf(QChar('>'), tag_name_index + tag_name_search_len);
-        text = text.left(closing_tag_index);
-        QRegularExpression style_names_search("\\s+class\\s*=\\s*\"([^\"]+)\"");
-        QRegularExpressionMatch style_names_search_mo = style_names_search.match(text, tag_name_index + tag_name_search_len);
-        int style_names_index = style_names_search_mo.capturedStart();
-
-        if (style_names_index >= 0) {
-            // We have one or more styles. Figure out which one the cursor is in if any.
-            QString style_names_text = style_names_search_mo.captured(1);
-            int styles_end_index = style_names_index + style_names_search_mo.capturedLength() - 1;
-            int styles_start_index = text.indexOf(style_names_text, style_names_index);
-
-            if ((pos >= styles_start_index) && (pos < styles_end_index)) {
-                // Get the name under the cursor.
-                QString style_name = QString();
-
-                while (pos > 0 && text[pos] != QChar('"') && text[pos] != QChar(' ')) {
-                    pos--;
-                }
-
-                pos++;
-
-                while (text[pos] != QChar('"') && text[pos] != QChar(' ')) {
-                    style_name.append(text[pos]);
-                    pos++;
-                }
-
-                element.classStyle = style_name;
-            }
-
-            if (element.classStyle.isEmpty()) {
-                // User has clicked outside of the style class names or somewhere strange - default to the first name.
-                QStringList style_names = style_names_text.trimmed().split(' ');
-                element.classStyle = style_names[0];
-            }
-        }
+    QString avalue = attr.avalue.trimmed();
+    QStringList vals = avalue.split(' ');
+    if (vals.length() == 1) {
+        //just one class value provided use it
+        element.classStyle = avalue;
+        return element;
+    }
+    
+    // multiple values present, see if the original cursor as in one of them
+    // if so use that one, if not return the first
+    int vstart = ti.pos + attr.vpos;
+    if (pos < vstart || (pos  >= vstart + attr.vlen )) {
+        element.classStyle = vals[0];
+        return element;
     }
 
+    // cursor is someplace inside the class value area and multiple values present
+    int offset = pos - vstart;
+    avalue = attr.avalue; // untrimmed so it matches vpos and vlen
+    int k = 0;
+    int p = avalue.indexOf(' ', 0);
+    while ((p > 0) && p < offset) {
+        k++;
+        p = avalue.indexOf(' ', p+1);
+    }
+    if (i >= 0 && k < vals.size()) {
+        element.classStyle = vals[k];
+    } else {
+        element.classStyle = vals[0];
+    }    
     return element;
 }
+
 
 QString CodeViewEditor::GetAttributeId()
 {

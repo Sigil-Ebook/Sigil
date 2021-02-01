@@ -45,6 +45,8 @@ public:
     struct AttInfo {
         int     pos;      // position of attribute relative to tag start
         int     len;      // length of attribute in tag
+        int     vpos;     // position of attribute value relative to tag start
+        int     vlen;     // length of attribute value
         QString aname;    // attribute name
         QString avalue;   // attribute value
     };

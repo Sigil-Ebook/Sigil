@@ -203,6 +203,8 @@ void TagLister::parseAttribute(const QStringRef &tagstring, const QString &attri
 
     ainfo.pos = -1;
     ainfo.len = -1;
+    ainfo.vpos = -1;
+    ainfo.vlen = -1;
     ainfo.aname = QString();
     ainfo.avalue = QString();
 
@@ -238,6 +240,8 @@ void TagLister::parseAttribute(const QStringRef &tagstring, const QString &attri
             if (aname == attribute_name) {
                 ainfo.avalue = avalue;
                 ainfo.len = p - s + 1;
+                ainfo.vpos = b;
+                ainfo.vlen = p - b;
             }
             p++;
         } else {
@@ -247,6 +251,8 @@ void TagLister::parseAttribute(const QStringRef &tagstring, const QString &attri
             if (aname == attribute_name) {
                 ainfo.avalue = avalue;
                 ainfo.len = p - s;
+                ainfo.vpos = b;
+                ainfo.vlen = p - b;
             }
         }
     }
