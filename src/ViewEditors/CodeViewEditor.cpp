@@ -2641,7 +2641,6 @@ QString CodeViewEditor::GetClosingTagName(int pos)
 }
 
 
-// FIXME: Convert this routine to use TagLister as has been done for most of the similar methods
 void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QString property_name, const QString property_value)
 {
     if (element_name.isEmpty()) {
@@ -2662,6 +2661,8 @@ void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QS
 
     int pos = textCursor().selectionStart();
 
+    MaybeRegenerateTagList();
+
     if (!IsPositionInBody(pos)) {
         // We are in an HTML file outside the body element. We might possibly be in an
         // inline CSS style so attempt to format that.
@@ -2671,74 +2672,40 @@ void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QS
         return;
     }
 
-    // We might have a selection that begins or ends in a tag < > itself
-    // As with QRegularExpressionMatch End() is the position immediately
-    // after the last char selected (ie. one past)
-    // For example: think of python substring selections
     if (IsPositionInTag(textCursor().selectionStart()) ||
         IsPositionInTag(textCursor().selectionEnd()-1)) {
         // Not allowed to toggle style if caret placed on a tag
         return;
     }
 
-    QString text = toPlainText();
-    QString tag_name;
-    QRegularExpression tag_search(NEXT_TAG_LOCATION);
-    QRegularExpression tag_name_search(TAG_NAME_SEARCH);
+
+    QString text = m_TagList.getSource();
     bool in_existing_tag_occurrence = false;
-    int previous_tag_index = -1;
-    pos--;
 
     // Look backwards from the current selection to find whether we are in an open occurrence
     // of this tag already within this block.
-    while (true) {
-        previous_tag_index = text.lastIndexOf(tag_search, pos);
-
-        if (previous_tag_index < 0) {
-            return;
-        }
-
-        // We found a tag. It could be opening or closing.
-        QRegularExpressionMatch mo = tag_name_search.match(text, previous_tag_index);
-        int tag_name_index = mo.capturedStart();
-
-        if (tag_name_index < 0) {
-            pos = previous_tag_index - 1;
-            continue;
-        }
-
-        tag_name = mo.captured(1).toLower();
-        // Isolate whether it was opening or closing tag.
-        bool is_closing_tag = false;
-
-        if (tag_name.startsWith('/')) {
-            is_closing_tag = true;
-            tag_name = tag_name.right(tag_name.length() - 1);
-        }
-
-        // Is this tag the element we are looking for?
-        if (element_name == tag_name) {
-            if (!is_closing_tag) {
-                in_existing_tag_occurrence = true;
-            }
-
+    int i = m_TagList.findLastTagOnOrBefore(pos);
+    
+    TagLister::TagInfo ti;
+    while (i >= 0) {
+        ti = m_TagList.at(i);
+        if (ti.len == -1) return;
+        
+        if (element_name == ti.tname) {
+            if (ti.ttype != "end") in_existing_tag_occurrence = true;
             break;
-        } else {
-            // Is this a block level tag?
-            if (BLOCK_LEVEL_TAGS.contains(tag_name)) {
-                // No point in searching any further - we reached the block parent
-                // without finding an open occurrence of this tag.
-                break;
-            } else {
-                // Not a tag of interest - keep searching.
-                pos = previous_tag_index - 1;
-                continue;
-            }
+        } else if (BLOCK_LEVEL_TAGS.contains(ti.tname)) {
+            // No point in searching any further - we reached the block parent
+            // without finding an open occurrence of this tag.
+            break;
         }
+        // Not a tag of interest - keep searching.
+        i--;
     }
+    if (i < 0) return;
 
     if (in_existing_tag_occurrence) {
-        FormatSelectionWithinElement(element_name, previous_tag_index, text);
+        FormatSelectionWithinElement(element_name, ti.pos, text);
     } else {
         // Otherwise assume we are in a safe place to add a wrapper tag.
         InsertHTMLTagAroundSelection(element_name, "/" % element_name);
