@@ -103,9 +103,7 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     m_MarkedTextStart(-1),
     m_MarkedTextEnd(-1),
     m_ReplacingInMarkedText(false),
-    m_regen_taglist(true),
-    m_body_start_pos(-1),
-    m_body_end_pos(-1)
+    m_regen_taglist(true)
 {
     if (high_type == CodeViewEditor::Highlight_XHTML) {
         m_Highlighter = new XHTMLHighlighter(check_spelling, this);
@@ -310,8 +308,7 @@ bool CodeViewEditor::TextIsSelectedAndNotInStartOrEndTag()
         return false;
     }
 
-    QString text = toPlainText();
-    if (IsPositionInTag(textCursor().selectionStart(), text) || IsPositionInTag(textCursor().selectionEnd()-1, text)) {
+    if (IsPositionInTag(textCursor().selectionStart()) || IsPositionInTag(textCursor().selectionEnd()-1)) {
         return false;
     }
 
@@ -325,8 +322,7 @@ bool CodeViewEditor::IsCutCodeTagsAllowed()
 
 bool CodeViewEditor::IsInsertClosingTagAllowed()
 {
-    QString text = toPlainText();
-    return !IsPositionInTag(textCursor().selectionStart(), text);
+    return !IsPositionInTag(textCursor().selectionStart());
 }
 
 QString CodeViewEditor::StripCodeTags(QString text)
@@ -360,7 +356,7 @@ QString CodeViewEditor::SplitSection()
     int split_position = textCursor().position();
 
     // Abort splitting the section if user is within a tag - MainWindow will display a status message
-    if (IsPositionInTag(split_position, text)) {
+    if (IsPositionInTag(split_position)) {
         // exempt the case of cursor |<tag>
         if (text[split_position]!= '<') return QString();
     }
@@ -407,7 +403,7 @@ QString CodeViewEditor::SplitSection()
     // as previous logic would always give you a blank new page without the split off text.
     // So instead we will identify any open tags for the current caret position, and repeat
     // those at the caret position to ensure we have valid html 
-    const QStringList &opening_tags = GetUnmatchedTagsForBlock(split_position, text);
+    const QStringList &opening_tags = GetUnmatchedTagsForBlock(split_position);
 
     if (!opening_tags.isEmpty()) {
         cursor.insertText(opening_tags.join(""));
@@ -452,8 +448,7 @@ void CodeViewEditor::InsertClosingTag()
     }
 
     int pos = textCursor().position(); // was -1 but that is not right
-    QString text = toPlainText();
-    const QStringList unmatched_tags = GetUnmatchedTagsForBlock(pos, text);
+    const QStringList unmatched_tags = GetUnmatchedTagsForBlock(pos);
 
     if (unmatched_tags.isEmpty()) {
         emit ShowStatusMessageRequest(tr("No open tags found at this position."));
@@ -1552,7 +1547,6 @@ void CodeViewEditor::SaveClipAction()
 
 bool CodeViewEditor::InViewableImage()
 {
-    QString text = toPlainText();
     QString url_name = GetAttribute("src", SRC_TAGS, true);
 
     if (url_name.isEmpty()) {
@@ -1565,7 +1559,6 @@ bool CodeViewEditor::InViewableImage()
 
 void CodeViewEditor::OpenImageAction()
 {
-    QString text = toPlainText();
     QString url_name = GetAttribute("src", SRC_TAGS, true);
 
     if (url_name.isEmpty()) {
@@ -1583,7 +1576,6 @@ void CodeViewEditor::GoToLinkOrStyleAction()
 
 void CodeViewEditor::GoToLinkOrStyle()
 {
-    QString text = toPlainText();
     QString url_name = GetAttribute("href", ANCHOR_TAGS, true);
 
     if (url_name.isEmpty()) {
@@ -1604,7 +1596,7 @@ void CodeViewEditor::GoToLinkOrStyle()
         } else {
             emit LinkClicked(QUrl(url_name));
         }
-    } else if (IsPositionInOpeningTag(textCursor().selectionStart(), text)) {
+    } else if (IsPositionInOpeningTag(textCursor().selectionStart())) {
         GoToStyleDefinition();
     } else {
         emit ShowStatusMessageRequest(tr("You must be in an opening HTML tag to use this feature."));
@@ -1709,21 +1701,20 @@ bool CodeViewEditor::IsAddToIndexAllowed()
 bool CodeViewEditor::IsInsertIdAllowed()
 {
     int pos = textCursor().selectionStart();
-    QString text = toPlainText();
 
-    if (!IsPositionInBody(pos, text)) {
+    if (!IsPositionInBody(pos)) {
         return false;
     }
 
     // Only allow if the closing tag we're in is an "a" tag
-    QString closing_tag_name = GetClosingTagName(pos, text);
+    QString closing_tag_name = GetClosingTagName(pos);
 
     if (!closing_tag_name.isEmpty() && !ANCHOR_TAGS.contains(closing_tag_name)) {
         return false;
     }
 
     // Only allow if the opening tag we're in is valid for id attribute
-    QString tag_name = GetOpeningTagName(pos, text);
+    QString tag_name = GetOpeningTagName(pos);
 
     if (!tag_name.isEmpty() && !ID_TAGS.contains(tag_name)) {
         return false;
@@ -1735,21 +1726,20 @@ bool CodeViewEditor::IsInsertIdAllowed()
 bool CodeViewEditor::IsInsertHyperlinkAllowed()
 {
     int pos = textCursor().selectionStart();
-    QString text = toPlainText();
 
-    if (!IsPositionInBody(pos, text)) {
+    if (!IsPositionInBody(pos)) {
         return false;
     }
 
     // Only allow if the closing tag we're in is an "a" tag
-    QString closing_tag_name = GetClosingTagName(pos, text);
+    QString closing_tag_name = GetClosingTagName(pos);
 
     if (!closing_tag_name.isEmpty() && !ANCHOR_TAGS.contains(closing_tag_name)) {
         return false;
     }
 
     // Only allow if the opening tag we're in is an "a" tag
-    QString tag_name = GetOpeningTagName(pos, text);
+    QString tag_name = GetOpeningTagName(pos);
 
     if (!tag_name.isEmpty() && !ANCHOR_TAGS.contains(tag_name)) {
         return false;
@@ -1761,20 +1751,18 @@ bool CodeViewEditor::IsInsertHyperlinkAllowed()
 bool CodeViewEditor::IsInsertFileAllowed()
 {
     int pos = textCursor().selectionStart();
-    QString text = toPlainText();
-    return IsPositionInBody(pos, text) && !IsPositionInTag(pos, text);
+    return IsPositionInBody(pos) && !IsPositionInTag(pos);
 }
 
 bool CodeViewEditor::InsertId(const QString &attribute_value)
 {
     int pos = textCursor().selectionStart();
-    QString text = toPlainText();
     const QString &element_name = "a";
     const QString &attribute_name = "id";
     // If we're in an "a" tag we can update the id even if not in the opening tag
     QStringList tag_list = ID_TAGS;
 
-    if (GetOpeningTagName(pos, text).isEmpty()) {
+    if (GetOpeningTagName(pos).isEmpty()) {
         tag_list = ANCHOR_TAGS;
     }
 
@@ -1810,8 +1798,7 @@ bool CodeViewEditor::InsertTagAttribute(const QString &element_name,
     }
 
     // If nothing was inserted, then just insert a new tag with no text as long as we aren't in a tag
-    QString text = toPlainText();
-    if (!textCursor().hasSelection() && !IsPositionInTag(textCursor().position(), text )) {
+    if (!textCursor().hasSelection() && !IsPositionInTag(textCursor().position())) {
         InsertHTMLTagAroundText(element_name, "/" % element_name, attribute_name % "=\"" % attribute_value % "\"", "");
         inserted = true;
     } else if (TextIsSelectedAndNotInStartOrEndTag()) {
@@ -1946,26 +1933,11 @@ void CodeViewEditor::UpdateLineNumberArea(const QRect &area_to_update, int verti
 }
 
 
-void CodeViewEditor::MaybeRegenerateTagList(const QString &doctext)
+void CodeViewEditor::MaybeRegenerateTagList()
 {
     if (m_regen_taglist) {
         // qDebug() << "regenerating tag list";
-        TagLister lister(doctext);
-        m_TagList.clear();
-        m_body_start_pos = -1;
-        m_body_end_pos = -1;
-        TagLister::TagInfo ti;
-        ti = lister.get_next();
-        while(ti.len != -1) {
-            m_TagList << ti;
-            if ((ti.tname == "body") && (ti.ttype == "begin")) m_body_start_pos = ti.pos + ti.len;
-            if ((ti.tname == "body") && (ti.ttype == "end")) m_body_end_pos = ti.pos - 1;
-            ti = lister.get_next();
-        }
-        // set stop indicator as last record
-        ti.pos = -1;
-        ti.len = -1;
-        m_TagList << ti;
+        m_TagList.reloadLister(toPlainText());
         m_regen_taglist = false;
     }
 }
@@ -2012,43 +1984,35 @@ void CodeViewEditor::HighlightCurrentLine(bool highlight_tags)
         if ((pb > text.lastIndexOf('>', pos-1)) && (ne >= pos) && (nb > ne)) {
 
             // if text has changed since last time regenerate the tag list
-            MaybeRegenerateTagList(text);
+            MaybeRegenerateTagList();
 
             // in a tag
             int open_tag_pos = -1;
             int open_tag_len = -1;
             int close_tag_pos = -1;
             int close_tag_len = -1;
-            int i = 0;
+            int i = m_TagList.findFirstTagOnOrAfter(pos);
             TagLister::TagInfo ti = m_TagList.at(i);
-            while((ti.pos + ti.len < pos) && (ti.len != -1)) {
-                i++;
-                ti = m_TagList.at(i);
-            }
             if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
                 if(ti.ttype == "end") {
                     open_tag_pos = ti.open_pos;
                     open_tag_len = ti.open_len;
                     close_tag_pos = ti.pos;
                     close_tag_len = ti.len;
-                } else {
+                } else { // single or begin 
                     open_tag_pos = ti.pos;
                     open_tag_len = ti.len;
                 }
                 if (ti.ttype == "begin") {
-                    // need to search ahead for the close tag
                     open_tag_pos = ti.pos;
                     open_tag_len = ti.len;
-                    i++;
-                    ti = m_TagList.at(i);
-                    while((ti.len != -1) && (ti.open_pos != open_tag_pos)) {
-                        i++;
-                        ti = m_TagList.at(i);
+                    int j = m_TagList.findCloseTagForOpen(i);
+                    if (j >= 0) {
+                        if (m_TagList.at(j).len != -1) {
+                            close_tag_pos = m_TagList.at(j).pos;
+                            close_tag_len = m_TagList.at(j).len;
+                        }
                     }
-                    if (ti.len != -1) {
-                        close_tag_pos = ti.pos;
-                        close_tag_len = ti.len;
-                    } 
                 }
             }
             if (open_tag_len != -1) {
@@ -2534,22 +2498,16 @@ void CodeViewEditor::FormatBlock(const QString &element_name, bool preserve_attr
     // Going to assume that the user is allowed to click anywhere within or just after the block
     // Also makes assumptions about being well formed, or else crazy things may happen...
     int pos = textCursor().selectionStart();
-    QString text = toPlainText();
+    MaybeRegenerateTagList();
+    QString text = m_TagList.getSource();
 
-    MaybeRegenerateTagList(text);
 
-    if (!IsPositionInBody(pos, text)) return;
+    if (!IsPositionInBody(pos)) return;
 
     // find that tag that starts immediately **after** pos and then
     // then use its predecessor when working backwards
-    int i = 0;
+    int i = m_TagList.findLastTagOnOrBefore(pos);
     TagLister::TagInfo ti = m_TagList.at(i);
-    while((ti.pos <= pos) && (ti.len != -1)) {
-      i++;
-      ti = m_TagList.at(i);
-    }
-    i--;
-
     while(i >= 0) {
         ti = m_TagList.at(i);
 
@@ -2647,92 +2605,49 @@ void CodeViewEditor::InsertHTMLTagAroundSelection(const QString &left_element_na
     setTextCursor(cursor);
 }
 
-// text must always be current text contents of CV
-bool CodeViewEditor::IsPositionInBody(int pos, const QString &text)
+bool CodeViewEditor::IsPositionInBody(int pos)
 {
-    MaybeRegenerateTagList(text);
-    if ((pos < m_body_start_pos) || (pos > m_body_end_pos)) {
-        return false;
-    }
-    return true;
+    MaybeRegenerateTagList();
+    return m_TagList.isPositionInBody(pos);
 }
 
-// text must always be current text contents of CV
-bool CodeViewEditor::IsPositionInTag(int pos, const QString &text)
+bool CodeViewEditor::IsPositionInTag(int pos)
 {
-    MaybeRegenerateTagList(text);
-    int i = 0;
-    TagLister::TagInfo ti = m_TagList.at(i);
-    while((ti.pos + ti.len < pos) && (ti.len != -1)) {
-        i++;
-        ti = m_TagList.at(i);
-    }
-    if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
-        return true;
-    }
-    return false;
+    MaybeRegenerateTagList();
+    return m_TagList.isPositionInTag(pos);
 }
 
-// text must always be current text contents of CV
 // OpeningTag is can be a begin tag or a single tag
-bool CodeViewEditor::IsPositionInOpeningTag(int pos, const QString &text)
+bool CodeViewEditor::IsPositionInOpeningTag(int pos)
 {
-    MaybeRegenerateTagList(text);
-    int i = 0;
-    TagLister::TagInfo ti = m_TagList.at(i);
-    while((ti.pos + ti.len < pos) && (ti.len != -1)) {
-        i++;
-        ti = m_TagList.at(i);
-    }
-    if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
-        if ((ti.ttype == "begin") || (ti.ttype == "single")) return true;
-    }
-    return false;
+    MaybeRegenerateTagList();
+    return m_TagList.isPositionInOpenTag(pos);
 }
 
-// text must always be current text contents of CV
-bool CodeViewEditor::IsPositionInClosingTag(int pos, const QString &text)
+bool CodeViewEditor::IsPositionInClosingTag(int pos)
 {
-    MaybeRegenerateTagList(text);
-    int i = 0;
-    TagLister::TagInfo ti = m_TagList.at(i);
-    while((ti.pos + ti.len < pos) && (ti.len != -1)) {
-        i++;
-        ti = m_TagList.at(i);
-    }
-    if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
-        if (ti.ttype == "end") return true;
-    }
-    return false;
+    MaybeRegenerateTagList();
+    return m_TagList.isPositionInCloseTag(pos);
 }
 
-QString CodeViewEditor::GetOpeningTagName(int pos, const QString &text)
+QString CodeViewEditor::GetOpeningTagName(int pos)
 {
     QString tag_name;
-
-    MaybeRegenerateTagList(text);
-    int i = 0;
+    MaybeRegenerateTagList();
+    int i = m_TagList.findFirstTagOnOrAfter(pos);
     TagLister::TagInfo ti = m_TagList.at(i);
-    while((ti.pos + ti.len < pos) && (ti.len != -1)) {
-        i++;
-        ti = m_TagList.at(i);
-    }
     if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
         if ((ti.ttype == "begin") || (ti.ttype == "single")) tag_name = ti.tname.toLower();
     }
     return tag_name;
 }
 
-QString CodeViewEditor::GetClosingTagName(int pos, const QString &text)
+QString CodeViewEditor::GetClosingTagName(int pos)
 {
     QString tag_name;
-    MaybeRegenerateTagList(text);
-    int i = 0;
+    MaybeRegenerateTagList();
+    int i = m_TagList.findFirstTagOnOrAfter(pos);
     TagLister::TagInfo ti = m_TagList.at(i);
-    while((ti.pos + ti.len < pos) && (ti.len != -1)) {
-        i++;
-        ti = m_TagList.at(i);
-    }
     if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
         if (ti.ttype == "end") tag_name = ti.tname.toLower();
     }
@@ -2760,9 +2675,8 @@ void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QS
     emit selectionChanged();
 
     int pos = textCursor().selectionStart();
-    QString text = toPlainText();
 
-    if (!IsPositionInBody(pos, text)) {
+    if (!IsPositionInBody(pos)) {
         // We are in an HTML file outside the body element. We might possibly be in an
         // inline CSS style so attempt to format that.
         if (!property_name.isEmpty()) {
@@ -2775,12 +2689,13 @@ void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QS
     // As with QRegularExpressionMatch End() is the position immediately
     // after the last char selected (ie. one past)
     // For example: think of python substring selections
-    if (IsPositionInTag(textCursor().selectionStart(), text) ||
-        IsPositionInTag(textCursor().selectionEnd()-1, text)) {
+    if (IsPositionInTag(textCursor().selectionStart()) ||
+        IsPositionInTag(textCursor().selectionEnd()-1)) {
         // Not allowed to toggle style if caret placed on a tag
         return;
     }
 
+    QString text = toPlainText();
     QString tag_name;
     QRegularExpression tag_search(NEXT_TAG_LOCATION);
     QRegularExpression tag_name_search(TAG_NAME_SEARCH);
@@ -3003,8 +2918,7 @@ CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
 QString CodeViewEditor::GetAttributeId()
 {
     int pos = textCursor().selectionStart();
-    QString text = toPlainText();
-    QString tag_name = GetOpeningTagName(pos, text);
+    QString tag_name = GetOpeningTagName(pos);
     // If we're in an opening tag use it for the id, else use a
     QStringList tag_list = ID_TAGS;
 
@@ -3057,17 +2971,18 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
     // one character to the left of the first <.
     int pos = textCursor().selectionStart();
     int original_position = textCursor().position();
-    QString text = toPlainText();
+    
+    MaybeRegenerateTagList();
+    QString text = m_TagList.getSource();
 
     // The old implementation did not properly handle pi, multi-line comments, cdata
     // nor attribute values delimited by single quotes
 
-    MaybeRegenerateTagList(text);
 
-    if (!IsPositionInBody(pos, text)) return QString();
+    if (!IsPositionInBody(pos)) return QString();
 
     // If we're in a closing tag, move to the text between tags to make parsing easier.
-    if (IsPositionInClosingTag(pos, text)) {
+    if (IsPositionInClosingTag(pos)) {
         while (pos > 0 && text[pos] != QChar('<')) {
             pos--;
         }
@@ -3075,15 +2990,8 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
     if (pos < 0) return QString();
 
     // now find the tag that starts immediately *after* position pos
-    int i = 0;
+    int i = m_TagList.findLastTagOnOrBefore(pos);
     TagLister::TagInfo ti = m_TagList.at(i);
-    while((ti.pos <= pos) && (ti.len != -1)) {
-        i++;
-        ti = m_TagList.at(i);
-    }
-    // start looking for tag in taglist starting at i-1
-    i--;
-
     QList<int> paired_tags;
     while((i >= 0) && (m_TagList.at(i).tname != "body")) {
         ti = m_TagList.at(i);
@@ -3160,8 +3068,7 @@ void CodeViewEditor::FormatTextDir(const QString &attribute_value)
     // Going to assume that the user is allowed to click anywhere within or just after the block
     // Also makes assumptions about being well formed, or else crazy things may happen...
     int pos = textCursor().selectionStart();
-    QString text = toPlainText();
-    if (!IsPositionInBody(pos, text)) {
+    if (!IsPositionInBody(pos)) {
         return;
     }
     // Apply the modified attribute.
@@ -3181,9 +3088,8 @@ void CodeViewEditor::FormatStyle(const QString &property_name, const QString &pr
     // Going to assume that the user is allowed to click anywhere within or just after the block
     // Also makes assumptions about being well formed, or else crazy things may happen...
     int pos = textCursor().selectionStart();
-    QString text = toPlainText();
 
-    if (!IsPositionInBody(pos, text)) {
+    if (!IsPositionInBody(pos)) {
         // Either we are in a CSS file, or we are in an HTML file outside the body element.
         // Treat both these cases as trying to find a CSS style on the current line
         FormatCSSStyle(property_name, property_value);
@@ -3367,13 +3273,13 @@ void CodeViewEditor::ReformatHTML(bool all, bool to_valid)
         }
 
         if (original_text != new_text) {
-        StoreCaretLocationUpdate(GetCaretLocation());
+            StoreCaretLocationUpdate(GetCaretLocation());
             QTextCursor cursor = textCursor();
             cursor.beginEditBlock();
             cursor.select(QTextCursor::Document);
             cursor.insertText(new_text);
             cursor.endEditBlock();
-        ExecuteCaretUpdate();
+            ExecuteCaretUpdate();
         }
     }
 }
@@ -3573,7 +3479,7 @@ void CodeViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
     setTextCursor(cursor);
 }
 
-QStringList CodeViewEditor::GetUnmatchedTagsForBlock(int pos, const QString &text)
+QStringList CodeViewEditor::GetUnmatchedTagsForBlock(int pos)
 {
     // Given the specified position within the text, keep looking backwards finding
     // any tags until we hit all open block tags within the body. Append all the opening tags
@@ -3581,21 +3487,14 @@ QStringList CodeViewEditor::GetUnmatchedTagsForBlock(int pos, const QString &tex
     // and return the opening tags list complete with their attributes contiguously.
     QStringList opening_tags;
     QList<int> paired_tags;
-    MaybeRegenerateTagList(text);
-    int i = 0;
-    TagLister::TagInfo ti = m_TagList.at(i);
-    // skip over tags ending earlier including immediately before pos
-    // ie when (ti.pos + ti.len == pos) it looks like: <tag>| where "|" is the cursor 
-    while((ti.pos + ti.len <= pos) && (ti.len != -1)) {
-        i++;
-        ti = m_TagList.at(i);
-    }
-    // taginfo i comes after pos
+    MaybeRegenerateTagList();
+    QString text = m_TagList.getSource();
+    int i = m_TagList.findFirstTagOnOrAfter(pos);
     // so start looking for unmatched tags starting at i - 1
     i--;
     if (i < 0) return opening_tags;
     while((i >= 0) && (m_TagList.at(i).tname != "body")) {
-        ti = m_TagList.at(i);
+        TagLister::TagInfo ti = m_TagList.at(i);
         if (ti.ttype == "end") {
             paired_tags << ti.open_pos;
         } else if (ti.ttype == "begin") {
