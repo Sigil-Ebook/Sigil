@@ -50,27 +50,53 @@ public:
     };
 
 
+    TagLister();
+    
     TagLister(const QString &source);
     ~TagLister() {};
-    void reload_lister(const QString &source);
-    TagInfo get_next();
+
+    void reloadLister(const QString &source);
+
+    const TagInfo& at(int i);
+    size_t size();
+
+    bool isPositionInBody(int pos);
+    bool isPositionInTag(int pos);
+    bool isPositionInOpenTag(int pos);
+    bool isPositionInCloseTag(int pos);
+
+    int findLastTagOnOrBefore(int pos);
+    int findFirstTagOnOrAfter(int pos);
+    int findOpenTagForClose(int i);
+    int findCloseTagForOpen(int i);
+
+    const QString& getSource();
+
     static void parseAttribute(const QStringRef &tagstring, const QString &attribute_name, AttInfo& ainfo);
     static QString serializeAttribute(const QString &aname, const QString &avalue);
     static QString extractAllAttributes(const QStringRef &tagstring);
     
 private:
+    TagInfo getNext();
+    void  buildTagList();
+
     QStringRef parseML();
+
     void parseTag(const QStringRef &tagstring, TagInfo &mi);
+
     int findTarget(const QString &tgt, int p, bool after=false);
     static int skipAnyBlanks(const QStringRef &segment, int p);
     static int stopWhenContains(const QStringRef &segment, const QString& stopchars, int p);
     
-    QString      m_source;
-    int          m_pos;
-    int          m_next;
-    QStringList  m_TagPath;
-    QList<int>   m_TagPos;
-    QList<int>   m_TagLen;
+    QString        m_source;
+    int            m_pos;
+    int            m_next;
+    QStringList    m_TagPath;
+    QList<int>     m_TagPos;
+    QList<int>     m_TagLen;
+    QList<TagInfo> m_Tags;
+    int            m_bodyStartPos;
+    int            m_bodyEndPos;
 };
 
 #endif

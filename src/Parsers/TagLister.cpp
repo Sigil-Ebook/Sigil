@@ -28,8 +28,11 @@
 #include "Misc/Utility.h"
 #include "Parsers/TagLister.h"
 
-TagLister::TagLister(const QString &source)
-    : m_source(source),
+
+// public interface
+
+TagLister::TagLister()
+    : m_source(""),
       m_pos(0),
       m_next(0)
 {
@@ -38,10 +41,20 @@ TagLister::TagLister(const QString &source)
     m_TagLen << 0;
 }
 
-// public interface
+
+TagLister::TagLister(const QString &source)
+    : m_source(source),
+      m_pos(0),
+      m_next(0)
+{
+    m_TagPath << "root";
+    m_TagPos << -1;
+    m_TagLen << 0;
+    buildTagList();
+}
 
 
-void TagLister::reload_lister(const QString& source)
+void TagLister::reloadLister(const QString& source)
 {
     m_source = source;
     m_pos = 0;
@@ -49,10 +62,228 @@ void TagLister::reload_lister(const QString& source)
     m_TagPath = QStringList() << "root";
     m_TagPos = QList<int>() << -1;
     m_TagLen = QList<int>() << 0;
+    buildTagList();
+}
+
+const TagLister::TagInfo& TagLister::at(int i)
+{
+    if ((i < 0) || (i >= m_Tags.size())) {
+        i = m_Tags.size() - 1; // last entry in list is a dummy entry
+    }
+    return m_Tags.at(i);
+}
+
+size_t TagLister::size()
+{
+    return m_Tags.size();
 }
 
 
-TagLister::TagInfo TagLister::get_next()
+const QString& TagLister::getSource()
+{
+    return m_source;    
+}
+
+bool TagLister::isPositionInBody(int pos)
+{
+    if ((pos < m_bodyStartPos) || (pos > m_bodyEndPos)) {
+        return false;
+    }
+    return true;
+}
+
+bool TagLister::isPositionInTag(int pos)
+{
+    int i = findFirstTagOnOrAfter(pos);
+    TagLister::TagInfo ti = m_Tags.at(i);
+    if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
+        return true;
+    }
+    return false;
+}
+
+bool TagLister::isPositionInOpenTag(int pos)
+{
+    int i = findFirstTagOnOrAfter(pos);
+    TagLister::TagInfo ti = m_Tags.at(i);
+    if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
+        if ((ti.ttype == "begin") || (ti.ttype == "single")) return true;
+    }
+    return false;
+}
+
+bool TagLister::isPositionInCloseTag(int pos)
+{
+    int i = findFirstTagOnOrAfter(pos);
+    TagLister::TagInfo ti = m_Tags.at(i);
+    if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
+        if (ti.ttype == "end") return true;
+    }
+    return false;
+}
+
+
+int TagLister::findOpenTagForClose(int i)
+{
+    if ((i < 0) || (i >= m_Tags.size())) return -1;
+    TagLister::TagInfo ti = m_Tags.at(i);
+    if (ti.ttype != "end") return -1;
+    int open_pos = ti.open_pos;
+    for (int j=i-1; j >= 0; j--) {
+        TagInfo tb = m_Tags.at(j);
+        if (tb.pos == open_pos) return j;
+    }
+    return -1;
+}
+
+int TagLister::findCloseTagForOpen(int i)
+{
+    if ((i < 0) || (i >= m_Tags.size())) return -1;
+    TagLister::TagInfo ti = m_Tags.at(i);
+    if (ti.ttype != "begin") return -1;
+    int open_pos = ti.pos;
+    for (int j=i+1; j < m_Tags.size(); j++) {
+        TagInfo te = m_Tags.at(j);
+        if (te.open_pos == open_pos) return j;
+    }
+    return -1;
+}
+
+// There may not be one here if no tags exists because
+// the front of m_Tags is not padded with a dummy tag
+// so this can return -1 meaning none exists
+int TagLister::findLastTagOnOrBefore(int pos)
+{
+    // find that tag that starts immediately **after** pos and then
+    // then use its predecessor 
+    int i = 0;
+    TagLister::TagInfo ti = at(i);
+    while((ti.pos <= pos) && (ti.len != -1)) {
+        i++;
+        ti = m_Tags.at(i);
+    }
+    i--;
+    return i;
+}
+
+// m_Tags is padded with an ending dummy tag
+// So finding first tag on or after a pos will always work
+int TagLister::findFirstTagOnOrAfter(int pos)
+{
+    int i = 0;
+    TagLister::TagInfo ti = m_Tags.at(i);
+    while((ti.pos + ti.len <= pos) && (ti.len != -1)) {
+        i++;
+        ti = m_Tags.at(i);
+    }
+    return i;
+}
+
+
+// static
+QString TagLister::serializeAttribute(const QString& aname, const QString &avalue)
+{
+    QString qc = "\"";
+    if (avalue.contains("\"")) qc = "'";
+    QString res = aname + "=" + qc + avalue + qc;
+    return res;
+}
+
+// static
+void TagLister::parseAttribute(const QStringRef &tagstring, const QString &attribute_name, AttInfo &ainfo)
+{
+    int taglen = tagstring.length();
+    QChar c = tagstring.at(1);
+    int p = 0;
+
+    ainfo.pos = -1;
+    ainfo.len = -1;
+    ainfo.aname = QString();
+    ainfo.avalue = QString();
+
+    // ignore comments, doctypes, cdata, pi, and xmlheaders
+    if ((c == '?') || (c == '!')) return;
+
+    // normal tag, skip over tag name
+    p = skipAnyBlanks(tagstring, 1);
+    if (tagstring.at(p) == "/") return; // end tag has no attributes
+    // int s = p;
+    p = stopWhenContains(tagstring, ">/ \f\t\r\n", p);
+    // QString tagname = Utility::Substring(s, p, tagstring).trimmed();
+
+    // handle the possibility of attributes (so begin or single tag type)
+    while (tagstring.indexOf("=", p) != -1) {
+        p = skipAnyBlanks(tagstring, p);
+        int s = p;
+        p = stopWhenContains(tagstring, "=", p);
+        QString aname = Utility::Substring(s, p, tagstring).trimmed();
+        if (aname == attribute_name) {
+            ainfo.pos = s;
+            ainfo.aname = aname;
+        }
+        QString avalue;
+        p++;
+        p = skipAnyBlanks(tagstring, p);
+        if ((tagstring.at(p) == "'") || (tagstring.at(p) == "\"")) {
+            QString qc = tagstring.at(p);
+            p++;
+            int b = p;
+            p = stopWhenContains(tagstring, qc, p);
+            avalue = Utility::Substring(b, p, tagstring);
+            if (aname == attribute_name) {
+                ainfo.avalue = avalue;
+                ainfo.len = p - s + 1;
+            }
+            p++;
+        } else {
+            int b = p;
+            p = stopWhenContains(tagstring, ">/ ", p);
+            avalue = Utility::Substring(b, p, tagstring);
+            if (aname == attribute_name) {
+                ainfo.avalue = avalue;
+                ainfo.len = p - s;
+            }
+        }
+    }
+    return;
+}
+
+//static
+// extracts a copy of all attributes if any exist o.w. returns empty string
+QString TagLister::extractAllAttributes(const QStringRef &tagstring)
+{
+    int taglen = tagstring.length();
+    QChar c = tagstring.at(1);
+    int p = 0;
+
+    // ignore comments, doctypes, cdata, pi, and xmlheaders
+    if ((c == '?') || (c == '!')) return QString();
+    // normal tag, skip over any blanks before tag name
+    p = skipAnyBlanks(tagstring, 1);
+
+    if (tagstring.at(p) == "/") return QString(); // end tag has no attributes
+
+    // skip over tag name itself
+    p = stopWhenContains(tagstring, ">/ \f\t\r\n", p);
+
+    // skip any leading blanks before first attribute or tag end
+    p = skipAnyBlanks(tagstring, p);
+
+    // if any attributes exist
+    // Note: xml/xhtml does not support boolean attribute values without =)
+    if (tagstring.indexOf("=", p) == -1) return QString();
+    // properly handle both begin and single tags
+    QString res = tagstring.mid(p, taglen - 1 - p).toString(); // skip ending '>'
+    res = res.trimmed();
+    if (res.endsWith("/")) res = res.mid(0, res.length() - 1);
+    res = res.trimmed();
+    return res;
+}
+
+
+// private routines
+
+TagLister::TagInfo TagLister::getNext()
 {
     TagInfo mi;
     mi.pos = -1;
@@ -92,7 +323,6 @@ TagLister::TagInfo TagLister::get_next()
     return mi;
 }
 
-// private routines
 
 QStringRef TagLister::parseML()
 {
@@ -202,101 +432,26 @@ int TagLister::stopWhenContains(const QStringRef &tgt, const QString& stopchars,
     return p;
 }
 
-
-void TagLister::parseAttribute(const QStringRef &tagstring, const QString &attribute_name, AttInfo &ainfo)
+void TagLister::buildTagList()
 {
-    int taglen = tagstring.length();
-    QChar c = tagstring.at(1);
-    int p = 0;
-
-    ainfo.pos = -1;
-    ainfo.len = -1;
-    ainfo.aname = QString();
-    ainfo.avalue = QString();
-
-    // ignore comments, doctypes, cdata, pi, and xmlheaders
-    if ((c == '?') || (c == '!')) return;
-
-    // normal tag, skip over tag name
-    p = skipAnyBlanks(tagstring, 1);
-    if (tagstring.at(p) == "/") return; // end tag has no attributes
-    // int s = p;
-    p = stopWhenContains(tagstring, ">/ \f\t\r\n", p);
-    // QString tagname = Utility::Substring(s, p, tagstring).trimmed();
-
-    // handle the possibility of attributes (so begin or single tag type)
-    while (tagstring.indexOf("=", p) != -1) {
-        p = skipAnyBlanks(tagstring, p);
-        int s = p;
-        p = stopWhenContains(tagstring, "=", p);
-        QString aname = Utility::Substring(s, p, tagstring).trimmed();
-        if (aname == attribute_name) {
-            ainfo.pos = s;
-            ainfo.aname = aname;
+        m_Tags.clear();
+        m_bodyStartPos = -1;
+        m_bodyEndPos = -1;
+        TagLister::TagInfo ti = getNext();
+        while(ti.len != -1) {
+            if ((ti.tname == "body") && (ti.ttype == "begin")) m_bodyStartPos = ti.pos + ti.len;
+            if ((ti.tname == "body") && (ti.ttype == "end")) m_bodyEndPos = ti.pos - 1;
+            TagLister::TagInfo temp = ti;
+            m_Tags << temp;
+            ti = getNext();
         }
-        QString avalue;
-        p++;
-        p = skipAnyBlanks(tagstring, p);
-        if ((tagstring.at(p) == "'") || (tagstring.at(p) == "\"")) {
-            QString qc = tagstring.at(p);
-            p++;
-            int b = p;
-            p = stopWhenContains(tagstring, qc, p);
-            avalue = Utility::Substring(b, p, tagstring);
-            if (aname == attribute_name) {
-                ainfo.avalue = avalue;
-                ainfo.len = p - s + 1;
-            }
-            p++;
-        } else {
-            int b = p;
-            p = stopWhenContains(tagstring, ">/ ", p);
-            avalue = Utility::Substring(b, p, tagstring);
-            if (aname == attribute_name) {
-                ainfo.avalue = avalue;
-                ainfo.len = p - s;
-            }
-        }
-    }
-    return;
+        // set stop indicator as last record
+        TagLister::TagInfo temp;
+        temp.pos = -1;
+        temp.len = -1;
+        temp.open_pos = -1;
+        temp.open_len = -1;
+        m_Tags << temp;
 }
 
 
-QString TagLister::serializeAttribute(const QString& aname, const QString &avalue)
-{
-    QString qc = "\"";
-    if (avalue.contains("\"")) qc = "'";
-    QString res = aname + "=" + qc + avalue + qc;
-    return res;
-}
-
-// extracts a copy of all attributes if any exist o.w. returns empty string
-QString TagLister::extractAllAttributes(const QStringRef &tagstring)
-{
-    int taglen = tagstring.length();
-    QChar c = tagstring.at(1);
-    int p = 0;
-
-    // ignore comments, doctypes, cdata, pi, and xmlheaders
-    if ((c == '?') || (c == '!')) return QString();
-    // normal tag, skip over any blanks before tag name
-    p = skipAnyBlanks(tagstring, 1);
-
-    if (tagstring.at(p) == "/") return QString(); // end tag has no attributes
-
-    // skip over tag name itself
-    p = stopWhenContains(tagstring, ">/ \f\t\r\n", p);
-
-    // skip any leading blanks before first attribute or tag end
-    p = skipAnyBlanks(tagstring, p);
-
-    // if any attributes exist
-    // Note: xml/xhtml does not support boolean attribute values without =)
-    if (tagstring.indexOf("=", p) == -1) return QString();
-    // properly handle both begin and single tags
-    QString res = tagstring.mid(p, taglen - 1 - p).toString(); // skip ending '>'
-    res = res.trimmed();
-    if (res.endsWith("/")) res = res.mid(0, res.length() - 1);
-    res = res.trimmed();
-    return res;
-}
