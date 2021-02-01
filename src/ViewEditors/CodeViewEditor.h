@@ -708,7 +708,7 @@ private:
     QString GetOpeningTagName(int pos);
     QString GetClosingTagName(int pos);
 
-    void FormatSelectionWithinElement(const QString &element_name, const int &previous_tag_index, const QString &text);
+    void FormatSelectionWithinElement(const QString &element_name, int tagno, const QString &text);
 
     void ReplaceTags(const int &opening_tag_start, const int &opening_tag_end, const QString &opening_tag_text,
                      const int &closing_tag_start, const int &closing_tag_end, const QString &closing_tag_text);

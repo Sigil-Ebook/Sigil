@@ -2705,50 +2705,48 @@ void CodeViewEditor::ToggleFormatSelection(const QString &element_name, const QS
     if (i < 0) return;
 
     if (in_existing_tag_occurrence) {
-        FormatSelectionWithinElement(element_name, ti.pos, text);
+        FormatSelectionWithinElement(element_name, i, text);
     } else {
         // Otherwise assume we are in a safe place to add a wrapper tag.
         InsertHTMLTagAroundSelection(element_name, "/" % element_name);
     }
 }
 
-// FIXME: Convert this routine to use TagLister as has been done for most of the similar methods 
-void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, const int &previous_tag_index, const QString &text)
+// This routine is used solely from within ToggleFormatSelection
+void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, int tagno, const QString &text)
 {
     // We are inside an existing occurrence. Are we immediately adjacent to it?
     // e.g. "<b>selected text</b>" should result in "selected text" losing the tags.
     // but  "<b>XXXselected textYYY</b> should result in "<b>XXX</b>selected text<b>YYY</b>"
     // plus the variations where XXX or YYY may be non-existent to make tag adjacent.
-    int previous_tag_end_index = text.indexOf(">", previous_tag_index);
-    QRegularExpression closing_tag_search("</\\s*" % element_name % "\\s*>", QRegularExpression::CaseInsensitiveOption);
-    QRegularExpressionMatch closing_tag_search_mo = closing_tag_search.match(text, previous_tag_index);
-    int closing_tag_index = closing_tag_search_mo.capturedStart();
+    int j = m_TagList.findCloseTagForOpen(tagno);
+    if (j < 0) return; // no closing tag for this style then not well formed so abort
 
-    if (closing_tag_index < 0) {
-        // There is no closing tag for this style (not well formed). Give up.
-        return;
-    }
+    TagLister::TagInfo tb = m_TagList.at(tagno);
+    TagLister::TagInfo te = m_TagList.at(j);
 
     QTextCursor cursor = textCursor();
     int selection_start = cursor.selectionStart();
     int selection_end = cursor.selectionEnd();
-    bool adjacent_to_start = (previous_tag_end_index + 1) == selection_start;
-    bool adjacent_to_end = closing_tag_index == selection_end;
+    bool adjacent_to_start = tb.pos + tb.len == selection_start;
+    bool adjacent_to_end = te.pos == selection_end;
 
     if (!adjacent_to_start && !adjacent_to_end) {
         // We want to put a closing tag at the start and an opening tag after (copying attributes)
-        QString opening_tag_text = text.mid(previous_tag_index + 1, previous_tag_end_index - previous_tag_index - 1).trimmed();
+        // Do NOT copy the '<' or the '>' of the opening tag!
+        QString opening_tag_text = text.mid(tb.pos+1, tb.len-2).trimmed();
         InsertHTMLTagAroundSelection("/" % element_name, opening_tag_text);
     } else if ((selection_end == selection_start) && (adjacent_to_start || adjacent_to_end) &&
-               (closing_tag_index > previous_tag_end_index + 1)) {
+               (te.pos > tb.pos + tb.len)) {
         // User is just inside the opening or closing tag with no selection and there is text within
         // The tags. Nothing to do in this situation.
         // If there is no text e.g. <b></b> and caret between then we will toggle off as per following else.
         return;
     } else {
-        QString opening_tag = text.mid(previous_tag_index, previous_tag_end_index - previous_tag_index + 1);
-        QString closing_tag = text.mid(closing_tag_index, closing_tag_search_mo.capturedLength());
+        QString opening_tag = text.mid(tb.pos, tb.len);
+        QString closing_tag = text.mid(te.pos, te.len);
         QString replacement_text = cursor.selectedText();
+        qDebug() << "I am here: " << opening_tag << " " << closing_tag << " " << replacement_text;
         cursor.beginEditBlock();
         int new_selection_end = selection_end;
         int new_selection_start = selection_start;
