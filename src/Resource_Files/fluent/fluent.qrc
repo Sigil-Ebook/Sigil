@@ -88,6 +88,7 @@
         <file>reload-page.svg</file>
         <file>saved-search.svg</file>
         <file>split-section.svg</file>
+        <file>tag-pair-remove.svg</file>
         <file>widget-close.svg</file>
    </qresource>
 </RCC>

@@ -104,6 +104,9 @@ public:
     void CutCodeTags();
     bool IsCutCodeTagsAllowed();
 
+    void CutTagPair();
+    bool IsCutTagPairAllowed();
+
     bool TextIsSelected();
     bool TextIsSelectedAndNotInStartOrEndTag();
 

@@ -3587,6 +3587,7 @@ void MainWindow::UpdateUIOnTabChanges()
     ui.actionAddToIndex         ->setEnabled(tab->AddToIndexEnabled());
     ui.actionMarkForIndex       ->setEnabled(tab->MarkForIndexEnabled());
     ui.actionRemoveFormatting   ->setEnabled(tab->RemoveFormattingEnabled());
+    ui.actionRemoveTagPair      ->setEnabled(tab->RemoveTagPairEnabled());
     // Set whether icons are checked
     ui.actionBold           ->setChecked(tab->BoldChecked());
     ui.actionItalic         ->setChecked(tab->ItalicChecked());
@@ -3664,6 +3665,7 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(true);
+    ui.actionRemoveTagPair->setEnabled(true);
     ui.menuHeadings->setEnabled(true);
     ui.actionHeading1->setEnabled(true);
     ui.actionHeading2->setEnabled(true);
@@ -3750,6 +3752,7 @@ void MainWindow::SetStateActionsRawView()
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(false);
+    ui.actionRemoveTagPair->setEnabled(false);
     ui.menuHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
     ui.actionHeading2->setEnabled(false);
@@ -3817,6 +3820,7 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionInsertBulletedList->setEnabled(false);
     ui.actionInsertNumberedList->setEnabled(false);
     ui.actionRemoveFormatting->setEnabled(false);
+    ui.actionRemoveTagPair->setEnabled(false);
     ui.menuHeadings->setEnabled(false);
     ui.actionHeading1->setEnabled(false);
     ui.actionHeading2->setEnabled(false);
@@ -5319,6 +5323,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionTextDirectionRTL, "MainWindow.TextDirectionRTL");
     sm->registerAction(this, ui.actionTextDirectionDefault, "MainWindow.TextDirectionDefault");
     sm->registerAction(this, ui.actionRemoveFormatting, "MainWindow.RemoveFormatting");
+    sm->registerAction(this, ui.actionRemoveTagPair, "MainWindow.RemoveTagPair");
     sm->registerAction(this, ui.actionHeading1, "MainWindow.Heading1");
     sm->registerAction(this, ui.actionHeading2, "MainWindow.Heading2");
     sm->registerAction(this, ui.actionHeading3, "MainWindow.Heading3");
@@ -5844,6 +5849,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(ui.actionDecreaseIndent,           SIGNAL(triggered()),  tab,   SLOT(DecreaseIndent()));
         connect(ui.actionIncreaseIndent,           SIGNAL(triggered()),  tab,   SLOT(IncreaseIndent()));
         connect(ui.actionRemoveFormatting,         SIGNAL(triggered()),  tab,   SLOT(RemoveFormatting()));
+        connect(ui.actionRemoveTagPair,            SIGNAL(triggered()),  tab,   SLOT(RemoveTagPair()));
         connect(ui.actionSplitSection,             SIGNAL(triggered()),  tab,   SLOT(SplitSection()));
         connect(ui.actionInsertSGFSectionMarker,   SIGNAL(triggered()),  tab,   SLOT(InsertSGFSectionMarker()));
         connect(ui.actionInsertClosingTag,         SIGNAL(triggered()),  tab,   SLOT(InsertClosingTag()));
@@ -5924,6 +5930,7 @@ void MainWindow::BreakTabConnections(ContentTab *tab)
     disconnect(ui.actionTextDirectionRTL,          0, tab, 0);
     disconnect(ui.actionTextDirectionDefault,      0, tab, 0);
     disconnect(ui.actionRemoveFormatting,          0, tab, 0);
+    disconnect(ui.actionRemoveTagPair,             0, tab, 0);
     disconnect(ui.actionSplitSection,              0, tab, 0);
     disconnect(ui.actionInsertSGFSectionMarker,    0, tab, 0);
     disconnect(ui.actionInsertClosingTag,          0, tab, 0);

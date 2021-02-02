@@ -297,6 +297,66 @@ void CodeViewEditor::CutCodeTags()
     setTextCursor(cursor);
 }
 
+void CodeViewEditor::CutTagPair()
+{
+    // cursor must be in a tag, with no selection active at all
+    if (!IsCutTagPairAllowed()) return;
+
+    QTextCursor cursor = textCursor();
+    int pos = cursor.selectionStart();
+    int newpos = pos;
+    int open_tag_pos = -1;
+    int open_tag_len = -1;
+    int close_tag_pos = -1;
+    int close_tag_len = -1;
+    int i = m_TagList.findFirstTagOnOrAfter(pos);
+    TagLister::TagInfo ti = m_TagList.at(i);
+    if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
+        // removing the body or html tags freaks out QWebEnginePage in Preview
+        if (ti.tname == "body" || ti.tname == "html") return;
+        if(ti.ttype == "end") {
+            newpos = ti.pos - ti.open_len;
+            open_tag_pos = ti.open_pos;
+            open_tag_len = ti.open_len;
+            close_tag_pos = ti.pos;
+            close_tag_len = ti.len;
+        } else { // single or begin                                                                                                                      
+             newpos = ti.pos;
+             open_tag_pos = ti.pos;
+             open_tag_len = ti.len;
+        }
+        if (ti.ttype == "begin") {
+            newpos = ti.pos;
+            open_tag_pos = ti.pos;
+            open_tag_len = ti.len;
+            int j = m_TagList.findCloseTagForOpen(i);
+            if (j >= 0) {
+                if (m_TagList.at(j).len != -1) {
+                    close_tag_pos = m_TagList.at(j).pos;
+                    close_tag_len = m_TagList.at(j).len;
+                }
+            }
+        }
+    }
+    if (open_tag_len != -1 || close_tag_len != -1) {
+        // handle close tag removal first to not mess up position info
+        cursor.beginEditBlock();
+        if (close_tag_len != -1) {
+            cursor.setPosition(close_tag_pos + close_tag_len);
+            cursor.setPosition(close_tag_pos, QTextCursor::KeepAnchor);
+            cursor.removeSelectedText();
+        }
+        if (open_tag_len != -1) {
+            cursor.setPosition(open_tag_pos + open_tag_len);
+            cursor.setPosition(open_tag_pos, QTextCursor::KeepAnchor);
+            cursor.removeSelectedText();
+        }
+        cursor.endEditBlock();
+        cursor.setPosition(newpos);
+        setTextCursor(cursor);
+    }
+}
+
 bool CodeViewEditor::TextIsSelected()
 {
     return textCursor().hasSelection();
@@ -318,6 +378,12 @@ bool CodeViewEditor::TextIsSelectedAndNotInStartOrEndTag()
 bool CodeViewEditor::IsCutCodeTagsAllowed()
 {
     return TextIsSelectedAndNotInStartOrEndTag();
+}
+
+bool CodeViewEditor::IsCutTagPairAllowed()
+{
+    if (textCursor().hasSelection()) return false;
+    return IsPositionInTag(textCursor().selectionStart());
 }
 
 bool CodeViewEditor::IsInsertClosingTagAllowed()
@@ -650,6 +716,7 @@ int CodeViewEditor::textLength() const
 // overrides document toPlainText to prevent loss of nbsp
 QString CodeViewEditor::toPlainText() const
 {
+    if (!m_isLoadFinished) return QString();
     TextDocument * doc = qobject_cast<TextDocument *> (document());
     return doc->toText();
 }
@@ -1921,6 +1988,10 @@ void CodeViewEditor::UpdateLineNumberArea(const QRect &area_to_update, int verti
 
 void CodeViewEditor::MaybeRegenerateTagList()
 {
+    // calling toPlainText before the initial load is finished causes
+    // a segfault deep inside QTextDocument
+    // if (!m_isLoadFinished) return;
+    
     if (m_regen_taglist) {
         // qDebug() << "regenerating tag list";
         m_TagList.reloadLister(toPlainText());
@@ -2746,7 +2817,6 @@ void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, i
         QString opening_tag = text.mid(tb.pos, tb.len);
         QString closing_tag = text.mid(te.pos, te.len);
         QString replacement_text = cursor.selectedText();
-        qDebug() << "I am here: " << opening_tag << " " << closing_tag << " " << replacement_text;
         cursor.beginEditBlock();
         int new_selection_end = selection_end;
         int new_selection_start = selection_start;

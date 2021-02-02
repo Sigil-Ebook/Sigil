@@ -240,6 +240,7 @@
     <addaction name="actionTextDirectionDefault"/>
     <addaction name="separator"/>
     <addaction name="actionRemoveFormatting"/>
+    <addaction name="actionRemoveTagPair"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -506,6 +507,7 @@
    <addaction name="actionCut"/>
    <addaction name="actionCopy"/>
    <addaction name="actionPaste"/>
+   <addaction name="actionRemoveTagPair"/>
   </widget>
   
   <widget class="QToolBar" name="toolBarXEditor">
@@ -1571,6 +1573,22 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Space</string>
+   </property>
+  </action>
+  <action name="actionRemoveTagPair">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/tag-pair-remove.svg</normaloff>:/main/tag-pair-remove.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Remove Tag Pair</string>
+   </property>
+   <property name="toolTip">
+    <string>
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
+
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Remove Open and Close Tag Pair.&lt;/p&gt;
+    </string>
    </property>
   </action>
   <action name="actionCasingLowercase">

@@ -1,10 +1,10 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012  Dave Heiland
-**  Copyright (C) 2012  Grant Drake
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
+**  Copyright (C) 2012      Grant Drake
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -81,6 +81,8 @@ public:
     bool DeleteLineEnabled();
 
     bool RemoveFormattingEnabled();
+
+    bool RemoveTagPairEnabled();
 
     bool InsertClosingTagEnabled();
 
@@ -230,6 +232,8 @@ public slots:
     void TextDirectionDefault();
 
     void RemoveFormatting();
+
+    void RemoveTagPair();
 
     void ChangeCasing(const Utility::Casing casing);
 

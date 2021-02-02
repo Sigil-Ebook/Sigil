@@ -49,14 +49,11 @@ int TextDocument::textLength()
 QString TextDocument::toText()
 {
     QString txt;
+    if (isEmpty()) return txt;
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5,9,0))
-    if (isEmpty()) return txt;
     txt = toRawText();
 #else
-    // is the TextDocument itself is empty just return an empty string
-    if (isEmpty()) return txt;
-
     // Use text cursors to get the TextDocument's contents
     QTextCursor cursor(this);
     cursor.select(QTextCursor::Document);

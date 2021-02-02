@@ -129,6 +129,15 @@ public:
         return false;
     }
 
+        /*
+     * Can the user perform the Cut Tag Pair operation.
+     *
+     * @return \c true if the user can Cut.
+     */
+    virtual bool RemoveTagPairEnabled()          {
+        return false;
+    }
+
     /*
      * Can the user perform the Cut Code Tags operation.
      *
