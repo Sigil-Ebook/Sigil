@@ -26,7 +26,7 @@
 #include "Misc/MediaTypes.h"
 
 const QStringList IMAGE_EXTENSIONS     = QStringList() << "jpg"   << "jpeg" << "png" << "gif"  << "tif"  << "tiff"  << "bm"
-                                                       << "bmp";
+                                                                  << "bmp" << "webp";
 const QStringList SVG_EXTENSIONS       = QStringList() << "svg";
 const QStringList SMIL_EXTENSIONS      = QStringList() << "smil";
 const QStringList JPG_EXTENSIONS       = QStringList() << "jpg"   << "jpeg";
@@ -36,7 +36,7 @@ const QStringList MISC_XML_EXTENSIONS  = QStringList() << "smil"  << "xpgt" << "
 const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"  << "otf" << "woff" << "woff2";
 const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html" << "htm";
 const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
-const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac"   << "m4a"  << "mp3" << "mpeg" << "mpg" << "oga" << "ogg";
+const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac"   << "m4a"  << "mp3" << "mpeg" << "mpg" << "oga" << "ogg" << "opus";
 const QStringList VIDEO_EXTENSIONS     = QStringList() << "m4v"   << "mp4"  << "mov" << "ogv"  << "webm" << "vtt" << "ttml";
 const QStringList IMAGE_MIMEYPES       = QStringList() << "image/gif" << "image/jpeg" << "image/png" << "image/webp" << "image/tiff";
 const QStringList SVG_MIMETYPES        = QStringList() << "image/svg+xml";
@@ -45,7 +45,7 @@ const QStringList STYLE_MIMETYPES      = QStringList() << "text/css";
 const QStringList FONT_MIMETYPES       = QStringList() << "application/x-font-ttf" << "application/x-font-opentype" 
                                                        << "application/vnd.ms-opentype" << "application/font-woff" 
                                                        << "application/font-sfnt" << "font/woff2";
-const QStringList AUDIO_MIMETYPES      = QStringList() << "audio/mpeg" << "audio/mp3" << "audio/ogg" << "audio/mp4";
+const QStringList AUDIO_MIMETYPES      = QStringList() << "audio/mpeg" << "audio/mp3" << "audio/ogg" << "audio/mp4" << "audio/opus";
 const QStringList VIDEO_MIMETYPES      = QStringList() << "video/mp4" << "video/ogg" << "video/webm" 
                                                        << "text/vtt" << "application/ttml+xml";
 const QStringList MISC_XML_MIMETYPES   = QStringList() << "application/oebps-page-map+xml" 
@@ -141,6 +141,7 @@ void MediaTypes::SetExtToMTypeMap()
     m_ExtToMType[ "ogg"   ] = "audio/ogg";
     m_ExtToMType[ "ogv"   ] = "video/ogg";
     m_ExtToMType[ "opf"   ] = "application/oebps-package+xml";
+    m_ExtToMType[ "opus"  ] = "audio/opus";
     m_ExtToMType[ "otf"   ] = "font/otf";
     m_ExtToMType[ "pls"   ] = "application/pls+xml";
     m_ExtToMType[ "png"   ] = "image/png";
@@ -207,6 +208,7 @@ void MediaTypes::SetMTypeToGroupMap()
     m_MTypeToGroup[ "audio/mp3"                               ] = "Audio";
     m_MTypeToGroup[ "audio/mp4"                               ] = "Audio";
     m_MTypeToGroup[ "audio/ogg"                               ] = "Audio";
+    m_MTypeToGroup[ "audio/opus"                              ] = "Audio";
 
     m_MTypeToGroup[ "video/mp4"                               ] = "Video";
     m_MTypeToGroup[ "video/ogg"                               ] = "Video";
@@ -285,7 +287,8 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "audio/mpeg"                              ] = "AudioResource";
     m_MTypeToRDesc[ "audio/mp3"                               ] = "AudioResource";
     m_MTypeToRDesc[ "audio/mp4"                               ] = "AudioResource";
-    m_MTypeToRDesc[ "audio/ogg"                               ] = "AudioResource";  // not a core media type
+    m_MTypeToRDesc[ "audio/ogg"                               ] = "AudioResource";  // epub 3.3 now a core media type
+    m_MTypeToRDesc[ "audio/opus"                              ] = "AudioResource";  // epub 3.3 now a core media type
 
     m_MTypeToRDesc[ "video/mp4"                               ] = "VideoResource";  
     m_MTypeToRDesc[ "video/ogg"                               ] = "VideoResource";
