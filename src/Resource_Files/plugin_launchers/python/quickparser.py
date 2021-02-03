@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014-2020 Kevin B. Hendricks, and Doug Massay
+# Copyright (c) 2014-2021 Kevin B. Hendricks, and Doug Massay
 # Copyright (c) 2014      John Schember
 # All rights reserved.
 #
@@ -31,10 +31,13 @@ from collections import OrderedDict
 SPECIAL_HANDLING_TAGS = OrderedDict([
     ('?xml', ('xmlheader', -1)),
     ('!--', ('comment', -3)),
-    ('!DOCTYPE', ('doctype', -1))
+    ('!DOCTYPE', ('doctype', -1)),
+    ('![CDATA[', ('cdata', -3)),
+    ('?', ('pi', -1))
+
 ])
 
-SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
+SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment', 'cdata', 'pi']
 
 class QuickXHTMLParser(object):
 
@@ -78,13 +81,28 @@ class QuickXHTMLParser(object):
             p = b + 3
             tname = '!--'
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
-            tattr['special'] = s[p:backstep].strip()
+            tattr['special'] = s[p:backstep]
+            return tname, ttype, tattr
+        # handle cdata special case as there may be no spaces to delimit name begin or end
+        if s[b:b+8] == "![CDATA[":
+            p = b+8
+            tname = "![CDATA["
+            ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
+            tattr['special'] = s[p:backstep]
             return tname, ttype, tattr
         while p < n and s[p:p + 1] not in ('>', '/', ' ', '"', "'", "\r", "\n") : p += 1
         tname = s[b:p].lower()
+        # deal with other remaining special cases
+        # generic xml processing instruction (pi)
+        if tname != "?xml" and s[b:b+1] == "?":
+            p = b+1
+            tname = "?"
+            ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
+            tattr['special'] = s[p:backstep]
+            return tname, ttype, tattr
+        # remaining special cases
         if tname == '!doctype':
             tname = '!DOCTYPE'
-        # special cases
         if tname in SPECIAL_HANDLING_TAGS:
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
             tattr['special'] = s[p:backstep]
@@ -132,11 +150,16 @@ class QuickXHTMLParser(object):
             self.pos = res
             return self.content[p:res], None
         # handle comment as a special case to deal with multi-line comments
-        if self.content[p:p + 4] == '<!--':
-            te = self.content.find('-->', p + 1)
+        if self.content[p:p+4] == '<!--':
+            te = self.content.find('-->',p+1)
             if te != -1:
-                te = te + 2
-        else :
+                te = te+2
+        # handle cdata section as a special case to deal with multi-line 
+        elif self.content[p:p+9] == '<![CDATA[':
+            te = self.content.find(']]>',p+9)
+            if te != -1:
+                te = te+2
+        else:
             te = self.content.find('>', p + 1)
             ntb = self.content.find('<', p + 1)
             if ntb != -1 and ntb < te:
@@ -183,9 +206,11 @@ class QuickXHTMLParser(object):
         if ttype in SPECIAL_HANDLING_TYPES and tattr is not None and 'special' in tattr:
             info = tattr['special']
             if ttype == 'comment':
-                return '<%s %s-->' % (tname, info)
-            else:
-                return '<%s %s>' % (tname, info)
+                return '<%s%s-->' % (tname, info)
+            if ttype == 'cdata':
+                return '<%s%s]]>' % (tname, info)
+            # handle doctype, xmlheader and pi
+            return '<%s%s>' % (tname, info)
         res = []
         res.append('<%s' % tname)
         if tattr is not None:

@@ -100,20 +100,16 @@ QString QuickParser::serialize_markup(const QuickParser::MarkupInfo& mi)
     }
     
     // handle the special cases
-    if (mi.ttype == "xmlheader") {
-        res = res + "<" + mi.tname + " " + mi.tattr["special"] + ">";
+    if ((mi.ttype == "xmlheader") || (mi.ttype == "doctype") || (mi.ttype == "pi")) {
+        res = res + "<" + mi.tname + mi.tattr["special"] + ">";
         return res;
     }
     if (mi.ttype == "comment") {
-        res = res + "<" + mi.tname + " " + mi.tattr["special"] + "-->";
+        res = res + "<" + mi.tname + mi.tattr["special"] + "-->";
         return res;
     }
     if (mi.ttype == "cdata") {
-        res = res + "<" + mi.tname + " " + mi.tattr["special"] + "]]>";
-        return res;
-    }
-    if (mi.ttype == "doctype") {
-        res = res + "<" + mi.tname + " " + mi.tattr["special"] + ">";
+        res = res + "<" + mi.tname + mi.tattr["special"] + "]]>";
         return res;
     }
     // finally begin and single tags
@@ -179,32 +175,33 @@ void QuickParser::parseTag(const QStringRef& tagstring, QuickParser::MarkupInfo&
     int taglen = tagstring.length();
     QChar c = tagstring.at(1);
     int p = 0;
-    
+
     // first handle special cases
     if (c == '?') {
         if (tagstring.startsWith("<?xml")) {
             mi.tname = "?xml";
             mi.ttype = "xmlheader";
+            mi.tattr["special"] = Utility::Substring(5, taglen-1, tagstring);
         } else {
             mi.tname = "?";
             mi.ttype = "pi";
+            mi.tattr["special"] = Utility::Substring(1, taglen-1, tagstring);
         }
-        mi.tattr["special"] = Utility::Substring(1, taglen-1, tagstring);
         return;
     }
     if (c == '!') {
         if (tagstring.startsWith("<!--")) {
             mi.tname = "!--";
             mi.ttype = "comment"; 
-            mi.tattr["special"] = Utility::Substring(1, taglen-3, tagstring);
-        } else if (tagstring.startsWith("<!DOCTYPE")) {
+            mi.tattr["special"] = Utility::Substring(4, taglen-3, tagstring);
+        } else if (tagstring.startsWith("<!DOCTYPE") || tagstring.startsWith("<!doctype")) {
             mi.tname = "!DOCTYPE";
             mi.ttype = "doctype";
-            mi.tattr["special"] = Utility::Substring(1, taglen-1, tagstring);
-        } else if (tagstring.startsWith("<![CDATA[")) {
+            mi.tattr["special"] = Utility::Substring(9, taglen-1, tagstring);
+        } else if (tagstring.startsWith("<![CDATA[") || tagstring.startsWith("<![cdata[")) {
             mi.tname = "![CDATA[";
             mi.ttype = "cdata";
-            mi.tattr["special"] = Utility::Substring(1, taglen-3, tagstring);
+            mi.tattr["special"] = Utility::Substring(9, taglen-3, tagstring);
         }
         return;
     }
