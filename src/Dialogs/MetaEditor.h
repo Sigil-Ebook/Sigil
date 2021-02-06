@@ -44,6 +44,18 @@ public:
     MetaEditor(QWidget *parent = 0);
     ~MetaEditor();
 
+    //Quick Utility Conversion from Code to Name
+    const QString EName  (const QString& code);
+    const QString PName  (const QString& code);
+    const QString LName  (const QString& code);
+    const QString RName  (const QString& code);
+
+    //Quick Utility Conversion from Name to Code
+    const QString ECode  (const QString& name);
+    const QString PCode  (const QString& name);
+    const QString LCode  (const QString& name);
+    const QString RCode  (const QString& name);
+
 public slots:
     void updateActions();
 
@@ -68,9 +80,11 @@ private slots:
  private:
     void loadMetadataElements();
     void loadMetadataProperties();
+    void loadMetadataXProperties();
 
     void loadE2MetadataElements();
     void loadE2MetadataProperties();
+    void loadE2MetadataXProperties();
 
     void ReadSettings();
 
@@ -85,12 +99,18 @@ private slots:
 
     QHash<QString, DescriptiveInfo> m_PropertyInfo;
     QHash<QString, QString> m_PropertyCode;
-    
+
+    QHash<QString, DescriptiveInfo> m_XPropertyInfo;
+    QHash<QString, QString> m_XPropertyCode;
+
     QHash<QString, DescriptiveInfo> m_E2ElementInfo;
     QHash<QString, QString> m_E2ElementCode;
 
     QHash<QString, DescriptiveInfo> m_E2PropertyInfo;
     QHash<QString, QString> m_E2PropertyCode;
+    
+    QHash<QString, DescriptiveInfo> m_XE2PropertyInfo;
+    QHash<QString, QString> m_XE2PropertyCode;
     
     MainWindow * m_mainWindow;
     MarcRelators * m_Relator;

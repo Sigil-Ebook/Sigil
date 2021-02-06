@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, ON Canada
 **
 **  This file is part of Sigil.
 **
@@ -21,10 +21,13 @@
 
 
 #include <QString>
+#include <QChar>
+#include <QString>
 #include <QFileInfo>
 #include <QTextStream>
 #include <QDate>
 #include <QShortcut>
+#include <QDebug>
 
 #include "Dialogs/TreeModel.h"
 #include "Dialogs/AddMetadata.h"
@@ -35,6 +38,10 @@
 #include "EmbedPython/PythonRoutines.h"
 
 static const QString SETTINGS_GROUP = "meta_editor";
+static const QString _IN = "  ";
+static const QString _US = QString(QChar(31));
+static const QString _RS = QString(QChar(30));
+
 
 MetaEditor::MetaEditor(QWidget *parent)
   : QDialog(parent),
@@ -48,6 +55,16 @@ MetaEditor::MetaEditor(QWidget *parent)
     m_version = m_book->GetConstOPF()->GetEpubVersion();
     m_opfdata = m_book->GetOPF()->GetText();
 
+    if (m_version.startsWith('3')) { 
+        loadMetadataElements();
+        loadMetadataProperties();
+        loadMetadataXProperties();
+    } else {
+        loadE2MetadataElements();
+        loadE2MetadataProperties();
+        loadE2MetadataXProperties();
+    }
+
     QStringList headers;
     headers << tr("Name") << tr("Value");
 
@@ -60,14 +77,6 @@ MetaEditor::MetaEditor(QWidget *parent)
 
     if (!isVisible()) {
         ReadSettings();
-    }
-
-    if (m_version.startsWith('3')) { 
-        loadMetadataElements();
-        loadMetadataProperties();
-    } else {
-        loadE2MetadataElements();
-        loadE2MetadataProperties();
     }
 
     connect(view->selectionModel(),
@@ -104,11 +113,44 @@ MetaEditor::~MetaEditor()
 QString MetaEditor::GetOPFMetadata() {
     PythonRoutines pr;
     MetadataPieces mdp = pr.GetMetadataInPython(m_opfdata, m_version);
-    QString data = mdp.data;
+    QString adata = mdp.data;
     m_otherxml = mdp.otherxml;
     m_metatag = mdp.metatag;
     m_idlist = mdp.idlist;
-    return data;
+    qDebug() << "Data from OPF: " << adata;
+    // Translate to Human Readable Form
+    QStringList nlist;
+    QStringList dlist = adata.split(_RS);
+    foreach(QString rc, dlist) {
+        if (rc.isEmpty()) continue;
+        qDebug() << "rc: " << rc;
+        if (rc.startsWith(_IN)) {
+            // treat as property value attribute pair
+            QStringList parts = rc.trimmed().split(_US);
+            QString value = parts.at(1);
+            if (parts.at(0) == "opf:role") value = RName(value);
+            if (parts.at(0) == "opf:scheme") value = PName(value);
+            if (parts.at(0) == "opf:event") value = PName(value);
+            if (parts.at(0) == "role") value = RName(value);
+            if (parts.at(0) == "title-type") value = PName("title-type:" + value);
+            if (parts.at(0) == "collection-type") value = PName("collection-type:" + value);
+            if (parts.at(0) == "xml:lang") value = LName(value);
+            if (parts.at(0) == "altlang") value = LName(value);
+            if (parts.at(0) == "source-of") value = PName("source-of:" + value);
+            QString prop = PName(parts.at(0));
+            nlist.append(_IN + prop + _US + value + _RS);
+        } else {
+            // treat as element with content
+            QStringList parts = rc.split(_US);
+            QString elem = EName(parts.at(0));
+            QString value = parts.at(1);
+            if (parts.at(0) == "dc:language") value = LName(value);
+            nlist.append(elem + _US + value + _RS);
+        }
+    }
+    QString ndata = nlist.join("");
+    qDebug() << "Translated data: " << ndata;
+    return ndata;
 }
 
 
@@ -116,7 +158,35 @@ QString MetaEditor::SetNewOPFMetadata(QString& data)
 {
     QString newopfdata = m_opfdata;
     MetadataPieces mdp;
-    mdp.data = data;
+    // Translate from Human Readable Form
+    QStringList dlist = data.split(_RS);
+    QStringList nlist;
+    foreach(QString rc, dlist) {
+        if (rc.startsWith(_IN)) {
+            // treat as property value attribute pair
+            QStringList parts = rc.trimmed().split(_US);
+            QString prop = PCode(parts.at(0));
+            QString value = parts.at(1);
+            if (prop == "opf:role") value = RCode(value);
+            if (prop == "opf:scheme") value = PCode(value);
+            if (prop == "opf:event") value = PCode(value);
+            if (prop == "role") value = RCode(value);
+            if (prop == "title-type") value = PCode("title-type:" + value);
+            if (prop == "collection-type") value = PCode("collection-type:" + value);
+            if (prop == "xml:lang") value = LCode(value);
+            if (prop == "altlang") value = LCode(value);
+            if (prop == "source-of") value = PCode("source-of:" + value);
+            nlist.append(_IN + prop + _US + value + _RS);
+        } else {
+            // treat as element with content
+            QStringList parts = rc.split(_US);
+            QString elem = ECode(parts.at(0));
+            QString value = parts.at(1);
+            if (elem == "dc:language") value = LCode(value);
+            nlist.append(elem + _US + value + _RS);
+        }
+    }
+    mdp.data = nlist.join("");
     mdp.otherxml = m_otherxml;
     mdp.metatag = m_metatag;
     mdp.idlist = m_idlist;
@@ -145,6 +215,58 @@ const QHash<QString, DescriptiveInfo> &  MetaEditor::GetPropertyMap()
     return m_E2PropertyInfo;
 }
 
+//Quick Utility Conversion from Code to Name
+const QString MetaEditor::EName(const QString& code)
+{
+    if (m_version.startsWith("3")) {
+        if (m_ElementInfo.contains(code)) return m_ElementInfo[code].name;
+        return code;
+    }
+    if (m_E2ElementInfo.contains(code)) return m_E2ElementInfo[code].name;
+    return code;
+}
+
+const QString MetaEditor::PName(const QString& code)
+{
+    if (m_version.startsWith("3")) {
+        if (m_PropertyInfo.contains(code)) return m_PropertyInfo[code].name;
+        if (m_XPropertyInfo.contains(code)) return m_XPropertyInfo[code].name;
+        return code;
+    }
+    if (m_E2PropertyInfo.contains(code)) return m_E2PropertyInfo[code].name;
+    if (m_XE2PropertyInfo.contains(code)) return m_XE2PropertyInfo[code].name;
+    return code;
+}
+const QString MetaEditor::LName  (const QString& code) { return Language::instance()->GetLanguageName(code); }
+const QString MetaEditor::RName  (const QString& code) { return MarcRelators::instance()->GetName(code);     }
+
+//Quick Utility Conversion from Name to Code
+const QString MetaEditor::ECode  (const QString& name)
+{
+    if (m_version.startsWith("3")) {
+        if (m_ElementCode.contains(name)) return m_ElementCode[name];
+        return name;
+    }
+    if (m_E2ElementCode.contains(name)) return m_E2ElementCode[name];
+    return name;
+}
+
+const QString MetaEditor::PCode  (const QString& name)
+{
+    if (m_version.startsWith("3")) {
+        if (m_PropertyCode.contains(name)) return m_PropertyCode[name];
+        if (m_XPropertyCode.contains(name)) return m_XPropertyCode[name];
+        return name;
+    }
+    if (m_E2PropertyCode.contains(name)) return m_E2PropertyCode[name];
+    if (m_XE2PropertyCode.contains(name)) return m_XE2PropertyCode[name];
+    return name;
+}
+
+const QString MetaEditor::LCode  (const QString& name) { return Language::instance()->GetLanguageCode(name); }
+const QString MetaEditor::RCode  (const QString& name) { return MarcRelators::instance()->GetCode(name);     }
+
+
 
 void MetaEditor::selectElement()
 {
@@ -166,50 +288,56 @@ void MetaEditor::selectElement()
             if (!langcodes.isEmpty()) {
                 lang = langcodes.at(0);
             }
-            insertRow(code, lang);
+            insertRow(EName(code), LName(lang));
         } else if (code == "dc:identifier-isbn") {
             QString content = "urn:isbn:" + tr("[ISBN here]");
             code = "dc:identifier";
-            insertRow(code, content);
+            insertRow(EName(code), content);
         } else if (code == "dc:identifier-issn") {
             QString content = "urn:issn:" + tr("[ISSN here]");
             code = "dc:identifier";
-            insertRow(code, content);
+            insertRow(EName(code), content);
         } else if (code == "dc:identifier-doi") {
             QString content = "urn:doi:" + tr("[DOI here]");
             code = "dc:identifier";
-            insertRow(code, content);
+            insertRow(EName(code), content);
         } else if (code == "dc:identifier-uuid") {
             QString content = "urn:uuid:" + tr("[UUID here]");
             code = "dc:identifier";
-            insertRow(code, content);
-        } else if ((code == "dc:date") || (code == "dcterms:issued") || (code == "dcterms:created")) {
+            insertRow(EName(code), content);
+        } else if ((code == "dc:date") || (code == "dcterms:issued") ||
+                   (code == "dcterms:created")) {
             QString content = QDate::currentDate().toString(Qt::ISODate);
-            insertRow(code, content);
+            insertRow(EName(code), content);
+        } else if (code == "dcterms:modified") {
+            QDateTime zt(QDateTime::currentDateTime());
+            zt.setTimeSpec(Qt::UTC);
+            QString content = zt.toString(Qt::ISODate);
+            insertRow(EName(code), content);
         } else if (code == "dc:type") {
             QString content = "[dictionary,index]";
-            insertRow(code, content);
+            insertRow(EName(code), content);
         } else if (code == "dc:creator-aut") {
             code = "dc:creator";
             QString content = tr("[Author name here]");
-            insertRow(code, content);
-            insertChild(QString("role"),QString("aut"));
-            insertChild(QString("scheme"),QString("marc:relators"));
+            insertRow(EName(code), content);
+            insertChild(PName("role"),RName("aut"));
+            insertChild(PName("scheme"),QString("marc:relators"));
         } else if (code == "dc:creator") {
             code = "dc:creator";
             QString content = tr("[Creator name here]");
-            insertRow(code, content);
+            insertRow(EName(code), content);
         } else if (code == "dc:contributor") {
             code = "dc:contributor";
             QString content = tr("[Contributor name here]");
-            insertRow(code, content);
+            insertRow(EName(code), content);
         } else if (code == "meta") {
             code = "meta";
             QString content = tr("[meta value here]");
-            insertRow(code, content);
-            insertChild(QString("property"),QString("[property_name]"));
+            insertRow(EName(code), content);
+            insertChild(PName("property"),QString("[property_name]"));
         } else {
-            insertRow(code);
+            insertRow(EName(code));
         }
     }
 }
@@ -234,54 +362,59 @@ void MetaEditor::selectE2Element()
             if (!langcodes.isEmpty()) {
                 lang = langcodes.at(0);
             }
-            insertRow(code, lang);
+            insertRow(EName(code), LName(lang));
         } else if (code == "dc:identifier-isbn") {
             QString content = tr("[ISBN here]");
             code = "dc:identifier";
-            insertRow(code, content);
-            insertChild(QString("opf:scheme"), QString("ISBN"));
+            insertRow(EName(code), content);
+            insertChild(PName("opf:scheme"), QString("ISBN"));
         } else if (code == "dc:identifier-issn") {
             QString content = tr("[ISSN here]");
             code = "dc:identifier";
-            insertRow(code, content);
-            insertChild(QString("opf:scheme"), QString("ISSN"));
+            insertRow(EName(code), content);
+            insertChild(PName("opf:scheme"), QString("ISSN"));
         } else if (code == "dc:identifier-doi") {
             QString content = tr("[DOI here]");
             code = "dc:identifier";
-            insertRow(code, content);
-            insertChild(QString("opf:scheme"), QString("DOI"));
+            insertRow(EName(code), content);
+            insertChild(PName("opf:scheme"), QString("DOI"));
         } else if (code == "dc:identifier-uuid") {
             QString content = tr("[UUID here]");
             code = "dc:identifier";
-            insertRow(code, content);
-            insertChild(QString("opf:scheme"), QString("UUID"));
+            insertRow(EName(code), content);
+            insertChild(PName("opf:scheme"), QString("UUID"));
+        } else if (code == "dc:identifier-asin") {
+            QString content = tr("[ASIN here]");
+            code = "dc:identifier";
+            insertRow(EName(code), content);
+            insertChild(PName("opf:scheme"), QString("ASIN"));
         } else if (code == "dc:identifier-custom") {
             QString content = tr("[Custom identifier here]");
             code = "dc:identifier";
-            insertRow(code, content);
-            insertChild(QString("opf:scheme"));
+            insertRow(EName(code), content);
+            insertChild(PName("opf:scheme"));
         } else if (code.startsWith("dc:date-")) {
             QStringList parts = code.split('-');
             QString dc_event = parts.at(1);
             code = "dc:date";
             QString content = QDate::currentDate().toString(Qt::ISODate);
-            insertRow(code,content);
-            insertChild(QString("opf:event"),dc_event);
+            insertRow(EName(code),content);
+            insertChild(PName("opf:event"),PName("dc:date-"+dc_event));
         } else if (code == "dc:creator-aut") {
             code = "dc:creator";
             QString content = tr("[Author name here]");
-            insertRow(code, content);
-            insertChild(QString("opf:role"),QString("aut"));
+            insertRow(EName(code), content);
+            insertChild(PName("opf:role"),LName("aut"));
         } else if (code == "dc:creator") {
             code = "dc:creator";
             QString content = tr("[Creator name here]");
-            insertRow(code, content);
+            insertRow(EName(code), content);
         } else if (code == "dc:contributor") {
             code = "dc:contributor";
             QString content = tr("[Contributor name here]");
-            insertRow(code, content);
+            insertRow(EName(code), content);
         } else {
-            insertRow(code);
+            insertRow(EName(code));
         }
     }
 }
@@ -298,31 +431,25 @@ void MetaEditor::selectProperty()
     }
     foreach(QString code, codes) {
         if (code.startsWith("title-type:")) {
-            QStringList parts = code.split(':');
-            QString content = parts.at(1);
-            code = parts.at(0);
-            insertChild(code, content);
+            QString content = PName(code);
+            insertChild(PName("title-type"), content);
         } else if (code.startsWith("collection-type:")) {
-            QStringList parts = code.split(':');
-            QString content = parts.at(1);
-            code = parts.at(0);
-            insertChild(code, content);
+            QString content = PName(code);
+            insertChild(PName("collection-type"), content);
         } else if (code.startsWith("dir:")) {
-            QStringList parts = code.split(':');
-            QString content = parts.at(1);
-            code = parts.at(0);
-            insertChild(code, content);
+            QString content = PName(code);
+            insertChild(PName("dir"), content);
         } else if (code == "source-of") {
-            QString content = "pagination";
-            insertChild(code, content);
+            QString content = PName(code);
+            insertChild(PName("source-of"), content);
         } else if (code == "group-position") {
             QString content = "1";
-            insertChild(code, content);
+            insertChild(PName(code), content);
         } else if (code == "display-seq") {
             QString content = "1";
-            insertChild(code, content);
+            insertChild(PName(code), content);
         } else if (code == "scheme") {
-            insertChild(code);
+            insertChild(PName(code));
         } else if ((code == "altlang") || (code == "xml:lang")) {
             QStringList langcodes;
             AddMetadata addvalue(Language::instance()->GetLangMap(), this);
@@ -333,7 +460,7 @@ void MetaEditor::selectProperty()
             if (!langcodes.isEmpty()) {
                 lang = langcodes.at(0);
             }
-            insertChild(code, lang);
+            insertChild(PName(code), RName(lang));
         } else if (code == "role") {
             QStringList rolecodes;
             AddMetadata addrole(MarcRelators::instance()->GetCodeMap(), this);
@@ -344,16 +471,16 @@ void MetaEditor::selectProperty()
             if (!rolecodes.isEmpty()) {
                 role = rolecodes.at(0);
             }
-            insertChild(code, role);
+            insertChild(PName(code), RName(role));
             code = "scheme";
             QString scheme = "marc:relators";
-            insertChild(code, scheme);
+            insertChild(PName(code), scheme);
         } else if (code == "identifier-type") {
             insertChild(code);
             code = "scheme";
-            insertChild(code);
+            insertChild(PName(code));
         } else {
-            insertChild(code);
+            insertChild(PName(code));
         }
     }
 }
@@ -369,7 +496,7 @@ void MetaEditor::selectE2Property()
     }
     foreach(QString code, codes) {
         if (code == "opf:scheme") {
-            insertChild(code);
+            insertChild(PName(code));
         } else if (code == "xml:lang") {
             QStringList langcodes;
             AddMetadata addvalue(Language::instance()->GetLangMap(), this);
@@ -380,7 +507,7 @@ void MetaEditor::selectE2Property()
             if (!langcodes.isEmpty()) {
                 lang = langcodes.at(0);
             }
-            insertChild(code, lang);
+            insertChild(PName(code), LName(lang));
         } else if (code == "opf:role") {
             QStringList rolecodes;
             AddMetadata addrole(MarcRelators::instance()->GetCodeMap(), this);
@@ -391,9 +518,9 @@ void MetaEditor::selectE2Property()
             if (!rolecodes.isEmpty()) {
                 role = rolecodes.at(0);
             }
-            insertChild(code, role);
+            insertChild(PName(code), RName(role));
         } else {
-            insertChild(code);
+            insertChild(PName(code));
         }
     }
 }
@@ -548,20 +675,20 @@ void MetaEditor::loadMetadataElements()
          tr("Subject") << "dc:subject" << tr("An arbitrary phrase or keyword describing the subject in question. Use multiple 'subject' elements if needed.") <<
          tr("Description") << "dc:description" << tr("Description of the publication's content.") <<
          tr("Publisher") << "dc:publisher" << tr("An entity responsible for making the publication available.") <<
-         tr("Date: Publication") << "dc:date" << tr("The date of publication.") <<
-         tr("Date: Creation") << "dcterms:created" << tr("The date of creation.") <<
-         tr("Date: Issued") << "dcterms:issued" << tr("The date of modification.") <<
-         tr("Date: Modification") << "dcterms:modified" << tr("The date of modification.") <<
+         tr("Date Published") << "dc:date" << tr("The date of publication.") <<
+         tr("Date Created") << "dcterms:created" << tr("The date of creation.") <<
+         tr("Date Issued") << "dcterms:issued" << tr("The date of modification.") <<
+         tr("Date Modified") << "dcterms:modified" << tr("The date of modification.") <<
          tr("Type") << "dc:type" << tr("Used to indicate that the given EPUB Publication is of a specialized type..") <<
          tr("Format") << "dc:format" << tr("The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).") <<
          tr("Source") << "dc:source" << tr("Identifies the related resource(s) from which this EPUB Publication is derived.") <<
          tr("Language") << "dc:language" << tr("Specifies the language of the publication. Select from the dropdown menu") <<
-         tr("Relation") << "dc:relation" << tr("A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.") <<
+         tr("Related To") << "dc:relation" << tr("A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.") <<
          tr("Coverage") << "dc:coverage" << tr("The extent or scope of the content of the publication's content.") <<
          tr("Rights") << "dc:rights" << tr("Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.") <<
-         tr("Creator") << "dc:creator" << tr("Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.") <<
-         tr("Contributor") << "dc:contributor" << tr("Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.") <<
-         tr("Belongs to Collection") << "belongs-to-collection" << tr("Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.") <<
+         tr("Creator") << "dc:creator" << tr("Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.") <<
+         tr("Contributor") << "dc:contributor" << tr("Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.") <<
+         tr("Belongs to a Collection") << "belongs-to-collection" << tr("Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.") <<
          tr("Title") << "dc:title" << tr("A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.") <<
          tr("Identifier: DOI") << "dc:identifier-doi" << tr("Digital Object Identifier associated with the given EPUB publication.") << 
          tr("Identifier: ISBN") << "dc:identifier-isbn" << tr("International Standard Book Number associated with the given EPUB publication.") <<
@@ -569,7 +696,7 @@ void MetaEditor::loadMetadataElements()
          tr("Identifier: UUID") << "dc:identifier-uuid" << tr("A Universally Unique Idenitifier generated for this EPUB publication.") <<
          // tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier based on a specified scheme") <<
          tr("Custom Element") << tr("[Custom element]") << tr("An empty metadata element you can modify.")  << 
-         tr("Meta Element (primary)") << "meta" << tr("An empty primary meta element you can modify.");
+         tr("Meta Element (primary)") << "meta" << tr("An empty primary metadata element you can modify.");
     for (int i = 0; i < data.count(); i++) {
         QString name = data.at(i++);
         QString code = data.at(i++);
@@ -596,26 +723,26 @@ void MetaEditor::loadMetadataProperties()
     QStringList data;
     data <<
          tr("Id Attribute") << "id" << tr("Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.") <<
-         tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
-         tr("Text Direction: rtl") << "dir:rtl" << tr("Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
-         tr("Text Direction: ltr") << "dir:ltr" << tr("Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
-         tr("Title Type: main") << "title-type:main" << tr("Indicates the associated title is the main title of the publication.  Only one main title should exist.") <<
-         tr("Title Type: subtitle") << "title-type:subtitle" << tr("Indicates that the associated title is a subtitle of the publication if one exists..") <<
-         tr("Title Type: short") << "title-type:short" << tr("Indicates that the associated title is a shortened title of the publication if one exists.") <<
-         tr("Title Type: collection") << "title-type:collection" << tr("Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.") <<
-         tr("Title Type: edition") << "title-type:edition" << tr("Indicates that the associated title is an edition title for this publications if one exists.") <<
-         tr("Title Type: expanded") << "title-type:expanded" << tr("Indicates that the associated title is an expanded title for this publication if one exists.") <<
+         tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses same codes as Language. Not for use with Language, Date, or Identifier metadata elements.") <<
+         tr("Uses Right To Left Text") << "dir:rtl" << tr("Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
+         tr("Uses Left to Right Text") << "dir:ltr" << tr("Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
+         tr("Title: Main Title") << "title-type:main" << tr("Indicates the associated title is the main title of the publication.  Only one main title should exist.") <<
+         tr("Title: Subtitle") << "title-type:subtitle" << tr("Indicates that the associated title is a subtitle of the publication if one exists..") <<
+         tr("Title: Short Title") << "title-type:short" << tr("Indicates that the associated title is a shortened title of the publication if one exists.") <<
+         tr("Title: Collection Title") << "title-type:collection" << tr("Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.") <<
+         tr("Title: Edition Title") << "title-type:edition" << tr("Indicates that the associated title is an edition title for this publications if one exists.") <<
+         tr("Title: Expanded Title") << "title-type:expanded" << tr("Indicates that the associated title is an expanded title for this publication if one exists.") <<
          tr("Alternate Script") << "alternate-script" << tr("Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.") <<
          tr("Alternate Language") << "altlang" << tr("Language code for the language used in the associated alternate-script property value.") <<
-         tr("Collection Type: set") << "collection-type:set" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection. The value 'set' should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..") <<
-         tr("Collection Type: series") << "collection-type:series" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection. The value 'series'' should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.") <<
+         tr("Collection is a Set") << "collection-type:set" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection. The value 'set' should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..") <<
+         tr("Collection is a Series") << "collection-type:series" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection. The value 'series'' should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.") <<
          tr("Display Sequence") << "display-seq" << tr("Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).") <<
-         tr("File as") << "file-as" << tr("Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.") <<
-         tr("Group Position") << "group-position" << tr("Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).") <<
+         tr("File As") << "file-as" << tr("Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.") <<
+         tr("Position In Group") << "group-position" << tr("Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).") <<
          tr("Identifier Type") << "identifier-type" << tr("Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.") <<
          tr("Meta Authority") << "meta-auth" << tr("Identifies the party or authority responsible for an instance of package metadata.") <<
          tr("Role") << "role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
-         tr("Scheme") << "scheme" << tr("This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.") <<
+         tr("Scheme") << "scheme" << tr("This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.") <<
          tr("Source of Pagination") << "source-of" << tr("Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.") <<
         tr("Custom Property") << tr("[Custom property/attribute]") << tr("An empty metadata property or attribute you can modify.");
 
@@ -628,6 +755,71 @@ void MetaEditor::loadMetadataProperties()
         minfo.description  = description;
         m_PropertyInfo.insert(code, minfo);
         m_PropertyCode.insert(name, code);
+    }
+}
+
+
+void MetaEditor::loadMetadataXProperties()
+{
+    // If the basic metadata has already been loaded
+    // by a previous Meta Editor, then don't load them again
+    if (!m_XPropertyInfo.isEmpty()) {
+        return;
+    }
+
+    // These descriptions are standard EPUB descriptions and should not be changed.
+    // Names and codes must be unique between basic and advanced (except Publisher)
+    // Abbreviations are not translated.
+    QStringList data;
+    data <<
+        tr("Text Direction") << "dir" << tr("Optional text direction attribute for this metadata item.") <<
+        tr("Title Type") << "title-type" << tr("Indicates the kind or type of the title") <<
+        tr("Collection Type") << "collection-type" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection.") <<
+        tr("Source of") << "source-of" << tr("Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.");
+    for (int i = 0; i < data.count(); i++) {
+        QString name = data.at(i++);
+        QString code = data.at(i++);
+        QString description = data.at(i);
+        DescriptiveInfo minfo;
+        minfo.name = name;
+        minfo.description  = description;
+        m_XPropertyInfo.insert(code, minfo);
+        m_XPropertyCode.insert(name, code);
+    }
+}
+
+
+void MetaEditor::loadE2MetadataXProperties()
+{
+    // If the basic metadata has already been loaded
+    // by a previous Meta Editor, then don't load them again
+    if (!m_XE2PropertyInfo.isEmpty()) {
+        return;
+    }
+
+    // These descriptions are standard EPUB descriptions and should not be changed.
+    // Names and codes must be unique between basic and advanced (except Publisher)
+    // Abbreviations are not translated.
+    QStringList data;
+    data <<
+        tr("Published") << "published" << tr("Event Type is Publication.") <<
+        tr("Published") << "publication" << tr("Event Type is Publication.") <<
+        tr("Created") << "creation" << tr("Event Type is Creation.") <<
+        tr("Modified") << "modification" << tr("Event Type is Modification.") <<
+        tr("Digital Object Identifier")   << "DOI" << tr("Identifier Scheme: Digital Object Identifier") <<
+        tr("International Standard Book Number")  << "ISBN" << tr("Identifier Scheme: International Standard Book Number") <<
+        tr("International Standard Serial Number") << "ISSN"  << tr("Identifier Scheme: International Standard Serial Number") <<
+        tr("Universally Unique Identifier") << "UUID"  << tr("Identifier Scheme: Universally Unique Identifier") <<
+        tr("Amazon Unique Identifier") <<  "ASIN" << tr("Identifier Scheme: Amazon Unique Identifier");
+    for (int i = 0; i < data.count(); i++) {
+        QString name = data.at(i++);
+        QString code = data.at(i++);
+        QString description = data.at(i);
+        DescriptiveInfo minfo;
+        minfo.name = name;
+        minfo.description  = description;
+        m_XE2PropertyInfo.insert(code, minfo);
+        m_XE2PropertyCode.insert(name, code);
     }
 }
 
@@ -653,6 +845,7 @@ void MetaEditor::loadE2MetadataElements()
          tr("Subject") << "dc:subject" << tr("An arbitrary phrase or keyword describing the subject in question. Use multiple 'subject' elements if needed.") <<
          tr("Description") << "dc:description" << tr("Description of the publication's content.") <<
          tr("Publisher") << "dc:publisher" << tr("An entity responsible for making the publication available.") <<
+         tr("Date") << "dc:date" << tr("A date associated with this epub, typically refined by event type information") <<
          tr("Date: Publication") << "dc:date-publication" << tr("The date of publication.") <<
          tr("Date: Creation") << "dc:date-creation" << tr("The date of creation.") <<
          tr("Date: Modification") << "dc:date-modification" << tr("The date of modification.") <<
@@ -667,6 +860,7 @@ void MetaEditor::loadE2MetadataElements()
          tr("Identifier") + ": ISBN"  << "dc:identifier-isbn" << tr("International Standard Book Number") <<
          tr("Identifier") + ": ISSN"  << "dc:identifier-issn" << tr("International Standard Serial Number") <<
          tr("Identifier") + ": UUID"  << "dc:identifier-uuid" << tr("Universally Unique Identifier") <<
+         tr("Identifier") + ": ASIN"  << "dc:identifier-asin" << tr("Amazon Unique Identifier") <<
          tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier based on a specified scheme") <<
          tr("Series") << "calibre:series" << tr("Series title or name (from calibre)") <<
          tr("Series Index") << "calibre:series_index" << tr("Index of this book in the series (from calibre)") <<
@@ -700,7 +894,7 @@ void MetaEditor::loadE2MetadataProperties()
     data <<
          tr("Id Attribute") << "id" << tr("Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.") <<
          tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
-         tr("File as") << "opf:file-as" << tr("Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.") <<
+         tr("File As") << "opf:file-as" << tr("Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.") <<
          tr("Role") << "opf:role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
          tr("Scheme") << "opf:scheme" << tr("This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, or UUID.") <<
          tr("Event") << "opf:event" << tr("This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.") <<
