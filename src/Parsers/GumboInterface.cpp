@@ -265,7 +265,7 @@ QList<GumboNode *> GumboInterface::findnodes(const QString &aSelector)
         std::string as = aSelector.toStdString();
         CSelection sel(m_output->root);
         CSelection res = sel.find(as);
-        for (int i=0; i < res.nodeNum(); i++) {
+        for (unsigned int i=0; i < res.nodeNum(); i++) {
             nodes << res.nodeAt(i).raw();
         }
     }
@@ -1366,7 +1366,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
     bool keep_whitespace        = in_set(preserve_whitespace, tagname);
     bool is_inline              = in_set(nonbreaking_inline, tagname);
     bool is_structural          = in_set(structural_tags, tagname);
-    bool is_other               = in_set(other_text_holders, tagname);
+    // bool is_other               = in_set(other_text_holders, tagname);
     char c                      = indent_chars.at(0);
     int  n                      = indent_chars.length(); 
     std::string indent_space    = std::string((lvl-1)*n,c);
