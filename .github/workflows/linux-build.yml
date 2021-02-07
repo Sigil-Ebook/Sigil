@@ -1,0 +1,79 @@
+name: Build Sigil on Linux
+
+on:
+  push:
+    branches: [ master ]
+    tags-ignore:
+      - '**'
+    paths-ignore:
+    - 'docs/**'
+    - 'installer/win_installer_note.txt'
+    - 'ChangeLog.txt'
+    - 'COPYING.txt'
+    - 'version.xml'
+    - 'appveyor.yml'
+    - '.retired_travis.yml'
+    - '**.md'
+    - '**/reset-**-caches.txt'
+  pull_request:
+    branches: [ master ]
+    tags-ignore:
+      - '**'
+    paths-ignore:
+    - 'docs/**'
+    - 'installer/win_installer_note.txt'
+    - 'ChangeLog.txt'
+    - 'COPYING.txt'
+    - 'version.xml'
+    - 'appveyor.yml'
+    - '.retired_travis.yml'
+    - '**.md'
+    - '**/reset-**-caches.txt'
+
+env:
+  BUILD_TYPE: Debug
+
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Cache Qt
+      id: cache-qt
+      uses: actions/cache@v2
+      with:
+        path: ${{runner.workspace}}/Qt
+        key: ${{ runner.os }}-sigilqt-${{ hashFiles('**/reset-lin-caches.txt') }}
+  
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: '5.9.5'
+        dir: ${{runner.workspace}}/Qt
+        modules: 'qtwebengine'
+        setup-python: 'false'
+        cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
+    - uses: lukka/get-cmake@latest
+
+    - name: Install dependencies
+      run: |
+        mkdir ${{runner.workspace}}/build
+        cmake --version
+        ninja --version
+        qmake -v
+        python3 --version
+        gcc --version
+
+    - name: Build Sigil
+      working-directory: ${{runner.workspace}}/build
+      run: |
+        cmake $GITHUB_WORKSPACE \
+        -G "Ninja" \
+        -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+        -DUSE_SYSTEM_LIBS=1 \
+        -DSYSTEM_LIBS_REQUIRED=0
+        ninja -j$(getconf _NPROCESSORS_ONLN)
