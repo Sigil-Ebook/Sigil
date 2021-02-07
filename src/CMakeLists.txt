@@ -191,6 +191,8 @@ set( DIALOG_FILES
     Dialogs/TreeItem.h
     Dialogs/TreeModel.cpp
     Dialogs/TreeModel.h
+    Dialogs/MetaEditorItemDelegate.cpp
+    Dialogs/MetaEditorItemDelegate.h
     Dialogs/HeadingSelector.cpp
     Dialogs/HeadingSelector.h
     Dialogs/PluginRunner.cpp

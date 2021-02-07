@@ -30,11 +30,14 @@
 #include "Misc/Language.h"
 #include "Misc/MarcRelators.h"
 
+
 #include "ui_MetaEditor.h"
 
 class QShortcut;
 class MainWindow;
 class Book;
+class MetaEditorItemDelegate;
+
 
 class MetaEditor : public QDialog, private Ui::MetaEditor
 {
@@ -86,6 +89,8 @@ private slots:
     void loadE2MetadataProperties();
     void loadE2MetadataXProperties();
 
+    QStringList buildChoices(const QStringList& opts);
+    
     void ReadSettings();
 
     QString GetOPFMetadata();
@@ -115,12 +120,15 @@ private slots:
     MainWindow * m_mainWindow;
     MarcRelators * m_Relator;
     QShortcut * m_RemoveRow;
+    MetaEditorItemDelegate * m_cbDelegate;
     QSharedPointer<Book> m_book;
     QString m_version;
     QString m_opfdata;
     QString m_otherxml;
     QString m_metatag;
     QStringList m_idlist;
+    QHash<QString, QStringList> m_Choices;
+    
 };
 
 #endif // METAEDITOR_H

@@ -19,6 +19,7 @@
 **
 *************************************************************************/
 
+#include "EmbedPython/PythonRoutines.h"
 
 #include <QString>
 #include <QChar>
@@ -31,23 +32,42 @@
 
 #include "Dialogs/TreeModel.h"
 #include "Dialogs/AddMetadata.h"
-#include "Dialogs/MetaEditor.h"
 #include "MainUI/MainWindow.h"
 #include "Misc/Language.h"
 #include "Misc/SettingsStore.h"
-#include "EmbedPython/PythonRoutines.h"
+#include "Dialogs/MetaEditorItemDelegate.h"
+#include "Dialogs/MetaEditor.h"
+
 
 static const QString SETTINGS_GROUP = "meta_editor";
 static const QString _IN = "  ";
 static const QString _US = QString(QChar(31));
 static const QString _RS = QString(QChar(30));
 
+// Used to build up Delegate Choice sets for epub3 metadata
+static const QStringList TITLES = QStringList() << "title-type:main" << "title-type:subtitle" <<
+    "title-type:short" << "title-type:collection" << "title-type:edition" << "title-type:expanded";
+
+static const QStringList TXTDIR = QStringList() << "dir:rtl" << "dir:ltr";
+
+static const QStringList COLLECT = QStringList() << "collection-type:set" << "collection-type:series";
+
+// Used to build up Delegate Cjhoice setf for epub2 metadata
+static const QStringList EVENTS = QStringList() << "dc:date-publication" << "dc:date-creation" <<
+    "dc:date-modification";
+
+static const QStringList IDTYPE = QStringList() << "dc:identifier-doi" << "dc:identifier-isbn" <<
+    "dc:identifier-issn" << "dc:identifier-uuid" << "dc:identifer-asin";
+
+static const QStringList SCHEMES = QStringList() << "marc:relators" << "DOI" << "ISBN" << "ISSN" << "UUID" << "ASIN";
+
 
 MetaEditor::MetaEditor(QWidget *parent)
   : QDialog(parent),
     m_mainWindow(qobject_cast<MainWindow *>(parent)),
     m_Relator(MarcRelators::instance()),
-    m_RemoveRow(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Delete),this, 0, 0, Qt::WidgetWithChildrenShortcut))
+    m_RemoveRow(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Delete),this, 0, 0, Qt::WidgetWithChildrenShortcut)),
+    m_cbDelegate(new MetaEditorItemDelegate())
 {
     setupUi(this);
 
@@ -65,6 +85,50 @@ MetaEditor::MetaEditor(QWidget *parent)
         loadE2MetadataXProperties();
     }
 
+    // build up choice sets and pass to Delegate
+    if (m_version.startsWith('3')) {
+        QString cat;
+        cat = PName("title-type");
+        m_Choices[cat] = buildChoices(TITLES);
+
+        cat = PName("dir");
+        m_Choices[cat] = buildChoices(TXTDIR); 
+
+        cat = PName("collection-type");
+        m_Choices[cat] = buildChoices(COLLECT);
+
+        cat = PName("role");
+        m_Choices[cat] = MarcRelators::instance()->GetSortedNames(); 
+
+        cat = EName("dc:language");
+        m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+
+        cat = PName("xml:lang");
+        m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+
+        cat = PName("altlang");
+        m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+        
+    } else {
+        QString cat;
+        cat = PName("opf:event");
+        m_Choices[cat] = buildChoices(EVENTS);
+
+        cat = PName("opf:scheme");
+        m_Choices[cat] = buildChoices(SCHEMES);
+
+        cat = PName("opf:role");
+        m_Choices[cat] = MarcRelators::instance()->GetSortedNames();
+
+        cat = EName("dc:language");
+        m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+        
+        cat = PName("xml:lang");
+        m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+    }
+
+    m_cbDelegate->setChoices(m_Choices);
+    
     QStringList headers;
     headers << tr("Name") << tr("Value");
 
@@ -75,6 +139,9 @@ MetaEditor::MetaEditor(QWidget *parent)
     for (int column = 0; column < model->columnCount(); ++column)
         view->resizeColumnToContents(column);
 
+    // need to assign delegate for values stored in column 1 only
+    view->setItemDelegateForColumn(1, m_cbDelegate);
+    
     if (!isVisible()) {
         ReadSettings();
     }
@@ -107,6 +174,21 @@ MetaEditor::MetaEditor(QWidget *parent)
 MetaEditor::~MetaEditor()
 {
     m_RemoveRow->deleteLater();
+    if (m_cbDelegate) {
+        delete m_cbDelegate;
+        m_cbDelegate = 0;
+    }
+}
+
+
+QStringList MetaEditor::buildChoices(const QStringList& opts)
+{
+    QStringList  choices;
+    foreach(QString aval, opts) {
+        choices << PName(aval);
+    }
+    choices.sort();
+    return choices;
 }
 
 
@@ -460,7 +542,7 @@ void MetaEditor::selectProperty()
             if (!langcodes.isEmpty()) {
                 lang = langcodes.at(0);
             }
-            insertChild(PName(code), RName(lang));
+            insertChild(PName(code), LName(lang));
         } else if (code == "role") {
             QStringList rolecodes;
             AddMetadata addrole(MarcRelators::instance()->GetCodeMap(), this);
