@@ -1,0 +1,133 @@
+name: Build Sigil on macOS
+
+on:
+  push:
+    branches: [ master ]
+    tags-ignore:
+      - '**'
+    paths-ignore:
+    - 'docs/**'
+    - 'installer/win_installer_note.txt'
+    - 'ChangeLog.txt'
+    - 'COPYING.txt'
+    - 'version.xml'
+    - '.retired_travis.yml'
+    - '**/**.md'
+    - '**/reset-**-caches.txt'
+  pull_request:
+    branches: [ master ]
+    tags-ignore:
+      - '**'
+    paths-ignore:
+    - 'docs/**'
+    - 'installer/win_installer_note.txt'
+    - 'ChangeLog.txt'
+    - 'COPYING.txt'
+    - 'version.xml'
+    - '.retired_travis.yml'
+    - '**/**.md'
+    - '**/reset-**-caches.txt'
+env:
+  GDRIVE_REFRESH_TOKEN: ${{ secrets.GDRIVE_REFRESH_TOKEN }}
+  GDRIVE_DIR: ${{ secrets.SIGIL_MAC_GDRIVE_DIR }}
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_NO_INSTALL_CLEANUP: 1
+  MACOSX_DEPLOYMENT_TARGET: 10.12
+  DOWNLOADQT: https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Qt5129.tar.xz
+  DOWNLOADPY: https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Python.framework.tar.xz
+  PY_VER: 3.8
+  QT: Qt5129
+
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Cache Custom Qt
+      uses: actions/cache@v2
+      with:
+        path: ${{runner.workspace}}/${{env.QT}}
+        key: ${{ runner.os }}-qtdeps-${{hashFiles('**/reset-mac-caches.txt')}}
+
+    - name: Cache Custom Python
+      uses: actions/cache@v2
+      with:
+        path: ${{runner.workspace}}/Frameworks
+        key: ${{ runner.os }}-qtdeps-${{hashFiles('**/reset-mac-caches.txt')}}
+
+    - name: Install dependencies
+      shell: bash
+      working-directory: ${{runner.workspace}}
+      run: |
+        brew install gdrive
+        brew install wget
+        pwd
+        if [[ ! -d ${{runner.workspace}}/${{env.QT}} ]]; \
+        then wget ${DOWNLOADQT} && tar xzf ${{env.QT}}.tar.xz; fi
+
+        if [[ -d ${{runner.workspace}}/${{env.QT}}/bin ]]; \
+        then cd ${{runner.workspace}}/${{env.QT}}/bin && \
+        echo [Paths] > qt.conf && echo Prefix=.. >> qt.conf; fi
+
+        export MYQTHOME=${{runner.workspace}}/${{env.QT}}
+        echo ${MYQTHOME}/bin >> $GITHUB_PATH
+        cd ${{runner.workspace}}
+
+        if [[ ! -d ${{runner.workspace}}/Frameworks ]]; \
+        then mkdir Frameworks && cd ${{runner.workspace}}/Frameworks && \
+        wget ${DOWNLOADPY} && tar xzf Python.framework.tar.xz; fi
+
+        export MYDEST=${{runner.workspace}}/Frameworks
+        echo ${MYDEST}/Python.framework/Versions/${PY_VER}/bin >> $GITHUB_PATH
+        echo "Qt5_DIR=${{runner.workspace}}/${{env.QT}}/lib/cmake/Qt5" >> $GITHUB_ENV
+        echo "Qt5_Dir=${{runner.workspace}}/${{env.QT}}/lib/cmake/Qt5" >> $GITHUB_ENV
+        echo "QT_PLUGIN_PATH=${{runner.workspace}}/${{env.QT}}/plugins" >> $GITHUB_ENV
+
+    - name: Test environment
+      shell: bash
+      run: |
+        qmake -v
+        python3 --version
+        mkdir ${{runner.workspace}}/build
+        pwd
+
+    - name: Build Sigil
+      working-directory: ${{runner.workspace}}/build
+      shell: bash
+      run: |
+        cmake -DPKG_SYSTEM_PYTHON=1 \
+        -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
+        -DCMAKE_PREFIX_PATH=${{runner.workspace}}/${{env.QT}}/lib/cmake \
+        -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/ $GITHUB_WORKSPACE  
+        make -j$(getconf _NPROCESSORS_ONLN)   
+
+    - name: Build Installer
+      working-directory: ${{runner.workspace}}/build
+      shell: bash
+      if: "contains(github.event.head_commit.message, '[deploy]')"
+      run: |
+        echo 'Deploying App'
+        make addframeworks
+        bash $GITHUB_WORKSPACE/ci_scripts/rpath_adjust.sh
+        cd ./bin
+        tar -cJf Sigil.tar.xz Sigil.app
+
+    - name: Upload to gdrive
+      working-directory: ${{runner.workspace}}/build
+      shell: bash
+      if: "contains(github.event.head_commit.message, '[deploy]') && github.event_name != 'pull_request'"
+      run: |
+        python3 $GITHUB_WORKSPACE/ci_scripts/newgddeploy.py
+
+    - uses: actions/upload-artifact@v2
+      if: "contains(github.event.head_commit.message, '[deploy]')"
+      with:
+        name: sigil-installer
+        path: ${{runner.workspace}}/build/bin/Sigil.tar.xz
+        retention-days: 3
+         
