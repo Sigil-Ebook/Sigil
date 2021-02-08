@@ -144,9 +144,6 @@
          <height>0</height>
         </size>
        </property>
-       <property name="toolTip">
-        <string>Double-click in cell to edit its value.  Minimum metadata consists of main language, title, and at least one creator.</string>
-       </property>
        <property name="alternatingRowColors">
         <bool>true</bool>
        </property>

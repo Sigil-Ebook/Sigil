@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Modification Copyright (2) 2016 Kevin B. Hendricks, Stratford, ON Canada
+** Modifications Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, ON Canada
 **
 ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
 ** Contact: http://www.qt-project.org/legal
@@ -57,17 +57,20 @@ public:
     int childCount() const;
     int columnCount() const;
     QVariant data(int column) const;
+    QVariant tip(int column) const;
     bool insertChildren(int position, int count, int columns);
     TreeItem *parent();
     bool removeChildren(int position, int count);
     int childNumber() const;
     bool setData(int column, const QVariant &value);
+    bool setTips(int column, const QVariant &value);
     bool moveChildUp(int position);
     bool moveChildDown(int position);    
 
 private:
     QList<TreeItem*> childItems;
     QVector<QVariant> itemData;
+    QVector<QVariant> itemTips;
     TreeItem *parentItem;
 };
 

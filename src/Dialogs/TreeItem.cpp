@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Modifications Copyright (C) 2016 Kevin B, Hendricks, Stratford, ON, Canada
+** Modifications Copyright (C) 2016-2021 Kevin B, Hendricks, Stratford, ON, Canada
 **
 ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
 ** Contact: http://www.qt-project.org/legal
@@ -54,6 +54,7 @@ TreeItem::TreeItem(const QVector<QVariant> &data, TreeItem *parent)
 {
     parentItem = parent;
     itemData = data;
+    itemTips = data;
 }
 
 TreeItem::~TreeItem()
@@ -82,6 +83,11 @@ int TreeItem::childNumber() const
 int TreeItem::columnCount() const
 {
     return itemData.count();
+}
+
+QVariant TreeItem::tip(int column) const
+{
+    return itemTips.value(column);
 }
 
 QVariant TreeItem::data(int column) const
@@ -144,6 +150,15 @@ bool TreeItem::setData(int column, const QVariant &value)
         return false;
 
     itemData[column] = value;
+    return true;
+}
+
+bool TreeItem::setTips(int column, const QVariant &value)
+{
+    if (column < 0 || column >= itemTips.size())
+        return false;
+
+    itemTips[column] = value;
     return true;
 }
 

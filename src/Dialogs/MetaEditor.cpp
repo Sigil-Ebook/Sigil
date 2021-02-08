@@ -43,6 +43,7 @@ static const QString SETTINGS_GROUP = "meta_editor";
 static const QString _IN = "  ";
 static const QString _US = QString(QChar(31));
 static const QString _RS = QString(QChar(30));
+static const QString _GS = QString(QChar(29));
 
 // Used to build up Delegate Choice sets for epub3 metadata
 static const QStringList TITLES = QStringList() << "title-type:main" << "title-type:subtitle" <<
@@ -216,6 +217,7 @@ QString MetaEditor::GetOPFMetadata() {
     m_idlist = mdp.idlist;
     qDebug() << "Data from OPF: " << adata;
     // Translate to Human Readable Form
+    // and set original codes as tooltips
     QStringList nlist;
     QStringList dlist = adata.split(_RS);
     foreach(QString rc, dlist) {
@@ -224,9 +226,11 @@ QString MetaEditor::GetOPFMetadata() {
         if (rc.startsWith(_IN)) {
             // treat as property value attribute pair
             QStringList parts = rc.trimmed().split(_US);
+            QString tvalue = parts.at(1);
             QString value = parts.at(1);
             if (parts.at(0) == "opf:role") value = RName(value);
             if (parts.at(0) == "opf:scheme") value = PName(value);
+            if (parts.at(0) == "opf:file-as") tvalue = "";
             if (parts.at(0) == "opf:event") value = PName("opf:event-" + value);
             if (parts.at(0) == "role") value = RName(value);
             if (parts.at(0) == "title-type") value = PName("title-type:" + value);
@@ -234,19 +238,24 @@ QString MetaEditor::GetOPFMetadata() {
             if (parts.at(0) == "xml:lang") value = LName(value);
             if (parts.at(0) == "altlang") value = LName(value);
             if (parts.at(0) == "source-of") value = PName("source-of:" + value);
-            QString prop = PName(parts.at(0));
+            QString prop = PName(parts.at(0)) + _GS + parts.at(0);
+            value = value + _GS + tvalue;
             nlist.append(_IN + prop + _US + value + _RS);
         } else {
             // treat as element with content
             QStringList parts = rc.split(_US);
-            QString elem = EName(parts.at(0));
+            QString elem = EName(parts.at(0)) + _GS + parts.at(0);
             QString value = parts.at(1);
-            if (parts.at(0) == "dc:language") value = LName(value);
+            QString valtip = "";
+            if (parts.at(0) == "dc:language") {
+                valtip = parts.at(1);
+                value = LName(value);
+            }
+            value = value + _GS + valtip;
             nlist.append(elem + _US + value + _RS);
         }
     }
     QString ndata = nlist.join("");
-    qDebug() << "Translated data: " << ndata;
     return ndata;
 }
 
@@ -680,12 +689,23 @@ void MetaEditor::insertChild(QString code, QString contents)
 
     QModelIndex child = model->index(0, 0, index);
     model->setData(child, QVariant(code), Qt::EditRole);
+    model->setData(child, QVariant(PCode(code)), Qt::ToolTipRole);
     for (int column = 1; column < model->columnCount(index); ++column) {
         QModelIndex child = model->index(0, column, index);
         if (!contents.isEmpty()) {
+            QString tipval = "";
+            if (PCode(code) == "title-type") tipval = PCode(contents);
+            if (PCode(code) == "collection-type") tipval = PCode(contents);
+            if (PCode(code) == "dir") tipval = PCode(contents);
+            if ((PCode(code) == "xml:lang") || (PCode(code) == "altlang")) tipval = LCode(contents);
+            if ((PCode(code) == "opf:role") || (PCode(code) == "role")) tipval = RCode(contents);
+            if ((PCode(code) == "opf:scheme") || (PCode(code) == "scheme")) tipval = PCode(contents);
+            if (PCode(code) == "opf:event") tipval = PCode(contents);
             model->setData(child, QVariant(contents), Qt::EditRole);
+            model->setData(child, QVariant(tipval), Qt::ToolTipRole);
         } else {
             model->setData(child, QVariant(tr("[Place value here]")), Qt::EditRole);
+            model->setData(child, QVariant(""), Qt::ToolTipRole);
         }
         if (!model->headerData(column, Qt::Horizontal).isValid())
             model->setHeaderData(column, Qt::Horizontal, QVariant("[No header]"), Qt::EditRole);
@@ -715,12 +735,19 @@ void MetaEditor::insertRow(QString code, QString contents)
 
     QModelIndex child = model->index(index.row()+1, 0, index.parent());
     model->setData(child, QVariant(code), Qt::EditRole);
+    model->setData(child, QVariant(ECode(code)), Qt::ToolTipRole);
     for (int column = 1; column < model->columnCount(index.parent()); ++column) {
         QModelIndex nchild = model->index(index.row()+1, column, index.parent());
         if (!contents.isEmpty()) {
             model->setData(nchild, QVariant(contents), Qt::EditRole);
+            QString tipval = "";
+            if (ECode(code) == "dc:language") {
+                tipval = LCode(contents);
+            }
+            model->setData(nchild, QVariant(tipval), Qt::ToolTipRole);
         } else {
             model->setData(nchild, QVariant(tr("[Your value here]")), Qt::EditRole);
+            model->setData(nchild, QVariant(""), Qt::ToolTipRole);
         }
     }
 
