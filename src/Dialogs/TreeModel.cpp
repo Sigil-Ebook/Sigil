@@ -86,11 +86,15 @@ QVariant TreeModel::data(const QModelIndex &index, int role) const
     return item->data(index.column());
 }
 
+// Note only column 1 values are user editable, column 0 is not
 Qt::ItemFlags TreeModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
       return Qt::ItemFlags();
 
+    if (index.column() == 0) {
+        return QAbstractItemModel::flags(index);
+    }
     return Qt::ItemIsEditable | QAbstractItemModel::flags(index);
 }
 

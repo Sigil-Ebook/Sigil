@@ -25,6 +25,7 @@
 
 #include "Dialogs/MetaEditorItemDelegate.h"
 #include <QComboBox>
+#include <QTextEdit>
 
 static const int COL_COMBOBOX = 1;
 
@@ -51,15 +52,47 @@ QWidget *MetaEditorItemDelegate::createEditor(QWidget *parent, const QStyleOptio
     if (!nindex.isValid() || !m_Choices.contains(nindex.data(Qt::EditRole).toString())) {
         return QStyledItemDelegate::createEditor(parent, option, index);
     }
-    // Create the combobox and populate it
-    QComboBox *cb = new QComboBox(parent);
     QStringList choices = m_Choices[nindex.data(Qt::EditRole).toString()];
-    foreach(QString opt, choices) {
-        cb->addItem(opt);
+    if (!choices.isEmpty()) {
+        // Create the combobox and populate it
+        QComboBox *cb = new QComboBox(parent);
+        foreach(QString opt, choices) {
+            cb->addItem(opt);
+        }
+        return cb;
     }
-    return cb;
+    QTextEdit *te = new QTextEdit(parent);
+    return te;
 }
 
+void MetaEditorItemDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    if (QTextEdit *te = qobject_cast<QTextEdit *>(editor)) {
+        te->setGeometry(option.rect);
+    } else {
+        QStyledItemDelegate::updateEditorGeometry(editor, option, index);
+    }
+    
+}
+
+
+QSize MetaEditorItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    if (index.column() != COL_COMBOBOX) {
+        return QStyledItemDelegate::sizeHint(option, index);
+    }
+
+    QModelIndex nindex = index.model()->index(index.row(), 0, index.parent());
+    if (!nindex.isValid() || !m_Choices.contains(nindex.data(Qt::EditRole).toString())) {
+        return QStyledItemDelegate::sizeHint(option, index);
+    }
+    
+    QStringList choices = m_Choices[nindex.data(Qt::EditRole).toString()];
+    if (!choices.isEmpty()) {
+        return QStyledItemDelegate::sizeHint(option, index);
+    }
+    return QSize(200, 50);
+}
 
 void MetaEditorItemDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
 {
@@ -72,6 +105,9 @@ void MetaEditorItemDelegate::setEditorData(QWidget *editor, const QModelIndex &i
         if (cbIndex >= 0) {
             cb->setCurrentIndex(cbIndex);
         }
+    } else if (QTextEdit *te = qobject_cast<QTextEdit *>(editor)) {
+        QString currentText = index.data(Qt::EditRole).toString();
+        te->insertPlainText(currentText);
     } else {
         QStyledItemDelegate::setEditorData(editor, index);
     }
@@ -83,6 +119,9 @@ void MetaEditorItemDelegate::setModelData(QWidget *editor, QAbstractItemModel *m
     if (QComboBox *cb = qobject_cast<QComboBox *>(editor)) {
         // save the current text of the combo box as the current value of the item
         model->setData(index, cb->currentText(), Qt::EditRole);
+    } else if (QTextEdit *te = qobject_cast<QTextEdit *>(editor)) {
+        QString atext = te->toPlainText();
+        model->setData(index, atext, Qt::EditRole);
     } else {
         QStyledItemDelegate::setModelData(editor, model, index);
     }

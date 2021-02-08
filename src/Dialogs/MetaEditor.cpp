@@ -52,9 +52,9 @@ static const QStringList TXTDIR = QStringList() << "dir:rtl" << "dir:ltr";
 
 static const QStringList COLLECT = QStringList() << "collection-type:set" << "collection-type:series";
 
-// Used to build up Delegate Cjhoice setf for epub2 metadata
-static const QStringList EVENTS = QStringList() << "dc:date-publication" << "dc:date-creation" <<
-    "dc:date-modification";
+// Used to build up Delegate Choice set for epub2 metadata
+static const QStringList EVENTS = QStringList() << "opf:event-publication" << "opf:event-creation" <<
+    "opf:event-modification";
 
 static const QStringList IDTYPE = QStringList() << "dc:identifier-doi" << "dc:identifier-isbn" <<
     "dc:identifier-issn" << "dc:identifier-uuid" << "dc:identifer-asin";
@@ -71,6 +71,9 @@ MetaEditor::MetaEditor(QWidget *parent)
 {
     setupUi(this);
 
+    view->setTextElideMode(Qt::ElideNone);
+    view->setUniformRowHeights(false);
+    view->setWordWrap(true);
     m_book = m_mainWindow->GetCurrentBook();
     m_version = m_book->GetConstOPF()->GetEpubVersion();
     m_opfdata = m_book->GetOPF()->GetText();
@@ -108,6 +111,9 @@ MetaEditor::MetaEditor(QWidget *parent)
 
         cat = PName("altlang");
         m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+
+        cat = EName("dc:description");
+        m_Choices[cat] = QStringList();
         
     } else {
         QString cat;
@@ -125,6 +131,10 @@ MetaEditor::MetaEditor(QWidget *parent)
         
         cat = PName("xml:lang");
         m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+
+        cat = EName("dc:description");
+        m_Choices[cat] = QStringList();
+
     }
 
     m_cbDelegate->setChoices(m_Choices);
@@ -136,9 +146,14 @@ MetaEditor::MetaEditor(QWidget *parent)
 
     TreeModel *model = new TreeModel(headers, data);
     view->setModel(model);
-    for (int column = 0; column < model->columnCount(); ++column)
-        view->resizeColumnToContents(column);
-
+    for (int column = 0; column < model->columnCount(); ++column) {
+        if (column != 1) {
+            view->resizeColumnToContents(column);
+        } else {
+            view->setColumnWidth(column,300);
+        }
+    }
+    
     // need to assign delegate for values stored in column 1 only
     view->setItemDelegateForColumn(1, m_cbDelegate);
     
@@ -212,7 +227,7 @@ QString MetaEditor::GetOPFMetadata() {
             QString value = parts.at(1);
             if (parts.at(0) == "opf:role") value = RName(value);
             if (parts.at(0) == "opf:scheme") value = PName(value);
-            if (parts.at(0) == "opf:event") value = PName(value);
+            if (parts.at(0) == "opf:event") value = PName("opf:event-" + value);
             if (parts.at(0) == "role") value = RName(value);
             if (parts.at(0) == "title-type") value = PName("title-type:" + value);
             if (parts.at(0) == "collection-type") value = PName("collection-type:" + value);
@@ -251,13 +266,29 @@ QString MetaEditor::SetNewOPFMetadata(QString& data)
             QString value = parts.at(1);
             if (prop == "opf:role") value = RCode(value);
             if (prop == "opf:scheme") value = PCode(value);
-            if (prop == "opf:event") value = PCode(value);
+            if (prop == "opf:event") {
+                value = PCode(value);
+                // strip off "opf:event-"
+                value = value.mid(10);
+            }
             if (prop == "role") value = RCode(value);
-            if (prop == "title-type") value = PCode("title-type:" + value);
-            if (prop == "collection-type") value = PCode("collection-type:" + value);
+            if (prop == "title-type") {
+                value = PCode(value);
+                // strip off "title-type:"
+                value = value.mid(11);
+            }
+            if (prop == "collection-type") {
+                value = PCode(value);
+                // strip off "collection-type:"
+                value = value.mid(16);
+            }
             if (prop == "xml:lang") value = LCode(value);
             if (prop == "altlang") value = LCode(value);
-            if (prop == "source-of") value = PCode("source-of:" + value);
+            if (prop == "source-of") {
+                value = PCode(value);
+                // strip off "source-of:"
+                value = value.mid(10);
+            }
             nlist.append(_IN + prop + _US + value + _RS);
         } else {
             // treat as element with content
@@ -759,7 +790,7 @@ void MetaEditor::loadMetadataElements()
          tr("Publisher") << "dc:publisher" << tr("An entity responsible for making the publication available.") <<
          tr("Date Published") << "dc:date" << tr("The date of publication.") <<
          tr("Date Created") << "dcterms:created" << tr("The date of creation.") <<
-         tr("Date Issued") << "dcterms:issued" << tr("The date of modification.") <<
+         tr("Date Issued") << "dcterms:issued" << tr("The date issued.") <<
          tr("Date Modified") << "dcterms:modified" << tr("The date of modification.") <<
          tr("Type") << "dc:type" << tr("Used to indicate that the given EPUB Publication is of a specialized type..") <<
          tr("Format") << "dc:format" << tr("The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).") <<
@@ -884,10 +915,10 @@ void MetaEditor::loadE2MetadataXProperties()
     // Abbreviations are not translated.
     QStringList data;
     data <<
-        tr("Published") << "published" << tr("Event Type is Publication.") <<
-        tr("Published") << "publication" << tr("Event Type is Publication.") <<
-        tr("Created") << "creation" << tr("Event Type is Creation.") <<
-        tr("Modified") << "modification" << tr("Event Type is Modification.") <<
+        tr("Published") << "opf:event-published" << tr("Event Type is Published.") <<
+        tr("Publication") << "opf:event-publication" << tr("Event Type is Publication.") <<
+        tr("Creation") << "opf:event-creation" << tr("Event Type is Creation.") <<
+        tr("Modification") << "opf:event-modification" << tr("Event Type is Modification.") <<
         tr("Digital Object Identifier")   << "DOI" << tr("Identifier Scheme: Digital Object Identifier") <<
         tr("International Standard Book Number")  << "ISBN" << tr("Identifier Scheme: International Standard Book Number") <<
         tr("International Standard Serial Number") << "ISSN"  << tr("Identifier Scheme: International Standard Serial Number") <<
