@@ -34,6 +34,7 @@
 #include "Dialogs/AddMetadata.h"
 #include "MainUI/MainWindow.h"
 #include "Misc/Language.h"
+#include "Misc/MarcRelators.h"
 #include "Misc/SettingsStore.h"
 #include "Dialogs/MetaEditorItemDelegate.h"
 #include "Dialogs/MetaEditor.h"
@@ -41,32 +42,14 @@
 
 static const QString SETTINGS_GROUP = "meta_editor";
 static const QString _IN = "  ";
-static const QString _US = QString(QChar(31));
-static const QString _RS = QString(QChar(30));
-static const QString _GS = QString(QChar(29));
-
-// Used to build up Delegate Choice sets for epub3 metadata
-static const QStringList TITLES = QStringList() << "title-type:main" << "title-type:subtitle" <<
-    "title-type:short" << "title-type:collection" << "title-type:edition" << "title-type:expanded";
-
-static const QStringList TXTDIR = QStringList() << "dir:rtl" << "dir:ltr";
-
-static const QStringList COLLECT = QStringList() << "collection-type:set" << "collection-type:series";
-
-// Used to build up Delegate Choice set for epub2 metadata
-static const QStringList EVENTS = QStringList() << "opf:event-publication" << "opf:event-creation" <<
-    "opf:event-modification";
-
-static const QStringList IDTYPE = QStringList() << "dc:identifier-doi" << "dc:identifier-isbn" <<
-    "dc:identifier-issn" << "dc:identifier-uuid" << "dc:identifer-asin";
-
-static const QStringList SCHEMES = QStringList() << "marc:relators" << "DOI" << "ISBN" << "ISSN" << "UUID" << "ASIN";
+static const QString _GS = QString(QChar(29)); // Ascii Group Separator
+static const QString _RS = QString(QChar(30)); // Ascii Record Separator
+static const QString _US = QString(QChar(31)); // Ascii Unit Separator
 
 
 MetaEditor::MetaEditor(QWidget *parent)
   : QDialog(parent),
     m_mainWindow(qobject_cast<MainWindow *>(parent)),
-    m_Relator(MarcRelators::instance()),
     m_RemoveRow(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Delete),this, 0, 0, Qt::WidgetWithChildrenShortcut)),
     m_cbDelegate(new MetaEditorItemDelegate())
 {
@@ -83,61 +66,15 @@ MetaEditor::MetaEditor(QWidget *parent)
         loadMetadataElements();
         loadMetadataProperties();
         loadMetadataXProperties();
+        loadChoices();
     } else {
         loadE2MetadataElements();
         loadE2MetadataProperties();
         loadE2MetadataXProperties();
+        loadE2Choices();
     }
 
-    // build up choice sets and pass to Delegate
-    if (m_version.startsWith('3')) {
-        QString cat;
-        cat = PName("title-type");
-        m_Choices[cat] = buildChoices(TITLES);
-
-        cat = PName("dir");
-        m_Choices[cat] = buildChoices(TXTDIR); 
-
-        cat = PName("collection-type");
-        m_Choices[cat] = buildChoices(COLLECT);
-
-        cat = PName("role");
-        m_Choices[cat] = MarcRelators::instance()->GetSortedNames(); 
-
-        cat = EName("dc:language");
-        m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
-
-        cat = PName("xml:lang");
-        m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
-
-        cat = PName("altlang");
-        m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
-
-        cat = EName("dc:description");
-        m_Choices[cat] = QStringList();
-        
-    } else {
-        QString cat;
-        cat = PName("opf:event");
-        m_Choices[cat] = buildChoices(EVENTS);
-
-        cat = PName("opf:scheme");
-        m_Choices[cat] = buildChoices(SCHEMES);
-
-        cat = PName("opf:role");
-        m_Choices[cat] = MarcRelators::instance()->GetSortedNames();
-
-        cat = EName("dc:language");
-        m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
-        
-        cat = PName("xml:lang");
-        m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
-
-        cat = EName("dc:description");
-        m_Choices[cat] = QStringList();
-
-    }
-
+    // pass choice sets to Delegate
     m_cbDelegate->setChoices(m_Choices);
     
     QStringList headers;
@@ -201,12 +138,79 @@ QStringList MetaEditor::buildChoices(const QStringList& opts)
 {
     QStringList  choices;
     foreach(QString aval, opts) {
-        choices << PName(aval);
+        choices << PName(aval) + _GS + aval;
     }
     choices.sort();
     return choices;
 }
 
+void MetaEditor::loadChoices()
+{
+    const QStringList TXTDIR = QStringList() << "dir:rtl" << "dir:ltr";
+    
+    const QStringList COLLECT = QStringList() << "collection-type:set" << "collection-type:series";
+    
+    const QStringList TITLES = QStringList() << "title-type:main" << "title-type:subtitle" <<
+        "title-type:short" << "title-type:collection" << "title-type:edition" << "title-type:expanded";
+    
+    QString cat;
+    cat = PName("title-type");
+    m_Choices[cat] = buildChoices(TITLES);
+
+    cat = PName("dir");
+    m_Choices[cat] = buildChoices(TXTDIR);
+
+    cat = PName("collection-type");
+    m_Choices[cat] = buildChoices(COLLECT);
+
+    cat = PName("role");
+    m_Choices[cat] = MarcRelators::instance()->GetSortedNames();
+
+    cat = EName("dc:language");
+    m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+
+    cat = PName("xml:lang");
+    m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+
+    cat = PName("altlang");
+    m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+
+    //  handle as special case
+    cat = EName("dc:description");
+    m_Choices[cat] = QStringList();
+}
+
+
+void MetaEditor::loadE2Choices()
+{
+    const QStringList EVENTS = QStringList() << "opf:event-publication" << "opf:event-creation" <<
+        "opf:event-modification";
+
+    const QStringList IDTYPE = QStringList() << "dc:identifier-doi" << "dc:identifier-isbn" <<
+        "dc:identifier-issn" << "dc:identifier-uuid" << "dc:identifer-asin";
+
+    const QStringList SCHEMES = QStringList() << "marc:relators" << "DOI" << "ISBN" << "ISSN" << "UUID" << "ASIN";
+
+    QString cat;
+    cat = PName("opf:event");
+    m_Choices[cat] = buildChoices(EVENTS);
+
+	cat = PName("opf:scheme");
+    m_Choices[cat] = buildChoices(SCHEMES);
+
+	cat = PName("opf:role");
+    m_Choices[cat] = MarcRelators::instance()->GetSortedNames();
+
+	cat = EName("dc:language");
+    m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+
+	cat = PName("xml:lang");
+    m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+
+    // handle as special case
+    cat = EName("dc:description");
+    m_Choices[cat] = QStringList();
+}
 
 QString MetaEditor::GetOPFMetadata() {
     PythonRoutines pr;
@@ -320,73 +324,44 @@ QString MetaEditor::SetNewOPFMetadata(QString& data)
     return newopfdata;
 }
 
-
-const QHash<QString, DescriptiveInfo> &  MetaEditor::GetElementMap()
-{
-    if (m_version.startsWith('3')) {
-        return m_ElementInfo;
-    }
-    return m_E2ElementInfo;
-}
-
-const QHash<QString, DescriptiveInfo> &  MetaEditor::GetPropertyMap()
-{
-    if (m_version.startsWith('3')) {
-        return m_PropertyInfo;
-    }
-    return m_E2PropertyInfo;
-}
-
-//Quick Utility Conversion from Code to Name
+//Quick Utility Conversion from Element Code to Name
 const QString MetaEditor::EName(const QString& code)
 {
-    if (m_version.startsWith("3")) {
-        if (m_ElementInfo.contains(code)) return m_ElementInfo[code].name;
-        return code;
-    }
-    if (m_E2ElementInfo.contains(code)) return m_E2ElementInfo[code].name;
+    if (m_ElementInfo.contains(code)) return m_ElementInfo[code].name;
     return code;
 }
 
-const QString MetaEditor::PName(const QString& code)
-{
-    if (m_version.startsWith("3")) {
-        if (m_PropertyInfo.contains(code)) return m_PropertyInfo[code].name;
-        if (m_XPropertyInfo.contains(code)) return m_XPropertyInfo[code].name;
-        return code;
-    }
-    if (m_E2PropertyInfo.contains(code)) return m_E2PropertyInfo[code].name;
-    if (m_XE2PropertyInfo.contains(code)) return m_XE2PropertyInfo[code].name;
-    return code;
-}
-const QString MetaEditor::LName  (const QString& code) { return Language::instance()->GetLanguageName(code); }
-const QString MetaEditor::RName  (const QString& code) { return MarcRelators::instance()->GetName(code);     }
-
-//Quick Utility Conversion from Name to Code
+//Quick Utility Conversion from Element Name to Code
 const QString MetaEditor::ECode  (const QString& name)
 {
-    if (m_version.startsWith("3")) {
-        if (m_ElementCode.contains(name)) return m_ElementCode[name];
-        return name;
-    }
-    if (m_E2ElementCode.contains(name)) return m_E2ElementCode[name];
+    if (m_ElementCode.contains(name)) return m_ElementCode[name];
     return name;
 }
 
+
+//Quick Utility Conversion from Property Code to Name
+const QString MetaEditor::PName(const QString& code)
+{
+    if (m_PropertyInfo.contains(code)) return m_PropertyInfo[code].name;
+    if (m_XPropertyInfo.contains(code)) return m_XPropertyInfo[code].name;
+    return code;
+}
+
+//Quick Utility Conversion from Property Name to Code
 const QString MetaEditor::PCode  (const QString& name)
 {
-    if (m_version.startsWith("3")) {
-        if (m_PropertyCode.contains(name)) return m_PropertyCode[name];
-        if (m_XPropertyCode.contains(name)) return m_XPropertyCode[name];
-        return name;
-    }
-    if (m_E2PropertyCode.contains(name)) return m_E2PropertyCode[name];
-    if (m_XE2PropertyCode.contains(name)) return m_XE2PropertyCode[name];
+    if (m_PropertyCode.contains(name)) return m_PropertyCode[name];
+    if (m_XPropertyCode.contains(name)) return m_XPropertyCode[name];
     return name;
 }
 
+const QString MetaEditor::LName  (const QString& code) { return Language::instance()->GetLanguageName(code); }
 const QString MetaEditor::LCode  (const QString& name) { return Language::instance()->GetLanguageCode(name); }
+
+const QString MetaEditor::RName  (const QString& code) { return MarcRelators::instance()->GetName(code);     }
 const QString MetaEditor::RCode  (const QString& name) { return MarcRelators::instance()->GetCode(name);     }
+
+
 
 
 
@@ -394,7 +369,7 @@ void MetaEditor::selectElement()
 {
     QStringList codes;
     {
-         AddMetadata addelement(GetElementMap(), this);
+         AddMetadata addelement(m_ElementInfo, this);
          if (addelement.exec() == QDialog::Accepted) {
             codes = addelement.GetSelectedEntries();
          }
@@ -468,7 +443,7 @@ void MetaEditor::selectE2Element()
 {
     QStringList codes;
     {
-         AddMetadata addelement(GetElementMap(), this);
+         AddMetadata addelement(m_ElementInfo, this);
          if (addelement.exec() == QDialog::Accepted) {
             codes = addelement.GetSelectedEntries();
          }
@@ -546,7 +521,7 @@ void MetaEditor::selectProperty()
 {
     QStringList codes;
     {
-        AddMetadata addproperty(GetPropertyMap(), this);
+        AddMetadata addproperty(m_PropertyInfo, this);
         if (addproperty.exec() == QDialog::Accepted) {
             codes = addproperty.GetSelectedEntries();
         }
@@ -611,7 +586,7 @@ void MetaEditor::selectE2Property()
 {
     QStringList codes;
     {
-        AddMetadata addproperty(GetPropertyMap(), this);
+        AddMetadata addproperty(m_PropertyInfo, this);
         if (addproperty.exec() == QDialog::Accepted) {
             codes = addproperty.GetSelectedEntries();
         }
@@ -933,7 +908,7 @@ void MetaEditor::loadE2MetadataXProperties()
 {
     // If the basic metadata has already been loaded
     // by a previous Meta Editor, then don't load them again
-    if (!m_XE2PropertyInfo.isEmpty()) {
+    if (!m_XPropertyInfo.isEmpty()) {
         return;
     }
 
@@ -958,8 +933,8 @@ void MetaEditor::loadE2MetadataXProperties()
         DescriptiveInfo minfo;
         minfo.name = name;
         minfo.description  = description;
-        m_XE2PropertyInfo.insert(code, minfo);
-        m_XE2PropertyCode.insert(name, code);
+        m_XPropertyInfo.insert(code, minfo);
+        m_XPropertyCode.insert(name, code);
     }
 }
 
@@ -969,7 +944,7 @@ void MetaEditor::loadE2MetadataElements()
 {
     // If the basic metadata has already been loaded
     // by a previous Meta Editor, then don't load them again
-    if (!m_E2ElementInfo.isEmpty()) {
+    if (!m_ElementInfo.isEmpty()) {
         return;
     }
 
@@ -1014,8 +989,8 @@ void MetaEditor::loadE2MetadataElements()
         DescriptiveInfo meta;
         meta.name = name;
         meta.description  = description;
-        m_E2ElementInfo.insert(code, meta);
-        m_E2ElementCode.insert(name, code);
+        m_ElementInfo.insert(code, meta);
+        m_ElementCode.insert(name, code);
     }
 }
 
@@ -1023,7 +998,7 @@ void MetaEditor::loadE2MetadataProperties()
 {
     // If the basic metadata has already been loaded
     // by a previous Meta Editor, then don't load them again
-    if (!m_E2PropertyInfo.isEmpty()) {
+    if (!m_PropertyInfo.isEmpty()) {
         return;
     }
 
@@ -1047,8 +1022,8 @@ void MetaEditor::loadE2MetadataProperties()
         DescriptiveInfo minfo;
         minfo.name = name;
         minfo.description  = description;
-        m_E2PropertyInfo.insert(code, minfo);
-        m_E2PropertyCode.insert(name, code);
+        m_PropertyInfo.insert(code, minfo);
+        m_PropertyCode.insert(name, code);
     }
 }
 

@@ -24,8 +24,12 @@
 
 
 #include "Dialogs/MetaEditorItemDelegate.h"
+#include <QChar>
+#include <QString>
 #include <QComboBox>
 #include <QTextEdit>
+
+static const QString _GS = QString(QChar(29));
 
 static const int COL_COMBOBOX = 1;
 
@@ -57,7 +61,8 @@ QWidget *MetaEditorItemDelegate::createEditor(QWidget *parent, const QStyleOptio
         // Create the combobox and populate it
         QComboBox *cb = new QComboBox(parent);
         foreach(QString opt, choices) {
-            cb->addItem(opt);
+            QStringList parts = opt.split(_GS);
+            cb->addItem(parts.at(0), QVariant(parts.at(1)));
         }
         return cb;
     }
@@ -119,9 +124,11 @@ void MetaEditorItemDelegate::setModelData(QWidget *editor, QAbstractItemModel *m
     if (QComboBox *cb = qobject_cast<QComboBox *>(editor)) {
         // save the current text of the combo box as the current value of the item
         model->setData(index, cb->currentText(), Qt::EditRole);
+        model->setData(index, cb->currentData(), Qt::ToolTipRole);
     } else if (QTextEdit *te = qobject_cast<QTextEdit *>(editor)) {
         QString atext = te->toPlainText();
         model->setData(index, atext, Qt::EditRole);
+        model->setData(index, QVariant(""), Qt::ToolTipRole);
     } else {
         QStyledItemDelegate::setModelData(editor, model, index);
     }

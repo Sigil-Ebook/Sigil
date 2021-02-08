@@ -27,9 +27,6 @@
 #include <QModelIndex>
 #include <QHash>
 #include "Misc/DescriptiveInfo.h"
-#include "Misc/Language.h"
-#include "Misc/MarcRelators.h"
-
 
 #include "ui_MetaEditor.h"
 
@@ -84,20 +81,19 @@ private slots:
     void loadMetadataElements();
     void loadMetadataProperties();
     void loadMetadataXProperties();
-
+    void loadChoices();
+    
     void loadE2MetadataElements();
     void loadE2MetadataProperties();
     void loadE2MetadataXProperties();
-
+    void loadE2Choices();
+    
     QStringList buildChoices(const QStringList& opts);
     
     void ReadSettings();
 
     QString GetOPFMetadata();
     QString SetNewOPFMetadata(QString& data);
-
-    const QHash<QString, DescriptiveInfo> & GetElementMap();
-    const QHash<QString, DescriptiveInfo> & GetPropertyMap();
 
     QHash<QString, DescriptiveInfo> m_ElementInfo;
     QHash<QString, QString> m_ElementCode;
@@ -108,17 +104,9 @@ private slots:
     QHash<QString, DescriptiveInfo> m_XPropertyInfo;
     QHash<QString, QString> m_XPropertyCode;
 
-    QHash<QString, DescriptiveInfo> m_E2ElementInfo;
-    QHash<QString, QString> m_E2ElementCode;
+    QHash<QString, QStringList> m_Choices;
 
-    QHash<QString, DescriptiveInfo> m_E2PropertyInfo;
-    QHash<QString, QString> m_E2PropertyCode;
-    
-    QHash<QString, DescriptiveInfo> m_XE2PropertyInfo;
-    QHash<QString, QString> m_XE2PropertyCode;
-    
     MainWindow * m_mainWindow;
-    MarcRelators * m_Relator;
     QShortcut * m_RemoveRow;
     MetaEditorItemDelegate * m_cbDelegate;
     QSharedPointer<Book> m_book;
@@ -127,7 +115,6 @@ private slots:
     QString m_otherxml;
     QString m_metatag;
     QStringList m_idlist;
-    QHash<QString, QStringList> m_Choices;
     
 };
 
