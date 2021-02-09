@@ -164,16 +164,29 @@ void MetaEditor::loadChoices()
     m_Choices[cat] = buildChoices(COLLECT);
 
     cat = PName("role");
-    m_Choices[cat] = MarcRelators::instance()->GetSortedNames();
+    QStringList rolenames = MarcRelators::instance()->GetSortedNames();
+    QStringList  rchoices;
+    foreach(QString aval, rolenames) {
+        rchoices << aval + _GS + RCode(aval);
+    }
+    rchoices.sort();
+    m_Choices[cat] = rchoices;
+
+    QStringList langnames = Language::instance()->GetSortedPrimaryLanguageNames();
+    QStringList  lchoices;
+    foreach(QString aval, langnames) {
+        lchoices << aval + _GS + LCode(aval);
+    }
+    lchoices.sort();
 
     cat = EName("dc:language");
-    m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+    m_Choices[cat] = lchoices;
 
     cat = PName("xml:lang");
-    m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+    m_Choices[cat] = lchoices;
 
     cat = PName("altlang");
-    m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+    m_Choices[cat] = lchoices;
 
     //  handle as special case
     cat = EName("dc:description");
@@ -195,17 +208,30 @@ void MetaEditor::loadE2Choices()
     cat = PName("opf:event");
     m_Choices[cat] = buildChoices(EVENTS);
 
-	cat = PName("opf:scheme");
+    cat = PName("opf:scheme");
     m_Choices[cat] = buildChoices(SCHEMES);
 
-	cat = PName("opf:role");
-    m_Choices[cat] = MarcRelators::instance()->GetSortedNames();
+    cat = PName("opf:role");
+    QStringList rolenames = MarcRelators::instance()->GetSortedNames();
+    QStringList  rchoices;
+    foreach(QString aval, rolenames) {
+        rchoices << aval + _GS + RCode(aval);
+    }
+    rchoices.sort();
+    m_Choices[cat] = rchoices;
 
-	cat = EName("dc:language");
-    m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+    QStringList langnames = Language::instance()->GetSortedPrimaryLanguageNames();
+    QStringList  lchoices;
+    foreach(QString aval, langnames) {
+        lchoices << aval + _GS + LCode(aval);
+    }
+    lchoices.sort();
 
-	cat = PName("xml:lang");
-    m_Choices[cat] = Language::instance()->GetSortedPrimaryLanguageNames();
+    cat = EName("dc:language");
+    m_Choices[cat] = lchoices;
+
+    cat = PName("xml:lang");
+    m_Choices[cat] = lchoices;
 
     // handle as special case
     cat = EName("dc:description");
