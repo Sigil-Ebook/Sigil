@@ -68,7 +68,8 @@ void AddSemantics::UpdateDescription(QListWidgetItem *current)
         text = m_SemanticsInfo.value(code, DescriptiveInfo() ).description;
     }
     if (!text.isEmpty()) {
-        ui.lbDescription->setText(text);
+        QString textpluscode = text + "\n\n" + code;
+        ui.lbDescription->setText(textpluscode);
     }
 }
 
