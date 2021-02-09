@@ -204,7 +204,7 @@ void MetaEditor::loadE2Choices()
     const QStringList EVENTS = QStringList() << "opf:event-publication" << "opf:event-creation" <<
         "opf:event-modification";
 
-    const QStringList SCHEMES = QStringList() << "marc:relators" << "DOI" << "ISBN" << "ISSN" << "UUID" << "MOBI-ASIN";
+    const QStringList SCHEMES = QStringList() << "marc:relators" << "DOI" << "ISBN" << "ISSN" << "UUID" << "AMAZON";
 
     QString cat;
     cat = PName("opf:event");
@@ -431,6 +431,10 @@ void MetaEditor::selectElement()
             QString content = "urn:uuid:" + tr("[UUID here]");
             code = "dc:identifier";
             insertRow(EName(code), code, content, "");
+        } else if (code == "dc:identifier-amazon") {
+            QString content = "urn:AMAZON:" + tr("[Amazon ASIN here]");
+            code = "dc:identifier";
+            insertRow(EName(code), code, content, "");
         } else if ((code == "dc:date") || (code == "dcterms:created")) {
             QString content = QDate::currentDate().toString(Qt::ISODate);
             insertRow(EName(code), code, content, "");
@@ -508,11 +512,11 @@ void MetaEditor::selectE2Element()
             code = "dc:identifier";
             insertRow(EName(code), code, content, "");
             insertChild(PName("opf:scheme"), "opf:scheme", "UUID", "");
-        } else if (code == "dc:identifier-asin") {
-            QString content = tr("[ASIN here]");
+        } else if (code == "dc:identifier-amazon") {
+            QString content = tr("[Amazon ASIN here]");
             code = "dc:identifier";
             insertRow(EName(code), code, content, "");
-            insertChild(PName("opf:scheme"), "opf:scheme", "MOBI-ASIN", "");
+            insertChild(PName("opf:scheme"), "opf:scheme", "AMAZON", "");
         } else if (code == "dc:identifier-custom") {
             QString content = tr("[Custom identifier here]");
             code = "dc:identifier";
@@ -825,11 +829,12 @@ void MetaEditor::loadMetadataElements()
          tr("Contributor") << "dc:contributor" << tr("Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.") <<
          tr("Belongs to a Collection") << "belongs-to-collection" << tr("Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.") <<
          tr("Title") << "dc:title" << tr("A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.") <<
-         tr("Identifier: DOI") << "dc:identifier-doi" << tr("Digital Object Identifier associated with the given EPUB publication.") << 
-         tr("Identifier: ISBN") << "dc:identifier-isbn" << tr("International Standard Book Number associated with the given EPUB publication.") <<
-         tr("Identifier: ISSN") << "dc:identifier-issn" << tr("International Standard Serial Number associated with the given EPUB publication.") <<
-         tr("Identifier: UUID") << "dc:identifier-uuid" << tr("A Universally Unique Idenitifier generated for this EPUB publication.") <<
-         // tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier based on a specified scheme") <<
+         tr("Identifier: DOI") << "dc:identifier-doi" << tr("Digital Object Identifier associated with this publication.") << 
+         tr("Identifier: ISBN") << "dc:identifier-isbn" << tr("International Standard Book Number associated with thisnpublication.") <<
+         tr("Identifier: ISSN") << "dc:identifier-issn" << tr("International Standard Serial Number associated with this publication.") <<
+         tr("Identifier: UUID") << "dc:identifier-uuid" << tr("A Universally Unique Idenitifier generated for this publication.") <<
+         tr("Identifier: ASIN") << "dc:identifier-amazon" << tr("An Amazon Unique Idenitifier associated with this publication.") <<
+         tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier based on a specified scheme") <<
          tr("Custom Element") << tr("[Custom element]") << tr("An empty metadata element you can modify.")  << 
          tr("Meta Element (primary)") << "meta" << tr("An empty primary metadata element you can modify.");
     for (int i = 0; i < data.count(); i++) {
@@ -945,7 +950,7 @@ void MetaEditor::loadE2MetadataXProperties()
         tr("International Standard Book Number")  << "ISBN" << tr("Identifier Scheme: International Standard Book Number") <<
         tr("International Standard Serial Number") << "ISSN"  << tr("Identifier Scheme: International Standard Serial Number") <<
         tr("Universally Unique Identifier") << "UUID"  << tr("Identifier Scheme: Universally Unique Identifier") <<
-        tr("Amazon Unique Identifier") <<  "ASIN" << tr("Identifier Scheme: Amazon Unique Identifier");
+        tr("Amazon Unique Identifier") <<  "AMAZON" << tr("Identifier Scheme: Amazon Unique Identifier");
     for (int i = 0; i < data.count(); i++) {
         QString name = data.at(i++);
         QString code = data.at(i++);
@@ -995,8 +1000,8 @@ void MetaEditor::loadE2MetadataElements()
          tr("Identifier") + ": ISBN"  << "dc:identifier-isbn" << tr("International Standard Book Number") <<
          tr("Identifier") + ": ISSN"  << "dc:identifier-issn" << tr("International Standard Serial Number") <<
          tr("Identifier") + ": UUID"  << "dc:identifier-uuid" << tr("Universally Unique Identifier") <<
-         tr("Identifier") + ": ASIN"  << "dc:identifier-asin" << tr("Amazon Unique Identifier") <<
-         tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier based on a specified scheme") <<
+         tr("Identifier") + ": ASIN"  << "dc:identifier-amazon" << tr("Amazon Unique Identifier") <<
+         tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier") <<
          tr("Series") << "calibre:series" << tr("Series title or name (from calibre)") <<
          tr("Series Index") << "calibre:series_index" << tr("Index of this book in the series (from calibre)") <<
          tr("Title for Sorting") << "calibre:title_sort" << tr("Version of ebook title to use for sorting (from calibre)") <<
@@ -1031,7 +1036,7 @@ void MetaEditor::loadE2MetadataProperties()
          tr("XML Language") << "xml:lang" << tr("Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.") <<
          tr("File As") << "opf:file-as" << tr("Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.") <<
          tr("Role") << "opf:role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
-         tr("Scheme") << "opf:scheme" << tr("This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, or UUID.") <<
+         tr("Scheme") << "opf:scheme" << tr("This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.") <<
          tr("Event") << "opf:event" << tr("This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.") <<
          tr("Custom Attribute") << tr("[Custom metadata property/attribute]") << tr("An empty metadata attribute you can modify.");
 
