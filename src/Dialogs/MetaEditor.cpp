@@ -80,6 +80,8 @@ MetaEditor::MetaEditor(QWidget *parent)
     QStringList headers;
     headers << tr("Name") << tr("Value");
 
+    // takes metadata from opf and translates it to human readable form
+    // but stores original code as tooltips
     QString data = GetOPFMetadata();
 
     TreeModel *model = new TreeModel(headers, data);
@@ -93,6 +95,8 @@ MetaEditor::MetaEditor(QWidget *parent)
     }
     
     // need to assign delegate for values stored in column 1 only
+    // Delegate is used to add custom combobox pulldowns and textedit
+    // to specific metadata items stored in the tree
     view->setItemDelegateForColumn(1, m_cbDelegate);
     
     if (!isVisible()) {
@@ -134,6 +138,7 @@ MetaEditor::~MetaEditor()
 }
 
 
+// utility routine
 QStringList MetaEditor::buildChoices(const QStringList& opts)
 {
     QStringList  choices;
@@ -199,10 +204,7 @@ void MetaEditor::loadE2Choices()
     const QStringList EVENTS = QStringList() << "opf:event-publication" << "opf:event-creation" <<
         "opf:event-modification";
 
-    const QStringList IDTYPE = QStringList() << "dc:identifier-doi" << "dc:identifier-isbn" <<
-        "dc:identifier-issn" << "dc:identifier-uuid" << "dc:identifer-asin";
-
-    const QStringList SCHEMES = QStringList() << "marc:relators" << "DOI" << "ISBN" << "ISSN" << "UUID" << "ASIN";
+    const QStringList SCHEMES = QStringList() << "marc:relators" << "DOI" << "ISBN" << "ISSN" << "UUID" << "MOBI-ASIN";
 
     QString cat;
     cat = PName("opf:event");
@@ -237,6 +239,7 @@ void MetaEditor::loadE2Choices()
     cat = EName("dc:description");
     m_Choices[cat] = QStringList();
 }
+
 
 QString MetaEditor::GetOPFMetadata() {
     PythonRoutines pr;
@@ -411,56 +414,55 @@ void MetaEditor::selectElement()
             if (!langcodes.isEmpty()) {
                 lang = langcodes.at(0);
             }
-            insertRow(EName(code), LName(lang));
+            insertRow(EName(code), code, LName(lang), lang);
         } else if (code == "dc:identifier-isbn") {
             QString content = "urn:isbn:" + tr("[ISBN here]");
             code = "dc:identifier";
-            insertRow(EName(code), content);
+            insertRow(EName(code), code, content, "");
         } else if (code == "dc:identifier-issn") {
             QString content = "urn:issn:" + tr("[ISSN here]");
             code = "dc:identifier";
-            insertRow(EName(code), content);
+            insertRow(EName(code), code, content, "");
         } else if (code == "dc:identifier-doi") {
             QString content = "urn:doi:" + tr("[DOI here]");
             code = "dc:identifier";
-            insertRow(EName(code), content);
+            insertRow(EName(code), code, content, "");
         } else if (code == "dc:identifier-uuid") {
             QString content = "urn:uuid:" + tr("[UUID here]");
             code = "dc:identifier";
-            insertRow(EName(code), content);
-        } else if ((code == "dc:date") || (code == "dcterms:issued") ||
-                   (code == "dcterms:created")) {
+            insertRow(EName(code), code, content, "");
+        } else if ((code == "dc:date") || (code == "dcterms:created")) {
             QString content = QDate::currentDate().toString(Qt::ISODate);
-            insertRow(EName(code), content);
+            insertRow(EName(code), code, content, "");
         } else if (code == "dcterms:modified") {
             QDateTime zt(QDateTime::currentDateTime());
             zt.setTimeSpec(Qt::UTC);
             QString content = zt.toString(Qt::ISODate);
-            insertRow(EName(code), content);
+            insertRow(EName(code), code, content, "");
         } else if (code == "dc:type") {
             QString content = "[dictionary,index]";
-            insertRow(EName(code), content);
+            insertRow(EName(code), code, content, "");
         } else if (code == "dc:creator-aut") {
             code = "dc:creator";
             QString content = tr("[Author name here]");
-            insertRow(EName(code), content);
-            insertChild(PName("role"),RName("aut"));
-            insertChild(PName("scheme"),QString("marc:relators"));
+            insertRow(EName(code), code, content, "");
+            insertChild(PName("role"),"role", RName("aut"), "aut");
+            insertChild(PName("scheme"),"scheme","marc:relators", "");
         } else if (code == "dc:creator") {
             code = "dc:creator";
             QString content = tr("[Creator name here]");
-            insertRow(EName(code), content);
+            insertRow(EName(code), code, content, "");
         } else if (code == "dc:contributor") {
             code = "dc:contributor";
             QString content = tr("[Contributor name here]");
-            insertRow(EName(code), content);
+            insertRow(EName(code), code, content, "");
         } else if (code == "meta") {
             code = "meta";
-            QString content = tr("[meta value here]");
-            insertRow(EName(code), content);
-            insertChild(PName("property"),QString("[property_name]"));
+            QString content = tr("[Value here]");
+            insertRow(EName(code), code, content, "");
+            insertChild(PName("property"),"property", "[name]", "");
         } else {
-            insertRow(EName(code));
+            insertRow(EName(code), code, "", "");
         }
     }
 }
@@ -485,59 +487,59 @@ void MetaEditor::selectE2Element()
             if (!langcodes.isEmpty()) {
                 lang = langcodes.at(0);
             }
-            insertRow(EName(code), LName(lang));
+            insertRow(EName(code), code, LName(lang), lang);
         } else if (code == "dc:identifier-isbn") {
             QString content = tr("[ISBN here]");
             code = "dc:identifier";
-            insertRow(EName(code), content);
-            insertChild(PName("opf:scheme"), QString("ISBN"));
+            insertRow(EName(code), code, content, "");
+            insertChild(PName("opf:scheme"), "opf:scheme", "ISBN", "");
         } else if (code == "dc:identifier-issn") {
             QString content = tr("[ISSN here]");
             code = "dc:identifier";
-            insertRow(EName(code), content);
-            insertChild(PName("opf:scheme"), QString("ISSN"));
+            insertRow(EName(code), code, content, "");
+            insertChild(PName("opf:scheme"), "opf:scheme", "ISSN", "");
         } else if (code == "dc:identifier-doi") {
             QString content = tr("[DOI here]");
             code = "dc:identifier";
-            insertRow(EName(code), content);
-            insertChild(PName("opf:scheme"), QString("DOI"));
+            insertRow(EName(code), code, content, "");
+            insertChild(PName("opf:scheme"), "opf:scheme", "DOI", "");
         } else if (code == "dc:identifier-uuid") {
             QString content = tr("[UUID here]");
             code = "dc:identifier";
-            insertRow(EName(code), content);
-            insertChild(PName("opf:scheme"), QString("UUID"));
+            insertRow(EName(code), code, content, "");
+            insertChild(PName("opf:scheme"), "opf:scheme", "UUID", "");
         } else if (code == "dc:identifier-asin") {
             QString content = tr("[ASIN here]");
             code = "dc:identifier";
-            insertRow(EName(code), content);
-            insertChild(PName("opf:scheme"), QString("ASIN"));
+            insertRow(EName(code), code, content, "");
+            insertChild(PName("opf:scheme"), "opf:scheme", "MOBI-ASIN", "");
         } else if (code == "dc:identifier-custom") {
             QString content = tr("[Custom identifier here]");
             code = "dc:identifier";
-            insertRow(EName(code), content);
-            insertChild(PName("opf:scheme"));
+            insertRow(EName(code), code, content, "");
+            insertChild(PName("opf:scheme"), "opf:scheme", "", "");
         } else if (code.startsWith("dc:date-")) {
             QStringList parts = code.split('-');
             QString dc_event = parts.at(1);
             code = "dc:date";
             QString content = QDate::currentDate().toString(Qt::ISODate);
-            insertRow(EName(code),content);
-            insertChild(PName("opf:event"),PName("dc:date-"+dc_event));
+            insertRow(EName(code),code, content, "");
+            insertChild(PName("opf:event"),"opf:event", PName("dc:date-"+dc_event), dc_event);
         } else if (code == "dc:creator-aut") {
             code = "dc:creator";
             QString content = tr("[Author name here]");
-            insertRow(EName(code), content);
-            insertChild(PName("opf:role"),LName("aut"));
+            insertRow(EName(code), code, content, "");
+            insertChild(PName("opf:role"),"opf:role", LName("aut"), "aut");
         } else if (code == "dc:creator") {
             code = "dc:creator";
             QString content = tr("[Creator name here]");
-            insertRow(EName(code), content);
+            insertRow(EName(code), code, content, "");
         } else if (code == "dc:contributor") {
             code = "dc:contributor";
             QString content = tr("[Contributor name here]");
-            insertRow(EName(code), content);
+            insertRow(EName(code), code, content, "");
         } else {
-            insertRow(EName(code));
+            insertRow(EName(code), code, "", "");
         }
     }
 }
@@ -555,24 +557,27 @@ void MetaEditor::selectProperty()
     foreach(QString code, codes) {
         if (code.startsWith("title-type:")) {
             QString content = PName(code);
-            insertChild(PName("title-type"), content);
+            code = code.mid(11); //strip "title-type:"
+            insertChild(PName("title-type"),"title-type", content, code);
         } else if (code.startsWith("collection-type:")) {
             QString content = PName(code);
-            insertChild(PName("collection-type"), content);
+            code = code.mid(16); //strip "collection-type:"
+            insertChild(PName("collection-type"), "collection-type", content, code);
         } else if (code.startsWith("dir:")) {
             QString content = PName(code);
-            insertChild(PName("dir"), content);
+            code = code.mid(4); // strip "dir:"
+            insertChild(PName("dir"),"dir", content, code);
         } else if (code == "source-of") {
             QString content = PName(code);
-            insertChild(PName("source-of"), content);
+            insertChild(PName("source-of"), "source-of", content, "pagination");
         } else if (code == "group-position") {
             QString content = "1";
-            insertChild(PName(code), content);
+            insertChild(PName(code), code, content, "");
         } else if (code == "display-seq") {
             QString content = "1";
-            insertChild(PName(code), content);
+            insertChild(PName(code), code, content, "");
         } else if (code == "scheme") {
-            insertChild(PName(code));
+                insertChild(PName(code), code, "", "");
         } else if ((code == "altlang") || (code == "xml:lang")) {
             QStringList langcodes;
             AddMetadata addvalue(Language::instance()->GetLangMap(), this);
@@ -583,7 +588,7 @@ void MetaEditor::selectProperty()
             if (!langcodes.isEmpty()) {
                 lang = langcodes.at(0);
             }
-            insertChild(PName(code), LName(lang));
+            insertChild(PName(code), code, LName(lang), lang);
         } else if (code == "role") {
             QStringList rolecodes;
             AddMetadata addrole(MarcRelators::instance()->GetCodeMap(), this);
@@ -594,16 +599,16 @@ void MetaEditor::selectProperty()
             if (!rolecodes.isEmpty()) {
                 role = rolecodes.at(0);
             }
-            insertChild(PName(code), RName(role));
+            insertChild(PName(code), code, RName(role), role);
             code = "scheme";
             QString scheme = "marc:relators";
-            insertChild(PName(code), scheme);
+            insertChild(PName(code), code, scheme, "");
         } else if (code == "identifier-type") {
-            insertChild(code);
+            insertChild(PName(code), code, tr("[Insert identifier type here]"), "");
             code = "scheme";
-            insertChild(PName(code));
+            insertChild(PName(code), code, tr("[Insert scheme type here]"), "");
         } else {
-            insertChild(PName(code));
+            insertChild(PName(code), code, "", "");
         }
     }
 }
@@ -619,7 +624,7 @@ void MetaEditor::selectE2Property()
     }
     foreach(QString code, codes) {
         if (code == "opf:scheme") {
-            insertChild(PName(code));
+            insertChild(PName(code), code, "", "");
         } else if (code == "xml:lang") {
             QStringList langcodes;
             AddMetadata addvalue(Language::instance()->GetLangMap(), this);
@@ -630,7 +635,7 @@ void MetaEditor::selectE2Property()
             if (!langcodes.isEmpty()) {
                 lang = langcodes.at(0);
             }
-            insertChild(PName(code), LName(lang));
+            insertChild(PName(code), code, LName(lang), lang);
         } else if (code == "opf:role") {
             QStringList rolecodes;
             AddMetadata addrole(MarcRelators::instance()->GetCodeMap(), this);
@@ -641,9 +646,9 @@ void MetaEditor::selectE2Property()
             if (!rolecodes.isEmpty()) {
                 role = rolecodes.at(0);
             }
-            insertChild(PName(code), RName(role));
+            insertChild(PName(code), code, RName(role), role);
         } else {
-            insertChild(PName(code));
+            insertChild(PName(code), code, "", "");
         }
     }
 }
@@ -667,7 +672,8 @@ void MetaEditor::reject()
     QDialog::reject();
 }
 
-void MetaEditor::insertChild(QString code, QString contents)
+// Used to insert a property for a parent metadata element
+void MetaEditor::insertChild(const QString& code, const QString& tip, const QString& contents, const QString& vtip)
 {
     QModelIndex index = view->selectionModel()->currentIndex();
     QAbstractItemModel *model = view->model();
@@ -690,20 +696,12 @@ void MetaEditor::insertChild(QString code, QString contents)
 
     QModelIndex child = model->index(0, 0, index);
     model->setData(child, QVariant(code), Qt::EditRole);
-    model->setData(child, QVariant(PCode(code)), Qt::ToolTipRole);
+    model->setData(child, QVariant(tip), Qt::ToolTipRole);
     for (int column = 1; column < model->columnCount(index); ++column) {
         QModelIndex child = model->index(0, column, index);
         if (!contents.isEmpty()) {
-            QString tipval = "";
-            if (PCode(code) == "title-type") tipval = PCode(contents);
-            if (PCode(code) == "collection-type") tipval = PCode(contents);
-            if (PCode(code) == "dir") tipval = PCode(contents);
-            if ((PCode(code) == "xml:lang") || (PCode(code) == "altlang")) tipval = LCode(contents);
-            if ((PCode(code) == "opf:role") || (PCode(code) == "role")) tipval = RCode(contents);
-            if ((PCode(code) == "opf:scheme") || (PCode(code) == "scheme")) tipval = PCode(contents);
-            if (PCode(code) == "opf:event") tipval = PCode(contents);
             model->setData(child, QVariant(contents), Qt::EditRole);
-            model->setData(child, QVariant(tipval), Qt::ToolTipRole);
+            model->setData(child, QVariant(vtip), Qt::ToolTipRole);
         } else {
             model->setData(child, QVariant(tr("[Place value here]")), Qt::EditRole);
             model->setData(child, QVariant(""), Qt::ToolTipRole);
@@ -718,7 +716,8 @@ void MetaEditor::insertChild(QString code, QString contents)
 }
 
 
-void MetaEditor::insertRow(QString code, QString contents)
+// used to insert a new metadata element into the tree
+void MetaEditor::insertRow(const QString& code, const QString& tip, const QString& contents, const QString& vtip)
 {
     QModelIndex index = view->selectionModel()->currentIndex();
     QAbstractItemModel *model = view->model();
@@ -736,16 +735,12 @@ void MetaEditor::insertRow(QString code, QString contents)
 
     QModelIndex child = model->index(index.row()+1, 0, index.parent());
     model->setData(child, QVariant(code), Qt::EditRole);
-    model->setData(child, QVariant(ECode(code)), Qt::ToolTipRole);
+    model->setData(child, QVariant(tip), Qt::ToolTipRole);
     for (int column = 1; column < model->columnCount(index.parent()); ++column) {
         QModelIndex nchild = model->index(index.row()+1, column, index.parent());
         if (!contents.isEmpty()) {
             model->setData(nchild, QVariant(contents), Qt::EditRole);
-            QString tipval = "";
-            if (ECode(code) == "dc:language") {
-                tipval = LCode(contents);
-            }
-            model->setData(nchild, QVariant(tipval), Qt::ToolTipRole);
+            model->setData(nchild, QVariant(vtip), Qt::ToolTipRole);
         } else {
             model->setData(nchild, QVariant(tr("[Your value here]")), Qt::EditRole);
             model->setData(nchild, QVariant(""), Qt::ToolTipRole);
@@ -818,7 +813,6 @@ void MetaEditor::loadMetadataElements()
          tr("Publisher") << "dc:publisher" << tr("An entity responsible for making the publication available.") <<
          tr("Date Published") << "dc:date" << tr("The date of publication.") <<
          tr("Date Created") << "dcterms:created" << tr("The date of creation.") <<
-         tr("Date Issued") << "dcterms:issued" << tr("The date issued.") <<
          tr("Date Modified") << "dcterms:modified" << tr("The date of modification.") <<
          tr("Type") << "dc:type" << tr("Used to indicate that the given EPUB Publication is of a specialized type..") <<
          tr("Format") << "dc:format" << tr("The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).") <<

@@ -45,10 +45,10 @@ public:
     ~MetaEditor();
 
     //Quick Utility Conversion from Code to Name
-    const QString EName  (const QString& code);
-    const QString PName  (const QString& code);
-    const QString LName  (const QString& code);
-    const QString RName  (const QString& code);
+    const QString EName  (const QString& code); // meta elements
+    const QString PName  (const QString& code); // element properties
+    const QString LName  (const QString& code); // languages
+    const QString RName  (const QString& code); // marc relator roles
 
     //Quick Utility Conversion from Name to Code
     const QString ECode  (const QString& name);
@@ -63,8 +63,8 @@ protected slots:
     void reject();
 
 private slots:
-    void insertChild(QString code, QString contents="");
-    void insertRow(QString code, QString contents="");
+    void insertChild(const QString& code, const QString& tip, const QString& contents="", const QString& vtip="");
+    void insertRow(const QString& code, const QString& tip, const QString& contents="", const QString& vtip="");
     void removeRow();
     void moveRowUp();
     void moveRowDown();
