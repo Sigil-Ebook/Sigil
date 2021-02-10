@@ -8230,7 +8230,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1519"/>
-        <location filename="../../Form_Files/main.ui" line="1951"/>
+        <location filename="../../Form_Files/main.ui" line="1949"/>
         <source>Ctrl+Shift+M</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8294,19 +8294,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1587"/>
         <source>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
-
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Remove Open and Close Tag Pair.&lt;/p&gt;
     </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1600"/>
+        <location filename="../../Form_Files/main.ui" line="1598"/>
         <source>&amp;Lowercase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1603"/>
+        <location filename="../../Form_Files/main.ui" line="1601"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -8315,17 +8313,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1610"/>
+        <location filename="../../Form_Files/main.ui" line="1608"/>
         <source>Alt+L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1619"/>
+        <location filename="../../Form_Files/main.ui" line="1617"/>
         <source>&amp;Uppercase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1622"/>
+        <location filename="../../Form_Files/main.ui" line="1620"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -8334,17 +8332,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1629"/>
+        <location filename="../../Form_Files/main.ui" line="1627"/>
         <source>Alt+U</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1638"/>
+        <location filename="../../Form_Files/main.ui" line="1636"/>
         <source>&amp;Titlecase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1641"/>
+        <location filename="../../Form_Files/main.ui" line="1639"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -8353,12 +8351,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1654"/>
+        <location filename="../../Form_Files/main.ui" line="1652"/>
         <source>&amp;Capitalize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1657"/>
+        <location filename="../../Form_Files/main.ui" line="1655"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -8367,127 +8365,127 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1666"/>
+        <location filename="../../Form_Files/main.ui" line="1664"/>
         <source>Sigil Website...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1671"/>
+        <location filename="../../Form_Files/main.ui" line="1669"/>
         <source>&amp;Next Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1674"/>
+        <location filename="../../Form_Files/main.ui" line="1672"/>
         <source>Ctrl+PgUp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1679"/>
+        <location filename="../../Form_Files/main.ui" line="1677"/>
         <source>&amp;Previous Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1682"/>
+        <location filename="../../Form_Files/main.ui" line="1680"/>
         <source>Ctrl+PgDown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1687"/>
+        <location filename="../../Form_Files/main.ui" line="1685"/>
         <source>&amp;Close Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1690"/>
+        <location filename="../../Form_Files/main.ui" line="1688"/>
         <source>Ctrl+W</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1695"/>
+        <location filename="../../Form_Files/main.ui" line="1693"/>
         <source>Split At &amp;Markers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1698"/>
+        <location filename="../../Form_Files/main.ui" line="1696"/>
         <source>Split At Sigil split file markers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1701"/>
+        <location filename="../../Form_Files/main.ui" line="1699"/>
         <source>F6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1706"/>
+        <location filename="../../Form_Files/main.ui" line="1704"/>
         <source>Split &amp;Marker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1709"/>
+        <location filename="../../Form_Files/main.ui" line="1707"/>
         <source>Insert Sigil split file marker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1712"/>
+        <location filename="../../Form_Files/main.ui" line="1710"/>
         <source>Ctrl+Shift+Return</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1717"/>
+        <location filename="../../Form_Files/main.ui" line="1715"/>
         <source>User &amp;Guide...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1720"/>
+        <location filename="../../Form_Files/main.ui" line="1718"/>
         <source>User Guide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1723"/>
+        <location filename="../../Form_Files/main.ui" line="1721"/>
         <source>F1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1728"/>
+        <location filename="../../Form_Files/main.ui" line="1726"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1731"/>
+        <location filename="../../Form_Files/main.ui" line="1729"/>
         <source>Frequently Asked Questions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1736"/>
+        <location filename="../../Form_Files/main.ui" line="1734"/>
         <source>&amp;Tutorials...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1739"/>
+        <location filename="../../Form_Files/main.ui" line="1737"/>
         <source>Tutorials</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1744"/>
+        <location filename="../../Form_Files/main.ui" line="1742"/>
         <source>Well-Formed Check &amp;EPUB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1747"/>
+        <location filename="../../Form_Files/main.ui" line="1745"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1750"/>
+        <location filename="../../Form_Files/main.ui" line="1748"/>
         <source>F7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1755"/>
+        <location filename="../../Form_Files/main.ui" line="1753"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1758"/>
+        <location filename="../../Form_Files/main.ui" line="1756"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -8496,114 +8494,114 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1771"/>
+        <location filename="../../Form_Files/main.ui" line="1769"/>
         <source>&amp;Spellcheck...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1774"/>
+        <location filename="../../Form_Files/main.ui" line="1772"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1779"/>
+        <location filename="../../Form_Files/main.ui" line="1777"/>
         <source>Alt+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1787"/>
+        <location filename="../../Form_Files/main.ui" line="1785"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1790"/>
+        <location filename="../../Form_Files/main.ui" line="1788"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1795"/>
+        <location filename="../../Form_Files/main.ui" line="1793"/>
         <source>&amp;Next Misspelled Word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1798"/>
+        <location filename="../../Form_Files/main.ui" line="1796"/>
         <source>Find the next misspelled word in the book.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1801"/>
+        <location filename="../../Form_Files/main.ui" line="1799"/>
         <source>F4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1806"/>
+        <location filename="../../Form_Files/main.ui" line="1804"/>
         <source>&amp;Add Misspelled Word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1809"/>
+        <location filename="../../Form_Files/main.ui" line="1807"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1814"/>
+        <location filename="../../Form_Files/main.ui" line="1812"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1817"/>
+        <location filename="../../Form_Files/main.ui" line="1815"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1822"/>
+        <location filename="../../Form_Files/main.ui" line="1820"/>
         <source>&amp;Clear Ignored Words</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1825"/>
+        <location filename="../../Form_Files/main.ui" line="1823"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1830"/>
+        <location filename="../../Form_Files/main.ui" line="1828"/>
         <source>&amp;Index Editor...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1838"/>
+        <location filename="../../Form_Files/main.ui" line="1836"/>
         <source>Ctrl+Alt+I</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1843"/>
+        <location filename="../../Form_Files/main.ui" line="1841"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1848"/>
+        <location filename="../../Form_Files/main.ui" line="1846"/>
         <source>Delete &amp;Unused Stylesheet Selectors...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1853"/>
+        <location filename="../../Form_Files/main.ui" line="1851"/>
         <source>&amp;Reports...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1856"/>
+        <location filename="../../Form_Files/main.ui" line="1854"/>
         <source>Ctrl+Shift+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1865"/>
+        <location filename="../../Form_Files/main.ui" line="1863"/>
         <source>&amp;Donate...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1868"/>
+        <location filename="../../Form_Files/main.ui" line="1866"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -8611,893 +8609,893 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1876"/>
+        <location filename="../../Form_Files/main.ui" line="1874"/>
         <source>Close &amp;Other Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1879"/>
+        <location filename="../../Form_Files/main.ui" line="1877"/>
         <source>Ctrl+Alt+W</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1884"/>
+        <location filename="../../Form_Files/main.ui" line="1882"/>
         <source>Go To &amp;Line...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1887"/>
+        <location filename="../../Form_Files/main.ui" line="1885"/>
         <source>Ctrl+/</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1892"/>
+        <location filename="../../Form_Files/main.ui" line="1890"/>
         <source>Find &amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1895"/>
+        <location filename="../../Form_Files/main.ui" line="1893"/>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1900"/>
+        <location filename="../../Form_Files/main.ui" line="1898"/>
         <source>Find &amp;Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1903"/>
+        <location filename="../../Form_Files/main.ui" line="1901"/>
         <source>Ctrl+Shift+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1908"/>
+        <location filename="../../Form_Files/main.ui" line="1906"/>
         <source>Replace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1911"/>
+        <location filename="../../Form_Files/main.ui" line="1909"/>
         <source>Ctrl+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1916"/>
+        <location filename="../../Form_Files/main.ui" line="1914"/>
         <source>&amp;Replace/Find Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1919"/>
+        <location filename="../../Form_Files/main.ui" line="1917"/>
         <source>Ctrl+]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1924"/>
+        <location filename="../../Form_Files/main.ui" line="1922"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1927"/>
+        <location filename="../../Form_Files/main.ui" line="1925"/>
         <source>Ctrl+[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1932"/>
+        <location filename="../../Form_Files/main.ui" line="1930"/>
         <source>Replace &amp;All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1935"/>
+        <location filename="../../Form_Files/main.ui" line="1933"/>
         <source>Alt+A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1940"/>
+        <location filename="../../Form_Files/main.ui" line="1938"/>
         <source>&amp;Count All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1943"/>
+        <location filename="../../Form_Files/main.ui" line="1941"/>
         <source>Alt+C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1948"/>
+        <location filename="../../Form_Files/main.ui" line="1946"/>
         <source>Mar&amp;k Selected Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1956"/>
+        <location filename="../../Form_Files/main.ui" line="1954"/>
         <source>Find &amp;Next In File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1961"/>
+        <location filename="../../Form_Files/main.ui" line="1959"/>
         <source>&amp;Replace Next In File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1966"/>
+        <location filename="../../Form_Files/main.ui" line="1964"/>
         <source>Replace &amp;All In File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1971"/>
+        <location filename="../../Form_Files/main.ui" line="1969"/>
         <source>&amp;Count All In File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1980"/>
+        <location filename="../../Form_Files/main.ui" line="1978"/>
         <source>&amp;Saved Searches...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1983"/>
+        <location filename="../../Form_Files/main.ui" line="1981"/>
         <source>Ctrl+Alt+F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1988"/>
+        <location filename="../../Form_Files/main.ui" line="1986"/>
         <source>&amp;Clip Editor...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1991"/>
+        <location filename="../../Form_Files/main.ui" line="1989"/>
         <source>Open the Clip Editor.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1994"/>
+        <location filename="../../Form_Files/main.ui" line="1992"/>
         <source>Ctrl+Alt+C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1999"/>
+        <location filename="../../Form_Files/main.ui" line="1997"/>
         <source>Clip &amp;1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2002"/>
+        <location filename="../../Form_Files/main.ui" line="2000"/>
         <source>Insert Clip 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2005"/>
+        <location filename="../../Form_Files/main.ui" line="2003"/>
         <source>Ctrl+Alt+1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2010"/>
+        <location filename="../../Form_Files/main.ui" line="2008"/>
         <source>Clip &amp;2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2013"/>
+        <location filename="../../Form_Files/main.ui" line="2011"/>
         <source>Insert Clip 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2016"/>
+        <location filename="../../Form_Files/main.ui" line="2014"/>
         <source>Ctrl+Alt+2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2021"/>
+        <location filename="../../Form_Files/main.ui" line="2019"/>
         <source>Clip &amp;3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2024"/>
+        <location filename="../../Form_Files/main.ui" line="2022"/>
         <source>Insert Clip 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2027"/>
+        <location filename="../../Form_Files/main.ui" line="2025"/>
         <source>Ctrl+Alt+3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2032"/>
+        <location filename="../../Form_Files/main.ui" line="2030"/>
         <source>Clip &amp;4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2035"/>
+        <location filename="../../Form_Files/main.ui" line="2033"/>
         <source>Insert Clip 4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2038"/>
+        <location filename="../../Form_Files/main.ui" line="2036"/>
         <source>Ctrl+Alt+4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2043"/>
+        <location filename="../../Form_Files/main.ui" line="2041"/>
         <source>Clip &amp;5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2046"/>
+        <location filename="../../Form_Files/main.ui" line="2044"/>
         <source>Insert Clip 5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2049"/>
+        <location filename="../../Form_Files/main.ui" line="2047"/>
         <source>Ctrl+Alt+5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2054"/>
+        <location filename="../../Form_Files/main.ui" line="2052"/>
         <source>Clip &amp;6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2057"/>
+        <location filename="../../Form_Files/main.ui" line="2055"/>
         <source>Insert Clip 6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2060"/>
+        <location filename="../../Form_Files/main.ui" line="2058"/>
         <source>Ctrl+Alt+6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2065"/>
+        <location filename="../../Form_Files/main.ui" line="2063"/>
         <source>Clip &amp;7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2068"/>
+        <location filename="../../Form_Files/main.ui" line="2066"/>
         <source>Insert Clip 7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2071"/>
+        <location filename="../../Form_Files/main.ui" line="2069"/>
         <source>Ctrl+Alt+7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2076"/>
+        <location filename="../../Form_Files/main.ui" line="2074"/>
         <source>Clip &amp;8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2079"/>
+        <location filename="../../Form_Files/main.ui" line="2077"/>
         <source>Insert Clip 8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2082"/>
+        <location filename="../../Form_Files/main.ui" line="2080"/>
         <source>Ctrl+Alt+8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2087"/>
+        <location filename="../../Form_Files/main.ui" line="2085"/>
         <source>Clip &amp;9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2090"/>
+        <location filename="../../Form_Files/main.ui" line="2088"/>
         <source>Insert Clip 9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2093"/>
+        <location filename="../../Form_Files/main.ui" line="2091"/>
         <source>Ctrl+Alt+9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2098"/>
+        <location filename="../../Form_Files/main.ui" line="2096"/>
         <source>Clip 1&amp;0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2101"/>
+        <location filename="../../Form_Files/main.ui" line="2099"/>
         <source>Insert Clip 10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2104"/>
+        <location filename="../../Form_Files/main.ui" line="2102"/>
         <source>Ctrl+Alt+0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2109"/>
+        <location filename="../../Form_Files/main.ui" line="2107"/>
         <source>Clip 11</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2112"/>
+        <location filename="../../Form_Files/main.ui" line="2110"/>
         <source>Insert Clip 11</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2117"/>
+        <location filename="../../Form_Files/main.ui" line="2115"/>
         <source>Clip 12</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2120"/>
+        <location filename="../../Form_Files/main.ui" line="2118"/>
         <source>Insert Clip 12</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2125"/>
+        <location filename="../../Form_Files/main.ui" line="2123"/>
         <source>Clip 13</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2128"/>
+        <location filename="../../Form_Files/main.ui" line="2126"/>
         <source>Insert Clip 13</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2133"/>
+        <location filename="../../Form_Files/main.ui" line="2131"/>
         <source>Clip 14</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2136"/>
+        <location filename="../../Form_Files/main.ui" line="2134"/>
         <source>Insert Clip 14</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2141"/>
+        <location filename="../../Form_Files/main.ui" line="2139"/>
         <source>Clip 15</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2144"/>
+        <location filename="../../Form_Files/main.ui" line="2142"/>
         <source>Insert Clip 15</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2149"/>
+        <location filename="../../Form_Files/main.ui" line="2147"/>
         <source>Clip 16</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2152"/>
+        <location filename="../../Form_Files/main.ui" line="2150"/>
         <source>Insert Clip 16</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2157"/>
+        <location filename="../../Form_Files/main.ui" line="2155"/>
         <source>Clip 17</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2160"/>
+        <location filename="../../Form_Files/main.ui" line="2158"/>
         <source>Insert Clip 17</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2165"/>
+        <location filename="../../Form_Files/main.ui" line="2163"/>
         <source>Clip 18</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2168"/>
+        <location filename="../../Form_Files/main.ui" line="2166"/>
         <source>Insert Clip 18</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2173"/>
+        <location filename="../../Form_Files/main.ui" line="2171"/>
         <source>Clip 19</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2176"/>
+        <location filename="../../Form_Files/main.ui" line="2174"/>
         <source>Insert Clip 19</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2181"/>
+        <location filename="../../Form_Files/main.ui" line="2179"/>
         <source>Clip 20</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2184"/>
+        <location filename="../../Form_Files/main.ui" line="2182"/>
         <source>Insert Clip 20</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2190"/>
+        <location filename="../../Form_Files/main.ui" line="2188"/>
         <source>Clip 21</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2193"/>
+        <location filename="../../Form_Files/main.ui" line="2191"/>
         <source>Insert Clip 21</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2198"/>
+        <location filename="../../Form_Files/main.ui" line="2196"/>
         <source>Clip 22</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2201"/>
+        <location filename="../../Form_Files/main.ui" line="2199"/>
         <source>Insert Clip 22</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2206"/>
+        <location filename="../../Form_Files/main.ui" line="2204"/>
         <source>Clip 23</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2209"/>
+        <location filename="../../Form_Files/main.ui" line="2207"/>
         <source>Insert Clip 23</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2214"/>
+        <location filename="../../Form_Files/main.ui" line="2212"/>
         <source>Clip 24</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2217"/>
+        <location filename="../../Form_Files/main.ui" line="2215"/>
         <source>Insert Clip 24</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2222"/>
+        <location filename="../../Form_Files/main.ui" line="2220"/>
         <source>Clip 25</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2225"/>
+        <location filename="../../Form_Files/main.ui" line="2223"/>
         <source>Insert Clip 25</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2230"/>
+        <location filename="../../Form_Files/main.ui" line="2228"/>
         <source>Clip 26</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2233"/>
+        <location filename="../../Form_Files/main.ui" line="2231"/>
         <source>Insert Clip 26</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2238"/>
+        <location filename="../../Form_Files/main.ui" line="2236"/>
         <source>Clip 27</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2241"/>
+        <location filename="../../Form_Files/main.ui" line="2239"/>
         <source>Insert Clip 27</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2246"/>
+        <location filename="../../Form_Files/main.ui" line="2244"/>
         <source>Clip 28</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2249"/>
+        <location filename="../../Form_Files/main.ui" line="2247"/>
         <source>Insert Clip 28</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2254"/>
+        <location filename="../../Form_Files/main.ui" line="2252"/>
         <source>Clip 29</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2257"/>
+        <location filename="../../Form_Files/main.ui" line="2255"/>
         <source>Insert Clip 29</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2262"/>
+        <location filename="../../Form_Files/main.ui" line="2260"/>
         <source>Clip 30</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2265"/>
+        <location filename="../../Form_Files/main.ui" line="2263"/>
         <source>Insert Clip 30</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2270"/>
+        <location filename="../../Form_Files/main.ui" line="2268"/>
         <source>Clip 31</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2273"/>
+        <location filename="../../Form_Files/main.ui" line="2271"/>
         <source>Insert Clip 31</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2278"/>
+        <location filename="../../Form_Files/main.ui" line="2276"/>
         <source>Clip 32</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2281"/>
+        <location filename="../../Form_Files/main.ui" line="2279"/>
         <source>Insert Clip 32</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2286"/>
+        <location filename="../../Form_Files/main.ui" line="2284"/>
         <source>Clip 33</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2289"/>
+        <location filename="../../Form_Files/main.ui" line="2287"/>
         <source>Insert Clip 33</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2294"/>
+        <location filename="../../Form_Files/main.ui" line="2292"/>
         <source>Clip 34</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2297"/>
+        <location filename="../../Form_Files/main.ui" line="2295"/>
         <source>Insert Clip 34</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2302"/>
+        <location filename="../../Form_Files/main.ui" line="2300"/>
         <source>Clip 35</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2305"/>
+        <location filename="../../Form_Files/main.ui" line="2303"/>
         <source>Insert Clip 35</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2310"/>
+        <location filename="../../Form_Files/main.ui" line="2308"/>
         <source>Clip 36</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2313"/>
+        <location filename="../../Form_Files/main.ui" line="2311"/>
         <source>Insert Clip 36</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2318"/>
+        <location filename="../../Form_Files/main.ui" line="2316"/>
         <source>Clip 37</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2321"/>
+        <location filename="../../Form_Files/main.ui" line="2319"/>
         <source>Insert Clip 37</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2326"/>
+        <location filename="../../Form_Files/main.ui" line="2324"/>
         <source>Clip 38</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2329"/>
+        <location filename="../../Form_Files/main.ui" line="2327"/>
         <source>Insert Clip 38</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2334"/>
+        <location filename="../../Form_Files/main.ui" line="2332"/>
         <source>Clip 39</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2337"/>
+        <location filename="../../Form_Files/main.ui" line="2335"/>
         <source>Insert Clip 39</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2342"/>
+        <location filename="../../Form_Files/main.ui" line="2340"/>
         <source>Clip 40</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2345"/>
+        <location filename="../../Form_Files/main.ui" line="2343"/>
         <source>Insert Clip 40</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2354"/>
+        <location filename="../../Form_Files/main.ui" line="2352"/>
         <source>&amp;Preferences...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2357"/>
+        <location filename="../../Form_Files/main.ui" line="2355"/>
         <source>F5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2362"/>
+        <location filename="../../Form_Files/main.ui" line="2360"/>
         <source>&amp;Zoom Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2365"/>
+        <location filename="../../Form_Files/main.ui" line="2363"/>
         <source>Zoom Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2368"/>
+        <location filename="../../Form_Files/main.ui" line="2366"/>
         <source>Ctrl+0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2380"/>
+        <location filename="../../Form_Files/main.ui" line="2378"/>
         <source>Heading &amp;1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2383"/>
+        <location filename="../../Form_Files/main.ui" line="2381"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2388"/>
+        <location filename="../../Form_Files/main.ui" line="2386"/>
         <source>Ctrl+1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2400"/>
+        <location filename="../../Form_Files/main.ui" line="2398"/>
         <source>Heading &amp;2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2403"/>
+        <location filename="../../Form_Files/main.ui" line="2401"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2408"/>
+        <location filename="../../Form_Files/main.ui" line="2406"/>
         <source>Ctrl+2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2420"/>
+        <location filename="../../Form_Files/main.ui" line="2418"/>
         <source>Heading &amp;3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2423"/>
+        <location filename="../../Form_Files/main.ui" line="2421"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2428"/>
+        <location filename="../../Form_Files/main.ui" line="2426"/>
         <source>Ctrl+3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2440"/>
+        <location filename="../../Form_Files/main.ui" line="2438"/>
         <source>Heading &amp;4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2443"/>
+        <location filename="../../Form_Files/main.ui" line="2441"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2448"/>
+        <location filename="../../Form_Files/main.ui" line="2446"/>
         <source>Ctrl+4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2460"/>
+        <location filename="../../Form_Files/main.ui" line="2458"/>
         <source>Heading &amp;5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2463"/>
+        <location filename="../../Form_Files/main.ui" line="2461"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2468"/>
+        <location filename="../../Form_Files/main.ui" line="2466"/>
         <source>Ctrl+5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2480"/>
+        <location filename="../../Form_Files/main.ui" line="2478"/>
         <source>Heading &amp;6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2483"/>
+        <location filename="../../Form_Files/main.ui" line="2481"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2488"/>
+        <location filename="../../Form_Files/main.ui" line="2486"/>
         <source>Ctrl+6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2500"/>
+        <location filename="../../Form_Files/main.ui" line="2498"/>
         <source>&amp;Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2503"/>
+        <location filename="../../Form_Files/main.ui" line="2501"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2508"/>
+        <location filename="../../Form_Files/main.ui" line="2506"/>
         <source>Ctrl+7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2516"/>
+        <location filename="../../Form_Files/main.ui" line="2514"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2519"/>
+        <location filename="../../Form_Files/main.ui" line="2517"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2524"/>
+        <location filename="../../Form_Files/main.ui" line="2522"/>
         <source>Blank HTML File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2527"/>
+        <location filename="../../Form_Files/main.ui" line="2525"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2536"/>
+        <location filename="../../Form_Files/main.ui" line="2534"/>
         <source>Existing Files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2539"/>
+        <location filename="../../Form_Files/main.ui" line="2537"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2546"/>
+        <location filename="../../Form_Files/main.ui" line="2544"/>
         <source>Blank Stylesheet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2549"/>
+        <location filename="../../Form_Files/main.ui" line="2547"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2554"/>
+        <location filename="../../Form_Files/main.ui" line="2552"/>
         <source>Blank SVG Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2557"/>
+        <location filename="../../Form_Files/main.ui" line="2555"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2562"/>
+        <location filename="../../Form_Files/main.ui" line="2560"/>
         <source>Pre&amp;vious File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2565"/>
+        <location filename="../../Form_Files/main.ui" line="2563"/>
         <source>Open previous file of the same type.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2568"/>
+        <location filename="../../Form_Files/main.ui" line="2566"/>
         <source>Alt+PgUp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2573"/>
+        <location filename="../../Form_Files/main.ui" line="2571"/>
         <source>Next &amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2576"/>
+        <location filename="../../Form_Files/main.ui" line="2574"/>
         <source>Open next file of the same type.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2579"/>
+        <location filename="../../Form_Files/main.ui" line="2577"/>
         <source>Alt+PgDown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2584"/>
+        <location filename="../../Form_Files/main.ui" line="2582"/>
         <source>&amp;Add To Index Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2591"/>
+        <location filename="../../Form_Files/main.ui" line="2589"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2596"/>
+        <location filename="../../Form_Files/main.ui" line="2594"/>
         <source>&amp;Mark For Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2603"/>
+        <location filename="../../Form_Files/main.ui" line="2601"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2606"/>
+        <location filename="../../Form_Files/main.ui" line="2604"/>
         <source>Ctrl+Shift+X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2611"/>
+        <location filename="../../Form_Files/main.ui" line="2609"/>
         <source>&amp;Create Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2618"/>
+        <location filename="../../Form_Files/main.ui" line="2616"/>
         <source>Generate a new Index HTML file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2623"/>
+        <location filename="../../Form_Files/main.ui" line="2621"/>
         <source>&amp;Create HTML Table Of Contents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2626"/>
+        <location filename="../../Form_Files/main.ui" line="2624"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2631"/>
+        <location filename="../../Form_Files/main.ui" line="2629"/>
         <source>Book&amp;mark Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2634"/>
+        <location filename="../../Form_Files/main.ui" line="2632"/>
         <source>Ctrl+Alt+B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2639"/>
+        <location filename="../../Form_Files/main.ui" line="2637"/>
         <source>&amp;Go To Link Or Style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2642"/>
+        <location filename="../../Form_Files/main.ui" line="2640"/>
         <source>F3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2651"/>
+        <location filename="../../Form_Files/main.ui" line="2649"/>
         <source>&amp;Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2654"/>
+        <location filename="../../Form_Files/main.ui" line="2652"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
@@ -9505,142 +9503,142 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2660"/>
+        <location filename="../../Form_Files/main.ui" line="2658"/>
         <source>Ctrl+\</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2665"/>
+        <location filename="../../Form_Files/main.ui" line="2663"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2668"/>
+        <location filename="../../Form_Files/main.ui" line="2666"/>
         <source>Ctrl+Alt+V</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2673"/>
+        <location filename="../../Form_Files/main.ui" line="2671"/>
         <source>&amp;Delete Line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2676"/>
+        <location filename="../../Form_Files/main.ui" line="2674"/>
         <source>Ctrl+D</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2681"/>
+        <location filename="../../Form_Files/main.ui" line="2679"/>
         <source>Manage Plugins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2690"/>
+        <location filename="../../Form_Files/main.ui" line="2688"/>
         <source>Run Plugin 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2699"/>
+        <location filename="../../Form_Files/main.ui" line="2697"/>
         <source>Run Plugin 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2708"/>
+        <location filename="../../Form_Files/main.ui" line="2706"/>
         <source>Run Plugin 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2717"/>
+        <location filename="../../Form_Files/main.ui" line="2715"/>
         <source>Run Plugin 4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2726"/>
+        <location filename="../../Form_Files/main.ui" line="2724"/>
         <source>Run Plugin 5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2735"/>
+        <location filename="../../Form_Files/main.ui" line="2733"/>
         <source>Run Plugin 6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2744"/>
+        <location filename="../../Form_Files/main.ui" line="2742"/>
         <source>Run Plugin 7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2753"/>
+        <location filename="../../Form_Files/main.ui" line="2751"/>
         <source>Run Plugin 8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2762"/>
+        <location filename="../../Form_Files/main.ui" line="2760"/>
         <source>Run Plugin 9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2771"/>
+        <location filename="../../Form_Files/main.ui" line="2769"/>
         <source>Run Plugin 10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2780"/>
+        <location filename="../../Form_Files/main.ui" line="2778"/>
         <source>Launch External Xhtml Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2783"/>
+        <location filename="../../Form_Files/main.ui" line="2781"/>
         <source>F2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2788"/>
+        <location filename="../../Form_Files/main.ui" line="2786"/>
         <source>Mend and &amp;Prettify All HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2793"/>
+        <location filename="../../Form_Files/main.ui" line="2791"/>
         <source>&amp;Mend All HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2798"/>
+        <location filename="../../Form_Files/main.ui" line="2796"/>
         <source>&amp;Update Manifest Properties</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2803"/>
+        <location filename="../../Form_Files/main.ui" line="2801"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2808"/>
+        <location filename="../../Form_Files/main.ui" line="2806"/>
         <source>Create a Custom Empty Epub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2813"/>
+        <location filename="../../Form_Files/main.ui" line="2811"/>
         <source>Remove the NCX and Guide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2822"/>
+        <location filename="../../Form_Files/main.ui" line="2820"/>
         <source>Create Checkpoint for Epub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2831"/>
+        <location filename="../../Form_Files/main.ui" line="2829"/>
         <source>Create Epub from previous Checkpoint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2840"/>
+        <location filename="../../Form_Files/main.ui" line="2838"/>
         <source>Compare Epub against Checkpoint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2849"/>
+        <location filename="../../Form_Files/main.ui" line="2847"/>
         <source>Manage Checkpoint Repositories</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13161,742 +13159,909 @@ Do you want to automatically mend the files before saving?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/MetaEditor.ui" line="148"/>
-        <source>Double-click in cell to edit its value.  Minimum metadata consists of main language, title, and at least one creator.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/MetaEditor.ui" line="172"/>
+        <location filename="../../Form_Files/MetaEditor.ui" line="169"/>
         <source>Use OK to commit your metadata changes to the epub, otherwise use Cancel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="81"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="52"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="81"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="171"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="239"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="419"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="496"/>
         <source>[ISBN here]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="175"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="244"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="423"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="501"/>
         <source>[ISSN here]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="179"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="249"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="427"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="506"/>
         <source>[DOI here]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="183"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="254"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="431"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="511"/>
         <source>[UUID here]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="194"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="272"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="435"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="516"/>
+        <source>[Amazon ASIN here]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="451"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="534"/>
         <source>[Author name here]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="200"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="277"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="457"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="539"/>
         <source>[Creator name here]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="204"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="281"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="461"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="543"/>
         <source>[Contributor name here]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="208"/>
-        <source>[meta value here]</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="465"/>
+        <source>[Value here]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="259"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="521"/>
         <source>[Custom identifier here]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="448"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
+        <source>[Insert identifier type here]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
+        <source>[Insert scheme type here]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="710"/>
         <source>[Place value here]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="483"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="749"/>
         <source>[Your value here]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="547"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="814"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="981"/>
         <source>Author</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="547"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="814"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="981"/>
         <source>Represents a primary author of the book or publication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="548"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="815"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
         <source>Subject</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="548"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="815"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="816"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="986"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="816"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="986"/>
         <source>Description of the publication&apos;s content.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="817"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="987"/>
         <source>Publisher</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="817"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="987"/>
         <source>An entity responsible for making the publication available.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="656"/>
-        <source>Date: Publication</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="818"/>
+        <source>Date Published</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="656"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="818"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="989"/>
         <source>The date of publication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="552"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
-        <source>Date: Creation</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="819"/>
+        <source>Date Created</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="552"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="819"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="990"/>
         <source>The date of creation.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="553"/>
-        <source>Date: Issued</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="820"/>
+        <source>Date Modified</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="553"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="820"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
         <source>The date of modification.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
-        <source>Date: Modification</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="555"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="659"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="821"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="555"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="821"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="822"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="993"/>
         <source>Format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="822"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="993"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="557"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="661"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="823"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="994"/>
         <source>Source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="557"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="823"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="824"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="995"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="824"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
-        <source>Relation</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="825"/>
+        <source>Related To</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="825"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="996"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="826"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="997"/>
         <source>Coverage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="664"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="826"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="997"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="827"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="998"/>
         <source>Rights</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="665"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="827"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="998"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="651"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="828"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="983"/>
         <source>Creator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
-        <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="828"/>
+        <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="563"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="829"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
         <source>Contributor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="563"/>
-        <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="829"/>
+        <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
-        <source>Belongs to Collection</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="830"/>
+        <source>Belongs to a Collection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="830"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="831"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="982"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="831"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="832"/>
         <source>Identifier: DOI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
-        <source>Digital Object Identifier associated with the given EPUB publication.</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="832"/>
+        <source>Digital Object Identifier associated with this publication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="833"/>
         <source>Identifier: ISBN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="567"/>
-        <source>International Standard Book Number associated with the given EPUB publication.</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="833"/>
+        <source>International Standard Book Number associated with thisnpublication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="834"/>
         <source>Identifier: ISSN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
-        <source>International Standard Serial Number associated with the given EPUB publication.</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="834"/>
+        <source>International Standard Serial Number associated with this publication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="835"/>
         <source>Identifier: UUID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
-        <source>A Universally Unique Idenitifier generated for this EPUB publication.</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="835"/>
+        <source>A Universally Unique Idenitifier generated for this publication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
-        <source>Custom Element</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="836"/>
+        <source>Identifier: ASIN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
-        <source>[Custom element]</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="836"/>
+        <source>An Amazon Unique Idenitifier associated with this publication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="571"/>
-        <source>An empty metadata element you can modify.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
-        <source>Meta Element (primary)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
-        <source>An empty primary meta element you can modify.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="701"/>
-        <source>Id Attribute</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="598"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="701"/>
-        <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="599"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
-        <source>XML Language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="599"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="702"/>
-        <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="600"/>
-        <source>Text Direction: rtl</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="600"/>
-        <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="601"/>
-        <source>Text Direction: ltr</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="601"/>
-        <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
-        <source>Title Type: main</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="602"/>
-        <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
-        <source>Title Type: subtitle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="603"/>
-        <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
-        <source>Title Type: short</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="604"/>
-        <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
-        <source>Title Type: collection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="605"/>
-        <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
-        <source>Title Type: edition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="606"/>
-        <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
-        <source>Title Type: expanded</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="607"/>
-        <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
-        <source>Alternate Script</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="608"/>
-        <source>Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="609"/>
-        <source>Alternate Language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="609"/>
-        <source>Language code for the language used in the associated alternate-script property value.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
-        <source>Collection Type: set</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
-        <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
-        <source>Collection Type: series</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="611"/>
-        <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="612"/>
-        <source>Display Sequence</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="612"/>
-        <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="703"/>
-        <source>File as</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="613"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="703"/>
-        <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="614"/>
-        <source>Group Position</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="614"/>
-        <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
-        <source>Identifier Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
-        <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
-        <source>Meta Authority</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="616"/>
-        <source>Identifies the party or authority responsible for an instance of package metadata.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="617"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="704"/>
-        <source>Role</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="617"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="704"/>
-        <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="618"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="705"/>
-        <source>Scheme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="618"/>
-        <source>This attribute is typically added to dc:identifier, dc:source: dc:creator, or dc:contributor to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="619"/>
-        <source>Source of Pagination</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="619"/>
-        <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
-        <source>Custom Property</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
-        <source>[Custom property/attribute]</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
-        <source>An empty metadata property or attribute you can modify.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
-        <source>The main title of the epub publication.  Only one title may exist.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="651"/>
-        <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
-        <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="659"/>
-        <source>The nature or genre of the content of the resource.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="661"/>
-        <source>A reference to a resource from which the present publication is derived.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
-        <source>A language used in the publication. Choose a RFC5646 value.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
-        <source>Identifier</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
-        <source>Digital Object Identifier</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
-        <source>International Standard Book Number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
-        <source>International Standard Serial Number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="669"/>
-        <source>Universally Unique Identifier</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="837"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1004"/>
         <source>Identifier: Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="837"/>
         <source>A custom identifier based on a specified scheme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="671"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="838"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1008"/>
+        <source>Custom Element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="838"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1008"/>
+        <source>[Custom element]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="838"/>
+        <source>An empty metadata element you can modify.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="839"/>
+        <source>Meta Element (primary)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="839"/>
+        <source>An empty primary metadata element you can modify.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
+        <source>Id Attribute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
+        <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
+        <source>XML Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
+        <source>Optional, language specifying attribute.  Uses same codes as Language. Not for use with Language, Date, or Identifier metadata elements.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
+        <source>Uses Right To Left Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
+        <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
+        <source>Uses Left to Right Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
+        <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
+        <source>Title: Main Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
+        <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
+        <source>Title: Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
+        <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
+        <source>Title: Short Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
+        <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
+        <source>Title: Collection Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
+        <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <source>Title: Edition Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <source>Title: Expanded Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
+        <source>Alternate Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
+        <source>Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
+        <source>Alternate Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
+        <source>Language code for the language used in the associated alternate-script property value.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
+        <source>Collection is a Set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
+        <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
+        <source>Collection is a Series</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
+        <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
+        <source>Display Sequence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
+        <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
+        <source>File As</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
+        <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
+        <source>Position In Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
+        <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
+        <source>Identifier Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
+        <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
+        <source>Meta Authority</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
+        <source>Identifies the party or authority responsible for an instance of package metadata.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
+        <source>Role</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
+        <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
+        <source>Scheme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
+        <source>This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
+        <source>Source of Pagination</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
+        <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="887"/>
+        <source>Custom Property</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="887"/>
+        <source>[Custom property/attribute]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="887"/>
+        <source>An empty metadata property or attribute you can modify.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
+        <source>Text Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
+        <source>Optional text direction attribute for this metadata item.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
+        <source>Title Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
+        <source>Indicates the kind or type of the title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
+        <source>Collection Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
+        <source>Property used with belongs-to-collection. Indicates the form or nature of a collection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
+        <source>Source of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
+        <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="945"/>
+        <source>Published</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="945"/>
+        <source>Event Type is Published.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="946"/>
+        <source>Publication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="946"/>
+        <source>Event Type is Publication.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="947"/>
+        <source>Creation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="947"/>
+        <source>Event Type is Creation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="948"/>
+        <source>Modification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="948"/>
+        <source>Event Type is Modification.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="949"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
+        <source>Digital Object Identifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="949"/>
+        <source>Identifier Scheme: Digital Object Identifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="950"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1000"/>
+        <source>International Standard Book Number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="950"/>
+        <source>Identifier Scheme: International Standard Book Number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="951"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1001"/>
+        <source>International Standard Serial Number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="951"/>
+        <source>Identifier Scheme: International Standard Serial Number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="952"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1002"/>
+        <source>Universally Unique Identifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="952"/>
+        <source>Identifier Scheme: Universally Unique Identifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="953"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1003"/>
+        <source>Amazon Unique Identifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="953"/>
+        <source>Identifier Scheme: Amazon Unique Identifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="982"/>
+        <source>The main title of the epub publication.  Only one title may exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="983"/>
+        <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
+        <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="988"/>
+        <source>Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="988"/>
+        <source>A date associated with this epub, typically refined by event type information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="989"/>
+        <source>Date: Publication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="990"/>
+        <source>Date: Creation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
+        <source>Date: Modification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
+        <source>The nature or genre of the content of the resource.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="994"/>
+        <source>A reference to a resource from which the present publication is derived.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="995"/>
+        <source>A language used in the publication. Choose a RFC5646 value.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="996"/>
+        <source>Relation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1000"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1001"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1002"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1003"/>
+        <source>Identifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1004"/>
+        <source>A custom identifier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1005"/>
         <source>Series</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="671"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1005"/>
         <source>Series title or name (from calibre)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="672"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1006"/>
         <source>Series Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="672"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1006"/>
         <source>Index of this book in the series (from calibre)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1007"/>
         <source>Title for Sorting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1007"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1008"/>
         <source>An empty element for you to modify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="705"/>
-        <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, or UUID.</source>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
+        <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="706"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
+        <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
         <source>Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="706"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
         <source>Custom Attribute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
         <source>[Custom metadata property/attribute]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
         <source>An empty metadata attribute you can modify.</source>
         <translation type="unfinished"></translation>
     </message>
