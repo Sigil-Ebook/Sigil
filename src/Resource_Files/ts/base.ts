@@ -13472,7 +13472,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="833"/>
-        <source>International Standard Book Number associated with thisnpublication.</source>
+        <source>International Standard Book Number associated with this publication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -830,7 +830,7 @@ void MetaEditor::loadMetadataElements()
          tr("Belongs to a Collection") << "belongs-to-collection" << tr("Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.") <<
          tr("Title") << "dc:title" << tr("A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.") <<
          tr("Identifier: DOI") << "dc:identifier-doi" << tr("Digital Object Identifier associated with this publication.") << 
-         tr("Identifier: ISBN") << "dc:identifier-isbn" << tr("International Standard Book Number associated with thisnpublication.") <<
+         tr("Identifier: ISBN") << "dc:identifier-isbn" << tr("International Standard Book Number associated with this publication.") <<
          tr("Identifier: ISSN") << "dc:identifier-issn" << tr("International Standard Serial Number associated with this publication.") <<
          tr("Identifier: UUID") << "dc:identifier-uuid" << tr("A Universally Unique Idenitifier generated for this publication.") <<
          tr("Identifier: ASIN") << "dc:identifier-amazon" << tr("An Amazon Unique Idenitifier associated with this publication.") <<
