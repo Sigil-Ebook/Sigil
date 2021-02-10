@@ -41,7 +41,6 @@
 ****************************************************************************/
 
 #include <QtWidgets>
-#include <QDebug>
 
 #include "Dialogs/TreeItem.h"
 #include "Dialogs/TreeModel.h"
@@ -85,7 +84,6 @@ QVariant TreeModel::data(const QModelIndex &index, int role) const
 
     TreeItem *item = getItem(index);
     if (role == Qt::ToolTipRole) {
-        qDebug() << "reading tooltip item data: " << item->tip(index.column()).toString(); 
         return item->tip(index.column());
     }
     return item->data(index.column());
@@ -226,7 +224,6 @@ bool TreeModel::setData(const QModelIndex &index, const QVariant &value, int rol
 
     bool result;
     if (role == Qt::ToolTipRole) {
-        qDebug() << "setting tooltip: " << value.toString();
         result = item->setTips(index.column(), value);
     } else {    
         result = item->setData(index.column(), value);

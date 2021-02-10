@@ -248,14 +248,12 @@ QString MetaEditor::GetOPFMetadata() {
     m_otherxml = mdp.otherxml;
     m_metatag = mdp.metatag;
     m_idlist = mdp.idlist;
-    qDebug() << "Data from OPF: " << adata;
     // Translate to Human Readable Form
     // and set original codes as tooltips
     QStringList nlist;
     QStringList dlist = adata.split(_RS);
     foreach(QString rc, dlist) {
         if (rc.isEmpty()) continue;
-        qDebug() << "rc: " << rc;
         if (rc.startsWith(_IN)) {
             // treat as property value attribute pair
             QStringList parts = rc.trimmed().split(_US);
