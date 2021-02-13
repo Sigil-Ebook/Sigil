@@ -269,6 +269,7 @@ QString MetaEditor::GetOPFMetadata() {
             if (parts.at(0) == "xml:lang") value = LName(value);
             if (parts.at(0) == "altlang") value = LName(value);
             if (parts.at(0) == "source-of") value = PName("source-of:" + value);
+            if (parts.at(0) == "dir") value = PName("dir:" + value);
             QString prop = PName(parts.at(0)) + _GS + parts.at(0);
             value = value + _GS + tvalue;
             nlist.append(_IN + prop + _US + value + _RS);
@@ -310,6 +311,11 @@ QString MetaEditor::SetNewOPFMetadata(QString& data)
                 value = PCode(value);
                 // strip off "opf:event-"
                 value = value.mid(10);
+            }
+            if (prop == "dir") {
+                value = PCode(value);
+                // strip off "dir:""
+                value = value.mid(4);
             }
             if (prop == "role") value = RCode(value);
             if (prop == "title-type") {
