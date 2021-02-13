@@ -2116,6 +2116,7 @@ void CodeViewEditor::HighlightCurrentLine(bool highlight_tags)
     }
 
     setExtraSelections(extraSelections);
+    emit selectionChanged();
 }
 
 
