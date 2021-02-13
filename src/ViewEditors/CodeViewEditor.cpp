@@ -368,7 +368,14 @@ bool CodeViewEditor::TextIsSelectedAndNotInStartOrEndTag()
         return false;
     }
 
-    if (IsPositionInTag(textCursor().selectionStart()) || IsPositionInTag(textCursor().selectionEnd()-1)) {
+    MaybeRegenerateTagList();
+    QString text = m_TagList.getSource();
+    int pos = textCursor().selectionStart();
+    int end = textCursor().selectionEnd()-1;
+
+    if ((text[pos] == "<") && (text[end] == ">")) return true;
+    
+    if (IsPositionInTag(pos) || IsPositionInTag(end)) {
         return false;
     }
 
