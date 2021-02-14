@@ -190,9 +190,6 @@ void MetaEditor::loadChoices()
     cat = PName("xml:lang");
     m_Choices[cat] = lchoices;
 
-    cat = PName("altlang");
-    m_Choices[cat] = lchoices;
-
     //  handle as special case
     cat = EName("dc:description");
     m_Choices[cat] = QStringList();
@@ -267,7 +264,6 @@ QString MetaEditor::GetOPFMetadata() {
             if (parts.at(0) == "title-type") value = PName("title-type:" + value);
             if (parts.at(0) == "collection-type") value = PName("collection-type:" + value);
             if (parts.at(0) == "xml:lang") value = LName(value);
-            if (parts.at(0) == "altlang") value = LName(value);
             if (parts.at(0) == "source-of") value = PName("source-of:" + value);
             if (parts.at(0) == "dir") value = PName("dir:" + value);
             QString prop = PName(parts.at(0)) + _GS + parts.at(0);
@@ -329,7 +325,6 @@ QString MetaEditor::SetNewOPFMetadata(QString& data)
                 value = value.mid(16);
             }
             if (prop == "xml:lang") value = LCode(value);
-            if (prop == "altlang") value = LCode(value);
             if (prop == "source-of") {
                 value = PCode(value);
                 // strip off "source-of:"
@@ -586,7 +581,7 @@ void MetaEditor::selectProperty()
             insertChild(PName(code), code, content, "");
         } else if (code == "scheme") {
                 insertChild(PName(code), code, "", "");
-        } else if ((code == "altlang") || (code == "xml:lang")) {
+        } else if (code == "xml:lang") {
             QStringList langcodes;
             AddMetadata addvalue(Language::instance()->GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
@@ -877,14 +872,12 @@ void MetaEditor::loadMetadataProperties()
          tr("Title: Edition Title") << "title-type:edition" << tr("Indicates that the associated title is an edition title for this publications if one exists.") <<
          tr("Title: Expanded Title") << "title-type:expanded" << tr("Indicates that the associated title is an expanded title for this publication if one exists.") <<
          tr("Alternate Script") << "alternate-script" << tr("Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.") <<
-         tr("Alternate Language") << "altlang" << tr("Language code for the language used in the associated alternate-script property value.") <<
          tr("Collection is a Set") << "collection-type:set" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection. The value 'set' should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..") <<
          tr("Collection is a Series") << "collection-type:series" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection. The value 'series'' should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.") <<
          tr("Display Sequence") << "display-seq" << tr("Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).") <<
          tr("File As") << "file-as" << tr("Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.") <<
          tr("Position In Group") << "group-position" << tr("Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).") <<
          tr("Identifier Type") << "identifier-type" << tr("Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.") <<
-         tr("Meta Authority") << "meta-auth" << tr("Identifies the party or authority responsible for an instance of package metadata.") <<
          tr("Role") << "role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
          tr("Scheme") << "scheme" << tr("This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.") <<
          tr("Source of Pagination") << "source-of" << tr("Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.") <<
