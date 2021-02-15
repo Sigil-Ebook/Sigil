@@ -1162,6 +1162,67 @@ void CodeViewEditor::resizeEvent(QResizeEvent *event)
 }
 
 
+void CodeViewEditor::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    // Propagate to base class first then handle locally
+    QPlainTextEdit::mouseDoubleClickEvent(event);
+
+    if (!IsPositionInTag(textCursor().selectionStart())) return;
+
+    // cursor has no selection and is in a tag 
+    bool isShift = QApplication::keyboardModifiers() & Qt::ShiftModifier;
+    
+    // if shift is used select tag and its contents
+    // if no shift is used just select the tag's contents, not the tag itself
+    QTextCursor cursor = textCursor();
+    int pos = cursor.selectionStart();
+    int open_tag_pos = -1;
+    int open_tag_len = -1;
+    int close_tag_pos = -1;
+    int close_tag_len = -1;
+    int i = m_TagList.findFirstTagOnOrAfter(pos);
+    TagLister::TagInfo ti = m_TagList.at(i);
+    if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) {
+        if(ti.ttype == "end") {
+            open_tag_pos = ti.open_pos;
+            open_tag_len = ti.open_len;
+            close_tag_pos = ti.pos;
+            close_tag_len = ti.len;
+        } else { // single or begin
+             open_tag_pos = ti.pos;
+             open_tag_len = ti.len;
+        }
+        if (ti.ttype == "begin") {
+            open_tag_pos = ti.pos;
+            open_tag_len = ti.len;
+            int j = m_TagList.findCloseTagForOpen(i);
+            if (j >= 0) {
+                if (m_TagList.at(j).len != -1) {
+                    close_tag_pos = m_TagList.at(j).pos;
+                    close_tag_len = m_TagList.at(j).len;
+                }
+            }
+        }
+    }
+    if (open_tag_len != -1 || close_tag_len != -1) {
+        int selstart;
+        int selend;
+        if (isShift) {
+            selstart = open_tag_pos;
+            selend = open_tag_pos + open_tag_len;
+            if (close_tag_len != -1) selend = close_tag_pos + close_tag_len;
+        } else {
+            selstart = open_tag_pos + open_tag_len;
+            selend = selstart;
+            if (close_tag_len != -1) selend = close_tag_pos;
+        }
+        cursor.setPosition(selstart);
+        cursor.setPosition(selend, QTextCursor::KeepAnchor);
+        setTextCursor(cursor);
+    }
+}
+
+
 void CodeViewEditor::mousePressEvent(QMouseEvent *event)
 {
     // When a right-click occurs, move the caret location if this is performed.

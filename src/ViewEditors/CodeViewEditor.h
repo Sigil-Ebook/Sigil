@@ -480,6 +480,8 @@ protected:
 
     void mouseReleaseEvent(QMouseEvent *event);
 
+    void mouseDoubleClickEvent(QMouseEvent *event);
+    
     /**
      * Handles the content menu event for the editor.
      *
