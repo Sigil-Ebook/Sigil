@@ -831,8 +831,8 @@ void MetaEditor::loadMetadataElements()
          tr("Identifier: DOI") << "dc:identifier-doi" << tr("Digital Object Identifier associated with this publication.") << 
          tr("Identifier: ISBN") << "dc:identifier-isbn" << tr("International Standard Book Number associated with this publication.") <<
          tr("Identifier: ISSN") << "dc:identifier-issn" << tr("International Standard Serial Number associated with this publication.") <<
-         tr("Identifier: UUID") << "dc:identifier-uuid" << tr("A Universally Unique Idenitifier generated for this publication.") <<
-         tr("Identifier: ASIN") << "dc:identifier-amazon" << tr("An Amazon Unique Idenitifier associated with this publication.") <<
+         tr("Identifier: UUID") << "dc:identifier-uuid" << tr("A Universally Unique Identifier generated for this publication.") <<
+         tr("Identifier: ASIN") << "dc:identifier-amazon" << tr("An Amazon Standard Identification Number associated with this publication.") <<
          tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier based on a specified scheme") <<
          tr("Custom Element") << tr("[Custom element]") << tr("An empty metadata element you can modify.")  << 
          tr("Meta Element (primary)") << "meta" << tr("An empty primary metadata element you can modify.");
@@ -997,7 +997,7 @@ void MetaEditor::loadE2MetadataElements()
          tr("Identifier") + ": ISBN"  << "dc:identifier-isbn" << tr("International Standard Book Number") <<
          tr("Identifier") + ": ISSN"  << "dc:identifier-issn" << tr("International Standard Serial Number") <<
          tr("Identifier") + ": UUID"  << "dc:identifier-uuid" << tr("Universally Unique Identifier") <<
-         tr("Identifier") + ": ASIN"  << "dc:identifier-amazon" << tr("Amazon Unique Identifier") <<
+         tr("Identifier") + ": ASIN"  << "dc:identifier-amazon" << tr("Amazon Standard Identification Number") <<
          tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier") <<
          tr("Series") << "calibre:series" << tr("Series title or name (from calibre)") <<
          tr("Series Index") << "calibre:series_index" << tr("Index of this book in the series (from calibre)") <<
