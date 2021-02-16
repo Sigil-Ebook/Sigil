@@ -320,15 +320,12 @@ void CodeViewEditor::CutTagPair()
             open_tag_len = ti.open_len;
             close_tag_pos = ti.pos;
             close_tag_len = ti.len;
-        } else { // single or begin                                                                                                                      
+        } else { // all others single, begin, xmlheader, doctype, comment, etc
              newpos = ti.pos;
              open_tag_pos = ti.pos;
              open_tag_len = ti.len;
         }
         if (ti.ttype == "begin") {
-            newpos = ti.pos;
-            open_tag_pos = ti.pos;
-            open_tag_len = ti.len;
             int j = m_TagList.findCloseTagForOpen(i);
             if (j >= 0) {
                 if (m_TagList.at(j).len != -1) {
@@ -1164,18 +1161,20 @@ void CodeViewEditor::resizeEvent(QResizeEvent *event)
 
 void CodeViewEditor::mouseDoubleClickEvent(QMouseEvent *event)
 {
+    // record the initial position in case later changed by doubleclick event
+    QTextCursor cursor = textCursor();
+    int pos = cursor.selectionStart();
+    
     // Propagate to base class first then handle locally
     QPlainTextEdit::mouseDoubleClickEvent(event);
 
-    if (!IsPositionInTag(textCursor().selectionStart())) return;
+    // if position not in start or end tag you are done
+    if (!IsPositionInTag(pos)) return;
 
-    // cursor has no selection and is in a tag 
     bool isShift = QApplication::keyboardModifiers() & Qt::ShiftModifier;
     
     // if shift is used select tag and its contents
     // if no shift is used just select the tag's contents, not the tag itself
-    QTextCursor cursor = textCursor();
-    int pos = cursor.selectionStart();
     int open_tag_pos = -1;
     int open_tag_len = -1;
     int close_tag_pos = -1;
@@ -1188,13 +1187,11 @@ void CodeViewEditor::mouseDoubleClickEvent(QMouseEvent *event)
             open_tag_len = ti.open_len;
             close_tag_pos = ti.pos;
             close_tag_len = ti.len;
-        } else { // single or begin
+        } else { // all others single, begin, doctype, xmlheader, cdata, etc
              open_tag_pos = ti.pos;
              open_tag_len = ti.len;
         }
         if (ti.ttype == "begin") {
-            open_tag_pos = ti.pos;
-            open_tag_len = ti.len;
             int j = m_TagList.findCloseTagForOpen(i);
             if (j >= 0) {
                 if (m_TagList.at(j).len != -1) {
@@ -2124,13 +2121,11 @@ void CodeViewEditor::HighlightCurrentLine(bool highlight_tags)
                     open_tag_len = ti.open_len;
                     close_tag_pos = ti.pos;
                     close_tag_len = ti.len;
-                } else { // single or begin 
+                } else { // all others: single, begin, xmlheader, doctype, comment, cdata, etc 
                     open_tag_pos = ti.pos;
                     open_tag_len = ti.len;
                 }
                 if (ti.ttype == "begin") {
-                    open_tag_pos = ti.pos;
-                    open_tag_len = ti.len;
                     int j = m_TagList.findCloseTagForOpen(i);
                     if (j >= 0) {
                         if (m_TagList.at(j).len != -1) {
