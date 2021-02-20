@@ -28,6 +28,7 @@
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QProgressDialog>
 #include <QtWidgets/QScrollBar>
+#include <QDebug>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -623,6 +624,8 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
 {
     QStringList added_book_paths;
 
+    bool replacements_made = false;
+
     QString filter_string = "";
     if (!QFileInfo(m_LastFolderOpen).exists()) {
         m_LastFolderOpen = "";
@@ -653,10 +656,17 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
     // Avoid dialog popping up over Insert File from disk for duplicate file all the time
     int progress_value = 0;
     int file_count = filepaths.count();
-    QProgressDialog progress(QObject::tr("Adding Existing Files.."), 0, 0, file_count, this);
+    // need to use the MainWindow as the parent of this QProgressDialog
+    // and we can not make it modal as we may need to ask about replacing files of identical names
+    QProgressDialog progress(QObject::tr("Adding Existing Files.."), 0, 0, file_count, Utility::GetMainWindow());
     if (file_count > 1) {
         progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
         progress.setValue(progress_value);
+        // since not modal force it to be shown and move it to the top
+        progress.show();
+        progress.raise();
+        progress.activateWindow();
+        qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
     }
     bool yes_to_all = false;
     bool no_to_all = false;
@@ -728,6 +738,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
                         CoverImageSemanticsSet = m_Book->GetOPF()->IsCoverImage(image_resource);
                     }
                     old_resource->Delete();
+                    replacements_made = true;
                 } catch (ResourceDoesNotExist&) {
                     Utility::DisplayStdErrorDialog(tr("Unable to delete or replace file \"%1\".").arg(filename)
                     );
@@ -790,27 +801,27 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
         }
 
     }
+    // turn off the QProgress Dialog by setting it as reaching its target
+    progress.setValue(file_count);
 
     if (!invalid_filenames.isEmpty()) {
-        progress.cancel();
         QMessageBox::warning(this, tr("Sigil"),
                              tr("The following file(s) were not loaded due to invalid content or not well formed XML:\n\n%1")
                              .arg(invalid_filenames.join("\n")));
     }
 
-    if (!added_book_paths.isEmpty()) {
-        QApplication::setOverrideCursor(Qt::WaitCursor);
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    // we still need to set modified and refresh if image file replacements have been done
+    if (!added_book_paths.isEmpty() || replacements_made) {
         emit ResourcesAdded();
-
         if (open_resource) {
             emit ResourceActivated(open_resource);
         }
-
         emit BookContentModified();
         Refresh();
-        emit ShowStatusMessageRequest(tr("File(s) added."));
-        QApplication::restoreOverrideCursor();
+        emit ShowStatusMessageRequest(tr("File(s) added or replaced."));
     }
+    QApplication::restoreOverrideCursor();
 
     return added_book_paths;
 }
