@@ -116,23 +116,27 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QString fsize = QString::number(ffsize, 'f', 2);
         NumericItem *size_item = new NumericItem();
         size_item->setText(fsize);
+        size_item->setTextAlignment(Qt::AlignRight);
         rowItems << size_item;
         // All words
         std::pair<int, int> counts = word_count_hash[filepath];
         total_all_words += counts.first;
         NumericItem *words_item = new NumericItem();
         words_item->setText(QString::number(counts.first));
+        words_item->setTextAlignment(Qt::AlignRight);
         rowItems << words_item;
         // Misspelled words
         total_misspelled_words += counts.second;
         NumericItem *misspelled_item = new NumericItem();
         misspelled_item->setText(QString::number(counts.second));
+        misspelled_item->setTextAlignment(Qt::AlignRight);
         rowItems << misspelled_item;
         // Images
         NumericItem *image_item = new NumericItem();
         QStringList image_names = image_names_hash[filepath];
         total_images += image_names.count();
         image_item->setText(QString::number(image_names.count()));
+        image_item->setTextAlignment(Qt::AlignRight);
         if (!image_names.isEmpty()) {
             image_item->setToolTip(image_names.join("\n"));
         }
@@ -142,6 +146,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QStringList video_names = video_names_hash[filepath];
         total_video += video_names.count();
         video_item->setText(QString::number(video_names.count()));
+        video_item->setTextAlignment(Qt::AlignRight);
         if (!video_names.isEmpty()) {
             video_item->setToolTip(video_names.join("\n"));
         }
@@ -151,6 +156,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QStringList audio_names = audio_names_hash[filepath];
         total_audio += audio_names.count();
         audio_item->setText(QString::number(audio_names.count()));
+        audio_item->setTextAlignment(Qt::AlignRight);
         if (!audio_names.isEmpty()) {
             audio_item->setToolTip(audio_names.join("\n"));
         }
@@ -160,6 +166,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QStringList stylesheet_names = stylesheet_names_hash[filepath];
         total_stylesheets += stylesheet_names.count();
         stylesheet_item->setText(QString::number(stylesheet_names.count()));
+        stylesheet_item->setTextAlignment(Qt::AlignRight);
         if (!stylesheet_names.isEmpty()) {
             stylesheet_item->setToolTip(stylesheet_names.join("\n"));
         }
@@ -194,30 +201,37 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     // File size
     nitem = new NumericItem();
     nitem->setText(QLocale().toString(total_size, 'f', 2));
+    nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // All Words
     nitem = new NumericItem();
     nitem->setText(QString::number(total_all_words));
+    nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Misspelled Words
     nitem = new NumericItem();
     nitem->setText(QString::number(total_misspelled_words));
+    nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Images
     nitem = new NumericItem();
     nitem->setText(QString::number(total_images));
+    nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Video
     nitem = new NumericItem();
     nitem->setText(QString::number(total_video));
+    nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Audio
     nitem = new NumericItem();
     nitem->setText(QString::number(total_audio));
+    nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Stylesheets
     nitem = new NumericItem();
     nitem->setText(QString::number(total_stylesheets));
+    nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Well formed
     nitem = new NumericItem();

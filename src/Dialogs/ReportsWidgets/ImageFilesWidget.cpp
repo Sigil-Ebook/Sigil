@@ -123,6 +123,7 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QString fsize = QString::number(ffsize, 'f', 2);
         NumericItem *size_item = new NumericItem();
         size_item->setText(fsize);
+        size_item->setTextAlignment(Qt::AlignRight);
         rowItems << size_item;
         // Times Used
         QStringList image_html_files = image_html_files_hash[filepath];
@@ -185,7 +186,8 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     rowItems << nitem;
     // File size
     nitem = new NumericItem();
-    nitem->setText(QLocale().toString(total_size, 'f', 2) % tr("KB"));
+    nitem->setText(QLocale().toString(total_size, 'f', 2));
+    nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Links
     nitem = new NumericItem();
