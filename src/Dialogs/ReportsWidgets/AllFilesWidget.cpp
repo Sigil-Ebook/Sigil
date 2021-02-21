@@ -107,6 +107,7 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QString fsize = QString::number(ffsize, 'f', 2);
         NumericItem *size_item = new NumericItem();
         size_item->setText(fsize);
+        size_item->setTextAlignment(Qt::AlignRight);
         rowItems << size_item;
         // Type
         item = new QStandardItem();
@@ -151,6 +152,7 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     // File size
     nitem = new NumericItem();
     nitem->setText(QLocale().toString(total_size, 'f', 2));
+    nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
 
     QFont font;

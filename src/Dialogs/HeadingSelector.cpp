@@ -601,7 +601,7 @@ void HeadingSelector::DisplayCounts()
                       "<table cellpadding=\"5\">" +
                       "<tr><th>" + tr("Level") + "</th><th>" + tr("Included") + "</th><th>" + tr("Hidden") + "</th></tr>";
     foreach(QString h, HEADING_TAGS) {
-        tooltip += QString("<tr><td>%1</td><td>%2</td><td>%3</td></tr>").arg(h).arg(m_HeadingsIncluded[h]).arg(m_HeadingsHidden[h]);
+        tooltip += QString("<tr><td>%1</td><td style=\"text-align:right;\">%2</td><td style=\"text-align:right;\">%3</td></tr>").arg(h).arg(m_HeadingsIncluded[h]).arg(m_HeadingsHidden[h]);
     }
     tooltip += "</table>";
     ui.tvTOCDisplay->header()->setToolTip(tooltip);

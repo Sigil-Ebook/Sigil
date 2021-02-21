@@ -326,7 +326,7 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
     // connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
 
 
-    ui.SpellcheckEditorTree->header()->setToolTip("<table><tr><td>" % tr("Misspelled Words") % ":</td><td>" % QString::number(total_misspelled_words) % "</td></tr><tr><td>" % tr("Total Unique Words") % ":</td><td>" % QString::number(unique_words.count()) % "</td></tr></table>");
+    ui.SpellcheckEditorTree->header()->setToolTip("<table><tr><td>" % tr("Misspelled Words") % ":</td><td style=\"text-align:right;\">" % QString::number(total_misspelled_words) % "</td></tr><tr><td>" % tr("Total Unique Words") % ":</td><td style=\"text-align:right;\">" % QString::number(unique_words.count()) % "</td></tr></table>");
 }
 
 void SpellcheckEditor::Refresh(int sort_column, Qt::SortOrder sort_order)
