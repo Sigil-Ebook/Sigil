@@ -195,11 +195,11 @@ void XMLEntities::SetXMLEntities()
          "253" << "yacute" << tr("Latin small letter y with acute accent") <<
          "254" << "thorn" << tr("Latin small letter thorn") <<
          "255" << "yuml" << tr("Latin small letter y with diaeresis") <<
-         "338" << "OElig" << tr("Latin capital ligature oe") <<
+         "338" << "OElig" << tr("Latin capital ligature OE") <<
          "339" << "oelig" << tr("Latin small ligature oe") <<
-         "352" << "Scaron" << tr("Latin capital letter s with caron") <<
+         "352" << "Scaron" << tr("Latin capital letter S with caron") <<
          "353" << "scaron" << tr("Latin small letter s with caron") <<
-         "376" << "Yuml" << tr("Latin capital letter y with diaeresis") <<
+         "376" << "Yuml" << tr("Latin capital letter Y with diaeresis") <<
          "402" << "fnof" << tr("Latin small letter f with hook") <<
          "710" << "circ" << tr("modifier letter circumflex accent") <<
          "732" << "tilde" << tr("small tilde") <<
