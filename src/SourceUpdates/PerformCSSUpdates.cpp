@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2021 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -26,9 +27,15 @@
 #include <QString>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QDebug>
 
 #include "Misc/Utility.h"
 #include "SourceUpdates/PerformCSSUpdates.h"
+
+// Expression debugging
+#define DBG if(1)
+// Start index/increment debugging
+#define DBG2 if(0)
 
 static const QChar FORWARD_SLASH = QChar::fromLatin1('/');
 
@@ -56,7 +63,9 @@ QString PerformCSSUpdates::operator()()
 
     // Now parse the text once looking for keys and replacing them where needed
     QRegularExpression reference(
-        "(?:(?:src|background|background-image|list-style|list-style-image|border-image|border-image-source|content|(?:-webkit-)?shape-outside)\\s*:|@import)\\s*"
+        "(?:(?:src|background|background-image|block|border|border-image|border-image-source|"
+        "content|cursor|list-style|list-style-image|mask|mask-image|(?:-webkit-)?shape-outside)\\s*:|"
+        "@import)\\s*"
         "("
         "[^;\\}]*"
         ")"
@@ -65,30 +74,46 @@ QString PerformCSSUpdates::operator()()
     QRegularExpression urls(
         "(?:"
         "url\\([\"']?([^\\(\\)\"']*)[\"']?\\)"
+        ")");
+
+    QRegularExpression importurls(
+        "(?:"
+        "url\\([\"']?([^\\(\\)\"']*)[\"']?\\)"
         "|"
         "[\"']([^\\(\\)\"']*)[\"']"
         ")");
 
     int start_index = 0;
+    int start_index_correction = 0;
     QRegularExpressionMatch mo = reference.match(result, start_index);
     // handle case if no initial match at all
     if (!mo.hasMatch()) return result;
     do {
         bool changes_made = false;
-        QString fragment;
         for (int i = 1; i <= reference.captureCount(); ++i) {
             if (mo.captured(i).trimmed().isEmpty()) {
                 continue;
             }
+            DBG2 qDebug() << "start index is: " << QString::number(start_index);
+            DBG2 qDebug() << "i is: " << QString::number(i);
+            DBG2 qDebug() << mo.captured(i) << " start: " << mo.capturedStart(i) << " len: " << mo.capturedLength(i);
             // Check the captured property attribute string fragment for multiple urls
             int frag_start_index = 0;
-            fragment = mo.captured(i);
+            int frag_index_correction = 0;
+            QString fragment = mo.captured(i);
+            if(mo.captured().startsWith("@import", Qt::CaseInsensitive)) {
+                DBG qDebug() << "Using alternate expression for @import urls";
+                DBG qDebug() << mo.captured();
+                urls.swap(importurls);
+            }
             QRegularExpressionMatch frag_mo = urls.match(fragment, frag_start_index);
             // only loop if at least one match was found
             if (frag_mo.hasMatch()) {
+                DBG2 qDebug() << "urls.matches found " << QString::number(urls.captureCount());
                 do {
-                    QString new_href;
                     for (int j = 1; j <= urls.captureCount(); ++j) {
+                        DBG2 qDebug() << "processing url match number: " << QString::number(j);
+                        DBG2 qDebug() << "frag_mo is: " << frag_mo.captured(j);
                         if (frag_mo.captured(j).trimmed().isEmpty()) {
                             continue;
                         }
@@ -97,7 +122,7 @@ QString PerformCSSUpdates::operator()()
                         // targets may not have moved but we may have
                         QString dest_newbkpath = m_CSSUpdates.value(dest_oldbkpath,dest_oldbkpath);
                         if (!dest_newbkpath.isEmpty() && !m_newbookpath.isEmpty()) {
-                            new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
+                            QString new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
                             if (new_href.isEmpty()) new_href = destfile;
                             // Replace the old url with the new one
                             // But only replace if string has changed. Otherwise any matched
@@ -106,21 +131,25 @@ QString PerformCSSUpdates::operator()()
                             if (new_href != frag_mo.captured(j)) {
                                 new_href = Utility::URLEncodePath(new_href);
                                 fragment.replace(frag_mo.capturedStart(j), frag_mo.capturedLength(j), new_href);
+                                frag_index_correction += new_href.length() - frag_mo.capturedLength(j);
                                 changes_made = true;
                             }
                         }
                     }
-                    frag_start_index += new_href.length();
+                    frag_start_index = frag_mo.capturedEnd() + frag_index_correction;
+                    frag_index_correction = 0;
                     frag_mo = urls.match(fragment, frag_start_index);
                 } while (frag_mo.hasMatch());
             }
             // Replace the original attribute string fragment with the new one
             if (changes_made) {
                 result.replace(mo.capturedStart(i), mo.capturedLength(i), fragment);
+                start_index_correction += fragment.length() - mo.capturedLength(i);
             }
 
         }
-        start_index += fragment.length();
+        start_index = mo.capturedEnd() + start_index_correction;
+        start_index_correction = 0;
         mo = reference.match(result, start_index);
     } while (mo.hasMatch());
 
