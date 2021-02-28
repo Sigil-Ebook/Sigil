@@ -2255,7 +2255,8 @@ bool CodeViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> 
 {
     bool applied = false;
     foreach(ClipEditorModel::clipEntry * clip, clips) {
-        applied = applied || PasteClipEntry(clip);
+        bool res = PasteClipEntry(clip);
+        applied = applied | res;
     }
     return applied;
 }
