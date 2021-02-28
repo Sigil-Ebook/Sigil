@@ -75,17 +75,19 @@ QString PerformCSSUpdates::operator()()
     if (!mo.hasMatch()) return result;
     do {
         bool changes_made = false;
+        QString fragment;
         for (int i = 1; i <= reference.captureCount(); ++i) {
             if (mo.captured(i).trimmed().isEmpty()) {
                 continue;
             }
             // Check the captured property attribute string fragment for multiple urls
             int frag_start_index = 0;
-            QString fragment = mo.captured(i);
+            fragment = mo.captured(i);
             QRegularExpressionMatch frag_mo = urls.match(fragment, frag_start_index);
             // only loop if at least one match was found
             if (frag_mo.hasMatch()) {
                 do {
+                    QString new_href;
                     for (int j = 1; j <= urls.captureCount(); ++j) {
                         if (frag_mo.captured(j).trimmed().isEmpty()) {
                             continue;
@@ -95,7 +97,7 @@ QString PerformCSSUpdates::operator()()
                         // targets may not have moved but we may have
                         QString dest_newbkpath = m_CSSUpdates.value(dest_oldbkpath,dest_oldbkpath);
                         if (!dest_newbkpath.isEmpty() && !m_newbookpath.isEmpty()) {
-                            QString new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
+                            new_href = Utility::buildRelativePath(m_newbookpath, dest_newbkpath);
                             if (new_href.isEmpty()) new_href = destfile;
                             // Replace the old url with the new one
                             // But only replace if string has changed. Otherwise any matched
@@ -108,7 +110,7 @@ QString PerformCSSUpdates::operator()()
                             }
                         }
                     }
-                    frag_start_index += frag_mo.capturedLength();
+                    frag_start_index += new_href.length();
                     frag_mo = urls.match(fragment, frag_start_index);
                 } while (frag_mo.hasMatch());
             }
@@ -118,7 +120,7 @@ QString PerformCSSUpdates::operator()()
             }
 
         }
-        start_index = mo.capturedEnd();
+        start_index += fragment.length();
         mo = reference.match(result, start_index);
     } while (mo.hasMatch());
 
