@@ -3086,14 +3086,14 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
             if (skip_paired_tags && paired_tags.contains(ti.pos)) {
                 paired_tags.removeOne(ti.pos);
             } else {
-                // found what we want
+                // did we found what we want
                 if (tag_list.contains(ti.tname) || BLOCK_LEVEL_TAGS.contains(ti.tname)) break; 
             }
         }
         // skip all special tags like doctype, cdata, pi, xmlheaders, and comments
         i--;
     }     
-    if ((i < 0) || (ti.tname == "body")) return QString();
+    if ((i < 0) || !tag_list.contains(ti.tname) || (ti.tname == "body")) return QString();
     QStringRef opening_tag_text(&text, ti.pos, ti.len);
 
     // Now look for the attribute, which may or may not already exist
