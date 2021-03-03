@@ -163,49 +163,49 @@
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="149"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="150"/>
         <source>%n file(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="267"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="269"/>
         <source>Save Report As Comma Separated File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="280"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="282"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="280"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="282"/>
         <source>Cannot save report file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="305"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="307"/>
         <source>Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="310"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="312"/>
         <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="315"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="317"/>
         <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="320"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="322"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="347"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="349"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -640,314 +640,314 @@ if a sans-serif font-family specified in your CSS</source>
 <context>
     <name>BookBrowser</name>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="72"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="73"/>
         <source>Book Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="84"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="85"/>
         <source>Font Obfuscation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="85"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1732"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1854"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="86"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1743"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1865"/>
         <source>Open With</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="145"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="146"/>
         <source>%n file(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="248"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="706"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="737"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="796"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="910"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1196"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1301"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="249"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="716"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="748"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="808"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="921"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1207"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="249"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="250"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="250"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="251"/>
         <source>This action cannot be reversed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="293"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="294"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="638"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="641"/>
         <source>Add Existing Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="676"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="686"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="685"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="695"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="707"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="717"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="732"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="743"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="737"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="748"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="797"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="809"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="811"/>
-        <source>File(s) added.</source>
+        <location filename="../../MainUI/BookBrowser.cpp" line="822"/>
+        <source>File(s) added or replaced.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="851"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="862"/>
         <source>Save As File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="874"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="885"/>
         <source>Unable to save the file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="888"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="899"/>
         <source>Choose the directory to save the files to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="910"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="921"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="927"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="938"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="935"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="946"/>
         <source>Unable to save files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1196"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1207"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1267"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1278"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1301"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1312"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1348"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1359"/>
         <source>The Nav document can not be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1356"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1367"/>
         <source>The NCX can not be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1363"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1374"/>
         <source>The OPF is required for epub and can not be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1372"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1383"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1513"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1524"/>
         <source>Unable to set file as cover image.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1711"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1722"/>
         <source>Select All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1712"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1723"/>
         <source>Add Blank HTML File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1713"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1724"/>
         <source>Add Blank Stylesheet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1714"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1725"/>
         <source>Add Blank SVG Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1715"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1726"/>
         <source>Add Existing Files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1716"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1717"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1727"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1728"/>
         <source>Add Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1718"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1729"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1719"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1730"/>
         <source>RegEx Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1720"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1731"/>
         <source>Move</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1721"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1732"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1722"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1733"/>
         <source>Cover Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1723"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1734"/>
         <source>Merge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1724"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1735"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1725"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1736"/>
         <source>Use Adobe&apos;s Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1726"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1737"/>
         <source>Use IDPF&apos;s Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1727"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1738"/>
         <source>Sort</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1728"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1739"/>
         <source>Renumber TOC Entries</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1729"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1740"/>
         <source>Link Stylesheets...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1730"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1741"/>
         <source>Add Semantics...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1731"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1742"/>
         <source>Validate with W3C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1733"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1744"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1747"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1758"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1750"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1761"/>
         <source>Rename selected file(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1752"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1763"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1755"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1766"/>
         <source>Move selected file(s) to a new folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1757"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1768"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1759"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1770"/>
         <source>Add Semantics to selected file(s).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1889"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1900"/>
         <source>Other Application</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1044,34 +1044,29 @@ There always has to be at least one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="143"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="144"/>
         <source>%n file(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="147"/>
-        <source>KB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="280"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="282"/>
         <source>Save Report As Comma Separated File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="293"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="295"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="293"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="295"/>
         <source>Cannot save report file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="304"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="306"/>
         <source>Delete From Book</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3112,39 +3107,39 @@ mended.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="173"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="180"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="173"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="180"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="192"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="199"/>
         <source>%n file(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="338"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="352"/>
         <source>Save Report As Comma Separated File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="351"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="365"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="351"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="365"/>
         <source>Cannot save report file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="376"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="390"/>
         <source>Delete From Book</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3311,34 +3306,29 @@ You can then check or uncheck individual headings in the list above.</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="184"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="185"/>
         <source>%n file(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="188"/>
-        <source>KB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="338"/>
         <source>Save Report As Comma Separated File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="349"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="351"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="349"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="351"/>
         <source>Cannot save report file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="424"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="426"/>
         <source>Delete From Book</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9629,12 +9619,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2829"/>
-        <source>Create Epub from previous Checkpoint</source>
+        <source>Restore Epub from previous Checkpoint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2838"/>
-        <source>Compare Epub against Checkpoint</source>
+        <source>Compare Epub against Previous Checkpoint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -14883,7 +14873,7 @@ Line: %1 Column %2 - %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="656"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="661"/>
         <source>Adding Existing Files..</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16733,7 +16723,7 @@ Continue using the requested filename?</source>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="198"/>
-        <source>Latin capital ligature oe</source>
+        <source>Latin capital ligature OE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16743,7 +16733,7 @@ Continue using the requested filename?</source>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="200"/>
-        <source>Latin capital letter s with&#xa0;caron</source>
+        <source>Latin capital letter S with&#xa0;caron</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16753,7 +16743,7 @@ Continue using the requested filename?</source>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="202"/>
-        <source>Latin capital letter y with&#xa0;diaeresis</source>
+        <source>Latin capital letter Y with&#xa0;diaeresis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
