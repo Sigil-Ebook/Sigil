@@ -296,7 +296,7 @@ void Language::SetLanguageMap()
          "es-AR" << tr("Spanish") + QString(" - ") + tr("Argentina") <<
          "es-BO" << tr("Spanish") + QString(" - ") + tr("Bolivia") <<
          "es-CL" << tr("Spanish") + QString(" - ") + tr("Chile") <<
-         "es-CO" << tr("Spanish") + QString(" - ") + tr("Columbia") <<
+         "es-CO" << tr("Spanish") + QString(" - ") + tr("Colombia") <<
          "es-CR" << tr("Spanish") + QString(" - ") + tr("Costa Rica") <<
          "es-DO" << tr("Spanish") + QString(" - ") + tr("Dominican Republic") <<
          "es-EC" << tr("Spanish") + QString(" - ") + tr("Ecuador") <<
