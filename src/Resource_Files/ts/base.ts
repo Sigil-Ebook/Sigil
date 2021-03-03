@@ -5346,7 +5346,7 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="299"/>
-        <source>Columbia</source>
+        <source>Colombia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
