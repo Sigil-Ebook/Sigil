@@ -68,6 +68,7 @@ void SelectFolder::SetList()
 QString SelectFolder::GetFolder()
 {
     if (m_SelectedText == PLACEHOLDER) m_SelectedText = "";
+    while(m_SelectedText.endsWith('/')) m_SelectedText.chop(1);
     return m_SelectedText;
 }
 
