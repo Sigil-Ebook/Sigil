@@ -26,6 +26,7 @@
 #include <QtCore/QtCore>
 #include <QtCore/QString>
 #include <QtConcurrent/QtConcurrent>
+#include <QRegularExpression>
 
 #include "ResourceObjects/HTMLResource.h"
 #include "Misc/Utility.h"
@@ -48,11 +49,12 @@ void LinkUpdates::UpdateLinksInOneFile(HTMLResource *html_resource, QList<QStrin
     foreach(QString stylesheet, new_stylesheets) {
         QString ahref = Utility::buildRelativePath(html_resource->GetRelativePath(), stylesheet);
         ahref = Utility::URLEncodePath(ahref);
-        newcsslinks += "<link href=\"" + ahref + "\" type=\"text/css\" rel=\"stylesheet\"/>\n";
+        newcsslinks += "  <link href=\"" + ahref + "\" type=\"text/css\" rel=\"stylesheet\"/>\n";
     }
     QWriteLocker locker(&html_resource->GetLock());
     QString newsource = html_resource->GetText();
     QString version = html_resource->GetEpubVersion();
+    newsource.replace(QRegularExpression("</title>(\\s)+"), "</title>");
     GumboInterface gi = GumboInterface(newsource, version);
     gi.parse();
     newsource = gi.perform_link_updates(newcsslinks);
