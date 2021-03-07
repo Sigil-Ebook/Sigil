@@ -1212,7 +1212,7 @@ std::string GumboInterface::serialize_contents(GumboNode* node, enum UpdateTypes
     // build up result for each child, recursively if need be
     GumboVector* children = &node->v.element.children;
 
-    bool inject_newline = false;
+    bool injected_newline = false;
     bool in_head_without_title = (tagname == "head");
 
     for (unsigned int i = 0; i < children->length; ++i) {
@@ -1225,40 +1225,50 @@ std::string GumboInterface::serialize_contents(GumboNode* node, enum UpdateTypes
             } else {
                 text = substitute_xml_entities_into_text(std::string(child->v.text.text));
             }
-            if (inject_newline && !text.empty() && (text.at(0) == '\n')) text.erase(0,1);
-            inject_newline = false;
+            if (injected_newline && !text.empty() && (text.at(0) == '\n')) text.erase(0,1);
+            injected_newline = false;
             contents.append(text);
 
         } else if (child->type == GUMBO_NODE_ELEMENT || child->type == GUMBO_NODE_TEMPLATE) {
-            contents.append(serialize(child, doupdates));
-            inject_newline = false;
-            std::string childname = get_tag_name(child);
-            if (in_head_without_title && (childname == "title")) in_head_without_title = false;
-            if (!is_inline && !keep_whitespace && !in_set(nonbreaking_inline,childname) && is_structural) {
-                contents.append("\n");
-                inject_newline = true;
+            std::string tagstring = serialize(child, doupdates);
+            // empty tagstring means this tag node is being removed
+            if (tagstring.empty()) {
+                // strip off trailing whitespace from predecessor tag
+                rtrim(contents);
+                contents.append("\n"); 
+                // strip out any associated newline in trailing whitespace node
+                injected_newline = true;
+            } else {
+                contents.append(tagstring);
+                injected_newline = false;
+                std::string childname = get_tag_name(child);
+                if (in_head_without_title && (childname == "title")) in_head_without_title = false;
+                if (!is_inline && !keep_whitespace && !in_set(nonbreaking_inline,childname) && is_structural) {
+                    contents.append("\n");
+                    injected_newline = true;
+                }
             }
 
         } else if (child->type == GUMBO_NODE_WHITESPACE) {
             // try to keep all whitespace to keep as close to original as possible
             std::string wspace = std::string(child->v.text.text);
-            if (inject_newline) {
+            if (injected_newline) {
                 newlinetrim(wspace);
-                inject_newline = false;
+                injected_newline = false;
             }
             contents.append(wspace);
-            inject_newline = false;
+            injected_newline = false;
 
         } else if (child->type == GUMBO_NODE_CDATA) {
             contents.append("<![CDATA[" + std::string(child->v.text.text) + "]]>");
-            inject_newline = false;
+            injected_newline = false;
 
         } else if (child->type == GUMBO_NODE_COMMENT) {
             contents.append("<!--" + std::string(child->v.text.text) + "-->");
  
         } else {
             fprintf(stderr, "unknown element of type: %d\n", child->type); 
-            inject_newline = false;
+            injected_newline = false;
         }
 
     }

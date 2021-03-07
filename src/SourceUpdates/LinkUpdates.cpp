@@ -48,7 +48,7 @@ void LinkUpdates::UpdateLinksInOneFile(HTMLResource *html_resource, QList<QStrin
     foreach(QString stylesheet, new_stylesheets) {
         QString ahref = Utility::buildRelativePath(html_resource->GetRelativePath(), stylesheet);
         ahref = Utility::URLEncodePath(ahref);
-        newcsslinks += "<link href=\"" + ahref + "\" type=\"text/css\" rel=\"stylesheet\"/>\n";
+        newcsslinks += "  <link href=\"" + ahref + "\" type=\"text/css\" rel=\"stylesheet\"/>\n";
     }
     QWriteLocker locker(&html_resource->GetLock());
     QString newsource = html_resource->GetText();
