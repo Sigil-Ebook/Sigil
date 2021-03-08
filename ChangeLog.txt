@@ -4,17 +4,29 @@ Sigil-1.5.0
       - fix Import Text to properly add ncx if missing for epub2
       - fix issue with "Delete Unused Styles" not properly detecting all used selectors
       - fix issues with repeated use of Mend and Prettify on bare text in structural tags
+      - fix extra line issue with Link to Stylesheet (Thank you BeckyEBook!)
+      - fix bug in id assignment in epub3 Metadata editor
+      - fix bug in trailing slash in Move To Folder paths
+      - fix bug in spelling of Columbia->Colombia in Languages (Thank you Tex2002ans!)
+      - fix bug in Clip Editor pasting of multiple clips
+      - fix bug in PerformCSSUpdates related to quoted string in content: values
+      - fix bug related to iframe handling when loading Preview
+      - fix typos in XMLEntities descriptions (Thank you BeckEbook!)
+      - fix numeric table alignment to align right in multiple tables (Thank you BeckyEbook!)
+      - fix bug in Add Existing not properly using QProgressDialog for long import
+      - remove long deprecated and now invalid use of "altlang" in epub3 Metadata Editor
 
     New Features:
       - added "sigil" url scheme and schemehandler to break 2mb limit on single xhtml file size
       - highlight matched open close tag pairs while editing in CodeView
-      - added capability to delete highlighted open close tag pairs
+      - added capability to delete highlighted open close tag pairs (Remove Tag Pair)
       - added default selection of text for basic CodeView formatting including bold, italic, etc
+      - added default tag double-click (and shift double-click) to select tag contents (including tag)
       - extended split on Sigil Split Marker capabilities to work better with nested tags
       - added a CSS Parser and Query engine that works with Sigil's version of Gumbo
-      - the reports tool for "CSS Selectors" now lists all CSS selectors not just classes
+      - the Reports tool for "CSS Selectors" now lists all CSS selectors not just classes
       - the "Delete Unused Styles" tool now handles all unused CSS Selectors not just classes
-      - the reports for "CSS Selectors" and "Delete Unused Selectors" now handle selectors in XHTML Style tags
+      - the Reports for "CSS Selectors" and "Delete Unused Selectors" now handle selectors in XHTML Style tags
       - added ability to load text and csv files to Group Saved Searches to automate lists of replacements
       - reworked the Metadata Editor to be much more Human Readable with tooltips to show xml tags
       - added semantic code to the descriptive field in Add Semantics as a learning aid (Thank You BeckyEbook!)
