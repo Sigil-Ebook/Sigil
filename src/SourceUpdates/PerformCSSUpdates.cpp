@@ -33,7 +33,7 @@
 #include "SourceUpdates/PerformCSSUpdates.h"
 
 // Expression debugging
-#define DBG if(1)
+#define DBG if(0)
 // Start index/increment debugging
 #define DBG2 if(0)
 
