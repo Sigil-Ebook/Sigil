@@ -1308,9 +1308,14 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
 
     // Make sure that the xmlns attribute exists as an html tag attribute
     if (tagname == "html") {
-      if (atts.find("xmlns=") == std::string::npos) {
-        atts.append(" xmlns=\"http://www.w3.org/1999/xhtml\"");
-      }
+        if (atts.find("xmlns=") == std::string::npos) {
+            atts.append(" xmlns=\"http://www.w3.org/1999/xhtml\"");
+        }
+        if (m_version.startsWith('3')) {
+            if (atts.find("xmlns:epub") == std::string::npos) {
+                atts.append(" xmlns:epub=\"http://www.idpf.org/2007/ops\"");
+            }
+        }
     }
 
     // determine contents
