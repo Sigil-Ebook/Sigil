@@ -32,6 +32,7 @@
 class QString;
 class QStringList;
 class QXmlStreamReader;
+class TagLister;
 
 const QList<GumboTag> GIMAGE_TAGS = QList<GumboTag>() << GUMBO_TAG_IMG << GUMBO_TAG_IMAGE;
 const QList<GumboTag> GVIDEO_TAGS = QList<GumboTag>() << GUMBO_TAG_VIDEO;
@@ -147,7 +148,7 @@ public:
 
     static QStringList GetAllMediaPathsFromMediaChildren(const QString &source, QList<GumboTag> tags);
 
-    static QStringList GetUnmatchedTagsForPosition(const int &split_position, const QString &text);
+    static QStringList GetUnmatchedTagsForPosition(int split_position, TagLister& m_TagList);
 
 private:
 

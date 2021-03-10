@@ -39,6 +39,7 @@
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "Misc/Utility.h"
+#include "Parsers/TagLister.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
@@ -345,40 +346,59 @@ bool XhtmlDoc::IsDataWellFormed(const QString &data, QString version)
 QStringList XhtmlDoc::GetSGFSectionSplits(const QString &source,
         const QString &custom_header)
 {
-    QRegularExpression body_start_tag(BODY_START);
-    QRegularExpressionMatch body_start_tag_match = body_start_tag.match(source);
-    QRegularExpression body_end_tag(BODY_END);
-
-    int body_end   = source.indexOf(body_end_tag, 0);
-    int main_index = body_start_tag_match.capturedEnd();
-
-    QString header = !custom_header.isEmpty() ? custom_header + "<body>\n" : source.left(main_index);
+    
     QStringList sections;
-    QRegularExpression break_tag(BREAK_TAG_SEARCH);
+    TagLister taglist(source);
 
-    while (main_index != body_end) {
-        QRegularExpressionMatch match = break_tag.match(source, main_index);
-        QString body;
-        QStringList open_tag_list;
-
-        // We search for our HR break tag
-        if (match.hasMatch()) {
-            // We break up the remainder of the file on the HR tag index if it's found
-            int break_index = match.capturedStart();
-            body = Utility::Substring(main_index, break_index, source);
-            open_tag_list = GetUnmatchedTagsForPosition(main_index, source);
-            main_index = break_index + match.capturedLength();
-        } else {
-            // Otherwise, we take the rest of the file
-            body = Utility::Substring(main_index, body_end, source);
-            open_tag_list = GetUnmatchedTagsForPosition(main_index, source);
-            main_index = body_end;
-        }
-        QString open_tag_source = "";
-        if (!open_tag_list.isEmpty()) open_tag_source = open_tag_list.join(" ");
-        sections.append(header + open_tag_source + body + "</body> </html>");
+    // abort if no body tags exist
+    int bo = taglist.findBodyOpenTag();
+    int bc = taglist.findBodyCloseTag();
+    if (bo == -1 || bc == -1) {
+        sections << source;
+        return sections;
     }
 
+    int body_tag_start = taglist.at(bo).pos;
+    int body_tag_end   = body_tag_start + taglist.at(bo).len;
+    int body_contents_end = taglist.at(bc).pos;
+
+    QString header = source.left(body_tag_end);
+    if (!custom_header.isEmpty()) {
+        header = custom_header + "<body>\n";
+    }
+
+    QList<int>section_starts;
+    QList<int>section_ends;
+
+    QRegularExpression break_tag(BREAK_TAG_SEARCH);
+    QRegularExpression match;
+
+    // create a list of section starts and ends inside the body
+    int start_pos = body_tag_end;
+    while (start_pos < body_contents_end) {
+        QRegularExpressionMatch match = break_tag.match(source, start_pos);
+        if (match.hasMatch()) {
+            int split_pos = match.capturedStart();
+            if (split_pos < body_contents_end) {
+                section_starts << start_pos;
+                section_ends << split_pos;
+            }
+            start_pos = split_pos + match.capturedLength();
+        } else {
+            section_starts << start_pos;
+            section_ends << body_contents_end;
+            start_pos = body_contents_end;
+        }
+    }
+    for (int i=0; i < section_starts.size(); i++) {
+        QString text = Utility::Substring(section_starts[i], section_ends[i], source);
+        QStringList open_tag_list = GetUnmatchedTagsForPosition(section_starts[i], taglist);
+        QString open_tag_source = "";
+        if (!open_tag_list.isEmpty()) open_tag_source = open_tag_list.join(" ");
+        sections.append(header + open_tag_source + text + "</body>\n</html>\n");
+        // let gumbo/mend fill in any necessary closing tags for any open tags
+        // at the end of each section
+    } 
     return sections;
 }
 
@@ -675,83 +695,34 @@ XhtmlDoc::XMLElement XhtmlDoc::CreateXMLElement(QXmlStreamReader &reader)
 }
 
 
-// FIXME:  Direct copy from the CodeViewEditor implementation as it was not accessible as a general tool
-// FIXME:  Rewrite this to Use TagLister as it is more reliable than regular expressions
-QStringList XhtmlDoc::GetUnmatchedTagsForPosition(const int &start_pos, const QString &text)
+// Note for this routine to work the position must be inside the body tag someplace
+QStringList XhtmlDoc::GetUnmatchedTagsForPosition(int pos, TagLister& m_TagList)
 {
-    // Given the specified position within the text, keep looking backwards finding
+    // Given the specified position within the body of the text, keep looking backwards finding
     // any tags until we hit all open block tags within the body. Append all the opening tags
     // that do not have closing tags together (ignoring self-closing tags)
-    // and return the opening tags complete with their attributes contiguously.
+    // and return the opening tags list complete with their attributes contiguously.
+    // Note: this should *never* include the html, head, or the body opening tags
     QStringList opening_tags;
-    int closing_tag_count = 0;
-    int pos = start_pos;
-    QString tag_name;
-    QRegularExpression tag_search(NEXT_TAG_LOCATION);
-    QRegularExpression tag_name_search(TAG_NAME_SEARCH);
-    pos--;
-
-    while (true) {
-        int previous_tag_index = -1;
-        int tag_search_len = 0;
-        QRegularExpressionMatchIterator i = tag_search.globalMatch(text);
-        while (i.hasNext()) {
-            QRegularExpressionMatch mo = i.next();
-            int start = mo.capturedStart();
-            if (start > pos) {
-                break;
-            }
-            previous_tag_index = start;
-            tag_search_len = mo.capturedLength();
-        }
-
-        if (previous_tag_index < 0) {
-            break;
-        }
-
-        // We found a tag. Is it self-closing? If so, ignore it.
-        const QString &full_tag_text = text.mid(previous_tag_index, tag_search_len);
-
-        if (full_tag_text.endsWith("/>")) {
-            pos = previous_tag_index - 1;
-            continue;
-        }
-
-        // Is it valid with a name? If not, ignore it
-        QRegularExpressionMatch tag_name_search_mo = tag_name_search.match(full_tag_text);
-        int tag_name_index = tag_name_search_mo.capturedStart();
-
-        if (tag_name_index < 0) {
-            pos = previous_tag_index - 1;
-            continue;
-        }
-
-        tag_name = tag_name_search_mo.captured(1).toLower();
-
-        if (tag_name == "body") {
-            break;
-        }
-
-        // Isolate whether it was opening or closing tag.
-        if (tag_name.startsWith('/')) {
-            tag_name = tag_name.right(tag_name.length() - 1);
-            closing_tag_count++;
-        } else {
-            // Add the whole tag text to our opening tags if we haven't found a closing tag for it.
-            if (closing_tag_count > 0) {
-                closing_tag_count--;
+    QList<int> paired_tags;
+    const QString& text = m_TagList.getSource();
+    int i = m_TagList.findFirstTagOnOrAfter(pos);
+    // so start looking for unmatched tags starting at i - 1
+    i--;
+    if (i < 0) return opening_tags;
+    while((i >= 0) && (m_TagList.at(i).tname != "body")) {
+        TagLister::TagInfo ti = m_TagList.at(i);
+        if (ti.ttype == "end") {
+            paired_tags << ti.open_pos;
+        } else if (ti.ttype == "begin") {
+            if (paired_tags.contains(ti.pos)) {
+                paired_tags.removeOne(ti.pos);
             } else {
-                opening_tags.insert(0, full_tag_text);
+                opening_tags.prepend(text.mid(ti.pos, ti.len));
             }
         }
-
-        pos = previous_tag_index - 1;
-        continue;
+        // ignore single, and all special tags like doctype, cdata, pi, xmlheaders, and comments
+        i--;
     }
-
-    if (opening_tags.count() > 0) {
-        return opening_tags;
-    }
-
-    return QStringList();
+    return opening_tags;
 }
