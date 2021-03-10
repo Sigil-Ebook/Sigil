@@ -94,6 +94,7 @@ void ManageRepos::InitializeTable()
         }
     }
     ui.repoTable->resizeColumnsToContents();
+    ui.repoTable->setSortingEnabled(true);
 }
 
 void ManageRepos::WriteSettings()
