@@ -86,7 +86,7 @@ void TOCHTMLWriter::WriteHead()
     // Title
     m_Writer->writeStartElement("head");
     m_Writer->writeCharacters("\n");
-    m_Writer->writeTextElement("title",  "Contents");
+    m_Writer->writeTextElement("title", m_title);
     m_Writer->writeCharacters("\n");
 
     // TOC
