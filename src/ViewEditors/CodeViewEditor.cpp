@@ -446,21 +446,19 @@ QString CodeViewEditor::SplitSection()
     if (split_position < body_tag_end) {
         // Cursor is before the start of the body
         split_position = body_tag_end;
-    } else {
-        int next_close_tag_index = text.indexOf(QRegularExpression(NEXT_CLOSE_TAG_LOCATION), split_position);
-        if (next_close_tag_index == -1) {
-            // Cursor is at end of file
-            split_position = body_contents_end;
-        }
     }
-
-    const QStringList &opening_tags = GetUnmatchedTagsForBlock(split_position);
-
-    const QString &text_segment = split_position != body_tag_end
-                                  ? Utility::Substring(body_tag_start, split_position, text)
-                                  : QString("<p>&#160;</p>");
+    if (split_position > body_contents_end) {
+        // Cursor is after or in the closing body tag
+        split_position = body_contents_end;
+    }
     
-
+    const QStringList &opening_tags = GetUnmatchedTagsForBlock(split_position);
+ 
+    QString text_segment = "<p>&#160;</p>";
+    if (split_position != body_tag_end) {
+        text_segment = Utility::Substring(body_tag_start, split_position, text);
+    }
+    
     // This splits off from contents of body from top to the split position
     // Remove the text that will be in the new section from the View.
     QTextCursor cursor = textCursor();
@@ -482,10 +480,8 @@ QString CodeViewEditor::SplitSection()
 
     cursor.endEditBlock();
 
-    return QString()
-           .append(head)
-           .append(text_segment)
-           .append("\n</body>\n</html>");
+    QString new_section = head + text_segment + "\n</body>\n</html>";
+    return new_section;
 }
 
 
@@ -3558,12 +3554,15 @@ void CodeViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
     setTextCursor(cursor);
 }
 
+
+
 QStringList CodeViewEditor::GetUnmatchedTagsForBlock(int pos)
 {
     // Given the specified position within the text, keep looking backwards finding
     // any tags until we hit all open block tags within the body. Append all the opening tags
     // that do not have closing tags together (ignoring self-closing tags)
     // and return the opening tags list complete with their attributes contiguously.
+    // Note: this should *never* include the html, head, or the body opening tags
     QStringList opening_tags;
     QList<int> paired_tags;
     MaybeRegenerateTagList();

@@ -182,7 +182,7 @@ int TagLister::findFirstTagOnOrAfter(int pos)
 
 int TagLister::findBodyOpenTag() { return m_bodyOpenTag; }
 
-int TagLister::findBodyCloseTag() { return m_bodyOpenTag; }
+int TagLister::findBodyCloseTag() { return m_bodyCloseTag; }
 
 
 // static
