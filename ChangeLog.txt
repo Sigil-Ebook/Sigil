@@ -30,6 +30,7 @@ Sigil-1.5.0
       - added ability to load text and csv files to Group Saved Searches to automate lists of replacements
       - reworked the Metadata Editor to be much more Human Readable with tooltips to show xml tags
       - added semantic code to the descriptive field in Add Semantics as a learning aid (Thank You BeckyEbook!)
+      - Checkpoint ManageRepos now has the ability to sort the repo table by any column (Thank You BeckyEbook!)
 
 
 Sigil-1.4.3
