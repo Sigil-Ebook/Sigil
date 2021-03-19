@@ -2084,7 +2084,7 @@ void CodeViewEditor::HighlightCurrentLine(bool highlight_tags)
         // If and only if cursor is inside a tag, highlight open and matching close
         // current cursor position is just before this char at position pos in text
         QString text = toPlainText();
-        int pos = textCursor().position();
+        int pos = textCursor().selectionStart();
 
         // find previous begin tag marker
         int pb = text.lastIndexOf('<', pos);
