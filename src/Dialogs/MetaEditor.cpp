@@ -466,7 +466,7 @@ void MetaEditor::selectElement()
             insertRow(EName(code), code, content, "");
             insertChild(PName("property"),"property", "[name]", "");
         } else if (code == "custom-element") {
-            QString custom_element = getInput(tr("Custom Element"),tr("Custom Element"), tr("[Custom Element]"));
+            QString custom_element = getInput(tr("Custom Element"),tr("Custom Element"), tr("[Custom element]"));
             QString content = tr("[Value here]");
             insertRow(custom_element, custom_element, content, "");
         } else {
@@ -547,7 +547,7 @@ void MetaEditor::selectE2Element()
             QString content = tr("[Contributor name here]");
             insertRow(EName(code), code, content, "");
         } else if (code == "custom-element") {
-            QString custom_element = getInput(tr("Custom Element"),tr("Custom Element"), tr("[Custom Element]"));
+            QString custom_element = getInput(tr("Custom Element"),tr("Custom Element"), tr("[Custom element]"));
             QString content = tr("[Value here]");
             insertRow(custom_element, custom_element, content, "");
         } else {
@@ -620,7 +620,7 @@ void MetaEditor::selectProperty()
             code = "scheme";
             insertChild(PName(code), code, tr("[Insert scheme type here]"), "");
         } else if (code == "custom-property") {
-            QString custom_property = getInput(tr("Custom Property"),tr("Custom Property"), tr("[Custom Property]"));
+            QString custom_property = getInput(tr("Custom Property"),tr("Custom Property"), tr("[Custom property/attribute]"));
             QString content = tr("[Value here]");
             insertChild(custom_property, custom_property, content, "");
         } else {
@@ -664,7 +664,7 @@ void MetaEditor::selectE2Property()
             }
             insertChild(PName(code), code, RName(role), role);
         } else if (code == "custom-property") {
-            QString custom_property = getInput(tr("Custom Attribute"),tr("Custom Attribute"), tr("[Custom Attribute]"));
+            QString custom_property = getInput(tr("Custom Attribute"),tr("Custom Attribute"), tr("[Custom metadata property/attribute]"));
             QString content = tr("[Value here]");
             insertChild(custom_property, custom_property, content, "");
         } else {
