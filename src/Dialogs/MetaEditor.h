@@ -89,6 +89,8 @@ private slots:
     void loadE2Choices();
     
     QStringList buildChoices(const QStringList& opts);
+
+    QString getInput(const QString& title, const QString& prompt, const QString& initvalue);
     
     void ReadSettings();
 

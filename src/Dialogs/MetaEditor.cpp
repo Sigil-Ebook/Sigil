@@ -28,6 +28,7 @@
 #include <QTextStream>
 #include <QDate>
 #include <QShortcut>
+#include <QInputDialog>
 #include <QDebug>
 
 #include "Dialogs/TreeModel.h"
@@ -464,6 +465,10 @@ void MetaEditor::selectElement()
             QString content = tr("[Value here]");
             insertRow(EName(code), code, content, "");
             insertChild(PName("property"),"property", "[name]", "");
+        } else if (code == "custom-element") {
+            QString custom_element = getInput(tr("Custom Element"),tr("Custom Element"), tr("[Custom Element]"));
+            QString content = tr("[Value here]");
+            insertRow(custom_element, custom_element, content, "");
         } else {
             insertRow(EName(code), code, "", "");
         }
@@ -541,6 +546,10 @@ void MetaEditor::selectE2Element()
             code = "dc:contributor";
             QString content = tr("[Contributor name here]");
             insertRow(EName(code), code, content, "");
+        } else if (code == "custom-element") {
+            QString custom_element = getInput(tr("Custom Element"),tr("Custom Element"), tr("[Custom Element]"));
+            QString content = tr("[Value here]");
+            insertRow(custom_element, custom_element, content, "");
         } else {
             insertRow(EName(code), code, "", "");
         }
@@ -610,6 +619,10 @@ void MetaEditor::selectProperty()
             insertChild(PName(code), code, tr("[Insert identifier type here]"), "");
             code = "scheme";
             insertChild(PName(code), code, tr("[Insert scheme type here]"), "");
+        } else if (code == "custom-property") {
+            QString custom_property = getInput(tr("Custom Property"),tr("Custom Property"), tr("[Custom Property]"));
+            QString content = tr("[Value here]");
+            insertChild(custom_property, custom_property, content, "");
         } else {
             insertChild(PName(code), code, "", "");
         }
@@ -650,6 +663,10 @@ void MetaEditor::selectE2Property()
                 role = rolecodes.at(0);
             }
             insertChild(PName(code), code, RName(role), role);
+        } else if (code == "custom-property") {
+            QString custom_property = getInput(tr("Custom Attribute"),tr("Custom Attribute"), tr("[Custom Attribute]"));
+            QString content = tr("[Value here]");
+            insertChild(custom_property, custom_property, content, "");
         } else {
             insertChild(PName(code), code, "", "");
         }
@@ -834,7 +851,7 @@ void MetaEditor::loadMetadataElements()
          tr("Identifier: UUID") << "dc:identifier-uuid" << tr("A Universally Unique Identifier generated for this publication.") <<
          tr("Identifier: ASIN") << "dc:identifier-amazon" << tr("An Amazon Standard Identification Number associated with this publication.") <<
          tr("Identifier: Custom") << "dc:identifier-custom" << tr("A custom identifier based on a specified scheme") <<
-         tr("Custom Element") << tr("[Custom element]") << tr("An empty metadata element you can modify.")  << 
+         tr("Custom Element") << "custom-element" << tr("An empty metadata element you can modify.")  << 
          tr("Meta Element (primary)") << "meta" << tr("An empty primary metadata element you can modify.");
     for (int i = 0; i < data.count(); i++) {
         QString name = data.at(i++);
@@ -881,7 +898,7 @@ void MetaEditor::loadMetadataProperties()
          tr("Role") << "role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
          tr("Scheme") << "scheme" << tr("This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.") <<
          tr("Source of Pagination") << "source-of" << tr("Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.") <<
-        tr("Custom Property") << tr("[Custom property/attribute]") << tr("An empty metadata property or attribute you can modify.");
+        tr("Custom Property") << "custom-property" << tr("An empty metadata property or attribute you can modify.");
 
     for (int i = 0; i < data.count(); i++) {
         QString name = data.at(i++);
@@ -1002,7 +1019,7 @@ void MetaEditor::loadE2MetadataElements()
          tr("Series") << "calibre:series" << tr("Series title or name (from calibre)") <<
          tr("Series Index") << "calibre:series_index" << tr("Index of this book in the series (from calibre)") <<
          tr("Title for Sorting") << "calibre:title_sort" << tr("Version of ebook title to use for sorting (from calibre)") <<
-         tr("Custom Element") << tr("[Custom element]") << tr("An empty element for you to modify");
+         tr("Custom Element") << "custom-element" << tr("An empty element for you to modify");
 
     for (int i = 0; i < data.count(); i++) {
         QString name = data.at(i++);
@@ -1035,7 +1052,7 @@ void MetaEditor::loadE2MetadataProperties()
          tr("Role") << "opf:role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
          tr("Scheme") << "opf:scheme" << tr("This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.") <<
          tr("Event") << "opf:event" << tr("This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.") <<
-         tr("Custom Attribute") << tr("[Custom metadata property/attribute]") << tr("An empty metadata attribute you can modify.");
+         tr("Custom Attribute") << "custom-property" << tr("An empty metadata attribute you can modify.");
 
     for (int i = 0; i < data.count(); i++) {
         QString name = data.at(i++);
@@ -1048,6 +1065,21 @@ void MetaEditor::loadE2MetadataProperties()
         m_PropertyCode.insert(name, code);
     }
 }
+
+
+QString MetaEditor::getInput(const QString& title, const QString& prompt, const QString& initvalue)
+{
+    QString result;
+    QInputDialog dinput;
+    dinput.setWindowTitle(title);
+    dinput.setLabelText(prompt);
+    dinput.setTextValue(initvalue);
+    if (dinput.exec()) {
+        result = dinput.textValue();
+    }
+    return result;
+}
+
 
 void MetaEditor::ReadSettings()
 {

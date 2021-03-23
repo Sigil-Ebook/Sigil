@@ -1157,20 +1157,24 @@ void CodeViewEditor::resizeEvent(QResizeEvent *event)
 
 void CodeViewEditor::mouseDoubleClickEvent(QMouseEvent *event)
 {
-    // record the initial position in case later changed by doubleclick event
-    QTextCursor cursor = textCursor();
-    int pos = cursor.selectionStart();
-    
     // Propagate to base class first then handle locally
     QPlainTextEdit::mouseDoubleClickEvent(event);
 
-    // if position not in start or end tag you are done
-    if (!IsPositionInTag(pos)) return;
-
+    // record the initial position in case later changed by doubleclick event
+    QTextCursor cursor = textCursor();
+    int pos = cursor.selectionStart();
     bool isShift = QApplication::keyboardModifiers() & Qt::ShiftModifier;
-    
-    // if shift is used select tag and its contents
-    // if no shift is used just select the tag's contents, not the tag itself
+    bool isAlt = QApplication::keyboardModifiers() & Qt::AltModifier;
+    // qDebug() << "Modifiers: " << QApplication::keyboardModifiers();
+
+    if (!isShift && !isAlt) return;
+
+    if (!IsPositionInTag(pos)){
+        return;
+    }
+
+    // if Shift is used select just the tag's contents, but not the tag itself
+    // if Alt (option key on macOS) is used select the tag's contents and that tag itself
     int open_tag_pos = -1;
     int open_tag_len = -1;
     int close_tag_pos = -1;
@@ -1201,13 +1205,13 @@ void CodeViewEditor::mouseDoubleClickEvent(QMouseEvent *event)
         int selstart;
         int selend;
         if (isShift) {
-            selstart = open_tag_pos;
-            selend = open_tag_pos + open_tag_len;
-            if (close_tag_len != -1) selend = close_tag_pos + close_tag_len;
-        } else {
             selstart = open_tag_pos + open_tag_len;
             selend = selstart;
             if (close_tag_len != -1) selend = close_tag_pos;
+        } else {
+            selstart = open_tag_pos;
+            selend = open_tag_pos + open_tag_len;
+            if (close_tag_len != -1) selend = close_tag_pos + close_tag_len;
         }
         cursor.setPosition(selstart);
         cursor.setPosition(selend, QTextCursor::KeepAnchor);
