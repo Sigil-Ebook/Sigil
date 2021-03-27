@@ -100,6 +100,8 @@ public slots:
 
     void ShowHideMarkedText(bool marked);
 
+    void HideFindReplace();
+
 signals:
 
     void OpenSearchEditorRequest(SearchEditorModel::searchEntry *search_entry = NULL);
@@ -166,8 +168,6 @@ private slots:
     void SaveSearchAction();
 
     void TokeniseSelection();
-
-    void HideFindReplace();
 
     void AdvancedOptionsClicked();
 

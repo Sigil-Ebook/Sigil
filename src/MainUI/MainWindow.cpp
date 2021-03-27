@@ -1209,6 +1209,7 @@ void MainWindow::DebugCurrentWidgetSizes()
 
         r = m_FindReplace->geometry();
         qDebug() << "find replace: " << r.x() << r.y() << r.width() << r.height();
+        qDebug() << "find replace visible: " << m_FindReplace->isVisible();
     }
 }
 
@@ -4244,6 +4245,11 @@ void MainWindow::ReadSettings()
     // So delay restore until the first time the widget is made active
     m_LastState = settings.value("toolbars",QByteArray()).toByteArray();
 
+#ifdef Q_OS_MAC
+    // Work around saved state restore bug with Find and Replace on macOS
+    m_FRVisible = settings.value("frvisible", false).toBool();
+#endif
+
     // The last folder used for saving and opening files
     m_LastFolderOpen  = settings.value("lastfolderopen", QDir::homePath()).toString();
     // The list of recent files
@@ -4353,6 +4359,15 @@ void MainWindow::WriteSettings()
     // https://bugreports.qt-project.org/browse/QTBUG-21371
     settings.setValue("maximized", isMaximized());
     settings.setValue("fullscreen",isFullScreen());
+
+#ifdef Q_OS_MAC
+    // work around Find Replace saved state restore bug on macOS
+    settings.setValue("frvisible",m_FindReplace->isVisible());
+    if (m_FindReplace->isVisible()) {
+        // can not use just hide() and FR keeps its own internal state
+        m_FindReplace->HideFindReplace();
+    }
+#endif
 
     DBG DebugCurrentWidgetSizes();
 
@@ -5138,7 +5153,7 @@ void MainWindow::ExtendUI()
     QLayout *layout = new QVBoxLayout(frame);
     frame->setLayout(layout);
     m_TabManager->setObjectName(TAB_MANAGER_NAME);
-    m_FindReplace->setObjectName("FIND_REPLACE_NAME");
+    m_FindReplace->setObjectName(FIND_REPLACE_NAME);
     layout->addWidget(m_TabManager);
     layout->addWidget(m_FindReplace);
     layout->setContentsMargins(0, 0, 0, 0);
@@ -5528,6 +5543,12 @@ void MainWindow::changeEvent(QEvent *e)
             if (m_FirstTime) {
                 if (!m_LastState.isEmpty()) {
                     restoreState(m_LastState);
+#ifdef Q_OS_MAC
+                    // work around for macOS specific bug saved state restore with Find & Replace
+                    if (m_FRVisible) {
+                         QTimer::singleShot(0, this, SLOT(Find()));
+                    }
+#endif
                 }
 
                 DWINGEO {
@@ -5556,7 +5577,7 @@ void MainWindow::changeEvent(QEvent *e)
                 QTimer::singleShot(0, this, SLOT(ShowLastOpenFileWarnings()));
             }
 
-            DWINGEO DebugCurrentWidgetSizes();
+            DBG DebugCurrentWidgetSizes();
 
             m_SaveLastEnabled = true;
             m_PendingLastSizeUpdate = true;

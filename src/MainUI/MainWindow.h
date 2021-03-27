@@ -1028,6 +1028,8 @@ private:
 
     QString m_mathjaxfolder;
 
+    bool m_FRVisible;
+
     /**
      * Holds all the widgets Qt Designer created for us.
      */
