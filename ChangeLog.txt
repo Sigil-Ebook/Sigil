@@ -1,4 +1,21 @@
-Sigil-1.5.0
+pre-1.6.0
+    Bug Fixes:
+     - add Qt workaround for restoring Sigil window sizes when FindReplace left open on macOS
+     - add missing tr() calls to the tooltips in the Special Character selection dialog
+     - fix bug when all unused selectors are removed as unused in css stylesheet - use placeholder
+     - make empty Nav have a title to help empty epub passing epubcheck
+
+
+    New Features:
+
+Sigil-1.5.1
+    Bug Fixes:
+     - change when highlight open close tag pair is triggered to eliminate noise
+     - change select tag to use shift-double-click, and select tag and contents to alt-double-click
+     - add missing ability to edit name fields of custom metadata tags in the MetaEditor
+
+
+Sigil-1.5.0 (Beta release)
     Bug Fixes:
       - fix issue with custom ncx names in non-standard empty epub layouts
       - fix Import Text to properly add ncx if missing for epub2
