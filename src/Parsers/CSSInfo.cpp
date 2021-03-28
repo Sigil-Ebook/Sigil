@@ -289,6 +289,7 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
     cp.set_level("CSS3.0");
     cp.set_csstokens(new_csstokens);
     QString new_text = cp.serialize_css(false);
+    if (new_text.isEmpty()) new_text = "/* CSS */\n";
 
     // IMPORTANT: After removing any selectors, users *must*
     // Initialize a new CSSInfo object to work on the new css text.
