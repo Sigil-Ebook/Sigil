@@ -332,6 +332,11 @@ QList <Resource *> BookBrowser::ValidSelectedHTMLResources()
     return ValidSelectedResources(Resource::HTMLResourceType);
 }
 
+QList <Resource *> BookBrowser::ValidSelectedCSSResources()
+{
+    return ValidSelectedResources(Resource::CSSResourceType);
+}
+
 QList <Resource *> BookBrowser::AllHTMLResources()
 {
     return m_OPFModel->GetResourceListInFolder(Resource::HTMLResourceType);

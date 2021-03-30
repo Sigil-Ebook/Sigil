@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -32,11 +33,6 @@ class SearchOperations
 
 public:
 
-    enum SearchType {
-        BookViewSearch,
-        CodeViewSearch
-    };
-
     /**
      * Returns the number of matching occurrences.
      *
@@ -45,26 +41,22 @@ public:
      */
     static int CountInFiles(const QString &search_regex,
                             QList<Resource *> resources,
-                            SearchType search_type,
                             bool check_spelling = false);
 
 
     static int ReplaceInAllFIles(const QString &search_regex,
                                  const QString &replacement,
-                                 QList<Resource *> resources,
-                                 SearchType search_type);
+                                 QList<Resource *> resources);
 
 private:
 
     static int CountInFile(const QString &search_regex,
                            Resource *resource,
-                           SearchType search_type,
                            bool check_spelling);
 
 
     static int CountInHTMLFile(const QString &search_regex,
                                HTMLResource *html_resource,
-                               SearchType search_type,
                                bool check_spelling);
 
 
@@ -73,13 +65,11 @@ private:
 
     static int ReplaceInFile(const QString &search_regex,
                              const QString &replacement,
-                             Resource *resource,
-                             SearchType search_type);
+                             Resource *resource);
 
     static int ReplaceHTMLInFile(const QString &search_regex,
                                  const QString &replacement,
-                                 HTMLResource *html_resource,
-                                 SearchType search_type);
+                                 HTMLResource *html_resource);
 
     static int ReplaceTextInFile(const QString &search_regex,
                                  const QString &replacement,

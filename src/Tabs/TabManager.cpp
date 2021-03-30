@@ -97,6 +97,19 @@ QList<Resource *> TabManager::GetTabResources()
     return tab_resources;
 }
 
+QList<Resource *> TabManager::GetTabResourcesOfType(Resource::ResourceType resource_type)
+{
+    QList <ContentTab *> tabs = GetContentTabs();
+    QList <Resource *> tab_resources;
+    foreach(ContentTab *tab, tabs) {
+        Resource* resource = tab->GetLoadedResource();
+        if (resource->Type() == resource_type) {
+            tab_resources.append(resource);
+        }
+    }
+    return tab_resources;
+}
+
 void TabManager::tabInserted(int index)
 {
     emit TabCountChanged();

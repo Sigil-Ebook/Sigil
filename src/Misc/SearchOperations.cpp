@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -38,7 +39,6 @@
 
 int SearchOperations::CountInFiles(const QString &search_regex,
                                    QList<Resource *> resources,
-                                   SearchType search_type,
                                    bool check_spelling)
 {
     QProgressDialog progress(QObject::tr("Counting occurrences.."), 0, 0, resources.count(), Utility::GetMainWindow());
@@ -50,7 +50,7 @@ int SearchOperations::CountInFiles(const QString &search_regex,
     foreach(Resource * resource, resources) {
         progress.setValue(progress_value++);
         qApp->processEvents();
-        count += CountInFile(search_regex, resource, search_type, check_spelling);
+        count += CountInFile(search_regex, resource, check_spelling);
     }
     return count;
 }
@@ -58,8 +58,7 @@ int SearchOperations::CountInFiles(const QString &search_regex,
 
 int SearchOperations::ReplaceInAllFIles(const QString &search_regex,
                                         const QString &replacement,
-                                        QList<Resource *> resources,
-                                        SearchType search_type)
+                                        QList<Resource *> resources)
 {
     QProgressDialog progress(QObject::tr("Replacing search term..."), 0, 0, resources.count(), Utility::GetMainWindow());
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
@@ -70,7 +69,7 @@ int SearchOperations::ReplaceInAllFIles(const QString &search_regex,
     foreach(Resource * resource, resources) {
         progress.setValue(progress_value++);
         qApp->processEvents();
-        count += ReplaceInFile(search_regex, replacement, resource, search_type);
+        count += ReplaceInFile(search_regex, replacement, resource);
     }
     return count;
 }
@@ -78,14 +77,13 @@ int SearchOperations::ReplaceInAllFIles(const QString &search_regex,
 
 int SearchOperations::CountInFile(const QString &search_regex,
                                   Resource *resource,
-                                  SearchType search_type,
                                   bool check_spelling)
 {
     QReadLocker locker(&resource->GetLock());
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
     if (html_resource) {
-        return CountInHTMLFile(search_regex, html_resource, search_type, check_spelling);
+        return CountInHTMLFile(search_regex, html_resource, check_spelling);
     }
 
     TextResource *text_resource = qobject_cast<TextResource *>(resource);
@@ -102,40 +100,33 @@ int SearchOperations::CountInFile(const QString &search_regex,
 
 int SearchOperations::CountInHTMLFile(const QString &search_regex,
                                       HTMLResource *html_resource,
-                                      SearchType search_type,
                                       bool check_spelling)
 {
-    if (search_type == SearchOperations::CodeViewSearch) {
-        const QString &text = html_resource->GetText();
+    const QString &text = html_resource->GetText();
 
-        if (check_spelling) {
-            return HTMLSpellCheck::CountMisspelledWords(text, 0, text.count(), search_regex);
-        } else {
-            return PCRECache::instance()->getObject(search_regex)->getEveryMatchInfo(text).count();
-        }
+    if (check_spelling) {
+        return HTMLSpellCheck::CountMisspelledWords(text, 0, text.count(), search_regex);
+    } else {
+        return PCRECache::instance()->getObject(search_regex)->getEveryMatchInfo(text).count();
     }
-
-    //TODO: BookViewSearch
-    return 0;
 }
 
 int SearchOperations::CountInTextFile(const QString &search_regex, TextResource *text_resource)
 {
-    // TODO
-    return 0;
+    const QString &text = text_resource->GetText();
+    return PCRECache::instance()->getObject(search_regex)->getEveryMatchInfo(text).count();
 }
 
 
 int SearchOperations::ReplaceInFile(const QString &search_regex,
                                     const QString &replacement,
-                                    Resource *resource,
-                                    SearchType search_type)
+                                    Resource *resource)
 {
     QWriteLocker locker(&resource->GetLock());
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
     if (html_resource) {
-        return ReplaceHTMLInFile(search_regex, replacement, html_resource, search_type);
+        return ReplaceHTMLInFile(search_regex, replacement, html_resource);
     }
 
     TextResource *text_resource = qobject_cast<TextResource *>(resource);
@@ -151,23 +142,17 @@ int SearchOperations::ReplaceInFile(const QString &search_regex,
 
 int SearchOperations::ReplaceHTMLInFile(const QString &search_regex,
                                         const QString &replacement,
-                                        HTMLResource *html_resource,
-                                        SearchType search_type)
+                                        HTMLResource *html_resource)
 {
     SettingsStore ss;
 
-    if (search_type == SearchOperations::CodeViewSearch) {
-        int count;
-        QString new_text;
-        QString text = html_resource->GetText();
-        std::tie(new_text, count) = PerformGlobalReplace(text, search_regex, replacement);
-        html_resource->SetText(new_text);
-        return count;
-    }
-
-    //TODO: BookViewSearch
-    return 0;
-}
+    int count;
+    QString new_text;
+    QString text = html_resource->GetText();
+    std::tie(new_text, count) = PerformGlobalReplace(text, search_regex, replacement);
+    html_resource->SetText(new_text);
+    return count;
+ }
 
 
 int SearchOperations::ReplaceTextInFile(const QString &search_regex,

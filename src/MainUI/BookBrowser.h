@@ -78,9 +78,16 @@ public:
     int AllSelectedItemCount();
 
     /**
-     * Valid resources selected in the Book Browser
+     * Valid HTML resources selected in the Book Browser
      */
     QList <Resource *> ValidSelectedHTMLResources();
+
+
+    /**
+     * CSS resources selected in the Book Browser
+     */
+    QList <Resource *> ValidSelectedCSSResources();
+
 
     /**
      * All HTML resources in the Book Browser in order

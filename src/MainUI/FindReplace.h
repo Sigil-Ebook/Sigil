@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2011-2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -35,7 +35,6 @@
 #include "MiscEditors/SearchEditorModel.h"
 #include "ViewEditors/Searchable.h"
 
-class HTMLResource;
 class Resource;
 class MainWindow;
 
@@ -48,12 +47,18 @@ public:
     ~FindReplace();
 
     /**
-     * Defines possible areas where the search can be performed.
+     * Defines possible search target areas.
      */
     enum LookWhere {
         LookWhere_CurrentFile = 0,
         LookWhere_AllHTMLFiles = 10,
         LookWhere_SelectedHTMLFiles = 20,
+        LookWhere_TabbedHTMLFiles = 30,
+        LookWhere_AllCSSFiles = 40,
+        LookWhere_SelectedCSSFiles = 50,
+        LookWhere_TabbedCSSFiles = 60,
+        LookWhere_OPFFile = 70,
+        LookWhere_NCXFile = 80,
     };
 
     enum SearchMode {
@@ -74,6 +79,18 @@ public:
     void SetUpFindText();
 
     void ShowHide();
+
+    /**
+     * Utility Routines to simplify logical testing
+     */
+    bool isWhereHTML();
+    bool isWhereCSS();
+    bool isWhereSelected();
+    bool isWhereAll();
+    bool isWhereOPF() { return GetLookWhere() == LookWhere_OPFFile; };
+    bool isWhereNCX() { return GetLookWhere() == LookWhere_NCXFile; };
+    bool isWhereCF()  { return GetLookWhere() == LookWhere_CurrentFile; };
+
 
 public slots:
     void close();
@@ -176,11 +193,6 @@ private:
     bool FindText(Searchable::Direction direction);
     bool ReplaceText(Searchable::Direction direction, bool replace_current = false);
 
-    /**
-     * Checks if book-wide searching is allowed for the current view.
-     *
-     * @return \c true if book-wide searching is allowed.
-     */
     void SetCodeViewIfNeeded(bool force = false);
 
     // Displays a message to the user informing him
@@ -194,9 +206,9 @@ private:
     QString GetSearchRegex();
     QString PrependRegexOptionToSearch(const QString &option, const QString &search);
 
-    QList <Resource *> GetHTMLFiles();
+    QList <Resource *> GetFilesToSearch();
 
-    bool IsCurrentFileInHTMLSelection();
+    bool IsCurrentFileInSelection();
 
     void SetKeyModifiers();
 
@@ -208,9 +220,9 @@ private:
 
     bool FindInAllFiles(Searchable::Direction direction);
 
-    HTMLResource *GetNextContainingHTMLResource(Searchable::Direction direction);
+    Resource *GetNextContainingResource(Searchable::Direction direction);
 
-    HTMLResource *GetNextHTMLResource(HTMLResource *current_resource, Searchable::Direction direction);
+    Resource *GetNextResource(Resource *current_resource, Searchable::Direction direction);
 
     Resource *GetCurrentResource();
 
@@ -314,12 +326,11 @@ template<class T>
 bool FindReplace::ResourceContainsCurrentRegex(T *resource)
 {
     // For now, this must hold
-    Q_ASSERT(GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles);
+    // Q_ASSERT(GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles);
     Resource *generic_resource = resource;
     return SearchOperations::CountInFiles(
                GetSearchRegex(),
                QList<Resource *>() << generic_resource,
-               SearchOperations::CodeViewSearch,
                m_SpellCheck) > 0;
 }
 

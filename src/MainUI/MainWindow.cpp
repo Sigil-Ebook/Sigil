@@ -960,9 +960,52 @@ QList <Resource *> MainWindow::GetValidSelectedHTMLResources()
 }
 
 
+QList <Resource *> MainWindow::GetValidSelectedCSSResources()
+{
+    return m_BookBrowser->ValidSelectedCSSResources();
+}
+
+
+QList <Resource*> MainWindow::GetTabbedHTMLResources()
+{
+    return m_TabManager->GetTabResourcesOfType(Resource::HTMLResourceType);
+}
+
+
+QList <Resource*> MainWindow::GetTabbedCSSResources()
+{
+    return m_TabManager->GetTabResourcesOfType(Resource::CSSResourceType);
+}
+
+
 QList <Resource *> MainWindow::GetAllHTMLResources()
 {
     return m_BookBrowser->AllHTMLResources();
+}
+
+
+QList <Resource *> MainWindow::GetAllCSSResources()
+{
+    return m_BookBrowser->AllCSSResources();
+}
+
+
+QList <Resource *> MainWindow::GetOPFResource()
+{
+    QList<Resource *> resources;
+    Resource * resource = m_Book->GetOPF(); 
+    resources << resource;
+    return resources;
+}
+
+
+QList <Resource *> MainWindow::GetNCXResource()
+{
+    QList<Resource *> resources;
+    Resource * resource = m_Book->GetNCX();
+    /* need not exist */
+    if (resource) resources << resource;
+    return resources;
 }
 
 
