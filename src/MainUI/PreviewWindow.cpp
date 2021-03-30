@@ -309,6 +309,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     m_Preview->ExecuteCaretUpdate();
     UpdateWindowTitle();
     m_updatingPage = false;
+    m_Preview->Zoom();
     return true;
 }
 
