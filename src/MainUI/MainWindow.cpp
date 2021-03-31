@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2020 Doug Massay
+**  Copyright (C) 2015-2021 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -4361,7 +4361,7 @@ void MainWindow::ReadSettings()
     execdir.cdUp();
     mathjaxurl = execdir.absolutePath() + "/polyfills/MJ/";
 #elif defined(Q_OS_WIN32)
-    mathjaxurl = "/" + QCoreApplication::applicationDirPath() + "/polyfills/MJ/";
+    mathjaxurl = QCoreApplication::applicationDirPath() + "/polyfills/MJ/";
 #else
     // all flavours of linux / unix
     // First check if system MathJax was configured to be used at compile time
@@ -4379,7 +4379,7 @@ void MainWindow::ReadSettings()
 #endif
     m_mathjaxfolder = mathjaxurl;
     mathjaxurl = mathjaxurl + "MathJax.js";
-    mathjaxurl = "file://" + Utility::URLEncodePath(mathjaxurl);
+    mathjaxurl = QUrl::fromLocalFile(mathjaxurl).toString();
     mathjaxurl = mathjaxurl + "?config=local/SIGIL_EBOOK_MML_SVG";
     m_PreviewWindow->setMathJaxURL(mathjaxurl);
 }
