@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -38,8 +38,9 @@ static const QString SETTINGS_GROUP         = "search_entries";
 static const QString ENTRY_NAME             = "Name";
 static const QString ENTRY_FIND             = "Find";
 static const QString ENTRY_REPLACE          = "Replace";
+static const QString ENTRY_CONTROLS         = "Controls";
 
-const int COLUMNS = 3;
+const int COLUMNS = 4;
 
 static const int IS_GROUP_ROLE = Qt::UserRole + 1;
 static const int FULLNAME_ROLE = Qt::UserRole + 2;
@@ -67,6 +68,7 @@ SearchEditorModel::SearchEditorModel(QObject *parent)
     header.append(tr("Name"));
     header.append(tr("Find"));
     header.append(tr("Replace"));
+    header.append(tr("Controls"));
     setHorizontalHeaderLabels(header);
     LoadInitialData();
     // Save it to make sure we have a file in case it was loaded from examples
@@ -314,6 +316,7 @@ void SearchEditorModel::LoadData(const QString &filename, QStandardItem *item)
         entry->fullname = fullname;
         entry->find = ss.value(ENTRY_FIND).toString();
         entry->replace = ss.value(ENTRY_REPLACE).toString();
+        entry->controls = ss.value(ENTRY_CONTROLS, "").toString();
         AddFullNameEntry(entry, item);
         // done with the temporary entry so remove it
         delete entry;
@@ -339,7 +342,7 @@ void SearchEditorModel::LoadTextData(const QString &filename, QStandardItem *ite
                     findreplace = aline.split(sep);
                 }
                 // add to end to prevent errors
-                findreplace << "" << "";
+                findreplace << "" << "" << "";
                 QString localname = "rep" + QStringLiteral("%1").arg(cnt, 5, 10, QLatin1Char('0'));
                 SearchEditorModel::searchEntry *entry = new SearchEditorModel::searchEntry();
                 QString fullname = groupname + localname;
@@ -351,6 +354,8 @@ void SearchEditorModel::LoadTextData(const QString &filename, QStandardItem *ite
                 entry->fullname = fullname;
                 entry->find = findreplace.at(0);
                 entry->replace = findreplace.at(1);
+                entry->controls = findreplace.at(2);
+                
                 AddFullNameEntry(entry, item);
                 // done with the temporary entry so remove it
                 delete entry;
@@ -430,6 +435,7 @@ QStandardItem *SearchEditorModel::AddEntryToModel(SearchEditorModel::searchEntry
             entry->name = "Search";
             entry->find = "";
             entry->replace = "";
+            entry->controls = "";
         } else {
             entry->name = "Group";
         }
@@ -465,6 +471,7 @@ QStandardItem *SearchEditorModel::AddEntryToModel(SearchEditorModel::searchEntry
         rowItems << new QStandardItem(entry->name);
         rowItems << new QStandardItem(entry->find);
         rowItems << new QStandardItem(entry->replace);
+        rowItems << new QStandardItem(entry->controls);
     }
 
     rowItems[0]->setData(entry->is_group, IS_GROUP_ROLE);
@@ -579,6 +586,7 @@ SearchEditorModel::searchEntry *SearchEditorModel::GetEntry(QStandardItem *item)
     entry->name =        parent_item->child(item->row(), 0)->text();
     entry->find =        parent_item->child(item->row(), 1)->text();
     entry->replace =     parent_item->child(item->row(), 2)->text();
+    entry->controls =    parent_item->child(item->row(), 3)->text();
     return entry;
 }
 
@@ -665,6 +673,7 @@ QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry *> entr
             if (!entry->is_group) {
                 ss.setValue(ENTRY_FIND, entry->find);
                 ss.setValue(ENTRY_REPLACE, entry->replace);
+                ss.setValue(ENTRY_CONTROLS, entry->controls);
             }
         }
     

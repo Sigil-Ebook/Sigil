@@ -127,6 +127,7 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
             info.block(false);
             return;
         }
+
         // otherwise block it to prevent access to any outside Sigil user file path
         info.block(true);
         qDebug() << "Warning: URLInterceptor blocking access to url " << destination;

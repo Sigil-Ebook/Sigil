@@ -261,6 +261,8 @@ private:
      */
     void UpdatePreviousReplaceStrings(const QString &text = QString());
 
+    void UpdateSearchControls(const QString &text = QString());
+
     FindReplace::LookWhere GetLookWhere();
     FindReplace::SearchMode GetSearchMode();
     FindReplace::SearchDirection GetSearchDirection();

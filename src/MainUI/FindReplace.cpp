@@ -1074,6 +1074,57 @@ void FindReplace::UpdatePreviousReplaceStrings(const QString &text)
     ui.cbReplace->setCurrentIndex(0);
 }
 
+
+void FindReplace::UpdateSearchControls(const QString &text)
+{
+    if (text.isEmpty()) return;
+
+    // Search Mode
+    if (text.contains("NL")) {
+        SetSearchMode(FindReplace::SearchMode_Normal);
+    } else if (text.contains("RX")) {
+        SetSearchMode(FindReplace::SearchMode_Regex);
+    } else if (text.contains("CS")) {
+        SetSearchMode(FindReplace::SearchMode_Case_Sensitive);
+    }
+
+    // Search LookWhere
+    if (text.contains("CF")) {
+        SetLookWhere(FindReplace::LookWhere_CurrentFile);
+    } else if (text.contains("AH")) {
+        SetLookWhere(FindReplace::LookWhere_AllHTMLFiles);
+    } else if (text.contains("SH")) {
+        SetLookWhere(FindReplace::LookWhere_SelectedHTMLFiles);
+    } else if (text.contains("TH")) {
+        SetLookWhere(FindReplace::LookWhere_TabbedHTMLFiles);
+    } else if (text.contains("AC")) {
+        SetLookWhere(FindReplace::LookWhere_AllCSSFiles);
+    } else if (text.contains("SC")) {
+        SetLookWhere(FindReplace::LookWhere_SelectedCSSFiles);
+    } else if (text.contains("TC")) {
+        SetLookWhere(FindReplace::LookWhere_TabbedCSSFiles);
+    } else if (text.contains("OP")) {
+        SetLookWhere(FindReplace::LookWhere_OPFFile);
+    } else if (text.contains("NX")) {
+        SetLookWhere(FindReplace::LookWhere_NCXFile);
+    }
+
+    // Search Direction
+    if (text.contains("UP")) {
+        SetSearchDirection(FindReplace::SearchDirection_Up);
+    } else if (text.contains("DN")) {
+        SetSearchDirection(FindReplace::SearchDirection_Down);
+    }
+
+    // Search Flags
+    SetOptionWrap(text.contains("WR"));
+    SetRegexOptionDotAll(text.contains("DA"));
+    SetRegexOptionMinimalMatch(text.contains("MM"));
+    SetRegexOptionAutoTokenise(text.contains("AT"));
+}
+
+
+
 FindReplace::SearchMode FindReplace::GetSearchMode()
 {
     int mode = ui.cbSearchMode->itemData(ui.cbSearchMode->currentIndex()).toInt();
@@ -1268,6 +1319,8 @@ void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
 
     UpdatePreviousFindStrings(search_entry->find);
     UpdatePreviousReplaceStrings(search_entry->replace);
+    UpdateSearchControls(search_entry->controls);
+
     // Show a message containing the name that was loaded
     QString message(tr("Unnamed search loaded"));
 

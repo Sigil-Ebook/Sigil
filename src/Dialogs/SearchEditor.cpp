@@ -58,8 +58,44 @@ void SearchEditor::SetupSearchEditorTree()
     ui.SearchEditorTree->setWordWrap(true);
     ui.SearchEditorTree->setAlternatingRowColors(true);
     ui.SearchEditorTree->installEventFilter(this);
+    QString nametooltip = "<p>" + tr("All searches default to Regex, All HTML Files, Down unless otherwise set.") + "</p>" +
+        "<p>" + tr("Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.") + "</p>" +
+        "<p>" + tr("Right click on an entry to see a context menu of actions.") + "</p>" +
+        "<p>" + tr("You can also right click on the Find text box in the Find & Replace window to select an entry.") + "</p>" +
+        "<dl>" +
+        "<dt><b>" + tr("Name") + "</b><dd>" + tr("Name of your entry or group.") + "</dd></dl>";
+    QString findtooltip = "<dl><dt><b>" + tr("Find") + "</b><dd>" + tr("The text to put into the Find box.")+"</dd></dl>";
+    QString replacetooltip = "<dl><b>" + tr("Replace") + "</b><dd>" + tr("The text to put into the Replace box.")+"</dd></dl>";;
+    QString controlstooltip = "<dl><b>" + tr("Controls") + "</b><dd>" + tr("Two character codes to control the search Mode, Direction, Target and Options.  Codes can be in any order comma or space separated.") + "</dd></dl>" + "<dl>" + 
+        "<dd>NL - " + tr("Mode: Normal") + "</dd>" +
+        "<dd>RX - " + tr("Mode: Regular Expression") + "</dd>" +
+        "<dd>CS - " + tr("Mode: Case Sensitive") + "</dd>" +
+        "<dd>&nbsp;</dd>" +
+        "<dd>UP - " + tr("Direction: Up") + "</dd>" +
+        "<dd>DN - " + tr("Direction: Down") + "</dd>" +
+        "<dd>&nbsp;</dd>" +
+        "<dd>CF - " + tr("Target: Current File") + "</dd>" +
+        "<dd>AH - " + tr("Target: All HTML Files") + "</dd>" +
+        "<dd>SH - " + tr("Target: Selected HTML Files") + "</dd>" +
+        "<dd>TH - " + tr("Target: Tabbed HTML Files") + "</dd>" +
+        "<dd>AC - " + tr("Target: All CSS Files") + "</dd>" +
+        "<dd>SC - " + tr("Target: Selected CSS Files") + "</dd>" +
+        "<dd>TC - " + tr("Target: Tabbed CSS Files") + "</dd>" +
+        "<dd>OP - " + tr("Target: OPF File") + "</dd>" +
+        "<dd>NX - " + tr("Target: NCX File") + "</dd>" +
+        "<dd>&nbsp;</dd>" +
+        "<dd>DA - " + tr("Option: DotAll") + "</dd>" +
+        "<dd>MM - " + tr("Option: Minimal Match") + "</dd>" +
+        "<dd>AT - " + tr("Option: Auto Tokenise") + "</dd>" +
+        "<dd>WR - " + tr("Option: Wrap") + "</dd>" + "</dl>";
+
+    ui.SearchEditorTree->model()->setHeaderData(0,Qt::Horizontal,nametooltip,Qt::ToolTipRole);
+    ui.SearchEditorTree->model()->setHeaderData(1,Qt::Horizontal,findtooltip,Qt::ToolTipRole);
+    ui.SearchEditorTree->model()->setHeaderData(2,Qt::Horizontal,replacetooltip,Qt::ToolTipRole);
+    ui.SearchEditorTree->model()->setHeaderData(3,Qt::Horizontal,controlstooltip,Qt::ToolTipRole);
+#if 0
     ui.SearchEditorTree->header()->setToolTip(
-        "<p>" + tr("All searches default to Regex, All HTML Files, Down.") + "</p>" +
+        "<p>" + tr("All searches default to Regex, All HTML Files, Down. UNless otherwise set in Controls") + "</p>" +
         "<p>" + tr("Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.") + "</p>" +
         "<p>" + tr("Right click on an entry to see a context menu of actions.") + "</p>" +
         "<p>" + tr("You can also right click on the Find text box in the Find & Replace window to select an entry.") + "</p>" +
@@ -67,7 +103,9 @@ void SearchEditor::SetupSearchEditorTree()
         "<dt><b>" + tr("Name") + "</b><dd>" + tr("Name of your entry or group.") + "</dd>" +
         "<dt><b>" + tr("Find") + "</b><dd>" + tr("The text to put into the Find box.") + "</dd>" +
         "<dt><b>" + tr("Replace") + "</b><dd>" + tr("The text to put into the Replace box.") + "</dd>" +
+        "<dt><b>" + tr("Controls") + "</b><dd>" + tr("The text codes to Control the Search Options, Mode, Direction, and Target." + "</dd>" +
         "</dl>");
+#endif
     ui.buttonBox->setToolTip(QString() +
                              "<dl>" +
                              "<dt><b>" + tr("Save") + "</b><dd>" + tr("Save your changes.") + "<br/><br/>" + tr("If any other instances of Sigil are running they will be automatically updated with your changes.") + "</dd>" +
