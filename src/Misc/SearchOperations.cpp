@@ -144,7 +144,7 @@ int SearchOperations::ReplaceHTMLInFile(const QString &search_regex,
                                         const QString &replacement,
                                         HTMLResource *html_resource)
 {
-    SettingsStore ss;
+    // SettingsStore ss;
 
     int count;
     QString new_text;
@@ -159,8 +159,12 @@ int SearchOperations::ReplaceTextInFile(const QString &search_regex,
                                         const QString &replacement,
                                         TextResource *text_resource)
 {
-    // TODO
-    return 0;
+    int count;
+    QString new_text;
+    QString text = text_resource->GetText();
+    std::tie(new_text, count) = PerformGlobalReplace(text, search_regex, replacement);
+    text_resource->SetText(new_text);
+    return count;
 }
 
 

@@ -95,7 +95,7 @@ void SearchEditor::SetupSearchEditorTree()
     ui.SearchEditorTree->model()->setHeaderData(3,Qt::Horizontal,controlstooltip,Qt::ToolTipRole);
 #if 0
     ui.SearchEditorTree->header()->setToolTip(
-        "<p>" + tr("All searches default to Regex, All HTML Files, Down. UNless otherwise set in Controls") + "</p>" +
+        "<p>" + tr("All searches default to Regex, All HTML Files, Down. Unless otherwise set in Controls") + "</p>" +
         "<p>" + tr("Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.") + "</p>" +
         "<p>" + tr("Right click on an entry to see a context menu of actions.") + "</p>" +
         "<p>" + tr("You can also right click on the Find text box in the Find & Replace window to select an entry.") + "</p>" +

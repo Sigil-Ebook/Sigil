@@ -912,12 +912,12 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
 
     Resource *next_resource = starting_resource;
 
-    // handle a list of size one as a special case
+    // handle a list of size one as a special case as long as Wrap is not set
     // if the current file matches our single resource then
     // we have already processed it in earlier code, leave
     // otherwise we need to process it if it contains
     // the current regex and then stop
-    if (resources.size() == 1) {
+    if ((resources.size() == 1) && !m_OptionWrap) {
         if (IsCurrentFileInSelection()) return NULL;
         if (next_resource) {
             if (ResourceContainsCurrentRegex(next_resource)) {
