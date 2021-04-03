@@ -127,6 +127,7 @@ extern const QString PATH_LIST_DELIM;
 extern const QString PYTHON_MAIN_PATH;
 extern const QString PYTHON_MAIN_BIN_PATH;
 extern const bool DONT_CHECK_FOR_UPDATES;
+
 #if defined(__APPLE__)
 extern const QString PYTHON_SITE_PACKAGES;
 extern const QString PYTHON_MAIN_PREFIX;

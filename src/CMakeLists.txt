@@ -897,6 +897,13 @@ endfunction(QUERY_QMAKE)
 if( APPLE )
     query_qmake(QT_INSTALL_TRANSLATIONS QT_TRANSLATIONS_DIR)
 
+    # Set a define that sigil_constants.cpp can then access
+    set_property (
+        SOURCE sigil_constants.cpp
+        PROPERTY COMPILE_DEFINITIONS
+        DONT_CHECK_UPDATES=${DISABLE_UPDATE_CHECK}
+    )
+
     if(CMAKE_GENERATOR STREQUAL Xcode)
         set( WORK_DIR "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release" )
     else()
@@ -951,6 +958,13 @@ elseif (MSVC)
     query_qmake(QT_INSTALL_BINS QT_INSTALL_BINS)
     query_qmake(QT_INSTALL_PLUGINS QT_PLUGINS_DIR)
     query_qmake(QT_INSTALL_TRANSLATIONS QT_TRANSLATIONS_DIR)
+
+    # Set a define that sigil_constants.cpp can then access
+    set_property (
+        SOURCE sigil_constants.cpp
+        PROPERTY COMPILE_DEFINITIONS
+        DONT_CHECK_UPDATES=${DISABLE_UPDATE_CHECK}
+    )
 
     set( TEMP_PACKAGE_DIR ${CMAKE_BINARY_DIR}/temp_folder )
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
