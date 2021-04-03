@@ -685,6 +685,13 @@ if ( NOT DEFINED INSTALL_BUNDLED_DICTS )
     set ( INSTALL_BUNDLED_DICTS 1 )
 endif()
 
+# use -DDISABLE_UPDATECHECK=1 to disable the builtin update check.
+# Mainly for use by *nix distros whose Sigil packages can't make use of the 
+# new release downloads anyway. 
+if ( NOT DEFINED DISABLE_UPDATE_CHECK )
+    set ( DISABLE_UPDATE_CHECK 0 )
+endif()
+
 set( RAW_SOURCES ${MAIN_FILES} ${TAB_FILES} ${SOURCEUPDATE_FILES} ${BOOK_MANIPULATION_FILES} ${RESOURCE_OBJECT_FILES} ${DIALOG_FILES} ${WIDGET_FILES} ${EXPORTER_FILES} ${IMPORTER_FILES} ${MISC_FILES} ${MISC_EDITORS_FILES} ${QUERY_FILES} ${PARSERS_FILES} ${EMBEDPYTHON_FILES} ${SPCRE_FILES} ${VIEW_EDITOR_FILES} ${MAINUI_FILES} )
 
 #############################################################################
@@ -1155,6 +1162,7 @@ if( UNIX AND NOT APPLE )
         PROPERTY COMPILE_DEFINITIONS
         SIGIL_SHARE_ROOT="${SIGIL_SHARE_ROOT}" DICTS_ARE_BUNDLED=${INSTALL_BUNDLED_DICTS}
         EXTRA_DICT_DIRS="${EXTRA_DICT_DIRS}" MATHJAX_DIR="${MATHJAX_DIR}"
+        DONT_CHECK_UPDATES=${DISABLE_UPDATE_CHECK}
     )
 
     # Launch script for sigil
