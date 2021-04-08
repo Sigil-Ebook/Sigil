@@ -239,6 +239,10 @@ set( DIALOG_FILES
     Dialogs/LinkStylesheets.h
     Dialogs/SearchEditor.cpp
     Dialogs/SearchEditor.h
+    Dialogs/Controls.cpp
+    Dialogs/Controls.h
+    Dialogs/SearchEditorItemDelegate.cpp
+    Dialogs/SearchEditorItemDelegate.h
     Dialogs/ClipEditor.cpp
     Dialogs/ClipEditor.h
     Dialogs/IndexEditor.cpp
@@ -582,6 +586,7 @@ set( UI_FILES
     Form_Files/IndexEditor.ui
     Form_Files/SpellcheckEditor.ui
     Form_Files/PluginRunner.ui
+    Form_Files/Controls.ui
     )
 
 set( SOURCEUPDATE_FILES

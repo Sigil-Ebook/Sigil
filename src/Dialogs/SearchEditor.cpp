@@ -28,6 +28,7 @@
 #include <QtGui/QContextMenuEvent>
 #include <QRegularExpression>
 
+#include "Dialogs/SearchEditorItemDelegate.h"
 #include "Dialogs/SearchEditor.h"
 #include "Misc/Utility.h"
 
@@ -38,7 +39,8 @@ SearchEditor::SearchEditor(QWidget *parent)
     :
     QDialog(parent),
     m_LastFolderOpen(QString()),
-    m_ContextMenu(new QMenu(this))
+    m_ContextMenu(new QMenu(this)),
+    m_CntrlDelegate(new SearchEditorItemDelegate())
 {
     ui.setupUi(this);
     ui.FilterText->installEventFilter(this);
@@ -93,6 +95,8 @@ void SearchEditor::SetupSearchEditorTree()
     ui.SearchEditorTree->model()->setHeaderData(1,Qt::Horizontal,findtooltip,Qt::ToolTipRole);
     ui.SearchEditorTree->model()->setHeaderData(2,Qt::Horizontal,replacetooltip,Qt::ToolTipRole);
     ui.SearchEditorTree->model()->setHeaderData(3,Qt::Horizontal,controlstooltip,Qt::ToolTipRole);
+
+    ui.SearchEditorTree->setItemDelegateForColumn(3, m_CntrlDelegate);
 #if 0
     ui.SearchEditorTree->header()->setToolTip(
         "<p>" + tr("All searches default to Regex, All HTML Files, Down. Unless otherwise set in Controls") + "</p>" +

@@ -38,6 +38,8 @@
 
 #include "ui_SearchEditor.h"
 
+class SearchEditorItemDelegate;
+
 /**
  * The editor used to create and modify saved searches
  */
@@ -160,6 +162,8 @@ private:
     QPointer<QMenu> m_ContextMenu;
 
     QList<SearchEditorModel::searchEntry *> m_SavedSearchEntries;
+
+    SearchEditorItemDelegate * m_CntrlDelegate;
 
     Ui::SearchEditor ui;
 };
