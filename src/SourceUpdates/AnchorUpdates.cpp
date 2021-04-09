@@ -57,14 +57,13 @@ void AnchorUpdates::UpdateExternalAnchors(const QList<HTMLResource *> &html_reso
 }
 
 
-// used to update after merge of html_resources into new_file
+// used for merge to fix all anchors outside the merge to point to the sink
 void AnchorUpdates::UpdateAllAnchors(const QList<HTMLResource *> &html_resources, const QStringList &originating_bookpaths, HTMLResource *sink_res)
 {
     QList<HTMLResource *> new_files;
     new_files.append(sink_res);
-    const QHash<QString, QString> &ID_locations = GetIDLocations(new_files);
     QString sink_bookpath = sink_res->GetRelativePath();
-    QtConcurrent::blockingMap(html_resources, std::bind(UpdateAllAnchorsInOneFile, std::placeholders::_1, originating_bookpaths, ID_locations, sink_bookpath));
+    QtConcurrent::blockingMap(html_resources, std::bind(UpdateAllAnchorsInOneFile, std::placeholders::_1, originating_bookpaths, sink_bookpath));
 }
 
 
@@ -229,7 +228,6 @@ void AnchorUpdates::UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, 
 // product of the merge
 void AnchorUpdates::UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
         const QList<QString> &originating_bookpaths,
-        const QHash<QString, QString> ID_locations,
         const QString & sink_bookpath)
 {
     Q_ASSERT(html_resource);

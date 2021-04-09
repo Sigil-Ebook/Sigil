@@ -75,9 +75,13 @@ private:
     static void UpdateAnchorsInOneFile(HTMLResource *html_resource,
                                        const QHash<QString, QString> ID_locations);
 
-    static void UpdateExternalAnchorsInOneFile(HTMLResource *html_resource, const QString &originating_filename, const QHash<QString, QString> ID_locations);
+    static void UpdateExternalAnchorsInOneFile(HTMLResource *html_resource,
+                                               const QString &originating_filename,
+                                               const QHash<QString, QString> ID_locations);
 
-    static void UpdateAllAnchorsInOneFile(HTMLResource *html_resource, const QList<QString> &originating_filename_links, const QHash<QString, QString> ID_locations, const QString &new_filename);
+    static void UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
+                                          const QList<QString> &originating_filename_links,
+                                          const QString &new_filename);
 };
 
 #endif // ANCHORUPDATES_H
