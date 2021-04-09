@@ -2058,7 +2058,7 @@ void CodeViewEditor::MaybeRegenerateTagList()
     // if (!m_isLoadFinished) return;
     
     if (m_regen_taglist) {
-        // qDebug() << "regenerating tag list";
+        qDebug() << "regenerating tag list";
         m_TagList.reloadLister(toPlainText());
         m_regen_taglist = false;
     }
@@ -2733,10 +2733,27 @@ bool CodeViewEditor::IsPositionInBody(int pos)
     return m_TagList.isPositionInBody(pos);
 }
 
+// This routine is time critical as it is called a lot
 bool CodeViewEditor::IsPositionInTag(int pos)
 {
-    MaybeRegenerateTagList();
-    return m_TagList.isPositionInTag(pos);
+    QString text = toPlainText();
+    // find previous begin tag marker
+    int pb = text.lastIndexOf('<', pos);
+    // find next end tag marker
+    int ne = text.indexOf('>', pos);
+
+    // find next begin tag marker *after* this char
+    // and handle case if missing
+    int nb = text.indexOf('<', pos+1);
+    if (nb == -1) nb = text.length()+1;
+
+    // in tag if '<' is closer than '>' when search backwards
+    // and if '>' is closer but than '<' (if it exists) but >= pos  when search forward
+    if ((pb > text.lastIndexOf('>', pos-1)) && (ne >= pos) && (nb > ne)) {
+        MaybeRegenerateTagList();
+        return m_TagList.isPositionInTag(pos);
+    }
+    return false;
 }
 
 // OpeningTag is can be a begin tag or a single tag
