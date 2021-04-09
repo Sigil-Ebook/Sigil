@@ -27,6 +27,7 @@
 #include <QHash>
 #include <QObject>
 #include <QUrl>
+#include <QPair>
 #include "ResourceObjects/OPFParser.h"
 #include "BookManipulation/XhtmlDoc.h"
 #include "ResourceObjects/Resource.h"
@@ -244,7 +245,9 @@ public:
     static std::tuple<QString, QStringList> GetVideoInHTMLFileMapped(HTMLResource *html_resource);
     static std::tuple<QString, QStringList> GetAudioInHTMLFileMapped(HTMLResource *html_resource);
     static std::tuple<QString, std::pair<int,int> > GetWordCountsInHTMLFileMapped(HTMLResource *html_resource);
+    
 
+    bool CheckHTMLFilesForWellFormedness(const QList<HTMLResource*> html_resources);
     QList<HTMLResource *> GetNonWellFormedHTMLFiles();
     static std::pair<HTMLResource*, bool> ResourceWellFormedMap(HTMLResource * html_resource);
 
@@ -255,6 +258,8 @@ public:
      * If the merge fails, returns resource which caused the failure, otherwise returns null.
      */
     Resource *MergeResources(QList<Resource *> resources);
+    static QPair<QString, QString> UpdateAndExtractBodyInOneFile(Resource * resource, const QStringList &merged_bookpaths);
+
 
     QList <Resource *> GetAllResources();
 

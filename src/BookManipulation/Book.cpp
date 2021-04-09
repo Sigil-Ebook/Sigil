@@ -1037,6 +1037,18 @@ std::tuple<QString, QStringList> Book::GetAudioInHTMLFileMapped(HTMLResource *ht
     return std::make_tuple(html_bookpath, audio_bookpaths);
 }
 
+bool Book::CheckHTMLFilesForWellFormedness(const QList<HTMLResource*> html_resources)
+{
+    bool wellformed = true;
+    QFuture< std::pair<HTMLResource*, bool> > well_future;
+    well_future = QtConcurrent::mapped(html_resources, ResourceWellFormedMap);
+    for (int i = 0; i < well_future.results().count(); i++) {
+        std::pair<HTMLResource*, bool> res = well_future.resultAt(i);
+        wellformed = wellformed && res.second;
+    }
+    return wellformed;
+}
+
 QList<HTMLResource *> Book::GetNonWellFormedHTMLFiles()
 {
     QList<HTMLResource *> malformed_resources;
@@ -1154,6 +1166,51 @@ QStringList Book::GetStylesheetsInHTMLFile(HTMLResource *html_resource)
     return results;
 }
 
+// employed to perform update of local merged links and to extract the updated body
+QPair<QString, QString> Book::UpdateAndExtractBodyInOneFile(Resource * resource, const QStringList & merged_bookpaths)
+{
+    QPair<QString, QString> res;
+    HTMLResource *htmlresource = qobject_cast<HTMLResource *>(resource);
+    if (!htmlresource) return res;
+
+    // QReadLocker locker(&htmlresource->GetLock());
+    QString startdir = htmlresource->GetFolder();
+    QString version = htmlresource->GetEpubVersion();
+    QString bookpath = htmlresource->GetRelativePath();
+    qDebug() << "update and extract body of " << bookpath;
+    GumboInterface gi = GumboInterface(htmlresource->GetText(), version);
+    gi.parse();
+    const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);
+
+    for (int i = 0; i < anchor_nodes.length(); ++i) {
+        GumboNode* node = anchor_nodes.at(i);
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
+
+        // We find the hrefs that are relative and contain an href. If they
+        // point into one of the merged resources, make it a local link
+        if (attr) {
+            QString href = QString::fromUtf8(attr->value);
+            if (href.indexOf(':') == -1) {
+                std::pair<QString, QString> parts = Utility::parseRelativeHREF(href);
+                QString target_bookpath = Utility::buildBookPath(parts.first, startdir);
+                if (merged_bookpaths.contains(target_bookpath)) {
+                    // remove the file path as it is now local
+                    if (parts.second.isEmpty()) parts.second = "#";
+                    QString attribute_value = Utility::buildRelativeHREF("", parts.second);
+                    gumbo_attribute_set_value(attr, attribute_value.toUtf8().constData());
+                }
+            }
+        }
+    }
+    res.first = bookpath;
+    res.second = gi.get_body_contents();
+    return res;
+}
+
+
+// first resource in list is the sink resource to merge into
+// It is the user's responsibility to ensure that all ids used across the two merged files are unique.
+// Reconcile all references to the files that were merged.
 Resource *Book::MergeResources(QList<Resource *> resources)
 {
 
@@ -1164,11 +1221,79 @@ Resource *Book::MergeResources(QList<Resource *> resources)
         return nav_resource;
     }
 
+    // nothing to merge
+    if (resources.size() < 2) return NULL;
+
+    // create a list of bookpaths being merged into
+    QList<QString> merged_bookpaths;
+    foreach(Resource * resource, resources) {
+        merged_bookpaths << resource->GetRelativePath();
+    }
+
+    Resource *sink_resource = resources.at(0);
+    HTMLResource *sink_html_resource = qobject_cast<HTMLResource *>(sink_resource);
+    qDebug() << "just before merge update and extract";
+
+    const QList<QPair<QString, QString>> &bodies = QtConcurrent::blockingMapped(resources, 
+                                                                                std::bind(UpdateAndExtractBodyInOneFile, 
+                                                                                          std::placeholders::_1,
+                                                                                          merged_bookpaths));
+    QHash<QString, QString> updated_bodies;
+    for (int i = 0; i < bodies.count(); ++i) {
+        QPair<QString, QString> body = bodies.at(i);
+        updated_bodies.insert(body.first, body.second);
+    }
+    QStringList new_bodies;
+    QString text = sink_html_resource->GetText();
+    QRegularExpression body_search(BODY_START, QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch body_search_mo = body_search.match(text);
+    int body_tag_end   = body_search_mo.capturedStart() + body_search_mo.capturedLength();
+    new_bodies << Utility::Substring(0, body_tag_end, text);
+    foreach(QString bookpath, merged_bookpaths) {
+        new_bodies.append(updated_bodies[bookpath]);
+    }
+    new_bodies.append("</body>\n</html>");
+    QString new_source = new_bodies.join("");
+    qDebug() << "merged new source ready";
+    sink_html_resource->SetText(new_source);
+
+#if 0
+    GumboInterface gi = GumboInterface(sink_html_resource->GetText(), sink_html_resource->GetEpubVersion());
+    QString new_source = gi.perform_body_updates(new_body);
+    sink_html_resource->SetText(new_source);
+#endif
+    qDebug() << "wrote to the sink";
+
+    // now delete the merged resources except for the sink
+    resources.removeOne(sink_resource);
+    m_Mainfolder->BulkRemoveResources(resources);
+ #if 0
+    foreach(Resource *source_resource, resources) {
+            qDebug() << "deleting actual resource " << source_resource->GetRelativePath();
+            source_resource->Delete();
+    }
+#endif
+    qDebug() << "deleted merged resources";
+    QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
+    html_resources.removeOne(sink_html_resource);
+    qDebug() << "anchor updates for other html resources";
+    AnchorUpdates::UpdateAllAnchors(html_resources, merged_bookpaths, sink_html_resource);
+    NCXResource * ncx_resource = GetNCX();
+    if (ncx_resource) {
+        qDebug() << "anchor updates for ncx resource";
+        AnchorUpdates::UpdateTOCEntriesAfterMerge(ncx_resource, 
+                                                  sink_html_resource->GetRelativePath(),
+                                                  merged_bookpaths);
+    }
+    SetModified(true);
+    qDebug() << "done";
+    return NULL;
+
+
+#if 0
     QProgressDialog progress(QObject::tr("Merging Files.."), 0, 0, resources.count(), QApplication::activeWindow());
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     int progress_value = 0;
-    Resource *sink_resource = resources.takeFirst();
-    HTMLResource *sink_html_resource = qobject_cast<HTMLResource *>(sink_resource);
 
     if (!IsDataWellFormed(sink_html_resource)) {
         return sink_resource;
@@ -1194,7 +1319,6 @@ Resource *Book::MergeResources(QList<Resource *> resources)
                 failed_resource = source_resource;
                 break;
             }
-
             // Get the html document for this source resource.
             GumboInterface ngi = GumboInterface(source_html_resource->GetText(), version);
             new_bodies << ngi.get_body_contents();
@@ -1231,6 +1355,7 @@ Resource *Book::MergeResources(QList<Resource *> resources)
     }
     SetModified(true);
     return NULL;
+#endif
 }
 
 QList <Resource *> Book::GetAllResources()

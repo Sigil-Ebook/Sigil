@@ -2866,27 +2866,26 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     }
 
     // Check if data is well formed
-    foreach (Resource *r, resources) {
-        HTMLResource *h = qobject_cast<HTMLResource *>(r);
-        if (!h) {
-            continue;
-        }
-        if (!h->FileIsWellFormed()) {
-            QMessageBox::warning(this, tr("Sigil"), tr("Merge cancelled: %1, XML not well formed.").arg(h->ShortPathName()));
-            return;
-        }
+    QList<HTMLResource*> html_resources;
+    foreach(Resource* resource, resources) {
+        HTMLResource* htmlresource = qobject_cast<HTMLResource*>(resource);
+        if (htmlresource) html_resources << htmlresource;
     }
-    if (!m_TabManager->IsAllTabDataWellFormed()) {
-        QMessageBox::warning(this, tr("Sigil"), tr("Merge cancelled due to XML not well formed."));
-        return;
+    if (!m_Book->CheckHTMLFilesForWellFormedness(html_resources)) {
+        QMessageBox::warning(this, tr("Sigil"), tr("Merge cancelled: XHTML files involved in merge are not well formed."));
+            return;
     }
 
-    // Handle warning the user about undefined url fragments.
+    // really we need to check for duplicate ids being used in any of the files to be merged
+    // and fix them here first before preeceeding
+#if 0
     if (!ProceedWithUndefinedUrlFragments()) {
         return;
     }
+#endif
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
+
     // Close all tabs being updated to prevent BV overwriting the new data
     foreach(Resource *resource, resources) {
         m_TabManager->CloseTabForResource(resource);
@@ -2895,7 +2894,6 @@ void MainWindow::MergeResources(QList <Resource *> resources)
     // Close the OPF tab
     bool opf_was_open = m_TabManager->CloseOPFTabIfOpen();
 
-    // Display progress dialog
     Resource *resource_to_open = resources.first();
     Resource *failed_resource = m_Book->MergeResources(resources);
 
