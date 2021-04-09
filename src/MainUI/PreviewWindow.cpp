@@ -223,6 +223,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     }
 
     m_updatingPage = true;
+    m_location = location;
 
     DBG qDebug() << "PV UpdatePage " << filename_url;
     DBG foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
@@ -289,6 +290,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     m_Filepath = filename_url;
     m_Preview->CustomSetDocument(filename_url, text);
 
+#if 0
     // this next bit is allowing javascript to run before
     // the page is finished loading somehow? 
     // but we explicitly prevent that
@@ -310,7 +312,22 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     UpdateWindowTitle();
     m_updatingPage = false;
     m_Preview->Zoom();
+#endif
     return true;
+}
+
+void PreviewWindow::UpdatePageDone()
+{
+   if (!m_Preview->WasLoadOkay()) qDebug() << "PV loadFinished with okay set to false!";
+ 
+    DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
+    DBG qDebug() << "PreviewWindow UpdatePage final step scroll to location";
+
+    m_Preview->StoreCaretLocationUpdate(m_location);
+    m_Preview->ExecuteCaretUpdate();
+    UpdateWindowTitle();
+    m_updatingPage = false;
+    m_Preview->Zoom();
 }
 
 void PreviewWindow::ScrollTo(QList<ElementIndex> location)
@@ -528,8 +545,9 @@ void PreviewWindow::LoadSettings()
 
 void PreviewWindow::ConnectSignalsToSlots()
 {
-    connect(m_Preview,   SIGNAL(ZoomFactorChanged(float)), this, SIGNAL(ZoomFactorChanged(float)));
+    connect(m_Preview,   SIGNAL(ZoomFactorChanged(float)),  this, SIGNAL(ZoomFactorChanged(float)));
     connect(m_Preview,   SIGNAL(LinkClicked(const QUrl &)), this, SLOT(LinkClicked(const QUrl &)));
+    connect(m_Preview,   SIGNAL(DocumentLoaded()),          this, SLOT(UpdatePageDone()));
     connect(m_inspectAction, SIGNAL(triggered()),     this, SLOT(InspectPreviewPage()));
     connect(m_selectAction,  SIGNAL(triggered()),     this, SLOT(SelectAllPreview()));
     connect(m_copyAction,    SIGNAL(triggered()),     this, SLOT(CopyPreview()));

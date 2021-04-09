@@ -299,7 +299,6 @@ void ViewPreview::UpdateFinishedState(bool okay)
     DBG qDebug() << "UpdateFinishedState with okay " << okay;
     // m_isLoadFinished = true;
     m_LoadOkay = okay;
-    emit DocumentLoaded();
 }
 
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
@@ -373,6 +372,7 @@ void ViewPreview::WebPageJavascriptOnLoad()
         }
         m_CustomSetDocumentInProgress = false;
     }
+    emit DocumentLoaded();
 }
 
 QString ViewPreview::GetElementSelectingJS_NoTextNodes(const QList<ElementIndex> &hierarchy) const

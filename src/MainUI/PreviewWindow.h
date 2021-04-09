@@ -55,6 +55,7 @@ public:
 
 public slots:
     bool UpdatePage(QString filename, QString text, QList<ElementIndex> location);
+    void UpdatePageDone();
     void ScrollTo(QList<ElementIndex> location);
     void SetZoomFactor(float factor);
     void LinkClicked(const QUrl &url);
@@ -128,6 +129,7 @@ private:
     QAction * m_copyAction;
     QAction * m_reloadAction;
 
+    QList<ElementIndex> m_location;
     bool m_updatingPage;
 };
 
