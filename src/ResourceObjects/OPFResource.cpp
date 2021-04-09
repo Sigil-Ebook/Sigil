@@ -670,9 +670,62 @@ void OPFResource::AddCoverMetaForImage(const Resource *resource, OPFParser &p)
     }
 }
 
+
+void OPFResource::BulkRemoveResources(const QList<Resource *>resources)
+{
+    QWriteLocker locker(&GetLock());
+    qDebug() << "OPF Bulk Remove Resource";
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    if (p.m_manifest.isEmpty()) return;
+
+    foreach(Resource * resource, resources) {
+        QString href = Utility::URLEncodePath(GetRelativePathToResource(resource));
+        int pos = p.m_hrefpos.value(href, -1);
+        QString item_id = "";
+
+        // Delete the meta tag for cover images before deleting the manifest entry
+        if (resource->Type() == Resource::ImageResourceType) {
+            RemoveCoverMetaForImage(resource, p);
+        }
+        if (pos > -1) {
+            item_id = p.m_manifest.at(pos).m_id;
+        }
+        if (resource->Type() == Resource::HTMLResourceType) {
+            for (int i=0; i < p.m_spine.count(); ++i) {
+                QString idref = p.m_spine.at(i).m_idref;
+                if (idref == item_id) {
+                    p.m_spine.removeAt(i);
+                    break;
+                }
+            }
+            RemoveGuideReferenceForResource(resource, p);
+            QString version = GetEpubVersion();
+            if (version.startsWith('3')) {
+                NavProcessor navproc(GetNavResource());
+                navproc.RemoveLandmarkForResource(resource);
+            }
+        }
+        if (pos > -1) {
+            p.m_manifest.removeAt(pos);
+            // rebuild the maps since updating them item by item would be slower
+            p.m_idpos.clear();
+            p.m_hrefpos.clear();
+            for (int i=0; i < p.m_manifest.count(); ++i) {
+                p.m_idpos[p.m_manifest.at(i).m_id] = i;
+                p.m_hrefpos[p.m_manifest.at(i).m_href] = i;
+            }
+        }
+    }
+    UpdateText(p);
+}
+
+
 void OPFResource::RemoveResource(const Resource *resource)
 {
     QWriteLocker locker(&GetLock());
+    qDebug() << "OPF Remove Resource";
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);

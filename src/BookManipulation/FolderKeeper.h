@@ -251,6 +251,8 @@ public slots:
      */
     void RemoveResource(const Resource *resource);
 
+    void BulkRemoveResources(const QList<Resource *> resources);
+
 private slots:
 
     /**

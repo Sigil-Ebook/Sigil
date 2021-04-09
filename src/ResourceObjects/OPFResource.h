@@ -156,6 +156,7 @@ public slots:
     void AddResource(const Resource *resource);
 
     void RemoveResource(const Resource *resource);
+    void BulkRemoveResources(const QList<Resource *>resources);
 
     void AddGuideSemanticCode(HTMLResource *html_resource, QString code, bool toggle = true);
 

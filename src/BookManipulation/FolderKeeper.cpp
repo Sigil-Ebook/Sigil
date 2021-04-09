@@ -506,8 +506,28 @@ QStringList FolderKeeper::GetAllBookPaths() const
 }
 
 
+
+void FolderKeeper::BulkRemoveResources(const QList<Resource *>resources)
+{
+    qDebug() << "In FolderKeeper Bulk RemoveResource";
+    m_OPF->BulkRemoveResources(resources);
+    foreach(Resource * resource, resources) {
+        m_Resources.remove(resource->GetIdentifier());
+        m_Path2Resource.remove(resource->GetRelativePath());
+
+        if (m_FSWatcher->files().contains(resource->GetFullPath())) {
+            m_FSWatcher->removePath(resource->GetFullPath());
+        }
+
+        m_SuspendedWatchedFiles.removeAll(resource->GetFullPath());
+        disconnect(resource, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
+        resource->Delete();
+    }
+}
+
 void FolderKeeper::RemoveResource(const Resource *resource)
 {
+    qDebug() << "In FolderKeeper RemoveResource";
     m_Resources.remove(resource->GetIdentifier());
     m_Path2Resource.remove(resource->GetRelativePath());
 
