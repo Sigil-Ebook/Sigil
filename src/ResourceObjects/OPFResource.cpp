@@ -854,10 +854,13 @@ void OPFResource::RemoveDuplicateGuideCodes(QString code, OPFParser& p)
 
 void OPFResource::RemoveGuideReferenceForResource(const Resource *resource, OPFParser& p)
 {
+    // if guide hrefs use fragments, the same resource may be there in multiple
+    // guide entries.  Since resource being deleted, remove them all
     if (p.m_guide.isEmpty()) return;
     int pos = GetGuideReferenceForResourcePos(resource, p);
-    if (pos > -1) {
+    while((pos > -1) && (!p.m_guide.isEmpty())) {
         p.m_guide.removeAt(pos);
+        pos = GetGuideReferenceForResourcePos(resource, p);
     }
 }
 

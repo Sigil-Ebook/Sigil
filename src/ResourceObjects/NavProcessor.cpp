@@ -530,10 +530,11 @@ void NavProcessor::RemoveLandmarkForResource(const Resource * resource)
     QList<NavLandmarkEntry> landlist = GetLandmarks();
     QWriteLocker locker(&m_NavResource->GetLock());
     int pos = GetResourceLandmarkPos(resource, landlist);
-    if (pos > -1) {
+    while((pos > -1) && !landlist.isEmpty()) {
         landlist.removeAt(pos);
-        SetLandmarks(landlist);
+        pos = GetResourceLandmarkPos(resource, landlist);
     }
+    SetLandmarks(landlist);
 }
 
 int NavProcessor::GetResourceLandmarkPos(const Resource *resource, const QList<NavLandmarkEntry> & landlist)
