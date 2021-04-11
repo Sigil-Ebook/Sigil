@@ -854,10 +854,16 @@ else()
 endif()
 
 # No need to explicity link Qt5::WinMain or to use the qt5_use_modules macro since CMAKE 2.8.11. We require CMAKE 3.0.0
-set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} 
-                  ${MINIZIP_LIBRARIES} ${PYTHON_LIBRARIES}
+set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES}
                   Qt5::Widgets  Qt5::Xml  Qt5::PrintSupport  Qt5::WebEngine  
                   Qt5::WebEngineWidgets  Qt5::Network  Qt5::Concurrent )
+if (${USE_NEWER_FINDPYTHON3})
+    message(STATUS "Using newer Python3::Python target to link to Python")
+    list( APPEND LIBS_TO_LINK Python3::Python )
+else()
+    message(STATUS "Using older PYTHON_LIBRARIES CMAKE variable to link to Python")
+    list( APPEND LIBS_TO_LINK ${PYTHON_LIBRARIES} )
+endif()
 if ( WIN32 )
     list( APPEND LIBS_TO_LINK Qt5::WinExtras )
 endif()
@@ -950,8 +956,15 @@ if( APPLE )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/dictionaries/* ${WORK_DIR}/Sigil.app/Contents/hunspell_dictionaries )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/plugin_launchers/python/* ${WORK_DIR}/Sigil.app/Contents/plugin_launchers/python )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp -r ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/* ${WORK_DIR}/Sigil.app/Contents/python3lib )
+
     if ( PKG_SYSTEM_PYTHON )
-        add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_add_python_framework.py )
+        if ( ${USE_NEWER_FINDPYTHON3} )
+            set( PY_INTERP ${Python3_EXECUTABLE} )
+        else()
+            set( PY_INTERP ${PYTHON_EXECUTABLE} )
+        endif()
+        add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${PY_INTERP} ARGS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_add_python_framework.py )
+        message(STATUS "Using ${PY_INTERP} to bundle python")
     endif()
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.rcc ${WORK_DIR}/Sigil.app/Contents/Resources/ )
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${CMAKE_SOURCE_DIR}/src/Resource_Files/examples/* ${WORK_DIR}/Sigil.app/Contents/examples )
@@ -1080,8 +1093,14 @@ elseif (MSVC)
 
     # Create python virtual environment
     if ( PKG_SYSTEM_PYTHON )
+        if ( ${USE_NEWER_FINDPYTHON3} )
+            set( PY_INTERP ${Python3_EXECUTABLE} )
+        else()
+            set( PY_INTERP ${PYTHON_EXECUTABLE} )
+        endif()
+        message(STATUS "Using ${PY_INTERP} to bundle python")
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD
-                        COMMAND ${PYTHON_EXECUTABLE} ARGS ${CMAKE_BINARY_DIR}/windows_python_gather.py )
+                            COMMAND ${PY_INTERP} ARGS ${CMAKE_BINARY_DIR}/windows_python_gather.py )
     endif()
 
     # Add external binary resource files
