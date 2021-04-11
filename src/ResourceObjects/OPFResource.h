@@ -139,6 +139,9 @@ public:
     void SetNavResource(HTMLResource* nav);
     HTMLResource* GetNavResource() const;
 
+    void UpdateGuideAfterMerge(QList<Resource*> &merged_resources, QHash<QString,QString> &section_id_map);
+    void UpdateGuideFragments(QHash<QString,QString> &idupdates);
+
  signals:
     void TextChanging();
     void LoadedFromDisk();

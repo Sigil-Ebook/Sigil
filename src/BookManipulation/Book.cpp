@@ -1283,16 +1283,20 @@ Resource *Book::MergeResources(QList<Resource *> resources)
     QString new_source = new_bodies.join("");
     sink_html_resource->SetText(new_source);
 
-    // now use the generates section_id_map to update the nav landmarks and guide entries
-    // FIXME:  This is missing now
+    // Anchor Updates should handle updating all links in the nav properly
+    // But if this is an epub2, then we must update the guide entries as well
+    QString version = sink_resource->GetEpubVersion(); 
+    if (version.startsWith("2")) {
+        GetOPF()->UpdateGuideAfterMerge(resources, section_id_map);
+    }
 
-    // now delete the merged resources except for the sink
-    resources.removeOne(sink_resource);
-    m_Mainfolder->BulkRemoveResources(resources);
-
-    // Update all anchors from outside the merged set into it
-    QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
-    html_resources.removeOne(sink_html_resource);
+    // Update all anchors links from outside the merged set into it
+    QList<HTMLResource*> html_resources;
+    foreach(HTMLResource* hres, m_Mainfolder->GetResourceTypeList<HTMLResource>(true)) {
+        if (!merged_bookpaths.contains(hres->GetRelativePath())) {
+            html_resources << hres;
+        }
+    }
     AnchorUpdates::UpdateAllAnchors(html_resources, merged_bookpaths, sink_html_resource, section_id_map);
 
     // Update any NCX anchors into the merged set
@@ -1302,6 +1306,10 @@ Resource *Book::MergeResources(QList<Resource *> resources)
                                                   sink_html_resource->GetRelativePath(),
                                                   merged_bookpaths);
     }
+
+    // finally delete the merged resources except for the sink
+    resources.removeOne(sink_resource);
+    m_Mainfolder->BulkRemoveResources(resources);
 
     SetModified(true);
     return NULL;

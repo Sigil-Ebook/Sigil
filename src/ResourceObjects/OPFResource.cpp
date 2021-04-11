@@ -865,6 +865,70 @@ void OPFResource::RemoveGuideReferenceForResource(const Resource *resource, OPFP
 }
 
 
+void OPFResource::UpdateGuideFragments(QHash<QString,QString> &idupdates)
+{
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    for(int c=0; c < p.m_guide.size(); c++) {
+        GuideEntry ge = p.m_guide.at(c);
+        QString href = ge.m_href;
+        std::pair<QString, QString> parts = Utility::parseRelativeHREF(href);
+        QString apath = Utility::URLDecodePath(parts.first);
+        QString bkpath = Utility::buildBookPath(apath, GetFolder());
+        QString key = bkpath + parts.second;
+        QString newid = idupdates.value(key,"");
+        if (!newid.isEmpty()) {
+            // found a fragment id needing to be updated
+            parts.second = "#" + newid;
+            href = Utility::buildRelativeHREF(apath, parts.second);
+            ge.m_href = href;
+            p.m_guide[c] = ge;
+        }
+    }
+    UpdateText(p);
+}
+
+
+// first merged resource in list is the sink resource
+void OPFResource::UpdateGuideAfterMerge(QList<Resource*> &merged_resources, QHash<QString,QString> &section_id_map)
+{
+    if (merged_resources.isEmpty() || merged_resources.size() < 2) return;
+    Resource* sink_resource = merged_resources.at(0);
+    QString sink_bookpath = sink_resource->GetRelativePath();
+    QStringList merged_bookpaths;
+    for (int i=1; i < merged_resources.size(); i++) {
+        Resource* res = merged_resources.at(i);
+        merged_bookpaths << res->GetRelativePath();
+    }
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    for(int c=0; c < p.m_guide.size(); c++) {
+        GuideEntry ge = p.m_guide.at(c);
+        QString href = ge.m_href;
+        std::pair<QString, QString> parts = Utility::parseRelativeHREF(href);
+        QString apath = Utility::URLDecodePath(parts.first);
+        QString bkpath = Utility::buildBookPath(apath, GetFolder());
+        if (merged_bookpaths.contains(bkpath)) {
+            // need to redirect this bookpath to destination bookpath
+            // handle nay redirect to new injected section fragments
+            if (parts.second.isEmpty()) {
+                if (section_id_map.contains(bkpath)) {
+                    parts.second = "#" + section_id_map[bkpath];
+                }
+            }
+            apath = Utility::buildRelativePath(GetRelativePath(), sink_bookpath);
+            href = Utility::buildRelativeHREF(apath, parts.second);
+            ge.m_href = href;
+            p.m_guide[c] = ge;
+        }
+    }
+    UpdateText(p);
+}
+
 void OPFResource::SetGuideSemanticCodeForResource(QString code, const Resource *resource, OPFParser& p, const QString &lang)
 {
     if (code.isEmpty()) return;

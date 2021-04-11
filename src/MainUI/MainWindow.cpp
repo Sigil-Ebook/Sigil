@@ -2913,6 +2913,10 @@ void MainWindow::MergeResources(QList <Resource *> resources)
         }
         QList<HTMLResource *> AllHTMLResources= m_Book->GetHTMLResources();
         FragmentUpdates::UpdateFragments(AllHTMLResources, Updates);
+        QString version = m_Book->GetOPF()->GetEpubVersion();
+        if (version.startsWith("2")) {
+            m_Book->GetOPF()->UpdateGuideFragments(Updates);
+        }
     }
 
 
