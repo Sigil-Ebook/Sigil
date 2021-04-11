@@ -51,7 +51,8 @@ public:
      * @param originating_filenames The names of the original files for which references need to be reconciled.
      * @param new_file The new file created by merging the original files.
      */
-    static void UpdateAllAnchors(const QList<HTMLResource *> &html_resources, const QStringList &originating_filenames, HTMLResource *new_file);
+    static void UpdateAllAnchors(const QList<HTMLResource *> &html_resources, const QStringList &originating_filenames, 
+                                 HTMLResource *new_file, const QHash<QString, QString> &section_id_map);
 
     /**
      * Updates the src attributes of the content tags in the toc.ncx file that point to
@@ -79,9 +80,11 @@ private:
                                                const QString &originating_filename,
                                                const QHash<QString, QString> ID_locations);
 
+    // used for merges
     static void UpdateAllAnchorsInOneFile(HTMLResource *html_resource,
                                           const QList<QString> &originating_filename_links,
-                                          const QString &new_filename);
+                                          const QString &new_filename,
+                                          const QHash<QString, QString> &section_id_map);
 };
 
 #endif // ANCHORUPDATES_H

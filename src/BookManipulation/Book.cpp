@@ -1173,7 +1173,7 @@ QPair<QString, QString> Book::UpdateAndExtractBodyInOneFile(Resource * resource,
     HTMLResource *htmlresource = qobject_cast<HTMLResource *>(resource);
     if (!htmlresource) return res;
 
-    // QReadLocker locker(&htmlresource->GetLock());
+    QReadLocker locker(&htmlresource->GetLock());
     QString startdir = htmlresource->GetFolder();
     QString version = htmlresource->GetEpubVersion();
     QString bookpath = htmlresource->GetRelativePath();
@@ -1224,7 +1224,18 @@ Resource *Book::MergeResources(QList<Resource *> resources)
     // nothing to merge
     if (resources.size() < 2) return NULL;
 
-    // create a list of bookpaths being merged into
+    // First Create a set of Ids used in the files to be merged
+    QHash<QString,QStringList> BookPathIds = GetIdsInHTMLFiles();
+    QSet<QString> UsedIds;
+    foreach(Resource * resource, resources) {
+        QString bookpath = resource->GetRelativePath();
+        QStringList ids=BookPathIds.value(bookpath, QStringList());
+        foreach(QString id, ids) {
+            UsedIds.insert(id);
+        }
+    }
+
+    // Create the list of bookpaths being merged into in order
     QList<QString> merged_bookpaths;
     foreach(Resource * resource, resources) {
         merged_bookpaths << resource->GetRelativePath();
@@ -1232,50 +1243,70 @@ Resource *Book::MergeResources(QList<Resource *> resources)
 
     Resource *sink_resource = resources.at(0);
     HTMLResource *sink_html_resource = qobject_cast<HTMLResource *>(sink_resource);
-    // qDebug() << "just before merge update and extract";
 
     const QList<QPair<QString, QString>> &bodies = QtConcurrent::blockingMapped(resources, 
                                                                                 std::bind(UpdateAndExtractBodyInOneFile, 
                                                                                           std::placeholders::_1,
                                                                                           merged_bookpaths));
+    // collect the outputs from the many threads
     QHash<QString, QString> updated_bodies;
     for (int i = 0; i < bodies.count(); ++i) {
         QPair<QString, QString> body = bodies.at(i);
         updated_bodies.insert(body.first, body.second);
     }
+
     QStringList new_bodies;
+    QHash<QString,QString> section_id_map;
+
+    // remove everything after the body tag in the sink resource
     QString text = sink_html_resource->GetText();
     QRegularExpression body_search(BODY_START, QRegularExpression::CaseInsensitiveOption);
     QRegularExpressionMatch body_search_mo = body_search.match(text);
     int body_tag_end   = body_search_mo.capturedStart() + body_search_mo.capturedLength();
     new_bodies << Utility::Substring(0, body_tag_end, text);
+
+    // build up the new merged file and set it into the sink resource
+    int i = 0;
     foreach(QString bookpath, merged_bookpaths) {
-        new_bodies.append(updated_bodies[bookpath]);
+        // inject anchor tag to start each merged section and record it after the sink resource
+        if (i == 0) {
+            new_bodies.append(updated_bodies[bookpath]);
+        } else {
+            QString section_id = Utility::GenerateUniqueId("section", UsedIds);
+            UsedIds.insert(section_id);
+            new_bodies.append("  <a id=\"" + section_id + "\"></a>\n" + updated_bodies[bookpath]);
+            section_id_map[bookpath] = section_id;
+        }
+        i++;
     }
     new_bodies.append("</body>\n</html>");
     QString new_source = new_bodies.join("");
-    //qDebug() << "merged new source ready";
     sink_html_resource->SetText(new_source);
-    // qDebug() << "wrote to the sink";
+
+    // now use the generates section_id_map to update the nav landmarks and guide entries
+    // FIXME:  This is missing now
+
     // now delete the merged resources except for the sink
     resources.removeOne(sink_resource);
     m_Mainfolder->BulkRemoveResources(resources);
-    // qDebug() << "deleted merged resources";
+
+    // Update all anchors from outside the merged set into it
     QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
     html_resources.removeOne(sink_html_resource);
-    // qDebug() << "anchor updates for other html resources";
-    AnchorUpdates::UpdateAllAnchors(html_resources, merged_bookpaths, sink_html_resource);
+    AnchorUpdates::UpdateAllAnchors(html_resources, merged_bookpaths, sink_html_resource, section_id_map);
+
+    // Update any NCX anchors into the merged set
     NCXResource * ncx_resource = GetNCX();
     if (ncx_resource) {
-        // qDebug() << "anchor updates for ncx resource";
         AnchorUpdates::UpdateTOCEntriesAfterMerge(ncx_resource, 
                                                   sink_html_resource->GetRelativePath(),
                                                   merged_bookpaths);
     }
+
     SetModified(true);
-    qDebug() << "done";
     return NULL;
 }
+
 
 QList <Resource *> Book::GetAllResources()
 {
