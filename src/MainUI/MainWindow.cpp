@@ -115,6 +115,7 @@
 #include "sigil_exception.h"
 #include "SourceUpdates/LinkUpdates.h"
 #include "SourceUpdates/WordUpdates.h"
+#include "SourceUpdates/FragmentUpdates.h"
 #include "Tabs/FlowTab.h"
 #include "Tabs/CSSTab.h"
 #include "Tabs/OPFTab.h"
@@ -2876,15 +2877,51 @@ void MainWindow::MergeResources(QList <Resource *> resources)
             return;
     }
 
-    // really we need to check for duplicate ids being used in any of the files to be merged
-    // and fix them here first before preeceeding
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // we need to check for duplicate ids being used in any of the files to be merged
+    // and fix them here first before proceeding
+    QHash<QString,QStringList> BookPathIds = m_Book->GetIdsInHTMLFiles();
+    QSet<QString> Duplicates;
+    QSet<QString> UsedIds;
+    QHash<QString, QStringList> IdBookPaths;
+    // for the set of files involved, invert BookPathIds to identify duplicates
+    foreach(Resource * resource, resources) {
+        QString bookpath = resource->GetRelativePath();
+        QStringList ids=BookPathIds.value(bookpath, QStringList());
+        foreach(QString id, ids) {
+            QStringList bpaths = IdBookPaths.value(id, QStringList());
+            bpaths << bookpath;
+            if (bpaths.size() >= 2) Duplicates.insert(id);
+            IdBookPaths[id] = bpaths;
+            UsedIds.insert(id);
+        }
+    }
+    QStringList Dups = Duplicates.toList();
+    if (!Dups.isEmpty()) {
+        // if duplicates exist, run the SourceUpdates/FragmentUpdates
+        QHash<QString, QString> Updates;
+        foreach(QString id, Dups) {
+            // qDebug() << "Id duplicated: " << id << " in " << IdBookPaths[id];
+            QStringList bpaths = IdBookPaths[id];
+            for (int i=1; i < bpaths.size(); i++) {
+                QString newid = Utility::GenerateUniqueId(id, UsedIds);
+                Updates[bpaths.at(i) + "#" + id] = newid;
+                UsedIds.insert(newid);
+            }
+
+        }
+        QList<HTMLResource *> AllHTMLResources= m_Book->GetHTMLResources();
+        FragmentUpdates::UpdateFragments(AllHTMLResources, Updates);
+    }
+
+
 #if 0
+    // do we need this anymore?
     if (!ProceedWithUndefinedUrlFragments()) {
         return;
     }
 #endif
-
-    QApplication::setOverrideCursor(Qt::WaitCursor);
 
     // Close all tabs being updated to prevent BV overwriting the new data
     foreach(Resource *resource, resources) {

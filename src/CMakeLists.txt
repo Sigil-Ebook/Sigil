@@ -602,6 +602,8 @@ set( SOURCEUPDATE_FILES
     SourceUpdates/PerformXMLUpdates.h
     SourceUpdates/AnchorUpdates.cpp
     SourceUpdates/AnchorUpdates.h
+    SourceUpdates/FragmentUpdates.cpp
+    SourceUpdates/FragmentUpdates.h
     SourceUpdates/LinkUpdates.cpp
     SourceUpdates/LinkUpdates.h
     SourceUpdates/WordUpdates.cpp

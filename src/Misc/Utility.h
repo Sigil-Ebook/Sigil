@@ -29,6 +29,7 @@
 #include <QCoreApplication>
 #include <QtCore/QString>
 #include <QColor>
+#include <QSet>
 
 class QStringList;
 class QStringRef;
@@ -237,6 +238,10 @@ public:
 
     // parse a line of data from a csv file into a list of string values
     static QStringList parseCSVLine(const QString &data);
+
+    // Generate a Unique Id given a root id and Used Set
+    static QString GenerateUniqueId(const QString &id, const QSet<QString>& Used);
+
 };
 #endif // UTILITY_H
 

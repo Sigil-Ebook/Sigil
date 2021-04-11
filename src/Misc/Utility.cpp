@@ -59,6 +59,7 @@
 #include <QFileInfo>
 #include <QCollator>
 #include <QMenu>
+#include <QSet>
 #include <QVector>
 #include <QDebug>
 
@@ -1314,3 +1315,14 @@ QStringList Utility::parseCSVLine(const QString &data)
     return vals;
 }
 
+
+QString Utility::GenerateUniqueId(const QString &id, const QSet<QString>& Used)
+{
+    int cnt = 1;
+    QString new_id = id + "_" + QString::number(cnt);
+    while (Used.contains(new_id)) {
+        cnt++;
+        new_id = id + "_" + QString::number(cnt);
+    }
+    return new_id;
+}
