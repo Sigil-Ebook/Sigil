@@ -20,6 +20,7 @@
 **
 *************************************************************************/
 
+#include <QApplication>
 #include <QSyntaxHighlighter>
 #include <QTextDocument>
 #include <QRegularExpressionMatch>
@@ -164,10 +165,10 @@ void XHTMLHighlighter::highlightBlock(const QString &text)
     }
 
     SettingsStore settings;
-    m_enableSpellCheck = settings.spellCheck();
+    bool enableSpellCheck = settings.spellCheck();
 
     // Run spell check over the text.
-    if (m_enableSpellCheck && m_checkSpelling) {
+    if (enableSpellCheck && m_checkSpelling) {
         CheckSpelling(text);
     }
 
@@ -183,10 +184,15 @@ void XHTMLHighlighter::highlightBlock(const QString &text)
 }
 
 
-void XHTMLHighlighter::rehighlight()
+void XHTMLHighlighter::do_rehighlight()
 {
     SetRules();
-    QSyntaxHighlighter::rehighlight();
+    // bool do_spelling = m_checkSpelling;
+    // m_checkSpelling = false;
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    rehighlight();
+    QApplication::restoreOverrideCursor();
+    // m_checkSpelling = do_spelling;
 }
 
 

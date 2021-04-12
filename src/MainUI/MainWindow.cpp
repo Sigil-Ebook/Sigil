@@ -2919,14 +2919,6 @@ void MainWindow::MergeResources(QList <Resource *> resources)
         }
     }
 
-
-#if 0
-    // do we need this anymore?
-    if (!ProceedWithUndefinedUrlFragments()) {
-        return;
-    }
-#endif
-
     // Close all tabs being updated to prevent BV overwriting the new data
     foreach(Resource *resource, resources) {
         m_TabManager->CloseTabForResource(resource);

@@ -28,10 +28,13 @@
 
 class CSSHighlighter : public QSyntaxHighlighter
 {
+    Q_OBJECT
 
 public:
 
     explicit CSSHighlighter(QObject *parent);
+
+    void do_rehighlight();
 
 protected:
 

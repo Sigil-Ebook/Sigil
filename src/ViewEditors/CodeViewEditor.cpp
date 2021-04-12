@@ -151,13 +151,12 @@ QSize CodeViewEditor::sizeHint() const
 }
 
 
-void CodeViewEditor::CustomSetDocument(TextDocument &document)
+void CodeViewEditor::CustomSetDocument(TextDocument &ndocument)
 {
-    setDocument(&document);
-    document.setModified(false);
-
+    setDocument(&ndocument);
+    ndocument.setModified(false);
     if (m_Highlighter) {
-        m_Highlighter->setDocument(&document);
+        m_Highlighter->setDocument(&ndocument);
         // The QSyntaxHighlighter will setup a singleShot timer to do the highlighting
         // in response to setDocument being called. This causes a problem because we
         // cannot control at what point it finishes, and the textChanged signal of the
@@ -2013,12 +2012,19 @@ void CodeViewEditor::RehighlightDocument()
         return;
     }
 
+    // Is this needed,  Why not let it work asynchronously
     if (m_Highlighter) {
         // We block signals from the document while highlighting takes place,
         // because we do not want the contentsChanged() signal to be fired
         // which would mark the underlying resource as needing saving.
+        XHTMLHighlighter* xhl = qobject_cast<XHTMLHighlighter*>(m_Highlighter);
+        CSSHighlighter* chl = qobject_cast<CSSHighlighter*>(m_Highlighter);
         document()->blockSignals(true);
-        m_Highlighter->rehighlight();
+        if (xhl) {
+            xhl->do_rehighlight();
+        } else if (chl) {
+            chl->do_rehighlight();
+        }
         document()->blockSignals(false);
     }
 }

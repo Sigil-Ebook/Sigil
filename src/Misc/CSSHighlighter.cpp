@@ -19,6 +19,8 @@
 **
 *************************************************************************/
 
+#include <QApplication>
+
 #include "Misc/CSSHighlighter.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -75,6 +77,13 @@ CSSHighlighter::CSSHighlighter(QObject *parent)
     } else {
         m_codeViewAppearance = settings.codeViewAppearance();
     }
+}
+
+void CSSHighlighter::do_rehighlight()
+{
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    rehighlight();
+    QApplication::restoreOverrideCursor();
 }
 
 void CSSHighlighter::highlightBlock(const QString &text)

@@ -32,6 +32,7 @@ class QTextDocument;
 
 class XHTMLHighlighter : public QSyntaxHighlighter
 {
+    Q_OBJECT
 
 public:
 
@@ -39,7 +40,7 @@ public:
     XHTMLHighlighter(bool checkSpelling, QObject *parent = 0);
 
     void SetRules();
-    void rehighlight();
+    void do_rehighlight();
 
 protected:
 
@@ -108,9 +109,6 @@ private:
 
     // Determine if spell check should be used on the document.
     bool m_checkSpelling;
-
-    // Determine if automatic spell check is enabled
-    bool m_enableSpellCheck;
 
     SettingsStore::CodeViewAppearance m_codeViewAppearance;
 };
