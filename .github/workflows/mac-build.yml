@@ -35,6 +35,7 @@ env:
   MACOSX_DEPLOYMENT_TARGET: 10.12
   DOWNLOADQT: https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Qt5129.tar.xz
   DOWNLOADPY: https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Python.framework.tar.xz
+  DOWNLOADGDRIVE: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/gdrive-darwin-amd64
   PY_VER: 3.8
   QT: Qt5129
 
@@ -62,7 +63,6 @@ jobs:
       shell: bash
       working-directory: ${{runner.workspace}}
       run: |
-        brew install gdrive
         brew install wget
         pwd
         if [[ ! -d ${{runner.workspace}}/${{env.QT}} ]]; \
@@ -80,6 +80,9 @@ jobs:
         then mkdir Frameworks && cd ${{runner.workspace}}/Frameworks && \
         wget ${DOWNLOADPY} && tar xzf Python.framework.tar.xz; fi
 
+        curl -L -o gdrive ${DOWNLOADGDRIVE}
+        echo ${{runner.workspace}} >> $GITHUB_PATH
+
         export MYDEST=${{runner.workspace}}/Frameworks
         echo ${MYDEST}/Python.framework/Versions/${PY_VER}/bin >> $GITHUB_PATH
         echo "Qt5_DIR=${{runner.workspace}}/${{env.QT}}/lib/cmake/Qt5" >> $GITHUB_ENV
@@ -91,6 +94,7 @@ jobs:
       run: |
         qmake -v
         python3 --version
+        gdrive version
         mkdir ${{runner.workspace}}/build
         pwd
 
