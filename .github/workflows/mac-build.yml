@@ -81,6 +81,7 @@ jobs:
         wget ${DOWNLOADPY} && tar xzf Python.framework.tar.xz; fi
 
         curl -L -o gdrive ${DOWNLOADGDRIVE}
+        chmod a+x ./gdrive
         echo ${{runner.workspace}} >> $GITHUB_PATH
 
         export MYDEST=${{runner.workspace}}/Frameworks
