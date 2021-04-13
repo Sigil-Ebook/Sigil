@@ -370,6 +370,8 @@ set( MISC_FILES
     Misc/FilenameDelegate.h
     Misc/XHTMLHighlighter.cpp
     Misc/XHTMLHighlighter.h
+    Misc/XHTMLHighlighter2.cpp
+    Misc/XHTMLHighlighter2.h
     Misc/CSSHighlighter.cpp
     Misc/CSSHighlighter.h
     Misc/HTMLEncodingResolver.cpp

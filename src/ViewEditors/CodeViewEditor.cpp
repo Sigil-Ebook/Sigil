@@ -46,7 +46,8 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "MainUI/MainWindow.h"
 #include "Parsers/GumboInterface.h"
-#include "Misc/XHTMLHighlighter.h"
+// #include "Misc/XHTMLHighlighter.h"
+#include "Misc/XHTMLHighlighter2.h"
 #include "Dialogs/ClipEditor.h"
 #include "Misc/CSSHighlighter.h"
 #include "Misc/SettingsStore.h"
@@ -106,7 +107,8 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
     m_regen_taglist(true)
 {
     if (high_type == CodeViewEditor::Highlight_XHTML) {
-        m_Highlighter = new XHTMLHighlighter(check_spelling, this);
+        // m_Highlighter = new XHTMLHighlighter(check_spelling, this);
+        m_Highlighter = new XHTMLHighlighter2(check_spelling, this);
     } else if (high_type == CodeViewEditor::Highlight_CSS) {
         m_Highlighter = new CSSHighlighter(this);
     } else {
@@ -2017,7 +2019,8 @@ void CodeViewEditor::RehighlightDocument()
         // We block signals from the document while highlighting takes place,
         // because we do not want the contentsChanged() signal to be fired
         // which would mark the underlying resource as needing saving.
-        XHTMLHighlighter* xhl = qobject_cast<XHTMLHighlighter*>(m_Highlighter);
+        XHTMLHighlighter2* xhl = qobject_cast<XHTMLHighlighter2*>(m_Highlighter);
+        // XHTMLHighlighter* xhl = qobject_cast<XHTMLHighlighter*>(m_Highlighter);
         CSSHighlighter* chl = qobject_cast<CSSHighlighter*>(m_Highlighter);
         document()->blockSignals(true);
         if (xhl) {
