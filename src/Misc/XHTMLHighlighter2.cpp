@@ -72,7 +72,7 @@ static const QList<QChar> SPECIAL_SPACES  = QList<QChar>() <<  QChar(160) << QCh
                                                                QChar(8200) << QChar(8201) << QChar(8202) << 
                                                                QChar(8239) << QChar(12288);
 
-
+static const QString WHITESPACE = " \f\t\r\n";
 
 
 // Constructor
@@ -213,7 +213,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                 start = pos;
                 while (pos < n) {
                     ch = text.at(pos++);
-                    if (ch == ' ') {
+                    if (WHITESPACE.contains(ch)) {
                         pos--;
                         if (state == State_CSSTagName) nstate = State_CSSInsideTag;
                         if (state == State_TagName) nstate = State_InsideTag;
@@ -244,7 +244,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                         setFormat(pos-1, 1, m_Rules["tagname"]);
                         break;
                     }
-                    if (ch != ' ') {
+                    if (!WHITESPACE.contains(ch)) {
                         pos--;
                         if (state == State_CSSInsideTag) nstate = State_CSSAttName;
                         if (state == State_InsideTag) nstate = State_AttName;
@@ -309,7 +309,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                     start = pos;
                     while (pos < n) {
                         ch = text.at(pos);
-                        if (ch == ' ') {
+                        if (WHITESPACE.contains(ch)) {
                             break;
                         }
                         if (ch == '>' || ch == '/') {
