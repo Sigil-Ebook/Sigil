@@ -285,6 +285,9 @@ protected:
      */
     void closeEvent(QCloseEvent *event);
 
+public slots:
+    void TimerTimedOut();        
+
 private slots:
 
     void UpdateLastSizes();
@@ -515,7 +518,6 @@ private slots:
     void UpdatePreviewCSSRequest();
     void ScrollPreview();
     void UpdatePreview();
-    void TimerTimedOut();
     void InspectHTML();
 
     /**
