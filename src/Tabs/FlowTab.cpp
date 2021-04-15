@@ -244,8 +244,8 @@ void FlowTab::ResourceModified()
         m_LastPosition = -1;
     }
 
-    DBG qDebug() << "FlowTab emitting UpdatePreview from ResourceModified";
     if (IsLoadingFinished()) {
+        qDebug() << "FlowTab in ResourceModified";
         EmitUpdatePreview();
     }
 }
@@ -328,7 +328,7 @@ void FlowTab::UpdateDisplay()
 void FlowTab::EmitContentChanged()
 {
     m_safeToLoad = false;
-    DBG qDebug() << "FlowTab emiting Content Changed";
+    qDebug() << "FlowTab emiting Content Changed";
     emit ContentChanged();
 }
 

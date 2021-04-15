@@ -3936,7 +3936,14 @@ void MainWindow::SetupPreviewTimer()
 {
     m_PreviewTimer.setSingleShot(true);
     m_PreviewTimer.setInterval(1000);
-    connect(&m_PreviewTimer, SIGNAL(timeout()), this, SLOT(UpdatePreview()));
+    connect(&m_PreviewTimer, SIGNAL(timeout()), this, SLOT(TimerTimedOut()));
+    m_PreviewTimer.stop();
+}
+
+void MainWindow::TimerTimedOut()
+{
+    qDebug() << "Timer timedout will UpdatePreview";
+    UpdatePreview();
 }
 
 void MainWindow::UpdatePreviewRequest()
@@ -5968,6 +5975,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab,   SIGNAL(SpellingHighlightRefreshRequest()), this,  SLOT(RefreshSpellingHighlighting()));
         connect(tab,   SIGNAL(InsertFileRequest()), this,  SLOT(InsertFileDialog()));
 
+        qDebug() << "connecting tab: " << tab << "to UpdatePreviewRequest and UpdatePreview";
         connect(tab,   SIGNAL(UpdatePreview()), this, SLOT(UpdatePreviewRequest()));
         connect(tab,   SIGNAL(UpdatePreviewImmediately()), this, SLOT(UpdatePreview()));
         connect(tab,   SIGNAL(ScrollPreviewImmediately()), this, SLOT(ScrollPreview()));
