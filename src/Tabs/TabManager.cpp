@@ -359,6 +359,7 @@ void TabManager::EmitTabChanged(int new_index)
     ContentTab *current_tab = qobject_cast<ContentTab *>(currentWidget());
     // the result of the qobject_cast can be NULL and that is okay
     if (m_LastContentTab != current_tab) {
+        qDebug() << "Emitting TabChanged Signal";
         ContentTab * prev_tab = m_LastContentTab;
         m_LastContentTab = current_tab;
         emit TabChanged(prev_tab, current_tab);

@@ -210,7 +210,7 @@ void PreviewWindow::SetupView()
 bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<ElementIndex> location)
 {
 
-    DBG qDebug() << "Entered PV UpdatePage with filename: " << filename_url;
+    qDebug() << "Entered PV UpdatePage with filename: " << filename_url;
 
     if (!m_Preview->isVisible()) {
         DBG qDebug() << "ignoring PV UpdatePage since PV is not visible";
@@ -218,7 +218,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     }
 
     if (m_updatingPage) {
-        DBG qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
+        qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
         return false;
     }
 

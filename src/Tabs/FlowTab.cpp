@@ -338,13 +338,13 @@ void FlowTab::EmitUpdatePreview()
 
 void FlowTab::EmitUpdatePreviewImmediately()
 {
-      DBG qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitUpdatePreviewImmediately";
+      qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitUpdatePreviewImmediately";
       emit UpdatePreviewImmediately();
 }
 
 void FlowTab::EmitScrollPreviewImmediately()
 {
-      DBG qDebug() << "FlowTab emiting ScrollPreviewImmediately from EmitScrollPreviewImmediately";
+      qDebug() << "FlowTab emiting ScrollPreviewImmediately from EmitScrollPreviewImmediately";
       emit ScrollPreviewImmediately();
 }
 

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -41,6 +41,8 @@
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
 
+#define DBG if(0)
+
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 # include <stdlib.h>
 #endif
@@ -58,6 +60,7 @@ SpellCheck *SpellCheck::instance()
 
 SpellCheck::SpellCheck()
 {
+    DBG qDebug() << "In SpellCheck Constructor";
     // There is a considerable lag involved in loading the Spellcheck dictionaries
     QApplication::setOverrideCursor(Qt::WaitCursor);
     loadDictionaryNames();
@@ -78,11 +81,11 @@ SpellCheck::SpellCheck()
         }
     }
 
-    // Load the dictionary the user has selected if one was saved.
     QApplication::restoreOverrideCursor();
 
     UpdateLangCodeToDictMapping();
 
+    // Load the dictionary the user has selected
     // now open primary and secondary dictionaries
     SettingsStore settings;
     loadDictionary(settings.dictionary());
@@ -93,6 +96,7 @@ SpellCheck::SpellCheck()
 
 void SpellCheck::UpdateLangCodeToDictMapping()
 {
+    DBG qDebug() << "In UpdateLangCodeToDictMapping";
     m_langcode2dict.clear();
 
     // create language code to dictionary name mapping
@@ -124,6 +128,7 @@ void SpellCheck::UpdateLangCodeToDictMapping()
 
 void SpellCheck::UnloadDictionary(const QString &dname)
 {
+    DBG qDebug() << "In UnloadDictionary";
     QMutexLocker locker(&mutex);
     if (m_opendicts.contains(dname)) {
         HDictionary hdic = m_opendicts[dname];
@@ -136,6 +141,7 @@ void SpellCheck::UnloadDictionary(const QString &dname)
 
 void SpellCheck::UnloadAllDictionaries()
 {
+    DBG qDebug() << "In UnloadAllDictionaries";
     foreach(QString name, m_opendicts.keys()) {
         UnloadDictionary(name);
     }
@@ -143,6 +149,7 @@ void SpellCheck::UnloadAllDictionaries()
 
 SpellCheck::~SpellCheck()
 {
+    DBG qDebug() << "In SpellCheck destructor";
     UnloadAllDictionaries();
 
     if (m_instance) {
@@ -153,6 +160,7 @@ SpellCheck::~SpellCheck()
 
 QStringList SpellCheck::userDictionaries()
 {
+    DBG qDebug() << "In userDictionaries";
     // Load the list of user dictionaries.
     QDir userDictDir(userDictionaryDirectory());
     QStringList user_dicts = userDictDir.entryList(QDir::Files | QDir::NoDotAndDotDot);
@@ -162,6 +170,7 @@ QStringList SpellCheck::userDictionaries()
 
 QStringList SpellCheck::dictionaries()
 {
+    DBG qDebug() << "In dictionaries";
     loadDictionaryNames();
     QStringList dicts;
     dicts = m_dictionaries.keys();
@@ -171,12 +180,14 @@ QStringList SpellCheck::dictionaries()
 
 QString SpellCheck::currentPrimaryDictionary() const
 {
+    DBG qDebug() << "In currentPrimaryDictionary";
     SettingsStore settings;
     return settings.dictionary();
 }
 
 bool SpellCheck::spell(const QString &word)
 {
+    DBG qDebug() << "In spell";
     QString dname = m_langcode2dict.value(HTMLSpellCheckML::langOf(word), "");
 
     // if no dictionary exists for this language treat it as correct
@@ -199,6 +210,7 @@ bool SpellCheck::spell(const QString &word)
 // spell check word without langcode info in Primary and Secondary Dictionaries
 bool SpellCheck::spellPS(const QString &word)
 {
+    DBG qDebug() << "In spellPS";
     SettingsStore settings;
     QString dname = settings.dictionary();
     // if primary dictionary does not exist simply return true (no error)
@@ -220,6 +232,7 @@ bool SpellCheck::spellPS(const QString &word)
 
 QStringList SpellCheck::suggest(const QString &word)
 {
+    DBG qDebug() << "In suggest";
     QStringList suggestions;
     char **suggestedWords;
     QString dname = m_langcode2dict.value(HTMLSpellCheckML::langOf(word), "");
@@ -242,6 +255,7 @@ QStringList SpellCheck::suggest(const QString &word)
 // suggesttions for word without langcode using Primary and Secondary Dictionaries
 QStringList SpellCheck::suggestPS(const QString &word)
 {
+    DBG qDebug() << "In suggestPS";
     SettingsStore settings;
     QStringList suggestions;
     char **suggestedWords;
@@ -276,23 +290,27 @@ QStringList SpellCheck::suggestPS(const QString &word)
 
 void SpellCheck::clearIgnoredWords()
 {
+    DBG qDebug() << "In clearIgnoredWords";
     m_ignoredWords.clear();
 }
 
 
 void SpellCheck::ignoreWord(const QString &word)
 {
+    DBG qDebug() << "In ignoreWord";
     m_ignoredWords[word] = 1;
 }
 
 
 bool SpellCheck::isIgnored(const QString &word) {
+    DBG qDebug() << "In isIgnored";
     return m_ignoredWords.value(word, 0);
 }
 
 
 void SpellCheck::addWordToDictionary(const QString &word, const QString &dname)
 {
+    DBG qDebug() << "In addWordToDictionary";
     if (dname.isEmpty()) return;
     if (m_opendicts.contains(dname)) {
         HDictionary hdic = m_opendicts[dname];
@@ -303,6 +321,7 @@ void SpellCheck::addWordToDictionary(const QString &word, const QString &dname)
 
 void SpellCheck::loadDictionary(const QString &dname)
 {
+    DBG qDebug() << "In loadDictionary: " << dname;
     QMutexLocker locker(&mutex);
     // If we don't have a dictionary we cannot continue.
     if (dname.isEmpty() || !m_dictionaries.contains(dname)) {
@@ -372,6 +391,7 @@ void SpellCheck::loadDictionary(const QString &dname)
 
 void SpellCheck::setDictionary(const QString &dname, bool forceReplace)
 {
+    DBG qDebug() << "In setDictionary " << dname;
     // See if we are already using a hunspell object for this language.
     if (!forceReplace && m_opendicts.contains(dname)) {
         return;
@@ -384,6 +404,7 @@ void SpellCheck::setDictionary(const QString &dname, bool forceReplace)
 
 QString SpellCheck::getWordChars(const QString &lang)
 {
+    DBG qDebug() << "In getWordChars";
     QString dname;
     if (lang.isEmpty()) { 
         dname = currentPrimaryDictionary();
@@ -407,6 +428,7 @@ QString SpellCheck::getWordChars(const QString &lang)
 
 void SpellCheck::addToUserDictionary(const QString &word, QString dict_name)
 {
+    DBG qDebug() << "In AddToUserDictionary";
     // Adding to the user dictionary also marks the word as a correct spelling.
     if (word.isEmpty()) {
         return;
@@ -443,6 +465,7 @@ void SpellCheck::addToUserDictionary(const QString &word, QString dict_name)
 
 QStringList SpellCheck::allUserDictionaryWords()
 {
+    DBG qDebug() << "In allUserDictionaryWords";
     QStringList userWords;
     SettingsStore settings;
     foreach (QString dict_name, settings.enabledUserDictionaries()) {
@@ -453,6 +476,7 @@ QStringList SpellCheck::allUserDictionaryWords()
 
 QStringList SpellCheck::userDictionaryWords(QString dict_name)
 {
+    DBG qDebug() << "In userDictionaryWords";
     QStringList userWords;
     // Read each word from the user dictionary.
 
@@ -481,6 +505,7 @@ QStringList SpellCheck::userDictionaryWords(QString dict_name)
 
 void SpellCheck::dicDeltaWords(const QString &delta_path, QStringList & word_list)
 {
+    DBG qDebug() << "In dicDeltaWords";
     QFile deltaFile(delta_path);
     if (deltaFile.open(QIODevice::ReadOnly)) {
         QTextStream deltaStream(&deltaFile);
@@ -500,6 +525,7 @@ void SpellCheck::dicDeltaWords(const QString &delta_path, QStringList & word_lis
 
 void SpellCheck::loadDictionaryNames()
 {
+    DBG qDebug() << "In loadDictionaryNames";
     QStringList dictExts;
     dictExts << ".aff"
              << ".dic";
@@ -550,22 +576,25 @@ void SpellCheck::loadDictionaryNames()
 
 QString SpellCheck::dictionaryDirectory()
 {
+    DBG qDebug() << "In dictionaryDirectory";
     return Utility::DefinePrefsDir() + "/hunspell_dictionaries";
 }
 
 QString SpellCheck::userDictionaryDirectory()
 {
+    DBG qDebug() << "In userDictionaryDirectory";
     return Utility::DefinePrefsDir() + "/user_dictionaries";
 }
 
 QString SpellCheck::currentUserDictionaryFile()
 {
+    DBG qDebug() << "In currentUserDictionaryFile";
     SettingsStore settings;
     return userDictionaryDirectory() + "/" + settings.defaultUserDictionary();
 }
 
 QString SpellCheck::userDictionaryFile(QString dict_name)
 {
+    DBG qDebug() << "In userDictionaryFile";
     return userDictionaryDirectory() + "/" + dict_name;
 }
-

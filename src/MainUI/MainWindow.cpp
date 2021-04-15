@@ -3987,7 +3987,7 @@ void MainWindow::UpdatePreview()
 
     m_PreviewTimer.stop();
 
-    DBG qDebug() << "MW: UpdatePreview()";
+    qDebug() << "MW: UpdatePreview()";
 
     QString text;
     QList<ElementIndex> location;
@@ -4022,6 +4022,7 @@ void MainWindow::UpdatePreview()
                 // signals are sent that it has changed which requests Preview to update
                 // so these need to be ignored.  Once the document is loaded it signals again.
                 if (!flow_tab->IsLoadingFinished()) {
+                    qDebug() << "Flow Tab Is Loading Finished returned false";
                     return;
                 }
                 text = flow_tab->GetText();
