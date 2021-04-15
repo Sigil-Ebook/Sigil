@@ -3941,6 +3941,7 @@ void MainWindow::SetupPreviewTimer()
 
 void MainWindow::UpdatePreviewRequest()
 {
+    qDebug() << "UpdatePreviewRequest has started its timer";
     if (m_PreviewTimer.isActive()) {
         m_PreviewTimer.stop();
     }

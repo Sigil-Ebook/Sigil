@@ -168,7 +168,7 @@ void FlowTab::DelayedInitialization()
     DelayedConnectSignalsToSlots();
 
     // sync Preview to where CodeView is now
-    // emit ScrollPreviewImmediately();
+    emit ScrollPreviewImmediately();
 
     // Cursor set in constructor
     QApplication::restoreOverrideCursor();
@@ -332,7 +332,7 @@ void FlowTab::EmitContentChanged()
 
 void FlowTab::EmitUpdatePreview()
 {
-    DBG qDebug() << "FlowTab emiting UpdatePreview from EmitUpdatePreview";
+    qDebug() << "FlowTab emiting UpdatePreviewRequest from EmitUpdatePreview";
     emit UpdatePreview();
 }
 

@@ -1987,7 +1987,9 @@ void CodeViewEditor::EmitFilteredCursorMoved()
 {
     // Avoid slowdown while selecting text
     if (QApplication::mouseButtons() == Qt::NoButton) {
-        emit FilteredCursorMoved();
+        if (m_isLoadFinished) {
+            emit FilteredCursorMoved();
+        }
     }
 }
 
