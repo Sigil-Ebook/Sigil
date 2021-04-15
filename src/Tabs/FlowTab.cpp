@@ -245,7 +245,9 @@ void FlowTab::ResourceModified()
     }
 
     DBG qDebug() << "FlowTab emitting UpdatePreview from ResourceModified";
-    EmitUpdatePreview();
+    if (IsLoadingFinished()) {
+        EmitUpdatePreview();
+    }
 }
 
 void FlowTab::HandleViewImage(const QUrl &url) 
@@ -332,8 +334,10 @@ void FlowTab::EmitContentChanged()
 
 void FlowTab::EmitUpdatePreview()
 {
-    qDebug() << "FlowTab emiting UpdatePreviewRequest from EmitUpdatePreview";
-    emit UpdatePreview();
+    if (IsLoadingFinished()) {
+        qDebug() << "FlowTab emiting UpdatePreviewRequest from EmitUpdatePreview";
+        emit UpdatePreview();
+    }
 }
 
 void FlowTab::EmitUpdatePreviewImmediately()
