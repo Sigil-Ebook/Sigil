@@ -48,7 +48,8 @@ TabManager::TabManager(QWidget *parent)
     QTabWidget(parent),
     m_LastContentTab(NULL),
     m_TabsToDelete(QList<ContentTab*>()),
-    m_tabs_deletion_in_use(false)
+    m_tabs_deletion_in_use(false),
+    m_newTab(NULL)
 {
     QTabBar *tab_bar = new TabBar(this);
     setTabBar(tab_bar);
@@ -247,6 +248,7 @@ void TabManager::OpenResource(Resource *resource,
                           caret_location_to_scroll_to, fragment, grab_focus);
 
     if (new_tab) {
+        m_newTab = new_tab;
         AddNewContentTab(new_tab, precede_current_tab);
         emit ShowStatusMessageRequest("");
     } else {
@@ -363,7 +365,11 @@ void TabManager::EmitTabChanged(int new_index)
         ContentTab * prev_tab = m_LastContentTab;
         m_LastContentTab = current_tab;
         emit TabChanged(prev_tab, current_tab);
+        if (current_tab != m_newTab) {
+            emit UpdatePreviewAfterExistingTabSwitch();
+        }
     }
+    m_newTab = NULL;
 }
 
 

@@ -167,6 +167,8 @@ signals:
      */
     void TabChanged(ContentTab *old_tab, ContentTab *new_tab);
 
+    void UpdatePreviewAfterExistingTabSwitch();
+    
     void TabCountChanged();
 
     /**
@@ -293,6 +295,7 @@ private:
 
     QList<ContentTab*> m_TabsToDelete;
     bool m_tabs_deletion_in_use;
+    ContentTab * m_newTab;
 };
 
 #endif // TABMANAGER_H

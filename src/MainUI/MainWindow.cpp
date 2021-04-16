@@ -5807,7 +5807,7 @@ void MainWindow::ConnectSignalsToSlots()
             this,                   SLOT(UpdateUIWhenTabsSwitch()));
     connect(m_TabManager,          SIGNAL(TabChanged(ContentTab *, ContentTab *)),
             this,                    SLOT(UpdateBrowserSelectionToTab()));
-    connect(m_TabManager,          SIGNAL(TabChanged(ContentTab *, ContentTab *)),
+    connect(m_TabManager,          SIGNAL(UpdatePreviewAfterExistingTabSwitch()),
             this,                    SLOT(UpdatePreview()));
     connect(m_BookBrowser,          SIGNAL(UpdateBrowserSelection()),
             this,                    SLOT(UpdateBrowserSelectionToTab()));
