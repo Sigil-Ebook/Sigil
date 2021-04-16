@@ -126,6 +126,8 @@ signals:
 
     void GoToPreviewLocationRequest();
 
+    void ViewProgress(int);
+    
 protected:
     /**
      * Evaluates the provided javascript source code

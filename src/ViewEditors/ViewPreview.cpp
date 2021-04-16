@@ -287,6 +287,7 @@ void ViewPreview::LoadingProgress(int progress)
         m_isLoadFinished = true;
         m_LoadOkay = true;
     }
+    emit ViewProgress(progress);
 }
 
 void ViewPreview::UpdateFinishedState(bool okay)

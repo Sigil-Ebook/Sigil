@@ -37,6 +37,7 @@ class Inspector;
 class QWebEngineView;
 class QVBoxLayout;
 class QHBoxLayout;
+class QProgressBar;
 
 class PreviewWindow : public QDockWidget
 {
@@ -65,7 +66,8 @@ public slots:
     void CopyPreview();
     void ReloadPreview();
     void InspectorClosed(int);
-
+    void setProgress(int);
+    
     /**
      * Set DockWidget titlebar text independently of tab text (when tabbed)
      * @param text The title to use.
@@ -118,6 +120,8 @@ private:
 
     ViewPreview *m_Preview;
     Inspector *m_Inspector;
+    QProgressBar* m_progress;
+
     QString m_Filepath;
     QString m_titleText;
 
@@ -129,6 +133,7 @@ private:
     QAction * m_copyAction;
     QAction * m_reloadAction;
 
+    
     QList<ElementIndex> m_location;
     bool m_updatingPage;
 };

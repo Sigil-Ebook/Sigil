@@ -35,6 +35,7 @@
 #include <QStylePainter>
 #include <QStyleOptionFrame>
 #include <QTimer>
+#include <QProgressBar>
 #include <QDebug>
 
 #include "MainUI/PreviewWindow.h"
@@ -60,10 +61,14 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_buttons(new QHBoxLayout()),
     m_Preview(new ViewPreview(this)),
     m_Inspector(new Inspector(this)),
+    m_progress(new QProgressBar(this)),
     m_Filepath(QString()),
     m_titleText(QString()),
     m_updatingPage(false)
 {
+    m_progress->reset();
+    m_progress->setMinimum(0);
+    m_progress->setMaximum(100);
     setWindowTitle(tr("Preview"));
     SetupView();
     LoadSettings();
@@ -92,6 +97,10 @@ PreviewWindow::~PreviewWindow()
         }
         delete m_Inspector;
         m_Inspector = nullptr;
+    }
+
+    if (m_progress) {
+        m_progress->reset();
     }
 }
 
@@ -196,6 +205,8 @@ void PreviewWindow::SetupView()
     tb->addAction(m_selectAction);
     tb->addAction(m_copyAction);
     tb->addAction(m_reloadAction);
+    tb->addWidget(m_progress);
+
     m_buttons->addWidget(tb);
     m_Layout->addLayout(m_buttons);
 
@@ -222,6 +233,9 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         return false;
     }
 
+    m_progress->setRange(0,100);
+    m_progress->setValue(0);
+    
     m_updatingPage = true;
     m_location = location;
 
@@ -290,12 +304,13 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     m_Filepath = filename_url;
     m_Preview->CustomSetDocument(filename_url, text);
 
+    m_progress->setValue(10);
     return true;
 }
 
 void PreviewWindow::UpdatePageDone()
 {
-   if (!m_Preview->WasLoadOkay()) qDebug() << "PV loadFinished with okay set to false!";
+    if (!m_Preview->WasLoadOkay()) qDebug() << "PV loadFinished with okay set to false!";
  
     DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
     DBG qDebug() << "PreviewWindow UpdatePage final step scroll to location";
@@ -305,6 +320,8 @@ void PreviewWindow::UpdatePageDone()
     UpdateWindowTitle();
     m_updatingPage = false;
     m_Preview->Zoom();
+    m_progress->setValue(100);
+    m_progress->reset();
 }
 
 void PreviewWindow::ScrollTo(QList<ElementIndex> location)
@@ -511,8 +528,16 @@ void PreviewWindow::ReloadPreview()
     // m_Preview->triggerPageAction(QWebEnginePage::Reload);
 
     //force reset m_updatingPage in case a signal is lost
+    m_progress->reset();
     m_updatingPage = false;
     emit RequestPreviewReload();
+}
+
+void PreviewWindow::setProgress(int val)
+{
+    if (val > 10 && val < 100) {
+      m_progress->setValue(val);
+    }
 }
 
 void PreviewWindow::LoadSettings()
@@ -528,12 +553,13 @@ void PreviewWindow::ConnectSignalsToSlots()
     connect(m_Preview,   SIGNAL(ZoomFactorChanged(float)),  this, SIGNAL(ZoomFactorChanged(float)));
     connect(m_Preview,   SIGNAL(LinkClicked(const QUrl &)), this, SLOT(LinkClicked(const QUrl &)));
     connect(m_Preview,   SIGNAL(DocumentLoaded()),          this, SLOT(UpdatePageDone()));
-    connect(m_inspectAction, SIGNAL(triggered()),     this, SLOT(InspectPreviewPage()));
-    connect(m_selectAction,  SIGNAL(triggered()),     this, SLOT(SelectAllPreview()));
-    connect(m_copyAction,    SIGNAL(triggered()),     this, SLOT(CopyPreview()));
-    connect(m_reloadAction,  SIGNAL(triggered()),     this, SLOT(ReloadPreview()));
-    connect(m_Inspector,     SIGNAL(finished(int)),   this, SLOT(InspectorClosed(int)));
-    connect(this,     SIGNAL(topLevelChanged(bool)),   this, SLOT(previewFloated(bool)));
+    connect(m_Preview,   SIGNAL(ViewProgress(int)),         this, SLOT(setProgress(int)));
+    connect(m_inspectAction, SIGNAL(triggered()),           this, SLOT(InspectPreviewPage()));
+    connect(m_selectAction,  SIGNAL(triggered()),           this, SLOT(SelectAllPreview()));
+    connect(m_copyAction,    SIGNAL(triggered()),           this, SLOT(CopyPreview()));
+    connect(m_reloadAction,  SIGNAL(triggered()),           this, SLOT(ReloadPreview()));
+    connect(m_Inspector,     SIGNAL(finished(int)),         this, SLOT(InspectorClosed(int)));
+    connect(this,     SIGNAL(topLevelChanged(bool)),        this, SLOT(previewFloated(bool)));
 }
 
 // Note: You can not use gumbo to perform the replacement as being
