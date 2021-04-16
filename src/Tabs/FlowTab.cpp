@@ -176,7 +176,7 @@ void FlowTab::DelayedInitialization()
 
 bool FlowTab::IsLoadingFinished()
 {
-    bool is_finished = true;
+    bool is_finished = false;
 
     if (m_wCodeView) {
         is_finished = m_wCodeView->IsLoadingFinished();

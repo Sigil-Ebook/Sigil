@@ -171,7 +171,6 @@ void CodeViewEditor::CustomSetDocument(TextDocument &ndocument)
     ResetFont();
     m_isLoadFinished = true;
     m_regen_taglist = true;
-
     emit DocumentSet();
 }
 
