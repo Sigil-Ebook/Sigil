@@ -34,6 +34,8 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/FindReplaceQLineEdit.h"
 
+#define DBG if(0)
+
 static const QString SETTINGS_GROUP = "find_replace";
 static const QString REGEX_OPTION_UCP = "(*UCP)";
 static const QString REGEX_OPTION_IGNORE_CASE = "(?i)";
@@ -236,7 +238,7 @@ void FindReplace::ResetKeyModifiers()
 
 void FindReplace::FindClicked()
 {
-    qDebug() << "FindClicked";
+    DBG qDebug() << "FindClicked";
     SetKeyModifiers();
     Find();
     ResetKeyModifiers();
@@ -311,7 +313,7 @@ void FindReplace::FindAnyTextInTags(QString text)
 
 bool FindReplace::Find()
 {
-    qDebug() << "Find";
+    DBG qDebug() << "Find";
     bool found = false;
 
     if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
@@ -326,14 +328,14 @@ bool FindReplace::Find()
 
 bool FindReplace::FindNext()
 {
-    qDebug() << "FindNext";
+    DBG qDebug() << "FindNext";
     return FindText(Searchable::Direction_Down);
 }
 
 
 bool FindReplace::FindPrevious()
 {
-    qDebug() << "FindPrevious";
+    DBG qDebug() << "FindPrevious";
     return FindText(Searchable::Direction_Up);
 }
 
@@ -558,7 +560,7 @@ bool FindReplace::FindMisspelledWord()
 // Starts the search for the user's term.
 bool FindReplace::FindText(Searchable::Direction direction)
 {
-    qDebug() << "FindText";
+    DBG qDebug() << "FindText";
     bool found = false;
     clearMessage();
 
@@ -710,7 +712,7 @@ QString FindReplace::PrependRegexOptionToSearch(const QString &option, const QSt
 
 bool FindReplace::IsCurrentFileInSelection()
 {
-    qDebug() << "IsCurrentFileInSection";
+    DBG qDebug() << "IsCurrentFileInSection";
     bool found = false;
     QList <Resource *> resources = GetFilesToSearch();
     Resource *current_resource = GetCurrentResource();
@@ -823,13 +825,13 @@ int FindReplace::ReplaceInAllFiles()
 
 bool FindReplace::FindInAllFiles(Searchable::Direction direction)
 {
-    qDebug() << "FindInAllFiles";
+    DBG qDebug() << "FindInAllFiles";
 
     Searchable *searchable = 0;
     bool found = false;
 
     if (IsCurrentFileInSelection()) {
-        qDebug() << " .. FindInAllFiles said IsCurrentFileInSelection true";
+        DBG qDebug() << " .. FindInAllFiles said IsCurrentFileInSelection true";
         searchable = GetAvailableSearchable();
 
         if (searchable) {
@@ -838,10 +840,10 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
     }
 
     if (!found) {
-        qDebug() << " .. FindInAllFiles GetNextContainingResource";
+        DBG qDebug() << " .. FindInAllFiles GetNextContainingResource";
         Resource *containing_resource = GetNextContainingResource(direction);
 
-        qDebug() << " huh .." << containing_resource;
+        DBG qDebug() << " huh .." << containing_resource;
 
         if (containing_resource) {
             // Save if editor or F&R has focus
@@ -880,7 +882,7 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
 
 Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction)
 {
-    qDebug() << "GetNextContainingResource";
+    DBG qDebug() << "GetNextContainingResource";
     Resource *current_resource = GetCurrentResource();
     Resource *starting_resource = NULL;
 
@@ -901,7 +903,7 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
         return NULL;
     }
 
-    qDebug() << "  starting resource .. " << starting_resource;
+    DBG qDebug() << "  starting resource .. " << starting_resource;
     if (!starting_resource || (isWhereSelected() && !IsCurrentFileInSelection())) {
         if (direction == Searchable::Direction_Up) {
             starting_resource = resources.first();
@@ -934,7 +936,7 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
 
     while (!passed_starting_resource || (next_resource != starting_resource)) {
         next_resource = GetNextResource(next_resource, direction);
-        qDebug() << "   GetNextResource returns" << next_resource;
+        DBG qDebug() << "   GetNextResource returns" << next_resource;
 
         if (next_resource == starting_resource) {
             if (!m_OptionWrap) {
@@ -961,7 +963,7 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
 
 Resource *FindReplace::GetNextResource(Resource *current_resource, Searchable::Direction direction)
 {
-    qDebug() << "GetNextResource";
+    DBG qDebug() << "GetNextResource";
     QList <Resource *> resources = GetFilesToSearch();
     int max_reading_order       = resources.count() - 1;
     int current_reading_order   = 0;
@@ -970,8 +972,8 @@ Resource *FindReplace::GetNextResource(Resource *current_resource, Searchable::D
     int i = 0;
     if (current_resource) {
         foreach(Resource * resource, resources) {
-            qDebug() << "resource: " << resource;
-            qDebug() << " current resource: " << current_resource;
+            DBG qDebug() << "resource: " << resource;
+            DBG qDebug() << " current resource: " << current_resource;
             if (resource && (resource->GetRelativePath() == current_resource->GetRelativePath())) {
                 current_reading_order = i;
                 break;

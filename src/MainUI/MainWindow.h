@@ -285,9 +285,6 @@ protected:
      */
     void closeEvent(QCloseEvent *event);
 
-public slots:
-    void TimerTimedOut();        
-
 private slots:
 
     void UpdateLastSizes();

@@ -3936,19 +3936,13 @@ void MainWindow::SetupPreviewTimer()
 {
     m_PreviewTimer.setSingleShot(true);
     m_PreviewTimer.setInterval(1000);
-    connect(&m_PreviewTimer, SIGNAL(timeout()), this, SLOT(TimerTimedOut()));
+    connect(&m_PreviewTimer, SIGNAL(timeout()), this, SLOT(UpdatePreview()));
     m_PreviewTimer.stop();
-}
-
-void MainWindow::TimerTimedOut()
-{
-    qDebug() << "Timer timedout will UpdatePreview";
-    UpdatePreview();
 }
 
 void MainWindow::UpdatePreviewRequest()
 {
-    qDebug() << "UpdatePreviewRequest has started its timer";
+    DBG qDebug() << "UpdatePreviewRequest has started its timer";
     if (m_PreviewTimer.isActive()) {
         m_PreviewTimer.stop();
     }
@@ -3964,7 +3958,7 @@ void MainWindow::UpdatePreviewCSSRequest()
 
 void MainWindow::ScrollPreview()
 {
-    qDebug() << "in ScrollPreview called from FlowTab";
+    DBG qDebug() << "in ScrollPreview called from FlowTab";
     QList<ElementIndex> location;
     HTMLResource *html_resource;
 
@@ -3995,7 +3989,7 @@ void MainWindow::UpdatePreview()
 
     m_PreviewTimer.stop();
 
-    qDebug() << "MW: UpdatePreview()";
+    DBG qDebug() << "MW: UpdatePreview()";
 
     QString text;
     QList<ElementIndex> location;
@@ -4030,7 +4024,7 @@ void MainWindow::UpdatePreview()
                 // signals are sent that it has changed which requests Preview to update
                 // so these need to be ignored.  Once the document is loaded it signals again.
                 if (!flow_tab->IsLoadingFinished()) {
-                    qDebug() << "Flow Tab Is Loading Finished returned false";
+                    DBG qDebug() << "Flow Tab Is Loading Finished returned false";
                     return;
                 }
                 text = flow_tab->GetText();
@@ -5974,8 +5968,6 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab,   SIGNAL(ClipboardRestoreRequest()),  m_ClipboardHistorySelector,  SLOT(RestoreClipboardState()));
         connect(tab,   SIGNAL(SpellingHighlightRefreshRequest()), this,  SLOT(RefreshSpellingHighlighting()));
         connect(tab,   SIGNAL(InsertFileRequest()), this,  SLOT(InsertFileDialog()));
-
-        qDebug() << "connecting tab: " << tab << "to UpdatePreviewRequest and UpdatePreview";
         connect(tab,   SIGNAL(UpdatePreview()), this, SLOT(UpdatePreviewRequest()));
         connect(tab,   SIGNAL(UpdatePreviewImmediately()), this, SLOT(UpdatePreview()));
         connect(tab,   SIGNAL(ScrollPreviewImmediately()), this, SLOT(ScrollPreview()));

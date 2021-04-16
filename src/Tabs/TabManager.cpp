@@ -361,11 +361,12 @@ void TabManager::EmitTabChanged(int new_index)
     ContentTab *current_tab = qobject_cast<ContentTab *>(currentWidget());
     // the result of the qobject_cast can be NULL and that is okay
     if (m_LastContentTab != current_tab) {
-        qDebug() << "Emitting TabChanged Signal";
+        // qDebug() << "Emitting TabChanged Signal";
         ContentTab * prev_tab = m_LastContentTab;
         m_LastContentTab = current_tab;
         emit TabChanged(prev_tab, current_tab);
         if (current_tab != m_newTab) {
+            // qDebug() << "Emitting UpdatePreviewAfterExistingTabSwitch";
             emit UpdatePreviewAfterExistingTabSwitch();
         }
     }
@@ -452,13 +453,14 @@ void TabManager::DeleteTab(ContentTab *tab_to_delete)
         // Only the current tab is ever connected to the main ui
         // so do our own version of EmitTabChanged() only if needed
         // to disconnect and reconnect ui signals
-        ContentTab *new_tab = qobject_cast<ContentTab *>(currentWidget());
-        if (m_LastContentTab != new_tab) {
+        ContentTab *next_tab = qobject_cast<ContentTab *>(currentWidget());
+        if (m_LastContentTab != next_tab) {
             // move updating of m_LastContentTab to be upfront *before* emitting the signal
             ContentTab* prevtab = m_LastContentTab;
-            m_LastContentTab = new_tab;
+            m_LastContentTab = next_tab;
             // flow control is lost in following line
-            emit TabChanged(prevtab,  new_tab);
+            emit TabChanged(prevtab,  next_tab);
+            emit UpdatePreviewAfterExistingTabSwitch();
         }
         tab->deleteLater();
         m_tabs_deletion_in_use = !m_TabsToDelete.isEmpty();

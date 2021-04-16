@@ -245,7 +245,7 @@ void FlowTab::ResourceModified()
     }
 
     if (IsLoadingFinished()) {
-        qDebug() << "FlowTab in ResourceModified";
+        DBG qDebug() << "FlowTab in ResourceModified";
         EmitUpdatePreview();
     }
 }
@@ -328,27 +328,27 @@ void FlowTab::UpdateDisplay()
 void FlowTab::EmitContentChanged()
 {
     m_safeToLoad = false;
-    qDebug() << "FlowTab emiting Content Changed";
+    DBG qDebug() << "FlowTab emiting Content Changed";
     emit ContentChanged();
 }
 
 void FlowTab::EmitUpdatePreview()
 {
     if (IsLoadingFinished()) {
-        qDebug() << "FlowTab emiting UpdatePreviewRequest from EmitUpdatePreview";
+        DBG qDebug() << "FlowTab emiting UpdatePreviewRequest from EmitUpdatePreview";
         emit UpdatePreview();
     }
 }
 
 void FlowTab::EmitUpdatePreviewImmediately()
 {
-      qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitUpdatePreviewImmediately";
+      DBG qDebug() << "FlowTab emiting UpdatePreviewImmediately from EmitUpdatePreviewImmediately";
       emit UpdatePreviewImmediately();
 }
 
 void FlowTab::EmitScrollPreviewImmediately()
 {
-      qDebug() << "FlowTab emiting ScrollPreviewImmediately from EmitScrollPreviewImmediately";
+      DBG qDebug() << "FlowTab emiting ScrollPreviewImmediately from EmitScrollPreviewImmediately";
       emit ScrollPreviewImmediately();
 }
 

@@ -210,7 +210,7 @@ void PreviewWindow::SetupView()
 bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<ElementIndex> location)
 {
 
-    qDebug() << "Entered PV UpdatePage with filename: " << filename_url;
+    DBG qDebug() << "Entered PV UpdatePage with filename: " << filename_url;
 
     if (!m_Preview->isVisible()) {
         DBG qDebug() << "ignoring PV UpdatePage since PV is not visible";
@@ -218,7 +218,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     }
 
     if (m_updatingPage) {
-        qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
+        DBG qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
         return false;
     }
 
@@ -290,29 +290,6 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     m_Filepath = filename_url;
     m_Preview->CustomSetDocument(filename_url, text);
 
-#if 0
-    // this next bit is allowing javascript to run before
-    // the page is finished loading somehow? 
-    // but we explicitly prevent that
-
-    // Wait until the preview is loaded before moving cursor.
-    while (!m_Preview->IsLoadingFinished()) {
-        // This line broke close via titlebar on macOS so revert it
-        // qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
-        qApp->processEvents();
-    }
-
-    if (!m_Preview->WasLoadOkay()) qDebug() << "PV loadFinished with okay set to false!";
- 
-    DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
-    DBG qDebug() << "PreviewWindow UpdatePage final step scroll to location";
-
-    m_Preview->StoreCaretLocationUpdate(location);
-    m_Preview->ExecuteCaretUpdate();
-    UpdateWindowTitle();
-    m_updatingPage = false;
-    m_Preview->Zoom();
-#endif
     return true;
 }
 
