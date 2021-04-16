@@ -61,6 +61,9 @@ SpellCheck *SpellCheck::instance()
 SpellCheck::SpellCheck()
 {
     DBG qDebug() << "In SpellCheck Constructor";
+    m_primary.handle = NULL;
+    m_secondary.handle = NULL;
+
     // There is a considerable lag involved in loading the Spellcheck dictionaries
     QApplication::setOverrideCursor(Qt::WaitCursor);
     loadDictionaryNames();
@@ -207,26 +210,17 @@ bool SpellCheck::spell(const QString &word)
 }
 
 
+// Speed here is very important as it is invoked by the XHTMLHighlighter2 code
+// and this is the limiting factor
 // spell check word without langcode info in Primary and Secondary Dictionaries
 bool SpellCheck::spellPS(const QString &word)
 {
-    DBG qDebug() << "In spellPS";
-    SettingsStore settings;
-    QString dname = settings.dictionary();
-    // if primary dictionary does not exist simply return true (no error)
-    if (!m_opendicts.contains(dname)) {
-        return true;
-    }
-    HDictionary hdic = m_opendicts[dname];
-    bool res = hdic.handle->spell(hdic.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData()) != 0;
-    res = res || isIgnored(word);
-    if (res) return res;
-    dname = settings.secondary_dictionary();
-    if (dname.isEmpty() || !m_opendicts.contains(dname)) return res;
-    hdic = m_opendicts[dname];
-    Q_ASSERT(hdic.codec != nullptr);
-    Q_ASSERT(hdic.handle != nullptr);
-    return hdic.handle->spell(hdic.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData()) != 0;
+    if (!m_primary.handle) return true;
+    if(m_ignoredWords.contains(word)) return true;
+    bool res = m_primary.handle->spell(m_primary.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData()) != 0;
+    if (res) return true;
+    if (!m_secondary.handle) return false;
+    return m_secondary.handle->spell(m_secondary.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData()) != 0;
 }
 
 
@@ -255,35 +249,25 @@ QStringList SpellCheck::suggest(const QString &word)
 // suggesttions for word without langcode using Primary and Secondary Dictionaries
 QStringList SpellCheck::suggestPS(const QString &word)
 {
-    DBG qDebug() << "In suggestPS";
-    SettingsStore settings;
     QStringList suggestions;
     char **suggestedWords;
     char **suggestedWords2;
-    QString dname = settings.dictionary();
-    if (!m_opendicts.contains(dname)) return suggestions;
-    HDictionary hdic = m_opendicts[dname];
-    Q_ASSERT(hdic.codec != nullptr);
-    Q_ASSERT(hdic.handle != nullptr);
-    int count = hdic.handle->suggest(&suggestedWords, hdic.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
+    if (!m_primary.handle) return suggestions;
+    int count = m_primary.handle->suggest(&suggestedWords, m_primary.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
     int limit = count;
     if (limit > 4) limit = 4;
     for (int i = 0; i < limit; ++i) {
-        suggestions << hdic.codec->toUnicode(suggestedWords[i]);
+        suggestions << m_primary.codec->toUnicode(suggestedWords[i]);
     }
-    hdic.handle->free_list(&suggestedWords, count);
-    dname = settings.secondary_dictionary();
-    if (dname.isEmpty()) return suggestions;
-    hdic = m_opendicts[dname];
-    Q_ASSERT(hdic.codec != nullptr);
-    Q_ASSERT(hdic.handle != nullptr);
-    count = hdic.handle->suggest(&suggestedWords2, hdic.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
+    m_primary.handle->free_list(&suggestedWords, count);
+    if (!m_secondary.handle) return suggestions; 
+    count = m_secondary.handle->suggest(&suggestedWords2, m_secondary.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
     limit = count;
     if (limit > 4) limit = 4;
     for (int i = 0; i < limit; ++i) {
-        suggestions << hdic.codec->toUnicode(suggestedWords2[i]);
+        suggestions << m_secondary.codec->toUnicode(suggestedWords2[i]);
     }
-    hdic.handle->free_list(&suggestedWords2, count);
+    m_secondary.handle->free_list(&suggestedWords2, count);
     return suggestions;
 }
 
@@ -298,13 +282,13 @@ void SpellCheck::clearIgnoredWords()
 void SpellCheck::ignoreWord(const QString &word)
 {
     DBG qDebug() << "In ignoreWord";
-    m_ignoredWords[word] = 1;
+    m_ignoredWords.insert(word);
 }
 
 
 bool SpellCheck::isIgnored(const QString &word) {
     DBG qDebug() << "In isIgnored";
-    return m_ignoredWords.value(word, 0);
+    return m_ignoredWords.contains(word);
 }
 
 
@@ -376,17 +360,24 @@ void SpellCheck::loadDictionary(const QString &dname)
         addWordToDictionary(word, dname);
     }
 
-    // finally add UserDictionary words to the Primary Dictionary only
+    // add UserDictionary words to the Primary Dictionary only
     if (dname == currentPrimaryDictionary()) {
         // Load in the words from the user dictionaries.
         foreach(QString word, allUserDictionaryWords()) {
             addWordToDictionary(word, dname);
         }
     }
+
+    SettingsStore settings;
+    // store the primary and secondary dictionary info for speed
+    if (dname == settings.dictionary()) {
+        m_primary = hdic;
+    }
+    else if (dname == settings.secondary_dictionary()) {
+        m_secondary = hdic;
+    }
     return;
 }
-
-
 
 
 void SpellCheck::setDictionary(const QString &dname, bool forceReplace)
