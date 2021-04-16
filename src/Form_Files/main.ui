@@ -641,7 +641,7 @@
      <normaloff>:/main/heading-all.svg</normaloff>:/main/heading-all.svg</iconset>
    </property>
     <property name="toolTip">
-      <string>set Heading Level of Selected Text</string>
+      <string>Set Heading Level of Selected Text</string>
    </property>
     <addaction name="actionHeading1"/>
     <addaction name="actionHeading2"/>
@@ -726,7 +726,7 @@
      <normaloff>:/main/case-change.svg</normaloff>:/main/case-change.svg</iconset>
    </property>
     <property name="toolTip">
-     <string>set Case of Selected Text</string>
+     <string>Set Case of Selected Text</string>
     </property>
     <addaction name="actionCasingLowercase"/>
     <addaction name="actionCasingUppercase"/>
