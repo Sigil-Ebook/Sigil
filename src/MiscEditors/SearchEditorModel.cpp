@@ -27,13 +27,17 @@
 #include <QDataStream>
 #include <QtCore/QTime>
 #include <QFileInfo>
+#include <QFile>
 #include <QRegularExpression>
+#include <QDebug>
 
 #include "MiscEditors/SearchEditorModel.h"
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
 
-static const QString SETTINGS_FILE          = "sigil_searches.ini";
+static const QString SETTINGS_FILE          = "sigil_searches_v2.ini";
+static const QString OLD_SETTINGS_FILE      = "sigil_searches.ini";
+
 static const QString SETTINGS_GROUP         = "search_entries";
 static const QString ENTRY_NAME             = "Name";
 static const QString ENTRY_FIND             = "Find";
@@ -64,6 +68,18 @@ SearchEditorModel::SearchEditorModel(QObject *parent)
       m_IsDataModified(false)
 {
     m_SettingsPath = Utility::DefinePrefsDir() + "/" + SETTINGS_FILE;
+    QString OldSettingsPath = Utility::DefinePrefsDir() + "/" + OLD_SETTINGS_FILE;
+    QFileInfo fi(m_SettingsPath);
+    if (!fi.exists()) {
+        QFileInfo oldfi(OldSettingsPath);
+        if (oldfi.exists() && oldfi.isFile()) {
+            // create v2 settings file from old one
+            bool success = QFile::copy(oldfi.absoluteFilePath(), m_SettingsPath);
+            if (!success) {
+                qDebug() << "Failed to create v2 saved searches from old";
+            }
+        }
+    }
     QStringList header;
     header.append(tr("Name"));
     header.append(tr("Find"));
