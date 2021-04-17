@@ -110,6 +110,9 @@ public:
 
 public slots:
 
+    void ShowOverlay();
+    void HideOverlay();
+
 
 signals:
     /**
@@ -152,7 +155,6 @@ protected slots:
     void LoadingStarted();
     void LoadingProgress(int progress);
     void LinkHovered(const QString &url);
-    void HideOverlay();
 
 protected:
 

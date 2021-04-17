@@ -237,6 +237,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
 
     m_progress->setRange(0,100);
     m_progress->setValue(0);
+    m_Preview->ShowOverlay();
     
     m_updatingPage = true;
     m_location = location;
@@ -324,6 +325,7 @@ void PreviewWindow::UpdatePageDone()
     m_Preview->Zoom();
     m_progress->setValue(100);
     m_progress->reset();
+    m_Preview->HideOverlay();
 }
 
 void PreviewWindow::ScrollTo(QList<ElementIndex> location)
@@ -531,6 +533,7 @@ void PreviewWindow::ReloadPreview()
 
     //force reset m_updatingPage in case a signal is lost
     m_progress->reset();
+    m_Preview->HideOverlay();
     m_updatingPage = false;
     emit RequestPreviewReload();
 }

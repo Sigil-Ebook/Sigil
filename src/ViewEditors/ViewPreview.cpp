@@ -272,7 +272,6 @@ void ViewPreview::LoadingStarted()
     DBG qDebug() << "Loading a page started";
     m_isLoadFinished = false;
     m_LoadOkay = false;
-    m_overlay->show();
 }
 
 
@@ -308,6 +307,11 @@ void ViewPreview::UpdateFinishedState(bool okay)
 void ViewPreview::HideOverlay()
 {
     m_overlay->hide();
+}
+
+void ViewPreview::ShowOverlay()
+{
+    m_overlay->show();
 }
 
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
@@ -513,7 +517,6 @@ void ViewPreview::ConnectSignalsToSlots()
 {
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
-    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(HideOverlay()));
     connect(page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));
     connect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
     connect(page(), SIGNAL(loadProgress(int)), this, SLOT(LoadingProgress(int)));
