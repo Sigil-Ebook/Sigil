@@ -38,6 +38,7 @@ class QWebEngineView;
 class QVBoxLayout;
 class QHBoxLayout;
 class QProgressBar;
+class OverlayHelperWidget;
 
 class PreviewWindow : public QDockWidget
 {
@@ -117,6 +118,7 @@ private:
     QWidget *m_MainWidget;
     QVBoxLayout *m_Layout;
     QHBoxLayout *m_buttons;
+    OverlayHelperWidget *m_overlayBase;
 
     ViewPreview *m_Preview;
     Inspector *m_Inspector;

@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019-2020 Doug Massay
+**  Copyright (C) 2019-2021 Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -42,6 +42,7 @@
 #include "sigil_constants.h"
 #include "ViewEditors/WebEngPage.h"
 #include "ViewEditors/ViewPreview.h"
+#include "ViewEditors/Overlay.h"
 
 #define DBG if(0)
 
@@ -87,7 +88,8 @@ ViewPreview::ViewPreview(QWidget *parent)
       m_CaretLocationUpdate(QString()),
       m_CustomSetDocumentInProgress(false),
       m_pendingScrollToFragment(QString()),
-      m_LoadOkay(false)
+      m_LoadOkay(false),
+      m_overlay(new LoadingOverlay(this))
 {
     setPage(m_ViewWebPage);
     // Now handled in the WebEngPage constructor to be faster
@@ -270,6 +272,7 @@ void ViewPreview::LoadingStarted()
     DBG qDebug() << "Loading a page started";
     m_isLoadFinished = false;
     m_LoadOkay = false;
+    m_overlay->show();
 }
 
 
@@ -300,6 +303,11 @@ void ViewPreview::UpdateFinishedState(bool okay)
     DBG qDebug() << "UpdateFinishedState with okay " << okay;
     // m_isLoadFinished = true;
     m_LoadOkay = okay;
+}
+
+void ViewPreview::HideOverlay()
+{
+    m_overlay->hide();
 }
 
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
@@ -505,6 +513,7 @@ void ViewPreview::ConnectSignalsToSlots()
 {
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
+    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(HideOverlay()));
     connect(page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));
     connect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
     connect(page(), SIGNAL(loadProgress(int)), this, SLOT(LoadingProgress(int)));

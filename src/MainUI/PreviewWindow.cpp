@@ -45,6 +45,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ViewEditors/ViewPreview.h"
+#include "ViewEditors/Overlay.h"
 #include "sigil_constants.h"
 
 static const QStringList HEADERTAGS = QStringList() << "h1" << "h2" << "h3" << "h4" << "h5" << "h6";
@@ -59,7 +60,8 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_MainWidget(new QWidget(this)),
     m_Layout(new QVBoxLayout(m_MainWidget)),
     m_buttons(new QHBoxLayout()),
-    m_Preview(new ViewPreview(this)),
+    m_overlayBase(new OverlayHelperWidget(this)),
+    m_Preview(new ViewPreview(m_overlayBase)),
     m_Inspector(new Inspector(this)),
     m_progress(new QProgressBar(this)),
     m_Filepath(QString()),

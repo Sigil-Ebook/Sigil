@@ -479,6 +479,7 @@ set( VIEW_EDITOR_FILES
     ViewEditors/ElementIndex.h
     ViewEditors/ViewEditor.h
     ViewEditors/Viewer.h
+    ViewEditors/Overlay.h
      )
 
 set( MAINUI_FILES
