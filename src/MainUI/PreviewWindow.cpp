@@ -73,6 +73,7 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_progress->setMaximum(100);
     setWindowTitle(tr("Preview"));
     SetupView();
+    SetupOverlayTimer();
     LoadSettings();
     ConnectSignalsToSlots();
 }
@@ -106,6 +107,19 @@ PreviewWindow::~PreviewWindow()
     }
 }
 
+void PreviewWindow::SetupOverlayTimer()
+{
+    m_OverlayTimer.setSingleShot(true);
+    m_OverlayTimer.setInterval(2000);
+    connect(&m_OverlayTimer, SIGNAL(timeout()), this, SLOT(ShowOverlay()));
+    m_OverlayTimer.stop();
+}
+
+void PreviewWindow::ShowOverlay()
+{
+    m_OverlayTimer.stop();
+    m_Preview->ShowOverlay();
+}
 
 void PreviewWindow::resizeEvent(QResizeEvent *event)
 {
@@ -237,7 +251,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
 
     m_progress->setRange(0,100);
     m_progress->setValue(0);
-    m_Preview->ShowOverlay();
+    m_OverlayTimer.start();
     
     m_updatingPage = true;
     m_location = location;
@@ -323,6 +337,7 @@ void PreviewWindow::UpdatePageDone()
     UpdateWindowTitle();
     m_updatingPage = false;
     m_Preview->Zoom();
+    m_OverlayTimer.stop();
     m_progress->setValue(100);
     m_progress->reset();
     m_Preview->HideOverlay();
@@ -533,6 +548,7 @@ void PreviewWindow::ReloadPreview()
 
     //force reset m_updatingPage in case a signal is lost
     m_progress->reset();
+    m_OverlayTimer.stop();
     m_Preview->HideOverlay();
     m_updatingPage = false;
     emit RequestPreviewReload();
