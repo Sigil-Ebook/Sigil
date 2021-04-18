@@ -730,7 +730,7 @@ void Utility::DisplayStdWarningDialog(const QString &warning_message, const QStr
     if (!detailed_text.isEmpty()) {
         message_box.setDetailedText(detailed_text);
     }
-    message_box.setStandardButtons(QMessageBox::Close);
+    message_box.setStandardButtons(QMessageBox::Ok);
     message_box.exec();
 }
 
