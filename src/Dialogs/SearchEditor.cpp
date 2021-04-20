@@ -107,8 +107,8 @@ void SearchEditor::SetupSearchEditorTree()
         "<dt><b>" + tr("Name") + "</b><dd>" + tr("Name of your entry or group.") + "</dd>" +
         "<dt><b>" + tr("Find") + "</b><dd>" + tr("The text to put into the Find box.") + "</dd>" +
         "<dt><b>" + tr("Replace") + "</b><dd>" + tr("The text to put into the Replace box.") + "</dd>" +
-        "<dt><b>" + tr("Controls") + "</b><dd>" + tr("The text codes to Control the Search Options, Mode, Direction, and Target." + "</dd>" +
-        "</dl>");
+        "<dt><b>" + tr("Controls") + "</b><dd>" + tr("The text codes to Control the Search Options, Mode, Direction, and Target.") + "</dd>" +
+        "</dl>";
 #endif
     ui.buttonBox->setToolTip(QString() +
                              "<dl>" +

@@ -15654,7 +15654,7 @@ including entries in selected groups.</source>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="110"/>
-        <source>The text codes to Control the Search Options, Mode, Direction, and Target.&lt;/dd&gt;&lt;/dl&gt;</source>
+        <source>The text codes to Control the Search Options, Mode, Direction, and Target.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
