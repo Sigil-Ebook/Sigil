@@ -135,6 +135,17 @@ bool SearchEditor::SaveData(QList<SearchEditorModel::searchEntry *> entries, QSt
     return message.isEmpty();
 }
 
+bool SearchEditor::SaveTextData(QList<SearchEditorModel::searchEntry *> entries, QString filename, QChar sep)
+{
+    QString message = m_SearchEditorModel->SaveTextData(entries, filename, sep);
+
+    if (!message.isEmpty()) {
+        Utility::DisplayStdErrorDialog(tr("Cannot save entries.") + "\n\n" + message);
+    }
+
+    return message.isEmpty();
+}
+
 void SearchEditor::LoadFindReplace()
 {
     // destination needs to delete each searchEntry when done
@@ -563,8 +574,17 @@ void SearchEditor::ExportItems(QList<QStandardItem *> items)
         }
     }
     // Get the filename to use
-    QString filter_string = "*." % FILE_EXTENSION;
-    QString default_filter = "*";
+    QMap<QString,QString> file_filters;
+    file_filters[ "ini" ] = tr("Sigil INI files (*.ini)");
+    file_filters[ "csv" ] = tr("CSV files (*.csv)");
+    file_filters[ "txt" ] = tr("Text files (*.txt)");
+    QStringList filters = file_filters.values();
+    QString filter_string = "";
+    foreach(QString filter, filters) {
+        filter_string += filter + ";;";
+    }
+    QString default_filter = file_filters.value("ini");
+
     QFileDialog::Options options = QFileDialog::Options();
 #ifdef Q_OS_MAC
     options = options | QFileDialog::DontUseNativeDialog;
@@ -581,16 +601,25 @@ void SearchEditor::ExportItems(QList<QStandardItem *> items)
         return;
     }
 
-    QString extension = QFileInfo(filename).suffix().toLower();
-
-    if (extension != FILE_EXTENSION) {
-        filename += "." % FILE_EXTENSION;
+    QString ext = QFileInfo(filename).suffix().toLower();
+    QChar sep;
+    if (ext == "txt") {
+        sep = QChar(9);
+    } else if (ext == "csv") {
+        sep = QChar(',');
     }
 
-    // Save the data, and last folder opened if successful
-    if (SaveData(entries, filename)) {
-        m_LastFolderOpen = QFileInfo(filename).absolutePath();
-        WriteSettings();
+    if (ext == "ini") {
+        // Save the data, and last folder opened if successful
+        if (SaveData(entries, filename)) {
+            m_LastFolderOpen = QFileInfo(filename).absolutePath();
+            WriteSettings();
+        }
+    } else {
+        if (SaveTextData(entries, filename, sep)) {
+            m_LastFolderOpen = QFileInfo(filename).absolutePath();
+            WriteSettings();
+        }
     }
 }
 

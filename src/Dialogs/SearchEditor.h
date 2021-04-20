@@ -130,6 +130,9 @@ private:
 
     bool SaveData(QList<SearchEditorModel::searchEntry *> entries = QList<SearchEditorModel::searchEntry *>() , QString filename = QString());
 
+    bool SaveTextData(QList<SearchEditorModel::searchEntry *> entries = QList<SearchEditorModel::searchEntry *>() ,
+                      QString filename = QString(), QChar sep=QChar(9));
+
     bool FilterEntries(const QString &text, QStandardItem *item = NULL);
     bool SelectFirstVisibleNonGroup(QStandardItem *item);
 

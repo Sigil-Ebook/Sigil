@@ -34,6 +34,7 @@
 #include "MiscEditors/SearchEditorModel.h"
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
+#include "sigil_exception.h"
 
 static const QString SETTINGS_FILE          = "sigil_searches_v2.ini";
 static const QString OLD_SETTINGS_FILE      = "sigil_searches.ini";
@@ -635,6 +636,59 @@ QStandardItem *SearchEditorModel::GetItemFromId(quintptr id, int row, QStandardI
 
     return found_item;
 }
+
+
+QString SearchEditorModel::SaveTextData(QList<SearchEditorModel::searchEntry *> entries,
+                                        const QString &filename,
+                                        const QChar &sep)
+{
+    QString message = "";
+    bool clean_up_needed = false;
+    QString save_path = filename;
+
+    // Save everything if no entries selected
+    if (entries.isEmpty()) {
+        QList<QStandardItem *> items = GetNonParentItems(invisibleRootItem());
+
+        if (!items.isEmpty()) {
+            // GetEntries calls GetEntry which creates each entry with new
+            entries = GetEntries(items);
+            clean_up_needed = true;
+        }
+    }
+
+    // Create Data to write to file
+    QStringList res;
+    foreach(SearchEditorModel::searchEntry * entry, entries) {
+        QStringList data;
+        data << entry->fullname;
+        if (!entry->is_group) {
+           data << entry->find;
+           data << entry->replace;
+           data << entry->controls;
+        }
+        if (sep == ',') {
+            res << Utility::createCSVLine(data);
+        } else {
+            res << data.join(sep);
+        }
+    }
+    QString text = res.join('\n');
+    try {
+        Utility::WriteUnicodeTextFile(text, save_path);
+    } catch (CannotOpenFile& e) {
+        message = QString(e.what());
+    }
+
+    // delete each entry if we created them above
+    if (clean_up_needed) {
+        foreach(SearchEditorModel::searchEntry* entry, entries) {
+            delete entry;
+        }
+    }
+    return message;
+}
+
 
 QString SearchEditorModel::SaveData(QList<SearchEditorModel::searchEntry *> entries, const QString &filename)
 {

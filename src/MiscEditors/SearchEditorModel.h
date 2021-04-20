@@ -65,7 +65,11 @@ public:
 
     QStandardItem *AddEntryToModel(SearchEditorModel::searchEntry *entry, bool is_group = false, QStandardItem *parent_item = NULL, int row = -1);
 
-    QString SaveData(QList<SearchEditorModel::searchEntry *> entries = QList<SearchEditorModel::searchEntry *>(), const QString &filename = QString());
+    QString SaveData(QList<SearchEditorModel::searchEntry *> entries = QList<SearchEditorModel::searchEntry *>(),
+                     const QString &filename = QString());
+
+    QString SaveTextData(QList<SearchEditorModel::searchEntry *> entries = QList<SearchEditorModel::searchEntry *>(),
+                         const QString &filename = QString(), const QChar& cep = QChar(9));
 
     QList<SearchEditorModel::searchEntry *> GetEntries(QList<QStandardItem *> items);
     SearchEditorModel::searchEntry *GetEntry(QStandardItem *item);

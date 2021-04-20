@@ -1275,6 +1275,25 @@ QBrush Utility::ValidationResultBrush(const Val_Msg_Type &valres)
     }
 }
 
+
+QString Utility::createCSVLine(const QStringList &data)
+{
+    QStringList csvline;
+    foreach(QString val, data) {
+        bool need_quotes = val.contains(',');
+        QString cval = "";
+        if (need_quotes) cval.append('"');
+        foreach(QChar c, val) {
+            if (c == '"') cval.append('"');
+            cval.append(c);
+        }
+        if (need_quotes) cval.append('"');
+        csvline.append(cval);
+    }
+    return csvline.join(',');
+}
+
+
 QStringList Utility::parseCSVLine(const QString &data)
 {
     auto unquote_val = [](const QString &av) {

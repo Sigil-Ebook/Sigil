@@ -239,6 +239,9 @@ public:
     // parse a line of data from a csv file into a list of string values
     static QStringList parseCSVLine(const QString &data);
 
+    // create a line of data in csv format
+    static QString createCSVLine(const QStringList &data);
+    
     // Generate a Unique Id given a root id and Used Set
     static QString GenerateUniqueId(const QString &id, const QSet<QString>& Used);
 
