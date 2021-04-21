@@ -137,7 +137,7 @@ void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
             insert_with_background(tc1, diff.line + "\n", _redColor);
             insert_with_background(tc2, pad.repeated(n) + "\n", _grayColor);
 
-        } else if (diff.code == "3") { // changed                                                                                   
+        } else if (diff.code == "3") { // changed
             m_changelst << blockno;
             int l1 = diff.line.length();
             int l2 = diff.newline.length();
@@ -156,7 +156,7 @@ void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
 
                 // first check for emphasized chars
                 // if any exist output them
-                while((i < l1) && (leftchanges.at(i) != " ")) {
+                while((i < l1) && !leftchanges.at(i).isSpace()) {
                     txt.append(diff.line.at(i));
                     i++;
                 }
@@ -169,7 +169,7 @@ void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
 
                 // next check for background chars
                 // if any exist output them
-                while((i < l1) && (leftchanges.at(i) == " ")) {
+                while((i < l1) && leftchanges.at(i).isSpace()) {
                     txt.append(diff.line.at(i));
                     i++;
                 }
@@ -193,7 +193,7 @@ void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
 
                 // first check for emphasized chars
                 // if any exist output them
-                while((i < l2) && (rightchanges.at(i) != " ")) {
+                while((i < l2) && !rightchanges.at(i).isSpace()) {
                     txt.append(diff.newline.at(i));
                     i++;
                 }
@@ -206,7 +206,7 @@ void ChgViewer::LoadViewers(const QList<DiffRecord::DiffRec>& diffinfo)
 
                 // next check for background chars
                 // if any exist output them
-                while((i < l2) && (rightchanges.at(i) == " ")) {
+                while((i < l2) && rightchanges.at(i).isSpace()) {
                     txt.append(diff.newline.at(i));
                     i++;
                 }
