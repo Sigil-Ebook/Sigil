@@ -180,7 +180,7 @@ bool OpenExternally::openFileWithXEditor(const QString& filePath, const QString 
         QProcess proc;
         DBG qDebug() << "External binary program being launched: " << application;
         proc.setProgram(application);
-        QStringList argumentss << QDir::toNativeSeparators(filepath);
+        QStringList arguments << QDir::toNativeSeparators(filepath);
         arguments << spineno;
         proc.setArguments(arguments);
         // Change to the directory of the application/script first. This is
