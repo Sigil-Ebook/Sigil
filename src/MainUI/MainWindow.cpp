@@ -854,27 +854,17 @@ void MainWindow::launchExternalXEditor()
     // For simplicity for new users always launch the external xhtml
     // editor with the opf so that all xhtml files are findable and editable
 
-#if 0
     // Launch external xhtml editor for current tab resource
     // ONLY if the current tab resource is a HTMLResource and
     // ONLY if an external editor path is set and still exists
 
     HTMLResource *html_resource = NULL;
-    OPFResource * opf_resource = NULL;
 
     ContentTab *tab = GetCurrentContentTab();
-    if (tab != NULL) {
+    if (tab) {
         html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
-        opf_resource = qobject_cast<OPFResource *>(tab->GetLoadedResource());
     }
 
-    if (!html_resource && !opf_resource) {
-        ShowMessageOnStatusBar(tr("External XHtml Editor works only on Html Resources or OPF Resources!"));
-        return;
-    }
-#endif
-
-    
     SettingsStore ss;
     QString XEditorPath = ss.externalXEditorPath();
     if (XEditorPath.isEmpty()) {
@@ -896,14 +886,20 @@ void MainWindow::launchExternalXEditor()
     QList<Resource *> all_resources = m_Book->GetFolderKeeper()->GetResourceList();
     QList<Resource*> spine_resources = m_Book->GetOPF()->GetSpineOrderResources(all_resources);
 
+    int spinenum = 0;
+    
     // first suspend file watching and then save all of these to disk
+    // AND while doing so record where in the spine any current html tab might be
     m_Book->GetFolderKeeper()->SuspendWatchingResources();
     resource->SaveToDisk();
+    int i = 0;
     foreach(Resource * spineres, spine_resources) {
         HTMLResource* xhtmlres = qobject_cast<HTMLResource *>(spineres);
         if (xhtmlres) {
             spineres->SaveToDisk();
         }
+        if (html_resource && (html_resource == xhtmlres)) spinenum = i;
+        i++;
     }
     m_Book->GetFolderKeeper()->ResumeWatchingResources();
     // after re-enabling file watching, add all of these to list of files to be watched
@@ -914,7 +910,7 @@ void MainWindow::launchExternalXEditor()
         }
     }
     
-    if (OpenExternally::openFile(resource->GetFullPath(), XEditorPath)) {
+    if (OpenExternally::openFileWithXEditor(resource->GetFullPath(), XEditorPath, spinenum)) {
         m_Book->GetFolderKeeper()->WatchResourceFile(resource);
         ShowMessageOnStatusBar(tr("Executing External Xhtml Editor"));
         return;

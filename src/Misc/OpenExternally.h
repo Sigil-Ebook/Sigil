@@ -42,6 +42,8 @@ public:
 
     static bool openFile(const QString &filePath, const QString &application);
 
+    static bool openFileWithXEditor(const QString& filePath, const QString &application, int spinenum = 0);
+
     static const QStringList editorsForResourceType(const Resource::ResourceType type);
 
     static const QStringList editorDescriptionsForResourceType(const Resource::ResourceType type);

@@ -162,6 +162,47 @@ bool OpenExternally::openFile(const QString &filePath, const QString &applicatio
     return false;
 }
 
+
+bool OpenExternally::openFileWithXEditor(const QString& filePath, const QString &application, int spinenum)
+{
+    QString spineno = QString::number(spinenum);
+
+#if defined(Q_OS_MAC)
+
+    if (QFile::exists(filePath) && QDir(application).exists()) {
+        QStringList arguments = QStringList() << "-a" << application << "--args" << filePath << spineno;
+        return QProcess::startDetached("/usr/bin/open", arguments);
+    }
+
+#elif defined(Q_OS_WIN32)
+
+    if (QFile::exists(filePath) && QFile::exists(application)) {
+        QProcess proc;
+        DBG qDebug() << "External binary program being launched: " << application;
+        proc.setProgram(application);
+        QStringList argumentss << QDir::toNativeSeparators(filepath);
+        arguments << spineno;
+        proc.setArguments(arguments);
+        // Change to the directory of the application/script first. This is
+        // very important for batch files, but doesn't matter much for exes.
+        proc.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(application).canonicalPath()));
+        DBG qDebug() << "QProcess program: " << proc.program();
+        DBG qDebug() << "QProcess arguments: " << proc.arguments();
+        return proc.startDetached();
+    }
+
+#else
+
+    if (QFile::exists(filePath) && QFile::exists(application)) {
+        QStringList arguments = QStringList(QDir::toNativeSeparators(filePath));
+        arguments << spineno;
+        return QProcess::startDetached(QDir::toNativeSeparators(application), arguments, QFileInfo(filePath).absolutePath());
+    }
+
+#endif
+    return false;
+}
+
 const QStringList OpenExternally::editorsForResourceType(const Resource::ResourceType type)
 {
     QStringList editorPaths = QStringList();
