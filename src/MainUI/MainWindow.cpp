@@ -851,6 +851,10 @@ void MainWindow::RepoManage()
 
 void MainWindow::launchExternalXEditor()
 {
+    // For simplicity for new users always launch the external xhtml
+    // editor with the opf so that all xhtml files are findable and editable
+
+#if 0
     // Launch external xhtml editor for current tab resource
     // ONLY if the current tab resource is a HTMLResource and
     // ONLY if an external editor path is set and still exists
@@ -868,7 +872,9 @@ void MainWindow::launchExternalXEditor()
         ShowMessageOnStatusBar(tr("External XHtml Editor works only on Html Resources or OPF Resources!"));
         return;
     }
+#endif
 
+    
     SettingsStore ss;
     QString XEditorPath = ss.externalXEditorPath();
     if (XEditorPath.isEmpty()) {
@@ -883,44 +889,31 @@ void MainWindow::launchExternalXEditor()
         return;
     }
 
-    Resource * resource;
+    Resource * resource = m_Book->GetOPF();
 
-    if (opf_resource) {
+    // an OPF Resource could be used to access every xhtml file in the spine
+    // so save all of these resources to disk and set a fswatcher on them
+    QList<Resource *> all_resources = m_Book->GetFolderKeeper()->GetResourceList();
+    QList<Resource*> spine_resources = m_Book->GetOPF()->GetSpineOrderResources(all_resources);
 
-        resource = qobject_cast<Resource *>(opf_resource);
-
-        // an OPF Resource could be used to access every xhtml file in the spine
-        // so save all of these resources to disk and set a fswatcher on them
-        QList<Resource *> all_resources = m_Book->GetFolderKeeper()->GetResourceList();
-        QList<Resource*> spine_resources = m_Book->GetOPF()->GetSpineOrderResources(all_resources);
-
-        // first suspend file watching and then save all of these to disk
-        m_Book->GetFolderKeeper()->SuspendWatchingResources();
-        resource->SaveToDisk();
-        foreach(Resource * spineres, spine_resources) {
-            HTMLResource* xhtmlres = qobject_cast<HTMLResource *>(spineres);
-            if (xhtmlres) {
-                spineres->SaveToDisk();
-            }
+    // first suspend file watching and then save all of these to disk
+    m_Book->GetFolderKeeper()->SuspendWatchingResources();
+    resource->SaveToDisk();
+    foreach(Resource * spineres, spine_resources) {
+        HTMLResource* xhtmlres = qobject_cast<HTMLResource *>(spineres);
+        if (xhtmlres) {
+            spineres->SaveToDisk();
         }
-        m_Book->GetFolderKeeper()->ResumeWatchingResources();
-        // after re-enabling file watching, add all of these to list of files to be watched
-        foreach(Resource * spineres, spine_resources) {
-            HTMLResource* xhtmlres = qobject_cast<HTMLResource *>(spineres);
-            if (xhtmlres) {
-                m_Book->GetFolderKeeper()->WatchResourceFile(spineres);
-            }
-        }
-
-    } else {
-
-        // single xhtml resource
-        resource = qobject_cast<Resource *>(html_resource);
-        m_Book->GetFolderKeeper()->SuspendWatchingResources();
-        resource->SaveToDisk();
-        m_Book->GetFolderKeeper()->ResumeWatchingResources();
     }
-
+    m_Book->GetFolderKeeper()->ResumeWatchingResources();
+    // after re-enabling file watching, add all of these to list of files to be watched
+    foreach(Resource * spineres, spine_resources) {
+        HTMLResource* xhtmlres = qobject_cast<HTMLResource *>(spineres);
+        if (xhtmlres) {
+            m_Book->GetFolderKeeper()->WatchResourceFile(spineres);
+        }
+    }
+    
     if (OpenExternally::openFile(resource->GetFullPath(), XEditorPath)) {
         m_Book->GetFolderKeeper()->WatchResourceFile(resource);
         ShowMessageOnStatusBar(tr("Executing External Xhtml Editor"));
