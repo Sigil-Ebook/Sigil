@@ -180,8 +180,8 @@ bool OpenExternally::openFileWithXEditor(const QString& filePath, const QString 
         QProcess proc;
         DBG qDebug() << "External binary program being launched: " << application;
         proc.setProgram(application);
-        QStringList arguments << QDir::toNativeSeparators(filepath);
-        arguments << spineno;
+        QStringList arguments;
+        arguments << QDir::toNativeSeparators(filepath) << spineno;
         proc.setArguments(arguments);
         // Change to the directory of the application/script first. This is
         // very important for batch files, but doesn't matter much for exes.
