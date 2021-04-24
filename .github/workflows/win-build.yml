@@ -78,7 +78,7 @@ jobs:
       shell: cmd
       run: |
         set PATH=C:\%PYTHON%;C:\%PYTHON%\Scripts;%PATH%
-        python -m pip install --upgrade pip
+        python -m pip install pip==21.0.1
         pip install six==1.15.0
         pip install html5lib==1.1
         pip install regex==2020.6.8

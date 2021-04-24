@@ -66,6 +66,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        sudo apt install mesa-common-dev libglu1-mesa-dev
         mkdir ${{runner.workspace}}/build
         cmake --version
         ninja --version
