@@ -178,16 +178,46 @@ bool OpenExternally::openFileWithXEditor(const QString& filePath, const QString 
 
     if (QFile::exists(filePath) && QFile::exists(application)) {
         QProcess proc;
-        DBG qDebug() << "External binary program being launched: " << application;
-        proc.setProgram(application);
-        QStringList arguments;
-        arguments << QDir::toNativeSeparators(filePath) << spineno;
-        proc.setArguments(arguments);
+        bool batch;
+        // Handle bat|cmd files differently than exes
+        if (QFileInfo(application).suffix() == "bat" || QFileInfo(application).suffix() == "cmd") {
+            DBG qDebug() << "External bat|cmd file being launched: " << application;
+            batch = true;
+            proc.setProgram("C:\\Windows\\System32\\cmd.exe");
+            proc.setArguments(QStringList("/c"));
+            // Filename only. No other way to get the cmd string properly quoted/escaped otherwise. We'll change
+            // the working directory to the directory where the scripts resides so that it can be found/launched.
+            QString nativeArguments;
+            nativeArguments = QString(QFileInfo(application).fileName() + " \"" + QDir::toNativeSeparators(filePath) + "\"" + " %1").arg(spineno);
+            proc.setNativeArguments(nativeArguments);
+        } else {
+            DBG qDebug() << "External binary program being launched: " << application;
+            batch = false;
+            proc.setProgram(application);
+            QStringList arguments;
+            arguments << QDir::toNativeSeparators(filePath) << spineno;
+            proc.setArguments(arguments);
+        }
         // Change to the directory of the application/script first. This is
         // very important for batch files, but doesn't matter much for exes.
         proc.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(application).canonicalPath()));
+        if (batch) {
+            // This nonsense (which requires including Windows.h) is necessary to launch a new
+            // console window (which must subsequently be hidden) because Qt gui apps don't have
+            // a console for the new process to inherit (which is default for QProcess::startDetached).
+            // See: https://doc-snapshots.qt.io/qt5-5.13/qprocess.html#CreateProcessArgumentModifier-typedef
+            proc.setCreateProcessArgumentsModifier([] (QProcess::CreateProcessArguments *args)
+            {
+                args->flags |= CREATE_NEW_CONSOLE;
+                args->startupInfo->dwFlags = STARTF_USESHOWWINDOW;
+                args->startupInfo->wShowWindow = SW_HIDE;
+            });
+        }
         DBG qDebug() << "QProcess program: " << proc.program();
         DBG qDebug() << "QProcess arguments: " << proc.arguments();
+        if (batch) {
+            DBG qDebug() << "QProcess Native arguments: " << proc.nativeArguments();
+        }
         return proc.startDetached();
     }
 
