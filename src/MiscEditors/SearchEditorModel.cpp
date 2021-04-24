@@ -494,6 +494,67 @@ QStandardItem *SearchEditorModel::AddEntryToModel(SearchEditorModel::searchEntry
     rowItems[0]->setData(entry->is_group, IS_GROUP_ROLE);
     rowItems[0]->setData(entry->fullname, FULLNAME_ROLE);
     rowItems[0]->setToolTip(entry->fullname);
+    
+    if (entry->controls != "") {
+        QString tooltip_controls;
+        tooltip_controls = "";
+        if (entry->controls.contains("NL")) {
+            tooltip_controls.append("NL - " + tr("Mode: Normal") + "\n");
+        }
+        if (entry->controls.contains("RX")) {
+            tooltip_controls.append("RX - " + tr("Mode: Regular Expression") + "\n");
+        }
+        if (entry->controls.contains("CS")) {
+            tooltip_controls.append("CS - " + tr("Mode: Case Sensitive") + "\n");
+        }
+        if (entry->controls.contains("UP")) {
+            tooltip_controls.append("UP - " + tr("Direction: Up") + "\n");
+        }
+        if (entry->controls.contains("DN")) {
+            tooltip_controls.append("DN - " + tr("Direction: Down") + "\n");
+        }
+        if (entry->controls.contains("CF")) {
+            tooltip_controls.append("CF - " + tr("Target: Current File") + "\n");
+        }
+        if (entry->controls.contains("AH")) {
+            tooltip_controls.append("AH - " + tr("Target: All HTML Files") + "\n");
+        }
+        if (entry->controls.contains("SH")) {
+            tooltip_controls.append("SH - " + tr("Target: Selected HTML Files") + "\n");
+        }
+        if (entry->controls.contains("TH")) {
+            tooltip_controls.append("TH - " + tr("Target: Tabbed HTML Files") + "\n");
+        }
+        if (entry->controls.contains("AC")) {
+            tooltip_controls.append("AC - " + tr("Target: All CSS Files") + "\n");
+        }
+        if (entry->controls.contains("SC")) {
+            tooltip_controls.append("SC - " + tr("Target: Selected CSS Files") + "\n");
+        }
+        if (entry->controls.contains("TC")) {
+            tooltip_controls.append("TC - " + tr("Target: Tabbed CSS Files") + "\n");
+        }
+        if (entry->controls.contains("OP")) {
+            tooltip_controls.append("OP - " + tr("Target: OPF File") + "\n");
+        }
+        if (entry->controls.contains("NX")) {
+            tooltip_controls.append("NX - " + tr("Target: NCX File") + "\n");
+        }
+        if (entry->controls.contains("DA")) {
+            tooltip_controls.append("DA - " + tr("Option: DotAll") + "\n");
+        }
+        if (entry->controls.contains("MM")) {
+            tooltip_controls.append("MM - " + tr("Option: Minimal Match") + "\n");
+        }
+        if (entry->controls.contains("AT")) {
+            tooltip_controls.append("AT - " + tr("Option: Auto Tokenise") + "\n");
+        }
+        if (entry->controls.contains("WR")) {
+            tooltip_controls.append("WR - " + tr("Option: Wrap") + "\n");
+        }
+        rowItems[3]->setToolTip(tooltip_controls);
+    }
+    
     // Add the new item to the model at the specified row
     QStandardItem *new_item;
 
