@@ -48,10 +48,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Python 3.8.6
+    - name: Set up Python 3.8.3
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8.6
+        python-version: 3.8.3
 
     - name: Cache Custom Qt
       uses: actions/cache@v2
@@ -68,11 +68,11 @@ jobs:
 
     - uses: lukka/get-cmake@latest
 
-    - name: Cache pip modules
-      uses: actions/cache@v2
-      with:
-        path: C:\hostedtoolcache\windows\Python\3.8.6\x64\lib\site-packages
-        key: ${{ runner.os }}-pipdeps-${{hashFiles('**/reset-win-caches.txt')}}
+    #- name: Cache pip modules
+    #  uses: actions/cache@v2
+    #  with:
+    #    path: C:\hostedtoolcache\windows\Python\3.8.6\x64\lib\site-packages
+    #    key: ${{ runner.os }}-pipdeps-${{hashFiles('**/reset-win-caches.txt')}}
 
     - name: Install pip dependencies
       shell: cmd
