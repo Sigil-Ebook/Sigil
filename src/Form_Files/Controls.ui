@@ -231,7 +231,6 @@ other end to continue searching.</string>
   <tabstop>cbSearchMode</tabstop>
   <tabstop>cbLookWhere</tabstop>
   <tabstop>cbSearchDirection</tabstop>
-  <tabstop>chkClearAll</tabstop>
  </tabstops>
  <connections/>
 </ui>
