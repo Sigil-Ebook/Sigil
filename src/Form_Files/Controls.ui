@@ -206,7 +206,7 @@ other end to continue searching.</string>
            </spacer>
           </item>
           <item>
-           <widget class="QCheckBox" name="chkClearAll">
+           <widget class="QPushButton" name="btClearAll">
             <property name="text">
              <string>Clear All</string>
             </property>

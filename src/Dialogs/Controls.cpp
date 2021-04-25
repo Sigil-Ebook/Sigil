@@ -79,8 +79,9 @@ void Controls::hide()
 
 void Controls::UpdateSearchControls(const QString &text)
 {
-    // if (text.isEmpty()) return;
+    if (text.isEmpty()) DoClearAll();
 
+#if 0
     //default to normal down no wrap current file
     if (text.isEmpty()) {
         SetSearchMode("NL");
@@ -92,6 +93,7 @@ void Controls::UpdateSearchControls(const QString &text)
         SetRegexOptionAutoTokenise(false);
         return;
     }
+#endif
 
     // Search Mode
     if (text.contains("NL")) {
@@ -140,8 +142,13 @@ void Controls::UpdateSearchControls(const QString &text)
 
 QString Controls::GetControlsCode()
 {
-    if (m_ClearAll) return "";
-
+    // if any cb left with placeholder clear entire entry
+    // to prevent impossible search controls from being generated
+    if ((ui.cbSearchMode->currentIndex() == 0) ||
+        (ui.cbSearchDirection->currentIndex() == 0) ||
+        (ui.cbLookWhere->currentIndex() == 0)) {
+        return "";
+    }
     QStringList codes;
     codes.append(GetSearchMode());
     if (m_RegexOptionDotAll) codes.append("DA");
@@ -191,7 +198,6 @@ void Controls::WriteSettings()
 void Controls::SetSearchMode(QString code)
 {
     ui.cbSearchMode->setCurrentIndex(0);
-
     for (int i = 0; i < ui.cbSearchMode->count(); ++i) {
         if (ui.cbSearchMode->itemData(i).toString() == code) {
             ui.cbSearchMode->setCurrentIndex(i);
@@ -204,7 +210,6 @@ void Controls::SetSearchMode(QString code)
 void Controls::SetLookWhere(QString code)
 {
     ui.cbLookWhere->setCurrentIndex(0);
-
     for (int i = 0; i < ui.cbLookWhere->count(); ++i) {
         if (ui.cbLookWhere->itemData(i).toString()  == code) {
             ui.cbLookWhere->setCurrentIndex(i);
@@ -252,15 +257,28 @@ void Controls::SetOptionWrap(bool new_state)
     ui.chkOptionWrap->setChecked(new_state);
 }
 
-void Controls::SetClearAll(bool new_state)
+void Controls::DoClearAll()
 {
-    m_ClearAll = new_state;
-    ui.chkClearAll->setChecked(new_state);
+    SetOptionWrap(false);
+    SetRegexOptionAutoTokenise(false);
+    SetRegexOptionMinimalMatch(false);
+    SetRegexOptionDotAll(false);
+    ui.cbSearchMode->setCurrentIndex(0);
+    ui.cbLookWhere->setCurrentIndex(0);
+    ui.cbSearchDirection->setCurrentIndex(0);
 }
 
 // The UI is setup based on the capabilities.
 void Controls::ExtendUI()
 {
+    ui.btClearAll->setDefault(false);
+    ui.btClearAll->setAutoDefault(false);
+
+    SetOptionWrap(false);
+    SetRegexOptionAutoTokenise(false);
+    SetRegexOptionMinimalMatch(false);
+    SetRegexOptionDotAll(false);
+    
     // Clear these because we want to add their items based on the
     // capabilities.
     ui.cbSearchMode->clear();
@@ -268,6 +286,7 @@ void Controls::ExtendUI()
     ui.cbSearchDirection->clear();
 
     QString mode_tooltip = "<p>" + tr("What to search for") + ":</p><dl>";
+    ui.cbSearchMode->addItem("-- " + tr("Select Mode") + " --", "");
     ui.cbSearchMode->addItem(tr("Normal"), "NL");
     mode_tooltip += "<dt><b>" + tr("Normal") + "</b><dd>" + tr("Case in-sensitive search of exactly what you type.") + "</dd>";
 
@@ -278,9 +297,11 @@ void Controls::ExtendUI()
     mode_tooltip += "<dt><b>" + tr("Regex") + "</b><dd>" + tr("Search for a pattern using Regular Expression syntax.") + "</dd>";
 
     ui.cbSearchMode->setToolTip(mode_tooltip);
+    ui.cbSearchMode->setCurrentIndex(0);
 
     QString look_tooltip = "<p>" + tr("Where to search") + ":</p><dl>";
 
+    ui.cbLookWhere->addItem("-- " + tr("Select Target") + " --", "");
     ui.cbLookWhere->addItem(tr("Current File"), "CF");
     look_tooltip += "<dt><b>" + tr("Current File") + "</b><dd>" + tr("Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.") + "</dd>";
 
@@ -310,7 +331,9 @@ void Controls::ExtendUI()
 
     look_tooltip += "</dl>";
     ui.cbLookWhere->setToolTip(look_tooltip);
+    ui.cbLookWhere->setCurrentIndex(0);
 
+    ui.cbSearchDirection->addItem("-- " + tr("Select Direction") + " --", ""); 
     ui.cbSearchDirection->addItem(tr("Up"), "UP");
     ui.cbSearchDirection->addItem(tr("Down"), "DN");
     ui.cbSearchDirection->setToolTip("<p>" + tr("Direction to search") + ":</p>"
@@ -318,6 +341,7 @@ void Controls::ExtendUI()
                                      "<dt><b>" + tr("Up") + "</b><dd>" + tr("Search for the previous match from your current position.") + "</dd>"
                                      "<dt><b>" + tr("Down") + "</b><dd>" + tr("Search for the next match from your current position.") + "</dd>"
                                      "</dl>");
+    ui.cbSearchDirection->setCurrentIndex(0);
 }
 
 void Controls::ConnectSignalsToSlots()
@@ -326,5 +350,5 @@ void Controls::ConnectSignalsToSlots()
     connect(ui.chkRegexOptionMinimalMatch, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionMinimalMatch(bool)));
     connect(ui.chkRegexOptionAutoTokenise, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
     connect(ui.chkOptionWrap, SIGNAL(clicked(bool)), this, SLOT(SetOptionWrap(bool)));
-    connect(ui.chkClearAll, SIGNAL(clicked(bool)), this, SLOT(SetClearAll(bool)));
+    connect(ui.btClearAll, SIGNAL(clicked()), this, SLOT(DoClearAll()));
 }

@@ -54,7 +54,7 @@ public slots:
     void SetRegexOptionMinimalMatch(bool new_state);
     void SetRegexOptionAutoTokenise(bool new_state);
     void SetOptionWrap(bool new_state);
-    void SetClearAll(bool new_state);
+    void DoClearAll();
 
     void closeEvent(QCloseEvent *e);
     void showEvent(QShowEvent *e);
