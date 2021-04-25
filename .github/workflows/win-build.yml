@@ -38,7 +38,7 @@ env:
   QT: MyQtx64_WE\Qt5.12.9
   INNO: C:\Program Files (x86)\Inno Setup 6
   CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
-  PYTHON: \hostedtoolcache\windows\Python\3.8.6\x64
+  PYTHON: \hostedtoolcache\windows\Python\3.8.3\x64
 
 jobs:
   build:
