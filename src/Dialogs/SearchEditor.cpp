@@ -60,9 +60,7 @@ void SearchEditor::SetupSearchEditorTree()
     ui.SearchEditorTree->setWordWrap(true);
     ui.SearchEditorTree->setAlternatingRowColors(true);
     ui.SearchEditorTree->installEventFilter(this);
-    QString nametooltip = "<p>" + tr("All searches default to Regex, All HTML Files, Down unless otherwise set.") + "</p>" +
-        "<p>" + tr("Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.") + "</p>" +
-        "<p>" + tr("Right click on an entry to see a context menu of actions.") + "</p>" +
+    QString nametooltip = "<p>" + tr("Right click on an entry to see a context menu of actions.") + "</p>" +
         "<p>" + tr("You can also right click on the Find text box in the Find & Replace window to select an entry.") + "</p>" +
         "<dl>" +
         "<dt><b>" + tr("Name") + "</b><dd>" + tr("Name of your entry or group.") + "</dd></dl>";
@@ -97,19 +95,6 @@ void SearchEditor::SetupSearchEditorTree()
     ui.SearchEditorTree->model()->setHeaderData(3,Qt::Horizontal,controlstooltip,Qt::ToolTipRole);
 
     ui.SearchEditorTree->setItemDelegateForColumn(3, m_CntrlDelegate);
-#if 0
-    ui.SearchEditorTree->header()->setToolTip(
-        "<p>" + tr("All searches default to Regex, All HTML Files, Down. Unless otherwise set in Controls") + "</p>" +
-        "<p>" + tr("Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.") + "</p>" +
-        "<p>" + tr("Right click on an entry to see a context menu of actions.") + "</p>" +
-        "<p>" + tr("You can also right click on the Find text box in the Find & Replace window to select an entry.") + "</p>" +
-        "<dl>" +
-        "<dt><b>" + tr("Name") + "</b><dd>" + tr("Name of your entry or group.") + "</dd>" +
-        "<dt><b>" + tr("Find") + "</b><dd>" + tr("The text to put into the Find box.") + "</dd>" +
-        "<dt><b>" + tr("Replace") + "</b><dd>" + tr("The text to put into the Replace box.") + "</dd>" +
-        "<dt><b>" + tr("Controls") + "</b><dd>" + tr("The text codes to Control the Search Options, Mode, Direction, and Target.") + "</dd>" +
-        "</dl>";
-#endif
     ui.buttonBox->setToolTip(QString() +
                              "<dl>" +
                              "<dt><b>" + tr("Save") + "</b><dd>" + tr("Save your changes.") + "<br/><br/>" + tr("If any other instances of Sigil are running they will be automatically updated with your changes.") + "</dd>" +
