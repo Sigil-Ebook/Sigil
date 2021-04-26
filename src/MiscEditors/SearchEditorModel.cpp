@@ -365,19 +365,26 @@ void SearchEditorModel::LoadTextData(const QString &filename, QStandardItem *ite
                     findreplace = aline.split(sep);
                 }
                 // add to end to prevent errors
-                findreplace << "" << "" << "";
+                findreplace << "" << "" << "" << "";
                 QString localname = "rep" + QStringLiteral("%1").arg(cnt, 5, 10, QLatin1Char('0'));
+                QString fullname;
                 SearchEditorModel::searchEntry *entry = new SearchEditorModel::searchEntry();
-                QString fullname = groupname + localname;
+                // if no name info appears
+                if (findreplace.at(0).isEmpty()) {
+                    fullname = groupname + localname;
+                } else {
+                    // this was created by an Export so fullname is present
+                    fullname = findreplace.at(0);
+                }
                 fullname.replace(QRegularExpression("\\s*/+\\s*"), "/");
                 fullname.replace(QRegularExpression("^/"), "");
                 entry->is_group = fullname.endsWith("/");
                 // Name is set to fullname only while looping through parent groups when adding
                 entry->name = fullname;
                 entry->fullname = fullname;
-                entry->find = findreplace.at(0);
-                entry->replace = findreplace.at(1);
-                entry->controls = findreplace.at(2);
+                entry->find = findreplace.at(1);
+                entry->replace = findreplace.at(2);
+                entry->controls = findreplace.at(3);
                 
                 AddFullNameEntry(entry, item);
                 // done with the temporary entry so remove it

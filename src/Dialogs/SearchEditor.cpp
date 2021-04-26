@@ -388,6 +388,7 @@ bool SearchEditor::Copy()
         save_entry->name = entry->name;
         save_entry->find = entry->find;
         save_entry->replace = entry->replace;
+        save_entry->controls = entry->controls;
         m_SavedSearchEntries.append(save_entry);
     }
     return true;
@@ -637,7 +638,8 @@ bool SearchEditor::FilterEntries(const QString &text, QStandardItem *item)
         } else {
             hidden = !(text.isEmpty() || entry->name.toLower().contains(lowercaseText) ||
                        entry->find.toLower().contains(lowercaseText) ||
-                       entry->replace.toLower().contains(lowercaseText));
+                       entry->replace.toLower().contains(lowercaseText) ||
+                       entry->controls.toLower().contains(lowercaseText));
         }
 
         ui.SearchEditorTree->setRowHidden(item->row(), parent_index, hidden);
