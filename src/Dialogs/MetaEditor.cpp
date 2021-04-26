@@ -590,7 +590,7 @@ void MetaEditor::selectProperty()
             insertChild(PName(code), code, content, "");
         } else if (code == "scheme") {
                 insertChild(PName(code), code, "", "");
-        } else if (code == "xml:lang") {
+        } else if ((code == "xml:lang") || (code == "altlang")) {
             QStringList langcodes;
             AddMetadata addvalue(Language::instance()->GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
@@ -888,7 +888,8 @@ void MetaEditor::loadMetadataProperties()
          tr("Title: Collection Title") << "title-type:collection" << tr("Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.") <<
          tr("Title: Edition Title") << "title-type:edition" << tr("Indicates that the associated title is an edition title for this publications if one exists.") <<
          tr("Title: Expanded Title") << "title-type:expanded" << tr("Indicates that the associated title is an expanded title for this publication if one exists.") <<
-         tr("Alternate Script") << "alternate-script" << tr("Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.") <<
+         tr("Alternate Script") << "alternate-script" << tr("Provides an alternate expression of the associated property value in a language and script identified by an xml:lang attribute.") <<
+         tr("Alternate Language") << "altlang" << tr("Language code for the language used in the associated alternate-script property value.") <<
          tr("Collection is a Set") << "collection-type:set" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection. The value 'set' should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..") <<
          tr("Collection is a Series") << "collection-type:series" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection. The value 'series'' should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.") <<
          tr("Display Sequence") << "display-seq" << tr("Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).") <<
