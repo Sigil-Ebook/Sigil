@@ -449,6 +449,31 @@ void SearchEditorModel::AddFullNameEntry(SearchEditorModel::searchEntry *entry, 
     }
 }
 
+
+void SearchEditorModel::FillControlsDown(const QList<QStandardItem*> &items)
+{
+    if (items.isEmpty()) return;
+    
+    QStandardItem *source_item = items.at(0);
+    
+    QStandardItem *parent_item = invisibleRootItem();
+    if (source_item->parent()) {
+        parent_item = source_item->parent();
+    }
+    QString controls = parent_item->child(source_item->row(), 3)->text();
+
+    for (int i = 1; i < items.size(); i++) {
+        QStandardItem* aitem = items.at(i);
+        parent_item = invisibleRootItem();
+        if (aitem->parent()) {
+            parent_item = aitem->parent();
+        }
+        parent_item->child(aitem->row(), 3)->setText(controls);
+    }
+    SetDataModified(true);
+}
+
+
 QString SearchEditorModel::BuildControlsToolTip(const QString & controls)
 {
     QString tooltip_controls = "";

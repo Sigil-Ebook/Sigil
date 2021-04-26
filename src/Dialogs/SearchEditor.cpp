@@ -609,6 +609,19 @@ void SearchEditor::ExportItems(QList<QStandardItem *> items)
     }
 }
 
+void SearchEditor::FillControlsDown()
+{
+    if (ui.SearchEditorTree->selectionModel()->hasSelection()) {
+        QList<QStandardItem *> items = m_SearchEditorModel->GetNonGroupItems(GetSelectedItems());
+
+        if (!ItemsAreUnique(items)) return;
+
+        if (items.size() < 2) return;
+
+        m_SearchEditorModel->FillControlsDown(items);
+    }
+}
+
 void SearchEditor::CollapseAll()
 {
     ui.SearchEditorTree->collapseAll();
@@ -765,6 +778,7 @@ void SearchEditor::CreateContextMenuActions()
     m_ExportAll =   new QAction(tr("Export All") + "...", this);
     m_CollapseAll = new QAction(tr("Collapse All"),       this);
     m_ExpandAll =   new QAction(tr("Expand All"),         this);
+    m_FillDown  =   new QAction(tr("Fill Controls Down"), this);
     m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_E));
     m_AddGroup->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_G));
     m_Edit->setShortcut(QKeySequence(Qt::Key_F2));
@@ -802,6 +816,7 @@ void SearchEditor::OpenContextMenu(const QPoint &point)
         m_ExportAll->setEnabled(true);
         m_CollapseAll->setEnabled(true);
         m_ExpandAll->setEnabled(true);
+        m_FillDown->setEnabled(true);
     }
 }
 
@@ -833,6 +848,7 @@ void SearchEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addSeparator();
     m_ContextMenu->addAction(m_CollapseAll);
     m_ContextMenu->addAction(m_ExpandAll);
+    m_ContextMenu->addAction(m_FillDown);
 }
 
 void SearchEditor::Apply()
@@ -1102,6 +1118,7 @@ void SearchEditor::ConnectSignalsSlots()
     connect(m_ExportAll,   SIGNAL(triggered()), this, SLOT(ExportAll()));
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
+    connect(m_FillDown,    SIGNAL(triggered()), this, SLOT(FillControlsDown()));
     connect(m_SearchEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
     connect(m_SearchEditorModel, SIGNAL(ItemDropped(const QModelIndex &)), this, SLOT(ModelItemDropped(const QModelIndex &)));
 }

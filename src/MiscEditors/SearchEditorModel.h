@@ -63,6 +63,8 @@ public:
 
     void AddFullNameEntry(SearchEditorModel::searchEntry *entry = NULL, QStandardItem *parent_item = NULL, int row = -1);
 
+    void FillControlsDown(const QList<QStandardItem*> &items);
+    
     QString BuildControlsToolTip(const QString& controls);
 
     QStandardItem *AddEntryToModel(SearchEditorModel::searchEntry *entry, bool is_group = false, QStandardItem *parent_item = NULL, int row = -1);
