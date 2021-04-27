@@ -1737,171 +1737,186 @@ other end to continue searching.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="270"/>
+        <location filename="../../Dialogs/Controls.cpp" line="288"/>
         <source>What to search for</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="271"/>
-        <location filename="../../Dialogs/Controls.cpp" line="272"/>
-        <source>Normal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Controls.cpp" line="272"/>
-        <source>Case in-sensitive search of exactly what you type.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Controls.cpp" line="274"/>
-        <location filename="../../Dialogs/Controls.cpp" line="275"/>
-        <source>Case Sensitive</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Controls.cpp" line="275"/>
-        <source>Case sensitive search of exactly what you type.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Controls.cpp" line="277"/>
-        <location filename="../../Dialogs/Controls.cpp" line="278"/>
-        <source>Regex</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Controls.cpp" line="278"/>
-        <source>Search for a pattern using Regular Expression syntax.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Controls.cpp" line="282"/>
-        <source>Where to search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Controls.cpp" line="284"/>
-        <location filename="../../Dialogs/Controls.cpp" line="285"/>
-        <location filename="../../Dialogs/Controls.cpp" line="294"/>
-        <source>Current File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Controls.cpp" line="285"/>
-        <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Controls.cpp" line="287"/>
-        <location filename="../../Dialogs/Controls.cpp" line="288"/>
-        <source>All HTML Files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Controls.cpp" line="288"/>
-        <source>Find or replace in all HTML files in Code View.</source>
+        <location filename="../../Dialogs/Controls.cpp" line="289"/>
+        <source>Select Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="290"/>
         <location filename="../../Dialogs/Controls.cpp" line="291"/>
-        <source>Selected HTML Files</source>
+        <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="291"/>
-        <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
+        <source>Case in-sensitive search of exactly what you type.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="293"/>
-        <source>Tabbed HTML Files</source>
+        <location filename="../../Dialogs/Controls.cpp" line="294"/>
+        <source>Case Sensitive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="294"/>
-        <source>Restrict the find or replace to the HTML files open in Tabs.</source>
+        <source>Case sensitive search of exactly what you type.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="296"/>
         <location filename="../../Dialogs/Controls.cpp" line="297"/>
-        <source>All CSS Files</source>
+        <source>Regex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="297"/>
-        <source>Find or replace in all CSS files in Code View.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Controls.cpp" line="299"/>
-        <location filename="../../Dialogs/Controls.cpp" line="300"/>
-        <source>Selected CSS Files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Controls.cpp" line="300"/>
-        <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
+        <source>Search for a pattern using Regular Expression syntax.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="302"/>
-        <location filename="../../Dialogs/Controls.cpp" line="303"/>
-        <source>Tabbed CSS Files</source>
+        <source>Where to search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="303"/>
-        <source>Restrict the find or replace to the CSS files open in Tabs.</source>
+        <location filename="../../Dialogs/Controls.cpp" line="304"/>
+        <source>Select Target</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="305"/>
         <location filename="../../Dialogs/Controls.cpp" line="306"/>
-        <source>OPF File</source>
+        <location filename="../../Dialogs/Controls.cpp" line="315"/>
+        <source>Current File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="306"/>
-        <source>Restrict the find or replace to the OPF file.</source>
+        <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="308"/>
         <location filename="../../Dialogs/Controls.cpp" line="309"/>
-        <source>NCX File</source>
+        <source>All HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="309"/>
-        <source>Restrict the find or replace to the NCX file.</source>
+        <source>Find or replace in all HTML files in Code View.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="311"/>
+        <location filename="../../Dialogs/Controls.cpp" line="312"/>
+        <source>Selected HTML Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="312"/>
+        <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="314"/>
-        <location filename="../../Dialogs/Controls.cpp" line="318"/>
-        <source>Up</source>
+        <source>Tabbed HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="315"/>
-        <location filename="../../Dialogs/Controls.cpp" line="319"/>
-        <source>Down</source>
+        <source>Restrict the find or replace to the HTML files open in Tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="316"/>
-        <source>Direction to search</source>
+        <location filename="../../Dialogs/Controls.cpp" line="317"/>
+        <location filename="../../Dialogs/Controls.cpp" line="318"/>
+        <source>All CSS Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="318"/>
+        <source>Find or replace in all CSS files in Code View.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="320"/>
+        <location filename="../../Dialogs/Controls.cpp" line="321"/>
+        <source>Selected CSS Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="321"/>
+        <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="323"/>
+        <location filename="../../Dialogs/Controls.cpp" line="324"/>
+        <source>Tabbed CSS Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="324"/>
+        <source>Restrict the find or replace to the CSS files open in Tabs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="326"/>
+        <location filename="../../Dialogs/Controls.cpp" line="327"/>
+        <source>OPF File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="327"/>
+        <source>Restrict the find or replace to the OPF file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="329"/>
+        <location filename="../../Dialogs/Controls.cpp" line="330"/>
+        <source>NCX File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="330"/>
+        <source>Restrict the find or replace to the NCX file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="336"/>
+        <source>Select Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="337"/>
+        <location filename="../../Dialogs/Controls.cpp" line="341"/>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="338"/>
+        <location filename="../../Dialogs/Controls.cpp" line="342"/>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="339"/>
+        <source>Direction to search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/Controls.cpp" line="341"/>
         <source>Search for the previous match from your current position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="319"/>
+        <location filename="../../Dialogs/Controls.cpp" line="342"/>
         <source>Search for the next match from your current position.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2437,240 +2452,240 @@ other end to continue searching.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="220"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1599"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1600"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1609"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="241"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1622"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1623"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1632"/>
         <source>Current File</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="379"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1417"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="400"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1440"/>
         <source>Matches found: %n</source>
         <translation type="unfinished">
             <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="463"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1441"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="484"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1464"/>
         <source>No replacements made</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="465"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1443"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="486"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1466"/>
         <source>Replacements made: %n</source>
         <translation type="unfinished">
             <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="664"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="685"/>
         <source>No matches found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1293"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1314"/>
         <source>This tab cannot be searched</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1327"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1350"/>
         <source>Unnamed search loaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1330"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1353"/>
         <source>Loaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1343"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1363"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1381"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1401"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1427"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1366"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1386"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1404"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1424"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1450"/>
         <source>No searches selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1585"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1608"/>
         <source>What to search for</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1586"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1587"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1609"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1610"/>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1587"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1610"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1589"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1590"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1612"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1613"/>
         <source>Case Sensitive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1590"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1613"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1592"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1593"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1615"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1616"/>
         <source>Regex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1593"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1616"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1597"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1631"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1620"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1654"/>
         <source>Where to search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1600"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1623"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1602"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1603"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1625"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1626"/>
         <source>All HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1603"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1626"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1605"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1606"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1628"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1629"/>
         <source>Selected HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1606"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1629"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1608"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1631"/>
         <source>Tabbed HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1609"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1632"/>
         <source>Restrict the find or replace to the HTML files open in Tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1611"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1612"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1634"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1635"/>
         <source>All CSS Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1612"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1635"/>
         <source>Find or replace in all CSS files in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1614"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1615"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1637"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1638"/>
         <source>Selected CSS Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1615"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1638"/>
         <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1617"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1618"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1640"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1641"/>
         <source>Tabbed CSS Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1618"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1641"/>
         <source>Restrict the find or replace to the CSS files open in Tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1620"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1621"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1643"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1644"/>
         <source>OPF File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1621"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1644"/>
         <source>Restrict the find or replace to the OPF file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1623"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1624"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1646"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1647"/>
         <source>NCX File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1624"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1647"/>
         <source>Restrict the find or replace to the NCX file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1627"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1650"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1632"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1633"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1655"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1656"/>
         <source>Marked Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1633"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1656"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1637"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1641"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1660"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1664"/>
         <source>Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1638"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1642"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1661"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1665"/>
         <source>Down</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1639"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1662"/>
         <source>Direction to search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1641"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1664"/>
         <source>Search for the previous match from your current position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1642"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1665"/>
         <source>Search for the next match from your current position.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7773,7 +7788,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="427"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1187"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1176"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9965,40 +9980,40 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="443"/>
         <location filename="../../MainUI/MainWindow.cpp" line="452"/>
         <location filename="../../MainUI/MainWindow.cpp" line="460"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1151"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1480"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1715"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1853"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2337"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2433"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2483"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2491"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2507"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2519"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2625"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2641"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2646"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2659"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2672"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2677"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2689"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2699"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2704"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2853"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2860"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2935"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2967"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4151"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4164"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4170"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4206"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4212"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4218"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4488"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4508"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4816"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5017"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1469"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1704"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1842"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2422"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2472"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2480"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2496"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2614"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2630"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2635"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2648"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2661"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2666"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2678"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2688"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2693"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2842"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2849"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2865"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2924"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2956"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4153"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4159"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4195"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4201"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4207"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4477"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4497"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4805"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5006"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10082,475 +10097,470 @@ This action cannot be reversed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="868"/>
-        <source>External XHtml Editor works only on Html Resources or OPF Resources!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="875"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="871"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="882"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="878"/>
         <source>Specified External Xhtml Editor path does not exist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="926"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="915"/>
         <source>Executing External Xhtml Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="929"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="918"/>
         <source>Failed to Launch External Xhtml Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1069"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1058"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1086"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1075"/>
         <source>Location bookmarked.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1151"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1140"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1187"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1176"/>
         <source>was updated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1194"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1183"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1194"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1183"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1222"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1211"/>
         <source>Opening this EPUB generated warnings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1224"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1213"/>
         <source>Select Show Details for more information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1337"/>
         <source>Sigil is closing...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1403"/>
         <source>New file created.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1439"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1428"/>
         <source>Open File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1479"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1468"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1557"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1546"/>
         <source>Save File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1611"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1600"/>
         <source>Save a Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1650"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1639"/>
         <source>Epub layout discarded.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1657"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1646"/>
         <source>New epub created.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1692"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1681"/>
         <source>Go To Line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1692"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1681"/>
         <source>Line #</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1715"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1704"/>
         <source>Image does not exist: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1768"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1757"/>
         <source>or</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1776"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1765"/>
         <source>No CSS styles named</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1776"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1765"/>
         <source>found, or stylesheet not linked.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1849"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1838"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1873"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1862"/>
         <source>Add Cover</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1922"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1911"/>
         <source>An existing Cover file has been found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1979"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1968"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1996"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1985"/>
         <source>Cover added.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2005"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2022"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2054"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1994"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2011"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2043"/>
         <source>Not Available for epub2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2002"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2044"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2033"/>
         <source>NCX and Guide removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2071"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2104"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2060"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2093"/>
         <source>NCX and Guide generation failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2142"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2131"/>
         <source>NCX and Guide generated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2226"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2215"/>
         <source>An existing Index file has been found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2318"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2307"/>
         <source>Styles deleted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2315"/>
         <source>Reports Being Generated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2337"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2326"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2433"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2422"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2481"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2470"/>
         <source>Unused media files deleted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2483"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2472"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2491"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2480"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2507"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2496"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2519"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2508"/>
         <source>You cannot insert a file at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2526"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2515"/>
         <source>Insert File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2579"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2568"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2625"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2646"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2614"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2635"/>
         <source>You cannot insert an id at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2641"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2630"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2659"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2677"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2648"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2666"/>
         <source>You cannot insert a link at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2672"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2661"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2689"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2678"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2699"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2688"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2704"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2693"/>
         <source>You cannot mark an index at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2771"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2783"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2760"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2772"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2791"/>
         <source>Select the destination to paste into first.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2791"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2780"/>
         <source>Pasted clip entry %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2853"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2842"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2861"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2850"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2876"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2865"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2935"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2924"/>
         <source>Cannot merge file %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2949"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2938"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2967"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2956"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3097"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3086"/>
         <source>Word updated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3158"/>
         <source>File(s) deleted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3180"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3185"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3174"/>
         <source>Table Of Contents edited.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3203"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
         <source>Generate TOC cancelled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3228"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3217"/>
         <source>Table Of Contents generated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3230"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3219"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3303"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3292"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3386"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
         <source>Text selection marked.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3388"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3406"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3377"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3395"/>
         <source>Text selection unmarked.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3455"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3444"/>
         <source>Metadata Editor cancelled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3458"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
         <source>Metadata edited.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3566"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3555"/>
         <source>RunPlugin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3591"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3580"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4065"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4054"/>
         <source>Line: %1, Col: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4151"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4140"/>
         <source>File cannot be split at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4153"/>
         <source>Cannot split since it may not be an HTML file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4170"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4159"/>
         <source>The Nav file cannot be split.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4188"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4177"/>
         <source>Split completed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4206"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4195"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4212"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4201"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4218"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4207"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4251"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4240"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4253"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4242"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4489"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4478"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4510"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4499"/>
         <source>Should Sigil overwrite this file?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4687"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4676"/>
         <source>No importer for file type: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4694"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4683"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -10559,112 +10569,112 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4699"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4688"/>
         <source>Loading file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4713"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4702"/>
         <source>File loaded.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4741"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4730"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4738"/>
         <source>Cannot load EPUB: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4754"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4743"/>
         <source>Cannot load file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4783"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4772"/>
         <source>Saving EPUB...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4792"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4781"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4817"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4806"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in some data loss.
 
 Do you want to automatically mend the files before saving?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4846"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4835"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4848"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4837"/>
         <source>EPUB saved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4854"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4843"/>
         <source>Cannot save file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4987"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4976"/>
         <source>EPUB files (*.epub)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4988"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4989"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4990"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4977"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4978"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4979"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4991"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4980"/>
         <source>Text files (*.txt)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4981"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5000"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4989"/>
         <source>EPUB file (*.epub)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5017"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5006"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5095"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5084"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5085"/>
         <source>ON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5085"/>
         <source>OFF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5121"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5110"/>
         <source>&amp;%1 %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13531,7 +13541,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="469"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="854"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1023"/>
         <source>Custom Element</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13558,7 +13568,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="623"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="901"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="902"/>
         <source>Custom Property</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13569,7 +13579,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="667"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1055"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1056"/>
         <source>Custom Attribute</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13590,49 +13600,49 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="830"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="995"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="996"/>
         <source>Author</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="830"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="995"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="996"/>
         <source>Represents a primary author of the book or publication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="831"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1000"/>
         <source>Subject</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="831"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1000"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="832"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1000"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1001"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="832"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1000"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1001"/>
         <source>Description of the publication&apos;s content.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="833"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1001"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1002"/>
         <source>Publisher</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="833"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1001"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1002"/>
         <source>An entity responsible for making the publication available.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13643,7 +13653,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="834"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1003"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1004"/>
         <source>The date of publication.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13654,7 +13664,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="835"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1004"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1005"/>
         <source>The date of creation.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13665,13 +13675,13 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="836"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1005"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1006"/>
         <source>The date of modification.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="837"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1006"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1007"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13682,19 +13692,19 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="838"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1007"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1008"/>
         <source>Format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="838"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1007"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1008"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="839"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1008"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1009"/>
         <source>Source</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13705,7 +13715,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="840"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1009"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1010"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13721,37 +13731,37 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="841"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1010"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1011"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="842"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1011"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1012"/>
         <source>Coverage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="842"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1011"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1012"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="843"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1012"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
         <source>Rights</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="843"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1012"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="844"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="997"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="998"/>
         <source>Creator</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13762,7 +13772,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="845"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="998"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
         <source>Contributor</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13783,7 +13793,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="847"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="996"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="997"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13844,7 +13854,7 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="853"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1018"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1019"/>
         <source>Identifier: Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13870,19 +13880,19 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>Id Attribute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>XML Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13978,379 +13988,389 @@ Do you want to automatically mend the files before saving?</source>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="891"/>
-        <source>Provides an alternate expression of the associated property value in a language and script identified by an alternate-language attribute.</source>
+        <source>Provides an alternate expression of the associated property value in a language and script identified by an xml:lang attribute.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="892"/>
+        <source>Alternate Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="892"/>
+        <source>Language code for the language used in the associated alternate-script property value.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="893"/>
         <source>Collection is a Set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="892"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="893"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="893"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="894"/>
         <source>Collection is a Series</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="893"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="894"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="894"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="895"/>
         <source>Display Sequence</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="894"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="895"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="895"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="896"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>File As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="895"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="896"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="896"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="897"/>
         <source>Position In Group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="896"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="897"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="897"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="898"/>
         <source>Identifier Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="897"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="898"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="898"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="899"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
         <source>Role</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="898"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="899"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="899"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="900"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
         <source>Scheme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="899"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="900"/>
         <source>This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="900"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="901"/>
         <source>Source of Pagination</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="900"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="901"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="901"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="902"/>
         <source>An empty metadata property or attribute you can modify.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
         <source>Text Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
         <source>Optional text direction attribute for this metadata item.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
         <source>Title Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
         <source>Indicates the kind or type of the title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
         <source>Collection Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
         <source>Source of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="959"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="960"/>
         <source>Published</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="959"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="960"/>
         <source>Event Type is Published.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="960"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="961"/>
         <source>Publication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="960"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="961"/>
         <source>Event Type is Publication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="961"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="962"/>
         <source>Creation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="961"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="962"/>
         <source>Event Type is Creation.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="962"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="963"/>
         <source>Modification</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="962"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="963"/>
         <source>Event Type is Modification.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="963"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
         <source>Digital Object Identifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="963"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
         <source>Identifier Scheme: Digital Object Identifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="965"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1015"/>
         <source>International Standard Book Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="965"/>
         <source>Identifier Scheme: International Standard Book Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="965"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1015"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="966"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1016"/>
         <source>International Standard Serial Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="965"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="966"/>
         <source>Identifier Scheme: International Standard Serial Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="966"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1016"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="967"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1017"/>
         <source>Universally Unique Identifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="966"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="967"/>
         <source>Identifier Scheme: Universally Unique Identifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="967"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="968"/>
         <source>Amazon Unique Identifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="967"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="968"/>
         <source>Identifier Scheme: Amazon Unique Identifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="996"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="997"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="997"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="998"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="998"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1002"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1003"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1002"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1003"/>
         <source>A date associated with this epub, typically refined by event type information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1003"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1004"/>
         <source>Date: Publication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1004"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1005"/>
         <source>Date: Creation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1005"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1006"/>
         <source>Date: Modification</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1006"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1007"/>
         <source>The nature or genre of the content of the resource.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1008"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1009"/>
         <source>A reference to a resource from which the present publication is derived.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1009"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1010"/>
         <source>A language used in the publication. Choose a RFC5646 value.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1010"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1011"/>
         <source>Relation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1015"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1016"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1017"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1018"/>
         <source>Identifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1017"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1018"/>
         <source>Amazon Standard Identification Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1018"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1019"/>
         <source>A custom identifier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1019"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
         <source>Series</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1019"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
         <source>Series title or name (from calibre)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
         <source>Series Index</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
         <source>Index of this book in the series (from calibre)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
         <source>Title for Sorting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1023"/>
         <source>An empty element for you to modify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1055"/>
         <source>Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1055"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1055"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1056"/>
         <source>An empty metadata attribute you can modify.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15071,7 +15091,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="163"/>
-        <location filename="../../Misc/OpenExternally.cpp" line="244"/>
+        <location filename="../../Misc/OpenExternally.cpp" line="315"/>
         <source>Applications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15188,7 +15208,7 @@ Line: %1 Column %2 - %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/OpenExternally.cpp" line="262"/>
+        <location filename="../../Misc/OpenExternally.cpp" line="333"/>
         <source>Open With</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15413,8 +15433,7 @@ then if not found look for the second entry in the list, etc.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="69"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="108"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>Find</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15427,8 +15446,7 @@ and stop at the first successful replace.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="70"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="109"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>Replace</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15501,175 +15519,302 @@ including entries in selected groups.</source>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="63"/>
-        <source>All searches default to Regex, All HTML Files, Down unless otherwise set.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="64"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="103"/>
-        <source>Hold Ctrl down while clicking Find, Replace, etc. to temporarily search only the Current File.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="65"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="104"/>
         <source>Right click on an entry to see a context menu of actions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="105"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="64"/>
         <source>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="107"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="107"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="66"/>
         <source>Name of your entry or group.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="69"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="108"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="67"/>
         <source>The text to put into the Find box.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="70"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="109"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="68"/>
         <source>The text to put into the Replace box.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="71"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="110"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="69"/>
         <source>Controls</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="71"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="69"/>
         <source>Two character codes to control the search Mode, Direction, Target and Options.  Codes can be in any order comma or space separated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="70"/>
         <source>Mode: Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="73"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="71"/>
         <source>Mode: Regular Expression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="74"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="72"/>
         <source>Mode: Case Sensitive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="76"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="74"/>
         <source>Direction: Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="77"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="75"/>
         <source>Direction: Down</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="79"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="77"/>
         <source>Target: Current File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="80"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="78"/>
         <source>Target: All HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="81"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="79"/>
         <source>Target: Selected HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="82"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="80"/>
         <source>Target: Tabbed HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="83"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="81"/>
         <source>Target: All CSS Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="84"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="82"/>
         <source>Target: Selected CSS Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="85"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="83"/>
         <source>Target: Tabbed CSS Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="86"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="84"/>
         <source>Target: OPF File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="87"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="85"/>
         <source>Target: NCX File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="89"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="87"/>
         <source>Option: DotAll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="90"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="88"/>
         <source>Option: Minimal Match</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="91"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="89"/>
         <source>Option: Auto Tokenise</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="92"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="90"/>
         <source>Option: Wrap</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="102"/>
-        <source>All searches default to Regex, All HTML Files, Down. Unless otherwise set in Controls</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="110"/>
-        <source>The text codes to Control the Search Options, Mode, Direction, and Target.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="100"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="100"/>
         <source>Save your changes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="100"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="117"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="128"/>
+        <source>Cannot save entries.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="208"/>
+        <source>Saved Searches loaded from file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="244"/>
+        <source>You cannot select more than one entry when using this action.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="252"/>
+        <source>You cannot select a group for this action.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="299"/>
+        <source>You cannot select an entry and a group containing the entry.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="382"/>
+        <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="450"/>
+        <source>Sigil</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="450"/>
+        <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="465"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="564"/>
+        <source>Sigil INI files (*.ini)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="466"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="565"/>
+        <source>CSV files (*.csv)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="467"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="566"/>
+        <source>Text files (*.txt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="480"/>
+        <source>Import Search Entries</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="580"/>
+        <source>Export Selected Searches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="768"/>
+        <source>Add Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="769"/>
+        <source>Add Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="770"/>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="771"/>
+        <source>Cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="772"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="773"/>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="774"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="775"/>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="776"/>
+        <source>Reload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="777"/>
+        <source>Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="778"/>
+        <source>Export All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="779"/>
+        <source>Collapse All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="780"/>
+        <source>Expand All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="781"/>
+        <source>Fill Controls</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="862"/>
+        <source>Search entries saved.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="891"/>
+        <source>Sigil: Saved Searches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="892"/>
+        <source>The Search entries may have been modified.
+Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -15696,7 +15841,97 @@ including entries in selected groups.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="723"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="482"/>
+        <source>Mode: Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="485"/>
+        <source>Mode: Regular Expression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="488"/>
+        <source>Mode: Case Sensitive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="491"/>
+        <source>Direction: Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="494"/>
+        <source>Direction: Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="497"/>
+        <source>Target: Current File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="500"/>
+        <source>Target: All HTML Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="503"/>
+        <source>Target: Selected HTML Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="506"/>
+        <source>Target: Tabbed HTML Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="509"/>
+        <source>Target: All CSS Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="512"/>
+        <source>Target: Selected CSS Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="515"/>
+        <source>Target: Tabbed CSS Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="518"/>
+        <source>Target: OPF File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="521"/>
+        <source>Target: NCX File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="524"/>
+        <source>Option: DotAll</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="527"/>
+        <source>Option: Minimal Match</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="530"/>
+        <source>Option: Auto Tokenise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="533"/>
+        <source>Option: Wrap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="825"/>
         <source>Unable to create file %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16465,13 +16700,17 @@ including entries in selected groups.</source>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
         <source>Greek lower letter mu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
         <source>Greek capital letter Nu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
+        <source>Greek lower letter nu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
