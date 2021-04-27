@@ -43,7 +43,7 @@ static const QString FONT_HTML_BASE =
     "  <title></title>"
     "  <style>" 
     "    @font-face {"
-    "      src: url(%1);"
+    "      src: url(\"%1\");"
     "      font-family: \"%2\";"
     "      font-weight: \"%3\";"
     "      font-style: \"%4\";"
@@ -121,7 +121,7 @@ void FontView::ShowFont(QString path)
     } else desc = tr("No reliable font data");
 
     const QUrl furl = QUrl::fromLocalFile(path);
-    QString html = FONT_HTML_BASE.arg(furl.toString())
+    QString html = FONT_HTML_BASE.arg(furl.toEncoded().constData())
                                  .arg(font_name)
                                  .arg(weight_name)
                                  .arg(style_name)
