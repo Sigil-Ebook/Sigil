@@ -86,7 +86,7 @@ private slots:
     void ExportAll();
     void CollapseAll();
     void ExpandAll();
-    void FillControlsDown();
+    void FillControls();
     
     void Apply();
     bool Save();
@@ -158,7 +158,7 @@ private:
     QAction *m_ExportAll;
     QAction *m_CollapseAll;
     QAction *m_ExpandAll;
-    QAction *m_FillDown;
+    QAction *m_FillIn;
 
     SearchEditorModel *m_SearchEditorModel;
 

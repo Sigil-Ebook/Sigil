@@ -609,7 +609,7 @@ void SearchEditor::ExportItems(QList<QStandardItem *> items)
     }
 }
 
-void SearchEditor::FillControlsDown()
+void SearchEditor::FillControls()
 {
     if (ui.SearchEditorTree->selectionModel()->hasSelection()) {
         QList<QStandardItem *> items = m_SearchEditorModel->GetNonGroupItems(GetSelectedItems());
@@ -618,7 +618,7 @@ void SearchEditor::FillControlsDown()
 
         if (items.size() < 2) return;
 
-        m_SearchEditorModel->FillControlsDown(items);
+        m_SearchEditorModel->FillControls(items);
     }
 }
 
@@ -772,13 +772,13 @@ void SearchEditor::CreateContextMenuActions()
     m_Copy      =   new QAction(tr("Copy"),               this);
     m_Paste     =   new QAction(tr("Paste"),              this);
     m_Delete    =   new QAction(tr("Delete"),             this);
-    m_Import    =   new QAction(tr("Import") + "...",      this);
+    m_Import    =   new QAction(tr("Import") + "...",     this);
     m_Reload    =   new QAction(tr("Reload") + "...",     this);
     m_Export    =   new QAction(tr("Export") + "...",     this);
     m_ExportAll =   new QAction(tr("Export All") + "...", this);
     m_CollapseAll = new QAction(tr("Collapse All"),       this);
     m_ExpandAll =   new QAction(tr("Expand All"),         this);
-    m_FillDown  =   new QAction(tr("Fill Controls Down"), this);
+    m_FillIn    =   new QAction(tr("Fill Controls"),      this);
     m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_E));
     m_AddGroup->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_G));
     m_Edit->setShortcut(QKeySequence(Qt::Key_F2));
@@ -816,7 +816,7 @@ void SearchEditor::OpenContextMenu(const QPoint &point)
         m_ExportAll->setEnabled(true);
         m_CollapseAll->setEnabled(true);
         m_ExpandAll->setEnabled(true);
-        m_FillDown->setEnabled(true);
+        m_FillIn->setEnabled(true);
     }
 }
 
@@ -848,7 +848,7 @@ void SearchEditor::SetupContextMenu(const QPoint &point)
     m_ContextMenu->addSeparator();
     m_ContextMenu->addAction(m_CollapseAll);
     m_ContextMenu->addAction(m_ExpandAll);
-    m_ContextMenu->addAction(m_FillDown);
+    m_ContextMenu->addAction(m_FillIn);
 }
 
 void SearchEditor::Apply()
@@ -1118,7 +1118,7 @@ void SearchEditor::ConnectSignalsSlots()
     connect(m_ExportAll,   SIGNAL(triggered()), this, SLOT(ExportAll()));
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
-    connect(m_FillDown,    SIGNAL(triggered()), this, SLOT(FillControlsDown()));
+    connect(m_FillIn,      SIGNAL(triggered()), this, SLOT(FillControls()));
     connect(m_SearchEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
     connect(m_SearchEditorModel, SIGNAL(ItemDropped(const QModelIndex &)), this, SLOT(ModelItemDropped(const QModelIndex &)));
 }

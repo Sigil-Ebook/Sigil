@@ -450,7 +450,7 @@ void SearchEditorModel::AddFullNameEntry(SearchEditorModel::searchEntry *entry, 
 }
 
 
-void SearchEditorModel::FillControlsDown(const QList<QStandardItem*> &items)
+void SearchEditorModel::FillControls(const QList<QStandardItem*> &items)
 {
     if (items.isEmpty()) return;
     
