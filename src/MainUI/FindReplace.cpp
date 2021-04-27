@@ -44,6 +44,13 @@ static const QString REGEX_OPTION_MINIMAL_MATCH = "(?U)";
 
 static const int SHOW_FIND_RESULTS_MESSAGE_DELAY_MS = 20000;
 
+// mappings from LookWhere, Search, and Direction enums to Controls code
+// Must be kept in sync with those enums
+static const QStringList TGTS = QStringList() << "CF" << "AH" << "SH" << "TH" << "AC" << "SC" << "TC" << "OP" << "NX";
+static const QStringList MDS = QStringList() << "NL" << "CS" << "RX";
+static const QStringList DRS = QStringList() << "DN" << "UP";
+
+
 FindReplace::FindReplace(MainWindow *main_window)
     : QWidget(main_window),
       m_MainWindow(main_window),
@@ -118,6 +125,20 @@ void FindReplace::SetFocus()
 bool FindReplace::HasFocus()
 {
     return ui.cbFind->lineEdit()->hasFocus();
+}
+
+
+QString FindReplace::GetControls()
+{
+    QStringList  controls;
+    controls << MDS.at(GetSearchMode());
+    if (m_RegexOptionDotAll) controls << "DA";
+    if (m_RegexOptionMinimalMatch) controls << "MM";
+    if (m_RegexOptionAutoTokenise) controls << "AT";
+    if (m_OptionWrap) controls << "WR";
+    controls << DRS.at(GetSearchDirection());
+    controls << TGTS.at(GetLookWhere());
+    return controls.join(' ');
 }
 
 
@@ -1302,10 +1323,12 @@ void FindReplace::SaveSearchAction()
     SearchEditorModel::searchEntry *search_entry = new SearchEditorModel::searchEntry();
     search_entry->name = "Unnamed Search";
     search_entry->is_group = false;
-    search_entry->find = ui.cbFind->lineEdit()->text(),
-                  search_entry->replace = ui.cbReplace->lineEdit()->text(),
-                                emit OpenSearchEditorRequest(search_entry);
+    search_entry->find = ui.cbFind->lineEdit()->text();
+    search_entry->replace = ui.cbReplace->lineEdit()->text();
+    search_entry->controls = GetControls();
+    emit OpenSearchEditorRequest(search_entry);
 }
+
 
 void FindReplace::LoadSearchByName(const QString &name)
 {

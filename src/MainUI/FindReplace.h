@@ -51,26 +51,26 @@ public:
      */
     enum LookWhere {
         LookWhere_CurrentFile = 0,
-        LookWhere_AllHTMLFiles = 10,
-        LookWhere_SelectedHTMLFiles = 20,
-        LookWhere_TabbedHTMLFiles = 30,
-        LookWhere_AllCSSFiles = 40,
-        LookWhere_SelectedCSSFiles = 50,
-        LookWhere_TabbedCSSFiles = 60,
-        LookWhere_OPFFile = 70,
-        LookWhere_NCXFile = 80,
+        LookWhere_AllHTMLFiles,
+        LookWhere_SelectedHTMLFiles,
+        LookWhere_TabbedHTMLFiles,
+        LookWhere_AllCSSFiles,
+        LookWhere_SelectedCSSFiles,
+        LookWhere_TabbedCSSFiles,
+        LookWhere_OPFFile,
+        LookWhere_NCXFile
     };
 
     enum SearchMode {
         // Normal is Case insensitive
         SearchMode_Normal = 0,
-        SearchMode_Case_Sensitive = 10,
-        SearchMode_Regex = 20
+        SearchMode_Case_Sensitive,
+        SearchMode_Regex
     };
 
     enum SearchDirection {
         SearchDirection_Down = 0,
-        SearchDirection_Up = 10
+        SearchDirection_Up
     };
 
     /**
@@ -189,6 +189,8 @@ private slots:
     void AdvancedOptionsClicked();
 
 private:
+    QString GetControls();
+    
     Searchable::Direction GetSearchableDirection();
     bool FindText(Searchable::Direction direction);
     bool ReplaceText(Searchable::Direction direction, bool replace_current = false);
