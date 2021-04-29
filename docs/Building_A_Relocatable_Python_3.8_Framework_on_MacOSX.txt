@@ -168,13 +168,15 @@ sudo install_name_tool -add_rpath @executable_path/../../../../ ./Python
 
 # We should now have a fully relocatable Python.framework
 
-# We will now use this just-built Python3.8 interpreter to install PyQt5 and sip.
+
+
+# We will now use this just-built Python3.8 interpreter to install PyQt5, PyQtWebEngine and sip.
 
 # **** Important: versions of PyQt5 and sip must be selected to match with the Qt version
 # **** In these instructions we are using Qt 5.12.9 and therefore need:
-# **** sip-4.19.18 and PyQt5_gpl-5.12.3
+# **** sip-4.19.18 and PyQt5_gpl-5.12.3 and PyQtWebEngine_gpl-5.12.1
 
-
+# First Build sip
 # Building sip-4.19.18 from source and installing it into your Python Interpreter
 
 # From https://www.riverbankcomputing.com/software/pyqt/download5
@@ -194,7 +196,7 @@ make
 sudo make install
 
 
-# Building PyQt5 for Qt-5.12.9 from source and installing it into your Python Interpreter
+# Next Build PyQt5 for Qt-5.12.9 from source and installing it into your Python Interpreter
 
 # From https://www.riverbankcomputing.com/software/pyqt/download5
 # Download PyQt5_gpl-5.12.3.tar.gz
@@ -219,6 +221,17 @@ python3 ./configure.py --confirm-license --no-docstrings --no-stubs
 make -j4
 sudo make install
 
+# And finally build PyQtWebEngine (again with the destination python and qmake in your path)
+# From https://sourceforge.net/projects/pyqtwebengine/
+# Download: PyQtWebEngine-5.12.1.tar.gz
+
+export MACOSX_DEPLOYMENT_TARGET=10.12
+
+tar -zxvf PyQtWebEngine-5.12.1.tar.gz
+cd PyQtWebEngine_gpl-5.12.1/
+python3 ./configure.py --no-docstrings --no-stubs
+make -j4
+sudo make install
 
 # Once complete you will have properly built a Python 3.8 interpreter to be embedded inside
 # of Sigil
