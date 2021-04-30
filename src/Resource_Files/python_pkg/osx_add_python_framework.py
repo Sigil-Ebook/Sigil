@@ -34,7 +34,8 @@ fwk_struct = ['Python.framework/Versions/' + pversion + '/lib/' + stdlib_name + 
 
 # minimal set of PyQt modules to support the plugin gui
 PYQT_MODULES = ['%s.so' % x for x in ('Qt', 'QtCore', 'QtDBus', 'QtGui', 'QtNetwork', 'QtPrintSupport',
-                                      'QtSvg', 'QtWidgets', 'QtWebEngine', 'QtWebEngineCore', 'QtWebEngineWidgets', 'sip')]
+                                      'QtSvg', 'QtWidgets', 'QtWebEngine', 'QtWebEngineCore',
+                                      'QtWebEngineWidgets', 'QtWebChannel','QtWebSockets','sip')]
 
 EXCLUDED_UIC_WIDGET_PLUGINS = ['%s.py' % x for x in ('qaxcontainer', 
                                                      'qscintilla', 'qtcharts', 'qtquickwidgets', 'qtwebkit')
