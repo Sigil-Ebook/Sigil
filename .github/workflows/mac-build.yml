@@ -13,7 +13,6 @@ on:
     - 'version.xml'
     - '.retired_travis.yml'
     - '**/**.md'
-    - '**/reset-**-caches.txt'
   pull_request:
     branches: [ master ]
     tags-ignore:
@@ -26,7 +25,6 @@ on:
     - 'version.xml'
     - '.retired_travis.yml'
     - '**/**.md'
-    - '**/reset-**-caches.txt'
 env:
   GDRIVE_REFRESH_TOKEN: ${{ secrets.GDRIVE_REFRESH_TOKEN }}
   GDRIVE_DIR: ${{ secrets.SIGIL_MAC_GDRIVE_DIR }}
