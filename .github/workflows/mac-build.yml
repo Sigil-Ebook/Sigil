@@ -124,6 +124,7 @@ jobs:
       shell: bash
       if: "contains(github.event.head_commit.message, '[deploy]') && github.event_name != 'pull_request'"
       run: |
+        gdrive version
         python3 $GITHUB_WORKSPACE/ci_scripts/newgddeploy.py
 
     - uses: actions/upload-artifact@v2
