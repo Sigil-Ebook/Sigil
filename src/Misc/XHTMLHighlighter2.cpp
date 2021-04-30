@@ -159,6 +159,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
         case State_Comment:
             {
                 start = pos;
+                nstate = state;
                 while(pos < n) {
                     if (Utility::SubstringRef(pos, pos+3, text) == "-->") {
                         pos += 3;
@@ -171,7 +172,8 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
             }
 
         case State_DOCTYPE:
-            { 
+            {
+                nstate = state;
                 start = pos;
                 while(pos < n) {
                     ch = text.at(pos++);
@@ -182,12 +184,14 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                 }
                 setFormat(start, pos - start, m_Rules["doctype"]);
                 break;
+                
             }
 
         case State_TagStart:
         case State_CSSTagStart:
-            {  
+            {
                 // at '<' in e.g. "<span>foo</span>"
+                nstate = state;
                 start = pos + 1;
                 while(pos < n) {
                     ch = text.at(pos++);
@@ -204,12 +208,14 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                     }
                 }
                 break;
+                
             }
 
         case State_TagName:
         case State_CSSTagName:
             {
                 // at 'b' in e.g "<blockquote>foo</blockquote>"
+                nstate = state;
                 start = pos;
                 while (pos < n) {
                     ch = text.at(pos++);
@@ -234,6 +240,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
         case State_CSSInsideTag:
             {
                 // anywhere after tag name and before tag closing ('>')
+                nstate = state;
                 start = pos;
                 while (pos < n) {
                     ch = text.at(pos++);
@@ -258,6 +265,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
         case State_CSSAttName:
             {
                 // at 's' in e.g. <img src=bla.png/>
+                nstate = state;
                 start = pos;
                 while (pos < n) {
                     ch = text.at(pos++);
@@ -266,9 +274,14 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                         if (state == State_AttName) nstate = State_AttValue;
                         break;
                     }
-                    if (ch == '>' || ch == '/') {
+                    if (ch == '/') {
                         if (state == State_CSSAttName) nstate = State_CSSInsideTag;
                         if (state == State_AttName) nstate = State_InsideTag;
+                        break;
+                    }
+                    if (ch == '>') {
+                        if (state == State_CSSAttName) nstate = State_CSS;
+                        if (state == State_AttName) nstate = State_Text;
                         break;
                     }
                 }
@@ -328,6 +341,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
         case State_CSSSingleQuote:
             {
                 // after the opening single quote in an attribute value
+                nstate = state;
                 start = pos;
                 while (pos < n) {
                     ch = text.at(pos++);
@@ -345,6 +359,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
         case State_CSSDoubleQuote:
             {
                 // after the opening double quote in an attribute value
+                nstate = state;
                 start = pos;
                 while (pos < n) {
                     ch = text.at(pos++);
@@ -360,6 +375,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
 
         case State_CSS:
             {
+                nstate = state;
                 start = pos;
                 while(pos < n) {
                     if (Utility::SubstringRef(pos, pos+2, text) == "/*") {
@@ -380,6 +396,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
 
         case State_CSSComment:
             {
+                nstate = state;
                 start = pos;
                 while(pos < n) {
                     if (Utility::SubstringRef(pos, pos+2, text) == "*/") {
@@ -396,21 +413,23 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
             {
                 // State_Text (also handle entity and SpSpaces)
                 // start = pos;
+                nstate = state;
                 while (pos < n) {
                     ch = text.at(pos);
                     if (ch == '<') {
                         if (Utility::SubstringRef(pos, pos+4, text) == "<!--") {
-                            qDebug() << " found a comment";
+                            DBG qDebug() << " found a comment";
                             nstate = State_Comment;
                         }
                         else if (Utility::SubstringRef(pos, pos+9, text) == "<!DOCTYPE") {
-                            qDebug() << " found a doctype";
+                            DBG qDebug() << " found a doctype";
                             nstate = State_DOCTYPE;
                         }
                         else if (text.indexOf(RXCSSBegin, pos) == pos) {
-                            qDebug() << " found a style";
+                            DBG qDebug() << " found a style";
                             nstate = State_CSSTagStart;
                         } else {
+                            DBG qDebug() << " found a regular tag";
                             nstate = State_TagStart;
                         }
                         break;
