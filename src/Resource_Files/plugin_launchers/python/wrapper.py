@@ -49,7 +49,7 @@ def _unicodestr(p):
         return p
     return p.decode('utf-8', errors='replace')
 
-_launcher_version = 20210203
+_launcher_version = 20210430
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''', re.IGNORECASE)
 
