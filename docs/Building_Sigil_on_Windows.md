@@ -60,7 +60,8 @@ Once finished, you can begin to install the extra modules needed by Sigil.
 + Pillow (v6.2.1+)
 + lxml (v4.4.2+)
 + PyQt5-sip (no higher than 4.19.19 with {Py}Qt5.12.x)
-+ PyQt5 (5.12.3) highly recommended)
++ PyQt5 (5.12.3 highly recommended)
++ PyQtWebEngine (5.12.1 highly recommended)
 
 From the same command prompt you updated pip with, install the "six" module with the following command:
 
@@ -95,6 +96,12 @@ Version 4.4.2 comes with precompiled binary wheels for Windows. Not all versions
 Like lxml, not all versions of PyQt5 will have compatible binaries that will work with Sigil's Qt5 and Python. Stick to version 5.12.x and everything should work with Sigil's Python and Qt5 (the trick is to always select a version of PyQt that will work with Sigil's version of Qt and Python). PyQt5 requires the PyQt5-sip module, and unless you want to use Qt5.14/15.x, stick to the 4.19.x version and lower.
 
 >`pip install PyQt5==5.12.3 PyQt5-sip==4.19.18
+
+### Installing PyQtWebEngine.
+
+Stick to version 5.12.1 and everything should work with Sigil's Python and Qt5 (the trick is to always select a version of PyQtWebEngine that will work with Sigil's version of Qt and Python).
+
+>`pip install PyQtWebEngine==5.12.1
 
 
 ## <a name="sigil"/>Getting Sigil's Source Code
@@ -147,15 +154,26 @@ Leave off "Win64" and -DWIN_INSTALLER_USE_64BIT_CRT=1 if you're building the 32-
 
 You can also use cmake-gui (double-click on cmake-gui in the cmake/bin directory) and avoid using the command-prompt altogether if you wish (although you're on your own in figuring out how to enter all the cmake configuration options in the gui).
 
+#### Advanced CMAKE Options
+
 -DUSE_ALT_ICONS=(0|1) Defaults to 0. Install/use alternative teal-colored Sigil application icon.
 
-The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version. They can come in handy it you have multiple versions of Python 3 installed on your computer.
+The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version. They can come in handy if you have multiple versions of Python 3 installed on your computer.
 
 -DPYTHON_LIBRARY=`<the full path to the python3.x library (ex. python38.lib)>`
 
 -DPYTHON_INCLUDE_DIR=`<the path to the directory where python3.x's header files (python.h) can be found>`
 
 -DPYTHON_EXECUTABLE=`<the full path to the python3.x binary (python.exe)>`
+
+**NOTE:** those using cmake 3.18.1 or higher can use the newer FindPython3 cmake module for locating the pieces of Python3 that Sigil needs to compile. The build process defaults to the old FindPython. Add -DTRY_NEWER_FINDPYTHON3=1 to your CMAKE configure command to use it. Newer versions of the above  options to specify a particular version of Python3 (in case you have multiple Pythons installed) would be as follows:
+
+-DPython3_LIBRARIES=`<the full path to the python3.x library (ex. python38.lib)>`
+
+-DPython3_INCLUDE_DIRS=`<the path to the directory where python3.x's header files (python.h) can be found>`
+
+-DPython3_EXECUTABLE=`<the full path to the python3.x binary (python.exe)>`
+
 
 If you don't want to build/include the bundled Python environment in the Sigil installer, use the -DPKG_SYSTEM_PYTHON=0 in the CMake configure command to disable it. **NOTE**: you'll have to configure an external Python interpeter for running Sigil plugins. The "Use Bundled Python" feature will be unavailable.
 
@@ -180,3 +198,5 @@ The following are environment variables that can be set at runtime to affect how
 SIGIL_PREFS_DIR - Changes where sigil looks for and updates its user preference data. Needs to specify a full path in a directory where the user has write privileges.
 
 SIGIL_USES_DARK_MODE=(0|1) - Sigil will use the Windows dark mode setting to determine if it should start in light or darkmode. Should you wish to override this behavior (or enable dark mode on systems that do not have a dark theme), use this variable appropriately.
+
+SKIP_SIGIL_UPDATE_CHECK - Defining this variable (to any value) will cause Sigil to skip its online check for a newer version.

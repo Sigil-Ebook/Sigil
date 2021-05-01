@@ -80,6 +80,7 @@ That's all the Python 3.4 (or higher) stuff you will need to get Sigil "up and r
 
 + python3-tk
 + python3-pyqt5
++ python3-pyqtwebengine
 + python3-html5lib
 + python3-regex
 + python3-pillow (could be python3-pil)
@@ -88,7 +89,7 @@ That's all the Python 3.4 (or higher) stuff you will need to get Sigil "up and r
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install python3-tk python3-pyqt5 python3-html5lib python3-regex python3-pillow python3-cssselect python3-chardet`
+`sudo apt-get install python3-tk python3-pyqt5 python3-pyqtwebengine python3-html5lib python3-regex python3-pillow python3-cssselect python3-chardet`
 
 If you run into any that won't install with `sudo apt-get install` you can still use pip3 to install them.
 
@@ -178,6 +179,8 @@ There are several configuration and environment variable options that can tailor
 
 -DSYSTEM_LIBS_REQUIRED=(0|1) When used in conjunction with -DUSE_SYSTEM_LIBS=1, the Sigil build process will fail if all the necessary libraries can't be located on the system, instead of falling back on the bundled versions (default is 0).
 
+-DDISABLE_UPDATECHECK=(0|1) Defaults to 0. Use -DDISABLE_UPDATECHECK=1 to disable the builtin online update check. Mainly for use by *nix distros whose Sigil packages can't make use of the new release downloads anyway.
+
 -DINSTALL_BUNDLED_DICTS=(0|1) Default is 1. Can be used to enable/disable the installation of the bundled Hunspell dictionaries used for spellchecking. If this is disabled (-DINSTALL_BUNDLED_DICTS=0), then the standard system spell-check dictionary location of /usr/share/hunspell will be searched for eligible dictionaries. If additional system paths need to be searched for dictionaries, they can be added using the -DEXTRA_DICT_DIRS option. Setting this to 0 will require that you manually install the language-specific hunspell dictionaries (from your software repos) yourself (e.g. `sudo apt-get install hunspell-en-us`).
 
 -DEXTRA_DICT_DIRS=`<path1>`:`<path2>` Path(s) that should be searched for eligible spellcheck dictionaries (in addition to /usr/share/hunspell). Multiple paths should be separated by colons. This option is only relevant if -DINSTALL_BUNDLED_DICTS=0 is also specified.
@@ -196,6 +199,14 @@ The following three cmake options are used to manually specify which Python3 you
 
 -DPYTHON_EXECUTABLE=`<the path to the python3.x interpreter>`
 
+-DTRY_NEWER_FINDPYTHON3=(0|1) Defaults to 0. If you use cmake 3.18 or higher you may want to take advantage of its newer FindPython3 module.  If so, the above directives used to define specific versions of Python3 are as follows:
+
+-DPython3_LIBRARIES=`<the path to the python3.x shared library>`
+
+-DPython3_INCLUDE_DIRS=`<the path to the directory where python3.x's header files can be found>`
+
+-DPython3_EXECUTABLE=`<the path to the python3.x interpreter>`
+
 -DBUILD_PATCHED_LIBXML2=(0|1) Some newer versions of libxml2 have a bug that causes QtWebKit to render html entities twice. Adding -DBUILD_PATCHED_LIBXML2=1 to the cmake command will clone the libxml2 git repo, checkout a specific commit, patch the source, build it and install it alongside Sigil (does not affect the system version of libxml2). Requires git, libtool, autoconf and automake packages to be installed (as well as a working internet connection). Cmake should notify of any missing programs needed. The default is to NOT build the patched version of libxml2 (-DBUILD_PATCHED_LIBXML2=0).
 
 ### Environment Variables
@@ -211,5 +222,7 @@ SIGIL_DICTIONARIES - Used to tell Sigil what directories are to be searched for 
 FORCE_SIGIL_DARKMODE_PALETTE - If this variable is set at runtime, it tells Sigil to ignore any defined platform themes/styles (QT_QPA_PLATFORMTHEME, or QT_STYLE_OVERRIDE) and to use the dark color palette provided by Sigil (starting with Sigil v1.1).
 
 SIGIL_ICON_SCALE_FACTOR - Valid values: 1.0 to 3.0. The default value (with no variable set) is 1.8. Sigil scales its menu icons based on font-size. This can sometimes result in icons being a bit too large (or too small) depending on the system Qt theme. Use this variable to tweak the icon size if deemed necessary. **(Only works with Sigil v0.9.7 and earlier; v0.9.8 has a preference setting to adjust icons)**
+
+SKIP_SIGIL_UPDATE_CHECK - Defining this variable (to any value) will cause Sigil to skip its online check for a newer version.
 
 The Sigil launch script also sets a SIGIL_SHARE_PREFIX environment variable, but it is automatically set to be the same as the cmake SHARE_INSTALL_PREFIX build-time option. It would be unwise to change this environment variable. Use the SIGIL_EXTRA_ROOT environment variable instead, if you need to alter the location of Sigil's support files after building Sigil.

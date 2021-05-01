@@ -17,10 +17,12 @@ dll_dir = os.path.join(tmp_prefix, 'DLLs')
 site_dest = os.path.join(lib_dir, 'site-packages')
 
 PYQT_MODULES = ['%s.pyd' % x for x in (
-    'Qt', 'QtCore', 'QtGui', 'QtNetwork', 'QtPrintSupport', 'QtSvg', 'QtWidgets'
+    'Qt', 'QtCore', 'QtGui', 'QtNetwork', 'QtPrintSupport', 
+    'QtWebEngine', 'QtWebEngineCore', 'QtWebEgineWidgets',
+    'QtWebChannel', 'QtSvg', 'QtWidgets'
     )]
 EXCLUDED_UIC_WIDGET_PLUGINS = ['%s.py' % x for x in (
-    'qaxcontainer', 'qscintilla', 'qtcharts', 'qtquickwidgets', 'qtwebenginewidgets', 'qtwebkit'
+    'qaxcontainer', 'qscintilla', 'qtcharts', 'qtquickwidgets', 'qtwebkit'
     )]
 
 # Cherry-picked additional and/or modified site modules
@@ -33,7 +35,6 @@ site_packages = [ ('lxml', 'd'),
                   ('urllib3', 'd'),
                   ('certifi', 'd'),
                   ('dulwich', 'd'),
-                  ('encutils', 'd'),
                   ('css_parser', 'd'),
                   ('webencodings', 'd'), # needed by html5lib
                   ('chardet', 'd')]

@@ -2,8 +2,10 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="generator" content="ReText 7.1.0">
+<meta name="generator" content="ReText 7.2.0">
 <title>Building_Sigil_on_Windows</title>
+<style type="text/css">
+</style>
 </head>
 <body>
 <h1><center>Building Sigil on Windows</center></h1>
@@ -53,7 +55,8 @@
 <li>Pillow (v6.2.1+)</li>
 <li>lxml (v4.4.2+)</li>
 <li>PyQt5-sip (no higher than 4.19.19 with {Py}Qt5.12.x)</li>
-<li>PyQt5 (5.12.3) highly recommended)</li>
+<li>PyQt5 (5.12.3 highly recommended)</li>
+<li>PyQtWebEngine (5.12.1 highly recommended)</li>
 </ul>
 <p>From the same command prompt you updated pip with, install the "six" module with the following command:</p>
 <blockquote>
@@ -83,6 +86,11 @@
 <p>Like lxml, not all versions of PyQt5 will have compatible binaries that will work with Sigil's Qt5 and Python. Stick to version 5.12.x and everything should work with Sigil's Python and Qt5 (the trick is to always select a version of PyQt that will work with Sigil's version of Qt and Python). PyQt5 requires the PyQt5-sip module, and unless you want to use Qt5.14/15.x, stick to the 4.19.x version and lower.</p>
 <blockquote>
 <p>`pip install PyQt5==5.12.3 PyQt5-sip==4.19.18</p>
+</blockquote>
+<h3>Installing PyQtWebEngine.</h3>
+<p>Stick to version 5.12.1 and everything should work with Sigil's Python and Qt5 (the trick is to always select a version of PyQtWebEngine that will work with Sigil's version of Qt and Python).</p>
+<blockquote>
+<p>`pip install PyQtWebEngine==5.12.1</p>
 </blockquote>
 <h2><a name="sigil"/>Getting Sigil's Source Code</h2>
 <p>You can clone the Sigil Github repository (Requires a Windows git client - I use the <a href="https://github.com/git-for-windows/git/releases/latest">portable version from here</a>):</p>
@@ -115,11 +123,16 @@
 </blockquote>
 <p>Leave off "Win64" and -DWIN_INSTALLER_USE_64BIT_CRT=1 if you're building the 32-bit version of Sigil.</p>
 <p>You can also use cmake-gui (double-click on cmake-gui in the cmake/bin directory) and avoid using the command-prompt altogether if you wish (although you're on your own in figuring out how to enter all the cmake configuration options in the gui).</p>
+<h4>Advanced CMAKE Options</h4>
 <p>-DUSE_ALT_ICONS=(0|1) Defaults to 0. Install/use alternative teal-colored Sigil application icon.</p>
-<p>The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version. They can come in handy it you have multiple versions of Python 3 installed on your computer.</p>
+<p>The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version. They can come in handy if you have multiple versions of Python 3 installed on your computer.</p>
 <p>-DPYTHON_LIBRARY=<code>&lt;the full path to the python3.x library (ex. python38.lib)&gt;</code></p>
 <p>-DPYTHON_INCLUDE_DIR=<code>&lt;the path to the directory where python3.x's header files (python.h) can be found&gt;</code></p>
 <p>-DPYTHON_EXECUTABLE=<code>&lt;the full path to the python3.x binary (python.exe)&gt;</code></p>
+<p><strong>NOTE:</strong> those using cmake 3.18.1 or higher can use the newer FindPython3 cmake module for locating the pieces of Python3 that Sigil needs to compile. The build process defaults to the old FindPython. Add -DTRY_NEWER_FINDPYTHON3=1 to your CMAKE configure command to use it. Newer versions of the above  options to specify a particular version of Python3 (in case you have multiple Pythons installed) would be as follows:</p>
+<p>-DPython3_LIBRARIES=<code>&lt;the full path to the python3.x library (ex. python38.lib)&gt;</code></p>
+<p>-DPython3_INCLUDE_DIRS=<code>&lt;the path to the directory where python3.x's header files (python.h) can be found&gt;</code></p>
+<p>-DPython3_EXECUTABLE=<code>&lt;the full path to the python3.x binary (python.exe)&gt;</code></p>
 <p>If you don't want to build/include the bundled Python environment in the Sigil installer, use the -DPKG_SYSTEM_PYTHON=0 in the CMake configure command to disable it. <strong>NOTE</strong>: you'll have to configure an external Python interpeter for running Sigil plugins. The "Use Bundled Python" feature will be unavailable.</p>
 <h3>Compiling Sigil</h3>
 <p>If you generated NMake Makefiles with cmake (like I do), then compile Sigil by typing <code>nmake</code> (at the same command-prompt you just configured with) to begin building Sigil. If it completes without error, you're ready to build the installer package (leave the command prompt open).</p>
@@ -132,6 +145,7 @@
 <p>The following are environment variables that can be set at runtime to affect how Sigil is run after building/installing.</p>
 <p>SIGIL_PREFS_DIR - Changes where sigil looks for and updates its user preference data. Needs to specify a full path in a directory where the user has write privileges.</p>
 <p>SIGIL_USES_DARK_MODE=(0|1) - Sigil will use the Windows dark mode setting to determine if it should start in light or darkmode. Should you wish to override this behavior (or enable dark mode on systems that do not have a dark theme), use this variable appropriately.</p>
+<p>SKIP_SIGIL_UPDATE_CHECK - Defining this variable (to any value) will cause Sigil to skip its online check for a newer version.</p>
 
 </body>
 </html>
