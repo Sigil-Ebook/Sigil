@@ -18,7 +18,7 @@ site_dest = os.path.join(lib_dir, 'site-packages')
 
 PYQT_MODULES = ['%s.pyd' % x for x in (
     'Qt', 'QtCore', 'QtGui', 'QtNetwork', 'QtPrintSupport', 
-    'QtWebEngine', 'QtWebEngineCore', 'QtWebEgineWidgets',
+    'QtWebEngine', 'QtWebEngineCore', 'QtWebEngineWidgets',
     'QtWebChannel', 'QtSvg', 'QtWidgets'
     )]
 EXCLUDED_UIC_WIDGET_PLUGINS = ['%s.py' % x for x in (
