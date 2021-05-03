@@ -2,12 +2,27 @@ pre-1.6.0
     Bug Fixes:
      - add Qt workaround for restoring Sigil window sizes when FindReplace left open on macOS
      - add missing tr() calls to the tooltips in the Special Character selection dialog
-     - fix bug when all unused selectors are removed as unused in css stylesheet - use placeholder
+     - fix bug when all unused selectors are removed as unused in css stylesheet - uses a placeholder
      - make empty Nav have a title to help empty epub passing epubcheck
      - fix bug where fonts couldn't be previewed when a space was in the path
-
+     - redesigned code to make Merging large numbers of files much faster
 
     New Features:
+     - extended Find and Replace search targets to include tabbed files, CSS files, OPF, and NCX files
+     - extended Saved Searches to allow a user to set full search controls for each search including:
+          mode, direction, options, and target file sets
+     - Preview loading has been made completely asynchronous with a new progress bar and loading placeholder 
+     - merge will now automatically prevent duplicate ids.
+     - merge will now automatically add ids at previous file boundaries to maintain the guide,
+          nav, and ncx links
+     - completely redesigned the XHtmlHighlighter to speedup highlighting especially when Working
+          with single large xhtml files
+     - rewrote CV spellchecking code to speed it up (closer to old Sigil 1.3.0 performance levels)
+          but if working on large single book html files pre-split, turning off CV spellchecking
+          will result in much improved performance
+     - added PyQtWebEngine as a required python module for Sigil plugins.  This will greatly expand the
+          capability of PyQt5 plugins for Sigil.  Allows us to supply a ReadiumReader plugin for Sigil.
+
 
 Sigil-1.5.1
     Bug Fixes:
