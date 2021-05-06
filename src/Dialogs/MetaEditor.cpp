@@ -528,11 +528,11 @@ void MetaEditor::selectE2Element()
             insertChild(PName("opf:scheme"), "opf:scheme", "", "");
         } else if (code.startsWith("dc:date-")) {
             QStringList parts = code.split('-');
-            QString dc_event = parts.at(1);
+            QString event = parts.at(1);
             code = "dc:date";
             QString content = QDate::currentDate().toString(Qt::ISODate);
             insertRow(EName(code),code, content, "");
-            insertChild(PName("opf:event"),"opf:event", PName("dc:date-"+dc_event), dc_event);
+            insertChild(PName("opf:event"),"opf:event", PName("opf:event-"+event), event);
         } else if (code == "dc:creator-aut") {
             code = "dc:creator";
             QString content = tr("[Author name here]");
