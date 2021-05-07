@@ -265,6 +265,7 @@ QString MetaEditor::GetOPFMetadata() {
             if (parts.at(0) == "title-type") value = PName("title-type:" + value);
             if (parts.at(0) == "collection-type") value = PName("collection-type:" + value);
             if (parts.at(0) == "xml:lang") value = LName(value);
+            if (parts.at(0) == "altlang") value = LName(value);
             if (parts.at(0) == "source-of") value = PName("source-of:" + value);
             if (parts.at(0) == "dir") value = PName("dir:" + value);
             QString prop = PName(parts.at(0)) + _GS + parts.at(0);
@@ -326,6 +327,7 @@ QString MetaEditor::SetNewOPFMetadata(QString& data)
                 value = value.mid(16);
             }
             if (prop == "xml:lang") value = LCode(value);
+            if (prop == "altlang") value = LCode(value);
             if (prop == "source-of") {
                 value = PCode(value);
                 // strip off "source-of:"
