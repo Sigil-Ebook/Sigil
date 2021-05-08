@@ -592,6 +592,19 @@ void MetaEditor::selectProperty()
             insertChild(PName(code), code, content, "");
         } else if (code == "scheme") {
                 insertChild(PName(code), code, "", "");
+        } else if (code == "alternate-script") {
+                insertChild(PName(code), code, "", "");
+                QStringList langcodes;
+                AddMetadata addvalue(Language::instance()->GetLangMap(), this);
+                if (addvalue.exec() == QDialog::Accepted) {
+                    langcodes = addvalue.GetSelectedEntries();
+                }
+                QString lang= "en";
+                if (!langcodes.isEmpty()) {
+                    lang = langcodes.at(0);
+                }
+                code = "altlang";
+                insertChild(PName(code), code, LName(lang), lang);
         } else if ((code == "xml:lang") || (code == "altlang")) {
             QStringList langcodes;
             AddMetadata addvalue(Language::instance()->GetLangMap(), this);
