@@ -58,7 +58,7 @@ CSSParser::CSSParser()
     tokens = "{};:()@='\"/,\\!$%&*+.<>?[]^`|~";
 
     // Used for serializing parsed css
-    csstemplate.push_back("    ");    //  0 - standard indentation
+    csstemplate.push_back("  ");      //  0 - standard indentation
     csstemplate.push_back(" {\n");    //  1 - bracket after @-rule
     csstemplate.push_back("");        //  2 - unused
     csstemplate.push_back(" {\n");    //  3 - bracket after selector was "\n{\n"
