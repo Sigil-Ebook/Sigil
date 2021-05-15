@@ -771,11 +771,20 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     }
 
     if (!apath.isEmpty()) {
+        
         // find the epub root relative file path from the opf location and the item href
         QString file_path = m_opfDir.absolutePath() + "/" + apath;
         file_path = Utility::resolveRelativeSegmentsInFilePath(file_path,"/");
         file_path = file_path.remove(0, m_ExtractedFolderPath.length() + 1); 
     
+        // Manifest Items may *NOT* live in the META-INF
+        if (file_path.startsWith("META-INF/")) {
+            const QString load_warning = QObject::tr("The OPF has an illegal Manifest entry for a file inside the META-INF folder for file \"%1\"").arg(QFileInfo(file_path).fileName()) +
+            " - " + QObject::tr("You should edit your OPF file to remove this entry.");
+            AddLoadWarning(load_warning);
+            return;
+        }
+        
         if (type != NCX_MIMETYPE && extension != NCX_EXTENSION) {
             if (!m_ManifestFilePaths.contains(file_path)) {
                 if (m_Files.contains(id)) {
