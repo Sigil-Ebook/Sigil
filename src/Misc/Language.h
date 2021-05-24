@@ -42,8 +42,8 @@ class Language
 public:
     static Language *instance();
 
-    QString GetLanguageName(QString language_code);
-    QString GetLanguageCode(QString language_name);
+    QString GetLanguageName(QString language_code, QString ow=QString() );
+    QString GetLanguageCode(QString language_name, QString ow=QString() );
     QStringList GetSortedPrimaryLanguageNames();
     const QHash<QString, DescriptiveInfo> & GetLangMap();
 

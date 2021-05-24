@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -272,7 +272,7 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
         i.next();
         QString lcword = i.key();
         QString code = HTMLSpellCheckML::langOf(lcword);
-        QString lang = lp->GetLanguageName(code);
+        QString lang = lp->GetLanguageName(code, code);
         QString word = HTMLSpellCheckML::textOf(lcword);
         int count = unique_words.value(lcword);
         bool misspelled = !sc->spell(lcword);
