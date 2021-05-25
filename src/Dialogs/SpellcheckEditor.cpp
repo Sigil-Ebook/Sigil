@@ -258,8 +258,6 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
     header.append(tr("Misspelled?"));
     m_SpellcheckEditorModel->setHorizontalHeaderLabels(header);
     ui.SpellcheckEditorTree->header()->setSectionResizeMode(0, QHeaderView::Stretch);
-    ui.SpellcheckEditorTree->resizeColumnToContents(1);
-    ui.SpellcheckEditorTree->resizeColumnToContents(2);
 
     QHash<QString, int> unique_words = m_Book->GetUniqueWordsInHTMLFiles();
 
@@ -316,6 +314,11 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
 
         m_SpellcheckEditorModel->invisibleRootItem()->appendRow(row_items);
     }
+
+    ui.SpellcheckEditorTree->resizeColumnToContents(0);
+    ui.SpellcheckEditorTree->resizeColumnToContents(1);
+    ui.SpellcheckEditorTree->resizeColumnToContents(2);
+    ui.SpellcheckEditorTree->resizeColumnToContents(3);
 
     // Changing the sortIndicator order should not cause the entire wordlist to be regenerated
     // disconnect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
