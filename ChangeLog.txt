@@ -1,4 +1,4 @@
-pre-1.6.0
+Sigil-1.6.0
     Bug Fixes:
      - add Qt workaround for restoring Sigil window sizes when FindReplace left open on macOS
      - add missing tr() calls to the tooltips in the Special Character selection dialog
