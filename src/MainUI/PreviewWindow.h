@@ -59,6 +59,7 @@ public:
 public slots:
     bool UpdatePage(QString filename, QString text, QList<ElementIndex> location);
     void UpdatePageDone();
+    void DelayedScrollTo();
     void ScrollTo(QList<ElementIndex> location);
     void SetZoomFactor(float factor);
     void LinkClicked(const QUrl &url);

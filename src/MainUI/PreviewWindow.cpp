@@ -237,15 +237,15 @@ void PreviewWindow::SetupView()
 bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<ElementIndex> location)
 {
 
-    DBG qDebug() << "Entered PV UpdatePage with filename: " << filename_url;
+    qDebug() << "Entered PV UpdatePage with filename: " << filename_url;
 
     if (!m_Preview->isVisible()) {
-        DBG qDebug() << "ignoring PV UpdatePage since PV is not visible";
+        qDebug() << "ignoring PV UpdatePage since PV is not visible";
         return true;
     }
 
     if (m_updatingPage) {
-        DBG qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
+        qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
         return false;
     }
 
@@ -256,8 +256,8 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     m_updatingPage = true;
     m_location = location;
 
-    DBG qDebug() << "PV UpdatePage " << filename_url;
-    DBG foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
+    qDebug() << "PV UpdatePage " << filename_url;
+    foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
 
     //if isDarkMode is set, inject a local style in head
     SettingsStore settings;
@@ -329,26 +329,33 @@ void PreviewWindow::UpdatePageDone()
 {
     if (!m_Preview->WasLoadOkay()) qDebug() << "PV loadFinished with okay set to false!";
  
-    DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
-    DBG qDebug() << "PreviewWindow UpdatePage final step scroll to location";
+    qDebug() << "PreviewWindow UpdatePage load is Finished";
+    qDebug() << "PreviewWindow UpdatePage final step scroll to location";
 
-    m_Preview->StoreCaretLocationUpdate(m_location);
-    m_Preview->ExecuteCaretUpdate();
     UpdateWindowTitle();
-    m_updatingPage = false;
     m_Preview->Zoom();
     m_OverlayTimer.stop();
     m_progress->setValue(100);
     m_progress->reset();
     m_Preview->HideOverlay();
+    m_Preview->ExecuteCaretUpdate();
+    m_updatingPage = false;
+    m_Preview->StoreCaretLocationUpdate(m_location);
+    QTimer::singleShot(0, this, SLOT(DelayedScrollTo()));
+}
+
+void PreviewWindow::DelayedScrollTo()
+{
+    m_Preview->ExecuteCaretUpdate();
 }
 
 void PreviewWindow::ScrollTo(QList<ElementIndex> location)
 {
-    DBG qDebug() << "received a PreviewWindow ScrollTo event";
+    qDebug() << "received a PreviewWindow ScrollTo event";
     if (!m_Preview->isVisible()) {
         return;
     }
+    foreach(ElementIndex ei, location) qDebug() << "name: " << ei.name << " index: " << ei.index;
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
 }
@@ -402,9 +409,9 @@ void PreviewWindow::previewFloated(bool wasFloated) {
 
 QList<ElementIndex> PreviewWindow::GetCaretLocation()
 {
-    DBG qDebug() << "PreviewWindow in GetCaretLocation";
+    qDebug() << "PreviewWindow in GetCaretLocation";
     QList<ElementIndex> hierarchy = m_Preview->GetCaretLocation();
-    DBG foreach(ElementIndex ei, hierarchy) qDebug() << "name: " << ei.name << " index: " << ei.index;
+    foreach(ElementIndex ei, hierarchy) qDebug() << "name: " << ei.name << " index: " << ei.index;
     return hierarchy;
 }
 
