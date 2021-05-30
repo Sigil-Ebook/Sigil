@@ -6,7 +6,7 @@ Sigil-1.6.0
      - make empty Nav have a title to help empty epub passing epubcheck
      - fix bug where fonts couldn't be previewed when a space was in the path
      - redesigned code to make Merging large numbers of files much faster
-     - fix bug in blank language field in Spellcheck Dialog (Thank you Text2002ans)
+     - fix bug in blank language field in Spellcheck Dialog (Thank you Tex2002ans)
      - fix use of different indentation of css via PR from BeckyEbook (Thank you)
      - fix typos in plugin framework guide (Thank you Doitsu)
      - fix hang on launch when opf manifested files exist inside the META_INF (Thank you un_pogaz)
