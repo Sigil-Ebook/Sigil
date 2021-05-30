@@ -44,6 +44,10 @@ AddSemantics::AddSemantics(const QHash<QString, DescriptiveInfo> &infomap, const
     QStringList names;
     foreach (QString code, m_SemanticsInfo.keys()) {
         QString name = m_SemanticsInfo.value(code, DescriptiveInfo()).name;
+        // Some translations are broken, add code in parentheses after translate4d name
+        // To force them to be visually unique without having to read the entire Description
+        name = name + " (" + code + ")"; 
+        
         // add a space and check mark to the end of the name if current semantic set 
         if (code == current_code) {
             name.append(' ');
@@ -68,8 +72,7 @@ void AddSemantics::UpdateDescription(QListWidgetItem *current)
         text = m_SemanticsInfo.value(code, DescriptiveInfo() ).description;
     }
     if (!text.isEmpty()) {
-        QString textpluscode = text + "\n\n" + code;
-        ui.lbDescription->setText(textpluscode);
+        ui.lbDescription->setText(text);
     }
 }
 
