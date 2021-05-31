@@ -179,7 +179,7 @@ There are several configuration and environment variable options that can tailor
 
 -DSYSTEM_LIBS_REQUIRED=(0|1) When used in conjunction with -DUSE_SYSTEM_LIBS=1, the Sigil build process will fail if all the necessary libraries can't be located on the system, instead of falling back on the bundled versions (default is 0).
 
--DDISABLE_UPDATECHECK=(0|1) Defaults to 0. Use -DDISABLE_UPDATECHECK=1 to disable the builtin online update check. Mainly for use by *nix distros whose Sigil packages can't make use of the new release downloads anyway.
+-DDISABLE_UPDATE_CHECK=(0|1) Defaults to 0. Use -DDISABLE_UPDATE_CHECK=1 to disable the builtin online update check. Mainly for use by *nix distros whose Sigil packages can't make use of the new release downloads anyway.
 
 -DINSTALL_BUNDLED_DICTS=(0|1) Default is 1. Can be used to enable/disable the installation of the bundled Hunspell dictionaries used for spellchecking. If this is disabled (-DINSTALL_BUNDLED_DICTS=0), then the standard system spell-check dictionary location of /usr/share/hunspell will be searched for eligible dictionaries. If additional system paths need to be searched for dictionaries, they can be added using the -DEXTRA_DICT_DIRS option. Setting this to 0 will require that you manually install the language-specific hunspell dictionaries (from your software repos) yourself (e.g. `sudo apt-get install hunspell-en-us`).
 
