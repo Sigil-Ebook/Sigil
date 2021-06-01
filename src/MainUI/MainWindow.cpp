@@ -3978,7 +3978,7 @@ void MainWindow::UpdatePreview()
 
     m_PreviewTimer.stop();
 
-    qDebug() << "MW: UpdatePreview()";
+    DBG qDebug() << "MW: UpdatePreview()";
 
     QString text;
     QList<ElementIndex> location;
@@ -3999,7 +3999,7 @@ void MainWindow::UpdatePreview()
 
         // handles all cases of non-html resource in front tab
         if (!html_resource) {
-            qDebug() << "MW: UpdatePreview to non-html resource, using Previous";
+            DBG qDebug() << "MW: UpdatePreview to non-html resource, using Previous";
             // note: must handle case of m_PreviousHTMLResource being deleted by user
             // see RemoveResources()
             html_resource = m_PreviousHTMLResource;
@@ -4019,15 +4019,15 @@ void MainWindow::UpdatePreview()
                 }
                 text = flow_tab->GetText();
                 location = flow_tab->GetCaretLocation();
-                qDebug() << "MW: UpdatePreview using flow_tab Caret Location";
+                DBG qDebug() << "MW: UpdatePreview using flow_tab Caret Location";
             } else {
                 text = m_PreviousHTMLText;
                 if (m_PreviousHTMLResource) {
                     location = m_PreviewWindow->GetCaretLocation();
-                    qDebug() << "MW: UpdatePreview using current PreviewWindow location";
+                    DBG qDebug() << "MW: UpdatePreview using current PreviewWindow location";
                 } else {
                     location = m_PreviousHTMLLocation;
-                    qDebug() << "MW: UpdatePreview using m_PreviousHTMLLocation location";
+                    DBG qDebug() << "MW: UpdatePreview using m_PreviousHTMLLocation location";
                 }
 
             }

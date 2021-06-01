@@ -237,15 +237,15 @@ void PreviewWindow::SetupView()
 bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<ElementIndex> location)
 {
 
-    qDebug() << "Entered PV UpdatePage with filename: " << filename_url;
+    DBG qDebug() << "Entered PV UpdatePage with filename: " << filename_url;
 
     if (!m_Preview->isVisible()) {
-        qDebug() << "ignoring PV UpdatePage since PV is not visible";
+        DBG qDebug() << "ignoring PV UpdatePage since PV is not visible";
         return true;
     }
 
     if (m_updatingPage) {
-        qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
+        DBG qDebug() << "delaying PV UpdatePage request as currently loading a page: ";
         return false;
     }
 
@@ -256,8 +256,8 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     m_updatingPage = true;
     m_location = location;
 
-    qDebug() << "PV UpdatePage " << filename_url;
-    foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
+    DBG qDebug() << "PV UpdatePage " << filename_url;
+    DBG foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
 
     //if isDarkMode is set, inject a local style in head
     SettingsStore settings;
@@ -329,8 +329,8 @@ void PreviewWindow::UpdatePageDone()
 {
     if (!m_Preview->WasLoadOkay()) qDebug() << "PV loadFinished with okay set to false!";
  
-    qDebug() << "PreviewWindow UpdatePage load is Finished";
-    qDebug() << "PreviewWindow UpdatePage final step scroll to location";
+    DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
+    DBG qDebug() << "PreviewWindow UpdatePage final step scroll to location";
 
     UpdateWindowTitle();
     m_Preview->Zoom();
@@ -351,11 +351,11 @@ void PreviewWindow::DelayedScrollTo()
 
 void PreviewWindow::ScrollTo(QList<ElementIndex> location)
 {
-    qDebug() << "received a PreviewWindow ScrollTo event";
+    DBG qDebug() << "received a PreviewWindow ScrollTo event";
     if (!m_Preview->isVisible()) {
         return;
     }
-    foreach(ElementIndex ei, location) qDebug() << "name: " << ei.name << " index: " << ei.index;
+    DBG foreach(ElementIndex ei, location) qDebug() << "name: " << ei.name << " index: " << ei.index;
     m_Preview->StoreCaretLocationUpdate(location);
     m_Preview->ExecuteCaretUpdate();
 }
@@ -409,9 +409,9 @@ void PreviewWindow::previewFloated(bool wasFloated) {
 
 QList<ElementIndex> PreviewWindow::GetCaretLocation()
 {
-    qDebug() << "PreviewWindow in GetCaretLocation";
+    DBG qDebug() << "PreviewWindow in GetCaretLocation";
     QList<ElementIndex> hierarchy = m_Preview->GetCaretLocation();
-    foreach(ElementIndex ei, hierarchy) qDebug() << "name: " << ei.name << " index: " << ei.index;
+    DBG foreach(ElementIndex ei, hierarchy) qDebug() << "name: " << ei.name << " index: " << ei.index;
     return hierarchy;
 }
 
