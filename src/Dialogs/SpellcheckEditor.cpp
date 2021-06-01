@@ -444,7 +444,8 @@ void SpellcheckEditor::FindSelectedWord()
 void SpellcheckEditor::SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
     UpdateSuggestions();
-    FindSelectedWord();
+    // do not do a FindSelectedWord() here just because selection changed, wait for user to double-click
+    // so that paging up and down in the wordlist is not painfully slow in larger epubs
 }
 
 void SpellcheckEditor::FilterEditTextChangedSlot(const QString &text)
