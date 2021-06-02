@@ -1,3 +1,8 @@
+Pre-1.6.1 or 1.7.0
+    Bug Fixes
+     - Workaround to ensure the Saved Searches Controls editor widget is movable on all platforms
+     - Make the External Xhtml Editor Button/Feature work with both PageEdit and non-PageEdit editors again
+
 Sigil-1.6.0
     Bug Fixes:
      - add Qt workaround for restoring Sigil window sizes when FindReplace left open on macOS
