@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2021 Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -342,6 +343,9 @@ void Controls::ExtendUI()
                                      "<dt><b>" + tr("Down") + "</b><dd>" + tr("Search for the next match from your current position.") + "</dd>"
                                      "</dl>");
     ui.cbSearchDirection->setCurrentIndex(0);
+    // Needed to be movable/resizable by some versions of Qt on Linux
+    // when launched as a custom delegate editor.
+    setFocusProxy(ui.frame);
 }
 
 void Controls::ConnectSignalsToSlots()
