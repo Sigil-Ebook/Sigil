@@ -141,7 +141,6 @@ private:
     QAction * m_reloadAction;
 
     
-    QList<ElementIndex> m_location;
     QTimer m_OverlayTimer;
     bool m_updatingPage;
 };

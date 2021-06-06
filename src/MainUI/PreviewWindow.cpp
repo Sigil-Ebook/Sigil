@@ -254,7 +254,6 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     m_OverlayTimer.start();
 
     m_updatingPage = true;
-    // m_location = location;
     m_Preview->StoreCaretLocationUpdate(location);
 
     DBG qDebug() << "PV UpdatePage " << filename_url;
