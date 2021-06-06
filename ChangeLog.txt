@@ -3,6 +3,7 @@ Pre-1.6.1 or 1.7.0
      - Workaround to ensure the Saved Searches Controls editor widget is movable on all platforms
      - Make the External Xhtml Editor Button/Feature work with both PageEdit and non-PageEdit editors again
      - Fix Preview sync when CV transitions from xhtml to css and back to xhtml
+     - Fix Preview sync when Find and Replace opens new tab with search target
      - Make Spellcheck dialog use double-click to control search in CV, to speed paging word list. 
 
 
