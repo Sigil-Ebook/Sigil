@@ -252,9 +252,10 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     m_progress->setRange(0,100);
     m_progress->setValue(0);
     m_OverlayTimer.start();
-    
+
     m_updatingPage = true;
-    m_location = location;
+    // m_location = location;
+    m_Preview->StoreCaretLocationUpdate(location);
 
     DBG qDebug() << "PV UpdatePage " << filename_url;
     DBG foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
@@ -338,9 +339,7 @@ void PreviewWindow::UpdatePageDone()
     m_progress->setValue(100);
     m_progress->reset();
     m_Preview->HideOverlay();
-    m_Preview->ExecuteCaretUpdate();
     m_updatingPage = false;
-    m_Preview->StoreCaretLocationUpdate(m_location);
     QTimer::singleShot(0, this, SLOT(DelayedScrollTo()));
 }
 
@@ -357,7 +356,7 @@ void PreviewWindow::ScrollTo(QList<ElementIndex> location)
     }
     DBG foreach(ElementIndex ei, location) qDebug() << "name: " << ei.name << " index: " << ei.index;
     m_Preview->StoreCaretLocationUpdate(location);
-    m_Preview->ExecuteCaretUpdate();
+    if (!m_updatingPage) m_Preview->ExecuteCaretUpdate();
 }
 
 void PreviewWindow::UpdateWindowTitle()
