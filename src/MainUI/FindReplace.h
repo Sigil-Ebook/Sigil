@@ -119,6 +119,8 @@ public slots:
 
     void HideFindReplace();
 
+    void ValidateRegex();
+
 signals:
 
     void OpenSearchEditorRequest(SearchEditorModel::searchEntry *search_entry = NULL);

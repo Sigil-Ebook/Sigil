@@ -1666,6 +1666,23 @@ void FindReplace::ExtendUI()
                                      "</dl>");
 }
 
+
+void FindReplace::ValidateRegex()
+{
+    if (GetSearchMode() == FindReplace::SearchMode_Regex) {
+        QString text = GetSearchRegex();
+        SPCRE rex(text);
+        if (!rex.isValid()) {
+            ui.cbFind->setToolTip("Invalid Regex: " + rex.getError()); 
+        } else {
+            ui.cbFind->setToolTip("Valid Regex");
+        }
+        return;
+    }
+    ui.cbFind->setToolTip("");
+}
+
+
 void FindReplace::ConnectSignalsToSlots()
 {
     connect(&m_timer, SIGNAL(timeout()), this, SLOT(expireMessage()));
@@ -1686,4 +1703,8 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.chkRegexOptionMinimalMatch, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionMinimalMatch(bool)));
     connect(ui.chkRegexOptionAutoTokenise, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
     connect(ui.chkOptionWrap, SIGNAL(clicked(bool)), this, SLOT(SetOptionWrap(bool)));
+    connect(ui.cbFind, SIGNAL(editTextChanged(const QString&)), this, SLOT(ValidateRegex()));
+    connect(ui.cbFind, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));
+    connect(ui.cbFind, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));
+    connect(ui.cbSearchMode, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));
 }

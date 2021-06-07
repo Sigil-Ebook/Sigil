@@ -32,8 +32,9 @@ SPCRE::SPCRE(const QString &patten)
     m_re = NULL;
     m_study = NULL;
     m_captureSubpatternCount = 0;
-    const char *error;
-    int erroroffset;
+    m_error = QString();
+    const char *error = NULL;
+    int erroroffset = -1;
     m_re = pcre16_compile(m_pattern.utf16(), PCRE_UTF16 | PCRE_MULTILINE, &error, &erroroffset, NULL);
 
     // Pattern is valid.
@@ -47,6 +48,7 @@ SPCRE::SPCRE(const QString &patten)
     // Pattern is not valid.
     else {
         m_valid = false;
+        m_error = QString(error) + " offset " + QString::number(erroroffset);
     }
 }
 
@@ -66,6 +68,11 @@ SPCRE::~SPCRE()
 bool SPCRE::isValid()
 {
     return m_valid;
+}
+
+QString SPCRE::getError()
+{
+    return m_error;
 }
 
 QString SPCRE::getPattern()
