@@ -460,6 +460,8 @@ set( SPCRE_FILES
     PCRE/PCRECache.h
     PCRE/PCREReplaceTextBuilder.cpp
     PCRE/PCREReplaceTextBuilder.h
+    PCRE/PCREErrors.cpp
+    PCRE/PCREErrors.h
     )
 
 set( VIEW_EDITOR_FILES

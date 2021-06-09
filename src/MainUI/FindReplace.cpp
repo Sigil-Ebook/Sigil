@@ -33,6 +33,7 @@
 #include "MainUI/FindReplace.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/FindReplaceQLineEdit.h"
+#include "PCRE/PCREErrors.h"
 
 #define DBG if(0)
 
@@ -1670,12 +1671,18 @@ void FindReplace::ExtendUI()
 void FindReplace::ValidateRegex()
 {
     if (GetSearchMode() == FindReplace::SearchMode_Regex) {
+        QString rawtext = ui.cbFind->lineEdit()->text();
         QString text = GetSearchRegex();
+        // searches have prepended regex pieces for minimal match and dotall that users do not see
+        int offset_correction = text.length() - rawtext.length();
         SPCRE rex(text);
+        QString emsg;
         if (!rex.isValid()) {
-            ui.cbFind->setToolTip("Invalid Regex: " + rex.getError()); 
+            emsg = tr("Invalid Regex:") + PCREErrors::instance()->GetError(rex.getError(),"");
+            emsg = emsg + " " + tr("offset:") + " " + QString::number(rex.getErrPos() - offset_correction); 
+            ui.cbFind->setToolTip(emsg); 
         } else {
-            ui.cbFind->setToolTip("Valid Regex");
+            ui.cbFind->setToolTip(tr("Valid Regex"));
         }
         return;
     }
@@ -1707,4 +1714,7 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.cbFind, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));
     connect(ui.cbFind, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));
     connect(ui.cbSearchMode, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));
+    connect(ui.chkRegexOptionDotAll, SIGNAL(clicked(bool)), this, SLOT(ValidateRegex()));
+    connect(ui.chkRegexOptionMinimalMatch, SIGNAL(clicked(bool)), this, SLOT(ValidateRegex()));
+    connect(ui.chkRegexOptionAutoTokenise, SIGNAL(clicked(bool)), this, SLOT(ValidateRegex()));
 }

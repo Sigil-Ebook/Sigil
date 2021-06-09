@@ -191,6 +191,7 @@ private slots:
     void AdvancedOptionsClicked();
 
 private:
+
     QString GetControls();
     
     Searchable::Direction GetSearchableDirection();
