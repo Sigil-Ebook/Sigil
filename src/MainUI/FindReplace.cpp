@@ -51,6 +51,9 @@ static const QStringList TGTS = QStringList() << "CF" << "AH" << "SH" << "TH" <<
 static const QStringList MDS = QStringList() << "NL" << "CS" << "RX";
 static const QStringList DRS = QStringList() << "DN" << "UP";
 
+static const QString INVALID = QString(QChar(9940));
+static const QString VALID = QString("");
+
 
 FindReplace::FindReplace(MainWindow *main_window)
     : QWidget(main_window),
@@ -1680,13 +1683,16 @@ void FindReplace::ValidateRegex()
         if (!rex.isValid()) {
             emsg = tr("Invalid Regex:") + PCREErrors::instance()->GetError(rex.getError(),"");
             emsg = emsg + " " + tr("offset:") + " " + QString::number(rex.getErrPos() - offset_correction); 
-            ui.cbFind->setToolTip(emsg); 
+            ui.cbFind->setToolTip(emsg);
+            ui.revalid->setText(INVALID); 
         } else {
             ui.cbFind->setToolTip(tr("Valid Regex"));
+            ui.revalid->setText(VALID);
         }
         return;
     }
     ui.cbFind->setToolTip("");
+    ui.revalid->setText("");
 }
 
 

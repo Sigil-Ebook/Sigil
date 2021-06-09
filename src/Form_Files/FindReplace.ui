@@ -353,6 +353,28 @@ other end to continue searching.</string>
           </item>
          </layout>
         </item>
+        <item row="2" column="2">
+         <widget class="QLabel" name="revalid">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>2</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Regex Valid?</string>
+          </property>
+          <property name="text">
+           <string> </string>
+          </property>
+         </widget>
+        </item>
         <item row="2" column="3">
          <widget class="QToolButton" name="count">
           <property name="sizePolicy">
