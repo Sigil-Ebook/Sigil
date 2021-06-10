@@ -2654,7 +2654,7 @@ void CodeViewEditor::FormatBlock(const QString &element_name, bool preserve_attr
 
             // special case for body tag or closing tag that we did not start in
             // just insert the element around the current selection
-            if ((ti.tname == "body") || (ti.ttype == "end")) {
+            if ((ti.tname == "body") || (ti.ttype == "end") || (ti.ttype == "single")) {
                 InsertHTMLTagAroundSelection(element_name, "/" % element_name);
                 return;
             }
