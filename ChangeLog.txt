@@ -8,7 +8,7 @@ Pre-1.7.0
 
     New Features:
      - added Find Replace Regular Expression validator
-
+     - added SIGIL_DISABLE_VERSION_META environment variable to control writing of Sigil Version
 
 Sigil-1.6.0
     Bug Fixes:

@@ -91,7 +91,9 @@ void ExportEPUB::WriteBook()
         m_Book->GetOPF()->EnsureUUIDIdentifierPresent();
     }
 
-    m_Book->GetOPF()->AddSigilVersionMeta();
+    if (Utility::GetEnvironmentVar("SIGIL_DISABLE_VERSION_META").isEmpty()) {
+        m_Book->GetOPF()->AddSigilVersionMeta();
+    }
     m_Book->GetOPF()->AddModificationDateMeta();
     m_Book->SaveAllResourcesToDisk();
     TempFolder tempfolder;
