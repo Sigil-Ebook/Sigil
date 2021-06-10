@@ -1266,6 +1266,7 @@ void FindReplace::ShowHideAdvancedOptions()
     ui.chkRegexOptionAutoTokenise->setVisible(show_advanced);
     ui.chkOptionWrap->setVisible(show_advanced);
     ui.count->setVisible(show_advanced);
+    ui.revalid->setVisible(show_advanced);
     QIcon icon;
 
     if (show_advanced) {
