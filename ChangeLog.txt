@@ -4,11 +4,14 @@ Pre-1.7.0
      - Make the External Xhtml Editor Button/Feature work with both PageEdit and non-PageEdit editors again
      - Fix Preview sync when CV transitions from xhtml to css and back to xhtml
      - Fix Preview sync when Find and Replace opens new tab with search target
+     - Fix Preview sync when Validation error clicked on
+     - Prevent Sigil from loading any manifested mimtype file from bad epubs, give load warning
      - Make Spellcheck dialog use double-click to control search in CV, to speed paging word list. 
 
     New Features:
      - added Find Replace Regular Expression validator
      - added SIGIL_DISABLE_VERSION_META environment variable to control writing of Sigil Version
+
 
 Sigil-1.6.0
     Bug Fixes:
