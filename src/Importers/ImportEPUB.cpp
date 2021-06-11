@@ -777,8 +777,8 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
         file_path = Utility::resolveRelativeSegmentsInFilePath(file_path,"/");
         file_path = file_path.remove(0, m_ExtractedFolderPath.length() + 1); 
     
-        // Manifest Items may *NOT* live in the META-INF
-        if (file_path.startsWith("META-INF/")) {
+        // Manifest Items may *NOT* live in the META-INF and the mimetype file should NOT be manifested
+        if (file_path.startsWith("META-INF/") || (file_path == "mimetype")) {
             const QString load_warning = QObject::tr("The OPF has an illegal Manifest entry for a file inside the META-INF folder for file \"%1\"").arg(QFileInfo(file_path).fileName()) +
             " - " + QObject::tr("You should edit your OPF file to remove this entry.");
             AddLoadWarning(load_warning);
