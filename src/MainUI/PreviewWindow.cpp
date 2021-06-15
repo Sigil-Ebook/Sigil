@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2021  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019-2020  Doug Massay
+**  Copyright (C) 2019-2021  Doug Massay
 **  Copyright (C) 2012       Dave Heiland, John Schember
 **
 **  This file is part of Sigil.
@@ -52,6 +52,18 @@ static const QStringList HEADERTAGS = QStringList() << "h1" << "h2" << "h3" << "
 
 static const QString SETTINGS_GROUP = "previewwindow";
 
+static const QString MATHJAX_CLEANUP = 
+   "<script type=\"text/x-mathjax-config\">"
+   "  MathJax.Hub.Register.StartupHook('End', function () {"
+   "    var mscripts = document.querySelectorAll(\"script[type='math/mml']\");"
+   "    function pruneScripts(item, index) {"
+   "      item.parentNode.removeChild(item);"
+   "    }"
+   "    mscripts.forEach(pruneScripts);"
+   "  });"
+   "</script>";;
+
+
 #define DBG if(0)
 
 PreviewWindow::PreviewWindow(QWidget *parent)
@@ -66,7 +78,8 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_progress(new QProgressBar(this)),
     m_Filepath(QString()),
     m_titleText(QString()),
-    m_updatingPage(false)
+    m_updatingPage(false),
+    m_usingMathML(false)
 {
     m_progress->reset();
     m_progress->setMinimum(0);
@@ -254,10 +267,15 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     m_OverlayTimer.start();
 
     m_updatingPage = true;
-    m_Preview->StoreCaretLocationUpdate(location);
+
+    QRegularExpression mathused("<\\s*math [^>]*>");
+    QRegularExpressionMatch mo = mathused.match(text);
+    m_usingMathML = mo.hasMatch();
 
     DBG qDebug() << "PV UpdatePage " << filename_url;
     DBG foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
+
+    SetCaretLocation(location);
 
     //if isDarkMode is set, inject a local style in head
     SettingsStore settings;
@@ -282,12 +300,10 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
 
     // If this page uses mathml tags, inject a polyfill
     // MathJax.js so that the mathml appears in the Preview Window
-    QRegularExpression mathused("<\\s*math [^>]*>");
-    QRegularExpressionMatch mo = mathused.match(text);
-    if (mo.hasMatch()) {
+    if (m_usingMathML) {
         int endheadpos = text.indexOf("</head>");
         if (endheadpos > 1) {
-            QString inject_mathjax = 
+            QString inject_mathjax = MATHJAX_CLEANUP + 
               "<script type=\"text/javascript\" async=\"async\" "
               "src=\"" + m_mathjaxurl + "\"></script>\n";
             text.insert(endheadpos, inject_mathjax);
@@ -354,7 +370,7 @@ void PreviewWindow::ScrollTo(QList<ElementIndex> location)
         return;
     }
     DBG foreach(ElementIndex ei, location) qDebug() << "name: " << ei.name << " index: " << ei.index;
-    m_Preview->StoreCaretLocationUpdate(location);
+    SetCaretLocation(location);
     if (!m_updatingPage) m_Preview->ExecuteCaretUpdate();
 }
 
@@ -409,8 +425,30 @@ QList<ElementIndex> PreviewWindow::GetCaretLocation()
 {
     DBG qDebug() << "PreviewWindow in GetCaretLocation";
     QList<ElementIndex> hierarchy = m_Preview->GetCaretLocation();
-    DBG foreach(ElementIndex ei, hierarchy) qDebug() << "name: " << ei.name << " index: " << ei.index;
+    for (int i = 0; i < hierarchy.length(); i++) {
+        if (m_usingMathML && (hierarchy[i].name == "body")) {
+            // compensate for MathJax added two divs injected as first children of body
+            hierarchy[i].index = hierarchy[i].index - 2;
+        }
+        DBG qDebug() << "name: " << hierarchy[i].name << " index: " << hierarchy[i].index;
+    }
     return hierarchy;
+}
+
+
+void PreviewWindow::SetCaretLocation(const QList<ElementIndex> &loc)
+{
+    qDebug() << "PreviewWindow in SetCaretLocation";
+    QList<ElementIndex> hierarchy;
+    foreach(ElementIndex ei, loc) {
+        if (m_usingMathML && (ei.name == "body")) {
+            // compensate for MathJax added two divs injected as first children of body
+            ei.index = ei.index + 2;
+        }
+        hierarchy << ei;
+        DBG qDebug() << "name: " << ei.name << " index: " << ei.index;
+    }
+    m_Preview->StoreCaretLocationUpdate(hierarchy);
 }
 
 void PreviewWindow::SetZoomFactor(float factor)

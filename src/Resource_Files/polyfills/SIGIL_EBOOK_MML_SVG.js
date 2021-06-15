@@ -15,8 +15,12 @@
  */
 
 MathJax.Hub.Config({
-	extensions: ["mml2jax.js","MathML/mml3.js","MathEvents.js","toMathML.js","fast-preview.js","AssistiveMML.js"],
-  jax: ["input/MathML","output/SVG","output/PreviewHTML"],
+  extensions: ["mml2jax.js","MathML/mml3.js","MathEvents.js"],
+  jax: ["input/MathML","output/SVG"],
+  mml2jax: {
+    preview: "none"
+  },
+  showProcessingMessages: false,
   messageStyle: "none"
 });
 
