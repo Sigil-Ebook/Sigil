@@ -4422,6 +4422,9 @@ void MainWindow::ReadSettings()
     // First check if system MathJax was configured to be used at compile time
     if (!mathjax_dir.isEmpty()) {
         mathjaxurl = mathjax_dir;
+        if (!mathjaxurl.endsWith('/')) {
+            mathjaxurl.append('/');
+        }
     } else {
         // otherwise user supplied environment variable to 'share/sigil'
         // takes precedence over Sigil's usual share location.
