@@ -5,6 +5,8 @@ Pre-1.7.0
      - Fix Preview sync when CV transitions from xhtml to css and back to xhtml
      - Fix Preview sync when Find and Replace opens new tab with search target
      - Fix Preview sync when Validation error clicked on
+     - Fix Preview sync when mathml is being used (compensate for mathjax changes)
+     - Fix mathml use when external MathJax directory is specified in builds on Linux
      - Prevent Sigil from loading any manifested mimtype file from bad epubs, give load warning
      - Make Spellcheck dialog use double-click to control search in CV, to speed paging word list. 
 
