@@ -20,6 +20,7 @@ Links
 * Sigil Plugin Index (hosted by www.mobileread.com) at 
     http://www.mobileread.com/forums/showthread.php?t=247431
 
+* Sigil User Guide is located at https://github.com/Sigil-Ebook/sigil-user-guide/releases/latest
 
 Issue Tracker
 =============
