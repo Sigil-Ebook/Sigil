@@ -43,6 +43,11 @@ SPCRE::SPCRE(const QString &patten)
         m_valid = true;
         // Study the pattern and save the results of the study.
         m_study = pcre16_study(m_re, 0, &error);
+        if (m_study) {
+            // set recursion limit to prevent issues with stack overflow
+            m_study->flags = m_study->flags | PCRE_EXTRA_MATCH_LIMIT_RECURSION;
+            m_study->match_limit_recursion = 12000;
+        }
         // Store the number of capture subpatterns.
         pcre16_fullinfo(m_re, m_study, PCRE_INFO_CAPTURECOUNT, &m_captureSubpatternCount);
     }
