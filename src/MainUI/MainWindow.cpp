@@ -1391,8 +1391,9 @@ void MainWindow::closeEvent(QCloseEvent *event)
         }
 
 #ifdef Q_OS_MAC
-        // macOSX can not be left in fullscreen mode upon exit
+        // Qt BUG:  macOS can not be left in fullscreen or maximized mode upon exit
         if (isFullScreen()) setWindowState(windowState() & ~Qt::WindowFullScreen);
+        if (isMaximized()) setWindowState(windowState() & ~Qt::WindowMaximized);
 #endif
         event->accept();
     } else {
