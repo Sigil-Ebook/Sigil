@@ -1387,8 +1387,8 @@ Returns:            nothing
 */
 
 static void
-do_after_lines(int lastmatchnumber, char *lastmatchrestart, char *endptr,
-  char *printname)
+do_after_lines(unsigned long int lastmatchnumber, char *lastmatchrestart,
+  char *endptr, char *printname)
 {
 if (after_context > 0 && lastmatchnumber > 0)
   {
@@ -1398,7 +1398,7 @@ if (after_context > 0 && lastmatchnumber > 0)
     int ellength;
     char *pp = lastmatchrestart;
     if (printname != NULL) fprintf(stdout, "%s-", printname);
-    if (number) fprintf(stdout, "%d-", lastmatchnumber++);
+    if (number) fprintf(stdout, "%lu-", lastmatchnumber++);
     pp = end_of_line(pp, endptr, &ellength);
     FWRITE(lastmatchrestart, 1, pp - lastmatchrestart, stdout);
     lastmatchrestart = pp;
@@ -1502,11 +1502,11 @@ static int
 pcregrep(void *handle, int frtype, char *filename, char *printname)
 {
 int rc = 1;
-int linenumber = 1;
-int lastmatchnumber = 0;
-int count = 0;
 int filepos = 0;
 int offsets[OFFSET_SIZE];
+unsigned long int linenumber = 1;
+unsigned long int lastmatchnumber = 0;
+unsigned long int count = 0;
 char *lastmatchrestart = NULL;
 char *ptr = main_buffer;
 char *endptr;
@@ -1609,7 +1609,7 @@ while (ptr < endptr)
 
   if (endlinelength == 0 && t == main_buffer + bufsize)
     {
-    fprintf(stderr, "pcregrep: line %d%s%s is too long for the internal buffer\n"
+    fprintf(stderr, "pcregrep: line %lu%s%s is too long for the internal buffer\n"
                     "pcregrep: check the --buffer-size option\n",
                     linenumber,
                     (filename == NULL)? "" : " of file ",
@@ -1692,9 +1692,13 @@ while (ptr < endptr)
 
     if (filenames == FN_NOMATCH_ONLY) return 1;
 
+    /* If all we want is a yes/no answer, stop now. */
+
+    if (quiet) return 0;
+
     /* Just count if just counting is wanted. */
 
-    if (count_only) count++;
+    else if (count_only) count++;
 
     /* When handling a binary file and binary-files==binary, the "binary"
     variable will be set true (it's false in all other cases). In this
@@ -1714,10 +1718,6 @@ while (ptr < endptr)
       fprintf(stdout, "%s\n", printname);
       return 0;
       }
-
-    /* Likewise, if all we want is a yes/no answer. */
-
-    else if (quiet) return 0;
 
     /* The --only-matching option prints just the substring that matched,
     and/or one or more captured portions of it, as long as these strings are
@@ -1747,7 +1747,7 @@ while (ptr < endptr)
           prevoffsets[1] = offsets[1];
 
           if (printname != NULL) fprintf(stdout, "%s:", printname);
-          if (number) fprintf(stdout, "%d:", linenumber);
+          if (number) fprintf(stdout, "%lu:", linenumber);
 
           /* Handle --line-offsets */
 
@@ -1803,6 +1803,7 @@ while (ptr < endptr)
         match = FALSE;
         if (line_buffered) fflush(stdout);
         rc = 0;                      /* Had some success */
+
         startoffset = offsets[1];    /* Restart after the match */
         if (startoffset <= oldstartoffset)
           {
@@ -1812,6 +1813,22 @@ while (ptr < endptr)
           if (utf8)
             while ((matchptr[startoffset] & 0xc0) == 0x80) startoffset++;
           }
+
+        /* If the current match ended past the end of the line (only possible
+        in multiline mode), we must move on to the line in which it did end
+        before searching for more matches. */
+
+        while (startoffset > (int)linelength)
+          {
+          matchptr = ptr += linelength + endlinelength;
+          filepos += (int)(linelength + endlinelength);
+          linenumber++;
+          startoffset -= (int)(linelength + endlinelength);
+          t = end_of_line(ptr, endptr, &endlinelength);
+          linelength = t - ptr - endlinelength;
+          length = (size_t)(endptr - ptr);
+          }
+
         goto ONLY_MATCHING_RESTART;
         }
       }
@@ -1845,7 +1862,7 @@ while (ptr < endptr)
           {
           char *pp = lastmatchrestart;
           if (printname != NULL) fprintf(stdout, "%s-", printname);
-          if (number) fprintf(stdout, "%d-", lastmatchnumber++);
+          if (number) fprintf(stdout, "%lu-", lastmatchnumber++);
           pp = end_of_line(pp, endptr, &ellength);
           FWRITE(lastmatchrestart, 1, pp - lastmatchrestart, stdout);
           lastmatchrestart = pp;
@@ -1885,7 +1902,7 @@ while (ptr < endptr)
           int ellength;
           char *pp = p;
           if (printname != NULL) fprintf(stdout, "%s-", printname);
-          if (number) fprintf(stdout, "%d-", linenumber - linecount--);
+          if (number) fprintf(stdout, "%lu-", linenumber - linecount--);
           pp = end_of_line(pp, endptr, &ellength);
           FWRITE(p, 1, pp - p, stdout);
           p = pp;
@@ -1899,7 +1916,7 @@ while (ptr < endptr)
         endhyphenpending = TRUE;
 
       if (printname != NULL) fprintf(stdout, "%s:", printname);
-      if (number) fprintf(stdout, "%d:", linenumber);
+      if (number) fprintf(stdout, "%lu:", linenumber);
 
       /* In multiline mode, we want to print to the end of the line in which
       the end of the matched string is found, so we adjust linelength and the
@@ -2089,13 +2106,13 @@ if (filenames == FN_NOMATCH_ONLY)
 
 /* Print the match count if wanted */
 
-if (count_only)
+if (count_only && !quiet)
   {
   if (count > 0 || !omit_zero_count)
     {
     if (printname != NULL && filenames != FN_NONE)
       fprintf(stdout, "%s:", printname);
-    fprintf(stdout, "%d\n", count);
+    fprintf(stdout, "%lu\n", count);
     }
   }
 
@@ -2217,7 +2234,7 @@ if (isdirectory(pathname))
 
   if (dee_action == dee_RECURSE)
     {
-    char buffer[1024];
+    char buffer[2048];
     char *nextfile;
     directory_type *dir = opendirectory(pathname);
 
@@ -2232,7 +2249,14 @@ if (isdirectory(pathname))
     while ((nextfile = readdirectory(dir)) != NULL)
       {
       int frc;
-      sprintf(buffer, "%.512s%c%.128s", pathname, FILESEP, nextfile);
+      int fnlength = strlen(pathname) + strlen(nextfile) + 2;
+      if (fnlength > 2048)
+        {
+        fprintf(stderr, "pcregrep: recursive filename is too long\n");
+        rc = 2;
+        break;
+        }
+      sprintf(buffer, "%s%c%s", pathname, FILESEP, nextfile);
       frc = grep_or_recurse(buffer, dir_recurse, FALSE);
       if (frc > 1) rc = frc;
        else if (frc == 0 && rc == 1) rc = 0;
@@ -2437,7 +2461,7 @@ return options;
 static char *
 ordin(int n)
 {
-static char buffer[8];
+static char buffer[14];
 char *p = buffer;
 sprintf(p, "%d", n);
 while (*p != 0) p++;
@@ -2503,7 +2527,14 @@ if ((popts & PO_FIXED_STRINGS) != 0)
     }
   }
 
-sprintf(buffer, "%s%.*s%s", prefix[popts], patlen, ps, suffix[popts]);
+if (snprintf(buffer, PATBUFSIZE, "%s%.*s%s", prefix[popts], patlen, ps,
+      suffix[popts]) > PATBUFSIZE)
+  {
+  fprintf(stderr, "pcregrep: Buffer overflow while compiling \"%s\"\n",
+    ps);
+  return FALSE;
+  }
+
 p->compiled = pcre_compile(buffer, options, &error, &errptr, pcretables);
 if (p->compiled != NULL) return TRUE;
 
@@ -2739,8 +2770,15 @@ for (i = 1; i < argc; i++)
         int arglen = (argequals == NULL || equals == NULL)?
           (int)strlen(arg) : (int)(argequals - arg);
 
-        sprintf(buff1, "%.*s", baselen, op->long_name);
-        sprintf(buff2, "%s%.*s", buff1, fulllen - baselen - 2, opbra + 1);
+        if (snprintf(buff1, sizeof(buff1), "%.*s", baselen, op->long_name) >
+              (int)sizeof(buff1) ||
+            snprintf(buff2, sizeof(buff2), "%s%.*s", buff1,
+              fulllen - baselen - 2, opbra + 1) > (int)sizeof(buff2))
+          {
+          fprintf(stderr, "pcregrep: Buffer overflow when parsing %s option\n",
+            op->long_name);
+          pcregrep_exit(2);
+          }
 
         if (strncmp(arg, buff1, arglen) == 0 ||
            strncmp(arg, buff2, arglen) == 0)
@@ -2996,7 +3034,7 @@ LC_ALL environment variable is set, and if so, use it. */
 if (locale == NULL)
   {
   locale = getenv("LC_ALL");
-  locale_from = "LCC_ALL";
+  locale_from = "LC_ALL";
   }
 
 if (locale == NULL)
@@ -3173,9 +3211,11 @@ for (j = 1, cp = patterns; cp != NULL; j++, cp = cp->next)
   cp->hint = pcre_study(cp->compiled, study_options, &error);
   if (error != NULL)
     {
-    char s[16];
-    if (patterns->next == NULL) s[0] = 0; else sprintf(s, " number %d", j);
-    fprintf(stderr, "pcregrep: Error while studying regex%s: %s\n", s, error);
+    if (patterns->next == NULL)
+      fprintf(stderr, "pcregrep: Error while studying regex: %s\n", error);
+    else
+      fprintf(stderr, "pcregrep: Error while studying regex number %d: %s\n",
+        j, error);
     goto EXIT2;
     }
 #ifdef SUPPORT_PCREGREP_JIT

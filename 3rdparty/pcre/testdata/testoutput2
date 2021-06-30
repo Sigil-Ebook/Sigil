@@ -419,7 +419,7 @@ Need char = '>'
 
 /(?U)<.*>/I
 Capturing subpattern count = 0
-Options: ungreedy
+No options
 First char = '<'
 Need char = '>'
     abc<def>ghi<klm>nop
@@ -443,7 +443,7 @@ Need char = '='
 
 /(?U)={3,}?/I
 Capturing subpattern count = 0
-Options: ungreedy
+No options
 First char = '='
 Need char = '='
     abc========def
@@ -477,7 +477,7 @@ Failed: lookbehind assertion is not fixed length at offset 12
 
 /(?i)abc/I
 Capturing subpattern count = 0
-Options: caseless
+No options
 First char = 'a' (caseless)
 Need char = 'c' (caseless)
 
@@ -489,7 +489,7 @@ No need char
 
 /(?i)^1234/I
 Capturing subpattern count = 0
-Options: anchored caseless
+Options: anchored
 No first char
 No need char
 
@@ -502,7 +502,7 @@ No need char
 /(?s).*/I
 Capturing subpattern count = 0
 May match empty string
-Options: anchored dotall
+Options: anchored
 No first char
 No need char
 
@@ -516,7 +516,7 @@ Starting chars: a b c d
 
 /(?i)[abcd]/IS
 Capturing subpattern count = 0
-Options: caseless
+No options
 No first char
 No need char
 Subject length lower bound = 1
@@ -524,7 +524,7 @@ Starting chars: A B C D a b c d
 
 /(?m)[xy]|(b|c)/IS
 Capturing subpattern count = 1
-Options: multiline
+No options
 No first char
 No need char
 Subject length lower bound = 1
@@ -538,7 +538,7 @@ No need char
 
 /(?i)(^a|^b)/Im
 Capturing subpattern count = 1
-Options: caseless multiline
+Options: multiline
 First char at start or follows newline
 No need char
 
@@ -555,13 +555,13 @@ Failed: malformed number or name after (?( at offset 4
 Failed: malformed number or name after (?( at offset 4
 
 /(?(?i))/
-Failed: assertion expected after (?( at offset 3
+Failed: assertion expected after (?( or (?(?C) at offset 3
 
 /(?(abc))/
 Failed: reference to non-existent subpattern at offset 7
 
 /(?(?<ab))/
-Failed: assertion expected after (?( at offset 3
+Failed: assertion expected after (?( or (?(?C) at offset 3
 
 /((?s)blah)\s+\1/I
 Capturing subpattern count = 1
@@ -1179,7 +1179,7 @@ No need char
         End
 ------------------------------------------------------------------
 Capturing subpattern count = 1
-Options: anchored dotall
+Options: anchored
 No first char
 No need char
 
@@ -2735,7 +2735,7 @@ No match
         End
 ------------------------------------------------------------------
 Capturing subpattern count = 0
-Options: caseless extended
+Options: extended
 First char = 'a' (caseless)
 Need char = 'c' (caseless)
 
@@ -2748,7 +2748,7 @@ Need char = 'c' (caseless)
         End
 ------------------------------------------------------------------
 Capturing subpattern count = 0
-Options: caseless extended
+Options: extended
 First char = 'a' (caseless)
 Need char = 'c' (caseless)
 
@@ -3095,7 +3095,7 @@ Need char = 'b'
         End
 ------------------------------------------------------------------
 Capturing subpattern count = 0
-Options: ungreedy
+No options
 First char = 'x'
 Need char = 'b'
     xaaaab
@@ -3497,7 +3497,7 @@ Need char = 'c'
 
 /(?i)[ab]/IS
 Capturing subpattern count = 0
-Options: caseless
+No options
 No first char
 No need char
 Subject length lower bound = 1
@@ -5614,9 +5614,8 @@ No match
     123456\P
 No match
 
-//KF>/dev/null
-Compiled pattern written to /dev/null
-Study data written to /dev/null
+//S-KF>testsavedregex
+Compiled pattern written to testsavedregex
 
 /abc/IS>testsavedregex
 Capturing subpattern count = 0
@@ -6299,7 +6298,7 @@ Capturing subpattern count = 3
 Named capturing subpatterns:
   A   2
   A   3
-Options: anchored dupnames
+Options: anchored
 Duplicate name status changes
 No first char
 No need char
@@ -7870,7 +7869,7 @@ No match
 Failed: malformed number or name after (?( at offset 6
 
 /(?(''))/
-Failed: assertion expected after (?( at offset 4
+Failed: assertion expected after (?( or (?(?C) at offset 4
 
 /(?('R')stuff)/
 Failed: reference to non-existent subpattern at offset 7
@@ -9135,10 +9134,10 @@ Failed: subpattern name expected at offset 3
 Failed: subpattern name expected at offset 3
 
 /\k/
-Failed: \k is not followed by a braced, angle-bracketed, or quoted name at offset 2
+Failed: \k is not followed by a braced, angle-bracketed, or quoted name at offset 1
 
 /\kabc/
-Failed: \k is not followed by a braced, angle-bracketed, or quoted name at offset 5
+Failed: \k is not followed by a braced, angle-bracketed, or quoted name at offset 1
 
 /(?P=)/
 Failed: subpattern name expected at offset 4
@@ -9186,7 +9185,7 @@ Failed: unknown POSIX class name at offset 6
 Failed: unknown POSIX class name at offset 3
 
 /(^(a|b\g<-1'c))/
-Failed: \g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number at offset 15
+Failed: \g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number at offset 8
 
 /^(?+1)(?<a>x|y){0}z/
     xzxx
@@ -9380,7 +9379,7 @@ No need char
 /(?(?=.*b).*b|^d)/I
 Capturing subpattern count = 0
 No options
-First char at start or follows newline
+No first char
 No need char
 
 /xyz/C
@@ -14098,10 +14097,10 @@ Failed: group name must start with a non-digit at offset 3
 Failed: group name must start with a non-digit at offset 4
 
 /\g'3gh'/
-Failed: \g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number at offset 7
+Failed: \g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number at offset 2
 
 /\g<5fg>/
-Failed: \g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number at offset 7
+Failed: \g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number at offset 2
 
 /(?(<4gh>)abc)/
 Failed: group name must start with a non-digit at offset 4
@@ -14346,7 +14345,7 @@ No match
 "((?2)+)((?1))"
 
 "(?(?<E>.*!.*)?)"
-Failed: assertion expected after (?( at offset 3
+Failed: assertion expected after (?( or (?(?C) at offset 3
 
 "X((?2)()*+){2}+"BZ
 ------------------------------------------------------------------
@@ -14422,5 +14421,307 @@ Failed: lookbehind assertion is not fixed length at offset 17
  0+ 
 
 /((?2){73}(?2))((?1))/
+
+/.((?2)(?R)\1)()/BZ
+------------------------------------------------------------------
+        Bra
+        Any
+        Once
+        CBra 1
+        Recurse
+        Recurse
+        \1
+        Ket
+        Ket
+        CBra 2
+        Ket
+        Ket
+        End
+------------------------------------------------------------------
+
+/(?1)()((((((\1++))\x85)+)|))/
+
+/(\9*+(?2);\3++()2|)++{/
+Failed: reference to non-existent subpattern at offset 22
+
+/\V\x85\9*+((?2)\3++()2)*:2/
+Failed: reference to non-existent subpattern at offset 26
+
+/(((?(R)){0,2}) (?''((?'R')((?'R')))))/J
+
+/(((?(X)){0,2}) (?''((?'X')((?'X')))))/J
+
+/(((?(R)){0,2}) (?''((?'X')((?'R')))))/
+
+"(?J)(?'d'(?'d'\g{d}))"
+
+".*?\h.+.\.+\R*?\xd(?i)(?=!(?=b`b`b`\`b\xa9b!)`\a`bbbbbbbbbbbbb`bbbbbbbbbbbb*R\x85bbbbbbb\C?{((?2)(?))((
+\H){8(?<=(?1){29}\xa8bbbb\x16\xd\xc6^($(?<! )(\xa9H4){4}h}1)B))\x15')"
+
+"(?J:(?|(?'R')(\k'R')|((?'R'))))"
+
+/(?<=|(\,\$(?73591620449005828816)\xa8.{7}){6}\x09)/
+Failed: number is too big at offset 32
+
+//
+\O1
+Matched, but too many substrings
+
+/^(?:(?(1)x|)+)+$()/BZ
+------------------------------------------------------------------
+        Bra
+        ^
+        SBra
+        SCond
+      1 Cond ref
+        x
+        Alt
+        KetRmax
+        KetRmax
+        $
+        CBra 1
+        Ket
+        Ket
+        End
+------------------------------------------------------------------
+
+/(?=di(?<=(?1))|(?=(.))))/
+Failed: unmatched parentheses at offset 23
+
+/(?(R))*+/BZ
+------------------------------------------------------------------
+        Bra
+        Braposzero
+        SBraPos
+        SCond
+        Cond recurse any
+        Ket
+        KetRpos
+        Ket
+        End
+------------------------------------------------------------------
+
+/[[:\\](?'abc')[a:]/
+
+"[[[.\xe8Nq\xffq\xff\xe0\x2|||::Nq\xffq\xff\xe0\x6\x2|||::[[[:[::::::[[[[[::::::::[:[[[:[:::[[[[[[[[[[[[:::::::::::::::::[[.\xe8Nq\xffq\xff\xe0\x2|||::Nq\xffq\xff\xe0\x6\x2|||::[[[:[::::::[[[[[::::::::[:[[[:[:::[[[[[[[[[[[[[[:::E[[[:[:[[:[:::[[:::E[[[:[:[[:'[:::::E[[[:[::::::[[[:[[[[[[[::E[[[:[::::::[[[:[[[[[[[[:[[::[::::[[:::::::[[:[[[[[[[:[[::[:[[:[~"
+Failed: missing terminating ] for character class at offset 353
+
+/()(?(R)0)*+/BZ
+------------------------------------------------------------------
+        Bra
+        CBra 1
+        Ket
+        Braposzero
+        SBraPos
+        SCond
+        Cond recurse any
+        0
+        Ket
+        KetRpos
+        Ket
+        End
+------------------------------------------------------------------
+
+/(?R-:(?</
+Failed: (?R or (?[+-]digits must be followed by ) at offset 3
+
+/(?1){3918}(((((0(\k'R'))))(?J)(?'R'(?'R'\3){99})))/I
+Capturing subpattern count = 8
+Max back reference = 8
+Named capturing subpatterns:
+  R   7
+  R   8
+No options
+Duplicate name status changes
+No first char
+Need char = '0'
+
+/(?J:(?|(:(?|(?'R')(\k'R')|((?'R')))H'Rk'Rf)|s(?'R')))/
+
+/0(?0)|(1)(*THEN)(*SKIP:0)(*FAIL)/
+    01
+No match
+
+/((?(R8000000000)))/ 
+Failed: number is too big at offset 16
+
+/(?(8000000000/
+Failed: number is too big at offset 13
+
+/(?:ab)?(?:ab)(?:ab)/
+    abab
+ 0: abab
+    ababab
+ 0: ababab
+    aba
+No match
+
+/((*MARK:A))++a(*SKIP:B)b/
+    aacb
+No match
+
+/(?J:(?|(:(?|(?'R')(\z(?|(?'R')(\k'R')|((?'R')))k'R')|((?'R')))H'Ak'Rf)|s(?'R')))/
+
+/(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?&a)(?<a>1)/
+
+/a[[:punct:]b]/BZ
+------------------------------------------------------------------
+        Bra
+        a
+        [!-/:-@[-`b{-~]
+        Ket
+        End
+------------------------------------------------------------------
+
+/L(?#(|++<!(2)?/BZ
+------------------------------------------------------------------
+        Bra
+        L?+
+        Ket
+        End
+------------------------------------------------------------------
+
+/L(?#(|++<!(2)?/BOZ
+------------------------------------------------------------------
+        Bra
+        L?
+        Ket
+        End
+------------------------------------------------------------------
+
+/L(?#(|++<!(2)?/BCZ
+------------------------------------------------------------------
+        Bra
+        Callout 255 0 14
+        L?+
+        Callout 255 14 0
+        Ket
+        End
+------------------------------------------------------------------
+
+/L(?#(|++<!(2)?/BCOZ
+------------------------------------------------------------------
+        Bra
+        Callout 255 0 14
+        L?
+        Callout 255 14 0
+        Ket
+        End
+------------------------------------------------------------------
+
+/(A*)\E+/CBZ
+------------------------------------------------------------------
+        Bra
+        Callout 255 0 7
+        SCBra 1
+        Callout 255 1 2
+        A*
+        Callout 255 3 0
+        KetRmax
+        Callout 255 7 0
+        Ket
+        End
+------------------------------------------------------------------
+
+/()\Q\E*]/BCZ
+------------------------------------------------------------------
+        Bra
+        Callout 255 0 7
+        Brazero
+        SCBra 1
+        Callout 255 1 0
+        KetRmax
+        Callout 255 7 1
+        ]
+        Callout 255 8 0
+        Ket
+        End
+------------------------------------------------------------------
+
+/(?<A>)(?J:(?<B>)(?<B>))(?<C>)/
+    \O\CC
+Matched, but too many substrings
+copy substring C failed -7
+
+/(?=a\K)/ 
+    ring bpattingbobnd $ 1,oern cou \rb\L
+Start of matched string is beyond its end - displaying from end to start.
+ 0: a
+ 0L 
+
+/(?<=((?C)0))/
+    9010
+--->9010
+  0  ^       0
+  0   ^      0
+ 0: 
+ 1: 0
+    abcd
+--->abcd
+  0  ^       0
+  0   ^      0
+  0    ^     0
+  0     ^    0
+No match
+     
+/((?J)(?'R'(?'R'(?'R'(?'R'(?'R'(?|(\k'R'))))))))/
+
+/\N(?(?C)0?!.)*/
+Failed: assertion expected after (?( or (?(?C) at offset 4
+
+/(?<RA>abc)(?(R)xyz)/BZ
+------------------------------------------------------------------
+        Bra
+        CBra 1
+        abc
+        Ket
+        Cond
+        Cond recurse any
+        xyz
+        Ket
+        Ket
+        End
+------------------------------------------------------------------
+
+/(?<R>abc)(?(R)xyz)/BZ
+------------------------------------------------------------------
+        Bra
+        CBra 1
+        abc
+        Ket
+        Cond
+      1 Cond ref
+        xyz
+        Ket
+        Ket
+        End
+------------------------------------------------------------------
+
+/(?=.*[A-Z])/I
+Capturing subpattern count = 0
+May match empty string
+No options
+No first char
+No need char
+
+"(?<=(a))\1?b"
+    ab
+ 0: b
+ 1: a
+    aaab 
+ 0: ab
+ 1: a
+
+"(?=(a))\1?b"
+    ab
+ 0: ab
+ 1: a
+    aaab 
+ 0: ab
+ 1: a
+
+/(?(?=^))b/
+    abc
+ 0: b
 
 /-- End of testinput2 --/

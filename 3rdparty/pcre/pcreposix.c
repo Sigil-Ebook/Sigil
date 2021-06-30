@@ -6,7 +6,7 @@
 and semantics are as close as possible to those of the Perl 5 language.
 
                        Written by Philip Hazel
-           Copyright (c) 1997-2014 University of Cambridge
+           Copyright (c) 1997-2020 University of Cambridge
 
 -----------------------------------------------------------------------------
 Redistribution and use in source and binary forms, with or without
@@ -173,7 +173,8 @@ static const int eint[] = {
   REG_BADPAT,  /* group name must start with a non-digit */
   /* 85 */
   REG_BADPAT,  /* parentheses too deeply nested (stack check) */
-  REG_BADPAT   /* missing digits in \x{} or \o{} */
+  REG_BADPAT,  /* missing digits in \x{} or \o{} */
+  REG_BADPAT   /* pattern too complicated */
 };
 
 /* Table of texts corresponding to POSIX error codes */
@@ -297,6 +298,7 @@ if (preg->re_pcre == NULL)
 (void)pcre_fullinfo((const pcre *)preg->re_pcre, NULL, PCRE_INFO_CAPTURECOUNT,
   &re_nsub);
 preg->re_nsub = (size_t)re_nsub;
+preg->re_erroffset = (size_t)(-1);  /* No meaning after successful compile */
 return 0;
 }
 
@@ -334,8 +336,6 @@ if ((eflags & REG_NOTBOL) != 0) options |= PCRE_NOTBOL;
 if ((eflags & REG_NOTEOL) != 0) options |= PCRE_NOTEOL;
 if ((eflags & REG_NOTEMPTY) != 0) options |= PCRE_NOTEMPTY;
 
-((regex_t *)preg)->re_erroffset = (size_t)(-1);  /* Only has meaning after compile */
-
 /* When no string data is being returned, or no vector has been passed in which
 to put it, ensure that nmatch is zero. Otherwise, ensure the vector for holding
 the return data is large enough. */
@@ -364,6 +364,7 @@ start location rather than being passed as a PCRE "starting offset". */
 
 if ((eflags & REG_STARTEND) != 0)
   {
+  if (pmatch == NULL) return REG_INVARG;
   so = pmatch[0].rm_so;
   eo = pmatch[0].rm_eo;
   }
@@ -387,8 +388,8 @@ if (rc >= 0)
     {
     for (i = 0; i < (size_t)rc; i++)
       {
-      pmatch[i].rm_so = ovector[i*2];
-      pmatch[i].rm_eo = ovector[i*2+1];
+      pmatch[i].rm_so = (ovector[i*2] < 0)? -1 : ovector[i*2] + so;
+      pmatch[i].rm_eo = (ovector[i*2+1] < 0)? -1: ovector[i*2+1] + so;
       }
     if (allocated_ovector) free(ovector);
     for (; i < nmatch; i++) pmatch[i].rm_so = pmatch[i].rm_eo = -1;

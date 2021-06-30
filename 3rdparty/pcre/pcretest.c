@@ -177,7 +177,7 @@ that differ in their output from isprint() even in the "C" locale. */
 #define PRINTABLE(c) ((c) >= 32 && (c) < 127)
 #endif
 
-#define PRINTOK(c) (locale_set? isprint(c) : PRINTABLE(c))
+#define PRINTOK(c) (locale_set? (((c) < 256) && isprint(c)) : PRINTABLE(c))
 
 /* Posix support is disabled in 16 or 32 bit only mode. */
 #if !defined SUPPORT_PCRE8 && !defined NOPOSIX
@@ -426,11 +426,11 @@ argument, the casting might be incorrectly applied. */
 #define PCRE_COPY_NAMED_SUBSTRING32(rc, re, bptr, offsets, count, \
     namesptr, cbuffer, size) \
   rc = pcre32_copy_named_substring((pcre32 *)re, (PCRE_SPTR32)bptr, offsets, \
-    count, (PCRE_SPTR32)namesptr, (PCRE_UCHAR32 *)cbuffer, size/2)
+    count, (PCRE_SPTR32)namesptr, (PCRE_UCHAR32 *)cbuffer, size/4)
 
 #define PCRE_COPY_SUBSTRING32(rc, bptr, offsets, count, i, cbuffer, size) \
   rc = pcre32_copy_substring((PCRE_SPTR32)bptr, offsets, count, i, \
-    (PCRE_UCHAR32 *)cbuffer, size/2)
+    (PCRE_UCHAR32 *)cbuffer, size/4)
 
 #define PCRE_DFA_EXEC32(count, re, extra, bptr, len, start_offset, options, \
     offsets, size_offsets, workspace, size_workspace) \
@@ -500,7 +500,7 @@ enum {
 #if (defined (SUPPORT_PCRE8) + defined (SUPPORT_PCRE16) + \
      defined (SUPPORT_PCRE32)) >= 2
 
-#define CHAR_SIZE (1 << pcre_mode)
+#define CHAR_SIZE (1U << pcre_mode)
 
 /* There doesn't seem to be an easy way of writing these macros that can cope
 with the 3 pairs of bit sizes plus all three bit sizes. So just handle all the
@@ -1982,6 +1982,7 @@ return(result);
 static int pchar(pcre_uint32 c, FILE *f)
 {
 int n = 0;
+char tempbuffer[16];
 if (PRINTOK(c))
   {
   if (f != NULL) fprintf(f, "%c", c);
@@ -2003,6 +2004,8 @@ if (c < 0x100)
   }
 
 if (f != NULL) n = fprintf(f, "\\x{%02x}", c);
+  else n = sprintf(tempbuffer, "\\x{%02x}", c);
+
 return n >= 0 ? n : 0;
 }
 
@@ -2250,7 +2253,7 @@ data is not zero. */
 static int callout(pcre_callout_block *cb)
 {
 FILE *f = (first_callout | callout_extra)? outfile : NULL;
-int i, pre_start, post_start, subject_length;
+int i, current_position, pre_start, post_start, subject_length;
 
 if (callout_extra)
   {
@@ -2280,14 +2283,19 @@ printed lengths of the substrings. */
 
 if (f != NULL) fprintf(f, "--->");
 
+/* If a lookbehind is involved, the current position may be earlier than the
+match start. If so, use the match start instead. */
+
+current_position = (cb->current_position >= cb->start_match)?
+  cb->current_position : cb->start_match;
+
 PCHARS(pre_start, cb->subject, 0, cb->start_match, f);
 PCHARS(post_start, cb->subject, cb->start_match,
-  cb->current_position - cb->start_match, f);
+  current_position - cb->start_match, f);
 
 PCHARS(subject_length, cb->subject, 0, cb->subject_length, NULL);
 
-PCHARSV(cb->subject, cb->current_position,
-  cb->subject_length - cb->current_position, f);
+PCHARSV(cb->subject, current_position, cb->subject_length - current_position, f);
 
 if (f != NULL) fprintf(f, "\n");
 
@@ -4435,7 +4443,7 @@ while (!done)
 
           /* If there is study data, write it. */
 
-          if (extra != NULL)
+          if (extra != NULL && (extra->flags & PCRE_EXTRA_STUDY_DATA) != 0)
             {
             if (fwrite(extra->study_data, 1, true_study_size, f) <
                 true_study_size)
@@ -4621,9 +4629,9 @@ while (!done)
 
       else switch ((c = *p++))
         {
-        case 'a': c =    7; break;
+        case 'a': c =  CHAR_BEL; break;
         case 'b': c = '\b'; break;
-        case 'e': c =   27; break;
+        case 'e': c =  CHAR_ESC; break;
         case 'f': c = '\f'; break;
         case 'n': c = '\n'; break;
         case 'r': c = '\r'; break;
@@ -4727,7 +4735,7 @@ while (!done)
         if (isdigit(*p))    /* Set copy string */
           {
           while(isdigit(*p)) n = n * 10 + *p++ - '0';
-          copystrings |= 1 << n;
+          copystrings |= 1U << n;
           }
         else if (isalnum(*p))
           {
@@ -4790,7 +4798,7 @@ while (!done)
         if (isdigit(*p))
           {
           while(isdigit(*p)) n = n * 10 + *p++ - '0';
-          getstrings |= 1 << n;
+          getstrings |= 1U << n;
           }
         else if (isalnum(*p))
           {
@@ -4826,7 +4834,16 @@ while (!done)
         continue;
 
         case 'O':
-        while(isdigit(*p)) n = n * 10 + *p++ - '0';
+        while(isdigit(*p))
+          {
+          if (n > (INT_MAX-10)/10)   /* Hack to stop fuzzers */
+            {
+            printf("** \\O argument is too big\n");
+            yield = 1;
+            goto EXIT;
+            }
+          n = n * 10 + *p++ - '0';
+          }
         if (n > size_offsets_max)
           {
           size_offsets_max = n;
@@ -5037,7 +5054,7 @@ while (!done)
 
     if ((all_use_dfa || use_dfa) && find_match_limit)
       {
-      printf("**Match limit not relevant for DFA matching: ignored\n");
+      printf("** Match limit not relevant for DFA matching: ignored\n");
       find_match_limit = 0;
       }
 
@@ -5250,10 +5267,17 @@ while (!done)
 
         if (do_allcaps)
           {
-          if (new_info(re, NULL, PCRE_INFO_CAPTURECOUNT, &count) < 0)
-            goto SKIP_DATA;
-          count++;   /* Allow for full match */
-          if (count * 2 > use_size_offsets) count = use_size_offsets/2;
+          if (all_use_dfa || use_dfa)
+            {
+            fprintf(outfile, "** Show all captures ignored after DFA matching\n");
+            }
+          else
+           {
+            if (new_info(re, NULL, PCRE_INFO_CAPTURECOUNT, &count) < 0)
+              goto SKIP_DATA;
+            count++;   /* Allow for full match */
+            if (count * 2 > use_size_offsets) count = use_size_offsets/2;
+            }
           }
 
         /* Output the captured substrings. Note that, for the matched string,
@@ -5311,7 +5335,7 @@ while (!done)
 
         for (i = 0; i < 32; i++)
           {
-          if ((copystrings & (1 << i)) != 0)
+          if ((copystrings & (1U << i)) != 0)
             {
             int rc;
             char copybuffer[256];
@@ -5376,7 +5400,7 @@ while (!done)
 
         for (i = 0; i < 32; i++)
           {
-          if ((getstrings & (1 << i)) != 0)
+          if ((getstrings & (1U << i)) != 0)
             {
             int rc;
             const char *substring;
@@ -5612,6 +5636,12 @@ while (!done)
         break;
         }
 
+      if (use_size_offsets < 2)
+        {
+        fprintf(outfile, "Cannot do global matching with an ovector size < 2\n");
+        break;
+        }
+
       /* If we have matched an empty string, first check to see if we are at
       the end of the subject. If so, the /g loop is over. Otherwise, mimic what
       Perl's /g options does. This turns out to be rather cunning. First we set
@@ -5740,3 +5770,4 @@ return yield;
 }
 
 /* End of pcretest.c */
+

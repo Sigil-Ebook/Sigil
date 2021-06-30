@@ -6,7 +6,7 @@
 and semantics are as close as possible to those of the Perl 5 language.
 
                        Written by Philip Hazel
-           Copyright (c) 1997-2014 University of Cambridge
+           Copyright (c) 1997-2021 University of Cambridge
 
 -----------------------------------------------------------------------------
 Redistribution and use in source and binary forms, with or without
@@ -669,7 +669,7 @@ if (ecode == NULL)
     return match((PCRE_PUCHAR)&rdepth, NULL, NULL, 0, NULL, NULL, 1);
   else
     {
-    int len = (char *)&rdepth - (char *)eptr;
+    int len = (int)((char *)&rdepth - (char *)eptr);
     return (len > 0)? -len : len;
     }
   }
@@ -758,7 +758,7 @@ for (;;)
     md->mark = NULL;    /* In case previously set by assertion */
     RMATCH(eptr, ecode + PRIV(OP_lengths)[*ecode] + ecode[1], offset_top, md,
       eptrb, RM55);
-    if ((rrc == MATCH_MATCH || rrc == MATCH_ACCEPT) &&
+    if ((rrc == MATCH_MATCH || rrc == MATCH_ACCEPT || rrc == MATCH_KETRPOS) &&
          md->mark == NULL) md->mark = ecode + 2;
 
     /* A return of MATCH_SKIP_ARG means that matching failed at SKIP with an
@@ -2305,7 +2305,7 @@ for (;;)
     case OP_ANY:
     if (IS_NEWLINE(eptr)) RRETURN(MATCH_NOMATCH);
     if (md->partial != 0 &&
-        eptr + 1 >= md->end_subject &&
+        eptr == md->end_subject - 1 &&
         NLBLOCK->nltype == NLTYPE_FIXED &&
         NLBLOCK->nllen == 2 &&
         UCHAR21TEST(eptr) == NLBLOCK->nl[0])
@@ -3053,7 +3053,7 @@ for (;;)
             {
             RMATCH(eptr, ecode, offset_top, md, eptrb, RM18);
             if (rrc != MATCH_NOMATCH) RRETURN(rrc);
-            if (eptr-- == pp) break;        /* Stop if tried at original pos */
+            if (eptr-- <= pp) break;        /* Stop if tried at original pos */
             BACKCHAR(eptr);
             }
           }
@@ -3210,7 +3210,7 @@ for (;;)
           {
           RMATCH(eptr, ecode, offset_top, md, eptrb, RM21);
           if (rrc != MATCH_NOMATCH) RRETURN(rrc);
-          if (eptr-- == pp) break;        /* Stop if tried at original pos */
+          if (eptr-- <= pp) break;        /* Stop if tried at original pos */
 #ifdef SUPPORT_UTF
           if (utf) BACKCHAR(eptr);
 #endif
@@ -6685,7 +6685,8 @@ if (md->offset_vector != NULL)
   register int *iend = iptr - re->top_bracket;
   if (iend < md->offset_vector + 2) iend = md->offset_vector + 2;
   while (--iptr >= iend) *iptr = -1;
-  md->offset_vector[0] = md->offset_vector[1] = -1;
+  if (offsetcount > 0) md->offset_vector[0] = -1;
+  if (offsetcount > 1) md->offset_vector[1] = -1;
   }
 
 /* Set up the first character to match, if available. The first_char value is

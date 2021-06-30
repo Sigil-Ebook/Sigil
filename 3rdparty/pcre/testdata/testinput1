@@ -5730,4 +5730,34 @@ AbcdCBefgBhiBqz
 "(?1)(?#?'){8}(a)"
     baaaaaaaaac
 
+"(?|(\k'Pm')|(?'Pm'))"
+    abcd
+
+/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[,;:])(?=.{8,16})(?!.*[\s])/
+    \  Fred:099
+
+/(?=.*X)X$/ 
+    \  X
+     
+/X+(?#comment)?/
+    >XXX<
+
+/   (?<word> \w+ )*    \.   /xi
+    pokus.
+    
+/(?(DEFINE) (?<word> \w+ ) ) (?&word)*   \./xi
+    pokus.
+
+/(?(DEFINE) (?<word> \w+ ) ) ( (?&word)* )   \./xi 
+    pokus.
+
+/(?&word)*  (?(DEFINE) (?<word> \w+ ) )  \./xi
+    pokus.
+
+/(?&word)*  \. (?<word> \w+ )/xi
+    pokus.hokus
+
+/(?:A(*:X))*+/K
+    A
+
 /-- End of testinput1 --/

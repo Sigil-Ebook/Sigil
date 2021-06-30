@@ -1,4 +1,4 @@
-.TH PCREPATTERN 3 "08 January 2014" "PCRE 8.35"
+.TH PCREPATTERN 3 "23 October 2016" "PCRE 8.40"
 .SH NAME
 PCRE - Perl-compatible regular expressions
 .SH "PCRE REGULAR EXPRESSION DETAILS"
@@ -308,7 +308,8 @@ A second use of backslash provides a way of encoding non-printing characters
 in patterns in a visible manner. There is no restriction on the appearance of
 non-printing characters, apart from the binary zero that terminates a pattern,
 but when a pattern is being prepared by text editing, it is often easier to use
-one of the following escape sequences than the binary character it represents:
+one of the following escape sequences than the binary character it represents.
+In an ASCII or Unicode environment, these escapes are as follows:
 .sp
   \ea        alarm, that is, the BEL character (hex 07)
   \ecx       "control-x", where x is any ASCII character
@@ -331,18 +332,30 @@ but \ec{ becomes hex 3B ({ is 7B), and \ec; becomes hex 7B (; is 3B). If the
 data item (byte or 16-bit value) following \ec has a value greater than 127, a
 compile-time error occurs. This locks out non-ASCII characters in all modes.
 .P
-The \ec facility was designed for use with ASCII characters, but with the
-extension to Unicode it is even less useful than it once was. It is, however,
-recognized when PCRE is compiled in EBCDIC mode, where data items are always
-bytes. In this mode, all values are valid after \ec. If the next character is a
-lower case letter, it is converted to upper case. Then the 0xc0 bits of the
-byte are inverted. Thus \ecA becomes hex 01, as in ASCII (A is C1), but because
-the EBCDIC letters are disjoint, \ecZ becomes hex 29 (Z is E9), and other
-characters also generate different values.
+When PCRE is compiled in EBCDIC mode, \ea, \ee, \ef, \en, \er, and \et
+generate the appropriate EBCDIC code values. The \ec escape is processed
+as specified for Perl in the \fBperlebcdic\fP document. The only characters
+that are allowed after \ec are A-Z, a-z, or one of @, [, \e, ], ^, _, or ?. Any
+other character provokes a compile-time error. The sequence \ec@ encodes
+character code 0; after \ec the letters (in either case) encode characters 1-26
+(hex 01 to hex 1A); [, \e, ], ^, and _ encode characters 27-31 (hex 1B to hex
+1F), and \ec? becomes either 255 (hex FF) or 95 (hex 5F).
+.P
+Thus, apart from \ec?, these escapes generate the same character code values as
+they do in an ASCII environment, though the meanings of the values mostly
+differ. For example, \ecG always generates code value 7, which is BEL in ASCII
+but DEL in EBCDIC.
+.P
+The sequence \ec? generates DEL (127, hex 7F) in an ASCII environment, but
+because 127 is not a control character in EBCDIC, Perl makes it generate the
+APC character. Unfortunately, there are several variants of EBCDIC. In most of
+them the APC character has the value 255 (hex FF), but in the one Perl calls
+POSIX-BC its value is 95 (hex 5F). If certain other characters have POSIX-BC
+values, PCRE makes \ec? generate 95; otherwise it generates 255.
 .P
 After \e0 up to two further octal digits are read. If there are fewer than two
-digits, just those that are present are used. Thus the sequence \e0\ex\e07
-specifies two binary zeros followed by a BEL character (code value 7). Make
+digits, just those that are present are used. Thus the sequence \e0\ex\e015
+specifies two binary zeros followed by a CR character (code value 13). Make
 sure you supply two digits after the initial zero if the pattern character that
 follows is itself an octal digit.
 .P
@@ -643,7 +656,7 @@ recognized.
 .P
 It is possible to restrict \eR to match only CR, LF, or CRLF (instead of the
 complete set of Unicode line endings) by setting the option PCRE_BSR_ANYCRLF
-either at compile time or when the pattern is matched. (BSR is an abbrevation
+either at compile time or when the pattern is matched. (BSR is an abbreviation
 for "backslash R".) This can be made the default when PCRE is built; if this is
 the case, the other behaviour can be requested via the PCRE_BSR_UNICODE option.
 It is also possible to specify these settings by starting a pattern string with
@@ -955,7 +968,7 @@ additional characters according to the following rules for ending a cluster:
 3. Do not break Hangul (a Korean script) syllable sequences. Hangul characters
 are of five types: L, V, T, LV, and LVT. An L character may be followed by an
 L, V, LV, or LVT character; an LV or V character may be followed by a V or T
-character; an LVT or T character may be follwed only by a T character.
+character; an LVT or T character may be followed only by a T character.
 .P
 4. Do not end before extending characters or spacing marks. Characters with
 the "mark" property always have the "extend" grapheme breaking property.
@@ -1498,12 +1511,8 @@ J, U and X respectively.
 .P
 When one of these option changes occurs at top level (that is, not inside
 subpattern parentheses), the change applies to the remainder of the pattern
-that follows. If the change is placed right at the start of a pattern, PCRE
-extracts it into the global options (and it will therefore show up in data
-extracted by the \fBpcre_fullinfo()\fP function).
-.P
-An option change within a subpattern (see below for a description of
-subpatterns) affects only that part of the subpattern that follows it, so
+that follows. An option change within a subpattern (see below for a description
+of subpatterns) affects only that part of the subpattern that follows it, so
 .sp
   (a(?i)b)c
 .sp
@@ -2157,6 +2166,13 @@ contains capturing subpatterns within it, these are counted for the purposes of
 numbering the capturing subpatterns in the whole pattern. However, substring
 capturing is carried out only for positive assertions. (Perl sometimes, but not
 always, does do capturing in negative assertions.)
+.P
+WARNING: If a positive assertion containing one or more capturing subpatterns
+succeeds, but failure to match later in the pattern causes backtracking over
+this assertion, the captures within the assertion are reset only if no higher
+numbered captures are already set. This is, unfortunately, a fundamental
+limitation of the current implementation, and as PCRE1 is now in
+maintenance-only status, it is unlikely ever to change.
 .P
 For compatibility with Perl, assertion subpatterns may be repeated; though
 it makes no sense to assert the same thing several times, the side effect of
@@ -3099,7 +3115,7 @@ successful match. Consider:
 .sp
 If the subject is "aaaac...", after the first match attempt fails (starting at
 the first character in the string), the starting point skips on to start the
-next attempt at "c". Note that a possessive quantifer does not have the same
+next attempt at "c". Note that a possessive quantifier does not have the same
 effect as this example; although it would suppress backtracking during the
 first match attempt, the second attempt would start at the second character
 instead of skipping on to "c".
@@ -3283,6 +3299,6 @@ Cambridge CB2 3QH, England.
 .rs
 .sp
 .nf
-Last updated: 08 January 2014
-Copyright (c) 1997-2014 University of Cambridge.
+Last updated: 23 October 2016
+Copyright (c) 1997-2016 University of Cambridge.
 .fi
