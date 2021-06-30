@@ -438,7 +438,7 @@ QList<ElementIndex> PreviewWindow::GetCaretLocation()
 
 void PreviewWindow::SetCaretLocation(const QList<ElementIndex> &loc)
 {
-    qDebug() << "PreviewWindow in SetCaretLocation";
+    DBG qDebug() << "PreviewWindow in SetCaretLocation";
     QList<ElementIndex> hierarchy;
     foreach(ElementIndex ei, loc) {
         if (m_usingMathML && (ei.name == "body")) {
