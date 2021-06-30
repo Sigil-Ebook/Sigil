@@ -31,6 +31,7 @@ SPCRE::SPCRE(const QString &patten)
     m_pattern = patten;
     m_re = NULL;
     m_study = NULL;
+    m_jitstack = NULL;
     m_captureSubpatternCount = 0;
     m_error = QString();
     m_errpos = -1;
@@ -42,10 +43,15 @@ SPCRE::SPCRE(const QString &patten)
     if (m_re != NULL) {
         m_valid = true;
         // Study the pattern and save the results of the study.
-        // m_study = pcre16_study(m_re, PCRE_STUDY_JIT_COMPILE, &error);
-        m_study = pcre16_study(m_re, 0, &error);
+        m_study = pcre16_study(m_re, PCRE_STUDY_JIT_COMPILE, &error);
+        // m_study = pcre16_study(m_re, 0, &error);
+        m_jitstack = pcre16_jit_stack_alloc(32*1024, 1024*1024);
+        if (m_jitstack != NULL) {
+            pcre16_assign_jit_stack(m_study, NULL, m_jitstack);
+        }
         if (m_study) {
             // set recursion limit to prevent issues with stack overflow
+            // if JIT is not used
             m_study->flags = m_study->flags | PCRE_EXTRA_MATCH_LIMIT_RECURSION;
             m_study->match_limit_recursion = 12000;
         }
@@ -70,6 +76,10 @@ SPCRE::~SPCRE()
     if (m_study != NULL) {
         pcre16_free(m_study);
         m_study = NULL;
+    }
+
+    if (m_jitstack != NULL) {
+        pcre16_jit_stack_free(m_jitstack);
     }
 }
 

@@ -165,6 +165,7 @@ private:
     pcre16_extra *m_study;
     // The number of capture subpatterns with the expression.
     int m_captureSubpatternCount;
+    pcre16_jit_stack* m_jitstack; 
 };
 
 #endif // SPCRE_H
