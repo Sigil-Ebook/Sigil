@@ -42,6 +42,7 @@ SPCRE::SPCRE(const QString &patten)
     if (m_re != NULL) {
         m_valid = true;
         // Study the pattern and save the results of the study.
+        // m_study = pcre16_study(m_re, PCRE_STUDY_JIT_COMPILE, &error);
         m_study = pcre16_study(m_re, 0, &error);
         if (m_study) {
             // set recursion limit to prevent issues with stack overflow
