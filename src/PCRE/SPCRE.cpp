@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2021  Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -31,7 +32,13 @@ SPCRE::SPCRE(const QString &patten)
     m_pattern = patten;
     m_re = NULL;
     m_study = NULL;
+
+#ifndef PCRE_NO_JIT
+
     m_jitstack = NULL;
+
+#endif
+
     m_captureSubpatternCount = 0;
     m_error = QString();
     m_errpos = -1;
@@ -43,12 +50,21 @@ SPCRE::SPCRE(const QString &patten)
     if (m_re != NULL) {
         m_valid = true;
         // Study the pattern and save the results of the study.
+
+#ifndef PCRE_NO_JIT
+
         m_study = pcre16_study(m_re, PCRE_STUDY_JIT_COMPILE, &error);
-        // m_study = pcre16_study(m_re, 0, &error);
         m_jitstack = pcre16_jit_stack_alloc(32*1024, 1024*1024);
         if (m_jitstack != NULL) {
             pcre16_assign_jit_stack(m_study, NULL, m_jitstack);
         }
+
+#else
+
+        m_study = pcre16_study(m_re, 0, &error);
+
+#endif
+
         if (m_study) {
             // set recursion limit to prevent issues with stack overflow
             // if JIT is not used
@@ -78,9 +94,14 @@ SPCRE::~SPCRE()
         m_study = NULL;
     }
 
+#ifndef PCRE_NO_JIT
+
     if (m_jitstack != NULL) {
         pcre16_jit_stack_free(m_jitstack);
     }
+
+#endif
+
 }
 
 bool SPCRE::isValid()
@@ -265,4 +286,3 @@ SPCRE::MatchInfo SPCRE::generateMatchInfo(int ovector[], int ovector_count)
 
     return match_info;
 }
-
