@@ -8,11 +8,16 @@ Pre-1.7.0
      - Fix Preview sync when mathml is being used (compensate for mathjax changes)
      - Fix mathml use when external MathJax directory is specified in builds on Linux
      - Prevent Sigil from loading any manifested mimtype file from bad epubs, give load warning
-     - Make Spellcheck dialog use double-click to control search in CV, to speed paging word list. 
+     - Make Spellcheck dialog use double-click to control search in CV, to speed paging word list.
+     - Prevent duplicate translated semantic names
+     - Fix heading tool issues after self-closed BLOCK tags
+     - Prevent stack overflow crashes in pcre lib due to recursion with some valid regex
 
     New Features:
      - added Find Replace Regular Expression validator
      - added SIGIL_DISABLE_VERSION_META environment variable to control writing of Sigil Version
+     - enable JIT compiler for pcre library to improve regex look-up performance
+     - update the pcre library to version 8.45 (Final EOL)
 
 
 Sigil-1.6.0
