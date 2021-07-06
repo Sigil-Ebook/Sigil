@@ -136,9 +136,9 @@ static const int ZOOM_SLIDER_MAX    = 1000;
 static const int ZOOM_SLIDER_MIDDLE = 500;
 static const int ZOOM_SLIDER_WIDTH  = 140;
 
-static const QString DONATE         = "http://sigil-ebook.com/donate";
-static const QString SIGIL_WEBSITE  = "http://sigil-ebook.com";
-static const QString USER_GUIDE_URL = "http://sigil-ebook.com/documentation";
+static const QString DONATE         = "https://sigil-ebook.com/donate";
+static const QString SIGIL_WEBSITE  = "https://sigil-ebook.com/sigil";
+static const QString USER_GUIDE_URL = "https://sigil-ebook.com//sigil/guide";
 
 static const QString BOOK_BROWSER_NAME            = "bookbrowser";
 static const QString FIND_REPLACE_NAME            = "findreplace";

@@ -29,7 +29,7 @@
 
 const QString VERSION_NUMBERS = "(\\d+)\\.(\\d+)\\.(\\d+)";
 const QString SIGIL_VERSION   = QString(SIGIL_FULL_VERSION);
-const QString SIGIL_HOMEPAGE  = "http://sigil-ebook.com";
+const QString SIGIL_HOMEPAGE  = "https://sigil-ebook.com/sigil";
 const QString GNU_LICENSE     = "http://www.gnu.org/licenses/gpl-3.0-standalone.html";
 
 
