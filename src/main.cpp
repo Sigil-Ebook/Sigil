@@ -586,8 +586,19 @@ int main(int argc, char *argv[])
         QStringList arguments = QCoreApplication::arguments();
 
 #ifdef Q_OS_MAC
-        // now process main app events so that any startup 
+        // now process main app events so that any startup
         // FileOpen event will be processed for macOS
+
+        // Note: this is a race between when macOS
+        // sends out a signal that there is a file being launched simultaneously
+        // and us reaching this point to check if there is such a file
+
+        // So give Qt lots of time to process the macOS signal and convert
+        // it into its own Qt signal that passes along the file path
+        QCoreApplication::processEvents();
+        QCoreApplication::processEvents();
+        QCoreApplication::processEvents();
+        QCoreApplication::processEvents();
         QCoreApplication::processEvents();
 
         QString filepath = filter->getInitialFilePath();
@@ -597,7 +608,9 @@ int main(int argc, char *argv[])
             arguments << QFileInfo(filepath).absoluteFilePath();
         }
 
-        if (filepath.isEmpty()) filter->setInitialFilePath(QString("placeholder"));
+        if (filepath.isEmpty()) {
+            filter->setInitialFilePath(QString("placeholder"));
+        }
 #endif
 
         if (arguments.contains("-t")) {
