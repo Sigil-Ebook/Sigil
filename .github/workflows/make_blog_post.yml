@@ -1,0 +1,53 @@
+name: Make Blog Post
+
+on:
+  # Only create blog post after new Sigil release is published
+  release:
+    types: published
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          path: main
+
+      - name: Checkout website
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.ROBO_ACTIONS }}
+          repository: sigil-ebook/sigil-ebook.github.io
+          ref: ${{ github.head_ref }}
+          path: website
+
+      - name: Get Release details
+        run: |
+          pip install python-dateutil
+          echo "${{ github.event_path }}"
+          python $GITHUB_WORKSPACE/main/.github/workflows/make_post.py -p ${{ github.event_path }}
+          mv ./*.md $GITHUB_WORKSPACE/website/_posts
+
+      - name: Commit post to blog
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          repository: website
+          commit_user_name: My GitHub Actions Bot
+          commit_user_email: my-github-actions-bot@example.org
+          commit_author: Author <actions@github.com>
+          commit_message: Auto create release blog post
+          branch: master
+
+      # Trigger sigil-ebook.com to update its version info
+      - name: Trigger Remote Workflow
+        run: |
+          curl \
+            -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.ROBO_ACTIONS }}" \
+            https://api.github.com/repos/sigil-ebook/sigil-ebook.github.io/actions/workflows/check_versions.yml/dispatches \
+            -d '{"ref":"master"}'
+
+  
