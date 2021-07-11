@@ -9,10 +9,14 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
+      - name: Get tag name
+        id: get_tag_name
+        run: echo ::set-output name=TAGNAME::${GITHUB_REF/refs\/tags\//}
+
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.head_ref }}
+          ref: master
           path: main
 
       - name: Checkout website
@@ -20,7 +24,7 @@ jobs:
         with:
           token: ${{ secrets.ROBO_ACTIONS }}
           repository: sigil-ebook/sigil-ebook.github.io
-          ref: ${{ github.head_ref }}
+          ref: master
           path: website
 
       - name: Get Release details
@@ -37,7 +41,7 @@ jobs:
           commit_user_name: My GitHub Actions Bot
           commit_user_email: my-github-actions-bot@example.org
           commit_author: Author <actions@github.com>
-          commit_message: Auto create release blog post
+          commit_message: Auto create ${{ steps.get_tag_name.outputs.TAGNAME }} release blog post
           branch: master
 
       # Trigger sigil-ebook.com to update its version info
@@ -49,5 +53,25 @@ jobs:
             -H "Authorization: token ${{ secrets.ROBO_ACTIONS }}" \
             https://api.github.com/repos/sigil-ebook/sigil-ebook.github.io/actions/workflows/check_versions.yml/dispatches \
             -d '{"ref":"master"}'
+
+      # Update Sigil's version.xml file so updatecheck will notice
+      - name: Write file
+        run: |
+          cat <<EOT> $GITHUB_WORKSPACE/main/version.xml
+          <?xml version="1.0" encoding="UTF-8"?>
+          <information>
+              <current-version>${{ steps.get_tag_name.outputs.TAGNAME }}</current-version>
+          </information>
+          EOT
+
+      - name: Update Sigil version.xml
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          repository: main
+          commit_user_name: My GitHub Actions Bot
+          commit_user_email: my-github-actions-bot@example.org
+          commit_author: Author <actions@github.com>
+          commit_message: Update version.xml to ${{ steps.get_tag_name.outputs.TAGNAME }}
+          branch: master
 
   
