@@ -12,6 +12,9 @@ Pre-1.7.0
      - Prevent duplicate translated semantic names
      - Fix heading tool issues after self-closed BLOCK tags
      - Prevent stack overflow crashes in pcre lib due to recursion with some valid regex
+     - Fix second window opening on macOS when first launching app with file
+     - Remove [other.] semantic indicators for epub2
+     - Fix crash in CSS Selectors Report when using Filters
 
     New Features:
      - added Find Replace Regular Expression validator
