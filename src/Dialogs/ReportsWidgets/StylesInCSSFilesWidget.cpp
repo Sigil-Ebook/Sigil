@@ -136,8 +136,7 @@ void StylesInCSSFilesWidget::FilterEditTextChangedSlot(const QString &text)
     for (int row = 0; row < root_item->rowCount(); row++) {
         if (text.isEmpty() || root_item->child(row, 0)->text().toLower().contains(lowercaseText) ||
             root_item->child(row, 1)->text().toLower().contains(lowercaseText) ||
-            root_item->child(row, 2)->text().toLower().contains(lowercaseText) ||
-            root_item->child(row, 3)->text().toLower().contains(lowercaseText)) {
+            root_item->child(row, 2)->text().toLower().contains(lowercaseText)) {
             ui.fileTree->setRowHidden(row, parent_index, false);
 
             if (first_visible_row == -1) {
