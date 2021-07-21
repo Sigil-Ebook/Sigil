@@ -1,4 +1,4 @@
-Pre-1.7.0
+Sigil-1.7.0
     Bug Fixes
      - Workaround to ensure the Saved Searches Controls editor widget is movable on all platforms
      - Make the External Xhtml Editor Button/Feature work with both PageEdit and non-PageEdit editors again
