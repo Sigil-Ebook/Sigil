@@ -73,7 +73,7 @@ def main(argv):
         j = json.load(f)
     r = j['release']
     date = parser.parse(r['published_at'])
-    title = r['name']
+    title = r['name'] + ' Released'
 
     # file name for blog post
     filename = os.path.join('.', date.strftime('%Y-%m-%d') + '-' + title.lower().replace(' ', '-') + '.md')

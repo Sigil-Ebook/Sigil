@@ -1,0 +1,68 @@
+name: Create Signed Tag Manually
+
+on:
+  workflow_dispatch: 
+    branches: master
+    inputs:
+      tag_name:
+        description: 'Tag name to create'
+        required: true
+        default: ''
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.ROBO_ACTIONS }}
+
+    - name: Check Tag Name
+      id: check_tag_name
+      if: ${{ github.event.inputs.tag_name != '' }}
+      uses: actions-ecosystem/action-regex-match@v2
+      with:
+        text: ${{ github.event.inputs.tag_name }}
+        regex: '^\d+\.\d+\.\d+$'
+      
+
+    - name: GPG Import
+      if: ${{ steps.check_tag_name.outputs.match != '' }}
+      uses: crazy-max/ghaction-import-gpg@v3
+      with:
+        gpg-private-key: ${{ secrets.SIGNING_BONUS_TAGS }}
+        passphrase: ${{ secrets.SIGNING_BONUS_PHRASE }}
+        git-user-signingkey: true
+        git-tag-gpgsign: true
+
+    - name: Sign and Push Tag
+      id: create_archive
+      if: ${{ steps.check_tag_name.outputs.match != '' }}
+      run: |
+        git tag -s ${{ github.event.inputs.tag_name }} -m 'Tag for ${{ github.event.inputs.tag_name }} release'
+        git push origin ${{ github.event.inputs.tag_name }}
+        REPO=$(basename "$(pwd)")
+        TAG=${{ github.event.inputs.tag_name }}
+        FNAME=${REPO}-${TAG#v}
+        echo "::set-output name=fname::$FNAME"
+        URL="https://github.com/$GITHUB_REPOSITORY/archive/refs/tags/${{ github.event.inputs.tag_name }}.zip"
+        curl -o ${FNAME}.zip ${URL} 
+        git archive --prefix=${REPO}-${TAG#v}/ -o ${FNAME}.tar.gz ${TAG}
+        gpg --detach-sign --pinentry-mode loopback --passphrase ${{ secrets.SIGNING_BONUS_PHRASE }} ${FNAME}.zip
+        gpg --detach-sign --pinentry-mode loopback --passphrase ${{ secrets.SIGNING_BONUS_PHRASE }} ${FNAME}.tar.gz
+
+    - name: Create Release
+      if: ${{ steps.check_tag_name.outputs.match != '' }}
+      uses: ncipollo/release-action@v1
+      with:
+        token: ${{ secrets.ROBO_ACTIONS }}
+        name: Sigil-${{ github.event.inputs.tag_name }}
+        tag: ${{ github.event.inputs.tag_name }}
+        body: |
+          Changes in this Release
+          - First Change
+          - Second Change
+        draft: true
+        prerelease: false
+        artifacts: "./${{ steps.create_archive.outputs.fname }}.tar.gz.sig, ./${{ steps.create_archive.outputs.fname }}.zip.sig"
