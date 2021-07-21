@@ -57,7 +57,7 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.ROBO_ACTIONS }}
-        name: Sigil-${{ github.event.inputs.tag_name }}
+        name: ${{ steps.create_archive.outputs.fname }}
         tag: ${{ github.event.inputs.tag_name }}
         body: |
           Changes in this Release
