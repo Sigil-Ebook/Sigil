@@ -216,8 +216,8 @@ void AllFilesWidget::DoubleClick()
 
 void AllFilesWidget::Save()
 {
-    QString report_info;
-    QString row_text;
+    QStringList report_info;
+    QStringList heading_row;
 
     // Get headings
     for (int col = 0; col < ui.fileTree->header()->count(); col++) {
@@ -226,35 +226,25 @@ void AllFilesWidget::Save()
         if (item) {
             text = item->text();
         }
-        if (col == 0) {
-            row_text.append(text);
-        } else {
-            row_text.append("," % text);
-        }
+        heading_row << text;
     }
-
-    report_info.append(row_text % "\n");
+    report_info << Utility::createCSVLine(heading_row);
 
     // Get data from table
     for (int row = 0; row < m_ItemModel->rowCount(); row++) {
-        row_text = "";
-
+        QStringList data_row;
         for (int col = 0; col < ui.fileTree->header()->count(); col++) {
             QStandardItem *item = m_ItemModel->item(row, col);
             QString text = "";
             if (item) {
                 text = item->text();
             }
-            if (col == 0) {
-                row_text.append(text);
-            } else {
-                row_text.append("," % text);
-            }
+            data_row << text;
         }
-
-        report_info.append(row_text % "\n");
+        report_info << Utility::createCSVLine(data_row);
     }
 
+    QString data = report_info.join('\n') + '\n';
     // Save the file
     ReadSettings();
     QString filter_string = "*.csv;;*.txt;;*.*";
@@ -266,18 +256,18 @@ void AllFilesWidget::Save()
 #endif
 
     QString destination = QFileDialog::getSaveFileName(this,
-                          tr("Save Report As Comma Separated File"),
-                          save_path,
-                          filter_string,
-                          &default_filter,
-                          options);
+                                                       tr("Save Report As Comma Separated File"),
+                                                       save_path,
+                                                       filter_string,
+                                                       &default_filter,
+                                                       options);
 
     if (destination.isEmpty()) {
         return;
     }
 
     try {
-        Utility::WriteUnicodeTextFile(report_info, destination);
+        Utility::WriteUnicodeTextFile(data, destination);
     } catch (CannotOpenFile&) {
         QMessageBox::warning(this, tr("Sigil"), tr("Cannot save report file."));
     }

@@ -1,3 +1,10 @@
+pre-1.8.0
+    Bug Fixes:
+     - Reports now generate properly quoted csv when saved
+
+    New Features:
+
+
 Sigil-1.7.0
     Bug Fixes
      - Workaround to ensure the Saved Searches Controls editor widget is movable on all platforms
