@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -105,6 +105,8 @@ public:
      * All CSS resources in the Book Browser in order
      */
     QList <Resource *> AllCSSResources();
+
+    QList <Resource *> AllJSResources();
 
     void SelectResources(QList<Resource *> resources);
 
@@ -257,6 +259,8 @@ signals:
 
     void LinkStylesheetsToResourcesRequest(QList<Resource *> resources);
 
+    void LinkJavascriptsToResourcesRequest(QList<Resource *> resources);
+
     void RemoveResourcesRequest();
 
     void OpenFileRequest(QString, int, int);
@@ -345,6 +349,8 @@ private slots:
     void Merge();
 
     void LinkStylesheets();
+
+    void LinkJavascripts();
 
     /**
      * Clears obfuscation for the current resource.
@@ -514,6 +520,7 @@ private:
     QAction *m_SortHTML;
     QAction *m_RenumberTOC;
     QAction *m_LinkStylesheets;
+    QAction *m_LinkJavascripts;
     QAction *m_AddSemantics;
     QAction *m_SaveAs;
     QAction *m_ValidateWithW3C;

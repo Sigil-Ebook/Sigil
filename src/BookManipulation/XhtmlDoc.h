@@ -123,6 +123,8 @@ public:
     // Return a list of all linked CSS stylesheets
     static QStringList GetLinkedStylesheets(const QString &source);
 
+    static QStringList GetLinkedJavascripts(const QString &source);
+
     // Returns a list of all the "visible" text nodes that are descendants
     // of the specified node. "Visible" means we ignore style tags, script tags etc...
     static QList<GumboNode *> GetVisibleTextNodes(GumboInterface &gi, GumboNode *node);

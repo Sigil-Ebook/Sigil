@@ -90,6 +90,7 @@ public:
     QString perform_source_updates(const QString & my_current_book_relpath, const QString& newbookpath);
     QString perform_style_updates(const QString & my_current_book_relpath, const QString& newbookpath);
     QString perform_link_updates(const QString & newlinks);
+    QString perform_javascript_updates(const QString & newjavascripts);
     QString get_body_contents();
     QString perform_body_updates(const QString & new_body);
 
@@ -127,7 +128,8 @@ private:
         SourceUpdates  = 1 <<  0,
         LinkUpdates    = 1 <<  1,
         BodyUpdates    = 1 <<  2,
-        StyleUpdates   = 1 <<  3
+        StyleUpdates   = 1 <<  3,
+        JavascriptUpdates = 1 << 4
     };
 
     QStringList get_properties(GumboNode* node);
@@ -178,6 +180,7 @@ private:
     std::string                     m_utf8src;
     const QHash<QString, QString> & m_sourceupdates;
     std::string                     m_newcsslinks;
+    std::string                     m_newjslinks;
     QString                         m_currentbkpath;
     QString                         m_currentdir;
     std::string                     m_newbody;

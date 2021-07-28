@@ -337,6 +337,17 @@ QList<Resource *> FolderKeeper::GetResourceListByType(Resource::ResourceType typ
     return resources;
 }
 
+QList<Resource *> FolderKeeper::GetResourceListByMediaTypes(const QStringList &mtypes) const
+{
+    QList <Resource *> resources;
+    foreach (Resource *resource, m_Resources.values()) {
+        if (mtypes.contains(resource->GetMediaType())) {
+            resources.append(resource);
+        }
+    }
+    return resources;
+}
+
 Resource *FolderKeeper::GetResourceByIdentifier(const QString &identifier) const
 {
     return m_Resources[ identifier ];

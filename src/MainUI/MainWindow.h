@@ -596,6 +596,8 @@ private slots:
 
     void LinkStylesheetsToResources(QList <Resource *> resources);
 
+    void LinkJavascriptsToResources(QList <Resource *> resources);
+
     void ResourceUpdatedFromDisk(Resource *resource);
 
     void UpdateWord(QString old_word, QString new_word);
@@ -610,6 +612,10 @@ private slots:
      * Return the list of stylesheets linked to the given resource
      */
     QStringList GetStylesheetsAlreadyLinked(Resource *resource);
+
+    QList<std::pair<QString, bool>> GetJavascriptsMap(QList<Resource *> resources);
+    QStringList GetJavascriptsAlreadyLinked(Resource *resource);
+
 
     void RemoveResources(QList<Resource *> resources = QList<Resource *>());
 

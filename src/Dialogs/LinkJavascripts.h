@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2012      Dave Heiland
-**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2021 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -22,17 +22,17 @@
 *************************************************************************/
 
 #pragma once
-#ifndef LINKSTYLESHEETS_H
-#define LINKSTYLESHEETS_H
+#ifndef LINKJAVASCRIPTS_H
+#define LINKJAVASCRIPTS_H
 
 #include <QtCore/QList>
 #include <QtCore/QStringList>
 #include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 
-#include "ui_LinkStylesheets.h"
+#include "ui_LinkJavascripts.h"
 
-class LinkStylesheets : public QDialog
+class LinkJavascripts : public QDialog
 {
     Q_OBJECT
 
@@ -40,9 +40,9 @@ public:
 
     // Constructor;
     // The first parameter is the list of included/excluded stylesheets
-    LinkStylesheets(QList<std::pair<QString, bool>> stylesheet_map, QWidget *parent = 0);
+    LinkJavascripts(QList<std::pair<QString, bool>> stylesheet_map, QWidget *parent = 0);
 
-    QStringList GetStylesheets();
+    QStringList GetJavascripts();
 
 private slots:
 
@@ -51,7 +51,7 @@ private slots:
 
     void MoveUp();
     void MoveDown();
-    void UpdateStylesheets();
+    void UpdateJavascripts();
 
 private:
 
@@ -59,10 +59,10 @@ private:
     void UpdateTreeViewDisplay();
 
     // Creates the model that is displayed in the tree view
-    void CreateStylesheetsModel();
+    void CreateJavascriptsModel();
 
     // Inserts the specified stylesheet into the model
-    void InsertStylesheetIntoModel(std::pair<QString, bool> stylesheet);
+    void InsertJavascriptIntoModel(std::pair<QString, bool> stylesheet);
 
     // Reads all the stored dialog settings like window position, size, etc.
     void ReadSettings();
@@ -75,17 +75,17 @@ private:
     ///////////////////////////////
 
     // The model displayed and edited in the tree view
-    QStandardItemModel m_StylesheetsModel;
+    QStandardItemModel m_JavascriptsModel;
 
-    // The list of stylesheets to include/exclude
-    QList<std::pair<QString, bool>> m_StylesheetsMap;
+    // The list of javascripts to include/exclude
+    QList<std::pair<QString, bool>> m_JavascriptsMap;
 
-    // The new list of stylesheets to include
-    QStringList m_Stylesheets;
+    // The new list of javascripts to include
+    QStringList m_Javascripts;
 
     // Holds all the widgets Qt Designer created for us
-    Ui::LinkStylesheets ui;
+    Ui::LinkJavascripts ui;
 };
 
 
-#endif // LINKSTYLESHEETS_H
+#endif // LINKJAVASCRIPTS_H

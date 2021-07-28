@@ -361,6 +361,12 @@ QList <Resource *> BookBrowser::AllCSSResources()
     return m_OPFModel->GetResourceListInFolder(Resource::CSSResourceType);
 }
 
+QList <Resource *> BookBrowser::AllJSResources()
+{
+    QStringList mtypes = QStringList() << "text/javascript" << "application/javascript";
+    return m_Book->GetFolderKeeper()->GetResourceListByMediaTypes(mtypes);
+}
+
 QList <Resource *> BookBrowser::ValidSelectedResources(Resource::ResourceType resource_type)
 {
     QList <Resource *> resources = ValidSelectedResources();
@@ -1625,6 +1631,23 @@ void BookBrowser::LinkStylesheets()
     emit LinkStylesheetsToResourcesRequest(ValidSelectedResources(Resource::HTMLResourceType));
 }
 
+void BookBrowser::LinkJavascripts()
+{
+    QList <Resource *> resources = ValidSelectedResources();
+
+    if (resources.isEmpty()) {
+        return;
+    }
+
+    Resource::ResourceType resource_type = resources.first()->Type();
+
+    if (resource_type != Resource::HTMLResourceType) {
+        return;
+    }
+
+    emit LinkJavascriptsToResourcesRequest(ValidSelectedResources(Resource::HTMLResourceType));
+}
+
 
 void BookBrowser::NoObfuscationMethod()
 {
@@ -1743,6 +1766,7 @@ void BookBrowser::CreateContextMenuActions()
     m_SortHTML                = new QAction(tr("Sort") + "...",          this);
     m_RenumberTOC             = new QAction(tr("Renumber TOC Entries"),  this);
     m_LinkStylesheets         = new QAction(tr("Link Stylesheets..."),   this);
+    m_LinkJavascripts         = new QAction(tr("Link Javascripts..."),   this);
     m_AddSemantics            = new QAction(tr("Add Semantics..."),      this);
     m_ValidateWithW3C         = new QAction(tr("Validate with W3C"),     this);
     m_OpenWith                = new QAction(tr("Open With") + "...",     this);
@@ -1772,6 +1796,8 @@ void BookBrowser::CreateContextMenuActions()
     sm->registerAction(this, m_Move, "MainWindow.BookBrowser.Move");
     m_LinkStylesheets->setToolTip(tr("Link Stylesheets to selected file(s)."));
     sm->registerAction(this, m_LinkStylesheets, "MainWindow.BookBrowser.LinkStylesheets");
+    m_LinkJavascripts->setToolTip(tr("Link Javascripts to selected file(s)."));
+    sm->registerAction(this, m_LinkJavascripts, "MainWindow.BookBrowser.LinkJavascripts");
     m_AddSemantics->setToolTip(tr("Add Semantics to selected file(s)."));
     sm->registerAction(this, m_AddSemantics, "MainWindow.BookBrowser.AddSemantics");
     // Has to be added to the book browser itself as well
@@ -1783,6 +1809,7 @@ void BookBrowser::CreateContextMenuActions()
     addAction(m_RERename);
     addAction(m_Move);
     addAction(m_LinkStylesheets);
+    addAction(m_LinkJavascripts);
     addAction(m_AddSemantics);
 }
 
@@ -1829,6 +1856,8 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
             m_SortHTML->setEnabled(item_count > 1);
             m_ContextMenu->addAction(m_LinkStylesheets);
             m_LinkStylesheets->setEnabled(AllCSSResources().count() > 0);
+            m_ContextMenu->addAction(m_LinkJavascripts);
+            m_LinkJavascripts->setEnabled(AllJSResources().count() > 0);
             m_ContextMenu->addAction(m_AddSemantics);
         }
 
@@ -2020,6 +2049,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect(m_CoverImage,              SIGNAL(triggered()), this, SLOT(SetCoverImage()));
     connect(m_Merge,                   SIGNAL(triggered()), this, SLOT(Merge()));
     connect(m_LinkStylesheets,         SIGNAL(triggered()), this, SLOT(LinkStylesheets()));
+    connect(m_LinkJavascripts,         SIGNAL(triggered()), this, SLOT(LinkJavascripts()));
     connect(m_AddSemantics,            SIGNAL(triggered()), this, SLOT(AddSemanticCode()));
     connect(m_SaveAs,                  SIGNAL(triggered()), this, SLOT(SaveAs()));
     connect(m_ValidateWithW3C,         SIGNAL(triggered()), this, SLOT(ValidateStylesheetWithW3C()));

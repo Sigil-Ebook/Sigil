@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015 Kevin B. Hendricks Stratford, ON, Canada 
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2021 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -94,6 +94,8 @@ public:
      * @return The paths to the linked stylesheets.
      */
     QStringList GetLinkedStylesheets();
+
+    QStringList GetLinkedJavascripts();
 
     QStringList GetManifestProperties() const;
 

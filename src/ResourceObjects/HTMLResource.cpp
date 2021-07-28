@@ -122,6 +122,21 @@ QStringList HTMLResource::GetLinkedStylesheets()
 }
 
 
+QStringList HTMLResource::GetLinkedJavascripts()
+{
+    QStringList srclist = XhtmlDoc::GetLinkedJavascripts(GetText());
+    QString startdir = GetFolder();
+    QStringList javascript_bookpaths;
+    foreach(QString src, srclist) {
+        if (src.indexOf(":") == -1) {
+            std::pair<QString, QString> parts = Utility::parseRelativeHREF(src);
+            javascript_bookpaths << Utility::buildBookPath(parts.first, startdir);
+        }
+    }
+    return javascript_bookpaths;
+}
+
+
 QStringList HTMLResource::GetManifestProperties() const
 {
     QStringList properties;

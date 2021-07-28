@@ -124,6 +124,8 @@ public:
 
     QList<Resource *> GetResourceListByType(Resource::ResourceType type) const;
 
+    QList<Resource *> GetResourceListByMediaTypes(const QStringList &mtypes) const;
+
     /**
      * Returns a list of all resources of type T in a list
      * of pointers to type T. The list can be sorted.

@@ -3,7 +3,8 @@ pre-1.8.0
      - Reports now generate properly quoted csv when saved
 
     New Features:
-
+     - BookBrowser can now link javascripts similarly to how it links stylesheets
+     
 
 Sigil-1.7.0
     Bug Fixes

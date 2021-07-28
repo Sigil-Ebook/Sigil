@@ -65,6 +65,7 @@
 #include "Dialogs/EmptyLayout.h"
 #include "Dialogs/HeadingSelector.h"
 #include "Dialogs/LinkStylesheets.h"
+#include "Dialogs/LinkJavascripts.h"
 #include "Dialogs/ManageRepos.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/PluginRunner.h"
@@ -114,6 +115,7 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 #include "SourceUpdates/LinkUpdates.h"
+#include "SourceUpdates/JavascriptUpdates.h"
 #include "SourceUpdates/WordUpdates.h"
 #include "SourceUpdates/FragmentUpdates.h"
 #include "Tabs/FlowTab.h"
@@ -3166,6 +3168,110 @@ QStringList MainWindow::GetStylesheetsAlreadyLinked(Resource *resource)
     return linked_stylesheets;
 }
 
+void MainWindow::LinkJavascriptsToResources(QList <Resource *> resources)
+{
+    if (resources.isEmpty()) {
+        return;
+    }
+
+    SaveTabData();
+
+    // Check if data is well formed before saving                                                                   
+    foreach (Resource *r, resources) {
+        HTMLResource *h = qobject_cast<HTMLResource *>(r);
+        if (!h) {
+            continue;
+        }
+        if (!h->FileIsWellFormed()) {
+            QMessageBox::warning(this, tr("Sigil"), tr("Link Javascripts cancelled: %1, XML not well formed.").arg(\
+h->ShortPathName()));
+            return;
+        }
+    }
+
+    // Choose which javascripts to link                                                                             
+    LinkJavascripts link(GetJavascriptsMap(resources), this);
+
+    if (link.exec() != QDialog::Accepted) {
+        return;
+    }
+
+    Resource *current_resource = NULL;
+    ContentTab *tab = m_TabManager->GetCurrentContentTab();
+
+    if (tab != NULL) {
+        current_resource = tab->GetLoadedResource();
+    }
+
+    QStringList javascripts = link.GetJavascripts();
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    // Convert HTML resources into HTMLResource types                                                               
+    QList<HTMLResource *>html_resources;
+    foreach(Resource *resource, resources) {
+        html_resources.append(qobject_cast<HTMLResource *>(resource));
+    } 
+    JavascriptUpdates::UpdateJavascriptsInAllFiles(html_resources, javascripts);
+    m_Book->SetModified();
+
+    if (current_resource && resources.contains(current_resource)) {
+        OpenResource(current_resource);
+    }
+
+    SelectResources(resources);
+    QApplication::restoreOverrideCursor();
+}
+
+QList<std::pair<QString, bool>> MainWindow::GetJavascriptsMap(QList<Resource *> resources)
+{
+    QList<std::pair<QString, bool>> javascript_map;
+    QStringList mtypes = QStringList() << "application/javascript" << "text/javascript";
+    QList<Resource *> js_resources = m_Book->GetFolderKeeper()->GetResourceListByMediaTypes(mtypes);
+    // Use the first resource to get a list of known linked javascripts in order.                                   
+    QStringList checked_linked_bookpaths = GetJavascriptsAlreadyLinked(resources.at(0));
+    // Then only consider them included if every selected resource includes                                         
+    // the same javascripts in the same order.                                                                      
+    foreach(Resource * valid_resource, resources) {
+        QStringList linked_bookpaths = GetJavascriptsAlreadyLinked(valid_resource);
+        foreach(QString bookpath, checked_linked_bookpaths) {
+            if (!linked_bookpaths.contains(bookpath)) {
+		        checked_linked_bookpaths.removeOne(bookpath);
+            }
+        }
+    }
+    // Save the paths included in all resources in order                                                            
+    foreach(QString bookpath, checked_linked_bookpaths) {
+        javascript_map.append(std::make_pair(bookpath, true));
+    }
+    // Save all the remaining paths and mark them not included                                                      
+    foreach(Resource * resource, js_resources) {
+	    QString abookpath = resource->GetRelativePath();
+
+        if (!checked_linked_bookpaths.contains(abookpath)) {
+            javascript_map.append(std::make_pair(abookpath, false));
+	    }
+    }
+    return javascript_map;
+}
+
+QStringList MainWindow::GetJavascriptsAlreadyLinked(Resource *resource)
+{
+    HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+    QStringList linked_javascripts;
+    QStringList existing_javascripts;
+    QStringList mtypes = QStringList() << "application/javascript" << "text/javascript";
+    foreach(Resource * js_resource, m_Book->GetFolderKeeper()->GetResourceListByMediaTypes(mtypes)) {
+        existing_javascripts.append(js_resource->GetRelativePath());
+    }
+    foreach(QString bookpath, html_resource->GetLinkedJavascripts()) {
+        // Only list the javascript if it exists in the book                                                        
+        if (existing_javascripts.contains(bookpath)) {
+            linked_javascripts.append(bookpath);
+        }
+    }
+    return linked_javascripts;
+}
+
+
 void MainWindow::RemoveResources(QList<Resource *> resources)
 {
     // Provide the open tab list to ensure one tab stays open
@@ -5838,6 +5944,7 @@ void MainWindow::ConnectSignalsToSlots()
             this, SLOT(OpenResource(Resource *)));
     connect(m_BookBrowser, SIGNAL(MergeResourcesRequest(QList<Resource *>)), this, SLOT(MergeResources(QList<Resource *>)));
     connect(m_BookBrowser, SIGNAL(LinkStylesheetsToResourcesRequest(QList<Resource *>)), this, SLOT(LinkStylesheetsToResources(QList<Resource *>)));
+    connect(m_BookBrowser, SIGNAL(LinkJavascriptsToResourcesRequest(QList<Resource *>)), this, SLOT(LinkJavascriptsToResources(QList<Resource *>)));
     connect(m_BookBrowser, SIGNAL(RemoveResourcesRequest()), this, SLOT(RemoveResources()));
     connect(m_BookBrowser, SIGNAL(OpenFileRequest(QString, int, int)), this, SLOT(OpenFile(QString, int, int)));
     connect(m_TableOfContents, SIGNAL(OpenResourceRequest(Resource *, int, int, const QString &, const QUrl &)),

@@ -1,8 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2012      Dave Heiland
-**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2021 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -23,56 +23,56 @@
 
 #include <QtGui/QStandardItem>
 
-#include "Dialogs/LinkStylesheets.h"
+#include "Dialogs/LinkJavascripts.h"
 #include "Misc/SettingsStore.h"
 #include "sigil_constants.h"
 
-static const QString SETTINGS_GROUP   = "link_stylesheets";
+static const QString SETTINGS_GROUP   = "link_javascripts";
 
 // Constructor;
-LinkStylesheets::LinkStylesheets(QList<std::pair<QString, bool>> stylesheets_map, QWidget *parent)
+LinkJavascripts::LinkJavascripts(QList<std::pair<QString, bool>> javascripts_map, QWidget *parent)
     :
     QDialog(parent),
-    m_StylesheetsMap(stylesheets_map)
+    m_JavascriptsMap(javascripts_map)
 {
     ui.setupUi(this);
     ConnectSignalsToSlots();
-    ui.StylesheetsView->setModel(&m_StylesheetsModel);
-    CreateStylesheetsModel();
+    ui.JavascriptsView->setModel(&m_JavascriptsModel);
+    CreateJavascriptsModel();
     UpdateTreeViewDisplay();
     ReadSettings();
 }
 
 
 // Updates the display of the tree view (resize columns)
-void LinkStylesheets::UpdateTreeViewDisplay()
+void LinkJavascripts::UpdateTreeViewDisplay()
 {
-    ui.StylesheetsView->expandAll();
-    ui.StylesheetsView->resizeColumnToContents(0);
-    ui.StylesheetsView->setColumnWidth(0, ui.StylesheetsView->columnWidth(0));
-    ui.StylesheetsView->setCurrentIndex(m_StylesheetsModel.index(0, 0));
+    ui.JavascriptsView->expandAll();
+    ui.JavascriptsView->resizeColumnToContents(0);
+    ui.JavascriptsView->setColumnWidth(0, ui.JavascriptsView->columnWidth(0));
+    ui.JavascriptsView->setCurrentIndex(m_JavascriptsModel.index(0, 0));
 }
 
 // Creates the model that is displayed in the tree view
-void LinkStylesheets::CreateStylesheetsModel()
+void LinkJavascripts::CreateJavascriptsModel()
 {
-    m_StylesheetsModel.clear();
+    m_JavascriptsModel.clear();
     QStringList header;
     header.append(tr("Include"));
-    header.append(tr("Stylesheet"));
-    m_StylesheetsModel.setHorizontalHeaderLabels(header);
+    header.append(tr("Javascript"));
+    m_JavascriptsModel.setHorizontalHeaderLabels(header);
 
     // Inserts all entries
-    for (int i = 0; i < m_StylesheetsMap.count(); i++) {
-        InsertStylesheetIntoModel(m_StylesheetsMap.at(i));
+    for (int i = 0; i < m_JavascriptsMap.count(); i++) {
+        InsertJavascriptIntoModel(m_JavascriptsMap.at(i));
     }
 }
 
 
 // Inserts the specified heading into the model
-void LinkStylesheets::InsertStylesheetIntoModel(std::pair<QString, bool> stylesheet_pair)
+void LinkJavascripts::InsertJavascriptIntoModel(std::pair<QString, bool> javascript_pair)
 {
-    QStandardItem *item_bookpath       = new QStandardItem(stylesheet_pair.first);
+    QStandardItem *item_bookpath       = new QStandardItem(javascript_pair.first);
     QStandardItem *item_included_check = new QStandardItem();
     item_included_check->setEditable(false);
     item_included_check->setCheckable(true);
@@ -80,7 +80,7 @@ void LinkStylesheets::InsertStylesheetIntoModel(std::pair<QString, bool> stylesh
     item_bookpath->setDragEnabled(false);
     item_bookpath->setDropEnabled(false);
 
-    if (stylesheet_pair.second) {
+    if (javascript_pair.second) {
         item_included_check->setCheckState(Qt::Checked);
     } else {
         item_included_check->setCheckState(Qt::Unchecked);
@@ -88,12 +88,12 @@ void LinkStylesheets::InsertStylesheetIntoModel(std::pair<QString, bool> stylesh
 
     QList<QStandardItem *> items;
     items << item_included_check << item_bookpath;
-    m_StylesheetsModel.invisibleRootItem()->appendRow(items);
+    m_JavascriptsModel.invisibleRootItem()->appendRow(items);
 }
 
 
 // Reads all the stored dialog settings like window position, size, etc.
-void LinkStylesheets::ReadSettings()
+void LinkJavascripts::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
@@ -109,7 +109,7 @@ void LinkStylesheets::ReadSettings()
 
 
 // Writes all the stored dialog settings like window position, size, etc.
-void LinkStylesheets::WriteSettings()
+void LinkJavascripts::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
@@ -118,9 +118,9 @@ void LinkStylesheets::WriteSettings()
     settings.endGroup();
 }
 
-void LinkStylesheets::MoveUp()
+void LinkJavascripts::MoveUp()
 {
-    QModelIndexList selected_indexes = ui.StylesheetsView->selectionModel()->selectedIndexes();
+    QModelIndexList selected_indexes = ui.JavascriptsView->selectionModel()->selectedIndexes();
 
     if (selected_indexes.isEmpty()) {
         return;
@@ -133,13 +133,13 @@ void LinkStylesheets::MoveUp()
         return;
     }
 
-    QList<QStandardItem *> items =  m_StylesheetsModel.invisibleRootItem()->takeRow(row - 1);
-    m_StylesheetsModel.invisibleRootItem()->insertRow(row, items);
+    QList<QStandardItem *> items =  m_JavascriptsModel.invisibleRootItem()->takeRow(row - 1);
+    m_JavascriptsModel.invisibleRootItem()->insertRow(row, items);
 }
 
-void LinkStylesheets::MoveDown()
+void LinkJavascripts::MoveDown()
 {
-    QModelIndexList selected_indexes = ui.StylesheetsView->selectionModel()->selectedIndexes();
+    QModelIndexList selected_indexes = ui.JavascriptsView->selectionModel()->selectedIndexes();
 
     if (selected_indexes.isEmpty()) {
         return;
@@ -148,38 +148,38 @@ void LinkStylesheets::MoveDown()
     QModelIndex index = selected_indexes.first();
     int row = index.row();
 
-    if (row == m_StylesheetsModel.invisibleRootItem()->rowCount() - 1) {
+    if (row == m_JavascriptsModel.invisibleRootItem()->rowCount() - 1) {
         return;
     }
 
-    QList<QStandardItem *> items =  m_StylesheetsModel.invisibleRootItem()->takeRow(row + 1);
-    m_StylesheetsModel.invisibleRootItem()->insertRow(row, items);
+    QList<QStandardItem *> items =  m_JavascriptsModel.invisibleRootItem()->takeRow(row + 1);
+    m_JavascriptsModel.invisibleRootItem()->insertRow(row, items);
 }
 
 
-void LinkStylesheets::UpdateStylesheets()
+void LinkJavascripts::UpdateJavascripts()
 {
-    m_Stylesheets.clear();
-    int rows = m_StylesheetsModel.invisibleRootItem()->rowCount();
+    m_Javascripts.clear();
+    int rows = m_JavascriptsModel.invisibleRootItem()->rowCount();
 
     for (int row = 0; row < rows; row++) {
-        QList<QStandardItem *> items =  m_StylesheetsModel.invisibleRootItem()->takeRow(0);
+        QList<QStandardItem *> items =  m_JavascriptsModel.invisibleRootItem()->takeRow(0);
 
         if (items.at(0)->checkState() == Qt::Checked) {
-            m_Stylesheets << items.at(1)->data(Qt::DisplayRole).toString();
+            m_Javascripts << items.at(1)->data(Qt::DisplayRole).toString();
         }
     }
 }
 
-QStringList LinkStylesheets::GetStylesheets()
+QStringList LinkJavascripts::GetJavascripts()
 {
-    return m_Stylesheets;
+    return m_Javascripts;
 }
 
-void LinkStylesheets::ConnectSignalsToSlots()
+void LinkJavascripts::ConnectSignalsToSlots()
 {
     connect(ui.MoveUp, SIGNAL(clicked()),  this, SLOT(MoveUp()));
     connect(ui.MoveDown, SIGNAL(clicked()),  this, SLOT(MoveDown()));
-    connect(this, SIGNAL(accepted()), this, SLOT(UpdateStylesheets()));
+    connect(this, SIGNAL(accepted()), this, SLOT(UpdateJavascripts()));
     connect(this, SIGNAL(accepted()), this, SLOT(WriteSettings()));
 }

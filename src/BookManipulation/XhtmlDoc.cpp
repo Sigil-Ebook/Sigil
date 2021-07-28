@@ -431,6 +431,31 @@ QStringList XhtmlDoc::GetLinkedStylesheets(const QString &source)
 }
 
 
+// return all linked javascripts in raw encoded form
+QStringList XhtmlDoc::GetLinkedJavascripts(const QString &source)
+{
+    QList<XhtmlDoc::XMLElement> script_tag_nodes;
+
+    try {
+        script_tag_nodes = XhtmlDoc::GetTagsInHead(source, "script");
+    } catch (ErrorParsingXml&) {
+        // Nothing really. If we can't get the script tags,                                                      
+        // than that's it. No scripts returned.
+    }
+
+    QStringList linked_js_paths;
+    foreach(XhtmlDoc::XMLElement element, script_tag_nodes) {
+        if (element.attributes.contains("type") &&
+            ((element.attributes.value("type").toLower() == "text/javascript") ||
+             (element.attributes.value("type").toLower() == "application/javascript"))
+            && element.attributes.contains("src")) {
+            linked_js_paths.append(element.attributes.value("src"));
+        }
+    }
+    return linked_js_paths;
+}
+
+
 // Returns a list of all the "visible" text nodes that are descendants
 // of the specified node. "Visible" means we ignore style tags, script tags etc...
 QList<GumboNode *> XhtmlDoc::GetVisibleTextNodes(GumboInterface &gi, GumboNode *node)

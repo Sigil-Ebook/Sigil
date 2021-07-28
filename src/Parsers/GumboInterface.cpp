@@ -373,6 +373,23 @@ QString GumboInterface::perform_link_updates(const QString& newcsslinks)
 }
 
 
+QString GumboInterface::perform_javascript_updates(const QString& newjslinks)
+{
+    m_newjslinks = newjslinks.toStdString();
+    QString result = "";
+    if (!m_source.isEmpty()) {
+        if (m_output == NULL) {
+            parse();
+        }
+        enum UpdateTypes doupdates = JavascriptUpdates;
+        std::string utf8out = serialize(m_output->document, doupdates);
+        rtrim(utf8out);
+        result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
+    }
+    return result;
+}
+
+
 GumboNode * GumboInterface::get_document_node()
 {
     if (!m_source.isEmpty()) {
@@ -1298,7 +1315,8 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
     bool is_href_src_tag           = in_set(href_src_tags, tagname);
     bool in_xml_ns                 = node->v.element.tag_namespace != GUMBO_NAMESPACE_HTML;
     // bool is_inline                 = in_set(nonbreaking_inline, tagname);
-
+    bool is_jslink = false;
+    
     // build attr string  
     const GumboVector * attribs = &node->v.element.attributes;
     for (unsigned int i=0; i< attribs->length; ++i) {
@@ -1306,6 +1324,23 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
         atts.append(build_attributes(at, no_entity_substitution, ((doupdates & SourceUpdates) && is_href_src_tag), (doupdates & StyleUpdates)));
     }
 
+    if (tagname == "script") {
+        if ((node->parent->type == GUMBO_NODE_ELEMENT) && 
+            (node->parent->v.element.tag == GUMBO_TAG_HEAD)) {
+            GumboAttribute* srcatt = gumbo_get_attribute(attribs, "src");
+            GumboAttribute* typeatt = gumbo_get_attribute(attribs, "type");
+            if (srcatt && typeatt) {
+                std::string script_src = srcatt->value;
+                std::string script_type = typeatt->value;
+                if (script_src.find(":") == std::string::npos) {
+                    if ((script_type == "application/javascript") || (script_type == "text/javascript")) {
+                        is_jslink = true;
+                    }
+                }
+            }
+        }
+    }
+    
     // Make sure that the xmlns attribute exists as an html tag attribute
     if (tagname == "html") {
         if (atts.find("xmlns=") == std::string::npos) {
@@ -1355,15 +1390,24 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
     if ((doupdates & LinkUpdates) && (tagname == "link") && 
         (node->parent->type == GUMBO_NODE_ELEMENT) && 
         (node->parent->v.element.tag == GUMBO_TAG_HEAD)) {
-      return "";
+        return "";
+    }
+
+    if ((doupdates & JavascriptUpdates) && is_jslink) {
+        return "";
     }
 
     results.append("<"+tagname+atts+close+">");
+    
     if (need_special_handling) results.append("\n");
     results.append(contents);
 
     if ((doupdates & LinkUpdates) && (tagname == "head")) {
         results.append(m_newcsslinks);
+    }
+
+    if ((doupdates & JavascriptUpdates) && (tagname == "head")) {
+        results.append(m_newjslinks);
     }
 
     results.append(closeTag);
