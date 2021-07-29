@@ -65,7 +65,7 @@ bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::Navig
         DBG qDebug() << "acceptNavigationRequest from scheme handler load" << url.toString();
         return true;
     }
-    DBG qDebug() << " Unhandled acceptNavigationRequest with type: " << type;
+    qDebug() << " Unhandled acceptNavigationRequest with type: " << type;
     return true;
 }
 

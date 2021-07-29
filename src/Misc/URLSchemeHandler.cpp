@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2020-2021  Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -37,6 +37,7 @@
 
 #define DBG if(0)
 
+static const QStringList REDIRECT = QStringList() << "audio/mp4" << "video/mp4" << "audio/mpeg";
 
 URLSchemeHandler::URLSchemeHandler(QObject *parent)
     : QWebEngineUrlSchemeHandler(parent)
@@ -69,6 +70,29 @@ void URLSchemeHandler::requestStarted(QWebEngineUrlRequestJob *request)
         if (fi.exists()) {
             QString mt = MediaTypes::instance()->GetMediaTypeFromExtension(fi.suffix().toLower(), "");
             content_type = mt;
+
+            // Work around bug in QtWebEngine when using custom schemes that load audio and video resources
+            // that require proprietary codecs as WebEngine's internal ffmpeg will ask for an exact partial
+            // range instead of the entire file (as if it is streaming from a webserver that supports partial ranges.)
+            //
+            // This results in the following failures that only happen with custom schemes:
+            // In both cases FFmpeg errors are emitted to the log when attempting to play the media files that use
+            // proprietary codecs:
+            //
+            //     MediaEvent: MEDIA_ERROR_LOG_ENTRY {"error":"FFmpegDemuxer: open context failed"}
+            //     MediaEvent: PIPELINE_ERROR DEMUXER_ERROR_COULD_NOT_OPEN
+            // or
+            //     MediaEvent: MEDIA_ERROR_LOG_ENTRY {"error":"FFmpegDemuxer: data source error"}
+            //     MediaEvent: PIPELINE_ERROR PIPELINE_ERROR_READ
+            //
+            // Since filling partial requests does not seem feasible in QtWebEngine without a whole
+            // lot of effort, redirect them to use the url file: scheme so that the entire file gets requested
+            
+            if (REDIRECT.contains(mt) && url.scheme() == "sigil") {
+                request->redirect(fileurl);
+                return;
+            }
+            
             QFile file(local_file);
             if (file.open(QIODevice::ReadOnly)) {
                 data = file.readAll();
