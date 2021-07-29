@@ -1,6 +1,7 @@
 pre-1.8.0
     Bug Fixes:
      - Reports now generate properly quoted csv when saved
+     - Workaround Bug in QtWebengine when using custom scheme handler and specific audio/video codecs
 
     New Features:
      - BookBrowser can now link javascripts similarly to how it links stylesheets
