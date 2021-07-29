@@ -4470,13 +4470,13 @@ void MainWindow::ReadSettings()
     SettingsStore::PreviewAppearance PVAppearance = settings.previewAppearance();
     QWebEngineSettings *web_settings = QWebEngineSettings::defaultSettings();
 
-    // QWebEngine security settings to help prevent rogue epub3 javascripts
-    // User preferences control if javascript is allowed (on) or not
+    // Default QWebEngine security settings to help prevent rogue epub3 javascripts
+    // User preferences control if javascript is allowed (on) or not for Preview
     web_settings->setAttribute(QWebEngineSettings::AutoLoadImages, true);
-    web_settings->setAttribute(QWebEngineSettings::JavascriptEnabled, (settings.javascriptOn() == 1));
+    web_settings->setAttribute(QWebEngineSettings::JavascriptEnabled, false);
     web_settings->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, false);
     web_settings->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, false);
-    web_settings->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, (settings.remoteOn() == 1));
+    web_settings->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, false);
     web_settings->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
     web_settings->setAttribute(QWebEngineSettings::PluginsEnabled, false);
     web_settings->setAttribute(QWebEngineSettings::AutoLoadIconsForPage, false);

@@ -4,7 +4,8 @@ pre-1.8.0
 
     New Features:
      - BookBrowser can now link javascripts similarly to how it links stylesheets
-     
+     - Epub3 javascripts can now open windows if javascript is enabled
+
 
 Sigil-1.7.0
     Bug Fixes
