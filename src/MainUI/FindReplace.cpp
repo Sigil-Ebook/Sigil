@@ -1512,6 +1512,21 @@ void FindReplace::SetSearchDirection(int search_direction)
     }
 }
 
+void FindReplace::ClearHistory()
+{
+    QMessageBox::StandardButton button_pressed;
+    button_pressed = QMessageBox::warning(this,
+            tr("Sigil"),
+            tr("Are you sure you want to clear your Find and Replace current values and history?"),
+            QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel
+            );
+
+    if (button_pressed == QMessageBox::Yes) {
+        ui.cbFind->clear();
+        ui.cbReplace->clear();
+    } 
+}
+
 void FindReplace::TokeniseSelection()
 {
     if (!IsValidFindText()) {

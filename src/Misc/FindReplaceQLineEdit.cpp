@@ -57,6 +57,18 @@ void FindReplaceQLineEdit::contextMenuEvent(QContextMenuEvent *event)
         topAction = menu->actions().at(0);
     }
 
+    QAction *clearHistoryAction = new QAction(tr("Clear Find Replace History"), menu);
+    connect(clearHistoryAction, SIGNAL(triggered()), m_FindReplace, SLOT(ClearHistory()));
+
+    if (topAction) {
+        menu->insertAction(topAction, clearHistoryAction);
+        menu->insertSeparator(topAction);
+    } else {
+        menu->addAction(clearHistoryAction);
+    }
+
+    topAction = clearHistoryAction;
+
     if (m_tokeniseEnabled) {
         QAction *tokeniseAction = new QAction(tr("Tokenise Selection"), menu);
         connect(tokeniseAction, SIGNAL(triggered()), m_FindReplace, SLOT(TokeniseSelection()));

@@ -188,6 +188,8 @@ private slots:
 
     void TokeniseSelection();
 
+    void ClearHistory();
+
     void AdvancedOptionsClicked();
 
 private:
