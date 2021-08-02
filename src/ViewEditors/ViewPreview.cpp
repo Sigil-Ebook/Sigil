@@ -292,6 +292,9 @@ void ViewPreview::LoadingProgress(int progress)
         m_isLoadFinished = true;
         m_LoadOkay = true;
     }
+    if (zoomFactor() != m_CurrentZoomFactor) {
+        setZoomFactor(m_CurrentZoomFactor);
+    }
     emit ViewProgress(progress);
 }
 
@@ -380,7 +383,7 @@ void ViewPreview::WebPageJavascriptOnLoad()
     DBG qDebug() << "WebPageJavascriptOnLoad with m_CustomSetDocumentInProgress: " << m_CustomSetDocumentInProgress;
     m_isLoadFinished = true;
     if (m_CustomSetDocumentInProgress) {
-        Zoom();
+        // setZoomFactor(m_CurrentZoomFactor);
         if (!m_pendingScrollToFragment.isEmpty()) {
             ScrollToFragment(m_pendingScrollToFragment);
             m_pendingScrollToFragment.clear();

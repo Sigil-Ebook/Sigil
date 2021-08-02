@@ -359,7 +359,7 @@ void PreviewWindow::UpdatePageDone()
     m_Preview->HideOverlay();
     // need to delay long enough for Zoom changes to be reflected in View widget
     // before trying to center it on a location.
-    QTimer::singleShot(50, this, SLOT(DelayedScrollTo()));
+    QTimer::singleShot(30, this, SLOT(DelayedScrollTo()));
     m_updatingPage = false;
 }
 
