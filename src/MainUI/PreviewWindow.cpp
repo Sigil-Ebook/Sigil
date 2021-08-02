@@ -247,6 +247,10 @@ void PreviewWindow::SetupView()
     QApplication::restoreOverrideCursor();
 }
 
+// Note every call to Update Page needs to be followed by a call
+// to Zoom() as it is not properly zooming after loading
+// But Zoom() is not done synchronously so after zooming
+// you must delay before trying to update Preview to a specific location
 bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<ElementIndex> location)
 {
 
@@ -262,11 +266,11 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         return false;
     }
 
+    m_updatingPage = true;
+    SetCaretLocation(location);
     m_progress->setRange(0,100);
     m_progress->setValue(0);
     m_OverlayTimer.start();
-
-    m_updatingPage = true;
 
     QRegularExpression mathused("<\\s*math [^>]*>");
     QRegularExpressionMatch mo = mathused.match(text);
@@ -275,7 +279,6 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     DBG qDebug() << "PV UpdatePage " << filename_url;
     DBG foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
 
-    SetCaretLocation(location);
 
     //if isDarkMode is set, inject a local style in head
     SettingsStore settings;
@@ -348,18 +351,21 @@ void PreviewWindow::UpdatePageDone()
     DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
     DBG qDebug() << "PreviewWindow UpdatePage final step scroll to location";
 
+    // Zoom is handled internally to mPreview just before this is called
     UpdateWindowTitle();
-    m_Preview->Zoom();
     m_OverlayTimer.stop();
     m_progress->setValue(100);
     m_progress->reset();
     m_Preview->HideOverlay();
+    // need to delay long enough for Zoom changes to be reflected in View widget
+    // before trying to center it on a location.
+    QTimer::singleShot(50, this, SLOT(DelayedScrollTo()));
     m_updatingPage = false;
-    QTimer::singleShot(0, this, SLOT(DelayedScrollTo()));
 }
 
 void PreviewWindow::DelayedScrollTo()
 {
+    m_Preview->StoreCaretLocationUpdate(m_location);
     m_Preview->ExecuteCaretUpdate();
 }
 
@@ -371,7 +377,10 @@ void PreviewWindow::ScrollTo(QList<ElementIndex> location)
     }
     DBG foreach(ElementIndex ei, location) qDebug() << "name: " << ei.name << " index: " << ei.index;
     SetCaretLocation(location);
-    if (!m_updatingPage) m_Preview->ExecuteCaretUpdate();
+    if (!m_updatingPage) {
+        m_Preview->StoreCaretLocationUpdate(m_location);
+        m_Preview->ExecuteCaretUpdate();
+    }
 }
 
 void PreviewWindow::UpdateWindowTitle()
@@ -448,7 +457,9 @@ void PreviewWindow::SetCaretLocation(const QList<ElementIndex> &loc)
         hierarchy << ei;
         DBG qDebug() << "name: " << ei.name << " index: " << ei.index;
     }
-    m_Preview->StoreCaretLocationUpdate(hierarchy);
+    m_location = hierarchy;
+    // Any Zoom must come *before* we do any caret updating
+    // *BUT* Zoom() does not complete instantaneously/synchronously
 }
 
 void PreviewWindow::SetZoomFactor(float factor)
