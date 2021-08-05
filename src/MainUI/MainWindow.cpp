@@ -3211,6 +3211,9 @@ h->ShortPathName()));
         html_resources.append(qobject_cast<HTMLResource *>(resource));
     } 
     JavascriptUpdates::UpdateJavascriptsInAllFiles(html_resources, javascripts);
+
+    m_Book->GetOPF()->UpdateManifestProperties(resources);
+
     m_Book->SetModified();
 
     if (current_resource && resources.contains(current_resource)) {
