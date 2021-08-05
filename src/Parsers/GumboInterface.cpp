@@ -1316,9 +1316,24 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
     bool in_xml_ns                 = node->v.element.tag_namespace != GUMBO_NAMESPACE_HTML;
     // bool is_inline                 = in_set(nonbreaking_inline, tagname);
     bool is_jslink = false;
+
+
+    // handle special case of stylesheet link missing type attribute
+    if ((tagname == "link") && (node->parent->type == GUMBO_NODE_ELEMENT) && 
+        (node->parent->v.element.tag == GUMBO_TAG_HEAD)) {
+        const GumboVector * attribs = &node->v.element.attributes;
+        GumboAttribute* relatt = gumbo_get_attribute(attribs, "rel");
+        GumboAttribute* typeatt = gumbo_get_attribute(attribs, "type");
+        if (relatt && !typeatt) {
+            std::string rel = relatt->value;
+            if (rel == "stylesheet") {
+                gumbo_element_set_attribute(&node->v.element, "type", "text/css");
+            }
+        }
+    }
     
     // build attr string  
-    const GumboVector * attribs = &node->v.element.attributes;
+    GumboVector * attribs = &node->v.element.attributes;
     for (unsigned int i=0; i< attribs->length; ++i) {
         GumboAttribute* at = static_cast<GumboAttribute*>(attribs->data[i]);
         atts.append(build_attributes(at, no_entity_substitution, ((doupdates & SourceUpdates) && is_href_src_tag), (doupdates & StyleUpdates)));
@@ -1548,6 +1563,20 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
     bool is_inline = in_set(nonbreaking_inline, tagname);
     bool in_xml_ns = node->v.element.tag_namespace != GUMBO_NAMESPACE_HTML;
 
+    // handle special case of stylesheet link missing type attribute
+    if ((tagname == "link") && (node->parent->type == GUMBO_NODE_ELEMENT) &&
+        (node->parent->v.element.tag == GUMBO_TAG_HEAD)) {
+        const GumboVector * attribs = &node->v.element.attributes;
+        GumboAttribute* relatt = gumbo_get_attribute(attribs, "rel");
+        GumboAttribute* typeatt = gumbo_get_attribute(attribs, "type");
+        if (relatt && !typeatt) {
+            std::string rel = relatt->value;
+            if (rel == "stylesheet") {
+                gumbo_element_set_attribute(&node->v.element, "type", "text/css");
+            }
+        }
+    }
+    
     // build attr string
     std::string atts = "";
     bool no_entity_substitution = in_set(no_entity_sub, tagname);

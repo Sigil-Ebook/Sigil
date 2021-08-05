@@ -2,6 +2,8 @@ pre-1.8.0
     Bug Fixes:
      - Reports now generate properly quoted csv when saved
      - Workaround Bug in QtWebengine when using custom scheme handler and specific audio/video codecs
+     - Fix CV -> Preview sync after intial load when Preview Zoom is not equal to 100%
+     - Fix link tags with rel set to stylesheets via Mend and Mend and Prettify that are missing type
 
     New Features:
      - BookBrowser can now link javascripts similarly to how it links stylesheets
