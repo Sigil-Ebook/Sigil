@@ -297,6 +297,13 @@ class SanityCheck(object):
                         self.errors.append((self.tag_start[0], self.tag_start[1], error_msg))
                         self.has_error = True
                         break
+                if tname == "link":
+                    if 'rel' in tattr and tattr['rel'] == 'stylesheet':
+                        if not 'type' in tattr or tattr['type'] != 'text/css':
+                            error_msg = 'Missing or incorrect type="text/css" in css link tag'
+                            self.errors.append((self.tag_start[0], self.tag_start[1], error_msg))
+                            self.has_error = True
+                            break;
 
                 # validate tag nesting
                 if ttype == 'end':
