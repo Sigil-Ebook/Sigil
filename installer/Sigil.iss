@@ -242,7 +242,6 @@ begin
   for I := 1 to ParamCount do
     if CompareText(Uppercase(ParamStr(I)), Value) = 0 then
     begin
-      Log(Value + ' exists');
       Result := True;
       Exit;
     end;
@@ -253,7 +252,6 @@ begin
   if CurPageID = wpSelectComponents then
     if (not IsAdminInstallMode) and ((not CmdLineParamExists('/SILENT')) and (not CmdLineParamExists('/VERYSILENT'))) then
     begin
-      Log('PageChanged logic');
       // Runtime query/install component unchecked by default
       // in User mode installs. Checked in Admin installs.
       WizardForm.ComponentsList.Checked[4] := False;
@@ -263,6 +261,8 @@ end;
 
 // Warn when unchecking component to check for, and install
 // if necessary, the Visual Studio runtime distributable.
+// Use /SUPPRESSMSGBOXES in conjunction with /SILENT or
+// /VERYSILENT on the command line to suppress this warning.
 function NextButtonClick(CurPageID: Integer): Boolean;
 var
   msg: String;
@@ -279,11 +279,11 @@ begin
         'Do you wish to proceed as is?';
   if CurPageID = wpSelectComponents then begin
     if IsAdminInstallMode then begin
-      if ((not WizardIsComponentSelected('vcruntimeadmin')) and ((not CmdLineParamExists('/SILENT')) and (not CmdLineParamExists('/VERYSILENT')))) then
-        Result := MsgBox( msg, mbInformation, MB_YESNO) = IDYES
+      if (not WizardIsComponentSelected('vcruntimeadmin')) then
+        Result := SuppressibleMsgBox(msg, mbInformation, MB_YESNO, IDYES) = IDYES
     end else
-      if ((not WizardIsComponentSelected('vcruntimeuser')) and ((not CmdLineParamExists('/SILENT')) and (not CmdLineParamExists('/VERYSILENT')))) then
-        Result := MsgBox( msg, mbInformation, MB_YESNO) = IDYES;
+      if (not WizardIsComponentSelected('vcruntimeuser')) then
+        Result := SuppressibleMsgBox(msg, mbInformation, MB_YESNO, IDYES) = IDYES;
   end;
 end;
 
