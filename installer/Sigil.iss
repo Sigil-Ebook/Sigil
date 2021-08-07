@@ -10,7 +10,7 @@ AppVerName={#AppName} ${SIGIL_FULL_VERSION}
 VersionInfoVersion=${SIGIL_FULL_VERSION}
 DefaultDirName={autopf}\{#AppName}
 DisableDirPage=no
-;AllowNoIcons=yes
+AllowNoIcons=yes
 DefaultGroupName={#AppName}
 UninstallDisplayIcon={app}\{#AppName}.exe
 AppPublisher=Sigil-Ebook
@@ -24,7 +24,7 @@ LicenseFile=${LICENSE_LOCATION}
 ; Win 7sp1 is the lowest supported version
 MinVersion=0,6.1.7601
 PrivilegesRequired=admin
-PrivilegesRequiredOverridesAllowed=dialog
+PrivilegesRequiredOverridesAllowed=commandline dialog
 OutputBaseFilename={#AppName}-${SIGIL_FULL_VERSION}-Windows${ISS_SETUP_FILENAME_PLATFORM}-Setup
 ChangesAssociations=yes
 ;SetupLogging=yes
@@ -233,11 +233,26 @@ begin
     end
  end; *)
 
+function CmdLineParamExists(const Value: string): Boolean;
+var
+  I: Integer;
+begin
+  Result := False;
+  for I := 1 to ParamCount do
+    if CompareText(Uppercase(ParamStr(I)), Value) = 0 then
+    begin
+      Log(Value + ' exists');
+      Result := True;
+      Exit;
+    end;
+end;
+
 procedure CurPageChanged(CurPageID: Integer);
 begin
   if CurPageID = wpSelectComponents then
-    if not IsAdminInstallMode then
+    if (not IsAdminInstallMode) and ((not CmdLineParamExists('/SILENT')) and (not CmdLineParamExists('/VERYSILENT'))) then
     begin
+      Log('PageChanged logic');
       // Runtime query/install component unchecked by default
       // in User mode installs. Checked in Admin installs.
       WizardForm.ComponentsList.Checked[4] := False;
@@ -263,10 +278,10 @@ begin
         'Do you wish to proceed as is?';
   if CurPageID = wpSelectComponents then begin
     if IsAdminInstallMode then begin
-      if (not WizardIsComponentSelected('vcruntimeadmin')) then
+      if ((not WizardIsComponentSelected('vcruntimeadmin')) and ((not CmdLineParamExists('/SILENT')) and (not CmdLineParamExists('/VERYSILENT')))) then
         Result := MsgBox( msg, mbInformation, MB_YESNO) = IDYES
     end else
-      if (not WizardIsComponentSelected('vcruntimeuser')) then
+      if ((not WizardIsComponentSelected('vcruntimeuser')) and ((not CmdLineParamExists('/SILENT')) and (not CmdLineParamExists('/VERYSILENT')))) then
         Result := MsgBox( msg, mbInformation, MB_YESNO) = IDYES;
   end;
 end;
