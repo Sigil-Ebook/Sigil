@@ -15,8 +15,9 @@ DefaultGroupName={#AppName}
 UninstallDisplayIcon={app}\{#AppName}.exe
 AppPublisher=Sigil-Ebook
 AppPublisherURL=https://github.com/Sigil-Ebook/Sigil
-WizardImageFile=compiler:wizmodernimage-IS.bmp
-WizardSmallImageFile=compiler:wizmodernsmallimage-IS.bmp
+; Image filenames have changed and correct defaults will be used anyway
+;WizardImageFile=compiler:wizmodernimage-IS.bmp
+;WizardSmallImageFile=compiler:wizmodernsmallimage-IS.bmp
 Compression=lzma2/ultra
 SolidCompression=yes
 OutputDir=..\installer
