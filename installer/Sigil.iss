@@ -7,6 +7,7 @@
 [Setup]
 AppName={#AppName}
 AppVerName={#AppName} ${SIGIL_FULL_VERSION}
+AppVersion=${SIGIL_FULL_VERSION}
 VersionInfoVersion=${SIGIL_FULL_VERSION}
 DefaultDirName={autopf}\{#AppName}
 DisableDirPage=no
