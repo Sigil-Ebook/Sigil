@@ -62,7 +62,7 @@ PluginRunner::PluginRunner(TabManager *tabMgr, QWidget *parent)
       m_pluginName(""),
       m_pluginOutput(""),
       m_algorithm(""),
-      m_result(""),
+      m_result("failed"),
       m_xhtml_net_change(0),
       m_ready(false)
 
@@ -463,6 +463,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     // before modifying xhtml files make sure they are well formed
     if (!checkIsWellFormed()) {
         ui.statusLbl->setText(tr("Status: No Changes Made"));
+        m_result = "failed";
         return;
     }
 
@@ -472,6 +473,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
         if (htmlresources.count() + m_xhtml_net_change < 0) {
             Utility::DisplayStdErrorDialog(tr("Error: Plugin Tried to Remove the Last XHTML file .. aborting changes"));
             ui.statusLbl->setText(tr("Status: No Changes Made"));
+            m_result = "failed";
             return;
         }
     }
@@ -601,6 +603,7 @@ void PluginRunner::cancelPlugin()
     ui.textEdit->append(tr("Plugin cancelled"));
     ui.statusLbl->setText(tr("Status: cancelled"));
     ui.cancelButton->setEnabled(false);
+    m_result = "failed";
 }
 
 bool PluginRunner::processResultXML()
@@ -693,6 +696,7 @@ bool PluginRunner::processResultXML()
     }
     if (reader.hasError()) {
         Utility::DisplayStdErrorDialog(tr("Error Parsing Result XML:  ") + reader.errorString());
+        m_result = "failed";
         return false;
     }
     return true;

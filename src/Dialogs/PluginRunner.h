@@ -73,6 +73,9 @@ public:
 
     static QStringList SupportedEngines();
 
+    QString getPluginType() { return m_pluginType; }
+    QString getResult() { return m_result; }
+                       
 public slots:
     int exec(const QString &name);
     void reject();
