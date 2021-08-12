@@ -369,10 +369,14 @@ bool MainWindow::Automate(const QStringList &commands)
             // Try to pause to see if can ignore or not in a non-modal way
             ShowMessageOnStatusBar(tr("Validation Plugin Found Errors") + ": " + cmd);
             QMessageBox msgBox;
+            msgBox.setModal(false);
             msgBox.setText(tr("Validation found errors - Abort or Ignore?"));
             QPushButton * abortButton = msgBox.addButton(QMessageBox::Abort);
             QPushButton * ignoreButton = msgBox.addButton(QMessageBox::Ignore);
+            bool button_clicked = false;
+            connect(&msgBox, &QMessageBox::buttonClicked, this, [this, &button_clicked]() { button_clicked = true; });
             msgBox.show();
+            while(!button_clicked) { qApp->processEvents(); }
             if (msgBox.clickedButton() != ignoreButton) {
                 has_error = true;
                 break;
