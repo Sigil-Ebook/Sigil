@@ -218,6 +218,8 @@ public:
 
 public slots:
 
+    bool Automate(const QStringList &commands);
+
     void OpenUrl(const QUrl &url);
 
     void ScrollCVToFragment(const QString &fragment);
@@ -258,6 +260,11 @@ public slots:
     void RepoDiff(QString bookid="");
     void RepoManage();
 
+    void RunAutomate1();
+    void RunAutomate2();
+    void RunAutomate3();
+    void RunAutomate(const QString &automatefile);
+    
     void StandardizeEpub();
 
     void CreateEpubLayout();

@@ -293,6 +293,102 @@ void MainWindow::createJumpList()
 #endif
 }
 
+
+void MainWindow::RunAutomate1()
+{
+    QString automatefile = Utility::DefinePrefsDir() + "/automate01.txt";
+    RunAutomate(automatefile);
+}
+
+void MainWindow::RunAutomate2()
+{
+    QString automatefile = Utility::DefinePrefsDir() + "/automate02.txt";
+    RunAutomate(automatefile);
+}
+
+void MainWindow::RunAutomate3()
+{
+    QString automatefile = Utility::DefinePrefsDir() + "/automate03.txt";
+    RunAutomate(automatefile);
+}
+
+void MainWindow::RunAutomate(const QString &automatefile)
+{
+    if (!QFile::exists(automatefile)) {
+        ShowMessageOnStatusBar(tr("Missing Automation List") + ": " + automatefile );
+        return;
+    }
+    QString data = Utility::ReadUnicodeTextFile(automatefile);
+    QStringList datalines = data.split('\n');
+    QStringList commands;
+    foreach(QString aline, datalines) {
+        QString cmd = aline.trimmed();
+        if (!cmd.isEmpty()) commands << cmd;
+    }
+    if (!commands.isEmpty()) Automate(commands);
+}
+
+bool MainWindow::Automate(const QStringList &commands)
+{
+    PluginDB *pdb = PluginDB::instance();
+    QHash<QString, Plugin *> plugins = pdb->all_plugins();
+    QStringList plugin_names = plugins.keys();
+    bool has_error = false;
+    
+    foreach(QString cmd , commands) {
+        bool success = false;
+        QString plugin_type;
+        int validation_error_count = 0;
+
+        // allow lines to be commented out by starting with #
+        if (cmd.startsWith('#')) continue;
+
+        if (plugin_names.contains(cmd)) {
+            ShowMessageOnStatusBar(cmd + " " + tr("running"));
+            PluginRunner prunner(m_TabManager, this);
+            prunner.exec(cmd);
+
+            qApp->processEvents();
+
+            success = prunner.getResult() == "success";
+            plugin_type = prunner.getPluginType();
+            if (plugin_type == "validation") {
+                validation_error_count = prunner.getValidationErrorCount();
+            }
+        } else {
+            ShowMessageOnStatusBar(tr("Missing or unknown plugin") + ": " + cmd);
+            has_error = true;
+            break;
+        }
+        if (!success) {
+            ShowMessageOnStatusBar(cmd + " " + tr("failed"));
+            has_error = true;
+            break;
+        }
+        if (plugin_type == "validation" && (validation_error_count != 0)) {
+            // Try to pause to see if can ignore or not in a non-modal way
+            ShowMessageOnStatusBar(tr("Validation Plugin Found Errors") + ": " + cmd);
+            QMessageBox msgBox;
+            msgBox.setText(tr("Validation found errors - Abort or Ignore?"));
+            QPushButton * abortButton = msgBox.addButton(QMessageBox::Abort);
+            QPushButton * ignoreButton = msgBox.addButton(QMessageBox::Ignore);
+            msgBox.show();
+            if (msgBox.clickedButton() != ignoreButton) {
+                has_error = true;
+                break;
+            }
+        }
+
+        qApp->processEvents();
+    }
+    if (has_error) {
+        ShowMessageOnStatusBar(tr("Automation List Failed"));
+        return false;
+    }
+    return true;
+}
+
+
 // Note on Mac OS X you may only add a QMenu or SubMenu to the MenuBar Once!
 // Actions can be removed
 void MainWindow::loadPluginsMenu()
@@ -5438,6 +5534,7 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarClips->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarClips2->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarIndexActions->toggleViewAction());
+    ui.menuToolbars->addAction(ui.toolBarAutomate->toggleViewAction());
     ui.toolBarClips->setVisible(false);
     m_lbCursorPosition = new QLabel(QString(""), statusBar());
     statusBar()->addPermanentWidget(m_lbCursorPosition);
@@ -5608,6 +5705,10 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionCheckout,   "MainWindow.RestoreFromCheckpoint");
     sm->registerAction(this, ui.actionDiff,       "MainWindow.CompareToCheckpoint");
     sm->registerAction(this, ui.actionManageRepo, "MainWindow.ManageCheckpointRepository");
+    // Automation Lists
+    sm->registerAction(this, ui.actionAutomate1,   "MainWindow.RunAutomate1");
+    sm->registerAction(this, ui.actionAutomate2,   "MainWindow.RunAutomate2");
+    sm->registerAction(this, ui.actionAutomate3,   "MainWindow.RunAutomate3");
     // Help
     sm->registerAction(this, ui.actionUserGuide, "MainWindow.UserGuide");
     sm->registerAction(this, ui.actionFAQ, "MainWindow.FAQ");
@@ -5836,6 +5937,11 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionCheckout,      SIGNAL(triggered()), this, SLOT(RepoCheckout()));
     connect(ui.actionDiff,          SIGNAL(triggered()), this, SLOT(RepoDiff()));
     connect(ui.actionManageRepo,    SIGNAL(triggered()), this, SLOT(RepoManage()));
+
+    // Automation
+    connect(ui.actionAutomate1,      SIGNAL(triggered()), this, SLOT(RunAutomate1()));
+    connect(ui.actionAutomate2,      SIGNAL(triggered()), this, SLOT(RunAutomate2()));
+    connect(ui.actionAutomate3,      SIGNAL(triggered()), this, SLOT(RunAutomate3()));
 
     // Edit
     connect(ui.actionXEditor,         SIGNAL(triggered()), this, SLOT(launchExternalXEditor()));

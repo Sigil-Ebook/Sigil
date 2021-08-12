@@ -625,6 +625,20 @@
    <addaction name="actionPlugin9"/>
    <addaction name="actionPlugin10"/>
   </widget>
+  <widget class="QToolBar" name="toolBarAutomate">
+   <property name="windowTitle">
+    <string>Automation Lists</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionAutomate1"/>
+   <addaction name="actionAutomate2"/>
+   <addaction name="actionAutomate3"/>
+  </widget>
   <widget class="QToolBar" name="toolBarHeadings">
    <property name="windowTitle">
     <string>Heading</string>
@@ -2674,6 +2688,35 @@
     <string>Ctrl+D</string>
    </property>
   </action>
+
+  <action name="actionAutomate1">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/automate_1.svg</normaloff>:/main/automate_1.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Run Automate List 1</string>
+   </property>
+  </action>
+  <action name="actionAutomate2">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/automate_2.svg</normaloff>:/main/automate_2.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Run Automate List 2</string>
+   </property>
+  </action>
+  <action name="actionAutomate3">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/automate_3.svg</normaloff>:/main/automate_3.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Run Automate List 3</string>
+   </property>
+  </action>
+
   <action name="actionManage_Plugins">
    <property name="text">
     <string>Manage Plugins</string>
