@@ -224,7 +224,8 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_pluginList(QStringList()),
     m_SaveCSS(false),
     m_IsClosing(false),
-    m_headingActionGroup(new QActionGroup(this))
+    m_headingActionGroup(new QActionGroup(this)),
+    m_UsingAutomate(false)
 {
     createJumpList();
     ui.setupUi(this);
@@ -314,8 +315,14 @@ void MainWindow::RunAutomate3()
 
 void MainWindow::RunAutomate(const QString &automatefile)
 {
+    if (m_UsingAutomate) {
+        ShowMessageOnStatusBar(tr("Error: Automation Already in Use"));
+        return;
+    }
+    m_UsingAutomate = true;
     if (!QFile::exists(automatefile)) {
         ShowMessageOnStatusBar(tr("Missing Automation List") + ": " + automatefile );
+        m_UsingAutomate = false;
         return;
     }
     QString data = Utility::ReadUnicodeTextFile(automatefile);
@@ -326,7 +333,9 @@ void MainWindow::RunAutomate(const QString &automatefile)
         if (!cmd.isEmpty()) commands << cmd;
     }
     if (!commands.isEmpty()) Automate(commands);
+    m_UsingAutomate = false;
 }
+
 
 bool MainWindow::Automate(const QStringList &commands)
 {
