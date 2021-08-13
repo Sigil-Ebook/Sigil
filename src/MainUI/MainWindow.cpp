@@ -532,7 +532,7 @@ void MainWindow::unloadPluginsMenu()
     }
 }
 
-void MainWindow::StandardizeEpub()
+bool MainWindow::StandardizeEpub()
 {
     SaveTabData();
 
@@ -542,7 +542,7 @@ void MainWindow::StandardizeEpub()
                                       tr("Are you sure you want to restructure this epub?\nThis action cannot be reversed."), 
                                       QMessageBox::Ok | QMessageBox::Cancel);
     if (button_pressed != QMessageBox::Ok) {
-      return;
+      return false;
     }
     
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -554,7 +554,7 @@ void MainWindow::StandardizeEpub()
             QMessageBox::warning(this, tr("Sigil"), 
                                  tr("Restructure cancelled: %1, XML not well formed.").arg(hresource->ShortPathName()));
             QApplication::restoreOverrideCursor();
-            return;
+            return false;
         }
     }
     // make sure opf is in good shape as well
@@ -563,7 +563,7 @@ void MainWindow::StandardizeEpub()
         QMessageBox::warning(this, tr("Sigil"),
                              tr("Restructure cancelled: %1, XML not well formed.").arg(opfresource->ShortPathName()));
         QApplication::restoreOverrideCursor();
-        return;
+        return false;
     }
     // ditto for ncx if one exists
     NCXResource* ncxresource = m_Book->GetNCX();
@@ -571,7 +571,7 @@ void MainWindow::StandardizeEpub()
         QMessageBox::warning(this, tr("Sigil"),
                              tr("Restructure cancelled: %1, XML not well formed.").arg(ncxresource->ShortPathName()));
         QApplication::restoreOverrideCursor();
-        return;
+        return false;
     }
     // we really should parse validate each css file here but
     // since we update css files using regular expressions, the full 
@@ -640,6 +640,7 @@ void MainWindow::StandardizeEpub()
     m_Book->SetModified();
     QApplication::restoreOverrideCursor();
     ShowMessageOnStatusBar(tr("Restructure completed."));
+    return true;
 }
 
 void MainWindow::FixDuplicateFilenames()
@@ -697,7 +698,7 @@ void MainWindow::MoveContentFilesToStdFolders()
     }
 }
 
-void MainWindow::RepoCommit()
+bool MainWindow::RepoCommit()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
@@ -748,11 +749,12 @@ void MainWindow::RepoCommit()
     if (commit_result.isEmpty()) {
         ShowMessageOnStatusBar(tr("Checkpoint generation failed."));
         QApplication::restoreOverrideCursor();
-        return;
+        return false;
     }
 
     QApplication::restoreOverrideCursor();
     ShowMessageOnStatusBar(tr("Checkpoint saved."));
+    return true;
 }
 
 // handle both the current epub and the general case
@@ -1991,7 +1993,7 @@ bool MainWindow::ProceedWithUndefinedUrlFragments()
 }
 
 
-void MainWindow::AddCover()
+bool MainWindow::AddCover()
 {
     QString version = m_Book->GetOPF()->GetEpubVersion();
  
@@ -2015,7 +2017,7 @@ void MainWindow::AddCover()
         }
     }
     if (selected_files.count() == 0) {
-        return;
+        return false;
     }
     QString image_bookpath = selected_files.first();
 
@@ -2106,8 +2108,10 @@ void MainWindow::AddCover()
             }
         } else {
             Utility::DisplayStdErrorDialog(tr("Unexpected error. Only image files can be used for the cover."));
+            return false;
         }
     } catch (ResourceDoesNotExist&) {
+        return false;
         //
     }
 
@@ -2124,15 +2128,16 @@ void MainWindow::AddCover()
 
     ShowMessageOnStatusBar(tr("Cover added."));
     QApplication::restoreOverrideCursor();
+    return true;
 }
 
 
-void MainWindow::UpdateManifestProperties()
+bool MainWindow::UpdateManifestProperties()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
     if (!version.startsWith('3')) {
         ShowMessageOnStatusBar(tr("Not Available for epub2."));
-        return;
+        return false;
     }
     SaveTabData();
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -2141,15 +2146,16 @@ void MainWindow::UpdateManifestProperties()
     m_Book->SetModified();
     ShowMessageOnStatusBar(tr("OPF Manifest Properties Updated."));
     QApplication::restoreOverrideCursor();
+    return true;
 }
 
 
-void MainWindow::RemoveNCXGuideFromEpub3()
+bool MainWindow::RemoveNCXGuideFromEpub3()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
     if (!version.startsWith('3')) {
         ShowMessageOnStatusBar(tr("Not Available for epub2."));
-        return;
+        return false;
     }
 
     SaveTabData();
@@ -2172,16 +2178,16 @@ void MainWindow::RemoveNCXGuideFromEpub3()
 
     ShowMessageOnStatusBar(tr("NCX and Guide removed."));
     QApplication::restoreOverrideCursor();
-
+    return true;
 }
 
 
-void MainWindow::GenerateNCXGuideFromNav()
+bool MainWindow::GenerateNCXGuideFromNav()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
     if (!version.startsWith('3')) {
         ShowMessageOnStatusBar(tr("Not Available for epub2."));
-        return;
+        return false;
     }
 
     SaveTabData();
@@ -2199,7 +2205,7 @@ void MainWindow::GenerateNCXGuideFromNav()
     if ((!nav_resource) || navdata.isEmpty()) {
         ShowMessageOnStatusBar(tr("NCX and Guide generation failed."));
         QApplication::restoreOverrideCursor();
-        return;
+        return false;
     }
 
     NCXResource * ncx_resource = m_Book->GetNCX();
@@ -2232,7 +2238,7 @@ void MainWindow::GenerateNCXGuideFromNav()
     if (ncxdata.isEmpty()) {
         ShowMessageOnStatusBar(tr("NCX and Guide generation failed."));
         QApplication::restoreOverrideCursor();
-        return;
+        return false;
     }
 
     ncx_resource->SetText(ncxdata);
@@ -2270,6 +2276,7 @@ void MainWindow::GenerateNCXGuideFromNav()
 
     ShowMessageOnStatusBar(tr("NCX and Guide generated."));
     QApplication::restoreOverrideCursor();
+    return true;
 }
 
 
@@ -2555,12 +2562,12 @@ bool MainWindow::DeleteCSSStyles(const QString &bookpath, QList<CSSInfo::CSSSele
     return is_modified;
 }
 
-void MainWindow::DeleteUnusedMedia()
+bool MainWindow::DeleteUnusedMedia()
 {
     SaveTabData();
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
         QMessageBox::warning(this, tr("Sigil"), tr("Delete Unused Media Files cancelled due to XML not well formed."));
-        return;
+        return false;
     }
 
     QRegularExpression url_file_search("url\\s*\\(\\s*['\"]?([^\\(\\)'\"]*)[\"']?\\)");
@@ -2611,14 +2618,15 @@ void MainWindow::DeleteUnusedMedia()
     } else {
         QMessageBox::information(this, tr("Sigil"), tr("There are no unused image, video or audio files to delete."));
     }
+    return true;
 }
 
-void MainWindow::DeleteUnusedStyles()
+bool MainWindow::DeleteUnusedStyles()
 {
     SaveTabData();
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
         QMessageBox::warning(this, tr("Sigil"), tr("Delete Unused Styles cancelled due to XML not well formed."));
-        return;
+        return false;
     }
 
     // This one handles all selector types
@@ -2636,6 +2644,7 @@ void MainWindow::DeleteUnusedStyles()
         QMessageBox::information(this, tr("Sigil"), tr("There are no unused stylesheet selectors to delete."));
     }
     qDeleteAll(css_selector_usage);
+    return true;
 }
 
 void MainWindow::InsertFileDialog()
@@ -3806,9 +3815,10 @@ void MainWindow::updateToolTipsOnPluginIcons()
     }
 }
 
-void MainWindow::WellFormedCheckEpub()
+bool MainWindow::WellFormedCheckEpub()
 {
     m_ValidationResultsView->ValidateCurrentBook();
+    return true;
 }
 
 
@@ -3818,20 +3828,21 @@ bool MainWindow::CharLessThan(const QChar &s1, const QChar &s2)
 }
 
 
-void MainWindow::ValidateStylesheetsWithW3C()
+bool MainWindow::ValidateStylesheetsWithW3C()
 {
     SaveTabData();
     QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
 
     if (css_resources.isEmpty()) {
         ShowMessageOnStatusBar(tr("This EPUB does not contain any CSS stylesheets to validate."));
-        return;
+        return false;
     }
 
     foreach(Resource * resource, css_resources) {
         CSSResource *css_resource = qobject_cast<CSSResource *>(resource);
         css_resource->ValidateStylesheetWithW3C();
     }
+    return true;
 }
 
 
@@ -4348,14 +4359,16 @@ void MainWindow::SetAutoSpellCheck(bool new_state)
     emit SettingsChanged();
 }
 
-void MainWindow::MendPrettifyHTML()
+bool MainWindow::MendPrettifyHTML()
 {
     m_Book->ReformatAllHTML(false);
+    return true;
 }
 
-void MainWindow::MendHTML()
+bool MainWindow::MendHTML()
 {
     m_Book->ReformatAllHTML(true);
+    return true;
 }
 
 void MainWindow::ClearIgnoredWords()
@@ -4428,7 +4441,7 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *origina
     ShowMessageOnStatusBar(tr("Split completed."));
 }
 
-void MainWindow::SplitOnSGFSectionMarkers()
+bool MainWindow::SplitOnSGFSectionMarkers()
 {
     QList<Resource *> html_resources = GetAllHTMLResources();
     Resource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
@@ -4444,19 +4457,19 @@ void MainWindow::SplitOnSGFSectionMarkers()
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
         if (!html_resource) {
             QMessageBox::warning(this, tr("Sigil"), tr("Cannot split since at least one file is not an HTML file."));
-            return;
+            return false;
         }
 
         // Check if data is well formed before splitting.
         if (!html_resource->FileIsWellFormed()) {
             QMessageBox::warning(this, tr("Sigil"), tr("Cannot split: %1 XML is not well formed").arg(html_resource->ShortPathName()));
-            return;
+            return false;
         }
 
         // XXX: This should be using the mime type not the extension.
         if (!TEXT_EXTENSIONS.contains(QFileInfo(html_resource->Filename()).suffix().toLower())) {
             QMessageBox::warning(this, tr("Sigil"), tr("Cannot split since at least one file may not be an HTML file."));
-            return;
+            return false;
         }
 
         // Handle warning the user about undefined url fragments.
@@ -4470,7 +4483,7 @@ void MainWindow::SplitOnSGFSectionMarkers()
     }
 
     if (!ignore_frags) {
-        return;
+        return false;
     }
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -4494,6 +4507,7 @@ void MainWindow::SplitOnSGFSectionMarkers()
     }
 
     QApplication::restoreOverrideCursor();
+    return true;
 }
 
 void MainWindow::ShowPasteClipboardHistoryDialog()

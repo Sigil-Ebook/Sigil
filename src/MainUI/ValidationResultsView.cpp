@@ -264,6 +264,10 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
     //m_ResultTable->resizeColumnsToContents();
 }
 
+int ValidationResultsView::ResultCount()
+{
+    return m_ResultTable->rowCount();
+}
 
 void ValidationResultsView::DisplayNoProblemsMessage()
 {

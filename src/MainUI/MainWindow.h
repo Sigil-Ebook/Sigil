@@ -241,11 +241,11 @@ public slots:
                                         const QUrl &fragment = QUrl(),
                                         bool precede_current_tab = false);
 
-    void UpdateManifestProperties();
+    bool UpdateManifestProperties();
 
-    void GenerateNCXGuideFromNav();
+    bool GenerateNCXGuideFromNav();
 
-    void RemoveNCXGuideFromEpub3();
+    bool RemoveNCXGuideFromEpub3();
 
     void CreateIndex();
 
@@ -255,7 +255,7 @@ public slots:
 
     void launchExternalXEditor();
 
-    void RepoCommit();
+    bool RepoCommit();
     void RepoCheckout(QString bookid="", QString destpath="", QString filename="", bool loadnow=true);
     void RepoDiff(QString bookid="");
     void RepoManage();
@@ -265,7 +265,7 @@ public slots:
     void RunAutomate3();
     void RunAutomate(const QString &automatefile);
     
-    void StandardizeEpub();
+    bool StandardizeEpub();
 
     void CreateEpubLayout();
 
@@ -298,7 +298,7 @@ private slots:
 
     void RestoreLastNormalGeometry();
 
-    void AddCover();
+    bool AddCover();
 
 
     /**
@@ -372,8 +372,8 @@ private slots:
 
     bool DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSelector *> css_selectors);
 
-    void DeleteUnusedMedia();
-    void DeleteUnusedStyles();
+    bool DeleteUnusedMedia();
+    bool DeleteUnusedStyles();
 
     void InsertFileDialog();
 
@@ -460,9 +460,9 @@ private slots:
     /**
      * Implements Validate Epub action functionality.
      */
-    void WellFormedCheckEpub();
+    bool WellFormedCheckEpub();
 
-    void ValidateStylesheetsWithW3C();
+    bool ValidateStylesheetsWithW3C();
 
     bool CharLessThan(const QChar &s1, const QChar &s2);
 
@@ -585,15 +585,15 @@ private slots:
     /**
      * Creates new section/XHTML documents.
      */
-    void SplitOnSGFSectionMarkers();
+    bool SplitOnSGFSectionMarkers();
 
     void SetAutoSpellCheck(bool new_state);
 
     /**
      * Reformats all the book's html resources using Book.cpp's ReformatAllHTML() function.
      */
-    void MendPrettifyHTML();
-    void MendHTML();
+    bool MendPrettifyHTML();
+    bool MendHTML();
 
     void ClearIgnoredWords();
 

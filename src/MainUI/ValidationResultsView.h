@@ -67,6 +67,9 @@ public:
      */
     void ClearResults();
 
+
+    int ResultCount();
+                     
 public slots:
 
     /**
