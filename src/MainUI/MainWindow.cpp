@@ -169,6 +169,11 @@ static const QString CUSTOM_PREVIEW_STYLE_FILENAME = "custom_preview_style.css";
 
 QStringList MainWindow::s_RecentFiles = QStringList();
 
+static const QStringList AUTOMATE_TOOLS = QStringList() << "UpdateManifestProperties" <<
+    "Save" << "WellFormedCheckEpub" << "MendPrettifyHTML" << "MendHTML" << "ValidateStylesheetsWithW3C" <<
+    "RepoCommit" << "GenerateNCXGuideFromNav" << "RemoveNCXGuideFromEpub3" << "DeleteUnusedMedia" <<
+    "DeleteUnusedStyles" << "StandardizeEpub" << "SplitOnSGFSectionMarkers" << "AddCover";
+
 MainWindow::MainWindow(const QString &openfilepath, 
                        const QString version,
                        bool is_internal,
@@ -353,9 +358,9 @@ bool MainWindow::Automate(const QStringList &commands)
 
         // allow lines to be commented out by starting with #
         if (cmd.startsWith('#')) continue;
+        ShowMessageOnStatusBar(cmd + " " + tr("running"));
 
         if (plugin_names.contains(cmd)) {
-            ShowMessageOnStatusBar(cmd + " " + tr("running"));
             PluginRunner prunner(m_TabManager, this);
             prunner.exec(cmd);
 
@@ -363,11 +368,23 @@ bool MainWindow::Automate(const QStringList &commands)
 
             success = prunner.getResult() == "success";
             plugin_type = prunner.getPluginType();
-            if (plugin_type == "validation") {
-                validation_error_count = prunner.getValidationErrorCount();
-            }
+        } else if (AUTOMATE_TOOLS.contains(cmd)) {
+            if (cmd == "UpdateManifestProperties")        success = UpdateManifestProperties();
+            else if (cmd == "Save")                       success = Save();
+            else if (cmd == "WellFormedCheckEpub")        success = WellFormedCheckEpub();
+            else if (cmd == "MendPrettifyHTML")           success = MendPrettifyHTML();
+            else if (cmd == "MendHTML")                   success = MendHTML();
+            else if (cmd == "ValidateStylesheetsWithW3C") success = ValidateStylesheetsWithW3C();
+            else if (cmd == "RepoCommit")                 success = RepoCommit();
+            else if (cmd == "GenerateNCXGuideFromNav")    success = GenerateNCXGuideFromNav();
+            else if (cmd == "RemoveNCXGuideFromEpub3")    success = RemoveNCXGuideFromEpub3();
+            else if (cmd == "DeleteUnusedMedia")          success = DeleteUnusedMedia();
+            else if (cmd == "DeleteUnusedStyles")         success = DeleteUnusedStyles();
+            else if (cmd == "StandardizeEpub")            success = StandardizeEpub();
+            else if (cmd == "SplitOnSGFSectionMarkers")   success = SplitOnSGFSectionMarkers();
+            else if (cmd == "AddCover")                   success = AddCover();
         } else {
-            ShowMessageOnStatusBar(tr("Missing or unknown plugin") + ": " + cmd);
+            ShowMessageOnStatusBar(tr("Missing or unknown plugin or tool") + ": " + cmd);
             has_error = true;
             break;
         }
@@ -376,27 +393,39 @@ bool MainWindow::Automate(const QStringList &commands)
             has_error = true;
             break;
         }
-        if (plugin_type == "validation" && (validation_error_count != 0)) {
-            // Try to pause to see if can ignore or not in a non-modal way
-            ShowMessageOnStatusBar(tr("Validation Plugin Found Errors") + ": " + cmd);
-            QMessageBox msgBox;
-            msgBox.setModal(false);
-            msgBox.setText(tr("Validation found errors - Abort or Ignore?"));
-            QPushButton * abortButton = msgBox.addButton(QMessageBox::Abort);
-            QPushButton * ignoreButton = msgBox.addButton(QMessageBox::Ignore);
-            bool button_clicked = false;
-            connect(&msgBox, &QMessageBox::buttonClicked, this, [this, &button_clicked]() { button_clicked = true; });
-            msgBox.show();
-            while(!button_clicked) { qApp->processEvents(); }
-            if (msgBox.clickedButton() != ignoreButton) {
-                has_error = true;
-                break;
+        if ((plugin_type == "validation") || (cmd == "WellFormedCheckEpub")) {
+            validation_error_count = m_ValidationResultsView->ResultCount();
+            if (validation_error_count > 0) {        
+                // Try to pause to see if can ignore or not in a non-modal way
+                ShowMessageOnStatusBar(tr("Validation tool") + ": " + cmd + " "
+                                       + tr("found errors") + " " + QString::number(validation_error_count));
+                QMessageBox msgBox;
+                msgBox.setModal(false);
+                msgBox.setText(tr("Validation tool found errors - Abort or Ignore?"));
+                QPushButton * abortButton = msgBox.addButton(QMessageBox::Abort);
+                QPushButton * ignoreButton = msgBox.addButton(QMessageBox::Ignore);
+                bool button_clicked = false;
+                connect(&msgBox, &QMessageBox::buttonClicked, this, [this, &button_clicked]() { button_clicked = true; });
+                msgBox.show();
+                while(!button_clicked) { qApp->processEvents(); }
+                if (msgBox.clickedButton() != ignoreButton) {
+                    has_error = true;
+                    ShowMessageOnStatusBar(tr("Aborted due to Validation Errors"));
+                    break;
+                } else {
+                    ShowMessageOnStatusBar(tr("Ignored Validation Errors"));
+                }
+            } else {
+                ShowMessageOnStatusBar(tr("Validation Tool Reported No Problems Found"));
             }
         }
-
         qApp->processEvents();
     }
-    if (has_error) ShowMessageOnStatusBar(tr("Automation List Failed"));
+    if (has_error) {
+        ShowMessageOnStatusBar(tr("Automation List Failed"));
+    } else {
+        ShowMessageOnStatusBar(tr("Automation List Completed"));
+    }
     RepoLog alog(tr("Automate Log"), m_AutomateLog.join('\n'), this);
     alog.exec();
     return has_error == false;

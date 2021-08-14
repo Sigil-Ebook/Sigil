@@ -1,0 +1,14 @@
+if (cmd == "UpdateManifestProperties")   success = UpdateManifestProperties();
+if (cmd == "Save")                       success = Save();
+if (cmd == "WellFormedCheckEpub")        success = WellFormedCheckEpub();
+if (cmd == "MendPrettifyHTML")           success = MendPrettifyHTML();
+if (cmd == "MendHTML")                   success = MendHTML();
+if (cmd == "ValidateStylesheetsWithW3C") success = ValidateStylesheetsWithW3C();
+if (cmd == "RepoCommit")                 success = RepoCommit();
+if (cmd == "GenerateNCXGuideFromNav")    success = GenerateNCXGuideFromNav();
+if (cmd == "RemoveNCXGuideFromEpub3")    success = RemoveNCXGuideFromEpub3();
+if (cmd == "DeleteUnusedMedia")          success = DeleteUnusedMedia();
+if (cmd == "DeleteUnusedSelectors")      success = DeleteUnusedSelectors();
+if (cmd == "StandardizeEpub")            success = StandardizeEpub();
+if (cmd == "SplitOnSGFSectionMarkers")   success = SplitOnSGFSectionMarkers();
+if (cmd == "AddCover")                   success = AddCover();
