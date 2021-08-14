@@ -319,6 +319,7 @@ void MainWindow::RunAutomate(const QString &automatefile)
         ShowMessageOnStatusBar(tr("Error: Automation Already in Use"));
         return;
     }
+    m_AutomateLog.clear();
     m_UsingAutomate = true;
     if (!QFile::exists(automatefile)) {
         ShowMessageOnStatusBar(tr("Missing Automation List") + ": " + automatefile );
@@ -334,6 +335,7 @@ void MainWindow::RunAutomate(const QString &automatefile)
     }
     if (!commands.isEmpty()) Automate(commands);
     m_UsingAutomate = false;
+    m_AutomateLog.clear();
 }
 
 
@@ -394,11 +396,10 @@ bool MainWindow::Automate(const QStringList &commands)
 
         qApp->processEvents();
     }
-    if (has_error) {
-        ShowMessageOnStatusBar(tr("Automation List Failed"));
-        return false;
-    }
-    return true;
+    if (has_error) ShowMessageOnStatusBar(tr("Automation List Failed"));
+    RepoLog alog(tr("Automate Log"), m_AutomateLog.join('\n'), this);
+    alog.exec();
+    return has_error == false;
 }
 
 
@@ -1340,6 +1341,7 @@ void MainWindow::ShowMessageOnStatusBar(const QString &message,
     if (message.isEmpty()) {
         statusBar()->clearMessage();
     } else {
+        if (m_UsingAutomate) m_AutomateLog << message;
         statusBar()->showMessage(message, millisecond_duration);
     }
 }

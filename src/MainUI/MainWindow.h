@@ -1051,6 +1051,7 @@ private:
     bool m_FRVisible;
 
     bool m_UsingAutomate;
+    QStringList m_AutomateLog;
     
     /**
      * Holds all the widgets Qt Designer created for us.
