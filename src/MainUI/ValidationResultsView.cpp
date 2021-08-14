@@ -46,7 +46,8 @@ const QString ValidationResultsView::SEP = QString(QChar(31));
 ValidationResultsView::ValidationResultsView(QWidget *parent)
     :
     QDockWidget(tr("Validation Results"), parent),
-    m_ResultTable(new QTableWidget(this))
+    m_ResultTable(new QTableWidget(this)),
+    m_NoProblems(false)
 {
     setWidget(m_ResultTable);
     setAllowedAreas(Qt::BottomDockWidgetArea | Qt::TopDockWidgetArea);
@@ -204,8 +205,10 @@ void ValidationResultsView::SetUpTable()
 void ValidationResultsView::DisplayResults(const QList<ValidationResult> &results)
 {
     m_ResultTable->clear();
+    m_NoProblems = false;
 
     if (results.empty()) {
+        m_NoProblems = true;
         DisplayNoProblemsMessage();
         return;
     }
@@ -266,6 +269,7 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
 
 int ValidationResultsView::ResultCount()
 {
+    if (m_NoProblems) return 0;
     return m_ResultTable->rowCount();
 }
 

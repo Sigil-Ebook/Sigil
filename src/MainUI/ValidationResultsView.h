@@ -155,6 +155,8 @@ private:
     QSharedPointer<Book> m_Book;
 
     static const QString SEP;
+
+    bool m_NoProblems;
 };
 
 #endif // VALIDATIONRESULTSVIEW_H
