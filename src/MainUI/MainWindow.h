@@ -626,9 +626,9 @@ private slots:
 
     void RemoveResources(QList<Resource *> resources = QList<Resource *>());
 
-    void GenerateToc();
+    bool GenerateTOC(bool skip_selector = false);
+    bool CreateHTMLTOC();
     void EditTOCDialog();
-    void CreateHTMLTOC();
 
     void ChangeCasing(QAction* act);
 

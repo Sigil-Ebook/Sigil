@@ -169,10 +169,23 @@ static const QString CUSTOM_PREVIEW_STYLE_FILENAME = "custom_preview_style.css";
 
 QStringList MainWindow::s_RecentFiles = QStringList();
 
-static const QStringList AUTOMATE_TOOLS = QStringList() << "UpdateManifestProperties" <<
-    "Save" << "WellFormedCheckEpub" << "MendPrettifyHTML" << "MendHTML" << "ValidateStylesheetsWithW3C" <<
-    "RepoCommit" << "GenerateNCXGuideFromNav" << "RemoveNCXGuideFromEpub3" << "DeleteUnusedMedia" <<
-    "DeleteUnusedStyles" << "StandardizeEpub" << "SplitOnSGFSectionMarkers" << "AddCover";
+static const QStringList AUTOMATE_TOOLS = QStringList() <<
+    "AddCover" <<
+    "CreateHTMLTOC" <<
+    "DeleteUnusedMedia" <<
+    "DeleteUnusedStyles" <<
+    "GenerateNCXGuideFromNav" <<
+    "GenerateTOC" <<
+    "MendPrettifyHTML" <<
+    "MendHTML" <<
+    "RemoveNCXGuideFromEpub3" <<
+    "RepoCommit" <<
+    "Save" <<
+    "SplitOnSGFSectionMarkers" <<
+    "StandardizeEpub" <<
+    "UpdateManifestProperties" <<
+    "ValidateStylesheetsWithW3C" <<
+    "WellFormedCheckEpub";
 
 MainWindow::MainWindow(const QString &openfilepath, 
                        const QString version,
@@ -369,20 +382,29 @@ bool MainWindow::Automate(const QStringList &commands)
             success = prunner.getResult() == "success";
             plugin_type = prunner.getPluginType();
         } else if (AUTOMATE_TOOLS.contains(cmd)) {
-            if (cmd == "UpdateManifestProperties")        success = UpdateManifestProperties();
-            else if (cmd == "Save")                       success = Save();
+            if (cmd == "Save")                            success = Save();
             else if (cmd == "WellFormedCheckEpub")        success = WellFormedCheckEpub();
             else if (cmd == "MendPrettifyHTML")           success = MendPrettifyHTML();
             else if (cmd == "MendHTML")                   success = MendHTML();
             else if (cmd == "ValidateStylesheetsWithW3C") success = ValidateStylesheetsWithW3C();
             else if (cmd == "RepoCommit")                 success = RepoCommit();
-            else if (cmd == "GenerateNCXGuideFromNav")    success = GenerateNCXGuideFromNav();
-            else if (cmd == "RemoveNCXGuideFromEpub3")    success = RemoveNCXGuideFromEpub3();
             else if (cmd == "DeleteUnusedMedia")          success = DeleteUnusedMedia();
             else if (cmd == "DeleteUnusedStyles")         success = DeleteUnusedStyles();
             else if (cmd == "StandardizeEpub")            success = StandardizeEpub();
             else if (cmd == "SplitOnSGFSectionMarkers")   success = SplitOnSGFSectionMarkers();
             else if (cmd == "AddCover")                   success = AddCover();
+            else if (cmd == "GenerateTOC")                success = GenerateTOC(true);
+            else if (cmd == "CreateHTMLTOC")              success = CreateHTMLTOC();
+            // these tools are epub3 specific
+            QString version = m_Book->GetOPF()->GetEpubVersion();
+            if (version.startsWith('3')) {
+                if (cmd == "GenerateNCXGuideFromNav")     success = GenerateNCXGuideFromNav();
+                if (cmd == "RemoveNCXGuideFromEpub3")     success = RemoveNCXGuideFromEpub3();
+                if (cmd == "UpdateManifestProperties")    success = UpdateManifestProperties();
+            } else {
+                ShowMessageOnStatusBar(cmd + " " + tr("skipped since not an epub3"));
+                success = true;
+            }
         } else {
             ShowMessageOnStatusBar(tr("Missing or unknown plugin or tool") + ": " + cmd);
             has_error = true;
@@ -3462,22 +3484,22 @@ void MainWindow::EditTOCDialog()
 }
 
 // For epub2 this set the NCX, for epub3 this sets the Nav TOC section
-void MainWindow::GenerateToc()
+bool MainWindow::GenerateTOC(bool skip_selector)
 {
     SaveTabData();
     QList<Resource *> resources = GetAllHTMLResources();
 
     if (resources.isEmpty()) {
-        return;
+        return false;
     }
 
     bool is_headings_changed = false;
-    {
+    if (!skip_selector) {
         HeadingSelector toc(m_Book, this);
 
         if (toc.exec() != QDialog::Accepted) {
             ShowMessageOnStatusBar(tr("Generate TOC cancelled."));
-            return;
+            return false;
         }
 
         is_headings_changed = toc.IsBookChanged();
@@ -3507,10 +3529,11 @@ void MainWindow::GenerateToc()
     }
 
     QApplication::restoreOverrideCursor();
+    return true;
 }
 
 
-void MainWindow::CreateHTMLTOC()
+bool MainWindow::CreateHTMLTOC()
 {
     SaveTabData();
     QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -3620,6 +3643,7 @@ void MainWindow::CreateHTMLTOC()
     m_BookBrowser->Refresh();
     OpenResource(tocResource);
     QApplication::restoreOverrideCursor();
+    return true;
 }
 
 
@@ -6044,7 +6068,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionNCXGuideFromNav, SIGNAL(triggered()), this, SLOT(GenerateNCXGuideFromNav()));
     connect(ui.actionRemoveNCXGuide,  SIGNAL(triggered()), this, SLOT(RemoveNCXGuideFromEpub3()));
     connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
-    connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateToc()));
+    connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateTOC()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));
     connect(ui.actionCreateHTMLTOC, SIGNAL(triggered()), this, SLOT(CreateHTMLTOC()));
     connect(ui.actionReports,       SIGNAL(triggered()), this, SLOT(ReportsDialog()));
