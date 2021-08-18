@@ -521,11 +521,11 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     // now make these changes known to Sigil
     m_book->GetFolderKeeper()->ResumeWatchingResources();
 
-#ifdef Q_OS_MAC
+// ifdef  Q_OS_MAC
     // On OS X a new window with the book is opened. The current one's content is not
     // replaced so we don't want to set it as modified if it's an input plugin.
-    if (m_pluginType != "input") {
-#endif
+    // if (m_pluginType != "input") {
+// endif
         if (book_modified) {
             m_bookBrowser->BookContentModified();
             m_bookBrowser->Refresh();
@@ -533,9 +533,9 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
             // clearMemoryCaches() and updates current tab
             m_mainWindow->ResourcesAddedOrDeletedOrMoved();
         }
-#ifdef Q_OS_MAC
-    }
-#endif
+// ifdef Q_OS_MAC
+    // }
+// endif
     ui.statusLbl->setText(tr("Status:") + " " + m_result);
 
     // Validation plugins we auto close the plugin runner dialog
@@ -876,7 +876,7 @@ bool PluginRunner::addFiles(const QStringList &files)
             QString epubPath = m_outputDir + "/" + href;
             QFileInfo fi(epubPath);
             ui.statusLbl->setText(tr("Status: Loading") + " " + fi.fileName());
-#ifdef Q_OS_MAC
+#if 0 // was ifdef Q_OS_MAC
             // creating a new MainWindow inside a modal QDialog seems to have issues
             // about mouse pointer location and focus that may cause a segfault in 
             // showModal() -> isBlockingWindow() -> isAncestorOf() when a
@@ -888,7 +888,7 @@ bool PluginRunner::addFiles(const QStringList &files)
             // will this be allowed if PluginRunner is Application Modal
             new_window->activateWindow();
 #else
-            // For Linux and Windows will replace current book
+            // For Linux and Windows and macOS  will replace current book
             // So Throw Up a Dialog to See if they want to proceed
             bool proceed = false;
             QMessageBox msgBox;
