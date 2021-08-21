@@ -63,7 +63,7 @@ const QStringList ID_TAGS = QStringList() << BLOCK_LEVEL_TAGS <<
                             "font" << "i" << "label" << "mark" << "pre" << "small" <<
                             "span" << "strike" << "strong" << "sub" << "sup" << "u";
 const QStringList ANCHOR_TAGS = QStringList() << "a";
-const QStringList SRC_TAGS = QStringList() << "link" << "img";
+const QStringList SRC_TAGS = QStringList() << "img";
 
 
 const int XML_DECLARATION_SEARCH_PREFIX_SIZE = 150;

@@ -1695,17 +1695,28 @@ void CodeViewEditor::GoToLinkOrStyleAction()
 void CodeViewEditor::GoToLinkOrStyle()
 {
     QString url_name = GetAttribute("href", ANCHOR_TAGS, true);
-
+    qDebug() << "anchor url_name is: " << url_name;
+    
+    if (url_name.isEmpty()) {
+        QStringList LINK_TAGS = QStringList() << "link";
+        url_name = GetAttribute("href", LINK_TAGS, true, false, false);
+        qDebug() << "link url_name is: " << url_name;
+    }
+    
     if (url_name.isEmpty()) {
         url_name = GetAttribute("src", SRC_TAGS, true);
+        qDebug() << "src url_name is: " << url_name;
     }
 
     if (url_name.isEmpty()) {
         // We do not know what namespace may have been used
         url_name = GetAttribute("xlink:href", IMAGE_TAGS, true);
+        qDebug() << "xlink url_name is: " << url_name;
     }
 
     if (!url_name.isEmpty()) {
+        qDebug() << "final url_name is: " << url_name;
+        
         QUrl url = QUrl(url_name);
         QString extension = url_name.right(url_name.length() - url_name.lastIndexOf('.') - 1).toLower();
 
@@ -3039,10 +3050,11 @@ QString CodeViewEditor::GetAttributeId()
 QString CodeViewEditor::GetAttribute(const QString &attribute_name,
                                      QStringList tag_list,
                                      bool must_be_in_attribute,
-                                     bool skip_paired_tags)
+                                     bool skip_paired_tags,
+                                     bool must_be_in_body)
 {
     return ProcessAttribute(attribute_name, tag_list, QString(), 
-                            false, must_be_in_attribute, skip_paired_tags);
+                            false, must_be_in_attribute, skip_paired_tags, must_be_in_body);
 }
 
 
@@ -3058,11 +3070,12 @@ QString CodeViewEditor::SetAttribute(const QString &attribute_name,
 
 
 QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
-                                               QStringList tag_list,
-                                               const QString &attribute_value,
-                                               bool set_attribute,
-                                               bool must_be_in_attribute,
-                                               bool skip_paired_tags)
+                                         QStringList tag_list,
+                                         const QString &attribute_value,
+                                         bool set_attribute,
+                                         bool must_be_in_attribute,
+                                         bool skip_paired_tags,
+                                         bool must_be_in_body)
 {
 
     if (attribute_name.isEmpty()) {
@@ -3085,8 +3098,7 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
     // The old implementation did not properly handle pi, multi-line comments, cdata
     // nor attribute values delimited by single quotes
 
-
-    if (!IsPositionInBody(pos)) return QString();
+    if (must_be_in_body && !IsPositionInBody(pos)) return QString();
 
     // If we're in a closing tag, move to the text between tags to make parsing easier.
     if (IsPositionInClosingTag(pos)) {
