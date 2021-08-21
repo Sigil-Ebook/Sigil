@@ -1025,10 +1025,12 @@ void MainWindow::launchExternalXEditor()
     // ONLY if an external editor path is set and still exists
 
     HTMLResource *html_resource = NULL;
-
+    OPFResource * opf_resource = NULL;
+    
     ContentTab *tab = GetCurrentContentTab();
     if (tab) {
         html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
+        opf_resource = qobject_cast<OPFResource *>(tab->GetLoadedResource());
     }
 
     SettingsStore ss;
@@ -1047,12 +1049,19 @@ void MainWindow::launchExternalXEditor()
 
     //bool isPageEdit = ss.externalXEditorPath().contains("pageedit", Qt::CaseInsensitive);
     bool isPageEdit = (xeditorinfo.baseName().toLower() == "pageedit");
-    qDebug() << "External editor is PageEdit: " << isPageEdit;
+    // qDebug() << "External editor is PageEdit: " << isPageEdit;
 
-    // If PageEdit isn't being used, only an open html resource will work
-    if (!isPageEdit && !html_resource ) {
-        ShowMessageOnStatusBar(tr("External XHtml Editor works only on Html Resources"));
-        return;
+    if (isPageEdit) {
+        if (!html_resource && !opf_resource) {
+            ShowMessageOnStatusBar(tr("PageEdit XHtml Editor works only on Html/OPF Resources"));
+            return;
+        }
+    } else { 
+        // PageEdit isn't being used, so only an open html resource will work
+        if (!html_resource ) {
+            ShowMessageOnStatusBar(tr("External XHtml Editor works only on Html Resources"));
+            return;
+        }
     }
 
     Resource * resource;
