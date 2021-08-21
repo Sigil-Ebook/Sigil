@@ -1695,27 +1695,22 @@ void CodeViewEditor::GoToLinkOrStyleAction()
 void CodeViewEditor::GoToLinkOrStyle()
 {
     QString url_name = GetAttribute("href", ANCHOR_TAGS, true);
-    qDebug() << "anchor url_name is: " << url_name;
     
     if (url_name.isEmpty()) {
         QStringList LINK_TAGS = QStringList() << "link";
         url_name = GetAttribute("href", LINK_TAGS, true, false, false);
-        qDebug() << "link url_name is: " << url_name;
     }
     
     if (url_name.isEmpty()) {
         url_name = GetAttribute("src", SRC_TAGS, true);
-        qDebug() << "src url_name is: " << url_name;
     }
 
     if (url_name.isEmpty()) {
         // We do not know what namespace may have been used
         url_name = GetAttribute("xlink:href", IMAGE_TAGS, true);
-        qDebug() << "xlink url_name is: " << url_name;
     }
 
     if (!url_name.isEmpty()) {
-        qDebug() << "final url_name is: " << url_name;
         
         QUrl url = QUrl(url_name);
         QString extension = url_name.right(url_name.length() - url_name.lastIndexOf('.') - 1).toLower();
