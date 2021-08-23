@@ -265,12 +265,15 @@ QList<SearchEditorModel::searchEntry *> SearchEditor::GetEntriesFromFullName(con
 
     QList<SearchEditorModel::searchEntry *> selected_entries;
 
-    QList<QStandardItem *> items = m_SearchEditorModel->GetNonGroupItems(m_SearchEditorModel->GetItemFromName(name));
-    if (!ItemsAreUnique(items)) {
-        return selected_entries;
-    }
+    QStandardItem * nameditem = m_SearchEditorModel->GetItemFromName(name);
+    if (nameditem) {
+        QList<QStandardItem *> items = m_SearchEditorModel->GetNonGroupItems(nameditem);
+        if (!ItemsAreUnique(items)) {
+            return selected_entries;
+        }
 
-    selected_entries = m_SearchEditorModel->GetEntries(items);
+        selected_entries = m_SearchEditorModel->GetEntries(items);
+    }
 
     return selected_entries;
 }
