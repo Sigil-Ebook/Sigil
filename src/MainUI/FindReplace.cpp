@@ -1460,6 +1460,7 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
     m_IsSearchGroupRunning = true;
     int count = 0;
     foreach(SearchEditorModel::searchEntry * search_entry, search_entries) {
+        // note: LoadSearch deletes the search_entry after use
         LoadSearch(search_entry);
         count += ReplaceAll();
     }

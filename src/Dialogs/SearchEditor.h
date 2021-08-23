@@ -56,6 +56,8 @@ public slots:
 
     void ShowMessage(const QString &message);
 
+    QList<SearchEditorModel::searchEntry *> GetEntriesFromFullName(const QString& name);
+
 signals:
     void LoadSelectedSearchRequest(SearchEditorModel::searchEntry *search_entry);
     void FindSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
@@ -124,7 +126,7 @@ private:
 
     SearchEditorModel::searchEntry *GetSelectedEntry(bool show_warning = true);
     QList<SearchEditorModel::searchEntry *> GetSelectedEntries();
-
+    
     QList<QStandardItem *> GetSelectedItems();
 
     bool ItemsAreUnique(QList<QStandardItem *> items);

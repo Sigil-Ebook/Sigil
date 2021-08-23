@@ -257,6 +257,24 @@ SearchEditorModel::searchEntry *SearchEditor::GetSelectedEntry(bool show_warning
     return entry;
 }
 
+QList<SearchEditorModel::searchEntry *> SearchEditor::GetEntriesFromFullName(const QString &name)
+{
+    // Note: a SeachEditorModel::searchEntry is a simple struct that is created 
+    // by new in SearchEditorModel GetEntry() and GetEntries()
+    // These must be manually deleted when done to prevent memory leaks
+
+    QList<SearchEditorModel::searchEntry *> selected_entries;
+
+    QList<QStandardItem *> items = m_SearchEditorModel->GetNonGroupItems(m_SearchEditorModel->GetItemFromName(name));
+    if (!ItemsAreUnique(items)) {
+        return selected_entries;
+    }
+
+    selected_entries = m_SearchEditorModel->GetEntries(items);
+
+    return selected_entries;
+}
+
 QList<SearchEditorModel::searchEntry *> SearchEditor::GetSelectedEntries()
 {
     // Note: a SeachEditorModel::searchEntry is a simple struct that is created 
@@ -277,6 +295,7 @@ QList<SearchEditorModel::searchEntry *> SearchEditor::GetSelectedEntries()
 
     return selected_entries;
 }
+
 
 QList<QStandardItem *> SearchEditor::GetSelectedItems()
 {

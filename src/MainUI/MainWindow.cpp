@@ -182,6 +182,7 @@ static const QStringList AUTOMATE_TOOLS = QStringList() <<
     "ReformatCSSSingleLines" <<
     "RemoveNCXGuideFromEpub3" <<
     "RepoCommit" <<
+    "RunSavedSearchReplaceAll" <<
     "Save" <<
     "SplitOnSGFSectionMarkers" <<
     "StandardizeEpub" <<
@@ -409,6 +410,23 @@ bool MainWindow::Automate(const QStringList &commands)
             } else {
                 ShowMessageOnStatusBar(cmd + " " + tr("skipped since not an epub3"));
                 success = true;
+            }
+        // handle saved search and its full name parameter     
+        } else if (cmd.startsWith("RunSavedSearchReplaceAll")) {
+            QString fullname = cmd.mid(25, -1).trimmed();
+            QList<SearchEditorModel::searchEntry*> search_entries = m_SearchEditor->GetEntriesFromFullName(fullname);
+            if (!search_entries.isEmpty()) {
+                // m_FindReplace handles deleting each searchEntry that was created with new
+                // Temporarily reroute FindReplace Messages to the Status Bar so they are logged
+                connect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),
+                        this, SLOT(ShowMessageOnStatusBar(const QString &)));
+                m_FindReplace->ReplaceAllSearch(search_entries);
+                disconnect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),
+                           this, SLOT(ShowMessageOnStatusBar(const QString &)));
+                success = true;
+            } else {
+                ShowMessageOnStatusBar(tr("Missing or unknown Saved Search name") + ": " + cmd);
+                success = false;
             }
         } else {
             ShowMessageOnStatusBar(tr("Missing or unknown plugin or tool") + ": " + cmd);
