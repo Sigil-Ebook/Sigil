@@ -178,6 +178,8 @@ static const QStringList AUTOMATE_TOOLS = QStringList() <<
     "GenerateTOC" <<
     "MendPrettifyHTML" <<
     "MendHTML" <<
+    "ReformatCSSMultipleLines" <<
+    "ReformatCSSSingleLines" <<
     "RemoveNCXGuideFromEpub3" <<
     "RepoCommit" <<
     "Save" <<
@@ -395,6 +397,9 @@ bool MainWindow::Automate(const QStringList &commands)
             else if (cmd == "AddCover")                   success = AddCover();
             else if (cmd == "GenerateTOC")                success = GenerateTOC(true);
             else if (cmd == "CreateHTMLTOC")              success = CreateHTMLTOC();
+            else if (cmd == "ReformatCSSMultipleLines")   success = ReformatAllStylesheets(true);
+            else if (cmd == "ReformatCSSSingleLines")     success = ReformatAllStylesheets(false);
+
             // these tools are epub3 specific
             QString version = m_Book->GetOPF()->GetEpubVersion();
             if (version.startsWith('3')) {
@@ -3909,6 +3914,23 @@ bool MainWindow::ValidateStylesheetsWithW3C()
     return true;
 }
 
+
+bool MainWindow::ReformatAllStylesheets(bool multiple_line_format)
+{
+    SaveTabData();
+    QList<Resource *> css_resources = m_BookBrowser->AllCSSResources();
+
+    if (css_resources.isEmpty()) {
+        ShowMessageOnStatusBar(tr("This EPUB does not contain any CSS stylesheets to reformat."));
+        return false;
+    }
+
+    foreach(Resource * resource, css_resources) {
+        CSSResource *css_resource = qobject_cast<CSSResource *>(resource);
+        css_resource->ReformatCSS(multiple_line_format);
+    }
+    return true;
+}
 
 void MainWindow::ChangeSignalsWhenTabChanges(ContentTab *old_tab, ContentTab *new_tab)
 {

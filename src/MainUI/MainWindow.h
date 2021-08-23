@@ -464,6 +464,8 @@ private slots:
 
     bool ValidateStylesheetsWithW3C();
 
+    bool ReformatAllStylesheets(bool multiple_line_format);
+
     bool CharLessThan(const QChar &s1, const QChar &s2);
 
     /**

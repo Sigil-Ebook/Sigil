@@ -106,3 +106,18 @@ void CSSResource::ValidateStylesheetWithW3C()
     m_TemporaryValidationFiles.append(temp_file_path);
     QDesktopServices::openUrl(QUrl::fromLocalFile(temp_file_path));
 }
+
+
+bool CSSResource::ReformatCSS(bool multiple_line_format)
+{
+    QString original_text = GetText();
+    CSSInfo css_info(original_text);
+    const QString new_text = css_info.getReformattedCSSText(multiple_line_format);
+
+    if (original_text != new_text) {
+        SetText(new_text);
+	    emit Modified();
+    }
+
+    return true;
+}
