@@ -1,7 +1,7 @@
 /****************************************************************************
 **
 **  Copyright (C) 2021 Kevin B. Hendricks, Stratford, ON Canada
-**
+**  Based on the MetaEditor, AddMetadata Dialogs design
 **  This file is part of Sigil.
 **
 **  Sigil is free software: you can redistribute it and/or modify
