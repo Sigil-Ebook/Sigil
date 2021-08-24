@@ -3023,7 +3023,7 @@ CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
         element.classStyle = vals[k];
     } else {
         element.classStyle = vals[0];
-    }    
+    }
     return element;
 }
 

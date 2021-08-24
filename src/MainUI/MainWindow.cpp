@@ -1984,16 +1984,20 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
         CSSResource *first_css_resource = 0;
         foreach(QString bookpath, stylesheets) {
             Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
-            CSSResource *css_resource = qobject_cast<CSSResource*>( resource ); 
+            CSSResource *css_resource = qobject_cast<CSSResource*>( resource );
             if (!first_css_resource) {
                 first_css_resource = css_resource;
             }
             if (css_resource) {
                 CSSInfo css_info(css_resource->GetText());
                 CSSInfo::CSSSelector *selector = css_info.getCSSSelectorForElementClass(element_name, style_class_name);
-
-                // If we fail to find a matching class, search again with just the element
+                // If we fail to find a matching element.class, search again with just the class
                 if (!style_class_name.isEmpty() && !selector) {
+                    selector = css_info.getCSSSelectorForElementClass("", style_class_name);
+                }
+
+                // If we fail to find a matching selector search again with just the element
+                if (style_class_name.isEmpty() && !selector) {
                     selector = css_info.getCSSSelectorForElementClass(element_name, "");
                 }
 
