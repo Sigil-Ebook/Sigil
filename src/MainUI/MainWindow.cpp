@@ -428,16 +428,17 @@ bool MainWindow::Automate(const QStringList &commands)
             else if (cmd == "CreateHTMLTOC")              success = CreateHTMLTOC();
             else if (cmd == "ReformatCSSMultipleLines")   success = ReformatAllStylesheets(true);
             else if (cmd == "ReformatCSSSingleLines")     success = ReformatAllStylesheets(false);
-
-            // these tools are epub3 specific
-            QString version = m_Book->GetOPF()->GetEpubVersion();
-            if (version.startsWith('3')) {
-                if (cmd == "GenerateNCXGuideFromNav")     success = GenerateNCXGuideFromNav();
-                if (cmd == "RemoveNCXGuideFromEpub3")     success = RemoveNCXGuideFromEpub3();
-                if (cmd == "UpdateManifestProperties")    success = UpdateManifestProperties();
-            } else {
-                ShowMessageOnStatusBar(cmd + " " + tr("skipped since not an epub3"));
-                success = true;
+            else {
+                // these tools are epub3 specific
+                QString version = m_Book->GetOPF()->GetEpubVersion();
+                if (version.startsWith('3')) {
+                    if (cmd == "GenerateNCXGuideFromNav")     success = GenerateNCXGuideFromNav();
+                    if (cmd == "RemoveNCXGuideFromEpub3")     success = RemoveNCXGuideFromEpub3();
+                    if (cmd == "UpdateManifestProperties")    success = UpdateManifestProperties();
+                } else {
+                    ShowMessageOnStatusBar(cmd + " " + tr("skipped since not an epub3"));
+                    success = true;
+                }
             }
         // handle saved search and its full name parameter     
         } else if (cmd.startsWith("RunSavedSearchReplaceAll")) {
