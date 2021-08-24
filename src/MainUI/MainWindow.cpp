@@ -494,6 +494,7 @@ bool MainWindow::Automate(const QStringList &commands)
             }
         }
         qApp->processEvents();
+        m_AutomateLog << "";
     }
     if (has_error) {
         ShowMessageOnStatusBar(tr("Automation List Failed"));
