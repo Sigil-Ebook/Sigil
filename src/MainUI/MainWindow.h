@@ -264,6 +264,11 @@ public slots:
     void RunAutomate2();
     void RunAutomate3();
     void RunAutomate(const QString &automatefile);
+
+    void EditAutomate1();
+    void EditAutomate2();
+    void EditAutomate3();
+    void EditAutomate(const QString &automatefile);
     
     bool StandardizeEpub();
 

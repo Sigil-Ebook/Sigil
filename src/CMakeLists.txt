@@ -185,6 +185,12 @@ set( DIALOG_FILES
     Dialogs/SelectIndexTitle.h
     Dialogs/SelectFiles.cpp
     Dialogs/SelectFiles.h
+    Dialogs/AddAutomateTool.cpp
+    Dialogs/AddAutomateTool.h
+    Dialogs/AddAutomatePlugin.cpp
+    Dialogs/AddAutomatePlugin.h
+    Dialogs/AutomateEditor.cpp
+    Dialogs/AutomateEditor.h
     Dialogs/MetaEditor.cpp
     Dialogs/MetaEditor.h
     Dialogs/TreeItem.cpp
@@ -561,6 +567,9 @@ set( UI_FILES
     Form_Files/SelectIndexTitle.ui
     Form_Files/SelectFiles.ui
     Form_Files/MetaEditor.ui
+    Form_Files/AddAutomateTool.ui
+    Form_Files/AddAutomatePlugin.ui
+    Form_Files/AutomateEditor.ui
     Form_Files/EmptyLayout.ui
     Form_Files/AddMetadata.ui
     Form_Files/AddSemantics.ui

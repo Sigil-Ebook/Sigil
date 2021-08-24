@@ -67,6 +67,7 @@
 #include "Dialogs/LinkStylesheets.h"
 #include "Dialogs/LinkJavascripts.h"
 #include "Dialogs/ManageRepos.h"
+#include "Dialogs/AutomateEditor.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/PluginRunner.h"
 #include "Dialogs/Preferences.h"
@@ -315,11 +316,16 @@ void MainWindow::createJumpList()
 #endif
 }
 
-
 void MainWindow::RunAutomate1()
 {
     QString automatefile = Utility::DefinePrefsDir() + "/automate01.txt";
     RunAutomate(automatefile);
+}
+
+void MainWindow::EditAutomate1()
+{
+    QString automatefile = Utility::DefinePrefsDir() + "/automate01.txt";
+    EditAutomate(automatefile);
 }
 
 void MainWindow::RunAutomate2()
@@ -328,10 +334,32 @@ void MainWindow::RunAutomate2()
     RunAutomate(automatefile);
 }
 
+void MainWindow::EditAutomate2()
+{
+    QString automatefile = Utility::DefinePrefsDir() + "/automate02.txt";
+    EditAutomate(automatefile);
+}
+
 void MainWindow::RunAutomate3()
 {
     QString automatefile = Utility::DefinePrefsDir() + "/automate03.txt";
     RunAutomate(automatefile);
+}
+
+void MainWindow::EditAutomate3()
+{
+    QString automatefile = Utility::DefinePrefsDir() + "/automate03.txt";
+    EditAutomate(automatefile);
+}
+
+void MainWindow::EditAutomate(const QString &automatefile)
+{
+    AutomateEditor aedit(automatefile, this);
+    if (aedit.exec() != QDialog::Accepted) {
+        ShowMessageOnStatusBar(tr("Automate List Editor cancelled."));
+        return;
+    }
+    ShowMessageOnStatusBar(tr("Automate List edited."));
 }
 
 void MainWindow::RunAutomate(const QString &automatefile)
@@ -5840,6 +5868,9 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionAutomate1,   "MainWindow.RunAutomate1");
     sm->registerAction(this, ui.actionAutomate2,   "MainWindow.RunAutomate2");
     sm->registerAction(this, ui.actionAutomate3,   "MainWindow.RunAutomate3");
+    sm->registerAction(this, ui.actionAutomate1Editor,   "MainWindow.EditAutomate1");
+    sm->registerAction(this, ui.actionAutomate2Editor,   "MainWindow.EditAutomate2");
+    sm->registerAction(this, ui.actionAutomate3Editor,   "MainWindow.EditAutomate3");
     // Help
     sm->registerAction(this, ui.actionUserGuide, "MainWindow.UserGuide");
     sm->registerAction(this, ui.actionFAQ, "MainWindow.FAQ");
@@ -5871,6 +5902,14 @@ void MainWindow::ExtendUI()
 
     // Change Case QToolButton
     ui.tbCase->setPopupMode(QToolButton::InstantPopup);
+
+    // Automate QToolButtons - set to run on click but delay for menu
+    ui.tbAutomate1->setPopupMode(QToolButton::DelayedPopup);
+    ui.tbAutomate2->setPopupMode(QToolButton::DelayedPopup);
+    ui.tbAutomate3->setPopupMode(QToolButton::DelayedPopup);
+    ui.tbAutomate1->setDefaultAction(ui.actionAutomate1);
+    ui.tbAutomate2->setDefaultAction(ui.actionAutomate2);
+    ui.tbAutomate3->setDefaultAction(ui.actionAutomate3);
 
     UpdateClipsUI();
 }
@@ -6070,9 +6109,12 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionManageRepo,    SIGNAL(triggered()), this, SLOT(RepoManage()));
 
     // Automation
-    connect(ui.actionAutomate1,      SIGNAL(triggered()), this, SLOT(RunAutomate1()));
-    connect(ui.actionAutomate2,      SIGNAL(triggered()), this, SLOT(RunAutomate2()));
-    connect(ui.actionAutomate3,      SIGNAL(triggered()), this, SLOT(RunAutomate3()));
+    connect(ui.actionAutomate1,        SIGNAL(triggered()), this, SLOT(RunAutomate1()));
+    connect(ui.actionAutomate2,        SIGNAL(triggered()), this, SLOT(RunAutomate2()));
+    connect(ui.actionAutomate3,        SIGNAL(triggered()), this, SLOT(RunAutomate3()));
+    connect(ui.actionAutomate1Editor,  SIGNAL(triggered()), this, SLOT(EditAutomate1()));
+    connect(ui.actionAutomate2Editor,  SIGNAL(triggered()), this, SLOT(EditAutomate2()));
+    connect(ui.actionAutomate3Editor,  SIGNAL(triggered()), this, SLOT(EditAutomate3()));
 
     // Edit
     connect(ui.actionXEditor,         SIGNAL(triggered()), this, SLOT(launchExternalXEditor()));

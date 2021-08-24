@@ -59,7 +59,8 @@ TreeModel::TreeModel(const QStringList &headers, const QString &data, QObject *p
         rootData << header;
 
     rootItem = new TreeItem(rootData);
-    setupModelData(data.split(_RS, QString::SkipEmptyParts), rootItem);
+    QStringList datalist = data.split(_RS, QString::SkipEmptyParts);
+    setupModelData(datalist, rootItem);
 }
 
 
