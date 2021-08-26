@@ -4,7 +4,8 @@ pre-1.8.0
      - Workaround Bug in QtWebengine when using custom scheme handler and specific audio/video codecs
      - Fix CV -> Preview sync after intial load when Preview Zoom is not equal to 100%
      - Fix link tags with rel set to stylesheets via Mend and Mend and Prettify that are missing type
-     - Fix GoToLinkOrStyle to work on css link taghs in head
+     - Fix GoToLinkOrStyle to work on css link tags in head
+     - Fix logic in GoToLinkOrStyle to better identify the actual target with styles
 
     New Features:
      - BookBrowser can now link javascripts similarly to how it links stylesheets

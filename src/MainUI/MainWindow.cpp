@@ -1991,15 +1991,18 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
             if (css_resource) {
                 CSSInfo css_info(css_resource->GetText());
                 CSSInfo::CSSSelector *selector = css_info.getCSSSelectorForElementClass(element_name, style_class_name);
-                // If we fail to find a matching element.class, search again with just the class
-                if (!style_class_name.isEmpty() && !selector) {
-                    selector = css_info.getCSSSelectorForElementClass("", style_class_name);
-                }
 
+                // All of this is actually handled in CSSInfo and is NOT needed here
+
+                // If we fail to find a matching element.class, search again with just the class
+                // if (!style_class_name.isEmpty() && !selector) {
+                //    selector = css_info.getCSSSelectorForElementClass("", style_class_name);
+                // }
+                //
                 // If we fail to find a matching selector search again with just the element
-                if (style_class_name.isEmpty() && !selector) {
-                    selector = css_info.getCSSSelectorForElementClass(element_name, "");
-                }
+                // if (style_class_name.isEmpty() && !selector) {
+                //     selector = css_info.getCSSSelectorForElementClass(element_name, "");
+                // }
 
                 if (selector) {
                     m_TabManager->OpenResource(css_resource, -1, selector->pos);
