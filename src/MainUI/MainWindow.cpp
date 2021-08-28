@@ -170,6 +170,7 @@ static const QString CUSTOM_PREVIEW_STYLE_FILENAME = "custom_preview_style.css";
 
 QStringList MainWindow::s_RecentFiles = QStringList();
 
+// This list needs to be kept in exact sync with AutomateEditor.cpp in Dialogs
 static const QStringList AUTOMATE_TOOLS = QStringList() <<
     "AddCover" <<
     "CreateHTMLTOC" <<
@@ -185,6 +186,10 @@ static const QStringList AUTOMATE_TOOLS = QStringList() <<
     "RepoCommit" <<
     "RunSavedSearchReplaceAll" <<
     "Save" <<
+    "SetBookBrowserToAllCSS" <<
+    "SetBookBrowserToAllHTML" <<
+    "SetBookBrowserToAllImages" <<
+    "SetBookBrowserToInitialSelection" <<
     "SplitOnSGFSectionMarkers" <<
     "StandardizeEpub" <<
     "UpdateManifestProperties" <<
@@ -390,6 +395,8 @@ void MainWindow::RunAutomate(const QString &automatefile)
 
 bool MainWindow::Automate(const QStringList &commands)
 {
+    // store away the set of resources selected in BookBrowser at the start
+    QList<Resource*> selected_resources = m_BookBrowser->AllSelectedResources();
     PluginDB *pdb = PluginDB::instance();
     QHash<QString, Plugin *> plugins = pdb->all_plugins();
     QStringList plugin_names = plugins.keys();
@@ -428,7 +435,28 @@ bool MainWindow::Automate(const QStringList &commands)
             else if (cmd == "CreateHTMLTOC")              success = CreateHTMLTOC();
             else if (cmd == "ReformatCSSMultipleLines")   success = ReformatAllStylesheets(true);
             else if (cmd == "ReformatCSSSingleLines")     success = ReformatAllStylesheets(false);
-            else {
+            // allow some control over what is selected in BookBrowser because some plugins
+            // use that to control which files they work on
+            else if (cmd == "SetBookBrowserToAllCSS")   {
+                SelectResources(GetAllCSSResources());
+                success = true;
+            } else if (cmd == "SetBookBrowserToAllHTML")   {
+                SelectResources(GetAllHTMLResources());
+                success = true;
+            } else if (cmd == "SetBookBrowserToAllImages") {
+                SelectResources(m_BookBrowser->AllImageResources());
+                success = true;
+            } else if (cmd == "SetBookBrowserToInitialSelection") {
+                // net initial selection against all existing resources in case some have been
+                // deleted in earlier steps
+                QList<Resource*> resources_to_select;
+                QList<Resource*> all_resources = m_Book->GetFolderKeeper()->GetResourceList();
+                foreach(Resource * resource, selected_resources) {
+                    if (all_resources.contains(resource)) resources_to_select << resource;
+                }
+                SelectResources(resources_to_select);
+                success = true;
+            } else {
                 // these tools are epub3 specific
                 QString version = m_Book->GetOPF()->GetEpubVersion();
                 if (version.startsWith('3')) {

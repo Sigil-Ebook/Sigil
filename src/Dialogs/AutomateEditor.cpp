@@ -305,6 +305,10 @@ void AutomateEditor::loadToolElements()
          "RepoCommit" << "RepoCommit" << tr("Save a Checkpoint of the current epub.") << 
          "RunSavedSearchReplaceAll" << "RunSavedSearchReplaceAll" << tr("Run the named Saved Search with Replace All.") <<
          "Save" << "Save" << tr("Save the current epub.") <<
+         "SetBookBrowserToAllCSS" << "SetBookBrowserToAllCSS" << tr("Select all CSS Files in BookBrowser") << 
+         "SetBookBrowserToAllHTML" << "SetBookBrowserToAllHTML" << tr("Select all HTML Files in BookBrowser") << 
+         "SetBookBrowserToAllImages" << "SetBookBrowserToAllImages" << tr("Select all Image Files in BookBrowser") << 
+         "SetBookBrowserToInitialSelection" << "SetBookBrowserToInitialSelection" << tr("Reset BookBrowser to its initial selection") <<
          "SplitOnSGFSectionMarkers" << "SplitOnSGFSectionMarkers" << tr("Split XHtml files on Sigil Section Markers") <<
          "StandardizeEpub" << "StandardizeEpub" << tr("Convert Epub layout to Sigil's historic Standard form.") <<
          "UpdateManifestProperties" << "UpdateManifestProperties" << tr("Update Epub3 OPF Manifest properties.") <<
