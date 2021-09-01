@@ -1875,7 +1875,13 @@ bool CodeViewEditor::IsInsertHyperlinkAllowed()
 bool CodeViewEditor::IsInsertFileAllowed()
 {
     int pos = textCursor().selectionStart();
-    return IsPositionInBody(pos) && !IsPositionInTag(pos);
+    if (!IsPositionInBody(pos)) return false;
+    if (IsPositionInTag(pos)) {
+        // special case of cursor |<tag>
+        QString text = m_TagList.getSource();
+        if (text[pos] != '<') return false;
+    }
+    return true;
 }
 
 bool CodeViewEditor::InsertId(const QString &attribute_value)
