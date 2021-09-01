@@ -523,6 +523,9 @@ void BookBrowser::AddNew()
         AddNewHTML();
     } else if (m_LastContextMenuType == Resource::CSSResourceType) {
         AddNewCSS();
+    } else if (m_LastContextMenuType == Resource::MiscTextResourceType ||
+               m_LastContextMenuType == Resource::GenericResourceType) {
+        AddNewJS();
     } else if (m_LastContextMenuType == Resource::ImageResourceType) {
         AddNewSVG();
     }
@@ -598,6 +601,24 @@ void BookBrowser::CopyCSS()
 void BookBrowser::AddNewCSS()
 {
     CSSResource *new_resource = m_Book->CreateEmptyCSSFile();
+    // Open the new file in a tab
+    emit ResourceActivated(new_resource);
+    emit BookContentModified();
+    Refresh();
+}
+
+void BookBrowser::AddNewJS()
+{
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (version.startsWith('2')) {
+        QMessageBox::StandardButton button_pressed;
+        button_pressed = QMessageBox::warning(this, tr("Sigil"),tr("Javascript is not supported on epub2.")
+                                              ,QMessageBox::Ok);
+        return;
+    }
+
+    MiscTextResource *new_resource = m_Book->CreateEmptyJSFile();
+    new_resource->SaveToDisk();
     // Open the new file in a tab
     emit ResourceActivated(new_resource);
     emit BookContentModified();
@@ -1750,6 +1771,7 @@ void BookBrowser::CreateContextMenuActions()
     m_SelectAll               = new QAction(tr("Select All"),            this);
     m_AddNewHTML              = new QAction(tr("Add Blank HTML File"),   this);
     m_AddNewCSS               = new QAction(tr("Add Blank Stylesheet"),  this);
+    m_AddNewJS                = new QAction(tr("Add Blank Javascript"),  this);
     m_AddNewSVG               = new QAction(tr("Add Blank SVG Image"),   this);
     m_AddExisting             = new QAction(tr("Add Existing Files..."), this);
     m_CopyHTML                = new QAction(tr("Add Copy"),              this);
@@ -1954,6 +1976,12 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
         m_ContextMenu->addAction(m_AddNewCSS);
         m_ContextMenu->addAction(m_CopyCSS);
         m_CopyCSS->setEnabled(item_count == 1);
+    } else if (m_LastContextMenuType == Resource::MiscTextResourceType ||
+               m_LastContextMenuType == Resource::GenericResourceType) {
+        QString version = m_Book->GetConstOPF()->GetEpubVersion();
+        if (version.startsWith('3')) {
+            m_ContextMenu->addAction(m_AddNewJS);
+        }
     } else if (m_LastContextMenuType == Resource::ImageResourceType || m_LastContextMenuType == Resource::SVGResourceType) {
         m_ContextMenu->addAction(m_AddNewSVG);
     }
@@ -2040,6 +2068,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect(m_RenumberTOC,             SIGNAL(triggered()), this, SLOT(RenumberTOC()));
     connect(m_SortHTML,                SIGNAL(triggered()), this, SLOT(SortHTML()));
     connect(m_AddNewCSS,               SIGNAL(triggered()), this, SLOT(AddNewCSS()));
+    connect(m_AddNewJS,                SIGNAL(triggered()), this, SLOT(AddNewJS()));
     connect(m_AddNewSVG,               SIGNAL(triggered()), this, SLOT(AddNewSVG()));
     connect(m_AddExisting,             SIGNAL(triggered()), this, SLOT(AddExisting()));
     connect(m_Rename,                  SIGNAL(triggered()), this, SLOT(Rename()));

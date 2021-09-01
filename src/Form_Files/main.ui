@@ -65,6 +65,7 @@
      <addaction name="separator"/>
      <addaction name="actionNewHTMLFile"/>
      <addaction name="actionNewCSSFile"/>
+     <addaction name="actionNewJSFile"/>
      <addaction name="actionNewSVGFile"/>
     </widget>
     <widget class="QMenu" name="menuNew">
@@ -2589,6 +2590,14 @@
    </property>
    <property name="toolTip">
     <string>Add a new blank stylesheet to the book.</string>
+   </property>
+  </action>
+  <action name="actionNewJSFile">
+   <property name="text">
+    <string>Blank Javascript</string>
+   </property>
+   <property name="toolTip">
+    <string>Add a new blank javascript to the book.</string>
    </property>
   </action>
   <action name="actionNewSVGFile">

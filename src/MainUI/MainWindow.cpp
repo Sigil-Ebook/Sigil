@@ -5770,6 +5770,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionNewEpub3, "MainWindow.NewEpub3");
     sm->registerAction(this, ui.actionNewHTMLFile, "MainWindow.NewHTMLFile");
     sm->registerAction(this, ui.actionNewCSSFile, "MainWindow.NewCSSFile");
+    sm->registerAction(this, ui.actionNewJSFile, "MainWindow.NewJSFile");
     sm->registerAction(this, ui.actionNewSVGFile, "MainWindow.NewSVGFile");
     sm->registerAction(this, ui.actionAddExistingFile, "MainWindow.AddExistingFile");
     sm->registerAction(this, ui.actionStandardize, "MainWindow.StandardizeEpub");
@@ -6131,6 +6132,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionOpen,          SIGNAL(triggered()), this, SLOT(Open()));
     connect(ui.actionNewHTMLFile,   SIGNAL(triggered()), m_BookBrowser, SLOT(AddNewHTML()));
     connect(ui.actionNewCSSFile,    SIGNAL(triggered()), m_BookBrowser, SLOT(AddNewCSS()));
+    connect(ui.actionNewJSFile,     SIGNAL(triggered()), m_BookBrowser, SLOT(AddNewJS()));
     connect(ui.actionNewSVGFile,    SIGNAL(triggered()), m_BookBrowser, SLOT(AddNewSVG()));
     connect(ui.actionAddExistingFile,   SIGNAL(triggered()), m_BookBrowser, SLOT(AddExisting()));
     connect(ui.actionSave,          SIGNAL(triggered()), this, SLOT(Save()));

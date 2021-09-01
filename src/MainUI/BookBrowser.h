@@ -183,6 +183,7 @@ public slots:
     void CopyCSS();
     void AddNewHTML();
     void AddNewCSS();
+    void AddNewJS();
     void AddNewSVG();
     CSSResource* CreateHTMLTOCCSSFile();
     CSSResource* CreateIndexCSSFile();
@@ -505,6 +506,7 @@ private:
     QAction *m_CopyCSS;
     QAction *m_AddNewHTML;
     QAction *m_AddNewCSS;
+    QAction *m_AddNewJS;
     QAction *m_AddNewSVG;
     QAction *m_AddExisting;
     QAction *m_Rename;

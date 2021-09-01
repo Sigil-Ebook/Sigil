@@ -39,6 +39,7 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
+#include "ResourceObjects/MiscTextResource.h"
 #include "sigil_constants.h"
 #include "SourceUpdates/AnchorUpdates.h"
 #include "SourceUpdates/PerformHTMLUpdates.h"
@@ -46,6 +47,7 @@
 #include "Misc/SettingsStore.h"
 
 static const QString FIRST_CSS_NAME   = "Style0001.css";
+static const QString FIRST_JS_NAME    = "Script0001.js";
 static const QString FIRST_SVG_NAME   = "Image0001.svg";
 static const QString PLACEHOLDER_TEXT = "PLACEHOLDER";
 static const QString EMPTY_HTML_FILE  = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -523,6 +525,21 @@ CSSResource *Book::CreateEmptyCSSFile(const QString &folderpath)
     CSSResource *css_resource = qobject_cast<CSSResource *>(resource);
     SetModified(true);
     return css_resource;
+}
+
+MiscTextResource *Book::CreateEmptyJSFile(const QString &folderpath)
+{
+    TempFolder tempfolder;
+    QString fullfilepath = tempfolder.GetPath() + "/" + m_Mainfolder->GetUniqueFilenameVersion(FIRST_JS_NAME);
+    Utility::WriteUnicodeTextFile("", fullfilepath);
+    Resource * resource = m_Mainfolder->AddContentFileToFolder(fullfilepath,
+                                                               true,
+                                                               "application/javascript",
+                                                               QString(),
+                                                               folderpath);
+    MiscTextResource *js_resource = qobject_cast<MiscTextResource *>(resource);
+    SetModified(true);
+    return js_resource;
 }
 
 
