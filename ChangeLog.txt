@@ -15,6 +15,7 @@ pre-1.8.0
      - Add support for 3 Automation lists that support editing and automatically running a list of
          commands that can include all Sigil plugins and a limited set of Tools
      - Add support for BookBrowser to insert a blank javascript file
+     - Do not require replacement prompt if current book is unmodified and input plugin is run
 
 
 Sigil-1.7.0

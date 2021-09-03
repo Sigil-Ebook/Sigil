@@ -891,16 +891,20 @@ bool PluginRunner::addFiles(const QStringList &files)
             // For Linux and Windows and macOS  will replace current book
             // So Throw Up a Dialog to See if they want to proceed
             bool proceed = false;
-            QMessageBox msgBox;
-            msgBox.setIcon(QMessageBox::Warning);
-            msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
-            msgBox.setWindowTitle(tr("Input Plugin"));
-            msgBox.setText(tr("Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed"));
-            QPushButton *yesButton = msgBox.addButton(QMessageBox::Yes);
-            QPushButton *noButton =  msgBox.addButton(QMessageBox::No);
-            msgBox.setDefaultButton(noButton);
-            msgBox.exec();
-            if (msgBox.clickedButton() == yesButton) {
+            if (m_book->IsModified()) {
+                QMessageBox msgBox;
+                msgBox.setIcon(QMessageBox::Warning);
+                msgBox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
+                msgBox.setWindowTitle(tr("Input Plugin"));
+                msgBox.setText(tr("Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed"));
+                QPushButton *yesButton = msgBox.addButton(QMessageBox::Yes);
+                QPushButton *noButton =  msgBox.addButton(QMessageBox::No);
+                msgBox.setDefaultButton(noButton);
+                msgBox.exec();
+                if (msgBox.clickedButton() == yesButton) {
+                    proceed = true;
+                }
+            } else {
                 proceed = true;
             }
             if (proceed) {
