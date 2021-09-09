@@ -272,6 +272,9 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
     qDebug() << "nativeVirtualKey(): " << event->nativeVirtualKey();
     qDebug() << "letter: " << letter;
     qDebug() << "modifiers: " << state;
+    qDebug() << "\n";
+
+
 #ifdef Q_OS_WIN32
     if ((state & Qt::ShiftModifier) && letter.toUpper() == letter.toLower()) {
         // remove the shift since it is included in the keycode
@@ -279,6 +282,12 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
     }      
     ui.targetEdit->setText(QKeySequence(nextKey | state).toString(QKeySequence::PortableText));
 #else
+#ifdef Q_OS_MAC
+    // macOS treats some META+SHIFT+key incorrectly
+    if ((state & Qt::MetaModifier) && (letter.toUpper() == letter.toLower())) {
+        state = state & ~Qt::SHIFT;
+    }
+#endif
     nextKey |= translateModifiers(state, event->text());
     ui.targetEdit->setText(QKeySequence(nextKey).toString(QKeySequence::PortableText));
 #endif
