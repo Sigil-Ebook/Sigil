@@ -29,6 +29,8 @@
 #include "KeyboardShortcutsWidget.h"
 #include "Misc/KeyboardShortcutManager.h"
 
+#define DBG if(1)
+
 const int COL_NAME = 0;
 const int COL_SHORTCUT = 1;
 const int COL_DESCRIPTION = 2;
@@ -267,16 +269,22 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
     }
     QString letter = QKeySequence(nextKey).toString(QKeySequence::PortableText);
     Qt::KeyboardModifiers state = event->modifiers();
-    qDebug() << "key(): " << QString::number(nextKey) << "  " << QChar(nextKey);
-    qDebug() << "text(): " << event->text();
-    qDebug() << "nativeVirtualKey(): " << event->nativeVirtualKey();
-    qDebug() << "letter: " << letter;
-    qDebug() << "modifiers: " << state;
-    qDebug() << "\n";
 
+    DBG qDebug() << "key(): " << QString::number(nextKey) << "  " << QChar(nextKey);
+    DBG qDebug() << "text(): " << event->text();
+    DBG qDebug() << "nativeVirtualKey(): " << event->nativeVirtualKey();
+    DBG qDebug() << "letter: " << letter;
+    DBG qDebug() << "modifiers: " << state;
+    DBG qDebug() << "\n";
+
+    // Key event generation for shortcuts is one of the most
+    // non-crossplatform things in all of Qt so lots of ifdefs
 
 #ifdef Q_OS_WIN32
     if ((state & Qt::GroupSwitchModifier)) {
+        // The GroupSwitchModifier via windows altgr option on command line 
+        // messes with QKeySequence.toString so fixup letter and turn off
+        // the GroupSwitchModifier
         letter = "" + QChar(nextKey);
         state = state & ~((int)Qt::GroupSwitchModifier);
     }
@@ -285,18 +293,24 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
         state = state & ~Qt::SHIFT;
     }      
     ui.targetEdit->setText(QKeySequence(nextKey | state).toString(QKeySequence::PortableText));
-#else
+
+#else  /* linux and macos */
+
 #ifdef Q_OS_MAC
-    // macOS treats some META+SHIFT+key incorrectly
+    // macOS treats some META+SHIFT+key sequences incorrectly so try to fix it up
     if ((state & Qt::MetaModifier) && (letter.toUpper() == letter.toLower())) {
         state = state & ~Qt::SHIFT;
     }
 #endif
+
     nextKey |= translateModifiers(state, event->text());
     ui.targetEdit->setText(QKeySequence(nextKey).toString(QKeySequence::PortableText));
+
 #endif
+
     event->accept();
 }
+
 
 int KeyboardShortcutsWidget::translateModifiers(Qt::KeyboardModifiers state, const QString &text)
 {
