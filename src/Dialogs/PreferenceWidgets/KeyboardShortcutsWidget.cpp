@@ -276,6 +276,10 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
 
 
 #ifdef Q_OS_WIN32
+    if ((state & Qt::GroupSwitchModifier)) {
+        letter = "" + QChar(nextKey);
+        state = state & ~((int)Qt::GroupSwitchModifier);
+    }
     if ((state & Qt::ShiftModifier) && letter.toUpper() == letter.toLower()) {
         // remove the shift since it is included in the keycode
         state = state & ~Qt::SHIFT;
