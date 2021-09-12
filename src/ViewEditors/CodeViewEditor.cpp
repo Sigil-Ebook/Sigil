@@ -392,7 +392,13 @@ bool CodeViewEditor::IsCutTagPairAllowed()
 
 bool CodeViewEditor::IsInsertClosingTagAllowed()
 {
-    return !IsPositionInTag(textCursor().selectionStart());
+    int pos = textCursor().selectionStart();
+    if (IsPositionInTag(pos)) {
+        // special case of cursor |<tag>
+        QString text = m_TagList.getSource();
+        if (text[pos] != '<') return false;
+    }
+    return true;
 }
 
 QString CodeViewEditor::StripCodeTags(QString text)

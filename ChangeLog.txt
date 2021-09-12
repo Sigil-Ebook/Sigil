@@ -7,6 +7,8 @@ pre-1.8.0
      - Fix GoToLinkOrStyle to work on css link tags in head
      - Fix logic in GoToLinkOrStyle to better identify the actual target with styles
      - Fix insert media file when cursor at very start of tag
+     - Fix Windows and macOS bugs when generating Keyboard Shortcuts
+     - Fix insert closing tag when cursor at very start of tag
 
     New Features:
      - BookBrowser can now link javascripts similarly to how it links stylesheets
