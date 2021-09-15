@@ -254,6 +254,8 @@ public:
      */
     void clearAppearanceSettings();
 
+    bool enableAltGr();
+
 public slots:
 
     /**
@@ -401,6 +403,8 @@ public slots:
      * Set the number of clipboard history items to retain
      */
     void setClipboardHistoryLimit(int limit);
+
+    void setEnableAltGr(bool enabled);
 
 private:
     /**

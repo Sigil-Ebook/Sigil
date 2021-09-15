@@ -360,6 +360,13 @@ int main(int argc, char *argv[])
     // QtWebEngine may need this
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
 
+#if defined(Q_OS_WIN32)
+    SettingsStore ss;
+    if (ss.enableAltGr()) {
+        qputenv("QT_QPA_PLATFORM", "windows:altgr");
+    }
+#endif
+
     MainApplication app(argc, argv);
 
 #ifdef Q_OS_MAC

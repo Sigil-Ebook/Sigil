@@ -99,6 +99,13 @@
        </property>
       </spacer>
      </item>
+     <item>
+      <widget class="QCheckBox" name="EnableAltGr">
+       <property name="text">
+        <string>Enable AltGr on international keyboard</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>

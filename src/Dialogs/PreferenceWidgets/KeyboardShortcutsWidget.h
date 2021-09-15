@@ -121,6 +121,8 @@ private:
     void showDuplicatesTextIfNeeded();
 
     Ui::KeyboardShortcutsWidget ui;
+
+    bool m_EnableAltGr;
 };
 
 #endif // KEYBOARDSHORTCUTSWIDGET_H

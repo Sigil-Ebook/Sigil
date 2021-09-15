@@ -64,6 +64,7 @@ static QString KEY_DEFAULT_VERSION = SETTINGS_GROUP + "/" + "default_version";
 static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
 static QString KEY_PRESERVE_ENTITY_CODES = SETTINGS_GROUP + "/" + "preserve_entity_codes";
 static QString KEY_EXTERNAL_XHTML_EDITOR = SETTINGS_GROUP + "/" + "external_xhtml_editor"; 
+static QString KEY_ENABLE_ALTGR = SETTINGS_GROUP + "/" + "enable_altgr";
 
 static QString KEY_PLUGIN_INFO = SETTINGS_GROUP + "/" + "plugin_info";
 static QString KEY_PLUGIN_ENGINE_PATHS = SETTINGS_GROUP + "/" + "plugin_engine_paths";
@@ -478,6 +479,12 @@ int SettingsStore::clipboardHistoryLimit()
     //return value(KEY_CLIPBOARD_HISTORY_LIMIT, CLIPBOARD_HISTORY_MAX).toInt();
 }
 
+bool SettingsStore::enableAltGr()
+{
+    clearSettingsGroup();
+    return static_cast<bool>(value(KEY_ENABLE_ALTGR, false).toBool());
+}
+
 void SettingsStore::setDefaultMetadataLang(const QString &lang)
 {
     clearSettingsGroup();
@@ -785,6 +792,12 @@ void SettingsStore::setClipboardHistoryLimit(int limit)
 {
     clearSettingsGroup();
     setValue(KEY_CLIPBOARD_HISTORY_LIMIT, limit);
+}
+
+void SettingsStore::setEnableAltGr(bool enabled)
+{
+    clearSettingsGroup();
+    setValue(KEY_ENABLE_ALTGR, enabled);
 }
 
 void SettingsStore::clearAppearanceSettings()

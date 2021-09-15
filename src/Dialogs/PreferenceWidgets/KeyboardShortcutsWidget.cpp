@@ -28,6 +28,7 @@
 
 #include "KeyboardShortcutsWidget.h"
 #include "Misc/KeyboardShortcutManager.h"
+#include "Misc/SettingsStore.h"
 
 #define DBG if(1)
 
@@ -39,6 +40,7 @@ const int COL_DESCRIPTION = 2;
 const int COL_ID = 3;
 
 KeyboardShortcutsWidget::KeyboardShortcutsWidget()
+    : m_EnableAltGr(false)
 {
     ui.setupUi(this);
     connectSignalsSlots();
@@ -58,6 +60,11 @@ PreferencesWidget::ResultActions KeyboardShortcutsWidget::saveSettings()
         sm->setKeySequence(id, keySequence);
     }
 
+    SettingsStore settings;
+    settings.setEnableAltGr(ui.EnableAltGr->checkState() == Qt::Checked);
+    if (m_EnableAltGr != ui.EnableAltGr->isChecked()) {
+        results = results | PreferencesWidget::ResultAction_RestartSigil;
+    }
     return results;
 }
 
@@ -230,6 +237,16 @@ void KeyboardShortcutsWidget::readSettings()
     }
     ui.commandList->sortItems(0, Qt::AscendingOrder);
     markSequencesAsDuplicatedIfNeeded();
+
+#if defined(Q_OS_WIN32)
+    SettingsStore settings;
+    ui.EnableAltGr->setChecked(settings.enableAltGr());
+#endif
+#if !defined(Q_OS_WIN32)
+    ui.EnableAltGr->setVisible(false);
+    ui.EnableAltGr->setChecked(false);
+#endif
+    m_EnableAltGr = ui.EnableAltGr->isChecked();
 }
 
 void KeyboardShortcutsWidget::connectSignalsSlots()
