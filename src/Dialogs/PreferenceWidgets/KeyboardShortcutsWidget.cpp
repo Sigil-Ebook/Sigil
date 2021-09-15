@@ -30,6 +30,10 @@
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/SettingsStore.h"
 
+#ifdef Q_OS_WIN32
+#include "Windows.h"
+#endif
+
 #define DBG if(1)
 
 const int COL_NAME = 0;
@@ -284,6 +288,7 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
 
         return;
     }
+
     QString letter = QKeySequence(nextKey).toString(QKeySequence::PortableText);
     Qt::KeyboardModifiers state = event->modifiers();
 
@@ -305,12 +310,20 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
         letter = "" + QChar(nextKey);
         state = state & ~((int)Qt::GroupSwitchModifier);
     }
-    if ((state & Qt::ShiftModifier) && letter.toUpper() == letter.toLower()) {
-        // remove the shift since it is included in the keycode
-        state = state & ~Qt::SHIFT;
-    }      
-    ui.targetEdit->setText(QKeySequence(nextKey | state).toString(QKeySequence::PortableText));
-
+    // try using the Windows call MapVirtualKeyW
+    const qint32 vk = event->nativeVirtualKey();
+    const UINT  result = MapVirtualKeyW(vk, MAPVK_VK_TO_CHAR);
+    if (result != 0) {
+        DBG qDebug() << "MapVK_VK_TO_CHAR: " << QString::number(result) << " " << QChar(result);
+        ui.targetEdit->setText(QKeySequence(result | state).toString(QKeySequence::PortableText));
+    } else {
+        if ((state & Qt::ShiftModifier) && letter.toUpper() == letter.toLower()) {
+            // remove the shift since it is included in the keycode
+            state = state & ~Qt::SHIFT;
+        }
+        DBG qDebug() << "MapVK_VK_TO_CHAR: " << QString::number(result);
+        ui.targetEdit->setText(QKeySequence(nextKey | state).toString(QKeySequence::PortableText));
+    }
 #else  /* linux and macos */
 
 #ifdef Q_OS_MAC
