@@ -297,7 +297,6 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
     DBG qDebug() << "nativeVirtualKey(): " << event->nativeVirtualKey();
     DBG qDebug() << "letter: " << letter;
     DBG qDebug() << "modifiers: " << state;
-    DBG qDebug() << "\n";
 
     // Key event generation for shortcuts is one of the most
     // non-crossplatform things in all of Qt so lots of ifdefs
@@ -337,6 +336,8 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
     ui.targetEdit->setText(QKeySequence(nextKey).toString(QKeySequence::PortableText));
 
 #endif
+
+    DBG qDebug() << "\n";
 
     event->accept();
 }
