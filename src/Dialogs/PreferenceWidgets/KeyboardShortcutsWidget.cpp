@@ -313,7 +313,7 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
     }
     // try using the Windows call MapVirtualKeyW
     const qint32 vk = event->nativeVirtualKey();
-    const UINT  result = MapVirtualKeyW(vk, MAPVK_VK_TO_CHAR);
+    UINT  result = MapVirtualKeyW(vk, MAPVK_VK_TO_CHAR);
     bool isDeadKey = (result & 0x80000000) == 0x80000000;
     result = result & 0x0000FFFF;
     DBG qDebug() << "MapVK_VK_TO_CHAR: " << QString::number(result) << " " << QChar(result) << " " << isDeadKey;
