@@ -303,24 +303,29 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
 
 #ifdef Q_OS_WIN32
     if ((state & Qt::GroupSwitchModifier)) {
-        // The GroupSwitchModifier via windows altgr option on command line 
-        // messes with QKeySequence.toString so fixup letter and turn off
+        // The GroupSwitchModifier via windows altgr option on command line
+        // indicates this is AltGr which should not be used for Keyboard Shortcuts.
+        // it messes with QKeySequence.toString so fixup letter and turn off
         // the GroupSwitchModifier
-        letter = "" + QChar(nextKey);
-        state = state & ~((int)Qt::GroupSwitchModifier);
+        // letter = "" + QChar(nextKey);
+        // state = state & ~((int)Qt::GroupSwitchModifier);
+        return;
     }
     // try using the Windows call MapVirtualKeyW
     const qint32 vk = event->nativeVirtualKey();
     const UINT  result = MapVirtualKeyW(vk, MAPVK_VK_TO_CHAR);
+    bool isDeadKey = (result & 0x80000000) == 0x80000000;
+    result = result & 0x0000FFFF;
+    DBG qDebug() << "MapVK_VK_TO_CHAR: " << QString::number(result) << " " << QChar(result) << " " << isDeadKey;
     if (result != 0) {
-        DBG qDebug() << "MapVK_VK_TO_CHAR: " << QString::number(result) << " " << QChar(result);
+        // Dead keys (ie. diacritics should not be used in Keyboard Shortcuts
+        if (isDeadKey) return;
         ui.targetEdit->setText(QKeySequence(result | state).toString(QKeySequence::PortableText));
     } else {
         if ((state & Qt::ShiftModifier) && letter.toUpper() == letter.toLower()) {
             // remove the shift since it is included in the keycode
             state = state & ~Qt::SHIFT;
         }
-        DBG qDebug() << "MapVK_VK_TO_CHAR: " << QString::number(result);
         ui.targetEdit->setText(QKeySequence(nextKey | state).toString(QKeySequence::PortableText));
     }
 #else  /* linux and macos */
