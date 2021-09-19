@@ -377,8 +377,8 @@ private slots:
 
     bool DeleteCSSStyles(const QString &filename, QList<CSSInfo::CSSSelector *> css_selectors);
 
-    bool DeleteUnusedMedia();
-    bool DeleteUnusedStyles();
+    bool DeleteUnusedMedia(bool in_automate = false);
+    bool DeleteUnusedStyles(bool in_automate = false);
 
     void InsertFileDialog();
 

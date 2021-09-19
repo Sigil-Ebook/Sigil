@@ -426,8 +426,8 @@ bool MainWindow::Automate(const QStringList &commands)
             else if (cmd == "MendHTML")                   success = MendHTML();
             else if (cmd == "ValidateStylesheetsWithW3C") success = ValidateStylesheetsWithW3C();
             else if (cmd == "RepoCommit")                 success = RepoCommit();
-            else if (cmd == "DeleteUnusedMedia")          success = DeleteUnusedMedia();
-            else if (cmd == "DeleteUnusedStyles")         success = DeleteUnusedStyles();
+            else if (cmd == "DeleteUnusedMedia")          success = DeleteUnusedMedia(true);
+            else if (cmd == "DeleteUnusedStyles")         success = DeleteUnusedStyles(true);
             else if (cmd == "StandardizeEpub")            success = StandardizeEpub();
             else if (cmd == "SplitOnSGFSectionMarkers")   success = SplitOnSGFSectionMarkers();
             else if (cmd == "AddCover")                   success = AddCover();
@@ -2712,7 +2712,7 @@ bool MainWindow::DeleteCSSStyles(const QString &bookpath, QList<CSSInfo::CSSSele
     return is_modified;
 }
 
-bool MainWindow::DeleteUnusedMedia()
+bool MainWindow::DeleteUnusedMedia(bool in_automate)
 {
     SaveTabData();
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
@@ -2766,12 +2766,16 @@ bool MainWindow::DeleteUnusedMedia()
         RemoveResources(resources);
         ShowMessageOnStatusBar(tr("Unused media files deleted."));
     } else {
-        QMessageBox::information(this, tr("Sigil"), tr("There are no unused image, video or audio files to delete."));
+        if (in_automate) {
+            ShowMessageOnStatusBar(tr("There are no unused image, video or audio files to delete."));
+        } else {
+            QMessageBox::information(this, tr("Sigil"), tr("There are no unused image, video or audio files to delete."));
+        }
     }
     return true;
 }
 
-bool MainWindow::DeleteUnusedStyles()
+bool MainWindow::DeleteUnusedStyles(bool in_automate)
 {
     SaveTabData();
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
@@ -2791,7 +2795,11 @@ bool MainWindow::DeleteUnusedStyles()
     if (css_selectors_to_delete.count() > 0) {
         DeleteReportsStyles(css_selectors_to_delete);
     } else {
-        QMessageBox::information(this, tr("Sigil"), tr("There are no unused stylesheet selectors to delete."));
+        if (in_automate) {
+            ShowMessageOnStatusBar(tr("There are no unused stylesheet selectors to delete."));
+        } else {
+            QMessageBox::information(this, tr("Sigil"), tr("There are no unused stylesheet selectors to delete."));
+        }
     }
     qDeleteAll(css_selector_usage);
     return true;
@@ -3987,7 +3995,7 @@ bool MainWindow::ValidateStylesheetsWithW3C()
 
     if (css_resources.isEmpty()) {
         ShowMessageOnStatusBar(tr("This EPUB does not contain any CSS stylesheets to validate."));
-        return false;
+        return true;
     }
 
     foreach(Resource * resource, css_resources) {
@@ -4005,7 +4013,7 @@ bool MainWindow::ReformatAllStylesheets(bool multiple_line_format)
 
     if (css_resources.isEmpty()) {
         ShowMessageOnStatusBar(tr("This EPUB does not contain any CSS stylesheets to reformat."));
-        return false;
+        return true;
     }
 
     foreach(Resource * resource, css_resources) {
