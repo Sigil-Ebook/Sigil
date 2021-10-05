@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2020 Doug Massay
+**  Copyright (C) 2019-2021 Doug Massay
 **  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
@@ -3005,6 +3005,10 @@ CodeViewEditor::StyleTagElement CodeViewEditor::GetSelectedStyleTagElement()
     if (attr.pos < 0) {
         return element;
     }
+
+    // if caret not in a class attribute search only for element
+    int cstart = ti.pos + attr.pos;
+    if (pos < cstart || pos >= cstart + attr.len) return element;
 
     QString avalue = attr.avalue.trimmed();
     QStringList vals = avalue.split(' ');

@@ -10,6 +10,7 @@ pre-1.8.0
      - Fix Windows and macOS bugs when generating Keyboard Shortcuts
      - Fix insert closing tag when cursor at very start of tag
      - Fix double copy to Clipboard from OPF and NCX Tabs
+     - Fix GoToLinkOrStyle when class attribute present but cursor not in the class attribute
 
     New Features:
      - BookBrowser can now link javascripts similarly to how it links stylesheets
