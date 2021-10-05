@@ -9,6 +9,7 @@ pre-1.8.0
      - Fix insert media file when cursor at very start of tag
      - Fix Windows and macOS bugs when generating Keyboard Shortcuts
      - Fix insert closing tag when cursor at very start of tag
+     - Fix double copy to Clipboard from OPF and NCX Tabs
 
     New Features:
      - BookBrowser can now link javascripts similarly to how it links stylesheets
