@@ -549,7 +549,7 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
         if (flow_tab != NULL) {
             if (!caret_location_to_scroll_to.isEmpty()) {
                 flow_tab->ScrollToCaretLocation(caret_location_to_scroll_to);
-            } else if (position_to_scroll_to > 0) {
+            } else if (position_to_scroll_to >= 0) {
                 flow_tab->ScrollToPosition(position_to_scroll_to);
             } else if (!fragment.toString().isEmpty()) {
                 flow_tab->ScrollToFragment(fragment.toString());
@@ -567,7 +567,7 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
         TextTab *text_tab = qobject_cast<TextTab *>(tab);
 
         if (text_tab != NULL) {
-            if (position_to_scroll_to > 0) {
+            if (position_to_scroll_to >= 0) {
                 text_tab->ScrollToPosition(position_to_scroll_to);
             } else {
                 text_tab->ScrollToLine(line_to_scroll_to);
