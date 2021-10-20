@@ -398,7 +398,13 @@ QStringList XhtmlDoc::GetSGFSectionSplits(const QString &source,
         sections.append(header + open_tag_source + text + "</body>\n</html>\n");
         // let gumbo/mend fill in any necessary closing tags for any open tags
         // at the end of each section
-    } 
+    }
+    // if body is empty (no split marker) then sections will be empty which should not happen
+    // handle this special case
+    if (sections.isEmpty()) {
+        sections << source;
+    }
+
     return sections;
 }
 
