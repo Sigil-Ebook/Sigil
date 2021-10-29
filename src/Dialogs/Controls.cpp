@@ -312,7 +312,7 @@ void Controls::ExtendUI()
     ui.cbLookWhere->addItem(tr("Selected HTML Files"), "SH");
     look_tooltip += "<dt><b>" + tr("Selected HTML Files") + "</b><dd>" + tr("Restrict the find or replace to the HTML files selected in the Book Browser in Code View.") + "</dd>";
 
-    ui.cbLookWhere->addItem(tr("Tabbed HTML Files"), "TB");
+    ui.cbLookWhere->addItem(tr("Tabbed HTML Files"), "TH");
     look_tooltip += "<dt><b>" + tr("Current File") + "</b><dd>" + tr("Restrict the find or replace to the HTML files open in Tabs.") + "</dd>";
 
     ui.cbLookWhere->addItem(tr("All CSS Files"), "AC");
