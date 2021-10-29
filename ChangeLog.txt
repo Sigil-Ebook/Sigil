@@ -1,3 +1,10 @@
+pre-1.9.0
+    Bug Fixes
+     - update gumbo to follow WhatWG changes for closing br and p tags in foreign content
+     - fix Saved Search Controls code typo for Tabbed Html Files
+     - plug long existant memory leaks related to Saved Searches that stop after a match is found
+
+
 Sigil-1.8.0
     Bug Fixes:
      - Reports now generate properly quoted csv when saved
