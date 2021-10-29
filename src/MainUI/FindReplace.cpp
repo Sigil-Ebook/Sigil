@@ -1335,11 +1335,23 @@ void FindReplace::SaveSearchAction()
 }
 
 
-void FindReplace::LoadSearchByName(const QString &name)
+void FindReplace::DoLoadSearch(SearchEditorModel::searchEntry *search_entry)
 {
-    LoadSearch(SearchEditorModel::instance()->GetEntryFromName(name));
+    LoadSearch(search_entry);
+    delete search_entry;
 }
 
+
+void FindReplace::LoadSearchByName(const QString &name)
+{
+    SearchEditorModel::searchEntry * search_entry = SearchEditorModel::instance()->GetEntryFromName(name);
+    // callers to LoadSearch need to clean up after themselves to prevent leaks
+    LoadSearch(search_entry);
+    if (search_entry) delete search_entry;
+}
+
+// callers of LoadSearch own the search_entry pointers and need to clean 
+// them up properly to prevent memory leaks
 void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
 {
     if (!search_entry) {
@@ -1358,12 +1370,22 @@ void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
         message = QString("%1: %2 ").arg(tr("Loaded")).arg(search_entry->name.replace('<', "&lt;").replace('>', "&gt;").left(50));
     }
 
-    // prevent memory leak in FindSearch, ReplaceCurrentSearch, ReplaceSearch,
-    // CountAllSearch, and ReplaceAllSearch
-    delete search_entry;
-
+    // to prevent memory leak in FindSearch, ReplaceCurrentSearch, ReplaceSearch,
+    // CountAllSearch, and ReplaceAllSearch you need to clean things up there
     ShowMessage(message);
 }
+
+
+// clean up search entries from list (they were each created by new)
+void FindReplace::CleanEntries(QList<SearchEditorModel::searchEntry *> search_entries)
+{
+    for( int i=0; i < search_entries.size(); i++ ) {
+        SearchEditorModel::searchEntry * search_entry = search_entries.at(i);
+        if (search_entry) delete search_entry;
+        search_entries[i] = nullptr;
+    }
+}
+
 
 void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entries)
 {
@@ -1378,10 +1400,12 @@ void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entr
         LoadSearch(search_entry);
 
         if (Find()) {
+
             break;
         };
     }
     m_IsSearchGroupRunning = false;
+    CleanEntries(search_entries);
     ResetKeyModifiers();
 }
 
@@ -1401,6 +1425,7 @@ void FindReplace::ReplaceCurrentSearch(QList<SearchEditorModel::searchEntry *> s
         }
     }
     m_IsSearchGroupRunning = false;
+    CleanEntries(search_entries);
 }
 
 void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_entries)
@@ -1420,6 +1445,7 @@ void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_e
         }
     }
     m_IsSearchGroupRunning = false;
+    CleanEntries(search_entries);
     ResetKeyModifiers();
 }
 
@@ -1445,7 +1471,7 @@ void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_
         QString message = tr("Matches found: %n", "", count);
         ShowMessage(message);
     }
-
+    CleanEntries(search_entries);
     ResetKeyModifiers();
 }
 
@@ -1460,7 +1486,6 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
     m_IsSearchGroupRunning = true;
     int count = 0;
     foreach(SearchEditorModel::searchEntry * search_entry, search_entries) {
-        // note: LoadSearch deletes the search_entry after use
         LoadSearch(search_entry);
         count += ReplaceAll();
     }
@@ -1472,7 +1497,7 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
         QString message = tr("Replacements made: %n", "", count);
         ShowMessage(message);
     }
-
+    CleanEntries(search_entries);
     ResetKeyModifiers();
 }
 

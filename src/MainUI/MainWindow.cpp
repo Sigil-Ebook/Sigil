@@ -6292,7 +6292,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_FindReplace,   SIGNAL(ClipboardSaveRequest()),     m_ClipboardHistorySelector,  SLOT(SaveClipboardState()));
     connect(m_FindReplace,   SIGNAL(ClipboardRestoreRequest()),  m_ClipboardHistorySelector,  SLOT(RestoreClipboardState()));
     connect(m_SearchEditor, SIGNAL(LoadSelectedSearchRequest(SearchEditorModel::searchEntry *)),
-            m_FindReplace,   SLOT(LoadSearch(SearchEditorModel::searchEntry *)));
+            m_FindReplace,   SLOT(DoLoadSearch(SearchEditorModel::searchEntry *)));
     connect(m_SearchEditor, SIGNAL(FindSelectedSearchRequest(QList<SearchEditorModel::searchEntry *>)),
             m_FindReplace,   SLOT(FindSearch(QList<SearchEditorModel::searchEntry *>)));
     connect(m_SearchEditor, SIGNAL(ReplaceCurrentSelectedSearchRequest(QList<SearchEditorModel::searchEntry *>)),

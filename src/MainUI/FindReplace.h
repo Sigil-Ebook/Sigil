@@ -97,8 +97,8 @@ public slots:
     void show();
 
     void LoadSearchByName(const QString &name);
+    void DoLoadSearch(SearchEditorModel::searchEntry *search_entry);
 
-    void LoadSearch(SearchEditorModel::searchEntry *search_entry);
     void FindSearch(QList<SearchEditorModel::searchEntry *> search_entries);
     void ReplaceCurrentSearch(QList<SearchEditorModel::searchEntry *> search_entries);
     void ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_entries);
@@ -193,6 +193,9 @@ private slots:
     void AdvancedOptionsClicked();
 
 private:
+
+    void LoadSearch(SearchEditorModel::searchEntry *search_entry);
+    static void CleanEntries(QList<SearchEditorModel::searchEntry *> search_entries);
 
     QString GetControls();
     
