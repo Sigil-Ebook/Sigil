@@ -154,7 +154,7 @@ void FlowTab::DelayedInitialization()
 
     CodeView();
 
-    if (m_PositionToScrollTo > 0) {
+    if (m_PositionToScrollTo >= 0) {
         m_wCodeView->ScrollToPosition(m_PositionToScrollTo);
     } else if (m_LineToScrollTo > 0) {
         m_wCodeView->ScrollToLine(m_LineToScrollTo);

@@ -175,8 +175,8 @@ void ValidationResultsView::ResultDoubleClicked(QTableWidgetItem *item)
     }
 
 
-    int line = line_item->text().toInt();
-    int charoffset = offset_item->text().toInt();
+    int line = line_item->text() != "N/A" ? line_item->text().toInt(): -1;
+    int charoffset = offset_item->text() != "N/A" ? offset_item->text().toInt(): -1;
 
     try {
         Resource *resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
@@ -246,11 +246,11 @@ void ValidationResultsView::DisplayResults(const QList<ValidationResult> &result
         SetItemPalette(item, row_brush);
         m_ResultTable->setItem(rownum, 0, item);
 
-        item = result.LineNumber() > 0 ? new QTableWidgetItem(QString::number(result.LineNumber())) : new QTableWidgetItem(tr("N/A"));
+        item = result.LineNumber() > 0 ? new QTableWidgetItem(QString::number(result.LineNumber())) : new QTableWidgetItem("N/A");
         SetItemPalette(item, row_brush);
         m_ResultTable->setItem(rownum, 1, item);
 
-        item = result.CharOffset() > 0 ? new QTableWidgetItem(QString::number(result.CharOffset())) : new QTableWidgetItem(tr("N/A"));
+        item = result.CharOffset() >= 0 ? new QTableWidgetItem(QString::number(result.CharOffset())) : new QTableWidgetItem("N/A");
         SetItemPalette(item, row_brush);
         m_ResultTable->setItem(rownum, 2, item);
 

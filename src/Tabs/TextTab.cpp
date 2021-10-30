@@ -275,9 +275,10 @@ void TextTab::DelayedInitialization()
 {
     m_wCodeView->CustomSetDocument(m_TextResource->GetTextDocumentForWriting());
     m_wCodeView->Zoom();
-    if (m_PositionToScrollTo > 0) {
+    if (m_PositionToScrollTo >= 0) {
         m_wCodeView->ScrollToPosition(m_PositionToScrollTo);
     } else {
+        if (m_LineToScrollTo < 1) m_LineToScrollTo = 1;
         m_wCodeView->ScrollToLine(m_LineToScrollTo);
     }
 }
