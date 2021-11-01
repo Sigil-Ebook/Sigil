@@ -51,6 +51,19 @@ SearchEditor::SearchEditor(QWidget *parent)
     ExpandAll();
 }
 
+
+SearchEditor::~SearchEditor()
+{
+    // clean up any existing copied saved search entries
+    while (m_SavedSearchEntries.count()) {
+        SearchEditorModel::searchEntry * entry = m_SavedSearchEntries.at(0);
+        if (entry) delete entry;
+        m_SavedSearchEntries.removeAt(0);
+    }
+
+}
+
+
 void SearchEditor::SetupSearchEditorTree()
 {
     m_SearchEditorModel = SearchEditorModel::instance();
@@ -135,36 +148,42 @@ void SearchEditor::LoadFindReplace()
 {
     // destination needs to delete each searchEntry when done
     emit LoadSelectedSearchRequest(GetSelectedEntry(false));
+    // single destination slot must clean this up
 }
 
 void SearchEditor::Find()
 {
     // destination needs to delete each searchEntry when done
     emit FindSelectedSearchRequest(GetSelectedEntries());
+    // single destination slot must clean this up
 }
 
 void SearchEditor::ReplaceCurrent()
 {
     // destination needs to delete each searchEntry when done
     emit ReplaceCurrentSelectedSearchRequest(GetSelectedEntries());
+    // single destination slot must clean this up
 }
 
 void SearchEditor::Replace()
 {
     // destination needs to delete each searchEntry when done
     emit ReplaceSelectedSearchRequest(GetSelectedEntries());
+    // single destination slot must clean this up
 }
 
 void SearchEditor::CountAll()
 {
     // destination needs to delete each searchEntry when done
     emit CountAllSelectedSearchRequest(GetSelectedEntries());
+    // single destination slot must clean this up
 }
 
 void SearchEditor::ReplaceAll()
 {
     // destination needs to delete each searchEntry when done
     emit ReplaceAllSelectedSearchRequest(GetSelectedEntries());
+    // single destination slot must clean this up
 }
 
 void SearchEditor::showEvent(QShowEvent *event)
@@ -366,6 +385,7 @@ QStandardItem *SearchEditor::AddEntry(bool is_group, SearchEditorModel::searchEn
 
 QStandardItem *SearchEditor::AddGroup()
 {
+    // will clean up after itself
     return AddEntry(true);
 }
 
@@ -387,31 +407,33 @@ bool SearchEditor::Copy()
         return false;
     }
 
-    while (m_SavedSearchEntries.count()) {
-        m_SavedSearchEntries.removeAt(0);
-    }
 
-    QList<SearchEditorModel::searchEntry *> entries = GetSelectedEntries();
-
-    if (!entries.count()) {
-        return false;
-    }
-
+    // verify user is not trying to copy groups
     foreach(QStandardItem * item, GetSelectedItems()) {
         SearchEditorModel::searchEntry *entry = m_SearchEditorModel->GetEntry(item);
-
-        if (entry->is_group) {
+        bool is_group = entry->is_group;
+        delete entry;
+        if (is_group) {
             Utility::DisplayStdErrorDialog(tr("You cannot Copy or Cut groups - use drag-and-drop.")) ;
             return false;
         }
     }
+
+    // clean up previous copied entries
+    while (m_SavedSearchEntries.count()) {
+        SearchEditorModel::searchEntry * entry = m_SavedSearchEntries.at(0);
+        if (entry) delete entry;
+        m_SavedSearchEntries.removeAt(0);
+    }
+
+
+    QList<SearchEditorModel::searchEntry *> entries = GetSelectedEntries();
+    if (!entries.count()) {
+        return false;
+    }
+
     foreach(SearchEditorModel::searchEntry * entry, entries) {
-        SearchEditorModel::searchEntry *save_entry = new SearchEditorModel::searchEntry();
-        save_entry->name = entry->name;
-        save_entry->find = entry->find;
-        save_entry->replace = entry->replace;
-        save_entry->controls = entry->controls;
-        m_SavedSearchEntries.append(save_entry);
+        m_SavedSearchEntries.append(entry);
     }
     return true;
 }

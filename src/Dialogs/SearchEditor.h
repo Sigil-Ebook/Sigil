@@ -49,6 +49,8 @@ class SearchEditor : public QDialog
 
 public:
     SearchEditor(QWidget *parent);
+    ~SearchEditor();
+
     void ForceClose();
 
 public slots:

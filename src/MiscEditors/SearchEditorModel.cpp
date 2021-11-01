@@ -538,6 +538,7 @@ QString SearchEditorModel::BuildControlsToolTip(const QString & controls)
 
 QStandardItem *SearchEditorModel::AddEntryToModel(SearchEditorModel::searchEntry *entry, bool is_group, QStandardItem *parent_item, int row)
 {
+    bool clean_up_needed = false;
     // parent_item must be a group item
     if (!parent_item) {
         parent_item = invisibleRootItem();
@@ -546,6 +547,7 @@ QStandardItem *SearchEditorModel::AddEntryToModel(SearchEditorModel::searchEntry
     // Create an empty entry if none supplied
     if (!entry) {
         entry = new SearchEditorModel::searchEntry();
+        clean_up_needed = true;
         entry->is_group = is_group;
 
         if (!is_group) {
@@ -607,6 +609,7 @@ QStandardItem *SearchEditorModel::AddEntryToModel(SearchEditorModel::searchEntry
         new_item = parent_item->child(row, 0);
     }
 
+    if (clean_up_needed) delete entry;
     SetDataModified(true);
     return new_item;
 }

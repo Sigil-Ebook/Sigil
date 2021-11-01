@@ -3,6 +3,7 @@ pre-1.9.0
      - update gumbo to follow WhatWG changes for closing br and p tags in foreign content
      - fix Saved Search Controls code typo for Tabbed Html Files
      - plug long existant memory leaks related to Saved Searches that stop after a match is found
+     - more file position of 0 fixes and handle toInt() result failures from N/A in ValidationResults
 
 
 Sigil-1.8.0
