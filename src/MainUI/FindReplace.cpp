@@ -1387,6 +1387,7 @@ void FindReplace::CleanEntries(QList<SearchEditorModel::searchEntry *> search_en
 }
 
 
+// See SearchEditor emit - must clean up all passed in entries
 void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entries)
 {
     if (search_entries.isEmpty()) {
@@ -1409,6 +1410,7 @@ void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entr
     ResetKeyModifiers();
 }
 
+// See SearchEditor emit - must clean up all passed in entries
 void FindReplace::ReplaceCurrentSearch(QList<SearchEditorModel::searchEntry *> search_entries)
 {
     if (search_entries.isEmpty()) {
@@ -1428,6 +1430,7 @@ void FindReplace::ReplaceCurrentSearch(QList<SearchEditorModel::searchEntry *> s
     CleanEntries(search_entries);
 }
 
+// See SearchEditor emit - must clean up all passed in entries
 void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_entries)
 {
     if (search_entries.isEmpty()) {
@@ -1449,6 +1452,7 @@ void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_e
     ResetKeyModifiers();
 }
 
+// See SearchEditor emit - must clean up all passed in entries
 void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_entries)
 {
     if (search_entries.isEmpty()) {
@@ -1475,6 +1479,7 @@ void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_
     ResetKeyModifiers();
 }
 
+// See SearchEditor emit - must clean up all passed in entries
 void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> search_entries)
 {
     if (search_entries.isEmpty()) {

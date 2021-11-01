@@ -27,7 +27,9 @@
 #include <QtWidgets/QMessageBox>
 #include <QtGui/QContextMenuEvent>
 #include <QRegularExpression>
-
+#include <QItemSelectionModel>
+#include <QItemSelection>
+#include <QDebug>
 #include "Dialogs/SearchEditorItemDelegate.h"
 #include "Dialogs/SearchEditor.h"
 #include "Misc/Utility.h"
@@ -401,6 +403,13 @@ void SearchEditor::Cut()
     }
 }
 
+
+void SearchEditor::SelectionChanged()
+{
+    qDebug() << "selection changed";
+}
+
+
 bool SearchEditor::Copy()
 {
     if (SelectedRowsCount() < 1) {
@@ -627,29 +636,31 @@ void SearchEditor::ExportItems(QList<QStandardItem *> items)
                        &default_filter,
                        options);
 
-    if (filename.isEmpty()) {
-        return;
-    }
-
-    QString ext = QFileInfo(filename).suffix().toLower();
-    QChar sep;
-    if (ext == "txt") {
-        sep = QChar(9);
-    } else if (ext == "csv") {
-        sep = QChar(',');
-    }
-
-    if (ext == "ini") {
-        // Save the data, and last folder opened if successful
-        if (SaveData(entries, filename)) {
-            m_LastFolderOpen = QFileInfo(filename).absolutePath();
-            WriteSettings();
+    if (!filename.isEmpty()) {
+        QString ext = QFileInfo(filename).suffix().toLower();
+        QChar sep;
+        if (ext == "txt") {
+            sep = QChar(9);
+        } else if (ext == "csv") {
+            sep = QChar(',');
         }
-    } else {
-        if (SaveTextData(entries, filename, sep)) {
-            m_LastFolderOpen = QFileInfo(filename).absolutePath();
-            WriteSettings();
+
+        if (ext == "ini") {
+            // Save the data, and last folder opened if successful
+            if (SaveData(entries, filename)) {
+                m_LastFolderOpen = QFileInfo(filename).absolutePath();
+                WriteSettings();
+            }
+        } else {
+            if (SaveTextData(entries, filename, sep)) {
+                m_LastFolderOpen = QFileInfo(filename).absolutePath();
+                WriteSettings();
+            }
         }
+    }
+    // clean up to prevent memory leaks
+    foreach(SearchEditorModel::searchEntry* entry, entries) {
+        delete entry;
     }
 }
 
@@ -1165,4 +1176,6 @@ void SearchEditor::ConnectSignalsSlots()
     connect(m_FillIn,      SIGNAL(triggered()), this, SLOT(FillControls()));
     connect(m_SearchEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
     connect(m_SearchEditorModel, SIGNAL(ItemDropped(const QModelIndex &)), this, SLOT(ModelItemDropped(const QModelIndex &)));
+    connect(ui.SearchEditorTree->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), this, SLOT(SelectionChanged()));
+
 }

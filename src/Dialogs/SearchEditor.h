@@ -54,9 +54,12 @@ public:
     void ForceClose();
 
 public slots:
+
     QStandardItem *AddEntry(bool is_group = false, SearchEditorModel::searchEntry *search_entry = NULL, bool insert_after = true);
 
     void ShowMessage(const QString &message);
+
+    void SelectionChanged();
 
     QList<SearchEditorModel::searchEntry *> GetEntriesFromFullName(const QString& name);
 
