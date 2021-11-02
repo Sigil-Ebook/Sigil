@@ -239,6 +239,10 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
     }
 
     QFile::copy(fullfilepath, new_file_path);
+    // QFile::copy copies permissions as well which we can not have
+    QFile::setPermissions(new_file_path, QFileDevice::ReadOwner | QFileDevice::WriteOwner |
+                          QFileDevice::ReadUser | QFileDevice::WriteUser |
+                          QFileDevice::ReadOther);
 
     if (QThread::currentThread() != QApplication::instance()->thread()) {
         resource->moveToThread(QApplication::instance()->thread());
