@@ -313,7 +313,7 @@ void AutomateEditor::loadToolElements()
          "StandardizeEpub" << "StandardizeEpub" << tr("Convert Epub layout to Sigil's historic Standard form.") <<
          "UpdateManifestProperties" << "UpdateManifestProperties" << tr("Update Epub3 OPF Manifest properties.") <<
          "ValidateStylesheetsWithW3C" << "ValidateStylesheetsWithW3C" << tr("Validate All Stylesheets with W3C in external browser.") <<
-         "WellFormedCheckEpub" << "WellFormedCheckEpub" << tr("Perform a basic Well-Fromed Check on Epub XHtml files.");
+         "WellFormedCheckEpub" << "WellFormedCheckEpub" << tr("Perform a basic Well-Formed Check on Epub XHtml files.");
     for (int i = 0; i < data.count(); i++) {
         QString name = data.at(i++);
         QString code = data.at(i++);
