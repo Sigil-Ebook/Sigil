@@ -28,6 +28,7 @@
 #include <QtWidgets/QTableWidget>
 #include <QRegularExpression>
 #include <QVariant>
+#include <QFileDialog>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -43,18 +44,115 @@ static const QBrush ERROR_BRUSH   = QBrush(QColor(255, 230, 230));
 
 const QString ValidationResultsView::SEP = QString(QChar(31));
 
+static const QString SETTINGS_GROUP = "validation_results";
+
+
 ValidationResultsView::ValidationResultsView(QWidget *parent)
     :
     QDockWidget(tr("Validation Results"), parent),
     m_ResultTable(new QTableWidget(this)),
-    m_NoProblems(false)
+    m_NoProblems(false),
+    m_ContextMenu(new QMenu(this))
 {
     setWidget(m_ResultTable);
     setAllowedAreas(Qt::BottomDockWidgetArea | Qt::TopDockWidgetArea);
     SetUpTable();
+    m_ResultTable->setContextMenuPolicy(Qt::CustomContextMenu);
+    m_ExportAll = new QAction(tr("Export All") + "...", this);
+    ReadSettings();
     connect(m_ResultTable, SIGNAL(itemDoubleClicked(QTableWidgetItem *)),
-            this,           SLOT(ResultDoubleClicked(QTableWidgetItem *)));
+            this, SLOT(ResultDoubleClicked(QTableWidgetItem *)));
+    connect(m_ResultTable, SIGNAL(customContextMenuRequested(const QPoint &)),
+            this, SLOT(OpenContextMenu(const QPoint &)));
+    connect(m_ExportAll,   SIGNAL(triggered()), this, SLOT(ExportAll()));
 }
+
+void ValidationResultsView::ReadSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+    m_LastFolderOpen = settings.value("last_folder_open").toString();
+    settings.endGroup();
+}
+
+void ValidationResultsView::WriteSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+    settings.setValue("last_folder_open", m_LastFolderOpen);
+    settings.endGroup();
+}
+
+
+void ValidationResultsView::OpenContextMenu(const QPoint &point)
+{
+    m_ContextMenu->addAction(m_ExportAll);
+    m_ContextMenu->exec(m_ResultTable->viewport()->mapToGlobal(point));
+    if (!m_ContextMenu.isNull()) {
+        m_ContextMenu->clear();
+        m_ExportAll->setEnabled(true);
+    }
+}
+
+
+void ValidationResultsView::ExportAll()
+{
+    if (m_NoProblems || m_ResultTable->rowCount() == 0) return;
+
+    // Get the filename to use
+    QMap<QString,QString> file_filters;
+    file_filters[ "csv" ] = tr("CSV files (*.csv)");
+    file_filters[ "txt" ] = tr("Text files (*.txt)");
+    QStringList filters = file_filters.values();
+    QString filter_string = "";
+    foreach(QString filter, filters) {
+        filter_string += filter + ";;";
+    }
+    QString default_filter = file_filters.value("csv");
+
+    QFileDialog::Options options = QFileDialog::Options();
+#ifdef Q_OS_MAC
+    options = options | QFileDialog::DontUseNativeDialog;
+#endif
+
+    QString filename = QFileDialog::getSaveFileName(this,
+                                                    tr("Export Validation Results"),
+                                                    m_LastFolderOpen,
+                                                    filter_string,
+                                                    &default_filter,
+                                                    options);
+    if (filename.isEmpty()) return;
+
+    QString ext = QFileInfo(filename).suffix().toLower();
+    QChar sep = QChar(',');
+    if (ext == "txt") sep = QChar(9);
+
+    QStringList res;
+    for (int i = 0; i < m_ResultTable->rowCount(); i++) {
+        QStringList data;
+        QTableWidgetItem *path_item = m_ResultTable->item(i, 0);
+        data << path_item->data(Qt::UserRole+1).toString();
+        data << m_ResultTable->item(i,1)->text();
+        data << m_ResultTable->item(i,2)->text();
+        data << m_ResultTable->item(i,3)->text();
+        if (sep == ',') {
+            res << Utility::createCSVLine(data);
+        } else {
+            res << data.join(sep);
+        }
+    }
+    QString text = res.join('\n');
+    QString message;
+    try {
+        Utility::WriteUnicodeTextFile(text, filename);
+        m_LastFolderOpen = QFileInfo(filename).absolutePath();
+        WriteSettings();
+    } catch (CannotOpenFile& e) {
+        message = QString(e.what());
+        Utility::DisplayStdWarningDialog(tr("Export of Validation Results failed: "), message);
+    }
+}
+
 
 void ValidationResultsView::showEvent(QShowEvent *event)
 {
