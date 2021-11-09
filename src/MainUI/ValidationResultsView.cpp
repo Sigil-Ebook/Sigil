@@ -296,6 +296,9 @@ void ValidationResultsView::ConfigureTableForResults()
     m_ResultTable->setHorizontalHeaderLabels(
     QStringList() << tr("File") << tr("Line") << tr("Offset") << tr("Message"));
     m_ResultTable->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    m_ResultTable->setSortingEnabled(true);
+    m_ResultTable->horizontalHeader()->setSortIndicatorShown(true);
+
 }
 
 
