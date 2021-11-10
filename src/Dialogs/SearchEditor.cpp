@@ -42,6 +42,7 @@ SearchEditor::SearchEditor(QWidget *parent)
     QDialog(parent),
     m_LastFolderOpen(QString()),
     m_ContextMenu(new QMenu(this)),
+    m_SearchToLoad(nullptr),
     m_CntrlDelegate(new SearchEditorItemDelegate())
 {
     ui.setupUi(this);
@@ -63,6 +64,16 @@ SearchEditor::~SearchEditor()
         m_SavedSearchEntries.removeAt(0);
     }
 
+    // clean up current search entries
+    while (m_CurrentSearchEntries.count()) {
+        SearchEditorModel::searchEntry * entry = m_CurrentSearchEntries.at(0);
+        if (entry) delete entry;
+        m_CurrentSearchEntries.removeAt(0);
+    }
+
+    // clean up m_SearchToLoad
+    if (m_SearchToLoad) delete m_SearchToLoad;
+    m_SearchToLoad = nullptr;
 }
 
 
@@ -148,45 +159,35 @@ bool SearchEditor::SaveTextData(QList<SearchEditorModel::searchEntry *> entries,
 
 void SearchEditor::LoadFindReplace()
 {
-    // destination needs to delete each searchEntry when done
+    // ownership of the entry to load Find & Replace with remains here
     emit LoadSelectedSearchRequest(GetSelectedEntry(false));
-    // single destination slot must clean this up
 }
 
 void SearchEditor::Find()
 {
-    // destination needs to delete each searchEntry when done
-    emit FindSelectedSearchRequest(GetSelectedEntries());
-    // single destination slot must clean this up
+    emit FindSelectedSearchRequest();
 }
 
 void SearchEditor::ReplaceCurrent()
 {
-    // destination needs to delete each searchEntry when done
-    emit ReplaceCurrentSelectedSearchRequest(GetSelectedEntries());
-    // single destination slot must clean this up
+    emit ReplaceCurrentSelectedSearchRequest();
 }
 
 void SearchEditor::Replace()
 {
-    // destination needs to delete each searchEntry when done
-    emit ReplaceSelectedSearchRequest(GetSelectedEntries());
-    // single destination slot must clean this up
+    emit ReplaceSelectedSearchRequest();
 }
 
 void SearchEditor::CountAll()
 {
-    // destination needs to delete each searchEntry when done
-    emit CountAllSelectedSearchRequest(GetSelectedEntries());
-    // single destination slot must clean this up
+    emit CountAllSelectedSearchRequest();
 }
 
 void SearchEditor::ReplaceAll()
 {
-    // destination needs to delete each searchEntry when done
-    emit ReplaceAllSelectedSearchRequest(GetSelectedEntries());
-    // single destination slot must clean this up
+    emit ReplaceAllSelectedSearchRequest();
 }
+
 
 void SearchEditor::showEvent(QShowEvent *event)
 {
@@ -247,7 +248,8 @@ int SearchEditor::SelectedRowsCount()
     return count;
 }
 
-SearchEditorModel::searchEntry *SearchEditor::GetSelectedEntry(bool show_warning)
+// sets m_SearchToLoad to the currently selected entry and returns it
+SearchEditorModel::searchEntry* SearchEditor::GetSelectedEntry(bool show_warning)
 {
     // Note: a SeachEditorModel::searchEntry is a simple struct that is created
     // by new in SearchEditorModel GetEntry() and GetEntries()
@@ -269,6 +271,8 @@ SearchEditorModel::searchEntry *SearchEditor::GetSelectedEntry(bool show_warning
         if (item) {
             if (!m_SearchEditorModel->ItemIsGroup(item)) {
                 entry = m_SearchEditorModel->GetEntry(item);
+                if (m_SearchToLoad) delete m_SearchToLoad;
+                m_SearchToLoad = entry;
             } else if (show_warning) {
                 Utility::DisplayStdErrorDialog(tr("You cannot select a group for this action."));
             }
@@ -278,26 +282,32 @@ SearchEditorModel::searchEntry *SearchEditor::GetSelectedEntry(bool show_warning
     return entry;
 }
 
-QList<SearchEditorModel::searchEntry *> SearchEditor::GetEntriesFromFullName(const QString &name)
+void SearchEditor::SetCurrentEntriesFromFullName(const QString &name)
 {
-    // Note: a SeachEditorModel::searchEntry is a simple struct that is created 
-    // by new in SearchEditorModel GetEntry() and GetEntries()
-    // These must be manually deleted when done to prevent memory leaks
+
+    while (m_CurrentSearchEntries.count()) {
+        SearchEditorModel::searchEntry * entry = m_CurrentSearchEntries.at(0);
+        if (entry) delete entry;
+        m_CurrentSearchEntries.removeAt(0);
+    }
 
     QList<SearchEditorModel::searchEntry *> selected_entries;
+
 
     QStandardItem * nameditem = m_SearchEditorModel->GetItemFromName(name);
     if (nameditem) {
         QList<QStandardItem *> items = m_SearchEditorModel->GetNonGroupItems(nameditem);
         if (!ItemsAreUnique(items)) {
-            return selected_entries;
+            return;
         }
 
-        selected_entries = m_SearchEditorModel->GetEntries(items);
+        foreach(SearchEditorModel::searchEntry* entry, m_SearchEditorModel->GetEntries(items)) {
+            m_CurrentSearchEntries << entry;
+        }
     }
-
-    return selected_entries;
 }
+
+
 
 QList<SearchEditorModel::searchEntry *> SearchEditor::GetSelectedEntries()
 {
@@ -387,9 +397,10 @@ QStandardItem *SearchEditor::AddEntry(bool is_group, SearchEditorModel::searchEn
 
 QStandardItem *SearchEditor::AddGroup()
 {
-    // will clean up after itself
+    // will clean up after itself since entry is NULL
     return AddEntry(true);
 }
+
 
 void SearchEditor::Edit()
 {
@@ -404,9 +415,40 @@ void SearchEditor::Cut()
 }
 
 
+// NOTE: Provides the remembered state needed by downstream F&R routines
+void SearchEditor::RecordEntryAsCompleted(SearchEditorModel::searchEntry* entry)
+{
+    for (int i = 0; i < m_CurrentSearchEntries.count(); i++) {
+        if (m_CurrentSearchEntries.at(i) == entry) {
+            m_CurrentSearchEntries.removeAt(i);
+            delete entry;
+        }
+    }
+}
+
+
+// NOTE: Ownership of these pointers remains here with the Search Editor
+// This is just a copy of the remaining current search entry list
+QList<SearchEditorModel::searchEntry*> SearchEditor::GetCurrentEntries()
+{
+    QList<SearchEditorModel::searchEntry*> entries;
+    for(int i=0; i < m_CurrentSearchEntries.count(); i++) {
+        entries << m_CurrentSearchEntries.at(i);
+    }
+    return entries;
+}
+
 void SearchEditor::SelectionChanged()
 {
-    qDebug() << "selection changed";
+    // any time the current selection changes update m_CurrentSearchEntries
+    while (m_CurrentSearchEntries.count()) {
+        SearchEditorModel::searchEntry * entry = m_CurrentSearchEntries.at(0);
+        if (entry) delete entry;
+        m_CurrentSearchEntries.removeAt(0);
+    }
+    foreach(SearchEditorModel::searchEntry* entry, GetSelectedEntries()) {
+        m_CurrentSearchEntries << entry;
+    }
 }
 
 

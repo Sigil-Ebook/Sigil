@@ -48,6 +48,7 @@
 #include "MiscEditors/SearchEditorModel.h"
 #include "Tabs/ContentTab.h"
 #include "ViewEditors/ElementIndex.h"
+#include "Dialogs/SearchEditor.h"
 
 const int MAX_RECENT_FILES = 5;
 const int STATUSBAR_MSG_DISPLAY_TIME = 7000;
@@ -109,6 +110,10 @@ public:
                Qt::WindowFlags flags = Qt::WindowFlags());
 
     ~MainWindow();
+
+    // routines to help Find and Replace exchange info with the SearchEditor
+    QList<SearchEditorModel::searchEntry*> SearchEditorGetCurrentEntries();
+    void SearchEditorRecordEntryAsCompleted(SearchEditorModel::searchEntry* entry);
 
     void maybe_fixup_dockwidget_geometry(QDockWidget * widget);
 

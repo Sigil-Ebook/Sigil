@@ -53,6 +53,10 @@ public:
 
     void ForceClose();
 
+    void RecordEntryAsCompleted(SearchEditorModel::searchEntry* entry);
+    QList<SearchEditorModel::searchEntry*> GetCurrentEntries();
+    int GetCurrentEntriesCount() { return m_CurrentSearchEntries.count(); }
+
 public slots:
 
     QStandardItem *AddEntry(bool is_group = false, SearchEditorModel::searchEntry *search_entry = NULL, bool insert_after = true);
@@ -61,15 +65,16 @@ public slots:
 
     void SelectionChanged();
 
-    QList<SearchEditorModel::searchEntry *> GetEntriesFromFullName(const QString& name);
+    void SetCurrentEntriesFromFullName(const QString& name);
 
 signals:
+
     void LoadSelectedSearchRequest(SearchEditorModel::searchEntry *search_entry);
-    void FindSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
-    void ReplaceCurrentSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
-    void ReplaceSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
-    void CountAllSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
-    void ReplaceAllSelectedSearchRequest(QList<SearchEditorModel::searchEntry *> search_entries);
+    void FindSelectedSearchRequest();
+    void ReplaceCurrentSelectedSearchRequest();
+    void ReplaceSelectedSearchRequest();
+    void CountAllSelectedSearchRequest();
+    void ReplaceAllSelectedSearchRequest();
 
     void ShowStatusMessageRequest(const QString &message);
 
@@ -119,6 +124,7 @@ private slots:
     void ModelItemDropped(const QModelIndex &index);
 
 private:
+
     bool MaybeSaveDialogSaysProceed(bool is_forced);
     void MoveVertical(bool move_down);
     void MoveHorizontal(bool move_left);
@@ -173,7 +179,13 @@ private:
 
     QPointer<QMenu> m_ContextMenu;
 
+    // stores result of cut/copy for later paste
     QList<SearchEditorModel::searchEntry *> m_SavedSearchEntries;
+
+    // List of the remaining currently selected Entries updated  to remember state
+    QList<SearchEditorModel::searchEntry *> m_CurrentSearchEntries;
+
+    SearchEditorModel::searchEntry * m_SearchToLoad;
 
     SearchEditorItemDelegate * m_CntrlDelegate;
 

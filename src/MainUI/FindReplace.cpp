@@ -34,8 +34,10 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/FindReplaceQLineEdit.h"
 #include "PCRE/PCREErrors.h"
+#include "ResourceObjects/Resource.h"
+#include "ResourceObjects/TextResource.h"
 
-#define DBG if(0)
+#define DBG if(1)
 
 static const QString SETTINGS_GROUP = "find_replace";
 static const QString REGEX_OPTION_UCP = "(*UCP)";
@@ -94,6 +96,22 @@ FindReplace::~FindReplace()
     WriteSettings();
 }
 
+void FindReplace::SetPreviousSearch()
+{
+    m_PreviousSearch.clear();
+    m_PreviousSearch << ui.cbFind->lineEdit()->text();
+    m_PreviousSearch << ui.cbReplace->lineEdit()->text();
+    m_PreviousSearch << GetControls();
+}
+
+bool FindReplace::IsNewSearch()
+{
+    if (m_PreviousSearch.count() != 3) return true;
+    if (m_PreviousSearch.at(0) != ui.cbFind->lineEdit()->text()) return true;
+    if (m_PreviousSearch.at(1) != ui.cbReplace->lineEdit()->text()) return true;
+    if (m_PreviousSearch.at(2) != GetControls()) return true;
+    return false;
+}
 
 void FindReplace::SetUpFindText()
 {
@@ -339,6 +357,12 @@ void FindReplace::FindAnyTextInTags(QString text)
 bool FindReplace::Find()
 {
     DBG qDebug() << "Find";
+
+    if (IsNewSearch()) {
+        SetFirstResource(true);
+        SetPreviousSearch();
+    }
+    
     bool found = false;
 
     if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
@@ -370,6 +394,11 @@ bool FindReplace::FindPrevious()
 int FindReplace::Count()
 {
     clearMessage();
+
+    if (IsNewSearch()) {
+        SetFirstResource(true);
+        SetPreviousSearch();
+    }
 
     if (!IsValidFindText()) {
         return 0;
@@ -412,6 +441,11 @@ int FindReplace::Count()
 
 bool FindReplace::Replace()
 {
+    if (IsNewSearch()) {
+        SetFirstResource(true);
+        SetPreviousSearch();
+    }
+
     bool found = false;
 
     if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
@@ -438,6 +472,9 @@ bool FindReplace::ReplacePrevious()
 
 bool FindReplace::ReplaceCurrent()
 {
+    // isNewSearch should always return false here
+    // as search must have already found something to replace
+
     bool found = false;
 
     if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
@@ -456,6 +493,11 @@ int FindReplace::ReplaceAll()
 {
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
     clearMessage();
+
+    if (IsNewSearch()) {
+        SetFirstResource(true);
+        SetPreviousSearch();
+    }
 
     if (!IsValidFindText()) {
         return 0;
@@ -860,6 +902,7 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
         searchable = GetAvailableSearchable();
 
         if (searchable) {
+            // found = searchable->FindNext(GetSearchRegex(), direction, m_SpellCheck, false, false);
             found = searchable->FindNext(GetSearchRegex(), direction, m_SpellCheck, false, false);
         }
     }
@@ -1335,23 +1378,18 @@ void FindReplace::SaveSearchAction()
 }
 
 
-void FindReplace::DoLoadSearch(SearchEditorModel::searchEntry *search_entry)
-{
-    LoadSearch(search_entry);
-    delete search_entry;
-}
-
-
 void FindReplace::LoadSearchByName(const QString &name)
 {
+    // callers to SearchEditorModel's GetEntryFromName receive a searchEntry pointer 
+    // created by a call to new and must take ownership and so must clean up after themselves
     SearchEditorModel::searchEntry * search_entry = SearchEditorModel::instance()->GetEntryFromName(name);
-    // callers to LoadSearch need to clean up after themselves to prevent leaks
-    LoadSearch(search_entry);
-    if (search_entry) delete search_entry;
+    if (search_entry) {
+        LoadSearch(search_entry);
+        delete search_entry;
+    }
 }
 
-// callers of LoadSearch own the search_entry pointers and need to clean 
-// them up properly to prevent memory leaks
+// LoadSearch is NOT the owner of any passed in search entry pointers
 void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
 {
     if (!search_entry) {
@@ -1369,27 +1407,55 @@ void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
     if (!search_entry->name.isEmpty()) {
         message = QString("%1: %2 ").arg(tr("Loaded")).arg(search_entry->name.replace('<', "&lt;").replace('>', "&gt;").left(50));
     }
-
-    // to prevent memory leak in FindSearch, ReplaceCurrentSearch, ReplaceSearch,
-    // CountAllSearch, and ReplaceAllSearch you need to clean things up there
     ShowMessage(message);
 }
 
-
-// clean up search entries from list (they were each created by new)
-void FindReplace::CleanEntries(QList<SearchEditorModel::searchEntry *> search_entries)
+void FindReplace::SetFirstResource(bool update_position)
 {
-    for( int i=0; i < search_entries.size(); i++ ) {
-        SearchEditorModel::searchEntry * search_entry = search_entries.at(i);
-        if (search_entry) delete search_entry;
-        search_entries[i] = nullptr;
+    if (isWhereCF() || m_LookWhereCurrentFile || IsMarkedText()) return;
+
+    QList <Resource *> resources;
+    Resource* first_resource = nullptr;
+
+    if (GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles) {
+        resources = m_MainWindow->GetAllHTMLResources();
+    } else if (GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles) {
+        resources = m_MainWindow->GetValidSelectedHTMLResources();
+    } else if (GetLookWhere() == FindReplace::LookWhere_TabbedHTMLFiles) {
+        resources = m_MainWindow->GetTabbedHTMLResources();
+    } else if (GetLookWhere() == FindReplace::LookWhere_AllCSSFiles) {
+        resources = m_MainWindow->GetAllCSSResources();
+    } else if (GetLookWhere() == FindReplace::LookWhere_SelectedCSSFiles) {
+        resources = m_MainWindow->GetValidSelectedCSSResources();
+    } else if (GetLookWhere() == FindReplace::LookWhere_TabbedCSSFiles) {
+        resources = m_MainWindow->GetTabbedCSSResources();
+    } else if (GetLookWhere() == FindReplace::LookWhere_OPFFile) {
+        resources = m_MainWindow->GetOPFResource();
+    } else if (GetLookWhere() == FindReplace::LookWhere_NCXFile) {
+        resources = m_MainWindow->GetNCXResource();
+    }
+
+    int pos = 0;
+    if (GetSearchDirection() == FindReplace::SearchDirection_Down) {
+        first_resource = resources.first(); 
+    } else {
+        first_resource = resources.last();
+        TextResource* text_resource = qobject_cast<TextResource*>(first_resource);
+        if (text_resource) pos = text_resource->GetText().length();
+    }
+    if (update_position) {
+        m_MainWindow->OpenResourceAndWaitUntilLoaded(first_resource, -1, pos);
+    } else {
+        m_MainWindow->OpenResourceAndWaitUntilLoaded(first_resource);
     }
 }
 
-
-// See SearchEditor emit - must clean up all passed in entries
-void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entries)
+// These are *Search methods are invoked by the SearchEditor
+void FindReplace::FindSearch()
 {
+    // these entries are owned by the Search Editor who will clean up as needed
+    QList<SearchEditorModel::searchEntry*> search_entries = m_MainWindow->SearchEditorGetCurrentEntries();
+
     if (search_entries.isEmpty()) {
         ShowMessage(tr("No searches selected"));
         return;
@@ -1399,40 +1465,50 @@ void FindReplace::FindSearch(QList<SearchEditorModel::searchEntry *> search_entr
     m_IsSearchGroupRunning = true;
     foreach(SearchEditorModel::searchEntry * search_entry, search_entries) {
         LoadSearch(search_entry);
-
         if (Find()) {
-
             break;
-        };
+        } else {
+            m_MainWindow->SearchEditorRecordEntryAsCompleted(search_entry);
+        }
     }
     m_IsSearchGroupRunning = false;
-    CleanEntries(search_entries);
     ResetKeyModifiers();
 }
 
-// See SearchEditor emit - must clean up all passed in entries
-void FindReplace::ReplaceCurrentSearch(QList<SearchEditorModel::searchEntry *> search_entries)
+void FindReplace::ReplaceCurrentSearch()
 {
+    // these entries are owned by the Search Editor who will clean up as needed
+    QList<SearchEditorModel::searchEntry*> search_entries = m_MainWindow->SearchEditorGetCurrentEntries();
+
     if (search_entries.isEmpty()) {
         ShowMessage(tr("No searches selected"));
         return;
     }
 
     m_IsSearchGroupRunning = true;
+    
+#if 0
     foreach(SearchEditorModel::searchEntry * search_entry, search_entries) {
         LoadSearch(search_entry);
-
         if (ReplaceCurrent()) {
             break;
+        } else {
+            m_MainWindow->SearchEditorRecordEntryAsCompleted(search_entry);
         }
     }
+#else
+    SearchEditorModel::searchEntry * search_entry = search_entries.first();
+    LoadSearch(search_entry);
+    ReplaceCurrent();
+#endif
     m_IsSearchGroupRunning = false;
-    CleanEntries(search_entries);
 }
 
-// See SearchEditor emit - must clean up all passed in entries
-void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_entries)
+void FindReplace::ReplaceSearch()
 {
+    // these entries are owned by the Search Editor who will clean up as needed
+    QList<SearchEditorModel::searchEntry*> search_entries = m_MainWindow->SearchEditorGetCurrentEntries();
+
     if (search_entries.isEmpty()) {
         ShowMessage(tr("No searches selected"));
         return;
@@ -1440,21 +1516,24 @@ void FindReplace::ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_e
 
     SetKeyModifiers();
     m_IsSearchGroupRunning = true;
+
     foreach(SearchEditorModel::searchEntry * search_entry, search_entries) {
         LoadSearch(search_entry);
-
         if (Replace()) {
             break;
+        } else {
+            m_MainWindow->SearchEditorRecordEntryAsCompleted(search_entry);
         }
     }
     m_IsSearchGroupRunning = false;
-    CleanEntries(search_entries);
     ResetKeyModifiers();
 }
 
-// See SearchEditor emit - must clean up all passed in entries
-void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_entries)
+void FindReplace::CountAllSearch()
 {
+    // these entries are owned by the Search Editor who will clean up as needed
+    QList<SearchEditorModel::searchEntry*> search_entries = m_MainWindow->SearchEditorGetCurrentEntries();
+
     if (search_entries.isEmpty()) {
         ShowMessage(tr("No searches selected"));
         return;
@@ -1475,13 +1554,14 @@ void FindReplace::CountAllSearch(QList<SearchEditorModel::searchEntry *> search_
         QString message = tr("Matches found: %n", "", count);
         ShowMessage(message);
     }
-    CleanEntries(search_entries);
     ResetKeyModifiers();
 }
 
-// See SearchEditor emit - must clean up all passed in entries
-void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> search_entries)
+void FindReplace::ReplaceAllSearch()
 {
+    // these entries are owned by the Search Editor who will clean up as needed
+    QList<SearchEditorModel::searchEntry*> search_entries = m_MainWindow->SearchEditorGetCurrentEntries();
+
     if (search_entries.isEmpty()) {
         ShowMessage(tr("No searches selected"));
         return;
@@ -1493,6 +1573,7 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
     foreach(SearchEditorModel::searchEntry * search_entry, search_entries) {
         LoadSearch(search_entry);
         count += ReplaceAll();
+        m_MainWindow->SearchEditorRecordEntryAsCompleted(search_entry);
     }
     m_IsSearchGroupRunning = false;
 
@@ -1502,9 +1583,9 @@ void FindReplace::ReplaceAllSearch(QList<SearchEditorModel::searchEntry *> searc
         QString message = tr("Replacements made: %n", "", count);
         ShowMessage(message);
     }
-    CleanEntries(search_entries);
     ResetKeyModifiers();
 }
+
 
 
 void FindReplace::SetSearchMode(int search_mode)
@@ -1764,7 +1845,6 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.chkRegexOptionAutoTokenise, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
     connect(ui.chkOptionWrap, SIGNAL(clicked(bool)), this, SLOT(SetOptionWrap(bool)));
     connect(ui.cbFind, SIGNAL(editTextChanged(const QString&)), this, SLOT(ValidateRegex()));
-    connect(ui.cbFind, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));
     connect(ui.cbFind, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));
     connect(ui.cbSearchMode, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));
     connect(ui.chkRegexOptionDotAll, SIGNAL(clicked(bool)), this, SLOT(ValidateRegex()));

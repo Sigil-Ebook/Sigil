@@ -1,9 +1,16 @@
 pre-1.9.0
     Bug Fixes
-     - update gumbo to follow WhatWG changes for closing br and p tags in foreign content
-     - fix Saved Search Controls code typo for Tabbed Html Files
-     - plug long existant memory leaks related to Saved Searches that stop after a match is found
-     - more file position of 0 fixes and handle toInt() result failures from N/A in ValidationResults
+     - Update gumbo to follow WhatWG changes for closing br and p tags in foreign content
+     - Fix Saved Search Controls code typo for Tabbed Html Files
+     - Plug long existant memory leaks related to Saved Searches that stop after a match is found
+     - More file position of 0 fixes and handle toInt() result failures from N/A in ValidationResults
+     - Fix incorrect copied permissions with AddContentFileToFolder after QFile::copy
+
+    New Features
+     - Make Validation Results sortable by clicking on column header
+     - Add Export All to Validation Results for text or csv output
+     - Redesign Saved Searches and Find Replace to not overload wrap when searching multiple targets
+
 
 
 Sigil-1.8.0

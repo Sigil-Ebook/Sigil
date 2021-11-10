@@ -97,13 +97,12 @@ public slots:
     void show();
 
     void LoadSearchByName(const QString &name);
-    void DoLoadSearch(SearchEditorModel::searchEntry *search_entry);
-
-    void FindSearch(QList<SearchEditorModel::searchEntry *> search_entries);
-    void ReplaceCurrentSearch(QList<SearchEditorModel::searchEntry *> search_entries);
-    void ReplaceSearch(QList<SearchEditorModel::searchEntry *> search_entries);
-    void CountAllSearch(QList<SearchEditorModel::searchEntry *> search_entries);
-    void ReplaceAllSearch(QList<SearchEditorModel::searchEntry *>search_entries);
+    void LoadSearch(SearchEditorModel::searchEntry *search_entry);
+    void FindSearch();
+    void ReplaceCurrentSearch();
+    void ReplaceSearch();
+    void CountAllSearch();
+    void ReplaceAllSearch();
 
     bool FindMisspelledWord();
 
@@ -194,8 +193,10 @@ private slots:
 
 private:
 
-    void LoadSearch(SearchEditorModel::searchEntry *search_entry);
-    static void CleanEntries(QList<SearchEditorModel::searchEntry *> search_entries);
+    void SetPreviousSearch();
+    bool IsNewSearch();
+
+    void SetFirstResource(bool update_position = true);
 
     QString GetControls();
     
@@ -331,6 +332,8 @@ private:
     QString m_LastFindText;
 
     bool m_IsSearchGroupRunning;
+
+    QStringList m_PreviousSearch;
 };
 
 

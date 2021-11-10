@@ -471,13 +471,14 @@ bool MainWindow::Automate(const QStringList &commands)
         // handle saved search and its full name parameter     
         } else if (cmd.startsWith("RunSavedSearchReplaceAll")) {
             QString fullname = cmd.mid(25, -1).trimmed();
-            QList<SearchEditorModel::searchEntry*> search_entries = m_SearchEditor->GetEntriesFromFullName(fullname);
-            if (!search_entries.isEmpty()) {
+            m_SearchEditor->SetCurrentEntriesFromFullName(fullname);
+
+            if (m_SearchEditor->GetCurrentEntriesCount() > 0) {
                 // m_FindReplace handles deleting each searchEntry that was created with new
                 // Temporarily reroute FindReplace Messages to the Status Bar so they are logged
                 connect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),
                         this, SLOT(ShowMessageOnStatusBar(const QString &)));
-                m_FindReplace->ReplaceAllSearch(search_entries);
+                m_FindReplace->ReplaceAllSearch();
                 disconnect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),
                            this, SLOT(ShowMessageOnStatusBar(const QString &)));
                 success = true;
@@ -4588,20 +4589,6 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *origina
     // originating tab. Since this comes from a FlowTab assume that it is 
     // an xhtml file even if called .xml to avoid doing damage.
 
-#if 0
-    // XXX: This should be using the mime type not the extension.
-    if (!TEXT_EXTENSIONS.contains(QFileInfo(originating_resource->Filename()).suffix().toLower())) {
-        QMessageBox::warning(this, tr("Sigil"), tr("Cannot split since it may not be an HTML file."));
-        return;
-    }
-
-    HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
-    if (nav_resource && nav_resource == originating_resource) {
-        QMessageBox::warning(this, tr("Sigil"), tr("The Nav file cannot be split."));
-        return;
-    }
-#endif
-
     HTMLResource *html_resource = m_Book->CreateSectionBreakOriginalResource(content, originating_resource);
     m_BookBrowser->Refresh();
     // Open the old shortened content in a new tab preceding the current one.
@@ -6287,22 +6274,20 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_FindReplace, SIGNAL(OpenSearchEditorRequest(SearchEditorModel::searchEntry *)),
             this,          SLOT(SearchEditorDialog(SearchEditorModel::searchEntry *)));
     connect(m_TabManager, SIGNAL(ShowStatusMessageRequest(const QString &, int)), this, SLOT(ShowMessageOnStatusBar(const QString &, int)));
+
     connect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),
             m_SearchEditor, SLOT(ShowMessage(const QString &)));
     connect(m_FindReplace,   SIGNAL(ClipboardSaveRequest()),     m_ClipboardHistorySelector,  SLOT(SaveClipboardState()));
     connect(m_FindReplace,   SIGNAL(ClipboardRestoreRequest()),  m_ClipboardHistorySelector,  SLOT(RestoreClipboardState()));
+
+    connect(m_SearchEditor, SIGNAL(FindSelectedSearchRequest()), m_FindReplace,   SLOT(FindSearch()));
+    connect(m_SearchEditor, SIGNAL(ReplaceCurrentSelectedSearchRequest()), m_FindReplace,   SLOT(ReplaceCurrentSearch()));
+    connect(m_SearchEditor, SIGNAL(ReplaceSelectedSearchRequest()), m_FindReplace,   SLOT(ReplaceSearch()));
+    connect(m_SearchEditor, SIGNAL(CountAllSelectedSearchRequest()), m_FindReplace,   SLOT(CountAllSearch()));
+    connect(m_SearchEditor, SIGNAL(ReplaceAllSelectedSearchRequest()), m_FindReplace,   SLOT(ReplaceAllSearch()));
     connect(m_SearchEditor, SIGNAL(LoadSelectedSearchRequest(SearchEditorModel::searchEntry *)),
-            m_FindReplace,   SLOT(DoLoadSearch(SearchEditorModel::searchEntry *)));
-    connect(m_SearchEditor, SIGNAL(FindSelectedSearchRequest(QList<SearchEditorModel::searchEntry *>)),
-            m_FindReplace,   SLOT(FindSearch(QList<SearchEditorModel::searchEntry *>)));
-    connect(m_SearchEditor, SIGNAL(ReplaceCurrentSelectedSearchRequest(QList<SearchEditorModel::searchEntry *>)),
-            m_FindReplace,   SLOT(ReplaceCurrentSearch(QList<SearchEditorModel::searchEntry *>)));
-    connect(m_SearchEditor, SIGNAL(ReplaceSelectedSearchRequest(QList<SearchEditorModel::searchEntry *>)),
-            m_FindReplace,   SLOT(ReplaceSearch(QList<SearchEditorModel::searchEntry *>)));
-    connect(m_SearchEditor, SIGNAL(CountAllSelectedSearchRequest(QList<SearchEditorModel::searchEntry *>)),
-            m_FindReplace,   SLOT(CountAllSearch(QList<SearchEditorModel::searchEntry *>)));
-    connect(m_SearchEditor, SIGNAL(ReplaceAllSelectedSearchRequest(QList<SearchEditorModel::searchEntry *>)),
-            m_FindReplace,   SLOT(ReplaceAllSearch(QList<SearchEditorModel::searchEntry *>)));
+            m_FindReplace,   SLOT(LoadSearch(SearchEditorModel::searchEntry *)));
+
     connect(m_ClipboardHistorySelector, SIGNAL(PasteRequest(const QString &)), this, SLOT(PasteTextIntoCurrentTarget(const QString &)));
     connect(m_SelectCharacter, SIGNAL(SelectedCharacter(const QString &)), this, SLOT(PasteTextIntoCurrentTarget(const QString &)));
     connect(m_ClipEditor, SIGNAL(PasteSelectedClipRequest(QList<ClipEditorModel::clipEntry *>)),
@@ -6499,4 +6484,17 @@ void MainWindow::BreakTabConnections(ContentTab *tab)
     disconnect(ui.actionPrint,                     0, tab, 0);
     disconnect(ui.actionAddToIndex,                0, tab, 0);
     disconnect(ui.actionMarkForIndex,              0, tab, 0);
+}
+
+
+// Utility routines to help Find and Replace exchange info with the SearchEditor
+
+QList<SearchEditorModel::searchEntry*> MainWindow::SearchEditorGetCurrentEntries()
+{
+    return m_SearchEditor->GetCurrentEntries();
+}
+
+void MainWindow::SearchEditorRecordEntryAsCompleted(SearchEditorModel::searchEntry* entry)
+{
+    m_SearchEditor->RecordEntryAsCompleted(entry);
 }
