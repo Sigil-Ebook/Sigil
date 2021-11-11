@@ -240,6 +240,11 @@ void FindReplace::HideFindReplace()
     hide();
 }
 
+void FindReplace::RestartClicked()
+{
+    m_PreviousSearch.clear();
+}
+
 void FindReplace::AdvancedOptionsClicked()
 {
     bool is_currently_visible = ui.chkRegexOptionAutoTokenise->isVisible();
@@ -318,7 +323,7 @@ bool FindReplace::FindAnyText(QString text, bool escape)
     SetSearchDirection(FindReplace::SearchDirection_Down);
     SetRegexOptionDotAll(true);
     SetRegexOptionMinimalMatch(true);
-    SetOptionWrap(true);
+    // SetOptionWrap(true);
 
     QString search_text;
     if (escape) {
@@ -345,7 +350,7 @@ void FindReplace::FindAnyTextInTags(QString text)
     SetSearchDirection(FindReplace::SearchDirection_Down);
     SetRegexOptionDotAll(true);
     SetRegexOptionMinimalMatch(true);
-    SetOptionWrap(true);
+    // SetOptionWrap(true);
 
     text = text + "(?=[^<]*>)(?!(?:[^<\"]*\"[^<\"]*\")+\\s*/?>)";
     ui.cbFind->setEditText(text);
@@ -416,15 +421,15 @@ int FindReplace::Count()
 
         count = searchable->Count(GetSearchRegex(), GetSearchableDirection(), m_OptionWrap, IsMarkedText());
     } else {
+        count = CountInFiles();
         // If wrap, all files are counted, otherwise only files before/after
         // the current file are counted, and then added to the count of current file.
-        count = CountInFiles();
-        if (!m_OptionWrap) {
-            Searchable *searchable = GetAvailableSearchable();
-            if (searchable) {
-                count += searchable->Count(GetSearchRegex(), GetSearchableDirection(), m_OptionWrap);
-            }
-        }
+        // if (!m_OptionWrap) {
+        //    Searchable *searchable = GetAvailableSearchable();
+        //    if (searchable) {
+        //       count += searchable->Count(GetSearchRegex(), GetSearchableDirection(), m_OptionWrap);
+        //    }
+        // }
     }
 
     if (count == 0) {
@@ -515,15 +520,15 @@ int FindReplace::ReplaceAll()
 
         count = searchable->ReplaceAll(GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchableDirection(), m_OptionWrap, IsMarkedText());
     } else {
+        count = ReplaceInAllFiles();
         // If wrap, all files are replaced, otherwise only files before/after
         // the current file are updated, and then the current file is done.
-        count = ReplaceInAllFiles();
-        if (!m_OptionWrap) {
-            Searchable *searchable = GetAvailableSearchable();
-            if (searchable) {
-                count += searchable->ReplaceAll(GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchableDirection(), m_OptionWrap);
-            }
-        }
+        // if (!m_OptionWrap) {
+        //     Searchable *searchable = GetAvailableSearchable();
+        //     if (searchable) {
+        //         count += searchable->ReplaceAll(GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchableDirection(), m_OptionWrap);
+        //     }
+        // }
     }
 
     if (count == 0) {
@@ -607,7 +612,7 @@ bool FindReplace::FindMisspelledWord()
     // Only files, direction, wrap are checked for misspelled searches
     SetLookWhere(FindReplace::LookWhere_AllHTMLFiles);
     SetSearchDirection(FindReplace::SearchDirection_Down);
-    SetOptionWrap(true);
+    // SetOptionWrap(true);
 
     bool found = FindInAllFiles(Searchable::Direction_Down);
 
@@ -831,6 +836,7 @@ QList <Resource *> FindReplace::GetFilesToSearch()
     // If wrapping, or the current resource is not in the files to search
     // (meaning there is no before/after for wrap to use) then just return all files
     Resource *current_resource = GetCurrentResource();
+    // if (!all_resources.contains(current_resource)) {
     if (m_OptionWrap || !all_resources.contains(current_resource)) {
         return all_resources;
     }
@@ -863,11 +869,11 @@ int FindReplace::CountInFiles()
 {
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
 
-    // When not wrapping remove the current resource as it's counted separately
     QList<Resource *>search_files = GetFilesToSearch();
-    if (!m_OptionWrap) {
-        search_files.removeOne(GetCurrentResource());
-    }
+    // When not wrapping remove the current resource as it's counted separately
+    // if (!m_OptionWrap) {
+    //     search_files.removeOne(GetCurrentResource());
+    // }
     return SearchOperations::CountInFiles(
                GetSearchRegex(),
                search_files);
@@ -877,11 +883,11 @@ int FindReplace::CountInFiles()
 int FindReplace::ReplaceInAllFiles()
 {
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
-    // When not wrapping remove the current resource as it's replace separately
     QList<Resource *>search_files = GetFilesToSearch();
-    if (!m_OptionWrap) {
-        search_files.removeOne(GetCurrentResource());
-    }
+    // When not wrapping remove the current resource as it's replace separately
+    // if (!m_OptionWrap) {
+    //     search_files.removeOne(GetCurrentResource());
+    // }
     int count = SearchOperations::ReplaceInAllFIles(
                     GetSearchRegex(),
                     ui.cbReplace->lineEdit()->text(),
@@ -987,7 +993,8 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
     // we have already processed it in earlier code, leave
     // otherwise we need to process it if it contains
     // the current regex and then stop
-    if ((resources.size() == 1) && !m_OptionWrap) {
+    // if ((resources.size() == 1) && !m_OptionWrap) {
+    if ((resources.size() == 1)) {
         if (IsCurrentFileInSelection()) return NULL;
         if (next_resource) {
             if (ResourceContainsCurrentRegex(next_resource)) {
@@ -1007,10 +1014,11 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
         DBG qDebug() << "   GetNextResource returns" << next_resource;
 
         if (next_resource == starting_resource) {
-            if (!m_OptionWrap) {
-                return NULL;
-            }
-            passed_starting_resource = true ;
+            // if (!m_OptionWrap) {
+            //     return NULL;
+            // }
+            return NULL;
+            // passed_starting_resource = true ;
         }
 
         if (next_resource) {
@@ -1830,6 +1838,7 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.findNext, SIGNAL(clicked()), this, SLOT(FindClicked()));
     connect(ui.cbFind->lineEdit(), SIGNAL(returnPressed()), this, SLOT(Find()));
     connect(ui.count, SIGNAL(clicked()), this, SLOT(CountClicked()));
+    connect(ui.restart, SIGNAL(clicked()), this, SLOT(RestartClicked()));
     connect(ui.replaceCurrent, SIGNAL(clicked()), this, SLOT(ReplaceCurrent()));
     connect(ui.replaceFind, SIGNAL(clicked()), this, SLOT(ReplaceClicked()));
     connect(ui.cbReplace->lineEdit(), SIGNAL(returnPressed()), this, SLOT(Replace()));

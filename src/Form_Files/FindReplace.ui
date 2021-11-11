@@ -351,27 +351,52 @@ other end to continue searching.</string>
             </property>
            </spacer>
           </item>
+          <item>
+           <widget class="QLabel" name="revalid">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>2</width>
+              <height>22</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Regex Valid?</string>
+            </property>
+            <property name="text">
+             <string> </string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
         <item row="2" column="2">
-         <widget class="QLabel" name="revalid">
+         <widget class="QToolButton" name="restart">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
           <property name="minimumSize">
            <size>
-            <width>2</width>
+            <width>0</width>
             <height>22</height>
            </size>
           </property>
           <property name="toolTip">
-           <string>Regex Valid?</string>
+           <string>Restart current search from beginning.</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
           </property>
           <property name="text">
-           <string> </string>
+           <string>Restart</string>
           </property>
          </widget>
         </item>
@@ -472,6 +497,7 @@ other end to continue searching.</string>
   <tabstop>replaceFind</tabstop>
   <tabstop>replaceCurrent</tabstop>
   <tabstop>replaceAll</tabstop>
+  <tabstop>restart</tabstop>
   <tabstop>count</tabstop>
   <tabstop>close</tabstop>
  </tabstops>

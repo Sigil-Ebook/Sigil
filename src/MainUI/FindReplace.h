@@ -148,6 +148,8 @@ private slots:
     void CountClicked();
     void ReplaceClicked();
     void ReplaceAllClicked();
+    void RestartClicked();
+
 
     // Uses the find direction to determine if we should find next
     // or previous.
