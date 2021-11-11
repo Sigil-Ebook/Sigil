@@ -243,6 +243,7 @@ void FindReplace::HideFindReplace()
 void FindReplace::RestartClicked()
 {
     m_PreviousSearch.clear();
+    ShowMessage(tr("Search will restart"));
 }
 
 void FindReplace::AdvancedOptionsClicked()
