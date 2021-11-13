@@ -127,6 +127,8 @@ void DeleteStyles::ReadSettings()
         restoreGeometry(geometry);
     }
 
+    ui.ToggleSelectAll->setCheckState(Qt::Checked);
+
     settings.endGroup();
 }
 
@@ -147,8 +149,18 @@ void DeleteStyles::DoubleClick(const QModelIndex index)
     emit OpenFileRequest(filename, -1, position);
 }
 
+void DeleteStyles::SelectUnselectAll(bool value)
+{
+    Qt::CheckState checkboxValue = (value ? Qt::Checked : Qt::Unchecked);
+    for (int row = 0; row < m_Model.rowCount(); row++) {
+        QStandardItem *checkbox = m_Model.itemFromIndex(m_Model.index(row, 0));
+        checkbox->setCheckState(checkboxValue);
+    }
+}
+
 void DeleteStyles::ConnectSignals()
 {
     connect(this, SIGNAL(accepted()), this, SLOT(SaveStylesToDelete()));
     connect(ui.Table, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(DoubleClick(const QModelIndex &)));
+    connect(ui.ToggleSelectAll, SIGNAL(clicked(bool)), this, SLOT(SelectUnselectAll(bool)));
 }
