@@ -52,6 +52,7 @@ private slots:
     void SaveFilesToDelete();
     void WriteSettings();
     void DoubleClick(const QModelIndex index);
+    void SelectUnselectAll(bool value);
 
 private:
     void SetUpTable();
