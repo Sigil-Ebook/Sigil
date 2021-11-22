@@ -10,7 +10,7 @@ pre-1.9.0
      - Make Validation Results sortable by clicking on column header
      - Add Export All to Validation Results for text or csv output
      - Redesign Saved Searches and Find Replace to not overload wrap when searching multiple targets
-
+     - Update to use the PCRE2 library for regular expression searching
 
 
 Sigil-1.8.0

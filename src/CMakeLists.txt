@@ -462,14 +462,14 @@ set( MISC_EDITORS_FILES
     )
 
 set( SPCRE_FILES
-    PCRE/SPCRE.cpp
-    PCRE/SPCRE.h
-    PCRE/PCRECache.cpp
-    PCRE/PCRECache.h
-    PCRE/PCREReplaceTextBuilder.cpp
-    PCRE/PCREReplaceTextBuilder.h
-    PCRE/PCREErrors.cpp
-    PCRE/PCREErrors.h
+    PCRE2/SPCRE.cpp
+    PCRE2/SPCRE.h
+    PCRE2/PCRECache.cpp
+    PCRE2/PCRECache.h
+    PCRE2/PCREReplaceTextBuilder.cpp
+    PCRE2/PCREReplaceTextBuilder.h
+    PCRE2/PCREErrors.cpp
+    PCRE2/PCREErrors.h
     )
 
 set( VIEW_EDITOR_FILES
@@ -852,7 +852,7 @@ endif()
 # put our include dirs before any system ones.
 include_directories( BEFORE
                      ${HUNSPELL_INCLUDE_DIRS}
-                     ${PCRE_INCLUDE_DIRS}
+                     ${PCRE2_INCLUDE_DIRS}
                      ${MINIZIP_INCLUDE_DIRS}
                      ${ZLIB_INCLUDE_DIRS}
                      ${PYTHON_INCLUDE_DIRS}
@@ -873,7 +873,7 @@ else()
 endif()
 
 # No need to explicity link Qt5::WinMain or to use the qt5_use_modules macro since CMAKE 2.8.11. We require CMAKE 3.0.0
-set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES}
+set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE2_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES}
                   Qt5::Widgets  Qt5::Xml  Qt5::PrintSupport  Qt5::WebEngine  
                   Qt5::WebEngineWidgets  Qt5::Network  Qt5::Concurrent )
 if (${USE_NEWER_FINDPYTHON3})
@@ -891,8 +891,8 @@ target_link_libraries( ${PROJECT_NAME} ${LIBS_TO_LINK} )
 #############################################################################
 
 # needed for correct static header inclusion
-if( NOT USE_SYSTEM_LIBS OR NOT PCRE_FOUND )
-    add_definitions( -DPCRE_STATIC )
+if( NOT USE_SYSTEM_LIBS OR NOT PCRE2_FOUND )
+    add_definitions( -DPCRE2_STATIC )
 endif()
 
 # Speed up stirng building

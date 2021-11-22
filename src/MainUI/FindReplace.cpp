@@ -21,7 +21,9 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
-#include <pcre.h>
+
+#define PCRE2_CODE_UNIT_WIDTH 16
+#include <pcre2.h>
 
 #include <QtGui/QKeyEvent>
 #include <QtWidgets/QLineEdit>
@@ -33,7 +35,7 @@
 #include "MainUI/FindReplace.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/FindReplaceQLineEdit.h"
-#include "PCRE/PCREErrors.h"
+#include "PCRE2/PCREErrors.h"
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/TextResource.h"
 

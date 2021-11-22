@@ -55,7 +55,7 @@
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/Utility.h"
 #include "Parsers/HTMLStyleInfo.h"
-#include "PCRE/PCRECache.h"
+#include "PCRE2/PCRECache.h"
 #include "ViewEditors/CodeViewEditor.h"
 #include "ViewEditors/LineNumberArea.h"
 #include "sigil_constants.h"
