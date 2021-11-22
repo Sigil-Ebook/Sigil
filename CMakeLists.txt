@@ -94,7 +94,7 @@ if (USE_SYSTEM_LIBS)
     find_package( MiniZip )
     pkg_check_modules( HUNSPELL hunspell )
     if ( NOT APPLE )
-        pkg_check_modules( PCRE libpcre16 )
+        pkg_check_modules( PCRE2 libpcre2-16 )
     endif()
 endif()
 
