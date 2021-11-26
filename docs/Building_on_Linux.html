@@ -53,11 +53,11 @@ To get Sigil's Qt5 requirements, <code>sudo apt-get install</code> the following
 <p>Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, <code>sudo apt-get install</code> the following packages.</p>
 <ul>
 <li>libhunspell-dev</li>
-<li>libpcre3-dev</li>
+<li>libpcre2-dev</li>
 <li>libminizip-dev</li>
 </ul>
 <p>The folllowing command can be copied and pasted for convenience:</p>
-<p><code>sudo apt-get install libhunspell-dev libpcre3-dev libminizip-dev</code></p>
+<p><code>sudo apt-get install libhunspell-dev libpcre2-dev libminizip-dev</code></p>
 <p>If you do install them, remember to use use the -DUSE_SYSTEM_LIBS=1 option when configuring Sigil with cmake later on. Otherwise, the build process will ignore them and provide/build its own.</p>
 <h2><a name="python"/>Getting Python 3.4 (or higher)</h2>
 <p>On Ubuntu/Debian <code>sudo apt-get install</code> (at a minimum) the following packages:</p>

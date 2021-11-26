@@ -53,12 +53,12 @@ The folllowing command can be copied and pasted for convenience:
 Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, `sudo apt-get install` the following packages.
 
 + libhunspell-dev
-+ libpcre3-dev
++ libpcre2-dev
 + libminizip-dev
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install libhunspell-dev libpcre3-dev libminizip-dev`
+`sudo apt-get install libhunspell-dev libpcre2-dev libminizip-dev`
 
 If you do install them, remember to use use the -DUSE_SYSTEM_LIBS=1 option when configuring Sigil with cmake later on. Otherwise, the build process will ignore them and provide/build its own.
 
