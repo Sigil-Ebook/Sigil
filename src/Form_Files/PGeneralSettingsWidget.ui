@@ -531,6 +531,40 @@ mended.</string>
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="groupBox_gpu">
+         <property name="toolTip">
+          <string>Disable GPU Acceleration in QtWebEngine/Preview</string>
+         </property>
+         <property name="title">
+          <string> Disable GPU Acceleration in QtWebEngine/Preview.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_gpu">
+          <item>
+           <widget class="QCheckBox" name="DisableGPU">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>Disable GPU Acceleration in QtWebEngine.</string>
+            </property>
+            <property name="text">
+             <string>Disable GPU Acceleration in QtWebEngine.</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_4">
          <property name="orientation">
           <enum>Qt::Vertical</enum>

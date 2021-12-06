@@ -95,7 +95,6 @@ public:
 
     QString secondary_dictionary();
 
-
     /**
      * Get the list of entities/code pairs to preserve
      */
@@ -151,6 +150,8 @@ public:
     int showFullPathOn();
 
     int highDPI();
+
+    bool disableGPU();
 
     int previewDark();
 
@@ -360,6 +361,8 @@ public slots:
     void setShowFullPathOn(int on);
 
     void setHighDPI(int value);
+
+    void setDisableGPU(bool value);
 
     void setPreviewDark(int enabled);
 

@@ -35,7 +35,8 @@
 
 GeneralSettingsWidget::GeneralSettingsWidget()
     :
-    m_refreshClipboardHistoryLimit(false)
+    m_refreshClipboardHistoryLimit(false),
+    m_disable_gpu(false)
 {
     ui.setupUi(this);
     readSettings();
@@ -93,6 +94,11 @@ PreferencesWidget::ResultActions GeneralSettingsWidget::saveSettings()
          new_temp_folder_home = ui.lineEdit->text();
     }
 
+    bool new_disable_gpu = false;
+    if (ui.DisableGPU->isChecked()) {
+        new_disable_gpu = true;
+    }
+
     QString new_xeditor_path = "";
     if (!ui.lineEdit7->text().isEmpty()) {
          QString xeditorpath = ui.lineEdit7->text();
@@ -110,8 +116,12 @@ PreferencesWidget::ResultActions GeneralSettingsWidget::saveSettings()
     settings.setJavascriptOn(new_javascript_on_level);
     settings.setClipboardHistoryLimit(int(ui.clipLimitSpin->value()));
     settings.setTempFolderHome(new_temp_folder_home);
+    settings.setDisableGPU(new_disable_gpu);
+    // if you change this setting you need to restart sigil to see the change
+    if (new_disable_gpu != m_disable_gpu) {
+        results = results | PreferencesWidget::ResultAction_RestartSigil;
+    }
     settings.setExternalXEditorPath(new_xeditor_path);
-
     if (m_refreshClipboardHistoryLimit) {
         results = results | PreferencesWidget::ResultAction_RefreshClipHistoryLimit;
     }
@@ -143,6 +153,8 @@ void GeneralSettingsWidget::readSettings()
     ui.clipLimitSpin->setValue(int(settings.clipboardHistoryLimit()));
     QString temp_folder_home = settings.tempFolderHome();
     ui.lineEdit->setText(temp_folder_home);
+    m_disable_gpu = settings.disableGPU();
+    ui.DisableGPU->setChecked(m_disable_gpu);
     QString xeditor_path = settings.externalXEditorPath();
     ui.lineEdit7->setText(xeditor_path);
 }

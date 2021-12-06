@@ -59,6 +59,7 @@ static QString KEY_REMOTE_ON = SETTINGS_GROUP + "/" + "remote_on";
 static QString KEY_JAVASCRIPT_ON = SETTINGS_GROUP + "/" + "javascript_on";
 static QString KEY_SHOWFULLPATH_ON = SETTINGS_GROUP + "/" + "showfullpath_on";
 static QString KEY_HIGHDPI_SETTING = SETTINGS_GROUP + "/" + "high_dpi";
+static QString KEY_DISABLEGPU_SETTING = SETTINGS_GROUP + "/" + "disable_gpu";
 static QString KEY_PREVIEW_DARK_IN_DM = SETTINGS_GROUP + "/" + "preview_dark_in_dm";
 static QString KEY_DEFAULT_VERSION = SETTINGS_GROUP + "/" + "default_version";
 static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
@@ -281,6 +282,12 @@ int SettingsStore::highDPI()
 {
     clearSettingsGroup();
     return value(KEY_HIGHDPI_SETTING, 0).toInt();
+}
+
+bool SettingsStore::disableGPU()
+{
+    clearSettingsGroup();
+    return static_cast<bool>(value(KEY_DISABLEGPU_SETTING, false).toBool());
 }
 
 int SettingsStore::previewDark()
@@ -621,6 +628,12 @@ void SettingsStore::setHighDPI(int value)
 {
     clearSettingsGroup();
     setValue(KEY_HIGHDPI_SETTING, value);
+}
+
+void SettingsStore::setDisableGPU(bool value)
+{
+    clearSettingsGroup();
+    setValue(KEY_DISABLEGPU_SETTING, value);
 }
 
 void SettingsStore::setPreviewDark(int enabled)

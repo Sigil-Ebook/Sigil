@@ -57,6 +57,7 @@ private:
     void ExtendUI();
     void connectSignalsToSlots();
 
+    bool m_disable_gpu;
     Ui::GeneralSettingsWidget ui;
 };
 
