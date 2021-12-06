@@ -213,7 +213,7 @@ void TagLister::parseAttribute(const QStringRef &tagstring, const QString &attri
 
     // normal tag, skip over tag name
     p = skipAnyBlanks(tagstring, 1);
-    if (tagstring.at(p) == "/") return; // end tag has no attributes
+    if (tagstring.at(p) == '/') return; // end tag has no attributes
     // int s = p;
     p = stopWhenContains(tagstring, ">/ \f\t\r\n", p);
     // QString tagname = Utility::Substring(s, p, tagstring).trimmed();
@@ -231,7 +231,7 @@ void TagLister::parseAttribute(const QStringRef &tagstring, const QString &attri
         QString avalue;
         p++;
         p = skipAnyBlanks(tagstring, p);
-        if ((tagstring.at(p) == "'") || (tagstring.at(p) == "\"")) {
+        if ((tagstring.at(p) == '\'') || (tagstring.at(p) == '"')) {
             QString qc = tagstring.at(p);
             p++;
             int b = p;
@@ -272,7 +272,7 @@ QString TagLister::extractAllAttributes(const QStringRef &tagstring)
     // normal tag, skip over any blanks before tag name
     p = skipAnyBlanks(tagstring, 1);
 
-    if (tagstring.at(p) == "/") return QString(); // end tag has no attributes
+    if (tagstring.at(p) == '/') return QString(); // end tag has no attributes
 
     // skip over tag name itself
     p = stopWhenContains(tagstring, ">/ \f\t\r\n", p);
@@ -303,7 +303,7 @@ TagLister::TagInfo TagLister::getNext()
     mi.open_len = -1;
     QStringRef markup = parseML();
     while (!markup.isNull()) {
-        if ((markup.at(0) == "<") && (markup.at(markup.size() - 1) == ">")) {
+        if ((markup.at(0) == '<') && (markup.at(markup.size() - 1) == '>')) {
             mi.pos = m_pos;
             parseTag(markup, mi);
             if (mi.ttype == "begin") {
@@ -340,7 +340,7 @@ QStringRef TagLister::parseML()
     int p = m_next;
     m_pos = p;
     if (p >= m_source.length()) return QStringRef();
-    if (m_source.at(p) != "<") {
+    if (m_source.at(p) != '<') {
         // we have text leading up to a tag start
         m_next = findTarget("<", p+1);
         return Utility::SubstringRef(m_pos, m_next, m_source);
@@ -402,7 +402,7 @@ void TagLister::parseTag(const QStringRef& tagstring, TagLister::TagInfo& mi)
 
     // normal tag, extract tag name
     p = skipAnyBlanks(tagstring, 1);
-    if (tagstring.at(p) == "/") {
+    if (tagstring.at(p) == '/') {
         mi.ttype = "end";
         p++;
         p = skipAnyBlanks(tagstring, p);
@@ -432,7 +432,7 @@ int TagLister::findTarget(const QString &tgt, int p, bool after)
 
 int TagLister::skipAnyBlanks(const QStringRef &tgt, int p)
 {
-    while((p < tgt.length()) && (tgt.at(p) == " ")) p++;
+    while((p < tgt.length()) && (tgt.at(p) == ' ')) p++;
     return p;
 }
 

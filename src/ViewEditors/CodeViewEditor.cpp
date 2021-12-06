@@ -370,7 +370,7 @@ bool CodeViewEditor::TextIsSelectedAndNotInStartOrEndTag()
     int pos = textCursor().selectionStart();
     int end = textCursor().selectionEnd()-1;
 
-    if ((text[pos] == "<") && (text[end] == ">")) return true;
+    if ((text[pos] == '<') && (text[end] == '>')) return true;
     
     if (IsPositionInTag(pos) || IsPositionInTag(end)) {
         return false;

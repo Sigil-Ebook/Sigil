@@ -58,7 +58,7 @@ QuickParser::MarkupInfo QuickParser::parse_next()
     mi.pos = -1;
     QStringRef markup = parseML();
     if (!markup.isNull()) {
-        if ((markup.at(0) == "<") && (markup.at(markup.size() - 1) == ">")) {
+        if ((markup.at(0) == '<') && (markup.at(markup.size() - 1) == '>')) {
             parseTag(markup, mi);
             if (mi.ttype == "begin") {
                 m_TagPath << mi.tname;
@@ -139,7 +139,7 @@ QStringRef QuickParser::parseML()
     int p = m_next;
     m_pos = p;
     if (p >= m_source.length()) return QStringRef();
-    if (m_source.at(p) != "<") {
+    if (m_source.at(p) != '<') {
         // we have text leading up to a tag start
         m_next = findTarget("<", p+1);
         return Utility::SubstringRef(m_pos, m_next, m_source);
@@ -170,8 +170,8 @@ QStringRef QuickParser::parseML()
 
 void QuickParser::parseTag(const QStringRef& tagstring, QuickParser::MarkupInfo& mi)
 {
-    Q_ASSERT(tagstring.at(0) == "<");
-    Q_ASSERT(tagstring.at(tagstring.size() - 1) == ">");
+    Q_ASSERT(tagstring.at(0) == '<');
+    Q_ASSERT(tagstring.at(tagstring.size() - 1) == '>');
     int taglen = tagstring.length();
     QChar c = tagstring.at(1);
     int p = 0;
@@ -208,7 +208,7 @@ void QuickParser::parseTag(const QStringRef& tagstring, QuickParser::MarkupInfo&
 
     // normal tag, extract tag name
     p = skipAnyBlanks(tagstring, 1);
-    if (tagstring.at(p) == "/") {
+    if (tagstring.at(p) == '/') {
         mi.ttype = "end";
         p++;
         p = skipAnyBlanks(tagstring, p);
@@ -227,7 +227,7 @@ void QuickParser::parseTag(const QStringRef& tagstring, QuickParser::MarkupInfo&
             QString avalue;
             p++;
             p = skipAnyBlanks(tagstring, p);
-            if ((tagstring.at(p) == "'") || (tagstring.at(p) == "\"")) {
+            if ((tagstring.at(p) == '\'') || (tagstring.at(p) == '"')) {
                 QString qc = tagstring.at(p);
                 p++;
                 b = p;
@@ -260,7 +260,7 @@ int QuickParser::findTarget(const QString &tgt, int p, bool after)
 
 int QuickParser::skipAnyBlanks(const QStringRef &tgt, int p)
 {
-    while((p < tgt.length()) && (tgt.at(p) == " ")) p++;
+    while((p < tgt.length()) && (tgt.at(p) == ' ')) p++;
     return p;
 }
 
