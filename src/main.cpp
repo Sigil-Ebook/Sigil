@@ -370,8 +370,8 @@ int main(int argc, char *argv[])
     // enable disabling of gpu acceleration for QtWebEngine.
     // append to current environment variable contents as numerous chromium 
     // switches exist that may be useful
-    SettingsStore ss;
-    if (ss.disableGPU()) {
+    SettingsStore nss;
+    if (nss.disableGPU()) {
         QString current_flags = Utility::GetEnvironmentVar("QTWEBENGINE_CHROMIUM_FLAGS");
         if (current_flags.isEmpty()) {
             current_flags = "--disable-gpu";
