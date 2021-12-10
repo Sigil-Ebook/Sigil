@@ -109,3 +109,7 @@ modified for use inside Sigil:
 * Beautiful Soup 4 (src/Resource_Files/plugin_launchers/sigil_bs4)
 * Google's Gumbo Parser (internal/gumbo)
 
+Package Versions of Sigil
+=========================
+
+[![Packaging status](https://repology.org/badge/vertical-allrepos/sigil.svg)](https://repology.org/project/sigil/versions)
