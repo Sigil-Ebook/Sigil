@@ -1103,7 +1103,12 @@ QSet<QString> Book::GetWordsInHTMLFiles()
         all_words.append(result);
     }
 
-    return all_words.toSet();  // Qt 5.15:  QSet<QString>(all_words.begin(), all_words.end());
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
+    return all_words.toSet();
+#else
+    QSet<QString> allwordset(all_words.begin(), all_words.end());
+    return allwordset;
+#endif
 }
 
 QStringList Book::GetWordsInHTMLFileMapped(HTMLResource *html_resource, const QString& default_lang)

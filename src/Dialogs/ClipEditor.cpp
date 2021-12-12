@@ -191,8 +191,10 @@ bool ClipEditor::ItemsAreUnique(QList<QStandardItem *> items)
 {
     // Although saving a group and a sub item works, it could be confusing to users to
     // have and entry appear twice so its more predictable just to prevent it and warn the user
-    if (items.toSet().count() != items.count()) {
-    // In Qt 5.15 if (QSet<QStandardItem *>(items.begin(), items.end()).count() != items.count()) {
+    QList<QStandardItem *> nodupitems = items;
+    std::sort(nodupitems.begin(), nodupitems.end());
+    nodupitems.erase(std::unique(nodupitems.begin(), nodupitems.end()), nodupitems.end());
+    if (nodupitems.count() != items.count()) {
         Utility::DisplayStdErrorDialog(tr("You cannot select an entry and a group containing the entry."));
         return false;
     }
