@@ -60,6 +60,14 @@
 #include "ViewEditors/LineNumberArea.h"
 #include "sigil_constants.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
+#else
+    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
+#endif
+
 const int PROGRESS_BAR_MINIMUM_DURATION = 1000;
 const QString BREAK_TAG_INSERT    = "<hr class=\"sigil_split_marker\" />";
 
@@ -3546,7 +3554,7 @@ void CodeViewEditor::ApplyListToSelection(const QString &element)
         new_text = new_text.trimmed();
         // now split remaining text by new lines and 
         // remove any beginning and ending li tags
-        QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
+        QStringList alist = new_text.split(QChar::ParagraphSeparator, QT_ENUM_SKIPEMPTYPARTS);
         QStringList result;
         foreach(QString aitem, alist) {
             result.append(indent + RemoveLastTag(RemoveFirstTag(aitem,"li"), "li"));
@@ -3555,7 +3563,7 @@ void CodeViewEditor::ApplyListToSelection(const QString &element)
         new_text = result.join("\n");
     }
     else if ((tagname == "p") || tagname.isEmpty()) {
-        QStringList alist = new_text.split(QChar::ParagraphSeparator, QString::SkipEmptyParts);
+        QStringList alist = new_text.split(QChar::ParagraphSeparator, QT_ENUM_SKIPEMPTYPARTS);
         QStringList result;
         result.append(indent + "<" + element + ">");
         foreach(QString aitem, alist) {

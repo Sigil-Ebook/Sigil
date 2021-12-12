@@ -30,6 +30,15 @@
 #include "ResourceObjects/NCXResource.h"
 #include "sigil_constants.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
+#else
+    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
+#endif
+
+
 NCXWriter::NCXWriter(const Book *book, QIODevice &device)
     :
     XMLWriter(book, device),
@@ -250,7 +259,7 @@ QString NCXWriter::ConvertBookPathToNCXRelative(const QString & bookpath)
 {
     QString ncx_bkpath = m_ncxresource->GetRelativePath();
     // split off any fragment added to bookpath destination
-    QStringList pieces = bookpath.split('#', QString::KeepEmptyParts);
+    QStringList pieces = bookpath.split('#', QT_ENUM_KEEPEMPTYPARTS);
     QString dest_bkpath = pieces.at(0);
     QString fragment = "";
     if (pieces.size() > 1) fragment = pieces.at(1);

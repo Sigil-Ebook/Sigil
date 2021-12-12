@@ -32,6 +32,14 @@
 #include "ResourceObjects/NavProcessor.h"
 #include "BookManipulation/CleanSource.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
+#else
+    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
+#endif
+
 TOCModel::TOCModel(QObject *parent)
     :
     QStandardItemModel(parent),
@@ -216,7 +224,7 @@ QString TOCModel::ConvertHREFToBookPath(const QString &ahref)
     if (ahref.indexOf(":") != -1) return ahref;
     // split off any fragment
     NCXResource* ncxres = m_Book->GetNCX();
-    QStringList pieces = ahref.split('#', QString::KeepEmptyParts);
+    QStringList pieces = ahref.split('#', QT_ENUM_KEEPEMPTYPARTS);
     QString basepath = pieces.at(0);
     QString fragment = "";
     if (pieces.size() > 1) fragment = pieces.at(1);

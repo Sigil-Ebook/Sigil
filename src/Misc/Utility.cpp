@@ -70,6 +70,14 @@
 #include "Misc/SleepFunctions.h"
 #include "MainUI/MainApplication.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
+#else
+    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
+#endif
+
 static const QString URL_SAFE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-/~";
 
 static const QString DARK_STYLE =
@@ -1069,8 +1077,8 @@ QString Utility::relativePath(const QString & destination, const QString & start
     while (dest.endsWith(sep)) dest.chop(1);
     while (start.endsWith(sep)) start.chop(1);
 
-    QStringList dsegs = dest.split(sep, QString::KeepEmptyParts);
-    QStringList ssegs = start.split(sep, QString::KeepEmptyParts);
+    QStringList dsegs = dest.split(sep, QT_ENUM_KEEPEMPTYPARTS);
+    QStringList ssegs = start.split(sep, QT_ENUM_KEEPEMPTYPARTS);
     QStringList res;
     int i = 0;
     int nd = dsegs.size();

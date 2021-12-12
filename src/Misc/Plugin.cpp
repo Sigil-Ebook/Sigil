@@ -33,6 +33,14 @@ static const QString POS = "win";
 static const QString POS = "unx";
 #endif
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
+#else
+    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
+#endif
+
 Plugin::Plugin()
 {
 }
@@ -100,7 +108,7 @@ bool Plugin::isvalid()
     return (!m_name.isEmpty()   &&
             !m_type.isEmpty()   &&
             (!m_engine.isEmpty() && PluginRunner::SupportedEngines().contains(m_engine)) &&
-            (m_oslist.isEmpty() || m_oslist.split(',', QString::SkipEmptyParts).contains(POS)));
+            (m_oslist.isEmpty() || m_oslist.split(',', QT_ENUM_SKIPEMPTYPARTS).contains(POS)));
 }
 
 QString Plugin::get_name()

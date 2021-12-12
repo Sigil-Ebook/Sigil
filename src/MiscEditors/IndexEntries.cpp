@@ -25,6 +25,14 @@
 #include "MiscEditors/IndexEntries.h"
 #include "MiscEditors/IndexEditorModel.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
+#else
+    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
+#endif
+
 IndexEntries *IndexEntries::m_instance = 0;
 
 IndexEntries *IndexEntries::instance()
@@ -58,7 +66,7 @@ QStandardItem *IndexEntries::GetRootItem()
 void IndexEntries::AddOneEntry(QString text, QString bookpath, QString index_id_value)
 {
     QStandardItem *parent_item = m_BookIndexRootItem;
-    QStringList names = text.split("/", QString::SkipEmptyParts);
+    QStringList names = text.split("/", QT_ENUM_SKIPEMPTYPARTS);
     names.append(Utility::URLEncodePath(bookpath) + "#" +  Utility::URLEncodePath(index_id_value));
     // Add names in hierarchy
     foreach(QString name, names) {

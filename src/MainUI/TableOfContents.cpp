@@ -35,6 +35,14 @@
 #include "ResourceObjects/NCXResource.h"
 #include "sigil_exception.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
+#else
+    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
+#endif
+
 static const int COLUMN_INDENTATION = 15;
 static const int REFRESH_DELAY = 1000;
 
@@ -109,7 +117,7 @@ void TableOfContents::RenumberTOCContents()
 void TableOfContents::ItemClickedHandler(const QModelIndex &index)
 {
     QString bookpath = m_TOCModel->GetBookPathForIndex(index);
-    QStringList pieces = bookpath.split('#', QString::KeepEmptyParts);
+    QStringList pieces = bookpath.split('#', QT_ENUM_KEEPEMPTYPARTS);
     QString dest_bkpath = Utility::URLDecodePath(pieces.at(0));
     QString fragment = "";
     if (pieces.size() > 1) fragment = Utility::URLDecodePath(pieces.at(1));

@@ -45,6 +45,14 @@
 #include "Dialogs/TreeItem.h"
 #include "Dialogs/TreeModel.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
+#else
+    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
+#endif
+
 const QString _GS = QString(QChar(29));
 const QString _RS = QString(QChar(30));
 const QString _US = QString(QChar(31));
@@ -59,7 +67,7 @@ TreeModel::TreeModel(const QStringList &headers, const QString &data, QObject *p
         rootData << header;
 
     rootItem = new TreeItem(rootData);
-    QStringList datalist = data.split(_RS, QString::SkipEmptyParts);
+    QStringList datalist = data.split(_RS, QT_ENUM_SKIPEMPTYPARTS);
     setupModelData(datalist, rootItem);
 }
 
@@ -270,11 +278,11 @@ void TreeModel::setupModelData(const QStringList &lines, TreeItem *parent)
 
         if (!lineData.isEmpty()) {
             // Read the column data from the rest of the line.
-            QStringList columnStrings = lineData.split(_US, QString::SkipEmptyParts);
+            QStringList columnStrings = lineData.split(_US, QT_ENUM_SKIPEMPTYPARTS);
             QVector<QVariant> columnData;
             QVector<QVariant> tipData;
             for (int column = 0; column < columnStrings.count(); ++column) {
-                QStringList parts = columnStrings[column].split(_GS, QString::KeepEmptyParts);
+                QStringList parts = columnStrings[column].split(_GS, QT_ENUM_KEEPEMPTYPARTS);
                 columnData << parts.at(0);
                 tipData << parts.at(1);
             }

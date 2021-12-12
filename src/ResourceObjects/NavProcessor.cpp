@@ -34,6 +34,14 @@
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/NavProcessor.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
+#else
+    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
+#endif
+
 static const QString NAV_PAGELIST_PATTERN = "\\s*<!--\\s*SIGIL_REPLACE_PAGELIST_HERE\\s*-->\\s*";
 static const QString NAV_LANDMARKS_PATTERN = "\\s*<!--\\s*SIGIL_REPLACE_LANDMARKS_HERE\\s*-->\\s*";
 static const QString NAV_TOC_PATTERN = "\\s*<!--\\s*SIGIL_REPLACE_TOC_HERE\\s*-->\\s*";
@@ -543,7 +551,7 @@ int NavProcessor::GetResourceLandmarkPos(const Resource *resource, const QList<N
     for (int i=0; i < landlist.count(); ++i) {
         NavLandmarkEntry le = landlist.at(i);
         QString href = ConvertHREFToBookPath(le.href);
-        QStringList parts = href.split('#', QString::KeepEmptyParts);
+        QStringList parts = href.split('#', QT_ENUM_KEEPEMPTYPARTS);
         if (parts.at(0) == resource_book_path) {
             return i;
         }
@@ -581,7 +589,7 @@ QHash <QString, QString> NavProcessor::GetLandmarkNameForPaths()
     QHash <QString, QString> semantic_types;
     foreach(NavLandmarkEntry le, landlist) {
         QString href = ConvertHREFToBookPath(le.href);
-        QStringList parts = href.split('#', QString::KeepEmptyParts);
+        QStringList parts = href.split('#', QT_ENUM_KEEPEMPTYPARTS);
         QString etype = le.etype;
         semantic_types[parts.at(0)] = Landmarks::instance()->GetName(etype);
     }
@@ -595,7 +603,7 @@ QHash <QString, QString> NavProcessor::GetLandmarkCodeForPaths()
   QHash <QString, QString> semantic_types;
   foreach(NavLandmarkEntry le, landlist) {
     QString href = ConvertHREFToBookPath(le.href);
-    QStringList parts = href.split('#', QString::KeepEmptyParts);
+    QStringList parts = href.split('#', QT_ENUM_KEEPEMPTYPARTS);
     QString etype = le.etype;
     semantic_types[parts.at(0)] = etype;
   }
@@ -760,7 +768,7 @@ QString NavProcessor::ConvertHREFToBookPath(const QString & nav_rel_href)
     QString bookpath;
     if (nav_rel_href.indexOf(":") != -1) return nav_rel_href;
     // split off any fragment
-    QStringList pieces = nav_rel_href.split('#', QString::KeepEmptyParts);
+    QStringList pieces = nav_rel_href.split('#', QT_ENUM_KEEPEMPTYPARTS);
     QString basepath = Utility::URLDecodePath(pieces.at(0));
     QString fragment = "";
     if (pieces.size() > 1) fragment = pieces.at(1);
@@ -783,7 +791,7 @@ QString NavProcessor::ConvertBookPathToNavRelative(const QString & bookpath)
 {
     QString nav_bkpath = m_NavResource->GetRelativePath();
     // split off any fragment added to bookpath destination
-    QStringList pieces = bookpath.split('#', QString::KeepEmptyParts);
+    QStringList pieces = bookpath.split('#', QT_ENUM_KEEPEMPTYPARTS);
     QString dest_bkpath = Utility::URLDecodePath(pieces.at(0));
     QString fragment = "";
     if (pieces.size() > 1) fragment = pieces.at(1);

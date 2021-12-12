@@ -50,6 +50,14 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
+#else
+    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
+#endif
+
 static const QString SIGIL_VERSION_META_NAME  = "Sigil version";
 static const QString OPF_XML_NAMESPACE        = "http://www.idpf.org/2007/opf";
 static const QString FALLBACK_MIMETYPE        = "text/plain";
@@ -821,7 +829,7 @@ int OPFResource::GetGuideReferenceForResourcePos(const Resource *resource, const
     for (int i=0; i < p.m_guide.count(); ++i) {
         GuideEntry ge = p.m_guide.at(i);
         QString href = ge.m_href;
-        QStringList parts = href.split('#', QString::KeepEmptyParts);
+        QStringList parts = href.split('#', QT_ENUM_KEEPEMPTYPARTS);
         if (parts.at(0) == href_to_resource_from_opf) {
             return i;
         }
@@ -975,7 +983,7 @@ QHash <QString, QString>  OPFResource::GetSemanticCodeForPaths()
     QHash <QString, QString> semantic_types;
     foreach(GuideEntry ge, p.m_guide) {
         QString href = ge.m_href;
-        QStringList parts = href.split('#', QString::KeepEmptyParts);
+        QStringList parts = href.split('#', QT_ENUM_KEEPEMPTYPARTS);
         QString apath = Utility::URLDecodePath(parts.at(0));
         QString bkpath = Utility::buildBookPath(apath, GetFolder());
         QString gtype = ge.m_type;
@@ -995,7 +1003,7 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
     QHash <QString, QString> semantic_types;
     foreach(GuideEntry ge, p.m_guide) {
         QString href = ge.m_href;
-        QStringList parts = href.split('#', QString::KeepEmptyParts);
+        QStringList parts = href.split('#', QT_ENUM_KEEPEMPTYPARTS);
         QString gtype = ge.m_type;
         QString apath = Utility::URLDecodePath(parts.at(0));
         QString bkpath = Utility::buildBookPath(apath, GetFolder());
