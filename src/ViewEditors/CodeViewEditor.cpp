@@ -34,7 +34,7 @@
 #include <QtGui/QPainter>
 #include <QtWidgets/QScrollBar>
 #include <QtWidgets/QShortcut>
-#include <QtCore/QXmlStreamReader>
+#include <QXmlStreamReader>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QRegularExpressionMatchIterator>

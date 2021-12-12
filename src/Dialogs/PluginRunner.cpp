@@ -638,7 +638,7 @@ bool PluginRunner::processResultXML()
                 mime =  attr.value("media-type").toString();
                 info << href << id << mime;
                 QString fileinfo = info.join(SEP);
-                if (reader.name() == "deleted") {
+                if (reader.name().compare(QLatin1String("deleted")) == 0) {
                     m_filesToDelete.append(fileinfo);
                     if (mime == "application/xhtml+xml") {
                         // only count deleting xhtml files that are 
@@ -648,7 +648,7 @@ bool PluginRunner::processResultXML()
                             m_xhtmlFiles.remove(href);
                         }
                     }
-                } else if (reader.name() == "added") {
+                } else if (reader.name().compare(QLatin1String("added")) == 0) {
                     m_filesToAdd.append(fileinfo);
                     if (mime == "application/xhtml+xml") {
                         m_xhtml_net_change++;

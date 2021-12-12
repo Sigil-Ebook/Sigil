@@ -24,6 +24,7 @@
 #include <QtCore/QThread>
 #include <QtConcurrent/QtConcurrent>
 #include <QtWidgets/QApplication>
+#include <QXmlStreamReader>
 
 #include "MainUI/TOCModel.h"
 #include "Misc/Utility.h"
@@ -132,18 +133,18 @@ TOCModel::TOCEntry TOCModel::ParseNCX(const QString &ncx_source)
 
         if (ncx.isStartElement()) {
             if (!in_navmap) {
-                if (ncx.name() == "navMap") {
+                if (ncx.name().compare(QLatin1String("navMap")) == 0) {
                     in_navmap = true;
                 }
 
                 continue;
             }
 
-            if (ncx.name() == "navPoint") {
+            if (ncx.name().compare(QLatin1String("navPoint")) == 0) {
                 root.children.append(ParseNavPoint(ncx));
             }
         } else if (ncx.isEndElement() &&
-                   ncx.name() == "navMap") {
+                   ncx.name().compare(QLatin1String("navMap")) == 0) {
             break;
         }
     }
@@ -166,7 +167,7 @@ TOCModel::TOCEntry TOCModel::ParseNavPoint(QXmlStreamReader &ncx)
         ncx.readNext();
 
         if (ncx.isStartElement()) {
-            if (ncx.name() == "text") {
+            if (ncx.name().compare(QLatin1String("text")) == 0) {
                 while (!ncx.isCharacters()) {
                     ncx.readNext();
                 }
@@ -175,14 +176,14 @@ TOCModel::TOCEntry TOCModel::ParseNavPoint(QXmlStreamReader &ncx)
                 // (that is, XML entities have already been converted to text).
                 // Compress whitespace that pretty-print may add.
                 current.text = ncx.text().toString().simplified();
-            } else if (ncx.name() == "content") {
+            } else if (ncx.name().compare(QLatin1String("content")) == 0) {
                 QString href = ncx.attributes().value("", "src").toString();
                 current.target = ConvertHREFToBookPath(href);
-            } else if (ncx.name() == "navPoint") {
+            } else if (ncx.name().compare(QLatin1String("navPoint")) == 0) {
                 current.children.append(ParseNavPoint(ncx));
             }
         } else if (ncx.isEndElement() &&
-                   ncx.name() == "navPoint") {
+                   ncx.name().compare(QLatin1String("navPoint")) == 0) {
             break;
         }
     }

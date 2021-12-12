@@ -29,8 +29,6 @@
 #include <QtCore/QXmlStreamReader>
 // #include <QtWebKitWidgets/QWebFrame>
 // #include <QtWebKitWidgets/QWebPage>
-#include <QtXml/QXmlInputSource>
-#include <QtXml/QXmlSimpleReader>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QDir>
@@ -134,14 +132,13 @@ QList<XhtmlDoc::XMLElement> XhtmlDoc::GetTagsInHead(const QString &source, const
         reader.readNext();
 
         if (reader.isStartElement()) {
-            if (reader.name() == "head" || reader.name() == "HEAD") {
+            if (reader.name().compare(QLatin1String("head"),Qt::CaseInsensitive) == 0) {
                 in_head = true;
-            } else if (in_head && reader.name() == tag_name) {
+            } else if (in_head && reader.name().compare(tag_name) == 0) {
                 matching_elements.append(CreateXMLElement(reader));
             }
         } else if (reader.isEndElement() &&
-                   (reader.name() == "head" || reader.name() == "HEAD")
-                  ) {
+                   (reader.name().compare(QLatin1String("head"),Qt::CaseInsensitive) == 0)) {
             break;
         }
     }
@@ -169,7 +166,7 @@ QList<XhtmlDoc::XMLElement> XhtmlDoc::GetTagsInDocument(const QString &source, c
         reader.readNext();
 
         if (reader.isStartElement() &&
-            reader.name() == tag_name) {
+            (reader.name().compare(tag_name) == 0)) {
             matching_elements.append(CreateXMLElement(reader));
         }
     }
@@ -293,9 +290,9 @@ XhtmlDoc::WellFormedError XhtmlDoc::WellFormedErrorForSource(const QString &sour
         reader.readNext();
         if (reader.isDTD()) ndoctypes++;
         if (reader.isStartElement()) {
-            if (reader.name() == "html") nhtmltags++;
-            if (reader.name() == "head") nheadtags++;
-            if (reader.name() == "body") nbodytags++;
+            if (reader.name().compare(QLatin1String("html")) == 0) nhtmltags++;
+            if (reader.name().compare(QLatin1String("head")) == 0) nheadtags++;
+            if (reader.name().compare(QLatin1String("body")) == 0) nbodytags++;
         }
     }
     if (reader.hasError()) {

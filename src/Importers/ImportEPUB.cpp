@@ -39,7 +39,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QFutureSynchronizer>
 #include <QtConcurrent/QtConcurrent>
-#include <QtCore/QXmlStreamReader>
+#include <QXmlStreamReader>
 #include <QDirIterator>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
@@ -292,9 +292,9 @@ QHash<QString, QString> ImportEPUB::ParseEncryptionXml()
         encryption.readNext();
 
         if (encryption.isStartElement()) {
-            if (encryption.name() == "EncryptionMethod") {
+            if (encryption.name().compare(QLatin1String("EncryptionMethod")) == 0) {
                 encryption_algo = encryption.attributes().value("", "Algorithm").toString();
-            } else if (encryption.name() == "CipherReference") {
+            } else if (encryption.name().compare(QLatin1String("CipherReference")) == 0) {
                 // Note: fragments are not part of the CipherReference specs so this is okay
                 uri = Utility::URLDecodePath(encryption.attributes().value("", "URI").toString());
                 // hack to handle non-spec encryption file url relative to META-INF instead
@@ -589,7 +589,7 @@ void ImportEPUB::LocateOPF()
     while (!container.atEnd()) {
         container.readNext();
 
-        if (container.isStartElement() && container.name() == "rootfile") {
+        if (container.isStartElement() && container.name().compare(QLatin1String("rootfile")) == 0) {
             if (container.attributes().hasAttribute("media-type") &&
                 container.attributes().value("", "media-type") == OEBPS_MIMETYPE) {
                 // As per OCF spec, the first rootfile element
@@ -635,34 +635,34 @@ void ImportEPUB::ReadOPF()
             continue;
         }
 
-        if (opf_reader.name() == "package") {
+        if (opf_reader.name().compare(QLatin1String("package")) == 0) {
             m_UniqueIdentifierId = opf_reader.attributes().value("", "unique-identifier").toString();
             m_PackageVersion = opf_reader.attributes().value("", "version").toString();
             if (m_PackageVersion == "1.0") m_PackageVersion = "2.0";
         }
 
-        else if (opf_reader.name() == "identifier") {
+        else if (opf_reader.name().compare(QLatin1String("identifier")) == 0) {
             ReadIdentifierElement(&opf_reader);
         }
 
         // epub3 look for linked metadata resources that are included inside the epub 
         // but that are not and must not be included in the manifest
-        else if (opf_reader.name() == "link") {
+        else if (opf_reader.name().compare(QLatin1String("link")) == 0) {
             ReadMetadataLinkElement(&opf_reader);
         }
 
         // Get the list of content files that
         // make up the publication
-        else if (opf_reader.name() == "item") {
+        else if (opf_reader.name().compare(QLatin1String("item")) == 0) {
             ReadManifestItemElement(&opf_reader);
         }
 
         // We read this just to get the NCX id
-        else if (opf_reader.name() == "spine") {
+        else if (opf_reader.name().compare(QLatin1String("spine")) == 0) {
             ncx_id_on_spine = opf_reader.attributes().value("", "toc").toString();
         } 
 
-        else if (opf_reader.name() == "itemref") {
+        else if (opf_reader.name().compare(QLatin1String("itemref")) == 0) {
             m_HasSpineItems = true;
         }
     }

@@ -34,7 +34,6 @@
 #include <QtCore/QStandardPaths>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMessageBox>
-#include <QXmlStreamReader>
 #include <QResource>
 #include <QFile>
 #include <QFileInfo>

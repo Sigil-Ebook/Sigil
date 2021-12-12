@@ -289,23 +289,23 @@ Plugin *PluginDB::load_plugin(const QString &name)
     while (!reader.atEnd()) {
         reader.readNext();
         if (reader.isStartElement()) {
-            if (reader.name() == "name") {
+            if (reader.name().compare(QLatin1String("name")) == 0) {
                 plugin->set_name(reader.readElementText());
-            } else if (reader.name() == "author") {
+            } else if (reader.name().compare(QLatin1String("author")) == 0) {
                 plugin->set_author(reader.readElementText());
-            } else if (reader.name() == "description") {
+            } else if (reader.name().compare(QLatin1String("description")) == 0) {
                 plugin->set_description(reader.readElementText());
-            } else if (reader.name() == "type") {
+            } else if (reader.name().compare(QLatin1String("type")) == 0) {
                 plugin->set_type(reader.readElementText());
-            } else if (reader.name() == "engine") {
+            } else if (reader.name().compare(QLatin1String("engine")) == 0) {
                 plugin->set_engine(reader.readElementText());
-            } else if (reader.name() == "version") {
+            } else if (reader.name().compare(QLatin1String("version")) == 0) {
                 plugin->set_version(reader.readElementText());
-            } else if (reader.name() == "oslist") {
+            } else if (reader.name().compare(QLatin1String("oslist")) == 0) {
                 plugin->set_oslist(reader.readElementText());
-            } else if (reader.name() == "autostart") {
+            } else if (reader.name().compare(QLatin1String("autostart")) == 0) {
                 plugin->set_autostart(reader.readElementText());
-            } else if (reader.name() == "autoclose") {
+            } else if (reader.name().compare(QLatin1String("autoclose")) == 0) {
                 plugin->set_autoclose(reader.readElementText());
             }
         }
