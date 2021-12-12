@@ -59,7 +59,7 @@ add_definitions(-DQT_NO_DEPRECATED_WARNINGS)
 
 if( UNIX AND NOT APPLE )
     # Qt5 packages minimum version 5.9 for Linux
-    set(QT5_NEEDED 5.9)
+    set(QT5_NEEDED 5.10)
 else()
     # Qt5 packages minimum version 5.12 for Mac/Windows
     set(QT5_NEEDED 5.12)
