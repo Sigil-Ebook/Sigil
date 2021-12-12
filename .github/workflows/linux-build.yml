@@ -56,7 +56,7 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
-        version: '5.9.5'
+        version: '5.10.0'
         dir: ${{runner.workspace}}/Qt
         modules: 'qtwebengine'
         setup-python: 'false'
