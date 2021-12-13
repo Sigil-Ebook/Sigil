@@ -32,8 +32,9 @@
 #include <QtGui/QClipboard>
 #include <QtWidgets/QLayout>
 #include <QtWidgets/QMenu>
-#include <QtWebEngineWidgets/QWebEngineView>
-#include <QtWebEngineWidgets/QWebEngineProfile>
+#include <QtWebEngineWidgets>
+#include <QWebEngineView>
+#include <QWebEngineProfile>
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
 #include <QtPrintSupport/QPrintPreviewDialog>

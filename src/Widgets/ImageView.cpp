@@ -28,9 +28,10 @@
 #include <QGuiApplication>
 #include <QPrinter>
 #include <QtWidgets/QLayout>
-#include <QtWebEngineWidgets/QWebEngineView>
-#include <QtWebEngineWidgets/QWebEngineSettings>
-#include <QtWebEngineWidgets/QWebEngineProfile>
+#include <QtWebEngineWidgets>
+#include <QWebEngineView>
+#include <QWebEngineSettings>
+#include <QWebEngineProfile>
 
 #include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"

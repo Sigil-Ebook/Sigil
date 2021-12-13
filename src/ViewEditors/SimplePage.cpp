@@ -18,7 +18,6 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
-#include <QtWebEngineWidgets/QWebEnginePage>
 #include <QUrl>
 #include <QDebug>
 #include "Misc/Utility.h"

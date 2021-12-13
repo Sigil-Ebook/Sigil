@@ -19,7 +19,6 @@
 **
 *************************************************************************/
 #include <QTimer>
-#include <QtWebEngineWidgets/QWebEnginePage>
 #include <QUrl>
 #include <QDebug>
 #include "Misc/Utility.h"

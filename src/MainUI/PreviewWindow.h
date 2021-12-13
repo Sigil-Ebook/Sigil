@@ -27,7 +27,8 @@
 
 #include <QPushButton>
 #include <QAction>
-#include <QtWebEngineWidgets/QWebEngineView>
+#include <QtWebEngineWidgets>
+#include <QWebEngineView>
 #include <QtWidgets/QDockWidget>
 #include <QTimer>
 #include <ViewEditors/Viewer.h>

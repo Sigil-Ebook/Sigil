@@ -27,11 +27,12 @@
 #include <QSize>
 #include <QUrl>
 #include <QDir>
-#include <QtWebEngineWidgets/QWebEngineSettings>
-#include <QtWebEngineWidgets/QWebEngineProfile>
-#include <QtWebEngineWidgets/QWebEnginePage>
-#include <QtWebEngineWidgets/QWebEngineView>
-#include <QtWebEngineWidgets/QWebEngineScript>
+#include <QtWebEngineWidgets>
+#include <QWebEngineSettings>
+#include <QWebEngineProfile>
+#include <QWebEnginePage>
+#include <QWebEngineView>
+#include <QWebEngineScript>
 #include <QApplication>
 #include <QGuiApplication>
 #include <QDebug>

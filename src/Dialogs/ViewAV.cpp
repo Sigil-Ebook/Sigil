@@ -27,8 +27,9 @@
 #include <QUrl>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QtWebEngineWidgets/QWebEngineProfile>
-#include <QtWebEngineWidgets/QWebEngineView>
+#include <QtWebEngineWidgets>
+#include <QWebEngineProfile>
+#include <QWebEngineView>
 #include <QGuiApplication>
 #include <QApplication>
 #include "ViewEditors/SimplePage.h"

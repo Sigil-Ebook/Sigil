@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -25,7 +25,8 @@
 
 #include <QObject>
 #include <QUrl>
-#include <QtWebEngineWidgets/QWebEnginePage>
+#include <QtWebEngineWidgets>
+#include <QWebEnginePage>
 
 class SimplePage : public QWebEnginePage
 {

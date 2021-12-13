@@ -38,7 +38,8 @@
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QProgressDialog>
 #include <QtWidgets/QToolBar>
-#include <QtWebEngineWidgets/QWebEngineSettings>
+#include <QtWebEngineWidgets>
+#include <QWebEngineSettings>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #ifdef Q_OS_WIN32

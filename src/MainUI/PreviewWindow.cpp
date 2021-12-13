@@ -28,7 +28,6 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QToolBar>
-#include <QtWebEngineWidgets/QWebEngineView>
 #include <QDir>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>

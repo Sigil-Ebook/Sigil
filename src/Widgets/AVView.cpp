@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020 Kevin B. Hendricks
+ **  Copyright (C) 2020-2021 Kevin B. Hendricks
  **
  **  This file is part of Sigil.
  **
@@ -25,8 +25,9 @@
 #include <QGuiApplication>
 #include <QUrl>
 #include <QVBoxLayout>
-#include <QtWebEngineWidgets/QWebEngineProfile>
-#include <QtWebEngineWidgets/QWebEngineView>
+#include <QtWebEngineWidgets>
+#include <QWebEngineProfile>
+#include <QWebEngineView>
 #include <QGuiApplication>
 #include <QApplication>
 #include "ViewEditors/SimplePage.h"

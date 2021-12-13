@@ -39,7 +39,8 @@
 #include <QFileInfo>
 #include <QTextStream>
 #include <QFontMetrics>
-#include <QtWebEngineWidgets/QWebEngineProfile>
+#include <QtWebEngineWidgets>
+#include <QWebEngineProfile>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
 #include <QWebEngineUrlScheme>
