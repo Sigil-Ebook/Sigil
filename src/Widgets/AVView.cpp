@@ -26,6 +26,7 @@
 #include <QUrl>
 #include <QVBoxLayout>
 #include <QtWebEngineWidgets>
+#include <QtWebEngineCore>
 #include <QWebEngineProfile>
 #include <QWebEngineView>
 #include <QGuiApplication>

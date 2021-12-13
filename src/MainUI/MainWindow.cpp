@@ -39,6 +39,7 @@
 #include <QtWidgets/QProgressDialog>
 #include <QtWidgets/QToolBar>
 #include <QtWebEngineWidgets>
+#include <QtWebEngineCore>
 #include <QWebEngineSettings>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>

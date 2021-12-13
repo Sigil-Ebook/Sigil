@@ -26,6 +26,7 @@
 #include <QObject>
 #include <QUrl>
 #include <QtWebEngineWidgets>
+#include <QtWebEngineCore>
 #include <QWebEnginePage>
 
 class SimplePage : public QWebEnginePage

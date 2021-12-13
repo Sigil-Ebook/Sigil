@@ -29,6 +29,7 @@
 #include <QPixmap>
 #include <QtWidgets/QLayout>
 #include <QtWebEngineWidgets>
+#include <QtWebEngineCore>
 #include <QWebEngineView>
 #include <QWebEngineSettings>
 

@@ -40,6 +40,7 @@
 #include <QTextStream>
 #include <QFontMetrics>
 #include <QtWebEngineWidgets>
+#include <QtWebEngineCore>
 #include <QWebEngineProfile>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)

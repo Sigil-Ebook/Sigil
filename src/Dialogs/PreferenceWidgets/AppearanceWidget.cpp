@@ -28,6 +28,7 @@
 #include <QtGui/QPainter>
 #include <QtWidgets/QStyledItemDelegate>
 #include <QtWebEngineWidgets>
+#include <QtWebEngineCore>
 #include <QWebEngineSettings>
 #include <QFontDialog>
 #include <QFileInfo>

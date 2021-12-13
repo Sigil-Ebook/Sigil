@@ -33,6 +33,7 @@
 #include <QtWidgets/QLayout>
 #include <QtWidgets/QMenu>
 #include <QtWebEngineWidgets>
+#include <QtWebEngineCore>
 #include <QWebEngineView>
 #include <QWebEngineProfile>
 #include <QtPrintSupport/QPrinter>

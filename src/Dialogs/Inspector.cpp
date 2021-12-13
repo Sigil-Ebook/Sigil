@@ -22,6 +22,7 @@
 #include <QByteArray>
 #include <QKeySequence>
 #include <QtWebEngineWidgets>
+#include <QtWebEngineCore>
 #include <QWebEngineView>
 #include <QWebEnginePage>
 #include <QWebEngineSettings>

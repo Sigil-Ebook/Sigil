@@ -28,6 +28,7 @@
 #include <QUrl>
 #include <QDir>
 #include <QtWebEngineWidgets>
+#include <QtWebEngineCore>
 #include <QWebEngineSettings>
 #include <QWebEngineProfile>
 #include <QWebEnginePage>
