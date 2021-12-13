@@ -84,9 +84,10 @@ AppearanceWidget::AppearanceWidget()
     m_isHighDPIComboEnabled(true)
 {
 
-#ifdef Q_OS_MAC
+#if defined(Q_OS_MAC) || QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     // Disable the HighDPI combobox on Mac
     // Effectively an isMacOS runtime check
+    // Also needed if Qt >= 6.0.0
     m_isHighDPIComboEnabled = false;
 #endif
 

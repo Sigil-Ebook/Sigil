@@ -296,7 +296,7 @@ void setupHighDPI()
 int main(int argc, char *argv[])
 {
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-    QT_REQUIRE_VERSION(argc, argv, "5.9.0");
+    QT_REQUIRE_VERSION(argc, argv, "5.10.0");
 #else
     QT_REQUIRE_VERSION(argc, argv, "5.12.3");
 #endif
@@ -336,10 +336,12 @@ int main(int argc, char *argv[])
     QWebEngineUrlScheme::registerScheme(sigilScheme);
 #endif
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #ifndef Q_OS_MAC
     setupHighDPI();
 #endif
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+#endif
 
     // many qtbugs related to mixing 32 and 64 bit qt apps when shader disk cache is used
     // Only use if using Qt5.9.0 or higher
