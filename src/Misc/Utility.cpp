@@ -45,7 +45,7 @@
 #include <QtCore/QProcess>
 #include <QtCore/QStandardPaths>
 #include <QtCore/QStringList>
-#include <QtCore/QStringRef>
+#include <QStringRef>
 #include <QtCore/QTextStream>
 #include <QtCore/QtGlobal>
 #include <QtCore/QUrl>
@@ -122,7 +122,11 @@ QString Utility::DefinePrefsDir()
     if (!SIGIL_PREFS_DIR.isEmpty()) {
         return SIGIL_PREFS_DIR;
     } else {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         return QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+#else
+        return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
+#endif
     }
 }
 
@@ -307,8 +311,13 @@ QString Utility::Substring(int start_index, int end_index, const QString &string
 // [ start_index, end_index >
 QStringRef Utility::SubstringRef(int start_index, int end_index, const QString &string)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     return string.midRef(start_index, end_index - start_index);
+#else
+    return QStringRef(&string, start_index, end_index - start_index);
+#endif
 }
+
 // Replace the first occurrence of string "before"
 // with string "after" in string "string"
 QString Utility::ReplaceFirst(const QString &before, const QString &after, const QString &string)

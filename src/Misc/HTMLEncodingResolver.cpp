@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks Stratford, Ontario, Canada
+**  Copyright (C) 2016-2021 Kevin B. Hendricks Stratford, Ontario, Canada
 **  Copyright (C) 2013      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -25,7 +25,7 @@
 
 #include <QtCore/QFile>
 #include <QtCore/QString>
-#include <QtCore/QTextCodec>
+#include <QTextCodec>
 #include <QRegularExpression>
 
 #include "Misc/HTMLEncodingResolver.h"

@@ -26,7 +26,7 @@
 #include <QtCore/QHash>
 #include <QtCore/QList>
 #include <QtCore/QString>
-#include <QtCore/QXmlStreamReader>
+#include <QXmlStreamReader>
 // #include <QtWebKitWidgets/QWebFrame>
 // #include <QtWebKitWidgets/QWebPage>
 #include <QRegularExpression>

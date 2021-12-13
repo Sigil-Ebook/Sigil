@@ -22,6 +22,7 @@
 #include <QChar>
 #include <QString>
 #include <QStringList>
+#include <QStringRef>
 #include <QDebug>
 
 #include "Parsers/TagAtts.h"

@@ -23,10 +23,10 @@
 #define TAG_LISTER
 
 #include <QStringList>
+#include <QStringRef>
 #include <QList>
 
 class QString;
-class QStringRef;
 
 class TagLister
 {

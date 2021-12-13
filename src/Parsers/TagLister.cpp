@@ -23,6 +23,7 @@
 #include <QString>
 #include <QStringList>
 #include <QList>
+#include <QStringRef>
 #include <QDebug>
 
 #include "Misc/Utility.h"

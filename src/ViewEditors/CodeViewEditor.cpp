@@ -38,6 +38,8 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QRegularExpressionMatchIterator>
+#include <QString>
+#include <QStringRef>
 #include <QPointer>
 #include <QDebug>
 

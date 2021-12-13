@@ -95,7 +95,12 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
         css_future = QtConcurrent::map(css_resources,  std::bind(LoadAndUpdateOneCSSFile,  std::placeholders::_1, css_updates));
     }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)    
     sync.addFuture(html_future);
+#else
+    sync.addFuture(QFuture<void>(html_future));
+#endif    
+    
     sync.addFuture(css_future);
 
     // We can't schedule these with QtConcurrent because they

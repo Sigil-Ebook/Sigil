@@ -28,7 +28,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QLibraryInfo>
 #include <QStyleFactory>
-#include <QtCore/QTextCodec>
+#include <QTextCodec>
 #include <QtCore/QThreadPool>
 #include <QtCore/QTranslator>
 #include <QtCore/QStandardPaths>

@@ -24,6 +24,8 @@
 #ifndef HTMLEncodingResolver_H
 #define HTMLEncodingResolver_H
 
+#include <QTextCodec>
+
 class QString;
 
 class HTMLEncodingResolver
