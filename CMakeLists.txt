@@ -18,6 +18,12 @@ if ( NOT DEFINED TRY_NEWER_FINDPYTHON3 )
     set ( TRY_NEWER_FINDPYTHON3 0 )
 endif()
 
+# Default to using Qt5 for builds
+# Enable Qt6 with -DUSEQT6=1 in cmake config command
+if ( NOT DEFINED USE_QT6 )
+    set( USE_QT6 0 )
+endif()
+
 if (${CMAKE_VERSION} VERSION_GREATER_EQUAL ${RECENT_CMAKE_VER} AND ${TRY_NEWER_FINDPYTHON3})
     set ( USE_NEWER_FINDPYTHON3 1 )
 else()
