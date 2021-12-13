@@ -30,8 +30,8 @@
 #include <QtCore/QString>
 #include <QColor>
 #include <QSet>
+#include <QStringList>
 
-class QStringList;
 class QStringRef;
 class QWidget;
 class QMenu;

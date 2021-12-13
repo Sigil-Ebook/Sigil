@@ -34,13 +34,13 @@
 #include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 #include <QPointer>
+#include <QStringList>
 #include "BookManipulation/Book.h"
 #include "Dialogs/ReportsWidgets/ReportsWidget.h"
 
 #include "ui_ReportsCSSFilesWidget.h"
 
 class QString;
-class QStringList;
 
 class CSSFilesWidget : public ReportsWidget
 {

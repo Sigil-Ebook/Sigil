@@ -27,7 +27,6 @@
 #include <QtCore/QHash>
 
 class QString;
-class QStringList;
 
 /**
  * Singleton.

@@ -31,6 +31,7 @@
 #include <QtCore/QSharedPointer>
 #include <QAction>
 #include <QtWidgets/QMenu>
+#include <QStringList>
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"
@@ -39,7 +40,6 @@
 #include "ui_ReportsAllFilesWidget.h"
 
 class QString;
-class QStringList;
 
 class AllFilesWidget : public ReportsWidget
 

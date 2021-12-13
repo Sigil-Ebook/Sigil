@@ -22,12 +22,12 @@
 #ifndef QUICK_PARSER
 #define QUICK_PARSER
 
+#include <QStringList>
 #include "Parsers/TagAtts.h"
 
 class TagAtts;
 class QString;
 class QStringRef;
-class QStringList;
  
 class QuickParser
 {

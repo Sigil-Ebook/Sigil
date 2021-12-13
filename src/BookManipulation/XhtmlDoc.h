@@ -30,7 +30,7 @@
 #include "ViewEditors/ViewEditor.h"
 
 class QString;
-class QStringList;
+#include <QStringList>
 class QXmlStreamReader;
 class TagLister;
 

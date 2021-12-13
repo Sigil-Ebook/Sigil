@@ -26,7 +26,6 @@
 #include <QCoreApplication>
 #include <QHash>
 class QString;
-class QStringList;
 
 
 /**

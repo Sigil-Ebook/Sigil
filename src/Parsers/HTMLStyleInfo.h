@@ -27,7 +27,6 @@
 #include <QStringList>
 #include "Parsers/CSSInfo.h"
 
-class QStringList;
 
 class HTMLStyleInfo : public QObject
 {

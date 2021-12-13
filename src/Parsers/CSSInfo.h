@@ -30,8 +30,6 @@
 #include <QStringList>
 #include "Parsers/qCSSParser.h"
 
-class QStringList;
-
 class CSSInfo : public QObject
 {
     Q_OBJECT

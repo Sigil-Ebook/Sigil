@@ -29,8 +29,6 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "BookManipulation/XhtmlDoc.h"
 
-class QStringList;
-
 class CleanSource
 {
 

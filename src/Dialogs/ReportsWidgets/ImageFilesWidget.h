@@ -32,6 +32,7 @@
 #include <QtCore/QHash>
 #include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
+#include <QStringList>
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"
@@ -40,7 +41,6 @@
 #include "ui_ReportsImageFilesWidget.h"
 
 class QString;
-class QStringList;
 
 class ImageFilesWidget : public ReportsWidget
 {

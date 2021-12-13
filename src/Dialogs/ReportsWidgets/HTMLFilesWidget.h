@@ -32,6 +32,7 @@
 #include <QAction>
 #include <QtWidgets/QMenu>
 #include <QPointer>
+#include <QStringList>
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"
@@ -40,7 +41,6 @@
 #include "ui_ReportsHTMLFilesWidget.h"
 
 class QString;
-class QStringList;
 
 class HTMLFilesWidget : public ReportsWidget
 

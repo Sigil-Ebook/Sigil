@@ -26,8 +26,9 @@
 
 #include <QCoreApplication>
 #include <QHash>
+#include <QStringList>
+
 class QString;
-class QStringList;
 
 #include "Misc/DescriptiveInfo.h"
 

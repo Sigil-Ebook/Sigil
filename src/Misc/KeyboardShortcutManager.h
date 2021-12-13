@@ -26,12 +26,12 @@
 #include <QtCore/QHash>
 #include <QtCore/QString>
 #include <QtGui/QKeySequence>
+#include <QStringList>
 
 #include "Misc/KeyboardShortcut.h"
 
 class QAction;
 class QShortcut;
-class QStringlist;
 
 /**
  * Manages keyboard shortcuts for the application.

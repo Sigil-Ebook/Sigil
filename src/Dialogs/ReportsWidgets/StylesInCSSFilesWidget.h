@@ -41,7 +41,6 @@
 #include "ui_ReportsStylesInCSSFilesWidget.h"
 
 class QString;
-class QStringList;
 
 class StylesInCSSFilesWidget : public ReportsWidget
 {

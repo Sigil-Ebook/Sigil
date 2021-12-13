@@ -27,13 +27,13 @@
 
 #include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
+#include <QStringList>
 
 #include "ResourceObjects/Resource.h"
 
 #include "ui_SelectFiles.h"
 
 class QString;
-class QStringList;
 class QWebEngineView;
 
 class SelectFiles : public QDialog

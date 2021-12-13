@@ -25,10 +25,8 @@
 #define PERFORMXMLUPDATES_H
 
 #include <QtCore/QHash>
-#include <QtCore/QStringList>
 
 class QString;
-class QStringList;
 
 /**
  * Performs path updates on XML documents.

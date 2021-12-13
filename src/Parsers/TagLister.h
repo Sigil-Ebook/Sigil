@@ -22,11 +22,11 @@
 #ifndef TAG_LISTER
 #define TAG_LISTER
 
+#include <QStringList>
 #include <QList>
 
 class QString;
 class QStringRef;
-class QStringList;
 
 class TagLister
 {
