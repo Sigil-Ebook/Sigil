@@ -179,7 +179,11 @@ void CPCompare::handle_mod_request()
 
             QApplication::setOverrideCursor(Qt::WaitCursor);
             QFuture<QList<DiffRecord::DiffRec>> bfuture =
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
                 QtConcurrent::run(&pr, &PythonRoutines::GenerateParsedNDiffInPython, leftpath, rightpath);
+#else
+                QtConcurrent::run(&PythonRoutines::GenerateParsedNDiffInPython, &pr, leftpath, rightpath);
+#endif
             bfuture.waitForFinished();
             QList<DiffRecord::DiffRec> diffinfo = bfuture.result();
             QApplication::restoreOverrideCursor();

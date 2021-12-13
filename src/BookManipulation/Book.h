@@ -405,7 +405,7 @@ private:
      *
      * @param section_info New section to create.
      */
-    NewSectionResult CreateOneNewSection(NewSection section_info);
+    NewSectionResult CreateANewSection(NewSection section_info);
 
     /**
      * Creates one new section/XHTML document.

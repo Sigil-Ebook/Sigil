@@ -253,15 +253,26 @@ QHash<QString, QString> ImportHTML::LoadFolderStructure(const QString &source)
     QStringList mediapaths = XhtmlDoc::GetPathsToMediaFiles(source);
     QStringList stylepaths = XhtmlDoc::GetPathsToStyleFiles(source);
     QFutureSynchronizer<QHash<QString, QString>> sync;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)    
     sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadMediaFiles,  mediapaths));
     sync.addFuture(QtConcurrent::run(this, &ImportHTML::LoadStyleFiles,  stylepaths));
+#else
+    sync.addFuture(QtConcurrent::run(&ImportHTML::LoadMediaFiles, this,  mediapaths));
+    sync.addFuture(QtConcurrent::run(&ImportHTML::LoadStyleFiles, this,  stylepaths));
+#endif
     sync.waitForFinished();
     QList<QFuture<QHash<QString, QString>>> futures = sync.futures();
     int num_futures = futures.count();
     QHash<QString, QString> updates;
 
     for (int i = 0; i < num_futures; ++i) {
+        
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         updates.unite(futures.at(i).result());
+#else
+        updates.insert(futures.at(i).result());
+#endif
+        
     }
 
     return updates;

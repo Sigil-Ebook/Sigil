@@ -89,7 +89,11 @@ void TOCModel::Refresh()
     }
 
     m_RefreshInProgress = true;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)    
     m_TocRootWatcher->setFuture(QtConcurrent::run(this, &TOCModel::GetRootTOCEntry));
+#else
+    m_TocRootWatcher->setFuture(QtConcurrent::run(&TOCModel::GetRootTOCEntry, this));
+#endif
 }
 
 

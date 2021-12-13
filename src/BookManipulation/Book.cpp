@@ -649,10 +649,13 @@ void Book::CreateNewSections(const QStringList &new_sections, HTMLResource *orig
         sectionInfo.file_extension = file_extension;
         sectionInfo.folder_path = folder_path;
         sync.addFuture(
-            QtConcurrent::run(
-                this,
-                &Book::CreateOneNewSection,
-                sectionInfo));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)                      
+            QtConcurrent::run(this, &Book::CreateANewSection, sectionInfo)
+#else
+            QtConcurrent::run(&Book::CreateANewSection, this, sectionInfo)
+            //QtConcurrent::run(this, [this, sectionInfo] { &Book::CreateOneNewSection(sectionInfo);
+#endif
+                      );
     }
 
     sync.waitForFinished();
@@ -1462,7 +1465,7 @@ void Book::SaveOneResourceToDisk(Resource *resource)
 }
 
 
-Book::NewSectionResult Book::CreateOneNewSection(NewSection section_info)
+Book::NewSectionResult Book::CreateANewSection(NewSection section_info)
 {
     return CreateOneNewSection(section_info, QHash<QString, QString>());
 }
