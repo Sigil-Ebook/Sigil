@@ -23,6 +23,7 @@
 
 #include <QtCore/QCoreApplication>
 #include <QByteArray>
+#include <QFile>
 #include <QDataStream>
 #include <QtCore/QTime>
 

@@ -22,6 +22,7 @@
 #include <QApplication>
 #include <QSyntaxHighlighter>
 #include <QTextDocument>
+#include <QStringRef>
 #include <QBrush>
 #include <QColor>
 #include <QDebug>

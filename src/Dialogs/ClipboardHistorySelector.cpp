@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018, 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2018-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -135,7 +135,7 @@ void ClipboardHistorySelector::SetupClipboardHistoryTable()
         QChar *uc = display_text.data();
 
         for (int i = 0; i < (int)text.length(); ++i) {
-            if ((uc[i] < 0x20 && uc[i] != 0x09)
+            if ((uc[i] < QChar(0x20) && uc[i] != QChar(0x09))
                 || uc[i] == QChar::LineSeparator
                 || uc[i] == QChar::ParagraphSeparator
                 || uc[i] == QChar::ObjectReplacementCharacter) {
