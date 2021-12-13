@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -29,6 +29,7 @@
 #include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 #include <QtCore/QSharedPointer>
+#include <QString>
 
 #include "ResourceObjects/Resource.h"
 #include "BookManipulation/Book.h"
@@ -36,8 +37,6 @@
 #include "Dialogs/ReportsWidgets/ReportsWidget.h"
 
 #include "ui_ReportsCharactersInHTMLFilesWidget.h"
-
-class QString;
 
 class CharactersInHTMLFilesWidget : public ReportsWidget
 {
@@ -52,7 +51,7 @@ public:
 signals:
     void CloseDialog();
     void OpenFileRequest(QString, int, int);
-    void FindText(QString);
+    void FindSpecifiedText(QString);
 
 private slots:
     void FilterEditTextChangedSlot(const QString &text);

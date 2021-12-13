@@ -27,7 +27,6 @@
 #include <QtGui/QFont>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QMessageBox>
-#include <QString>
 
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -197,7 +196,7 @@ void CharactersInHTMLFilesWidget::DoubleClick()
 {
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
     QString text = m_ItemModel->itemFromIndex(index)->text();
-    emit FindText(text);
+    emit CharactersInHTMLFilesWidget::FindSpecifiedText(text);
 }
 
 void CharactersInHTMLFilesWidget::Save()
