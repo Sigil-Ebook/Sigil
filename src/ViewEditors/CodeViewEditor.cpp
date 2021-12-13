@@ -33,7 +33,7 @@
 #include <QtWidgets/QMenu>
 #include <QtGui/QPainter>
 #include <QtWidgets/QScrollBar>
-#include <QtWidgets/QShortcut>
+#include <QShortcut>
 #include <QXmlStreamReader>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>

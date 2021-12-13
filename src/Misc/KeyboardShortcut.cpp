@@ -22,7 +22,7 @@
 #include <QtCore/QString>
 #include <QAction>
 #include <QtGui/QKeySequence>
-#include <QtWidgets/QShortcut>
+#include <QShortcut>
 
 #include "Misc/KeyboardShortcut.h"
 #include "Misc/KeyboardShortcut_p.h"

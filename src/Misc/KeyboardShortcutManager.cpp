@@ -21,7 +21,7 @@
 
 #include <QtCore/QHashIterator>
 #include <QAction>
-#include <QtWidgets/QShortcut>
+#include <QShortcut>
 #include <QRegularExpression>
 
 #include "Misc/KeyboardShortcutManager.h"
