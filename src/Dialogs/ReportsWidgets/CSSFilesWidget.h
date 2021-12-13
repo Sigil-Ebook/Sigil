@@ -26,7 +26,7 @@
 #define CSSFILESWIDGET_H
 
 #include <QtCore/QSharedPointer>
-#include <QtWidgets/QAction>
+#include <QAction>
 #include <QtWidgets/QMenu>
 
 #include "ResourceObjects/Resource.h"

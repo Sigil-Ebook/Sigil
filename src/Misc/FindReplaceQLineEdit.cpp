@@ -25,7 +25,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QSignalMapper>
 #include <QtWidgets/QAbstractItemView>
-#include <QtWidgets/QAction>
+#include <QAction>
 #include <QtWidgets/QCompleter>
 #include <QtGui/QContextMenuEvent>
 #include <QtWidgets/QMenu>

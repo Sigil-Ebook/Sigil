@@ -20,7 +20,7 @@
 *************************************************************************/
 
 #include <QtCore/QString>
-#include <QtWidgets/QAction>
+#include <QAction>
 #include <QtGui/QKeySequence>
 #include <QtWidgets/QShortcut>
 

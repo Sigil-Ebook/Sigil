@@ -26,7 +26,7 @@
 #include <QtCore/QTimer>
 #include <QtCore/QUrl>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QAction>
+#include <QAction>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLayout>
 #include <QtPrintSupport/QPrinter>

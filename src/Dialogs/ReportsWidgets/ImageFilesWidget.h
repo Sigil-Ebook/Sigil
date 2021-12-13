@@ -26,7 +26,7 @@
 #define IMAGEFILESWIDGET_H
 
 #include <QtCore/QSharedPointer>
-#include <QtWidgets/QAction>
+#include <QAction>
 #include <QtWidgets/QMenu>
 #include <QPointer>
 #include <QtCore/QHash>

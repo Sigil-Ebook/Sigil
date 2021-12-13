@@ -29,7 +29,7 @@
 #include <QtCore/QFileInfo>
 #include <QtGui/QContextMenuEvent>
 #include <QtCore/QSignalMapper>
-#include <QtWidgets/QAction>
+#include <QAction>
 #include <QtWidgets/QMenu>
 #include <QtGui/QPainter>
 #include <QtWidgets/QScrollBar>

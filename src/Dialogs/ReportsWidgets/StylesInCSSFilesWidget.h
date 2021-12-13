@@ -29,7 +29,7 @@
 #include <QtWidgets/QDialog>
 #include <QtGui/QStandardItemModel>
 #include <QtCore/QSharedPointer>
-#include <QtWidgets/QAction>
+#include <QAction>
 #include <QtWidgets/QMenu>
 #include <QPointer>
 

@@ -23,7 +23,7 @@
 *************************************************************************/
 
 #include <QtCore/QSignalMapper>
-#include <QtWidgets/QAction>
+#include <QAction>
 #include <QtGui/QContextMenuEvent>
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QMenu>

@@ -20,7 +20,7 @@
 *************************************************************************/
 
 #include <QtCore/QHashIterator>
-#include <QtWidgets/QAction>
+#include <QAction>
 #include <QtWidgets/QShortcut>
 #include <QRegularExpression>
 
