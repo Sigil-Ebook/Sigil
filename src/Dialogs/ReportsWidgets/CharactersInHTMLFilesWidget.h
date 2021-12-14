@@ -68,7 +68,7 @@ private:
     void SetupTable();
     void AddTableData();
 
-    QList <QChar> GetDisplayedCharacters(QList<HTMLResource *> resources);
+    QList <uint> GetDisplayedCharacters(QList<HTMLResource *> resources);
 
     QSharedPointer<Book> m_Book;
 

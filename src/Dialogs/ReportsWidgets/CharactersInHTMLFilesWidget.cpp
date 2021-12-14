@@ -92,23 +92,35 @@ void CharactersInHTMLFilesWidget::SetupTable()
 void CharactersInHTMLFilesWidget::AddTableData()
 {
     const QList<HTMLResource *> html_resources = m_Book->GetHTMLResources();
-    QList <QChar> characters = GetDisplayedCharacters(html_resources);
+    QList<uint> characters = GetDisplayedCharacters(html_resources);
     QString all_characters;
-    foreach (QChar c, characters) {
-        all_characters.append(c);
+    foreach (uint unichr, characters) {
+        if (QChar::isSurrogate(unichr)) {
+            all_characters.append(QChar(QChar::highSurrogate(unichr)));
+            all_characters.append(QChar(QChar::lowSurrogate(unichr)));
+        } else {
+            all_characters.append(QChar(unichr));
+        }
     }
     ui.Characters->setText(all_characters);
 
-    foreach (QChar c, characters) {
+    foreach (uint unichr, characters) {
         // Write the table entries
         QList<QStandardItem *> rowItems;
         // Character
+        QString chrtxt;
         QStandardItem *item = new QStandardItem();
-        item->setText(QString(c));
+        if (QChar::isSurrogate(unichr)) {
+            chrtxt.append(QChar(QChar::highSurrogate(unichr)));
+            chrtxt.append(QChar(QChar::lowSurrogate(unichr)));
+        } else {
+            chrtxt.append(QChar(unichr));
+        }
+        item->setText(chrtxt);
         rowItems << item;
         // Decimal number
         item = new QStandardItem();
-        ushort char_number = c.unicode();
+        uint char_number = unichr;
         item->setText(QString::number(char_number));
         rowItems << item;
         // Hex number
@@ -134,28 +146,36 @@ void CharactersInHTMLFilesWidget::AddTableData()
     }
 }
 
-QList <QChar> CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList<HTMLResource *> resources)
+QList <uint> CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList<HTMLResource *> resources)
 {
-    QString all_characters;
+    
+    QSet<uint> character_set;
     foreach (HTMLResource *resource, resources) {
         QString replaced_html = resource->GetText();
         replaced_html = replaced_html.replace("<html>", "<html xmlns=\"http://www.w3.org/1999/xhtml\">");
         QString version = "any_version";
         GumboInterface gi = GumboInterface(replaced_html, version);
         QString text = gi.get_body_text();
-        all_characters.append(text);
-    }
-
-    QMap <QChar, QChar> character_map;
-    foreach (const QChar c, all_characters) {
-        if (c != '\n') {
-            character_map.insert(c, c);
+        for (int i=0; i < text.length(); i++) {
+            uint unichr;
+            QChar c = text.at(i);
+            if (c != '\n') {
+                if (c.isHighSurrogate()) {
+                    i++;
+                    if (i < text.length()) {
+                        QChar d = text.at(i);
+                        unichr = QChar::surrogateToUcs4(c,d);
+                    }
+                    // intentionally skip high surrogate withouts a following character as invalid
+                } else {
+                    unichr = c.unicode();
+                }
+                character_set.insert(unichr);
+            }
+            i++;
         }
     }
-    QList <QChar> character_list;
-    character_list = character_map.values();
-
-    return character_list;
+    return character_set.values();
 }
 
 
