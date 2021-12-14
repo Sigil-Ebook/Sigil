@@ -472,7 +472,9 @@ void SpellCheckWidget::loadUserDictionaryWordList(QString dict_name)
 
     if (userDictFile.open(QIODevice::ReadOnly)) {
         QTextStream userDictStream(&userDictFile);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         userDictStream.setCodec("UTF-8");
+#endif
         QString line;
 
         do {
@@ -523,7 +525,9 @@ void SpellCheckWidget::saveUserDictionaryWordList(QString dict_name)
 
     if (userDictFile.open(QFile::WriteOnly | QFile::Truncate)) {
         QTextStream userDictStream(&userDictFile);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         userDictStream.setCodec("UTF-8");
+#endif
         foreach(QString word, words) {
             userDictStream << word << "\n";
         }

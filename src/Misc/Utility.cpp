@@ -547,7 +547,9 @@ QString Utility::ReadUnicodeTextFile(const QString &fullfilepath)
 
     QTextStream in(&file);
     // Input should be UTF-8
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     in.setCodec("UTF-8");
+#endif
     // This will automatically switch reading from
     // UTF-8 to UTF-16 if a BOM is detected
     in.setAutoDetectUnicode(true);
@@ -572,7 +574,9 @@ void Utility::WriteUnicodeTextFile(const QString &text, const QString &fullfilep
 
     QTextStream out(&file);
     // We ALWAYS output in UTF-8
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     out.setCodec("UTF-8");
+#endif
     out << text;
 }
 

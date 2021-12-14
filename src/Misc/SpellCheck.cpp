@@ -447,7 +447,9 @@ void SpellCheck::addToUserDictionary(const QString &word, QString dict_name)
         // Try to open the file to add the word.
         if (userDictFile.open(QIODevice::Append)) {
             QTextStream userDictStream(&userDictFile);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             userDictStream.setCodec("UTF-8");
+#endif
             userDictStream << word << "\n";
             userDictFile.close();
         }
@@ -475,7 +477,9 @@ QStringList SpellCheck::userDictionaryWords(QString dict_name)
 
     if (userDictFile.open(QIODevice::ReadOnly)) {
         QTextStream userDictStream(&userDictFile);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         userDictStream.setCodec("UTF-8");
+#endif
         QString line;
 
         do {
@@ -500,7 +504,9 @@ void SpellCheck::dicDeltaWords(const QString &delta_path, QStringList & word_lis
     QFile deltaFile(delta_path);
     if (deltaFile.open(QIODevice::ReadOnly)) {
         QTextStream deltaStream(&deltaFile);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         deltaStream.setCodec("UTF-8");
+#endif
         QString line;
         do {
             line = deltaStream.readLine();
