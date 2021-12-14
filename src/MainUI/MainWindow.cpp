@@ -2420,8 +2420,8 @@ bool MainWindow::GenerateNCXGuideFromNav()
     QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNcxInPython, navdata, 
                                                 navbkpath, ncxdir, doctitle, mainid);
 #else
-    QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNcxInPython, navdata, 
-                                                navbkpath, ncxdir, doctitle, mainid);
+    QFuture<void> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNcxInPython, navdata, 
+                                             navbkpath, ncxdir, doctitle, mainid);
 #endif
     future.waitForFinished();
     QString ncxdata = future.result();
