@@ -488,7 +488,7 @@ int BookBrowser::ValidSelectedItemCount()
         const QString &identifier = item->data().toString();
 
         // If folder item included, multiple selection is invalid
-        if (identifier == NULL) {
+        if (identifier.isEmpty()) {
             return -1;
         }
 
