@@ -437,5 +437,9 @@ void SelectCharacter::WriteSettings()
 
 void SelectCharacter::connectSignalsSlots()
 {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(m_buttonMapper, SIGNAL(mapped(const QString &)), this, SLOT(SetSelectedCharacter(const QString &)));
+#else
+    connect(m_buttonMapper, SIGNAL(mappedString(const QString &)), this, SLOT(SetSelectedCharacter(const QString &)));
+#endif
 }

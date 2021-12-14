@@ -41,7 +41,11 @@ FindReplaceQLineEdit::FindReplaceQLineEdit(QWidget *parent)
       m_searchMapper(new QSignalMapper(this)),
       m_tokeniseEnabled(true)
 {
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(m_searchMapper, SIGNAL(mapped(const QString &)), m_FindReplace, SLOT(LoadSearchByName(const QString &)));
+#else
+    connect(m_searchMapper, SIGNAL(mappedString(const QString &)), m_FindReplace, SLOT(LoadSearchByName(const QString &)));
+#endif
 }
 
 FindReplaceQLineEdit::~FindReplaceQLineEdit()

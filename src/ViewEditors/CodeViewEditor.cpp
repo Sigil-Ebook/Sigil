@@ -3757,9 +3757,17 @@ void CodeViewEditor::ConnectSignalsToSlots()
     connect(this, SIGNAL(selectionChanged()), this, SLOT(ResetLastFindMatch()));
     connect(m_ScrollOneLineUp,   SIGNAL(activated()), this, SLOT(ScrollOneLineUp()));
     connect(m_ScrollOneLineDown, SIGNAL(activated()), this, SLOT(ScrollOneLineDown()));
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0) 
     connect(m_spellingMapper, SIGNAL(mapped(const QString &)), this, SLOT(InsertText(const QString &)));
     connect(m_addSpellingMapper, SIGNAL(mapped(const QString &)), this, SLOT(addToDefaultDictionary(const QString &)));
     connect(m_addDictMapper, SIGNAL(mapped(const QString &)), this, SLOT(addToUserDictionary(const QString &)));
     connect(m_ignoreSpellingMapper, SIGNAL(mapped(const QString &)), this, SLOT(ignoreWord(const QString &)));
     connect(m_clipMapper, SIGNAL(mapped(const QString &)), this, SLOT(PasteClipEntryFromName(const QString &)));
+#else
+    connect(m_spellingMapper, SIGNAL(mappedString(const QString &)), this, SLOT(InsertText(const QString &)));
+    connect(m_addSpellingMapper, SIGNAL(mappedString(const QString &)), this, SLOT(addToDefaultDictionary(const QString &)));
+    connect(m_addDictMapper, SIGNAL(mappedString(const QString &)), this, SLOT(addToUserDictionary(const QString &)));
+    connect(m_ignoreSpellingMapper, SIGNAL(mappedString(const QString &)), this, SLOT(ignoreWord(const QString &)));
+    connect(m_clipMapper, SIGNAL(mappedString(const QString &)), this, SLOT(PasteClipEntryFromName(const QString &)));
+#endif
 }
