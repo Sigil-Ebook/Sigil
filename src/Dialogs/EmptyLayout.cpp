@@ -32,7 +32,6 @@
 #include <QFileSystemModel>
 #include <QTreeView>
 #include <QModelIndex>
-#include <QDesktopWidget>
 #include <QDir>
 #include <QApplication>
 #include <QListWidget>
@@ -42,6 +41,12 @@
 #include <QKeySequence>
 #include <QMessageBox>
 #include <QDebug>
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#include <QDesktopWidget>
+#else
+#include <QScreen>
+#endif
 
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -83,7 +88,13 @@ EmptyLayout::EmptyLayout(const QString &epubversion, QWidget *parent)
     view->setAnimated(false);
     view->setIndentation(20);
     view->setSortingEnabled(true);
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     const QSize availableSize = QApplication::desktop()->availableGeometry(view).size();
+#else
+    const QSize availableSize = QGuiApplication::primaryScreen()->availableGeometry().size();
+#endif
+
     view->resize(availableSize / 2);
     view->setColumnWidth(0, view->width() / 3);
     view->setWindowTitle(QObject::tr("Custom Epub Layout Designer"));
@@ -118,7 +129,7 @@ EmptyLayout::EmptyLayout(const QString &epubversion, QWidget *parent)
             this, SLOT(updateActions()));
 
     // assign basic shortcuts
-    delButton->     setShortcut(QKeySequence(Qt::ControlModifier + Qt::ShiftModifier + Qt::Key_Delete));
+    delButton->     setShortcut(QKeySequence(Qt::ControlModifier | Qt::ShiftModifier | Qt::Key_Delete));
     addButton->     setShortcut(QKeySequence("Ctrl+Shift+D"));
     renameButton->  setShortcut(QKeySequence("Ctrl+Shift+F2"));
     addFileButton-> setShortcut(QKeySequence("Ctrl+Shift+F"));
@@ -282,7 +293,13 @@ void EmptyLayout::loadDesign()
     view->setAnimated(false);
     view->setIndentation(20);
     view->setSortingEnabled(true);
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     const QSize availableSize = QApplication::desktop()->availableGeometry(view).size();
+#else
+    const QSize availableSize = QGuiApplication::primaryScreen()->availableGeometry().size();
+#endif
+
     view->resize(availableSize / 2);
     view->setColumnWidth(0, view->width() / 3);
     view->setWindowTitle(QObject::tr("Custom Epub Layout Designer"));

@@ -30,7 +30,6 @@
 #include <QFuture>
 #include <QtGui/QDesktopServices>
 #include <QtGui/QImage>
-#include <QDesktopWidget>
 #include <QGuiApplication>
 #include <QScreen>
 #include <QtWidgets/QFileDialog>
@@ -55,6 +54,10 @@
 #include <QStyleFactory>
 #include <QStyle>
 #include <QDebug>
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#include <QDesktopWidget>
+#endif
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/Index.h"
@@ -4756,11 +4759,22 @@ void MainWindow::ReadSettings()
     } 
 
     if (MaximizedState) {
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         QRect maxsize = settings.value("max_mw_geometry", QApplication::desktop()->availableGeometry(this)).toRect();
+#else
+        QRect maxsize = QGuiApplication::primaryScreen()->availableGeometry().toRect();
+#endif
         setGeometry(maxsize);
         setWindowState(windowState() | Qt::WindowMaximized);
+
     } else if (FullScreenState) {
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         QRect maxsize = settings.value("max_mw_geometry", QApplication::desktop()->screenGeometry(this)).toRect();
+#else
+        QRect maxsize = QGuiApplication::primaryScreen()->availableGeometry().toRect();
+#endif
         setGeometry(maxsize);
         setWindowState(windowState() | Qt::WindowFullScreen);
     }
@@ -4795,7 +4809,11 @@ void MainWindow::ReadSettings()
 
     // Our default fonts for Preview
     SettingsStore::PreviewAppearance PVAppearance = settings.previewAppearance();
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QWebEngineSettings *web_settings = QWebEngineSettings::defaultSettings();
+#else
+    QWebEngineSettings *web_settings = QWebEngineProfile::defaultProfile()->settings();
+#endif
 
     // Default QWebEngine security settings to help prevent rogue epub3 javascripts
     // User preferences control if javascript is allowed (on) or not for Preview

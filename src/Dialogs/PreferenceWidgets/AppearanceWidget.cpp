@@ -199,7 +199,11 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     settings.setSpecialCharacterAppearance(specialCharacterAppearance);
     settings.setMainMenuIconSize(double(ui.iconSizeSlider->value())/10);
     // PV settings can be globally changed and will take effect immediately
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QWebEngineSettings *web_settings = QWebEngineSettings::defaultSettings();
+#else
+    QWebEngineSettings *web_settings = QWebEngineProfile::defaultProfile()->settings();
+#endif
     web_settings->setFontSize(QWebEngineSettings::DefaultFontSize,   PVAppearance.font_size);
     web_settings->setFontFamily(QWebEngineSettings::StandardFont,    PVAppearance.font_family_standard);
     web_settings->setFontFamily(QWebEngineSettings::SerifFont,       PVAppearance.font_family_serif);
