@@ -392,7 +392,7 @@ int BookBrowser::AllSelectedItemCount()
     const QString &identifier = item->data().toString();
 
     // If folder item included, multiple selection is invalid                                                                              
-    if (identifier == NULL) {
+    if (identifier.isEmpty()) {
       return -1;
     }
 
@@ -1802,18 +1802,18 @@ void BookBrowser::CreateContextMenuActions()
     m_NoObfuscationMethod    ->setCheckable(true);
     m_AdobesObfuscationMethod->setCheckable(true);
     m_IdpfsObfuscationMethod ->setCheckable(true);
-    m_CopyHTML->setShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_Y));
+    m_CopyHTML->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Y));
     sm->registerAction(this, m_CopyHTML, "MainWindow.BookBrowser.CopyHTML");
     m_Delete->setShortcut(QKeySequence::Delete);
-    m_Merge->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_M));
+    m_Merge->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_M));
     m_Merge->setToolTip(tr("Merge with previous file, or merge multiple files into one."));
     sm->registerAction(this, m_Merge, "MainWindow.BookBrowser.Merge");
-    m_Rename->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R));
+    m_Rename->setShortcut(QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_R));
     m_Rename->setToolTip(tr("Rename selected file(s)"));
     sm->registerAction(this, m_Rename, "MainWindow.BookBrowser.Rename");
     m_RERename->setToolTip(tr("Use Regular Expressions to Rename selected file(s)"));
     sm->registerAction(this, m_RERename, "MainWindow.BookBrowser.RERename");
-    // m_Move->setShortcut(QKeySequence(Qt::CTRL + Qt::ALT + Qt::Key_R));
+    // m_Move->setShortcut(QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_R));
     m_Move->setToolTip(tr("Move selected file(s) to a new folder"));
     sm->registerAction(this, m_Move, "MainWindow.BookBrowser.Move");
     m_LinkStylesheets->setToolTip(tr("Link Stylesheets to selected file(s)."));

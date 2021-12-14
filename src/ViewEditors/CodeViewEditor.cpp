@@ -87,7 +87,7 @@ static const QString ATTRIB_VALUES_SEARCH   = "\"([^\"]*)";
 static const QString OPEN_TAG_STARTS_SELECTION = "^\\s*(<\\s*([a-zA-Z0-9]+)[^>]*>)";
 static const QString STARTING_INDENT_USED = "(^\\s*)[^\\s]";
 
-static const int MAX_SPELLING_SUGGESTIONS = 10;
+static const uint MAX_SPELLING_SUGGESTIONS = 10;
 
 
 CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, QWidget *parent)
@@ -1348,7 +1348,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
 
             // We want to limit the number of suggestions so we don't
             // get a huge context menu.
-            for (int i = 0; i < std::min(suggestions.length(), MAX_SPELLING_SUGGESTIONS); ++i) {
+            for (int i = 0; i < std::min(static_cast<uint>(suggestions.length()), MAX_SPELLING_SUGGESTIONS); ++i) {
                 suggestAction = new QAction(suggestions.at(i), menu);
                 connect(suggestAction, SIGNAL(triggered()), m_spellingMapper, SLOT(map()));
                 m_spellingMapper->setMapping(suggestAction, suggestions.at(i));

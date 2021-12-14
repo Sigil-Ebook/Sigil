@@ -3234,7 +3234,7 @@ void MainWindow::MergeResources(QList <Resource *> resources)
             UsedIds.insert(id);
         }
     }
-    QStringList Dups = Duplicates.toList();
+    QStringList Dups = Duplicates.values();
     if (!Dups.isEmpty()) {
         // if duplicates exist, run the SourceUpdates/FragmentUpdates
         QHash<QString, QString> Updates;
@@ -4763,7 +4763,7 @@ void MainWindow::ReadSettings()
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         QRect maxsize = settings.value("max_mw_geometry", QApplication::desktop()->availableGeometry(this)).toRect();
 #else
-        QRect maxsize = QGuiApplication::primaryScreen()->availableGeometry().toRect();
+        QRect maxsize = settings.value("max_mw_geometry", QGuiApplication::primaryScreen()->availableGeometry()).toRect();
 #endif
         setGeometry(maxsize);
         setWindowState(windowState() | Qt::WindowMaximized);
@@ -4773,7 +4773,7 @@ void MainWindow::ReadSettings()
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         QRect maxsize = settings.value("max_mw_geometry", QApplication::desktop()->screenGeometry(this)).toRect();
 #else
-        QRect maxsize = QGuiApplication::primaryScreen()->availableGeometry().toRect();
+        QRect maxsize = settings.value("max_mw_geometry", QGuiApplication::primaryScreen()->availableGeometry()).toRect();
 #endif
         setGeometry(maxsize);
         setWindowState(windowState() | Qt::WindowFullScreen);
@@ -6122,13 +6122,13 @@ void MainWindow::changeEvent(QEvent *e)
                 }
 
                 DWINGEO {
-                    int numscreens = qApp->desktop()->numScreens();
+                    QList<QScreen*>screenlist = QGuiApplication::screens();
+                    int numscreens = screenlist.count();
                     for (int i = 0; i < numscreens; i++) {
                         qDebug() << "Screen: " << i;
-                        qDebug() << "    screen  geo: " << qApp->desktop()->screenGeometry(i);
-                        QScreen *srn = QApplication::screens().at(i);
-                        qDebug() << "    avail   geo: " << srn->availableGeometry();
+                        QScreen *srn = screenlist.at(i);
                         qDebug() << "    geo        : " << srn->geometry();
+                        qDebug() << "    avail   geo: " << srn->availableGeometry();
                         qDebug() << "    devideRatio: " << srn->devicePixelRatio();
                         qDebug() << "    logical dpi: " << srn->logicalDotsPerInchX() << srn->logicalDotsPerInchY();
                         qDebug() << "    physic  dpi: " << srn->physicalDotsPerInchX() << srn->physicalDotsPerInchY();
