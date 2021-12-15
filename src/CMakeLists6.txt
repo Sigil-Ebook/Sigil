@@ -872,8 +872,8 @@ target_link_libraries( ${PROJECT_NAME} ${LIBS_TO_LINK} )
 #############################################################################
 
 # needed for correct static header inclusion
-if( NOT USE_SYSTEM_LIBS OR NOT PCRE_FOUND )
-    add_definitions( -DPCRE_STATIC )
+if( NOT USE_SYSTEM_LIBS OR NOT PCRE2_FOUND )
+    add_definitions( -DPCRE2_STATIC )
 endif()
 
 # Speed up stirng building
