@@ -207,7 +207,7 @@ QList<SPCRE::MatchInfo> SPCRE::getEveryMatchInfo(const QString &text)
         if (rc >= 0 && ovector[0] != ovector[1] && ovector[0] < ovector[1]) {
             info.append(generateMatchInfo(ovector, ovector_count));
         }
-    } while (rc >= 0 && not done);
+    } while (rc >= 0 && !done);
     
     return info;
 }
