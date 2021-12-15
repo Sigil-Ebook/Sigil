@@ -27,6 +27,7 @@
 #include <QtGui/QFont>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QMessageBox>
+#include <QDebug>
 
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -95,9 +96,10 @@ void CharactersInHTMLFilesWidget::AddTableData()
     QList<uint> characters = GetDisplayedCharacters(html_resources);
     QString all_characters;
     foreach (uint unichr, characters) {
-        if (QChar::isSurrogate(unichr)) {
-            all_characters.append(QChar(QChar::highSurrogate(unichr)));
-            all_characters.append(QChar(QChar::lowSurrogate(unichr)));
+        // if (QChar::isSurrogate(unichr)) {
+        if (unichr >= 0x10000) {
+            QString nonbmpchr = QString::fromUcs4(&unichr, 1);
+            all_characters += nonbmpchr;
         } else {
             all_characters.append(QChar(unichr));
         }
@@ -110,9 +112,12 @@ void CharactersInHTMLFilesWidget::AddTableData()
         // Character
         QString chrtxt;
         QStandardItem *item = new QStandardItem();
-        if (QChar::isSurrogate(unichr)) {
-            chrtxt.append(QChar(QChar::highSurrogate(unichr)));
-            chrtxt.append(QChar(QChar::lowSurrogate(unichr)));
+
+        // if (QChar::isSurrogate(unichr)) {
+        if (unichr >= 0x10000) {
+            QString nonbmpchr = QString::fromUcs4(&unichr, 1);
+            chrtxt += nonbmpchr;
+            
         } else {
             chrtxt.append(QChar(unichr));
         }
@@ -156,13 +161,13 @@ QList <uint> CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList<HTMLResou
         QString version = "any_version";
         GumboInterface gi = GumboInterface(replaced_html, version);
         QString text = gi.get_body_text();
+        qDebug() << "text is: " << text;
         for (int i=0; i < text.length(); i++) {
             uint unichr;
             QChar c = text.at(i);
             if (c != '\n') {
                 if (c.isHighSurrogate()) {
-                    i++;
-                    if (i < text.length()) {
+                    if (++i < text.length()) {
                         QChar d = text.at(i);
                         unichr = QChar::surrogateToUcs4(c,d);
                     }
@@ -172,7 +177,6 @@ QList <uint> CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList<HTMLResou
                 }
                 character_set.insert(unichr);
             }
-            i++;
         }
     }
     return character_set.values();
