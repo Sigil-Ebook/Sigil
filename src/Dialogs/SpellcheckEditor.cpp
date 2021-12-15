@@ -628,8 +628,13 @@ void SpellcheckEditor::ConnectSignalsSlots()
             this,               SLOT(ChangeState(int)));
     connect(ui.CaseInsensitiveSort,  SIGNAL(stateChanged(int)),
             this,               SLOT(ChangeState(int)));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+    connect(ui.Dictionaries, SIGNAL(textActivated(const QString &)),
+            this,            SLOT(DictionaryChanged(const QString &)));
+#else
     connect(ui.Dictionaries, SIGNAL(activated(const QString &)),
             this,            SLOT(DictionaryChanged(const QString &)));
+#endif
 
     connect(m_FilterSC, SIGNAL(activated()), ui.FilterText, SLOT(setFocus()));
     connect(m_ShowAllSC, SIGNAL(activated()), this, SLOT(toggleShowAllWords()));
