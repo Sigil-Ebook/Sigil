@@ -39,7 +39,7 @@
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/TextResource.h"
 
-#define DBG if(1)
+#define DBG if(0)
 
 static const QString SETTINGS_GROUP = "find_replace";
 static const QString REGEX_OPTION_UCP = "(*UCP)";
@@ -316,8 +316,43 @@ void FindReplace::CountClicked()
     ResetKeyModifiers();
 }
 
+QString FindReplace::escapePureText(const QString str)
+{
+    QString result = QRegularExpression::escape(str);
+#if 0    
+    const qsizetype count = str.size();
+    result.reserve(count * 2);
+
+    for (qsizetype i = 0; i < count; ++i) {
+        const QChar current = str.at(i);
+        if (current == QChar::Null) {
+            // unlike Perl, a literal NUL must be escaped with
+            // "\\0" (backslash + 0) and not "\\\0" (backslash + NUL),
+            // because pcre16_compile uses a NUL-terminated string
+            result.append(QLatin1Char('\\'));
+            result.append(QLatin1Char('0'));
+        } else if (current > QChar(127)) {
+            // unicode characters above 127 do not need to be escaped
+            result.append(current);
+        } else  if ( (current < QLatin1Char('a') || current > QLatin1Char('z')) &&
+                     (current < QLatin1Char('A') || current > QLatin1Char('Z')) &&
+                     (current < QLatin1Char('0') || current > QLatin1Char('9')) &&
+                     current != QLatin1Char('_') )
+        {
+            result.append(QLatin1Char('\\'));
+            result.append(current);
+        } else {
+            result.append(current);
+        }
+    }
+    result.squeeze();
+#endif    
+    return result;
+}
+
 bool FindReplace::FindAnyText(QString text, bool escape)
 {
+    DBG qDebug() << "FindAnyText";
     SetCodeViewIfNeeded(true);
     WriteSettings();
 
@@ -335,16 +370,16 @@ bool FindReplace::FindAnyText(QString text, bool escape)
         search_text = text + "(?![^<>]*>)(?!.*<body[^>]*>)";
     }
     ui.cbFind->setEditText(search_text);
-    bool found = FindNext();
+    bool found = Find();
     ReadSettings();
     // Show the search term in case it's needed
     ui.cbFind->setEditText(search_text);
-
     return found;
 }
 
 void FindReplace::FindAnyTextInTags(QString text)
 {
+    DBG qDebug() << "FindAnyTextInTags";
     SetCodeViewIfNeeded(true);
     WriteSettings();
 
@@ -357,7 +392,7 @@ void FindReplace::FindAnyTextInTags(QString text)
 
     text = text + "(?=[^<]*>)(?!(?:[^<\"]*\"[^<\"]*\")+\\s*/?>)";
     ui.cbFind->setEditText(text);
-    FindNext();
+    Find();
 
     ReadSettings();
 }
@@ -365,8 +400,8 @@ void FindReplace::FindAnyTextInTags(QString text)
 bool FindReplace::Find()
 {
     DBG qDebug() << "Find";
-
     if (IsNewSearch()) {
+        DBG qDebug() << " .. new search";
         SetFirstResource(true);
         SetPreviousSearch();
     }
@@ -404,6 +439,7 @@ int FindReplace::Count()
     clearMessage();
 
     if (IsNewSearch()) {
+        DBG qDebug() << " .. new search";
         SetFirstResource(true);
         SetPreviousSearch();
     }
@@ -450,6 +486,7 @@ int FindReplace::Count()
 bool FindReplace::Replace()
 {
     if (IsNewSearch()) {
+        DBG qDebug() << " .. new search";
         SetFirstResource(true);
         SetPreviousSearch();
     }
@@ -503,6 +540,7 @@ int FindReplace::ReplaceAll()
     clearMessage();
 
     if (IsNewSearch()) {
+        DBG qDebug() << " .. new search";
         SetFirstResource(true);
         SetPreviousSearch();
     }
@@ -757,6 +795,7 @@ QString FindReplace::GetSearchRegex()
     // Search type
     if (GetSearchMode() == FindReplace::SearchMode_Normal || GetSearchMode() == FindReplace::SearchMode_Case_Sensitive) {
         search = QRegularExpression::escape(search);
+        // search = escapePureText(search);
 
         if (GetSearchMode() == FindReplace::SearchMode_Normal) {
             search = PrependRegexOptionToSearch(REGEX_OPTION_IGNORE_CASE, search);
@@ -902,7 +941,6 @@ int FindReplace::ReplaceInAllFiles()
 bool FindReplace::FindInAllFiles(Searchable::Direction direction)
 {
     DBG qDebug() << "FindInAllFiles";
-
     Searchable *searchable = 0;
     bool found = false;
 
@@ -911,7 +949,6 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
         searchable = GetAvailableSearchable();
 
         if (searchable) {
-            // found = searchable->FindNext(GetSearchRegex(), direction, m_SpellCheck, false, false);
             found = searchable->FindNext(GetSearchRegex(), direction, m_SpellCheck, false, false);
         }
     }
@@ -1027,6 +1064,8 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
         if (next_resource) {
             if (ResourceContainsCurrentRegex(next_resource)) {
                 return next_resource;
+            } else {
+                DBG qDebug() << "resource did not contain current regex";
             }
 
         // else continue
@@ -1692,6 +1731,7 @@ QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
     // tokenised already so we need to escape it
     if (!new_text.contains("\\")) {
         new_text = QRegularExpression::escape(new_text);
+        // new_text = escapePureText(new_text);
     }
 
     // Restore some characters for readability

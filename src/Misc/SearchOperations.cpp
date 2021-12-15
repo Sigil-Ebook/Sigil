@@ -79,7 +79,7 @@ int SearchOperations::CountInFile(const QString &search_regex,
                                   Resource *resource,
                                   bool check_spelling)
 {
-    QReadLocker locker(&resource->GetLock());
+    // QReadLocker locker(&resource->GetLock());
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
     if (html_resource) {
@@ -102,8 +102,10 @@ int SearchOperations::CountInHTMLFile(const QString &search_regex,
                                       HTMLResource *html_resource,
                                       bool check_spelling)
 {
-    const QString &text = html_resource->GetText();
-
+    QReadLocker locker(&html_resource->GetLock());
+    // note you can not use a reference here because the text returned from
+    // any text resource can come from an internal cache that can go away
+    const QString text = html_resource->GetText();
     if (check_spelling) {
         return HTMLSpellCheck::CountMisspelledWords(text, 0, text.count(), search_regex);
     } else {
@@ -113,7 +115,10 @@ int SearchOperations::CountInHTMLFile(const QString &search_regex,
 
 int SearchOperations::CountInTextFile(const QString &search_regex, TextResource *text_resource)
 {
-    const QString &text = text_resource->GetText();
+    QReadLocker locker(&text_resource->GetLock());
+    // note you can not use a reference here because the text returned from
+    // any text resource can come from an internal cache that can go away
+    const QString text = text_resource->GetText();
     return PCRECache::instance()->getObject(search_regex)->getEveryMatchInfo(text).count();
 }
 
@@ -122,7 +127,7 @@ int SearchOperations::ReplaceInFile(const QString &search_regex,
                                     const QString &replacement,
                                     Resource *resource)
 {
-    QWriteLocker locker(&resource->GetLock());
+    // QWriteLocker locker(&resource->GetLock());
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
     if (html_resource) {
@@ -145,7 +150,7 @@ int SearchOperations::ReplaceHTMLInFile(const QString &search_regex,
                                         HTMLResource *html_resource)
 {
     // SettingsStore ss;
-
+    QWriteLocker locker(&html_resource->GetLock());
     int count;
     QString new_text;
     QString text = html_resource->GetText();
@@ -159,6 +164,7 @@ int SearchOperations::ReplaceTextInFile(const QString &search_regex,
                                         const QString &replacement,
                                         TextResource *text_resource)
 {
+    QWriteLocker locker(&text_resource->GetLock());
     int count;
     QString new_text;
     QString text = text_resource->GetText();

@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2019-2021  Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2011       John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -57,7 +57,7 @@ public:
     /**
      * Retrieve the SPCRE object from the cache.
      *
-     * If the object does not exist it is created and inserted into te cache
+     * If the object does not exist it is created and inserted into the cache
      * then returned.
      *
      * @param key The key associated with the SPCRE.

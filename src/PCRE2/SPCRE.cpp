@@ -20,9 +20,14 @@
 **
 *************************************************************************/
 
+#include <QString>
+// #include <QDebug>
+
 #include "PCRE2/SPCRE.h"
 #include "PCRE2/PCREReplaceTextBuilder.h"
 #include "sigil_constants.h"
+
+#define PCRE_NO_JIT 1
 
 // The maximum number of catpures that we will allow.
 const int PCRE_MAX_CAPTURE_GROUPS = 30;
@@ -73,6 +78,10 @@ SPCRE::SPCRE(const QString &patten)
         pcre2_get_error_message_16(errorno, buffer, sizeof(buffer));
         m_error = QString::fromUtf16(buffer);
         m_errpos = erroroffset;
+        // qDebug() << "SPCRE invalid pattern: " << m_pattern;
+        // qDebug() << "SPCRE error: " << m_error;
+        // qDebug() << "SPCRE error position: " << m_errpos;
+
     }
 }
 
@@ -165,11 +174,7 @@ QList<SPCRE::MatchInfo> SPCRE::getEveryMatchInfo(const QString &text)
 
     int rc = 0;
 
-    PCRE2_SIZE * ovector = pcre2_get_ovector_pointer_16(m_matchdata);
-
-    // need to guard against patterns such as /(?=.\K)/ that use \K in an assertion
-    // to set the strt of a match later than its end    
-    if (ovector[0] > ovector[1]) return info;
+    PCRE2_SIZE * ovector = NULL;
 
     // Set the size of the array based on the number of capture subpatterns
     // if it does not exceed our maximum size.
@@ -182,21 +187,27 @@ QList<SPCRE::MatchInfo> SPCRE::getEveryMatchInfo(const QString &text)
     // We keep track of the last offsets as we move though the string matching
     // sub strings.
     int last_offset[2] = {0};
-
+    bool done = false;
+    
     // Run until no matches are found.
     do {
-        // Store the matching offsets so we can tell when we need to quit this
-        // loop.
+
+        rc = pcre2_match_16(m_re, text.utf16(), text.length(), last_offset[1], 0, m_matchdata, m_mcontext);
+
+        // NOTE: until a call to pcre2_match_16 happens even through m_matchdata exists
+        // and the ovector count is known, the pcre2_get_ovector_pointer returns a pointer
+        // to invalid ovector data
+        ovector = pcre2_get_ovector_pointer_16(m_matchdata);
+
+        done = (ovector[1] == last_offset[1]) || (ovector[0] >= ovector[1]);
+
         last_offset[0] = ovector[0];
         last_offset[1] = ovector[1];
 
-        // We only care about matches that have text in it.
-        if (last_offset[0] != last_offset[1]) {
-            // Add the matched information to the list.
+        if (rc >= 0 && ovector[0] != ovector[1] && ovector[0] < ovector[1]) {
             info.append(generateMatchInfo(ovector, ovector_count));
         }
-        rc = pcre2_match_16(m_re, text.utf16(), text.length(), last_offset[1], 0, m_matchdata, m_mcontext);
-    } while (rc >= 0 && ovector[0] != ovector[1] && ovector[1] != last_offset[1] && ovector[0] < ovector[1]);
+    } while (rc >= 0 && not done);
     
     return info;
 }

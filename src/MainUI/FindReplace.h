@@ -139,6 +139,9 @@ protected:
 
 private slots:
 
+    // Escape pure text so it can be used in a regex searh
+    QString escapePureText(const QString str);
+    
     // Shows a message in the main window.
     void ShowMessage(const QString &message);
 
@@ -345,9 +348,11 @@ bool FindReplace::ResourceContainsCurrentRegex(T *resource)
     // For now, this must hold
     // Q_ASSERT(GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles || GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles);
     Resource *generic_resource = resource;
+    QList<Resource*> reslist;
+    reslist << generic_resource;
     return SearchOperations::CountInFiles(
                GetSearchRegex(),
-               QList<Resource *>() << generic_resource,
+               reslist,
                m_SpellCheck) > 0;
 }
 
