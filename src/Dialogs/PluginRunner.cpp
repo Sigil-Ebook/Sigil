@@ -1070,7 +1070,7 @@ void PluginRunner::connectSignalsToSlots()
     connect(ui.cancelButton, SIGNAL(clicked()), this, SLOT(cancelPlugin()));
     connect(ui.showButton, SIGNAL(clicked()), this, SLOT(showConsole()));
     connect(&m_process, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(pluginFinished(int, QProcess::ExitStatus)));
-    connect(&m_process, SIGNAL(error(QProcess::ProcessError)), this, SLOT(processError(QProcess::ProcessError)));
+    connect(&m_process, SIGNAL(errorOccurred(QProcess::ProcessError)), this, SLOT(processError(QProcess::ProcessError)));
     connect(&m_process, SIGNAL(readyReadStandardError()), this, SLOT(processError()));
     connect(&m_process, SIGNAL(readyReadStandardOutput()), this, SLOT(processOutput()));
     connect(ui.okButton, SIGNAL(clicked()), this, SLOT(accept()));
