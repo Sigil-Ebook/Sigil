@@ -316,39 +316,6 @@ void FindReplace::CountClicked()
     ResetKeyModifiers();
 }
 
-QString FindReplace::escapePureText(const QString str)
-{
-    QString result = QRegularExpression::escape(str);
-#if 0    
-    const qsizetype count = str.size();
-    result.reserve(count * 2);
-
-    for (qsizetype i = 0; i < count; ++i) {
-        const QChar current = str.at(i);
-        if (current == QChar::Null) {
-            // unlike Perl, a literal NUL must be escaped with
-            // "\\0" (backslash + 0) and not "\\\0" (backslash + NUL),
-            // because pcre16_compile uses a NUL-terminated string
-            result.append(QLatin1Char('\\'));
-            result.append(QLatin1Char('0'));
-        } else if (current > QChar(127)) {
-            // unicode characters above 127 do not need to be escaped
-            result.append(current);
-        } else  if ( (current < QLatin1Char('a') || current > QLatin1Char('z')) &&
-                     (current < QLatin1Char('A') || current > QLatin1Char('Z')) &&
-                     (current < QLatin1Char('0') || current > QLatin1Char('9')) &&
-                     current != QLatin1Char('_') )
-        {
-            result.append(QLatin1Char('\\'));
-            result.append(current);
-        } else {
-            result.append(current);
-        }
-    }
-    result.squeeze();
-#endif    
-    return result;
-}
 
 bool FindReplace::FindAnyText(QString text, bool escape)
 {
@@ -795,7 +762,6 @@ QString FindReplace::GetSearchRegex()
     // Search type
     if (GetSearchMode() == FindReplace::SearchMode_Normal || GetSearchMode() == FindReplace::SearchMode_Case_Sensitive) {
         search = QRegularExpression::escape(search);
-        // search = escapePureText(search);
 
         if (GetSearchMode() == FindReplace::SearchMode_Normal) {
             search = PrependRegexOptionToSearch(REGEX_OPTION_IGNORE_CASE, search);
@@ -1731,7 +1697,6 @@ QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
     // tokenised already so we need to escape it
     if (!new_text.contains("\\")) {
         new_text = QRegularExpression::escape(new_text);
-        // new_text = escapePureText(new_text);
     }
 
     // Restore some characters for readability

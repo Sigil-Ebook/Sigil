@@ -139,9 +139,6 @@ protected:
 
 private slots:
 
-    // Escape pure text so it can be used in a regex searh
-    QString escapePureText(const QString str);
-    
     // Shows a message in the main window.
     void ShowMessage(const QString &message);
 

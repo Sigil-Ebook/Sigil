@@ -27,6 +27,7 @@
 #include <QtGui/QFont>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QMessageBox>
+// #include <QFont>
 #include <QDebug>
 
 #include "sigil_constants.h"
@@ -52,6 +53,7 @@ CharactersInHTMLFilesWidget::CharactersInHTMLFilesWidget()
 {
     ui.setupUi(this);
     connectSignalsSlots();
+    // ui.Characters->setFont(QFont("Times", 15));
 }
 
 CharactersInHTMLFilesWidget::~CharactersInHTMLFilesWidget()
