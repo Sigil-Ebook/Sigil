@@ -1,0 +1,22 @@
+--- qtbase/src/plugins/platforms/cocoa/qcocoamenubar.mm.orig	2021-12-18 10:17:32.000000000 -0500
++++ qtbase/src/plugins/platforms/cocoa/qcocoamenubar.mm	2021-12-18 10:18:42.000000000 -0500
+@@ -81,13 +81,13 @@
+ 
+     if (!m_window.isNull() && m_window->menubar() == this) {
+         m_window->setMenubar(nullptr);
+-
+-        // Delete the children first so they do not cause
+-        // the native menu items to be hidden after
+-        // the menu bar was updated
+-        qDeleteAll(children());
+-        updateMenuBarImmediately();
+     }
++
++    // Delete the children first so they do not cause
++    // the native menu items to be hidden after
++    // the menu bar was updated
++    qDeleteAll(children());
++    updateMenuBarImmediately();
+ }
+ 
+ bool QCocoaMenuBar::needsImmediateUpdate()

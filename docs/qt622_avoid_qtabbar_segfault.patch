@@ -1,0 +1,11 @@
+--- qtbase/src/widgets/widgets/qtabbar.cpp.orig	2021-12-18 10:09:02.000000000 -0500
++++ qtbase/src/widgets/widgets/qtabbar.cpp	2021-12-18 10:09:53.000000000 -0500
+@@ -750,6 +750,8 @@
+ {
+     Q_Q(QTabBar);
+     Q_ASSERT(index >= 0);
++    // play it safe
++    if (index < 0) return;
+ 
+     const Tab *tab = tabList.at(index);
+     bool vertical = verticalTabs(shape);
