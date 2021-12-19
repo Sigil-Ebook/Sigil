@@ -80,7 +80,9 @@ FontView::FontView(QWidget *parent)
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     m_WebView->setUrl(QUrl("about:blank"));
+#endif
     m_layout->addWidget(m_WebView);
 }
 

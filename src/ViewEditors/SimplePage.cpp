@@ -28,6 +28,8 @@ SimplePage::SimplePage(QObject *parent)
     : QWebEnginePage(parent)
 {
     setBackgroundColor(Utility::WebViewBackgroundColor(true));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     setUrl(QUrl("about:blank"));
+#endif
 }
 

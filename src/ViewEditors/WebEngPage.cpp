@@ -30,7 +30,9 @@ WebEngPage::WebEngPage(QObject *parent)
     : QWebEnginePage(parent)
 {
     setBackgroundColor(Utility::WebViewBackgroundColor(true));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     setUrl(QUrl("about:blank"));
+#endif
 }
 
 // Because you can not delegate all links in QtWebEngine we must override here and generate
