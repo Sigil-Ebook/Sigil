@@ -42,8 +42,10 @@
 #include <QWebEngineSettings>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #ifdef Q_OS_WIN32
 #include <QtWinExtras>
+#endif
 #endif
 #include <QString>
 #include <QStringList>
@@ -320,9 +322,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::createJumpList()
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #ifdef Q_OS_WIN32
     QWinJumpList jumplist;
     jumplist.recent()->setVisible(true);
+#endif
 #endif
 }
 

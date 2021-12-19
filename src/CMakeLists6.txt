@@ -49,7 +49,8 @@ set(QT6_NEEDED 6.2)
 
 set( PKGS_TO_FIND Core Core5Compat Network WebEngineCore WebEngineWidgets Widgets Xml Concurrent PrintSupport LinguistTools )
 if ( WIN32 )
-    list( APPEND PKGS_TO_FIND WinExtras )
+    # QtWinExtras not in Qt6 as of 6.2.2
+    # list( APPEND PKGS_TO_FIND WinExtras )
     if ( USE_ALT_ICONS )
         set(APP_ICON_PATH "${CMAKE_SOURCE_DIR}/src/Resource_Files/icon/app_icons_alt/app.ico" )
     else()
@@ -864,9 +865,11 @@ else()
     message(STATUS "Using older PYTHON_LIBRARIES CMAKE variable to link to Python")
     list( APPEND LIBS_TO_LINK ${PYTHON_LIBRARIES} )
 endif()
-if ( WIN32 )
-    list( APPEND LIBS_TO_LINK Qt5::WinExtras )
-endif()
+
+# QtWinExtras not in Qt6 as of 6.2.2
+#if ( WIN32 )
+#    list( APPEND LIBS_TO_LINK Qt6::WinExtras )
+#endif()
 target_link_libraries( ${PROJECT_NAME} ${LIBS_TO_LINK} )
 
 #############################################################################
