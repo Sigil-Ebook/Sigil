@@ -460,7 +460,9 @@ int main(int argc, char *argv[])
         if (Utility::WindowsShouldUseDarkMode()) {
             // Apply custom dark style
             app.setStyle(new SigilDarkStyle);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             app.setPalette(QApplication::style()->standardPalette());
+#endif
         }
 #endif
 #endif
