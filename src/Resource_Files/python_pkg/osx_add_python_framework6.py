@@ -33,13 +33,10 @@ fwk_struct = ['Python.framework/Versions/' + pversion + '/lib/' + stdlib_name + 
 ]
 
 # minimal set of PySide modules to support the plugin gui need *.so and *.pyi
-PYSIDE6_MODULES = ['Qt', 'QtCore', 'QtDBus', 'QtGui', 'QtNetwork', 'QtPrintSupport',
+PYSIDE6_MODULES = ['QtCore', 'QtDBus', 'QtGui', 'QtNetwork', 'QtPrintSupport',
                   'QtSvg', 'QtWidgets', 'QtWebEngine', 'QtWebEngineCore',
-                  'QtWebEngineWidgets', 'QtWebChannel']
+                   'QtWebEngineWidgets', 'QtWebChannel', 'QtUiTools']
 
-EXCLUDED_UIC_WIDGET_PLUGINS = ['%s.py' % x for x in ('qaxcontainer', 
-                                                     'qscintilla', 'qtcharts', 'qtquickwidgets', 'qtwebkit')
-]
 
 # additional external python modules/packages that need to be included
 site_packages = [ ('lxml', 'd'), 
@@ -57,13 +54,6 @@ site_packages = [ ('lxml', 'd'),
                   ('chardet', 'd'),
                   ('shiboken6', 'd'),
                   ('PySide6', 'd')]
-
-# The latest regex is installed inside its own directory in site packages
-#  ('regex.py','f'),
-#  ('_regex.so','f'),
-#  ('_regex.cpython-37m-darwin.so','f'),
-#  ('_regex_core.py','f'),
-#  ('test_regex.py', 'f'),
 
 
 def copy_python_stdlibrary(src_dir, dest_dir):
@@ -111,24 +101,20 @@ def ignore_in_dirs(base, items, ignored_dirs=None):
     for name in items:
         path = os.path.join(base, name)
         if os.path.isdir(path):
-            # Note: PIL has a .dylibs directory that has no __init__.py in it but does contain *.dylib files
-            if name in ignored_dirs: # or not os.path.exists(os.path.join(path, '__init__.py')):
+            if name in ignored_dirs:
                 ans.append(name)
-        # else:
-        #     if name.rpartition('.')[-1] not in ('so', 'py', 'dylib'):
-        #         ans.append(name)
     return ans
 
 
 def ignore_in_pyside6_dirs(base, items, ignored_dirs=None):
     ans = []
     if ignored_dirs is None:
-        ignored_dirs = {'.svn', '.bzr', '.git', 'glue', 'include', 'typesystems', 
-                        'examples', 'Linguist.app', 'Assistant.app', 'Designer.app', '__pycache__'}
+        ignored_dirs = {'.git', 'glue', 'include', 'typesystems', 'examples', 'Linguist.app',
+                        'Assistant.app', 'Designer.app', '__pycache__'}
     for name in items:
         path = os.path.join(base, name)
         if os.path.isdir(path):
-            if name in ignored_dirs: # or not os.path.exists(os.path.join(path, '__init__.py')):
+            if name in ignored_dirs:
                 ans.append(name)
         else:
             if name.rpartition('.')[-1] not in ('so', 'py', 'dylib', 'pyi'):
@@ -137,8 +123,6 @@ def ignore_in_pyside6_dirs(base, items, ignored_dirs=None):
                 ans.append(name)
             if name.rpartition('.')[-1] == 'pyi' and name.partition('.')[0]  not in PYSIDE6_MODULES:
                 ans.append(name)
-            # if name.rpartition('.')[-1] == 'py' and name in EXCLUDED_UIC_WIDGET_PLUGINS:
-            #     ans.append(name)
     return ans
 
 
@@ -187,9 +171,6 @@ def main():
                 try:
                     py_compile.compile(y, cfile=y+'c',dfile=rel, doraise=True, optimize=-1)
                     os.remove(y)
-                    # z = y+'c'
-                    # if os.path.exists(z):
-                    #     os.remove(z)
                 except:
                     print ('Failed to byte-compile', y)
 
@@ -230,27 +211,6 @@ def main():
         if 'Python.framework' in rpath:
             new_rpath = '@executable_path/../Frameworks/Python.framework/Versions/' + pversion
             subprocess.check_call(['install_name_tool', '-rpath', rpath, new_rpath, sigil_executable_path])
-
-    # Change any Shiboken6 and PySide6 modules rpaths to point to the local Frameworks (app_dir) directory for Qt
-    # note these names depend on Python Versions and some additionally on Qt versions
-    # so it would probably be better to walk destination directors and build up this list
-    # PyVer = '38'
-    # QtVer = '6.2'
-    # LIBS_TO_FIX = [('shiboken6','Shiboken.cpython-' + PyVer + '-darwin.so')]
-    # ('PySide6','libpyside6.cpython-' + PyVer + '-darwin.' + QtVer + '.dylib')]
-    # ('shiboken6','libshiboken6.cpython-' + PyVer + '-darwin.'+ QtVer + '.dylib'),
-    # for module_name in PYSIDE6_MODULES:
-    #     sharedlib = module_name + '.cpython-' + PyVer + '-darwin.so'
-    #     LIBS_TO_FIX.append(('PySide6',sharedlib))
-    # for (adir, asharelib) in LIBS_TO_FIX:
-    #     lib_path = os.path.abspath(os.path.join(app_dir,'Python.framework','Versions',
-    #                                                pversion,'lib',stdlib_name,'site-packages',adir,asharelib))
-    #     if os.path.isfile(lib_path): 
-    #         rpaths = get_rpaths(lib_path)
-    #         for rpath in rpaths:
-    #             new_rpath = '@loader_path/../../../../../../..'
-    #             subprocess.check_call(['install_name_tool', '-rpath', rpath, new_rpath, lib_path])
-
 
 if __name__ == '__main__':
     sys.exit(main())
