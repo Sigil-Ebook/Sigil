@@ -817,7 +817,7 @@ if( APPLE )
     endif()
 
     if ( PKG_SYSTEM_PYTHON )
-        configure_file( Resource_Files/python_pkg/osx_add_python_framework.py ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_add_python_framework.py )
+        configure_file( Resource_Files/python_pkg/osx_add_python_framework6.py ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_add_python_framework6.py )
     endif()
 
     # Copy the PLIST file...
@@ -966,7 +966,7 @@ if( APPLE )
         else()
             set( PY_INTERP ${PYTHON_EXECUTABLE} )
         endif()
-        add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${PY_INTERP} ARGS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_add_python_framework.py )
+        add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${PY_INTERP} ARGS ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_add_python_framework6.py )
         message(STATUS "Using ${PY_INTERP} to bundle python")
     endif()
     add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${PROJECT_BINARY_DIR}/*.rcc ${WORK_DIR}/Sigil.app/Contents/Resources/ )
