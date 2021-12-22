@@ -1,0 +1,62 @@
+--- configure.orig	2021-11-15 16:46:45.000000000 -0500
++++ configure	2021-11-15 16:50:43.000000000 -0500
+@@ -11783,7 +11783,7 @@
+  clock confstr copy_file_range ctermid dup3 execv explicit_bzero explicit_memset \
+  faccessat fchmod fchmodat fchown fchownat \
+  fdwalk fexecve fdopendir fork fpathconf fstatat ftime ftruncate futimesat \
+- futimens futimes gai_strerror getentropy \
++ futimes gai_strerror getentropy \
+  getgrgid_r getgrnam_r \
+  getgrouplist getgroups getlogin getloadavg getpeername getpgid getpid \
+  getpriority getresuid getresgid getpwent getpwnam_r getpwuid_r getspnam getspent getsid getwd \
+@@ -11802,7 +11802,7 @@
+  sigaction sigaltstack sigfillset siginterrupt sigpending sigrelse \
+  sigtimedwait sigwait sigwaitinfo snprintf strftime strlcpy strsignal symlinkat sync \
+  sysconf tcgetpgrp tcsetpgrp tempnam timegm times tmpfile tmpnam tmpnam_r \
+- truncate uname unlinkat utimensat utimes waitid waitpid wait3 wait4 \
++ truncate uname unlinkat utimes waitid waitpid wait3 wait4 \
+  wcscoll wcsftime wcsxfrm wmemcmp writev _getpty rtpSpawn
+ do :
+   as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
+@@ -13192,7 +13192,8 @@
+ 
+ fi
+ 
+-
++if test "`uname -s`" != "Darwin"
++then
+ for ac_func in clock_gettime
+ do :
+   ac_fn_c_check_func "$LINENO" "clock_gettime" "ac_cv_func_clock_gettime"
+@@ -13253,8 +13254,9 @@
+ 
+ fi
+ done
+-
+-
++fi
++if test "`uname -s`" != "Darwin"
++then
+ for ac_func in clock_getres
+ do :
+   ac_fn_c_check_func "$LINENO" "clock_getres" "ac_cv_func_clock_getres"
+@@ -13311,7 +13313,9 @@
+ 
+ fi
+ done
+-
++fi
++if test "`uname -s`" != "Darwin"
++then
+ 
+ for ac_func in clock_settime
+ do :
+@@ -13369,7 +13373,7 @@
+ 
+ fi
+ done
+-
++fi
+ 
+ { $as_echo "$as_me:${as_lineno-$LINENO}: checking for major" >&5
+ $as_echo_n "checking for major... " >&6; }

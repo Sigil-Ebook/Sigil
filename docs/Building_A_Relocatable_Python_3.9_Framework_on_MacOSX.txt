@@ -1,0 +1,370 @@
+# *** IMPORTANT ***
+
+# Build Prerequisite requirements for Python 3.9.9 on macOS 10.12 Sierra and later users:
+#
+#     First make sure you are using the latest XCode for your version of Mac OSX
+#     Then make sure you have the command line tools (CLT) installed (via xcode-select --install)
+#
+#
+#     For Python's pip3 and lzma module, and other Python functionality you will need to
+#     compile and install the headers and static library versions of liblzma.a (xz),
+#     libssl.a (libopenssl), and libcrypto.a (libopenssl), along side
+#     static versions of sqlite, and a specially built internal TclTk library
+#
+
+# Create a build folder where all of the work will be done
+cd 
+mkdir devpython
+cd devpython
+mkdir sources
+
+
+If you are using XCode 10.X on MacOSX 10.14.X, remember to install the command line tools 
+and their headers!  The headers are now not installed by default.  An installer package
+for the headers can be found here:
+
+/Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+
+# First build the main prerequisites
+
+# Download openssl-1.1.1l.tar.gz or later into sources from https://www.openssl.org/source
+
+export MACOSX_DEPLOYMENT_TARGET=10.12
+export LDFLAGS="-Wl,-macosx_version_min,10.12"
+export CFLAGS="-mmacosx-version-min=10.12 -Werror=partial-availability"
+
+tar -zxvf sources/openssl-1.1.1l.tar.gz
+cd openssl-1.1.1l
+./config no-shared --prefix=/usr/local
+make
+sudo make install
+
+
+# Download xz-5.2.5.tar.gz or later into sources from https://tukaani.org/xz/  (via sourceforge)
+
+export MACOSX_DEPLOYMENT_TARGET=10.12
+export LDFLAGS="-Wl,-macosx_version_min,10.12"
+export CFLAGS="-mmacosx-version-min=10.12 -Werror=partial-availability"
+
+# Since configure is very stupid in how it tests symbols on macOSX we need
+# to apply a patch to prevent it from using something that does not exist
+# on our deployment target of 10.12 as below (futimens does not exist on macOS10.12)
+
+cat fix_xz_for_macOS_10.12.patch
+--- configure.orig	2019-06-04 11:12:26.000000000 -0400
++++ configure	2019-06-04 11:12:42.000000000 -0400
+@@ -18233,7 +18233,7 @@
+ 
+ 
+ # Find the best function to set timestamps.
+-for ac_func in futimens futimes futimesat utimes _futime utime
++for ac_func in futimes futimesat utimes _futime utime
+ do :
+   as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
+ ac_fn_c_check_func "$LINENO" "$ac_func" "$as_ac_var"
+-------
+
+tar -zxvf sources/xz-5.2.5.tar.gz
+cd xz-5.2.5
+patch -p0 < fix_xz_for_macOS_10.12.patch
+./configure --disable-shared --prefix=/usr/local
+make
+sudo make install
+
+
+# Download sqlite-autoconf-3350500.tar.gz into sources from https://sqlite.org/2021/sqlite-autoconf-3350500.tar.gz"
+
+export MACOSX_DEPLOYMENT_TARGET=10.12
+export LDFLAGS="-Wl,-macosx_version_min,10.12"
+export CFLAGS="-mmacosx-version-min=10.12 -Werror=partial-availability -Os -DSQLITE_ENABLE_FTS5 \
+            -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_JSON1 \
+            -DSQLITE_ENABLE_RTREE -DSQLITE_TCL=0 "
+tar -zxvf sources/sqlite-autoconf-3350500.tar.gz
+cd sqlite-autoconf-3350500
+./configure --enable-threadsafe --enable-shared=no --enable-static=yes --disable-readline --disable-dependency-tracking
+make
+sudo make install
+
+
+# Specify the future home for the Python.framework and interim tcltk pieces
+mkdir libraries
+cd libraries
+export MYLIBS=`pwd`
+mkdir Frameworks
+cd Frameworks
+export MYDEST=`pwd`
+cd ../../
+
+# To enable the Tk / tkinter graphical ui for Python we will need to make a special combined build of tcl and tk
+# and build it right "in place" for the future Python.framework to install around
+
+# Download tcl8.6.12-src.tar.gz into sources from ftp://ftp.tcl.tk/pub/tcl//tcl8_6/tcl8.6.12-src.tar.gz
+# Download tk8.6.12-src.tar.gz into sources from ftp://ftp.tcl.tk/pub/tcl//tcl8_6/tk8.6.12-src.tar.gz
+
+mkdir tcltk
+cd tcltk
+tar -zxvf ../sources/tcl8.6.12-src.tar.gz
+tar -zxvf ../sources/tk8.6.12-src.tar.gz
+
+# Note: TCL_LIBRARY and TK_LIBRARY and libdir are appended to DESTDIR to get actual paths
+
+export MACOSX_DEPLOYMENT_TARGET=10.12
+export CFLAGS="-arch x86_64 -mmacosx-version-min=10.12"
+cd tcl8.6.12/unix
+./configure --enable-shared --enable-threads --libdir=/Frameworks/Python.framework/Versions/3.9/lib
+make TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.9/lib/tcl8.6 DESTDIR=${MYLIBS}
+make install TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.9/lib/tcl8.6 DESTDIR=${MYLIBS}
+cd ../../
+cd tk8.6.12/unix
+./configure --libdir=/Frameworks/Python.framework/Versions/3.9/lib --enable-aqua --enable-shared --enable-threads
+
+make TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.9/lib/tcl8.6 \
+     TK_LIBRARY=/Frameworks/Python.framework/Versions/3.9/lib/tk8.6 \
+     DESTDIR=${MYLIBS}
+make install TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.9/lib/tcl8.6 \
+     TK_LIBRARY=/Frameworks/Python.framework/Versions/3.9/lib/tk8.6 \
+     DESTDIR=${MYLIBS}
+
+# As a last step fixup the dylib official names to properly reflect their new home
+cd ${MYDEST}/Python.framework/Versions/3.9/lib
+chmod u+w libtk8.6.dylib
+chmod u+w libtcl8.6.dylib
+install_name_tool -id ${MYDEST}/Python.framework/Versions/3.9/lib/libtcl8.6.dylib ./libtcl8.6.dylib
+install_name_tool -id ${MYDEST}/Python.framework/Versions/3.9/lib/libtk8.6.dylib ./libtk8.6.dylib
+
+#     And finally:
+#     if you are using Qt5,  we will be building a required PyQt5 python module, you will need to have built or
+#         downloaded prebuilt versions of Qt 5.12.X or later first
+#          So see Building_Qt5_From_Source_on_MacOSX.txt
+#
+#     if you are using Qt6, we will building the required PySide6 module, you will need to have built
+#         or downloaded prebuilt versions of Qt 6.2.2 or later
+
+# Building Python 3.9.9 to be fully relocatable for macOS 10.12 and later
+
+# Before building remember to rename any /Applications/Python 3.9.app to save it and replace it afterwards
+# as the damn python installation from source always overwrites it no matter the configure prefix used
+
+# Download Python-3.9.9.tgz into sources from www.python.org
+
+cd ${MYDEST}
+cd ../../
+
+export MACOSX_DEPLOYMENT_TARGET=10.12
+
+# now build Python 3.9.9 as a framework
+# Need to patch Python-3.9.9 to allow it to build Mac OS X 10.12 compliant and later
+
+# Note the following calls used in configure are *not* defined on mac OS 10.12
+# futimens
+# utimensat
+# clock_gettime
+# clock_getres
+# clock_settime
+
+unxz ./sources/Python-3.9.9.tar.xz
+tar -xvf ./sources/Python-3.9.9.tar
+cd Python-3.9.9
+patch -p0 < ../sources/python_3.9.9_fixes.patch
+
+export LDFLAGS="-Wl,-macosx_version_min,10.12" 
+export CFLAGS="-mmacosx-version-min=10.12 -Werror=partial-availability" 
+./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip \
+    --with-tcltk-includes="-I${MYLIBS}/usr/local/include" \
+    --with-tcltk-libs="-L${MYDEST}/Python.framework/Versions/3.9/lib -ltcl8.6 -ltk8.6"
+
+make
+make frameworkinstall
+
+
+# next update path in order to use the newly built/installed Python.framework's
+# and then use pip3 to install all other required python packages to its site-packages
+
+export PATH=${MYDEST}/Python.framework/Versions/3.9/bin:${PATH}
+which pip3
+
+pip3 install six
+pip3 install html5lib
+pip3 install lxml
+pip3 install Pillow
+pip3 install regex
+pip3 install css-parser
+pip3 install cssselect
+pip3 install chardet
+pip3 install certifi
+pip3 install urllib3
+pip3 install dulwich
+
+
+Note: we have replaced cssutils with a drop in replacement with many bugs fixed
+called css-parser.
+
+
+# Now a complete Python.framework has been built in ${MYDEST}
+# But we still need to make it a relocatable framework
+
+# To make it relocatable we need to use otool and install_name_tool to change
+# the dylib name and path to it from all executables in the Python.framework
+
+# A Quick Guide: On Mac OS X, one may use:
+#     "otool -D <file>" to view the install name of a dylib
+#     "otool -L <file>" to view the dependencies
+#     "otool -l <file> | grep LC_RPATH -A2" to view the RPATHs
+#     "install_name_tool -id ..." to change an install name
+#     "install_name_tool -change ..." to change the dependencies
+#     "install_name_tool -rpath ... -add_rpath ... -delete_rpath ..." to change RPATHs
+ 
+# Make the framework's main dylib relocatable using rpath
+
+cd ${MYDEST}/Python.framework/Versions/3.9/
+chmod u+w Python
+otool -D ./Python
+install_name_tool -id @rpath/Python ./Python
+
+# Change the dependencies of the executable files in bin to point to the relocatable 
+# framework in a relative way and add the proper rpath to find the Python (renamed dylib)
+
+cd bin
+install_name_tool -change ${MYDEST}/Python.framework/Versions/3.9/Python @rpath/Python python3.9
+install_name_tool -add_rpath @executable_path/../ ./python3.9
+# so that python3 can find the Qt Frameworks and proper plugins for PyQt5
+install_name_tool -add_rpath @executable_path/../../../../ ./python3.9
+
+# now do the same for the Python.app stored inside the Python.framework Resources 
+# This app is needed to allow gui use by python for plugins
+
+cd ${MYDEST}/Python.framework/Versions/3.9/Resources/Python.app/Contents/MacOS
+install_name_tool -change ${MYDEST}/Python.framework/Versions/3.9/Python @rpath/Python ./Python
+install_name_tool -add_rpath @executable_path/../../../../ ./Python
+
+# And finally we need to change the name id on the libtk and libtcl to be rpath based
+# and fix the _tkinter*.so to have an rpath with a @loader_path back up to the lib dir where they live
+cd ${MYDEST}/Python.framework/Versions/3.9/lib
+otool -D libtk8.6.dylib
+otool -D libtcl8.6.dylib
+install_name_tool -id @rpath/libtcl8.6.dylib ./libtcl8.6.dylib
+install_name_tool -id @rpath/libtk8.6.dylib ./libtk8.6.dylib
+cd ${MYDEST}/Python.framework/Versions/3.9/lib/python3.9/lib-dynload
+install_name_tool -add_rpath @loader_path/../.. _tkinter.cpython-39-darwin.so
+install_name_tool -change ${MYDEST}/Python.framework/Versions/3.9/lib/libtcl8.6.dylib @rpath/libtcl8.6.dylib _tkinter.cpython-39-darwin.so
+install_name_tool -change ${MYDEST}/Python.framework/Versions/3.9/lib/libtk8.6.dylib @rpath/libtk8.6.dylib _tkinter.cpython-39-darwin.so
+
+# We should now have a fully relocatable Python.framework
+
+
+# We will now use this just-built Python3.9 interpreter to install PyQt5, PyQtWebEngine and sip
+# for Qt 5.12.X or PySide6 for Qt 6.2.2
+
+
+
+# ***** IF USING QT5 ******
+
+# **** Important: versions of PyQt5 and sip must be selected to match with the Qt version
+# **** In these instructions we are using Qt 5.12.X and therefore need:
+# **** sip-4.19.18 and PyQt5_gpl-5.12.3 and PyQtWebEngine_gpl-5.12.1
+
+# First Build sip
+# Building sip-4.19.18 from source and installing it into your Python Interpreter
+
+# From https://www.riverbankcomputing.com/software/pyqt/download5
+# Download sip-4.19.18.tar.gz
+
+# More detailed build instructions can be found here:
+#    http://pyqt.sourceforge.net/Docs/sip4/installation.html
+
+# Must have the python interpreter you want to install PyQt5 into in the PATH to be found first
+export PATH=${MYDEST}/Python.framework/Versions/3.9/bin:${PATH}
+which python3
+
+tar -zxvf sources/sip-4.19.18.tar.gz
+cd sip-4.19.18
+python3 ./configure.py --deployment-target=10.12 --sip-module=PyQt5.sip
+make
+make install
+cd ..
+
+# Next Build PyQt5 for Qt-5.12.9 from source and installing it into your Python Interpreter
+
+# From https://www.riverbankcomputing.com/software/pyqt/download5
+# Download PyQt5_gpl-5.12.3.tar.gz
+
+# More detailed build instructions can be found here: 
+#    http://pyqt.sourceforge.net/Docs/PyQt5/installation.html#building-and-installing-from-source
+
+# Must have the python interpreter you want to install PyQt5 into in the path to be found first
+export PATH=${MYDEST}/Python.framework/Versions/3.9/bin:${PATH}
+which python3
+
+# Must have the Qt5.12.9 bin directory in the path to specify which Qt to use
+# See Building_Qt5_From_Source_on_MacOSX.txt
+export PATH=/Users/${USER}/Qt5129/bin:${PATH}
+which qmake
+
+export MACOSX_DEPLOYMENT_TARGET=10.12
+
+tar -zxvf sources/PyQt5_gpl-5.12.3.tar.gz
+cd PyQt5_gpl-5.12.3
+python3 ./configure.py --confirm-license --no-docstrings --no-stubs 
+make -j4
+make install
+cd ..
+
+# And finally build PyQtWebEngine (again with the destination python and qmake in your path)
+# From https://sourceforge.net/projects/pyqtwebengine/
+# Download: PyQtWebEngine-5.12.1.tar.gz
+
+export MACOSX_DEPLOYMENT_TARGET=10.12
+
+tar -zxvf sources/PyQtWebEngine-5.12.1.tar.gz
+cd PyQtWebEngine_gpl-5.12.1/
+python3 ./configure.py --no-docstrings --no-stubs
+make -j4
+make install
+
+
+
+# ***** IF USING QT6 *****
+
+# Download pyside-setup-opensource-src-6.2.2.tar.xz from https://download.qt.io/official_releases/QtForPython/
+
+export MACOSX_DEPLOYMENT_TARGET=10.14
+
+export MYQTHOME=~/Qt622
+export PATH=${PATH}:${MYQTHOME}/bin
+export PATH=${MYDEST}/Python.framework/Versions/3.9/bin:${PATH}
+
+which qmake
+which python3
+
+# Prerequisites
+
+# Your will need to have the packaging module installed on your python3
+pip3 install --upgrade --force-reinstall packaging
+
+# As well as a recent version of setuptools 
+# (some newer versions have broken compatibility)
+pip3 install setuptools==59.8.0
+
+# You will need libclang (although macOS has this lib pre-installed, it can *not* 
+# be found by Qt's cmake.  Qt has pre-build binaries ready to be used for each platform.
+# I recommend storing it someplace *outside* the normal path such as /opt to help 
+# prevent future any name clash issues.
+# Download  libclang-release_130-based-macos-universal.7z from:
+#       https://download.qt.io/development_releases/prebuilt/libclang/
+cd /opt
+# and unpack libclang-release_130-based-macos-universal.7z in /opt to create /opt/libclang
+
+# Tell the pyside6 build where to find it
+export CLANG_INSTALL_DIR=/opt/libclang
+
+# You should now be ready to build pyside6
+
+unxz ./sources/pyside-setup-opensource-src-6.2.2.tar.xz
+tar -xvf ./sources/pyside-setup-opensource-src-6.2.2.tar
+cd pyside-setup-opensource-src-6.2.2
+
+python3 setup.py install --parallel=8 --build-tests
+
+
+# Once complete you will have properly built a Python 3.9 interpreter to be embedded inside
+# of Sigil
