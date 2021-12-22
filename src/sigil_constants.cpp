@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2015-2021 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -43,9 +43,9 @@ const bool DONT_CHECK_FOR_UPDATES = DONT_CHECK_UPDATES;
 
 #if __APPLE__
 const QString PATH_LIST_DELIM = ":";
-const QString PYTHON_MAIN_PREFIX = "/Frameworks/Python.framework/Versions/3.8";
+const QString PYTHON_MAIN_PREFIX = "/Frameworks/Python.framework/Versions/3.9";
 const QString PYTHON_MAIN_BIN_PATH = PYTHON_MAIN_PREFIX + "/bin/python3";
-const QString PYTHON_LIB_PATH = "/lib/python3.8";
+const QString PYTHON_LIB_PATH = "/lib/python3.9";
 const QString PYTHON_SITE_PACKAGES = PYTHON_MAIN_PREFIX + PYTHON_LIB_PATH + "/site-packages";
 const QStringList PYTHON_SYS_PATHS = QStringList () << "/lib-dynload" << "/site-packages";
 #endif

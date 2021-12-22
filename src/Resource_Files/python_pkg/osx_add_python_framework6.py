@@ -56,6 +56,18 @@ site_packages = [ ('lxml', 'd'),
                   ('PySide6', 'd')]
 
 
+def copy_python_tcltk(src_dir, dest_dir):
+    for x in os.listdir(src_dir):
+        y = os.path.join(src_dir, x)
+        ext = os.path.splitext(x)[1]
+        if os.path.isdir(y) and x not in ('python' + pversion, 'tcl8', 'pkgconfig', 'demos', 'tzdata'):
+            shutil.copytree(y, os.path.join(dest_dir, x),
+                    ignore=ignore_in_tcltk_dirs)
+        if os.path.isfile(y) and ext not in ('.sh', '.chm', '.htm', '.txt'):
+            if x != 'libpython' + pversion + '.dylib': 
+                shutil.copy2(y, dest_dir)
+
+
 def copy_python_stdlibrary(src_dir, dest_dir):
     for x in os.listdir(src_dir):
         y = os.path.join(src_dir, x)
@@ -93,7 +105,7 @@ def copy_site_packages(packages, site_dest):
             else:
                 break
 
-
+            
 def ignore_in_dirs(base, items, ignored_dirs=None):
     ans = []
     if ignored_dirs is None:
@@ -122,6 +134,24 @@ def ignore_in_pyside6_dirs(base, items, ignored_dirs=None):
             if name.rpartition('.')[-1] == 'so' and name.partition('.')[0]  not in PYSIDE6_MODULES:
                 ans.append(name)
             if name.rpartition('.')[-1] == 'pyi' and name.partition('.')[0]  not in PYSIDE6_MODULES:
+                ans.append(name)
+    return ans
+
+
+def ignore_in_tcltk_dirs(base, items, ignored_dirs=None):
+    ans = []
+    dylibname = 'libpython' + pversion + '.dylib'
+    if ignored_dirs is None:
+        ignored_dirs = {'tcl8', 'python' + pversion, 'pkgconfig', 'demos', 'tzdata'}
+    for name in items:
+        path = os.path.join(base, name)
+        if os.path.isdir(path):
+            if name in ignored_dirs:
+                ans.append(name)
+        else:
+            if name.rpartition('.')[-1] in ('chm', 'htm', 'html', 'txt' ):
+                ans.append(name)
+            if name == dylibname:
                 ans.append(name)
     return ans
 
@@ -173,6 +203,11 @@ def main():
                     os.remove(y)
                 except:
                     print ('Failed to byte-compile', y)
+
+    # copy the embedded tcl/tk fpieces
+    tcltksrcdir = os.path.join(build_fwk, 'lib')
+    tcltkdestdir = os.path.join(app_dir,  'Python.framework', 'Versions', pversion, 'lib')
+    copy_python_tcltk(tcltksrcdir, tcltkdestdir)
 
     # next copy the bin
     src_file = os.path.join(build_fwk, 'bin', 'python3')
