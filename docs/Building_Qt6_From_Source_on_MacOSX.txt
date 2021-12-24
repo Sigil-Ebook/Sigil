@@ -115,7 +115,7 @@ patch -p0 < ./qt622_fix_h6_insertParagraph.patch
 patch -p0 < ./qt622_fix_missing_macos_menubar.patch
 
 # apply a patch to fix missing headers in macOS Monterey and later only
-patchg -p0 < ./qt622_fix_qiosurfacegraphicsbuffer.h.patch
+patch -p0 < ./qt622_fix_qiosurfacegraphicsbuffer.h.patch
 
 # The last patch is a generated cmake file fix and it must be used to fix the cmake
 # file *AFTER* the Qt6 is built and installed
