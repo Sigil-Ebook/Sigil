@@ -11,7 +11,7 @@ app_dir = os.path.dirname(os.path.realpath(__file__))
 app_dir = os.path.join(app_dir, 'Sigil.app','Contents','Frameworks')
 
 # actual version of Python used to build Sigil
-build_fwk = os.path.abspath(sys.prefix + '../../../')
+build_fwk = os.path.abspath(sys.prefix)
 
 # get python version string
 pversion = build_fwk.split(os.sep)[-1]
@@ -25,7 +25,7 @@ print('pversion', pversion)
 print('stdlib_dir', stdlib_dir)
 print('stdlib_name', stdlib_name)
 print('app_dir', app_dir)
-
+print('sys.prefix', os.path.abspath(sys.prefix))
 
 # the main Python.framework directories
 fwk_struct = ['Python.framework/Versions/' + pversion + '/lib/' + stdlib_name + '/site-packages',

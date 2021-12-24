@@ -27,6 +27,7 @@
 *************************************************************************/
 
 #include <memory>
+#include <QApplication>
 #include <QFileInfo>
 #include <QContextMenuEvent>
 #include <QSignalMapper>
@@ -432,7 +433,6 @@ void TextView::focusOutEvent(QFocusEvent *event)
 
 void TextView::SetAppearanceColors()
 {
-
     QPalette app_pal = qApp->palette();
     setPalette(app_pal);
     return;

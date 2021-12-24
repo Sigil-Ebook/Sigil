@@ -41,6 +41,7 @@
 #include <QString>
 #include <QStringRef>
 #include <QPointer>
+#include <QApplication>
 #include <QDebug>
 
 #include "BookManipulation/Book.h"
@@ -48,7 +49,6 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "MainUI/MainWindow.h"
 #include "Parsers/GumboInterface.h"
-// #include "Misc/XHTMLHighlighter.h"
 #include "Misc/XHTMLHighlighter2.h"
 #include "Dialogs/ClipEditor.h"
 #include "Misc/CSSHighlighter.h"
@@ -2370,7 +2370,6 @@ void CodeViewEditor::UpdateLineNumberAreaFont(const QFont &font)
 
 void CodeViewEditor::SetAppearanceColors()
 {
-
     QPalette app_pal = qApp->palette();
     setPalette(app_pal);
     return;

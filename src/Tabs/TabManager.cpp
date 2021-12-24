@@ -20,6 +20,8 @@
 **
 *************************************************************************/
 
+#include <QPalette>
+#include <QApplication>
 #include <QDebug>
 #include "BookManipulation/CleanSource.h"
 #include "ResourceObjects/Resource.h"
@@ -42,6 +44,7 @@
 #include "Tabs/TabManager.h"
 #include "Tabs/WellFormedContent.h"
 #include "Tabs/TabBar.h"
+
 
 TabManager::TabManager(QWidget *parent)
     :
@@ -171,6 +174,14 @@ void TabManager::ReloadTabDataForResources(const QList<Resource *> &resources)
 
 void TabManager::ReopenTabs()
 {
+#ifdef Q_OS_MAC
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    // for some reason using Qt6 the Tab Manager is not inheritiing the dark/light color change
+    // from its parents when the user changes them and then it overrides the CodeView palette change
+    QPalette app_pal = QApplication::palette();
+    setPalette(app_pal);
+#endif
+#endif
     ContentTab *currentTab = GetCurrentContentTab();
     QList<Resource *> resources = GetTabResources();
     foreach(Resource *resource, resources) {

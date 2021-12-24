@@ -35,6 +35,7 @@
 #include <QStyleOptionFrame>
 #include <QTimer>
 #include <QProgressBar>
+#include <QApplication>
 #include <QDebug>
 
 #include "MainUI/PreviewWindow.h"
@@ -174,11 +175,23 @@ void PreviewWindow::paintEvent(QPaintEvent *event)
     if (isFloating()) {
         QStyleOptionFrame options;
         options.initFrom(this);
+
+#ifdef Q_OS_MAC
+        // This is needed for Qt6 but works on Qt5 as well
+        options.palette = QApplication::palette();
+#endif
+
         painter.drawPrimitive(QStyle::PE_FrameDockWidget, options);
     }
     QStyleOptionDockWidget options;
     initStyleOption(&options);
     options.title = titleText();
+
+#ifdef Q_OS_MAC
+    // This is needed for Qt6 but works on Qt5 as well
+    options.palette = QApplication::palette();
+#endif
+
     painter.drawControl(QStyle::CE_DockWidgetTitle, options);
 }
 
