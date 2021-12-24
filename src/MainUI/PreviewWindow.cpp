@@ -289,7 +289,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     m_usingMathML = mo.hasMatch();
 
     DBG qDebug() << "PV UpdatePage " << filename_url;
-    DBG foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index;
+    DBG { foreach(ElementIndex ei, location) qDebug()<< "PV name: " << ei.name << " index: " << ei.index; }
 
 
     //if isDarkMode is set, inject a local style in head
@@ -387,7 +387,7 @@ void PreviewWindow::ScrollTo(QList<ElementIndex> location)
     if (!m_Preview->isVisible()) {
         return;
     }
-    DBG foreach(ElementIndex ei, location) qDebug() << "name: " << ei.name << " index: " << ei.index;
+    DBG { foreach(ElementIndex ei, location) qDebug() << "name: " << ei.name << " index: " << ei.index; }
     SetCaretLocation(location);
     if (!m_updatingPage) {
         m_Preview->StoreCaretLocationUpdate(m_location);

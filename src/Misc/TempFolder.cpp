@@ -22,6 +22,7 @@
 
 #include <QDir>
 #include <QtConcurrent>
+#include <QFuture>
 #include <QDebug>
 
 #include "Misc/TempFolder.h"
@@ -44,7 +45,7 @@ TempFolder::~TempFolder()
     // To be super safe here ...
     // only manually delete things if the temp directory is actually valid
     if (m_tempDir.isValid()) {
-        QtConcurrent::run(DeleteFolderAndFiles, m_tempDir.path());
+        QFuture<bool> afuture = QtConcurrent::run(DeleteFolderAndFiles, m_tempDir.path());
     }
 }
 
