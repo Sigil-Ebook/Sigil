@@ -34,7 +34,7 @@ env:
   DOWNLOADQT: https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Qt5129.tar.xz
   DOWNLOADPY: https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Python.framework.tar.xz
   DOWNLOADGDRIVE: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/gdrive-darwin-amd64
-  PY_VER: 3.8
+  PY_VER: 3.9
   QT: Qt5129
 
 jobs:
