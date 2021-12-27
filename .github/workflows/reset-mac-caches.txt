@@ -1,3 +1,3 @@
 Change the content of this file to reset the caches for the github actions sigil mac build
 
-cleared cache on 30 April 2021
+cleared cache on 27 December 2021
