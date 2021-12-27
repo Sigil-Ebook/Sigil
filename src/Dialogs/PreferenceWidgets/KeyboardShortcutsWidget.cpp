@@ -240,6 +240,7 @@ void KeyboardShortcutsWidget::readSettings()
         }
     }
     ui.commandList->sortItems(0, Qt::AscendingOrder);
+    ui.commandList->setAlternatingRowColors(true);
     markSequencesAsDuplicatedIfNeeded();
 
 #if defined(Q_OS_WIN32)
