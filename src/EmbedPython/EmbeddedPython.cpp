@@ -233,7 +233,9 @@ EmbeddedPython::EmbeddedPython()
 #endif // defined(BUNDLING_PYTHON)
 
     Py_Initialize();
+#if PY_VERSION_HEX < 0x03070000
     PyEval_InitThreads();
+#endif
     m_threadstate = PyEval_SaveThread();
     m_pyobjmetaid = qMetaTypeId<PyObjectPtr>();
     m_listintmetaid = qMetaTypeId<QList<int> >();
