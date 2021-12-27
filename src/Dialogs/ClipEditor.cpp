@@ -661,12 +661,12 @@ void ClipEditor::CreateContextMenuActions()
     m_CollapseAll = new QAction(tr("Collapse All"),       this);
     m_ExpandAll =   new QAction(tr("Expand All"),         this);
     m_AutoFill  =   new QAction(tr("Autofill"),           this);
-    m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_E));
-    m_AddGroup->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_G));
+    m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_E));
+    m_AddGroup->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_G));
     m_Edit->setShortcut(QKeySequence(Qt::Key_F2));
-    m_Cut->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_X));
-    m_Copy->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_C));
-    m_Paste->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_V));
+    m_Cut->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_X));
+    m_Copy->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_C));
+    m_Paste->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_V));
     m_Delete->setShortcut(QKeySequence::Delete);
     // Has to be added to the dialog itself for the keyboard shortcut to work.
     addAction(m_AddEntry);

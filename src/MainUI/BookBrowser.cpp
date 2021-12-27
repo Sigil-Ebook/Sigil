@@ -28,6 +28,7 @@
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QProgressDialog>
 #include <QtWidgets/QScrollBar>
+#include <QVariant>
 #include <QDebug>
 
 #include "BookManipulation/Book.h"
@@ -57,8 +58,15 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
-
 #define DBG if(0)
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    static const QVariant QVINVALID = QVariant(QVariant::Invalid);
+#else 
+    #include <QMetaType>
+    static const QVariant QVINVALID = QVariant(QMetaType(QMetaType::UnknownType));
+#endif
+
 
 static const QString SETTINGS_GROUP = "bookbrowser";
 static const QString OPF_NCX_EDIT_WARNING_KEY = SETTINGS_GROUP + "-opfncx-warning";
@@ -1913,11 +1921,11 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
             const QStringList editor_paths = OpenExternally::editorsForResourceType(resource->Type());
             const QStringList editor_names = OpenExternally::editorDescriptionsForResourceType(resource->Type());
             if (editor_paths.isEmpty()) {
-                m_OpenWithEditor0->setData(QVariant::Invalid);
-                m_OpenWithEditor1->setData(QVariant::Invalid);
-                m_OpenWithEditor2->setData(QVariant::Invalid);
-                m_OpenWithEditor3->setData(QVariant::Invalid);
-                m_OpenWithEditor4->setData(QVariant::Invalid);
+                m_OpenWithEditor0->setData(QVINVALID);
+                m_OpenWithEditor1->setData(QVINVALID);
+                m_OpenWithEditor2->setData(QVINVALID);
+                m_OpenWithEditor3->setData(QVINVALID);
+                m_OpenWithEditor4->setData(QVINVALID);
                 m_OpenWith->setText(tr("Open With") + "...");
                 m_ContextMenu->addAction(m_OpenWith);
             } else {
@@ -1930,7 +1938,7 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
                     if (k==3) oeaction = m_OpenWithEditor3;
                     if (k==4) oeaction = m_OpenWithEditor4;
                     if (oeaction) {
-                        oeaction->setData(QVariant::Invalid);
+                        oeaction->setData(QVINVALID);
                         oeaction->setText("");
                         oeaction->setEnabled(false);
                         oeaction->setVisible(false);

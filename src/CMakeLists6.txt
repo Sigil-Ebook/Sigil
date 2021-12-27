@@ -40,7 +40,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 #############################################################################
 
-# quiet Qt 5.15 deprecat4ed warnings for now as we must support Qt 5.12.X and even earlier
+# quiet Qt 6 deprecat4ed warnings for now as we must support Qt 5.12.X and even earlier
 add_definitions(-DQT_NO_DEPRECATED_WARNINGS)
 add_definitions(-DQT_IMPLICIT_QCHAR_CONSTRUCTION)
 

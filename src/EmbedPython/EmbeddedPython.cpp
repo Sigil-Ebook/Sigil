@@ -481,12 +481,19 @@ QVariant EmbeddedPython::PyObjectToQVariant(PyObject *po, bool ret_python_object
             res = QVariant(QString::fromLatin1(reinterpret_cast<const char *>PyUnicode_1BYTE_DATA(po), -1));
 
         } else if (kind == PyUnicode_2BYTE_KIND) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             res = QVariant(QString::fromUtf16(PyUnicode_2BYTE_DATA(po), -1));
+#else
+            res = QVariant(QString::fromUtf16(reinterpret_cast<char16_t*>(PyUnicode_2BYTE_DATA(po)), -1));
+#endif
 
         } else if (kind == PyUnicode_4BYTE_KIND) {
             // PyUnicode_4BYTE_KIND
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             res = QVariant(QString::fromUcs4(PyUnicode_4BYTE_DATA(po), -1));
-
+#else
+            res = QVariant(QString::fromUcs4(reinterpret_cast<char32_t*>(PyUnicode_4BYTE_DATA(po)), -1));
+#endif
         } else {
             // convert to utf8 since not a known
             res = QVariant(QString::fromUtf8(PyUnicode_AsUTF8(po),-1));
@@ -524,7 +531,11 @@ PyObject* EmbeddedPython::QVariantToPyObject(const QVariant &v)
 {
     PyObject* value = NULL;
     bool      ok;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     switch ((QMetaType::Type)v.type()) {
+#else
+    switch (v.typeId()) {
+#endif
         case QMetaType::Double:
             value = Py_BuildValue("d", v.toDouble(&ok));
             break;
@@ -580,14 +591,22 @@ PyObject* EmbeddedPython::QVariantToPyObject(const QVariant &v)
             break;
         default:
           {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             if ((QMetaType::Type)v.type() >= QMetaType::User && (v.userType() ==  m_pyobjmetaid))
+#else
+            if (v.typeId() >= QMetaType::User && (v.userType() ==  m_pyobjmetaid))
+#endif
             {
               PyObjectPtr op = v.value<PyObjectPtr>();
               value = op.object();
               // Need to increment object count otherwise will go away when Py_XDECREF used on pyargs
               Py_XINCREF(value);
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             } else if ((QMetaType::Type)v.type() >= QMetaType::User && (v.userType() ==  m_listintmetaid))
+#else
+            } else if (v.typeId() >= QMetaType::User && (v.userType() ==  m_listintmetaid))
+#endif
             {
               QList<int> alist = v.value<QList<int> >();
               value = PyList_New(alist.size());

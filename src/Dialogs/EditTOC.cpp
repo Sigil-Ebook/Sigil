@@ -465,7 +465,7 @@ void EditTOC::CreateContextMenuActions()
 {
     m_Rename = new QAction(tr("Rename"),     this);
     m_Delete = new QAction(tr("Delete"),     this);
-    m_Rename->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_R));
+    m_Rename->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_R));
     m_Delete->setShortcut(QKeySequence::Delete);
     // Has to be added to the dialog itself for the keyboard shortcut to work.
     addAction(m_Rename);
@@ -473,8 +473,8 @@ void EditTOC::CreateContextMenuActions()
 
     m_MoveUp = new QAction(tr("Move Up"),       this);
     m_MoveDown = new QAction(tr("Move Down"),   this);
-    m_MoveUp->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Up));
-    m_MoveDown->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Down));
+    m_MoveUp->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_Up));
+    m_MoveDown->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_Down));
     addAction(m_MoveUp);
     addAction(m_MoveDown);
 

@@ -973,7 +973,7 @@ void HeadingSelector::Rename()
 void HeadingSelector::CreateContextMenuActions()
 {
     m_Rename = new QAction(tr("Rename"),     this);
-    m_Rename->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_R));
+    m_Rename->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_R));
     // Has to be added to the dialog itself for the keyboard shortcut to work.
     addAction(m_Rename);
 }

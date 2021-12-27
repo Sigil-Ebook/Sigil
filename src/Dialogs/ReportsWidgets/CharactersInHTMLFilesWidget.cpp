@@ -100,7 +100,11 @@ void CharactersInHTMLFilesWidget::AddTableData()
     foreach (uint unichr, characters) {
         // if (QChar::isSurrogate(unichr)) {
         if (unichr >= 0x10000) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             QString nonbmpchr = QString::fromUcs4(&unichr, 1);
+#else
+            QString nonbmpchr = QString::fromUcs4(reinterpret_cast<char32_t*>(&unichr), 1);
+#endif
             all_characters += nonbmpchr;
         } else {
             all_characters.append(QChar(unichr));
@@ -117,7 +121,11 @@ void CharactersInHTMLFilesWidget::AddTableData()
 
         // if (QChar::isSurrogate(unichr)) {
         if (unichr >= 0x10000) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             QString nonbmpchr = QString::fromUcs4(&unichr, 1);
+#else
+            QString nonbmpchr = QString::fromUcs4(reinterpret_cast<char32_t*>(&unichr), 1);
+#endif
             chrtxt += nonbmpchr;
             
         } else {

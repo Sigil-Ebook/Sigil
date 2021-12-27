@@ -661,7 +661,11 @@ QString Utility::URLEncodePath(const QString &path)
     QVector<uint32_t> codepoints = newpath.toUcs4();
     for (int i = 0; i < codepoints.size(); i++) {
         uint32_t cp = codepoints.at(i);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         QString s = QString::fromUcs4(&cp, 1);
+#else
+        QString s = QString::fromUcs4(reinterpret_cast<char32_t *>(&cp), 1);
+#endif
         if (NeedToPercentEncode(cp)) {
             QByteArray b = s.toUtf8();
             for (int j = 0; j < b.size(); j++) {

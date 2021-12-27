@@ -49,7 +49,7 @@ static const QString _US = QString(QChar(31)); // Ascii Unit Separator
 AutomateEditor::AutomateEditor(const QString& automate_path, QWidget *parent)
   : QDialog(parent),
     m_mainWindow(qobject_cast<MainWindow *>(parent)),
-    m_RemoveRow(new QShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_Delete),this, 0, 0, Qt::WidgetWithChildrenShortcut)),
+    m_RemoveRow(new QShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_Delete),this, 0, 0, Qt::WidgetWithChildrenShortcut)),
     m_automate_path(automate_path)
 {
     setupUi(this);

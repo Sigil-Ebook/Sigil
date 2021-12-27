@@ -76,7 +76,11 @@ SPCRE::SPCRE(const QString &patten)
         m_valid = false;
         PCRE2_UCHAR16 buffer[256];
         pcre2_get_error_message_16(errorno, buffer, sizeof(buffer));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         m_error = QString::fromUtf16(buffer);
+#else
+        m_error = QString::fromUtf16(reinterpret_cast<char16_t*>(buffer));
+#endif
         m_errpos = erroroffset;
         // qDebug() << "SPCRE invalid pattern: " << m_pattern;
         // qDebug() << "SPCRE error: " << m_error;

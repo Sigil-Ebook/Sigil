@@ -441,11 +441,11 @@ void IndexEditor::CreateContextMenuActions()
     m_Reload    = new QAction(tr("Reload") + "...",  this);
     m_SaveAs    = new QAction(tr("Save As") + "...", this);
     m_SelectAll = new QAction(tr("Select All"),      this);
-    m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_E));
+    m_AddEntry->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_E));
     m_Edit->setShortcut(QKeySequence(Qt::Key_F2));
-    m_Cut->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_X));
-    m_Copy->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_C));
-    m_Paste->setShortcut(QKeySequence(Qt::ControlModifier + Qt::Key_V));
+    m_Cut->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_X));
+    m_Copy->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_C));
+    m_Paste->setShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_V));
     m_Delete->setShortcut(QKeySequence::Delete);
     // Has to be added to the dialog itself for the keyboard shortcut to work.
     addAction(m_AddEntry);

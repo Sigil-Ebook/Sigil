@@ -295,10 +295,12 @@ void setupHighDPI()
 // Application entry point
 int main(int argc, char *argv[])
 {
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+  #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     QT_REQUIRE_VERSION(argc, argv, "5.10.0");
-#else
+  #else
     QT_REQUIRE_VERSION(argc, argv, "5.12.3");
+  #endif
 #endif
 
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
