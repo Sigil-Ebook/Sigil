@@ -35,7 +35,8 @@ fwk_struct = ['Python.framework/Versions/' + pversion + '/lib/' + stdlib_name + 
 # minimal set of PySide modules to support the plugin gui need *.so and *.pyi
 PYSIDE6_MODULES = ['QtCore', 'QtDBus', 'QtGui', 'QtNetwork', 'QtPrintSupport',
                   'QtSvg', 'QtWidgets', 'QtWebEngine', 'QtWebEngineCore',
-                   'QtWebEngineWidgets', 'QtWebChannel', 'QtUiTools']
+                   'QtWebEngineWidgets', 'QtWebChannel', 'QtUiTools',
+                   'QtOpenGL', 'QtOpenGLWidgets']
 
 
 # additional external python modules/packages that need to be included
@@ -130,7 +131,8 @@ def ignore_in_pyside6_dirs(base, items, ignored_dirs=None):
                 ans.append(name)
         else:
             if name.rpartition('.')[-1] not in ('so', 'py', 'dylib', 'pyi'):
-                ans.append(name)
+                if name not in ('lupdate', 'lrelease', 'uic', 'rcc'):
+                    ans.append(name)
             if name.rpartition('.')[-1] == 'so' and name.partition('.')[0]  not in PYSIDE6_MODULES:
                 ans.append(name)
             if name.rpartition('.')[-1] == 'pyi' and name.partition('.')[0]  not in PYSIDE6_MODULES:

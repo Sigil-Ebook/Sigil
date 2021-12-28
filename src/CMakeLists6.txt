@@ -41,13 +41,16 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #############################################################################
 
 # quiet Qt 6 deprecat4ed warnings for now as we must support Qt 5.12.X and even earlier
-add_definitions(-DQT_NO_DEPRECATED_WARNINGS)
+# add_definitions(-DQT_NO_DEPRECATED_WARNINGS)
 add_definitions(-DQT_IMPLICIT_QCHAR_CONSTRUCTION)
 
 
 set(QT6_NEEDED 6.2)
 
 set( PKGS_TO_FIND Core Core5Compat Network WebEngineCore WebEngineWidgets Widgets Xml Concurrent PrintSupport LinguistTools )
+if (APPLE)
+    list( APPEND PKGS_TO_FIND UiTools )
+endif()
 if ( WIN32 )
     # QtWinExtras not in Qt6 as of 6.2.2
     # list( APPEND PKGS_TO_FIND WinExtras )
@@ -857,7 +860,7 @@ endif()
 
 set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE2_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES}
                   Qt6::Core5Compat Qt6::Widgets  Qt6::Xml  Qt6::PrintSupport  Qt6::WebEngineCore  
-                  Qt6::WebEngineWidgets  Qt6::Network  Qt6::Concurrent )
+                  Qt6::WebEngineWidgets  Qt6::Network  Qt6::Concurrent  Qt6::UiTools )
 if (${USE_NEWER_FINDPYTHON3})
     message(STATUS "Using newer Python3::Python target to link to Python")
     list( APPEND LIBS_TO_LINK Python3::Python )
