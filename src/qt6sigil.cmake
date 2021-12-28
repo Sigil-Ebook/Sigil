@@ -1,49 +1,10 @@
-########################################################
-#
-#  This is a CMake configuration file.
-#  To use it you need CMake which can be
-#  downloaded from here:
-#    http://www.cmake.org/cmake/resources/software.html
-#
-#########################################################
-
-cmake_minimum_required( VERSION 3.0.0 )
-
 #############################################################################
-
-# Print a message and fail for people who don't
-# read the build instructions and then complain
-# when the build process fails for them.
-if ( ${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR} )
-    message( FATAL_ERROR "You are trying to run CMake from the <top_folder>/src/ directory, "
-                         "instead of just from the <top_folder> directory.\nDO NOT DO THIS.\n"
-                         "The correct way looks like this:\n"
-                         "  cmake -G '<generator_name>' /path/to/topmost/folder/in/source/package\n"
-                         "You will probably now need to first clean your build directory." )
-endif()
-
-#############################################################################
-
-# We use the lower case name
-# on UNIX systems other than Mac OS X
-if ( WIN32 OR APPLE )
-    project( Sigil )
-else()
-    project( sigil )
-endif()
-
-#############################################################################
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
+#     Build Sigil against Qt6 - requires cmake 3.16+ and a C++17 compiler
 #############################################################################
 
 # quiet Qt 6 deprecat4ed warnings for now as we must support Qt 5.12.X and even earlier
 # add_definitions(-DQT_NO_DEPRECATED_WARNINGS)
 add_definitions(-DQT_IMPLICIT_QCHAR_CONSTRUCTION)
-
 
 set(QT6_NEEDED 6.2)
 
@@ -63,9 +24,6 @@ endif()
 find_package( Qt6 ${QT6_NEEDED} COMPONENTS ${PKGS_TO_FIND} REQUIRED )
 
 set(CMAKE_AUTOMOC ON)
-
-# Sigil SRC files are the same for Qt5 and Qt6, so don't duplicate
-include(sigil_src_groups.cmake)
 
 if ( NOT DEFINED PKG_SYSTEM_PYTHON )
     if (MSVC)

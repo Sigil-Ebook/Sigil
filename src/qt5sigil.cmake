@@ -1,57 +1,5 @@
-########################################################
-#
-#  This is a CMake configuration file.
-#  To use it you need CMake which can be
-#  downloaded from here:
-#    http://www.cmake.org/cmake/resources/software.html
-#
-#########################################################
-
-cmake_minimum_required( VERSION 3.0.0 )
-
 #############################################################################
-
-# Print a message and fail for people who don't
-# read the build instructions and then complain
-# when the build process fails for them.
-if ( ${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR} )
-    message( FATAL_ERROR "You are trying to run CMake from the <top_folder>/src/ directory, "
-                         "instead of just from the <top_folder> directory.\nDO NOT DO THIS.\n"
-                         "The correct way looks like this:\n"
-                         "  cmake -G '<generator_name>' /path/to/topmost/folder/in/source/package\n"
-                         "You will probably now need to first clean your build directory." )
-endif()
-
-#############################################################################
-
-# We use the lower case name
-# on UNIX systems other than Mac OS X
-if ( WIN32 OR APPLE )
-    project( Sigil )
-else()
-    project( sigil )
-endif()
-
-#############################################################################
-
-if (NOT MSVC)
-    include(CheckCXXCompilerFlag)
-    CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
-    CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
-    if(COMPILER_SUPPORTS_CXX11)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-    elseif(COMPILER_SUPPORTS_CXX0X)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-        # Give gcc compilers that fall through the cracks a shot.
-        if(CMAKE_COMPILER_IS_GNUCXX AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 4.8)
-            set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive")
-            message("-- fpermissive CXX flag being used for gcc ${CMAKE_CXX_COMPILER_VERSION}")
-        endif()
-    else()
-        message(FATAL_ERROR "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
-    endif()
-endif()
-
+#     Build Sigil against Qt5 - requires cmake 3.0+ and a C++11 compiler
 #############################################################################
 
 # quiet Qt 5.15 deprecat4ed warnings for now as we must support Qt 5.12.X and even earlier
@@ -77,9 +25,6 @@ endif()
 find_package( Qt5 ${QT5_NEEDED} COMPONENTS ${PKGS_TO_FIND} )
 
 set(CMAKE_AUTOMOC ON)
-
-# Sigil SRC files are the same for Qt5 and Qt6, so don't duplicate
-include(sigil_src_groups.cmake)
 
 if ( NOT DEFINED PKG_SYSTEM_PYTHON )
     if (MSVC)
