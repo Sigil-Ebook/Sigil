@@ -858,9 +858,12 @@ else()
     add_executable( ${PROJECT_NAME} WIN32 ${ALL_SOURCES} )
 endif()
 
+# LIBS_TO_LINK for all platforms
 set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE2_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES}
                   Qt6::Core5Compat Qt6::Widgets  Qt6::Xml  Qt6::PrintSupport  Qt6::WebEngineCore  
-                  Qt6::WebEngineWidgets  Qt6::Network  Qt6::Concurrent  Qt6::UiTools )
+                  Qt6::WebEngineWidgets  Qt6::Network  Qt6::Concurrent )
+
+# Additions to LIBS_TO_LINK based on situation or platform
 if (${USE_NEWER_FINDPYTHON3})
     message(STATUS "Using newer Python3::Python target to link to Python")
     list( APPEND LIBS_TO_LINK Python3::Python )
@@ -869,10 +872,16 @@ else()
     list( APPEND LIBS_TO_LINK ${PYTHON_LIBRARIES} )
 endif()
 
+# QtUiTools needed for PySide plugins
+if ( APPLE )
+    list( APPEND LIBS_TO_LINK Qt6::UiTools )
+endif()
+
 # QtWinExtras not in Qt6 as of 6.2.2
 #if ( WIN32 )
 #    list( APPEND LIBS_TO_LINK Qt6::WinExtras )
 #endif()
+
 target_link_libraries( ${PROJECT_NAME} ${LIBS_TO_LINK} )
 
 #############################################################################
