@@ -92,6 +92,10 @@ AppearanceWidget::AppearanceWidget()
 #endif
 
     ui.setupUi(this);
+#ifdef Q_OS_MAC
+    // according to macos user interface guidelines native apps would use TicksBelow
+    ui.iconSizeSlider->setTickPosition(QSlider::TicksBelow);
+#endif
     ui.Default->setEnabled(true);
     ui.Fluent->setEnabled(true);
     ui.Material->setEnabled(true);
