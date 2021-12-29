@@ -26,9 +26,9 @@
 #define IMPORTEPUB_H
 
 #include <QCoreApplication>
-#include <QtCore/QHash>
-#include <QtCore/QSet>
-#include <QtCore/QStringList>
+#include <QHash>
+#include <QSet>
+#include <QStringList>
 
 #include "Importers/Importer.h"
 #include "Misc/TempFolder.h"
@@ -233,6 +233,8 @@ private:
      * This hash stores all the candidates, as an ID-to-href mapping.
      */
     QHash<QString, QString> m_NcxCandidates;
+
+    QHash<QString, QString> m_FileInfoFromZip;
 
     bool m_HasSpineItems;
     bool m_NCXNotInManifest;

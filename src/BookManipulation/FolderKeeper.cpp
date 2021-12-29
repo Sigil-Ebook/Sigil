@@ -713,6 +713,19 @@ QString FolderKeeper::buildShortName(const QString &bookpath, int lvl)
 }
 
 
+void FolderKeeper::storeFileInfoFromZip(const QHash<QString, QString> & fileInfoFromZip)
+{
+    m_FileInfoFromZip = fileInfoFromZip;
+}
+
+
+QString FolderKeeper::getFileInfoFromZip(const QString &bookpath)
+{
+    if (m_FileInfoFromZip.contains(bookpath)) return m_FileInfoFromZip[bookpath];
+    return QString();
+}
+
+
 void FolderKeeper::updateShortPathNames()
 {
     QStringList bookpaths = GetAllBookPaths();

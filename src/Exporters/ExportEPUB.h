@@ -64,6 +64,7 @@ private:
     // Obfuscates the fonts marked for obfuscation
     void ObfuscateFonts(const QString &fullfolderpath);
 
+    bool FileWasModified(const QString & afilepath, size_t afilesize, const QString& afilehash);
 
     ///////////////////////////////
     // PROTECTED MEMBER VARIABLES

@@ -210,6 +210,10 @@ public:
 
     void updateShortPathNames();
 
+    void storeFileInfoFromZip(const QHash<QString, QString> & fileInfoFromZip);
+
+    QString getFileInfoFromZip(const QString &bookpath);
+
     void PerformInitialLoads();
 
     void RefreshGroupFolders();
@@ -338,6 +342,7 @@ private:
 
     QHash<QString, QStringList> m_GrpToFold;
     QHash<QString, QStringList> m_StdGrpToFold;
+    QHash<QString, QString> m_FileInfoFromZip;
 };
 
 

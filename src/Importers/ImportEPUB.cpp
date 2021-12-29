@@ -33,11 +33,11 @@
 #include <string>
 
 #include <QApplication>
-#include <QtCore/QtCore>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
-#include <QtCore/QFutureSynchronizer>
+#include <QtCore>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QFutureSynchronizer>
 #include <QtConcurrent/QtConcurrent>
 #include <QXmlStreamReader>
 #include <QDirIterator>
@@ -45,6 +45,10 @@
 #include <QRegularExpressionMatch>
 #include <QStringList>
 #include <QMessageBox>
+#include <QDateTime>
+#include <QDate>
+#include <QTime>
+#include <QCryptographicHash>
 #include <QUrl>
 #include <QDebug>
 
@@ -264,6 +268,8 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
     // update the ShortPathNames to reflect any name duplication
     m_Book->GetFolderKeeper()->updateShortPathNames();
 
+    m_Book->GetFolderKeeper()->storeFileInfoFromZip(m_FileInfoFromZip);
+
     // since we no longer run universal updates we should run 
     // InitialLoad on all TextResources to make sure everything gets loaded
     m_Book->GetFolderKeeper()->PerformInitialLoads();
@@ -441,6 +447,18 @@ void ImportEPUB::ExtractContainer()
                 // IBM 437 encoding might be used.
                 cp437_file_name = cp437->toUnicode(file_name);
             }
+            QDate moddate = QDate(file_info.tmu_date.tm_year,
+                                  file_info.tmu_date.tm_mon + 1,
+                                  file_info.tmu_date.tm_mday);
+            QTime modtime = QTime(file_info.tmu_date.tm_hour,
+                                  file_info.tmu_date.tm_min,
+                                  file_info.tmu_date.tm_sec);
+            QDateTime modinfo = QDateTime(moddate, modtime);
+            QString modified = modinfo.toString("yyyy-MM-dd hh:mm:ss");
+
+            // qDebug() << "File:      " << qfile_name;
+            // qDebug() << "  Size:    " << file_info.uncompressed_size;
+            // qDebug() << "  ModDate: " << modified;
 
             // If there is no file name then we can't do anything with it.
             if (!qfile_name.isEmpty()) {
@@ -520,12 +538,17 @@ void ImportEPUB::ExtractContainer()
                 // Buffered reading and writing.
                 char buff[BUFF_SIZE] = {0};
                 int read = 0;
+                QCryptographicHash fileHasher(QCryptographicHash::Sha256);
 
                 while ((read = unzReadCurrentFile(zfile, buff, BUFF_SIZE)) > 0) {
                     entry.write(buff, read);
+                    fileHasher.addData(buff, read);
                 }
 
                 entry.close();
+
+                QString filehash = fileHasher.result().toHex();
+                // qDebug() << "File Hash: " << filehash;
 
                 // Read errors are marked by a negative read amount.
                 if (read < 0) {
@@ -541,10 +564,14 @@ void ImportEPUB::ExtractContainer()
                     unzClose(zfile);
                     throw (EPUBLoadParseError(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
                 }
+                QString zname = qfile_name;
                 if (!cp437_file_name.isEmpty() && cp437_file_name != qfile_name) {
                     QString cp437_file_path = m_ExtractedFolderPath + "/" + cp437_file_name;
                     QFile::copy(file_path, cp437_file_path);
+                    zname = cp437_file_name;
                 }
+                m_FileInfoFromZip[zname] = QString::number(file_info.uncompressed_size) + "|" +
+                                           modified + "|" + filehash;
             }
         } while ((res = unzGoToNextFile(zfile)) == UNZ_OK);
     }

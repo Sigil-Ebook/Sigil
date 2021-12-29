@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -32,13 +32,14 @@
 #include <iowin32.h>
 #endif
 
-#include <QtCore/QDateTime>
-#include <QtCore/QDir>
-#include <QtCore/QDirIterator>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
-#include <QtCore/QTemporaryFile>
-#include <QtCore/QTextStream>
+#include <QDateTime>
+#include <QDir>
+#include <QDirIterator>
+#include <QFile>
+#include <QFileInfo>
+#include <QTemporaryFile>
+#include <QTextStream>
+#include <QCryptographicHash>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -107,6 +108,21 @@ void ExportEPUB::WriteBook()
 }
 
 
+bool ExportEPUB::FileWasModified(const QString& afilepath, const size_t afilesize, const QString& afilehash)
+{
+    QFile f(afilepath);
+    if (!f.exists()) return true;
+    if (f.size() != afilesize) return true;
+    if (f.open(QFile::ReadOnly)) {
+        QCryptographicHash ahasher(QCryptographicHash::Sha256);
+        if (ahasher.addData(&f)) {
+            if (ahasher.result().toHex() != afilehash) return true;
+        }
+        return false;
+    }
+    return true;
+}
+
 // Creates the publication from the Book
 // (creates XHTML, CSS, OPF, NCX files etc.)
 void ExportEPUB::CreatePublication(const QString &fullfolderpath)
@@ -122,6 +138,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
 {
     QString tempFile = fullfolderpath + "-tmp.epub";
     QDateTime timeNow = QDateTime::currentDateTime();
+    QString modified_now = timeNow.toString("yyyy-MM-dd hh:mm:ss");
     zip_fileinfo fileInfo;
 #ifdef Q_OS_WIN32
     zlib_filefunc64_def ffunc;
@@ -136,14 +153,14 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
     }
 
     memset(&fileInfo, 0, sizeof(fileInfo));
-    fileInfo.tmz_date.tm_sec = timeNow.time().second();
-    fileInfo.tmz_date.tm_min = timeNow.time().minute();
+    fileInfo.tmz_date.tm_sec  = timeNow.time().second();
+    fileInfo.tmz_date.tm_min  = timeNow.time().minute();
     fileInfo.tmz_date.tm_hour = timeNow.time().hour();
     fileInfo.tmz_date.tm_mday = timeNow.date().day();
-    fileInfo.tmz_date.tm_mon = timeNow.date().month() - 1;
+    fileInfo.tmz_date.tm_mon  = timeNow.date().month() - 1;
     fileInfo.tmz_date.tm_year = timeNow.date().year();
 
-    // Write the mimetype. This must be uncompressed and the first entry in the archive.
+     // Write the mimetype. This must be uncompressed and the first entry in the archive.
     if (zipOpenNewFileInZip64(zfile, "mimetype", &fileInfo, NULL, 0, NULL, 0, NULL, Z_NO_COMPRESSION, 0, 0) != ZIP_OK) {
         zipClose(zfile, NULL);
         QFile::remove(tempFile);
@@ -168,6 +185,26 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
         while (relpath.startsWith("/")) {
             relpath = relpath.remove(0, 1);
         }
+
+        // if file is not modified use modification date from previously loaded zip
+        QString amodified = modified_now;
+        QString fileinfofromzip = m_Book->GetFolderKeeper()->getFileInfoFromZip(relpath);
+        if (!fileinfofromzip.isEmpty()) {
+            QStringList infoparts = fileinfofromzip.split('|');
+            size_t afilesize = static_cast<size_t>(infoparts.at(0).toInt());
+            QString afilehash = infoparts.at(2);
+            if (!FileWasModified(it.filePath(), afilesize, afilehash)) {
+                amodified = infoparts.at(1);
+            }
+        }
+        QDateTime moddate = QDateTime::fromString(amodified, "yyyy-MM-dd hh:mm:ss");
+        memset(&fileInfo, 0, sizeof(fileInfo));
+        fileInfo.tmz_date.tm_sec  = moddate.time().second();
+        fileInfo.tmz_date.tm_min  = moddate.time().minute();
+        fileInfo.tmz_date.tm_hour = moddate.time().hour();
+        fileInfo.tmz_date.tm_mday = moddate.date().day();
+        fileInfo.tmz_date.tm_mon  = moddate.date().month() - 1;
+        fileInfo.tmz_date.tm_year = moddate.date().year();
 
         // Add the file entry to the archive.
         // We should check the uncompressed file size. If it's over >= 0xffffffff the last parameter (zip64) should be 1.
