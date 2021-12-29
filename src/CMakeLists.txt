@@ -632,7 +632,7 @@ else()
     project( sigil )
 endif()
 
-# Building Sigil with Qt6 requires cmake 3.6+
+# Building Sigil with Qt6 requires cmake 3.16+
 # and a C++17 standards compatible compiler
 if (${USE_QT6})
     cmake_minimum_required( VERSION 3.16 )
