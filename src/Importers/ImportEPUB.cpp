@@ -548,7 +548,6 @@ void ImportEPUB::ExtractContainer()
                 entry.close();
 
                 QString filehash = fileHasher.result().toHex();
-                // qDebug() << "File Hash: " << filehash;
 
                 // Read errors are marked by a negative read amount.
                 if (read < 0) {
@@ -564,14 +563,11 @@ void ImportEPUB::ExtractContainer()
                     unzClose(zfile);
                     throw (EPUBLoadParseError(QString(QObject::tr("Cannot extract file: %1")).arg(qfile_name).toStdString()));
                 }
-                QString zname = qfile_name;
                 if (!cp437_file_name.isEmpty() && cp437_file_name != qfile_name) {
                     QString cp437_file_path = m_ExtractedFolderPath + "/" + cp437_file_name;
                     QFile::copy(file_path, cp437_file_path);
-                    zname = cp437_file_name;
                 }
-                m_FileInfoFromZip[zname] = QString::number(file_info.uncompressed_size) + "|" +
-                                           modified + "|" + filehash;
+                m_FileInfoFromZip[filehash] = modified;
             }
         } while ((res = unzGoToNextFile(zfile)) == UNZ_OK);
     }

@@ -719,10 +719,11 @@ void FolderKeeper::storeFileInfoFromZip(const QHash<QString, QString> & fileInfo
 }
 
 
-QString FolderKeeper::getFileInfoFromZip(const QString &bookpath)
+QString FolderKeeper::getFileInfoFromZip(const QString &afilehash, const QString& fallback)
 {
-    if (m_FileInfoFromZip.contains(bookpath)) return m_FileInfoFromZip[bookpath];
-    return QString();
+    if (m_FileInfoFromZip.contains(afilehash)) return m_FileInfoFromZip[afilehash];
+    m_FileInfoFromZip[afilehash] = fallback;
+    return fallback;
 }
 
 

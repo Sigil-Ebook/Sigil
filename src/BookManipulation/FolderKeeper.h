@@ -212,7 +212,7 @@ public:
 
     void storeFileInfoFromZip(const QHash<QString, QString> & fileInfoFromZip);
 
-    QString getFileInfoFromZip(const QString &bookpath);
+    QString getFileInfoFromZip(const QString &afilehash, const QString &fallback);
 
     void PerformInitialLoads();
 

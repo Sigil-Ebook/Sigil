@@ -108,19 +108,18 @@ void ExportEPUB::WriteBook()
 }
 
 
-bool ExportEPUB::FileWasModified(const QString& afilepath, const size_t afilesize, const QString& afilehash)
+QString ExportEPUB::FileSHA256Hash(const QString& afilepath)
 {
     QFile f(afilepath);
-    if (!f.exists()) return true;
-    if (f.size() != afilesize) return true;
+    if (!f.exists()) return QString();
     if (f.open(QFile::ReadOnly)) {
         QCryptographicHash ahasher(QCryptographicHash::Sha256);
         if (ahasher.addData(&f)) {
-            if (ahasher.result().toHex() != afilehash) return true;
+            return ahasher.result().toHex();
         }
-        return false;
+        return QString();
     }
-    return true;
+    return QString();
 }
 
 // Creates the publication from the Book
@@ -185,17 +184,10 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
         while (relpath.startsWith("/")) {
             relpath = relpath.remove(0, 1);
         }
-
-        // if file is not modified use modification date from previously loaded zip
         QString amodified = modified_now;
-        QString fileinfofromzip = m_Book->GetFolderKeeper()->getFileInfoFromZip(relpath);
-        if (!fileinfofromzip.isEmpty()) {
-            QStringList infoparts = fileinfofromzip.split('|');
-            size_t afilesize = static_cast<size_t>(infoparts.at(0).toInt());
-            QString afilehash = infoparts.at(2);
-            if (!FileWasModified(it.filePath(), afilesize, afilehash)) {
-                amodified = infoparts.at(1);
-            }
+        QString afilehash = FileSHA256Hash(it.filePath());
+        if (!afilehash.isEmpty()) {
+            amodified = m_Book->GetFolderKeeper()->getFileInfoFromZip(afilehash, modified_now);
         }
         QDateTime moddate = QDateTime::fromString(amodified, "yyyy-MM-dd hh:mm:ss");
         memset(&fileInfo, 0, sizeof(fileInfo));
