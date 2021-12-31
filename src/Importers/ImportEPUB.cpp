@@ -48,7 +48,6 @@
 #include <QDateTime>
 #include <QDate>
 #include <QTime>
-#include <QCryptographicHash>
 #include <QUrl>
 #include <QDebug>
 
@@ -455,7 +454,10 @@ void ImportEPUB::ExtractContainer()
                                   file_info.tmu_date.tm_sec);
             QDateTime modinfo = QDateTime(moddate, modtime);
             QString modified = modinfo.toString("yyyy-MM-dd hh:mm:ss");
-
+            QString afilesize = QString::number(file_info.uncompressed_size);
+            QString afilecrc = QString("%1").arg(file_info.crc, 8, 16, QLatin1Char('0'));
+            QString afilename = QFileInfo(qfile_name).fileName();
+            
             // qDebug() << "File:      " << qfile_name;
             // qDebug() << "  Size:    " << file_info.uncompressed_size;
             // qDebug() << "  ModDate: " << modified;
@@ -538,16 +540,12 @@ void ImportEPUB::ExtractContainer()
                 // Buffered reading and writing.
                 char buff[BUFF_SIZE] = {0};
                 int read = 0;
-                QCryptographicHash fileHasher(QCryptographicHash::Sha256);
 
                 while ((read = unzReadCurrentFile(zfile, buff, BUFF_SIZE)) > 0) {
                     entry.write(buff, read);
-                    fileHasher.addData(buff, read);
                 }
 
                 entry.close();
-
-                QString filehash = fileHasher.result().toHex();
 
                 // Read errors are marked by a negative read amount.
                 if (read < 0) {
@@ -567,7 +565,8 @@ void ImportEPUB::ExtractContainer()
                     QString cp437_file_path = m_ExtractedFolderPath + "/" + cp437_file_name;
                     QFile::copy(file_path, cp437_file_path);
                 }
-                m_FileInfoFromZip[filehash] = modified;
+                QString akey = afilename + "|" + afilesize + "|" + afilecrc;
+                m_FileInfoFromZip[akey] = modified;
             }
         } while ((res = unzGoToNextFile(zfile)) == UNZ_OK);
     }

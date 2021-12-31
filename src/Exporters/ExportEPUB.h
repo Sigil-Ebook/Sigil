@@ -64,8 +64,6 @@ private:
     // Obfuscates the fonts marked for obfuscation
     void ObfuscateFonts(const QString &fullfolderpath);
 
-    QString FileSHA256Hash(const QString & afilepath);
-
     ///////////////////////////////
     // PROTECTED MEMBER VARIABLES
     ///////////////////////////////

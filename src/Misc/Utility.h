@@ -245,6 +245,8 @@ public:
     // Generate a Unique Id given a root id and Used Set
     static QString GenerateUniqueId(const QString &id, const QSet<QString>& Used);
 
+    // Generate a CRC32 checksum on a file
+    static QString FileCRC32(const QString& filepath);
 };
 #endif // UTILITY_H
 

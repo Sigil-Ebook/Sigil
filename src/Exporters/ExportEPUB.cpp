@@ -39,7 +39,6 @@
 #include <QFileInfo>
 #include <QTemporaryFile>
 #include <QTextStream>
-#include <QCryptographicHash>
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -107,21 +106,6 @@ void ExportEPUB::WriteBook()
     SaveFolderAsEpubToLocation(tempfolder.GetPath(), m_FullFilePath);
 }
 
-
-QString ExportEPUB::FileSHA256Hash(const QString& afilepath)
-{
-    QFile f(afilepath);
-    if (!f.exists()) return QString();
-    if (f.open(QFile::ReadOnly)) {
-        QCryptographicHash ahasher(QCryptographicHash::Sha256);
-        if (ahasher.addData(&f)) {
-            return ahasher.result().toHex();
-        }
-        return QString();
-    }
-    return QString();
-}
-
 // Creates the publication from the Book
 // (creates XHTML, CSS, OPF, NCX files etc.)
 void ExportEPUB::CreatePublication(const QString &fullfolderpath)
@@ -184,10 +168,16 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
         while (relpath.startsWith("/")) {
             relpath = relpath.remove(0, 1);
         }
+
+        QFileInfo tfile(it.filePath());
         QString amodified = modified_now;
-        QString afilehash = FileSHA256Hash(it.filePath());
-        if (!afilehash.isEmpty()) {
-            amodified = m_Book->GetFolderKeeper()->getFileInfoFromZip(afilehash, modified_now);
+        QString afilename = tfile.fileName();
+        QString afilesize = QString::number(tfile.size());
+        QString afilecrc = Utility::FileCRC32(it.filePath());
+
+        QString akey = afilename + "|" + afilesize+ "|" + afilecrc;
+        if (!afilecrc.isEmpty()) {
+            amodified = m_Book->GetFolderKeeper()->getFileInfoFromZip(akey, modified_now);
         }
         QDateTime moddate = QDateTime::fromString(amodified, "yyyy-MM-dd hh:mm:ss");
         memset(&fileInfo, 0, sizeof(fileInfo));
@@ -206,8 +196,7 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
             throw(CannotStoreFile(relpath.toStdString()));
         }
 
-        // Open the file on disk. We will read this and write what we read into
-        // the archive.
+        // the file on disk to write
         QFile dfile(it.filePath());
 
         if (!dfile.open(QIODevice::ReadOnly)) {
