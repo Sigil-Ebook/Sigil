@@ -174,5 +174,5 @@ void RepoLog::connectSignalsToSlots()
     connect(m_nav, SIGNAL(NextPage(int)), this, SLOT(next_page(int)));
     connect(m_nav, SIGNAL(DoSearch(bool)),  this, SLOT(do_search(bool)));
     connect(m_nav, SIGNAL(DoDone()),        this, SLOT(accept()));
-    connect(m_view, SIGNAL(NextPage(int)), this, SLOT(next_page(int)));
+    connect(m_view, SIGNAL(NextChange(int)), this, SLOT(next_page(int)));
 }
