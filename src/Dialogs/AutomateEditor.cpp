@@ -117,6 +117,9 @@ QString AutomateEditor::GetAutomateList()
             if (cmd.startsWith("RunSavedSearchReplaceAll")) {
                 value = cmd.mid(25,-1).trimmed();
                 cmd = "RunSavedSearchReplaceAll";
+            } else if (cmd.startsWith("SetPluginParameter")) {
+                value = cmd.mid(19,-1).trimmed();
+                cmd = "SetPluginParameter";
             }
             autodata << cmd + _GS + "" + _US + value + _GS + "" + _RS;
         }
@@ -159,6 +162,9 @@ void AutomateEditor::selectTool()
     foreach(QString code, codes) {
         if (code == "RunSavedSearchReplaceAll") {
             QString content = tr("[SavedSearch full name here]");
+            insertRow(code, code, content, "");
+        } else if (code == "SetPluginParameter") {
+            QString content = tr("[String parameter for next Plugin run here]");
             insertRow(code, code, content, "");
         } else {
             insertRow(code, code, "", "");
@@ -309,6 +315,8 @@ void AutomateEditor::loadToolElements()
          "SetBookBrowserToAllHTML" << "SetBookBrowserToAllHTML" << tr("Select all HTML Files in BookBrowser") << 
          "SetBookBrowserToAllImages" << "SetBookBrowserToAllImages" << tr("Select all Image Files in BookBrowser") << 
          "SetBookBrowserToInitialSelection" << "SetBookBrowserToInitialSelection" << tr("Reset BookBrowser to its initial selection") <<
+         "SetPluginParameter" << "SetPluginParameter" << tr("set a string parameter to be passed to the next plugin.") <<
+
          "SplitOnSGFSectionMarkers" << "SplitOnSGFSectionMarkers" << tr("Split XHtml files on Sigil Section Markers") <<
          "StandardizeEpub" << "StandardizeEpub" << tr("Convert Epub layout to Sigil's historic Standard form.") <<
          "UpdateManifestProperties" << "UpdateManifestProperties" << tr("Update Epub3 OPF Manifest properties.") <<

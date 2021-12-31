@@ -49,7 +49,7 @@ def _unicodestr(p):
         return p
     return p.decode('utf-8', errors='replace')
 
-_launcher_version = 20211025
+_launcher_version = 20220101
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''', re.IGNORECASE)
 
@@ -120,6 +120,8 @@ class Wrapper(object):
         self.epub_filepath = ""
         self.colormode = None
         self.colors = None
+        self.using_automate = False
+        self.automate_parameter = None
         # File selected in Sigil's Book Browser
         self.selected = []
         cfg = ''
@@ -141,6 +143,8 @@ class Wrapper(object):
             self.colors = cfg_lst.pop(0)
             self.highdpi = cfg_lst.pop(0)
             self.uifont = cfg_lst.pop(0)
+            self.using_automate = (cfg_lst.pop(0) == "InAutomate")
+            self.automate_parameter = cfg_lst.pop(0);
             self.selected = cfg_lst
         os.environ['SigilGumboLibPath'] = self.get_gumbo_path()
 

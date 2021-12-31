@@ -90,3 +90,11 @@ class InputContainer(object):
     #    "Window", "Base", "Text", "Highlight", "HighlightedText"
     def color(self, role):
         return self._w.color(role)
+
+
+    # Newly Added to Support Plugins running in Automate Lists
+    def using_automate(self):
+        return self._w.using_automate
+
+    def	automate_parameter(self):
+        return self._w.automate_parameter

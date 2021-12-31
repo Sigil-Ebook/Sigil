@@ -255,7 +255,14 @@ void PluginRunner::writeSigilCFG()
             cfg << "off";
             break;
     }
+    // handle automate and automate plugin parameter
     cfg << qApp->font().toString();
+    if (m_mainWindow->UsingAutomate()) {
+        cfg << "InAutomate";
+    } else {
+        cfg << "NoAutomate";
+    }
+    cfg << m_mainWindow->AutomatePluginParameter();
     QList <Resource *> selected_resources = m_bookBrowser->AllSelectedResources();
     foreach(Resource * resource, selected_resources) {
         cfg << resource->GetRelativePath();

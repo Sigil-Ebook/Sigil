@@ -470,3 +470,12 @@ class BookContainer(object):
 
     def mediatype_to_group(self, mediatype, ow=None):
         return self._w.map_mediatype_to_group(mediatype, ow)
+
+    
+    # Newly Added to Support Plugins running in Automate Lists
+    def using_automate(self):
+        return self._w.using_automate
+
+    def automate_parameter(self):
+        return self._w.automate_parameter
+    

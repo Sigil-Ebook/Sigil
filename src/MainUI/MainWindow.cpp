@@ -197,6 +197,7 @@ static const QStringList AUTOMATE_TOOLS = QStringList() <<
     "SetBookBrowserToAllHTML" <<
     "SetBookBrowserToAllImages" <<
     "SetBookBrowserToInitialSelection" <<
+    "SetPluginParameter" <<
     "SplitOnSGFSectionMarkers" <<
     "StandardizeEpub" <<
     "UpdateManifestProperties" <<
@@ -399,6 +400,7 @@ void MainWindow::RunAutomate(const QString &automatefile)
     if (!commands.isEmpty()) Automate(commands);
     m_UsingAutomate = false;
     m_AutomateLog.clear();
+    m_AutomatePluginParameter = "";
 }
 
 
@@ -428,6 +430,9 @@ bool MainWindow::Automate(const QStringList &commands)
 
             success = prunner.getResult() == "success";
             plugin_type = prunner.getPluginType();
+            // plugin done rubnning clear any set plugin parameter
+            m_AutomatePluginParameter = "";
+            
         } else if (AUTOMATE_TOOLS.contains(cmd)) {
             if (cmd == "Save")                            success = Save();
             else if (cmd == "WellFormedCheckEpub")        success = WellFormedCheckEpub();
@@ -477,6 +482,12 @@ bool MainWindow::Automate(const QStringList &commands)
                     success = true;
                 }
             }
+
+        // Allow Automate to set a Plugin Parameter
+        } else if (cmd.startsWith("SetPluginParameter")) {
+            m_AutomatePluginParameter  = cmd.mid(19, -1).trimmed();
+            success = true;
+
         // handle saved search and its full name parameter     
         } else if (cmd.startsWith("RunSavedSearchReplaceAll")) {
             QString fullname = cmd.mid(25, -1).trimmed();

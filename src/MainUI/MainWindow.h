@@ -220,6 +220,9 @@ public:
 
     QString GetMathJaxFolder() { return m_mathjaxfolder; };
 
+    bool UsingAutomate() { return m_UsingAutomate; }
+
+    QString AutomatePluginParameter() { return m_AutomatePluginParameter; }
 
 public slots:
 
@@ -1064,6 +1067,7 @@ private:
 
     bool m_UsingAutomate;
     QStringList m_AutomateLog;
+    QString m_AutomatePluginParameter;
     
     /**
      * Holds all the widgets Qt Designer created for us.
