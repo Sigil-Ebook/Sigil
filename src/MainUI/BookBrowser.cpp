@@ -20,14 +20,14 @@
 **
 *************************************************************************/
 
-#include <QtCore/QFileInfo>
-#include <QtCore/QSignalMapper>
-#include <QtWidgets/QFileDialog>
-#include <QtWidgets/QMenu>
-#include <QtWidgets/QMessageBox>
-#include <QtWidgets/QTreeView>
-#include <QtWidgets/QProgressDialog>
-#include <QtWidgets/QScrollBar>
+#include <QFileInfo>
+#include <QSignalMapper>
+#include <QFileDialog>
+#include <QMenu>
+#include <QMessageBox>
+#include <QTreeView>
+#include <QProgressDialog>
+#include <QScrollBar>
 #include <QVariant>
 #include <QDebug>
 

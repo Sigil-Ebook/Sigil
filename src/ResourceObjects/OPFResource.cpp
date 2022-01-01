@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks  Stratford, ON Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks  Stratford, ON Canada
 **  Copyright (C) 2013      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -255,6 +255,36 @@ int OPFResource::GetReadingOrder(const HTMLResource *html_resource) const
     }
     return -1;
 }
+
+void OPFResource::MoveReadingOrder(const HTMLResource* from_resource, const HTMLResource* after_resource)
+{
+    QWriteLocker locker(&GetLock());
+    const Resource *from_res = static_cast<const Resource *>(from_resource);
+    const Resource *after_res = static_cast<const Resource *>(after_resource);
+    if (from_res == NULL || after_res == NULL) return;
+
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    QString from_id = GetResourceManifestID(from_res, p);
+    QString after_id = GetResourceManifestID(after_res, p);
+
+    int from_pos = -1;
+    int after_pos = -1;
+    int spine_count = p.m_spine.count();
+    for (int i = 0; i < spine_count; ++i) {
+        QString aref = p.m_spine.at(i).m_idref;
+        if (aref == from_id) from_pos = i;
+        if (aref == after_id) after_pos = i;
+    }
+    if ((from_pos < 0) || (after_pos < 0)) return;
+    if (from_pos >= spine_count || after_pos >= spine_count) return;
+    // a move is equivalent to the sequence insert(to, takeAt(from))
+    // Note the takeAt(from) effectively increases the to position by one so be careful
+    p.m_spine.move(from_pos, after_pos);
+    UpdateText(p);
+}
+
 
 QString OPFResource::GetMainIdentifierValue() const
 {

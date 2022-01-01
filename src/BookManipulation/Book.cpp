@@ -458,17 +458,10 @@ void Book::MoveResourceAfter(HTMLResource *from_resource, HTMLResource *to_resou
         return;
     }
 
-    QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
-    int to_after_reading_order = GetOPF()->GetReadingOrder(to_resource) + 1;
-    int from_reading_order = GetOPF()->GetReadingOrder(from_resource) ;
-
-    if (to_after_reading_order > 0) {
-        html_resources.move(from_reading_order, to_after_reading_order);
-        GetOPF()->UpdateSpineOrder(html_resources);
-    }
-
+    GetOPF()->MoveReadingOrder(from_resource, to_resource);
     SetModified(true);
 }
+
 
 HTMLResource *Book::CreateHTMLCoverFile(QString text)
 {
