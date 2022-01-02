@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, John Schember
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, John Schember
 **
 **  This file is part of Sigil.
 **
@@ -25,8 +25,8 @@
 
 #include <QString>
 #include <QStringList>
+#include <QStringRef>
 #include <QHash>
-#include <QVariant>
 #include "Parsers/TagAtts.h"
 
 // Note: all hrefs should always be kept in URLEncoded form
@@ -40,11 +40,9 @@ struct PackageEntry
     TagAtts m_atts;
 
     PackageEntry() : m_version("2.0"), m_uniqueid("Bookid") {};
-    PackageEntry(const QVariant&);
-    PackageEntry(const QString&, const QString&, const QStringList&, const QStringList&);
-    PackageEntry(const PackageEntry& entry) : m_version(entry.m_version), 
+    PackageEntry(const QString&, const QString&, const TagAtts&);
+    PackageEntry(const PackageEntry& entry) : m_version(entry.m_version),
       m_uniqueid(entry.m_uniqueid), m_atts(entry.m_atts) {};
-
     QString convert_to_xml() const;
 };
 
@@ -53,11 +51,9 @@ struct MetaNSEntry
 {
     TagAtts m_atts;
 
-    MetaNSEntry() {}; 
-    MetaNSEntry(const QVariant&);
-    MetaNSEntry(const QStringList&, const QStringList&);
+    MetaNSEntry() {};
+    MetaNSEntry(const TagAtts& atts);
     MetaNSEntry(const MetaNSEntry& entry) : m_atts(entry.m_atts) {};
-
     QString convert_to_xml() const;
 };
 
@@ -67,11 +63,10 @@ struct MetaEntry
     QString m_name;
     QString m_content;
     TagAtts m_atts;
-    MetaEntry() :  m_name(""), m_content("") {};
-    MetaEntry(const QVariant&);
-    MetaEntry(const QString&, const QString&, const QStringList&, const QStringList&);
-    MetaEntry(const MetaEntry& entry) : m_name(entry.m_name), m_content(entry.m_content), m_atts(entry.m_atts) {};
 
+    MetaEntry() :  m_name(""), m_content("") {};
+    MetaEntry(const QString&, const QString&, const TagAtts&);
+    MetaEntry(const MetaEntry& entry) : m_name(entry.m_name), m_content(entry.m_content), m_atts(entry.m_atts) {};
     QString convert_to_xml() const;
 };
 
@@ -84,11 +79,9 @@ struct ManifestEntry
     TagAtts m_atts;
 
     ManifestEntry() : m_id(""), m_href(""), m_mtype("") {} ;
-    ManifestEntry(const QVariant&);
-    ManifestEntry(const QString&, const QString&, const QString&, const QStringList&, const QStringList&);
+    ManifestEntry(const QString&, const QString&, const QString&, const TagAtts&);
     ManifestEntry(const ManifestEntry& entry) : m_id(entry.m_id), m_href(entry.m_href),
           m_mtype(entry.m_mtype), m_atts(entry.m_atts) {};
-
     QString convert_to_xml() const;
 };
 
@@ -98,10 +91,8 @@ struct SpineAttrEntry
     TagAtts m_atts;
 
     SpineAttrEntry() {};
-    SpineAttrEntry(const QVariant&);
-    SpineAttrEntry(const QStringList&, const QStringList&);
+    SpineAttrEntry(const TagAtts& atts);
     SpineAttrEntry(const SpineAttrEntry& entry) : m_atts(entry.m_atts) {};
-
     QString convert_to_xml() const;
 };
 
@@ -112,10 +103,8 @@ struct SpineEntry
     TagAtts m_atts;
 
     SpineEntry() : m_idref("") {};
-    SpineEntry(const QVariant&);
-    SpineEntry(const QString&, const QStringList&, const QStringList&);
+    SpineEntry(const QString&, const TagAtts& atts);
     SpineEntry(const SpineEntry& entry) : m_idref(entry.m_idref), m_atts(entry.m_atts) {};
-
     QString convert_to_xml() const;
 };
 
@@ -127,10 +116,8 @@ struct GuideEntry
     QString m_href;
 
     GuideEntry() : m_type(""), m_title(""), m_href("") {};
-    GuideEntry(const QVariant&);
     GuideEntry(const QString&, const QString&, const QString&);
     GuideEntry(const GuideEntry& entry) : m_type(entry.m_type), m_title(entry.m_title), m_href(entry.m_href) {};
-
     QString convert_to_xml() const;
 };
 
@@ -141,11 +128,43 @@ struct BindingsEntry
     QString m_handler;
 
     BindingsEntry() : m_mtype(""), m_handler("") {};
-    BindingsEntry(const QVariant&);
     BindingsEntry(const QString&, const QString&);
     BindingsEntry(const BindingsEntry& entry) : m_mtype(entry.m_mtype), m_handler(entry.m_handler) {};
-
     QString convert_to_xml() const;
+};
+
+
+class BaseParser
+{
+public:
+    struct MarkupInfo {
+        int     pos;
+        QString text;
+        QString tpath;
+        QString tname;
+        QString ttype;
+        TagAtts tattr;
+    };
+
+    BaseParser(const QString &source);
+    ~BaseParser() {};
+    void parse_next(MarkupInfo&);
+    bool ns_remap_needed() { return m_ns_remap; }
+    QString oldprefix() { return m_oldprefix; }
+
+private:
+    QStringRef parseML();
+    void parseTag(const QStringRef &tagstring, MarkupInfo &mi);
+    int findTarget(const QString &tgt, int p, bool after=false);
+    int skipAnyBlanks(const QStringRef &segment, int p);
+    int stopWhenContains(const QStringRef &segment, const QString& stopchars, int p);
+
+    QString      m_source;
+    int          m_pos;
+    int          m_next;
+    QStringList  m_TagPath;
+    bool         m_ns_remap;
+    QString      m_oldprefix;
 };
 
 

@@ -1,7 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks
-**  Copyright (C) 2015      John Schember
+**  Copyright (C) 2021-2022 Kevin B. Hendricks
 **
 **  This file is part of Sigil.
 **
@@ -20,8 +19,8 @@
 **
 *************************************************************************/
 
-#include "EmbedPython/EmbeddedPython.h"
 #include "Misc/Utility.h"
+#include "Parsers/TagAtts.h"
 #include "ResourceObjects/OPFParser.h"
 #include <QDebug>
 
@@ -33,37 +32,11 @@
  * Package tag
  */
 
-PackageEntry::PackageEntry(const QString& version, const QString& uniqueid, 
-                           const QStringList& keylist, const QStringList& vallist) 
-    : m_version(version), m_uniqueid(uniqueid)
+PackageEntry::PackageEntry(const QString& version, const QString& uniqueid,
+                           const TagAtts& atts)
+    : m_version(version), m_uniqueid(uniqueid), m_atts(atts)
 {
-    int n = keylist.size();
-    if (n == vallist.size()) {
-        for (int i=0; i < n; i++) {
-            m_atts[keylist.at(i)] = vallist.at(i);
-        }
-    }
 }
-
-PackageEntry::PackageEntry(const QVariant& qv)
-    : m_version(""), m_uniqueid("")
-{
-    // tuple: (version, uniqueid, keylist, vallist)
-    QList<QVariant> tup = qv.toList();
-    if (tup.size() == 4) {
-        m_version  = tup.at(0).toString();
-        m_uniqueid = tup.at(1).toString();
-        QStringList keylist = tup.at(2).toStringList();
-        QStringList vallist = tup.at(3).toStringList();
-        int n = keylist.size();
-        if (n == vallist.size()) {
-            for (int i=0; i < n; i++) {
-                m_atts[keylist.at(i)] = vallist.at(i);
-            }
-        }
-    }
-}
-
 
 QString PackageEntry::convert_to_xml() const
 {
@@ -83,30 +56,9 @@ QString PackageEntry::convert_to_xml() const
  * metadata namespace attributes
  */
  
-MetaNSEntry::MetaNSEntry(const QStringList& keylist, const QStringList& vallist) 
+MetaNSEntry::MetaNSEntry(const TagAtts& atts)
+    : m_atts(atts)
 {
-    int n = keylist.size();
-    if (n == vallist.size()) {
-        for (int i=0; i < n; i++) {
-            m_atts[keylist.at(i)] = vallist.at(i);
-        }
-    }
-}
-
-MetaNSEntry::MetaNSEntry(const QVariant& qv)
-{
-    // tuple: (keylist, vallist)
-    QList<QVariant> tup = qv.toList();
-    if (tup.size() == 2) {
-        QStringList keylist = tup.at(0).toStringList();
-        QStringList vallist = tup.at(1).toStringList();
-        int n = keylist.size();
-        if (n == vallist.size()) {
-            for (int i=0; i < n; i++) {
-                m_atts[keylist.at(i)] = vallist.at(i);
-            }
-        }
-    }
 }
 
 QString MetaNSEntry::convert_to_xml() const
@@ -126,37 +78,10 @@ QString MetaNSEntry::convert_to_xml() const
  * metadata tags
  */
  
-MetaEntry::MetaEntry(const QString& name, const QString& content, 
-                     const QStringList& keylist, const QStringList& vallist) 
-    : m_name(name), m_content(content)
+MetaEntry::MetaEntry(const QString& name, const QString& content, const TagAtts& atts)
+    : m_name(name), m_content(content), m_atts(atts)
 {
-    int n = keylist.size();
-    if (n == vallist.size()) {
-        for (int i=0; i < n; i++) {
-            m_atts[keylist.at(i)] = vallist.at(i);
-        }
-    }
 }
-
-MetaEntry::MetaEntry(const QVariant& qv)
-    : m_name(""), m_content("")
-{
-    // tuple: (tagname, content, keylist, vallist)
-    QList<QVariant> tup = qv.toList();
-    if (tup.size() == 4) {
-        m_name = tup.at(0).toString();
-        m_content = tup.at(1).toString();
-        QStringList keylist = tup.at(2).toStringList();
-        QStringList vallist = tup.at(3).toStringList();
-        int n = keylist.size();
-        if (n == vallist.size()) {
-            for (int i=0; i < n; i++) {
-                m_atts[keylist.at(i)] = vallist.at(i);
-            }
-        }
-    }
-}
-
 
 QString MetaEntry::convert_to_xml() const
 {
@@ -179,36 +104,9 @@ QString MetaEntry::convert_to_xml() const
  * manifest tags
  */
  
-ManifestEntry::ManifestEntry(const QString& id, const QString& href, const QString& mtype, 
-                             const QStringList& keylist, const QStringList& vallist) 
-: m_id(id), m_href(href), m_mtype(mtype)
+ManifestEntry::ManifestEntry(const QString& id, const QString& href, const QString& mtype, const TagAtts& atts)
+    : m_id(id), m_href(href), m_mtype(mtype), m_atts(atts)
 {
-    int n = keylist.size();
-    if (n == vallist.size()) {
-        for (int i=0; i < n; i++) {
-            m_atts[keylist.at(i)] = vallist.at(i);
-        }
-    }
-}
-
-ManifestEntry::ManifestEntry(const QVariant& qv)
-    : m_id(""), m_href(""), m_mtype("")
-{
-    QList<QVariant> tup = qv.toList();
-    // tuple (id, href, media-type, keylist, vallist)
-    if (tup.size() == 5) {
-        m_id    = tup.at(0).toString();
-        m_href  = tup.at(1).toString();
-        m_mtype = tup.at(2).toString();
-        QStringList keylist = tup.at(3).toStringList();
-        QStringList vallist = tup.at(4).toStringList();
-        int n = keylist.size();
-        if (n == vallist.size()) {
-            for (int i=0; i < n; i++) {
-                m_atts[keylist.at(i)] = vallist.at(i);
-            }
-        }
-    }
 }
 
 QString ManifestEntry::convert_to_xml() const
@@ -230,30 +128,9 @@ QString ManifestEntry::convert_to_xml() const
  * spine attributes
  */
  
-SpineAttrEntry::SpineAttrEntry(const QStringList& keylist, const QStringList& vallist) 
+SpineAttrEntry::SpineAttrEntry(const TagAtts& atts)
+    : m_atts(atts)
 {
-    int n = keylist.size();
-    if (n == vallist.size()) {
-        for (int i=0; i < n; i++) {
-            m_atts[keylist.at(i)] = vallist.at(i);
-        }
-    }
-}
-
-SpineAttrEntry::SpineAttrEntry(const QVariant& qv)
-{
-    // tuple (keylist, vallist)
-    QList<QVariant> tup = qv.toList();
-    if (tup.size() == 2) {
-        QStringList keylist = tup.at(0).toStringList();
-        QStringList vallist = tup.at(1).toStringList();
-        int n = keylist.size();
-        if (n == vallist.size()) {
-            for (int i=0; i < n; i++) {
-                m_atts[keylist.at(i)] = vallist.at(i);
-            }
-        }
-    }
 }
 
 QString SpineAttrEntry::convert_to_xml() const
@@ -273,33 +150,9 @@ QString SpineAttrEntry::convert_to_xml() const
  * spine tags
  */
  
-SpineEntry::SpineEntry(const QString& idref, const QStringList& keylist, const QStringList& vallist) 
-: m_idref(idref)
+SpineEntry::SpineEntry(const QString& idref, const TagAtts& atts)
+    : m_idref(idref), m_atts(atts)
 {
-    int n = keylist.size();
-    if (n == vallist.size()) {
-        for (int i=0; i < n; i++) {
-            m_atts[keylist.at(i)] = vallist.at(i);
-        }
-    }
-}
-
-SpineEntry::SpineEntry(const QVariant& qv)
-    : m_idref("")
-{
-    QList<QVariant> tup = qv.toList();
-    // tuple (idref, keylist, vallist)
-    if (tup.size() == 3) {
-        m_idref = tup.at(0).toString();
-        QStringList keylist = tup.at(1).toStringList();
-        QStringList vallist = tup.at(2).toStringList();
-        int n = keylist.size();
-        if (n == vallist.size()) {
-            for (int i=0; i < n; i++) {
-                m_atts[keylist.at(i)] = vallist.at(i);
-            }
-        }
-    }
 }
 
 QString SpineEntry::convert_to_xml() const
@@ -324,18 +177,6 @@ GuideEntry::GuideEntry(const QString& gtype, const QString& gtitle, const QStrin
 {
 }
 
-GuideEntry::GuideEntry(const QVariant& qv)
-    : m_type(""), m_title(""), m_href("")
-{
-    // tuple (type, title, href)
-    QList<QVariant> tup = qv.toList();
-    if (tup.size() == 3) {
-        m_type  = tup.at(0).toString();
-        m_title = tup.at(1).toString();
-        m_href  = tup.at(2).toString();
-    }
-}
-
 QString GuideEntry::convert_to_xml() const
 {
     QStringList xmlres;
@@ -349,21 +190,10 @@ QString GuideEntry::convert_to_xml() const
 /**
  * bindings tags
  */
- 
+
 BindingsEntry::BindingsEntry(const QString& mtype, const QString& handler)
 : m_mtype(mtype), m_handler(handler)
 {
-}
-
-BindingsEntry::BindingsEntry(const QVariant& qv)
-    : m_mtype(""), m_handler("")
-{
-    // tuple (media-type, handler)
-    QList<QVariant> tup = qv.toList();
-    if (tup.size() == 2) {
-        m_mtype   = tup.at(0).toString();
-        m_handler = tup.at(1).toString();
-    }
 }
 
 QString BindingsEntry::convert_to_xml() const
@@ -376,76 +206,295 @@ QString BindingsEntry::convert_to_xml() const
 }
 
 
+BaseParser::BaseParser(const QString &source)
+    : m_source(source), m_pos(0), m_next(0), m_ns_remap(false)
+{
+    m_TagPath << "root";
+}
+
+
+void BaseParser::parse_next(MarkupInfo& mi)
+{
+    mi.pos = -1;
+    QStringRef markup = parseML();
+    if (!markup.isNull()) {
+        if ((markup.at(0) == '<') && (markup.at(markup.size() - 1) == '>')) {
+            parseTag(markup, mi);
+            if (mi.tname.endsWith(":package") && (mi.ttype == "begin")) {
+                m_ns_remap = true;
+                m_oldprefix = mi.tname.split(':').at(0);
+            }
+            if (m_ns_remap && mi.tname.startsWith(m_oldprefix + ':')) {
+                mi.tname = mi.tname.mid(m_oldprefix.length()+1,-1);
+            }
+            if (mi.ttype == "begin") {
+                m_TagPath << mi.tname;
+            } else if (mi.ttype == "end") {
+                m_TagPath.removeLast();
+            }
+        } else {
+            mi.text = markup.toString();
+        }
+        mi.pos = m_pos;
+        mi.tpath = m_TagPath.join(".");
+    }
+}
+
+QStringRef BaseParser::parseML()
+{
+    int p = m_next;
+    m_pos = p;
+    if (p >= m_source.length()) return QStringRef();
+    if (m_source.at(p) != '<') {
+        // we have text leading up to a tag start
+        m_next = findTarget("<", p+1);
+        return Utility::SubstringRef(m_pos, m_next, m_source);
+    }
+    // handle special cases first
+    QString tstart = Utility::Substring(p, p+9, m_source);
+    if (tstart.startsWith("<!--")) {
+        // include ending > as part of the string
+        m_next = findTarget("-->", p+4, true);
+        return Utility::SubstringRef(m_pos, m_next, m_source);
+    }
+    if (tstart.startsWith("<![CDATA[")) {
+        // include ending > as part of the string
+        m_next = findTarget("]]>", p+9, true);
+        return Utility::SubstringRef(m_pos, m_next, m_source);
+    }
+    // include ending > as part of the string
+    m_next = findTarget(">", p+1, true);
+
+    int ntb = findTarget("<", p+1);
+    if ((ntb != -1) && (ntb < m_next)) {
+        m_next = ntb;
+    }
+    return Utility::SubstringRef(m_pos, m_next, m_source);
+}
+
+
+void BaseParser::parseTag(const QStringRef& tagstring, MarkupInfo& mi)
+{
+    int taglen = tagstring.length();
+    QChar c = tagstring.at(1);
+    int p = 0;
+
+    // first handle special cases
+    if (c == '?') {
+        if (tagstring.startsWith("<?xml")) {
+            mi.tname = "?xml";
+            mi.ttype = "xmlheader";
+            mi.tattr["special"] = Utility::Substring(5, taglen-1, tagstring);
+        } else {
+            mi.tname = "?";
+            mi.ttype = "pi";
+            mi.tattr["special"] = Utility::Substring(1, taglen-1, tagstring);
+        }
+        return;
+    }
+    if (c == '!') {
+        if (tagstring.startsWith("<!--")) {
+            mi.tname = "!--";
+            mi.ttype = "comment";
+            mi.tattr["special"] = Utility::Substring(4, taglen-3, tagstring);
+        } else if (tagstring.startsWith("<![CDATA[") || tagstring.startsWith("<![cdata[")) {
+            mi.tname = "![CDATA[";
+            mi.ttype = "cdata";
+            mi.tattr["special"] = Utility::Substring(9, taglen-3, tagstring);
+        }
+        return;
+    }
+
+    // normal tag, extract tag name
+    p = skipAnyBlanks(tagstring, 1);
+    if (tagstring.at(p) == '/') {
+        mi.ttype = "end";
+        p++;
+        p = skipAnyBlanks(tagstring, p);
+    }
+    int b = p;
+    p = stopWhenContains(tagstring, ">/ \f\t\r\n", p);
+    mi.tname = Utility::Substring(b, p, tagstring);
+
+    // handle the possibility of attributes (so begin or single tag type, not end)
+    if (mi.ttype.isEmpty()) {
+        while (tagstring.indexOf("=", p) != -1) {
+            p = skipAnyBlanks(tagstring, p);
+            b = p;
+            p = stopWhenContains(tagstring, "=", p);
+            QString aname = Utility::Substring(b, p, tagstring).trimmed();
+            QString avalue;
+            p++;
+            p = skipAnyBlanks(tagstring, p);
+            if ((tagstring.at(p) == '\'') || (tagstring.at(p) == '"')) {
+                QString qc = tagstring.at(p);
+                p++;
+                b = p;
+                p = stopWhenContains(tagstring, qc, p);
+                avalue = Utility::Substring(b, p, tagstring);
+                p++;
+            } else {
+                b = p;
+                p = stopWhenContains(tagstring, ">/ ", p);
+                avalue = Utility::Substring(b, p, tagstring);
+            }
+            mi.tattr[aname] = avalue;
+        }
+        mi.ttype = "begin";
+        if (tagstring.indexOf("/", p) >= 0) mi.ttype = "single";
+    }
+    return;
+}
+
+
+int BaseParser::findTarget(const QString &tgt, int p, bool after)
+{
+    int nxt = m_source.indexOf(tgt, p);
+    if (nxt == -1) return m_source.length();
+    nxt = nxt + (tgt.length() -1);
+    if (after) nxt++;
+    return nxt;
+}
+
+
+int BaseParser::skipAnyBlanks(const QStringRef &tgt, int p)
+{
+    while((p < tgt.length()) && (tgt.at(p) == ' ')) p++;
+    return p;
+}
+
+
+int BaseParser::stopWhenContains(const QStringRef &tgt, const QString& stopchars, int p)
+{
+    while((p < tgt.length()) && !stopchars.contains(tgt.at(p))) p++;
+    return p;
+}
+
+
 void OPFParser::parse(const QString& source)
 {
-    int rv = 0;
-    QString traceback;
-
-    QList<QVariant> args;
-    args.append(QVariant(source));
-    EmbeddedPython* epp = EmbeddedPython::instance();
-    QVariant res = epp->runInPython( QString("opf_newparser"), QString("parseopf"), args, &rv, traceback, true);
-    if (rv) fprintf(stderr, "setext parseropf error %d traceback %s\n",rv, traceback.toStdString().c_str());
-
-    PyObjectPtr mpo = PyObjectPtr(res);
-
-    args.clear();
-    res = epp->callPyObjMethod(mpo, QString("get_package"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext package error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_package = PackageEntry(res);
-
-    res = epp->callPyObjMethod(mpo, QString("get_metadata_attr"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext meta_attr error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_metans = MetaNSEntry(res);
-
-    res = epp->callPyObjMethod(mpo, QString("get_metadata"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext metadata error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_metadata.clear();
-    QList<QVariant> lst = res.toList();
-    foreach(QVariant qv, lst) {
-        m_metadata.append(MetaEntry(qv));
-    }
-
+    BaseParser fxp(source);
+    QString tcontent;
+    BaseParser::MarkupInfo matching_begin_tag;
+    int count = 0;
+    int manifest_position = 0;
+    bool get_content = false;
     m_idpos.clear();
     m_hrefpos.clear();
+    while(true) {
 
-    res = epp->callPyObjMethod(mpo, QString("get_manifest"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext manifest error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_manifest.clear();
-    lst = res.toList();
-    for (int i = 0; i < lst.count(); i++) {
-        ManifestEntry me = ManifestEntry(lst.at(i));
-        m_idpos[me.m_id] = i;
-        m_hrefpos[me.m_href] = i;
-        m_manifest.append(me);
-    }
+        BaseParser::MarkupInfo mi;
+        fxp.parse_next(mi);
 
-    res = epp->callPyObjMethod(mpo, QString("get_spine_attr"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext spineattr error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_spineattr = SpineAttrEntry(res);
+        if (mi.pos < 0) break;
 
-    res = epp->callPyObjMethod(mpo, QString("get_spine"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext spine error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_spine.clear();
-    lst = res.toList();
-    foreach(QVariant qv, lst) {
-        m_spine.append(SpineEntry(qv));
-    }
+        if (!mi.text.isEmpty()) {
+            if (get_content) tcontent = mi.text.trimmed();
+            continue;
+        }
 
-    res = epp->callPyObjMethod(mpo, QString("get_guide"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext guide error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_guide.clear();
-    lst = res.toList();
-    foreach(QVariant qv, lst) {
-        m_guide.append(GuideEntry(qv));
-    }
+        // handle manifest
+        if (mi.tpath.contains("manifest") && (mi.ttype == "single" || mi.ttype == "begin")) {
+            if (mi.tname == "item") {
+                QString nid = QString("xid%03d").arg(count);
+                count++;
+                QString mid = mi.tattr.value("id",nid);
+                mi.tattr.remove("id");
+                // must keep all hrefs in urlencoded form here
+                // if relative then no fragments so decode and encode for safety
+                QString href = mi.tattr.value("href","");
+                if (href.indexOf(':') == -1) {
+                    href = Utility::URLDecodePath(href);
+                    href = Utility::URLEncodePath(href);
+                }
+                mi.tattr.remove("href");
+                QString mtype = mi.tattr.value("media-type","");
+                mi.tattr.remove("media-type");
+                m_manifest << ManifestEntry(mid, href, mtype, mi.tattr);
+                m_idpos[mid] = manifest_position;
+                m_hrefpos[href] = manifest_position;
+                manifest_position++;
+            }
+            continue;
+        }
 
-    res = epp->callPyObjMethod(mpo, QString("get_bindings"), args, &rv, traceback);
-    if (rv) fprintf(stderr, "setext bindings error %d traceback %s\n",rv, traceback.toStdString().c_str());
-    m_bindings.clear();
-    lst = res.toList();
-    foreach(QVariant qv, lst) {
-        m_bindings.append(BindingsEntry(qv));
+        // handle spine
+        if ((mi.tname == "spine") && (mi.ttype == "begin")) {
+            m_spineattr = SpineAttrEntry(mi.tattr);
+            continue;
+        }
+        if (mi.tpath.contains("spine") && (mi.ttype == "single" || mi.ttype == "begin")) {
+            if (mi.tname == "itemref") {
+                QString idref = mi.tattr.value("idref","");
+                mi.tattr.remove("idref");
+                m_spine << SpineEntry(idref, mi.tattr);
+            }
+            continue;
+        }
+
+        // handle metadata
+        if ((mi.tname == "metadata") && (mi.ttype == "begin")) {
+            if (!mi.tattr.contains("xmlns:opf")) {
+                mi.tattr["xmlns:opf"] = "http://www.idpf.org/2007/opf";
+            }
+            m_metans = MetaNSEntry(mi.tattr);
+            continue;
+        }
+        if (mi.tpath.contains("metadata") && mi.ttype == "begin") {
+            if (mi.tname == "meta" || mi.tname == "link" || mi.tname.startsWith("dc:")) {
+                matching_begin_tag = mi;
+                get_content = true;
+            }
+            continue;
+        }
+        if (mi.tpath.contains("metadata") && (mi.ttype == "single" || mi.ttype == "end")) {
+            if (mi.tname == "meta" || mi.tname == "link" || mi.tname.startsWith("dc:")) {
+                if (mi.ttype == "single") {
+                    m_metadata << MetaEntry(mi.tname, "", mi.tattr);
+                } else {
+                    m_metadata << MetaEntry(matching_begin_tag.tname, tcontent, matching_begin_tag.tattr);
+                    matching_begin_tag = BaseParser::MarkupInfo();
+                    tcontent = "";
+                    get_content = false;
+                }
+            }
+            continue;
+        }
+
+        // handle package tag
+        if ((mi.tname == "package") && (mi.ttype == "begin")) {
+            QString version = mi.tattr.value("version", "2.0");
+            mi.tattr.remove("version");
+            QString uid = mi.tattr.value("unique-identifier","bookid");
+            mi.tattr.remove("unique-identifier");
+            if (fxp.ns_remap_needed()) {
+                mi.tattr.remove("xmlns:" + fxp.oldprefix());
+                mi.tattr["xmlns"] = "http://www.idpf.org/2007/opf";
+            }
+            m_package = PackageEntry(version, uid, mi.tattr);
+            continue;
+        }
+
+        // handle guide
+        if (mi.tpath.contains("guide") && (mi.ttype == "single" || mi.ttype == "begin")) {
+            if (mi.tname == "reference") {
+                QString gtype = mi.tattr.value("type","");
+                QString gtitle = mi.tattr.value("title","");
+                QString ghref = mi.tattr.value("href","");
+                m_guide << GuideEntry(gtype, gtitle, ghref);
+            }
+            continue;
+        }
+
+        // handle bindings
+        if (mi.tpath.contains("bindings") && (mi.ttype == "single" || mi.ttype == "begin")) {
+            if (mi.tname == "mediaType" || mi.tname == "mediatype") {
+                QString btype = mi.tattr.value("media-type","");
+                QString bhandler = mi.tattr.value("handler","");
+                m_bindings << BindingsEntry(btype, bhandler);
+            }
+            continue;
+        }
     }
 }
 
