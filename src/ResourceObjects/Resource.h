@@ -163,6 +163,16 @@ public:
 
     QString GetFullPathToBookFolder() const;
 
+    void SetSavedCRC32(const QString& newcrc32) { m_SavedCRC32 = newcrc32; }
+    QString GetSavedCRC32() { return m_SavedCRC32; }
+
+    void SetSavedDate(const QString& modified) { m_SavedDate = modified; }
+    QString GetSavedDate() { return m_SavedDate; }
+
+    void SetSavedSize(const size_t info) { m_SavedSize = info; }
+    size_t GetSavedSize() { return m_SavedSize; }
+
+
     /**
      * Returns a reference to the resource's ReadWriteLock.
      *
@@ -330,6 +340,12 @@ private:
 
 
     QString m_ShortName;
+
+    QString m_SavedCRC32;
+
+    QString m_SavedDate;
+
+    size_t m_SavedSize = 0;
 
     /**
      * The ReadWriteLock guarding access to the resource's data.

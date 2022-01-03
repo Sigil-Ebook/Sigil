@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -48,6 +48,7 @@
 #include "Misc/Utility.h"
 #include "Misc/TempFolder.h"
 #include "Misc/FontObfuscation.h"
+#include "ResourceObjects/Resource.h"
 #include "ResourceObjects/FontResource.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -170,14 +171,23 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
         }
 
         QFileInfo tfile(it.filePath());
-        QString amodified = modified_now;
-        QString afilename = tfile.fileName();
-        QString afilesize = QString::number(tfile.size());
-        QString afilecrc = Utility::FileCRC32(it.filePath());
 
-        QString akey = afilename + "|" + afilesize+ "|" + afilecrc;
-        if (!afilecrc.isEmpty()) {
-            amodified = m_Book->GetFolderKeeper()->getFileInfoFromZip(akey, modified_now);
+        // Set the proper zip file info if possible
+        QString amodified = modified_now;
+        size_t afilesize = tfile.size();
+        QString afilecrc = Utility::FileCRC32(it.filePath());
+        Resource* resource = m_Book->GetFolderKeeper()->GetResourceByBookPathNoThrow(relpath);
+        if (resource) {
+            QString savedcrc  = resource->GetSavedCRC32();
+            QString saveddate = resource->GetSavedDate();
+            size_t savedsize = resource->GetSavedSize();
+            if ( (savedsize == afilesize) && (savedcrc == afilecrc) ) {
+                amodified = saveddate;
+            } else {
+                resource->SetSavedDate(amodified);
+                resource->SetSavedSize(afilesize);
+                resource->SetSavedCRC32(afilecrc);
+            }
         }
         QDateTime moddate = QDateTime::fromString(amodified, "yyyy-MM-dd hh:mm:ss");
         memset(&fileInfo, 0, sizeof(fileInfo));

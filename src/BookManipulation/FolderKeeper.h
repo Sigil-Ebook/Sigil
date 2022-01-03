@@ -158,6 +158,8 @@ public:
     // this is O(1) as is held in a QHash m_Path2Resource
     // @throws ResourceDoesNotExist if bookpath is not found.
     Resource *GetResourceByBookPath(const QString &bookpath) const;
+    // Non-throw version also available returns NULL if no resource matches
+    Resource *GetResourceByBookPathNoThrow(const QString &bookpath) const;
 
     // this is O(n) but no filesystem is queried
     QString GetBookPathByPathEnd(const QString& path_end) const;
@@ -209,10 +211,6 @@ public:
     QStringList GetAllBookPaths() const;
 
     void updateShortPathNames();
-
-    void storeFileInfoFromZip(const QHash<QString, QString> & fileInfoFromZip);
-
-    QString getFileInfoFromZip(const QString &afilehash, const QString &fallback);
 
     void PerformInitialLoads();
 
@@ -342,7 +340,6 @@ private:
 
     QHash<QString, QStringList> m_GrpToFold;
     QHash<QString, QStringList> m_StdGrpToFold;
-    QHash<QString, QString> m_FileInfoFromZip;
 };
 
 

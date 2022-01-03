@@ -29,6 +29,7 @@
 #include <QHash>
 #include <QSet>
 #include <QStringList>
+#include <tuple>
 
 #include "Importers/Importer.h"
 #include "Misc/TempFolder.h"
@@ -234,7 +235,7 @@ private:
      */
     QHash<QString, QString> m_NcxCandidates;
 
-    QHash<QString, QString> m_FileInfoFromZip;
+    QHash<QString, std::tuple<size_t, QString, QString> > m_FileInfoFromZip;
 
     bool m_HasSpineItems;
     bool m_NCXNotInManifest;

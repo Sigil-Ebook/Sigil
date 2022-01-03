@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -267,8 +267,6 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
     // update the ShortPathNames to reflect any name duplication
     m_Book->GetFolderKeeper()->updateShortPathNames();
 
-    m_Book->GetFolderKeeper()->storeFileInfoFromZip(m_FileInfoFromZip);
-
     // since we no longer run universal updates we should run 
     // InitialLoad on all TextResources to make sure everything gets loaded
     m_Book->GetFolderKeeper()->PerformInitialLoads();
@@ -454,9 +452,8 @@ void ImportEPUB::ExtractContainer()
                                   file_info.tmu_date.tm_sec);
             QDateTime modinfo = QDateTime(moddate, modtime);
             QString modified = modinfo.toString("yyyy-MM-dd hh:mm:ss");
-            QString afilesize = QString::number(file_info.uncompressed_size);
+            size_t afilesize = file_info.uncompressed_size;
             QString afilecrc = QString("%1").arg(file_info.crc, 8, 16, QLatin1Char('0'));
-            QString afilename = QFileInfo(qfile_name).fileName();
             
             // qDebug() << "File:      " << qfile_name;
             // qDebug() << "  Size:    " << file_info.uncompressed_size;
@@ -508,6 +505,8 @@ void ImportEPUB::ExtractContainer()
                 QString file_path = m_ExtractedFolderPath + "/" + qfile_name;
                 QFileInfo qfile_info(file_path);
 
+                QString bookpath;
+
                 // Is this entry a directory?
                 if (file_info.uncompressed_size == 0 && qfile_name.endsWith('/')) {
                     dir.mkpath(qfile_name);
@@ -517,8 +516,10 @@ void ImportEPUB::ExtractContainer()
                     // add it to the list of files found inside the zip
                     if (cp437_file_name.isEmpty()) {
                         m_ZipFilePaths << qfile_name;
+                        bookpath = qfile_name;
                     } else {
                         m_ZipFilePaths << cp437_file_name;
+                        bookpath = cp437_file_name;
                     }
                 }
 
@@ -565,8 +566,7 @@ void ImportEPUB::ExtractContainer()
                     QString cp437_file_path = m_ExtractedFolderPath + "/" + cp437_file_name;
                     QFile::copy(file_path, cp437_file_path);
                 }
-                QString akey = afilename + "|" + afilesize + "|" + afilecrc;
-                m_FileInfoFromZip[akey] = modified;
+                m_FileInfoFromZip[bookpath] = std::make_tuple(afilesize, afilecrc, modified);
             }
         } while ((res = unzGoToNextFile(zfile)) == UNZ_OK);
     }
@@ -701,8 +701,13 @@ void ImportEPUB::ReadOPF()
     //Important!  The OPF Resource in the new book must be created now before adding to it in any way
     QString bookpath;
     bookpath = m_OPFFilePath.right(m_OPFFilePath.length() - m_ExtractedFolderPath.length() - 1);
-    m_Book->GetFolderKeeper()->AddOPFToFolder(m_PackageVersion, bookpath);
-
+    OPFResource* oresource = m_Book->GetFolderKeeper()->AddOPFToFolder(m_PackageVersion, bookpath);
+    if (m_FileInfoFromZip.contains(bookpath)) {
+        std::tuple<size_t, QString, QString> ainfo = m_FileInfoFromZip[bookpath];
+        oresource->SetSavedSize(std::get<0>(ainfo));
+        oresource->SetSavedCRC32(std::get<1>(ainfo));
+        oresource->SetSavedDate(std::get<2>(ainfo));
+    }
     // Ensure we have an NCX available
     LocateOrCreateNCX(ncx_id_on_spine);
 
@@ -860,7 +865,13 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
         m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
         bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
-        m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
+        NCXResource* resource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
+        if (m_FileInfoFromZip.contains(bookpath)) {
+            std::tuple<size_t, QString, QString> ainfo = m_FileInfoFromZip[bookpath];
+            resource->SetSavedSize(std::get<0>(ainfo));
+            resource->SetSavedCRC32(std::get<1>(ainfo));
+            resource->SetSavedDate(std::get<2>(ainfo));
+	    }
         m_NCXNotInManifest = false;
         return;
     }
@@ -886,13 +897,19 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
     }
 
     if (found) {
-        // m_NCXId has been properly set
+        // m_NCXId has now been properly set
         ncx_href = m_NcxCandidates[ m_NCXId ];
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
         m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
 
         QString bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
-        m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
+        NCXResource* resource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
+        if (m_FileInfoFromZip.contains(bookpath)) {
+            std::tuple<size_t, QString, QString> ainfo = m_FileInfoFromZip[bookpath];
+            resource->SetSavedSize(std::get<0>(ainfo));
+            resource->SetSavedCRC32(std::get<1>(ainfo));
+            resource->SetSavedDate(std::get<2>(ainfo));
+	    }
         m_NCXNotInManifest = false;
         load_warning = QObject::tr("The OPF file did not identify the NCX file correctly.") + "\n" + 
                                " - "  +  QObject::tr("Sigil has used the following file as the NCX:") + 
@@ -937,8 +954,7 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
 
     // now add the NCX to our folder
     QString bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
-    m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
-
+    NCXResource* nresource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
     if (!load_warning.isEmpty()) {
         AddLoadWarning(load_warning);
     }
@@ -1016,6 +1032,12 @@ std::tuple<QString, QString> ImportEPUB::LoadOneFile(const QString &path, const 
     try {
         QString bookpath = currentpath;
         Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath, false, mimetype, bookpath);
+        if (m_FileInfoFromZip.contains(bookpath)) {
+            std::tuple<size_t, QString, QString> ainfo = m_FileInfoFromZip[bookpath];
+            resource->SetSavedSize(std::get<0>(ainfo));
+            resource->SetSavedCRC32(std::get<1>(ainfo));
+            resource->SetSavedDate(std::get<2>(ainfo));
+        }
         if (path == m_NavHref) {
             m_NavResource = resource;
         }

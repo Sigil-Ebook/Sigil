@@ -388,6 +388,15 @@ Resource *FolderKeeper::GetResourceByBookPath(const QString &bookpath) const
 }
 
 
+// a Book path is the path from the m_MainFolder to that file O(1) as a hash
+Resource *FolderKeeper::GetResourceByBookPathNoThrow(const QString &bookpath) const
+{
+    Resource * resource = m_Path2Resource.value(bookpath, NULL);
+    return resource;
+}
+
+
+
 OPFResource *FolderKeeper::GetOPF() const
 {
     return m_OPF;
@@ -710,20 +719,6 @@ QString FolderKeeper::buildShortName(const QString &bookpath, int lvl)
     if (lvl >= n) return "^" + bookpath;
     for (int i=lvl; i < n; i++) pieces.removeFirst();
     return pieces.join('/');
-}
-
-
-void FolderKeeper::storeFileInfoFromZip(const QHash<QString, QString> & fileInfoFromZip)
-{
-    m_FileInfoFromZip = fileInfoFromZip;
-}
-
-
-QString FolderKeeper::getFileInfoFromZip(const QString &afilehash, const QString& fallback)
-{
-    if (m_FileInfoFromZip.contains(afilehash)) return m_FileInfoFromZip[afilehash];
-    m_FileInfoFromZip[afilehash] = fallback;
-    return fallback;
 }
 
 
