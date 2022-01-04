@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2015-2021 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
@@ -793,6 +793,14 @@ bool MainWindow::StandardizeEpub()
     m_BookBrowser->Refresh();
     m_Book->SetModified();
     QApplication::restoreOverrideCursor();
+
+    // Update the titlebar
+    QString epubversion = m_Book->GetConstOPF()->GetEpubVersion();
+    if (m_Book->GetFolderKeeper()->EpubInSigilStandardForm()) {
+        setWindowTitle(tr("%1[*] - epub%2 - %3").arg(m_CurrentFileName).arg(epubversion).arg(tr("Sigil [std]")));
+    } else {
+        setWindowTitle(tr("%1[*] - epub%2 - %3").arg(m_CurrentFileName).arg(epubversion).arg(tr("Sigil")));
+    }
     ShowMessageOnStatusBar(tr("Restructure completed."));
     return true;
 }
@@ -5505,8 +5513,11 @@ void MainWindow::UpdateUiWithCurrentFile(const QString &fullfilepath, bool just_
     QString epubversion = m_Book->GetConstOPF()->GetEpubVersion();
 
     // Update the titlebar
-    setWindowTitle(tr("%1[*] - epub%2 - %3").arg(m_CurrentFileName).arg(epubversion).arg(tr("Sigil")));
-
+    if (m_Book->GetFolderKeeper()->EpubInSigilStandardForm()) {
+        setWindowTitle(tr("%1[*] - epub%2 - %3").arg(m_CurrentFileName).arg(epubversion).arg(tr("Sigil [std]")));
+    } else {
+        setWindowTitle(tr("%1[*] - epub%2 - %3").arg(m_CurrentFileName).arg(epubversion).arg(tr("Sigil")));
+    }
     if (m_CurrentFilePath.isEmpty()) {
         return;
     }

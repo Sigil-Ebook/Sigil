@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -190,6 +190,7 @@ public:
 
     QStringList GetFoldersForGroup(const QString &group);
     void SetFoldersForGroup(const QString &group, const QStringList &folders);
+    bool EpubInSigilStandardForm();
 
     QString GetDefaultFolderForGroup(const QString &group);
     QString GetStdFolderForGroup(const QString &group);

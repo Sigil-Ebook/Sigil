@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -689,6 +689,25 @@ void FolderKeeper::CreateGroupToFoldersMap()
     m_GrpToFold[ "ncx"    ] = QStringList() << "OEBPS";
     m_GrpToFold[ "opf"    ] = QStringList() << "OEBPS";
     m_GrpToFold[ "other"  ] = QStringList() << "";
+}
+
+
+bool FolderKeeper::EpubInSigilStandardForm()
+{
+    if (!GetOPF()) return false;
+    bool in_std = (GetOPF()->GetRelativePath() == "OEBPS/content.opf");
+    if (GetNCX()) in_std = in_std && (GetNCX()->GetRelativePath() == "OEBPS/toc.ncx");
+    if (!in_std) return false;
+    QStringList groups = QStringList() << "Text" << "Styles" << "Fonts" << "Images" << "Audio" << "Video" << "Misc";
+    QStringList paths  = QStringList() << "OEBPS/Text" << "OEBPS/Styles" << "OEBPS/Fonts" <<
+                                             "OEBPS/Images" << "OEBPS/Audio" << "OEBPS/Video" << "OEBPS/Misc";
+    int i = 0;
+    foreach(QString agroup, groups) {
+        QStringList folders = GetFoldersForGroup(agroup);
+        in_std = in_std && ((folders.size() == 1) && (folders.at(0) == paths.at(i)));
+        i++;
+    }
+    return in_std;
 }
 
 
