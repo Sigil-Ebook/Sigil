@@ -272,6 +272,8 @@ set ( QUERY_FILES
 set( PARSERS_FILES
     Parsers/CSSInfo.cpp
     Parsers/CSSInfo.h
+    Parsers/CSSToolbox.cpp
+    Parsers/CSSToolbox.h
     Parsers/HTMLStyleInfo.cpp
     Parsers/HTMLStyleInfo.h
     Parsers/qCSSParser.cpp
