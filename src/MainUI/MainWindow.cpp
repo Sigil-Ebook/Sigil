@@ -5046,6 +5046,15 @@ void MainWindow::ResourcesAddedOrDeletedOrMoved()
     if (flow_tab) {
         flow_tab->LoadTabContent();
     }
+
+    // Update the titlebar
+    QString epubversion = m_Book->GetConstOPF()->GetEpubVersion();
+    if (m_Book->GetFolderKeeper()->EpubInSigilStandardForm()) {
+        setWindowTitle(tr("%1[*] - epub%2 - %3").arg(m_CurrentFileName).arg(epubversion).arg(tr("Sigil [std]")));
+    } else {
+        setWindowTitle(tr("%1[*] - epub%2 - %3").arg(m_CurrentFileName).arg(epubversion).arg(tr("Sigil")));
+    }
+
 }
 
 
