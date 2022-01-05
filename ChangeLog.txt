@@ -5,15 +5,29 @@ pre-1.9.0
      - Plug long existant memory leaks related to Saved Searches that stop after a match is found
      - More file position of 0 fixes and handle toInt() result failures from N/A in ValidationResults
      - Fix incorrect copied permissions with AddContentFileToFolder after QFile::copy
+     - Fix broken page up / down by key sequence in Repo Log and Automate Log.
+     - Fix broken PluginRunner error signal
 
     New Features
      - Make Validation Results sortable by clicking on column header
      - Add Export All to Validation Results for text or csv output
-     - Redesign Saved Searches and Find Replace to not overload wrap when searching multiple targets
+     - Completely redesign Find Replace and Saved Searches to not overload wrap when searching multiple targets
+         and add Restart Search button to make skipping replacements in Saved Searches easier
      - Update to use the PCRE2 library for regular expression searching
      - Add a new Sigil Preferences settings to disable GPU acceleration for QtWebEngine/Preview
          to make it easier for Sigil to keep working even with older graphics drivers
-x
+     - Add indicator to MainWindow titlebar that indicates if epub in old Sigil Standard form
+     - Support building from source on macOS M1 (arm64) machines
+     - Update Windows and Mac embedded python to Python 3.9.9
+     - Allow building Sigil with Qt6 or Qt5 from the same codebase
+     - Speed up Add Blank HTML in epubs with huge numbers of files
+     - Store and set Epub Zip modification dates where possible
+     - Support PySide6 to rpelace PyQt5 in plugins when building Sigil under Qt6
+     - Handle deprecated embedded Python PyEvalInitThreads properly during build
+     - Support QUiTool in PySide6 under Qt6 for plugins using .ui files
+     - MacOS Python 3.9.9 now now includes TclTK 8.6.12 (no exteral TclTk package needed anymore
+     - Added Select All Checkbox in Delete Unused Media and CSS (PRs from @luisparravicini)
+     
 
 
 Sigil-1.8.0

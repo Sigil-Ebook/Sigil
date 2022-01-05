@@ -25,16 +25,14 @@ Links
 Issue Tracker
 =============
 
-Please do not use the issue tracker to ask questions.  Both of the main developers
+Please do not use the issue tracker to ask questions or suggest new features.  Both of the main developers
 of Sigil monitor the Sigil Forum at https://www.mobileread.com/forums.
-All questions should be directed there.
+All questions and feature requests should be directed there so that other interested users can help or comment.
 
 Issue tracking is intended for discussion around issues with the code. 
-It is also intended for actual bug tracking and for tracking feature requests.
+It is also intended for actual bug tracking.
 
-Feature requests opened on the issue tracker will be closed if there isn't
-anyone willing to implement the requested feature. Only items being worked
-will be left open.
+Feature requests opened on the issue tracker will be closed.
 
 
 Linux Build and Install
@@ -53,23 +51,34 @@ For Building on Mac OS X
 ========================
 
 Building using purely XCode is no longer supported on Mac OS X.  The easiest 
-way to build Sigil on Mac OS X is to use cmake 3.0 and the command line.   
+way to build Sigil on Mac OS X is to use cmake 3.X and the command line.   
 
-Also because Sigil now embeds Python 3.8.3, see  
+Also because Sigil now embeds Python 3.9.9, see  
 
-> [docs/Building_A_Relocatable_Python_3.8_Framework_on_MacOSX.txt](./docs/Building_A_Relocatable_Python_3.8_Framework_on_MacOSX.txt)
+> [docs/Building_A_Relocatable_Python_3.9_Framework_on_MacOSX.txt](./docs/Building_A_Relocatable_Python_3.9_Framework_on_MacOSX.txt)
 
-for detailed instructions on how to build a fully relocatable Python 3.8.X framework before
+for detailed instructions on how to build a fully relocatable Python 3.9.9 framework before
 building Sigil.  
 
-Sigil uses Qt-5.12.7 currently and will move to Qt-5.12.9 for the next release, see  
+For official releases Sigil uses Qt-5.12.9 plus local patches see  
 
 > [docs/Building_Qt5_From_Source_on_MacOSX.txt](./docs/Building_Qt5_From_Source_on_MacOSX.txt)
 
+Sigil master now supports building with Qt-5.10.X through to Qt-6.2.2.  For Qt6 see
 
+> [docs/Building_Qt6_From_Source_on_MacOSX.txt](./docs/Building_Qt6_From_Source_on_MacOSX.txt)
+
+Due to not owning a MacOS M1 (arm64) machine for development, we do not (yet) make MacOS arm64 based release builds.
+But, building Sigil from source on MacOS M1 (arm64) machines using Python 3.9.9 and Qt6.2.2 does work.
+  
 And finally to build Sigil itself see:
 
 > [docs/Building_Sigil_On_MacOSX.txt](./docs/Building_Sigil_On_MacOSX.txt)
+
+and for building Sigil under Qt6 see:
+
+> [docs/Building_Sigil_On_MacOSX_With_QT6.txt](./docs/Building_Sigil_On_MacOSX_With_QT6.txt)
+
 
 
 For Building on Windows
@@ -96,7 +105,7 @@ Please see their respective folders for complete license information.
 Currently these projects include:
 
 * Hunspell - http://hunspell.sourceforge.net
-* MiniZip version 1.1
+* MiniZip version 1.1 (plus some security changes)
 * Perl-compatible Regular Expression Library 2 (pcre2 version 10.39)
 * ZLib Data Compression Library (zlib 1.2.8)
 * jQuery-2.2.4 (src/Resource_Files/javascript/jquery-2.2.4.min.js)
