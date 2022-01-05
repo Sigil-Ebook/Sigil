@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2021  Kevin B. Hendricks, Stratford, Ontario, Canada
+ **  Copyright (C) 2021-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
  **
  **  This file is part of Sigil.
  **
@@ -1041,4 +1041,68 @@ void CSSParser::record_position(parse_status old_status, parse_status new_status
             if (css_input[j] == '\n') sline++;
         }
     }
+}
+
+
+// We want to split a selector on periods to find class selectors
+// The issue is that attribute values may legally contain periods
+// and selector functions (ie.  contains()) may legally contain periods.
+// To make it worse, attribute values can contain [,],(,) as well
+// in unmatched sets in any order as they may be in quoted strings.
+// This is true for selector functions as well.
+// So we need to keep track of brackets and parens.
+// And we need to ignore any spurious [, ], (, ), ', or " in any quoted strings.
+// Luckily AFAIK  no nesting of [] or () allowed (yet) in the selector.
+std::pair<int, QString> CSSParser::findNextClassInSelector(const QString &sel, int p)
+{
+    std::pair<int, QString> res;
+    res.first = -1;
+    res.second = QString();
+    bool insquote = false;
+    bool indquote = false;
+    bool inbracket = false;
+    for (int i = p; i < sel.length(); i++)
+    {
+        QChar c = sel.at(i);
+        // keep track of current state
+        if (c == '[' && !insquote && !indquote)  inbracket = true;
+        if (c == ']' && !insquote && !indquote)  inbracket = false;
+
+        if (c == '\'' && insquote && !indquote)  insquote = false;
+        if (c == '\'' && !insquote && !indquote) insquote = true;
+
+        if (c == '"' && !insquote && !indquote)  indquote = true;
+        if (c == '"' && !insquote && indquote)   indquote = false;
+
+        if (c == '.' && !inbracket  & !indquote & !insquote) {
+            // found a class name start
+            res.first = i;
+            QString cname;
+            bool in_escape = false;
+            // now walk forward to find next delimiter (skipping the ".")
+            for (int j=i+1; j < sel.length(); j++) {
+                 QChar d = sel.at(j);
+                 if ((d == '\\') && !in_escape) {
+                     in_escape = true;
+                     cname.append(d);
+                     continue;
+                 }
+                 if (in_escape && !CSSUtils::ctype_xdigit(d)) {
+                     in_escape = false;
+                     cname.append(d);
+                     continue;
+                 }
+                 if ( CSSUtils::ctype_alpha(d) || CSSUtils::ctype_digit(d) ||
+                      d.unicode() >= 160 || d == '-' || d == '_' ) {
+                      cname.append(d);
+                 } else {
+                      break;
+                 }
+
+            }
+            res.second = cname;
+            return res;
+        }
+    }
+    return res;
 }

@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2021  Kevin B. Hendricks, Stratford, Ontario, Canada
+ **  Copyright (C) 2021-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
  **
  **  This file is part of Sigil.
  **
@@ -120,6 +120,9 @@ public:
     // utility routine to properly split group selectors into individual selectors
     static QStringList splitGroupSelector(const QString &sel);
 
+    static std::pair<int, QString> findNextClassInSelector(const QString &sel, int p = 0);
+
+
 private:
 
     void parseInAtBlock(QString& css_input, int& i, parse_status& astatus, parse_status& afrom);
@@ -163,6 +166,8 @@ private:
     void explode_selectors();
 
     static bool property_is_next(QString istring, int pos);
+
+
 
     // private member variables
     QVector<QString> token_type_names;
