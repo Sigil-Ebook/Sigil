@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2021 Doug Massay
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2022 Doug Massay
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -26,13 +26,13 @@
 
 #include <memory>
 
-#include <QtCore/QFileInfo>
-#include <QtGui/QContextMenuEvent>
-#include <QtCore/QSignalMapper>
+#include <QFileInfo>
+#include <QContextMenuEvent>
+#include <QSignalMapper>
 #include <QAction>
-#include <QtWidgets/QMenu>
-#include <QtGui/QPainter>
-#include <QtWidgets/QScrollBar>
+#include <QMenu>
+#include <QPainter>
+#include <QScrollBar>
 #include <QShortcut>
 #include <QXmlStreamReader>
 #include <QRegularExpression>
@@ -42,6 +42,8 @@
 #include <QStringRef>
 #include <QPointer>
 #include <QApplication>
+#include <QInputDialog>
+#include <QTimer>
 #include <QDebug>
 
 #include "BookManipulation/Book.h"
@@ -49,6 +51,7 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "MainUI/MainWindow.h"
 #include "Parsers/GumboInterface.h"
+#include "Parsers/CSSToolbox.h"
 #include "Misc/XHTMLHighlighter2.h"
 #include "Dialogs/ClipEditor.h"
 #include "Misc/CSSHighlighter.h"
@@ -1281,6 +1284,7 @@ void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
     
     if (m_reformatCSSEnabled) {
         AddReformatCSSContextMenu(menu);
+        AddCSSClassContextMenu(menu);
     }
 
     if (m_reformatHTMLEnabled) {
@@ -1479,6 +1483,29 @@ void CodeViewEditor::AddReformatCSSContextMenu(QMenu *menu)
         menu->insertSeparator(topAction);
     }
 }
+
+
+void CodeViewEditor::AddCSSClassContextMenu(QMenu *menu)
+{
+    QAction *topAction = 0;
+
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
+    QString text = tr("Rename Selected Class");
+    QAction *renameClassAction = new QAction(text, menu);
+
+    if (textCursor().hasSelection() && textCursor().selectedText().startsWith(".")) {
+        if (!topAction) {
+            menu->addAction(renameClassAction);
+        } else {
+	       menu->insertAction(topAction, renameClassAction);
+        }
+    }
+    connect(renameClassAction, SIGNAL(triggered()), this, SLOT(RenameClassClicked()));
+}
+
 
 void CodeViewEditor::AddReformatHTMLContextMenu(QMenu *menu)
 {
@@ -1788,6 +1815,62 @@ void CodeViewEditor::IgnoreMisspelledWord()
             ignoreWord(selected_word);
             emit SpellingHighlightRefreshRequest();
         }
+    }
+}
+
+void CodeViewEditor::RenameClassClicked()
+{
+    QTimer::singleShot(20,this,SLOT(RenameClass()));
+}
+
+void CodeViewEditor::RenameClass()
+{
+    QWidget *mainWindow_w = Utility::GetMainWindow();
+    MainWindow *mainWindow = qobject_cast<MainWindow *>(mainWindow_w);
+    if (!mainWindow) {
+	    Utility::DisplayStdErrorDialog("Could not determine main window.");
+        return;
+    }
+
+    int lineno = textCursor().blockNumber() + 1;
+
+    QString aclassname = textCursor().selectedText();
+    if (aclassname.startsWith('.')) aclassname = aclassname.mid(1,-1);
+    QString cssdata = toPlainText();
+    CSSToolbox tb;
+    QSet<QString> classnames = tb.generate_class_set(cssdata);
+    if (aclassname.isEmpty() || !classnames.contains(aclassname)) {
+        emit ShowStatusMessageRequest(tr("Selected Text is not a valid class name."));
+        return;
+    }
+
+    // get the new name
+    QString newname;
+    QInputDialog dinput;
+    dinput.setWindowTitle(tr("Rename Class"));
+    dinput.setLabelText(tr("Enter new class name"));
+    if (dinput.exec()) {
+        newname = dinput.textValue().trimmed();
+    }
+    if (newname.startsWith('.')) newname = newname.mid(1, -1);
+    if (newname.isEmpty()) return;
+
+    // rename the class in all xhtml files that use this css file
+    // MainWindow can get current tab to get css resource currently loaded
+    if (mainWindow->RenameClassInHtml(aclassname, newname)) {
+        // rename the class in this css file
+        QString newcssdata = tb.rename_class_in_css(aclassname, newname, cssdata);
+        if (cssdata != newcssdata) {
+            QTextCursor cursor = textCursor();
+            cursor.beginEditBlock();
+            cursor.select(QTextCursor::Document);
+            cursor.insertText(newcssdata);
+            cursor.endEditBlock();
+            ScrollToLine(lineno);
+        }
+        emit ShowStatusMessageRequest(tr("Class renamed."));
+    } else {
+        emit ShowStatusMessageRequest(tr("Class rename aborted."));
     }
 }
 

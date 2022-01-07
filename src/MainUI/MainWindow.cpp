@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2021 Doug Massay
+**  Copyright (C) 2015-2022 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -23,20 +23,20 @@
 **
 *************************************************************************/
 
-#include <QtCore/QFileInfo>
-#include <QtCore/QThread>
-#include <QtCore/QTimer>
+#include <QFileInfo>
+#include <QThread>
+#include <QTimer>
 #include <QtConcurrent>
 #include <QFuture>
-#include <QtGui/QDesktopServices>
-#include <QtGui/QImage>
+#include <QDesktopServices>
+#include <QImage>
 #include <QGuiApplication>
 #include <QScreen>
-#include <QtWidgets/QFileDialog>
-#include <QtWidgets/QInputDialog>
-#include <QtWidgets/QMessageBox>
-#include <QtWidgets/QProgressDialog>
-#include <QtWidgets/QToolBar>
+#include <QFileDialog>
+#include <QInputDialog>
+#include <QMessageBox>
+#include <QProgressDialog>
+#include <QToolBar>
 #include <QtWebEngineWidgets>
 #include <QtWebEngineCore>
 #include <QWebEngineSettings>
@@ -4069,6 +4069,19 @@ bool MainWindow::ValidateStylesheetsWithW3C()
     return true;
 }
 
+
+bool MainWindow::RenameClassInHtml(const QString& oldname, const QString& newname)
+{
+    ContentTab *tab = GetCurrentContentTab();
+    CSSResource* css_resource = NULL;
+    if (tab != NULL) {
+        css_resource = qobject_cast<CSSResource *>(tab->GetLoadedResource());
+    }
+    if (css_resource == NULL) return false;
+    QString css_bookpath = css_resource->GetRelativePath();
+    SaveTabData();
+    return m_Book->RenameClassInHTML(css_bookpath, oldname, newname);
+}
 
 bool MainWindow::ReformatAllStylesheets(bool multiple_line_format)
 {

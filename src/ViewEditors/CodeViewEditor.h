@@ -445,6 +445,9 @@ public slots:
      */
     void print(QPagedPaintDevice *printer);
 
+    void RenameClassClicked();
+    void RenameClass();
+
     // Implementations for PasteTarget.h
     void PasteText(const QString &text);
     bool PasteClipEntries(const QList<ClipEditorModel::clipEntry *> &clips);
@@ -635,6 +638,8 @@ private:
     void ConnectSignalsToSlots();
 
     void AddReformatCSSContextMenu(QMenu *menu);
+
+    void AddCSSClassContextMenu(QMenu *menu);
 
     void AddReformatHTMLContextMenu(QMenu *menu);
 

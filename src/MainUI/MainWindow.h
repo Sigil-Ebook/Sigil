@@ -156,6 +156,8 @@ public:
     QList <Resource *> GetTabbedHTMLResources();
     QList <Resource *> GetTabbedCSSResources();
 
+    bool RenameClassInHtml(const QString& oldname, const QString& newname);
+
     /**
      * Returns a list of all HTML resources in book browser order
      *
