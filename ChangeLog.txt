@@ -27,7 +27,7 @@ pre-1.9.0
      - Support QUiTool in PySide6 under Qt6 for plugins using .ui files
      - MacOS Python 3.9.9 now now includes TclTK 8.6.12 (no exteral TclTk package needed anymore
      - Added Select All Checkbox in Delete Unused Media and CSS (PRs from @luisparravicini)
-     
+     - Add ability to rename classes when editing stylesheet in CV, will rename in all html as needed     
 
 
 Sigil-1.8.0
