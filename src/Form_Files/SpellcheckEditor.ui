@@ -183,12 +183,12 @@ The selected word does not have to be misspelled.</string>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="CaseInsensitiveSort">
+      <widget class="QCheckBox" name="LocaleAwareSort">
        <property name="toolTip">
-        <string>Sort words as AaBbCc instead of ABCabc.</string>
+        <string>Sort words as in a locale specific manner, typically AaBbCc instead of ABCabc.</string>
        </property>
        <property name="text">
-        <string>Case-Insensitive Sort</string>
+        <string>Locale-Aware Sort</string>
        </property>
       </widget>
      </item>

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020      Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -25,12 +25,12 @@
 #ifndef SPELLCHECKEDITOR_H
 #define SPELLCHECKEDITOR_H
 
-#include <QtWidgets/QDialog>
-#include <QtGui/QStandardItemModel>
+#include <QDialog>
+#include <QStandardItemModel>
 #include <QAction>
-#include <QtWidgets/QMenu>
+#include <QMenu>
 #include <QShortcut>
-#include <QtCore/QSharedPointer>
+#include <QSharedPointer>
 #include <QPointer>
 
 #include "Misc/SettingsStore.h"
@@ -83,7 +83,7 @@ private slots:
     void ChangeAll();
 
     void toggleShowAllWords();
-    void toggleCaseInsensitiveSort();
+    void toggleLocaleAwareSort();
 
     void FilterEditTextChangedSlot(const QString &text);
 
@@ -130,7 +130,7 @@ private:
 
     QShortcut * m_FilterSC;
     QShortcut * m_ShowAllSC;
-    QShortcut * m_NoCaseSC;
+    QShortcut * m_AwareSC;
     QShortcut * m_RefreshSC;
 
     Ui::SpellcheckEditor ui;

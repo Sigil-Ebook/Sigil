@@ -1,10 +1,6 @@
 /**************************************************************************
 **
 **  Copyright (C) 2022 Kevin B. Hendricks, Stratford ON Canada
-**  Copyright (C) 2013 Dave Heiland
-**
-** Contact: Nokia Corporation (qt-info@nokia.com)
-**
 **
 ** GNU Lesser General Public License Usage
 **
@@ -30,24 +26,24 @@
 **************************************************************************/
 
 #pragma once
-#ifndef CASEINSENSITIVE_H
-#define CASEINSENSITIVE_H
+#ifndef LOCALEAWARE_H
+#define LOCALEAWARE_H
 
 #include <QString>
 #include <QStandardItem>
 
-class CaseInsensitiveItem: public QStandardItem
+class LocaleAwareItem: public QStandardItem
 {
 
 public:
-    CaseInsensitiveItem(QWidget *parent = 0)
+    LocaleAwareItem(QWidget *parent = 0)
         : QStandardItem() {
     }
 
 private:
     bool operator<(const QStandardItem &other) const {
-        return QString::compare(text().toLower(), other.text().toLower()) < 0;
+        return QString::localeAwareCompare(text(), other.text()) < 0;
     }
 };
 
-#endif // CASEINSENSITIVE_H
+#endif // LOCALEAWARE_H

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -21,14 +21,16 @@
 **
 *************************************************************************/
 
-#include <QtCore/QHashIterator>
-#include <QtCore/QSignalMapper>
-#include <QtGui/QContextMenuEvent>
-#include <QtWidgets/QMessageBox>
-#include <QtWidgets/QPushButton>
+#include <QString>
+#include <QHashIterator>
+#include <QSignalMapper>
+#include <QContextMenuEvent>
+#include <QMessageBox>
+#include <QPushButton>
+#include <QDebug>
 
 #include "Dialogs/SpellcheckEditor.h"
-#include "Misc/CaseInsensitiveItem.h"
+#include "Misc/LocaleAwareItem.h"
 #include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
@@ -40,7 +42,7 @@
 static const QString SETTINGS_GROUP = "spellcheck_editor";
 static const QString SELECTED_DICTIONARY = "selected_dictionary";
 static const QString SHOW_ALL_WORDS = "show_all_words";
-static const QString CASE_INSENSITIVE_SORT = "case_insensitive_sort";
+static const QString LOCALE_AWARE_SORT = "locale_aware_sort";
 static const QString SORT_COLUMN = "sort_column";
 static const QString SORT_ORDER = "sort_order";
 static const QString FILE_EXTENSION = "ini";
@@ -55,7 +57,7 @@ SpellcheckEditor::SpellcheckEditor(QWidget *parent)
     m_SelectRow(-1),
     m_FilterSC(new QShortcut(QKeySequence(tr("f", "Filter")), this)),
     m_ShowAllSC(new QShortcut(QKeySequence(tr("s", "ShowAllWords")), this)),
-    m_NoCaseSC(new QShortcut(QKeySequence(tr("c", "Case-InsensitiveSort")), this)),
+    m_AwareSC(new QShortcut(QKeySequence(tr("a", "Locale-AwareSort")), this)),
     m_RefreshSC(new QShortcut(QKeySequence(tr("r", "Refresh")), this))
 {
     ui.setupUi(this);
@@ -118,9 +120,9 @@ void SpellcheckEditor::toggleShowAllWords()
   ui.SpellcheckEditorTree->setFocus();
 }
 
-void SpellcheckEditor::toggleCaseInsensitiveSort()
+void SpellcheckEditor::toggleLocaleAwareSort()
 {
-  ui.CaseInsensitiveSort->click();
+  ui.LocaleAwareSort->click();
   ui.SpellcheckEditorTree->setFocus();
 }
 
@@ -264,7 +266,7 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
     int total_misspelled_words = 0;
     SpellCheck *sc = SpellCheck::instance();
     Language *lp = Language::instance();
-
+    
     QHashIterator<QString, int> i(unique_words);
     while (i.hasNext()) {
         i.next();
@@ -284,13 +286,14 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
 
         QList<QStandardItem *> row_items;
 
-        if (ui.CaseInsensitiveSort->checkState() == Qt::Unchecked) {
-            QStandardItem *word_item = new QStandardItem(word);
+        if (ui.LocaleAwareSort->checkState() == Qt::Unchecked) {
+            QStandardItem *word_item = new QStandardItem();
+            word_item->setText(word);
             word_item->setData(code);
             word_item->setEditable(false);
             row_items << word_item;
         } else {
-            CaseInsensitiveItem *word_item = new CaseInsensitiveItem();
+            LocaleAwareItem *word_item = new LocaleAwareItem();
             word_item->setText(word);
             word_item->setData(code);
             word_item->setEditable(false);
@@ -334,6 +337,7 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
 
 void SpellcheckEditor::Refresh(int sort_column, Qt::SortOrder sort_order)
 {
+    qDebug() << "In Refresh" << sort_column << sort_order;
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     WriteSettings();
@@ -462,6 +466,7 @@ void SpellcheckEditor::FilterEditTextChangedSlot(const QString &text)
 
 void SpellcheckEditor::Sort(int logicalindex, Qt::SortOrder order)
 {
+    qDebug() << "in Sort: " << logicalindex << order;
     Refresh(logicalindex, order);
 }
 
@@ -503,12 +508,12 @@ void SpellcheckEditor::ReadSettings()
                     this, SLOT(ChangeState(int)));
         }
     }
-    if (settings.contains(CASE_INSENSITIVE_SORT)) {
-        if (settings.value(CASE_INSENSITIVE_SORT).toBool()) {
-            disconnect(ui.CaseInsensitiveSort, SIGNAL(stateChanged(int)),
+    if (settings.contains(LOCALE_AWARE_SORT)) {
+        if (settings.value(LOCALE_AWARE_SORT).toBool()) {
+            disconnect(ui.LocaleAwareSort, SIGNAL(stateChanged(int)),
                        this, SLOT(ChangeState(int)));
-            ui.CaseInsensitiveSort->setCheckState(Qt::Checked);
-            connect(ui.CaseInsensitiveSort, SIGNAL(stateChanged(int)),
+            ui.LocaleAwareSort->setCheckState(Qt::Checked);
+            connect(ui.LocaleAwareSort, SIGNAL(stateChanged(int)),
                     this, SLOT(ChangeState(int)));
         }
     }
@@ -546,7 +551,7 @@ void SpellcheckEditor::WriteSettings()
 
     // Checkboxes
     settings.setValue(SHOW_ALL_WORDS, ui.ShowAllWords->checkState() == Qt::Checked);
-    settings.setValue(CASE_INSENSITIVE_SORT, ui.CaseInsensitiveSort->checkState() == Qt::Checked);
+    settings.setValue(LOCALE_AWARE_SORT, ui.LocaleAwareSort->checkState() == Qt::Checked);
     settings.setValue(SORT_COLUMN, ui.SpellcheckEditorTree->header()->sortIndicatorSection());
     settings.setValue(SORT_ORDER, ui.SpellcheckEditorTree->header()->sortIndicatorOrder() == Qt::AscendingOrder);
 
@@ -626,7 +631,7 @@ void SpellcheckEditor::ConnectSignalsSlots()
             this,         SLOT(FindSelectedWord()));
     connect(ui.ShowAllWords,  SIGNAL(stateChanged(int)),
             this,               SLOT(ChangeState(int)));
-    connect(ui.CaseInsensitiveSort,  SIGNAL(stateChanged(int)),
+    connect(ui.LocaleAwareSort,  SIGNAL(stateChanged(int)),
             this,               SLOT(ChangeState(int)));
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     connect(ui.Dictionaries, SIGNAL(textActivated(const QString &)),
@@ -638,7 +643,6 @@ void SpellcheckEditor::ConnectSignalsSlots()
 
     connect(m_FilterSC, SIGNAL(activated()), ui.FilterText, SLOT(setFocus()));
     connect(m_ShowAllSC, SIGNAL(activated()), this, SLOT(toggleShowAllWords()));
-    connect(m_NoCaseSC, SIGNAL(activated()), this, SLOT(toggleCaseInsensitiveSort()));
+    connect(m_AwareSC, SIGNAL(activated()), this, SLOT(toggleLocaleAwareSort()));
     connect(m_RefreshSC, SIGNAL(activated()), this, SLOT(Refresh()));
-
 }
