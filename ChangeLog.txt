@@ -28,6 +28,7 @@ pre-1.9.0
      - MacOS Python 3.9.9 now now includes TclTK 8.6.12 (no exteral TclTk package needed anymore
      - Added Select All Checkbox in Delete Unused Media and CSS (PRs from @luisparravicini)
      - Add ability to rename classes when editing stylesheet in CV, will rename in all html as needed     
+     - SpellcheckEditor now uses LocaleAware sorting vs Case-Insensitive which did not handle diacritics well
 
 
 Sigil-1.8.0
