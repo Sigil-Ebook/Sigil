@@ -155,11 +155,11 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
 
     QString group = DetermineFileGroup(norm_file_path, mt);
     QString resdesc = MediaTypes::instance()->GetResourceDescFromMediaType(mt, "Resource");
+
     QDir folder(m_FullPathToMainFolder);
 
     Resource *resource = NULL;
     QString new_file_path;
-
 
     // lock for GetUniqueFilenameVersion() until the 
     // resource with that file name has been created
@@ -533,7 +533,6 @@ QStringList FolderKeeper::GetAllBookPaths() const
 
 void FolderKeeper::BulkRemoveResources(const QList<Resource *>resources)
 {
-    qDebug() << "In FolderKeeper Bulk RemoveResource";
     m_OPF->BulkRemoveResources(resources);
     foreach(Resource * resource, resources) {
         m_Resources.remove(resource->GetIdentifier());
@@ -551,7 +550,6 @@ void FolderKeeper::BulkRemoveResources(const QList<Resource *>resources)
 
 void FolderKeeper::RemoveResource(const Resource *resource)
 {
-    qDebug() << "In FolderKeeper RemoveResource";
     m_Resources.remove(resource->GetIdentifier());
     m_Path2Resource.remove(resource->GetRelativePath());
 
@@ -805,22 +803,25 @@ void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringLi
 
     // walk bookpaths and mtypes to determine folders
     // actually being used according to the opf
+    // so skip any resources that live in META-INF
     int i = 0;
     foreach(QString bookpath, bookpaths) {
         QString mtype = mtypes.at(i);
         QString group = MediaTypes::instance()->GetGroupFromMediaType(mtype, "other");
-        QStringList folderlst = group_folder.value(group,QStringList());
-        QList<int> countlst = group_count.value(group, QList<int>());
-        QString sdir = Utility::startingDir(bookpath);
-        if (!folderlst.contains(sdir)) {
-            folderlst << sdir;
-            countlst << 1;
-        } else {
-            int pos = folderlst.indexOf(sdir);
-            countlst.replace(pos, countlst.at(pos) + 1);
+        if (!bookpath.startsWith("META-INF")) {
+            QStringList folderlst = group_folder.value(group,QStringList());
+            QList<int> countlst = group_count.value(group, QList<int>());
+            QString sdir = Utility::startingDir(bookpath);
+            if (!folderlst.contains(sdir)) {
+                folderlst << sdir;
+                countlst << 1;
+            } else {
+                int pos = folderlst.indexOf(sdir);
+                countlst.replace(pos, countlst.at(pos) + 1);
+            }
+            group_folder[group] = folderlst;
+            group_count[group] = countlst;
         }
-        group_folder[group] = folderlst;
-        group_count[group] = countlst;
         i++;
     }
 
@@ -878,9 +879,13 @@ void FolderKeeper::RefreshGroupFolders()
     QList<Resource*> resources = GetResourceList();
     QStringList bookpaths;
     QStringList mtypes;
+    // do not include files/resources that live in META-INF
     foreach(Resource * resource, resources) {
-        bookpaths << resource->GetRelativePath();
-        mtypes << resource->GetMediaType();
+        QString bookpath = resource->GetRelativePath();
+        if (!bookpath.startsWith("META-INF")) {
+            bookpaths << bookpath;
+            mtypes << resource->GetMediaType();
+        }
     }
     SetGroupFolders(bookpaths, mtypes, true);
 }

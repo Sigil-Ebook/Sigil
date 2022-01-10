@@ -368,7 +368,9 @@ void ImportEPUB::AddNonStandardAppleXML()
 
     for (int i = 0; i < aberrant_Apple_filenames.size(); ++i) {
         if (QFile::exists(aberrant_Apple_filenames.at(i))) {
-            m_Files[ Utility::CreateUUID() ]  = opf_dir.relativeFilePath(aberrant_Apple_filenames.at(i));
+            QString id = Utility::CreateUUID();
+            m_Files[ id ]  = opf_dir.relativeFilePath(aberrant_Apple_filenames.at(i));
+            m_FileMimetypes[ id ] = "vnd.apple.ibooks+xml";
         }
     }
 }

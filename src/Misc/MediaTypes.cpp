@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -236,6 +236,8 @@ void MediaTypes::SetMTypeToGroupMap()
 
 
     m_MTypeToGroup[ "text/plain"                              ] = "Misc";
+
+    m_MTypeToGroup[ "vnd.apple.ibooks+xml"                    ] = "other";
 }
 
 
@@ -307,5 +309,8 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "application/javascript"                  ] = "MiscTextResource";
     m_MTypeToRDesc[ "text/javascript"                         ] = "MiscTextResource";
     m_MTypeToRDesc[ "text/plain"                              ] = "MiscTextResource";  // not a core media type
+
+    m_MTypeToRDesc[ "vnd.apple.ibooks+xml"                    ] = "Resource";
+
 }
 

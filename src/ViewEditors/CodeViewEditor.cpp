@@ -2180,7 +2180,7 @@ void CodeViewEditor::MaybeRegenerateTagList()
     // if (!m_isLoadFinished) return;
     
     if (m_regen_taglist) {
-        qDebug() << "regenerating tag list";
+        // qDebug() << "regenerating tag list";
         m_TagList.reloadLister(toPlainText());
         m_regen_taglist = false;
     }
