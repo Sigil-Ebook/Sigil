@@ -20,13 +20,13 @@
 **
 *************************************************************************/
 
-#include <QtCore/QDir>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
-#include <QtCore/QString>
-#include <QtCore/QThread>
-#include <QtCore/QTime>
-#include <QtWidgets/QApplication>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QString>
+#include <QThread>
+#include <QTime>
+#include <QApplication>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QDebug>
@@ -238,7 +238,11 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
         resource->SetShortPathName(filename);
     }
 
-    QFile::copy(fullfilepath, new_file_path);
+    // skip copy if unpacking zip already put it in the right place
+    if (fullfilepath != new_file_path) {
+        QFile::copy(fullfilepath, new_file_path);
+    }
+
     // QFile::copy copies permissions as well which we can not have
     QFile::setPermissions(new_file_path, QFileDevice::ReadOwner | QFileDevice::WriteOwner |
                           QFileDevice::ReadUser | QFileDevice::WriteUser |

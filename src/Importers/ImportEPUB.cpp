@@ -96,11 +96,13 @@ static QCodePage437Codec *cp437 = 0;
 // The parameter is the file to be imported
 ImportEPUB::ImportEPUB(const QString &fullfilepath)
     : Importer(fullfilepath),
-      m_ExtractedFolderPath(m_TempFolder.GetPath()),
+      // m_ExtractedFolderPath(m_TempFolder.GetPath()),
       m_HasSpineItems(false),
       m_NCXNotInManifest(false),
       m_NavResource(NULL)
 {
+    // improve loading speed by unzipping directly into the FolderKeeper folder
+    m_ExtractedFolderPath = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
 }
 
 // Reads and parses the file
@@ -261,7 +263,8 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
             m_Book->GetOPF()->SetDCMetadata(originalMetadata);
         }
         AddLoadWarning(QObject::tr("The OPF file does not contain a valid spine.") % "\n" %
-                       QObject::tr("Sigil has created a new one for you."));
+                       QObject::tr("Sigil has created a new one for you.") % "\n" %
+                       QObject::tr("Please verify and correct the OPF Spine order."));
     }
 
     // update the ShortPathNames to reflect any name duplication

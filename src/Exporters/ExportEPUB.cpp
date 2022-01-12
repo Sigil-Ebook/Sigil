@@ -170,6 +170,9 @@ void ExportEPUB::SaveFolderAsEpubToLocation(const QString &fullfolderpath, const
             relpath = relpath.remove(0, 1);
         }
 
+        // do not double add the mimetype file
+        if (relpath == "mimetype") continue;
+
         QFileInfo tfile(it.filePath());
 
         // Set the proper zip file info if possible
