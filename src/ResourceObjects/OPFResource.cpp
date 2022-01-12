@@ -533,8 +533,8 @@ void OPFResource::AutoFixWellFormedErrors()
             sp.m_idref = idref;
             p.m_spine << sp;
         }
-        UpdateText(p);
     }
+    UpdateText(p);
 }
 
 

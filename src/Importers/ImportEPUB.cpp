@@ -651,7 +651,9 @@ void ImportEPUB::LocateOPF()
 
 void ImportEPUB::ReadOPF()
 {
-    QString opf_text = CleanSource::ProcessXML(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)),OEBPS_MIMETYPE);
+    QString opf_text = CleanSource::ProcessXML(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)),
+                                               OEBPS_MIMETYPE);
+
     QXmlStreamReader opf_reader(opf_text);
     QString ncx_id_on_spine;
 
@@ -707,6 +709,11 @@ void ImportEPUB::ReadOPF()
     QString bookpath;
     bookpath = m_OPFFilePath.right(m_OPFFilePath.length() - m_ExtractedFolderPath.length() - 1);
     OPFResource* oresource = m_Book->GetFolderKeeper()->AddOPFToFolder(m_PackageVersion, bookpath);
+    QString OPFBookRelPath = m_OPFFilePath;
+    OPFBookRelPath = OPFBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
+    m_Book->GetOPF()->SetCurrentBookRelPath(OPFBookRelPath);
+    oresource->SetText(opf_text);
+    oresource->SaveToDisk(false);
     if (m_FileInfoFromZip.contains(bookpath)) {
         std::tuple<size_t, QString, QString> ainfo = m_FileInfoFromZip[bookpath];
         oresource->SetSavedSize(std::get<0>(ainfo));
@@ -870,7 +877,11 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
         m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
         bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
+        QString ncx_text = CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath),
+                                                   "application/x-dtbncx+xml");
         NCXResource* resource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
+        resource->SetText(ncx_text);
+        resource->SaveToDisk(false);
         if (m_FileInfoFromZip.contains(bookpath)) {
             std::tuple<size_t, QString, QString> ainfo = m_FileInfoFromZip[bookpath];
             resource->SetSavedSize(std::get<0>(ainfo));
@@ -906,9 +917,12 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
         ncx_href = m_NcxCandidates[ m_NCXId ];
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
         m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
-
+        QString ncx_text = CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath),
+                                                   "application/x-dtbncx+xml");
         QString bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
         NCXResource* resource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
+        resource->SetText(ncx_text);
+        resource->SaveToDisk(false);
         if (m_FileInfoFromZip.contains(bookpath)) {
             std::tuple<size_t, QString, QString> ainfo = m_FileInfoFromZip[bookpath];
             resource->SetSavedSize(std::get<0>(ainfo));
@@ -955,7 +969,7 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
     if (!m_UuidIdentifierValue.isEmpty()) {
         ncx_resource.SetMainID(m_UuidIdentifierValue);
     }
-    ncx_resource.SaveToDisk();
+    ncx_resource.SaveToDisk(false);
 
     // now add the NCX to our folder
     QString bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
@@ -970,7 +984,9 @@ void ImportEPUB::LoadInfrastructureFiles()
 {
     // always SetEpubVersion before SetText in OPF as SetText will validate with it
     m_Book->GetOPF()->SetEpubVersion(m_PackageVersion);
-    m_Book->GetOPF()->SetText(CleanSource::ProcessXML(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)),OEBPS_MIMETYPE));
+    QString opf_text = CleanSource::ProcessXML(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath))
+                                               ,OEBPS_MIMETYPE);
+    m_Book->GetOPF()->SetText(opf_text);
     QString OPFBookRelPath = m_OPFFilePath;
     OPFBookRelPath = OPFBookRelPath.remove(0,m_ExtractedFolderPath.length()+1);
     m_Book->GetOPF()->SetCurrentBookRelPath(OPFBookRelPath);
