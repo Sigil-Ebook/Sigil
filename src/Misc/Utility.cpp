@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2016-2020 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -39,24 +39,22 @@
 #include <vector>
 
 #include <QApplication>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
-#include <QtCore/QProcess>
-#include <QtCore/QStandardPaths>
-#include <QtCore/QStringList>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QProcess>
+#include <QStandardPaths>
+#include <QStringList>
 #include <QStringRef>
-#include <QtCore/QTextStream>
-#include <QtCore/QtGlobal>
-#include <QtCore/QUrl>
-#include <QtCore/QUuid>
-#include <QtWidgets/QMainWindow>
+#include <QTextStream>
+#include <QtGlobal>
+#include <QUrl>
+#include <QUuid>
+#include <QMainWindow>
 #include <QTextEdit>
 #include <QMessageBox>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
-#include <QFile>
-#include <QFileInfo>
 #include <QCollator>
 #include <QMenu>
 #include <QSet>
@@ -1193,6 +1191,13 @@ QString Utility::buildRelativeHREF(const QString &apath, const QString &afrag)
     return newhref;
 }
 
+
+bool Utility::sort_string_pairs_by_first(const std::pair<QString, QString> &a, const std::pair<QString, QString> &b)
+{
+    return (QString::localeAwareCompare(a.first, b.first) < 0);
+}
+
+
 bool Utility::sort_pair_in_reverse(const std::pair<int,QString> &a, const std::pair<int,QString> &b)
 {
     return (a.first > b.first);
@@ -1224,6 +1229,7 @@ QStringList Utility::LocaleAwareSort(const QStringList &names)
     std::sort(nlist.begin(), nlist.end(), uiCollator);
     return nlist;
 }
+
 
 
 QString Utility::AddDarkCSS(const QString &html)

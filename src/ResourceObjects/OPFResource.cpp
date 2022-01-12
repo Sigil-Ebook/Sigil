@@ -510,8 +510,31 @@ bool OPFResource::CoverImageExists() const
 void OPFResource::AutoFixWellFormedErrors()
 {
     QWriteLocker locker(&GetLock());
+    const QStringList TEXT_EXTS = QStringList() << "htm" << "html" << "xhtml";
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
-    SetText(source);
+    OPFParser p;
+    p.parse(source);
+    // auto fill in spine from manifest if completely empty
+    if (p.m_spine.count() == 0) {
+        std::vector< std::pair< QString, QString > > txts;
+        for (int i=0; i < p.m_manifest.count(); i++) {
+            ManifestEntry me = p.m_manifest.at(i);
+            QString ahref = Utility::URLDecodePath(me.m_href);
+            QString aid = me.m_id;
+            QString ext = QFileInfo(ahref).suffix();
+            if ((me.m_mtype == "application/xhtml+xml") || TEXT_EXTS.contains(ext.toLower())) {
+                txts.push_back(std::make_pair(ahref, aid));
+            }
+        }
+        std::sort(txts.begin(), txts.end(), Utility::sort_string_pairs_by_first);
+        for (int j=0; j < txts.size(); j++) {
+            QString idref = txts.at(j).second;
+            SpineEntry sp;
+            sp.m_idref = idref;
+            p.m_spine << sp;
+        }
+        UpdateText(p);
+    }
 }
 
 
