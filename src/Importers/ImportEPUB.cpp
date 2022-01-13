@@ -159,13 +159,11 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
 
     const QList<Resource *> resources = m_Book->GetFolderKeeper()->GetResourceList();
 
-    // We're going to check all html files until we find one that isn't well formed then we'll prompt
-    // the user if they want to auto fix or not.
+    // We're going to check all html files and when we find one that isn't well formed then we'll prompt
+    // the user if they want to auto fix things or not.
     //
-    // If we have non-well formed content and they shouldn't be auto fixed we'll pass that on to
-    // the universal update function so it knows to skip them. Otherwise we won't include them and
-    // let it modify the file.
-    for (int i=0; i<resources.count(); ++i) {
+    // If we have non-well formed content and they shouldn't be auto fixed we'll pass them on as-is
+        for (int i=0; i<resources.count(); ++i) {
         if (resources.at(i)->Type() == Resource::HTMLResourceType) {
             HTMLResource *hresource = qobject_cast<HTMLResource *>(resources.at(i));
             if (!hresource) {
@@ -551,6 +549,9 @@ void ImportEPUB::ExtractContainer()
                     entry.write(buff, read);
                 }
 
+                entry.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner |
+                                     QFileDevice::ReadUser  | QFileDevice::WriteUser  |
+                                     QFileDevice::ReadOther);
                 entry.close();
 
                 // Read errors are marked by a negative read amount.

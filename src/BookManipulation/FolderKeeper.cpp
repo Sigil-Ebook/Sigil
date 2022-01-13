@@ -236,17 +236,18 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
         resource->SetEpubVersion(m_OPF->GetEpubVersion());
         resource->SetMediaType(mt);
         resource->SetShortPathName(filename);
+
     }
 
     // skip copy if unpacking zip already put it in the right place
     if (fullfilepath != new_file_path) {
+
         QFile::copy(fullfilepath, new_file_path);
+        QFile::setPermissions(new_file_path, QFileDevice::ReadOwner | QFileDevice::WriteOwner |
+                                             QFileDevice::ReadUser | QFileDevice::WriteUser |
+                                             QFileDevice::ReadOther);
     }
 
-    // QFile::copy copies permissions as well which we can not have
-    QFile::setPermissions(new_file_path, QFileDevice::ReadOwner | QFileDevice::WriteOwner |
-                          QFileDevice::ReadUser | QFileDevice::WriteUser |
-                          QFileDevice::ReadOther);
 
     if (QThread::currentThread() != QApplication::instance()->thread()) {
         resource->moveToThread(QApplication::instance()->thread());
@@ -895,10 +896,14 @@ void FolderKeeper::RefreshGroupFolders()
 }
 
 
+// properly load each text based resource object from its
+// underlying file.  Note: html resources already had this
+// done when their well formed check was done on import
 void FolderKeeper::PerformInitialLoads()
 {
     QList<Resource *> resources = GetResourceList();
     foreach(Resource * resource, resources) {
+        if (resource->Type() == Resource::HTMLResourceType) continue;
         TextResource * text_resource = qobject_cast<TextResource*>(resource);
         if (text_resource) {
             text_resource->InitialLoad();
