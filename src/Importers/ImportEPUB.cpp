@@ -161,40 +161,24 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
 
     // We're going to check all html files and when we find one that isn't well formed then we'll prompt
     // the user if they want to auto fix things or not.
-    //
-    // If we have non-well formed content and they shouldn't be auto fixed we'll pass them on as-is
-        for (int i=0; i<resources.count(); ++i) {
+    QList<HTMLResource*> hresources;
+    for (int i=0; i < resources.count(); ++i) {
         if (resources.at(i)->Type() == Resource::HTMLResourceType) {
             HTMLResource *hresource = qobject_cast<HTMLResource *>(resources.at(i));
-            if (!hresource) {
-                continue;
+            if (hresource) {
+                hresources.append(hresource);
             }
-            // Load the content into the HTMLResource so we can perform a well formed check.
-            try {
-                hresource->SetText(HTMLEncodingResolver::ReadHTMLFile(hresource->GetFullPath()));
-            } catch (...) {
-                if (ss.cleanOn() & CLEANON_OPEN) {
-                    non_well_formed << hresource;
-                    continue;
-                }
-            }
-            if (ss.cleanOn() & CLEANON_OPEN) {
-                if (!XhtmlDoc::IsDataWellFormed(hresource->GetText(),hresource->GetEpubVersion())) {
-                    non_well_formed << hresource;
-                } else {
-                    QString txt = hresource->GetText();
-                    // had cases of large files with no line breaks
-                    if (txt.size() > 307200) {
-                        int lines = 0;
-                        QChar *uc = txt.data();
-                        QChar *e = uc + txt.size();
-                        for (; uc != e; ++uc) {
-                            if (uc->unicode() == 0x000A) lines++;
-                        }
-                        if (lines < 5) non_well_formed << hresource;
-                    }
-                }
-            }
+        }
+    }
+
+    bool checkit = ((ss.cleanOn() & CLEANON_OPEN) == CLEANON_OPEN);
+
+    QFuture<std::pair<HTMLResource*, bool> > html_future;
+    html_future = QtConcurrent::mapped(hresources, std::bind(InitialLoadAndCheckOneHTMLFile, std::placeholders::_1, checkit));
+    for (int i = 0; i < html_future.results().count(); i++) {
+        std::pair<HTMLResource*, bool> res = html_future.resultAt(i);
+        if (!res.second) {
+            non_well_formed.append(res.first);
         }
     }
     if (!non_well_formed.isEmpty()) {
@@ -204,7 +188,7 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
                 tr("This EPUB has HTML files that are not well formed or are "
                    "missing a DOCTYPE, html, head or body elements. "
                    "Sigil can automatically fix these files, although "
-                   "this may result in minor data loss in extreme circumstances.\n\n"
+                   "this may very rarely result in minor data loss in extreme circumstances.\n\n"
                    "Do you want to automatically fix the files?"),
                 QMessageBox::Yes|QMessageBox::No)) 
         {
@@ -1084,4 +1068,48 @@ QString ImportEPUB::PrepareOPFForReading(const QString &source)
         source_copy.replace(mo.capturedStart(1), mo.capturedLength(1), "1.0");
     }
     return source_copy;
+}
+
+
+std::pair<HTMLResource*, bool> ImportEPUB::InitialLoadAndCheckOneHTMLFile(HTMLResource *hresource, bool checkit)
+{
+    std::pair<HTMLResource*, bool> res;
+    res.first = hresource;
+    res.second = true;
+
+    QString version = hresource->GetEpubVersion();
+
+    try {
+        // Load the initial content into the HTMLResource
+        hresource->SetText(HTMLEncodingResolver::ReadHTMLFile(hresource->GetFullPath()));
+    } catch (...) {
+        if (checkit) {
+            res.second = false;
+            return res;
+        }
+    }
+    if (checkit) {
+        if (!XhtmlDoc::IsDataWellFormed(hresource->GetText(),version)) {
+            res.second = false;
+            return res;
+        } else {
+            QString txt = hresource->GetText();
+            // had cases of very large files with no line breaks
+            // so mark them as not well formed
+            if (txt.size() > 307200) {
+                int lines = 0;
+                QChar *uc = txt.data();
+                QChar *e = uc + txt.size();
+                while((uc != e) && (lines < 5)) {
+                    if (uc->unicode() == 0x000A) lines++;
+                    ++uc;
+                }
+                if (lines < 5) {
+                    res.second = false;
+                    return res;
+                };
+            }
+        }
+    }
+    return res;
 }

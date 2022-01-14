@@ -163,6 +163,8 @@ private:
     void ProcessFontFiles(const QList<Resource *> &resources,
                           const QHash<QString, QString> &encrypted_files);
 
+    static std::pair<HTMLResource*, bool> InitialLoadAndCheckOneHTMLFile(HTMLResource *hresource, bool checkit);
+
     /**
      * The main temp folder where files are stored.
      */
