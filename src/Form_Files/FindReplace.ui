@@ -191,23 +191,29 @@
           </property>
          </widget>
         </item>
+        
         <item row="0" column="3">
-         <widget class="QToolButton" name="replaceFind">
+         <widget class="QToolButton" name="restart">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
           <property name="toolTip">
-           <string>Replace highlighted match (if any),
-then find the Next match in Code View.</string>
+           <string>Restart current search from beginning.</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
           <property name="text">
-           <string>Replace/Find</string>
+           <string>Restart</string>
           </property>
          </widget>
         </item>
@@ -237,6 +243,7 @@ then find the Next match in Code View.</string>
           </property>
          </widget>
         </item>
+
         <item row="1" column="2">
          <widget class="QToolButton" name="replaceCurrent">
           <property name="sizePolicy">
@@ -256,6 +263,7 @@ then find the Next match in Code View.</string>
           </property>
          </widget>
         </item>
+
         <item row="1" column="3">
          <widget class="QToolButton" name="replaceAll">
           <property name="sizePolicy">
@@ -301,6 +309,19 @@ then find the Next match in Code View.</string>
            </widget>
           </item>
           <item>
+           <spacer name="horizontalSpacerOption1">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>8</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
            <widget class="QCheckBox" name="chkRegexOptionMinimalMatch">
             <property name="toolTip">
              <string>For Regex searches, prefix your search with (?U).</string>
@@ -314,6 +335,19 @@ then find the Next match in Code View.</string>
            </widget>
           </item>
           <item>
+           <spacer name="horizontalSpacerOption2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>8</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
            <widget class="QCheckBox" name="chkRegexOptionAutoTokenise">
             <property name="toolTip">
              <string>For Regex searches, tokenise/escape selection when opening Find.</string>
@@ -325,6 +359,19 @@ then find the Next match in Code View.</string>
              <string>Auto-Tokenise</string>
             </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacerOption3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>8</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
           </item>
           <item>
            <widget class="QCheckBox" name="chkOptionWrap">
@@ -345,7 +392,7 @@ other end to continue searching.</string>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
+              <width>16</width>
               <height>0</height>
              </size>
             </property>
@@ -361,7 +408,7 @@ other end to continue searching.</string>
             </property>
             <property name="minimumSize">
              <size>
-              <width>2</width>
+              <width>8</width>
               <height>22</height>
              </size>
             </property>
@@ -376,27 +423,22 @@ other end to continue searching.</string>
          </layout>
         </item>
         <item row="2" column="2">
-         <widget class="QToolButton" name="restart">
+         <widget class="QToolButton" name="replaceFind">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>22</height>
-           </size>
-          </property>
           <property name="toolTip">
-           <string>Restart current search from beginning.</string>
+           <string>Replace highlighted match (if any),
+then find the Next match in Code View.</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
           <property name="text">
-           <string>Restart</string>
+           <string>Replace/Find</string>
           </property>
          </widget>
         </item>

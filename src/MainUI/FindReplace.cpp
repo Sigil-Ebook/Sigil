@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2011-2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -1324,6 +1324,7 @@ void FindReplace::ShowHideAdvancedOptions()
     ui.chkRegexOptionMinimalMatch->setVisible(show_advanced);
     ui.chkRegexOptionAutoTokenise->setVisible(show_advanced);
     ui.chkOptionWrap->setVisible(show_advanced);
+    ui.replaceFind->setVisible(show_advanced);
     ui.count->setVisible(show_advanced);
     ui.revalid->setVisible(show_advanced);
     QIcon icon;
