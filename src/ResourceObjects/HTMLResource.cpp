@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2022 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -22,8 +22,8 @@
 
 #include <memory>
 
-#include <QtCore/QFileInfo>
-#include <QtCore/QString>
+#include <QFileInfo>
+#include <QString>
 // #include <QDebug>
 
 #include "BookManipulation/CleanSource.h"
@@ -32,6 +32,7 @@
 #include "Parsers/GumboInterface.h"
 #include "Parsers/HTMLStyleInfo.h"
 #include "ResourceObjects/HTMLResource.h"
+#include "BookManipulation/FolderKeeper.h"
 #include "sigil_exception.h"
 
 static const QString LOADED_CONTENT_MIMETYPE = "application/xhtml+xml";
@@ -46,12 +47,12 @@ const QStringList RTL_LC = QStringList() << "ar" << "arc" << "dv" << "div" << "f
                                             "kur" << "ps" << "pus" << "snd" << "sd" <<
                                             "urd" << "ur" << "yi" << "yid"; 
 
-HTMLResource::HTMLResource(const QString &mainfolder, const QString &fullfilepath,
-                           const QHash<QString, Resource *> &resources,
+HTMLResource::HTMLResource(const QString &mainfolder, const QString &fullfilepath, FolderKeeper* Keeper,
                            QObject *parent)
     :
     XMLResource(mainfolder, fullfilepath, parent),
-    m_Resources(resources),
+    m_Keeper(Keeper),
+    m_LinkedBookPaths(QStringList()),
     m_TOCCache("")
 {
 }
@@ -84,7 +85,7 @@ void HTMLResource::SetText(const QString &text)
 
     // Track resources whose change will necessitate an update of the BV and PV.
     // At present this only applies to css files and images.
-    TrackNewResources(GetPathsToLinkedResources());
+    TrackNewResources();
 }
 
 QString HTMLResource::GetTOCCache()
@@ -300,28 +301,28 @@ void HTMLResource::SetLanguageAttribute(const QString& langcode)
 }
 
 
-void HTMLResource::TrackNewResources(const QStringList &filepaths)
+void HTMLResource::TrackNewResources()
 {
-    QStringList bookpaths;
-    QStringList linkedResourceIDs;
-    foreach(QString bkpath, filepaths) {
-        bookpaths.append(bkpath);
-    }
-    foreach(Resource * resource, m_Resources.values()) {
-        disconnect(resource, SIGNAL(ResourceUpdatedOnDisk()),    this, SIGNAL(LinkedResourceUpdated()));
-        disconnect(resource, SIGNAL(Deleted(const Resource *)), this, SIGNAL(LinkedResourceUpdated()));
-
-        if (bookpaths.contains(resource->GetRelativePath())) {
-            linkedResourceIDs.append(resource->GetIdentifier());
+    if (!m_LinkedBookPaths.isEmpty()) {
+        if (m_Keeper) {
+            QList<Resource*> linked_resources = m_Keeper->GetLinkedResources(m_LinkedBookPaths);
+            foreach(Resource* resource, linked_resources) {
+                disconnect(resource, SIGNAL(ResourceUpdatedOnDisk()),    this, SIGNAL(LinkedResourceUpdated()));
+                disconnect(resource, SIGNAL(Deleted(const Resource *)), this, SIGNAL(LinkedResourceUpdated()));
+            }
         }
     }
-    foreach(QString resource_id, linkedResourceIDs) {
-        Resource *resource = m_Resources.value(resource_id);
-        if (resource) {
-            connect(resource, SIGNAL(ResourceUpdatedOnDisk()),    this, SIGNAL(LinkedResourceUpdated()));
-            connect(resource, SIGNAL(Deleted(const Resource *)), this, SIGNAL(LinkedResourceUpdated()));
+    QStringList bookpaths = GetPathsToLinkedResources();
+    if (!bookpaths.isEmpty()) {
+        if (m_Keeper) {
+            QList<Resource*> linked_resources = m_Keeper->GetLinkedResources(bookpaths);
+            foreach(Resource* resource, linked_resources) {
+                connect(resource, SIGNAL(ResourceUpdatedOnDisk()),    this, SIGNAL(LinkedResourceUpdated()));
+                connect(resource, SIGNAL(Deleted(const Resource *)), this, SIGNAL(LinkedResourceUpdated()));
+            }
         }
     }
+    m_LinkedBookPaths = bookpaths;
 }
 
 bool HTMLResource::DeleteCSStyles(QList<CSSInfo::CSSSelector *> css_selectors)

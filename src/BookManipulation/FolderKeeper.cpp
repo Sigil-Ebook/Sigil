@@ -214,7 +214,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
         } else if (resdesc == "FontResource") {
             resource = new FontResource(m_FullPathToMainFolder, new_file_path);
         } else if (resdesc == "HTMLResource") {
-            resource = new HTMLResource(m_FullPathToMainFolder, new_file_path, m_Resources);
+            resource = new HTMLResource(m_FullPathToMainFolder, new_file_path, this);
         } else if (resdesc == "CSSResource") {
             resource = new CSSResource(m_FullPathToMainFolder, new_file_path);
         } else if (resdesc == "XMLResource") {
@@ -909,4 +909,15 @@ void FolderKeeper::PerformInitialLoads()
             text_resource->InitialLoad();
         }
     }
+}
+
+
+QList<Resource*> FolderKeeper::GetLinkedResources(const QStringList &linked_bookpaths)
+{
+    QList<Resource*> linked_resources;
+    foreach(QString bkpath, linked_bookpaths) {
+        Resource * resource = GetResourceByBookPathNoThrow(bkpath);
+        if (resource) linked_resources.append(resource);
+    }
+    return linked_resources;
 }

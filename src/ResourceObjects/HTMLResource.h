@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2022 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -30,7 +30,7 @@
 #include "ResourceObjects/XMLResource.h"
 
 class QString;
-
+class FolderKeeper;
 
 /**
  * Represents an HTML file of the book.
@@ -50,11 +50,11 @@ public:
      *
      * @param fullfilepath The full path to the file that this
      *                     resource is representing.
-     * @param resources The hash of Resources present in the FolderKeeper.
+     * @param FolderKeeper* The folder we belong to
      * @param parent The object's parent.
      */
     HTMLResource(const QString &mainfolder, const QString &fullfilepath,
-                 const QHash<QString, Resource *> &resources,
+                 FolderKeeper* keeper,
                  QObject *parent = NULL);
 
     QString GetTOCCache();
@@ -117,17 +117,15 @@ private:
      *
      * @param filepaths The paths to resources to watch.
      */
-    void TrackNewResources(const QStringList &filepaths);
+    void TrackNewResources();
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    /**
-     * The resource list from FolderKeeper.
-     * @todo This is ugly as hell. Find a way to remove this.
-     */
-    const QHash<QString, Resource *> &m_Resources;
+    FolderKeeper* m_Keeper;
+    QStringList m_LinkedBookPaths;
+
     QString m_TOCCache;
 };
 

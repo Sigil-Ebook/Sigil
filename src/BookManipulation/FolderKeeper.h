@@ -96,6 +96,9 @@ public:
                                      const QString &bookpath = QString(),
                                      const QString &folderpath = QString("\\"));
 
+
+    QList<Resource*> GetLinkedResources(const QStringList& bookpaths);
+
     /**
      * Returns the highest reading order number present in the book.
      *
@@ -257,6 +260,7 @@ public slots:
     void RemoveResource(const Resource *resource);
 
     void BulkRemoveResources(const QList<Resource *> resources);
+
 
 private slots:
 

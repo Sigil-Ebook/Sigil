@@ -118,6 +118,7 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
 
     // These read the EPUB file
     ExtractContainer();
+
     QHash<QString, QString> encrypted_files = ParseEncryptionXml();
 
     if (BookContentEncrypted(encrypted_files)) {
