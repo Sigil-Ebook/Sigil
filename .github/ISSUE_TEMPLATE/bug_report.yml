@@ -48,7 +48,7 @@ body:
       label: Any backtraces or crash reports 
       description: Please copy and paste any relevant backtraces or crash reports output. This will be automatically formatted into code, so no need for backticks.
       render: shell
-   - type: markdown
+  - type: markdown
     attributes:
       value: |
         Please attach a minimal test case if possible or screen shots of the issue if need as zip files to this issue.
