@@ -4,6 +4,10 @@ title: "[Bug]: "
 labels: ""
 assignees: ""
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill in the forms to help improve Sigil.
   - type: textarea
     id: report
     attributes:
@@ -30,7 +34,7 @@ body:
       label: OS Version / Specifics
       description: What specific operating system version or distribution are you using?
     validations:
-      required: true  
+      required: true
   - type: input
     id: version
     attributes:
