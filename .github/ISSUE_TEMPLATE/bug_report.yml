@@ -1,0 +1,51 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees:
+  - None
+body:
+  - type: textarea
+    id: 
+    attributes:
+      label: Bug Description
+      description: Describe the bug/issue and the steps needed to recreate it.
+      placeholder: Report 
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform (OS)
+      description: What operating system are you running?
+      options:
+        - Windows (Default)
+        - Linux 
+        - macOS
+        - other
+    validations:
+      required: true
+  - type: input
+    id: osversion
+    attributes:
+      label: OS Version
+      description: What is your operating system version or distribution?
+    validations:
+      required: true  
+  - type: input
+    id: version
+    attributes:
+      label: What version of Sigil are you using?
+      placeholder: current
+    validations:
+      required: true
+  - type: textarea
+    id: addlinfo
+    attributes:
+      label: Any backtraces or crash reports 
+      description: Please copy and paste any relevant backtraces or crash reports output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+   - type: markdown
+    attributes:
+      value: |
+        Please attach a minimal test case if possible or screen shots of the issue if need as zip files to this issue.
