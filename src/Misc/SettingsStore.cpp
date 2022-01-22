@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020  Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2016-2022  Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2016-2020  Doug Massay
 **  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013  Dave Heiland
@@ -275,7 +275,7 @@ int SettingsStore::javascriptOn()
 int SettingsStore::showFullPathOn()
 {
     clearSettingsGroup();
-    return value(KEY_SHOWFULLPATH_ON, 0).toInt();
+    return value(KEY_SHOWFULLPATH_ON, 1).toInt();
 }
 
 int SettingsStore::highDPI()
