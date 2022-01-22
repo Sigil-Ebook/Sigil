@@ -1,16 +1,15 @@
 name: Bug Report
 description: File a bug report
 title: "[Bug]: "
-labels: ["bug", "triage"]
-assignees:
-  - None
+labels: ""
+assignees: ""
 body:
   - type: textarea
-    id: 
+    id: report
     attributes:
       label: Bug Description
       description: Describe the bug/issue and the steps needed to recreate it.
-      placeholder: Report 
+      placeholder: Bug Report 
     validations:
       required: true
   - type: dropdown
@@ -28,8 +27,8 @@ body:
   - type: input
     id: osversion
     attributes:
-      label: OS Version
-      description: What is your operating system version or distribution?
+      label: OS Version / Specifics
+      description: What specific operating system version or distribution are you using?
     validations:
       required: true  
   - type: input
