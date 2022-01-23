@@ -1,0 +1,16 @@
+name: Feature Request
+description: New feature requests are not accepted here
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **New Feature Requests are Not Accepted on Github**
+        If you would like to request a new feature, please visit the Sigil
+        Forum on www.mobileread.com.
+
+        https://www.mobileread.com/forums/forumdisplay.php?f=203
+
+        There you will find a community of dedicated users and epub developers
+        who can help evaluate any new feature requests and provide feedback.
+
+        Any new issues requesting new features placed on our GitHub site will be immediately closed.
