@@ -156,10 +156,9 @@ bool HTMLSpellCheck::IsValidChar(const QChar & c, bool use_nums)
 bool HTMLSpellCheck::IsBoundary(QChar prev_c, QChar c, QChar next_c, const QString & wordChars, bool use_nums)
 {
         
-    if (IsValidChar(c,use_nums) ) {
-        return false;
-    }
-
+    if (IsValidChar(c,use_nums) ) return false;
+    if (c == '.' && wordChars.contains(c)) return false;  // allow ending period for abbreviations
+    
     // Single quotes of ' and curly version and hyphen/emdash are sometimes a boundary
     // and sometimes not, depending on whether they are surrounded by letters or not.
     // A sentence which 'has some text' should treat the ' as a boundary but didn't should not.

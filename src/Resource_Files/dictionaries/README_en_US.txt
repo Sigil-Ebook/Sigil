@@ -1,52 +1,124 @@
-Wordlist en_US spelling and morphological dictionary for OpenOffice.org
-Version 2008-12-18
+This dictionary is based on scowl size 70 word lists from 2020.12.07 with many
+modifications.
 
-Based on Wordlist Hunspell dictionaries version 2008-12-05
-and Wordlist POS and AGID data created by Kevin Atkinson
-and released on http://wordlist.sourceforge.net.
+To make it work better with Sigil, we have pruned and edited the word list
+and to hide fewer errors behind short abbreiviations without ending ".", and
+remove many too short proper names that are not common words.
+In addition, hyphenated words have been added that are not simple creations of two words:
+i.e. absent-mindedly  (since "mindedly" is not a word in an of itself).
 
-Other fixes:
+Work will continue to remove proper names that represent people's first names where
+spelling variations are quite common.  This just clutters the dictionary and reduces
+its effectiveness .
 
-OOo Issue 48060 - add numbers with affixes by COMPOUNDRULE (1st, 111th, 1990s etc.)
-New REP items (better suggestions for accented words and a few mistakes)
-OOo Issue 63541 - remove *dessicated, *dessication
+Other changes include adding both - and . to the WORDCHARS in the .aff, extending the
+en_GB .aff replacement table to handle ow -> ough (plow -> plough), etc.
 
-László Németh <nemeth at OO.o>
+Accented characters are also kept in their original forms.
 
-Original license:
+The remainder of this README is from scowl.
 
-2008-12-05 Release
+Based on:
+en_US Hunspell Dictionary
+Version 2020.12.07
 
-README file for en_US and en_CA Hunspell dictionaries
+http://wordlist.sourceforge.net
+
+README file for English Hunspell dictionaries derived from SCOWL.
 
 These dictionaries are created using the speller/make-hunspell-dict
-dictionary in SCOWL, SVN revision 74.
+script in SCOWL.
+
+The following dictionaries are available:
+
+  en_US (American)
+  en_CA (Canadian)
+  en_GB-ise (British with "ise" spelling)
+  en_GB-ize (British with "ize" spelling)
+  en_AU (Australian)
+
+  en_US-large
+  en_CA-large
+  en_GB-large (with both "ise" and "ize" spelling)
+  en_AU-large
+
+The normal (non-large) dictionaries correspond to SCOWL size 60 and,
+to encourage consistent spelling, generally only include one spelling
+variant for a word.  The large dictionaries correspond to SCOWL size
+70 and may include multiple spelling for a word when both variants are
+considered almost equal.  The larger dictionaries however (1) have not
+been as carefully checked for errors as the normal dictionaries and
+thus may contain misspelled or invalid words; and (2) contain
+uncommon, yet valid, words that might cause problems as they are
+likely to be misspellings of more common words (for example, "ort" and
+"calender").
+
+To get an idea of the difference in size, here are 25 random words
+only found in the large dictionary for American English:
+
+  Bermejo Freyr's Guenevere Hatshepsut Nottinghamshire arrestment
+  crassitudes crural dogwatches errorless fetial flaxseeds godroon
+  incretion jalapeño's kelpie kishkes neuroglias pietisms pullulation
+  stemwinder stenoses syce thalassic zees
+
+The en_US, en_CA and en_AU are the official dictionaries for Hunspell.
+The en_GB and large dictionaries are made available on an experimental
+basis.  If you find them useful please send me a quick email at
+kevina@gnu.org.
+
+If none of these dictionaries suite you (for example, maybe you want
+the normal dictionary that also includes common variants) additional
+dictionaries can be generated at http://app.aspell.net/create or by
+modifying speller/make-hunspell-dict in SCOWL.  Please do let me know
+if you end up publishing a customized dictionary.
+
+If a word is not found in the dictionary or a word is there you think
+shouldn't be, you can lookup the word up at http://app.aspell.net/lookup
+to help determine why that is.
+
+General comments on these list can be sent directly to me at
+kevina@gnu.org or to the wordlist-devel mailing lists
+(https://lists.sourceforge.net/lists/listinfo/wordlist-devel).  If you
+have specific issues with any of these dictionaries please file a bug
+report at https://github.com/kevina/wordlist/issues.
+
+IMPORTANT CHANGES INTRODUCED In 2016.11.20:
+
+New Australian dictionaries thanks to the work of Benjamin Titze
+(btitze@protonmail.ch).
+
+IMPORTANT CHANGES INTRODUCED IN 2016.04.24:
+
+The dictionaries are now in UTF-8 format instead of ISO-8859-1.  This
+was required to handle smart quotes correctly.
+
+IMPORTANT CHANGES INTRODUCED IN 2016.01.19:
+
+"SET UTF8" was changes to "SET UTF-8" in the affix file as some
+versions of Hunspell do not recognize "UTF8".
+
+ADDITIONAL NOTES:
 
 The NOSUGGEST flag was added to certain taboo words.  While I made an
 honest attempt to flag the strongest taboo words with the NOSUGGEST
 flag, I MAKE NO GUARANTEE THAT I FLAGGED EVERY POSSIBLE TABOO WORD.
-The list was originally derived from N�meth L�szl�, however I removed
+The list was originally derived from Németh László, however I removed
 some words which, while being considered taboo by some dictionaries,
 are not really considered swear words in today's society.
 
-You can find SCOWL and friend at http://wordlist.sourceforge.net/.
-Bug reports should go to the Issue Tracker found on the previously
-mentioned web site.  General discussion should go to the
-wordlist-devel at sourceforge net mailing list.
-
 COPYRIGHT, SOURCES, and CREDITS:
 
-The en_US and en_CA dictionaries come directly from SCOWL (up to level
-60) and is thus under the same copyright of SCOWL.  The affix file is
+The English dictionaries come directly from SCOWL 
+and is thus under the same copyright of SCOWL.  The affix file is
 a heavily modified version of the original english.aff file which was
 released as part of Geoff Kuenning's Ispell and as such is covered by
 his BSD license.  Part of SCOWL is also based on Ispell thus the
 Ispell copyright is included with the SCOWL copyright.
 
-The collective work is Copyright 2000-2007 by Kevin Atkinson as well
+The collective work is Copyright 2000-2018 by Kevin Atkinson as well
 as any of the copyrights mentioned below:
 
-  Copyright 2000-2007 by Kevin Atkinson
+  Copyright 2000-2018 by Kevin Atkinson
 
   Permission to use, copy, modify, distribute and sell these word
   lists, the associated scripts, the output created from the scripts,
@@ -157,7 +229,7 @@ The 40 level includes words from Alan's 3esl list found in version 4.0
 of his 12dicts package.  Like his other stuff the 3esl list is also in the
 public domain.
 
-The 50 level includes Brian's frequency class 1, words words appearing
+The 50 level includes Brian's frequency class 1, words appearing
 in at least 5 of 12 of the dictionaries as indicated in the 12Dicts
 package, and uppercase words in at least 4 of the previous 12
 dictionaries.  A decent number of proper names is also included: The
@@ -179,20 +251,18 @@ The 55 level includes words from Alan's 2of4brif list found in version
 4.0 of his 12dicts package.  Like his other stuff the 2of4brif is also
 in the public domain.
 
-The 60 level includes Brian's frequency class 0 and all words
-appearing in at least 2 of the 12 dictionaries as indicated by the
-12Dicts package.  A large number of names are also included: The 4,946
-female names and the 3,897 male names from the MWords package.
+The 60 level includes all words appearing in at least 2 of the 12
+dictionaries as indicated by the 12Dicts package.
 
-The 70 level includes the 74,550 common dictionary words and the
-21,986 names list from the MWords package The common dictionary words,
+The 70 level includes Brian's frequency class 0 and the 74,550 common
+dictionary words from the MWords package.  The common dictionary words,
 like those from the 12Dicts package, have had all likely inflections
 added.  The 70 level also included the 5desk list from version 4.0 of
-the 12Dics package which is the public domain
+the 12Dics package which is in the public domain.
 
 The 80 level includes the ENABLE word list, all the lists in the
 ENABLE supplement package (except for ABLE), the "UK Advanced Cryptics
-Dictionary" (UKACD), the list of signature words in from YAWL package,
+Dictionary" (UKACD), the list of signature words from the YAWL package,
 and the 10,196 places list from the MWords package.
 
 The ENABLE package, mainted by M\Cooper <thegrendel@theriver.com>,
@@ -228,18 +298,38 @@ following copyright:
   There are no other restrictions: I would like to see the list
   distributed as widely as possible.
 
-The 95 level includes the 354,984 single words and 256,772 compound
-words from the MWords package, ABLE.LST from the ENABLE Supplement,
-and some additional words found in my part-of-speech database that
-were not found anywhere else.
+The 95 level includes the 354,984 single words, 256,772 compound
+words, 4,946 female names and the 3,897 male names, and 21,986 names
+from the MWords package, ABLE.LST from the ENABLE Supplement, and some
+additional words found in my part-of-speech database that were not
+found anywhere else.
 
 Accent information was taken from UKACD.
 
-My VARCON package was used to create the American, British, and
-Canadian word list. 
+The VarCon package was used to create the American, British, Canadian,
+and Australian word list.  It is under the following copyright:
 
-Since the original word lists used used in the VARCON package came
-from the Ispell distribution they are under the Ispell copyright:
+  Copyright 2000-2016 by Kevin Atkinson
+
+  Permission to use, copy, modify, distribute and sell this array, the
+  associated software, and its documentation for any purpose is hereby
+  granted without fee, provided that the above copyright notice appears
+  in all copies and that both that copyright notice and this permission
+  notice appear in supporting documentation. Kevin Atkinson makes no
+  representations about the suitability of this array for any
+  purpose. It is provided "as is" without express or implied warranty.
+
+  Copyright 2016 by Benjamin Titze
+
+  Permission to use, copy, modify, distribute and sell this array, the
+  associated software, and its documentation for any purpose is hereby
+  granted without fee, provided that the above copyright notice appears
+  in all copies and that both that copyright notice and this permission
+  notice appear in supporting documentation. Benjamin Titze makes no
+  representations about the suitability of this array for any
+  purpose. It is provided "as is" without express or implied warranty.
+
+  Since the original words lists come from the Ispell distribution:
 
   Copyright 1993, Geoff Kuenning, Granada Hills, CA
   All rights reserved.
@@ -262,15 +352,17 @@ from the Ispell distribution they are under the Ispell copyright:
      products derived from this software without specific prior
      written permission.
 
-  THIS SOFTWARE IS PROVIDED BY GEOFF KUENNING AND CONTRIBUTORS ``AS
-  IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-  FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL GEOFF
-  KUENNING OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  POSSIBILITY OF SUCH DAMAGE.
+  THIS SOFTWARE IS PROVIDED BY GEOFF KUENNING AND CONTRIBUTORS ``AS IS'' AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED.  IN NO EVENT SHALL GEOFF KUENNING OR CONTRIBUTORS BE LIABLE
+  FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+  OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+  OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+  SUCH DAMAGE.
+
+Build Date: Sun Oct  6 20:46:19 EDT 2019
+Wordlist Command: mk-list --accents=strip en_US 60

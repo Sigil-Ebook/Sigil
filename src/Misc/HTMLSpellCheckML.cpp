@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020 Kevin B. Hendrickws, Stratford Ontario Canada
+**  Copyright (C) 2020-2022 Kevin B. Hendrickws, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -102,6 +102,7 @@ bool HTMLSpellCheckML::IsBoundary(QChar prev_c, QChar c, QChar next_c, const QSt
 {
         
     if (IsValidChar(c,use_nums) ) return false;
+    if (c == '.' && wordChars.contains(c)) return false;  // allow ending period for abbreviations
     // Single quotes of ' and curly version and hyphen/emdash are sometimes a boundary
     // and sometimes not, depending on whether they are surrounded by letters or not.
     // A sentence which 'has some text' should treat the ' as a boundary but didn't should not.
