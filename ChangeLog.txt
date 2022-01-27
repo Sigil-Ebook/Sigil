@@ -30,6 +30,8 @@ pre-1.9.0-beta
      - Add ability to rename classes when editing stylesheet in CV, will rename in all html as needed     
      - SpellcheckEditor now uses LocaleAware sorting vs Case-Insensitive which did not handle diacritics well
      - Speed up loading of epubs with large numbers of xhtml files by using concurrency
+     - New Hunspell spelling dictionaries based on scowl size 70 for en_GB and en_US
+     - Support ending "." in spellchecker wordbreaks for better abbreviations is dictionary aff supports it
 
 
 Sigil-1.8.0
