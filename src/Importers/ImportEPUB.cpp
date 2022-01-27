@@ -65,7 +65,7 @@
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/Resource.h"
-#include "ResourceObjects/OPFParser.h"
+#include "Parsers/OPFParser.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 

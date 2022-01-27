@@ -45,7 +45,6 @@
 #include "ResourceObjects/ImageResource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
-#include "ResourceObjects/OPFParser.h"
 #include "ResourceObjects/NavProcessor.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"

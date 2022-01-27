@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -23,11 +23,11 @@
 #include <memory>
 #include <functional>
 
-#include <QtCore/QtCore>
-#include <QtCore/QDir>
-#include <QtCore/QFileInfo>
-#include <QtCore/QFutureSynchronizer>
-#include <QtConcurrent/QtConcurrent>
+#include <QtCore>
+#include <QDir>
+#include <QFileInfo>
+#include <QFutureSynchronizer>
+#include <QtConcurrent>
 #include <QDebug>
 
 #include "BookManipulation/CleanSource.h"
@@ -36,6 +36,7 @@
 #include "BookManipulation/XhtmlDoc.h"
 #include "Importers/ImportHTML.h"
 #include "Parsers/GumboInterface.h"
+#include "Parsers/OPFParser.h" // for MetaEntry
 #include "Misc/HTMLEncodingResolver.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/TempFolder.h"

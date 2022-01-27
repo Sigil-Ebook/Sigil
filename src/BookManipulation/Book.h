@@ -29,7 +29,7 @@
 #include <QUrl>
 #include <QPair>
 #include <QFuture>
-#include "ResourceObjects/OPFParser.h"
+#include "Parsers/OPFParser.h" // for MetaEntry
 #include "BookManipulation/XhtmlDoc.h"
 #include "ResourceObjects/Resource.h"
 

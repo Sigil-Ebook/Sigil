@@ -67,8 +67,6 @@ set( RESOURCE_OBJECT_FILES
     ResourceObjects/SVGResource.h
     ResourceObjects/FontResource.cpp
     ResourceObjects/FontResource.h
-    ResourceObjects/OPFParser.cpp
-    ResourceObjects/OPFParser.h
     ResourceObjects/OPFResource.cpp
     ResourceObjects/OPFResource.h
     ResourceObjects/NavProcessor.cpp
@@ -290,6 +288,8 @@ set( PARSERS_FILES
     Parsers/QuickParser.h
     Parsers/TagLister.cpp
     Parsers/TagLister.h
+    Parsers/OPFParser.cpp
+    Parsers/OPFParser.h
    )
 
 set( EMBEDPYTHON_FILES

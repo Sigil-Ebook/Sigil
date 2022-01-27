@@ -28,7 +28,7 @@
 #include <memory>
 #include "Misc/GuideItems.h"
 #include "ResourceObjects/XMLResource.h"
-#include "ResourceObjects/OPFParser.h"
+#include "Parsers/OPFParser.h"
 
 class HTMLResource;
 class ImageResource;

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2016-2022 Kevin B. Hendricks Stratford, ON, Canada 
 **
 **  This file is part of Sigil.
 **
@@ -27,7 +27,7 @@
 #include <QObject>
 
 #include "Parsers/GumboInterface.h"
-#include "ResourceObjects/OPFParser.h"
+#include "Parsers/OPFParser.h" // for MetaEntry
 
 class QMutex;
 class QString;
