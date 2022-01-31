@@ -118,6 +118,46 @@ modified for use inside Sigil:
 * Beautiful Soup 4 (src/Resource_Files/plugin_launchers/sigil_bs4)
 * Google's Gumbo Parser (internal/gumbo)
 
+
+
+Sigil in Action
+===============
+
+![Sigil](docs/screencaps/sigil.png?raw=true) Sigil Main Window
+    
+
+![Sigil Dark Mode](docs/screencaps/sigil_dark.png?raw=true) Dark Mode
+
+
+![Generate TOC](docs/screencaps/generate_toc.png?raw=true) Generate ToC
+
+
+![Plugins](docs/screencaps/manage_plugins.png?raw=true) Python3 Plugins
+
+
+![Edit Metadata](docs/screencaps/edit_metadata.png?raw=true) Edit Metadata
+
+
+![Reports](docs/screencaps/reports.png?raw=true) Run Reports
+
+
+![Checkpoint Compare](docs/screencaps/checkpoint_compare.png?raw=true) Detect Changes
+
+
+![Preview Inspector](docs/screencaps/preview_inspector.png?raw=true) Preview's Inspector
+
+
+![Custom Layout](docs/screencaps/sigil_custom.png?raw=true) Customize Your Layout
+
+
+![Validation](docs/screencaps/validation_via_plugins.png?raw=true) Validate EPUB, CSS, XHTML, etc.
+
+
+![PageEdit Companion Program](docs/screencaps/pageedit.png?raw=true) Interface to PageEdit Visual XHtml Editor
+
+
+
+
 Package Versions of Sigil
 =========================
 
