@@ -271,16 +271,21 @@ void OPFResource::MoveReadingOrder(const HTMLResource* from_resource, const HTML
     int from_pos = -1;
     int after_pos = -1;
     int spine_count = p.m_spine.count();
-    for (int i = 0; i < spine_count; ++i) {
+    for (int i = 0; i < spine_count; i++) {
         QString aref = p.m_spine.at(i).m_idref;
         if (aref == from_id) from_pos = i;
         if (aref == after_id) after_pos = i;
     }
+
     if ((from_pos < 0) || (after_pos < 0)) return;
     if (from_pos >= spine_count || after_pos >= spine_count) return;
-    // a move is equivalent to the sequence insert(to, takeAt(from))
-    // Note the takeAt(from) effectively increases the to position by one so be careful
-    p.m_spine.move(from_pos, after_pos);
+    // a move is equivalent to the sequence insert(after, takeAt(from))
+    // if takeAt pos <  after pos, it effectively increases the after position by one
+    // if takeAt pos > after pos, you need to increment after pos by 1
+    if (from_pos != after_pos + 1) {
+        if (from_pos > after_pos) after_pos += 1;
+        p.m_spine.move(from_pos, after_pos);
+    }
     UpdateText(p);
 }
 
@@ -635,15 +640,6 @@ void OPFResource::AddResource(const Resource *resource)
     me.m_mtype = GetResourceMimetype(resource);
     // Argh! If this is an new blank resource - it will have no content yet
     // so trying to parse it here to check for manifest properties is a mistake
-    // if (resource->Type() == Resource::HTMLResourceType) {
-    //     if (p.m_package.m_version == "3.0") {
-    //         const HTMLResource * html_resource = qobject_cast<const HTMLResource *>(resource);
-    //         QStringList properties = html_resource->GetManifestProperties();
-    //         if (properties.count() > 0) {
-    //             me.m_atts["properties"] = properties.join(QString(" "));
-    //         }
-    //     }
-    // }
     int n = p.m_manifest.count();
     p.m_manifest.append(me);
     p.m_idpos[me.m_id] = n;
@@ -734,7 +730,6 @@ void OPFResource::AddCoverMetaForImage(const Resource *resource, OPFParser &p)
 void OPFResource::BulkRemoveResources(const QList<Resource *>resources)
 {
     QWriteLocker locker(&GetLock());
-    qDebug() << "OPF Bulk Remove Resource";
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
@@ -785,7 +780,6 @@ void OPFResource::BulkRemoveResources(const QList<Resource *>resources)
 void OPFResource::RemoveResource(const Resource *resource)
 {
     QWriteLocker locker(&GetLock());
-    qDebug() << "OPF Remove Resource";
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);

@@ -428,7 +428,9 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf,
     return html_resource;
 }
 
-
+#if 0
+// Note: Broken -  CreateNewHTMLFile already appends to the end of the spine and if needed
+// You can move using the OPFResource to change Reading Order much faster
 HTMLResource *Book::CreateEmptyHTMLFile(HTMLResource *resource, const QString &folderpath)
 {
     HTMLResource *new_resource = CreateNewHTMLFile(folderpath);
@@ -451,6 +453,7 @@ HTMLResource *Book::CreateEmptyHTMLFile(HTMLResource *resource, const QString &f
     SetModified(true);
     return new_resource;
 }
+#endif
 
 
 void Book::MoveResourceAfter(HTMLResource *from_resource, HTMLResource *to_resource)
@@ -1233,7 +1236,6 @@ QPair<QString, QString> Book::UpdateAndExtractBodyInOneFile(Resource * resource,
     QString startdir = htmlresource->GetFolder();
     QString version = htmlresource->GetEpubVersion();
     QString bookpath = htmlresource->GetRelativePath();
-    qDebug() << "update and extract body of " << bookpath;
     GumboInterface gi = GumboInterface(htmlresource->GetText(), version);
     gi.parse();
     const QList<GumboNode*> anchor_nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_A);

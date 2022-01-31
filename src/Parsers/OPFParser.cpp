@@ -126,7 +126,7 @@ QString ManifestEntry::convert_to_xml() const
 /**
  * spine attributes
  */
- 
+
 SpineAttrEntry::SpineAttrEntry(const TagAtts& atts)
     : m_atts(atts)
 {
