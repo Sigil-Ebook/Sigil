@@ -1,7 +1,7 @@
 /************************************************************************
  **
- **  Copyright (C) 2014-2021 Kevin B. Hendricks, Stratford Ontario Canada
- **  Copyright (C) 2020      Doug Massay
+ **  Copyright (C) 2014-2022 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2022 Doug Massay
  **
  **  This file is part of Sigil.
  **
@@ -318,12 +318,12 @@ void PluginRunner::startPlugin()
     args.append(QDir::toNativeSeparators(m_pluginPath));
     QString executable = QDir::toNativeSeparators(m_enginePath);
 
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
 #ifdef Q_OS_MAC
     // On Mac OS X, it appears that QProcess does not inherit the callers process environment at all
     // which directly contradicts the Qt documentation.
     // So we simply read the system environment and set it for QProcess manually
     // so that python getpreferredencoding() and stdout/stderr/stdin encodings to get properly set
-    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     if (settings.useBundledInterp()) {
          // determine path to site-packages/certifi/cacert.pem to set SSL_CERT_FILE
          QDir exedir(QCoreApplication::applicationDirPath());
@@ -333,11 +333,8 @@ void PluginRunner::startPlugin()
          env.insert("QT_PLUGIN_PATH", QDir(QCoreApplication::applicationDirPath() + "/../PlugIns").absolutePath());
          env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir(QCoreApplication::applicationDirPath() + "/../PlugIns/platforms").absolutePath());
     }
-    m_process.setProcessEnvironment(env);
 #elif defined(Q_OS_WIN32)
     if (settings.useBundledInterp()) {
-        // Start with system environment.
-        QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
         // Set Python env variables to control how the bundled interpreter finds it's various pieces
         // (and to isolate the bundled interpreter from any system Python).
         // Relative to the interpreter binary to make it easier to relocate the bundled Python.
@@ -363,16 +360,12 @@ void PluginRunner::startPlugin()
         // Prepend Sigil program directory to PATH so the bundled interpreter
         // can find the correct Qt libs (for PyQt5) and the Python dll.
         env.insert("PATH", QDir::toNativeSeparators(QCoreApplication::applicationDirPath() + PATH_LIST_DELIM + env.value("PATH")));
-        // Set bundled Python environment.
-        m_process.setProcessEnvironment(env);
     }
     //Whether bundled or external, set working dir to the directory of the interpreter being used.
     m_process.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     QString appdir = QCoreApplication::applicationDirPath();
     if (settings.useBundledInterp()) {  // Linux bundled Python settings
-        // Start with system environment.
-        QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
         // Set Python env variables to control how the bundled interpreter finds it's various pieces
         // (and to isolate the bundled interpreter from any system Python).
         // Relative to the interpreter binary to make it easier to relocate the bundled Python.
@@ -403,15 +396,11 @@ void PluginRunner::startPlugin()
         ld.prepend(appdir);
         // Reset modified LD_LIBRARY_PATH
         env.insert("LD_LIBRARY_PATH", ld.join(PATH_LIST_DELIM));
-        // Set bundled Linux Python interpreter environment.
-        m_process.setProcessEnvironment(env);
         // If launched by another program (calibre), the new working directory could mess with how the
         // bundled interpreter finds/loads PyQt5. So set it manually to the bundled interpreter's directory.
         m_process.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
     }
     else {  // Linux native Python settings
-        // Start with system environment.
-        QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
         // Remove Sigil's appdir from LD_LIBRARY_PATH if it exists in environment so system Python can run unimpeded.
         QStringList ld = env.value("LD_LIBRARY_PATH", "").split(PATH_LIST_DELIM);
         ld.removeAll(appdir);
@@ -422,11 +411,12 @@ void PluginRunner::startPlugin()
         else {
             env.remove("LD_LIBRARY_PATH");
         }
-        // Set native Linux Python interpreter environment.
-        m_process.setProcessEnvironment(env);
     }
 #endif
 
+    // For plugins to handle mismatches between PyQt5 and PySide6
+    env.insert("SIGIL_QT_RUNTIME_VERSION", QString(qVersion()));
+    m_process.setProcessEnvironment(env);
     m_process.start(executable, args);
     ui.statusLbl->setText(tr("Status: running"));
 
