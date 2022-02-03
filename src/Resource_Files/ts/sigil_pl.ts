@@ -2664,7 +2664,7 @@ położenia i nazw dla plików OPF, NCV i/lub Nav.</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="216"/>
         <source>Restart</source>
-        <translation>Restart</translation>
+        <translation>Od początku</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="223"/>
@@ -15352,7 +15352,7 @@ Typ zbioru</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="69"/>
         <source>quantifier does not follow a repeatable item</source>
-        <translation type="unfinished"/>
+        <translation>kwantyfikator nie następuje po powtarzalnym elemencie</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="72"/>
@@ -15392,7 +15392,7 @@ Typ zbioru</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="81"/>
         <source>unrecognised compile-time option bit(s)</source>
-        <translation type="unfinished"/>
+        <translation>nierozpoznane bit(y) opcji podczas kompilacji</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="82"/>
@@ -15437,7 +15437,7 @@ Typ zbioru</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="94"/>
         <source>a relative value of zero is not allowed</source>
-        <translation type="unfinished"/>
+        <translation>względna wartość zero jest niedozwolona</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="95"/>
@@ -15482,17 +15482,17 @@ Typ zbioru</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="107"/>
         <source>lookbehind is too complicated</source>
-        <translation type="unfinished"/>
+        <translation>lookbehind zbyt skomplikowane</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="108"/>
         <source>\C is not allowed in a lookbehind assertion in UTF-16 mode</source>
-        <translation type="unfinished"/>
+        <translation>\C jest niedozwolone w asercji lookbehind w trybie UTF-16</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="109"/>
         <source>PCRE2 does not support \F, \L, \l, \N{name}, \U, or \u</source>
-        <translation type="unfinished"/>
+        <translation>PCRE2 nie obsługuje \F, \L, \l, \N{name}, \U, ani \u</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="110"/>
@@ -15597,12 +15597,12 @@ Typ zbioru</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="138"/>
         <source>(?R (recursive pattern call) must be followed by a closing parenthesis</source>
-        <translation type="unfinished"/>
+        <translation>po (?R (recursive pattern call) musi następować nawias zamykający</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="139"/>
         <source>obsolete error (should not occur)</source>
-        <translation type="unfinished"/>
+        <translation>przestarzały błąd (nie powinien wystąpić)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="142"/>
@@ -15612,7 +15612,7 @@ Typ zbioru</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="143"/>
         <source>subpattern number is too big</source>
-        <translation type="unfinished"/>
+        <translation>zbyt duży numer podwzorca</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="144"/>
@@ -15622,7 +15622,7 @@ Typ zbioru</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="145"/>
         <source>internal error: parsed pattern overflow</source>
-        <translation type="unfinished"/>
+        <translation>błąd wewnętrzny: przepełnienie analizowanego wzorca</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="146"/>
@@ -15657,7 +15657,7 @@ Typ zbioru</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="156"/>
         <source>internal error: unknown meta code in check_lookbehinds()</source>
-        <translation type="unfinished"/>
+        <translation>błąd wewnętrzny: nieznany kod meta w check_lookbehinds()</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="157"/>
@@ -15667,7 +15667,7 @@ Typ zbioru</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="158"/>
         <source>callout string is too long</source>
-        <translation type="unfinished"/>
+        <translation>za długi ciąg objaśnienia</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="159"/>
@@ -15707,7 +15707,7 @@ Typ zbioru</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="170"/>
         <source>internal error: unknown opcode in auto_possessify()</source>
-        <translation type="unfinished"/>
+        <translation>błąd wewnętrzny: nieznany kod operacji w auto_possessify()</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="171"/>
@@ -15742,7 +15742,7 @@ Typ zbioru</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="179"/>
         <source>lookbehind assertion is too long</source>
-        <translation type="unfinished"/>
+        <translation>za długa asercja lookbehind</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="180"/>
@@ -15752,57 +15752,57 @@ Typ zbioru</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="181"/>
         <source>internal error: unknown code in parsed pattern</source>
-        <translation type="unfinished"/>
+        <translation>błąd wewnętrzny: nieznany kod w analizowanym wzorcu</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="184"/>
         <source>internal error: bad code value in parsed_skip()</source>
-        <translation type="unfinished"/>
+        <translation>błąd wewnętrzny: zła wartość kodu w parsed_skip()</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="185"/>
         <source>PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES is not allowed in UTF-16 mode</source>
-        <translation type="unfinished"/>
+        <translation>PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES jest niedozwolona w trybie UTF-16</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="186"/>
         <source>invalid option bits with PCRE2_LITERAL</source>
-        <translation type="unfinished"/>
+        <translation>nieprawidłowe bity opcji z PCRE2_LITERAL</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="187"/>
         <source>\N{U+dddd} is supported only in Unicode (UTF) mode</source>
-        <translation type="unfinished"/>
+        <translation>\N{U+dddd} jest obsługiwane tylko w trybie Unicode (UTF)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="188"/>
         <source>invalid hyphen in option setting</source>
-        <translation type="unfinished"/>
+        <translation>nieprawidłowy łącznik w ustawieniach opcji</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="191"/>
         <source>(*alpha_assertion) not recognized</source>
-        <translation type="unfinished"/>
+        <translation>nie rozpoznano (*alpha_assertion)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="192"/>
         <source>script runs require Unicode support, which this version of PCRE2 does not have</source>
-        <translation type="unfinished"/>
+        <translation>uruchamianie skryptów wymaga obsługi Unicode, której ta wersja PCRE2 nie posiada</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="193"/>
         <source>too many capturing groups (maximum 65535)</source>
-        <translation type="unfinished"/>
+        <translation>zbyt wiele grup przechwytywania (maksymalnie 65535)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="194"/>
         <source>atomic assertion expected after (?( or (?(?C)</source>
-        <translation type="unfinished"/>
+        <translation>oczekiwano asercji atomowej po  (?( lub (?(?C)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="195"/>
         <source>\K is not allowed in lookarounds (but see PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK)</source>
-        <translation type="unfinished"/>
+        <translation>\K jest niedozwolone w lookarounds (ale zobacz PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK)</translation>
     </message>
 </context>
 <context>

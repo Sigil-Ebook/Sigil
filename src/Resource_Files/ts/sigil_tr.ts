@@ -731,7 +731,7 @@ CSS&apos;nizde bir sans-serif yazı tipi ailesi belirtilmişse</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="167"/>
         <source>[String parameter for next Plugin run here]</source>
-        <translation type="unfinished"/>
+        <translation>[Bir sonraki Eklentinin burada çalıştırılması için dize parametresi]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="300"/>
@@ -826,7 +826,7 @@ CSS&apos;nizde bir sans-serif yazı tipi ailesi belirtilmişse</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="318"/>
         <source>set a string parameter to be passed to the next plugin.</source>
-        <translation type="unfinished"/>
+        <translation>sonraki eklentiye geçirilecek bir dize parametresi ayarlayın.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="320"/>
@@ -851,7 +851,7 @@ CSS&apos;nizde bir sans-serif yazı tipi ailesi belirtilmişse</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="324"/>
         <source>Perform a basic Well-Formed Check on Epub XHtml files.</source>
-        <translation type="unfinished"/>
+        <translation>Epub XHtml dosyalarında temel bir İyi Biçimlendirilmiş Kontrol gerçekleştirin.</translation>
     </message>
 </context>
 <context>
@@ -1828,7 +1828,7 @@ Değişikliklerinizi kaydetmek istiyor musunuz?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1496"/>
         <source>Rename Selected Class</source>
-        <translation type="unfinished"/>
+        <translation>Seçilen Sınıfı Yeniden Adlandır</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1518"/>
@@ -1903,27 +1903,27 @@ Değişikliklerinizi kaydetmek istiyor musunuz?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1843"/>
         <source>Selected Text is not a valid class name.</source>
-        <translation type="unfinished"/>
+        <translation>Seçili Metin geçerli bir sınıf adı değil.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1850"/>
         <source>Rename Class</source>
-        <translation type="unfinished"/>
+        <translation>Sınıfı Yeniden Adlandır</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1851"/>
         <source>Enter new class name</source>
-        <translation type="unfinished"/>
+        <translation>Yeni sınıf adını girin</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1871"/>
         <source>Class renamed.</source>
-        <translation type="unfinished"/>
+        <translation>Sınıf yeniden adlandırıldı.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1873"/>
         <source>Class rename aborted.</source>
-        <translation type="unfinished"/>
+        <translation>Sınıf yeniden adlandırma iptal edildi.</translation>
     </message>
 </context>
 <context>
@@ -2215,7 +2215,7 @@ diğer ucu aramaya devam etmek için.</translation>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="27"/>
         <source>Select / Unselect all</source>
-        <translation type="unfinished"/>
+        <translation>Seç / Seçimi Kaldır</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="68"/>
@@ -2243,7 +2243,7 @@ diğer ucu aramaya devam etmek için.</translation>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="27"/>
         <source>Select / Unselect all</source>
-        <translation type="unfinished"/>
+        <translation>Seç / Seçimi Kaldır</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="80"/>
@@ -2657,12 +2657,12 @@ OPF, NCX ve / veya Nav için yerler ve isimler.</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="210"/>
         <source>Restart current search from beginning.</source>
-        <translation type="unfinished"/>
+        <translation>Mevcut aramayı baştan yeniden başlatın.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="216"/>
         <source>Restart</source>
-        <translation type="unfinished"/>
+        <translation>Yeniden başlat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="223"/>
@@ -2773,7 +2773,7 @@ ardından Kod Görünümü&apos;nde Sonraki eşleşmeyi bulun.</translation>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="248"/>
         <source>Search will restart</source>
-        <translation type="unfinished"/>
+        <translation>Arama yeniden başlatılacak</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="271"/>
@@ -3340,18 +3340,18 @@ tamir edildi.</translation>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="536"/>
         <source>Disable GPU Acceleration in QtWebEngine/Preview</source>
-        <translation type="unfinished"/>
+        <translation>QtWebEngine/Önizlemede GPU Hızlandırmayı Devre Dışı Bırak</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="539"/>
         <source> Disable GPU Acceleration in QtWebEngine/Preview.</source>
-        <translation type="unfinished"/>
+        <translation>QtWebEngine/Önizleme&apos;de GPU Hızlandırmayı devre dışı bırakın.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="554"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="557"/>
         <source>Disable GPU Acceleration in QtWebEngine.</source>
-        <translation type="unfinished"/>
+        <translation>QtWebEngine&apos;de GPU Hızlandırmayı devre dışı bırakın.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="209"/>
@@ -4114,7 +4114,9 @@ Daha sonra yukarıdaki listeden tek tek başlıkları işaretleyebilir veya bunl
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements. Sigil can automatically fix these files, although this may very rarely result in minor data loss in extreme circumstances.
 
 Do you want to automatically fix the files?</source>
-        <translation type="unfinished"/>
+        <translation>Bu EPUB, iyi biçimlendirilmemiş veya DOCTYPE, html, head veya body öğelerinin eksik olduğu HTML dosyalarına sahiptir. Sigil, bu dosyaları otomatik olarak düzeltebilir, ancak bu, aşırı durumlarda çok nadiren küçük veri kayıplarına neden olabilir.
+
+Dosyaları otomatik olarak düzeltmek istiyor musunuz?</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="589"/>
@@ -10750,7 +10752,7 @@ Bu eylem tersine çevrilemez.</translation>
         <location filename="../../MainUI/MainWindow.cpp" line="5066"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5539"/>
         <source>Sigil [std]</source>
-        <translation type="unfinished"/>
+        <translation>Sigil [std]</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="804"/>
@@ -15339,7 +15341,7 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="67"/>
         <source>escape sequence is invalid in character class</source>
-        <translation type="unfinished"/>
+        <translation>karakter sınıfında kaçış dizisi geçersiz</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="68"/>
@@ -15349,7 +15351,7 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="69"/>
         <source>quantifier does not follow a repeatable item</source>
-        <translation type="unfinished"/>
+        <translation>niceleyici tekrarlanabilir bir öğeyi takip etmez</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="72"/>
@@ -15374,7 +15376,7 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="76"/>
         <source>missing closing parenthesis</source>
-        <translation type="unfinished"/>
+        <translation>eksik kapanış parantezi</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="79"/>
@@ -15384,17 +15386,17 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="80"/>
         <source>pattern passed as NULL</source>
-        <translation type="unfinished"/>
+        <translation>desen BOŞ olarak geçti</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="81"/>
         <source>unrecognised compile-time option bit(s)</source>
-        <translation type="unfinished"/>
+        <translation>tanınmayan derleme zamanı seçeneği bit(leri)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="82"/>
         <source>missing ) after (?# comment</source>
-        <translation type="unfinished"/>
+        <translation>eksik ) sonra (?# yorum</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="83"/>
@@ -15409,12 +15411,12 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="87"/>
         <source>failed to allocate heap memory</source>
-        <translation type="unfinished"/>
+        <translation>yığın bellek tahsis edilemedi</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="88"/>
         <source>unmatched closing parenthesis</source>
-        <translation type="unfinished"/>
+        <translation>eşlenmeyen kapanış parantezi</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="89"/>
@@ -15424,7 +15426,7 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="90"/>
         <source>missing closing parenthesis for condition</source>
-        <translation type="unfinished"/>
+        <translation>koşul için eksik kapanış parantezi</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="93"/>
@@ -15434,22 +15436,22 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="94"/>
         <source>a relative value of zero is not allowed</source>
-        <translation type="unfinished"/>
+        <translation>göreli sıfır değerine izin verilmez</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="95"/>
         <source>conditional subpattern contains more than two branches</source>
-        <translation type="unfinished"/>
+        <translation>koşullu alt model ikiden fazla dal içeriyor</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="96"/>
         <source>assertion expected after (?( or (?(?C)</source>
-        <translation type="unfinished"/>
+        <translation>(?( or (?(?C) sonrasında beklenen arama</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="97"/>
         <source>digit expected after (?+ or (?-<byte value="x0"/></source>
-        <translation type="unfinished"/>
+        <translation>(?+ veya (?- sonrasında beklenen rakam&lt;byte value=&quot;x0&quot;/&gt;</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="100"/>
@@ -15459,12 +15461,12 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="101"/>
         <source>internal error in pcre2_study(): should not occur</source>
-        <translation type="unfinished"/>
+        <translation>pcre2_çalışmasında() içindeki dahili hata: oluşmamalıdır</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="102"/>
         <source>this version of PCRE2 does not have Unicode support</source>
-        <translation type="unfinished"/>
+        <translation>PCRE2&apos;nin bu sürümü Unicode desteğine sahip değil</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="103"/>
@@ -15474,37 +15476,37 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="104"/>
         <source>character code point value in \x{} or \o{} is too large</source>
-        <translation type="unfinished"/>
+        <translation>\x{} veya \o{} içindeki karakter kod noktası değeri çok büyük</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="107"/>
         <source>lookbehind is too complicated</source>
-        <translation type="unfinished"/>
+        <translation>geriye doğru arama çok karmaşık</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="108"/>
         <source>\C is not allowed in a lookbehind assertion in UTF-16 mode</source>
-        <translation type="unfinished"/>
+        <translation>UTF-16 modunda geriye dönük onaylamada \C&apos;ye izin verilmez</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="109"/>
         <source>PCRE2 does not support \F, \L, \l, \N{name}, \U, or \u</source>
-        <translation type="unfinished"/>
+        <translation>PCRE2 \F, \L, \l, \N{ad}, \U veya \u&apos;yu desteklemez</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="110"/>
         <source>number after (?C is greater than 255</source>
-        <translation type="unfinished"/>
+        <translation>sonraki sayı (?C 255&apos;ten büyük</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="111"/>
         <source>closing parenthesis for (?C expected</source>
-        <translation type="unfinished"/>
+        <translation>(?C bekleniyor için parantez kapatma</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="114"/>
         <source>invalid escape sequence in (*VERB) name</source>
-        <translation type="unfinished"/>
+        <translation>(*VERB) adında geçersiz kaçış dizisi</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="115"/>
@@ -15514,22 +15516,22 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="116"/>
         <source>syntax error in subpattern name (missing terminator?)</source>
-        <translation type="unfinished"/>
+        <translation>alt model adında sözdizimi hatası (eksik sonlandırıcı?)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="117"/>
         <source>two named subpatterns have the same name (PCRE2_DUPNAMES not set)</source>
-        <translation type="unfinished"/>
+        <translation>adlandırılmış iki alt model aynı ada sahiptir (PCRE2_DUPNAMES ayarlanmamıştır)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="118"/>
         <source>subpattern name must start with a non-digit</source>
-        <translation type="unfinished"/>
+        <translation>alt model adı, harf ile başlamalıdır</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="121"/>
         <source>this version of PCRE2 does not have support for \P, \p, or \X</source>
-        <translation type="unfinished"/>
+        <translation>PCRE2&apos;nin bu sürümü \P, \p veya \X için destek sağlamaz</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="122"/>
@@ -15544,7 +15546,7 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="124"/>
         <source>subpattern name is too long (maximum 32 code units)</source>
-        <translation type="unfinished"/>
+        <translation>alt model adı çok uzun (azami 32 kod birimi)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="125"/>
@@ -15574,7 +15576,7 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="132"/>
         <source>DEFINE subpattern contains more than one branch</source>
-        <translation type="unfinished"/>
+        <translation>DEFINE alt modeli birden fazla dal içeriyor</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="135"/>
@@ -15584,7 +15586,7 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="136"/>
         <source>internal error: unknown newline setting</source>
-        <translation type="unfinished"/>
+        <translation>dahili hata: bilinmeyen yeni satır ayarı</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="137"/>
@@ -15594,12 +15596,12 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="138"/>
         <source>(?R (recursive pattern call) must be followed by a closing parenthesis</source>
-        <translation type="unfinished"/>
+        <translation>(?R (yinelemeli model çağrısı) ardından bir kapanış parantezi gelmelidir</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="139"/>
         <source>obsolete error (should not occur)</source>
-        <translation type="unfinished"/>
+        <translation>eski hata (olmamalı)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="142"/>
@@ -15609,7 +15611,7 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="143"/>
         <source>subpattern number is too big</source>
-        <translation type="unfinished"/>
+        <translation>alt model numarası çok büyük</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="144"/>
@@ -15619,7 +15621,7 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="145"/>
         <source>internal error: parsed pattern overflow</source>
-        <translation type="unfinished"/>
+        <translation>dahili hata: ayrıştırılmış desen taşması</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="146"/>
@@ -15644,7 +15646,7 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="152"/>
         <source>\c must be followed by a printable ASCII character</source>
-        <translation type="unfinished"/>
+        <translation>\c&apos;den sonra yazdırılabilir bir ASCII karakteri gelmelidir</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="153"/>
@@ -15654,7 +15656,7 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="156"/>
         <source>internal error: unknown meta code in check_lookbehinds()</source>
-        <translation type="unfinished"/>
+        <translation>dahili hata: kontrol_sırasında() içindeki bilinmeyen meta kod</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="157"/>
@@ -15664,7 +15666,7 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="158"/>
         <source>callout string is too long</source>
-        <translation type="unfinished"/>
+        <translation>belirtme çizgisi çok uzun</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="159"/>
@@ -15674,12 +15676,12 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="160"/>
         <source>using UTF is disabled by the application</source>
-        <translation type="unfinished"/>
+        <translation>UTF kullanımı uygulama tarafından devre dışı bırakıldı</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="163"/>
         <source>using UCP is disabled by the application</source>
-        <translation type="unfinished"/>
+        <translation>UCP kullanımı uygulama tarafından devre dışı bırakıldı</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="164"/>
@@ -15689,117 +15691,117 @@ Kaydetmeden önce dosyaları otomatik olarak onarmak istiyor musunuz?</translati
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="165"/>
         <source>character code point value in \u.... sequence is too large</source>
-        <translation type="unfinished"/>
+        <translation>\u.... dizisindeki karakter kod noktası değeri çok büyük</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="166"/>
         <source>digits missing in \x{} or \o{} or \N{U+}</source>
-        <translation type="unfinished"/>
+        <translation>\x{} veya \o{} veya \N{U+}&apos;da rakamlar eksik</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="167"/>
         <source>syntax error or number too big in (?(VERSION condition</source>
-        <translation type="unfinished"/>
+        <translation>sözdizimi hatası veya sayı çok büyük (?(SÜRÜM koşulu</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="170"/>
         <source>internal error: unknown opcode in auto_possessify()</source>
-        <translation type="unfinished"/>
+        <translation>dahili hata: otomatik_ele geçirmede bilinmeyen işlem kodu ()</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="171"/>
         <source>missing terminating delimiter for callout with string argument</source>
-        <translation type="unfinished"/>
+        <translation>dize argümanıyla belirtme çizgisi için eksik sonlandırma sınırlayıcısı</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="172"/>
         <source>unrecognized string delimiter follows (?C</source>
-        <translation type="unfinished"/>
+        <translation>tanınmayan dize sınırlayıcı aşağıdakileri izler (?C</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="173"/>
         <source>using \C is disabled by the application</source>
-        <translation type="unfinished"/>
+        <translation>\C kullanımı uygulama tarafından devre dışı bırakıldı</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="174"/>
         <source>(?| and/or (?J: or (?x: parentheses are too deeply nested</source>
-        <translation type="unfinished"/>
+        <translation>(?| ve/veya (?J: veya (?x: parantezler çok iç içe geçmiş</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="177"/>
         <source>using \C is disabled in this PCRE2 library</source>
-        <translation type="unfinished"/>
+        <translation>Bu PCRE2 kitaplığında \C kullanımı devre dışı bırakıldı</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="178"/>
         <source>regular expression is too complicated</source>
-        <translation type="unfinished"/>
+        <translation>normal ifade çok karmaşık</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="179"/>
         <source>lookbehind assertion is too long</source>
-        <translation type="unfinished"/>
+        <translation>geriye dönük arama belirteci çok uzun</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="180"/>
         <source>pattern string is longer than the limit set by the application</source>
-        <translation type="unfinished"/>
+        <translation>desen dizisi, uygulama tarafından belirlenen sınırdan daha uzun</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="181"/>
         <source>internal error: unknown code in parsed pattern</source>
-        <translation type="unfinished"/>
+        <translation>dahili hata: ayrıştırılmış desende bilinmeyen kod</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="184"/>
         <source>internal error: bad code value in parsed_skip()</source>
-        <translation type="unfinished"/>
+        <translation>dahili hata: ayrıştırılmış_atlamada hatalı kod değeri ()</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="185"/>
         <source>PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES is not allowed in UTF-16 mode</source>
-        <translation type="unfinished"/>
+        <translation>UTF-16 modunda PCRE2_EKSTRA_VEKİL_KAÇIŞLARA_İZİN verilmiyor</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="186"/>
         <source>invalid option bits with PCRE2_LITERAL</source>
-        <translation type="unfinished"/>
+        <translation>PCRE2_LITERAL ile geçersiz seçenek bitleri</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="187"/>
         <source>\N{U+dddd} is supported only in Unicode (UTF) mode</source>
-        <translation type="unfinished"/>
+        <translation>\N{U+dddd} yalnızca Unicode (UTF) modunda desteklenir</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="188"/>
         <source>invalid hyphen in option setting</source>
-        <translation type="unfinished"/>
+        <translation>seçenek ayarında geçersiz tire</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="191"/>
         <source>(*alpha_assertion) not recognized</source>
-        <translation type="unfinished"/>
+        <translation>(*alfa_araması) tanınmadı</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="192"/>
         <source>script runs require Unicode support, which this version of PCRE2 does not have</source>
-        <translation type="unfinished"/>
+        <translation>komut dosyası çalıştırmaları, PCRE2&apos;nin bu sürümünde olmayan Unicode desteği gerektirir</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="193"/>
         <source>too many capturing groups (maximum 65535)</source>
-        <translation type="unfinished"/>
+        <translation>çok fazla yakalama grubu (azami 65535)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="194"/>
         <source>atomic assertion expected after (?( or (?(?C)</source>
-        <translation type="unfinished"/>
+        <translation>(?( or (?(?C) sonrası beklenen atomik arama</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="195"/>
         <source>\K is not allowed in lookarounds (but see PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK)</source>
-        <translation type="unfinished"/>
+        <translation>Aramalarda \K&apos;ye izin verilmez (ancak bkz. PCRE2_EK_ARAMA_İZİNLERİ_BSK)</translation>
     </message>
 </context>
 <context>
@@ -16377,7 +16379,7 @@ Varlıklar çizgiler, virgül veya boşluklarla ayrılabilir.</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="250"/>
         <source>Please verify and correct the OPF Spine order.</source>
-        <translation type="unfinished"/>
+        <translation>Lütfen OPF Omurga sırasını doğrulayın ve düzeltin.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="298"/>
@@ -18935,12 +18937,12 @@ Seçilen kelimenin yanlış yazılmasına gerek yoktur.</translation>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="188"/>
         <source>Sort words as in a locale specific manner, typically AaBbCc instead of ABCabc.</source>
-        <translation type="unfinished"/>
+        <translation>Sözcükleri yerel ayara özel bir şekilde sıralayın, tipik olarak ABCabc yerine AaBbCc.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="191"/>
         <source>Locale-Aware Sort</source>
-        <translation type="unfinished"/>
+        <translation>Yerel Ayara Duyarlı Sıralama</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="215"/>
@@ -18970,7 +18972,7 @@ Yazım Denetimi açıkken herhangi bir HTML dosyasını düzenlerseniz kullanın
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="60"/>
         <source>a</source>
         <comment>Locale-AwareSort</comment>
-        <translation type="unfinished"/>
+        <translation>a</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="61"/>
@@ -19224,12 +19226,12 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="119"/>
         <source>Export Validation Results</source>
-        <translation type="unfinished"/>
+        <translation>Doğrulama Sonuçlarını Dışa Aktar</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="152"/>
         <source>Export of Validation Results failed: </source>
-        <translation type="unfinished"/>
+        <translation>Doğrulama Sonuçlarının Dışa Aktarılması başarısız oldu:</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="379"/>
