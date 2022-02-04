@@ -276,7 +276,11 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
 QIcon FolderKeeper::GetFileIconFromMediaType(const QString& mt)
 {
     if (m_FileIconCache.contains(mt)) return m_FileIconCache[mt];
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0) 
+    return QFileIconProvider().icon(QFileIconProvider::File);
+#else
     return QFileIconProvider().icon(QAbstractFileIconProvider::File);
+#endif
 }
 
 
