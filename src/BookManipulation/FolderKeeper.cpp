@@ -29,6 +29,8 @@
 #include <QApplication>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QIcon>
+#include <QFileIconProvider>
 #include <QDebug>
 
 #include "BookManipulation/FolderKeeper.h"
@@ -236,7 +238,10 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
         resource->SetEpubVersion(m_OPF->GetEpubVersion());
         resource->SetMediaType(mt);
         resource->SetShortPathName(filename);
-
+        // cache file icons by media type
+        if (!m_FileIconCache.contains(mt)) {
+            m_FileIconCache[mt] = QFileIconProvider().icon(fi);
+        }
     }
 
     // skip copy if unpacking zip already put it in the right place
@@ -265,6 +270,13 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
     }
 
     return resource;
+}
+
+
+QIcon FolderKeeper::GetFileIconFromMediaType(const QString& mt)
+{
+    if (m_FileIconCache.contains(mt)) return m_FileIconCache[mt];
+    return QFileIconProvider().icon(QAbstractFileIconProvider::File);
 }
 
 
@@ -432,6 +444,11 @@ OPFResource*FolderKeeper::AddOPFToFolder(const QString &version, const QString &
     m_OPF->SetShortPathName(OPFBookPath.split('/').last());
     m_Resources[ m_OPF->GetIdentifier() ] = m_OPF;
     m_Path2Resource[ m_OPF->GetRelativePath() ] = m_OPF;
+    // cache file icons by media type
+    QFileInfo fi(m_OPF->GetFullPath());
+    if (!m_FileIconCache.contains("application/oebps-package+xml")) {
+        m_FileIconCache["application/oebps-package+xml"] = QFileIconProvider().icon(fi);
+    }
 
     connect(m_OPF, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
     // For ResourceAdded, the connection has to be DirectConnection,
@@ -483,6 +500,11 @@ NCXResource*FolderKeeper::AddNCXToFolder(const QString &version,
     m_NCX->SetMainID(m_OPF->GetMainIdentifierValue());
     m_Resources[ m_NCX->GetIdentifier() ] = m_NCX;
     m_Path2Resource[ m_NCX->GetRelativePath() ] = m_NCX;
+    // cache file icons by media type
+    QFileInfo fi(m_NCX->GetFullPath());
+    if (!m_FileIconCache.contains("application/x-dtbncx+xml")) {
+        m_FileIconCache["application/x-dtbncx+xml"] = QFileIconProvider().icon(fi);
+    }
     connect(m_NCX, SIGNAL(Deleted(const Resource *)), this, SLOT(RemoveResource(const Resource *)));
     connect(m_NCX, SIGNAL(Renamed(const Resource *, QString)),
             this,     SLOT(ResourceRenamed(const Resource *, QString)), Qt::DirectConnection);

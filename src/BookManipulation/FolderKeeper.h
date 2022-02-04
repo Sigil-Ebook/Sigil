@@ -30,6 +30,7 @@
 #include <QtCore/QList>
 #include <QtCore/QMutex>
 #include <QFileSystemWatcher>
+#include <QIcon>
 
 // These have to be included directly because
 // of the template functions.
@@ -96,6 +97,8 @@ public:
                                      const QString &bookpath = QString(),
                                      const QString &folderpath = QString("\\"));
 
+
+    QIcon GetFileIconFromMediaType(const QString &mt);
 
     QList<Resource*> GetLinkedResources(const QStringList& bookpaths);
 
@@ -345,6 +348,7 @@ private:
 
     QHash<QString, QStringList> m_GrpToFold;
     QHash<QString, QStringList> m_StdGrpToFold;
+    QHash<QString, QIcon> m_FileIconCache;
 };
 
 

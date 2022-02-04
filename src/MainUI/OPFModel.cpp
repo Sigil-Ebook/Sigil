@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -498,10 +498,11 @@ void OPFModel::InitializeModel()
 
     foreach(Resource * resource, resources) {
         AlphanumericItem * item;
+        QIcon fileicon = m_Book->GetFolderKeeper()->GetFileIconFromMediaType(resource->GetMediaType());
         if (ss.showFullPathOn()) {
-            item = new AlphanumericItem(resource->Icon(), resource->GetRelativePath());
+            item = new AlphanumericItem(fileicon, resource->GetRelativePath());
         } else {
-            item = new AlphanumericItem(resource->Icon(), resource->ShortPathName());
+            item = new AlphanumericItem(fileicon, resource->ShortPathName());
         }
         item->setDropEnabled(false);
         item->setData(resource->GetIdentifier());
@@ -584,7 +585,7 @@ void OPFModel::UpdateHTMLReadingOrders()
 
         if (html_resource != NULL) {
             // for some reason icons can be lost during drag and drop
-            html_item->setIcon(html_resource->Icon());
+            html_item->setIcon(m_Book->GetFolderKeeper()->GetFileIconFromMediaType("application/xhtml+xml"));
             reading_order_htmls.append(html_resource);
         }
     }
