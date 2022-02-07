@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2016-2022 Kevin B. Hendricks, Stratford, ON Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -22,11 +22,9 @@
 **
 *************************************************************************/
 
-#include "EmbedPython/EmbeddedPython.h"
-
 #include <QString>
-#include <QDebug>
 #include <QRegularExpression>
+#include <QDebug>
 #include "Misc/Utility.h"
 #include "Parsers/CSSInfo.h"
 
@@ -174,45 +172,22 @@ QString CSSInfo::getReformattedCSSText(bool multipleLineFormat)
 {
     QString csstext(m_source);
 
-    // Note, the EmbeddedPython interface does not handle bool properly
-    // So convert to int with 0 or 1 value for the time being
-    int useoneline = 1;
-    if (multipleLineFormat) useoneline = 0;
+    CSSParser cp;
+    cp.set_level("CSS3.0"); // most permissive
+    cp.parse_css(csstext);
 
-    int rv = 0;
-    QString error_traceback;
-    QList<QVariant> args;
-    args.append(QVariant(csstext));
-    args.append(QVariant(useoneline));
-    EmbeddedPython * epython  = EmbeddedPython::instance();
-
-    QVariant res = epython->runInPython( QString("cssreformatter"),
-                                         QString("reformat_css"),
-                                         args,
-                                         &rv,
-                                         error_traceback);
-    if (rv != 0) {
-        Utility::DisplayStdWarningDialog(QString("Error in cssreformatter: ") + QString::number(rv), 
-                         error_traceback);
-        // an error happened, return unchanged original
-        return QString(csstext);
-    }
-    // QVariant results are a String List (new_css_text, errors, warnings)
-    QStringList results = res.toStringList();
-    QString new_csstext = results[0];
-    QString errors = results[1];
-    QString warnings = results[2];
-
+    QVector<QString> errors = cp.get_parse_errors();
     if (!errors.isEmpty()) {
-        Utility::DisplayStdWarningDialog(QString("Error in cssreformatter: "), errors);
-        // an error happened, return unchanged original
-        return QString(csstext);
+        QString error_msg = "";
+        for(int i = 0; i < errors.size(); i++) {
+            error_msg = error_msg + "CSS Parser Error: " + errors[i] +  "\n";
+        }
+        Utility::DisplayStdWarningDialog(QString("CSS Error: "), error_msg); 
+        // a css parser error happened, return unchanged original
+        return csstext;
     }
-
-    if (!warnings.isEmpty()) {
-        Utility::DisplayStdWarningDialog(QString("Warnings from cssreformatter: "), warnings);
-    }
-
+    
+    QString new_csstext = cp.serialize_css(false, multipleLineFormat);
     return new_csstext;
 }
 

@@ -91,7 +91,7 @@ public:
     void reset_parser();        
 
     // serialize the current list of csstokens back to css
-    QString serialize_css(bool tostdout = true);
+    QString serialize_css(bool tostdout = true, bool multiline = true);
         
     // access charset, namespace and imports without having to walk csstokens
     QString get_charset();
@@ -172,7 +172,8 @@ private:
     // private member variables
     QVector<QString> token_type_names;
     QMap<QString, parse_status>  at_rules;
-    QVector<QString> csstemplate;
+    QVector<QString> csstemplateM;
+    QVector<QString> csstemplate1;
     QString css_level;
     QString tokens;
     int token_ptr;
