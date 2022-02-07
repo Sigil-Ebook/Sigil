@@ -102,16 +102,14 @@ void FindReplace::SetPreviousSearch()
 {
     m_PreviousSearch.clear();
     m_PreviousSearch << ui.cbFind->lineEdit()->text();
-    m_PreviousSearch << ui.cbReplace->lineEdit()->text();
-    m_PreviousSearch << GetControls();
+    m_PreviousSearch << TGTS.at(GetLookWhere());
 }
 
 bool FindReplace::IsNewSearch()
 {
-    if (m_PreviousSearch.count() != 3) return true;
+    if (m_PreviousSearch.count() != 2) return true;
     if (m_PreviousSearch.at(0) != ui.cbFind->lineEdit()->text()) return true;
-    if (m_PreviousSearch.at(1) != ui.cbReplace->lineEdit()->text()) return true;
-    if (m_PreviousSearch.at(2) != GetControls()) return true;
+    if (m_PreviousSearch.at(1) != TGTS.at(GetLookWhere())) return true;
     return false;
 }
 
