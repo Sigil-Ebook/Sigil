@@ -633,11 +633,11 @@ void SpellcheckEditor::ConnectSignalsSlots()
             this,               SLOT(ChangeState(int)));
     connect(ui.LocaleAwareSort,  SIGNAL(stateChanged(int)),
             this,               SLOT(ChangeState(int)));
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    connect(ui.Dictionaries, SIGNAL(textActivated(const QString &)),
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    connect(ui.Dictionaries, SIGNAL(activated(const QString &)),
             this,            SLOT(DictionaryChanged(const QString &)));
 #else
-    connect(ui.Dictionaries, SIGNAL(activated(const QString &)),
+    connect(ui.Dictionaries, SIGNAL(textActivated(const QString &)),
             this,            SLOT(DictionaryChanged(const QString &)));
 #endif
 
