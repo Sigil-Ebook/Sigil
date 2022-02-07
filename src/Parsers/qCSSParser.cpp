@@ -81,8 +81,8 @@ CSSParser::CSSParser()
     csstemplate1.push_back("");        //  4 - unused
     csstemplate1.push_back("");        //  5 - string after property before value
     csstemplate1.push_back(";");       //  6 - string after value
-    csstemplate1.push_back("}\n");     //  7 - closing bracket - selector
-    csstemplate1.push_back("");        //  8 - space between blocks {...}
+    csstemplate1.push_back("}");       //  7 - closing bracket - selector
+    csstemplate1.push_back("\n");      //  8 - space between blocks {...}
     csstemplate1.push_back("}\n");     //  9 - closing bracket @-rule
     csstemplate1.push_back("");        // 10 - unused
     csstemplate1.push_back("");        // 11 - before comment
@@ -359,7 +359,13 @@ QString CSSParser::serialize_css(bool tostdout, bool multiline)
                 lvl--; if (lvl < 0) lvl = 0;
                 indent = CSSUtils::indent(lvl, csstemplate[0]);
                 output << indent << csstemplate[7];
-                if(_seeknocomment(i, 1) != AT_END) output << csstemplate[8];
+                if (multiline) {
+                    if(_seeknocomment(i, 1) != AT_END) output << csstemplate[8];
+                } else {
+                    if (lvl == 0) {
+                        output << csstemplate[8];
+                    }
+                }
                 break;
 
             case AT_END:
