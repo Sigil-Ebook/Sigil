@@ -1,4 +1,4 @@
-pre-1.9.0-beta
+Sigil-1.9.0-beta
     Bug Fixes
      - Update gumbo to follow WhatWG changes for closing br and p tags in foreign content
      - Fix Saved Search Controls code typo for Tabbed Html Files
@@ -32,7 +32,8 @@ pre-1.9.0-beta
      - Speed up loading of epubs with large numbers of xhtml files by using concurrency
      - New Hunspell spelling dictionaries based on scowl size 70 for en_GB and en_US
      - Support ending "." in spellchecker wordbreaks for better abbreviations is dictionary aff supports it
-
+     - Faster CSS stylesheet reformmating that can handle minor errors and still function
+    
 
 Sigil-1.8.0
     Bug Fixes:
