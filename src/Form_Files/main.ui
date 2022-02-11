@@ -1650,7 +1650,7 @@
     </string>
    </property>
    <property name="shortcut">
-    <string>Alt+L</string>
+    <string>Ctrl+Alt+L</string>
    </property>
   </action>
   <action name="actionCasingUppercase">
@@ -1669,7 +1669,7 @@
     </string>
    </property>
    <property name="shortcut">
-    <string>Alt+U</string>
+    <string>Ctrl+Alt+U</string>
    </property>
   </action>
   <action name="actionCasingTitlecase">
@@ -1819,7 +1819,7 @@
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Q</string>
+    <string>Ctrl+Alt+Q</string>
    </property>
   </action>
   <action name="actionAutoSpellCheck">
@@ -1975,7 +1975,7 @@
     <string>Replace &amp;All</string>
    </property>
    <property name="shortcut">
-    <string>Alt+A</string>
+    <string>Ctrl+Alt+A</string>
    </property>
   </action>
   <action name="actionCount">
@@ -1983,7 +1983,7 @@
     <string>&amp;Count All</string>
    </property>
    <property name="shortcut">
-    <string>Alt+C</string>
+    <string>Ctrl+Alt+N</string>
    </property>
   </action>
   <action name="actionMarkSelection">
