@@ -1,4 +1,4 @@
-Sigil-1.9.0-beta
+Sigil-1.9.0
     Bug Fixes
      - Update gumbo to follow WhatWG changes for closing br and p tags in foreign content
      - Fix Saved Search Controls code typo for Tabbed Html Files
@@ -22,7 +22,7 @@ Sigil-1.9.0-beta
      - Allow building Sigil with Qt6.2.2+ or Qt5.10+ from the same codebase
      - Speed up "Add Blank HTML" in epubs with huge numbers of files
      - Store and set Epub Zip modification dates where possible
-     - Support PySide6 to rpelace PyQt5 in plugins when building Sigil under Qt6
+     - Support PySide6 to replace PyQt5 in plugins when building Sigil under Qt6
      - Handle deprecated embedded Python PyEvalInitThreads properly during build
      - Support QUiTool in PySide6 under Qt6 for plugins using .ui files
      - MacOS Python 3.9.9 now now includes TclTK 8.6.12 (no exteral TclTk package needed anymore)
