@@ -23,8 +23,8 @@ Compression=lzma2/ultra
 SolidCompression=yes
 OutputDir=..\installer
 LicenseFile=${LICENSE_LOCATION}
-; Win 7sp1 is the lowest supported version
-MinVersion=0,6.1.7601
+; Lowest supported windowsversion
+MinVersion=${WIN_MIN_VERSION}
 PrivilegesRequired=admin
 PrivilegesRequiredOverridesAllowed=commandline dialog
 OutputBaseFilename={#AppName}-${SIGIL_FULL_VERSION}-Windows${ISS_SETUP_FILENAME_PLATFORM}-Setup

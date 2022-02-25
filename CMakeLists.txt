@@ -18,6 +18,15 @@ if ( NOT DEFINED TRY_NEWER_FINDPYTHON3 )
     set ( TRY_NEWER_FINDPYTHON3 0 )
 endif()
 
+# Set Inno minimum Windows version 
+if ( NOT DEFINED BUILD_FOR_WIN7 )
+    # Windows 8.0
+    set ( WIN_MIN_VERSION 6.2.9200 )
+else()
+    # Windows 7sp1
+    set ( WIN_MIN_VERSION 6.1.7601 )
+endif()
+
 # Default to using Qt5 for builds
 # Enable Qt6 with -DUSEQT6=1 in cmake config command
 if ( NOT DEFINED USE_QT6 )
