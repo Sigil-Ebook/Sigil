@@ -5,11 +5,11 @@
 #define AppName "Sigil"
 
 [Setup]
-AppName={#AppName}
-AppVerName={#AppName} ${SIGIL_FULL_VERSION}
+AppName={#AppName}${LEGACY_BUILD}
+AppVerName={#AppName}${LEGACY_BUILD} ${SIGIL_FULL_VERSION}
 AppVersion=${SIGIL_FULL_VERSION}
 VersionInfoVersion=${SIGIL_FULL_VERSION}
-DefaultDirName={autopf}\{#AppName}
+DefaultDirName={autopf}\{#AppName}${LEGACY_BUILD}
 DisableDirPage=no
 AllowNoIcons=yes
 DefaultGroupName={#AppName}
@@ -27,7 +27,7 @@ LicenseFile=${LICENSE_LOCATION}
 MinVersion=${WIN_MIN_VERSION}
 PrivilegesRequired=admin
 PrivilegesRequiredOverridesAllowed=commandline dialog
-OutputBaseFilename={#AppName}-${SIGIL_FULL_VERSION}-Windows${ISS_SETUP_FILENAME_PLATFORM}-Setup
+OutputBaseFilename={#AppName}-${SIGIL_FULL_VERSION}-Windows${LEGACY_BUILD}${ISS_SETUP_FILENAME_PLATFORM}-Setup
 ChangesAssociations=yes
 ;SetupLogging=yes
 

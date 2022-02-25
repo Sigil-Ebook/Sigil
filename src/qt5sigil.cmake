@@ -376,6 +376,11 @@ elseif (MSVC)
         set( ISS_SETUP_FILENAME_PLATFORM "-x64" )
     endif()
 
+    # Specify Legacy build in package name
+    if ( BUILD_FOR_WIN7 )
+        set( LEGACY_BUILD "-Legacy" )
+    endif()
+
     # Creates a copy of the ISS file in ${ISS_CONFIGURED_LOCATION} and then configures it
     # Used in the ISS CMake configuration
     set( LICENSE_LOCATION ${CMAKE_SOURCE_DIR}/installer/win_installer_note.txt  )

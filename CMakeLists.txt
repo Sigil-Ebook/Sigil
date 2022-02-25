@@ -21,6 +21,7 @@ endif()
 # Set Inno minimum Windows version 
 if ( NOT DEFINED BUILD_FOR_WIN7 )
     # Windows 8.0
+    set( BUILD_FOR_WIN7 0 )
     set ( WIN_MIN_VERSION 6.2.9200 )
 else()
     # Windows 7sp1
