@@ -403,12 +403,16 @@ int FindReplace::Count()
 {
     clearMessage();
 
+    // count changes nothing and should not change
+    // current file and position, nor update previous search
+#if 0
     if (IsNewSearch()) {
         DBG qDebug() << " .. new search";
         SetFirstResource(true);
         SetPreviousSearch();
     }
-
+#endif
+    
     if (!IsValidFindText()) {
         return 0;
     }
