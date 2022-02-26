@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin Hendricks, Statford, ON 
+**  Copyright (C) 2015-2022 Kevin Hendricks, Statford, ON 
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **
@@ -123,7 +123,7 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QString fsize = QString::number(ffsize, 'f', 2);
         NumericItem *size_item = new NumericItem();
         size_item->setText(fsize);
-        size_item->setTextAlignment(Qt::AlignRight);
+        size_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         rowItems << size_item;
         // Times Used
         QStringList image_html_files = image_html_files_hash[filepath];
