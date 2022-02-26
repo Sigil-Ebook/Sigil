@@ -365,6 +365,7 @@ void FindReplace::FindAnyTextInTags(QString text)
 bool FindReplace::Find()
 {
     DBG qDebug() << "Find";
+    Resource * initial_resource = GetCurrentResource();
     if (IsNewSearch()) {
         DBG qDebug() << " .. new search";
         SetFirstResource(true);
@@ -379,6 +380,11 @@ bool FindReplace::Find()
         found = FindNext();
     }
 
+    if (!found) {
+        if (initial_resource != GetCurrentResource()) {
+            m_MainWindow->OpenResourceAndWaitUntilLoaded(initial_resource);
+        }
+    }
     return found;
 }
 
