@@ -94,6 +94,7 @@ public:
      */
     QString removeMatchingSelectors(QList<CSSSelector *> cssSelectors);
 
+    // QString replaceBlockComments(const QString &text);
 
 private:
     void parseStyles(const QString &text, int offsetPos);

@@ -404,7 +404,7 @@ void CSSParser::parseInAtBlock(QString& css_input, int& i, parse_status& astatus
     {
         if(css_input[i] == '/' && CSSUtils::s_at(css_input,i+1) == '*')
         {
-            astatus = PIC; i += 2;
+            astatus = PIC; ++i;
             afrom = PAT;
         }
         else if(css_input[i] == '{')
@@ -1068,7 +1068,8 @@ void CSSParser::record_position(parse_status old_status, parse_status new_status
     if ((old_status == PAT) && (new_status == PIS)) record = true;
     if ((old_status == PIV) && (new_status == PIS)) record = true;
     if ((old_status == PIP) && (new_status == PIS)) record = true;
-
+    if ((old_status == PIC) && (new_status == PIS)) record = true; 
+    
     if (record || force) {
         spos = CSSUtils::find_first_not_of(css_input, " \n\t\r\0xb", i);
         sline = line;
