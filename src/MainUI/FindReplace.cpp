@@ -68,7 +68,8 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_OptionWrap(true),
       m_SpellCheck(false),
       m_LookWhereCurrentFile(false),
-      m_IsSearchGroupRunning(false)
+      m_IsSearchGroupRunning(false),
+      m_StartingResource(nullptr)
 {
     ui.setupUi(this);
     FindReplaceQLineEdit *find_ledit = new FindReplaceQLineEdit(this);
@@ -368,7 +369,7 @@ bool FindReplace::Find()
     Resource * initial_resource = GetCurrentResource();
     if (IsNewSearch()) {
         DBG qDebug() << " .. new search";
-        SetFirstResource(true);
+        SetStartingResource(true);
         SetPreviousSearch();
     }
     
@@ -378,12 +379,6 @@ bool FindReplace::Find()
         found = FindPrevious();
     } else {
         found = FindNext();
-    }
-
-    if (!found) {
-        if (initial_resource != GetCurrentResource()) {
-            m_MainWindow->OpenResourceAndWaitUntilLoaded(initial_resource);
-        }
     }
     return found;
 }
@@ -411,13 +406,12 @@ int FindReplace::Count()
 
     // count changes nothing and should not change
     // current file and position, nor update previous search
-#if 0
+
     if (IsNewSearch()) {
         DBG qDebug() << " .. new search";
-        SetFirstResource(true);
+        SetStartingResource(true);
         SetPreviousSearch();
     }
-#endif
     
     if (!IsValidFindText()) {
         return 0;
@@ -462,7 +456,7 @@ bool FindReplace::Replace()
 {
     if (IsNewSearch()) {
         DBG qDebug() << " .. new search";
-        SetFirstResource(true);
+        SetStartingResource(true);
         SetPreviousSearch();
     }
 
@@ -516,7 +510,7 @@ int FindReplace::ReplaceAll()
 
     if (IsNewSearch()) {
         DBG qDebug() << " .. new search";
-        SetFirstResource(true);
+        SetStartingResource(true);
         SetPreviousSearch();
     }
 
@@ -813,6 +807,7 @@ bool FindReplace::IsCurrentFileInSelection()
             }
         }
     }
+    DBG qDebug() << "IsCurrentFileInSection: " << found;
 
     return found;
 }
@@ -821,6 +816,7 @@ bool FindReplace::IsCurrentFileInSelection()
 // Returns all resources according to LookWhere setting
 QList <Resource *> FindReplace::GetFilesToSearch()
 {
+    qDebug() << "in GetFilesToSearch";
     QList <Resource *> all_resources;
     QList <Resource *> resources;
 
@@ -849,32 +845,65 @@ QList <Resource *> FindReplace::GetFilesToSearch()
         all_resources = m_MainWindow->GetNCXResource();
     }
 
-    // If wrapping, or the current resource is not in the files to search
-    // (meaning there is no before/after for wrap to use) then just return all files
+    // If starting a new search, or if current resource is the starting resource or
+    // or if the current resource is not in the files to search, or if the starting
+    // resource is no longer part of all resources that means
+    // there is no before/after for search to use) then just return all files
     Resource *current_resource = GetCurrentResource();
-    // if (!all_resources.contains(current_resource)) {
-    if (m_OptionWrap || !all_resources.contains(current_resource)) {
+    qDebug() << "F2S current: " << current_resource->GetRelativePath();
+    if (!m_StartingResource) {
+        qDebug() << "F2S starting:  NULL";
+    } else {
+        qDebug() << "F2S starting: " << m_StartingResource->GetRelativePath();
+    }
+    if (!m_StartingResource ||
+        !all_resources.contains(current_resource) ||
+        !all_resources.contains(m_StartingResource) ||
+        (m_StartingResource == current_resource)) {
+        qDebug() << "F2S returning all resources";
         return all_resources;
     }
 
-    // Return only the current file and before/after files
-    if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
-        foreach (Resource *resource, all_resources) {
-            resources.append(resource);
-            if (resource == current_resource) {
-                break;
-            }
+    // Otherwise build the list of resources yet to be searched
+    int c = -1;
+    int s = -1;
+    // walk the list once recording the indexes of the current and starting resources
+    for (int j=0; j < all_resources.count(); j++) {
+        if (all_resources.at(j) == current_resource) {
+            c = j;
+            qDebug() << "current index is: " << c;
         }
+        if (all_resources.at(j) == m_StartingResource) {
+            s = j;
+            qDebug() << "starting index is: " << s;
+        }
+    }
+
+    // For Down that means removing all of the resources from
+    // m_StartingResource up to but not including the current resource,
+    // while handling the wrap around case where is the current is less than starting
+    if (GetSearchDirection() == FindReplace::SearchDirection_Down) {
+        bool skip_resource = c < s;
+        foreach (Resource *resource, all_resources) {
+            if (resource == m_StartingResource) skip_resource = true;
+            if (resource == current_resource) skip_resource = false;
+            if (! skip_resource) resources.append(resource);
+        }
+    // For up that means removing all of the resources before and including
+    // with the m_StartingResource up to but not including
+    // the current resource while properly handling the wrap around case.
     } else {
-        bool keep = false;
+        bool skip_resource = s < c;
         foreach (Resource *resource, all_resources) {
-            if (resource == current_resource) {
-                keep = true;
-            }
-            if (keep) {
-                resources.append(resource);
-            }
+            if (! skip_resource) resources.append(resource);
+            // if the last resource was the starting resource disable skipping for the next 
+            if (resource == m_StartingResource) skip_resource = false;
+            // if the last resource was the current resource enable skipping for the next
+            if (resource == current_resource) skip_resource = true;
         }
+    }
+    for(int j=0; j < resources.count(); j++) {
+        qDebug() << "    F2S set: " << resources.at(j)->GetRelativePath();
     }
 
     return resources;
@@ -930,14 +959,11 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
     if (!found) {
         DBG qDebug() << " .. FindInAllFiles GetNextContainingResource";
         Resource *containing_resource = GetNextContainingResource(direction);
-
-        DBG qDebug() << " huh .." << containing_resource;
-
         if (containing_resource) {
             // Save if editor or F&R has focus
             bool has_focus = HasFocus();
             // Save selected resources since opening tabs changes selection
-            QList<Resource *>selected_resources = GetFilesToSearch();
+            QList<Resource *>selected_resources = m_MainWindow->GetBookBrowserSelectedResources();
 
             m_MainWindow->OpenResourceAndWaitUntilLoaded(containing_resource);
 
@@ -992,6 +1018,7 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
     }
 
     DBG qDebug() << "  starting resource .. " << starting_resource;
+    if (starting_resource) qDebug() << "  starting resource: " << starting_resource->GetRelativePath();
     if (!starting_resource || (isWhereSelected() && !IsCurrentFileInSelection())) {
         if (direction == Searchable::Direction_Up) {
             starting_resource = resources.first();
@@ -1025,7 +1052,6 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
 
     while (!passed_starting_resource || (next_resource != starting_resource)) {
         next_resource = GetNextResource(next_resource, direction);
-        DBG qDebug() << "   GetNextResource returns" << next_resource;
 
         if (next_resource == starting_resource) {
             // if (!m_OptionWrap) {
@@ -1036,10 +1062,12 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
         }
 
         if (next_resource) {
+            qDebug() << "Trying Next Resource: " << next_resource->GetRelativePath();
             if (ResourceContainsCurrentRegex(next_resource)) {
+                qDebug() << "Found it";
                 return next_resource;
             } else {
-                DBG qDebug() << "resource did not contain current regex";
+                qDebug() << "resource did not contain current regex";
             }
 
         // else continue
@@ -1064,8 +1092,6 @@ Resource *FindReplace::GetNextResource(Resource *current_resource, Searchable::D
     int i = 0;
     if (current_resource) {
         foreach(Resource * resource, resources) {
-            DBG qDebug() << "resource: " << resource;
-            DBG qDebug() << " current resource: " << current_resource;
             if (resource && (resource->GetRelativePath() == current_resource->GetRelativePath())) {
                 current_reading_order = i;
                 break;
@@ -1083,9 +1109,11 @@ Resource *FindReplace::GetNextResource(Resource *current_resource, Searchable::D
     }
 
     if (next_reading_order > max_reading_order || next_reading_order < 0) {
+        qDebug() << "GetNextResource returns NULL";
         return NULL;
     } else {
         Resource* nextres = resources[ next_reading_order ];
+        qDebug() << "GetNextResource returns: " <<  nextres->GetRelativePath();
         return nextres;
     }
 }
@@ -1435,44 +1463,30 @@ void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
     ShowMessage(message);
 }
 
-void FindReplace::SetFirstResource(bool update_position)
+void FindReplace::SetStartingResource(bool update_position)
 {
     if (isWhereCF() || m_LookWhereCurrentFile || IsMarkedText()) return;
 
-    QList <Resource *> resources;
-    Resource* first_resource = nullptr;
+    Resource * current_resource = GetCurrentResource();
 
-    if (GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles) {
-        resources = m_MainWindow->GetAllHTMLResources();
-    } else if (GetLookWhere() == FindReplace::LookWhere_SelectedHTMLFiles) {
-        resources = m_MainWindow->GetValidSelectedHTMLResources();
-    } else if (GetLookWhere() == FindReplace::LookWhere_TabbedHTMLFiles) {
-        resources = m_MainWindow->GetTabbedHTMLResources();
-    } else if (GetLookWhere() == FindReplace::LookWhere_AllCSSFiles) {
-        resources = m_MainWindow->GetAllCSSResources();
-    } else if (GetLookWhere() == FindReplace::LookWhere_SelectedCSSFiles) {
-        resources = m_MainWindow->GetValidSelectedCSSResources();
-    } else if (GetLookWhere() == FindReplace::LookWhere_TabbedCSSFiles) {
-        resources = m_MainWindow->GetTabbedCSSResources();
-    } else if (GetLookWhere() == FindReplace::LookWhere_OPFFile) {
-        resources = m_MainWindow->GetOPFResource();
-    } else if (GetLookWhere() == FindReplace::LookWhere_NCXFile) {
-        resources = m_MainWindow->GetNCXResource();
-    }
+    // setting this to null returns all_reources from GetFilesToSearch
+    m_StartingResource = nullptr;
+    QList<Resource*> resources = GetFilesToSearch();
 
-    int pos = 0;
     if (GetSearchDirection() == FindReplace::SearchDirection_Down) {
-        first_resource = resources.first(); 
+        if (resources.contains(current_resource)) {
+            m_StartingResource = current_resource;
+        } else {
+            m_StartingResource = resources.first();
+        }
     } else {
-        first_resource = resources.last();
-        TextResource* text_resource = qobject_cast<TextResource*>(first_resource);
-        if (text_resource) pos = text_resource->GetText().length();
+        if (resources.contains(current_resource)) {
+            m_StartingResource = current_resource;
+        } else {
+            m_StartingResource = resources.last();
+        }
     }
-    if (update_position) {
-        m_MainWindow->OpenResourceAndWaitUntilLoaded(first_resource, -1, pos);
-    } else {
-        m_MainWindow->OpenResourceAndWaitUntilLoaded(first_resource);
-    }
+    qDebug() << "Setting m_StartingResource: " << m_StartingResource->GetRelativePath();
 }
 
 // These are *Search methods are invoked by the SearchEditor

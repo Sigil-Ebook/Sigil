@@ -1280,6 +1280,10 @@ void MainWindow::runPlugin(QAction *action)
     qApp->processEvents();
 }
 
+QList<Resource*>  MainWindow::GetBookBrowserSelectedResources() {
+    return m_BookBrowser->AllSelectedResources();
+}
+
 void MainWindow::SelectResources(QList<Resource *> resources)
 {
     return m_BookBrowser->SelectResources(resources);

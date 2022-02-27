@@ -150,6 +150,7 @@ public:
      *
      * @return List of valid selected HTML resources
      */
+    QList <Resource *> GetBookBrowserSelectedResources();
     QList <Resource *> GetValidSelectedHTMLResources();
     QList <Resource *> GetValidSelectedCSSResources();
 

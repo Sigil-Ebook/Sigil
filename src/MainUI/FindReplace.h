@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2011-2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -198,7 +198,7 @@ private:
     void SetPreviousSearch();
     bool IsNewSearch();
 
-    void SetFirstResource(bool update_position = true);
+    void SetStartingResource(bool update_position = true);
 
     QString GetControls();
     
@@ -336,6 +336,8 @@ private:
     bool m_IsSearchGroupRunning;
 
     QStringList m_PreviousSearch;
+
+    Resource * m_StartingResource;
 };
 
 
