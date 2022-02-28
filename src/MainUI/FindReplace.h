@@ -338,6 +338,8 @@ private:
     QStringList m_PreviousSearch;
 
     Resource * m_StartingResource;
+
+    bool m_RestartPerformed;
 };
 
 

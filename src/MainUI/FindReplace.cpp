@@ -33,6 +33,7 @@
 #include <QDebug>
 
 #include "Tabs/TextTab.h"
+#include "Tabs/FlowTab.h"
 #include "MainUI/FindReplace.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/FindReplaceQLineEdit.h"
@@ -70,7 +71,8 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_SpellCheck(false),
       m_LookWhereCurrentFile(false),
       m_IsSearchGroupRunning(false),
-      m_StartingResource(nullptr)
+      m_StartingResource(nullptr),
+      m_RestartPerformed(false)
 {
     ui.setupUi(this);
     FindReplaceQLineEdit *find_ledit = new FindReplaceQLineEdit(this);
@@ -247,6 +249,7 @@ void FindReplace::HideFindReplace()
 void FindReplace::RestartClicked()
 {
     m_PreviousSearch.clear();
+    m_RestartPerformed = true;
     ShowMessage(tr("Search will restart"));
 }
 
@@ -1473,6 +1476,9 @@ void FindReplace::LoadSearch(SearchEditorModel::searchEntry *search_entry)
 
 void FindReplace::SetStartingResource(bool update_position)
 {
+    bool manual_restart = m_RestartPerformed;
+    m_RestartPerformed = false;
+
     if (isWhereCF() || m_LookWhereCurrentFile || IsMarkedText()) return;
 
     Resource * current_resource = GetCurrentResource();
@@ -1502,15 +1508,23 @@ void FindReplace::SetStartingResource(bool update_position)
     // Also all new searches running from the Saved Search Dialog should start
     // new searches at the top (or bottom) of the current file if it is in the set.
 
-    if (m_IsSearchGroupRunning || (resources.count() == 1)) {
+    // And after a user has used the Restart button
+
+    if (m_IsSearchGroupRunning || (resources.count() == 1) || manual_restart) {
         if ( m_StartingResource == current_resource ) {
             int pos = 0;
             if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
                 TextResource* text_resource = qobject_cast<TextResource*>(current_resource);
                 if (text_resource) pos = text_resource->GetText().length();
             }
+            // first try flowtab (html) then all other text tabs
+            FlowTab* flow_tab = qobject_cast<FlowTab*>(m_MainWindow->GetCurrentContentTab());
             TextTab* text_tab = qobject_cast<TextTab*>(m_MainWindow->GetCurrentContentTab());
-            if (text_tab) text_tab->ScrollToPosition(pos);
+            if (flow_tab) {
+                flow_tab->ScrollToPosition(pos);
+            } else if (text_tab) {
+                text_tab->ScrollToPosition(pos);
+            }
         }
     }
 }
