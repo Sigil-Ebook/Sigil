@@ -858,6 +858,7 @@ QList <Resource *> FindReplace::GetFilesToSearch()
     } else {
         qDebug() << "F2S starting: " << m_StartingResource->GetRelativePath();
     }
+
     if (!m_StartingResource ||
         !all_resources.contains(current_resource) ||
         !all_resources.contains(m_StartingResource) ||
@@ -1495,16 +1496,22 @@ void FindReplace::SetStartingResource(bool update_position)
     }
     qDebug() << "Setting m_StartingResource: " << m_StartingResource->GetRelativePath();
 
-    // if we are searching a target group that has only one member and it
-    // is the current resource move the cursor to properly restart the search
-    if ((resources.count() == 1) && (resources.at(0) == current_resource)) {
-        int pos = 0;
-        if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
-            TextResource* text_resource = qobject_cast<TextResource*>(current_resource);
-            if (text_resource) pos = text_resource->GetText().length();
+    // If we are searching a target set of files that has only one member and it
+    // is the current resource, move the cursor to properly restart the search.
+
+    // Also all new searches running from the Saved Search Dialog should start
+    // new searches at the top (or bottom) of the current file if it is in the set.
+
+    if (m_IsSearchGroupRunning || (resources.count() == 1)) {
+        if ( m_StartingResource == current_resource ) {
+            int pos = 0;
+            if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
+                TextResource* text_resource = qobject_cast<TextResource*>(current_resource);
+                if (text_resource) pos = text_resource->GetText().length();
+            }
+            TextTab* text_tab = qobject_cast<TextTab*>(m_MainWindow->GetCurrentContentTab());
+            if (text_tab) text_tab->ScrollToPosition(pos);
         }
-        TextTab* text_tab = qobject_cast<TextTab*>(m_MainWindow->GetCurrentContentTab());
-        if (text_tab) text_tab->ScrollToPosition(pos);
     }
 }
 
