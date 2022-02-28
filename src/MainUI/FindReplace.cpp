@@ -32,6 +32,7 @@
 #include <QRegularExpression>
 #include <QDebug>
 
+#include "Tabs/TextTab.h"
 #include "MainUI/FindReplace.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/FindReplaceQLineEdit.h"
@@ -104,13 +105,15 @@ void FindReplace::SetPreviousSearch()
     m_PreviousSearch.clear();
     m_PreviousSearch << ui.cbFind->lineEdit()->text();
     m_PreviousSearch << TGTS.at(GetLookWhere());
+    m_PreviousSearch << DRS.at(GetSearchDirection());
 }
 
 bool FindReplace::IsNewSearch()
 {
-    if (m_PreviousSearch.count() != 2) return true;
+    if (m_PreviousSearch.count() != 3) return true;
     if (m_PreviousSearch.at(0) != ui.cbFind->lineEdit()->text()) return true;
     if (m_PreviousSearch.at(1) != TGTS.at(GetLookWhere())) return true;
+    if (m_PreviousSearch.at(2) != DRS.at(GetSearchDirection())) return true;
     return false;
 }
 
@@ -366,7 +369,6 @@ void FindReplace::FindAnyTextInTags(QString text)
 bool FindReplace::Find()
 {
     DBG qDebug() << "Find";
-    Resource * initial_resource = GetCurrentResource();
     if (IsNewSearch()) {
         DBG qDebug() << " .. new search";
         SetStartingResource(true);
@@ -1018,7 +1020,7 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
     }
 
     DBG qDebug() << "  starting resource .. " << starting_resource;
-    if (starting_resource) qDebug() << "  starting resource: " << starting_resource->GetRelativePath();
+    // if (starting_resource) qDebug() << "  starting resource: " << starting_resource->GetRelativePath();
     if (!starting_resource || (isWhereSelected() && !IsCurrentFileInSelection())) {
         if (direction == Searchable::Direction_Up) {
             starting_resource = resources.first();
@@ -1036,12 +1038,17 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
     // the current regex and then stop
     // if ((resources.size() == 1) && !m_OptionWrap) {
     if ((resources.size() == 1)) {
-        if (IsCurrentFileInSelection()) return NULL;
+        if (IsCurrentFileInSelection()) {
+            qDebug() << "Resources List has size one and IsCurrentFile, returing NULL";
+            return NULL;
+        }
         if (next_resource) {
             if (ResourceContainsCurrentRegex(next_resource)) {
+                qDebug() << "Resources List has size one, returning " << next_resource->GetRelativePath();
                 return next_resource;
             }
         }
+        qDebug() << "Resources List has size one, returing NULL";
         return NULL;
     }
 
@@ -1469,7 +1476,7 @@ void FindReplace::SetStartingResource(bool update_position)
 
     Resource * current_resource = GetCurrentResource();
 
-    // setting this to null returns all_reources from GetFilesToSearch
+    // setting this to null returns all_resources from GetFilesToSearch
     m_StartingResource = nullptr;
     QList<Resource*> resources = GetFilesToSearch();
 
@@ -1487,6 +1494,18 @@ void FindReplace::SetStartingResource(bool update_position)
         }
     }
     qDebug() << "Setting m_StartingResource: " << m_StartingResource->GetRelativePath();
+
+    // if we are searching a target group that has only one member and it
+    // is the current resource move the cursor to properly restart the search
+    if ((resources.count() == 1) && (resources.at(0) == current_resource)) {
+        int pos = 0;
+        if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
+            TextResource* text_resource = qobject_cast<TextResource*>(current_resource);
+            if (text_resource) pos = text_resource->GetText().length();
+        }
+        TextTab* text_tab = qobject_cast<TextTab*>(m_MainWindow->GetCurrentContentTab());
+        if (text_tab) text_tab->ScrollToPosition(pos);
+    }
 }
 
 // These are *Search methods are invoked by the SearchEditor
