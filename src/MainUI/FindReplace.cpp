@@ -1525,7 +1525,6 @@ void FindReplace::SetStartingResource(bool update_position)
     }
     qDebug() << "Setting m_StartingResource: " << m_StartingResource->GetRelativePath();
 
-#if 0
     // If we are searching a target set of files that has only one member and it
     // is the current resource, move the cursor to properly restart the search.
 
@@ -1551,7 +1550,6 @@ void FindReplace::SetStartingResource(bool update_position)
             }
         }
     }
-#endif
 
     m_StartingPos = -1;
     m_InRemainder = false;
