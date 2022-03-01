@@ -39,9 +39,9 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           repository: website
-          commit_user_name: My GitHub Actions Bot
-          commit_user_email: my-github-actions-bot@example.org
-          commit_author: Author <actions@github.com>
+          commit_user_name: GH Actions Bot
+          commit_user_email: ghactions-bot@example.org
+          commit_author: Doug Massay <dougmassay@noreply.github.com>
           commit_message: Auto create ${{ steps.get_tag_name.outputs.TAGNAME }} release blog post
           branch: master
 
