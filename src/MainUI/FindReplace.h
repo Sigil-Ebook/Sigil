@@ -339,6 +339,10 @@ private:
 
     Resource * m_StartingResource;
 
+    int m_StartingPos;
+
+    bool m_InRemainder;
+
     bool m_RestartPerformed;
 };
 

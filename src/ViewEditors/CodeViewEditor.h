@@ -98,6 +98,8 @@ public:
 
     bool MoveToMarkedText(Searchable::Direction direction, bool wrap);
 
+    bool MoveToSplitText(Searchable::Direction direction, int start, int end);
+
     /**
      * Routines to handle cutting code tags from selected text
      */
@@ -250,7 +252,8 @@ public:
                   bool misspelled_words = false,
                   bool ignore_selection_offset = false,
                   bool wrap = true,
-                  bool selected_text = false);
+                  bool selected_text = false,
+                  int split_at = -1);
 
     int Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool selected_text = false);
 

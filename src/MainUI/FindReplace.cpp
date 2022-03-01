@@ -72,6 +72,8 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_LookWhereCurrentFile(false),
       m_IsSearchGroupRunning(false),
       m_StartingResource(nullptr),
+      m_StartingPos(-1),
+      m_InRemainder(false),
       m_RestartPerformed(false)
 {
     ui.setupUi(this);
@@ -93,6 +95,7 @@ FindReplace::FindReplace(MainWindow *main_window)
     ShowHideAdvancedOptions();
     ShowHideMarkedText(false);
     ReadSettings();
+    m_PreviousSearch.clear();
 }
 
 
@@ -952,11 +955,29 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
     DBG qDebug() << "FindInAllFiles";
     Searchable *searchable = 0;
     bool found = false;
+    Resource * current_resource = GetCurrentResource();
 
-    if (IsCurrentFileInSelection()) {
-        DBG qDebug() << " .. FindInAllFiles said IsCurrentFileInSelection true";
+    // special case when doing search in the starting resource
+    if (current_resource == m_StartingResource) {
+        qDebug() << " FIAF in starting resource";
+        if (!m_InRemainder) {
+            searchable = GetAvailableSearchable();
+            if (searchable) {
+                found = searchable->FindNext(GetSearchRegex(), direction, m_SpellCheck, false, false);
+            }
+            if (!found) m_InRemainder = true;
+        }
+        if (m_InRemainder && (m_StartingPos != -1)) {
+            qDebug() << " FIAF in Remainder";
+            searchable = GetAvailableSearchable();
+            if (searchable) {
+                found = searchable->FindNext(GetSearchRegex(), direction, m_SpellCheck, false, false, false, m_StartingPos);
+            }
+            qDebug() << " FIAF in Remainder: " << m_StartingPos << found;
+
+        }
+    } else if (IsCurrentFileInSelection()) {
         searchable = GetAvailableSearchable();
-
         if (searchable) {
             found = searchable->FindNext(GetSearchRegex(), direction, m_SpellCheck, false, false);
         }
@@ -988,12 +1009,14 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
             if (searchable) {
                 found = searchable->FindNext(GetSearchRegex(), direction, m_SpellCheck, true, false);
             }
-        } else {
-            if (searchable) {
-                // Check the part of the original file above the cursor
-                found = searchable->FindNext(GetSearchRegex(), direction, m_SpellCheck, false, false);
-            }
         }
+
+        // } else {
+        //     if (searchable) {
+        //         // Check the part of the original file above the cursor
+        //         found = searchable->FindNext(GetSearchRegex(), direction, m_SpellCheck, false, false);
+        //     }
+        // }
     }
 
     return found;
@@ -1502,6 +1525,7 @@ void FindReplace::SetStartingResource(bool update_position)
     }
     qDebug() << "Setting m_StartingResource: " << m_StartingResource->GetRelativePath();
 
+#if 0
     // If we are searching a target set of files that has only one member and it
     // is the current resource, move the cursor to properly restart the search.
 
@@ -1526,6 +1550,13 @@ void FindReplace::SetStartingResource(bool update_position)
                 text_tab->ScrollToPosition(pos);
             }
         }
+    }
+#endif
+
+    m_StartingPos = -1;
+    m_InRemainder = false;
+    if (m_StartingResource == current_resource) {
+        m_StartingPos = m_MainWindow->GetCurrentContentTab()->GetCursorPosition();
     }
 }
 

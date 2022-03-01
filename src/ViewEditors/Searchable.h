@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2021-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2011 John Schember <john@nachtimwald.com>
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -65,7 +66,8 @@ public:
                           bool misspelled_words = false,
                           bool ignore_selection_offset = false,
                           bool wrap = true,
-                          bool selected_text = false) = 0;
+                          bool selected_text = false,
+                          int split_at = -1) = 0;
 
     /**
      * Returns the number of matching occurrences.
