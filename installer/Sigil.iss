@@ -12,7 +12,7 @@ VersionInfoVersion=${SIGIL_FULL_VERSION}
 DefaultDirName={autopf}\{#AppName}${LEGACY_BUILD}
 DisableDirPage=no
 AllowNoIcons=yes
-DefaultGroupName={#AppName}
+DefaultGroupName={#AppName}${LEGACY_BUILD}
 UninstallDisplayIcon={app}\{#AppName}.exe
 AppPublisher=Sigil-Ebook
 AppPublisherURL=https://github.com/Sigil-Ebook/Sigil
@@ -81,10 +81,10 @@ Root: HKA; Subkey: "Software\Classes\Applications\{#AppName}.exe\shell\open\comm
 
 [Icons]
 Name: "{group}\{#AppName}"; Filename: "{app}\{#AppName}.exe"
-Name: "{group}\Uninstall {#AppName}"; Filename: "{uninstallexe}"
+Name: "{group}\Uninstall {#AppName}${LEGACY_BUILD}"; Filename: "{uninstallexe}"
 ; Optional desktop icon.
 ; commondesktop if admin, userdesktop if not
-Components: dicon; Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppName}.exe"
+Components: dicon; Name: "{autodesktop}\{#AppName}${LEGACY_BUILD}"; Filename: "{app}\{#AppName}.exe"
 
 [InstallDelete]
 ; Restructuring done in 0.9.8 makes this folder residual.
