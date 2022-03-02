@@ -258,35 +258,28 @@ void CodeViewEditor::HighlightMarkedText()
 // original search started in that file
 bool CodeViewEditor::MoveToSplitText(Searchable::Direction direction, int start, int end)
 {
-    qDebug() << "MTST: " << start << end;
     if (start < 0 || end <=0 || start >= end) {
-        qDebug() << "MTST: invalid start end";
         return false;
     }
 
     int pos = textCursor().position();
     int start_pos = textCursor().selectionStart();
     int end_pos = textCursor().selectionEnd();
-    qDebug() << "MTST: current pos; " << pos << start_pos << end_pos;
 
     bool moved = false;
     if (direction == Searchable::Direction_Up) {
         if (end_pos > start && end_pos <= end) {
-            qDebug() << "MTST: pos in valid range";
             return true;
         }
         if (pos <= start) {
-            qDebug() << "MTST: Direction Up moving pos to end";
             pos = end;
             moved = true;
         }
     } else {
         if (start_pos >= start && start_pos < end) {
-            qDebug() << "MTST: pos in valid range";
             return true;
         }
         if (pos >= end) {
-            qDebug() << "MTST: Direction Dn moving pos to start";
             pos = start;
             moved = true;
         }
@@ -921,17 +914,12 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
             end = split_at;
         }
         start_offset = start;
-        qDebug() << "CV: split_at " << start << end;
         if (!MoveToSplitText(search_direction, start, end)) {
-            qDebug() << "CV: split_at moved failed";
             return false;
         }
     }
 
     int selection_offset = GetSelectionOffset(search_direction, ignore_selection_offset, marked_text);
-    if (split_at != -1) {
-        qDebug() << "CV: split_at" << start << end << selection_offset;
-    }
 
     if (search_direction == Searchable::Direction_Up) {
         if (misspelled_words) {
@@ -960,7 +948,6 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
         // If not in split range it's not a real match.
         if (match_info.offset.second + start_offset > end ||
             match_info.offset.first + start_offset < start) {
-            qDebug() << "CV:  split_at match was outside " << start << end << start_offset;;
             match_info.offset.first = -1;
         }
     }

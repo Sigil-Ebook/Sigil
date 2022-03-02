@@ -297,7 +297,6 @@ void FindReplace::ResetKeyModifiers()
 
 void FindReplace::FindClicked()
 {
-    DBG qDebug() << "FindClicked";
     SetKeyModifiers();
     Find();
     ResetKeyModifiers();
@@ -327,7 +326,6 @@ void FindReplace::CountClicked()
 
 bool FindReplace::FindAnyText(QString text, bool escape)
 {
-    DBG qDebug() << "FindAnyText";
     SetCodeViewIfNeeded(true);
     WriteSettings();
 
@@ -354,7 +352,6 @@ bool FindReplace::FindAnyText(QString text, bool escape)
 
 void FindReplace::FindAnyTextInTags(QString text)
 {
-    DBG qDebug() << "FindAnyTextInTags";
     SetCodeViewIfNeeded(true);
     WriteSettings();
 
@@ -394,14 +391,12 @@ bool FindReplace::Find()
 
 bool FindReplace::FindNext()
 {
-    DBG qDebug() << "FindNext";
     return FindText(Searchable::Direction_Down);
 }
 
 
 bool FindReplace::FindPrevious()
 {
-    DBG qDebug() << "FindPrevious";
     return FindText(Searchable::Direction_Up);
 }
 
@@ -650,7 +645,6 @@ bool FindReplace::FindMisspelledWord()
 // Starts the search for the user's term.
 bool FindReplace::FindText(Searchable::Direction direction)
 {
-    DBG qDebug() << "FindText";
     bool found = false;
     clearMessage();
 
@@ -802,7 +796,6 @@ QString FindReplace::PrependRegexOptionToSearch(const QString &option, const QSt
 
 bool FindReplace::IsCurrentFileInSelection()
 {
-    DBG qDebug() << "IsCurrentFileInSection";
     bool found = false;
     QList <Resource *> resources = GetFilesToSearch();
     Resource *current_resource = GetCurrentResource();
@@ -824,7 +817,6 @@ bool FindReplace::IsCurrentFileInSelection()
 // Returns all resources according to LookWhere setting
 QList <Resource *> FindReplace::GetFilesToSearch()
 {
-    qDebug() << "in GetFilesToSearch";
     QList <Resource *> all_resources;
     QList <Resource *> resources;
 
@@ -858,18 +850,18 @@ QList <Resource *> FindReplace::GetFilesToSearch()
     // resource is no longer part of all resources that means
     // there is no before/after for search to use) then just return all files
     Resource *current_resource = GetCurrentResource();
-    qDebug() << "F2S current: " << current_resource->GetRelativePath();
+    DBG qDebug() << "F2S current: " << current_resource->GetRelativePath();
     if (!m_StartingResource) {
-        qDebug() << "F2S starting:  NULL";
+        DBG qDebug() << "F2S starting:  NULL";
     } else {
-        qDebug() << "F2S starting: " << m_StartingResource->GetRelativePath();
+        DBG qDebug() << "F2S starting: " << m_StartingResource->GetRelativePath();
     }
 
     if (!m_StartingResource ||
         !all_resources.contains(current_resource) ||
         !all_resources.contains(m_StartingResource) ||
         (m_StartingResource == current_resource)) {
-        qDebug() << "F2S returning all resources";
+        DBG qDebug() << "F2S returning all resources";
         return all_resources;
     }
 
@@ -880,11 +872,9 @@ QList <Resource *> FindReplace::GetFilesToSearch()
     for (int j=0; j < all_resources.count(); j++) {
         if (all_resources.at(j) == current_resource) {
             c = j;
-            qDebug() << "current index is: " << c;
         }
         if (all_resources.at(j) == m_StartingResource) {
             s = j;
-            qDebug() << "starting index is: " << s;
         }
     }
 
@@ -911,10 +901,9 @@ QList <Resource *> FindReplace::GetFilesToSearch()
             if (resource == current_resource) skip_resource = true;
         }
     }
-    for(int j=0; j < resources.count(); j++) {
-        qDebug() << "    F2S set: " << resources.at(j)->GetRelativePath();
-    }
-
+    // for (int j=0; j < resources.count(); j++) {
+    //     qDebug() << "F2S returning: " << resources.at(j)->GetRelativePath();
+    // }
     return resources;
 }
 
@@ -952,14 +941,13 @@ int FindReplace::ReplaceInAllFiles()
 
 bool FindReplace::FindInAllFiles(Searchable::Direction direction)
 {
-    DBG qDebug() << "FindInAllFiles";
     Searchable *searchable = 0;
     bool found = false;
     Resource * current_resource = GetCurrentResource();
 
     // special case when doing search in the starting resource
     if (current_resource == m_StartingResource) {
-        qDebug() << " FIAF in starting resource";
+        DBG qDebug() << " FIAF in starting resource";
         if (!m_InRemainder) {
             searchable = GetAvailableSearchable();
             if (searchable) {
@@ -968,12 +956,12 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
             if (!found) m_InRemainder = true;
         }
         if (m_InRemainder && (m_StartingPos != -1)) {
-            qDebug() << " FIAF in Remainder";
+            DBG qDebug() << " FIAF in Remainder";
             searchable = GetAvailableSearchable();
             if (searchable) {
                 found = searchable->FindNext(GetSearchRegex(), direction, m_SpellCheck, false, false, false, m_StartingPos);
             }
-            qDebug() << " FIAF in Remainder: " << m_StartingPos << found;
+            DBG qDebug() << " FIAF in Remainder: " << m_StartingPos << found;
 
         }
     } else if (IsCurrentFileInSelection()) {
@@ -1025,7 +1013,6 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
 
 Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction)
 {
-    DBG qDebug() << "GetNextContainingResource";
     Resource *current_resource = GetCurrentResource();
     Resource *starting_resource = NULL;
 
@@ -1047,7 +1034,8 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
     }
 
     DBG qDebug() << "  starting resource .. " << starting_resource;
-    // if (starting_resource) qDebug() << "  starting resource: " << starting_resource->GetRelativePath();
+    // if (starting_resource) qDebug() << " starting resource: " << starting_resource->GetRelativePath();
+
     if (!starting_resource || (isWhereSelected() && !IsCurrentFileInSelection())) {
         if (direction == Searchable::Direction_Up) {
             starting_resource = resources.first();
@@ -1066,16 +1054,13 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
     // if ((resources.size() == 1) && !m_OptionWrap) {
     if ((resources.size() == 1)) {
         if (IsCurrentFileInSelection()) {
-            qDebug() << "Resources List has size one and IsCurrentFile, returing NULL";
             return NULL;
         }
         if (next_resource) {
             if (ResourceContainsCurrentRegex(next_resource)) {
-                qDebug() << "Resources List has size one, returning " << next_resource->GetRelativePath();
                 return next_resource;
             }
         }
-        qDebug() << "Resources List has size one, returing NULL";
         return NULL;
     }
 
@@ -1096,12 +1081,12 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
         }
 
         if (next_resource) {
-            qDebug() << "Trying Next Resource: " << next_resource->GetRelativePath();
+            DBG qDebug() << "Trying Next Resource: " << next_resource->GetRelativePath();
             if (ResourceContainsCurrentRegex(next_resource)) {
-                qDebug() << "Found it";
+                DBG qDebug() << "Found it";
                 return next_resource;
             } else {
-                qDebug() << "resource did not contain current regex";
+                DBG qDebug() << "resource did not contain current regex";
             }
 
         // else continue
@@ -1117,7 +1102,6 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
 
 Resource *FindReplace::GetNextResource(Resource *current_resource, Searchable::Direction direction)
 {
-    DBG qDebug() << "GetNextResource";
     QList <Resource *> resources = GetFilesToSearch();
     int max_reading_order       = resources.count() - 1;
     int current_reading_order   = 0;
@@ -1143,11 +1127,11 @@ Resource *FindReplace::GetNextResource(Resource *current_resource, Searchable::D
     }
 
     if (next_reading_order > max_reading_order || next_reading_order < 0) {
-        qDebug() << "GetNextResource returns NULL";
+        DBG qDebug() << "GetNextResource returns NULL";
         return NULL;
     } else {
         Resource* nextres = resources[ next_reading_order ];
-        qDebug() << "GetNextResource returns: " <<  nextres->GetRelativePath();
+        DBG qDebug() << "GetNextResource returns: " <<  nextres->GetRelativePath();
         return nextres;
     }
 }
@@ -1523,17 +1507,13 @@ void FindReplace::SetStartingResource(bool update_position)
             m_StartingResource = resources.last();
         }
     }
-    qDebug() << "Setting m_StartingResource: " << m_StartingResource->GetRelativePath();
+    DBG qDebug() << "Setting m_StartingResource: " << m_StartingResource->GetRelativePath();
 
-    // If we are searching a target set of files that has only one member and it
-    // is the current resource, move the cursor to properly restart the search.
-
-    // Also all new searches running from the Saved Search Dialog should start
+    // All new searches running from the Saved Search Dialog should start
     // new searches at the top (or bottom) of the current file if it is in the set.
-
-    // And after a user has used the Restart button
-
-    if (m_IsSearchGroupRunning || (resources.count() == 1) || manual_restart) {
+    // Also, when the user hits Restart, the next search should start at the top (bottom)
+    
+    if (m_IsSearchGroupRunning || manual_restart ) {
         if ( m_StartingResource == current_resource ) {
             int pos = 0;
             if (GetSearchDirection() == FindReplace::SearchDirection_Up) {
