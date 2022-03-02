@@ -236,9 +236,11 @@ QStringList SpellCheck::suggest(const QString &word)
     Q_ASSERT(hdic.codec != nullptr);
     Q_ASSERT(hdic.handle != nullptr);
     int count = hdic.handle->suggest(&suggestedWords, hdic.codec->fromUnicode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word))).constData());
-
+    bool possible_end_of_sentence = word.endsWith('.') && (word.count(".") == 1);
     for (int i = 0; i < count; ++i) {
-        suggestions << hdic.codec->toUnicode(suggestedWords[i]);
+        QString suggested_word = hdic.codec->toUnicode(suggestedWords[i]);
+        if (possible_end_of_sentence && !suggested_word.endsWith('.')) suggestions << suggested_word + ".";
+        suggestions << suggested_word;
     }
 
     hdic.handle->free_list(&suggestedWords, count);
@@ -253,11 +255,14 @@ QStringList SpellCheck::suggestPS(const QString &word)
     char **suggestedWords;
     char **suggestedWords2;
     if (!m_primary.handle) return suggestions;
+    bool possible_end_of_sentence = word.endsWith('.') && (word.count(".") == 1);
     int count = m_primary.handle->suggest(&suggestedWords, m_primary.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
     int limit = count;
     if (limit > 4) limit = 4;
     for (int i = 0; i < limit; ++i) {
-        suggestions << m_primary.codec->toUnicode(suggestedWords[i]);
+        QString suggested_word = m_primary.codec->toUnicode(suggestedWords[i]);
+        if (possible_end_of_sentence && !suggested_word.endsWith('.')) suggested_word.append('.');
+        suggestions << suggested_word;
     }
     m_primary.handle->free_list(&suggestedWords, count);
     if (!m_secondary.handle) return suggestions; 
@@ -265,7 +270,9 @@ QStringList SpellCheck::suggestPS(const QString &word)
     limit = count;
     if (limit > 4) limit = 4;
     for (int i = 0; i < limit; ++i) {
-        suggestions << m_secondary.codec->toUnicode(suggestedWords2[i]);
+        QString suggested_word = m_secondary.codec->toUnicode(suggestedWords2[i]);
+        if (possible_end_of_sentence && !suggested_word.endsWith('.')) suggested_word.append('.');
+        suggestions << suggested_word;
     }
     m_secondary.handle->free_list(&suggestedWords2, count);
     return suggestions;
