@@ -1,11 +1,12 @@
 Sigil-1.9.1
     Bug Fixes
-     - Completely Revamp Find and Replace yet again to return most of its earlier behaviour for finding next
+     - Allow creation of a Windows 7 Legacy Installer to return Sigil to Windows 7 (for now)
+     - Completely revamped Find and Replace (yet again) to return most of its
+           earlier behaviour for finding next
      - Prevent Find and Replace Count from changing current location
      - Extend spellcheck suggestions to properly handle end of sentence vs abbreviations
-     - Center Image Report Fize Sizes vertically within its row.
-     - Allow creation of a Windows 7 Legacy Installer to return Sigil to Windows 7 for now
-     - Go To Link Or Style will now properly handle leading comments in CSS stylesheets
+     - Center Image Report File Sizes vertically within their row.
+     - Go To Link Or Style will now properly skip leading comments on selectors in CSS stylesheets
 
 
 Sigil-1.9.0
