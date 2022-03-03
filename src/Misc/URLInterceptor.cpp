@@ -89,19 +89,21 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
             MainWindow * mw = qobject_cast<MainWindow *>(widget);
             if (mw) {
                 QSharedPointer<Book> book = mw->GetCurrentBook();
-                QString path_to_book = book->GetFolderKeeper()->GetFullPathToMainFolder() + "/";
-                DBG qDebug() << "path_to_book: " << path_to_book;
-                QString path_to_mathjax = mw->GetMathJaxFolder();
-                if (sourcefolder.startsWith(path_to_book)) {
-                    bookfolder = path_to_book;
-                    mathjaxfolder = path_to_mathjax;
-                    DBG qDebug() << "mainwin: " <<  mw;
-                    DBG qDebug() << "book: " << bookfolder;
-                    DBG qDebug() << "mathjax: " << mathjaxfolder;
-                    DBG qDebug() << "usercss: " << usercssfolder;
-                    DBG qDebug() << "party: " << info.firstPartyUrl();
-                    DBG qDebug() << "source: " << sourcefolder;
-                    break;
+                if (!book.isNull()) {
+                    QString path_to_book = book->GetFolderKeeper()->GetFullPathToMainFolder() + "/";
+                    DBG qDebug() << "path_to_book: " << path_to_book;
+                    QString path_to_mathjax = mw->GetMathJaxFolder();
+                    if (sourcefolder.startsWith(path_to_book)) {
+                        bookfolder = path_to_book;
+                        mathjaxfolder = path_to_mathjax;
+                        DBG qDebug() << "mainwin: " <<  mw;
+                        DBG qDebug() << "book: " << bookfolder;
+                        DBG qDebug() << "mathjax: " << mathjaxfolder;
+                        DBG qDebug() << "usercss: " << usercssfolder;
+                        DBG qDebug() << "party: " << info.firstPartyUrl();
+                        DBG qDebug() << "source: " << sourcefolder;
+                        break;
+                    }
                 }
             }
         }
