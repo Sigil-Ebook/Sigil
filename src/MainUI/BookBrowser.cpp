@@ -371,7 +371,7 @@ QList <Resource *> BookBrowser::AllCSSResources()
 
 QList <Resource *> BookBrowser::AllJSResources()
 {
-    QStringList mtypes = QStringList() << "text/javascript" << "application/javascript";
+    QStringList mtypes = QStringList() << "text/javascript" << "application/javascript" << "application/ecmascript";
     return m_Book->GetFolderKeeper()->GetResourceListByMediaTypes(mtypes);
 }
 

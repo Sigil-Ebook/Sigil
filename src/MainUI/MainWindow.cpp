@@ -3571,7 +3571,7 @@ h->ShortPathName()));
 QList<std::pair<QString, bool>> MainWindow::GetJavascriptsMap(QList<Resource *> resources)
 {
     QList<std::pair<QString, bool>> javascript_map;
-    QStringList mtypes = QStringList() << "application/javascript" << "text/javascript";
+    QStringList mtypes = QStringList() << "application/javascript" << "application/ecmascript" << "text/javascript";
     QList<Resource *> js_resources = m_Book->GetFolderKeeper()->GetResourceListByMediaTypes(mtypes);
     // Use the first resource to get a list of known linked javascripts in order.                                   
     QStringList checked_linked_bookpaths = GetJavascriptsAlreadyLinked(resources.at(0));
@@ -3605,7 +3605,7 @@ QStringList MainWindow::GetJavascriptsAlreadyLinked(Resource *resource)
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
     QStringList linked_javascripts;
     QStringList existing_javascripts;
-    QStringList mtypes = QStringList() << "application/javascript" << "text/javascript";
+    QStringList mtypes = QStringList() << "application/javascript" << "application/ecmascript" << "text/javascript";
     foreach(Resource * js_resource, m_Book->GetFolderKeeper()->GetResourceListByMediaTypes(mtypes)) {
         existing_javascripts.append(js_resource->GetRelativePath());
     }

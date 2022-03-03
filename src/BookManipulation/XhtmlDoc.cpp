@@ -450,6 +450,7 @@ QStringList XhtmlDoc::GetLinkedJavascripts(const QString &source)
     foreach(XhtmlDoc::XMLElement element, script_tag_nodes) {
         if (element.attributes.contains("type") &&
             ((element.attributes.value("type").toLower() == "text/javascript") ||
+             (element.attributes.value("type").toLower() == "text/ecmascript") ||
              (element.attributes.value("type").toLower() == "application/javascript"))
             && element.attributes.contains("src")) {
             linked_js_paths.append(element.attributes.value("src"));
