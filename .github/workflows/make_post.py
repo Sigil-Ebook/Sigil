@@ -29,10 +29,11 @@ tags:
 
 # Map asset filename patterns to link text
 asset_patterns = {
-    'CHECKSUMS.sha256.txt'  : 'CHECKSUMS file',
-    'Windows-Setup.exe'     : 'Windows x86 download',
-    'Windows-x64-Setup.exe' : 'Windows x64 download',
-    'Mac.txz'               : 'MacOS download'
+    'CHECKSUMS.sha256.txt'     : 'CHECKSUMS file',
+    'Windows-Setup.exe'        : 'Windows x86 download',
+    'Windows-x64-Setup.exe'    : 'Windows x64 download',
+    'Windows-Legacy-Setup.exe' : 'Windows Legacy download',
+    'Mac.txz'                  : 'MacOS download'
 }
 
 link = "[{}]({}){{: .btn .btn--success}}<br/>"
