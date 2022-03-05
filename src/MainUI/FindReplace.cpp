@@ -395,7 +395,7 @@ bool FindReplace::DoReplaceNext()
 
 bool FindReplace::DoReplacePrevious()
 {
-    SetSearchDirection(FindReplace::SearchDirection_Down);
+    SetSearchDirection(FindReplace::SearchDirection_Up);
     bool found = Replace();
     return found;
 }
