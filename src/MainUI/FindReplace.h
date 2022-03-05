@@ -156,7 +156,9 @@ private slots:
     bool Find();
     bool FindNext();
     bool FindPrevious();
-
+    bool DoFindNext();
+    bool DoFindPrevious();
+    
     // Counts the number of occurrences of the user's
     // term in the document.
     int Count();
@@ -171,6 +173,8 @@ private slots:
     bool ReplaceNext();
     bool ReplacePrevious();
     bool ReplaceCurrent();
+    bool DoReplaceNext();
+    bool DoReplacePrevious();
 
     // Replaces the user's search term with the user's
     // replacement text in the entire document. Shows a

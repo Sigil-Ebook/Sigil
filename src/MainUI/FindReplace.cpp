@@ -1,4 +1,4 @@
-/************************************************************************
+/***************************************************************************
 **
 **  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2011-2012 John Schember <john@nachtimwald.com>
@@ -367,6 +367,37 @@ void FindReplace::FindAnyTextInTags(QString text)
     Find();
 
     ReadSettings();
+}
+
+
+bool FindReplace::DoFindNext()
+{
+    
+    SetSearchDirection(FindReplace::SearchDirection_Down);
+    bool found = Find();
+    return found;
+}
+
+bool FindReplace::DoFindPrevious()
+{
+    SetSearchDirection(FindReplace::SearchDirection_Up);
+    bool found = Find();
+    return found;
+}
+
+bool FindReplace::DoReplaceNext()
+{
+    SetSearchDirection(FindReplace::SearchDirection_Down);
+    bool found = Replace();
+    return found;
+    
+}
+
+bool FindReplace::DoReplacePrevious()
+{
+    SetSearchDirection(FindReplace::SearchDirection_Down);
+    bool found = Replace();
+    return found;
 }
 
 bool FindReplace::Find()

@@ -6273,19 +6273,21 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionPreferences,     SIGNAL(triggered()), this, SLOT(PreferencesDialog()));
     // Search
     connect(ui.actionFind,             SIGNAL(triggered()), this, SLOT(Find()));
-    connect(ui.actionFindNext,         SIGNAL(triggered()), m_FindReplace, SLOT(FindNext()));
-    connect(ui.actionFindPrevious,     SIGNAL(triggered()), m_FindReplace, SLOT(FindPrevious()));
+    connect(ui.actionFindNext,         SIGNAL(triggered()), m_FindReplace, SLOT(DoFindNext()));
+    connect(ui.actionFindPrevious,     SIGNAL(triggered()), m_FindReplace, SLOT(DoFindPrevious()));
+    connect(ui.actionReplaceNext,      SIGNAL(triggered()), m_FindReplace, SLOT(DoReplaceNext()));
+    connect(ui.actionReplacePrevious,  SIGNAL(triggered()), m_FindReplace, SLOT(DoReplacePrevious()));
     connect(ui.actionReplaceCurrent,   SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceCurrent()));
-    connect(ui.actionReplaceNext,      SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceNext()));
-    connect(ui.actionReplacePrevious,  SIGNAL(triggered()), m_FindReplace, SLOT(ReplacePrevious()));
     connect(ui.actionReplaceAll,       SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceAll()));
     connect(ui.actionCount,            SIGNAL(triggered()), m_FindReplace, SLOT(Count()));
     connect(ui.actionFindNextInFile,   SIGNAL(triggered()), m_FindReplace, SLOT(FindNextInFile()));
     connect(ui.actionReplaceNextInFile, SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceNextInFile()));
     connect(ui.actionReplaceAllInFile, SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceAllInFile()));
-    connect(ui.actionMarkSelection,    SIGNAL(triggered()), this, SLOT(MarkSelection()));
     connect(ui.actionCountInFile,      SIGNAL(triggered()), m_FindReplace, SLOT(CountInFile()));
+
+    connect(ui.actionMarkSelection,    SIGNAL(triggered()), this, SLOT(MarkSelection()));
     connect(ui.actionGoToLine,         SIGNAL(triggered()), this, SLOT(GoToLine()));
+
     // About
     connect(ui.actionUserGuide,     SIGNAL(triggered()), this, SLOT(UserGuide()));
     connect(ui.actionDonate,        SIGNAL(triggered()), this, SLOT(Donate()));
