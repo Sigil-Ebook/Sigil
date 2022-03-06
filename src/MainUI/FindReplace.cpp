@@ -1049,7 +1049,7 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
 {
     Resource *current_resource = GetCurrentResource();
     Resource *starting_resource = NULL;
-    bool check_starting_resource = false;
+    bool need_to_check_assigned_starting_resource = false;
     
     // if CurrentFile is the same type as LookWhere, set it as the starting resource
     if (isWhereHTML() && (current_resource->Type() == Resource::HTMLResourceType)) {
@@ -1063,60 +1063,41 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
     }
 
     QList<Resource *> resources = GetFilesToSearch();
-    qDebug() << "In GNCR GetFilesToSearch returned: ";
-    for (int i=0; i < resources.count(); i++) {
-        qDebug() << "     " << resources.at(i)->GetRelativePath() ;
-    }
-    
-    if (resources.isEmpty()) {
-        return NULL;
-    }
+    if (resources.isEmpty()) return NULL;
 
-    if (!starting_resource) check_starting_resource = true;
-    
-
-    DBG qDebug() << "  initial starting resource .. " << starting_resource;
+    // If no starting resource we will need to set one first and then search it.
+    // Otherwise,  this resource was part of the current selection (or earlier) and has already been
+    // searched in FindInAllFiles
 
     if (!starting_resource || (isWhereSelected() && !IsCurrentFileInSelection())) {
+        need_to_check_assigned_starting_resource = true;
         if (direction == Searchable::Direction_Up) {
             starting_resource = resources.first();
         } else {
             starting_resource = resources.last();
         }
     }
-    DBG qDebug() << "  final starting resource .. " << starting_resource->GetRelativePath();
 
     Resource *next_resource = starting_resource;
 
-    if (check_starting_resource && (resources.count() > 1)) {
+    if (need_to_check_assigned_starting_resource) {
+        DBG qDebug() << "Trying newly assigned first eesource: " << next_resource->GetRelativePath();
         if (next_resource) {
             if (ResourceContainsCurrentRegex(next_resource)) {
+                DBG qDebug() << "Found it";
                 return next_resource;
             }
-        }
     }
 
-    // handle a list of size one as a special case as long as Wrap is not set
-    // if the current file matches our single resource then
-    // we have already processed it in earlier code, leave
-    // otherwise we need to process it if it contains
-    // the current regex and then stop
-    // if ((resources.size() == 1) && !m_OptionWrap) {
-    if ((resources.count() == 1)) {
-        if (IsCurrentFileInSelection()) {
+    // handle list of resources to search of size 1 as special case
+    if (resources.count() == 1) {
+            /* already searched it so done */
             return NULL;
         }
-        if (next_resource) {
-            if (ResourceContainsCurrentRegex(next_resource)) {
-                return next_resource;
-            }
-        }
-        return NULL;
     }
-
     
     // this will only work if the resource list has at least 2 elements
-    // as it relies on list order to know if done or not
+    // as it relies on list order to know if already searched or not
     // since it keeps no state itself
     bool passed_starting_resource = false;
 
@@ -1125,11 +1106,7 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
         next_resource = GetNextResource(next_resource, direction);
 
         if (next_resource == starting_resource) {
-            // if (!m_OptionWrap) {
-            //     return NULL;
-            // }
             return NULL;
-            // passed_starting_resource = true ;
         }
 
         if (next_resource) {
