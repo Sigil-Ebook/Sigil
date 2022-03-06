@@ -41,7 +41,7 @@
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/TextResource.h"
 
-#define DBG if(0)
+#define DBG if(1)
 
 static const QString SETTINGS_GROUP = "find_replace";
 static const QString REGEX_OPTION_UCP = "(*UCP)";
@@ -932,9 +932,9 @@ QList <Resource *> FindReplace::GetFilesToSearch()
             if (resource == current_resource) skip_resource = true;
         }
     }
-    // for (int j=0; j < resources.count(); j++) {
-    //     qDebug() << "F2S returning: " << resources.at(j)->GetRelativePath();
-    // }
+    for (int j=0; j < resources.count(); j++) {
+        qDebug() << "F2S returning: " << resources.at(j)->GetRelativePath();
+    }
     return resources;
 }
 
@@ -1003,9 +1003,12 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
     }
 
     if (!found) {
-        DBG qDebug() << " .. FindInAllFiles GetNextContainingResource";
         Resource *containing_resource = GetNextContainingResource(direction);
+        DBG qDebug() << " .. FindInAllFiles GetNextContainingResource" << containing_resource;
+        
         if (containing_resource) {
+            DBG qDebug() << " .. which is " << containing_resource->GetRelativePath();
+
             // Save if editor or F&R has focus
             bool has_focus = HasFocus();
             // Save selected resources since opening tabs changes selection
@@ -1046,7 +1049,8 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
 {
     Resource *current_resource = GetCurrentResource();
     Resource *starting_resource = NULL;
-
+    bool check_starting_resource = false;
+    
     // if CurrentFile is the same type as LookWhere, set it as the starting resource
     if (isWhereHTML() && (current_resource->Type() == Resource::HTMLResourceType)) {
         starting_resource = current_resource;
@@ -1059,13 +1063,19 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
     }
 
     QList<Resource *> resources = GetFilesToSearch();
-
+    qDebug() << "In GNCR GetFilesToSearch returned: ";
+    for (int i=0; i < resources.count(); i++) {
+        qDebug() << "     " << resources.at(i)->GetRelativePath() ;
+    }
+    
     if (resources.isEmpty()) {
         return NULL;
     }
 
-    DBG qDebug() << "  starting resource .. " << starting_resource;
-    // if (starting_resource) qDebug() << " starting resource: " << starting_resource->GetRelativePath();
+    if (!starting_resource) check_starting_resource = true;
+    
+
+    DBG qDebug() << "  initial starting resource .. " << starting_resource;
 
     if (!starting_resource || (isWhereSelected() && !IsCurrentFileInSelection())) {
         if (direction == Searchable::Direction_Up) {
@@ -1074,8 +1084,17 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
             starting_resource = resources.last();
         }
     }
+    DBG qDebug() << "  final starting resource .. " << starting_resource->GetRelativePath();
 
     Resource *next_resource = starting_resource;
+
+    if (check_starting_resource && (resources.count() > 1)) {
+        if (next_resource) {
+            if (ResourceContainsCurrentRegex(next_resource)) {
+                return next_resource;
+            }
+        }
+    }
 
     // handle a list of size one as a special case as long as Wrap is not set
     // if the current file matches our single resource then
@@ -1083,7 +1102,7 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
     // otherwise we need to process it if it contains
     // the current regex and then stop
     // if ((resources.size() == 1) && !m_OptionWrap) {
-    if ((resources.size() == 1)) {
+    if ((resources.count() == 1)) {
         if (IsCurrentFileInSelection()) {
             return NULL;
         }
@@ -1095,12 +1114,14 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
         return NULL;
     }
 
+    
     // this will only work if the resource list has at least 2 elements
     // as it relies on list order to know if done or not
     // since it keeps no state itself
     bool passed_starting_resource = false;
 
     while (!passed_starting_resource || (next_resource != starting_resource)) {
+        
         next_resource = GetNextResource(next_resource, direction);
 
         if (next_resource == starting_resource) {
