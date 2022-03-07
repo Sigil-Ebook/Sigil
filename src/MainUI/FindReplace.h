@@ -210,7 +210,9 @@ private:
     bool FindText(Searchable::Direction direction);
     bool ReplaceText(Searchable::Direction direction, bool replace_current = false);
 
-    void SetCodeViewIfNeeded(bool force = false);
+    void SetCodeViewIfNeeded();
+
+    // void RestoreFRFocusIfNeeded(bool had_focus, bool force=false);
 
     // Displays a message to the user informing him
     // that his last search term could not be found.

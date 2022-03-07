@@ -332,7 +332,8 @@ void FindReplace::CountClicked()
 
 bool FindReplace::FindAnyText(QString text, bool escape)
 {
-    SetCodeViewIfNeeded(true);
+    // bool had_focus = HasFocus();
+    SetCodeViewIfNeeded();
     WriteSettings();
 
     SetSearchMode(FindReplace::SearchMode_Regex);
@@ -353,12 +354,14 @@ bool FindReplace::FindAnyText(QString text, bool escape)
     ReadSettings();
     // Show the search term in case it's needed
     ui.cbFind->setEditText(search_text);
+    // RestoreFRFocusIfNeeded(had_focus, true);
     return found;
 }
 
 void FindReplace::FindAnyTextInTags(QString text)
 {
-    SetCodeViewIfNeeded(true);
+    // bool had_focus = HasFocus();
+    SetCodeViewIfNeeded();
     WriteSettings();
 
     SetSearchMode(FindReplace::SearchMode_Regex);
@@ -373,6 +376,7 @@ void FindReplace::FindAnyTextInTags(QString text)
     Find();
 
     ReadSettings();
+    // RestoreFRFocusIfNeeded(had_focus, true);
 }
 
 
@@ -457,7 +461,8 @@ int FindReplace::Count()
         return 0;
     }
 
-    SetCodeViewIfNeeded(true);
+    // bool had_focus = HasFocus();
+    SetCodeViewIfNeeded();
     int count = 0;
 
     if (isWhereCF() || m_LookWhereCurrentFile || IsMarkedText()) {
@@ -488,6 +493,7 @@ int FindReplace::Count()
     }
 
     UpdatePreviousFindStrings();
+    // RestoreFRFocusIfNeeded(had_focus, true);
     return count;
 }
 
@@ -558,7 +564,8 @@ int FindReplace::ReplaceAll()
         return 0;
     }
 
-    SetCodeViewIfNeeded(true);
+    // bool had_focus = HasFocus();
+    SetCodeViewIfNeeded();
     int count = 0;
 
     if (isWhereCF() || m_LookWhereCurrentFile || IsMarkedText()) {
@@ -596,6 +603,7 @@ int FindReplace::ReplaceAll()
 
     UpdatePreviousFindStrings();
     UpdatePreviousReplaceStrings();
+    // RestoreFRFocusIfNeeded(had_focus, true);
     return count;
 }
 
@@ -655,7 +663,8 @@ void FindReplace::expireMessage()
 bool FindReplace::FindMisspelledWord()
 {
     clearMessage();
-    SetCodeViewIfNeeded(true);
+    // bool had_focus = HasFocus();
+    SetCodeViewIfNeeded();
     m_SpellCheck = true;
 
     WriteSettings();
@@ -675,6 +684,7 @@ bool FindReplace::FindMisspelledWord()
         CannotFindSearchTerm();
     }
 
+    // RestoreFRFocusIfNeeded(had_focus, true);
     return found;
 }
 
@@ -689,6 +699,7 @@ bool FindReplace::FindText(Searchable::Direction direction)
         return found;
     }
 
+    // bool had_focus = HasFocus();
     SetCodeViewIfNeeded();
 
     if (isWhereCF() || m_LookWhereCurrentFile || IsMarkedText()) {
@@ -710,6 +721,7 @@ bool FindReplace::FindText(Searchable::Direction direction)
     }
 
     UpdatePreviousFindStrings();
+    // RestoreFRFocusIfNeeded(had_focus);
     return found;
 }
 
@@ -726,7 +738,8 @@ bool FindReplace::ReplaceText(Searchable::Direction direction, bool replace_curr
         return found;
     }
 
-    SetCodeViewIfNeeded(true);
+    // bool had_focus = HasFocus();
+    SetCodeViewIfNeeded();
     Searchable *searchable = GetAvailableSearchable();
 
     if (!searchable) {
@@ -749,12 +762,13 @@ bool FindReplace::ReplaceText(Searchable::Direction direction, bool replace_curr
 
     UpdatePreviousFindStrings();
     UpdatePreviousReplaceStrings();
+    // RestoreFRFocusIfNeeded(had_focus, true);
     // Do not use the return value to tell if a replace was done - only if a complete
     // Find/Replace or ReplaceCurrent was ok.  This allows multiple selections to work as expected.
     return found;
 }
 
-void FindReplace::SetCodeViewIfNeeded(bool force)
+void FindReplace::SetCodeViewIfNeeded()
 {
     // We never need to switch to CodeView if only working within the specified scope
     if (m_LookWhereCurrentFile || isWhereCF() || IsMarkedText()) {
@@ -768,15 +782,33 @@ void FindReplace::SetCodeViewIfNeeded(bool force)
     }
 
     bool has_focus = HasFocus();
+    if (has_focus) {
+        // give the current tab CodeView Tab the focus
+        ui.cbFind->lineEdit()->clearFocus();
+        ContentTab * current_tab = m_MainWindow->GetCurrentContentTab();
+        if (current_tab) current_tab->setFocus();
+    }
 
+    DBG qDebug() << "In SetCodeViewIfNeeded with FR focus: " << has_focus;
+}
+
+#if 0
+// This originally was the code at the end of SetCodeViewIfNeeded(force)
+// But it made no sense cause it did not really accomplish anything
+// where it was.  Even splitting it out into a routine to be done
+// at the end did not help so I am just leaving it here in case
+// this decision comes back to bite me!
+void FindReplace::RestoreFRFocusIfNeeded(bool had_focus, bool force)
+{
     if (force ||
         (!m_LookWhereCurrentFile && (isWhereHTML() || isWhereCSS() || isWhereOPF() || isWhereNCX())))
     {
-        if (has_focus) {
+        if (had_focus) {
             SetFocus();
         }
     }
 }
+#endif
 
 // Displays a message to the user informing him
 // that his last search term could not be found.
@@ -1025,6 +1057,9 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
             QList<Resource *>selected_resources = m_MainWindow->GetBookBrowserSelectedResources();
 
             m_MainWindow->OpenResourceAndWaitUntilLoaded(containing_resource);
+            // give the new tab initial focus
+            ContentTab * current_tab = m_MainWindow->GetCurrentContentTab();
+            if (current_tab) current_tab->setFocus();
 
             // Restore selection since opening tabs changes selection
             if (isWhereSelected() && !m_SpellCheck) {
