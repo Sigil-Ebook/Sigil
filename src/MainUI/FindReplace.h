@@ -103,6 +103,7 @@ public slots:
     void ReplaceSearch();
     void CountAllSearch();
     void ReplaceAllSearch();
+    void DoRestart();
 
     bool FindMisspelledWord();
 
@@ -149,7 +150,6 @@ private slots:
     void ReplaceClicked();
     void ReplaceAllClicked();
     void RestartClicked();
-
 
     // Uses the find direction to determine if we should find next
     // or previous.

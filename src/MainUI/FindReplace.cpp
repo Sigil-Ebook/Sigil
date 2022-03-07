@@ -41,7 +41,7 @@
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/TextResource.h"
 
-#define DBG if(1)
+#define DBG if(0)
 
 static const QString SETTINGS_GROUP = "find_replace";
 static const QString REGEX_OPTION_UCP = "(*UCP)";
@@ -247,6 +247,12 @@ void FindReplace::HideFindReplace()
 {
     WriteSettingsVisible(false);
     hide();
+}
+
+void FindReplace::DoRestart()
+{
+    m_PreviousSearch.clear();
+    ShowMessage(tr("Search will restart"));
 }
 
 void FindReplace::RestartClicked()
@@ -937,9 +943,9 @@ QList <Resource *> FindReplace::GetFilesToSearch()
             if (resource == current_resource) skip_resource = true;
         }
     }
-    for (int j=0; j < resources.count(); j++) {
-        qDebug() << "F2S returning: " << resources.at(j)->GetRelativePath();
-    }
+    // for (int j=0; j < resources.count(); j++) {
+    //     qDebug() << "F2S returning: " << resources.at(j)->GetRelativePath();
+    // }
     return resources;
 }
 

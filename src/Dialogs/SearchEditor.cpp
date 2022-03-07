@@ -159,6 +159,8 @@ bool SearchEditor::SaveTextData(QList<SearchEditorModel::searchEntry *> entries,
 
 void SearchEditor::LoadFindReplace()
 {
+    SelectionChanged();
+    emit RestartSearch();
     // ownership of the entry to load Find & Replace with remains here
     emit LoadSelectedSearchRequest(GetSelectedEntry(false));
 }

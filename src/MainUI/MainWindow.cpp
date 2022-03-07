@@ -6403,6 +6403,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_SearchEditor, SIGNAL(ReplaceAllSelectedSearchRequest()), m_FindReplace,   SLOT(ReplaceAllSearch()));
     connect(m_SearchEditor, SIGNAL(LoadSelectedSearchRequest(SearchEditorModel::searchEntry *)),
             m_FindReplace,   SLOT(LoadSearch(SearchEditorModel::searchEntry *)));
+    connect(m_SearchEditor, SIGNAL(RestartSearch()), m_FindReplace, SLOT(DoRestart()));
 
     connect(m_ClipboardHistorySelector, SIGNAL(PasteRequest(const QString &)), this, SLOT(PasteTextIntoCurrentTarget(const QString &)));
     connect(m_SelectCharacter, SIGNAL(SelectedCharacter(const QString &)), this, SLOT(PasteTextIntoCurrentTarget(const QString &)));
