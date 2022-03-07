@@ -854,7 +854,7 @@ bool FindReplace::IsCurrentFileInSelection()
 
 
 // Returns all resources according to LookWhere setting
-QList <Resource *> FindReplace::GetFilesToSearch()
+QList <Resource *> FindReplace::GetFilesToSearch(bool force_all)
 {
     QList <Resource *> all_resources;
     QList <Resource *> resources;
@@ -884,8 +884,8 @@ QList <Resource *> FindReplace::GetFilesToSearch()
         all_resources = m_MainWindow->GetNCXResource();
     }
 
-    // special case an empty list
-    if (all_resources.isEmpty()) return all_resources;
+    // special case an empty list or force all
+    if (force_all || all_resources.isEmpty()) return all_resources;
 
     // If starting a new search, or if current resource is the starting resource or
     // or if the current resource is not in the files to search, or if the starting
@@ -954,7 +954,7 @@ int FindReplace::CountInFiles()
 {
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
 
-    QList<Resource *>search_files = GetFilesToSearch();
+    QList<Resource *>search_files = GetFilesToSearch(true);
     if (search_files.isEmpty()) return 0;
 
     // When not wrapping remove the current resource as it's counted separately
@@ -966,11 +966,10 @@ int FindReplace::CountInFiles()
                search_files);
 }
 
-
 int FindReplace::ReplaceInAllFiles()
 {
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
-    QList<Resource *>search_files = GetFilesToSearch();
+    QList<Resource *>search_files = GetFilesToSearch(true);
     if (search_files.isEmpty()) return 0;
 
     int count = SearchOperations::ReplaceInAllFIles(
@@ -1533,9 +1532,8 @@ void FindReplace::SetStartingResource(bool update_position)
 
     Resource * current_resource = GetCurrentResource();
 
-    // setting this to null returns all_resources from GetFilesToSearch
     m_StartingResource = nullptr;
-    QList<Resource*> resources = GetFilesToSearch();
+    QList<Resource*> resources = GetFilesToSearch(true);
 
     if (resources.isEmpty()) return;
 

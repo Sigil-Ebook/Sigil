@@ -223,7 +223,7 @@ private:
     QString GetSearchRegex();
     QString PrependRegexOptionToSearch(const QString &option, const QString &search);
 
-    QList <Resource *> GetFilesToSearch();
+    QList <Resource *> GetFilesToSearch(bool force_all = false);
 
     bool IsCurrentFileInSelection();
 
