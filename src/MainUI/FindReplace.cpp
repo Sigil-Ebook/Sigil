@@ -829,6 +829,8 @@ bool FindReplace::IsCurrentFileInSelection()
 {
     bool found = false;
     QList <Resource *> resources = GetFilesToSearch();
+    if (resources.isEmpty()) return false;
+
     Resource *current_resource = GetCurrentResource();
 
     if (current_resource) {
@@ -875,6 +877,9 @@ QList <Resource *> FindReplace::GetFilesToSearch()
     } else if (GetLookWhere() == FindReplace::LookWhere_NCXFile) {
         all_resources = m_MainWindow->GetNCXResource();
     }
+
+    // special case an empty list
+    if (all_resources.isEmpty()) return all_resources;
 
     // If starting a new search, or if current resource is the starting resource or
     // or if the current resource is not in the files to search, or if the starting
@@ -944,6 +949,8 @@ int FindReplace::CountInFiles()
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
 
     QList<Resource *>search_files = GetFilesToSearch();
+    if (search_files.isEmpty()) return 0;
+
     // When not wrapping remove the current resource as it's counted separately
     // if (!m_OptionWrap) {
     //     search_files.removeOne(GetCurrentResource());
@@ -958,10 +965,8 @@ int FindReplace::ReplaceInAllFiles()
 {
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
     QList<Resource *>search_files = GetFilesToSearch();
-    // When not wrapping remove the current resource as it's replace separately
-    // if (!m_OptionWrap) {
-    //     search_files.removeOne(GetCurrentResource());
-    // }
+    if (search_files.isEmpty()) return 0;
+
     int count = SearchOperations::ReplaceInAllFIles(
                     GetSearchRegex(),
                     ui.cbReplace->lineEdit()->text(),
@@ -1135,6 +1140,9 @@ Resource *FindReplace::GetNextResource(Resource *current_resource, Searchable::D
     int max_reading_order       = resources.count() - 1;
     int current_reading_order   = 0;
     int next_reading_order      = 0;
+
+    if (resources.isEmpty()) return NULL;
+
     // Find the current resource in the tabbed/selected/all resource entries
     int i = 0;
     if (current_resource) {
@@ -1522,6 +1530,8 @@ void FindReplace::SetStartingResource(bool update_position)
     // setting this to null returns all_resources from GetFilesToSearch
     m_StartingResource = nullptr;
     QList<Resource*> resources = GetFilesToSearch();
+
+    if (resources.isEmpty()) return;
 
     if (GetSearchDirection() == FindReplace::SearchDirection_Down) {
         if (resources.contains(current_resource)) {
