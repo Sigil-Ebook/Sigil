@@ -77,6 +77,7 @@ FlowTab::FlowTab(HTMLResource *resource,
     CreateCodeViewIfRequired(false);
     m_Layout->addWidget(m_wCodeView);
     LoadSettings();
+    qDebug() << "Flow Tab constructor set focus proxy to " << m_wCodeView;
     setFocusProxy(m_wCodeView);
     ConnectCodeViewSignalsToSlots();
 
@@ -201,7 +202,10 @@ void FlowTab::CodeView()
     QApplication::setOverrideCursor(Qt::WaitCursor);
     CreateCodeViewIfRequired();
     m_wCodeView->SetDelayedCursorScreenCenteringRequired();
+#if 0
+    qDebug() << "FlowTab in Delayed Initialization setting focus proxy to: " << m_wCodeView;
     setFocusProxy(m_wCodeView);
+#endif
 
     // We will usually want focus in the tab, except when splitting opens this as a preceding tab.
     if (m_grabFocus) {

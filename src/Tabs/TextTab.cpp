@@ -25,6 +25,7 @@
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
 #include <QtPrintSupport/QPrintPreviewDialog>
+#include <QDebug>
 
 #include "ResourceObjects/TextResource.h"
 #include "Tabs/TextTab.h"
@@ -42,6 +43,7 @@ TextTab::TextTab(TextResource *resource,
     m_PositionToScrollTo(position_to_scroll_to)
 {
     m_Layout->addWidget(m_wCodeView);
+    qDebug() << "TextTab setting CodeView as it sfocus proxy";
     setFocusProxy(m_wCodeView);
     ConnectSignalsToSlots();
     // Make sure the resource is loaded as its file doesn't seem
