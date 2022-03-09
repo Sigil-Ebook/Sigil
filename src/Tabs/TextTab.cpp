@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -25,7 +25,6 @@
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
 #include <QtPrintSupport/QPrintPreviewDialog>
-#include <QDebug>
 
 #include "ResourceObjects/TextResource.h"
 #include "Tabs/TextTab.h"
@@ -43,7 +42,6 @@ TextTab::TextTab(TextResource *resource,
     m_PositionToScrollTo(position_to_scroll_to)
 {
     m_Layout->addWidget(m_wCodeView);
-    qDebug() << "TextTab setting CodeView as it sfocus proxy";
     setFocusProxy(m_wCodeView);
     ConnectSignalsToSlots();
     // Make sure the resource is loaded as its file doesn't seem

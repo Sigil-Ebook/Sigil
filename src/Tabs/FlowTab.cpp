@@ -77,7 +77,6 @@ FlowTab::FlowTab(HTMLResource *resource,
     CreateCodeViewIfRequired(false);
     m_Layout->addWidget(m_wCodeView);
     LoadSettings();
-    qDebug() << "Flow Tab constructor set focus proxy to " << m_wCodeView;
     setFocusProxy(m_wCodeView);
     ConnectCodeViewSignalsToSlots();
 
@@ -203,7 +202,7 @@ void FlowTab::CodeView()
     CreateCodeViewIfRequired();
     m_wCodeView->SetDelayedCursorScreenCenteringRequired();
 #if 0
-    qDebug() << "FlowTab in Delayed Initialization setting focus proxy to: " << m_wCodeView;
+    // This is uneeded since handled in constructor
     setFocusProxy(m_wCodeView);
 #endif
 

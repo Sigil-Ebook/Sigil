@@ -964,8 +964,6 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
         m_lastMatch = match_info;
         m_lastMatch.offset.first += start_offset;
         m_lastMatch.offset.second += start_offset;
-        qDebug() << "CV FindNext: " << m_lastFindRegex;
-        qDebug() << "CV FindNext: " << m_lastMatch.offset.first;
         return true;
     } else if (wrap) {
         if (FindNext(search_regex, search_direction, misspelled_words, true, false, marked_text)) {
@@ -1013,9 +1011,6 @@ bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString 
 
     // It is only safe to do a replace if we have not changed the selection or find text
     // since we last did a Find.
-    qDebug() << "Regex: " << search_regex << "ReplaceMent: " << replacement;
-    qDebug() << "lastRegex: " << m_lastFindRegex;
-    qDebug() << "lastMatchoffset: " << m_lastMatch.offset.first;
     if ((search_regex != m_lastFindRegex) || (m_lastMatch.offset.first == -1)) {
         return false;
     }
@@ -1170,7 +1165,6 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
 
 void CodeViewEditor::ResetLastFindMatch()
 {
-    qDebug() << "CV ResetLastFindMatch";
     m_lastMatch.offset.first = -1;
 }
 
@@ -2153,7 +2147,6 @@ void CodeViewEditor::focusInEvent(QFocusEvent *event)
 {
     // Why is this needed?
     // RehighlightDocument();
-    qDebug() << "CodeView focus in";
     emit FocusGained(this);
     QPlainTextEdit::focusInEvent(event);
     HighlightCurrentLine(false);
@@ -2163,7 +2156,6 @@ void CodeViewEditor::focusInEvent(QFocusEvent *event)
 // Overridden so we can emit the FocusLost() signal.
 void CodeViewEditor::focusOutEvent(QFocusEvent *event)
 {
-    qDebug() << "CodeView focus lost";
     emit FocusLost(this);
     QPlainTextEdit::focusOutEvent(event);
     HighlightCurrentLine(false);

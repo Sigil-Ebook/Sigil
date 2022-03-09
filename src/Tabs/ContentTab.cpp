@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -22,7 +22,6 @@
 
 #include <QtWidgets/QLayout>
 #include <QtWidgets/QVBoxLayout>
-#include <QDebug>
 
 #include "Tabs/ContentTab.h"
 #include "ResourceObjects/Resource.h"
@@ -139,7 +138,6 @@ void ContentTab::EmitTabRenamed()
 
 void ContentTab::focusInEvent(QFocusEvent *event)
 {
-    qDebug() << "Content Tab Focus in";
     QWidget::focusInEvent(event);
     LoadTabContent();
 }
@@ -147,7 +145,6 @@ void ContentTab::focusInEvent(QFocusEvent *event)
 
 void ContentTab::focusOutEvent(QFocusEvent *event)
 {
-    qDebug() << "Content Tab Focus out";
     QWidget::focusOutEvent(event);
     SaveTabContent();
 }

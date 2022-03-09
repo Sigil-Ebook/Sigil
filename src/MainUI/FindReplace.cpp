@@ -41,7 +41,7 @@
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/TextResource.h"
 
-#define DBG if(1)
+#define DBG if(0)
 
 static const QString SETTINGS_GROUP = "find_replace";
 static const QString REGEX_OPTION_UCP = "(*UCP)";
@@ -74,7 +74,8 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_StartingResource(nullptr),
       m_StartingPos(-1),
       m_InRemainder(false),
-      m_RestartPerformed(false)
+      m_RestartPerformed(false),
+      m_SearchRunning(false)
 {
     ui.setupUi(this);
     FindReplaceQLineEdit *find_ledit = new FindReplaceQLineEdit(this);
@@ -310,7 +311,7 @@ void FindReplace::FindClicked()
 
 void FindReplace::ReplaceClicked()
 {
-    DBG qDebug() << "In ReplaceClicked which is ReplaceFind";
+    // This is really ReplaceFind";
     SetKeyModifiers();
     Replace();
     ResetKeyModifiers();
@@ -383,31 +384,42 @@ void FindReplace::FindAnyTextInTags(QString text)
 
 bool FindReplace::DoFindNext()
 {
-    
+    if (m_SearchRunning) return false;
+    m_SearchRunning = true;
     SetSearchDirection(FindReplace::SearchDirection_Down);
     bool found = Find();
+    m_SearchRunning = false;
     return found;
 }
 
 bool FindReplace::DoFindPrevious()
 {
+    if (m_SearchRunning) return	false;
+    m_SearchRunning = true;
     SetSearchDirection(FindReplace::SearchDirection_Up);
     bool found = Find();
+    m_SearchRunning = false;
     return found;
 }
 
 bool FindReplace::DoReplaceNext()
 {
+    if (m_SearchRunning) return	false;
+    m_SearchRunning = true;
     SetSearchDirection(FindReplace::SearchDirection_Down);
     bool found = Replace();
+    m_SearchRunning = false;
     return found;
     
 }
 
 bool FindReplace::DoReplacePrevious()
 {
+    if (m_SearchRunning) return	false;
+    m_SearchRunning = true;
     SetSearchDirection(FindReplace::SearchDirection_Up);
     bool found = Replace();
+    m_SearchRunning = false;
     return found;
 }
 
@@ -522,14 +534,12 @@ bool FindReplace::Replace()
 
 bool FindReplace::ReplaceNext()
 {
-    DBG qDebug() << "In ReplaceNext";
     return ReplaceText(Searchable::Direction_Down);
 }
 
 
 bool FindReplace::ReplacePrevious()
 {
-    DBG qDebug() << "In ReplacePrevious";
     return ReplaceText(Searchable::Direction_Up);
 }
 
@@ -750,14 +760,12 @@ bool FindReplace::ReplaceText(Searchable::Direction direction, bool replace_curr
     Searchable *searchable = GetAvailableSearchable();
 
     if (!searchable) {
-        DBG qDebug() << "In ReplaceText searchable not found";
         return found;
     }
 
     // If we have the matching text selected, replace it
     // This will not do anything if matching text is not selected.
     found = searchable->ReplaceSelected(GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction, replace_current);
-    DBG qDebug() << "In ReplaceText and search came back with: " << found;
 
     // If we are not going to stay put after a simple Replace, then find next match.
     if (!replace_current) {
@@ -779,18 +787,6 @@ bool FindReplace::ReplaceText(Searchable::Direction direction, bool replace_curr
 
 void FindReplace::SetCodeViewIfNeeded()
 {
-#if 0
-    // We never need to switch to CodeView if only working within the specified scope
-    if (m_LookWhereCurrentFile || isWhereCF() || IsMarkedText()) {
-        if (!((GetCurrentResource()->Type() == Resource::HTMLResourceType) ||
-              (GetCurrentResource()->Type() == Resource::CSSResourceType) ||
-              (GetCurrentResource()->Type() == Resource::OPFResourceType) ||
-              (GetCurrentResource()->Type() == Resource::NCXResourceType))) 
-        {
-            return;
-        }
-    }
-#endif
     bool has_focus = HasFocus();
     if (has_focus) {
         // give the current tab CodeView Tab the focus
@@ -798,15 +794,6 @@ void FindReplace::SetCodeViewIfNeeded()
         ContentTab * current_tab = m_MainWindow->GetCurrentContentTab();
         if (current_tab) current_tab->setFocus();
     }
-#if 0
-    ContentTab * current_tab = m_MainWindow->GetCurrentContentTab();
-    if (current_tab) {
-        qDebug() << "SetCodeView with CV focus: " << current_tab->hasFocus() << "FR focus: " << HasFocus(); 
-        if (!current_tab->hasFocus()) current_tab->setFocus();
-    } else {
-        qDebug() << "SetCodeView with no current tab";
-    }
-#endif
 }
 
 #if 0
