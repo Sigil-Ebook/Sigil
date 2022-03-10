@@ -1,3 +1,12 @@
+Sigil-1.9.2
+    Bug Fixes
+      - fix loss of highlight on match when searching
+      - fix incorrect search counts
+      - fix incomplete replace all
+      - fix useability issues in Saved Searches
+      - fix handling or subcapture replacements when no search capture groups are provided
+      - fix crash on Windows from too fast/repeated Find Net and Find Previous launched via keyboard shortcuts
+
 Sigil-1.9.1
     Bug Fixes
      - Allow creation of a Windows 7 Legacy Installer to return Sigil to Windows 7 (for now)

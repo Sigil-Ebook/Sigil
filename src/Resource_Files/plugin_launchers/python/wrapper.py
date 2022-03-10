@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014-2020 Kevin B. Hendricks and Doug Massay
+# Copyright (c) 2014-2022 Kevin B. Hendricks and Doug Massay
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -49,7 +49,7 @@ def _unicodestr(p):
         return p
     return p.decode('utf-8', errors='replace')
 
-_launcher_version = 20220302
+_launcher_version = 20220310
 
 _PKG_VER = re.compile(r'''<\s*package[^>]*version\s*=\s*["']([^'"]*)['"][^>]*>''', re.IGNORECASE)
 
