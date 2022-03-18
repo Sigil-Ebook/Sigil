@@ -1361,6 +1361,7 @@ void CodeViewEditor::contextMenuEvent(QContextMenuEvent *event)
 
     AddMarkSelectionMenu(menu);
     AddGoToLinkOrStyleContextMenu(menu);
+    AddToggleLineWrapModeContextMenu(menu);
     AddClipContextMenu(menu);
 
     if (m_checkSpelling) {
@@ -1626,6 +1627,28 @@ void CodeViewEditor::AddGoToLinkOrStyleContextMenu(QMenu *menu)
     }
 
     connect(goToLinkOrStyleAction, SIGNAL(triggered()), this, SLOT(GoToLinkOrStyleAction()));
+
+    if (topAction) {
+        menu->insertSeparator(topAction);
+    }
+}
+
+void CodeViewEditor::AddToggleLineWrapModeContextMenu(QMenu *menu)
+{
+    QAction *topAction = 0;
+
+    if (!menu->actions().isEmpty()) {
+        topAction = menu->actions().at(0);
+    }
+
+    QAction *toggleLineWrapModeAction = new QAction(tr("Toggle Line Wrap Mode"), menu);
+    if (!topAction) {
+        menu->addAction(toggleLineWrapModeAction);
+    } else {
+        menu->insertAction(topAction, toggleLineWrapModeAction);
+    }
+
+    connect(toggleLineWrapModeAction, SIGNAL(triggered()), this, SLOT(ToggleLineWrapMode()));
 
     if (topAction) {
         menu->insertSeparator(topAction);
@@ -1999,7 +2022,12 @@ bool CodeViewEditor::IsInsertIdAllowed()
 
     // Only allow if the closing tag we're in is an "a" tag
     QString closing_tag_name = GetClosingTagName(pos);
-
+    // special case of cursor immediately before ending tag |</tag>
+    if (!closing_tag_name.isEmpty()) {
+        if (m_TagList.getSource().at(pos) == '<') {
+            closing_tag_name = "";
+        }
+    }
     if (!closing_tag_name.isEmpty() && !ANCHOR_TAGS.contains(closing_tag_name)) {
         return false;
     }
@@ -2024,6 +2052,12 @@ bool CodeViewEditor::IsInsertHyperlinkAllowed()
 
     // Only allow if the closing tag we're in is an "a" tag
     QString closing_tag_name = GetClosingTagName(pos);
+    // special case of cursor immediately before ending tag |</tag>
+    if (!closing_tag_name.isEmpty()) {
+        if (m_TagList.getSource().at(pos) == '<') {
+            closing_tag_name = "";
+        }
+    }
 
     if (!closing_tag_name.isEmpty() && !ANCHOR_TAGS.contains(closing_tag_name)) {
         return false;
@@ -2095,7 +2129,9 @@ bool CodeViewEditor::InsertTagAttribute(const QString &element_name,
     }
 
     // If nothing was inserted, then just insert a new tag with no text as long as we aren't in a tag
-    if (!textCursor().hasSelection() && !IsPositionInTag(textCursor().position())) {
+    int pos = textCursor().position();
+    bool in_tag_not_before = IsPositionInTag(pos) && (m_TagList.getSource().at(pos) != '<');
+    if (!textCursor().hasSelection() && !in_tag_not_before) {
         InsertHTMLTagAroundText(element_name, "/" % element_name, attribute_name % "=\"" % attribute_value % "\"", "");
         inserted = true;
     } else if (TextIsSelectedAndNotInStartOrEndTag()) {
@@ -3902,6 +3938,15 @@ void CodeViewEditor::SelectAndScrollIntoView(int start_position, int end_positio
 
     // Tell FlowTab to Tell Preview to Sync to this Location
     emit PageClicked();
+}
+
+void CodeViewEditor::ToggleLineWrapMode()
+{
+    if (lineWrapMode() == QPlainTextEdit::NoWrap) {
+        setLineWrapMode(QPlainTextEdit::WidgetWidth);
+    } else {
+        setLineWrapMode(QPlainTextEdit::NoWrap);
+    }
 }
 
 void CodeViewEditor::ConnectSignalsToSlots()

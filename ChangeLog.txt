@@ -1,3 +1,11 @@
+pre-1.9.X
+    Bug Fixes
+      - Fix insertion of id and links when cursor immediately before a closing tag
+    
+    New Features
+      - Add a Toggle Line Wrap Mode and its support added to CodeView via pop-up menu
+
+    
 Sigil-1.9.2
     Bug Fixes
       - fix loss of highlight on match when searching

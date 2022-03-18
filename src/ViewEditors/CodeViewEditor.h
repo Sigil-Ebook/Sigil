@@ -575,6 +575,8 @@ private slots:
 
     void GoToLinkOrStyleAction();
 
+    void ToggleLineWrapMode();
+
     void ReformatCSSMultiLineAction();
     void ReformatCSSSingleLineAction();
 
@@ -647,6 +649,8 @@ private:
     void AddReformatHTMLContextMenu(QMenu *menu);
 
     void AddGoToLinkOrStyleContextMenu(QMenu *menu);
+
+    void AddToggleLineWrapModeContextMenu(QMenu *menu);
 
     void AddClipContextMenu(QMenu *menu);
 
