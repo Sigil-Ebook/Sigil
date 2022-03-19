@@ -1,6 +1,7 @@
 pre-1.9.X
     Bug Fixes
       - Fix insertion of id and links when cursor immediately before a closing tag
+      - Make sure bundled PySide6 can find QtWebEngine resources on Windows (Qt6)
     
     New Features
       - Add a Toggle Line Wrap Mode and its support added to CodeView via pop-up menu

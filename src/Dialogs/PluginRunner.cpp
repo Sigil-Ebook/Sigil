@@ -357,8 +357,10 @@ void PluginRunner::startPlugin()
         // Replace Qt environment variable with our own (for bundled PyQt5)
         env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir::toNativeSeparators(QCoreApplication::applicationDirPath() + "/platforms"));
         env.insert("QT_PLUGIN_PATH", QDir::toNativeSeparators(QCoreApplication::applicationDirPath()));
+        // Bundled PySide6 fails to find QtWebEngine resource without this set.
+        env.insert("PYSIDE_DISABLE_INTERNAL_QT_CONF", "1");
         // Prepend Sigil program directory to PATH so the bundled interpreter
-        // can find the correct Qt libs (for PyQt5) and the Python dll.
+        // can find the correct Qt libs (for PyQt5/PySide6) and the Python dll.
         env.insert("PATH", QDir::toNativeSeparators(QCoreApplication::applicationDirPath() + PATH_LIST_DELIM + env.value("PATH")));
     }
     //Whether bundled or external, set working dir to the directory of the interpreter being used.
