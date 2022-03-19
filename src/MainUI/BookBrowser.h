@@ -213,6 +213,8 @@ public slots:
      */
     void SelectMovedResource();
 
+    void FocusOnBookBrowser();
+
     void SaveAsUrl(const QUrl &url);
 
 signals:

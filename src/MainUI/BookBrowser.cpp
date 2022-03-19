@@ -29,6 +29,7 @@
 #include <QProgressDialog>
 #include <QScrollBar>
 #include <QVariant>
+#include <QTimer>
 #include <QDebug>
 
 #include "BookManipulation/Book.h"
@@ -189,9 +190,11 @@ void BookBrowser::SelectRenamedResource()
 
     // Set the selection to the resource that was being renamed
     UpdateSelection(m_RenamedResource);
-    // Make sure Book Browser has focus so keyboard navigation works as expected
-    qobject_cast<QWidget *>(m_TreeView)->setFocus();
     m_RenamedResource = NULL;
+
+    // Make sure Book Browser has focus so keyboard navigation works as expected
+    // Delay so that setting focus happens last, *after* all other events
+    QTimer::singleShot(100, this, SLOT(FocusOnBookBrowser()));
 }
 
 void BookBrowser::SelectMovedResource()
@@ -202,9 +205,15 @@ void BookBrowser::SelectMovedResource()
 
     // Set the selection to the resource that was being renamed
     UpdateSelection(m_MovedResource);
-    // Make sure Book Browser has focus so keyboard navigation works as expected
-    qobject_cast<QWidget *>(m_TreeView)->setFocus();
     m_MovedResource = NULL;
+    // Make sure Book Browser has focus so keyboard navigation works as expected
+    // Delay so that setting focus happens last, *after* all other events
+    QTimer::singleShot(100, this, SLOT(FocusOnBookBrowser()));
+}
+
+void BookBrowser::FocusOnBookBrowser()
+{
+    qobject_cast<QWidget *>(m_TreeView)->setFocus();
 }
 
 void BookBrowser::UpdateSelection(Resource *resource)
