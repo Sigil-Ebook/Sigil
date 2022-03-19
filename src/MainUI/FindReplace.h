@@ -121,6 +121,8 @@ public slots:
 
     void ValidateRegex();
 
+    void CountsReportCount(SearchEditorModel::searchEntry* entry, int& count);
+
 signals:
 
     void OpenSearchEditorRequest(SearchEditorModel::searchEntry *search_entry = NULL);

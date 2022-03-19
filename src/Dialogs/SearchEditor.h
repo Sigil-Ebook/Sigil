@@ -76,8 +76,8 @@ signals:
     void CountAllSelectedSearchRequest();
     void ReplaceAllSelectedSearchRequest();
     void RestartSearch();
-
     void ShowStatusMessageRequest(const QString &message);
+    void CountsReportCountRequest(SearchEditorModel::searchEntry* entry, int& count);
 
 protected:
     bool eventFilter(QObject *obj, QEvent *ev);
@@ -123,6 +123,8 @@ private slots:
     void SettingsFileModelUpdated();
 
     void ModelItemDropped(const QModelIndex &index);
+
+    void MakeCountsReport();
 
 private:
 

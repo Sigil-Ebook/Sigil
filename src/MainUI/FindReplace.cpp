@@ -1727,6 +1727,22 @@ void FindReplace::CountAllSearch()
     ResetKeyModifiers();
 }
 
+
+void FindReplace::CountsReportCount(SearchEditorModel::searchEntry* entry, int& count)
+{
+    if (entry) {
+        SetKeyModifiers();
+        m_IsSearchGroupRunning = true;
+        LoadSearch(entry);
+        count = Count();
+        m_IsSearchGroupRunning = false;
+    } else {
+        qDebug() << "why am I here";
+        count = -1;
+    }
+}
+
+
 void FindReplace::ReplaceAllSearch()
 {
     // these entries are owned by the Search Editor who will clean up as needed

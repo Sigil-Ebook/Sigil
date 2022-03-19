@@ -176,6 +176,17 @@ including entries in selected groups.</string>
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="CountsReportPB">
+         <property name="toolTip">
+          <string>Create a Counts report for the selected entries in the order selected,
+including entries in selected groups.</string>
+         </property>
+         <property name="text">
+          <string>Counts Report</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_4">
          <property name="orientation">
           <enum>Qt::Vertical</enum>

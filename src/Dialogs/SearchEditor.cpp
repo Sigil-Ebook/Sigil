@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -30,6 +30,8 @@
 #include <QItemSelectionModel>
 #include <QItemSelection>
 #include <QDebug>
+
+#include "Dialogs/CountsReport.h"
 #include "Dialogs/SearchEditorItemDelegate.h"
 #include "Dialogs/SearchEditor.h"
 #include "Misc/Utility.h"
@@ -1189,6 +1191,18 @@ void SearchEditor::MoveHorizontal(bool move_left)
     ui.SearchEditorTree->selectionModel()->select(destination_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
 }
 
+void SearchEditor::MakeCountsReport()
+{
+    // non-modal dialog
+    CountsReport* crpt = new CountsReport(this);
+    connect(crpt, SIGNAL(CountRequest(SearchEditorModel::searchEntry*, int&)),
+            this, SIGNAL(CountsReportCountRequest(SearchEditorModel::searchEntry*, int&)));
+    crpt->CreateReport(GetSelectedEntries());
+    crpt->show();
+    crpt->raise();
+    crpt->activateWindow();
+}
+
 void SearchEditor::ConnectSignalsSlots()
 {
     connect(ui.FilterText,      SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
@@ -1198,6 +1212,7 @@ void SearchEditor::ConnectSignalsSlots()
     connect(ui.Replace,         SIGNAL(clicked()),            this, SLOT(Replace()));
     connect(ui.CountAll,        SIGNAL(clicked()),            this, SLOT(CountAll()));
     connect(ui.ReplaceAll,      SIGNAL(clicked()),            this, SLOT(ReplaceAll()));
+    connect(ui.CountsReportPB,  SIGNAL(clicked()),            this, SLOT(MakeCountsReport()));
     connect(ui.MoveUp,     SIGNAL(clicked()),            this, SLOT(MoveUp()));
     connect(ui.MoveDown,   SIGNAL(clicked()),            this, SLOT(MoveDown()));
     connect(ui.MoveLeft,   SIGNAL(clicked()),            this, SLOT(MoveLeft()));

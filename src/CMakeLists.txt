@@ -191,6 +191,8 @@ set( DIALOG_FILES
     Dialogs/Controls.h
     Dialogs/SearchEditorItemDelegate.cpp
     Dialogs/SearchEditorItemDelegate.h
+    Dialogs/CountsReport.cpp
+    Dialogs/CountsReport.h
     Dialogs/ClipEditor.cpp
     Dialogs/ClipEditor.h
     Dialogs/IndexEditor.cpp
@@ -548,6 +550,7 @@ set( UI_FILES
     Form_Files/SpellcheckEditor.ui
     Form_Files/PluginRunner.ui
     Form_Files/Controls.ui
+    Form_Files/CountsReport.ui
     )
 
 set( SOURCEUPDATE_FILES
