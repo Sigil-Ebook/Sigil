@@ -266,13 +266,14 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
 
 QHash<QString, QString> ImportEPUB::ParseEncryptionXml()
 {
-    QString encrpytion_xml_path = m_ExtractedFolderPath + "/META-INF/encryption.xml";
+    QString encryption_xml_path = m_ExtractedFolderPath + "/META-INF/encryption.xml";
 
-    if (!QFileInfo(encrpytion_xml_path).exists()) {
+    if (!QFileInfo(encryption_xml_path).exists()) {
         return QHash<QString, QString>();
     }
 
-    QXmlStreamReader encryption(Utility::ReadUnicodeTextFile(encrpytion_xml_path));
+    // store away the font obfuscation info
+    QXmlStreamReader encryption(Utility::ReadUnicodeTextFile(encryption_xml_path));
     QHash<QString, QString> encrypted_files;
     QString encryption_algo;
     QString uri;
@@ -302,6 +303,8 @@ QHash<QString, QString> ImportEPUB::ParseEncryptionXml()
         throw (EPUBLoadParseError(error.toStdString()));
     }
 
+    // remove the encryption.xml file, it will be re-created as needed
+    Utility::SDeleteFile(encryption_xml_path);
     return encrypted_files;
 }
 
