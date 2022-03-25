@@ -1,4 +1,4 @@
-# <center>Building Sigil on Linux</center>
+# <center>Building Sigil on Linux with Qt6</center>
 ## <center>Systems like Arch (and its derivatives) or newer</center>
 
 If you're looking for instructions on how to build on systems that don't provide Qt6, you should look at the [Building_on_Linux](./Building_on_Linux.md) documentation.
@@ -39,7 +39,7 @@ Once again: `sudo pacman -S cmake` will get you what you need on Arch-type syste
 <center>**If your repos don't provide at lease Qt6.2.2, use the [Building_on_Linux](./Building_on_Linux.md) documentation for Qt5**</center>
 To get Sigil's Qt6 requirements, `sudo pacman -S` the following packages:
 
-+ qt5-svg
++ qt6-svg
 + qt6-webengine
 + qt6-tools
 + qt6-5compat
@@ -77,7 +77,7 @@ The folllowing command can be copied and pasted for convenience:
 That's all the Python 3.6 (or higher) stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. These should all be able to be installed with `sudo pacman -S`.
 
 + tk
-+ python-pyside6
++ pyside6
 + python-html5lib
 + python-regex
 + python-pillow
@@ -134,9 +134,6 @@ Once the cmake configure command finishes with no errors, build Sigil with:
 
 >`make (or make -j4 if you have plenty of processor cores)`
 
-### Common compilation failures/Errors.
-
-To be determined.
 
 ### Installing Sigil
 If all goes well, install Sigil with:
@@ -163,6 +160,8 @@ Install any missing Python modules with your system's package management system 
 There are several configuration and environment variable options that can tailor how Sigil is built and/or run. I've talked about a few of the cmake options already, but I'll mention them here again along with the rest--with a brief explanation of their purposes.
 
 ### CMake options
+
+-DUSE_QT6=(0|1) Defaults to 0. Build Sigil using Qt5 or Qt6
 
 -DQt6_DIR=`<path>` Configures cmake to use a Qt6 installation other than the normal system version of Qt5 (ex. /opt/Qt6.2.3/lib/cmake/Qt6 - the path should alays end in /lib/cmake/Qt6)
 
