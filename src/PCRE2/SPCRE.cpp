@@ -25,6 +25,8 @@
 
 #include "PCRE2/SPCRE.h"
 #include "PCRE2/PCREReplaceTextBuilder.h"
+#include "Misc/Utility.h"
+#include "EmbedPython/PythonRoutines.h"
 #include "sigil_constants.h"
 
 #define PCRE_NO_JIT 1
@@ -266,6 +268,22 @@ SPCRE::MatchInfo SPCRE::getLastMatchInfo(const QString &text)
 
 bool SPCRE::replaceText(const QString &text, const QList<std::pair<int, int>> &capture_groups_offsets, const QString &replacement_pattern, QString &out)
 {
+    // handle python replacement functions if needed
+    if (replacement_pattern.startsWith("\\F<") && replacement_pattern.endsWith('>')) {
+        int n = replacement_pattern.length();
+        QString module_name = Utility::Substring(3, n-1, replacement_pattern);
+        QStringList match_groups;
+        match_groups << text;
+        for (int i=1; i < capture_groups_offsets.count(); i++) {
+            match_groups << Utility::Substring(capture_groups_offsets.at(i).first,
+                                               capture_groups_offsets.at(i).second,
+                                               text);
+        }
+        PythonRoutines pr;
+        out = pr.FunctionReplaceInPython(match_groups, module_name);
+        return true;
+    }
+    // otherwise handle normally
     PCREReplaceTextBuilder builder;
     return builder.BuildReplacementText(*this, text, capture_groups_offsets, replacement_pattern, out);
 }

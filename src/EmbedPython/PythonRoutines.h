@@ -92,6 +92,9 @@ public:
                                                          const QString& destdir);
     
 
+    // returns function replacement text
+    QString FunctionReplaceInPython(const QStringList& match_groups, const QString& module_name);
+    
 private:
 
     ///////////////////////////////
