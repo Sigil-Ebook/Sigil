@@ -23,7 +23,7 @@ Since I'm basically an Arch Linux user, I'll be mentioning stuff like:
 
 >`sudo pacman -S`
 
-from here on out. You'll have to forgive me for not knowing all the yum/emerge equivalents. It's not a slight--I can assure you.
+from here on out. You'll have to forgive me for not knowing all the yum/emerge equivalents. It's not a slight&#150;I can assure you.
 
 ## <a name="gcc"/>Linux Build Environment
 On Arch-type systems you can use:
@@ -36,7 +36,7 @@ to get pretty-much everything you need to configure/compile/install C++ projects
 Once again: `sudo pacman -S cmake` will get you what you need on Arch-type systems.
 
 ## <a name="qt6"/>Getting Qt6
-<center>**If your repos don't provide at lease Qt6.2.2, use the [Building_on_Linux](./Building_on_Linux.md) documentation for Qt5**</center>
+<p align="center"><b>If your repos don't provide at least Qt6.2.2, use the [Building_on_Linux](./Building_on_Linux.md) documentation for Qt5.</b></p>
 To get Sigil's Qt6 requirements, `sudo pacman -S` the following packages:
 
 + qt6-svg
@@ -86,7 +86,7 @@ That's all the Python 3.6 (or higher) stuff you will need to get Sigil "up and r
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo pacman -S tk python-pyside6 python-html5lib python-regex python-pillow python-cssselect python-chardet`
+`sudo pacman -S tk pyside6 python-html5lib python-regex python-pillow python-cssselect python-chardet`
 
 If you run into any that won't install with `sudo pacman -S` you can still use pip to install them.
 
