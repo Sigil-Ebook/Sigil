@@ -37,6 +37,7 @@ Once again: `sudo pacman -S cmake` will get you what you need on Arch-type syste
 
 ## <a name="qt6"/>Getting Qt6
 **If your repos don't provide at least Qt6.2.2, use the [Building_on_Linux](./Building_on_Linux.md) documentation for Qt5.**
+
 To get Sigil's Qt6 requirements, `sudo pacman -S` the following packages:
 
 + qt6-svg
