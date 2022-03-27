@@ -21,7 +21,6 @@
 #include "EmbedPython/EmbeddedPython.h"
 
 #include <QString>
-#include <QDir>
 #include <QList>
 #include <QVariant>
 
