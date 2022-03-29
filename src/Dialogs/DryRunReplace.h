@@ -26,7 +26,8 @@
 #include <QDialog>
 #include <QList>
 #include <QStandardItemModel>
-#include <ResourceObjects/Resource.h>
+#include "Dialogs/StyledTextDelegate.h"
+#include "ResourceObjects/Resource.h"
 #include "ui_DryRunReplace.h"
 
 class QString;
@@ -65,6 +66,8 @@ private:
     QString m_search_regex;
     QString m_replace_text;
 
+    StyledTextDelegate* m_TextDelegate;
+    
     Ui::DryRunReplace ui;
 };
 

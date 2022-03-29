@@ -195,6 +195,8 @@ set( DIALOG_FILES
     Dialogs/CountsReport.h
     Dialogs/DryRunReplace.cpp
     Dialogs/DryRunReplace.h
+    Dialogs/StyledTextDelegate.cpp
+    Dialogs/StyledTextDelegate.h
     Dialogs/ClipEditor.cpp
     Dialogs/ClipEditor.h
     Dialogs/IndexEditor.cpp

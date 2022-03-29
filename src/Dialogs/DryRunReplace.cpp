@@ -30,10 +30,9 @@
 #include "ResourceObjects/TextResource.h"
 #include "PCRE2/PCRECache.h"
 #include "PCRE2/SPCRE.h"
-
+#include "Dialogs/StyledTextDelegate.h"
 #include "Dialogs/DryRunReplace.h"
 
-#include "sigil_exception.h"
 
 static const QString SETTINGS_GROUP = "dryrun_report";
 
@@ -41,7 +40,8 @@ static const QString SETTINGS_GROUP = "dryrun_report";
 DryRunReplace::DryRunReplace(QWidget* parent)
     :
     QDialog(parent),
-    m_ItemModel(new QStandardItemModel)
+    m_ItemModel(new QStandardItemModel),
+    m_TextDelegate(new StyledTextDelegate())
 {
     ui.setupUi(this);
     connectSignalsSlots();
@@ -62,7 +62,7 @@ void DryRunReplace::CreateReport(const QString& search_regex, const QString& rep
 
 void DryRunReplace::SetupTable(int sort_column, Qt::SortOrder sort_order)
 {
-    int context_amt = 20;
+    int context_amt = 30;
     m_ItemModel->clear();
     QStringList header;
     header.append(tr("Book Path"));
@@ -132,11 +132,15 @@ void DryRunReplace::SetupTable(int sort_column, Qt::SortOrder sort_order)
                 // Before
                 item = new QStandardItem();
                 item->setText(orig_snip);
+                item->setData(prior_context.length(), Qt::UserRole+1);
+                item->setData(prior_context.length() + match_segment.length(), Qt::UserRole+2);
                 rowItems << item;
                 
                 // After
                 item = new QStandardItem();
                 item ->setText(new_snip);
+                item->setData(prior_context.length(), Qt::UserRole+1);
+                item->setData(prior_context.length() + new_text.length(), Qt::UserRole+2);
                 rowItems << item;
                 
                 // Add item to table
@@ -175,7 +179,10 @@ void DryRunReplace::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems[i]->setEditable(false);
         rowItems[i]->setFont(font);
     }
-
+    // set styled text item delegate for columns 2 (before) and 3 (after)
+    ui.dryrunTree->setItemDelegateForColumn(2, m_TextDelegate);
+    ui.dryrunTree->setItemDelegateForColumn(3, m_TextDelegate);
+    
     m_ItemModel->appendRow(rowItems);
 
     for (int i = 0; i < ui.dryrunTree->header()->count(); i++) {
@@ -248,15 +255,20 @@ void DryRunReplace::Sort(int logicalindex, Qt::SortOrder order)
 void DryRunReplace::ReadSettings()
 {
     SettingsStore settings;
-    // settings.beginGroup(SETTINGS_GROUP);
-    // settings.endGroup();
+    settings.beginGroup(SETTINGS_GROUP);
+    QByteArray geometry = settings.value("geometry").toByteArray();
+    if (!geometry.isNull()) {
+        restoreGeometry(geometry);
+    }
+    settings.endGroup();
 }
 
 void DryRunReplace::WriteSettings()
 {
     SettingsStore settings;
-    // settings.beginGroup(SETTINGS_GROUP);
-    // settings.endGroup();
+    settings.beginGroup(SETTINGS_GROUP);
+    settings.setValue("geometry", saveGeometry());
+    settings.endGroup();
 }
 
 
