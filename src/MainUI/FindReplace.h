@@ -178,6 +178,10 @@ private slots:
     bool DoReplaceNext();
     bool DoReplacePrevious();
 
+    // Does a Dry-Run ReplaceAll and show results in table
+    // No actual changes are made
+    void DryRunReplaceAll();
+    
     // Replaces the user's search term with the user's
     // replacement text in the entire document. Shows a
     // dialog telling how many occurrences were replaced.
@@ -354,6 +358,8 @@ private:
     bool m_RestartPerformed;
 
     bool m_SearchRunning;
+
+    bool m_DryRun;
 };
 
 

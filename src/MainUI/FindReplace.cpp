@@ -32,6 +32,7 @@
 #include <QRegularExpression>
 #include <QDebug>
 
+#include "Dialogs/DryRunReplace.h"
 #include "Tabs/TextTab.h"
 #include "Tabs/FlowTab.h"
 #include "MainUI/FindReplace.h"
@@ -75,7 +76,8 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_StartingPos(-1),
       m_InRemainder(false),
       m_RestartPerformed(false),
-      m_SearchRunning(false)
+      m_SearchRunning(false),
+      m_DryRun(false)
 {
     ui.setupUi(this);
     FindReplaceQLineEdit *find_ledit = new FindReplaceQLineEdit(this);
@@ -295,11 +297,13 @@ void FindReplace::SetKeyModifiers()
 {
     // Only use with mouse click not menu/shortcuts to avoid modifying actions
     m_LookWhereCurrentFile = QApplication::keyboardModifiers() & Qt::ControlModifier;
+    m_DryRun = QApplication::keyboardModifiers() & Qt::ShiftModifier;
 }
 
 void FindReplace::ResetKeyModifiers()
 {
     m_LookWhereCurrentFile = false;
+    m_DryRun = false;
 }
 
 void FindReplace::FindClicked()
@@ -320,7 +324,11 @@ void FindReplace::ReplaceClicked()
 void FindReplace::ReplaceAllClicked()
 {
     SetKeyModifiers();
-    ReplaceAll();
+    if (m_DryRun) {
+        DryRunReplaceAll();
+    } else {
+        ReplaceAll();
+    }
     ResetKeyModifiers();
 }
 
@@ -560,6 +568,37 @@ bool FindReplace::ReplaceCurrent()
     }
 
     return found;
+}
+
+
+// Performs a Dry Run for Replace All showing results in a table
+void FindReplace::DryRunReplaceAll()
+{
+    m_MainWindow->GetCurrentContentTab()->SaveTabContent();
+    ShowMessage(tr("Dry Run of Replace All"));
+
+    if (IsNewSearch()) {
+        SetStartingResource(true);
+        SetPreviousSearch();
+    }
+
+    if (!IsValidFindText()) return;
+
+    QList<Resource *> resources;
+
+    if (isWhereCF() || m_LookWhereCurrentFile) {
+        resources << GetCurrentResource();
+    } else {
+        resources = GetFilesToSearch(true);
+    }
+    QString search_regex = GetSearchRegex();
+    QString replace_text = ui.cbReplace->lineEdit()->text();
+
+    DryRunReplace dr;
+    dr.CreateReport(search_regex, replace_text, resources);
+    // do this modally
+    dr.exec();
+    clearMessage();
 }
 
 
