@@ -269,6 +269,12 @@ void CountsReport::ReadSettings()
         m_LastFileSaved = DEFAULT_REPORT_FILE;
     }
 
+    // The size of the window and it's full screen status
+    QByteArray geometry = settings.value("geometry").toByteArray();
+
+    if (!geometry.isNull()) {
+        restoreGeometry(geometry);
+    }
     settings.endGroup();
 }
 
@@ -279,6 +285,7 @@ void CountsReport::WriteSettings()
     // Last file open
     settings.setValue("last_dir_saved", m_LastDirSaved);
     settings.setValue("last_file_saved_all_files", m_LastFileSaved);
+    settings.setValue("geometry", saveGeometry());
     settings.endGroup();
 }
 
