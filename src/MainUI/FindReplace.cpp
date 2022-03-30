@@ -916,7 +916,7 @@ QList<Resource*> FindReplace::GetAllResourcesToSearch()
 
 void FindReplace::EmitOpenFileRequest(const QString& bookpath, int line, int pos)
 {
-    emit OpenFileRequest(bookpath, line, pos);
+    emit FROpenFileRequest(bookpath, line, pos);
 }
 
 bool FindReplace::IsCurrentFileInSelection()

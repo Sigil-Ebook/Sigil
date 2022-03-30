@@ -133,7 +133,7 @@ signals:
 
     void ShowMessageRequest(const QString &message);
 
-    void OpenFileRequest(const QString &bookpath, int line, int offset);
+    void FROpenFileRequest(const QString &bookpath, int line, int offset);
     
     /**
      * Emitted when we want to do some operations with the clipboard
