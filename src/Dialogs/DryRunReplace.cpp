@@ -45,10 +45,12 @@ DryRunReplace::DryRunReplace(QWidget* parent)
 {
     ui.setupUi(this);
     connectSignalsSlots();
+    ReadSettings();
 }
 
 DryRunReplace::~DryRunReplace()
 {
+    WriteSettings();
     delete m_ItemModel;
 }
 

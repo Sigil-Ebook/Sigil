@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021      Kevin B. Hendricks, Stratford Ontario Canada 
+**  Copyright (C) 2022      Kevin B. Hendricks, Stratford Ontario Canada 
 **
 **  This file is part of Sigil.
 **
@@ -78,7 +78,7 @@ QSize StyledTextDelegate::sizeHint(const QStyleOptionViewItem &option, const QMo
     QTextDocument doc;
     doc.setPlainText(index.data(Qt::DisplayRole).toString());
     QSize res = doc.size().toSize();
-    if (res.width() > 160) res.setWidth(160);
+    // augment for better row heights
     res.setHeight(res.height()+10);
     return res;
 }

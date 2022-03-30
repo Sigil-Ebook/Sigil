@@ -45,10 +45,12 @@ CountsReport::CountsReport(QWidget* parent)
 {
     ui.setupUi(this);
     connectSignalsSlots();
+    ReadSettings();
 }
 
 CountsReport::~CountsReport()
 {
+    WriteSettings();
     foreach(SearchEditorModel::searchEntry* entry, m_entries) {
         if (entry) delete entry;
     }
