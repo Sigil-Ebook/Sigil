@@ -134,7 +134,7 @@ void DryRunReplace::CreateTable()
                 if (start > -1) count += 1;
                 NumericItem *count_item = new NumericItem();
                 count_item->setText(QString::number(start));
-                count_item->setTextAlignment(Qt::AlignRight);
+                count_item->setTextAlignment(Qt::AlignRight|Qt::AlignVCenter);
                 rowItems << count_item;
 
                 // Before
