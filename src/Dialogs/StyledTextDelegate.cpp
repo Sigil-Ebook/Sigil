@@ -27,6 +27,8 @@
 #include <QTextCursor>
 #include <QTextCharFormat>
 #include <QPainter>
+#include <QPalette>
+#include <QApplication>
 #include <QBrush>
 #include <QColor>
 #include <QSize>
@@ -63,8 +65,10 @@ void StyledTextDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
     cursor.clearSelection();
     cursor.setPosition(astart);
     cursor.setPosition(aend, QTextCursor::KeepAnchor);
+    QPalette pal = qApp->palette();
     QTextCharFormat format;
-    format.setForeground(Qt::red);
+    format.setForeground(pal.color(QPalette::Active, QPalette::HighlightedText));
+    format.setBackground(pal.color(QPalette::Active, QPalette::Highlight));                    
     cursor.setCharFormat(format);
     doc.drawContents(painter);
     painter->restore();
