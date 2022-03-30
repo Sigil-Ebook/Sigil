@@ -33,6 +33,7 @@
 #include "PCRE2/PCRECache.h"
 #include "PCRE2/SPCRE.h"
 #include "Dialogs/StyledTextDelegate.h"
+#include "MainUI/FindReplace.h"
 #include "Dialogs/DryRunReplace.h"
 
 

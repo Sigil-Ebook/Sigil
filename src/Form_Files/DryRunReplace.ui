@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>DryRunReplace</class>
- <widget class="QWidget" name="DryRunReplace">
+ <widget class="QDialog" name="DryRunReplace">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -73,8 +73,7 @@
      <item>
       <widget class="QPushButton" name="Refresh">
        <property name="toolTip">
-        <string>Re-check the HTML files for misspelled words.
-Use if you edit any HTML files while Spellcheck is open.</string>
+        <string>Perform the dry run ReplaceAll again and rebuild the table</string>.
        </property>
        <property name="text">
         <string>Refresh</string>

@@ -27,11 +27,10 @@
 #include <QList>
 #include <QStandardItemModel>
 #include "Dialogs/StyledTextDelegate.h"
-#include "ResourceObjects/Resource.h"
-#include "MainUI/FindReplace.h"
 #include "ui_DryRunReplace.h"
 
 class QString;
+class FindReplace;
 
 class DryRunReplace: public QDialog
 {
