@@ -6389,6 +6389,7 @@ void MainWindow::ConnectSignalsToSlots()
             this,          SLOT(CreateSectionBreakOldTab(QString, HTMLResource *)));
     connect(m_FindReplace, SIGNAL(OpenSearchEditorRequest(SearchEditorModel::searchEntry *)),
             this,          SLOT(SearchEditorDialog(SearchEditorModel::searchEntry *)));
+    connect(m_FindReplace, SIGNAL(OpenFileRequest(QString, int, int)), this, SLOT(OpenFile(QString, int, int)));
     connect(m_TabManager, SIGNAL(ShowStatusMessageRequest(const QString &, int)), this, SLOT(ShowMessageOnStatusBar(const QString &, int)));
 
     connect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),

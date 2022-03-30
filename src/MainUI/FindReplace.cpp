@@ -584,20 +584,12 @@ void FindReplace::DryRunReplaceAll()
 
     if (!IsValidFindText()) return;
 
-    QList<Resource *> resources;
-
-    if (isWhereCF() || m_LookWhereCurrentFile) {
-        resources << GetCurrentResource();
-    } else {
-        resources = GetFilesToSearch(true);
-    }
-    QString search_regex = GetSearchRegex();
-    QString replace_text = ui.cbReplace->lineEdit()->text();
-
-    DryRunReplace dr;
-    dr.CreateReport(search_regex, replace_text, resources);
-    // do this modally
-    dr.exec();
+    DryRunReplace*  dr = new DryRunReplace(this);
+    dr->CreateTable();
+    // do this non-modally
+    dr->show();
+    dr->raise();
+    dr->activateWindow();
     clearMessage();
 }
 
@@ -905,6 +897,27 @@ QString FindReplace::PrependRegexOptionToSearch(const QString &option, const QSt
     return option % search;
 }
 
+QString FindReplace::GetReplace()
+{
+    return ui.cbReplace->lineEdit()->text();
+}
+
+QList<Resource*> FindReplace::GetAllResourcesToSearch()
+{
+    QList<Resource *> resources;
+
+    if (isWhereCF() || m_LookWhereCurrentFile) {
+        resources << GetCurrentResource();
+    } else {
+        resources = GetFilesToSearch(true);
+    }
+    return resources;
+}
+
+void FindReplace::EmitOpenFileRequest(const QString& bookpath, int line, int pos)
+{
+    emit OpenFileRequest(bookpath, line, pos);
+}
 
 bool FindReplace::IsCurrentFileInSelection()
 {

@@ -22,6 +22,8 @@
 #include <QFont>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QTreeView>
+#include <QModelIndex>
 #include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -36,6 +38,9 @@
 
 static const QString SETTINGS_GROUP = "dryrun_report";
 
+// These need to be changed if columns added or deleted
+static const int BEFORE_COL = 2;
+static const int AFTER_COL = 3;
 
 DryRunReplace::DryRunReplace(QWidget* parent)
     :
@@ -43,9 +48,11 @@ DryRunReplace::DryRunReplace(QWidget* parent)
     m_ItemModel(new QStandardItemModel),
     m_TextDelegate(new StyledTextDelegate())
 {
+    m_FindReplace = qobject_cast<FindReplace*>(parent);
     ui.setupUi(this);
     connectSignalsSlots();
     ReadSettings();
+    ui.dryrunTree->setSortingEnabled(false);
 }
 
 DryRunReplace::~DryRunReplace()
@@ -54,15 +61,8 @@ DryRunReplace::~DryRunReplace()
     delete m_ItemModel;
 }
 
-void DryRunReplace::CreateReport(const QString& search_regex, const QString& replace_text, const QList<Resource*> resources )
-{
-    m_search_regex = search_regex;
-    m_replace_text = replace_text;
-    m_resources = resources;
-    SetupTable();
-}
 
-void DryRunReplace::SetupTable(int sort_column, Qt::SortOrder sort_order)
+void DryRunReplace::CreateTable()
 {
     int context_amt = 30;
     m_ItemModel->clear();
@@ -74,9 +74,13 @@ void DryRunReplace::SetupTable(int sort_column, Qt::SortOrder sort_order)
     m_ItemModel->setHorizontalHeaderLabels(header);
     ui.dryrunTree->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui.dryrunTree->setModel(m_ItemModel);
-    ui.dryrunTree->header()->setSortIndicatorShown(true);
+
+    QList<Resource*> resources = m_FindReplace->GetAllResourcesToSearch();
+    QString search_regex = m_FindReplace->GetSearchRegex();
+    QString replace_text = m_FindReplace->GetReplace();
+    
     int count = 0;
-    foreach(Resource* resource, m_resources ) {
+    foreach(Resource* resource, resources ) {
         qApp->processEvents();
         QString bookpath = resource->GetRelativePath();
         QString text;
@@ -92,17 +96,18 @@ void DryRunReplace::SetupTable(int sort_column, Qt::SortOrder sort_order)
         if (!text.isEmpty()) {
 
             // search the text using the search_regex and get all matches
-            SPCRE *spcre = PCRECache::instance()->getObject(m_search_regex);
+            SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
             QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo(text);
 
             // loop through matches to build up before and after snippets for table
-            for (int i = 0; i < match_info.count(); i++) {
+            // and build table in reverse offset order
+            for (int i = match_info.count() - 1; i >=  0; i--) {
                 QString match_segment = Utility::Substring(match_info.at(i).offset.first,
                                                            match_info.at(i).offset.second, 
                                                            text);
                 QString new_text;
                 bool can_replace = spcre->replaceText(match_segment, match_info.at(i).capture_groups_offsets, 
-                                                      m_replace_text, new_text);
+                                                      replace_text, new_text);
 
                 // set pre and post context strings
                 QString prior_context  = GetPriorContext(match_info.at(i).offset.first, text, context_amt);
@@ -153,6 +158,8 @@ void DryRunReplace::SetupTable(int sort_column, Qt::SortOrder sort_order)
             }
         }
     }
+    
+#if 0
     // Sort before adding the totals row
     // Since sortIndicator calls this routine, must disconnect/reconnect while resorting
     disconnect(ui.dryrunTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
@@ -181,16 +188,20 @@ void DryRunReplace::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems[i]->setEditable(false);
         rowItems[i]->setFont(font);
     }
-    // set styled text item delegate for columns 2 (before) and 3 (after)
-    ui.dryrunTree->setItemDelegateForColumn(2, m_TextDelegate);
-    ui.dryrunTree->setItemDelegateForColumn(3, m_TextDelegate);
     
     m_ItemModel->appendRow(rowItems);
+#endif
 
+    // set styled text item delegate for columns 2 (before) and 3 (after)
+    ui.dryrunTree->setItemDelegateForColumn(BEFORE_COL, m_TextDelegate);
+    ui.dryrunTree->setItemDelegateForColumn(AFTER_COL, m_TextDelegate);
+    
     for (int i = 0; i < ui.dryrunTree->header()->count(); i++) {
         ui.dryrunTree->resizeColumnToContents(i);
     }
+    ui.dryrunTree->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
+
 
 QString DryRunReplace::GetPriorContext(int match_start, const QString& text, int amt)
 {
@@ -204,6 +215,7 @@ QString DryRunReplace::GetPriorContext(int match_start, const QString& text, int
     prior_context.replace('\n',' ');
     return prior_context;
 }
+
 
 QString DryRunReplace::GetPostContext(int match_end, const QString& text, int amt)
 {
@@ -249,10 +261,20 @@ void DryRunReplace::FilterEditTextChangedSlot(const QString &text)
     }
 }
 
+void DryRunReplace::DoubleClick()
+{
+    QModelIndex index = ui.dryrunTree->selectionModel()->selectedRows(0).first();
+    QString bookpath = m_ItemModel->itemFromIndex(index)->text();
+    int pos = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text().toInt();
+    m_FindReplace->EmitOpenFileRequest(bookpath, -1, pos);
+}
+
+#if 0
 void DryRunReplace::Sort(int logicalindex, Qt::SortOrder order)
 {
     SetupTable(logicalindex, order);
 }
+#endif
 
 void DryRunReplace::ReadSettings()
 {
@@ -278,6 +300,8 @@ void DryRunReplace::connectSignalsSlots()
 {
     connect(ui.leFilter,  SIGNAL(textChanged(QString)),
             this,         SLOT(FilterEditTextChangedSlot(QString)));
-    connect(ui.dryrunTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+    // connect(ui.dryrunTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+    connect(ui.Refresh, SIGNAL(clicked()), this, SLOT(CreateTable()));
     connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(accept()));
+    connect(ui.dryrunTree, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(DoubleClick()));
 }

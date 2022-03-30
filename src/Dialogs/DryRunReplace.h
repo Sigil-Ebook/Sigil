@@ -28,6 +28,7 @@
 #include <QStandardItemModel>
 #include "Dialogs/StyledTextDelegate.h"
 #include "ResourceObjects/Resource.h"
+#include "MainUI/FindReplace.h"
 #include "ui_DryRunReplace.h"
 
 class QString;
@@ -40,15 +41,13 @@ public:
     DryRunReplace(QWidget* parent=NULL);
     ~DryRunReplace();
 
-    void CreateReport(const QString& search_regex, const QString& replace_text,
-                      const QList<Resource*> resources);
-
-    void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
-
 public slots:
-    
+
+    void CreateTable();
+    void DoubleClick();
+
 private slots:
-    void Sort(int logicalindex, Qt::SortOrder order);
+    // void Sort(int logicalindex, Qt::SortOrder order);
     void FilterEditTextChangedSlot(const QString &text);
 
 private:
@@ -62,12 +61,10 @@ private:
 
     QStandardItemModel *m_ItemModel;
 
-    QList<Resource*> m_resources;
-    QString m_search_regex;
-    QString m_replace_text;
-
     StyledTextDelegate* m_TextDelegate;
-    
+
+    FindReplace * m_FindReplace;
+
     Ui::DryRunReplace ui;
 };
 

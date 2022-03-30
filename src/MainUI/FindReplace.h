@@ -91,7 +91,11 @@ public:
     bool isWhereNCX() { return GetLookWhere() == LookWhere_NCXFile; };
     bool isWhereCF()  { return GetLookWhere() == LookWhere_CurrentFile; };
 
-
+    QString GetSearchRegex();
+    QString GetReplace();
+    QList<Resource*> GetAllResourcesToSearch();
+    void EmitOpenFileRequest(const QString& bookpath, int line, int pos);
+                                                                        
 public slots:
     void close();
     void show();
@@ -129,6 +133,8 @@ signals:
 
     void ShowMessageRequest(const QString &message);
 
+    void OpenFileRequest(const QString &bookpath, int line, int offset);
+    
     /**
      * Emitted when we want to do some operations with the clipboard
      * to paste things, but restoring state afterwards so that the
@@ -211,7 +217,6 @@ private:
     void SetStartingResource(bool update_position = true);
 
     QString GetControls();
-    
     Searchable::Direction GetSearchableDirection();
     bool FindText(Searchable::Direction direction);
     bool ReplaceText(Searchable::Direction direction, bool replace_current = false);
@@ -228,7 +233,6 @@ private:
 
     // Constructs a searching regex from the selected
     // options and fields and then returns it.
-    QString GetSearchRegex();
     QString PrependRegexOptionToSearch(const QString &option, const QString &search);
 
     QList <Resource *> GetFilesToSearch(bool force_all = false);
