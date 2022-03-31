@@ -51,9 +51,16 @@ DryRunReplace::DryRunReplace(QWidget* parent)
 {
     m_FindReplace = qobject_cast<FindReplace*>(parent);
     ui.setupUi(this);
-    connectSignalsSlots();
+    ui.amtcb->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+    ui.amtcb->addItem("10",10);
+    ui.amtcb->addItem("20",20);
+    ui.amtcb->addItem("30",30);
+    ui.amtcb->addItem("40",40);
+    ui.amtcb->addItem("50",50);
+    ui.amtcb->setEditable(false);
     ReadSettings();
-    ui.dryrunTree->setSortingEnabled(false);
+    connectSignalsSlots();
+    ui.dryrunTree->setSortingEnabled(true);
 }
 
 DryRunReplace::~DryRunReplace()
@@ -65,7 +72,6 @@ DryRunReplace::~DryRunReplace()
 
 void DryRunReplace::CreateTable()
 {
-    int context_amt = 30;
     m_ItemModel->clear();
     QStringList header;
     header.append(tr("Book Path"));
@@ -111,8 +117,8 @@ void DryRunReplace::CreateTable()
                                                       replace_text, new_text);
 
                 // set pre and post context strings
-                QString prior_context  = GetPriorContext(match_info.at(i).offset.first, text, context_amt);
-                QString post_context = GetPostContext(match_info.at(i).offset.second, text, context_amt);
+                QString prior_context  = GetPriorContext(match_info.at(i).offset.first, text, m_context_amt);
+                QString post_context = GetPostContext(match_info.at(i).offset.second, text, m_context_amt);
                 
                 // finally create before and after snippets
                 QString orig_snip = prior_context + match_segment + post_context;
@@ -160,39 +166,9 @@ void DryRunReplace::CreateTable()
         }
     }
     
-#if 0
-    // Sort before adding the totals row
-    // Since sortIndicator calls this routine, must disconnect/reconnect while resorting
-    disconnect(ui.dryrunTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
-    ui.dryrunTree->header()->setSortIndicator(sort_column, sort_order);
-    connect(ui.dryrunTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
-    // Totals
-    NumericItem *nitem;
-    QList<QStandardItem *> rowItems;
-    // BookPath
-    nitem = new NumericItem();
-    nitem->setText(QString::number(count));
-    nitem->setTextAlignment(Qt::AlignRight);
-    rowItems << nitem;
-    // Offset
-    nitem = new NumericItem();
-    rowItems << nitem;
-    // Before
-    nitem = new NumericItem();
-    rowItems << nitem;
-    // After
-    nitem = new NumericItem();
-    rowItems << nitem;
-    QFont font;
-    font.setWeight(QFont::Bold);
-    for (int i = 0; i < rowItems.count(); i++) {
-        rowItems[i]->setEditable(false);
-        rowItems[i]->setFont(font);
-    }
-    
-    m_ItemModel->appendRow(rowItems);
-#endif
-
+    // display the count above the table (with a buffer to the right)
+    ui.cntamt->setText(QString::number(count) + "   ");
+                      
     // set styled text item delegate for columns 2 (before) and 3 (after)
     ui.dryrunTree->setItemDelegateForColumn(BEFORE_COL, m_TextDelegate);
     ui.dryrunTree->setItemDelegateForColumn(AFTER_COL, m_TextDelegate);
@@ -270,13 +246,6 @@ void DryRunReplace::DoubleClick()
     m_FindReplace->EmitOpenFileRequest(bookpath, -1, pos);
 }
 
-#if 0
-void DryRunReplace::Sort(int logicalindex, Qt::SortOrder order)
-{
-    SetupTable(logicalindex, order);
-}
-#endif
-
 void DryRunReplace::ReadSettings()
 {
     SettingsStore settings;
@@ -285,7 +254,28 @@ void DryRunReplace::ReadSettings()
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
     }
+    m_context_amt = settings.value("context",30).toInt();
+    SetContextCB(m_context_amt);
     settings.endGroup();
+}
+
+void DryRunReplace::SetContextCB(int val)
+{
+    int index = 0;
+    if (val >= 20) index = 1;
+    if (val >= 30) index = 2;
+    if (val >= 40) index = 3;
+    if (val >= 50) index = 4;
+    ui.amtcb->setCurrentIndex(index);
+}
+
+void DryRunReplace::ChangeContext()
+{
+    int val = ui.amtcb->currentData().toInt();
+    if (val != m_context_amt) {
+        m_context_amt = val;
+        CreateTable();
+    }
 }
 
 void DryRunReplace::WriteSettings()
@@ -293,16 +283,16 @@ void DryRunReplace::WriteSettings()
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
     settings.setValue("geometry", saveGeometry());
+    settings.setValue("context", m_context_amt);
     settings.endGroup();
 }
 
 
 void DryRunReplace::connectSignalsSlots()
 {
-    connect(ui.leFilter,  SIGNAL(textChanged(QString)),
-            this,         SLOT(FilterEditTextChangedSlot(QString)));
-    // connect(ui.dryrunTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
+    connect(ui.leFilter,  SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
     connect(ui.Refresh, SIGNAL(clicked()), this, SLOT(CreateTable()));
     connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(accept()));
     connect(ui.dryrunTree, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(DoubleClick()));
+    connect(ui.amtcb, SIGNAL(currentIndexChanged(int)), this, SLOT(ChangeContext()));
 }

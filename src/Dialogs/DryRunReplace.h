@@ -46,7 +46,7 @@ public slots:
     void DoubleClick();
 
 private slots:
-    // void Sort(int logicalindex, Qt::SortOrder order);
+    void ChangeContext();
     void FilterEditTextChangedSlot(const QString &text);
 
 private:
@@ -56,6 +56,8 @@ private:
     void ReadSettings();
     void WriteSettings();
 
+    void SetContextCB(int val);
+    
     void connectSignalsSlots();
 
     QStandardItemModel *m_ItemModel;
@@ -64,6 +66,8 @@ private:
 
     FindReplace * m_FindReplace;
 
+    int m_context_amt;
+    
     Ui::DryRunReplace ui;
 };
 
