@@ -6435,8 +6435,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_Reports,       SIGNAL(OpenFileRequest(QString, int, int)), this, SLOT(OpenFile(QString, int, int)));
     connect(m_Reports,       SIGNAL(DeleteFilesRequest(QStringList)), this, SLOT(DeleteFilenames(QStringList)));
     connect(m_Reports,       SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)), this, SLOT(DeleteReportsStyles(QList<BookReports::StyleData *>)));
-    connect(m_Reports,       SIGNAL(FindText(QString)), m_FindReplace, SLOT(FindAnyText(QString)));
-    connect(m_Reports,       SIGNAL(FindTextInTags(QString)), m_FindReplace, SLOT(FindAnyTextInTags(QString)));
+    connect(m_Reports,       SIGNAL(RPFindText(QString)), m_FindReplace, SLOT(FindAnyText(QString)));
+    connect(m_Reports,       SIGNAL(RPFindTextInTags(QString)), m_FindReplace, SLOT(FindAnyTextInTags(QString)));
 
     // Plugins
     PluginDB *pdb = PluginDB::instance();

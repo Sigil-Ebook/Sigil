@@ -227,10 +227,10 @@ void Reports::connectSignalsSlots()
 {
     connect(m_HTMLFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
     connect(m_ImageFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
-    connect(m_ImageFilesWidget, SIGNAL(FindTextInTags(QString)), this, SIGNAL(FindTextInTags(QString)));
+    connect(m_ImageFilesWidget, SIGNAL(FindTextInTags(QString)), this, SIGNAL(RPFindTextInTags(QString)));
     connect(m_CSSFilesWidget, SIGNAL(DeleteFilesRequest(QStringList)), this, SIGNAL(DeleteFilesRequest(QStringList)));
     connect(m_StylesInCSSFilesWidget, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)), this, SIGNAL(DeleteStylesRequest(QList<BookReports::StyleData *>)));
-    connect(m_CharactersInHTMLFilesWidget, SIGNAL(FindSpecifiedText(QString)), this, SIGNAL(FindText(QString)));
+    connect(m_CharactersInHTMLFilesWidget, SIGNAL(FindSpecifiedText(QString)), this, SIGNAL(RPFindText(QString)));
 
     connect(ui.availableWidgets, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)), this, SLOT(selectPWidget(QListWidgetItem *, QListWidgetItem *)));
     connect(this, SIGNAL(finished(int)), this, SLOT(saveSettings()));
