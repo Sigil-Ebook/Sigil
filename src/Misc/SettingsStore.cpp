@@ -34,6 +34,12 @@
 
 #include "sigil_constants.h"
 
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+static const QString SETTINGS_FILE = SIGIL_SETTINGS_FILE;
+#else
+static const QString SETTINGS_FILE = SIGIL_V6_SETTINGS_FILE;
+#endif
+
 static QString SETTINGS_GROUP = "user_preferences";
 static QString KEY_DEFAULT_METADATA_LANGUAGE = SETTINGS_GROUP + "/" + "default_metadata_lang";
 static QString KEY_UI_LANGUAGE = SETTINGS_GROUP + "/" + "ui_language";
@@ -133,7 +139,7 @@ static QString KEY_MAIN_MENU_ICON_SIZE = SETTINGS_GROUP + "/" + "main_menu_icon_
 static QString KEY_CLIPBOARD_HISTORY_LIMIT = SETTINGS_GROUP + "/" + "clipboard_history_limit";
 
 SettingsStore::SettingsStore()
-    : QSettings(Utility::DefinePrefsDir() + "/sigil.ini", QSettings::IniFormat)
+    : QSettings(Utility::DefinePrefsDir() + "/" + SETTINGS_FILE, QSettings::IniFormat)
 {  
     // See QTBUG-40796 and QTBUG-54510 as using UTF-8 as a codec for ini files is very broken
     // setIniCodec("UTF-8");

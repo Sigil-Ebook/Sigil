@@ -292,6 +292,16 @@ void setupHighDPI()
 }
 #endif
 
+void update_ini_file_if_needed(const QString oldfile, const QString newfile)
+{
+    QFileInfo nf(newfile);
+    if (!nf.exists()) {
+        QFileInfo of(oldfile);
+        if (of.exists() && of.isFile()) QFile::copy(oldfile, newfile);
+    }
+}
+
+
 // Application entry point
 int main(int argc, char *argv[])
 {
@@ -325,6 +335,27 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain("sigil-ebook.com");
     QCoreApplication::setApplicationName("sigil");
     QCoreApplication::setApplicationVersion(SIGIL_VERSION);
+
+    // handle all non-backwards compatible ini file changes
+    update_ini_file_if_needed(Utility::DefinePrefsDir() + "/" + SEARCHES_SETTINGS_FILE,
+                              Utility::DefinePrefsDir() + "/" + SEARCHES_V2_SETTINGS_FILE);
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    // Qt6 forced move to utf-8 settings values but Qt5 settings are broken for utf-8 codec
+    // See QTBUG-40796 and QTBUG-54510 which never got fixed
+    update_ini_file_if_needed(Utility::DefinePrefsDir() + "/" + SIGIL_SETTINGS_FILE,
+                              Utility::DefinePrefsDir() + "/" + SIGIL_V6_SETTINGS_FILE);
+
+    update_ini_file_if_needed(Utility::DefinePrefsDir() + "/" + CLIPS_SETTINGS_FILE,
+                              Utility::DefinePrefsDir() + "/" + CLIPS_V6_SETTINGS_FILE);
+
+    update_ini_file_if_needed(Utility::DefinePrefsDir() + "/" + INDEX_SETTINGS_FILE,
+                              Utility::DefinePrefsDir() + "/" + INDEX_V6_SETTINGS_FILE);
+
+    update_ini_file_if_needed(Utility::DefinePrefsDir() + "/" + SEARCHES_V2_SETTINGS_FILE,
+                              Utility::DefinePrefsDir() + "/" + SEARCHES_V6_SETTINGS_FILE);
+#endif
+
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     // register the our own url scheme (this is required since Qt 5.12)

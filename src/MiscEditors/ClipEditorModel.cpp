@@ -41,7 +41,12 @@
     #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
 #endif
 
-static const QString SETTINGS_FILE          = "sigil_clips.ini";
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+static const QString SETTINGS_FILE = CLIPS_SETTINGS_FILE;
+#else
+static const QString SETTINGS_FILE = CLIPS_V6_SETTINGS_FILE;
+#endif
+
 static const QString SETTINGS_GROUP         = "clip_entries";
 static const QString ENTRY_NAME             = "Name";
 static const QString ENTRY_TEXT             = "Text";

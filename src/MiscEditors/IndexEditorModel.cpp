@@ -27,10 +27,16 @@
 #include <QDataStream>
 #include <QtCore/QTime>
 
-#include "MiscEditors/IndexEditorModel.h"
+#include "sigil_constants.h"
 #include "Misc/Utility.h"
+#include "MiscEditors/IndexEditorModel.h"
 
-static const QString SETTINGS_FILE          = "sigil_index.ini";
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+static const QString SETTINGS_FILE = INDEX_SETTINGS_FILE;
+#else
+static const QString SETTINGS_FILE = INDEX_V6_SETTINGS_FILE;
+#endif
+
 static const QString SETTINGS_GROUP         = "index_entries";
 static const QString ENTRY_PATTERN          = "Text to Include";
 static const QString ENTRY_INDEX_ENTRY      = "Index Entries";

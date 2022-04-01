@@ -129,6 +129,17 @@ extern const QString PYTHON_MAIN_PATH;
 extern const QString PYTHON_MAIN_BIN_PATH;
 extern const bool DONT_CHECK_FOR_UPDATES;
 
+extern const QString CLIPS_SETTINGS_FILE;
+extern const QString INDEX_SETTINGS_FILE;
+extern const QString SEARCHES_SETTINGS_FILE;
+extern const QString SEARCHES_V2_SETTINGS_FILE;
+extern const QString SIGIL_SETTINGS_FILE;
+
+extern const QString CLIPS_V6_SETTINGS_FILE;
+extern const QString INDEX_V6_SETTINGS_FILE;
+extern const QString SEARCHES_V6_SETTINGS_FILE;
+extern const QString SIGIL_V6_SETTINGS_FILE;
+
 #if defined(__APPLE__)
 extern const QString PYTHON_SITE_PACKAGES;
 extern const QString PYTHON_MAIN_PREFIX;

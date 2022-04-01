@@ -44,8 +44,11 @@
     #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
 #endif
 
-static const QString SETTINGS_FILE          = "sigil_searches_v2.ini";
-static const QString OLD_SETTINGS_FILE      = "sigil_searches.ini";
+#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+static const QString SETTINGS_FILE = SEARCHES_V2_SETTINGS_FILE;;
+#else
+static const QString SETTINGS_FILE = SEARCHES_V6_SETTINGS_FILE;
+#endif
 
 static const QString SETTINGS_GROUP         = "search_entries";
 static const QString ENTRY_NAME             = "Name";
@@ -77,18 +80,6 @@ SearchEditorModel::SearchEditorModel(QObject *parent)
       m_IsDataModified(false)
 {
     m_SettingsPath = Utility::DefinePrefsDir() + "/" + SETTINGS_FILE;
-    QString OldSettingsPath = Utility::DefinePrefsDir() + "/" + OLD_SETTINGS_FILE;
-    QFileInfo fi(m_SettingsPath);
-    if (!fi.exists()) {
-        QFileInfo oldfi(OldSettingsPath);
-        if (oldfi.exists() && oldfi.isFile()) {
-            // create v2 settings file from old one
-            bool success = QFile::copy(oldfi.absoluteFilePath(), m_SettingsPath);
-            if (!success) {
-                qDebug() << "Failed to create v2 saved searches from old";
-            }
-        }
-    }
     QStringList header;
     header.append(tr("Name"));
     header.append(tr("Find"));
