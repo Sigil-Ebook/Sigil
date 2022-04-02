@@ -33,6 +33,7 @@
 #include <QDebug>
 
 #include "Dialogs/DryRunReplace.h"
+#include "Dialogs/ReplacementChooser.h"
 #include "Tabs/TextTab.h"
 #include "Tabs/FlowTab.h"
 #include "MainUI/FindReplace.h"
@@ -77,7 +78,8 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_InRemainder(false),
       m_RestartPerformed(false),
       m_SearchRunning(false),
-      m_DryRun(false)
+      m_DryRun(false),
+      m_Chooser(false)
 {
     ui.setupUi(this);
     FindReplaceQLineEdit *find_ledit = new FindReplaceQLineEdit(this);
@@ -298,12 +300,14 @@ void FindReplace::SetKeyModifiers()
     // Only use with mouse click not menu/shortcuts to avoid modifying actions
     m_LookWhereCurrentFile = QApplication::keyboardModifiers() & Qt::ControlModifier;
     m_DryRun = QApplication::keyboardModifiers() & Qt::ShiftModifier;
+    m_Chooser = QApplication::keyboardModifiers() & Qt::AltModifier;
 }
 
 void FindReplace::ResetKeyModifiers()
 {
     m_LookWhereCurrentFile = false;
     m_DryRun = false;
+    m_Chooser = false;
 }
 
 void FindReplace::FindClicked()
@@ -326,6 +330,8 @@ void FindReplace::ReplaceAllClicked()
     SetKeyModifiers();
     if (m_DryRun) {
         DryRunReplaceAll();
+    } else if (m_Chooser){
+        ChooseReplacements();
     } else {
         ReplaceAll();
     }
@@ -590,6 +596,26 @@ void FindReplace::DryRunReplaceAll()
     dr->show();
     dr->raise();
     dr->activateWindow();
+    clearMessage();
+}
+
+// Allows you to choose which rpelacement you want to apply
+void FindReplace::ChooseReplacements()
+{
+    m_MainWindow->GetCurrentContentTab()->SaveTabContent();
+    ShowMessage(tr("Choose Replacements"));
+
+    if (IsNewSearch()) {
+        SetStartingResource(true);
+        SetPreviousSearch();
+    }
+
+    if (!IsValidFindText()) return;
+
+    ReplacementChooser*  rc = new ReplacementChooser(this);
+    rc->CreateTable();
+    // this must be modal to prevent crashes and nonsense
+    rc->exec();
     clearMessage();
 }
 

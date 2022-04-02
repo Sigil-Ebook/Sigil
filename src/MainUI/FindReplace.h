@@ -187,6 +187,10 @@ private slots:
     // Does a Dry-Run ReplaceAll and show results in table
     // No actual changes are made
     void DryRunReplaceAll();
+
+    // Allows a user to choose which matches in Replace All should
+    // be applied
+    void ChooseReplacements();
     
     // Replaces the user's search term with the user's
     // replacement text in the entire document. Shows a
@@ -364,6 +368,8 @@ private:
     bool m_SearchRunning;
 
     bool m_DryRun;
+
+    bool m_Chooser;
 };
 
 

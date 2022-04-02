@@ -195,6 +195,8 @@ set( DIALOG_FILES
     Dialogs/CountsReport.h
     Dialogs/DryRunReplace.cpp
     Dialogs/DryRunReplace.h
+    Dialogs/ReplacementChooser.cpp
+    Dialogs/ReplacementChooser.h
     Dialogs/StyledTextDelegate.cpp
     Dialogs/StyledTextDelegate.h
     Dialogs/ClipEditor.cpp
@@ -556,6 +558,7 @@ set( UI_FILES
     Form_Files/Controls.ui
     Form_Files/CountsReport.ui
     Form_Files/DryRunReplace.ui
+    Form_Files/ReplacementChooser.ui
     )
 
 set( SOURCEUPDATE_FILES
