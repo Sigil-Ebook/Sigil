@@ -122,9 +122,13 @@ void DryRunReplace::CreateTable()
                 
                 // finally create before and after snippets
                 QString orig_snip = prior_context + match_segment + post_context;
-                QString new_snip = orig_snip;
-                if (can_replace) new_snip = prior_context + new_text + post_context;
-
+                QString new_snip;
+                if (can_replace) {
+                    new_snip = prior_context + new_text + post_context;
+                } else {
+                    new_snip = orig_snip;
+                    new_text = match_segment;
+                }
                 int start = match_info.at(i).offset.first;
 
                 // finally add a row to the table
@@ -148,15 +152,17 @@ void DryRunReplace::CreateTable()
                 item->setText(orig_snip);
                 item->setData(prior_context.length(), Qt::UserRole+1);
                 item->setData(prior_context.length() + match_segment.length(), Qt::UserRole+2);
+                item->setData(match_segment, Qt::UserRole+3);
                 rowItems << item;
-                
+
                 // After
                 item = new QStandardItem();
                 item ->setText(new_snip);
                 item->setData(prior_context.length(), Qt::UserRole+1);
                 item->setData(prior_context.length() + new_text.length(), Qt::UserRole+2);
+                item->setData(new_text, Qt::UserRole+3);
                 rowItems << item;
-                
+
                 // Add item to table
                 m_ItemModel->appendRow(rowItems);
                 for (int i = 0; i < rowItems.count(); i++) {
