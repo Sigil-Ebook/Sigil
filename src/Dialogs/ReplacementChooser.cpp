@@ -69,10 +69,15 @@ ReplacementChooser::ReplacementChooser(QWidget* parent)
 
 ReplacementChooser::~ReplacementChooser()
 {
-    WriteSettings();
+    m_ItemModel->clear();
     delete m_ItemModel;
 }
 
+void ReplacementChooser::closeEvent(QCloseEvent *e)
+{
+    WriteSettings();
+    QDialog::closeEvent(e);
+}
 
 void ReplacementChooser::CreateTable()
 {
@@ -265,6 +270,7 @@ void ReplacementChooser::DeleteSelectedRows()
     }
 }
 
+#if 0
 void ReplacementChooser::FilterEditTextChangedSlot(const QString &text)
 {
     const QString lowercaseText = text.toLower();
@@ -293,6 +299,7 @@ void ReplacementChooser::FilterEditTextChangedSlot(const QString &text)
         ui.chooserTree->setCurrentIndex(QModelIndex());
     }
 }
+#endif
 
 void ReplacementChooser::ReadSettings()
 {
@@ -302,7 +309,7 @@ void ReplacementChooser::ReadSettings()
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
     }
-    m_context_amt = settings.value("context",30).toInt();
+    m_context_amt = settings.value("context",20).toInt();
     SetContextCB(m_context_amt);
     settings.endGroup();
 }
@@ -363,7 +370,7 @@ void ReplacementChooser::SetupContextMenu(const QPoint &point)
 
 void ReplacementChooser::connectSignalsSlots()
 {
-    connect(ui.leFilter,  SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
+    // connect(ui.leFilter,  SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
     connect(m_Delete, SIGNAL(triggered()), this, SLOT(DeleteSelectedRows()));
     connect(ui.Apply, SIGNAL(clicked()), this, SLOT(ApplyReplacements()));
     connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(accept()));

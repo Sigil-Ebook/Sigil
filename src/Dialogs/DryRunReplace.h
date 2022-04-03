@@ -29,6 +29,8 @@
 #include "Dialogs/StyledTextDelegate.h"
 #include "ui_DryRunReplace.h"
 
+
+class QCloseEvent;
 class QString;
 class FindReplace;
 
@@ -44,6 +46,7 @@ public slots:
 
     void CreateTable();
     void DoubleClick();
+    void closeEvent(QCloseEvent *e);
 
 private slots:
     void ChangeContext();

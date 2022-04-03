@@ -65,10 +65,15 @@ DryRunReplace::DryRunReplace(QWidget* parent)
 
 DryRunReplace::~DryRunReplace()
 {
-    WriteSettings();
+    m_ItemModel->clear();
     delete m_ItemModel;
 }
 
+void DryRunReplace::closeEvent(QCloseEvent *e)
+{
+    WriteSettings();
+    QDialog::closeEvent(e);
+}
 
 void DryRunReplace::CreateTable()
 {
@@ -260,7 +265,7 @@ void DryRunReplace::ReadSettings()
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
     }
-    m_context_amt = settings.value("context",30).toInt();
+    m_context_amt = settings.value("context",20).toInt();
     SetContextCB(m_context_amt);
     settings.endGroup();
 }

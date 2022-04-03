@@ -33,6 +33,7 @@
 #include "ui_ReplacementChooser.h"
 
 class QString;
+class QCloseEvent;
 class Resource;
 class FindReplace;
 
@@ -47,10 +48,11 @@ public:
 public slots:
 
     void CreateTable();
+    void closeEvent(QCloseEvent *e);
 
 private slots:
     void ChangeContext();
-    void FilterEditTextChangedSlot(const QString &text);
+    // void FilterEditTextChangedSlot(const QString &text);
     void DeleteSelectedRows();
     void ApplyReplacements();
     void CreateContextMenuActions();

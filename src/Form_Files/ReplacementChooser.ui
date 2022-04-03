@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1000</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Choose matches to Apply</string>
+   <string>Delete Unwanted Replacements</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="leftMargin">
@@ -29,19 +29,6 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
      <item>
-      <widget class="QLabel" name="label">
-       <property name="toolTip">
-        <string>List only the table rows which contain the text you enter.</string>
-       </property>
-       <property name="text">
-        <string>Filter:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="leFilter"/>
-     </item>
-     <item>
       <spacer name="horizontalSpacer1">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -57,7 +44,7 @@
      <item>
       <widget class="QLabel" name="ctxlbl">
        <property name="toolTip">
-        <string>Select the amount of context before and after the match in characters</string>
+        <string>Select the amount of context in characters shown before and after the match.</string>
        </property>
        <property name="text">
         <string>Context:</string>
@@ -102,6 +89,9 @@
      <property name="sortingEnabled">
       <bool>false</bool>
      </property>
+     <property name="toolTip">
+      <string>Delete unwanted replacements from the table.</string>.
+     </property>
     </widget>
    </item>
    <item>
@@ -109,7 +99,7 @@
      <item>
       <widget class="QPushButton" name="Apply">
        <property name="toolTip">
-        <string>Apply the replacements listed in the table.</string>.
+        <string>Apply the remaining replacements listed in the table.</string>.
        </property>
        <property name="text">
         <string>Apply Changes</string>

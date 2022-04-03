@@ -273,7 +273,9 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Replace all matches in Code View.</string>
+           <string>Replace all matches in Code View.
+             Use with SHIFT to perform a Dry Run.
+             Use with ALT to Filter Replacements before changes are applied.</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
