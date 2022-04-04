@@ -599,7 +599,7 @@ void FindReplace::DryRunReplaceAll()
     clearMessage();
 }
 
-// Allows you to choose which rpelacement you want to apply
+// Allows you to delete unwanted replacements and apply those remaining
 void FindReplace::ChooseReplacements()
 {
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
@@ -612,10 +612,10 @@ void FindReplace::ChooseReplacements()
 
     if (!IsValidFindText()) return;
 
-    ReplacementChooser*  rc = new ReplacementChooser(this);
-    rc->CreateTable();
-    // this must be modal to prevent crashes and nonsense
-    rc->exec();
+    // must be modal to prevent crashes and nonsense
+    ReplacementChooser rc(this);
+    rc.CreateTable();
+    rc.exec();
     clearMessage();
 }
 

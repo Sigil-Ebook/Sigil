@@ -41,6 +41,7 @@ ViewFont::ViewFont(QWidget *parent)
       m_bp(new QToolButton(this)),
       m_layout(new QVBoxLayout(this))
 {
+    setAttribute(Qt::WA_DeleteOnClose, true);
     m_layout->addWidget(m_fv);
     m_bp->setToolTip(tr("Close this window"));
     m_bp->setText(tr("Done"));

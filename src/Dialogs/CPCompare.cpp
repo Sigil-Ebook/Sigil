@@ -111,7 +111,7 @@ void CPCompare::handle_del_request()
             sv->show();
             sv->raise();
         } else if (IMAGE_EXTENSIONS.contains(ext)) {
-            ViewImage * vi = new ViewImage(this);
+            ViewImage * vi = new ViewImage(this, true);
             vi->ShowImage(filepath);
             vi->show();
             vi->raise();
@@ -145,7 +145,7 @@ void CPCompare::handle_add_request()
             sv->show();
             sv->raise();
         } else if (IMAGE_EXTENSIONS.contains(ext)) {
-            ViewImage * vi = new ViewImage(this);
+            ViewImage * vi = new ViewImage(this, true);
             vi->ShowImage(filepath);
             vi->show();
             vi->raise();

@@ -51,6 +51,7 @@ DryRunReplace::DryRunReplace(QWidget* parent)
 {
     m_FindReplace = qobject_cast<FindReplace*>(parent);
     ui.setupUi(this);
+    setAttribute(Qt::WA_DeleteOnClose, true);
     ui.amtcb->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     ui.amtcb->addItem("10",10);
     ui.amtcb->addItem("20",20);

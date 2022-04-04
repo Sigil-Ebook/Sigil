@@ -61,7 +61,7 @@ ChgViewer::ChgViewer(const QList<DiffRecord::DiffRec>& diffinfo,
       m_lbl2(new QLabel(file2, this)),
       m_nav(new Navigator(this))
 {
-    setAttribute(Qt::WA_DeleteOnClose,true);
+    setAttribute(Qt::WA_DeleteOnClose, true);
     // handle the layout manually
     m_layout = new QVBoxLayout(this);
     QHBoxLayout *hl = new QHBoxLayout();

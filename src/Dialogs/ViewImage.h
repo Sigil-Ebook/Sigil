@@ -38,7 +38,7 @@ class ViewImage : public QDialog
     Q_OBJECT
 
 public:
-    ViewImage(QWidget *parent = 0);
+    ViewImage(QWidget *parent = 0, bool delete_on_close = false);
     ~ViewImage();
 
     QSize sizeHint();
