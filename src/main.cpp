@@ -436,9 +436,6 @@ int main(int argc, char *argv[])
     EmbeddedPython* epython = EmbeddedPython::instance();
     epython->addToPythonSysPath(epython->embeddedRoot());
     epython->addToPythonSysPath(PluginDB::launcherRoot() + "/python");
-    QString replace_folder = Utility::DefinePrefsDir() + "/replace_functions";
-    QDir().mkpath(replace_folder);
-    epython->addToPythonSysPath(replace_folder);
 
     try {
 

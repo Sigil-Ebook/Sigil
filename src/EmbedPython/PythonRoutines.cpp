@@ -394,25 +394,3 @@ QString PythonRoutines::CopyTagToDestDirInPython(const QString& localRepo,
     }
     return results;
 }
-
-
-QString PythonRoutines::FunctionReplaceInPython(const QStringList& match_groups, const QString& module_name)
-{
-    if (match_groups.isEmpty()) return QString();
-    QString result = match_groups.at(0);
-    int rv = -1;
-    QString error_traceback;
-    QList<QVariant> args;
-    args.append(QVariant(match_groups));
-
-    EmbeddedPython * epython  = EmbeddedPython::instance();
-    QVariant res = epython->runInPython( QString(module_name),
-                                         QString("replace"),
-                                         args,
-                                         &rv,
-                                         error_traceback);
-    if (rv == 0) {
-        result = res.toString();
-    }
-    return result;
-}   
