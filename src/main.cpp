@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2021  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019-2021  Doug Massay
+**  Copyright (C) 2018-2022  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2022  Doug Massay
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -24,16 +24,16 @@
 #include "EmbedPython/EmbeddedPython.h"
 #include <iostream>
 
-#include <QtCore/QCoreApplication>
-#include <QtCore/QDir>
-#include <QtCore/QLibraryInfo>
+#include <QCoreApplication>
+#include <QDir>
+#include <QLibraryInfo>
 #include <QStyleFactory>
 #include <QTextCodec>
-#include <QtCore/QThreadPool>
-#include <QtCore/QTranslator>
-#include <QtCore/QStandardPaths>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QMessageBox>
+#include <QThreadPool>
+#include <QTranslator>
+#include <QStandardPaths>
+#include <QApplication>
+#include <QMessageBox>
 #include <QResource>
 #include <QFile>
 #include <QFileInfo>
@@ -292,6 +292,8 @@ void setupHighDPI()
 }
 #endif
 
+
+// utility routine for performing centralized ini versioning based on Qt version
 void update_ini_file_if_needed(const QString oldfile, const QString newfile)
 {
     QFileInfo nf(newfile);
