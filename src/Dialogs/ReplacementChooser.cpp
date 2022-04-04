@@ -250,7 +250,7 @@ void ReplacementChooser::ApplyReplacements()
             text_resource->SetText(updated_text);
         }
     }
-    accept();
+    close();
 }
 
 void ReplacementChooser::DeleteSelectedRows()
@@ -373,7 +373,7 @@ void ReplacementChooser::connectSignalsSlots()
     // connect(ui.leFilter,  SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
     connect(m_Delete, SIGNAL(triggered()), this, SLOT(DeleteSelectedRows()));
     connect(ui.Apply, SIGNAL(clicked()), this, SLOT(ApplyReplacements()));
-    connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(accept()));
+    connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(close()));
     connect(ui.amtcb, SIGNAL(currentIndexChanged(int)), this, SLOT(ChangeContext()));
     connect(ui.chooserTree, SIGNAL(customContextMenuRequested(const QPoint &)),
             this, SLOT(OpenContextMenu(const QPoint &)));
