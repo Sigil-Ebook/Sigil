@@ -32,7 +32,7 @@
 #include <QRegularExpression>
 #include <QDebug>
 
-#include "Dialogs/FindAll.h"
+#include "Dialogs/DryRunReplace.h"
 #include "Dialogs/ReplacementChooser.h"
 #include "Tabs/TextTab.h"
 #include "Tabs/FlowTab.h"
@@ -337,7 +337,7 @@ void FindReplace::CountClicked()
 {
     SetKeyModifiers();
     if (m_ShiftUsed) {
-        PerformFindAll();
+        PerformDryRunReplace();
     } else {
         Count();
     }
@@ -577,10 +577,10 @@ bool FindReplace::ReplaceCurrent()
 
 
 // Builds a Find All table
-void FindReplace::PerformFindAll()
+void FindReplace::PerformDryRunReplace()
 {
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
-    ShowMessage(tr("Performing Find All"));
+    ShowMessage(tr("Performing Dry Run Find/Replace All"));
 
     if (IsNewSearch()) {
         SetStartingResource(true);
@@ -589,7 +589,7 @@ void FindReplace::PerformFindAll()
 
     if (!IsValidFindText()) return;
 
-    FindAll*  dr = new FindAll(this);
+    DryRunReplace*  dr = new DryRunReplace(this);
     dr->CreateTable();
     // do this non-modally
     dr->show();

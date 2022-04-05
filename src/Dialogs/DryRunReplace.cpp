@@ -34,15 +34,16 @@
 #include "PCRE2/SPCRE.h"
 #include "Dialogs/StyledTextDelegate.h"
 #include "MainUI/FindReplace.h"
-#include "Dialogs/FindAll.h"
+#include "Dialogs/DryRunReplace.h"
 
 
-static const QString SETTINGS_GROUP = "findall_group";
+static const QString SETTINGS_GROUP = "dryrun_report";
 
-// This needs to be changed if columns added or deleted
-static const int MATCH_COL = 2;
+// These need to be changed if columns added or deleted
+static const int BEFORE_COL = 2;
+static const int AFTER_COL = 3;
 
-FindAll::FindAll(QWidget* parent)
+DryRunReplace::DryRunReplace(QWidget* parent)
     :
     QDialog(parent),
     m_ItemModel(new QStandardItemModel),
@@ -57,41 +58,45 @@ FindAll::FindAll(QWidget* parent)
     ui.amtcb->addItem("30",30);
     ui.amtcb->addItem("40",40);
     ui.amtcb->addItem("50",50);
-    ui.amtcb->addItem("60",60);
-    ui.amtcb->addItem("75",75);
-    ui.amtcb->addItem("90",90);
-    ui.amtcb->addItem("100",100);
     ui.amtcb->setEditable(false);
     ReadSettings();
     connectSignalsSlots();
-    ui.findallTree->setSortingEnabled(true);
+    ui.dryrunTree->setSortingEnabled(true);
 }
 
-FindAll::~FindAll()
+DryRunReplace::~DryRunReplace()
 {
     m_ItemModel->clear();
     delete m_ItemModel;
 }
 
-void FindAll::closeEvent(QCloseEvent *e)
+void DryRunReplace::closeEvent(QCloseEvent *e)
 {
     WriteSettings();
     QDialog::closeEvent(e);
 }
 
-void FindAll::CreateTable()
+void DryRunReplace::reject()
+{
+    WriteSettings();
+    QDialog::reject();
+}
+
+void DryRunReplace::CreateTable()
 {
     m_ItemModel->clear();
     QStringList header;
     header.append(tr("Book Path"));
     header.append(tr("Offset"));
-    header.append(tr("Match"));
+    header.append(tr("Before"));
+    header.append(tr("After"));
     m_ItemModel->setHorizontalHeaderLabels(header);
-    ui.findallTree->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui.findallTree->setModel(m_ItemModel);
+    ui.dryrunTree->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui.dryrunTree->setModel(m_ItemModel);
 
     QList<Resource*> resources = m_FindReplace->GetAllResourcesToSearch();
     QString search_regex = m_FindReplace->GetSearchRegex();
+    QString replace_text = m_FindReplace->GetReplace();
     
     int count = 0;
     foreach(Resource* resource, resources ) {
@@ -119,13 +124,23 @@ void FindAll::CreateTable()
                 QString match_segment = Utility::Substring(match_info.at(i).offset.first,
                                                            match_info.at(i).offset.second, 
                                                            text);
+                QString new_text;
+                bool can_replace = spcre->replaceText(match_segment, match_info.at(i).capture_groups_offsets, 
+                                                      replace_text, new_text);
+
                 // set pre and post context strings
                 QString prior_context  = GetPriorContext(match_info.at(i).offset.first, text, m_context_amt);
                 QString post_context = GetPostContext(match_info.at(i).offset.second, text, m_context_amt);
                 
-                // create match snippet with context
+                // finally create before and after snippets
                 QString orig_snip = prior_context + match_segment + post_context;
-
+                QString new_snip;
+                if (can_replace) {
+                    new_snip = prior_context + new_text + post_context;
+                } else {
+                    new_snip = orig_snip;
+                    new_text = match_segment;
+                }
                 int start = match_info.at(i).offset.first;
 
                 // finally add a row to the table
@@ -144,12 +159,20 @@ void FindAll::CreateTable()
                 count_item->setTextAlignment(Qt::AlignRight|Qt::AlignVCenter);
                 rowItems << count_item;
 
-                // Match
+                // Before
                 item = new QStandardItem();
                 item->setText(orig_snip);
                 item->setData(prior_context.length(), Qt::UserRole+1);
                 item->setData(prior_context.length() + match_segment.length(), Qt::UserRole+2);
                 item->setData(match_segment, Qt::UserRole+3);
+                rowItems << item;
+
+                // After
+                item = new QStandardItem();
+                item ->setText(new_snip);
+                item->setData(prior_context.length(), Qt::UserRole+1);
+                item->setData(prior_context.length() + new_text.length(), Qt::UserRole+2);
+                item->setData(new_text, Qt::UserRole+3);
                 rowItems << item;
 
                 // Add item to table
@@ -164,17 +187,18 @@ void FindAll::CreateTable()
     // display the count above the table (with a buffer to the right)
     ui.cntamt->setText(QString::number(count) + "   ");
                       
-    // set styled text item delegate for column 2 (match)
-    ui.findallTree->setItemDelegateForColumn(MATCH_COL, m_TextDelegate);
+    // set styled text item delegate for columns 2 (before) and 3 (after)
+    ui.dryrunTree->setItemDelegateForColumn(BEFORE_COL, m_TextDelegate);
+    ui.dryrunTree->setItemDelegateForColumn(AFTER_COL, m_TextDelegate);
     
-    for (int i = 0; i < ui.findallTree->header()->count(); i++) {
-        ui.findallTree->resizeColumnToContents(i);
+    for (int i = 0; i < ui.dryrunTree->header()->count(); i++) {
+        ui.dryrunTree->resizeColumnToContents(i);
     }
-    ui.findallTree->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui.dryrunTree->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
 
 
-QString FindAll::GetPriorContext(int match_start, const QString& text, int amt)
+QString DryRunReplace::GetPriorContext(int match_start, const QString& text, int amt)
 {
     int context_start = match_start - amt;
     if  (context_start < 0) context_start = 0;
@@ -188,7 +212,7 @@ QString FindAll::GetPriorContext(int match_start, const QString& text, int amt)
 }
 
 
-QString FindAll::GetPostContext(int match_end, const QString& text, int amt)
+QString DryRunReplace::GetPostContext(int match_end, const QString& text, int amt)
 {
     int context_end = match_end + amt;
     int end_pos = text.length();
@@ -203,7 +227,7 @@ QString FindAll::GetPostContext(int match_end, const QString& text, int amt)
 }
 
 
-void FindAll::FilterEditTextChangedSlot(const QString &text)
+void DryRunReplace::FilterEditTextChangedSlot(const QString &text)
 {
     const QString lowercaseText = text.toLower();
     QStandardItem *root_item = m_ItemModel->invisibleRootItem();
@@ -213,34 +237,34 @@ void FindAll::FilterEditTextChangedSlot(const QString &text)
 
     for (int row = 0; row < root_item->rowCount(); row++) {
         if (text.isEmpty() || root_item->child(row, 0)->text().toLower().contains(lowercaseText)) {
-            ui.findallTree->setRowHidden(row, parent_index, false);
+            ui.dryrunTree->setRowHidden(row, parent_index, false);
 
             if (first_visible_row == -1) {
                 first_visible_row = row;
             }
         } else {
-            ui.findallTree->setRowHidden(row, parent_index, true);
+            ui.dryrunTree->setRowHidden(row, parent_index, true);
         }
     }
 
     if (!text.isEmpty() && first_visible_row != -1) {
         // Select the first non-hidden row
-        ui.findallTree->setCurrentIndex(root_item->child(first_visible_row, 0)->index());
+        ui.dryrunTree->setCurrentIndex(root_item->child(first_visible_row, 0)->index());
     } else {
         // Clear current and selection, which clears preview image
-        ui.findallTree->setCurrentIndex(QModelIndex());
+        ui.dryrunTree->setCurrentIndex(QModelIndex());
     }
 }
 
-void FindAll::DoubleClick()
+void DryRunReplace::DoubleClick()
 {
-    QModelIndex index = ui.findallTree->selectionModel()->selectedRows(0).first();
+    QModelIndex index = ui.dryrunTree->selectionModel()->selectedRows(0).first();
     QString bookpath = m_ItemModel->itemFromIndex(index)->text();
     int pos = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text().toInt();
     m_FindReplace->EmitOpenFileRequest(bookpath, -1, pos);
 }
 
-void FindAll::ReadSettings()
+void DryRunReplace::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
@@ -248,26 +272,22 @@ void FindAll::ReadSettings()
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
     }
-    m_context_amt = settings.value("context",40).toInt();
+    m_context_amt = settings.value("context",20).toInt();
     SetContextCB(m_context_amt);
     settings.endGroup();
 }
 
-void FindAll::SetContextCB(int val)
+void DryRunReplace::SetContextCB(int val)
 {
     int index = 0;
-    if (val == 20) index = 1;
-    if (val == 30) index = 2;
-    if (val == 40) index = 3;
-    if (val == 50) index = 4;
-    if (val == 60) index = 5;
-    if (val == 75) index = 6;
-    if (val == 90) index = 7;
-    if (val == 100) index = 8;
+    if (val >= 20) index = 1;
+    if (val >= 30) index = 2;
+    if (val >= 40) index = 3;
+    if (val >= 50) index = 4;
     ui.amtcb->setCurrentIndex(index);
 }
 
-void FindAll::ChangeContext()
+void DryRunReplace::ChangeContext()
 {
     int val = ui.amtcb->currentData().toInt();
     if (val != m_context_amt) {
@@ -276,7 +296,7 @@ void FindAll::ChangeContext()
     }
 }
 
-void FindAll::WriteSettings()
+void DryRunReplace::WriteSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
@@ -286,11 +306,11 @@ void FindAll::WriteSettings()
 }
 
 
-void FindAll::connectSignalsSlots()
+void DryRunReplace::connectSignalsSlots()
 {
     connect(ui.leFilter,  SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
     connect(ui.Refresh, SIGNAL(clicked()), this, SLOT(CreateTable()));
     connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(close()));
-    connect(ui.findallTree, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(DoubleClick()));
+    connect(ui.dryrunTree, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(DoubleClick()));
     connect(ui.amtcb, SIGNAL(currentIndexChanged(int)), this, SLOT(ChangeContext()));
 }

@@ -184,8 +184,8 @@ private slots:
     bool DoReplaceNext();
     bool DoReplacePrevious();
 
-    // Does a Find All and shows results in table
-    void PerformFindAll();
+    // Does a Dry Run Find A// / Replace All  and shows results in table
+    void PerformDryRunReplace();
 
     // Allows a user to choose which matches in Replace All should
     // be applied

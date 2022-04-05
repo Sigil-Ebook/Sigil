@@ -51,6 +51,7 @@ public slots:
 
     void CreateTable();
     void closeEvent(QCloseEvent *e);
+    void reject();
 
 private slots:
     void ChangeContext();

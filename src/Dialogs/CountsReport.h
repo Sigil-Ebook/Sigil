@@ -47,6 +47,7 @@ public:
 
 public slots:
     void closeEvent(QCloseEvent *e);
+    void reject();
     void Save();
 
 signals:

@@ -193,8 +193,8 @@ set( DIALOG_FILES
     Dialogs/SearchEditorItemDelegate.h
     Dialogs/CountsReport.cpp
     Dialogs/CountsReport.h
-    Dialogs/FindAll.cpp
-    Dialogs/FindAll.h
+    Dialogs/DryRunReplace.cpp
+    Dialogs/DryRunReplace.h
     Dialogs/ReplacementChooser.cpp
     Dialogs/ReplacementChooser.h
     Dialogs/StyledTextDelegate.cpp
@@ -557,7 +557,7 @@ set( UI_FILES
     Form_Files/PluginRunner.ui
     Form_Files/Controls.ui
     Form_Files/CountsReport.ui
-    Form_Files/FindAll.ui
+    Form_Files/DryRunReplace.ui
     Form_Files/ReplacementChooser.ui
     )
 

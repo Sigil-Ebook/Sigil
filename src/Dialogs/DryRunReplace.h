@@ -20,33 +20,34 @@
 *************************************************************************/
 
 #pragma once
-#ifndef FINDALL_H
-#define FINDALL_H
+#ifndef DRYRUNREPLACE_H
+#define DRYRUNREPLACE_H
 
 #include <QDialog>
 #include <QList>
 #include <QStandardItemModel>
 #include "Dialogs/StyledTextDelegate.h"
-#include "ui_FindAll.h"
+#include "ui_DryRunReplace.h"
 
 
 class QCloseEvent;
 class QString;
 class FindReplace;
 
-class FindAll: public QDialog
+class DryRunReplace: public QDialog
 {
     Q_OBJECT
 
 public:
-    FindAll(QWidget* parent=NULL);
-    ~FindAll();
+    DryRunReplace(QWidget* parent=NULL);
+    ~DryRunReplace();
 
 public slots:
 
     void CreateTable();
     void DoubleClick();
     void closeEvent(QCloseEvent *e);
+    void reject();
 
 private slots:
     void ChangeContext();
@@ -71,7 +72,7 @@ private:
 
     int m_context_amt;
     
-    Ui::FindAll ui;
+    Ui::DryRunReplace ui;
 };
 
-#endif // FINDALL_H
+#endif // DRYRUNREPLACE_H

@@ -459,7 +459,7 @@ then find the Next match in Code View.</string>
           </property>
           <property name="toolTip">
             <string>Count all matches in Code View.
-              Use with SHIFT to generate a Find All table.
+              Use with SHIFT to generate a Dry Run Replace All table.
             </string>
           </property>
           <property name="styleSheet">

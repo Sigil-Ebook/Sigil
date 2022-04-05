@@ -80,6 +80,12 @@ void ReplacementChooser::closeEvent(QCloseEvent *e)
     QDialog::closeEvent(e);
 }
 
+void ReplacementChooser::reject()
+{
+    WriteSettings();
+    QDialog::reject();
+}
+
 void ReplacementChooser::CreateTable()
 {
     m_ItemModel->clear();

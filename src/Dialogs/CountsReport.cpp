@@ -64,6 +64,12 @@ void CountsReport::closeEvent(QCloseEvent *e)
     QDialog::closeEvent(e);
 }
 
+void CountsReport::reject()
+{
+    WriteSettings();
+    QDialog::reject();
+}
+
 void CountsReport::CreateReport(QList<SearchEditorModel::searchEntry*> entries)
 {
     // note entries are each created with new so we are taking ownership
