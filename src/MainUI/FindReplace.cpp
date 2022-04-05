@@ -32,7 +32,7 @@
 #include <QRegularExpression>
 #include <QDebug>
 
-#include "Dialogs/DryRunReplace.h"
+#include "Dialogs/FindAll.h"
 #include "Dialogs/ReplacementChooser.h"
 #include "Tabs/TextTab.h"
 #include "Tabs/FlowTab.h"
@@ -78,8 +78,7 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_InRemainder(false),
       m_RestartPerformed(false),
       m_SearchRunning(false),
-      m_DryRun(false),
-      m_Chooser(false)
+      m_ShiftUsed(false)
 {
     ui.setupUi(this);
     FindReplaceQLineEdit *find_ledit = new FindReplaceQLineEdit(this);
@@ -299,15 +298,13 @@ void FindReplace::SetKeyModifiers()
 {
     // Only use with mouse click not menu/shortcuts to avoid modifying actions
     m_LookWhereCurrentFile = QApplication::keyboardModifiers() & Qt::ControlModifier;
-    m_DryRun = QApplication::keyboardModifiers() & Qt::ShiftModifier;
-    m_Chooser = QApplication::keyboardModifiers() & Qt::AltModifier;
+    m_ShiftUsed = QApplication::keyboardModifiers() & Qt::ShiftModifier;
 }
 
 void FindReplace::ResetKeyModifiers()
 {
     m_LookWhereCurrentFile = false;
-    m_DryRun = false;
-    m_Chooser = false;
+    m_ShiftUsed = false;
 }
 
 void FindReplace::FindClicked()
@@ -328,9 +325,7 @@ void FindReplace::ReplaceClicked()
 void FindReplace::ReplaceAllClicked()
 {
     SetKeyModifiers();
-    if (m_DryRun) {
-        DryRunReplaceAll();
-    } else if (m_Chooser){
+    if (m_ShiftUsed) {
         ChooseReplacements();
     } else {
         ReplaceAll();
@@ -341,7 +336,11 @@ void FindReplace::ReplaceAllClicked()
 void FindReplace::CountClicked()
 {
     SetKeyModifiers();
-    Count();
+    if (m_ShiftUsed) {
+        PerformFindAll();
+    } else {
+        Count();
+    }
     ResetKeyModifiers();
 }
 
@@ -577,11 +576,11 @@ bool FindReplace::ReplaceCurrent()
 }
 
 
-// Performs a Dry Run for Replace All showing results in a table
-void FindReplace::DryRunReplaceAll()
+// Builds a Find All table
+void FindReplace::PerformFindAll()
 {
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
-    ShowMessage(tr("Dry Run of Replace All"));
+    ShowMessage(tr("Performing Find All"));
 
     if (IsNewSearch()) {
         SetStartingResource(true);
@@ -590,7 +589,7 @@ void FindReplace::DryRunReplaceAll()
 
     if (!IsValidFindText()) return;
 
-    DryRunReplace*  dr = new DryRunReplace(this);
+    FindAll*  dr = new FindAll(this);
     dr->CreateTable();
     // do this non-modally
     dr->show();
@@ -616,7 +615,25 @@ void FindReplace::ChooseReplacements()
     ReplacementChooser rc(this);
     rc.CreateTable();
     rc.exec();
+
     clearMessage();
+
+    int count = rc.GetReplacementCount();
+    if (count == 0) {
+        ShowMessage(tr("No replacements made"));
+    } else if (count > 0) {
+        QString message = tr("Replacements made: %n", "", count);
+        ShowMessage(message);
+    }
+
+    if (count > 0) {
+        // Signal that the contents have changed and update the view
+        m_MainWindow->GetCurrentBook()->SetModified(true);
+        m_MainWindow->GetCurrentContentTab()->ContentChangedExternally();
+    }
+
+    UpdatePreviousFindStrings();
+    UpdatePreviousReplaceStrings();
 }
 
 

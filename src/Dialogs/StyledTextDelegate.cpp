@@ -34,8 +34,7 @@
 #include <QSize>
 #include "Dialogs/StyledTextDelegate.h"
 
-static const int COL_BEFORE = 2;
-static const int COL_AFTER = 3;
+static const int COL_START = 2;
 
 
 StyledTextDelegate::StyledTextDelegate(QObject *parent)
@@ -50,7 +49,7 @@ StyledTextDelegate::~StyledTextDelegate()
 void StyledTextDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // use only in desginated columns
-    if ((index.column() != COL_BEFORE) && (index.column() != COL_AFTER )) {
+    if (index.column() < COL_START) {
         QStyledItemDelegate::paint(painter, option, index);
         return;
     }
@@ -76,7 +75,7 @@ void StyledTextDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
 
 QSize StyledTextDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    if ((index.column() != COL_BEFORE) && (index.column() != COL_AFTER )) {
+    if (index.column() < COL_START) {
         return QStyledItemDelegate::sizeHint(option, index);
     }
     QTextDocument doc;

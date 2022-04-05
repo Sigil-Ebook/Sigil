@@ -29,6 +29,7 @@
 #include "ui_CountsReport.h"
 
 class QString;
+class QCloseEvent;
 
 class CountsReport: public QDialog
 {
@@ -45,8 +46,9 @@ public:
     void SetupTable(int sort_column = 1, Qt::SortOrder sort_order = Qt::AscendingOrder);
 
 public slots:
+    void closeEvent(QCloseEvent *e);
     void Save();
-    
+
 signals:
     // void CountRequest2(SearchEditorModel::searchEntry* entry, int& count);
     void CountRequest(SearchEditorModel::searchEntry* entry, int& count);

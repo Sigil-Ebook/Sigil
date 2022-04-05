@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DryRunReplace</class>
- <widget class="QDialog" name="DryRunReplace">
+ <class>FindAll</class>
+ <widget class="QDialog" name="FindAll">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
+    <width>800</width>
     <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dry Run Replace-All Results</string>
+   <string>Find All Results</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="leftMargin">
@@ -87,7 +87,7 @@
      <item>
       <widget class="QLabel" name="cntamt">
        <property name="toolTip">
-        <string>Total Number of Matches/Replacements</string>
+        <string>Total Number of Matches</string>
        </property>
        <property name="text">
         <string>----   </string>
@@ -97,7 +97,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QTreeView" name="dryrunTree">
+    <widget class="QTreeView" name="findallTree">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -126,7 +126,7 @@
      <item>
       <widget class="QPushButton" name="Refresh">
        <property name="toolTip">
-        <string>Perform the dry run ReplaceAll again and rebuild the table</string>.
+        <string>Perform the Find All again and rebuild the table</string>.
        </property>
        <property name="text">
         <string>Refresh</string>

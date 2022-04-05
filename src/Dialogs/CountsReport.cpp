@@ -58,6 +58,12 @@ CountsReport::~CountsReport()
     delete m_ItemModel;
 }
 
+void CountsReport::closeEvent(QCloseEvent *e)
+{
+    WriteSettings();
+    QDialog::closeEvent(e);
+}
+
 void CountsReport::CreateReport(QList<SearchEditorModel::searchEntry*> entries)
 {
     // note entries are each created with new so we are taking ownership
@@ -297,7 +303,7 @@ void CountsReport::connectSignalsSlots()
     connect(ui.leFilter,  SIGNAL(textChanged(QString)),
             this,         SLOT(FilterEditTextChangedSlot(QString)));
     connect(ui.countsTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
-    connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(accept()));
+    connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(close()));
     connect(ui.buttonBox->button(QDialogButtonBox::Save), SIGNAL(clicked()), this, SLOT(Save()));
 }
 

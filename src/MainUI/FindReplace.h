@@ -184,9 +184,8 @@ private slots:
     bool DoReplaceNext();
     bool DoReplacePrevious();
 
-    // Does a Dry-Run ReplaceAll and show results in table
-    // No actual changes are made
-    void DryRunReplaceAll();
+    // Does a Find All and shows results in table
+    void PerformFindAll();
 
     // Allows a user to choose which matches in Replace All should
     // be applied
@@ -367,9 +366,7 @@ private:
 
     bool m_SearchRunning;
 
-    bool m_DryRun;
-
-    bool m_Chooser;
+    bool m_ShiftUsed;
 };
 
 

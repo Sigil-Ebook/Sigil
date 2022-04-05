@@ -274,8 +274,7 @@
           </property>
           <property name="toolTip">
            <string>Replace all matches in Code View.
-             Use with SHIFT to perform a Dry Run.
-             Use with ALT to Filter Replacements before changes are applied.</string>
+             Use with SHIFT to Filter Replacements before changes are applied.</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -379,7 +378,7 @@
            <widget class="QCheckBox" name="chkOptionWrap">
             <property name="toolTip">
              <string>Search from current position to end of the 
-current file or book, and then wrap to the
+current file, and then wrap to the
 other end to continue searching.</string>
             </property>
             <property name="text">
@@ -459,7 +458,9 @@ then find the Next match in Code View.</string>
            </size>
           </property>
           <property name="toolTip">
-           <string>Count all matches in Code View.</string>
+            <string>Count all matches in Code View.
+              Use with SHIFT to generate a Find All table.
+            </string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>

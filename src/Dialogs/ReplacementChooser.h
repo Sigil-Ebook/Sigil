@@ -45,6 +45,8 @@ public:
     ReplacementChooser(QWidget* parent=NULL);
     ~ReplacementChooser();
 
+    int GetReplacementCount() { return m_replacement_count; };
+
 public slots:
 
     void CreateTable();
@@ -83,6 +85,8 @@ private:
     QPointer<QMenu> m_ContextMenu;
 
     QHash<QString, Resource*> m_Resources;
+
+    int m_replacement_count;
     
     Ui::ReplacementChooser ui;
 };

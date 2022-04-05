@@ -48,7 +48,8 @@ ReplacementChooser::ReplacementChooser(QWidget* parent)
     QDialog(parent),
     m_ItemModel(new QStandardItemModel),
     m_TextDelegate(new StyledTextDelegate()),
-    m_ContextMenu(new QMenu(this))
+    m_ContextMenu(new QMenu(this)),
+    m_replacement_count(0)
 {
     m_FindReplace = qobject_cast<FindReplace*>(parent);
     ui.setupUi(this);
@@ -243,11 +244,13 @@ void ReplacementChooser::ApplyReplacements()
             QString text = html_resource->GetText();
             QString updated_text = text.replace(startpos, n, new_text);
             html_resource->SetText(updated_text);
+            m_replacement_count++;
         } else if (text_resource) {
             QWriteLocker locker(&text_resource->GetLock());
             QString text = text_resource->GetText();
             QString updated_text = text.replace(startpos, n, new_text);
             text_resource->SetText(updated_text);
+            m_replacement_count++;
         }
     }
     close();
