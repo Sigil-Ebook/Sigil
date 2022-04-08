@@ -265,6 +265,9 @@ void ReplacementChooser::ApplyReplacements()
 void ReplacementChooser::DeleteSelectedRows()
 {
     if (!ui.chooserTree->selectionModel()->hasSelection()) return;
+    // This QTreeView is limited to ContiguousSelection mode
+    // so should be able to delete in blocks
+#if 0
     // Delete one at a time as selection delets may change indexes
     int row = -1;
     QModelIndex parent_index;
@@ -277,6 +280,14 @@ void ReplacementChooser::DeleteSelectedRows()
             m_ItemModel->removeRows(row, 1, parent_index);
         }
     }
+#else
+    QModelIndex index = ui.chooserTree->selectionModel()->selectedRows(0).first();
+    int count = ui.chooserTree->selectionModel()->selectedRows(0).count();
+    int row = index.row();
+    QModelIndex parent_index = index.parent();
+    m_ItemModel->removeRows(row, count, parent_index);
+#endif
+
 }
 
 #if 0
