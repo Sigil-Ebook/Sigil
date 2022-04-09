@@ -107,7 +107,8 @@
       <bool>false</bool>
      </property>
      <property name="toolTip">
-      <string>Delete unwanted replacements from the table.</string>.
+       <string>Delete unwanted replacements from the table.
+       Warning: Once replacements are applied, no "undo" is possible.</string>.
      </property>
     </widget>
    </item>
@@ -116,7 +117,8 @@
      <item>
       <widget class="QPushButton" name="Apply">
        <property name="toolTip">
-        <string>Apply the remaining replacements listed in the table.</string>.
+         <string>Apply the remaining replacements listed in the table.
+         Warning: Once applied, no "undo" is possible.</string>.
        </property>
        <property name="text">
         <string>Apply Changes</string>
