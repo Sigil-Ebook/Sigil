@@ -88,6 +88,8 @@ private:
     QHash<QString, Resource*> m_Resources;
 
     int m_replacement_count;
+
+    int m_current_count;
     
     Ui::ReplacementChooser ui;
 };

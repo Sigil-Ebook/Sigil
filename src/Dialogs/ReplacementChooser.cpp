@@ -49,7 +49,8 @@ ReplacementChooser::ReplacementChooser(QWidget* parent)
     m_ItemModel(new QStandardItemModel),
     m_TextDelegate(new StyledTextDelegate()),
     m_ContextMenu(new QMenu(this)),
-    m_replacement_count(0)
+    m_replacement_count(0),
+    m_current_count(0)
 {
     m_FindReplace = qobject_cast<FindReplace*>(parent);
     ui.setupUi(this);
@@ -104,7 +105,7 @@ void ReplacementChooser::CreateTable()
     QString search_regex = m_FindReplace->GetSearchRegex();
     QString replace_text = m_FindReplace->GetReplace();
     
-    int count = 0;
+    m_current_count = 0;
     foreach(Resource* resource, resources ) {
         qApp->processEvents();
         QString bookpath = resource->GetRelativePath();
@@ -160,7 +161,7 @@ void ReplacementChooser::CreateTable()
                 rowItems << item;
 
                 //  Offset
-                if (start > -1) count += 1;
+                if (start > -1) m_current_count++;
                 NumericItem *count_item = new NumericItem();
                 count_item->setText(QString::number(start));
                 count_item->setTextAlignment(Qt::AlignRight|Qt::AlignVCenter);
@@ -190,6 +191,9 @@ void ReplacementChooser::CreateTable()
             }
         }
     }
+
+    // display the current count above the table (with a buffer to the right)
+    ui.cntamt->setText(QString::number(m_current_count) + "   ");
     
     // set styled text item delegate for columns 2 (before) and 3 (after)
     ui.chooserTree->setItemDelegateForColumn(BEFORE_COL, m_TextDelegate);
@@ -286,6 +290,11 @@ void ReplacementChooser::DeleteSelectedRows()
     int row = index.row();
     QModelIndex parent_index = index.parent();
     m_ItemModel->removeRows(row, count, parent_index);
+    m_current_count = m_current_count - count;
+
+    // display the current count above the table (with a buffer to the right)
+    ui.cntamt->setText(QString::number(m_current_count) + "   ");
+
 #endif
 
 }
