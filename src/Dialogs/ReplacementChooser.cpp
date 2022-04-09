@@ -67,6 +67,7 @@ ReplacementChooser::ReplacementChooser(QWidget* parent)
     // sorting must NOT be enabled as offset order is important
     // changes in a file must be made from bottom to top
     ui.chooserTree->setSortingEnabled(false);
+    ui.chooserTree->setTextElideMode(Qt::ElideLeft);
 }
 
 ReplacementChooser::~ReplacementChooser()
