@@ -62,6 +62,8 @@ DryRunReplace::DryRunReplace(QWidget* parent)
     ReadSettings();
     connectSignalsSlots();
     ui.dryrunTree->setSortingEnabled(true);
+    // only impacts non-delegated columns
+    ui.dryrunTree->setTextElideMode(Qt::ElideLeft);
 }
 
 DryRunReplace::~DryRunReplace()

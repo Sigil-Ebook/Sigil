@@ -2,13 +2,14 @@ pre-1.9.X
     Bug Fixes
       - Fix insertion of id and links when cursor immediately before a closing tag
       - Make sure bundled PySide6 can find QtWebEngine resources on Windows (Qt6)
-      - Properly recreate or remove encryption.xml depending on obfuscating or not
+      - Properly recreate or remove encryption.xml depending on font obfuscating or not
       - Make Qt6 versions of Sigil use their own ini files to prevent corruption
         
     New Features
       - Add a Toggle Line Wrap Mode and its support added to CodeView via pop-up menu
       - Add a Dry Run Replace Dialog to act as "Find All / Replace All" what if.
-      - Add a Replacement Filter to allow users to remove unwanted replacements before applying Replace All
+      - Add a Replacement Filter/Chooser Dialog to allow users to delete unwanted
+            replacements before applying Replace All
       - Add a Counts Report to Saved Searches to show Saved Search Group counts by search
 
     
