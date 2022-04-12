@@ -147,9 +147,12 @@
       </spacer>
      </item>
      <item>
-      <widget class="QDialogButtonBox" name="buttonBox">
-       <property name="standardButtons">
-        <set>QDialogButtonBox::Close</set>
+      <widget class="QPushButton" name="closeButton">
+       <property name="toolTip">
+        <string>Close this dialog</string>.                                    
+       </property>
+       <property name="text">
+        <string>Close</string>
        </property>
       </widget>
      </item>
