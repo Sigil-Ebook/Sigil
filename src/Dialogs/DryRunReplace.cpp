@@ -24,6 +24,8 @@
 #include <QPushButton>
 #include <QTreeView>
 #include <QModelIndex>
+#include <QEventLoop>
+#include <QApplication>
 #include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -52,6 +54,7 @@ DryRunReplace::DryRunReplace(QWidget* parent)
     m_FindReplace = qobject_cast<FindReplace*>(parent);
     ui.setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose, true);
+    ui.Refresh->setAutoDefault(false);
     ui.amtcb->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     ui.amtcb->addItem("10",10);
     ui.amtcb->addItem("20",20);
@@ -86,6 +89,9 @@ void DryRunReplace::reject()
 
 void DryRunReplace::CreateTable()
 {
+    m_FindReplace->ShowMessage(tr("Creating Dry Run Replace Table"));
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    ui.leFilter->clear();
     m_ItemModel->clear();
     QStringList header;
     header.append(tr("Book Path"));
@@ -102,7 +108,7 @@ void DryRunReplace::CreateTable()
     
     int count = 0;
     foreach(Resource* resource, resources ) {
-        qApp->processEvents();
+        qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
         QString bookpath = resource->GetRelativePath();
         QString text;
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
@@ -197,6 +203,8 @@ void DryRunReplace::CreateTable()
         ui.dryrunTree->resizeColumnToContents(i);
     }
     ui.dryrunTree->setSelectionBehavior(QAbstractItemView::SelectRows);
+    QApplication::restoreOverrideCursor();
+    m_FindReplace->clearMessage();
 }
 
 

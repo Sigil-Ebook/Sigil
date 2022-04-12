@@ -580,7 +580,6 @@ bool FindReplace::ReplaceCurrent()
 void FindReplace::PerformDryRunReplace()
 {
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
-    ShowMessage(tr("Performing Dry Run Find/Replace All"));
 
     if (IsNewSearch()) {
         SetStartingResource(true);
@@ -595,7 +594,6 @@ void FindReplace::PerformDryRunReplace()
     dr->show();
     dr->raise();
     dr->activateWindow();
-    clearMessage();
 }
 
 // Allows you to delete unwanted replacements and apply those remaining

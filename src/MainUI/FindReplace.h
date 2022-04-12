@@ -109,6 +109,11 @@ public slots:
     void ReplaceAllSearch();
     void DoRestart();
 
+    // Shows a message in the main window.
+    void ShowMessage(const QString &message);
+    void clearMessage();
+
+
     bool FindMisspelledWord();
 
     void SetRegexOptionDotAll(bool new_state);
@@ -147,9 +152,6 @@ protected:
     void keyPressEvent(QKeyEvent *event);
 
 private slots:
-
-    // Shows a message in the main window.
-    void ShowMessage(const QString &message);
 
     bool IsMarkedText();
 
@@ -201,7 +203,6 @@ private slots:
     void ReplaceAllInFile();
     void CountInFile();
 
-    void clearMessage();
     void expireMessage();
 
     void SaveSearchAction();
