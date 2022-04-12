@@ -30,6 +30,7 @@
 #include "ui_DryRunReplace.h"
 
 
+class QKeyEvent;
 class QCloseEvent;
 class QString;
 class FindReplace;
@@ -45,8 +46,11 @@ public:
 public slots:
 
     void CreateTable();
+
     void DoubleClick();
+    
     void closeEvent(QCloseEvent *e);
+    void keyPressEvent(QKeyEvent * e);
     void reject();
 
 private slots:

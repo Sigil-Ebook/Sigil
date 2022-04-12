@@ -25,6 +25,7 @@
 #include <QTreeView>
 #include <QModelIndex>
 #include <QEventLoop>
+#include <QKeyEvent>
 #include <QApplication>
 #include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
@@ -54,8 +55,6 @@ DryRunReplace::DryRunReplace(QWidget* parent)
     m_FindReplace = qobject_cast<FindReplace*>(parent);
     ui.setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose, true);
-    ui.Refresh->setAutoDefault(false);
-    ui.closeButton->setAutoDefault(false);
     ui.amtcb->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     ui.amtcb->addItem("10",10);
     ui.amtcb->addItem("20",20);
@@ -68,12 +67,29 @@ DryRunReplace::DryRunReplace(QWidget* parent)
     ui.dryrunTree->setSortingEnabled(true);
     // only impacts non-delegated columns
     ui.dryrunTree->setTextElideMode(Qt::ElideLeft);
+    ui.Refresh->setAutoDefault(false);
+    ui.Refresh->setDefault(false);
+    ui.Refresh->setFocusPolicy(Qt::TabFocus);
+    ui.closeButton->setAutoDefault(false);
+    ui.closeButton->setDefault(false);
+    ui.closeButton->setFocusPolicy(Qt::TabFocus);
 }
 
 DryRunReplace::~DryRunReplace()
 {
     m_ItemModel->clear();
     delete m_ItemModel;
+}
+
+
+void DryRunReplace::keyPressEvent(QKeyEvent *e)
+{
+    if (e->key() == Qt::Key_Enter || e->key() == Qt::Key_Return) {
+        if (ui.leFilter->hasFocus()) {
+            return;
+        }
+    }
+    QDialog::keyPressEvent(e);
 }
 
 void DryRunReplace::closeEvent(QCloseEvent *e)
