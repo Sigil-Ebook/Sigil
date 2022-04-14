@@ -180,6 +180,19 @@ QString FindReplace::GetControls()
 }
 
 
+bool FindReplace::isSearchXML()
+{
+    if (isWhereHTML() || isWhereOPF() || isWhereNCX()) return true;
+    if (isWhereCSS()) return false;
+    if (isWhereCF() || m_LookWhereCurrentFile) {
+        Resource * current_resource = GetCurrentResource();
+        QString mt = current_resource->GetMediaType();
+        if (mt.endsWith("+xml")) return true;
+    }
+    return false;
+}
+
+
 bool FindReplace::isWhereHTML()
 {
     if ((GetLookWhere() == FindReplace::LookWhere_AllHTMLFiles) ||
@@ -915,7 +928,7 @@ QString FindReplace::GetSearchRegex()
     // Search type
     if (GetSearchMode() == FindReplace::SearchMode_Normal || GetSearchMode() == FindReplace::SearchMode_Case_Sensitive) {
         search = QRegularExpression::escape(search);
-        if (m_RegexOptionTextOnly) {
+        if (m_RegexOptionTextOnly && isSearchXML()) {
             // must be immediately before the user search
             search = PrependRegexOptionToSearch(REGEX_OPTION_TEXT_ONLY, search);
         }
@@ -924,7 +937,7 @@ QString FindReplace::GetSearchRegex()
         }
     } else {
         // must be immediately before the user search
-        if (m_RegexOptionTextOnly) {
+        if (m_RegexOptionTextOnly && isSearchXML()) {
             search = PrependRegexOptionToSearch(REGEX_OPTION_TEXT_ONLY, search);
         }
         if (m_RegexOptionDotAll) {

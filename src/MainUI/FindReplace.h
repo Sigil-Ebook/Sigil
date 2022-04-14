@@ -90,7 +90,8 @@ public:
     bool isWhereOPF() { return GetLookWhere() == LookWhere_OPFFile; };
     bool isWhereNCX() { return GetLookWhere() == LookWhere_NCXFile; };
     bool isWhereCF()  { return GetLookWhere() == LookWhere_CurrentFile; };
-
+    bool isSearchXML();
+    
     QString GetSearchRegex();
     QString GetReplace();
     QList<Resource*> GetAllResourcesToSearch();
