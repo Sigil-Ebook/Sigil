@@ -147,12 +147,36 @@
           <item>
            <widget class="QCheckBox" name="chkOptionWrap">
             <property name="toolTip">
-             <string>Search from current position to end of the 
-current file or book, and then wrap to the
+             <string>Search from current position to top or end of the 
+current file and then wrap to the
 other end to continue searching.</string>
             </property>
             <property name="text">
              <string>Wrap</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacerOption4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>8</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="chkOptionTextOnly">
+            <property name="toolTip">
+              <string>Search only in text (outside tags).
+              Valid only when searching HTML files.</string>
+            </property>
+            <property name="text">
+             <string>Text</string>
             </property>
            </widget>
           </item>
@@ -228,6 +252,8 @@ other end to continue searching.</string>
   <tabstop>chkRegexOptionDotAll</tabstop>
   <tabstop>chkRegexOptionMinimalMatch</tabstop>
   <tabstop>chkRegexOptionAutoTokenise</tabstop>
+  <tabstop>chkOptionWrap</tabstop>
+  <tabstop>chkOptionTextOnly</tabstop>
   <tabstop>cbSearchMode</tabstop>
   <tabstop>cbLookWhere</tabstop>
   <tabstop>cbSearchDirection</tabstop>

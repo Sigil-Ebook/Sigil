@@ -54,6 +54,7 @@ public slots:
     void SetRegexOptionMinimalMatch(bool new_state);
     void SetRegexOptionAutoTokenise(bool new_state);
     void SetOptionWrap(bool new_state);
+    void SetRegexOptionTextOnly(bool new_state);
     void DoClearAll();
 
     void closeEvent(QCloseEvent *e);
@@ -81,8 +82,8 @@ private:
     bool m_RegexOptionMinimalMatch;
     bool m_RegexOptionAutoTokenise;
     bool m_OptionWrap;
+    bool m_RegexOptionTextOnly;
     bool m_ClearAll;
 };
-
 
 #endif // CONTROLS_H

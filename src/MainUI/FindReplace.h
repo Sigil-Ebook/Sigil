@@ -120,6 +120,7 @@ public slots:
     void SetRegexOptionMinimalMatch(bool new_state);
     void SetRegexOptionAutoTokenise(bool new_state);
     void SetOptionWrap(bool new_state);
+    void SetRegexOptionTextOnly(bool new_state);
 
     bool FindAnyText(QString text, bool escape = true);
     void FindAnyTextInTags(QString text);
@@ -346,7 +347,7 @@ private:
     bool m_RegexOptionMinimalMatch;
     bool m_RegexOptionAutoTokenise;
     bool m_OptionWrap;
-
+    bool m_RegexOptionTextOnly;
     bool m_SpellCheck;
 
     bool m_LookWhereCurrentFile;

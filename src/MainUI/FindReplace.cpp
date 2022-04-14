@@ -50,6 +50,7 @@ static const QString REGEX_OPTION_UCP = "(*UCP)";
 static const QString REGEX_OPTION_IGNORE_CASE = "(?i)";
 static const QString REGEX_OPTION_DOT_ALL = "(?s)";
 static const QString REGEX_OPTION_MINIMAL_MATCH = "(?U)";
+static const QString REGEX_OPTION_TEXT_ONLY = "<[^<>]*>(*SKIP)(*F)|";
 
 static const int SHOW_FIND_RESULTS_MESSAGE_DELAY_MS = 20000;
 
@@ -70,6 +71,7 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_RegexOptionMinimalMatch(false),
       m_RegexOptionAutoTokenise(false),
       m_OptionWrap(true),
+      m_RegexOptionTextOnly(false),
       m_SpellCheck(false),
       m_LookWhereCurrentFile(false),
       m_IsSearchGroupRunning(false),
@@ -171,6 +173,7 @@ QString FindReplace::GetControls()
     if (m_RegexOptionMinimalMatch) controls << "MM";
     if (m_RegexOptionAutoTokenise) controls << "AT";
     if (m_OptionWrap) controls << "WR";
+    if (m_RegexOptionTextOnly) controls << "TO";
     controls << DRS.at(GetSearchDirection());
     controls << TGTS.at(GetLookWhere());
     return controls.join(' ');
@@ -355,6 +358,7 @@ bool FindReplace::FindAnyText(QString text, bool escape)
     SetLookWhere(FindReplace::LookWhere_AllHTMLFiles);
     SetSearchDirection(FindReplace::SearchDirection_Down);
     SetRegexOptionDotAll(true);
+    SetRegexOptionTextOnly(false);
     SetRegexOptionMinimalMatch(true);
     // SetOptionWrap(true);
 
@@ -385,7 +389,7 @@ void FindReplace::FindAnyTextInTags(QString text)
     SetRegexOptionDotAll(true);
     SetRegexOptionMinimalMatch(true);
     // SetOptionWrap(true);
-
+    SetRegexOptionTextOnly(false);
     text = text + "(?=[^<]*>)(?!(?:[^<\"]*\"[^<\"]*\")+\\s*/?>)";
     ui.cbFind->setEditText(text);
     Find();
@@ -911,15 +915,21 @@ QString FindReplace::GetSearchRegex()
     // Search type
     if (GetSearchMode() == FindReplace::SearchMode_Normal || GetSearchMode() == FindReplace::SearchMode_Case_Sensitive) {
         search = QRegularExpression::escape(search);
-
+        if (m_RegexOptionTextOnly) {
+            // must be immediately before the user search
+            search = PrependRegexOptionToSearch(REGEX_OPTION_TEXT_ONLY, search);
+        }
         if (GetSearchMode() == FindReplace::SearchMode_Normal) {
             search = PrependRegexOptionToSearch(REGEX_OPTION_IGNORE_CASE, search);
         }
     } else {
+        // must be immediately before the user search
+        if (m_RegexOptionTextOnly) {
+            search = PrependRegexOptionToSearch(REGEX_OPTION_TEXT_ONLY, search);
+        }
         if (m_RegexOptionDotAll) {
             search = PrependRegexOptionToSearch(REGEX_OPTION_DOT_ALL, search);
         }
-
         if (m_RegexOptionMinimalMatch) {
             search = PrependRegexOptionToSearch(REGEX_OPTION_MINIMAL_MATCH, search);
         }
@@ -1432,6 +1442,7 @@ void FindReplace::UpdateSearchControls(const QString &text)
 
     // Search Flags
     SetOptionWrap(text.contains("WR"));
+    SetRegexOptionTextOnly(text.contains("TO"));
     SetRegexOptionDotAll(text.contains("DA"));
     SetRegexOptionMinimalMatch(text.contains("MM"));
     SetRegexOptionAutoTokenise(text.contains("AT"));
@@ -1523,6 +1534,8 @@ void FindReplace::ReadSettings()
     SetRegexOptionAutoTokenise(regexOptionAutoTokenise);
     bool optionWrap = settings.value("optionwrap", true).toBool();
     SetOptionWrap(optionWrap);
+    bool regexOptionTextOnly = settings.value("regexoptiontextonly", false).toBool();
+    SetRegexOptionTextOnly(regexOptionTextOnly);
     settings.endGroup();
 }
 
@@ -1552,6 +1565,7 @@ void FindReplace::ShowHideAdvancedOptions()
     ui.chkRegexOptionMinimalMatch->setVisible(show_advanced);
     ui.chkRegexOptionAutoTokenise->setVisible(show_advanced);
     ui.chkOptionWrap->setVisible(show_advanced);
+    ui.chkOptionTextOnly->setVisible(show_advanced);
     ui.replaceFind->setVisible(show_advanced);
     ui.count->setVisible(show_advanced);
     ui.revalid->setVisible(show_advanced);
@@ -1595,6 +1609,7 @@ void FindReplace::WriteSettings()
     settings.setValue("regexoptionminimalmatch", ui.chkRegexOptionMinimalMatch->isChecked());
     settings.setValue("regexoptionautotokenise", ui.chkRegexOptionAutoTokenise->isChecked());
     settings.setValue("optionwrap", ui.chkOptionWrap->isChecked());
+    settings.setValue("regexoptiontextonly", ui.chkOptionTextOnly->isChecked());
     settings.endGroup();
 }
 
@@ -1983,6 +1998,12 @@ QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
     return new_text;
 }
 
+void FindReplace::SetRegexOptionTextOnly(bool new_state)
+{
+    m_RegexOptionTextOnly = new_state;
+    ui.chkOptionTextOnly->setChecked(new_state);
+}
+
 void FindReplace::SetRegexOptionDotAll(bool new_state)
 {
     m_RegexOptionDotAll = new_state;
@@ -2124,6 +2145,7 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.chkRegexOptionMinimalMatch, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionMinimalMatch(bool)));
     connect(ui.chkRegexOptionAutoTokenise, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
     connect(ui.chkOptionWrap, SIGNAL(clicked(bool)), this, SLOT(SetOptionWrap(bool)));
+    connect(ui.chkOptionTextOnly, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionTextOnly(bool)));
     connect(ui.cbFind, SIGNAL(editTextChanged(const QString&)), this, SLOT(ValidateRegex()));
     connect(ui.cbFind, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));
     connect(ui.cbSearchMode, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));

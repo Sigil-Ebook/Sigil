@@ -38,6 +38,7 @@ Controls::Controls(QWidget* parent)
       m_RegexOptionMinimalMatch(false),
       m_RegexOptionAutoTokenise(false),
       m_OptionWrap(false),
+      m_RegexOptionTextOnly(false),
       m_ClearAll(false)
 {
     ui.setupUi(this);
@@ -92,6 +93,7 @@ void Controls::UpdateSearchControls(const QString &text)
         SetRegexOptionDotAll(false);
         SetRegexOptionMinimalMatch(false);
         SetRegexOptionAutoTokenise(false);
+        SetRegexOptionTextOnly(false);
         return;
     }
 #endif
@@ -138,6 +140,7 @@ void Controls::UpdateSearchControls(const QString &text)
     SetRegexOptionDotAll(text.contains("DA"));
     SetRegexOptionMinimalMatch(text.contains("MM"));
     SetRegexOptionAutoTokenise(text.contains("AT"));
+    SetRegexOptionTextOnly(text.contains("TO"));
 }
 
 
@@ -156,6 +159,7 @@ QString Controls::GetControlsCode()
     if (m_RegexOptionMinimalMatch) codes.append("MM");
     if (m_RegexOptionAutoTokenise) codes.append("AT");
     if (m_OptionWrap) codes.append("WR");
+    if (m_RegexOptionTextOnly) codes.append("TO");
     codes.append(GetSearchDirection());
     codes.append(GetLookWhere());
     return codes.join(" ");
@@ -233,6 +237,13 @@ void Controls::SetSearchDirection(QString code)
 }
 
 
+void Controls::SetRegexOptionTextOnly(bool new_state)
+{
+    m_RegexOptionDotAll = new_state;
+    ui.chkOptionTextOnly->setChecked(new_state);
+}
+
+
 void Controls::SetRegexOptionDotAll(bool new_state)
 {
     m_RegexOptionDotAll = new_state;
@@ -260,6 +271,7 @@ void Controls::SetOptionWrap(bool new_state)
 
 void Controls::DoClearAll()
 {
+    SetRegexOptionTextOnly(false);
     SetOptionWrap(false);
     SetRegexOptionAutoTokenise(false);
     SetRegexOptionMinimalMatch(false);
@@ -275,6 +287,7 @@ void Controls::ExtendUI()
     ui.btClearAll->setDefault(false);
     ui.btClearAll->setAutoDefault(false);
 
+    SetRegexOptionTextOnly(false);
     SetOptionWrap(false);
     SetRegexOptionAutoTokenise(false);
     SetRegexOptionMinimalMatch(false);
@@ -354,5 +367,6 @@ void Controls::ConnectSignalsToSlots()
     connect(ui.chkRegexOptionMinimalMatch, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionMinimalMatch(bool)));
     connect(ui.chkRegexOptionAutoTokenise, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
     connect(ui.chkOptionWrap, SIGNAL(clicked(bool)), this, SLOT(SetOptionWrap(bool)));
+    connect(ui.chkOptionTextOnly, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionTextOnly(bool)));
     connect(ui.btClearAll, SIGNAL(clicked()), this, SLOT(DoClearAll()));
 }
