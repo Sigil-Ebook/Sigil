@@ -132,7 +132,7 @@
 #include "Tabs/TabManager.h"
 #include "MainUI/MainApplication.h"
 
-#define DWINGEO if(0)
+#define DWINGEO if(1)
 #define DBG if(0)
 
 static const int TEXT_ELIDE_WIDTH   = 300;
@@ -6181,16 +6181,25 @@ void MainWindow::changeEvent(QEvent *e)
                 }
 
                 DWINGEO {
+                    QScreen * srn = qApp->primaryScreen();
+                    qDebug() << "Primary Screen";
+                    qDebug() << "    geo        : " << srn->geometry();
+                    qDebug() << "    avail   geo: " << srn->availableGeometry();
+                    qDebug() << "    devideRatio: " << srn->devicePixelRatio();
+                    qDebug() << "    logical dpi: " << srn->logicalDotsPerInchX() << srn->logicalDotsPerInchY();
+                    qDebug() << "    physic  dpi: " << srn->physicalDotsPerInchX() << srn->physicalDotsPerInchY();
+
+                    qDebug() << "\n\nAll Screens";
                     QList<QScreen*>screenlist = QGuiApplication::screens();
                     int numscreens = screenlist.count();
                     for (int i = 0; i < numscreens; i++) {
                         qDebug() << "Screen: " << i;
-                        QScreen *srn = screenlist.at(i);
-                        qDebug() << "    geo        : " << srn->geometry();
-                        qDebug() << "    avail   geo: " << srn->availableGeometry();
-                        qDebug() << "    devideRatio: " << srn->devicePixelRatio();
-                        qDebug() << "    logical dpi: " << srn->logicalDotsPerInchX() << srn->logicalDotsPerInchY();
-                        qDebug() << "    physic  dpi: " << srn->physicalDotsPerInchX() << srn->physicalDotsPerInchY();
+                        QScreen *asrn = screenlist.at(i);
+                        qDebug() << "    geo        : " << asrn->geometry();
+                        qDebug() << "    avail   geo: " << asrn->availableGeometry();
+                        qDebug() << "    devideRatio: " << asrn->devicePixelRatio();
+                        qDebug() << "    logical dpi: " << asrn->logicalDotsPerInchX() << srn->logicalDotsPerInchY();
+                        qDebug() << "    physic  dpi: " << asrn->physicalDotsPerInchX() << srn->physicalDotsPerInchY();
                     }
                 }
 
