@@ -25,10 +25,15 @@
 #define PCRE2_CODE_UNIT_WIDTH 16
 #include <pcre2.h>
 
-#include <QtGui/QKeyEvent>
-#include <QtWidgets/QLineEdit>
-#include <QtWidgets/QMessageBox>
-#include <QtWidgets/QCompleter>
+#include <QString>
+#include <QAction>
+#include <QMenu>
+// #include <QToolButton>
+#include <QToolButton>
+#include <QKeyEvent>
+#include <QLineEdit>
+#include <QMessageBox>
+#include <QCompleter>
 #include <QRegularExpression>
 #include <QDebug>
 
@@ -80,7 +85,11 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_InRemainder(false),
       m_RestartPerformed(false),
       m_SearchRunning(false),
-      m_ShiftUsed(false)
+      m_ShiftUsed(false),
+      m_DotAllCheckAction(nullptr),
+      m_MinimalMatchCheckAction(nullptr),
+      m_AutoTokeniseCheckAction(nullptr),
+      m_menu(nullptr)
 {
     ui.setupUi(this);
     FindReplaceQLineEdit *find_ledit = new FindReplaceQLineEdit(this);
@@ -109,6 +118,22 @@ FindReplace::FindReplace(MainWindow *main_window)
 FindReplace::~FindReplace()
 {
     WriteSettings();
+    if (m_DotAllCheckAction) {
+        delete m_DotAllCheckAction;
+        m_DotAllCheckAction = nullptr;
+    }
+    if (m_MinimalMatchCheckAction) {
+        delete m_MinimalMatchCheckAction;
+        m_MinimalMatchCheckAction = nullptr;
+    }
+    if (m_AutoTokeniseCheckAction) {
+        delete m_AutoTokeniseCheckAction;
+        m_AutoTokeniseCheckAction = nullptr;
+    }
+    if (m_menu) {
+        delete m_menu;
+        m_menu = nullptr;
+    }
 }
 
 void FindReplace::SetPreviousSearch()
@@ -284,7 +309,7 @@ void FindReplace::RestartClicked()
 
 void FindReplace::AdvancedOptionsClicked()
 {
-    bool is_currently_visible = ui.chkRegexOptionAutoTokenise->isVisible();
+    bool is_currently_visible = ui.tbRegexOptions->isVisible();
     WriteSettingsAdvancedVisible(!is_currently_visible);
     ShowHideAdvancedOptions();
 }
@@ -947,7 +972,7 @@ QString FindReplace::GetSearchRegex()
             search = PrependRegexOptionToSearch(REGEX_OPTION_MINIMAL_MATCH, search);
         }
     }
-
+    // qDebug() << "GetSearchRegex returns: " << search;
     return search;
 }
 
@@ -1574,9 +1599,10 @@ void FindReplace::ShowHideAdvancedOptions()
     bool show_advanced = settings.value("advanced_visible", true).toBool();
     settings.endGroup();
     ui.optionsl->setVisible(show_advanced);
-    ui.chkRegexOptionDotAll->setVisible(show_advanced);
-    ui.chkRegexOptionMinimalMatch->setVisible(show_advanced);
-    ui.chkRegexOptionAutoTokenise->setVisible(show_advanced);
+    ui.space0->setVisible(show_advanced);
+    ui.space1->setVisible(show_advanced);
+    ui.space2->setVisible(show_advanced);
+    ui.tbRegexOptions->setVisible(show_advanced);
     ui.chkOptionWrap->setVisible(show_advanced);
     ui.chkOptionTextOnly->setVisible(show_advanced);
     ui.replaceFind->setVisible(show_advanced);
@@ -1618,9 +1644,9 @@ void FindReplace::WriteSettings()
     settings.setValue("search_mode", GetSearchMode());
     settings.setValue("look_where", GetLookWhere());
     settings.setValue("search_direction", GetSearchDirection());
-    settings.setValue("regexoptiondotall", ui.chkRegexOptionDotAll->isChecked());
-    settings.setValue("regexoptionminimalmatch", ui.chkRegexOptionMinimalMatch->isChecked());
-    settings.setValue("regexoptionautotokenise", ui.chkRegexOptionAutoTokenise->isChecked());
+    settings.setValue("regexoptiondotall", m_DotAllCheckAction->isChecked());
+    settings.setValue("regexoptionminimalmatch", m_MinimalMatchCheckAction->isChecked());
+    settings.setValue("regexoptionautotokenise", m_AutoTokeniseCheckAction->isChecked());
     settings.setValue("optionwrap", ui.chkOptionWrap->isChecked());
     settings.setValue("regexoptiontextonly", ui.chkOptionTextOnly->isChecked());
     settings.endGroup();
@@ -2020,19 +2046,19 @@ void FindReplace::SetRegexOptionTextOnly(bool new_state)
 void FindReplace::SetRegexOptionDotAll(bool new_state)
 {
     m_RegexOptionDotAll = new_state;
-    ui.chkRegexOptionDotAll->setChecked(new_state);
+    m_DotAllCheckAction->setChecked(new_state);
 }
 
 void FindReplace::SetRegexOptionMinimalMatch(bool new_state)
 {
     m_RegexOptionMinimalMatch = new_state;
-    ui.chkRegexOptionMinimalMatch->setChecked(new_state);
+    m_MinimalMatchCheckAction->setChecked(new_state);
 }
 
 void FindReplace::SetRegexOptionAutoTokenise(bool new_state)
 {
     m_RegexOptionAutoTokenise = new_state;
-    ui.chkRegexOptionAutoTokenise->setChecked(new_state);
+    m_AutoTokeniseCheckAction->setChecked(new_state);
 }
 
 void FindReplace::SetOptionWrap(bool new_state)
@@ -2109,6 +2135,38 @@ void FindReplace::ExtendUI()
                                      "<dt><b>" + tr("Up") + "</b><dd>" + tr("Search for the previous match from your current position.") + "</dd>"
                                      "<dt><b>" + tr("Down") + "</b><dd>" + tr("Search for the next match from your current position.") + "</dd>"
                                      "</dl>");
+
+    // setup up regex options toolbutton and menu
+    QMenu * m_menu = new QMenu();
+    
+    m_DotAllCheckAction = new QAction(tr("Dot All"), m_menu);
+    m_DotAllCheckAction->setCheckable(true);
+    m_DotAllCheckAction->setEnabled(true);
+    m_DotAllCheckAction->setToolTip(tr("For Regex searches, prefix your search with (?s)."));
+    m_DotAllCheckAction->setChecked(m_RegexOptionDotAll);
+    m_menu->addAction(m_DotAllCheckAction);
+
+    m_MinimalMatchCheckAction = new QAction(tr("Minimal Match"), m_menu);
+    m_MinimalMatchCheckAction->setCheckable(true);
+    m_MinimalMatchCheckAction->setEnabled(true);
+    m_MinimalMatchCheckAction->setToolTip(tr("For Regex searches, prefix your search with (?U)."));
+    m_MinimalMatchCheckAction->setChecked(m_RegexOptionMinimalMatch);
+    m_menu->addAction(m_MinimalMatchCheckAction);
+
+    m_AutoTokeniseCheckAction = new QAction(tr("Auto Tokenise"), m_menu);
+    m_AutoTokeniseCheckAction->setCheckable(true);
+    m_AutoTokeniseCheckAction->setEnabled(true);
+    m_AutoTokeniseCheckAction->setToolTip(tr("For Regex searches, tokenise/escape selection when opening Find."));
+    m_AutoTokeniseCheckAction->setChecked(m_RegexOptionAutoTokenise);
+    m_menu->addAction(m_AutoTokeniseCheckAction);
+
+    // the toolbutton will NOT take ownership of the menu as per the Qt docs
+    // so clean up manually
+    ui.tbRegexOptions->setMenu(m_menu);
+    ui.tbRegexOptions->setPopupMode(QToolButton::InstantPopup);
+    ui.tbRegexOptions->setArrowType(Qt::NoArrow);
+    ui.tbRegexOptions->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    ui.tbRegexOptions->setStyleSheet("QToolButton::menu-indicator { image: none; }");
 }
 
 
@@ -2154,15 +2212,15 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.cbFind, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
     connect(ui.cbReplace, SIGNAL(ClipboardSaveRequest()), this, SIGNAL(ClipboardSaveRequest()));
     connect(ui.cbReplace, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
-    connect(ui.chkRegexOptionDotAll, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionDotAll(bool)));
-    connect(ui.chkRegexOptionMinimalMatch, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionMinimalMatch(bool)));
-    connect(ui.chkRegexOptionAutoTokenise, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
+    connect(m_DotAllCheckAction, SIGNAL(triggered(bool)), this, SLOT(SetRegexOptionDotAll(bool)));
+    connect(m_MinimalMatchCheckAction, SIGNAL(triggered(bool)), this, SLOT(SetRegexOptionMinimalMatch(bool)));
+    connect(m_AutoTokeniseCheckAction, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
     connect(ui.chkOptionWrap, SIGNAL(clicked(bool)), this, SLOT(SetOptionWrap(bool)));
     connect(ui.chkOptionTextOnly, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionTextOnly(bool)));
     connect(ui.cbFind, SIGNAL(editTextChanged(const QString&)), this, SLOT(ValidateRegex()));
     connect(ui.cbFind, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));
     connect(ui.cbSearchMode, SIGNAL(currentTextChanged(const QString&)), this, SLOT(ValidateRegex()));
-    connect(ui.chkRegexOptionDotAll, SIGNAL(clicked(bool)), this, SLOT(ValidateRegex()));
-    connect(ui.chkRegexOptionMinimalMatch, SIGNAL(clicked(bool)), this, SLOT(ValidateRegex()));
-    connect(ui.chkRegexOptionAutoTokenise, SIGNAL(clicked(bool)), this, SLOT(ValidateRegex()));
+    connect(m_DotAllCheckAction, SIGNAL(triggered(bool)), this, SLOT(ValidateRegex()));
+    connect(m_MinimalMatchCheckAction, SIGNAL(triggered(bool)), this, SLOT(ValidateRegex()));
+    connect(m_AutoTokeniseCheckAction, SIGNAL(triggered(bool)), this, SLOT(ValidateRegex()));
 }

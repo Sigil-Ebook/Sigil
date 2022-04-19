@@ -132,7 +132,7 @@
 #include "Tabs/TabManager.h"
 #include "MainUI/MainApplication.h"
 
-#define DWINGEO if(1)
+#define DWINGEO if(0)
 #define DBG if(0)
 
 static const int TEXT_ELIDE_WIDTH   = 300;

@@ -93,5 +93,11 @@
         <file>split-section.svg</file>
         <file>tag-pair-remove.svg</file>
         <file>widget-close.svg</file>
+        <file>count-all.svg</file>
+        <file>find.svg</file>
+        <file>replace-all.svg</file>
+        <file>replace-find.svg</file>
+        <file>replace.svg</file>
+        <file>restart.svg</file>
    </qresource>
 </RCC>

@@ -183,11 +183,13 @@
           <property name="toolTip">
            <string>Find next match.</string>
           </property>
+          <property name="icon">
+            <iconset resource="../Resource_Files/main/main.qrc">
+              <normaloff>:/main/find.svg</normaloff>:/main/find.svg
+            </iconset>
+          </property>
           <property name="styleSheet">
            <string notr="true"/>
-          </property>
-          <property name="text">
-           <string>Find</string>
           </property>
          </widget>
         </item>
@@ -212,8 +214,10 @@
           <property name="styleSheet">
            <string notr="true"/>
           </property>
-          <property name="text">
-           <string>Restart</string>
+          <property name="icon">
+            <iconset resource="../Resource_Files/main/main.qrc">
+              <normaloff>:/main/restart.svg</normaloff>:/main/restart.svg
+            </iconset>
           </property>
          </widget>
         </item>
@@ -258,8 +262,10 @@
           <property name="styleSheet">
            <string notr="true"/>
           </property>
-          <property name="text">
-           <string>Replace</string>
+          <property name="icon">
+            <iconset resource="../Resource_Files/main/main.qrc">
+              <normaloff>:/main/replace.svg</normaloff>:/main/replace.svg 
+            </iconset>
           </property>
          </widget>
         </item>
@@ -279,11 +285,14 @@
           <property name="styleSheet">
            <string notr="true"/>
           </property>
-          <property name="text">
-           <string>Replace All</string>
+          <property name="icon">
+            <iconset resource="../Resource_Files/main/main.qrc">
+              <normaloff>:/main/replace-all.svg</normaloff>:/main/replace-all.svg 
+            </iconset>
           </property>
          </widget>
         </item>
+        
         <item row="2" column="0">
          <widget class="QLabel" name="optionsl">
           <property name="text">
@@ -296,83 +305,22 @@
         </item>
         <item row="2" column="1">
          <layout class="QHBoxLayout" name="advancedLayout" stretch="0,0,0,0,0">
-          <item>
-           <widget class="QCheckBox" name="chkRegexOptionDotAll">
+         <item>
+           <widget class="QToolButton" name="tbRegexOptions">
             <property name="toolTip">
-             <string>For Regex searches, prefix your search with (?s).</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
+             <string>Set advanced Regex search flags / options.</string>
             </property>
             <property name="text">
-             <string>DotAll</string>
+             <string>Regex Options</string>
             </property>
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacerOption1">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>8</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="chkRegexOptionMinimalMatch">
-            <property name="toolTip">
-             <string>For Regex searches, prefix your search with (?U).</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
+           <widget class="QLabel" name="space0">
             <property name="text">
-             <string>Minimal Match</string>
+             <string>  </string>
             </property>
            </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacerOption2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>8</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="chkRegexOptionAutoTokenise">
-            <property name="toolTip">
-             <string>For Regex searches, tokenise/escape selection when opening Find.</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="text">
-             <string>Auto-Tokenise</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacerOption3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>8</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
           </item>
           <item>
            <widget class="QCheckBox" name="chkOptionWrap">
@@ -387,17 +335,11 @@ other end to continue searching.</string>
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacerOption4">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+           <widget class="QLabel" name="space1">
+            <property name="text">
+             <string>  </string>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>8</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
+           </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="chkOptionTextOnly">
@@ -407,6 +349,13 @@ Valid only when searching HTML files.</string>
             </property>
             <property name="text">
              <string>Text</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="space2">
+            <property name="text">
+             <string>  </string>
             </property>
            </widget>
           </item>
@@ -462,8 +411,10 @@ then find the Next match in Code View.</string>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
-          <property name="text">
-           <string>Replace/Find</string>
+          <property name="icon">
+            <iconset resource="../Resource_Files/main/main.qrc">
+              <normaloff>:/main/replace-find.svg</normaloff>:/main/replace-find.svg 
+            </iconset>
           </property>
          </widget>
         </item>
@@ -489,8 +440,10 @@ then find the Next match in Code View.</string>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
-          <property name="text">
-           <string>Count All</string>
+          <property name="icon">
+            <iconset resource="../Resource_Files/main/main.qrc">
+              <normaloff>:/main/count-all.svg</normaloff>:/main/count-all.svg
+            </iconset>
           </property>
          </widget>
         </item>
@@ -556,9 +509,7 @@ then find the Next match in Code View.</string>
  <tabstops>
   <tabstop>cbFind</tabstop>
   <tabstop>cbReplace</tabstop>
-  <tabstop>chkRegexOptionDotAll</tabstop>
-  <tabstop>chkRegexOptionMinimalMatch</tabstop>
-  <tabstop>chkRegexOptionAutoTokenise</tabstop>
+  <tabstop>tbRegexOptions</tabstop>
   <tabstop>chkOptionWrap</tabstop>
   <tabstop>chkOptionTextOnly</tabstop>
   <tabstop>cbSearchMode</tabstop>
@@ -580,7 +531,7 @@ then find the Next match in Code View.</string>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Resource_Files/main/main.qrc"/>
+  <include location="../Resurce_Files/main/main.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -26,7 +26,7 @@
 #ifndef FINDREPLACE_H
 #define FINDREPLACE_H
 
-#include <QtCore/QTimer>
+#include <QTimer>
 
 #include "ui_FindReplace.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -35,6 +35,8 @@
 #include "MiscEditors/SearchEditorModel.h"
 #include "ViewEditors/Searchable.h"
 
+class QMenu;
+class QAction;
 class Resource;
 class MainWindow;
 
@@ -370,6 +372,11 @@ private:
     bool m_SearchRunning;
 
     bool m_ShiftUsed;
+
+    QAction* m_DotAllCheckAction;
+    QAction* m_MinimalMatchCheckAction;
+    QAction* m_AutoTokeniseCheckAction;
+    QMenu*   m_menu;
 };
 
 
