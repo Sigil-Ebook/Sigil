@@ -85,6 +85,7 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_InRemainder(false),
       m_RestartPerformed(false),
       m_SearchRunning(false),
+      m_DryRunRunning(false),
       m_ShiftUsed(false),
       m_DotAllCheckAction(nullptr),
       m_MinimalMatchCheckAction(nullptr),
@@ -621,6 +622,9 @@ bool FindReplace::ReplaceCurrent()
 // Builds a Find All table
 void FindReplace::PerformDryRunReplace()
 {
+    if (m_DryRunRunning) return;
+    m_DryRunRunning = true;
+
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
 
     if (IsNewSearch()) {
@@ -631,6 +635,7 @@ void FindReplace::PerformDryRunReplace()
     if (!IsValidFindText()) return;
 
     DryRunReplace*  dr = new DryRunReplace(this);
+    connect(dr, &QWidget::destroyed, this, &FindReplace::DryRunComplete);
     dr->CreateTable();
     // do this non-modally
     dr->show();

@@ -116,6 +116,7 @@ public slots:
     void ShowMessage(const QString &message);
     void clearMessage();
 
+    void DryRunComplete() { m_DryRunRunning = false; };
 
     bool FindMisspelledWord();
 
@@ -370,6 +371,8 @@ private:
     bool m_RestartPerformed;
 
     bool m_SearchRunning;
+
+    bool m_DryRunRunning;
 
     bool m_ShiftUsed;
 
