@@ -25,6 +25,7 @@
 #include <QTreeView>
 #include <QModelIndex>
 #include <QEventLoop>
+#include <QEvent>
 #include <QKeyEvent>
 #include <QApplication>
 #include "Misc/NumericItem.h"
@@ -62,6 +63,7 @@ DryRunReplace::DryRunReplace(QWidget* parent)
     ui.amtcb->addItem("40",40);
     ui.amtcb->addItem("50",50);
     ui.amtcb->setEditable(false);
+    ui.leFilter->installEventFilter(this);
     ReadSettings();
     connectSignalsSlots();
     ui.dryrunTree->setSortingEnabled(true);
@@ -82,14 +84,25 @@ DryRunReplace::~DryRunReplace()
 }
 
 
-void DryRunReplace::keyPressEvent(QKeyEvent *e)
+bool DryRunReplace::eventFilter(QObject *obj, QEvent *event)
 {
-    if (e->key() == Qt::Key_Enter || e->key() == Qt::Key_Return) {
-        if (ui.leFilter->hasFocus()) {
-            return;
+    if (obj == ui.leFilter) {
+        if (event->type() == QEvent::KeyPress) {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+            int key = keyEvent->key();
+
+            if (key == Qt::Key_Down) {
+		        ui.dryrunTree->setFocus();
+                return true;
+            }
+            if (key == Qt::Key_Enter || key == Qt::Key_Return) {
+                return true;
+            }
         }
     }
-    QDialog::keyPressEvent(e);
+
+    // pass the event on to the parent class
+    return QDialog::eventFilter(obj, event);
 }
 
 void DryRunReplace::closeEvent(QCloseEvent *e)
@@ -263,7 +276,11 @@ void DryRunReplace::FilterEditTextChangedSlot(const QString &text)
     int first_visible_row = -1;
 
     for (int row = 0; row < root_item->rowCount(); row++) {
-        if (text.isEmpty() || root_item->child(row, 0)->text().toLower().contains(lowercaseText)) {
+        if (text.isEmpty()
+            || root_item->child(row, 0)->text().toLower().contains(lowercaseText)
+            || root_item->child(row, 2)->text().toLower().contains(lowercaseText)
+            || root_item->child(row, 3)->text().toLower().contains(lowercaseText))
+            {
             ui.dryrunTree->setRowHidden(row, parent_index, false);
 
             if (first_visible_row == -1) {
@@ -278,7 +295,7 @@ void DryRunReplace::FilterEditTextChangedSlot(const QString &text)
         // Select the first non-hidden row
         ui.dryrunTree->setCurrentIndex(root_item->child(first_visible_row, 0)->index());
     } else {
-        // Clear current and selection, which clears preview image
+        // Clear current and selection
         ui.dryrunTree->setCurrentIndex(QModelIndex());
     }
 }

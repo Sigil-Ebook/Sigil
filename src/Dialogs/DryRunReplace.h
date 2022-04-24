@@ -30,7 +30,7 @@
 #include "ui_DryRunReplace.h"
 
 
-class QKeyEvent;
+class QEvent;
 class QCloseEvent;
 class QString;
 class FindReplace;
@@ -50,7 +50,7 @@ public slots:
     void DoubleClick();
     
     void closeEvent(QCloseEvent *e);
-    void keyPressEvent(QKeyEvent * e);
+    bool eventFilter(QObject *obj, QEvent *event);
     void reject();
 
 private slots:

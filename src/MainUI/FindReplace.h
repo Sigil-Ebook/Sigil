@@ -216,7 +216,7 @@ private slots:
 
     void ClearHistory();
 
-    void AdvancedOptionsClicked();
+    // void AdvancedOptionsClicked();
 
 private:
 
@@ -314,7 +314,7 @@ private:
     // Writes all the stored dialog settings
     void WriteSettings();
 
-    void ShowHideAdvancedOptions();
+    // void ShowHideAdvancedOptions();
 
     void ExtendUI();
 
@@ -325,7 +325,7 @@ private:
     QString TokeniseForRegex(const QString &text, bool includeNumerics);
 
     void WriteSettingsVisible(bool visible);
-    void WriteSettingsAdvancedVisible(bool advanced);
+    // void WriteSettingsAdvancedVisible(bool advanced);
 
     /**
      * Connects all the required signals to their respective slots.

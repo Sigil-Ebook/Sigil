@@ -108,7 +108,7 @@ FindReplace::FindReplace(MainWindow *main_window)
     ui.cbReplace->setCompleter(rqc);
     ExtendUI();
     ConnectSignalsToSlots();
-    ShowHideAdvancedOptions();
+    // ShowHideAdvancedOptions();
     ShowHideMarkedText(false);
     ReadSettings();
     m_PreviousSearch.clear();
@@ -308,12 +308,14 @@ void FindReplace::RestartClicked()
     ShowMessage(tr("Search will restart"));
 }
 
+#if 0
 void FindReplace::AdvancedOptionsClicked()
 {
     bool is_currently_visible = ui.tbRegexOptions->isVisible();
     WriteSettingsAdvancedVisible(!is_currently_visible);
     ShowHideAdvancedOptions();
 }
+#endif
 
 void FindReplace::keyPressEvent(QKeyEvent *event)
 {
@@ -1597,6 +1599,7 @@ void FindReplace::ShowHide()
     }
 }
 
+#if 0
 void FindReplace::ShowHideAdvancedOptions()
 {
     SettingsStore settings;
@@ -1623,6 +1626,7 @@ void FindReplace::ShowHideAdvancedOptions()
         ui.advancedShowHide->setIcon(icon);
     }
 }
+#endif
 
 void FindReplace::WriteSettingsVisible(bool visible)
 {
@@ -1632,6 +1636,7 @@ void FindReplace::WriteSettingsVisible(bool visible)
     settings.endGroup();
 }
 
+#if 0
 void FindReplace::WriteSettingsAdvancedVisible(bool visible)
 {
     SettingsStore settings;
@@ -1639,6 +1644,7 @@ void FindReplace::WriteSettingsAdvancedVisible(bool visible)
     settings.setValue("advanced_visible", visible);
     settings.endGroup();
 }
+#endif
 
 void FindReplace::WriteSettings()
 {
@@ -2212,14 +2218,14 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.cbReplace->lineEdit(), SIGNAL(returnPressed()), this, SLOT(Replace()));
     connect(ui.replaceAll, SIGNAL(clicked()), this, SLOT(ReplaceAllClicked()));
     connect(ui.close, SIGNAL(clicked()), this, SLOT(HideFindReplace()));
-    connect(ui.advancedShowHide, SIGNAL(clicked()), this, SLOT(AdvancedOptionsClicked()));
+    // connect(ui.advancedShowHide, SIGNAL(clicked()), this, SLOT(AdvancedOptionsClicked()));
     connect(ui.cbFind, SIGNAL(ClipboardSaveRequest()), this, SIGNAL(ClipboardSaveRequest()));
     connect(ui.cbFind, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
     connect(ui.cbReplace, SIGNAL(ClipboardSaveRequest()), this, SIGNAL(ClipboardSaveRequest()));
     connect(ui.cbReplace, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
     connect(m_DotAllCheckAction, SIGNAL(triggered(bool)), this, SLOT(SetRegexOptionDotAll(bool)));
     connect(m_MinimalMatchCheckAction, SIGNAL(triggered(bool)), this, SLOT(SetRegexOptionMinimalMatch(bool)));
-    connect(m_AutoTokeniseCheckAction, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
+    connect(m_AutoTokeniseCheckAction, SIGNAL(triggered(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
     connect(ui.chkOptionWrap, SIGNAL(clicked(bool)), this, SLOT(SetOptionWrap(bool)));
     connect(ui.chkOptionTextOnly, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionTextOnly(bool)));
     connect(ui.cbFind, SIGNAL(editTextChanged(const QString&)), this, SLOT(ValidateRegex()));
