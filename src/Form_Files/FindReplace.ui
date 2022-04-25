@@ -362,9 +362,9 @@ then find the Next match in Code View.</string>
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
+        <item row="3" column="1" colspan="4">
          <layout class="QHBoxLayout" name="advancedLayout" stretch="0,0,0,0,0">
-         <item>
+          <item>
            <widget class="QToolButton" name="tbRegexOptions">
             <property name="toolTip">
              <string>Set advanced Regex search flags / options.</string>
@@ -431,21 +431,6 @@ Valid only when searching HTML files.</string>
             </property>
            </spacer>
           </item>
-         </layout>
-        </item>
-          <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>10</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
           <item>
            <widget class="QLabel" name="message">
             <property name="font">
@@ -462,6 +447,8 @@ Valid only when searching HTML files.</string>
          </layout>
         </item>
        </layout>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>

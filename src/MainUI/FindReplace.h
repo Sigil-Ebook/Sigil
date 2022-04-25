@@ -116,7 +116,7 @@ public slots:
     void ShowMessage(const QString &message);
     void clearMessage();
 
-    void DryRunComplete() { m_DryRunRunning = false; };
+    void DryRunComplete() { m_DryRunRunning = false; clearMessage(); };
 
     bool FindMisspelledWord();
 

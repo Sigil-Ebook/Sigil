@@ -119,7 +119,7 @@ void DryRunReplace::reject()
 
 void DryRunReplace::CreateTable()
 {
-    m_FindReplace->ShowMessage(tr("Creating Dry Run Replace Table"));
+    m_FindReplace->ShowMessage(tr("... Creating Table"));
     QApplication::setOverrideCursor(Qt::WaitCursor);
     ui.leFilter->clear();
     m_ItemModel->clear();
@@ -234,7 +234,7 @@ void DryRunReplace::CreateTable()
     }
     ui.dryrunTree->setSelectionBehavior(QAbstractItemView::SelectRows);
     QApplication::restoreOverrideCursor();
-    m_FindReplace->clearMessage();
+    m_FindReplace->ShowMessage(tr("Dry Run Replace-All"));
 }
 
 
