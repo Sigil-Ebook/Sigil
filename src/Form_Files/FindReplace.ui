@@ -478,7 +478,7 @@ Valid only when searching HTML files.</string>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Resurce_Files/main/main.qrc"/>
+  <include location="../Resource_Files/main/main.qrc"/>
  </resources>
  <connections/>
 </ui>
