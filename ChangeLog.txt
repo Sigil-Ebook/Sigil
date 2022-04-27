@@ -1,4 +1,4 @@
-pre-1.9.X
+pre-1.9.10
     Bug Fixes
       - Fix insertion of id and links when cursor immediately before a closing tag
       - Make sure bundled PySide6 can find QtWebEngine resources on Windows (Qt6)
@@ -6,11 +6,14 @@ pre-1.9.X
       - Make Qt6 versions of Sigil use their own ini files to prevent corruption
         
     New Features
+      - Redesign the FindReplace dialog user interface to minimize size while adding space
+      - Add a FindReplace "Text only" checkbox and support to exclude tags from search
       - Add a Toggle Line Wrap Mode and its support added to CodeView via pop-up menu
-      - Add a Dry Run Replace Dialog to act as "Find All / Replace All" what if.
-      - Add a Replacement Filter/Chooser Dialog to allow users to delete unwanted
-            replacements before applying Replace All
+      - Add a Dry Run Replace dialog to act as "Replace All" what if. (Shift + Count All)
+      - Add a Replacement filter dialog to allow users to delete unwanted
+            replacements before applying Replace All (Shift + Replace All)
       - Add a Counts Report to Saved Searches to show Saved Search Group counts by search
+
 
     
 Sigil-1.9.2
