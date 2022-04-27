@@ -2430,28 +2430,33 @@ other end to continue searching.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="109"/>
-        <source>Creating Dry Run Replace Table</source>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="122"/>
+        <source>... Creating Table</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="114"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="127"/>
         <source>Book Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="115"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="128"/>
         <source>Offset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="116"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="129"/>
         <source>Before</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="117"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="130"/>
         <source>After</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="237"/>
+        <source>Dry Run Replace-All</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2812,105 +2817,99 @@ locations and names for the OPF, NCX and/or Nav.</source>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="61"/>
-        <location filename="../../Form_Files/FindReplace.ui" line="109"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="103"/>
-        <source>Show/Hide Advanced Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="152"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="116"/>
         <source>Find:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="184"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="148"/>
         <source>Find next match.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="212"/>
-        <source>Restart current search from beginning.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="227"/>
-        <source>Replace:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="260"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="169"/>
         <source>Replace highlighted match (if any) in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="282"/>
-        <source>Replace all matches in Code View.
-             Use with SHIFT to Filter Replacements before changes are applied.</source>
+        <location filename="../../Form_Files/FindReplace.ui" line="196"/>
+        <source>Restart current search from beginning.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="299"/>
-        <source>Options:</source>
+        <location filename="../../Form_Files/FindReplace.ui" line="211"/>
+        <source>Replace:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="311"/>
-        <source>Set advanced Regex search flags / options.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="314"/>
-        <source>Regex Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="328"/>
-        <source>Search from current position to top or end of the
-current file and then wrap to the
-other end to continue searching.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="333"/>
-        <source>Wrap</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="347"/>
-        <source>Search only in text (outside tags).
-Valid only when searching HTML files.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="351"/>
-        <source>Text</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="390"/>
-        <source>Regex Valid?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="408"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="243"/>
         <source>Replace highlighted match (if any),
 then find the Next match in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="436"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="265"/>
+        <source>Replace all matches in Code View.
+             Use with SHIFT to Filter Replacements before changes are applied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>Count all matches in Code View.
               Use with SHIFT to generate a Dry Run Replace All table.
             </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Form_Files/FindReplace.ui" line="453"/>
+        <location filename="../../Form_Files/FindReplace.ui" line="310"/>
         <source>Mode:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/FindReplace.ui" line="348"/>
+        <source>Regex Valid?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/FindReplace.ui" line="358"/>
+        <source>Options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/FindReplace.ui" line="370"/>
+        <source>Set advanced Regex search flags / options.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/FindReplace.ui" line="373"/>
+        <source>Regex Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/FindReplace.ui" line="387"/>
+        <source>Search from current position to top or end of the
+current file and then wrap to the
+other end to continue searching.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/FindReplace.ui" line="392"/>
+        <source>Wrap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/FindReplace.ui" line="406"/>
+        <source>Search only in text (outside tags).
+Valid only when searching HTML files.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/FindReplace.ui" line="410"/>
+        <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2920,302 +2919,302 @@ then find the Next match in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="331"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2098"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2099"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2108"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="333"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2104"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2105"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2114"/>
         <source>Current File</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="560"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1876"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="562"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1882"/>
         <source>Matches found: %n</source>
         <translation type="unfinished">
             <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="650"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="652"/>
         <source>Choose Replacements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="668"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="727"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1919"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="670"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="729"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1925"/>
         <source>No replacements made</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="670"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="729"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1921"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="672"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="731"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1927"/>
         <source>Replacements made: %n</source>
         <translation type="unfinished">
             <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="940"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="942"/>
         <source>No matches found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1666"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1672"/>
         <source>This tab cannot be searched</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1709"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1715"/>
         <source>Unnamed search loaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1712"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1718"/>
         <source>Loaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1782"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1806"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1835"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1860"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1904"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1788"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1812"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1841"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1866"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1910"/>
         <source>No searches selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1969"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1975"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1970"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1976"/>
         <source>Are you sure you want to clear your Find and Replace current values and history?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2084"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2090"/>
         <source>What to search for</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2085"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2086"/>
-        <source>Normal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2086"/>
-        <source>Case in-sensitive search of exactly what you type.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2088"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2089"/>
-        <source>Case Sensitive</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2089"/>
-        <source>Case sensitive search of exactly what you type.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2091"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2092"/>
-        <source>Regex</source>
+        <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2092"/>
+        <source>Case in-sensitive search of exactly what you type.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="2094"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2095"/>
+        <source>Case Sensitive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="2095"/>
+        <source>Case sensitive search of exactly what you type.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="2097"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2098"/>
+        <source>Regex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="2098"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2096"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2130"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2102"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
         <source>Where to search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2099"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2105"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2101"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2102"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2107"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2108"/>
         <source>All HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2102"/>
-        <source>Find or replace in all HTML files in Code View.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2104"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2105"/>
-        <source>Selected HTML Files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2105"/>
-        <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2107"/>
-        <source>Tabbed HTML Files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2108"/>
-        <source>Restrict the find or replace to the HTML files open in Tabs.</source>
+        <source>Find or replace in all HTML files in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2110"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2111"/>
-        <source>All CSS Files</source>
+        <source>Selected HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2111"/>
-        <source>Find or replace in all CSS files in Code View.</source>
+        <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2113"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2114"/>
-        <source>Selected CSS Files</source>
+        <source>Tabbed HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2114"/>
-        <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
+        <source>Restrict the find or replace to the HTML files open in Tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2116"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2117"/>
-        <source>Tabbed CSS Files</source>
+        <source>All CSS Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2117"/>
-        <source>Restrict the find or replace to the CSS files open in Tabs.</source>
+        <source>Find or replace in all CSS files in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2119"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2120"/>
-        <source>OPF File</source>
+        <source>Selected CSS Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2120"/>
-        <source>Restrict the find or replace to the OPF file.</source>
+        <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2122"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2123"/>
-        <source>NCX File</source>
+        <source>Tabbed CSS Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2123"/>
-        <source>Restrict the find or replace to the NCX file.</source>
+        <source>Restrict the find or replace to the CSS files open in Tabs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="2125"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2126"/>
+        <source>OPF File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2126"/>
+        <source>Restrict the find or replace to the OPF file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="2128"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2129"/>
+        <source>NCX File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="2129"/>
+        <source>Restrict the find or replace to the NCX file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="2132"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2131"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2132"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2137"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2138"/>
         <source>Marked Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2132"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2138"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2140"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2142"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2146"/>
         <source>Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2137"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2141"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2143"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2147"/>
         <source>Down</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2138"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2144"/>
         <source>Direction to search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2140"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2146"/>
         <source>Search for the previous match from your current position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2141"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2147"/>
         <source>Search for the next match from your current position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2147"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2153"/>
         <source>Dot All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2150"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2156"/>
         <source>For Regex searches, prefix your search with (?s).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2154"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2160"/>
         <source>Minimal Match</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2157"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2163"/>
         <source>For Regex searches, prefix your search with (?U).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2161"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2167"/>
         <source>Auto Tokenise</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2164"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2170"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2188"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2194"/>
         <source>Invalid Regex:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2189"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2195"/>
         <source>offset:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2193"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2199"/>
         <source>Valid Regex</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16677,7 +16676,7 @@ valid for all selected files.
     <name>ReplacementChooser</name>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
-        <source>Delete Unwanted Replacements</source>
+        <source>Replacements (Delete Unwanted Replacements)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
