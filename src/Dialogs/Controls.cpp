@@ -239,7 +239,7 @@ void Controls::SetSearchDirection(QString code)
 
 void Controls::SetRegexOptionTextOnly(bool new_state)
 {
-    m_RegexOptionDotAll = new_state;
+    m_RegexOptionTextOnly = new_state;
     ui.chkOptionTextOnly->setChecked(new_state);
 }
 

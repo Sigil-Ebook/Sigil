@@ -115,7 +115,8 @@ void SearchEditor::SetupSearchEditorTree()
         "<dd>DA - " + tr("Option: DotAll") + "</dd>" +
         "<dd>MM - " + tr("Option: Minimal Match") + "</dd>" +
         "<dd>AT - " + tr("Option: Auto Tokenise") + "</dd>" +
-        "<dd>WR - " + tr("Option: Wrap") + "</dd>" + "</dl>";
+        "<dd>WR - " + tr("Option: Wrap") + "</dd>" + "</dl>" +
+        "<dd>TO - " + tr("Option: Text") + "</dd>" + "</dl>";
 
     ui.SearchEditorTree->model()->setHeaderData(0,Qt::Horizontal,nametooltip,Qt::ToolTipRole);
     ui.SearchEditorTree->model()->setHeaderData(1,Qt::Horizontal,findtooltip,Qt::ToolTipRole);
