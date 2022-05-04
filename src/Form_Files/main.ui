@@ -285,6 +285,8 @@
     <addaction name="actionReplaceAll"/>
     <addaction name="separator"/>
     <addaction name="actionCount"/>
+    <addaction name="actionDryRun"/>
+    <addaction name="actionFilterReplaceAll"/>
     <addaction name="separator"/>
     <addaction name="menuSearchCurrentFile"/>
     <addaction name="separator"/>
@@ -1984,6 +1986,16 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+N</string>
+   </property>
+  </action>
+  <action name="actionDryRun">
+   <property name="text">
+    <string>Dry Run Replace All</string>
+   </property>
+  </action>
+  <action name="actionFilterReplaceAll">
+   <property name="text">
+    <string>Filter Replacements</string>
    </property>
   </action>
   <action name="actionMarkSelection">

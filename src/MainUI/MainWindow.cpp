@@ -4268,6 +4268,8 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionReplacePrevious->setEnabled(true);
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
+    ui.actionDryRun->setEnabled(true);
+    ui.actionFilterReplaceAll->setEnabled(true);
     ui.actionMarkSelection->setEnabled(true);
     ui.menuSearchCurrentFile->setEnabled(true);
     ui.actionFindNextInFile->setEnabled(true);
@@ -4353,6 +4355,8 @@ void MainWindow::SetStateActionsRawView()
     ui.actionReplacePrevious->setEnabled(true);
     ui.actionReplaceAll->setEnabled(true);
     ui.actionCount->setEnabled(true);
+    ui.actionDryRun->setEnabled(true);
+    ui.actionFilterReplaceAll->setEnabled(true);
     ui.actionMarkSelection->setEnabled(true);
     ui.menuSearchCurrentFile->setEnabled(true);
     ui.actionFindNextInFile->setEnabled(true);
@@ -4421,6 +4425,8 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionReplacePrevious->setEnabled(false);
     ui.actionReplaceAll->setEnabled(false);
     ui.actionCount->setEnabled(false);
+    ui.actionDryRun->setEnabled(false);
+    ui.actionFilterReplaceAll->setEnabled(false);
     ui.actionMarkSelection->setEnabled(false);
     ui.menuSearchCurrentFile->setEnabled(false);
     ui.actionFindNextInFile->setEnabled(false);
@@ -5924,6 +5930,8 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionReplacePrevious, "MainWindow.ReplacePrevious");
     sm->registerAction(this, ui.actionReplaceAll, "MainWindow.ReplaceAll");
     sm->registerAction(this, ui.actionCount, "MainWindow.Count");
+    sm->registerAction(this, ui.actionDryRun, "MainWindow.DryRunReplaceAll");
+    sm->registerAction(this, ui.actionFilterReplaceAll, "MainWindow.FilterReplaceAll");
     sm->registerAction(this, ui.actionMarkSelection, "MainWindow.MarkSelection");
     sm->registerAction(this, ui.actionFindNextInFile, "MainWindow.FindNextInFile");
     sm->registerAction(this, ui.actionReplaceNextInFile, "MainWindow.ReplaceNextInFile");
@@ -6281,18 +6289,20 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionInsertHyperlink, SIGNAL(triggered()),  this,   SLOT(InsertHyperlink()));
     connect(ui.actionPreferences,     SIGNAL(triggered()), this, SLOT(PreferencesDialog()));
     // Search
-    connect(ui.actionFind,             SIGNAL(triggered()), this, SLOT(Find()));
-    connect(ui.actionFindNext,         SIGNAL(triggered()), m_FindReplace, SLOT(DoFindNext()));
-    connect(ui.actionFindPrevious,     SIGNAL(triggered()), m_FindReplace, SLOT(DoFindPrevious()));
-    connect(ui.actionReplaceNext,      SIGNAL(triggered()), m_FindReplace, SLOT(DoReplaceNext()));
-    connect(ui.actionReplacePrevious,  SIGNAL(triggered()), m_FindReplace, SLOT(DoReplacePrevious()));
-    connect(ui.actionReplaceCurrent,   SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceCurrent()));
-    connect(ui.actionReplaceAll,       SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceAll()));
-    connect(ui.actionCount,            SIGNAL(triggered()), m_FindReplace, SLOT(Count()));
-    connect(ui.actionFindNextInFile,   SIGNAL(triggered()), m_FindReplace, SLOT(FindNextInFile()));
+    connect(ui.actionFind,              SIGNAL(triggered()), this, SLOT(Find()));
+    connect(ui.actionFindNext,          SIGNAL(triggered()), m_FindReplace, SLOT(DoFindNext()));
+    connect(ui.actionFindPrevious,      SIGNAL(triggered()), m_FindReplace, SLOT(DoFindPrevious()));
+    connect(ui.actionReplaceNext,       SIGNAL(triggered()), m_FindReplace, SLOT(DoReplaceNext()));
+    connect(ui.actionReplacePrevious,   SIGNAL(triggered()), m_FindReplace, SLOT(DoReplacePrevious()));
+    connect(ui.actionReplaceCurrent,    SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceCurrent()));
+    connect(ui.actionReplaceAll,        SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceAll()));
+    connect(ui.actionCount,             SIGNAL(triggered()), m_FindReplace, SLOT(Count()));
+    connect(ui.actionDryRun,            SIGNAL(triggered()), m_FindReplace, SLOT(PerformDryRunReplace()));
+    connect(ui.actionFilterReplaceAll,  SIGNAL(triggered()), m_FindReplace, SLOT(ChooseReplacements()));
+    connect(ui.actionFindNextInFile,    SIGNAL(triggered()), m_FindReplace, SLOT(FindNextInFile()));
     connect(ui.actionReplaceNextInFile, SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceNextInFile()));
-    connect(ui.actionReplaceAllInFile, SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceAllInFile()));
-    connect(ui.actionCountInFile,      SIGNAL(triggered()), m_FindReplace, SLOT(CountInFile()));
+    connect(ui.actionReplaceAllInFile,  SIGNAL(triggered()), m_FindReplace, SLOT(ReplaceAllInFile()));
+    connect(ui.actionCountInFile,       SIGNAL(triggered()), m_FindReplace, SLOT(CountInFile()));
 
     connect(ui.actionMarkSelection,    SIGNAL(triggered()), this, SLOT(MarkSelection()));
     connect(ui.actionGoToLine,         SIGNAL(triggered()), this, SLOT(GoToLine()));
