@@ -1,7 +1,7 @@
 # <center>Building Sigil on Linux</center>
 ## <center>Systems like Ubuntu 20.04 (and its derivatives) or newer</center>
 
-If you're looking for instructions on how to build on systems older than Ubuntu 18.04 (systems whose repo version of Qt5 is less than 5.9.4), you should look at the [Building_on_older_Linux](./Building_on_older_Linux.md) documentation.
+If you're looking for instructions on how to build on systems older than Ubuntu 20.04 (systems whose repo version of Qt5 is less than 5.10), you should look at the [Building_on_older_Linux](./Building_on_older_Linux.md) documentation.
 
 ## General Overview
 
@@ -11,7 +11,7 @@ To build Sigil on newer Linux systems, you need to get/do the following things:
 
 1. [A Linux build-toolchain](#gcc) with a C++11 capable compiler (gcc 4.9.x or higher recommended)
 2. [CMake](#cmake) (3.0 or higher)
-3. [Qt5.10 or higher](#qt5) (with QtWebEngine) 5.12+ recommended
+3. [Qt5.10 or higher](#qt5) (with QtWebEngine) Qt5.12+ recommended
 4. [3rd-party dependencies](#thirdparty) (an optional step)
 5. [Python 3.5](#python) (or higher) 3.6+ recommended
 6. [The Sigil source code](#sigil) (downloaded tarball/zipfile or a git clone)
@@ -150,7 +150,7 @@ If you configured with the default install prefix, you can launch by entering "s
 
 ## <a name="testing"/>Testing Sigil's Python plugin framework
 
-To test if Sigil's Python 3.4+ plugin framework is fully functional, you can do the following:
+To test if Sigil's Python 3.5+ plugin framework is fully functional, you can do the following:
 
 1. download testplugin_v013.zip from [https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip](https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip)
 2. open Sigil to the normal nearly blank template epub it generates when opened
