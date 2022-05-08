@@ -1,6 +1,6 @@
 # <center>Building Sigil on Older Linux Systems</centers>
 
-If your system's software repositories provide Qt5.9.x or higher and Python 3.4.x or higher, you may be able to compile Sigil using entirely repo-provided dependencies. These systems will likely be Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable. If your system qualifies, check out the [Building on Linux](./Building_on_Linux.md) documentation.
+If your system's software repositories provide Qt5.10.x or higher and Python 3.5.x or higher, you may be able to compile Sigil using entirely repo-provided dependencies. These systems will likely be Ubuntu 20.04 (and its derivitives: like Mint 20), or Arch Linux, or Debian Unstable. If your system qualifies, check out the [Building on Linux](./Building_on_Linux.md) documentation.
 
 Otherwise, continue on ...
 
@@ -10,8 +10,8 @@ To build Sigil on older Linux systems, you need to get/do the following things:
 
 1. [A Linux build-toolchain](#gcc) with a C++11 capable compiler (gcc4.8.x-ish or higher recommended)
 2. [CMake](#cmake) (3.0 or higher)
-3. [Qt5.9.4](#qt5)
-4. [Python 3.4](#python) (or higher)
+3. [Qt5.10](#qt5) Qt5.12+ recommended
+4. [Python 3.5](#python) (or higher) 3.6+ recommended
 5. [The Sigil source code](#sigil) (downloaded tarball/zipfile or a git clone)
 6. [Build/Install Sigil](#build)
 7. [Test Sigil's Plugin Framework](#testing)
@@ -38,13 +38,13 @@ at a command prompt to see if your version is sufficient. I've seen some later v
 Once again: `sudo apt-get install cmake` will get you what you need on Debian type systems. If your favorite software repositories can't supply CMake 3.0 or better, you'll need to download the source from [cmake.org](http://www.cmake.org) and build it it yourself. I've done it myself and their instructions are pretty good. You can either build it with an older version of CMake, or there's a boot-strap method if all you have is gcc/make.
 
 ## <a name="qt5"/>Getting Qt5
-You can use one of the official precompiled Qt binaries higher than Qt5.9.x at this time. 5.12.3 recommended
+You can use one of the official precompiled Qt binaries higher than Qt5.10.x at this time. 5.12.3 recommended
 
-Download a binary installer from the [official Qt website](http://download.qt.io/archive/qt/). Sigil requires Qt5.9.4 or higher. Look for the version that's appropriate for your architecture (qt-opensource-linux-***x86***-5.12.x.run or qt-opensource-linux-***x64***-5.12.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.12.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.12.x. Adjust accordingly if you choose different location. Make sure you install the QWebEngine component.
+Download a binary installer from the [official Qt website](http://download.qt.io/archive/qt/). Sigil requires Qt5.10 or higher. Look for the version that's appropriate for your architecture (qt-opensource-linux-***x86***-5.12.x.run or qt-opensource-linux-***x64***-5.12.x.run). Make sure its executable bit is set and launch it with administrative privileges to install it in its default location of /opt/Qt5.12.x (which is what I recommend). Or install it wherever you like--but just note that my command line examples later are going to assume the location of /opt/Qt5.12.x. Adjust accordingly if you choose different location. Make sure you install the QWebEngine component.
 
 
-## <a name="python"/>Getting Python 3.4
-If your software repos provide Python 3.4.0 or higher, by all means use them to get the correct pieces installed. On Ubuntu/Debian I recommend (at a minimum) to `sudo apt-get install` the following packages (might need to be `python3.4-<module name>` on some systems):
+## <a name="python"/>Getting Python 3.5
+If your software repos provide Python 3.5.0 or higher, by all means use them to get the correct pieces installed. On Ubuntu/Debian I recommend (at a minimum) to `sudo apt-get install` the following packages (might need to be `python3.5-<module name>` on some systems):
 
 + python3
 + python3-dev
@@ -59,12 +59,13 @@ The folllowing command can be copied and pasted for convenience:
 
 `sudo apt-get install python3 python3-dev libpython3 libpython3-dev python3-pip python3-lxml python3-six python3-css-parser`
 
-If your repos don't include Python 3.4.x or higher, truck on over to [Python.org](http://www.python.org) and start reading how to build/install it from source. Whatever else you do, make sure you configure it with the `--enable-shared` option. You'll need the libpython3.4m.so library to build Sigil.
+If your repos don't include Python 3.5.x or higher, truck on over to [Python.org](http://www.python.org) and start reading how to build/install it from source. Whatever else you do, make sure you configure it with the `--enable-shared` option. You'll need the libpython3.5m.so library to build Sigil.
 
-That's all the Python 3.4 stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. Some of these can be installed from your distro's package manager, and some of them might not be able to be. I highly recommend doing so if you can. The one's that can't, can all be installed from python.org's [Python Package Index](https://pypi.python.org) using pip3 from the command-line. The entire current list (which I *highly* recommend installing) is:
+That's all the Python 3.5 stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. Some of these can be installed from your distro's package manager, and some of them might not be able to be. I highly recommend doing so if you can. The one's that can't, can all be installed from python.org's [Python Package Index](https://pypi.python.org) using pip3 from the command-line. The entire current list (which I *highly* recommend installing) is:
 
 + python3-tk (install with `sudo apt-get install python3-tk` if possible)
 + python3-pyqt5 (install with `sudo apt-get install python3-pyqt5` if possible)
++ python3-pyqt5.qtwebengine
 + html5lib
 + regex
 + Pillow
@@ -161,11 +162,11 @@ If you configured with the default install prefix, you can launch by entering "s
 
 ## <a name="testing"/>Testing Sigil's Python plugin framework
 
-To test if Sigil's Python 3.4 plugin framework is fully functional, you can do the following:
+To test if Sigil's Python 3.5+ plugin framework is fully functional, you can do the following:
 
-1. download testplugin_v013.zip from [https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip](https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip)
+1. download testplugin_v019.zip from [https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v019.zip](https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v019.zip)
 2. open Sigil to the normal nearly blank template epub it generates when opened
-3. use Plugins->Manage Plugins menu and make sure you have a Python 3.4 interpreter configured 
+3. use Plugins->Manage Plugins menu and make sure you have a Python 3.4+ interpreter configured 
 4. use the "Add Plugin" button to navigate to and add testplugin_vXXX.zip and then hit "Okay" to exit the Manage Plugins Dialog
 5. use Plugins->Edit->testplugin to launch the plugin and hit the "Start" button to run it
 6. check the plugin output window for your missing or broken plugin test results

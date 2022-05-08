@@ -38,11 +38,11 @@ Feature requests opened on the issue tracker will be closed.
 Linux Build and Install
 =======================
 
-For newer Linux systems like Ubuntu 16.04 (and its derivitives: like Mint 18), or Arch Linux, or Debian Unstable, you should be able to compile Sigil using repo-provided dependencies. Instructions for doing so can be found in:
+For newer Linux systems like Ubuntu 20.04 (and its derivitives: like Mint 20), or Arch Linux, or Debian Unstable, you should be able to compile Sigil using repo-provided dependencies. Instructions for doing so can be found in:
 
 > [docs/Building_on_Linux.md](./docs/Building_on_Linux.md) ([or .html](./docs/Building_on_Linux.html))
 
-For older Linux systems whose software repositories do not provide Qt5.4.0 (or higher), the
+For older Linux systems whose software repositories do not provide Qt5.10.0 (or higher), the
 detailed instructions for building/installing Sigil can be found in:
 
 > [docs/Building_on_older_Linux.md](./docs/Building_on_older_Linux.md) ([or .html](./docs/Building_on_older_Linux.html))

@@ -32,7 +32,7 @@ Get the unicode version of version 6+ (6.2 at the time of this writing) from [jr
 ## <a name="qt6"/>Qt6.2.2+
 As of Qt6+, there there are no binary Qt installers provided for free. You must compile it yourself from source (applying the appropriate patches from the Sigil Docs directory).
 
-If you want to use the exact, patched versions of Qt6.2.x and QtWebEngine that I'm using to release Sigil, feel free to download the whole shebang [from my personal repository](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). It's the archive named: MyQtx64-6.2.3.7z (NOTE: not yet finalized/uploaded). Unzip it with 7-zip and note the location.
+If you want to use the exact, patched versions of Qt6.2.x and QtWebEngine that I'm using to release Sigil, feel free to download the whole shebang [from my personal repository](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). It's the archive named: Qt6.2.4_x64_VS2019.7z. Unzip it with 7-zip and note the location.
 
 Once you have Qt6.2.x built/installed/unzipped, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH**
 
