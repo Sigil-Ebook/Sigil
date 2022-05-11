@@ -35,7 +35,7 @@ STRUCTURAL_TAGS = ("article","aside","blockquote","body","canvas",
     "colgroup","div","dl","figure","footer","head","header","hr","html",
     "ol","section","table","tbody","tfoot","thead","td","th","tr","ul")
 
-OTHER_TEXTHOLDING_TAGS = ("address","caption","dd","div","dt","h1","h2",
+OTHER_TEXTHOLDING_TAGS = ("address","caption","dd","div","dt","figcaption","h1","h2",
     "h3","h4","h5","h6","legend","li","option","p","td","th","title")
 
 EBOOK_XML_PARENT_TAGS = ("package","metadata","manifest","spine","guide","ncx",
