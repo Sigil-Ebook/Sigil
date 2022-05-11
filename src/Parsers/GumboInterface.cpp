@@ -84,7 +84,7 @@ static std::unordered_set<std::string> structural_tags     = {
 
 
 static std::unordered_set<std::string> other_text_holders = {
-    "address","caption","dd","div","dt","h1","h2","h3","h4","h5","h6",
+    "address","caption","dd","div","dt","figcaption","h1","h2","h3","h4","h5","h6",
     "legend","li","option","p","td","th","title"
 };
 

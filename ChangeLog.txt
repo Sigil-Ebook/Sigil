@@ -4,6 +4,7 @@ Sigil-1.9.10
       - Make sure bundled PySide6 can find QtWebEngine resources on Windows (Qt6)
       - Properly recreate or remove encryption.xml depending on font obfuscating or not
       - Make Qt6 versions of Sigil use their own ini files to prevent corruption
+      - treat figcaption as an "other text holder" when prettifying
         
     New Features
       - Redesign the FindReplace dialog user interface to minimize size while adding features
