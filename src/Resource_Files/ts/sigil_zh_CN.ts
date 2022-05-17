@@ -2383,7 +2383,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="14"/>
         <source>Dry Run Replace-All Results</source>
-        <translation type="unfinished"/>
+        <translation>模拟运行替换所有结果</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="34"/>
@@ -2398,32 +2398,32 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="60"/>
         <source>Select the amount of context before and after the match in characters</source>
-        <translation type="unfinished"/>
+        <translation>以字符为单位选择匹配前后的上下文数量</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="63"/>
         <source>Context:</source>
-        <translation type="unfinished"/>
+        <translation>上下文：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="83"/>
         <source>Count:</source>
-        <translation type="unfinished"/>
+        <translation>计数：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="90"/>
         <source>Total Number of Matches/Replacements</source>
-        <translation type="unfinished"/>
+        <translation>匹配/替换的总数</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="93"/>
         <source>----   </source>
-        <translation type="unfinished"/>
+        <translation>----   </translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="129"/>
         <source>Perform the dry run ReplaceAll again and rebuild the table</source>
-        <translation type="unfinished"/>
+        <translation>再次执行模拟运行替换全部并重新构建表</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="132"/>
@@ -2433,7 +2433,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="152"/>
         <source>Close this dialog</source>
-        <translation type="unfinished"/>
+        <translation>关闭本对话</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="155"/>
@@ -2443,12 +2443,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="122"/>
         <source>... Creating Table</source>
-        <translation type="unfinished"/>
+        <translation>... 创建表格</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="127"/>
         <source>Book Path</source>
-        <translation type="unfinished"/>
+        <translation>图书路径</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="128"/>
@@ -2458,17 +2458,17 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="129"/>
         <source>Before</source>
-        <translation type="unfinished"/>
+        <translation>之前</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="130"/>
         <source>After</source>
-        <translation type="unfinished"/>
+        <translation>之后</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="237"/>
         <source>Dry Run Replace-All</source>
-        <translation type="unfinished"/>
+        <translation>模拟运行替换全部</translation>
     </message>
 </context>
 <context>
@@ -2874,14 +2874,17 @@ then find the Next match in Code View.</source>
         <location filename="../../Form_Files/FindReplace.ui" line="265"/>
         <source>Replace all matches in Code View.
              Use with SHIFT to Filter Replacements before changes are applied.</source>
-        <translation type="unfinished"/>
+        <translation>替换代码视图中的所有匹配项。
+             与Shift一起使用可在应用更改之前过滤替换对象。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="293"/>
         <source>Count all matches in Code View.
               Use with SHIFT to generate a Dry Run Replace All table.
             </source>
-        <translation type="unfinished"/>
+        <translation>计算代码视图中的所有匹配项。
+              与SHIFT一起使用以生成模拟运行替换所有表格。
+            </translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="310"/>
@@ -2901,19 +2904,21 @@ then find the Next match in Code View.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="370"/>
         <source>Set advanced Regex search flags / options.</source>
-        <translation type="unfinished"/>
+        <translation>设置高级正则表达式搜索标志/选项。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="373"/>
         <source>Regex Options</source>
-        <translation type="unfinished"/>
+        <translation>正则表达式选项</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="387"/>
         <source>Search from current position to top or end of the
 current file and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>从当前位置搜索到当前文件的顶部
+或末尾，然后换行到另一端
+以继续搜索。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="392"/>
@@ -2924,7 +2929,8 @@ other end to continue searching.</source>
         <location filename="../../Form_Files/FindReplace.ui" line="406"/>
         <source>Search only in text (outside tags).
 Valid only when searching HTML files.</source>
-        <translation type="unfinished"/>
+        <translation>仅在文本中搜索(标签外)。
+仅在搜索HTML文件时有效。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="410"/>
@@ -2954,7 +2960,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="652"/>
         <source>Choose Replacements</source>
-        <translation type="unfinished"/>
+        <translation>选择替换项</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="670"/>
@@ -3191,7 +3197,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2153"/>
         <source>Dot All</source>
-        <translation type="unfinished"/>
+        <translation>覆盖全部</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2156"/>
@@ -3211,7 +3217,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2167"/>
         <source>Auto Tokenise</source>
-        <translation type="unfinished"/>
+        <translation>自动标记</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2170"/>
@@ -9392,7 +9398,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1674"/>
         <source>Ctrl+Alt+U</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+U</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1683"/>
@@ -9580,7 +9586,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1824"/>
         <source>Ctrl+Alt+Q</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+Q</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1832"/>
@@ -9761,7 +9767,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1980"/>
         <source>Ctrl+Alt+A</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+A</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1985"/>
@@ -9771,17 +9777,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1988"/>
         <source>Ctrl+Alt+N</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+N</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1993"/>
         <source>Dry Run Replace All</source>
-        <translation type="unfinished"/>
+        <translation>模拟运行替换全部</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1998"/>
         <source>Filter Replacements</source>
-        <translation type="unfinished"/>
+        <translation>过滤替换项</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2003"/>
@@ -16879,54 +16885,56 @@ filename08.xhtml
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
         <source>Replacements (Delete Unwanted Replacements)</source>
-        <translation type="unfinished"/>
+        <translation>替换（删除不需要的替换项）</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="47"/>
         <source>Select the amount of context in characters shown before and after the match.</source>
-        <translation type="unfinished"/>
+        <translation>选择匹配前后显示的上下文字符数。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="50"/>
         <source>Context:</source>
-        <translation type="unfinished"/>
+        <translation>上下文：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="70"/>
         <source>Count:</source>
-        <translation type="unfinished"/>
+        <translation>计数：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="77"/>
         <source>Total Number of Matches/Replacements</source>
-        <translation type="unfinished"/>
+        <translation>匹配/替换的总数</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="80"/>
         <source>----   </source>
-        <translation type="unfinished"/>
+        <translation>----   </translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="110"/>
         <source>Delete unwanted replacements from the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>从表中删除不需要的替换项。
+       警告：一旦应用了更换，就不可能进行“撤消”。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="120"/>
         <source>Apply the remaining replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>应用表中列出的其余替换项。
+         警告：一旦应用，就不能“撤消”。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="124"/>
         <source>Apply Changes</source>
-        <translation type="unfinished"/>
+        <translation>应用更改</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="96"/>
         <source>Book Path</source>
-        <translation type="unfinished"/>
+        <translation>图书路径</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="97"/>
@@ -16936,17 +16944,17 @@ filename08.xhtml
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="98"/>
         <source>Before</source>
-        <translation type="unfinished"/>
+        <translation>之前</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="99"/>
         <source>After</source>
-        <translation type="unfinished"/>
+        <translation>之后</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="377"/>
         <source>Delete Selected Rows</source>
-        <translation type="unfinished"/>
+        <translation>删除所选行</translation>
     </message>
 </context>
 <context>
@@ -17068,7 +17076,8 @@ including entries in selected groups.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="181"/>
         <source>Create a Counts report for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation type="unfinished"/>
+        <translation>按所选顺序为所选条目创建计数报告，
+包括选定组中的条目。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="185"/>
@@ -17242,7 +17251,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
         <source>Option: Text</source>
-        <translation type="unfinished"/>
+        <translation>选项：文本</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="129"/>

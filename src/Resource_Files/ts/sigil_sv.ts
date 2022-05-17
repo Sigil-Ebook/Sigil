@@ -69,7 +69,7 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
         <source>Code Contributors</source>
-        <translation>Bidragsgivare till kod</translation>
+        <translation>Kodbidragsgivare</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="68"/>

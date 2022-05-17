@@ -2440,7 +2440,7 @@ opuesto y continuar la búsqueda.</translation>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="122"/>
         <source>... Creating Table</source>
-        <translation>... Creando Tabla</translation>
+        <translation>... creando tabla</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="127"/>
@@ -2465,7 +2465,7 @@ opuesto y continuar la búsqueda.</translation>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="237"/>
         <source>Dry Run Replace-All</source>
-        <translation>Ensayo de sustituir</translation>
+        <translation>Ensayo de sustituir todo</translation>
     </message>
 </context>
 <context>
@@ -9769,7 +9769,7 @@ Las hojas de estilo que aparecen primero tienen prioridad sobre las posteriores.
     <message>
         <location filename="../../Form_Files/main.ui" line="1993"/>
         <source>Dry Run Replace All</source>
-        <translation>Ensayo de sustituir</translation>
+        <translation>Ensayo de sustituir todo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1998"/>
@@ -16875,7 +16875,7 @@ que sean válidas para todos los archivos seleccionados.
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
         <source>Replacements (Delete Unwanted Replacements)</source>
-        <translation>Sustituciones (Eliminar sustituciones no deseadas)</translation>
+        <translation>Sustituciones (eliminar sustituciones no deseadas)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="47"/>
