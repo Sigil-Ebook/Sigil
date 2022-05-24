@@ -47,6 +47,8 @@ detailed instructions for building/installing Sigil can be found in:
 
 > [docs/Building_on_older_Linux.md](./docs/Building_on_older_Linux.md) ([or .html](./docs/Building_on_older_Linux.html))
 
+An up-to-date version of Sigil is available via flatpak on Flathub. So if your distro can use Flatpak, you can always use [Sigil that way](https://flathub.org/apps/details/com.sigil_ebook.Sigil) if your distro's Sigil package seems to be lagging too far behind.
+
 For Building on Mac OS X
 ========================
 
