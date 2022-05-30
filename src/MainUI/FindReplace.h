@@ -316,6 +316,10 @@ private:
 
     // void ShowHideAdvancedOptions();
 
+    // Set all F&R buttons to text-only
+    // Default: icon-only
+    void SetFRButtonsTextOnly();
+
     void ExtendUI();
 
     /*

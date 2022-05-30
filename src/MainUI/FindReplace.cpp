@@ -1559,6 +1559,13 @@ void FindReplace::ReadSettings()
 {
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
+
+    // Set F&R Buttons to text-only if requested
+    bool frButtonsTextOnly = settings.value("frbuttonstextonly", false).toBool();
+    if (frButtonsTextOnly) {
+        SetFRButtonsTextOnly();
+    }
+
     // Find and Replace history
     QStringList find_strings = settings.value("find_strings").toStringList();
     find_strings.removeDuplicates();
@@ -2076,6 +2083,18 @@ void FindReplace::SetOptionWrap(bool new_state)
 {
     m_OptionWrap = new_state;
     ui.chkOptionWrap->setChecked(new_state);
+}
+
+void FindReplace::SetFRButtonsTextOnly() {
+    // Set F&R Buttons to text-only
+    QList<QToolButton *> all_toolbuttons = findChildren<QToolButton *>();
+    foreach(QToolButton * toolbutton, all_toolbuttons) {
+        // tbRegexOptions QToolButton is always text-only
+        // Close button is always icon-only
+        if (toolbutton->objectName() != "tbRegexOptions" && toolbutton->objectName() != "close") {
+            toolbutton->setToolButtonStyle(Qt::ToolButtonTextOnly);
+        }
+    }
 }
 
 // The UI is setup based on the capabilities.
