@@ -157,15 +157,6 @@ public:
                                      const QString &navname=QString("nav.xhtml"),
                                      const QString &first_textdir=QString("\\"));
 
-#if 0
-    /**
-     * This is Broken - Creates a new HTMLResource file with a basic XHTML structure
-     * inserted after the given resource.
-     * The file on disk has only placeholder text.
-     */
-    HTMLResource *CreateEmptyHTMLFile(HTMLResource *resource, const QString &folderpath = QString("\\"));
-#endif
-
     /**
      * Creates a new CSSResource file with no stored data.
      * The file on disk is empty.

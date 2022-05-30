@@ -562,7 +562,6 @@ void BookBrowser::CopyHTML()
 
     HTMLResource *current_html_resource = qobject_cast<HTMLResource *>(current_resource);
     // Create an empty file
-    // was HTMLResource *new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource, destfolder);
     HTMLResource *new_html_resource = m_Book->CreateEmptyHTMLFile(destfolder);
     m_Book->MoveResourceAfter(new_html_resource, current_html_resource);
     // Copy the text from the current file
@@ -584,7 +583,6 @@ void BookBrowser::AddNewHTML()
     if (current_html_resource) {
         destfolder = Utility::startingDir(current_html_resource->GetRelativePath());
     }
-    // was HTMLResource *new_html_resource = m_Book->CreateEmptyHTMLFile(current_html_resource, destfolder);
     HTMLResource *new_html_resource = m_Book->CreateEmptyHTMLFile(destfolder);
 
     if ((current_resource != NULL) && (current_html_resource != NULL)) {

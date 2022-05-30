@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021  Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2022  Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -349,11 +349,19 @@ HTMLResource *Book::CreateEmptyHTMLFile(const QString &folderpath)
 {
     HTMLResource *html_resource = CreateNewHTMLFile(folderpath);
     QString version = html_resource->GetEpubVersion();
+    QString data;
+    QString template_path;
     if (version.startsWith('2')) {
-        html_resource->SetText(EMPTY_HTML_FILE);
+        template_path = Utility::DefinePrefsDir() + "/" + "user-template2.xhtml";
+        data = EMPTY_HTML_FILE;
     } else {
-        html_resource->SetText(EMPTY_HTML5_FILE);
+        template_path = Utility::DefinePrefsDir() + "/" + "user-template3.xhtml";
+        data = EMPTY_HTML5_FILE;
     }
+    if (QFile::exists(template_path)) {
+        data = CleanSource::Mend(Utility::ReadUnicodeTextFile(template_path), version);
+    }
+    html_resource->SetText(data);
     SetModified(true);
     return html_resource;
 }
@@ -428,33 +436,6 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf,
     return html_resource;
 }
 
-#if 0
-// Note: Broken -  CreateNewHTMLFile already appends to the end of the spine and if needed
-// You can move using the OPFResource to change Reading Order much faster
-HTMLResource *Book::CreateEmptyHTMLFile(HTMLResource *resource, const QString &folderpath)
-{
-    HTMLResource *new_resource = CreateNewHTMLFile(folderpath);
-    QString version = new_resource->GetEpubVersion();
-    if (version.startsWith('2')) {
-        new_resource->SetText(EMPTY_HTML_FILE);
-    } else {
-        new_resource->SetText(EMPTY_HTML5_FILE);
-    }
-    if (resource != NULL) {
-        QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
-        int reading_order = GetOPF()->GetReadingOrder(resource) + 1;
-
-        if (reading_order > 0) {
-            html_resources.insert(reading_order, new_resource);
-            GetOPF()->UpdateSpineOrder(html_resources);
-        }
-    }
-
-    SetModified(true);
-    return new_resource;
-}
-#endif
-
 
 void Book::MoveResourceAfter(HTMLResource *from_resource, HTMLResource *to_resource)
 {
@@ -520,6 +501,18 @@ CSSResource *Book::CreateEmptyCSSFile(const QString &folderpath)
                                                                QString(),
                                                                folderpath);
     CSSResource *css_resource = qobject_cast<CSSResource *>(resource);
+    QString version = css_resource->GetEpubVersion();
+    QString data = "";
+    QString template_path;
+    if (version.startsWith('2')) {
+        template_path = Utility::DefinePrefsDir() + "/" + "user-template2.css";
+    } else {
+        template_path = Utility::DefinePrefsDir() + "/" + "user-template3.css";
+    }
+    if (QFile::exists(template_path)) {
+        data = Utility::ReadUnicodeTextFile(template_path);
+    }
+    css_resource->SetText(data);
     SetModified(true);
     return css_resource;
 }
