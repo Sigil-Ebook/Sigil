@@ -144,8 +144,19 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>44</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Find</string>
+          </property>
           <property name="toolTip">
-           <string>Find next match.</string>
+           <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find next match.&lt;/p&gt;</string>
           </property>
           <property name="icon">
             <iconset resource="../Resource_Files/main/main.qrc">
@@ -165,8 +176,19 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>44</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Replace</string>
+          </property>
           <property name="toolTip">
-           <string>Replace highlighted match (if any) in Code View.</string>
+           <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace highlighted match (if any) in Code View.&lt;/p&gt;</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -188,12 +210,17 @@
           </property>
           <property name="minimumSize">
            <size>
-            <width>0</width>
+            <width>44</width>
             <height>22</height>
            </size>
           </property>
+          <property name="text">
+           <string>Restart</string>
+          </property>
           <property name="toolTip">
-           <string>Restart current search from beginning.</string>
+           <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Restart&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restart current search from beginning.&lt;/p&gt;</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -239,9 +266,20 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>44</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Replace/Find</string>
+          </property>
           <property name="toolTip">
-           <string>Replace highlighted match (if any),
-then find the Next match in Code View.</string>
+           <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace/Find&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace highlighted match (if any),
+then find the Next match in Code View.&lt;/p&gt;</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -261,9 +299,20 @@ then find the Next match in Code View.</string>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>44</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Replace All</string>
+          </property>
           <property name="toolTip">
-           <string>Replace all matches in Code View.
-             Use with SHIFT to Filter Replacements before changes are applied.</string>
+           <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace All&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace all matches in Code View.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Use with SHIFT to Filter Replacements before changes are applied.&lt;/p&gt;</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
@@ -285,14 +334,18 @@ then find the Next match in Code View.</string>
           </property>
           <property name="minimumSize">
            <size>
-            <width>0</width>
+            <width>44</width>
             <height>22</height>
            </size>
           </property>
+          <property name="text">
+           <string>Count All</string>
+          </property>
           <property name="toolTip">
-            <string>Count all matches in Code View.
-              Use with SHIFT to generate a Dry Run Replace All table.
-            </string>
+           <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Count All&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Count all matches in Code View.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Use with SHIFT to generate a Dry Run Replace All table.&lt;/p&gt;</string>
           </property>
           <property name="styleSheet">
            <string notr="true"/>
