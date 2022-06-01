@@ -132,7 +132,19 @@ class MetadataProcessor(object):
                 continue
                 
             if mname in _recognized_dc:
-                self.rec.append(mentry)
+                # strip out extraneous dc namespace defintions on dc tags
+                if "xmlns:dc" in mattr:
+                    del mattr["xmlns:dc"]
+                # fix improperly cased language entries
+                if mname == "dc:language":
+                    if not "-" in mcontent:
+                        mcontent = mcontent.lower()
+                    else:
+                        lang, region = mcontent.split("-")
+                        lang = lang.lower()
+                        region = region.upper()
+                        mcontent = lang + "-" + region;
+                self.rec.append((mname, mcontent, mattr))
                 id = mattr.get("id",None)
                 if id is not None:
                     self.id2rec[id] = numrec
@@ -239,7 +251,8 @@ def set_new_metadata(data, other, idlst, metatag, opfdata):
             (name, value) = line.split(_US)
             name = name.strip()
             value = value.strip()
-            if name in ["id", "xml:lang", "dir", "opf:scheme", "opf:role", "opf:file-as"]:
+            attrlist = ["id", "xml:lang", "dir", "opf:scheme", "opf:role", "opf:file-as", "xmlns"]
+            if name in attrlist or name.startswith["xmlns:"]:
                 if name == "id":
                     id = valid_id(value, idlst)
                     mattr["id"] = id
