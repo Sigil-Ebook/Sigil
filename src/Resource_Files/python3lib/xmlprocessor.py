@@ -312,7 +312,7 @@ def performSMILUpdates(data, newbkpath, oldbkpath, keylist, valuelist):
                     apath = urldecodepart(parts[0])
                     fragment = ""
                     if len(parts) > 1:
-                        fragment = urldecode(parts[1])
+                        fragment = urldecodepart(parts[1])
                     oldtarget = buildBookPath(apath, startingDir(oldbkpath))
                     newtarget = updates.get(oldtarget, oldtarget)
                     attribute_value = urlencodepart(buildRelativePath(newbkpath, newtarget))
