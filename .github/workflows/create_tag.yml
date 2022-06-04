@@ -70,7 +70,7 @@ jobs:
   winget-publish:
     name: Publish Release to WinGet
     runs-on: windows-latest
-    if: ${{ steps.check_tag_name.outputs.match != '' }}
+    if: ${{ github.event.inputs.tag_name != '' }}
     needs: [ build ]
     defaults:
       run:
