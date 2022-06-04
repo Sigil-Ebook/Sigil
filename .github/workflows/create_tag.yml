@@ -68,7 +68,10 @@ jobs:
         artifacts: "./${{ steps.create_archive.outputs.fname }}.tar.gz.sig, ./${{ steps.create_archive.outputs.fname }}.zip.sig"
 
   winget-publish:
+    name: Publish Release to WinGet
     runs-on: windows-latest
+    if: ${{ steps.check_tag_name.outputs.match != '' }}
+    needs: [ build ]
     defaults:
       run:
         shell: pwsh
