@@ -66,3 +66,18 @@ jobs:
         draft: true
         prerelease: false
         artifacts: "./${{ steps.create_archive.outputs.fname }}.tar.gz.sig, ./${{ steps.create_archive.outputs.fname }}.zip.sig"
+
+  winget-publish:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: ${{ github.workspace }}/ci_scripts/winget
+    env:
+      WINGET_TOKEN: ${{ secrets.WINGET_PAT }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Create manifest and submit PR
+      run: |
+        ./build.ps1 -Version "${{ github.event.inputs.tag_name }}" -Token $env:WINGET_TOKEN
