@@ -1,0 +1,22 @@
+name: Publish Release to WinGet
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'The latest version'
+        required: true
+jobs:
+  publish:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: ${{ github.workspace }}/ci_scripts/winget
+    env:
+      WINGET_TOKEN: ${{ secrets.WINGET_PAT }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Create manifest and submit PR
+      run: |
+        ./build.ps1 -Version "${{ github.event.inputs.version }}"
