@@ -83,4 +83,4 @@ jobs:
       uses: actions/checkout@v2
     - name: Create manifest and submit PR
       run: |
-        ./build.ps1 -Version "${{ github.event.inputs.tag_name }}" -Token $env:WINGET_TOKEN
+        ./build.ps1 -Version "${{ github.event.inputs.tag_name }}"
