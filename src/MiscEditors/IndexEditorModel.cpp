@@ -32,9 +32,9 @@
 #include "MiscEditors/IndexEditorModel.h"
 
 #if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-static const QString SETTINGS_FILE = INDEX_SETTINGS_FILE;
+static const QString CSETTINGS_FILE = INDEX_SETTINGS_FILE;
 #else
-static const QString SETTINGS_FILE = INDEX_V6_SETTINGS_FILE;
+static const QString CSETTINGS_FILE = INDEX_V6_SETTINGS_FILE;
 #endif
 
 static const QString SETTINGS_GROUP         = "index_entries";
@@ -63,7 +63,7 @@ IndexEditorModel::IndexEditorModel(QObject *parent)
       m_FSWatcher(new QFileSystemWatcher()),
       m_IsDataModified(false)
 {
-    m_SettingsPath = Utility::DefinePrefsDir() + "/" + SETTINGS_FILE;
+    m_SettingsPath = Utility::DefinePrefsDir() + "/" + CSETTINGS_FILE;
     QStringList header;
     header.append(tr("Text to Include"));
     header.append(tr("Index Entries"));
