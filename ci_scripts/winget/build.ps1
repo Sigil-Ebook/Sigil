@@ -42,6 +42,7 @@ Get-ChildItem '*.yaml' | ForEach-Object -Process {
 }
 if (-not $env:WINGET_TOKEN) {
     Write-Error "You must set the WINGET_TOKEN environment variable to create a pull request."
+    Exit 1
 }
 # Get the latest wingetcreate exe
 Invoke-WebRequest 'https://aka.ms/wingetcreate/latest/self-contained' -OutFile wingetcreate.exe
