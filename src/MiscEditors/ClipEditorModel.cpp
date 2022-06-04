@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2021 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2018-2022 Kevin B. Hendricks, Stratford, Ontario
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -42,9 +42,9 @@
 #endif
 
 #if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-static const QString BSETTINGS_FILE = CLIPS_SETTINGS_FILE;
+static const QString SETTINGS_FILE = CLIPS_SETTINGS_FILE;
 #else
-static const QString BSETTINGS_FILE = CLIPS_V6_SETTINGS_FILE;
+static const QString SETTINGS_FILE = CLIPS_V6_SETTINGS_FILE;
 #endif
 
 static const QString SETTINGS_GROUP         = "clip_entries";
@@ -74,7 +74,7 @@ ClipEditorModel::ClipEditorModel(QObject *parent)
       m_FSWatcher(new QFileSystemWatcher()),
       m_IsDataModified(false)
 {
-    m_SettingsPath = Utility::DefinePrefsDir() + "/" + BSETTINGS_FILE;
+    m_SettingsPath = Utility::DefinePrefsDir() + "/" + SETTINGS_FILE;
     QStringList header;
     header.append(tr("Name"));
     header.append(tr("Text"));

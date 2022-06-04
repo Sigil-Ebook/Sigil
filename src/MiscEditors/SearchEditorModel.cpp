@@ -45,9 +45,9 @@
 #endif
 
 #if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-static const QString ASETTINGS_FILE = SEARCHES_V2_SETTINGS_FILE;
+static const QString SETTINGS_FILE = SEARCHES_V2_SETTINGS_FILE;
 #else
-static const QString ASETTINGS_FILE = SEARCHES_V6_SETTINGS_FILE;
+static const QString SETTINGS_FILE = SEARCHES_V6_SETTINGS_FILE;
 #endif
 
 static const QString SETTINGS_GROUP         = "search_entries";
@@ -79,7 +79,7 @@ SearchEditorModel::SearchEditorModel(QObject *parent)
       m_FSWatcher(new QFileSystemWatcher()),
       m_IsDataModified(false)
 {
-    m_SettingsPath = Utility::DefinePrefsDir() + "/" + ASETTINGS_FILE;
+    m_SettingsPath = Utility::DefinePrefsDir() + "/" + SETTINGS_FILE;
     QStringList header;
     header.append(tr("Name"));
     header.append(tr("Find"));

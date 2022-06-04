@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2021 Doug Massay
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2022 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -24,17 +24,6 @@
 #include <QString>
 #include <QStringList>
 #include "sigil_constants.h"
-
-const QString CLIPS_SETTINGS_FILE = "sigil_clips.ini";
-const QString INDEX_SETTINGS_FILE = "sigil_index.ini";
-const QString SEARCHES_SETTINGS_FILE = "sigil_searches.ini";
-const QString SEARCHES_V2_SETTINGS_FILE = "sigil_searches_v2.ini";
-const QString SIGIL_SETTINGS_FILE = "sigil.ini";
-
-const QString CLIPS_V6_SETTINGS_FILE = "sigil_clips_v6.ini";
-const QString INDEX_V6_SETTINGS_FILE = "sigil_index_v6.ini";
-const QString SEARCHES_V6_SETTINGS_FILE = "sigil_searches_v6.ini";
-const QString SIGIL_V6_SETTINGS_FILE = "sigil_v6.ini";
 
 #if _WIN32
 #include <QProcessEnvironment>

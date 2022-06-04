@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2021 Doug Massay
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2022 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -24,6 +24,18 @@
 #pragma once
 #ifndef SG_CONSTANTS_H
 #define SG_CONSTANTS_H
+
+// Workaround compiler issue with LTO and static initializers from
+// const QStrings defined in a different compilation unit by using defines:
+#define CLIPS_SETTINGS_FILE       "sigil_clips.ini"
+#define INDEX_SETTINGS_FILE       "sigil_index.ini"
+#define SEARCHES_SETTINGS_FILE    "sigil_searches.ini"
+#define SEARCHES_V2_SETTINGS_FILE "sigil_searches_v2.ini"
+#define SIGIL_SETTINGS_FILE       "sigil.ini"
+#define CLIPS_V6_SETTINGS_FILE    "sigil_clips_v6.ini"
+#define INDEX_V6_SETTINGS_FILE    "sigil_index_v6.ini"
+#define SEARCHES_V6_SETTINGS_FILE "sigil_searches_v6.ini"
+#define SIGIL_V6_SETTINGS_FILE    "sigil_v6.ini"
 
 #include <QStringList>
 
@@ -128,17 +140,6 @@ extern const QString PATH_LIST_DELIM;
 extern const QString PYTHON_MAIN_PATH;
 extern const QString PYTHON_MAIN_BIN_PATH;
 extern const bool DONT_CHECK_FOR_UPDATES;
-
-extern const QString CLIPS_SETTINGS_FILE;
-extern const QString INDEX_SETTINGS_FILE;
-extern const QString SEARCHES_SETTINGS_FILE;
-extern const QString SEARCHES_V2_SETTINGS_FILE;
-extern const QString SIGIL_SETTINGS_FILE;
-
-extern const QString CLIPS_V6_SETTINGS_FILE;
-extern const QString INDEX_V6_SETTINGS_FILE;
-extern const QString SEARCHES_V6_SETTINGS_FILE;
-extern const QString SIGIL_V6_SETTINGS_FILE;
 
 #if defined(__APPLE__)
 extern const QString PYTHON_SITE_PACKAGES;
