@@ -49,7 +49,7 @@ static const QStringList XML_EXTENSIONS = QStringList() << "htm" << "html" << "x
 
 static const QStringList CSS_EXTENSIONS = QStringList() << "css";
 
-SourceViewer::SourceViewer(const QString&file1, const QString& data, QWidget *parent)
+SourceViewer::SourceViewer(const QString& file1, const QString& data, QWidget *parent)
     : QDialog(parent),
       m_view(new TextView(this)),
       m_lbl(new QLabel(file1, this)),
