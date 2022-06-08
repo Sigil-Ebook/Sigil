@@ -82,6 +82,9 @@ if( UNIX AND NOT APPLE )
    # which point to directories outside the build tree to the install RPATH.
    # This will ensure the Qt5 lib directory is always included after install.
    SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+
+   # Because GCC's link time optimization is willfully choosing to suck.
+   add_compile_options(-fno-lto)
 endif()
 
 # Check if platform is 64 bit
