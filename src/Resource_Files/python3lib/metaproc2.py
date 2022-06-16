@@ -252,7 +252,7 @@ def set_new_metadata(data, other, idlst, metatag, opfdata):
             name = name.strip()
             value = value.strip()
             attrlist = ["id", "xml:lang", "dir", "opf:scheme", "opf:role", "opf:file-as", "xmlns"]
-            if name in attrlist or name.startswith["xmlns:"]:
+            if name in attrlist or name.startswith("xmlns:"):
                 if name == "id":
                     id = valid_id(value, idlst)
                     mattr["id"] = id
