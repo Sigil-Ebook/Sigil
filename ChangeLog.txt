@@ -4,7 +4,8 @@ pre-1.9.20
       - improve new Find Replace icon tooltips to be include short name on top
       - fix bug that caused file rename changes to fail when updating smil
       - Metadata Editor will now strip out unneeded xmlns:dc attributes on dc tags
-      - Metadata Editor is now more robust language code that have incorrect case in the metadata
+      - Metadata Editor is now more robust to language codes that have incorrect case in the metadata
+      - clarify Create HTML ToC menu entry works from existing ToC
 
      New Features
       - add ability for a user-template*.xhtml and user-template*.css
