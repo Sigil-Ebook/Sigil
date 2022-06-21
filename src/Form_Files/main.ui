@@ -2683,7 +2683,7 @@
   </action>
   <action name="actionCreateHTMLTOC">
    <property name="text">
-    <string>&amp;Create HTML Table Of Contents</string>
+    <string>&amp;Create HTML from Table Of Contents</string>
    </property>
    <property name="toolTip">
     <string>Create a new HTML file using the current TOC.</string>
