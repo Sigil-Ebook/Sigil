@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019-2021  Doug Massay
+**  Copyright (C) 2015-2022  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2022  Doug Massay
 **  Copyright (C) 2012       Dave Heiland, John Schember
 **
 **  This file is part of Sigil.
@@ -52,16 +52,14 @@ static const QStringList HEADERTAGS = QStringList() << "h1" << "h2" << "h3" << "
 
 static const QString SETTINGS_GROUP = "previewwindow";
 
-static const QString MATHJAX_CLEANUP = 
-   "<script type=\"text/x-mathjax-config\">"
-   "  MathJax.Hub.Register.StartupHook('End', function () {"
-   "    var mscripts = document.querySelectorAll(\"script[type='math/mml']\");"
-   "    function pruneScripts(item, index) {"
-   "      item.parentNode.removeChild(item);"
-   "    }"
-   "    mscripts.forEach(pruneScripts);"
-   "  });"
-   "</script>";;
+static const QString MATHJAX3_CONFIG =
+"  <script> "
+"    MathJax = { "
+"      loader: { "
+"        load: [ '[mml]/mml3', 'core', 'input/mml', 'output/svg' ] "
+"      } "
+"    }; "
+" </script> ";
 
 
 #define DBG if(0)
@@ -318,9 +316,12 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     if (m_usingMathML) {
         int endheadpos = text.indexOf("</head>");
         if (endheadpos > 1) {
-            QString inject_mathjax = MATHJAX_CLEANUP + 
-              "<script type=\"text/javascript\" async=\"async\" "
-              "src=\"" + m_mathjaxurl + "\"></script>\n";
+            QString inject_mathjax;
+            if (m_mathjaxurl.endsWith("startup.js")) {
+                inject_mathjax = MATHJAX3_CONFIG + "<script type=\"text/javascript\" async=\"async\" id=\"MathJax-script\" src=\"" + m_mathjaxurl + "\"></script>\n";
+            } else {
+                inject_mathjax = "<script type=\"text/javascript\" async=\"async\" id=\"MathJax-script\" src=\"" + m_mathjaxurl + "\"></script>\n";
+            }
             text.insert(endheadpos, inject_mathjax);
         }
     }
@@ -447,10 +448,6 @@ QList<ElementIndex> PreviewWindow::GetCaretLocation()
     DBG qDebug() << "PreviewWindow in GetCaretLocation";
     QList<ElementIndex> hierarchy = m_Preview->GetCaretLocation();
     for (int i = 0; i < hierarchy.length(); i++) {
-        if (m_usingMathML && (hierarchy[i].name == "body")) {
-            // compensate for MathJax added two divs injected as first children of body
-            hierarchy[i].index = hierarchy[i].index - 2;
-        }
         DBG qDebug() << "name: " << hierarchy[i].name << " index: " << hierarchy[i].index;
     }
     return hierarchy;
@@ -462,10 +459,6 @@ void PreviewWindow::SetCaretLocation(const QList<ElementIndex> &loc)
     DBG qDebug() << "PreviewWindow in SetCaretLocation";
     QList<ElementIndex> hierarchy;
     foreach(ElementIndex ei, loc) {
-        if (m_usingMathML && (ei.name == "body")) {
-            // compensate for MathJax added two divs injected as first children of body
-            ei.index = ei.index + 2;
-        }
         hierarchy << ei;
         DBG qDebug() << "name: " << ei.name << " index: " << ei.index;
     }

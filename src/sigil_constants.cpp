@@ -63,7 +63,7 @@ const QString force_sigil_darkmode_palette = QString(getenv("FORCE_SIGIL_DARKMOD
 const QString sigil_share_root = QString(SIGIL_SHARE_ROOT);
 const bool dicts_are_bundled = DICTS_ARE_BUNDLED;
 const QString extra_dict_dirs = QString(EXTRA_DICT_DIRS);
-const QString mathjax_dir = QString(MATHJAX_DIR);
+const QString mathjax3_dir = QString(MATHJAX3_DIR);
 const QString PYTHON_MAIN_PATH = "/python3/lib/python3.5";
 #if __x86_64__ || __ppc64__
 const QStringList PYTHON_SYS_PATHS = QStringList () << "/plat-x86_64-linux-gnu" << "/plat-linux" << "/lib-dynload" << "/site-packages";

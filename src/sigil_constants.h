@@ -156,7 +156,7 @@ extern const QString force_sigil_darkmode_palette;
 extern const QString sigil_share_root;
 extern const bool dicts_are_bundled;
 extern const QString extra_dict_dirs;
-extern const QString mathjax_dir;
+extern const QString mathjax3_dir;
 #endif
 
 #endif // SG_CONSTANTS_H

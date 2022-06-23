@@ -118,8 +118,8 @@ source_group( "Source Updates"    FILES ${SOURCEUPDATE_FILES} )
 
 set( ALL_SOURCES ${RAW_SOURCES} ${UI_FILES_H} ${QRC_FILES_CPP} ${QM_FILES} )
 
-# Location of the MathJax zip archive for all platforms
-set( MATHJAX_ZIP "${CMAKE_SOURCE_DIR}/src/Resource_Files/polyfills/ML.zip" )
+# Location of the MathJax custom build for all platforms
+set( MATHJAX_CUSTOM "${CMAKE_SOURCE_DIR}/src/Resource_Files/polyfills/custom-mathjax.min.js" )
 
 # Adding resource (RC) files for Windows
 # Grab the current year so copyright notice is updated on Windows file properties
@@ -151,7 +151,7 @@ if( APPLE )
     if( CMAKE_GENERATOR STREQUAL Xcode )
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/polyfills")
-        exec_program("unzip ${MATHJAX_ZIP} -d ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/polyfills")
+        exec_program("cp ${MATHJAX_CUSTOM} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/polyfills")
         exec_program("cp ${ICON_SRC_PATH} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
         exec_program("cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/epub.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
         # Create translation directory.
@@ -165,7 +165,7 @@ if( APPLE )
     else()
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/polyfills")
-        exec_program("unzip ${MATHJAX_ZIP} -d ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/polyfills")
+        exec_program("cp ${MATHJAX_CUSTOM} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/polyfills")
         exec_program("cp ${ICON_SRC_PATH} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
         exec_program("cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/epub.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
         # Create translation directory.
@@ -454,9 +454,9 @@ elseif (MSVC)
     endforeach( QM )
 
     # Extract the MathJax polyfill archive into the package directory
-    set( MATHJAX_UNZIP_DEST ${MAIN_PACKAGE_DIR}/polyfills )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MATHJAX_UNZIP_DEST} )
-    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E tar xzf ${MATHJAX_ZIP} WORKING_DIRECTORY ${MATHJAX_UNZIP_DEST} )
+    set( MATHJAX_CUSTOM_DEST ${MAIN_PACKAGE_DIR}/polyfills )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MATHJAX_CUSTOM_DEST} )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${MATHJAX_CUSTOM} ${MATHJAX_CUSTOM_DEST} )
 
     # Copy the dictionary files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/hunspell_dictionaries/ )
@@ -580,7 +580,7 @@ if( UNIX AND NOT APPLE )
         SOURCE sigil_constants.cpp
         PROPERTY COMPILE_DEFINITIONS
         SIGIL_SHARE_ROOT="${SIGIL_SHARE_ROOT}" DICTS_ARE_BUNDLED=${INSTALL_BUNDLED_DICTS}
-        EXTRA_DICT_DIRS="${EXTRA_DICT_DIRS}" MATHJAX_DIR="${MATHJAX_DIR}"
+        EXTRA_DICT_DIRS="${EXTRA_DICT_DIRS}" MATHJAX3_DIR="${MATHJAX3_DIR}"
         DONT_CHECK_UPDATES=${DISABLE_UPDATE_CHECK}
     )
 
@@ -588,16 +588,16 @@ if( UNIX AND NOT APPLE )
     set( LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED ${CMAKE_BINARY_DIR}/sigil-sh_install_configured )
     set( SIGIL_EXECUTABLE ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
 
-    # Destination directory for unzipped MathJax archive
-    set( MATHJAX_UNZIP_DEST "${CMAKE_BINARY_DIR}/polyfills" )
+    # Destination directory for our custom MathJax
+    set( MATHJAX_CUSTOM_DEST "${CMAKE_BINARY_DIR}/polyfills" )
     # Remove previous directories
-    if ( EXISTS ${MATHJAX_UNZIP_DEST} )
-        file( REMOVE_RECURSE ${MATHJAX_UNZIP_DEST} )
+    if ( EXISTS ${MATHJAX_CUSTOM_DEST} )
+        file( REMOVE_RECURSE ${MATHJAX_CUSTOM_DEST} )
     endif()
-    # Create the polyfills dir and extract the MathJax archive to it
-    if ( NOT DEFINED MATHJAX_DIR )
-        file( MAKE_DIRECTORY ${MATHJAX_UNZIP_DEST} )
-        execute_process( COMMAND cmake -E tar xvzf ${MATHJAX_ZIP} WORKING_DIRECTORY ${MATHJAX_UNZIP_DEST} )
+    # Create the polyfills dir and copy the MathJax custom build into it
+    if ( NOT DEFINED MATHJAX3_DIR )
+        file( MAKE_DIRECTORY ${MATHJAX_CUSTOM_DEST} )
+        execute_process( COMMAND cmake -E copy ${MATHJAX_CUSTOM} ${MATHJAX_CUSTOM_DEST} )
     endif()
 
     # Configure Linux launch script
@@ -645,10 +645,11 @@ if( UNIX AND NOT APPLE )
         install( FILES ${DIC_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/hunspell_dictionaries/ )
     endif()
     install( FILES ${EXT_RCC_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/iconthemes/ )
-    if ( MATHJAX_DIR )
-        install( FILES ${CMAKE_SOURCE_DIR}/src/Resource_Files/polyfills/SIGIL_EBOOK_MML_SVG.js DESTINATION ${MATHJAX_DIR}/config/local/ )
+    if ( MATHJAX3_DIR )
+        # Fixme - we need to figure out how to specify svg with mml3 extension only for external mathjax
+        # install( FILES ${CMAKE_SOURCE_DIR}/src/Resource_Files/polyfills/SIGIL_EBOOK_MML_SVG.js DESTINATION ${MATHJAX_DIR}/config/local/ )
     else()
-        install( DIRECTORY ${MATHJAX_UNZIP_DEST}/MJ/ DESTINATION ${SIGIL_SHARE_ROOT}/polyfills/MJ )
+        install( FILES ${MATHJAX_CUSTOM} DESTINATION ${SIGIL_SHARE_ROOT}/polyfills/ )
     endif()
     install( DIRECTORY ${CMAKE_SOURCE_DIR}/src/Resource_Files/plugin_launchers/python/ DESTINATION ${SIGIL_SHARE_ROOT}/plugin_launchers/python )
     install( DIRECTORY ${CMAKE_SOURCE_DIR}/src/Resource_Files/python3lib/ DESTINATION ${SIGIL_SHARE_ROOT}/python3lib )
