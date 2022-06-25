@@ -9,9 +9,10 @@ pre-1.9.20
 
      New Features
       - add ability for a user-template*.xhtml and user-template*.css
-          be read from Sigiul Prefs to create new empty xhtml and css files
+          be read from Sigil Prefs to create new empty xhtml and css files
+      - updated to very latest MathJax version 3.2.2 for mathml support in Preview
 
-      
+
 Sigil-1.9.10
     Bug Fixes
       - Fix insertion of id and links when cursor immediately before a closing tag
