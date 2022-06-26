@@ -333,7 +333,11 @@ def set_new_metadata(data, other, idlst, metatag, opfdata):
     res.append(other)
     res.append('</metadata>\n')
     newmetadata = "".join(res)
-    newopfdata = _metadata_pattern.sub(newmetadata,opfdata)
+    mo = _metadata_pattern.search(opfdata)
+    if mo:
+        newopfdata = opfdata[0:mo.start()] + newmetadata + opfdata[mo.end():]
+    else:
+        newopfdata = opfdata
     return newopfdata
 
 
