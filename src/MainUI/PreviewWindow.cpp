@@ -77,7 +77,8 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_Filepath(QString()),
     m_titleText(QString()),
     m_updatingPage(false),
-    m_usingMathML(false)
+    m_usingMathML(false),
+    m_cycleCSSLevel(0)
 {
     m_progress->reset();
     m_progress->setMinimum(0);
@@ -116,6 +117,13 @@ PreviewWindow::~PreviewWindow()
     if (m_progress) {
         m_progress->reset();
     }
+}
+
+void PreviewWindow::setUserCSSURLs(const QStringList& usercssurls)
+{
+    m_usercssurls = usercssurls;
+    m_cycleCSSAction->setEnabled(!m_usercssurls.isEmpty());
+    if (!m_usercssurls.isEmpty()) m_cycleCSSLevel = 1;
 }
 
 void PreviewWindow::SetupOverlayTimer()
@@ -228,22 +236,31 @@ void PreviewWindow::SetupView()
     m_Layout->addWidget(m_Preview);
 
     m_inspectAction = new QAction(QIcon(":/main/inspect.svg"),"", this);
+    m_inspectAction ->setEnabled(true);
     m_inspectAction->setToolTip(tr("Inspect Page"));
 
     m_selectAction  = new QAction(QIcon(":/main/edit-select-all.svg"),"", this);
+    m_selectAction ->setEnabled(true);
     m_selectAction->setToolTip(tr("Select-All"));
 
     m_copyAction    = new QAction(QIcon(":/main/edit-copy.svg"),"", this);
+    m_copyAction ->setEnabled(true);
     m_copyAction->setToolTip(tr("Copy Selection To ClipBoard"));
 
     m_reloadAction  = new QAction(QIcon(":/main/reload-page.svg"),"", this);
+    m_reloadAction ->setEnabled(true);
     m_reloadAction->setToolTip(tr("Update Preview Window"));
 
+    m_cycleCSSAction = new QAction(QIcon(":/main/cycle-css.svg"),"", this);
+    m_reloadAction ->setEnabled(false);
+    m_cycleCSSAction->setToolTip(tr("Cycle Custom CSS Files"));
+    
     QToolBar * tb = new QToolBar();
     tb->addAction(m_inspectAction);
     tb->addAction(m_selectAction);
     tb->addAction(m_copyAction);
     tb->addAction(m_reloadAction);
+    tb->addAction(m_cycleCSSAction);
     tb->addWidget(m_progress);
 
     m_buttons->addWidget(tb);
@@ -255,6 +272,15 @@ void PreviewWindow::SetupView()
     m_Preview->Zoom();
 
     QApplication::restoreOverrideCursor();
+}
+
+
+void PreviewWindow::CycleCustomCSS()
+{
+    if (m_usercssurls.isEmpty()) return;
+    m_cycleCSSLevel++;
+    if (m_cycleCSSLevel > m_usercssurls.size()) m_cycleCSSLevel = 0;
+    ReloadPreview();
 }
 
 // Note every call to Update Page needs to be followed by a call
@@ -298,14 +324,14 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     }
     m_Preview->page()->setBackgroundColor(Utility::WebViewBackgroundColor(true));
 
-    // If the user has set a default stylesheet inject it
-    // it can override anything above it
-    if (!m_usercssurl.isEmpty()) {
+    // If the user has set a default stylesheet inject it last
+    // so it can override anything above it
+    if (!m_usercssurls.isEmpty() && (m_cycleCSSLevel > 0)) {
         int endheadpos = text.indexOf("</head>");
         if (endheadpos > 1) {
             QString inject_userstyles = 
               "<link rel=\"stylesheet\" type=\"text/css\" "
-              "href=\"" + m_usercssurl + "\" />\n";
+                "href=\"" + m_usercssurls.at(m_cycleCSSLevel - 1) + "\" />\n";
             DBG qDebug() << "Preview injecting stylesheet: " << inject_userstyles;
             text.insert(endheadpos, inject_userstyles);
         }
@@ -638,6 +664,7 @@ void PreviewWindow::ConnectSignalsToSlots()
     connect(m_selectAction,  SIGNAL(triggered()),           this, SLOT(SelectAllPreview()));
     connect(m_copyAction,    SIGNAL(triggered()),           this, SLOT(CopyPreview()));
     connect(m_reloadAction,  SIGNAL(triggered()),           this, SLOT(ReloadPreview()));
+    connect(m_cycleCSSAction, SIGNAL(triggered()),          this, SLOT(CycleCustomCSS())); 
     connect(m_Inspector,     SIGNAL(finished(int)),         this, SLOT(InspectorClosed(int)));
     connect(this,     SIGNAL(topLevelChanged(bool)),        this, SLOT(previewFloated(bool)));
 }

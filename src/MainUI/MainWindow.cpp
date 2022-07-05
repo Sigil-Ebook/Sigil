@@ -174,6 +174,7 @@ static const QStringList SUPPORTED_SAVE_TYPE = QStringList() << "epub";
 
 static const QString DEFAULT_FILENAME = "untitled.epub";
 static const QString CUSTOM_PREVIEW_STYLE_FILENAME = "custom_preview_style.css";
+static const QString CUSTOM_PREVIEW_STYLE_ALT_FILENAME = "custom_preview_style_alt.css";
 
 QStringList MainWindow::s_RecentFiles = QStringList();
 
@@ -4896,14 +4897,21 @@ void MainWindow::ReadSettings()
     web_settings->setFontFamily(QWebEngineSettings::SerifFont, PVAppearance.font_family_serif);
     web_settings->setFontFamily(QWebEngineSettings::SansSerifFont, PVAppearance.font_family_sans_serif);
 
-    // Check for existing custom Preview stylesheet in Prefs dir and tell Preview about it
+    // Check for existing custom Preview stylesheets in Prefs dir and tell Preview about them
+    QStringList usercssurls;
     QFileInfo CustomPreviewStylesheetInfo(QDir(Utility::DefinePrefsDir()).filePath(CUSTOM_PREVIEW_STYLE_FILENAME));
     if (CustomPreviewStylesheetInfo.exists() && 
         CustomPreviewStylesheetInfo.isFile() && 
         CustomPreviewStylesheetInfo.isReadable()) {
-        QString usercssurl = QUrl::fromLocalFile(CustomPreviewStylesheetInfo.absoluteFilePath()).toString();
-        m_PreviewWindow->setUserCSSURL(usercssurl);
+        usercssurls << QUrl::fromLocalFile(CustomPreviewStylesheetInfo.absoluteFilePath()).toString();
     }
+    QFileInfo CustomPreviewAltStylesheetInfo(QDir(Utility::DefinePrefsDir()).filePath(CUSTOM_PREVIEW_STYLE_ALT_FILENAME));
+    if (CustomPreviewAltStylesheetInfo.exists() && 
+        CustomPreviewAltStylesheetInfo.isFile() && 
+        CustomPreviewAltStylesheetInfo.isReadable()) {
+        usercssurls << QUrl::fromLocalFile(CustomPreviewAltStylesheetInfo.absoluteFilePath()).toString();
+    }
+    m_PreviewWindow->setUserCSSURLs(usercssurls);
 
     // Determine MathJax location (>= version 3.2.2)  and tell Preview about it
     // The path to our custom MathJax 3.2.2+ build is platform dependent
