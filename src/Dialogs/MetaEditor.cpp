@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2016-2022 Kevin B. Hendricks, Stratford, ON Canada
 **
 **  This file is part of Sigil.
 **
@@ -539,7 +539,7 @@ void MetaEditor::selectE2Element()
             code = "dc:creator";
             QString content = tr("[Author name here]");
             insertRow(EName(code), code, content, "");
-            insertChild(PName("opf:role"),"opf:role", LName("aut"), "aut");
+            insertChild(PName("opf:role"),"opf:role", RName("aut"), "aut");
         } else if (code == "dc:creator") {
             code = "dc:creator";
             QString content = tr("[Creator name here]");

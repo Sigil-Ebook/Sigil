@@ -6,6 +6,8 @@ pre-1.9.20
       - Metadata Editor will now strip out unneeded xmlns:dc attributes on dc tags
       - Metadata Editor is now more robust to language codes that have incorrect case in the metadata
       - clarify Create HTML ToC menu entry works from existing ToC
+      - prevent indavertent "\" chars be treated like escapes when updating metadata
+      - fix MetaEditor nit of not auto adding "aut" role to Author metadata for epub2
 
      New Features
       - add ability for a user-template*.xhtml and user-template*.css
