@@ -252,7 +252,7 @@ void PreviewWindow::SetupView()
     m_reloadAction->setToolTip(tr("Update Preview Window"));
 
     m_cycleCSSAction = new QAction(QIcon(":/main/cycle-css.svg"),"", this);
-    m_reloadAction ->setEnabled(false);
+    m_cycleCSSAction ->setEnabled(false);
     m_cycleCSSAction->setToolTip(tr("Cycle Custom CSS Files"));
     
     QToolBar * tb = new QToolBar();
