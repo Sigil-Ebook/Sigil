@@ -32,6 +32,7 @@
 #include <QWebEngineView>
 #include <QtWidgets/QDockWidget>
 #include <QTimer>
+#include <QStringList>
 #include <ViewEditors/Viewer.h>
 #include <Dialogs/Inspector.h>
 
@@ -42,7 +43,6 @@ class QVBoxLayout;
 class QHBoxLayout;
 class QProgressBar;
 class OverlayHelperWidget;
-class QStringList;
 
 class PreviewWindow : public QDockWidget
 {
