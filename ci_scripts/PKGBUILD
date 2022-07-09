@@ -1,0 +1,45 @@
+# Maintainer: Doug Massay
+
+pkgname=sigil
+_commit=%COMMIT%
+pkgver=$_commit
+pkgrel=1
+pkgdesc='multi-platform EPUB2/EPUB3 ebook editor'
+arch=('x86_64')
+url="https://github.com/Sigil-Ebook/Sigil"
+license=(GPL3)
+depends=(hunspell
+         minizip
+         python-css-parser
+         python-dulwich
+         python-lxml
+         qt6-svg
+         qt6-webengine
+         qt6-5compat)
+makedepends=(git
+             cmake
+             qt6-tools)
+source=("git+$url.git#commit=$_commit")
+sha512sums=('SKIP')
+
+
+prepare() {
+	cd "${srcdir}/${pkgname^}"
+}
+
+build() {
+	mkdir -p "${srcdir}/${pkgname^}/build"
+    cd "${srcdir}/${pkgname^}/build"
+	/usr/lib/qt6/bin/qt-cmake -G "Unix Makefiles" \
+		-DUSE_SYSTEM_LIBS=1 \
+		-DSYSTEM_LIBS_REQUIRED=1 \
+        -DUSE_QT6=1 \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_INSTALL_LIBDIR=lib \
+		-DCMAKE_SKIP_RPATH=ON ..
+	make -j$(getconf _NPROCESSORS_ONLN)
+}
+
+package() {
+    touch "${srcdir}/$pkgname/build/done.txt"
+}

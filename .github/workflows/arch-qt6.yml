@@ -1,0 +1,53 @@
+name: Build Qt6 Sigil package on Arch Linux
+
+on:
+  push:
+    branches: [ master ]
+    tags-ignore:
+      - '**'
+    paths-ignore:
+    - 'docs/**'
+    - 'installer/win_installer_note.txt'
+    - 'ChangeLog.txt'
+    - 'COPYING.txt'
+    - 'version.xml'
+    - 'appveyor.yml'
+    - '.retired_travis.yml'
+    - '**.md'
+    - '**/reset-**-caches.txt'
+
+  pull_request:
+    branches: [ master ]
+    tags-ignore:
+      - '**'
+    paths-ignore:
+    - 'docs/**'
+    - 'installer/win_installer_note.txt'
+    - 'ChangeLog.txt'
+    - 'COPYING.txt'
+    - 'version.xml'
+    - 'appveyor.yml'
+    - '.retired_travis.yml'
+    - '**.md'
+    - '**/reset-**-caches.txt'
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  test-qt6:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+
+    container:
+      image: archlinux
+      options: --privileged
+      volumes:
+        - /sys/fs/cgroup:/sys/fs/cgroup
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build Arch Linux Qt6 package
+      uses: FFY00/build-arch-package@v1
+      with:
+        BUILD_SCRIPT: extra-x86_64-build
+        PKGBUILD: $GITHUB_WORKSPACE/ci_scripts/PKGBUILD
