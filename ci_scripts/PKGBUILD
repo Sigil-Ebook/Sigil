@@ -41,5 +41,5 @@ build() {
 }
 
 package() {
-    touch "${srcdir}/$pkgname/build/done.txt"
+    touch "${srcdir}/${pkgname^}/build/done.txt"
 }
