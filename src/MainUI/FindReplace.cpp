@@ -854,7 +854,7 @@ bool FindReplace::FindText(Searchable::Direction direction)
     if (found) {
         clearMessage();
     } else {
-        CannotFindSearchTerm();
+        ShowMessage(tr("End of search"));
     }
 
     UpdatePreviousFindStrings();

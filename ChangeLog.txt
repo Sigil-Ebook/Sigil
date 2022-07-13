@@ -13,6 +13,7 @@ pre-1.9.20
       - add ability for a user-template*.xhtml and user-template*.css
           be read from Sigil Prefs to create new empty xhtml and css files
       - updated to very latest MathJax version 3.2.2 for mathml support in Preview
+      - add ability to cycle through 2 different custom stylesheets (and none at all) for use with Preivew 
 
 
 Sigil-1.9.10
