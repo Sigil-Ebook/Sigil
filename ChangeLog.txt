@@ -1,4 +1,4 @@
-pre-1.9.20
+Sigil-1.9.20
     Bug Fixes
       - double width of new Find Replace icons to make them easier to access
       - improve new Find Replace icon tooltips to be include short name on top
@@ -8,12 +8,13 @@ pre-1.9.20
       - clarify Create HTML ToC menu entry works from existing ToC
       - prevent indavertent "\" chars be treated like escapes when updating metadata
       - fix MetaEditor nit of not auto adding "aut" role to Author metadata for epub2
+      - make Spellcheck Editor count align column numerically (right)
 
      New Features
       - add ability for a user-template*.xhtml and user-template*.css
           be read from Sigil Prefs to create new empty xhtml and css files
       - updated to very latest MathJax version 3.2.2 for mathml support in Preview
-      - add ability to cycle through 2 different custom stylesheets (and none at all) for use with Preivew 
+      - add ability to cycle through 2 different custom stylesheets (and none at all) for use with Preview 
 
 
 Sigil-1.9.10
