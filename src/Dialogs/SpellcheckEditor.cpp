@@ -301,6 +301,7 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
         }
         NumericItem *count_item = new NumericItem();
         count_item->setText(QString::number(count));
+        count_item->setTextAlignment(Qt::AlignRight);
         row_items << count_item;
 
         QStandardItem *lang_item = new QStandardItem(lang);
