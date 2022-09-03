@@ -147,7 +147,7 @@ If you configured with the default install prefix, you can launch by entering "s
 
 To test if Sigil's Python 3.6+ plugin framework is fully functional, you can do the following:
 
-1. download testplugin_v013.zip from [https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip](https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v014.zip)
+1. download testplugin_v019.zip from [https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v019.zip](https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v019.zip)
 2. open Sigil to the normal nearly blank template epub it generates when opened
 3. use Plugins->Manage Plugins menu and make sure you have a Python 3.4+ interpreter configured 
 4. use the "Add Plugin" button to navigate to and add testplugin_vXXX.zip and then hit "Okay" to exit the Manage Plugins Dialog
@@ -182,7 +182,9 @@ There are several configuration and environment variable options that can tailor
 
 -DEXTRA_DICT_DIRS=`<path1>`:`<path2>` Path(s) that should be searched for eligible spellcheck dictionaries (in addition to /usr/share/hunspell). Multiple paths should be separated by colons. This option is only relevant if -DINSTALL_BUNDLED_DICTS=0 is also specified.
 
--DMATHJAX_DIR=`<path>` If you would like use your system's MathJax implementation instead of the one that comes bundled with Sigil, use this cmake directive when first configuring. A minimum of MathJax v2.7.0 is required to work with Sigil. NOTE: if -DMATHJAX_DIR=`<path>` is used, Sigil will install a config script to `<path>`/config/local. This file is required for Sigil's Preview to be able properly render MathML. This feature was added between Sigil 0.9.12 and 0.9.13.
+-DMATHJAX_DIR=`<path>` **Only for Sigil 1.9.10 and earlier!** If you would like use your system's MathJax implementation instead of the one that comes bundled with Sigil, use this cmake directive when first configuring. A minimum of MathJax v2.7.0 is required to work with Sigil. NOTE: if -DMATHJAX_DIR=`<path>` is used, Sigil will install a config script to `<path>`/config/local. This file is required for Sigil's Preview to be able properly render MathML. This feature was added between Sigil 0.9.12 and 0.9.13.
+
+-DMATHJAX3_DIR=`<path>` **Only for Sigil 1.9.20 and Later!** If you would like use your system's MathJax implementation instead of the one that comes bundled with Sigil, use this cmake directive when first configuring. A minimum of MathJax v3.2.2 is required to work with Sigil. MathJax 3.2.2+ is required for Sigil's Preview to be able properly render MathML starting with Sigil v1.9.20. Ensure your system MathJax meets this minimum version requirement before using usinf this CMAKE define.
 
 -DINSTALL_HICOLOR_ICONS=(0|1) Install various-sized Sigil application icons to the typical hicolor theme directories (`<INSTALL_PREFIX>/share/icons/hicolor`). The default is 0, which installs a single icon to the `<INSTALL_PREFIX>/share/pixmap` folder.
 
