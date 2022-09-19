@@ -54,6 +54,13 @@ from zipfile import ZipFile
 
 from contextlib import contextmanager
 
+def list_tags(*args, **kwargs):
+    # porcelain.list_tags() removed in dulwich 0.20.46
+    if dulwich.__version__ > (0, 20,45):
+        return porcelain.tag_list(*args, **kwargs)
+    else:
+        return porcelain.list_tags(*args, **kwargs)
+
 @contextmanager
 def make_temp_directory():
     import tempfile
@@ -329,7 +336,7 @@ def clone_repo_and_checkout_tag(localRepo, bookid, tagname, filename, dest_path)
     if os.path.exists(repo_path):
         if not os.path.exists(dest_path): return ""
         os.chdir(repo_path)
-        tags = porcelain.list_tags(repo='.')
+        tags = list_tags(repo='.')
         for atag in tags:
             taglst.append(unicode_str(atag))
         # use dest_path to clone into
@@ -402,7 +409,7 @@ def generate_epub_from_tag(localRepo, bookid, tagname, filename, dest_path):
     taglst = []
     if os.path.exists(repo_path):
         os.chdir(repo_path)
-        tags = porcelain.list_tags(repo='.')
+        tags = list_tags(repo='.')
         os.chdir(cdir)
         for atag in tags:
             taglst.append(unicode_str(atag))
@@ -490,7 +497,7 @@ def performCommit(localRepo, bookid, bookinfo, bookroot, bookfiles):
         # current tag, etc
         os.chdir(repo_path)
         # determine the new tag
-        tags = porcelain.list_tags(repo='.')
+        tags = list_tags(repo='.')
         tagname = "V%04d" % (len(tags) + 1)
         tagmessage = "Tag: " + tagname
         message = "updating to " + tagname
