@@ -687,7 +687,12 @@ void CSSParser::parseInValue(QString& css_input, int& i, parse_status& astatus, 
         }
         else if (css_input[i] == '!') 
         {
-            cur_sub_value_arr.push_back(CSSUtils::trim(cur_sub_value));
+            // Only push cur_sub_value back if the cur_sub_value is non-empty after trimming
+            // Otherwise it will inject an extra space before the ! when assembling
+            // the value from the cur_sub_value_arr
+            if(CSSUtils::trim(cur_sub_value) != "") {
+                cur_sub_value_arr.push_back(CSSUtils::trim(cur_sub_value));
+            }
             cur_sub_value = "!";
         }
         else if (css_input[i] == ',' || css_input[i] == ')') 

@@ -1,3 +1,9 @@
+pre-1.9.30
+    Bug Fixes
+      - fix css property value parsing to better handle !important
+
+    New Features
+    
 Sigil-1.9.20
     Bug Fixes
       - double width of new Find Replace icons to make them easier to access
