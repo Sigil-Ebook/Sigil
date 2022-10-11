@@ -3,7 +3,7 @@
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
 # Copyright (c) 2022 Kevin B. Hendricks, Stratford Ontario Canada
-#               2022 Doug Massay
+# Copyright (c) 2022 Doug Massay
 # All rights reserved.
 #
 # This file is part of Sigil.
@@ -723,6 +723,7 @@ def update_annotated_tag_message(localRepo, bookid, tagname, newmessage):
     repo_home = repo_home.replace("/", os.sep)
     repo_path = os.path.join(repo_home, "epub_" + bookid)
     cdir = os.getcwd()
+    success = 1
     if os.path.exists(repo_path):
         os.chdir(repo_path)
         with open_repo_closing(".") as r:
@@ -732,7 +733,7 @@ def update_annotated_tag_message(localRepo, bookid, tagname, newmessage):
             if tag_name in tags:
                 obj = r[tagkey]
                 if isinstance(obj,Tag):
-                    # create a duplicate Tag with updated message                                                       
+                    # create a duplicate Tag with updated message
                     nobj = Tag()
                     nobj.tag_time = obj.tag_time
                     nobj.tag_timezone = obj.tag_timezone
@@ -741,16 +742,23 @@ def update_annotated_tag_message(localRepo, bookid, tagname, newmessage):
                     nobj.tagger = obj.tagger
                     nobj.object = obj.object
                     old_id = obj.id
-                    # delete the old tag from the object store refs dictionary                                          
-                    del r.refs[_make_tag_ref(tag_name)]
-                    # remove the old annotated object itself from the object store                                      
-                    r.object_store._remove_loose_object(old_id)
-                    # add in the updated tag to the object store                                                                           
-                    r.object_store.add_object(nobj)
-                    # create a ref in the refs dictionary for the updated tag
-                    tag_id = nobj.id
-                    r.refs[_make_tag_ref(tag_name)] = tag_id             
+                    try:
+                        # delete the old tag from the object store refs dictionary
+                        del r.refs[_make_tag_ref(tag_name)]
+                        # remove the old annotated object itself from the object store
+                        r.object_store._remove_loose_object(old_id)
+                        # add in the updated tag to the object store
+                        r.object_store.add_object(nobj)
+                        # create a ref in the refs dictionary for the updated tag
+                        tag_id = nobj.id
+                        r.refs[_make_tag_ref(tag_name)] = tag_id
+                    except Exception as e:
+                        print("tag delete/recreate failed")
+                        print(str(e))
+                        success = 0
+                        pass
         os.chdir(cdir)
+        return success
 
 
 def main():

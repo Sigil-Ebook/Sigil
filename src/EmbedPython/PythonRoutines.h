@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2022 Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -62,6 +63,11 @@ public:
 
     QStringList GetRepoTagsInPython(    const QString& localRepo, 
                                         const QString& bookid );
+
+    bool ChangeRepoTagMsgInPython(      const QString& localRepo,
+                                        const QString& bookid, 
+                                        const QString& tagname, 
+                                        const QString& newmessage);
 
     QString GenerateEpubFromTagInPython(const QString& localRepo, 
                                         const QString& bookid,

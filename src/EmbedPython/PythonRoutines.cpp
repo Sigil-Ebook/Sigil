@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2022 Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -194,6 +195,30 @@ QStringList PythonRoutines::GetRepoTagsInPython(const QString& localRepo, const 
                                          error_traceback);
     if (rv == 0) {
         results = res.toStringList();
+    }
+    return results;
+}
+
+bool PythonRoutines::ChangeRepoTagMsgInPython(const QString& localRepo, const QString& bookid, const QString& tagname, const QString& newmessage)
+{
+    bool results = false;
+    int rv = -1;
+    QString error_traceback;
+    QList<QVariant> args;
+    args.append(QVariant(localRepo));
+    args.append(QVariant(bookid));
+    args.append(QVariant(tagname));
+    args.append(QVariant(newmessage));
+
+    EmbeddedPython * epython  = EmbeddedPython::instance();
+
+    QVariant res = epython->runInPython( QString("repomanager"),
+                                         QString("update_annotated_tag_message"),
+                                         args,
+                                         &rv,
+                                         error_traceback);
+    if (rv == 0) {
+        results = (res.toInt() > 0);
     }
     return results;
 }

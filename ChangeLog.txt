@@ -3,6 +3,7 @@ pre-1.9.30
       - fix css property value parsing to better handle !important
 
     New Features
+      - allow uesr to edit Checkpoint descriptions for clarity
     
 Sigil-1.9.20
     Bug Fixes

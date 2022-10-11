@@ -1155,6 +1155,95 @@ void MainWindow::RepoManage()
     mr.exec();
 }
 
+void MainWindow::RepoEditTagDescription()
+{
+    QString localRepo = Utility::DefinePrefsDir() + "/repo";
+    QDir repoDir(localRepo);
+    if (!repoDir.exists()) {
+        // No repo folder, no checkpoints
+        ShowMessageOnStatusBar(tr("Description Edit Failed. No checkpoints found"));
+        return;
+    }
+    QString bookid;
+    bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    // Get tags using python in a separate thread since this
+    // may take a while depending on the speed of the filesystem
+    PythonRoutines pr;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)    
+    QFuture<QStringList> future = QtConcurrent::run(&pr, &PythonRoutines::GetRepoTagsInPython, 
+                                                          localRepo, bookid);
+#else
+    QFuture<QStringList> future = QtConcurrent::run(&PythonRoutines::GetRepoTagsInPython, &pr,
+                                                          localRepo, bookid);
+#endif
+    future.waitForFinished();
+    QStringList tag_results = future.result();
+    if (tag_results.isEmpty()) {
+        ShowMessageOnStatusBar(tr("Description Edit Failed. No checkpoints found"));
+        QApplication::restoreOverrideCursor();
+        return;
+    }
+    QApplication::restoreOverrideCursor();
+
+    // Now use a Dialog to allow the user to select the tag to edit
+    QString tagname;
+    QStringList taglst;
+    SelectCheckpoint gettag(tag_results, this);
+    if (gettag.exec() == QDialog::Accepted) {
+        taglst  = gettag.GetSelectedEntries();
+        if (!taglst.isEmpty()) {
+            tagname = taglst.at(0);
+        }
+    }
+    if (tagname.isEmpty()) {
+        ShowMessageOnStatusBar(tr("Description Edit Failed. No checkpoint selected to edit"));
+        return;
+    }
+
+    // Get current tag message of selected tag
+    QString currmsg;
+    foreach(QString atag, tag_results) {
+        QStringList fields = atag.split("|");
+        if (fields.length() == 3) {
+            if (fields.at(0) == tagname)
+            currmsg = fields.at(2);
+        }
+    }
+
+    // Use QInputDialog to get new tag message
+    // Is multi line necessary here?
+    bool ok;
+    QString newmessage = QInputDialog::getMultiLineText(this, tr("Edit checkpoint Description"),
+                                                        tr("New Checkpoint Description:"), currmsg.trimmed(), &ok);
+
+    // Update Tag message with new message
+    if (ok && !newmessage.isEmpty()) {
+        QApplication::setOverrideCursor(Qt::WaitCursor);
+        PythonRoutines pr;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+        QFuture<bool> afuture = QtConcurrent::run(&pr, &PythonRoutines::ChangeRepoTagMsgInPython, 
+                                                 localRepo, bookid, tagname, newmessage);
+#else
+        QFuture<bool> afuture = QtConcurrent::run(&PythonRoutines::ChangeRepoTagMsgInPython, &pr,
+                                                 localRepo, bookid, tagname, newmessage);
+#endif
+        afuture.waitForFinished();
+        bool res = afuture.result();
+        if (!res) {
+            ShowMessageOnStatusBar(tr("Description Edit Failed for unknown reason"));
+            QApplication::restoreOverrideCursor();
+            return;
+        }
+        QApplication::restoreOverrideCursor();
+    } else {
+        ShowMessageOnStatusBar(tr("Description edit cancelled or empty"));
+        return;
+    }
+    ShowMessageOnStatusBar(tr("Description successfully updated"));
+}
+
 void MainWindow::launchExternalXEditor()
 {
     // For simplicity for new users always launch the PageEdit external
@@ -6280,10 +6369,11 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionExit,          SIGNAL(triggered()), this, SLOT(Exit()));
 
     // Checkpoint Repo functions
-    connect(ui.actionCommit,        SIGNAL(triggered()), this, SLOT(RepoCommit()));
-    connect(ui.actionCheckout,      SIGNAL(triggered()), this, SLOT(RepoCheckout()));
-    connect(ui.actionDiff,          SIGNAL(triggered()), this, SLOT(RepoDiff()));
-    connect(ui.actionManageRepo,    SIGNAL(triggered()), this, SLOT(RepoManage()));
+    connect(ui.actionCommit,              SIGNAL(triggered()), this, SLOT(RepoCommit()));
+    connect(ui.actionCheckout,            SIGNAL(triggered()), this, SLOT(RepoCheckout()));
+    connect(ui.actionDiff,                SIGNAL(triggered()), this, SLOT(RepoDiff()));
+    connect(ui.actionManageRepo,          SIGNAL(triggered()), this, SLOT(RepoManage()));
+    connect(ui.actionEditCheckpointDesc,  SIGNAL(triggered()), this, SLOT(RepoEditTagDescription()));
 
     // Automation
     connect(ui.actionAutomate1,        SIGNAL(triggered()), this, SLOT(RunAutomate1()));
