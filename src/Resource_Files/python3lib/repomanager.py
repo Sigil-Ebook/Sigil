@@ -723,7 +723,7 @@ def update_annotated_tag_message(localRepo, bookid, tagname, newmessage):
     repo_home = repo_home.replace("/", os.sep)
     repo_path = os.path.join(repo_home, "epub_" + bookid)
     cdir = os.getcwd()
-    success = 1
+    success = 0
     if os.path.exists(repo_path):
         os.chdir(repo_path)
         with open_repo_closing(".") as r:
@@ -742,21 +742,16 @@ def update_annotated_tag_message(localRepo, bookid, tagname, newmessage):
                     nobj.tagger = obj.tagger
                     nobj.object = obj.object
                     old_id = obj.id
-                    try:
-                        # delete the old tag from the object store refs dictionary
-                        del r.refs[_make_tag_ref(tag_name)]
-                        # remove the old annotated object itself from the object store
-                        r.object_store._remove_loose_object(old_id)
-                        # add in the updated tag to the object store
-                        r.object_store.add_object(nobj)
-                        # create a ref in the refs dictionary for the updated tag
-                        tag_id = nobj.id
-                        r.refs[_make_tag_ref(tag_name)] = tag_id
-                    except Exception as e:
-                        print("tag delete/recreate failed")
-                        print(str(e))
-                        success = 0
-                        pass
+                    # delete the old tag from the object store refs dictionary
+                    del r.refs[_make_tag_ref(tag_name)]
+                    # remove the old annotated object itself from the object store
+                    r.object_store._remove_loose_object(old_id)
+                    # add in the updated tag to the object store
+                    r.object_store.add_object(nobj)
+                    # create a ref in the refs dictionary for the updated tag
+                    tag_id = nobj.id
+                    r.refs[_make_tag_ref(tag_name)] = tag_id
+                    success = 1
         os.chdir(cdir)
         return success
 
