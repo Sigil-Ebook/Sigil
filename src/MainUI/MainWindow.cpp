@@ -1244,6 +1244,39 @@ void MainWindow::RepoEditTagDescription()
     ShowMessageOnStatusBar(tr("Description successfully updated"));
 }
 
+
+void MainWindow::RepoShowLog()
+{
+    QString bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
+    QString localRepo = Utility::DefinePrefsDir() + "/repo/";
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // generate the repo log using python in a separate thread since this
+    // may take a while depending on the speed of the filesystem
+    PythonRoutines pr;
+    QFuture<QString> future =
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+        QtConcurrent::run(&pr,
+                          &PythonRoutines::GenerateRepoLogSummaryInPython,
+                          localRepo,
+                          bookid);
+#else
+        QtConcurrent::run(&PythonRoutines::GenerateRepoLogSummaryInPython,
+                          &pr,
+                          localRepo,
+                          bookid);
+#endif
+    future.waitForFinished();
+    QString logData = future.result();
+
+    QApplication::restoreOverrideCursor();
+
+    RepoLog log(tr("Repository Log"), logData, this);
+    log.exec();
+}
+
+
 void MainWindow::launchExternalXEditor()
 {
     // For simplicity for new users always launch the PageEdit external
@@ -6116,10 +6149,13 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionPreviousResource, "MainWindow.PreviousResource");
     sm->registerAction(this, ui.actionNextResource, "MainWindow.NextResource");
     // Checkpoints
-    sm->registerAction(this, ui.actionCommit,     "MainWindow.CreateCheckpoint");
-    sm->registerAction(this, ui.actionCheckout,   "MainWindow.RestoreFromCheckpoint");
-    sm->registerAction(this, ui.actionDiff,       "MainWindow.CompareToCheckpoint");
-    sm->registerAction(this, ui.actionManageRepo, "MainWindow.ManageCheckpointRepository");
+    sm->registerAction(this, ui.actionCommit,             "MainWindow.CreateCheckpoint");
+    sm->registerAction(this, ui.actionCheckout,           "MainWindow.RestoreFromCheckpoint");
+    sm->registerAction(this, ui.actionDiff,               "MainWindow.CompareToCheckpoint");
+    sm->registerAction(this, ui.actionManageRepo,         "MainWindow.ManageCheckpointRepository");
+    sm->registerAction(this, ui.actionEditCheckpointDesc, "MainWindow.EditCheckpointDescription");
+    sm->registerAction(this, ui.actionLog,                "MainWindow.ShowCheckpointLog");
+
     // Automation Lists
     sm->registerAction(this, ui.actionAutomate1,   "MainWindow.RunAutomate1");
     sm->registerAction(this, ui.actionAutomate2,   "MainWindow.RunAutomate2");
@@ -6374,6 +6410,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionDiff,                SIGNAL(triggered()), this, SLOT(RepoDiff()));
     connect(ui.actionManageRepo,          SIGNAL(triggered()), this, SLOT(RepoManage()));
     connect(ui.actionEditCheckpointDesc,  SIGNAL(triggered()), this, SLOT(RepoEditTagDescription()));
+    connect(ui.actionLog,                 SIGNAL(triggered()), this, SLOT(RepoShowLog()));
 
     // Automation
     connect(ui.actionAutomate1,        SIGNAL(triggered()), this, SLOT(RunAutomate1()));

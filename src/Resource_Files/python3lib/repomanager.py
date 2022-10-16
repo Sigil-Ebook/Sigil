@@ -367,6 +367,24 @@ def logsummary(repo=".", paths=None, outstream=sys.stdout, max_entries=None, rev
       stats: Print diff stats
     """
     with open_repo_closing(repo) as r:
+        # first print a list of checkpoint tags
+        tags = sorted(r.refs.as_dict(b"refs/tags"), reverse=True)
+        for atag in tags:
+            tagkey = b"refs/tags/" + atag
+            tag_obj = r[tagkey]
+            tag_name = unicode_str(atag)
+            tag_message = ""
+            tag_date = ""
+            if isinstance(tag_obj,Tag):
+                time_tuple = time.gmtime(tag_obj.tag_time + tag_obj.tag_timezone)
+                time_str = time.strftime("%a %b %d %Y %H:%M:%S",time_tuple)
+                timezone_str = format_timezone(tag_obj.tag_timezone).decode('ascii')
+                tag_date = time_str + " " + timezone_str
+                tag_message = unicode_str(tag_obj.message)
+            outstream.write(tag_name + " " + tag_date + "\n")
+            outstream.write("    " + tag_message + "\n")
+        outstream.write("\n\n")
+        # then walk the commits in reverse order (going back in time)
         walker = r.get_walker(max_entries=max_entries, paths=paths, reverse=reverse)
         for entry in walker:
             def decode(x):

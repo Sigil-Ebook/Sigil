@@ -272,6 +272,7 @@ public slots:
     void RepoDiff(QString bookid="");
     void RepoManage();
     void RepoEditTagDescription();
+    void RepoShowLog();
 
     void RunAutomate1();
     void RunAutomate2();

@@ -396,6 +396,7 @@
     <addaction name="actionDiff"/>
     <addaction name="actionManageRepo"/>
     <addaction name="actionEditCheckpointDesc"/>
+    <addaction name="actionLog"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -2958,6 +2959,11 @@
   <action name="actionEditCheckpointDesc">
    <property name="text">
     <string>Edit Checkpoint Descriptions</string>
+   </property>
+  </action>
+  <action name="actionLog">
+   <property name="text">
+    <string>Show Log of Checkpoints</string>
    </property>
   </action>
  </widget>

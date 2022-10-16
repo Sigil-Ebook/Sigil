@@ -1,0 +1,135 @@
+diff --git a/src/Form_Files/main.ui b/src/Form_Files/main.ui
+index c00d1b480..0e23ab2c1 100644
+--- a/src/Form_Files/main.ui
++++ b/src/Form_Files/main.ui
+@@ -396,6 +396,7 @@
+     <addaction name="actionDiff"/>
+     <addaction name="actionManageRepo"/>
+     <addaction name="actionEditCheckpointDesc"/>
++    <addaction name="actionLog"/>
+    </widget>
+    <addaction name="menuFile"/>
+    <addaction name="menuEdit"/>
+@@ -2960,6 +2961,11 @@
+     <string>Edit Checkpoint Descriptions</string>
+    </property>
+   </action>
++  <action name="actionLog">
++   <property name="text">
++    <string>Show Log of Checkpoints</string>
++   </property>
++  </action>
+  </widget>
+  <resources>
+   <include location="../Resource_Files/main/main.qrc"/>
+diff --git a/src/MainUI/MainWindow.cpp b/src/MainUI/MainWindow.cpp
+index bd4bb2066..d8a61d7e9 100644
+--- a/src/MainUI/MainWindow.cpp
++++ b/src/MainUI/MainWindow.cpp
+@@ -1244,6 +1244,39 @@ void MainWindow::RepoEditTagDescription()
+     ShowMessageOnStatusBar(tr("Description successfully updated"));
+ }
+ 
++
++void MainWindow::RepoShowLog()
++{
++    QString bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
++    QString localRepo = Utility::DefinePrefsDir() + "/repo/";
++
++    QApplication::setOverrideCursor(Qt::WaitCursor);
++
++    // generate the repo log using python in a separate thread since this
++    // may take a while depending on the speed of the filesystem
++    PythonRoutines pr;
++    QFuture<QString> future =
++#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
++        QtConcurrent::run(&pr,
++                          &PythonRoutines::GenerateRepoLogSummaryInPython,
++                          localRepo,
++                          bookid);
++#else
++        QtConcurrent::run(&PythonRoutines::GenerateRepoLogSummaryInPython,
++                          &pr,
++                          localRepo,
++                          bookid);
++#endif
++    future.waitForFinished();
++    QString logData = future.result();
++
++    QApplication::restoreOverrideCursor();
++
++    RepoLog log(tr("Repository Log"), logData, this);
++    log.exec();
++}
++
++
+ void MainWindow::launchExternalXEditor()
+ {
+     // For simplicity for new users always launch the PageEdit external
+@@ -6116,10 +6149,13 @@ void MainWindow::ExtendUI()
+     sm->registerAction(this, ui.actionPreviousResource, "MainWindow.PreviousResource");
+     sm->registerAction(this, ui.actionNextResource, "MainWindow.NextResource");
+     // Checkpoints
+-    sm->registerAction(this, ui.actionCommit,     "MainWindow.CreateCheckpoint");
+-    sm->registerAction(this, ui.actionCheckout,   "MainWindow.RestoreFromCheckpoint");
+-    sm->registerAction(this, ui.actionDiff,       "MainWindow.CompareToCheckpoint");
+-    sm->registerAction(this, ui.actionManageRepo, "MainWindow.ManageCheckpointRepository");
++    sm->registerAction(this, ui.actionCommit,             "MainWindow.CreateCheckpoint");
++    sm->registerAction(this, ui.actionCheckout,           "MainWindow.RestoreFromCheckpoint");
++    sm->registerAction(this, ui.actionDiff,               "MainWindow.CompareToCheckpoint");
++    sm->registerAction(this, ui.actionManageRepo,         "MainWindow.ManageCheckpointRepository");
++    sm->registerAction(this, ui.actionEditCheckpointDesc, "MainWindow.EditCheckpointDescription");
++    sm->registerAction(this, ui.actionLog,                "MainWindow.ShowCheckpointLog");
++
+     // Automation Lists
+     sm->registerAction(this, ui.actionAutomate1,   "MainWindow.RunAutomate1");
+     sm->registerAction(this, ui.actionAutomate2,   "MainWindow.RunAutomate2");
+@@ -6374,6 +6410,7 @@ void MainWindow::ConnectSignalsToSlots()
+     connect(ui.actionDiff,                SIGNAL(triggered()), this, SLOT(RepoDiff()));
+     connect(ui.actionManageRepo,          SIGNAL(triggered()), this, SLOT(RepoManage()));
+     connect(ui.actionEditCheckpointDesc,  SIGNAL(triggered()), this, SLOT(RepoEditTagDescription()));
++    connect(ui.actionLog,                 SIGNAL(triggered()), this, SLOT(RepoShowLog()));
+ 
+     // Automation
+     connect(ui.actionAutomate1,        SIGNAL(triggered()), this, SLOT(RunAutomate1()));
+diff --git a/src/MainUI/MainWindow.h b/src/MainUI/MainWindow.h
+index 2586c3803..d5a336da6 100644
+--- a/src/MainUI/MainWindow.h
++++ b/src/MainUI/MainWindow.h
+@@ -272,6 +272,7 @@ public slots:
+     void RepoDiff(QString bookid="");
+     void RepoManage();
+     void RepoEditTagDescription();
++    void RepoShowLog();
+ 
+     void RunAutomate1();
+     void RunAutomate2();
+diff --git a/src/Resource_Files/python3lib/repomanager.py b/src/Resource_Files/python3lib/repomanager.py
+index 397536950..5c7564e42 100644
+--- a/src/Resource_Files/python3lib/repomanager.py
++++ b/src/Resource_Files/python3lib/repomanager.py
+@@ -367,6 +367,24 @@ def logsummary(repo=".", paths=None, outstream=sys.stdout, max_entries=None, rev
+       stats: Print diff stats
+     """
+     with open_repo_closing(repo) as r:
++        # first print a list of checkpoint tags
++        tags = sorted(r.refs.as_dict(b"refs/tags"), reverse=True)
++        for atag in tags:
++            tagkey = b"refs/tags/" + atag
++            tag_obj = r[tagkey]
++            tag_name = unicode_str(atag)
++            tag_message = ""
++            tag_date = ""
++            if isinstance(tag_obj,Tag):
++                time_tuple = time.gmtime(tag_obj.tag_time + tag_obj.tag_timezone)
++                time_str = time.strftime("%a %b %d %Y %H:%M:%S",time_tuple)
++                timezone_str = format_timezone(tag_obj.tag_timezone).decode('ascii')
++                tag_date = time_str + " " + timezone_str
++                tag_message = unicode_str(tag_obj.message)
++            outstream.write(tag_name + " " + tag_date + "\n")
++            outstream.write("    " + tag_message + "\n")
++        outstream.write("\n\n")
++        # then walk the commits in reverse order (going back in time)
+         walker = r.get_walker(max_entries=max_entries, paths=paths, reverse=reverse)
+         for entry in walker:
+             def decode(x):
