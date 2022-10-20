@@ -3,7 +3,9 @@ pre-1.9.30
       - fix css property value parsing to better handle !important
 
     New Features
-      - allow user to edit Checkpoint descriptions for clarity
+      - allow user to edit Checkpoint descriptions for clarity via Checkpoint menu
+      - Add ability to show the Checkpoint Change Log via Checkpoint menu 
+      
     
 Sigil-1.9.20
     Bug Fixes
