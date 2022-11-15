@@ -1760,7 +1760,8 @@ void FindReplace::SetStartingResource(bool update_position)
     // new searches at the top (or bottom) of the current file if it is in the set.
     // Also, when the user hits Restart, the next search should start at the top (bottom)
     
-    if (m_IsSearchGroupRunning || manual_restart ) {
+    // if (m_IsSearchGroupRunning || manual_restart ) {
+    if (m_IsSearchGroupRunning) {
         if ( m_StartingResource == current_resource ) {
             int pos = 0;
             if (GetSearchDirection() == FindReplace::SearchDirection_Up) {

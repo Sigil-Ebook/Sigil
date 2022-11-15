@@ -896,6 +896,8 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
     int start_offset = 0;
     int start = 0;
     int end = txt.length();
+    bool moved_to_split = false;
+    int original_pos = -1;
 
     if (marked_text) {
         if (!MoveToMarkedText(search_direction, wrap)) {
@@ -910,6 +912,7 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
     // the impact of wrap around, split will always be -1 if
     // marked text is being used and in all Current File Mode searches
     if (split_at != -1) {
+        original_pos = textCursor().position(); 
         if (search_direction == Searchable::Direction_Up) {
             start = split_at;
         } else {
@@ -919,6 +922,7 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
         if (!MoveToSplitText(search_direction, start, end)) {
             return false;
         }
+        moved_to_split = true;
     }
 
     int selection_offset = GetSelectionOffset(search_direction, ignore_selection_offset, marked_text);
@@ -971,7 +975,13 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
             return true;
         }
     }
-
+    // nothing found
+    if (moved_to_split) {
+        // restore original pos since nothing found
+        QTextCursor cursor = textCursor();
+        cursor.setPosition(original_pos);
+        setTextCursor(cursor);
+    }
     return false;
 }
 
