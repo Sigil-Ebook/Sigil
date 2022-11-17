@@ -138,17 +138,17 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << link_item;
         // Width
         NumericItem *width_item = new NumericItem();
-        width_item->setText(QString::number(image.width()));
+        width_item->setText(QString("%L1").arg(image.width()));
         width_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         rowItems << width_item;
         // Height
         NumericItem *height_item = new NumericItem();
-        height_item->setText(QString::number(image.height()));
+        height_item->setText(QString("%L1").arg(image.height()));
         height_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         rowItems << height_item;
         // Pixels
         NumericItem *pixel_item = new NumericItem();
-        pixel_item->setText(QString::number(image.width() * image.height()));
+        pixel_item->setText(QString("%L1").arg(image.width() * image.height()));
         pixel_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         rowItems << pixel_item;
         // Color

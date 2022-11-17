@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -122,20 +122,20 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         std::pair<int, int> counts = word_count_hash[filepath];
         total_all_words += counts.first;
         NumericItem *words_item = new NumericItem();
-        words_item->setText(QString::number(counts.first));
+        words_item->setText(QString("%L1").arg(counts.first));
         words_item->setTextAlignment(Qt::AlignRight);
         rowItems << words_item;
         // Misspelled words
         total_misspelled_words += counts.second;
         NumericItem *misspelled_item = new NumericItem();
-        misspelled_item->setText(QString::number(counts.second));
+        misspelled_item->setText(QString("%L1").arg(counts.second));
         misspelled_item->setTextAlignment(Qt::AlignRight);
         rowItems << misspelled_item;
         // Images
         NumericItem *image_item = new NumericItem();
         QStringList image_names = image_names_hash[filepath];
         total_images += image_names.count();
-        image_item->setText(QString::number(image_names.count()));
+        image_item->setText(QString("%L1").arg(image_names.count()));
         image_item->setTextAlignment(Qt::AlignRight);
         if (!image_names.isEmpty()) {
             image_item->setToolTip(image_names.join("\n"));
@@ -145,7 +145,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         NumericItem *video_item = new NumericItem();
         QStringList video_names = video_names_hash[filepath];
         total_video += video_names.count();
-        video_item->setText(QString::number(video_names.count()));
+        video_item->setText(QString("%L1").arg(video_names.count()));
         video_item->setTextAlignment(Qt::AlignRight);
         if (!video_names.isEmpty()) {
             video_item->setToolTip(video_names.join("\n"));
@@ -155,7 +155,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         NumericItem *audio_item = new NumericItem();
         QStringList audio_names = audio_names_hash[filepath];
         total_audio += audio_names.count();
-        audio_item->setText(QString::number(audio_names.count()));
+        audio_item->setText(QString("%L1").arg(audio_names.count()));
         audio_item->setTextAlignment(Qt::AlignRight);
         if (!audio_names.isEmpty()) {
             audio_item->setToolTip(audio_names.join("\n"));
@@ -165,7 +165,7 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         NumericItem *stylesheet_item = new NumericItem();
         QStringList stylesheet_names = stylesheet_names_hash[filepath];
         total_stylesheets += stylesheet_names.count();
-        stylesheet_item->setText(QString::number(stylesheet_names.count()));
+        stylesheet_item->setText(QString("%L1").arg(stylesheet_names.count()));
         stylesheet_item->setTextAlignment(Qt::AlignRight);
         if (!stylesheet_names.isEmpty()) {
             stylesheet_item->setToolTip(stylesheet_names.join("\n"));
@@ -205,37 +205,37 @@ void HTMLFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     rowItems << nitem;
     // All Words
     nitem = new NumericItem();
-    nitem->setText(QString::number(total_all_words));
+    nitem->setText(QString("%L1").arg(total_all_words));
     nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Misspelled Words
     nitem = new NumericItem();
-    nitem->setText(QString::number(total_misspelled_words));
+    nitem->setText(QString("%L1").arg(total_misspelled_words));
     nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Images
     nitem = new NumericItem();
-    nitem->setText(QString::number(total_images));
+    nitem->setText(QString("%L1").arg(total_images));
     nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Video
     nitem = new NumericItem();
-    nitem->setText(QString::number(total_video));
+    nitem->setText(QString("%L1").arg(total_video));
     nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Audio
     nitem = new NumericItem();
-    nitem->setText(QString::number(total_audio));
+    nitem->setText(QString("%L1").arg(total_audio));
     nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Stylesheets
     nitem = new NumericItem();
-    nitem->setText(QString::number(total_stylesheets));
+    nitem->setText(QString("%L1").arg(total_stylesheets));
     nitem->setTextAlignment(Qt::AlignRight);
     rowItems << nitem;
     // Well formed
     nitem = new NumericItem();
-    nitem->setText(QString::number(total_wellformed));
+    nitem->setText(QString("%L1").arg(total_wellformed));
     rowItems << nitem;
 
     QFont font;
