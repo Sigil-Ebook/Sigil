@@ -130,7 +130,7 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         total_links += image_html_files.count();
         NumericItem *link_item = new NumericItem();
         link_item->setText(QString::number(image_html_files.count()));
-
+        link_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         if (!image_html_files.isEmpty()) {
             link_item->setToolTip(image_html_files.join("\n"));
         }
@@ -139,14 +139,17 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         // Width
         NumericItem *width_item = new NumericItem();
         width_item->setText(QString::number(image.width()));
+        width_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         rowItems << width_item;
         // Height
         NumericItem *height_item = new NumericItem();
         height_item->setText(QString::number(image.height()));
+        height_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         rowItems << height_item;
         // Pixels
         NumericItem *pixel_item = new NumericItem();
         pixel_item->setText(QString::number(image.width() * image.height()));
+        pixel_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         rowItems << pixel_item;
         // Color
         QStandardItem *color_item = new QStandardItem();

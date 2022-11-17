@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2013      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2013      Dave Heiland
 **
@@ -120,6 +120,7 @@ void LinksWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
             QString lineno = QString::number(element.lineno);
             item->setText(lineno);
             item->setToolTip(filepath);
+            item->setTextAlignment(Qt::AlignRight);
             rowItems << item;
 
             // Source id

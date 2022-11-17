@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -137,12 +137,14 @@ void CharactersInHTMLFilesWidget::AddTableData()
         item = new QStandardItem();
         uint char_number = unichr;
         item->setText(QString::number(char_number));
+        item->setTextAlignment(Qt::AlignRight);
         rowItems << item;
         // Hex number
         item = new QStandardItem();
         QString hexadecimal;
         hexadecimal.setNum(char_number,16);
         item->setText(hexadecimal.toUpper());
+        item->setTextAlignment(Qt::AlignRight);
         rowItems << item;
         // Name
         item = new QStandardItem();
@@ -171,7 +173,6 @@ QList <uint> CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList<HTMLResou
         QString version = "any_version";
         GumboInterface gi = GumboInterface(replaced_html, version);
         QString text = gi.get_body_text();
-        qDebug() << "text is: " << text;
         for (int i=0; i < text.length(); i++) {
             uint unichr;
             QChar c = text.at(i);

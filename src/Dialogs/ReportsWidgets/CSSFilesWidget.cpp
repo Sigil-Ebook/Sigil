@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **
@@ -75,6 +75,7 @@ void CSSFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     header.append(tr("Name"));
     header.append(tr("Size (KB)"));
     header.append(tr("Times Used"));
+    header.append(" ");
     m_ItemModel->setHorizontalHeaderLabels(header);
     ui.fileTree->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui.fileTree->setModel(m_ItemModel);
@@ -115,7 +116,6 @@ void CSSFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << size_item;
         // Times Used
         int count = 0;
-
         if (linked_stylesheets_hash.contains(filepath)) {
             count = linked_stylesheets_hash[filepath];
         }
@@ -123,8 +123,14 @@ void CSSFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         total_links += count;
         NumericItem *link_item = new NumericItem();
         link_item->setText(QString::number(count));
+        link_item->setTextAlignment(Qt::AlignRight);
         rowItems << link_item;
 
+        // empty filler column
+        QStandardItem *filler_item = new QStandardItem();
+        filler_item->setText(" ");
+        rowItems << filler_item;
+        
         for (int i = 0; i < rowItems.count(); i++) {
             rowItems[i]->setEditable(false);
         }
