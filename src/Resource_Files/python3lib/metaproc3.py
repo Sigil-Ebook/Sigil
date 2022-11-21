@@ -136,6 +136,8 @@ class MetadataProcessor(object):
                     del mattr["xmlns:dc"]
                 # fix improperly case language entries
                 if mname == "dc:language":
+                    if not mcontent:
+                        mcontent = ""
                     if not "-" in mcontent:
                         mcontent = mcontent.lower()
                     else:
