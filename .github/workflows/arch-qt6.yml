@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: archlinux:base-20221218.0.111778
+      image: archlinux:base-20221120.0.103865
       options: --privileged
       volumes:
         - /sys/fs/cgroup:/sys/fs/cgroup
