@@ -386,8 +386,8 @@ const QString MetaEditor::PCode  (const QString& name)
     return name;
 }
 
-const QString MetaEditor::LName  (const QString& code) { return Language::instance()->GetLanguageName(code); }
-const QString MetaEditor::LCode  (const QString& name) { return Language::instance()->GetLanguageCode(name); }
+const QString MetaEditor::LName  (const QString& code) { return Language::instance()->GetLanguageName(code, code); }
+const QString MetaEditor::LCode  (const QString& name) { return Language::instance()->GetLanguageCode(name, name); }
 
 const QString MetaEditor::RName  (const QString& code) { return MarcRelators::instance()->GetName(code);     }
 const QString MetaEditor::RCode  (const QString& name) { return MarcRelators::instance()->GetCode(name);     }
