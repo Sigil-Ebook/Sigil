@@ -44,6 +44,7 @@ jobs:
       options: --privileged
       volumes:
         - /sys/fs/cgroup:/sys/fs/cgroup
+        - /sys/fs/cgroup/systemd/actions_job:/sys/fs/cgroup/systemd/actions_job
     steps:
     - uses: actions/checkout@v2
     - name: Build Arch Linux Qt6 package
