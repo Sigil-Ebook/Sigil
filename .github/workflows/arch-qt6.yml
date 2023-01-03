@@ -40,12 +40,12 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: archlinux:base-20221120.0.103865
+      image: archlinux
       options: --privileged
-      volumes:
-        - /sys/fs/cgroup:/sys/fs/cgroup
+      #volumes:
+      #  - /sys/fs/cgroup:/sys/fs/cgroup
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build Arch Linux Qt6 package
       uses: FFY00/build-arch-package@v1
       with:
