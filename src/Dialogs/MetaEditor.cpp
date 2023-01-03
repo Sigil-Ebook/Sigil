@@ -47,6 +47,7 @@ static const QString _GS = QString(QChar(29)); // Ascii Group Separator
 static const QString _RS = QString(QChar(30)); // Ascii Record Separator
 static const QString _US = QString(QChar(31)); // Ascii Unit Separator
 
+static const QStringList KNOWN_EPUB2_OPF_SCHEMES = QStringList() << "MARC:RELATORS" << "DOI" << "ISBN" << "ISSN" << "UUID" << "AMAZON";
 
 MetaEditor::MetaEditor(QWidget *parent)
   : QDialog(parent),
@@ -255,20 +256,27 @@ QString MetaEditor::GetOPFMetadata() {
         if (rc.startsWith(_IN)) {
             // treat as property value attribute pair
             QStringList parts = rc.trimmed().split(_US);
+            QString aprop = parts.at(0);
             QString tvalue = parts.at(1);
             QString value = parts.at(1);
-            if (parts.at(0) == "opf:role") value = RName(value);
-            if (parts.at(0) == "opf:scheme") value = PName(value);
-            if (parts.at(0) == "opf:file-as") tvalue = "";
-            if (parts.at(0) == "opf:event") value = PName("opf:event-" + value);
-            if (parts.at(0) == "role") value = RName(value);
-            if (parts.at(0) == "title-type") value = PName("title-type:" + value);
-            if (parts.at(0) == "collection-type") value = PName("collection-type:" + value);
-            if (parts.at(0) == "xml:lang") value = LName(value);
-            if (parts.at(0) == "altlang") value = LName(value);
-            if (parts.at(0) == "source-of") value = PName("source-of:" + value);
-            if (parts.at(0) == "dir") value = PName("dir:" + value);
-            QString prop = PName(parts.at(0)) + _GS + parts.at(0);
+            if (aprop == "opf:role") value = RName(value);
+            if (aprop == "opf:scheme") {
+                if (!KNOWN_EPUB2_OPF_SCHEMES.contains(value.toUpper())) {
+                    aprop = "opf:scheme-custom";
+                } else {
+                    value = PName(value);
+                }
+            }
+            if (aprop == "opf:file-as") tvalue = "";
+            if (aprop == "opf:event") value = PName("opf:event-" + value);
+            if (aprop == "role") value = RName(value);
+            if (aprop == "title-type") value = PName("title-type:" + value);
+            if (aprop == "collection-type") value = PName("collection-type:" + value);
+            if (aprop == "xml:lang") value = LName(value);
+            if (aprop == "altlang") value = LName(value);
+            if (aprop == "source-of") value = PName("source-of:" + value);
+            if (aprop == "dir") value = PName("dir:" + value);
+            QString prop = PName(aprop) + _GS + aprop;
             value = value + _GS + tvalue;
             nlist.append(_IN + prop + _US + value + _RS);
         } else {
@@ -303,6 +311,7 @@ QString MetaEditor::SetNewOPFMetadata(QString& data)
             QStringList parts = rc.trimmed().split(_US);
             QString prop = PCode(parts.at(0));
             QString value = parts.at(1);
+            if (prop == "opf:scheme-custom") prop = "opf:scheme";
             if (prop == "opf:role") value = RCode(value);
             if (prop == "opf:scheme") value = PCode(value);
             if (prop == "opf:event") {
@@ -527,7 +536,7 @@ void MetaEditor::selectE2Element()
             QString content = tr("[Custom identifier here]");
             code = "dc:identifier";
             insertRow(EName(code), code, content, "");
-            insertChild(PName("opf:scheme"), "opf:scheme", "", "");
+            insertChild(PName("opf:scheme-custom"), "opf:scheme", "", "");
         } else if (code.startsWith("dc:date-")) {
             QStringList parts = code.split('-');
             QString event = parts.at(1);
@@ -1067,6 +1076,7 @@ void MetaEditor::loadE2MetadataProperties()
          tr("File As") << "opf:file-as" << tr("Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.") <<
          tr("Role") << "opf:role" << tr("Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.") <<
          tr("Scheme") << "opf:scheme" << tr("This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.") <<
+         tr("Custom Scheme") << "opf:scheme-custom" << tr("This attribute is typically added to dc:identifier to indicate that a custom identifier scheme is being used.") <<
          tr("Event") << "opf:event" << tr("This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.") <<
          tr("Custom Attribute") << "custom-property" << tr("An empty metadata attribute you can modify.");
 
