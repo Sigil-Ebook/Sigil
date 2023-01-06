@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2021-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
+ **  Copyright (C) 2021-2023 Kevin B. Hendricks, Stratford, Ontario, Canada
  **
  **  This file is part of Sigil.
  **
@@ -322,16 +322,16 @@ QString CSSParser::serialize_css(bool tostdout, bool multiline)
         switch (csstokens[i].type)
         {
             case CHARSET:
-                output << "@charset " << csstemplate[5] << csstokens[i].data << csstemplate[6];
+                output << "@charset " << csstokens[i].data << csstemplate[6];
                 break;
 
             case IMPORT:
                 indent = CSSUtils::indent(lvl, csstemplate[0]);
-                output << indent << "@import " << csstemplate[5] << csstokens[i].data << csstemplate[6];
+                output << indent << "@import " << csstokens[i].data << csstemplate[6];
                 break;
 
             case NAMESP:
-                output << "@namespace " << csstemplate[5] << csstokens[i].data << csstemplate[6];
+                output << "@namespace " << csstokens[i].data << csstemplate[6];
                 break;
 
             case AT_START:
