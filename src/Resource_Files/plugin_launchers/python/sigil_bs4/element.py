@@ -1107,7 +1107,7 @@ class Tag(PageElement):
 
         attrs = []
         if self.attrs:
-            for key, val in sorted(self.attrs.items()):
+            for key, val in self.attrs.items():
                 if val is None:
                     decoded = key
                 else:
@@ -1238,7 +1238,7 @@ class Tag(PageElement):
         is_xmlparent = self.name.lower() in EBOOK_XML_PARENT_TAGS
         attrs = []
         if self.attrs:
-            for key, val in sorted(self.attrs.items()):
+            for key, val in self.attrs.items():
                 if val is None:
                     decoded = key
                 else:
@@ -1341,7 +1341,7 @@ class Tag(PageElement):
         closeTag = ''
         attrs = []
         if self.attrs:
-            for key, val in sorted(self.attrs.items()):
+            for key, val in self.attrs.items():
                 if val is None:
                     ntext = key
                 else:
@@ -1430,7 +1430,7 @@ class Tag(PageElement):
         attribs = []
         atts = ""
         if self.attrs:
-            for key, val in sorted(self.attrs.items()):
+            for key, val in self.attrs.items():
                 if val is None:
                     decoded = key
                 else:
