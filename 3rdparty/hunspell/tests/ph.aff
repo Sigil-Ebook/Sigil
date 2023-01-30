@@ -1,0 +1,30 @@
+# new suggestion methods of Hunspell 1.7:
+# ph: for dictionary-based suggestions.
+#
+# For example, suggestions for "wich"
+# with this test dictonary:
+#
+# Hunspell 1.3.3
+# wich
+# & wich 4 0: winch, witch, which, wish
+#
+# Hunspell 1.6.2
+# wich
+# & wich 4 0: which, witch, winch, wish
+#
+# Suggestions will be limited for
+# the dictionary words with the same ph: field,
+# and for non-ngram suggestions.
+#
+# Order of the ph: suggestions for the
+# same mispelling, eg. wich -> which, witch
+# follows the order of the words in the dictionary:
+#
+# which ph:wich
+# witch ph:witch
+#
+# switch off ngram suggestions to check only
+# ph: based suggestions
+MAXNGRAMSUGS 0
+
+TRY esianrtolcdugmphbyfvkwzESIANRTOLCDUGMPHBYFVKWZ'-

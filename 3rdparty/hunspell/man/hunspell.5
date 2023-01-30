@@ -1,4 +1,4 @@
-.TH hunspell 5 "2014-05-26"
+.TH hunspell 5 "2017-09-20"
 .LO 1
 .SH NAME
 hunspell \- format of Hunspell dictionaries and affix files
@@ -6,7 +6,7 @@ hunspell \- format of Hunspell dictionaries and affix files
 .IR Hunspell (1)
 Hunspell requires two files to define the way a language is being spell
 checked: a dictionary file containing words and applicable flags, and an
-affix file that specifies how these flags wil controll spell checking.
+affix file that specifies how these flags will control spell checking.
 An optional file is the personal dictionary file.
 
 .SH Dictionary file
@@ -16,7 +16,24 @@ contains the approximate word count (for optimal hash memory size). Each word
 may optionally be followed by a slash ("/") and one or more flags, which
 represents the word attributes, for example affixes.
 
-Note: Dictionary words can contain also slashes when escaped like  "\/" syntax. 
+Note: Dictionary words can contain also slashes when escaped like "\\/"
+syntax.
+
+It's worth to add not only words, but word pairs to the dictionary to get correct
+suggestions for common misspellings with missing space, as in the
+following example, for the bad "alot" and "inspite" (see also "REP" and field "ph:" about
+correct suggestions for common misspellings):
+
+.PP
+.RS
+.nf
+3
+word
+a lot
+in spite
+.fi
+.RE
+.PP
 
 .SH Personal dictionary file
 Personal dictionaries are simple word lists. Asterisk at the first character
@@ -80,7 +97,6 @@ suffixes. First B suffix can be added to a word if
 the last character of the word isn't `y'.
 Second suffix can be added to the words terminated with an `y'.
 
-
 All accepted words with this dictionary and affix combination are:
 "hello", "try", "tried", "work", "worked", "rework", "reworked".
 
@@ -92,7 +108,7 @@ option usage.
 .IP "SET encoding"
 Set character encoding of words and morphemes in affix and dictionary files.
 Possible values: UTF-8, ISO8859\-1 \- ISO8859\-10, 
-ISO8859\-13 \- ISO8859\-15, KOI8-R, KOI8-U, microsoft-cp1251, ISCII-DEVANAGARI.
+ISO8859\-13 \- ISO8859\-15, KOI8-R, KOI8-U, cp1251, ISCII-DEVANAGARI.
 .PP
 .RS
 .nf
@@ -107,7 +123,6 @@ Set flag type. Default type is the extended ASCII (8-bit) character.
 The `long' value sets the double extended ASCII character flag type,
 the `num' sets the decimal number flag type. Decimal flags numbered from 1 to
 65000, and in flag fields are separated by comma.
-BUG: UTF-8 flag type doesn't work on ARM platform.
 .PP
 .RS
 .nf
@@ -121,8 +136,10 @@ Set twofold prefix stripping (but single suffix stripping) eg. for morphological
 languages with right-to-left writing system.
 
 .IP "LANG langcode"
-Set language code for language specific functions of Hunspell. Use it to activate special casing
-of Azeri (LANG az) and Turkish (LANG tr).
+Set language code for language-specific functions of Hunspell. Use it to activate special casing
+of Azeri (LANG az), Turkish (LANG tr) and Crimean Tatar (LANG crh), also not generalized
+syllable-counting compounding rules of Hungarian (LANG hu).
+
 .IP "IGNORE characters"
 Sets characters to ignore dictionary words, affixes and
 input words.
@@ -187,6 +204,9 @@ character-sequences), character swap and deletion suggestions of Hunspell.
 REP is suggested to fix the typical and especially bad language specific bugs,
 because the REP suggestions have the highest priority in the suggestion list.
 PHONE is for languages with not pronunciation based orthography.
+
+For short common misspellings, it's important to use the ph:
+field (see later) to give the best suggestions.
 .IP "KEY characters_separated_by_vertical_line_optionally"
 Hunspell searches and suggests words with one different
 character replaced by a neighbor KEY character. Not neighbor
@@ -241,7 +261,7 @@ First REP is the header of this table and one or more REP data
 line are following it. 
 With this table, Hunspell can suggest the right forms for the typical 
 spelling mistakes when the incorrect form differs by more 
-than 1 letter from the right form.
+than 1 letter from the right form (see also "ph:").
 The search string supports the regex boundary signs (^ and $).
 For example a possible English replacement table definition
 to handle misspelled consonants:
@@ -320,7 +340,7 @@ Note: Multibyte UTF-8 characters have not worked with
 bracket expression yet. Dash expression has signed bytes and not
 UTF-8 characters yet.
 .IP "WARN flag"
-This flag is for rare words, wich are also often spelling mistakes,
+This flag is for rare words, which are also often spelling mistakes,
 see option -r of command line Hunspell and FORBIDWARN.
 .IP "FORBIDWARN"
 Words with flag WARN aren't accepted by the spell checker using this parameter.
@@ -402,8 +422,8 @@ Note II: In the case of long and numerical flag types use only parenthesized
 flags: (1500)*(2000)?
 
 Note III: COMPOUNDRULE flags work completely separately from the
-compounding mechanisme using COMPOUNDFLAG, COMPOUNDBEGIN, etc. compound
-flags. (Use these flags on different enhtries for words).
+compounding mechanisms using COMPOUNDFLAG, COMPOUNDBEGIN, etc. compound
+flags. (Use these flags on different entries for words).
 
 .IP "COMPOUNDMIN num"
 Minimum length of words used for compounding.
@@ -431,6 +451,8 @@ suffixes are allowed at the end of compounds by default.
 Affixes with COMPOUNDPERMITFLAG may be inside of compounds.
 .IP "COMPOUNDFORBIDFLAG flag"
 Suffixes with this flag forbid compounding of the affixed word.
+Dictionary words with this flag are removed from the beginning and
+middle of compound words, overriding the effect of COMPOUNDPERMITFLAG.
 .IP "COMPOUNDMORESUFFIXES"
 Allow twofold suffixes within compounds.
 .IP "COMPOUNDROOT flag"
@@ -442,7 +464,7 @@ Set maximum word count in a compound word. (Default is unlimited.)
 Forbid word duplication in compounds (e.g. foofoo).
 .IP "CHECKCOMPOUNDREP"
 Forbid compounding, if the (usually bad) compound word may be
-a non compound word with a REP fault. Useful for languages with
+a non-compound word with a REP fault. Useful for languages with
 `compound friendly' orthography.
 .IP "CHECKCOMPOUNDCASE"
 Forbid upper case characters at word boundaries in compounds.
@@ -561,13 +583,13 @@ Deprecated. Use "st:" field instead of LEMMA_PRESENT.
 This flag signs virtual stems in the dictionary, words only valid when affixed.
 Except, if the dictionary word has a homonym or a zero affix.
 NEEDAFFIX works also with prefixes and prefix + suffix combinations
-(see tests/pseudoroot5.*).
+(see tests/needaffix5.*).
 .IP "PSEUDOROOT flag"
 Deprecated. (Former name of the NEEDAFFIX option.)
 .IP "SUBSTANDARD flag"
 SUBSTANDARD flag signs affix rules and dictionary words (allomorphs)
-not used in morphological generation (and in suggestion in the
-future versions). See also NOSUGGEST.
+not used in morphological generation and root words removed from
+suggestion. See also NOSUGGEST.
 .IP "WORDCHARS characters"
 WORDCHARS extends tokenizer of Hunspell command line interface with
 additional word character. For example, dot, dash, n-dash, numbers, percent sign
@@ -651,15 +673,122 @@ style.
 Default morphological and other IDs (used in suggestion,
 stemming and morphological generation):
 .IP "ph:"
-Alternative transliteration for better suggestion.
-It's useful for words with foreign
-pronunciation. (Dictionary based phonetic suggestion.)
+Alternative transliteration for better suggestions, ie.
+misspellings related to the special orthography
+and pronunciation of the word. The best way to handle common
+misspellings, so it's worth to add ph: field to the most
+affected few thousand dictionary words (or word pairs etc.) to get
+correct suggestions for their misspellings.
+
+
 For example:
 
 .PP
 .RS
 .nf
+Wednesday ph:wendsay ph:wensday
 Marseille ph:maarsayl
+.fi
+.RE
+.PP
+
+Hunspell adds all ph: transliterations to the inner REP table, so
+it will always suggest the correct word for the specified
+misspellings with the highest priority.
+
+The previous example is equivalent of the following REP definition:
+
+.PP
+.RS
+.nf
+REP 6
+REP wendsay Wednesday
+REP Wendsay Wednesday
+REP wensday Wednesday
+REP Wensday Wednesday
+REP maarsayl Marseille
+REP Maarsayl Marseille
+.fi
+.RE
+.PP
+
+The asterisk at the end of the ph: pattern means stripping the
+terminating character both from the pattern and the word in the
+associated REP rule:
+
+.PP
+.RS
+.nf
+pretty ph:prity*
+.fi
+.RE
+.PP
+
+will result
+
+.PP
+.RS
+.nf
+REP 1
+REP prit prett
+.fi
+.RE
+.PP
+
+REP rule, resulting the following correct suggestions
+
+.PP
+.RS
+.nf
+*prity -> pretty
+*pritier -> prettier
+*pritiest -> prettiest
+.fi
+.RE
+.PP
+
+Moreover, ph: fields can handle suggestions with more than
+two words, also different suggestions for the same
+misspelling:
+.PP
+.RS
+.nf
+do not know ph:dunno
+don't know ph:dunno
+.fi
+.RE
+.PP
+
+results
+
+.PP
+.RS
+.nf
+*dunno -> do not know, don't know
+.fi
+.RE
+.PP
+
+Note: if available, ph: is used in n-gram similarity, too.
+
+The ASCII arrow "->" in a ph: pattern means a REP rule (see REP),
+creating arbitrary replacement rule associated to the dictionary
+item:
+.PP
+.RS
+.nf
+happy/B ph:hepy ph:hepi->happi
+.fi
+.RE
+.PP
+
+results
+
+.PP
+.RS
+.nf
+*hepy -> happy
+*hepiest -> happiest
 .fi
 .RE
 .PP

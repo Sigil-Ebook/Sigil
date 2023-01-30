@@ -1,5 +1,23 @@
-Author of Hunspell:
-Németh László nemeth (at) numbertext.org
+Author: László Németh
 
-Hunspell based on OpenOffice.org's Myspell. MySpell's author:
-Kevin Hendricks kevin.hendricks (at) sympatico.ca
+MySpell's (Hunspell's code base) author: Kevin Hendricks
+
+Maintainer, distinguished contributor: Caolán McNamara
+
+Author of rule-based transformation code for phonetic suggestions
+(PHONE/phonet.cxx, used by English dictionaries): Björn Jacke
+
+
+Hunspell/MySpell code base is result of work of several
+contributors. See git log, ./THANKS, ./Changelog, ./Changelog.O,
+MySpell's README and CONTRIBUTORS files for their contributions.
+
+
+Note: Following contributors are not owners and
+not representatives of Hunspell, and they haven't got
+permission from Hunspell's author to act on the behalf
+of Hunspell project: Sander van Geloven, Dimitri Mijoski
+
+
+If you would like to support Hunspell, join the
+development or contact the author.

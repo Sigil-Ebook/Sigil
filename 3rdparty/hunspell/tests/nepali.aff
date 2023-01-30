@@ -1,0 +1,12 @@
+SET UTF-8
+IGNORE ￰
+WORDCHARS  ःािीॉॊोौॎॏॕॖॗ‌‍
+
+
+ICONV 5
+ICONV ‌_ ‌
+ICONV र्‌य र्‌य
+ICONV र्‌व र्‌व
+ICONV ‌ ￰
+ICONV ‍_ ￰
+

@@ -3,3 +3,6 @@ WORDCHARS '.
 
 SFX S N 1
 SFX S   0     's      .
+
+PFX L N 1
+PFX L   0     L'      .

@@ -1,0 +1,15 @@
+# Dictionary words with COMPOUNDFORBIDFLAG are
+# removed from the beginning and middle of
+# compound words, overriding the effect of
+# COMPOUNDPERMITFLAG.
+#
+# See compoundaffix3 test for basic usage
+# of COMPOUNDFORBIDFLAG.
+
+COMPOUNDFLAG X
+COMPOUNDPERMITFLAG Y
+COMPOUNDFORBIDFLAG Z
+
+SFX S Y 2
+SFX S   0     bar/YX         .
+SFX S   0     baz/YX         .

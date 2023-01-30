@@ -1,4 +1,4 @@
-# forbid compounds with spec. pattern at word bound and allow modificated form
+# forbid compounds with spec. pattern at word bound and allow modified form
 # (for Indian languages)
 COMPOUNDFLAG A
 CHECKCOMPOUNDPATTERN 1

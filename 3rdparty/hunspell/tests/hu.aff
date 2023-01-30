@@ -1,0 +1,46 @@
+SET UTF-8
+LANG hu_HU
+
+# words with flag Y can form compound words
+COMPOUNDFLAG Y
+
+# min. word length in compounds:
+# allow 2-letter words
+COMPOUNDMIN 2
+
+# max. word count in compounds
+COMPOUNDWORDMAX 2
+
+# exception for Hungarian:
+# allow more words in a compound, than COMPOUNDWORDMAX,
+# if syllable count of the compound is 6 or less
+COMPOUNDSYLLABLE 6 aáeéiíoóöőuúüű
+
+# test case for commit 1fada01 "fix other regression in compounding"
+REP 1
+REP kor _kor
+
+CHECKCOMPOUNDREP
+
+# to check word breaking
+
+WORDCHARS -
+
+BREAK 1
+BREAK -
+
+# to check COMPOUNDFORBIDFLAG and spec. Hungarian compounding
+
+COMPOUNDPERMITFLAG +
+COMPOUNDFORBIDFLAG !
+
+# SFX F suffix "-ó" is allowed in compounds by COMPOUNDPERMITFLAG,
+# but the generated word form "forró" is forbidden in compound
+# by the dictionary item "forró" with COMPOUNDFORBIDFLAG
+#
+# Exception: in special Hungarian "moving rule" (hard-wired to the
+# flag "F" in a LANG_hu code), "forró" can be in similar compounds:
+# "forróvíz-tartály"
+
+SFX S Y 1
+SFX S 0 ó/Y+ .

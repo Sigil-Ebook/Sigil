@@ -1,3 +1,66 @@
+2016-04-29 Caolán McNamara <caolanm at LibO>:
+	* deprecate old api and add new one
+	  old one remains implemented in terms of new one
+	  and will eventually be removed
+	* shrink exposed api down to just hunspell.hxx
+	* next major release is likely to require C++11
+
+2016-04-15 Caolán McNamara <caolanm at LibO>:
+	* generally using std::string and std::vector internally
+
+2016-04-13 Caolán McNamara <caolanm at LibO>:
+	* gh#371 drop experimental code
+
+2015-09-11 Caolán McNamara <caolanm at LibO>:
+	* rhbz#1261421 crash on mashing hangul korean keyboard
+
+2014-12-03 Németh László <nemeth at numbertext dot org>:
+	* tools/hunspell.cxx: security fixes of the Hunspell executable
+	  - secure file name handling, the problem (checking
+	    OpenDocument files with malicious file names)
+	    reported by Eric Sesterhenn
+	  - using tmpnam() only with system("mkdir tempname && ...")
+
+2014-10-17 Caolán McNamara <caolanm at LibO>:
+	* sf#245 Feature from Anish Patil -S mode
+	  to show suggestions for completion of
+	  correctly spelled words
+	* sf#248 Fix manpage about how to include
+
+2014-10-16 Caolán McNamara <caolanm at LibO>:
+	* rhbz#915448, sf#57, sf#185 report character offset
+	  and not byte offset in ispell mode
+	* sf#56 segv in experimental mode
+	* sf#228 don't translate init string
+
+2014-09-22 Németh László <nemeth at numbertext dot org>:
+	* fix crash in morphological analysis of the Hungarian
+	  compound word 'művészegyéniség', reported by Gáspár Sinai
+
+2014-08-26 Németh László <nemeth at numbertext dot org>:
+	* unmunch separates flags of prefixes from the word,
+	  bug reported by Daniel Naber
+
+2014-08-05 Németh László <nemeth at numbertext dot org>:
+	* moz#318040 Mozzilla accepts abbreviations without dots
+	* myfopen(): add _wfullpath to expand relative parts of absolute paths
+
+2014-07-16 Caolán McNamara <caolanm at LibO>:
+	* moz#675553 Switch from PRBool to bool
+	* moz#690892 replace PR_TRUE/PR_FALSE with true/false
+	* Silence the warning about empty while body loop in clang
+	* moz#777292 Make nsresult an enum 
+	* moz#579517 Use stdint types in gecko
+	* moz#784776 consistently use FLAG_NULL
+	* moz#927728 Convert PRUnichar to char16_t
+	* moz#943268 Remove nsCharsetAlias and nsCharsetConverterManager 
+	* Don't include config.h in license.hunspell if MOZILLA_CLIENT is set
+
+2014-06-26 Caolán McNamara <caolanm at LibO>:
+	* clang scan-build: Allocator sizeof operand mismatch
+	* clang scan-build: other low hanging warnings
+	* clang scan-build: significant warnings
+
 2014-06-02 Németh László <nemeth at numbertext dot org>:
 	* escape spaces in paths of ODF files
 
@@ -1620,7 +1683,7 @@ changes:
 
         * src/hunspell/suggestmgr.cxx:
         - fix missing suggestions for words with crossed prefix and suffix
-        - fix redundant non compound word checking
+        - fix redundant non-compound word checking
         - fix losing suggestions problem. Bug reported by Dmitri Gabinski.
 
         * src/hunspell/dictmgr.*:

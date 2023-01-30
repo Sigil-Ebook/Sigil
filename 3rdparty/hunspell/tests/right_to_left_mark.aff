@@ -1,0 +1,7 @@
+# Arabic test for feature ignoring diacritics and RLM (U+200F, RIGHT-TO-LEFT-MARK)
+# (Extended version of the test "ignoreutf")
+SET UTF-8
+# Arabic diacritics (harakat):
+# sukun, shadda, kasra, damma, fatha, kasratan, dammantan, fathatan (left to right)
+IGNORE ًٌٍَُِّْ‏
+WORDCHARS ًٌٍَُِّْ‏

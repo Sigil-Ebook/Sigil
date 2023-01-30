@@ -1,1 +1,1 @@
-SUBDIRS=hunspell parsers tools win_api
+SUBDIRS=hunspell parsers tools

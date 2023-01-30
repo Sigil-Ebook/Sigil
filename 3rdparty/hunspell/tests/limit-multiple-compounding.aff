@@ -1,0 +1,6 @@
+# "foo+bar" accepted, but not "foo+bar+baz"
+# because 3-or-more-word compounds got a typo check, i.e.
+# "foobarbaz" is rejected, because it is a typo of the dictionary word "goobarbaz"
+# (but not "foobar" as typo of the dictionary word "goobar")
+TRY esianrtolcdugmphbyfvkwz'
+COMPOUNDFLAG x

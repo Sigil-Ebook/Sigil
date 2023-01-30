@@ -1,0 +1,488 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the hunspell package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: hunspell 1.5.0\n"
+"Report-Msgid-Bugs-To: https://github.com/hunspell/hunspell/issues\n"
+"POT-Creation-Date: 2022-12-29 20:54+0100\n"
+"PO-Revision-Date: 2022-10-17 00:04+0000\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/hunspell/"
+"translations/hr/>\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15-dev\n"
+
+#: src/tools/hunspell.cxx:261 src/tools/hunspell.cxx:378
+#, c-format
+msgid "error - iconv_open: %s -> %s\n"
+msgstr "greška – iconv_open: %s -> %s\n"
+
+#: src/tools/hunspell.cxx:275
+#, c-format
+msgid "error - iconv: %s -> %s\n"
+msgstr "greška – iconv: %s -> %s\n"
+
+#: src/tools/hunspell.cxx:319 src/tools/hunspell.cxx:341
+#, c-format
+msgid "error - iconv_open: UTF-8 -> %s\n"
+msgstr "greška – iconv_open: UTF-8 -> %s\n"
+
+#: src/tools/hunspell.cxx:680 src/tools/hunspell.cxx:1592
+msgid "Can't create tmp dir"
+msgstr "Nije moguće stvoriti privremenu mapu"
+
+#: src/tools/hunspell.cxx:691 src/tools/hunspell.cxx:703
+#: src/tools/hunspell.cxx:1575 src/tools/hunspell.cxx:1605
+#: src/tools/hunspell.cxx:1618
+msgid "Can't open inputfile"
+msgstr "Nije moguće otvoriti datoteku unosa"
+
+#: src/tools/hunspell.cxx:693 src/tools/hunspell.cxx:1607
+#: src/tools/hunspell.cxx:2006 src/tools/hunspell.cxx:2181
+#: src/tools/hunspell.cxx:2198
+#, c-format
+msgid "Can't open %s.\n"
+msgstr "Nije moguće otvoriti %s.\n"
+
+#: src/tools/hunspell.cxx:773 src/tools/hunspell.cxx:1362
+#: src/tools/hunspell.cxx:1474
+#, c-format
+msgid "error - missing HOME variable\n"
+msgstr "greška – nedostaje varijabla HOME\n"
+
+#: src/tools/hunspell.cxx:863
+#, c-format
+msgid "Line %d: %s -> "
+msgstr "Redak %d: %s -> "
+
+#: src/tools/hunspell.cxx:1143
+msgid "FORBIDDEN!"
+msgstr "ZABRANJENO!"
+
+#: src/tools/hunspell.cxx:1145
+msgid "Spelling mistake?"
+msgstr "Pravopisna greška?"
+
+#: src/tools/hunspell.cxx:1147
+#, c-format
+msgid ""
+"\t%s\t\tFile: %s\n"
+"\n"
+msgstr ""
+"\t%s\t\tDatoteka: %s\n"
+"\n"
+
+#. TRANSLATORS: the capital letters are shortcuts, mark one letter similarly
+#. in your translation and translate the standalone letter accordingly later
+#.
+#: src/tools/hunspell.cxx:1206
+msgid ""
+"\n"
+"[SPACE] R)epl A)ccept I)nsert U)ncap S)tem Q)uit e(X)it or ? for help\n"
+msgstr ""
+"\n"
+"[RAZMAKNICA] Z)amijeni P)rihvati U)metni M)ala K)orijen P(R)ekini I)zađi "
+"ili ? za pomoć\n"
+
+#: src/tools/hunspell.cxx:1275
+msgid ""
+"Whenever a word is found that is not in the dictionary\n"
+"it is printed on the first line of the screen.  If the dictionary\n"
+"contains any similar words, they are listed with a number\n"
+"next to each one.  You have the option of replacing the word\n"
+"completely, or choosing one of the suggested words.\n"
+msgstr ""
+"Kad god se pronađe riječ koja nije u rječniku, ispisuje se u\n"
+"prvom retku ekrana. Ako rječnik sadrži slične riječi, one se\n"
+"navode s brojem. Moguće je zamijeniti riječ ili\n"
+"odabrati jednu od predloženih riječi.\n"
+
+#: src/tools/hunspell.cxx:1281
+msgid ""
+"\n"
+"Commands are:\n"
+"\n"
+msgstr ""
+"\n"
+"Naredbe:\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1282
+msgid "R\tReplace the misspelled word completely.\n"
+msgstr "Z\tZamijeni pogrešno napisanu riječ.\n"
+
+#: src/tools/hunspell.cxx:1283
+msgid "Space\tAccept the word this time only.\n"
+msgstr "Razmaknica\tPrihvati riječ samo ovaj put.\n"
+
+#: src/tools/hunspell.cxx:1285
+msgid "A\tAccept the word for the rest of this session.\n"
+msgstr "P\tPrihvati riječ do kraja ove sesije.\n"
+
+#: src/tools/hunspell.cxx:1287
+msgid "I\tAccept the word, and put it in your private dictionary.\n"
+msgstr "U\tPrihvati riječ i stavi je u privatnu mapu.\n"
+
+#: src/tools/hunspell.cxx:1289
+msgid "U\tAccept and add lowercase version to private dictionary.\n"
+msgstr "M\tPrihvati i dodaj verziju s malim slovima u privatnu mapu.\n"
+
+#: src/tools/hunspell.cxx:1291
+msgid ""
+"S\tAsk a stem and a model word and store them in the private dictionary.\n"
+"\tThe stem will be accepted also with the affixes of the model word.\n"
+msgstr ""
+"K\tUpitaj korijen i uzornu riječ te ih spremi u privatnu mapu.\n"
+"\tKorijen će se prihvatiti i s afiksima uzorne riječi.\n"
+
+#: src/tools/hunspell.cxx:1295
+msgid "0-n\tReplace with one of the suggested words.\n"
+msgstr "0-x\tZamijeni s jednom od predložeih riječi.\n"
+
+#: src/tools/hunspell.cxx:1297
+msgid ""
+"X\tWrite the rest of this file, ignoring misspellings, and start next file.\n"
+msgstr ""
+"I\tZapiši ostatak ove datoteke, zanemarujući pravopisne greške i pokreni "
+"sljedeću datoteku.\n"
+
+#: src/tools/hunspell.cxx:1300
+msgid "Q\tQuit immediately. Asks for confirmation. Leaves file unchanged.\n"
+msgstr "R\tPrekini odmah. Zatraži potvrdu. Datoteka ostaje nepromijenjena.\n"
+
+#: src/tools/hunspell.cxx:1302
+msgid "^Z\tSuspend program. Restart with fg command.\n"
+msgstr "^Z\tZaustavi program. Ponovo pokreni s naredbom fg.\n"
+
+#: src/tools/hunspell.cxx:1303
+msgid "?\tShow this help screen.\n"
+msgstr "?\tPrikaži ovaj ekran pomoći.\n"
+
+#: src/tools/hunspell.cxx:1304
+msgid ""
+"\n"
+"-- Type space to continue -- \n"
+msgstr ""
+"\n"
+"-- Nastavi pritiskanjem razmaknice -- \n"
+
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "R)epl" before
+#: src/tools/hunspell.cxx:1316
+msgid "r"
+msgstr "z"
+
+#: src/tools/hunspell.cxx:1325
+msgid "Replace with: "
+msgstr "Zamijeni s: "
+
+#. TRANSLATORS: translate these letters according to the shortcut letter
+#. used
+#. previously in the  translation of "U)ncap" and I)nsert before
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "U)ncap" and I)nsert before
+#: src/tools/hunspell.cxx:1349 src/tools/hunspell.cxx:1385
+msgid "u"
+msgstr "m"
+
+#: src/tools/hunspell.cxx:1350 src/tools/hunspell.cxx:1385
+msgid "i"
+msgstr "u"
+
+#: src/tools/hunspell.cxx:1378 src/tools/hunspell.cxx:1490
+#, c-format
+msgid "Cannot update personal dictionary."
+msgstr "Nije moguće aktualizirati osobnu mapu."
+
+#: src/tools/hunspell.cxx:1386
+msgid "a"
+msgstr "p"
+
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "S)tem" before
+#: src/tools/hunspell.cxx:1394
+msgid "s"
+msgstr "k"
+
+#: src/tools/hunspell.cxx:1409
+msgid "New word (stem): "
+msgstr "Nova riječ (korijen): "
+
+#: src/tools/hunspell.cxx:1437
+msgid "Model word (a similar dictionary word): "
+msgstr "Uzorna riječ (slična riječ u rječniku): "
+
+#: src/tools/hunspell.cxx:1497
+msgid "Model word must be in the dictionary. Press any key!"
+msgstr "Uzorna riječ mora postojati u rječniku. Pritisni bilo koju tipku!"
+
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "e(X)it" before
+#: src/tools/hunspell.cxx:1507
+msgid "x"
+msgstr "i"
+
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "Q)uit" before
+#: src/tools/hunspell.cxx:1513
+msgid "q"
+msgstr "r"
+
+#: src/tools/hunspell.cxx:1516
+msgid "Are you sure you want to throw away your changes? "
+msgstr "Stvarno želiš odbaciti sve tvoje promjene?"
+
+#. TRANSLATORS: translate this letter according to the shortcut
+#. * letter y)es
+#: src/tools/hunspell.cxx:1519
+msgid "y"
+msgstr "y"
+
+#: src/tools/hunspell.cxx:1628
+msgid "Can't create tempfile"
+msgstr "Nije moguće stvoriti privremenu datoteku"
+
+#: src/tools/hunspell.cxx:1673
+msgid "Can't open outputfile"
+msgstr "Nije moguće otvoriti datoteku rezultata"
+
+#: src/tools/hunspell.cxx:1826
+msgid "Usage: hunspell [OPTION]... [FILE]...\n"
+msgstr "Upotreba: hunspell [OPCIJA] … [DATOTEKA] …\n"
+
+#: src/tools/hunspell.cxx:1827
+msgid ""
+"Check spelling of each FILE. Without FILE, check standard input.\n"
+"\n"
+msgstr ""
+"Provjeri pravopis svake DATOTEKE. Bez elementa DATOTEKA, provjeri standardni "
+"unos.\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1829
+msgid "  -1\t\tcheck only first field in lines (delimiter = tabulator)\n"
+msgstr ""
+"  -1\t\tprovjeri samo prvo polje redaka (znak razdvajanja = tabulator)\n"
+
+#: src/tools/hunspell.cxx:1831
+msgid "  -a\t\tIspell's pipe interface\n"
+msgstr "  -a\t\tIspell-ovo sučelje toka\n"
+
+#: src/tools/hunspell.cxx:1832
+msgid "  --check-url\tcheck URLs, e-mail addresses and directory paths\n"
+msgstr "  --check-url\tprovjeri URL-adrese, e-adrese i staze mapa\n"
+
+#: src/tools/hunspell.cxx:1837
+msgid "  --check-apostrophe\tcheck Unicode typographic apostrophe\n"
+msgstr "  --check-apostrophe\tprovjeri Unicode za tipografske izostavnike\n"
+
+#: src/tools/hunspell.cxx:1839
+msgid "  -d d[,d2,...]\tuse d (d2 etc.) dictionaries\n"
+msgstr ""
+"  -d rječnik[,rječnik2,...]\tkoristi rječnik (rječnik2 itd.) rječnike\n"
+
+#: src/tools/hunspell.cxx:1840
+msgid "  -D\t\tshow available dictionaries\n"
+msgstr "  -D\t\tprikaži dostupne rječnike\n"
+
+#: src/tools/hunspell.cxx:1841
+msgid "  -G\t\tprint only correct words or lines\n"
+msgstr "  -G\t\tispiši samo točne riječi ili retke\n"
+
+#: src/tools/hunspell.cxx:1842
+msgid "  -h, --help\tdisplay this help and exit\n"
+msgstr "  -h, --help\tprikaži ovu pomoć i izađi\n"
+
+#: src/tools/hunspell.cxx:1843
+msgid "  -H\t\tHTML input file format\n"
+msgstr "  -H\t\tdatoteka unosa u HTML formatu\n"
+
+#: src/tools/hunspell.cxx:1844
+msgid "  -i enc\tinput encoding\n"
+msgstr "  -i kodiranje\tkodiranje unosa\n"
+
+#: src/tools/hunspell.cxx:1845
+msgid "  -l\t\tprint misspelled words\n"
+msgstr "  -l\t\tispiši pogrešno napisane riječi\n"
+
+#: src/tools/hunspell.cxx:1846
+msgid "  -L\t\tprint lines with misspelled words\n"
+msgstr "  -L\t\tispiši retke s pogrešno napisanim riječima\n"
+
+#: src/tools/hunspell.cxx:1848
+msgid "  -m \t\tanalyze the words of the input text\n"
+msgstr "  -m \t\tanaliziraj riječi teksta unosa\n"
+
+#: src/tools/hunspell.cxx:1849
+msgid "  -n\t\tnroff/troff input file format\n"
+msgstr "  -n\t\tdatoteka unosa u nroff/troff formatu\n"
+
+#: src/tools/hunspell.cxx:1853
+msgid "  -O\t\tOpenDocument (ODF or Flat ODF) input file format\n"
+msgstr "  -O\t\tdatoteka unosa u OpenDocument formatu (ODF ili običnan ODF)\n"
+
+#: src/tools/hunspell.cxx:1854
+msgid "  -p dict\tset dict custom dictionary\n"
+msgstr "  -p rječnik\tpostavi rječnik na prilagođeni rječnik\n"
+
+#: src/tools/hunspell.cxx:1856
+msgid "  -r\t\twarn of the potential mistakes (rare words)\n"
+msgstr "  -r\t\tupozori o potencijalnim greškama (rijteke riječi)\n"
+
+#: src/tools/hunspell.cxx:1859
+msgid "  -P password\tset password for encrypted dictionaries\n"
+msgstr "  -P lozinka\tpostavi lozinku za šifrirane rječnike\n"
+
+#: src/tools/hunspell.cxx:1860
+msgid "  -s \t\tstem the words of the input text\n"
+msgstr "  -s \t\tkorijen riječi teksta unosa\n"
+
+#: src/tools/hunspell.cxx:1861
+msgid "  -S \t\tsuffix words of the input text\n"
+msgstr "  -S \t\tsufiks riječi teksta unosa\n"
+
+#: src/tools/hunspell.cxx:1862
+msgid "  -t\t\tTeX/LaTeX input file format\n"
+msgstr "  -t\t\tdatoteka unosa u TeX/LaTeX formatu\n"
+
+#: src/tools/hunspell.cxx:1863
+msgid "  -v, --version\tprint version number\n"
+msgstr "  -v, --version\tispiši broj verzije\n"
+
+#: src/tools/hunspell.cxx:1865
+msgid "  -vv\t\tprint Ispell compatible version number\n"
+msgstr "  -vv\t\tispiši broj kompatibilne verzije Ispella\n"
+
+#: src/tools/hunspell.cxx:1866
+msgid "  -w\t\tprint misspelled words (= lines) from one word/line input.\n"
+msgstr ""
+"  -w\t\tispiši pogrešno napisane riječi (= retke) jedne riječi/jednog retka "
+"unosa.\n"
+
+#: src/tools/hunspell.cxx:1868
+msgid ""
+"  -X\t\tXML input file format\n"
+"\n"
+msgstr ""
+"  -X\t\tdatoteka unosa u XML formatu\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1872
+msgid ""
+"Example: hunspell -d en_US file.txt    # interactive spelling\n"
+"         hunspell -i utf-8 file.txt    # check UTF-8 encoded file\n"
+"         hunspell -l *.odt             # print misspelled words of ODF "
+"files\n"
+"\n"
+"         # Quick fix of ODF documents by personal dictionary creation\n"
+"\n"
+"         # 1 Make a reduced list from misspelled and unknown words:\n"
+"\n"
+"         hunspell -l *.odt | sort | uniq >words\n"
+"\n"
+"         # 2 Delete misspelled words of the file by a text editor.\n"
+"         # 3 Use this personal dictionary to fix the deleted words:\n"
+"\n"
+"         hunspell -p words *.odt\n"
+"\n"
+msgstr ""
+"Primjer: hunspell -d en_US datoteka.txt    # interaktivni pravopis\n"
+"         hunspell -i utf-8 datoteka.txt    # provjeri datoteku kodiranu u "
+"UTF-8 formatu\n"
+"         hunspell -l * .odt                # ispiši pogrešno napisanih "
+"riječi ODF datoteka\n"
+"\n"
+"         # Brzo popravljanje ODF dokumenata izradom osobnog rječnika\n"
+"\n"
+"         # 1 Izradi kraći popis pogrešno napisanih i nepoznatih riječi:\n"
+"\n"
+"         hunspell -l *.odt | sort | uniq >riječi\n"
+"\n"
+"         # 2 Izbriši pogrešno napisane riječi datoteke pomoću uređivača "
+"teksta.\n"
+"         # 3 Koristi ovaj osobni rječnik za popravljanje izbrisanih riječi:\n"
+"\n"
+"         hunspell -p riječi *.odt\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1887
+msgid "Bug reports: http://hunspell.github.io/\n"
+msgstr "Izvještaji o grešakama: http://hunspell.github.io/\n"
+
+#: src/tools/hunspell.cxx:1895
+#, fuzzy
+msgid ""
+"\n"
+"Copyright (C) 2002-2022 László Németh. License: MPL/GPL/LGPL.\n"
+"\n"
+"Based on OpenOffice.org's Myspell library.\n"
+"Myspell's copyright (C) Kevin Hendricks, 2001-2002, License: BSD.\n"
+"\n"
+msgstr ""
+"\n"
+"Autorska prava 2002. – 2014. László Németh. Licenca: MPL/GPL/LGPL.\n"
+"\n"
+"Bazirano na Myspell biblioteci od OpenOffice.org.\n"
+"Autorska prava za Myspell, Kevin Hendricks, 2001. – 2002., Licenca: BSD.\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1900
+msgid ""
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE,\n"
+"to the extent permitted by law.\n"
+msgstr ""
+"Ovo je slobodan softver; pogledaj izvor za uvjete kopiranja. BEZ jamstva;\n"
+"čak niti za PRODAJNOST ili SPOSOBNOST ZA ODREĐENU SVRHU,\n"
+"u mjeri koja je dopuštena zakonom.\n"
+
+#: src/tools/hunspell.cxx:2077
+#, c-format
+msgid ""
+"SEARCH PATH:\n"
+"%s\n"
+msgstr ""
+"STAZA PRETRAGE:\n"
+"%s\n"
+
+#: src/tools/hunspell.cxx:2081
+msgid "AVAILABLE DICTIONARIES (path is not mandatory for -d option):\n"
+msgstr "DOSTUPNI RJEČNICI (staza nije obavezna za opciju -d):\n"
+
+#: src/tools/hunspell.cxx:2095 src/tools/hunspell.cxx:2115
+#, c-format
+msgid ""
+"LOADED DICTIONARY:\n"
+"%s\n"
+"%s\n"
+msgstr ""
+"UČITANI RJEČNICI:\n"
+"%s\n"
+"%s\n"
+
+#: src/tools/hunspell.cxx:2118
+#, c-format
+msgid "error - %s exceeds dictionary limit.\n"
+msgstr "greška – %s prekoračuje ograničenje mape.\n"
+
+#: src/tools/hunspell.cxx:2124
+#, c-format
+msgid "Can't open affix or dictionary files for dictionary named \"%s\".\n"
+msgstr "Nije moguće otvoriti afiks ili datoteke mape „%s”.\n"
+
+#: src/tools/hunspell.cxx:2211
+msgid "Hunspell has been compiled without Ncurses user interface.\n"
+msgstr "Hunspell je kompiliran bez korisničkog sučelja Ncurses.\n"

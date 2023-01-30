@@ -5,7 +5,8 @@ PROJECT(hunspell CXX)
 set( HUNSPELL_LIBRARIES ${PROJECT_NAME} CACHE INTERNAL "" )
 set( HUNSPELL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME} CACHE INTERNAL "" )
 
-SET(PROJECT_C_FLAGS "")
+set(PROJECT_C_FLAGS "")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/extra/hunspell/config.h
                ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}/config.h COPYONLY)
@@ -14,7 +15,6 @@ SET(SOURCES
     ${PROJECT_NAME}/src/hunspell/affentry.cxx
     ${PROJECT_NAME}/src/hunspell/affixmgr.cxx
     ${PROJECT_NAME}/src/hunspell/csutil.cxx
-    ${PROJECT_NAME}/src/hunspell/dictmgr.cxx
     ${PROJECT_NAME}/src/hunspell/filemgr.cxx
     ${PROJECT_NAME}/src/hunspell/hashmgr.cxx
     ${PROJECT_NAME}/src/hunspell/hunspell.cxx

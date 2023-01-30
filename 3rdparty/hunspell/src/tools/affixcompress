@@ -21,7 +21,10 @@ MAXAFFIX=${2:-5000}
 
 # profiling
 #AWK="pgawk --profile"
-AWK="gawk"
+AWK="awk"
+if which gawk; then
+    AWK="gawk"
+fi
 
 rm -f $1.aff $1.dic
 cat $1 | $AWK '

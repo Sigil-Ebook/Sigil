@@ -1,0 +1,8 @@
+2017-10-22  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.19.8.1.
+
+2016-11-02  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.in.in: Upgrade to gettext-0.19.7.
+

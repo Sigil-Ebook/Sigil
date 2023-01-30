@@ -1,0 +1,489 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the hunspell package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: hunspell 1.5.0\n"
+"Report-Msgid-Bugs-To: https://github.com/hunspell/hunspell/issues\n"
+"POT-Creation-Date: 2022-12-29 20:54+0100\n"
+"PO-Revision-Date: 2022-11-26 09:48+0000\n"
+"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/hunspell/"
+"translations/tr/>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15-dev\n"
+
+#: src/tools/hunspell.cxx:261 src/tools/hunspell.cxx:378
+#, c-format
+msgid "error - iconv_open: %s -> %s\n"
+msgstr "hata - iconv_open: %s -> %s\n"
+
+#: src/tools/hunspell.cxx:275
+#, c-format
+msgid "error - iconv: %s -> %s\n"
+msgstr "hata - iconv: %s -> %s\n"
+
+#: src/tools/hunspell.cxx:319 src/tools/hunspell.cxx:341
+#, c-format
+msgid "error - iconv_open: UTF-8 -> %s\n"
+msgstr "hata - iconv_open: UTF-8 -> %s\n"
+
+#: src/tools/hunspell.cxx:680 src/tools/hunspell.cxx:1592
+msgid "Can't create tmp dir"
+msgstr "tmp dizini oluşturulamıyor"
+
+#: src/tools/hunspell.cxx:691 src/tools/hunspell.cxx:703
+#: src/tools/hunspell.cxx:1575 src/tools/hunspell.cxx:1605
+#: src/tools/hunspell.cxx:1618
+msgid "Can't open inputfile"
+msgstr "Giriş dosyası açılamıyor"
+
+#: src/tools/hunspell.cxx:693 src/tools/hunspell.cxx:1607
+#: src/tools/hunspell.cxx:2006 src/tools/hunspell.cxx:2181
+#: src/tools/hunspell.cxx:2198
+#, c-format
+msgid "Can't open %s.\n"
+msgstr "%s açılamıyor.\n"
+
+#: src/tools/hunspell.cxx:773 src/tools/hunspell.cxx:1362
+#: src/tools/hunspell.cxx:1474
+#, c-format
+msgid "error - missing HOME variable\n"
+msgstr "hata - HOME değişkeni eksik\n"
+
+#: src/tools/hunspell.cxx:863
+#, c-format
+msgid "Line %d: %s -> "
+msgstr "Satır %d: %s -> "
+
+#: src/tools/hunspell.cxx:1143
+msgid "FORBIDDEN!"
+msgstr "YASAK!"
+
+#: src/tools/hunspell.cxx:1145
+msgid "Spelling mistake?"
+msgstr "Yazım hatası mı?"
+
+#: src/tools/hunspell.cxx:1147
+#, c-format
+msgid ""
+"\t%s\t\tFile: %s\n"
+"\n"
+msgstr ""
+"\t%s\t\tDosya: %s\n"
+"\n"
+
+#. TRANSLATORS: the capital letters are shortcuts, mark one letter similarly
+#. in your translation and translate the standalone letter accordingly later
+#.
+#: src/tools/hunspell.cxx:1206
+msgid ""
+"\n"
+"[SPACE] R)epl A)ccept I)nsert U)ncap S)tem Q)uit e(X)it or ? for help\n"
+msgstr ""
+"\n"
+"[SPACE] D)eğiştir kA)bul-et E)kle K)üçük-harf kÖ)k Ç)ıkış-yap kapaT) veya "
+"yardım için ?\n"
+
+#: src/tools/hunspell.cxx:1275
+msgid ""
+"Whenever a word is found that is not in the dictionary\n"
+"it is printed on the first line of the screen.  If the dictionary\n"
+"contains any similar words, they are listed with a number\n"
+"next to each one.  You have the option of replacing the word\n"
+"completely, or choosing one of the suggested words.\n"
+msgstr ""
+"Sözlükte olmayan bir sözcük bulunduğunda, ekranın\n"
+"ilk satırına yazdırılır.  Sözlük benzer sözcükler içeriyorsa,\n"
+"her birinin yanında bir numara bulunur.  Sözcüğü tamamen\n"
+"değiştirme veya önerilen sözcüklerden birini seçme\n"
+"seçeneğine sahipsiniz.\n"
+
+#: src/tools/hunspell.cxx:1281
+msgid ""
+"\n"
+"Commands are:\n"
+"\n"
+msgstr ""
+"\n"
+"Komutlar şunlardır:\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1282
+msgid "R\tReplace the misspelled word completely.\n"
+msgstr "R\tYanlış yazılan sözcüğü tamamen değiştir.\n"
+
+#: src/tools/hunspell.cxx:1283
+msgid "Space\tAccept the word this time only.\n"
+msgstr "Space\tSözcüğü yalnızca bu kez kabul et.\n"
+
+#: src/tools/hunspell.cxx:1285
+msgid "A\tAccept the word for the rest of this session.\n"
+msgstr "A\tBu oturumun geri kalanı için sözcüğü kabul et.\n"
+
+#: src/tools/hunspell.cxx:1287
+msgid "I\tAccept the word, and put it in your private dictionary.\n"
+msgstr "I\tSözcüğü kabul et ve özel sözlüğe ekle.\n"
+
+#: src/tools/hunspell.cxx:1289
+msgid "U\tAccept and add lowercase version to private dictionary.\n"
+msgstr "U\tKabul et ve küçük harfli biçimini özel sözlüğe ekle.\n"
+
+#: src/tools/hunspell.cxx:1291
+msgid ""
+"S\tAsk a stem and a model word and store them in the private dictionary.\n"
+"\tThe stem will be accepted also with the affixes of the model word.\n"
+msgstr ""
+"S\tBir kök ve model sözcük iste ve bunları özel sözlükte sakla.\n"
+"\tKök, model sözcüğün ekleriyle de kabul edilecektir.\n"
+
+#: src/tools/hunspell.cxx:1295
+msgid "0-n\tReplace with one of the suggested words.\n"
+msgstr "0-n\tÖnerilen sözcüklerden biriyle değiştir.\n"
+
+#: src/tools/hunspell.cxx:1297
+msgid ""
+"X\tWrite the rest of this file, ignoring misspellings, and start next file.\n"
+msgstr ""
+"X\tYazım hatalarını yok sayarak bu dosyanın geri kalanını yaz ve sonraki "
+"dosyayı başlat.\n"
+
+#: src/tools/hunspell.cxx:1300
+msgid "Q\tQuit immediately. Asks for confirmation. Leaves file unchanged.\n"
+msgstr "Q\tHemen çıkış yap. Onay için sor. Dosyayı değiştirmeden bırakır.\n"
+
+#: src/tools/hunspell.cxx:1302
+msgid "^Z\tSuspend program. Restart with fg command.\n"
+msgstr "^Z\tProgramı durdur. fg komutuyla yeniden başlatın.\n"
+
+#: src/tools/hunspell.cxx:1303
+msgid "?\tShow this help screen.\n"
+msgstr "?\tBu yardım ekranını göster.\n"
+
+#: src/tools/hunspell.cxx:1304
+msgid ""
+"\n"
+"-- Type space to continue -- \n"
+msgstr ""
+"\n"
+"-- Devam etmek için space'e basın -- \n"
+
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "R)epl" before
+#: src/tools/hunspell.cxx:1316
+msgid "r"
+msgstr "d"
+
+#: src/tools/hunspell.cxx:1325
+msgid "Replace with: "
+msgstr "Şununla değiştir: "
+
+#. TRANSLATORS: translate these letters according to the shortcut letter
+#. used
+#. previously in the  translation of "U)ncap" and I)nsert before
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "U)ncap" and I)nsert before
+#: src/tools/hunspell.cxx:1349 src/tools/hunspell.cxx:1385
+msgid "u"
+msgstr "k"
+
+#: src/tools/hunspell.cxx:1350 src/tools/hunspell.cxx:1385
+msgid "i"
+msgstr "e"
+
+#: src/tools/hunspell.cxx:1378 src/tools/hunspell.cxx:1490
+#, c-format
+msgid "Cannot update personal dictionary."
+msgstr "Kişisel sözlük güncellenemiyor."
+
+#: src/tools/hunspell.cxx:1386
+msgid "a"
+msgstr "a"
+
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "S)tem" before
+#: src/tools/hunspell.cxx:1394
+msgid "s"
+msgstr "ö"
+
+#: src/tools/hunspell.cxx:1409
+msgid "New word (stem): "
+msgstr "Yeni sözcük (kök): "
+
+#: src/tools/hunspell.cxx:1437
+msgid "Model word (a similar dictionary word): "
+msgstr "Model sözcük (benzer bir sözlük sözcüğü): "
+
+#: src/tools/hunspell.cxx:1497
+msgid "Model word must be in the dictionary. Press any key!"
+msgstr "Model sözcük sözlükte bulunmalıdır. Herhangi bir tuşa basın!"
+
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "e(X)it" before
+#: src/tools/hunspell.cxx:1507
+msgid "x"
+msgstr "t"
+
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "Q)uit" before
+#: src/tools/hunspell.cxx:1513
+msgid "q"
+msgstr "ç"
+
+#: src/tools/hunspell.cxx:1516
+msgid "Are you sure you want to throw away your changes? "
+msgstr "Değişikliklerinizi atmak istediğinizden emin misiniz? "
+
+#. TRANSLATORS: translate this letter according to the shortcut
+#. * letter y)es
+#: src/tools/hunspell.cxx:1519
+msgid "y"
+msgstr "e"
+
+#: src/tools/hunspell.cxx:1628
+msgid "Can't create tempfile"
+msgstr "Geçici dosya oluşturulamıyor"
+
+#: src/tools/hunspell.cxx:1673
+msgid "Can't open outputfile"
+msgstr "Çıkış dosyası açılamıyor"
+
+#: src/tools/hunspell.cxx:1826
+msgid "Usage: hunspell [OPTION]... [FILE]...\n"
+msgstr "Kullanım: hunspell [SEÇENEK]... [DOSYA]...\n"
+
+#: src/tools/hunspell.cxx:1827
+msgid ""
+"Check spelling of each FILE. Without FILE, check standard input.\n"
+"\n"
+msgstr ""
+"Her DOSYA'nın imlasını denetle. DOSYA yoksa, standart girişi denetle.\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1829
+msgid "  -1\t\tcheck only first field in lines (delimiter = tabulator)\n"
+msgstr "  -1\t\tsatırlarda yalnızca ilk alanı denetle (ayırıcı = tab)\n"
+
+#: src/tools/hunspell.cxx:1831
+msgid "  -a\t\tIspell's pipe interface\n"
+msgstr "  -a\t\tIspell'in boru arayüzü\n"
+
+#: src/tools/hunspell.cxx:1832
+msgid "  --check-url\tcheck URLs, e-mail addresses and directory paths\n"
+msgstr ""
+"  --check-url\tURL'leri, e-posta adreslerini ve dizin yollarını denetle\n"
+
+#: src/tools/hunspell.cxx:1837
+msgid "  --check-apostrophe\tcheck Unicode typographic apostrophe\n"
+msgstr "  --check-apostrophe\tUnicode tipografik kesme işaretini denetle\n"
+
+#: src/tools/hunspell.cxx:1839
+msgid "  -d d[,d2,...]\tuse d (d2 etc.) dictionaries\n"
+msgstr "  -d d[,d2,...]\td (d2 vs.) sözlüklerini kullan\n"
+
+#: src/tools/hunspell.cxx:1840
+msgid "  -D\t\tshow available dictionaries\n"
+msgstr "  -D\t\tkullanılabilir sözlükleri göster\n"
+
+#: src/tools/hunspell.cxx:1841
+msgid "  -G\t\tprint only correct words or lines\n"
+msgstr "  -G\t\tyalnızca doğru sözcükleri veya satırları yazdır\n"
+
+#: src/tools/hunspell.cxx:1842
+msgid "  -h, --help\tdisplay this help and exit\n"
+msgstr "  -h, --help\tbu yardımı görüntüle ve çık\n"
+
+#: src/tools/hunspell.cxx:1843
+msgid "  -H\t\tHTML input file format\n"
+msgstr "  -H\t\tHTML giriş dosyası biçimi\n"
+
+#: src/tools/hunspell.cxx:1844
+msgid "  -i enc\tinput encoding\n"
+msgstr "  -i kod\tgiriş kodlaması\n"
+
+#: src/tools/hunspell.cxx:1845
+msgid "  -l\t\tprint misspelled words\n"
+msgstr "  -l\t\tyanlış yazılmış sözcükleri yazdır\n"
+
+#: src/tools/hunspell.cxx:1846
+msgid "  -L\t\tprint lines with misspelled words\n"
+msgstr "  -L\t\tyanlış yazılmış sözcüklerin olduğu satırları yazdır\n"
+
+#: src/tools/hunspell.cxx:1848
+msgid "  -m \t\tanalyze the words of the input text\n"
+msgstr "  -m \t\tgiriş metninin sözcüklerini analiz et\n"
+
+#: src/tools/hunspell.cxx:1849
+msgid "  -n\t\tnroff/troff input file format\n"
+msgstr "  -n\t\tnroff/troff giriş dosyası biçimi\n"
+
+#: src/tools/hunspell.cxx:1853
+msgid "  -O\t\tOpenDocument (ODF or Flat ODF) input file format\n"
+msgstr "  -O\t\tOpenDocument (ODF veya Flat ODF) giriş dosyası biçimi\n"
+
+#: src/tools/hunspell.cxx:1854
+msgid "  -p dict\tset dict custom dictionary\n"
+msgstr "  -p szlk\tözel sözlük olarak szlk'ü ayarla\n"
+
+#: src/tools/hunspell.cxx:1856
+msgid "  -r\t\twarn of the potential mistakes (rare words)\n"
+msgstr "  -r\t\tolası hatalar (nadir sözcükler) hakkında uyar\n"
+
+#: src/tools/hunspell.cxx:1859
+msgid "  -P password\tset password for encrypted dictionaries\n"
+msgstr "  -P parola\tşifrelenmiş sözlükler için parolayı belirle\n"
+
+#: src/tools/hunspell.cxx:1860
+msgid "  -s \t\tstem the words of the input text\n"
+msgstr "  -s \t\tgiriş metnindeki sözcüklerin kökünü al\n"
+
+#: src/tools/hunspell.cxx:1861
+msgid "  -S \t\tsuffix words of the input text\n"
+msgstr "  -S \t\tgiriş metnindeki sözcüklere son ek ekle\n"
+
+#: src/tools/hunspell.cxx:1862
+msgid "  -t\t\tTeX/LaTeX input file format\n"
+msgstr "  -t\t\tTeX/LaTeX giriş dosyası biçimi\n"
+
+#: src/tools/hunspell.cxx:1863
+msgid "  -v, --version\tprint version number\n"
+msgstr "  -v, --version\tsürüm numarasını yazdır\n"
+
+#: src/tools/hunspell.cxx:1865
+msgid "  -vv\t\tprint Ispell compatible version number\n"
+msgstr "  -vv\t\tIspell uyumlu sürüm numarasını yazdır\n"
+
+#: src/tools/hunspell.cxx:1866
+msgid "  -w\t\tprint misspelled words (= lines) from one word/line input.\n"
+msgstr ""
+"  -w\t\tbir sözcük/satır girişten yanlış yazılmış sözcükleri (= satırları) "
+"yazdır.\n"
+
+#: src/tools/hunspell.cxx:1868
+msgid ""
+"  -X\t\tXML input file format\n"
+"\n"
+msgstr ""
+"  -X\t\tXML giriş dosyası biçimi\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1872
+msgid ""
+"Example: hunspell -d en_US file.txt    # interactive spelling\n"
+"         hunspell -i utf-8 file.txt    # check UTF-8 encoded file\n"
+"         hunspell -l *.odt             # print misspelled words of ODF "
+"files\n"
+"\n"
+"         # Quick fix of ODF documents by personal dictionary creation\n"
+"\n"
+"         # 1 Make a reduced list from misspelled and unknown words:\n"
+"\n"
+"         hunspell -l *.odt | sort | uniq >words\n"
+"\n"
+"         # 2 Delete misspelled words of the file by a text editor.\n"
+"         # 3 Use this personal dictionary to fix the deleted words:\n"
+"\n"
+"         hunspell -p words *.odt\n"
+"\n"
+msgstr ""
+"Örnek: hunspell -d tr_TR dosya.txt    # etkileşimli yazım denetimi\n"
+"         hunspell -i utf-8 dosya.txt    # UTF-8 ile kodlanmış dosyayı "
+"denetle\n"
+"         hunspell -l *.odt             # ODF dosyalarındaki yanlış yazılmış "
+"sözcükleri denetle\n"
+"\n"
+"         # ODF belgelerinin kişisel sözlük oluşturma ile hızlıca "
+"düzeltilmesi\n"
+"\n"
+"         # 1 Yanlış yazılmış ve bilinmeyen sözcüklerden azaltılmış bir liste "
+"yapın:\n"
+"\n"
+"         hunspell -l *.odt | sort | uniq >sözcükler\n"
+"\n"
+"         # 2 Dosyadaki yanlış yazılmış sözcükleri bir metin düzenleyicisiyle "
+"silin.\n"
+"         # 3 Silinen sözcükleri düzeltmek için bu kişisel sözlüğü "
+"kullanın.:\n"
+"\n"
+"         hunspell -p sözcükler *.odt\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1887
+msgid "Bug reports: http://hunspell.github.io/\n"
+msgstr "Hata raporları: http://hunspell.github.io/\n"
+
+#: src/tools/hunspell.cxx:1895
+#, fuzzy
+msgid ""
+"\n"
+"Copyright (C) 2002-2022 László Németh. License: MPL/GPL/LGPL.\n"
+"\n"
+"Based on OpenOffice.org's Myspell library.\n"
+"Myspell's copyright (C) Kevin Hendricks, 2001-2002, License: BSD.\n"
+"\n"
+msgstr ""
+"\n"
+"Telif Hakkı (C) 2002-2014 László Németh. Lisans: MPL/GPL/LGPL.\n"
+"\n"
+"OpenOffice.org'un Myspell kütüphanesi temel alınarak.\n"
+"Myspell'in Telif Hakkı (C) Kevin Hendricks, 2001-2002, Lisans: BSD.\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1900
+msgid ""
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE,\n"
+"to the extent permitted by law.\n"
+msgstr ""
+"Bu özgür bir yazılımdır; kopyalama koşulları için kaynağa bakınız.  HİÇBİR\n"
+"garantisi yoktur; kanunun izin verdiği ölçülerde, PAZARLANABİLİRLİK veya\n"
+"BELİRLİ BİR AMACA UYGUNLUK bile.\n"
+
+#: src/tools/hunspell.cxx:2077
+#, c-format
+msgid ""
+"SEARCH PATH:\n"
+"%s\n"
+msgstr ""
+"ARAMA YOLU:\n"
+"%s\n"
+
+#: src/tools/hunspell.cxx:2081
+msgid "AVAILABLE DICTIONARIES (path is not mandatory for -d option):\n"
+msgstr "KULLANILABİLİR SÖZLÜKLER (-d seçeneği için yol zorunlu değildir):\n"
+
+#: src/tools/hunspell.cxx:2095 src/tools/hunspell.cxx:2115
+#, c-format
+msgid ""
+"LOADED DICTIONARY:\n"
+"%s\n"
+"%s\n"
+msgstr ""
+"YÜKLENEN SÖZLÜK:\n"
+"%s\n"
+"%s\n"
+
+#: src/tools/hunspell.cxx:2118
+#, c-format
+msgid "error - %s exceeds dictionary limit.\n"
+msgstr "hata - %s sözlük limitini aşıyor.\n"
+
+#: src/tools/hunspell.cxx:2124
+#, c-format
+msgid "Can't open affix or dictionary files for dictionary named \"%s\".\n"
+msgstr "\"%s\" isimli sözlük için ek veya sözlük dosyaları açılamıyor.\n"
+
+#: src/tools/hunspell.cxx:2211
+msgid "Hunspell has been compiled without Ncurses user interface.\n"
+msgstr "Hunspell, Ncurses kullanıcı arayüzü olmadan derlendi.\n"

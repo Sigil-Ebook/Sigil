@@ -1,0 +1,8 @@
+# Ignore punctuation marks used inside of Armenian words, and produce correct
+# suggestion (see issue #570). However, "suggestion test" cannot be used because
+# words in `.wrong` file are not wrong realy, so it leads to an error.
+# Therefore, we apply "morphological analysis" which has a similar result.
+
+SET UTF-8
+WORDCHARS ֊՛՜՞՚
+IGNORE ֊՛՜՞՚

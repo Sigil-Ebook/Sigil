@@ -11,7 +11,7 @@ case $1 in
 -p) fx=2; shift;;
 esac
 test -h /tmp/wordforms.aff && rm /tmp/wordforms.aff
-ln -s $PWD/$1 /tmp/wordforms.aff
+ln -s "$PWD/$1" /tmp/wordforms.aff
 # prepared dic only with the query word
 echo 1 >/tmp/wordforms.dic
 grep "^$3/" $2 >>/tmp/wordforms.dic

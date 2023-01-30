@@ -1,3 +1,198 @@
+2022-08-22: Hunspell 1.7.1 release:
+  - Merge chromium fix for #714 OOB string write in hunspell
+  - Merge firefox fix for #756 various issues parsing incomplete aff files
+  - Fix #492 crash with hunspell -l -r
+  - Merge in weblate translations
+
+2018-11-12: Hunspell 1.7.0 release:
+
+  New features and bug fixes by László Németh, supported by FSF.hu Foundation:
+
+  - No annoying suggestion times any more, especially in languages with
+    compound word handling and complex morphology. By adding balanced
+    multi-level time limits, now the guaranteed suggestion time is there
+    within half a second, not seconds (nor dozen of seconds or more
+    in extreme cases) for longer misspellings, too.
+
+  - add SPELLML support for run-time dictionary extension with optional
+    affixation of user words. See new "Grammar By" feature of
+    language-specific user dictionaries of LibreOffice 6.0:
+
+    News: https://wiki.documentfoundation.org/ReleaseNotes/6.0#.E2.80.9CGrammar_By.E2.80.9D_spell_checking
+
+    Screencast with English example: https://www.youtube.com/watch?v=EsS3gaBTfOo
+
+    Screencast with German example: https://www.youtube.com/watch?v=aYVFDqCUb6I
+
+  - Improved, highly customizable suggestions on level of dictionary words:
+    Pronunciations and typical misspellings defined by optional "ph:" fields of
+    the dictionary words are used not only in n-gram suggestions, but as
+    elements of the REP replacement list getting the highest priority in normal
+    suggestions, also giving the best suggestions for short words, too.
+    More information: see "ph:" in man 5 hunspell.
+
+  - Handling multiple word suggestions is much more easier. Like in a
+    traditional spelling dictionary, for example, to get the correct suggestion
+    "a lot" for the typical misspelling "alot" at the first place, now it's
+    enough to put the following line to the dic(tionary) file:
+
+    a lot
+
+  - Limit compound overgeneration by dictionary based word pairs:
+    Now it's possible to filter bad compound words by listing
+    the correct word pairs with space in the dictionary, as in a traditional
+    spelling dictionary.
+
+  - clean-up suggestion:
+
+    - no n-gram and compound word suggestions, if "good" suggestion
+      exists, ie. uppercase, REP, ph: or dictionary word pair suggestions
+
+    - word pairs are always suggested, if they exist in the dic file
+
+    - word pairs have top priority in suggestions, and
+      these are the only suggestions if there is no other good suggestion.
+
+    - also dictionary word pairs separated by dash instead of space
+      are handled specially in two-word suggestion (depending from the
+      language)
+
+   - limit bad suggestions by improved n-gram suggestion rules:
+
+     don't suggest capitalized dictionary words for lower
+     case misspellings in n-gram suggestions, except
+
+     - PHONE usage, or
+     - in the case of German, where not only proper
+       nouns are capitalized, or
+     - the capitalized word has special pronunciation
+
+     and don't suggest if the difference of lengths of misspellings and
+     suggestions is 5 or more characters.
+
+  - Extend dotless i and dotted I rules to Crimean Tatar language
+    Allow dotted I in dictionary, and disable bad capitalization of i.
+
+  - BREAK: extended recursive word breaking algorithm to handle words or
+    words with suffixes when they already contain word break characters,
+    for example, "e-mail" is a dictionary word with a word break character, and
+    it wasn't accepted before in compounds in some languages.
+
+  - FORBIDDENWORD precedes BREAK: Now it's possible to forbid compound
+    forms recognized by BREAK word breaking by adding the bad compounds to
+    the dictionary with FORBIDDENWORD flags.
+
+  - lower limit for "doubletwochars" suggestion algorithm:
+    one of the typical misspellings recognized by Hunspell suggestion
+    mechanism is the syllable duplication. Along the old pattern
+    ABABA -> ABA, for example nutrITITIon -> nutrITIon, now also the
+    simpler ABAB -> AB pattern is recognized in non-starting position,
+    for example, regretTETEd -> regretTEd.
+
+  - lower limit for longswapchar and movechar: recognized only max.
+    4-character distances to avoid slow and bad suggestions.
+
+  - fix compound handling for new Hungarian orthography reform
+
+  - Allow suggestion search for prefix + *two suffixes*:
+    Remove artificial performance limit to get correct
+    suggestions for relatively simple misspellings in
+    Hungarian, etc., when the word form contains prefix
+    and both derivative and inflectional suffixes, too:
+
+    lefikszálása -> lefixálása
+
+  Improvements for command-line Hunspell:
+
+  - Remove false alarms during checking OpenDocument (ODF)
+    documents by ignoring <text:span> elements. (LibreOffice
+    creates a lot of <text:span> elements also within words
+    during text reediting, resulted often huge amount of broken
+    words before this fix.)
+
+  - List filenames during filtering multiple files in command-line:
+
+    Examples:
+
+    $ hunspell -l *.odt
+    a.odt: mispelling
+    b.odt: egzample
+
+    $ hunspell -l -G *.odt
+    a.odt: good
+    b.odt: words
+
+  - Dictionary search by option -D doesn't wait for the standard input
+    (fixed by Siva Mahadevan)
+
+  Other improvements:
+
+  - makealias dictionary compression: add option --minimize-diff
+    to reuse free positions of alias lists to create minimal and
+    readable diffs for alias compressed dictionaries stored in
+    revision control systems, as dictionaries of LibreOffice.
+
+  - Brazilian-Portuguese translation by Rafael Fontenelle
+
+  - Catalan translation by robert dot buj at gmail
+
+  - Minor bug fixes by several contributors, see git log
+
+2017-09-03: Hunspell 1.6.2 release:
+  - Library changes: no. Same as 1.6.1.
+  - Command line tool:
+      - Added German translation
+      - Fixed bug with wrong output encoding, not respecting system locale.
+
+2017-03-25: Hunspell 1.6.1 release:
+  - Library changes:
+      - Performance improvements in suggest()
+      - Fixes regressions for Hungarian related to compounding.
+      - Fixes regressions for Korean related to ICONV.
+  - Command line tool:
+      - Added Tajik translation 
+      - Fix regarding serching of OOo dicts installed in user folder
+  - Manpages:
+      - Fix microsoft-cp1251 to cp1251. Dicts should not use the first.
+      - Typos.
+  
+2016-12-22: Hunspell 1.6.0 release:
+  - Library changes:
+      - Performance improvement in ngsuggest(), suggestions should be faster.
+      - Revert MAXWORDLEN to 100 as in 1.3.3 for performance reasons.
+      - MAXWORDLEN can be set during build time with -D defines.
+      - Fix crash when word with 102 consecutive X is spelled.
+  - Command line tool:
+      - -D shows all loaded dictionares insted of only the first.
+      - -D properly lists all available dictionaries on Windows.
+
+2016-11-30: Hunspell 1.5.4 release:
+  - Fixes the command COMPOUNDSYLLABLE used in Hungarian dictionary.
+
+2016-11-28: Hunspell 1.5.3 release:
+  - Removed a #include from hunspell.hxx that was creating trouble
+
+2016-11-27: Hunspell 1.5.2 release:
+  - Reverted full backward compatibility with 1.4 public API, again
+
+2016-11-27: Hunspell 1.5.1 release:
+  - Reverted full backward compatibility with 1.4 public API
+
+2016-11-18: Hunspell 1.5.0 release:
+  - Lot of stability fixes
+  - Fixed compilation errors on various systems (Windows, FreeBSD)
+  - Small performance improvement compared to 1.4.0
+  - The C++ API is updated to use modern C++ types (string, vector).
+    Backward compatibility is kept for most of the functions except for
+    the following:
+      - get_wordchars();
+      - get_version();
+      - input_conv(string, string);
+      - removed get_csconv();
+
+2016-04-15: Hunspell 1.4.0 release:
+  - various abi changes due to moving away from char* to std::string
+
 2014-06-02: Hunspell 1.3.3 release:
   - OpenDocument (ODF and Flat ODF) support (ODF needs unzip program)
   - various bug fixes

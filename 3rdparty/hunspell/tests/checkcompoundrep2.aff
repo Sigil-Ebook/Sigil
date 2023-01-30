@@ -1,0 +1,18 @@
+# check fix of regression of commit ce8071b9d3312b3599714fc36fcc3fac11cdae97:
+# Return value of string.find() was ignored in AffixMgr::cpdrep_check(),
+# applying REP replacements at all positions before the last matching position.
+#
+# For example a regression in Hungarian spell checking:
+#
+# Correct closed compound word "fa+ajtó" was rejected: the ó -> o replacement
+# applied on the second character position, replacing "aa" with "o" there
+# (2-character length of UTF-8 character "ó"), and the result "fojtó"
+# is a correct dictionary word, which was the reason for rejection.
+SET UTF-8
+
+COMPOUNDMIN 2
+COMPOUNDFLAG x
+CHECKCOMPOUNDREP
+
+REP 1
+REP ó o

@@ -1,0 +1,5 @@
+# Crashtest for bug 1748408. Parsing an alias file with
+# more than (4096 / sizeof(void*)) elements would crash when trying to
+# pre-allocate the array of pointers.
+# The Hungarian dictionary that caught this had ~1500 entries.
+AF 2000

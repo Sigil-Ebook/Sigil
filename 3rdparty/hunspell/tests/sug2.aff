@@ -1,0 +1,25 @@
+# new suggestion methods of Hunspell 1.7:
+# dictionary word pairs with spaces or dashes
+# got top priority, and removes other not
+# "good" (uppercase, REP, ph:) suggestions:
+#
+# "alot" -> "a lot"
+#
+# Note: use ph: at the dictionary word pair
+# with space or dash to keep the other not
+# "good" suggestions, for example
+#
+# a lot ph:alot
+#
+# results "alot" -> "a lot", "alto", "slot"...
+
+# switch off ngram suggestion for testing
+MAXNGRAMSUGS 0
+KEY qwertzuiop|asdfghjkl|yxcvbnm|aq
+
+# Note: TRY with a letter "a" or "-" needs for
+# checking dictionary word pairs with dashes
+TRY esianrtolcdugmphbyfvkwz'
+WORDCHARS .-
+FORBIDDENWORD ?
+

@@ -4,12 +4,19 @@
 # long mov: Ghandi -> Gandhi
 # double two characters: vacacation -> vacation
 # space with REP: "alot" -> "a lot" ("a lot" need to be in the dic file.)
+#
+# Note: see test "ph" for the newer and
+# more simple method to handle common misspellings,
+# for example, alot->a lot, inspite->in spite,
+# (that is giving the best suggestion, and limiting
+# ngram/phonetic suggestion)
 
 # switch off ngram suggestion for testing
 MAXNGRAMSUGS 0
-REP 1
+REP 2
 REP alot a_lot
+REP inspite in_spite
 KEY qwertzuiop|asdfghjkl|yxcvbnm|aq
-WORDCHARS .
+WORDCHARS .-
 FORBIDDENWORD ?
 

@@ -1,4 +1,7 @@
 # source: http://en.wikipedia.org/wiki/Wikipedia:Lists_of_common_misspellings/For_machines
+# released under the Creative Commons Attribution-Share-Alike License 3.0
+# http://creativecommons.org/licenses/by-sa/3.0/
+
 abandonned	abandoned
 aberation	aberration
 abilties	abilities

@@ -1,0 +1,8 @@
+# The longer input pattern should be used if matched
+ICONV 6
+ICONV Da DA
+ICONV Ga GA
+ICONV Gag GAG
+ICONV Gagg GAGG
+ICONV Na NA
+ICONV Nan NAN

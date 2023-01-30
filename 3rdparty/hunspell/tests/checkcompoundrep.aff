@@ -1,4 +1,4 @@
-// forbid compound word, if it is also a non compound word with a REP fault
+// forbid compound word, if it is also a non-compound word with a REP fault
 // In example: Hungarian `szervíz' (szer+víz) compound word is forbidden, because 
 // this word is also a dictionary word (szerviz) with typical fault (i->í)
 CHECKCOMPOUNDREP

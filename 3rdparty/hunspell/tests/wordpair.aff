@@ -1,0 +1,4 @@
+# a dictionary word pair separated by space
+# will avoid its recognition without space
+# at compound word analysis
+COMPOUNDFLAG Y

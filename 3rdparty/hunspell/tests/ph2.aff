@@ -1,0 +1,32 @@
+# switch off ngram suggestion to test
+# usage of ph: dictionary fields in REP
+# suggestions
+SET UTF-8
+
+MAXNGRAMSUGS 0
+
+# test in compounds, too
+COMPOUNDFLAG Y
+
+# test also dictionary items with space,
+# and forbidden compounding, if there is
+# a ph: field with that compound as
+# mispelling in the dictionary
+CHECKCOMPOUNDREP
+
+# test in compound word with affixes
+SFX A Y 1
+SFX A 0 's .
+
+# when the ph: field ends with the character *,
+# strip last character of the pattern and the replacement
+# to match in REP suggestions also at character changes,
+# for example, "pretty ph:prity*" results "prit->prett"
+# REP replacement instead of "prity->pretty", to get
+# prity->pretty and pritiest->prettiest suggestions.
+
+SFX B Y 2
+SFX B y iest [^aeiou]y
+SFX B ö őt ö
+
+WORDCHARS '

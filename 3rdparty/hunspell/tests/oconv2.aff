@@ -1,0 +1,10 @@
+# tests OCONV conversion of root and morphes output
+SET UTF-8
+
+ICONV 1
+ICONV a ei
+OCONV 1
+OCONV ei a
+
+SFX A Y 1
+SFX A 0 s .

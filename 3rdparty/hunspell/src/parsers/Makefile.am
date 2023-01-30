@@ -1,3 +1,6 @@
+
+AM_CPPFLAGS=-I${top_builddir}/src/hunspell
+
 noinst_LIBRARIES=libparsers.a
 libparsers_a_SOURCES=firstparser.cxx xmlparser.cxx \
 		      latexparser.cxx  manparser.cxx \
@@ -11,5 +14,5 @@ testparser_SOURCES=firstparser.cxx firstparser.hxx xmlparser.cxx \
 		      textparser.cxx textparser.hxx htmlparser.cxx \
 		      htmlparser.hxx odfparser.hxx odfparser.cxx
 
-# need mystrdup()
-LDADD = ../hunspell/libhunspell-1.3.la
+# need mystrrep()
+LDADD = ../hunspell/libhunspell-1.7.la

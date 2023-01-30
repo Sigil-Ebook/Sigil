@@ -1,19 +1,18 @@
-lib_LTLIBRARIES = libhunspell-1.3.la
-libhunspell_1_3_includedir = $(includedir)/hunspell
-libhunspell_1_3_la_SOURCES=affentry.cxx affixmgr.cxx csutil.cxx \
-		     dictmgr.cxx hashmgr.cxx hunspell.cxx \
-	             suggestmgr.cxx license.myspell license.hunspell \
-	             phonet.cxx filemgr.cxx hunzip.cxx replist.cxx
+lib_LTLIBRARIES = libhunspell-1.7.la
+libhunspell_1_7_includedir = $(includedir)/hunspell
+libhunspell_1_7_la_SOURCES=affentry.cxx affentry.hxx affixmgr.cxx affixmgr.hxx \
+                           atypes.hxx baseaffix.hxx csutil.cxx csutil.hxx \
+                           filemgr.cxx filemgr.hxx hashmgr.cxx hashmgr.hxx \
+                           htypes.hxx hunspell.cxx hunspell.h hunspell.hxx \
+                           hunzip.cxx hunzip.hxx langnum.hxx \
+                           phonet.cxx phonet.hxx replist.cxx replist.hxx \
+                           suggestmgr.cxx suggestmgr.hxx utf_info.hxx w_char.hxx
+nodist_libhunspell_1_7_la_SOURCES=hunvisapi.h
 
-libhunspell_1_3_include_HEADERS=affentry.hxx htypes.hxx affixmgr.hxx \
-	        csutil.hxx hunspell.hxx atypes.hxx dictmgr.hxx hunspell.h \
-		suggestmgr.hxx baseaffix.hxx hashmgr.hxx langnum.hxx \
-		phonet.hxx filemgr.hxx hunzip.hxx w_char.hxx replist.hxx \
-		hunvisapi.h
 
-libhunspell_1_3_la_DEPENDENCIES=utf_info.cxx
-libhunspell_1_3_la_LDFLAGS=-no-undefined
+libhunspell_1_7_include_HEADERS=hunspell.hxx hunspell.h hunvisapi.h \
+		                w_char.hxx atypes.hxx
+
+libhunspell_1_7_la_LDFLAGS=-no-undefined -version-info 0:1:0
 
 AM_CXXFLAGS=$(CFLAG_VISIBILITY) -DBUILDING_LIBHUNSPELL
-
-EXTRA_DIST=hunspell.dsp makefile.mk README utf_info.cxx

@@ -1,12 +1,12 @@
-.TH hunspell 3 "2014-05-26"
+.TH hunspell 3 "2017-11-20"
 .LO 1
 .hy 0
 .SH NAME
 \fBhunspell\fR - spell checking, stemming, morphological generation and analysis
 .SH SYNOPSIS
-\fB#include <hunspell/hunspell.hxx> /* or */\fR
+\fB#include <hunspell.hxx> /* or */\fR
 .br
-\fB#include <hunspell/hunspell.h>\fR
+\fB#include <hunspell.h>\fR
 .br
 .sp
 .BI "Hunspell(const char *" affpath ", const char *" dpath );
@@ -133,8 +133,8 @@ analyze, generate and stem() functions.
 .SS Other functions
 The add(), add_with_affix() and remove() are helper functions of a
 personal dictionary implementation to add and remove words from the
-base dictionary in run-time. The add_with_affix() uses a second word
-as a model of the enabled affixation of the new word.
+base dictionary in run-time. The add_with_affix() uses a second root word
+as the model of the enabled affixation and compounding of the new word.
 .PP
 The get_dic_encoding() function returns "ISO8859-1" or the character
 encoding defined in the affix file with the "SET" keyword.
@@ -143,7 +143,7 @@ The get_csconv() function returns the 8-bit character case table of the
 encoding of the dictionary.
 .PP
 The get_wordchars() and get_wordchars_utf16() return the 
-extra word characters definied in affix file for tokenization by
+extra word characters defined in affix file for tokenization by
 the "WORDCHARS" keyword.
 .PP
 The get_version() returns the version string of the library.
@@ -198,6 +198,31 @@ input word, if it was added by one of the following "SPELLML" syntaxes:
 .fi
 .RE
 .PP
+
+.PP
+.RS
+.nf
+<?xml?>
+<query type="add">
+<word>word</word>
+</query>
+.fi
+.RE
+.PP
+
+.PP
+.RS
+.nf
+<?xml?>
+<query type="add">
+<word>word</word>
+<word>model_word_for_affixation_and_compounding</word>
+</query>
+.fi
+.RE
+.PP
+
+
 
 The outputs of the type="stem" query and the stem() library function
 are the same. The output of the type="analyze" query is a string contained

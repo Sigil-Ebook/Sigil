@@ -1,0 +1,502 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the hunspell package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: hunspell 1.7.1\n"
+"Report-Msgid-Bugs-To: https://github.com/hunspell/hunspell/issues\n"
+"POT-Creation-Date: 2022-12-29 20:54+0100\n"
+"PO-Revision-Date: 2022-09-12 08:20+0000\n"
+"Last-Translator: Fotios Kolytoumpas <fotis.kolytoumpas@gmail.com>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/hunspell/"
+"translations/el/>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1-dev\n"
+
+#: src/tools/hunspell.cxx:261 src/tools/hunspell.cxx:378
+#, c-format
+msgid "error - iconv_open: %s -> %s\n"
+msgstr "σφάλμα - iconv_open: %s -> %s\n"
+
+#: src/tools/hunspell.cxx:275
+#, c-format
+msgid "error - iconv: %s -> %s\n"
+msgstr "σφάλμα - iconv: %s -> %s\n"
+
+#: src/tools/hunspell.cxx:319 src/tools/hunspell.cxx:341
+#, c-format
+msgid "error - iconv_open: UTF-8 -> %s\n"
+msgstr "σφάλμα - iconv_open: UTF-8 -> %s\n"
+
+#: src/tools/hunspell.cxx:680 src/tools/hunspell.cxx:1592
+msgid "Can't create tmp dir"
+msgstr "Δεν είναι δυνατή η δημιουργία tmp dir"
+
+#: src/tools/hunspell.cxx:691 src/tools/hunspell.cxx:703
+#: src/tools/hunspell.cxx:1575 src/tools/hunspell.cxx:1605
+#: src/tools/hunspell.cxx:1618
+msgid "Can't open inputfile"
+msgstr "Δεν είναι δυνατό το άνοιγμα του αρχείου εισόδου"
+
+#: src/tools/hunspell.cxx:693 src/tools/hunspell.cxx:1607
+#: src/tools/hunspell.cxx:2006 src/tools/hunspell.cxx:2181
+#: src/tools/hunspell.cxx:2198
+#, c-format
+msgid "Can't open %s.\n"
+msgstr "Δεν είναι δυνατό το άνοιγμα του %s.\n"
+
+#: src/tools/hunspell.cxx:773 src/tools/hunspell.cxx:1362
+#: src/tools/hunspell.cxx:1474
+#, c-format
+msgid "error - missing HOME variable\n"
+msgstr "σφάλμα - λείπει η μεταβλητή HOME\n"
+
+#: src/tools/hunspell.cxx:863
+#, c-format
+msgid "Line %d: %s -> "
+msgstr "Γραμμή %d: %s -> "
+
+#: src/tools/hunspell.cxx:1143
+msgid "FORBIDDEN!"
+msgstr "ΑΠΑΓΟΡΕΥΜΈΝΟ!"
+
+#: src/tools/hunspell.cxx:1145
+msgid "Spelling mistake?"
+msgstr "Ορθογραφικό λάθος?"
+
+#: src/tools/hunspell.cxx:1147
+#, c-format
+msgid ""
+"\t%s\t\tFile: %s\n"
+"\n"
+msgstr ""
+"\t%s\t\tΑρχείο: %s\n"
+"\n"
+
+#. TRANSLATORS: the capital letters are shortcuts, mark one letter similarly
+#. in your translation and translate the standalone letter accordingly later
+#.
+#: src/tools/hunspell.cxx:1206
+msgid ""
+"\n"
+"[SPACE] R)epl A)ccept I)nsert U)ncap S)tem Q)uit e(X)it or ? for help\n"
+msgstr ""
+"\n"
+"[ΔΙΆΣΤΗΜΑ] Ν)Αντικατάσταση Α)Αποδοχή Π)Προσθήκη Ζ)Πεζά Θ)Θέμα Κ)Κλείσιμο "
+"Ξ)Έξοδος ή ? για βοήθεια\n"
+
+#: src/tools/hunspell.cxx:1275
+msgid ""
+"Whenever a word is found that is not in the dictionary\n"
+"it is printed on the first line of the screen.  If the dictionary\n"
+"contains any similar words, they are listed with a number\n"
+"next to each one.  You have the option of replacing the word\n"
+"completely, or choosing one of the suggested words.\n"
+msgstr ""
+"Κάθε φορά που βρίσκεται μια λέξη που δεν υπάρχει στο λεξικό\n"
+"τυπώνεται στην πρώτη γραμμή της οθόνης. Αν το λεξικό\n"
+"περιέχει οποιεσδήποτε παρόμοιες λέξεις, παρατίθενται με έναν αριθμό\n"
+"δίπλα στην καθεμία. Έχετε την επιλογή να αντικαταστήσετε τη λέξη\n"
+"εντελώς ή να επιλέξετε μία από τις προτεινόμενες λέξεις.\n"
+
+#: src/tools/hunspell.cxx:1281
+msgid ""
+"\n"
+"Commands are:\n"
+"\n"
+msgstr ""
+"\n"
+"Οι εντολές είναι:\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1282
+msgid "R\tReplace the misspelled word completely.\n"
+msgstr "Ν\tΑντικαταστήστε πλήρως την ανορθόγραφη λέξη.\n"
+
+#: src/tools/hunspell.cxx:1283
+msgid "Space\tAccept the word this time only.\n"
+msgstr "Διάστημα\tΑποδεχτείτε τη λέξη μόνο αυτή τη φορά.\n"
+
+#: src/tools/hunspell.cxx:1285
+msgid "A\tAccept the word for the rest of this session.\n"
+msgstr "A\tΑποδεχτείτε τη λέξη για το υπόλοιπο αυτής της συνεδρίας.\n"
+
+#: src/tools/hunspell.cxx:1287
+msgid "I\tAccept the word, and put it in your private dictionary.\n"
+msgstr "Π\tΑποδεχτείτε τη λέξη και βάλτε την στο ιδιωτικό σας λεξικό.\n"
+
+#: src/tools/hunspell.cxx:1289
+msgid "U\tAccept and add lowercase version to private dictionary.\n"
+msgstr ""
+"Ζ)\tΑποδεχτείτε τη λέξη και προσθέστε πεζά γράμματα για αυτήν στο ιδιωτικό "
+"λεξικό.\n"
+
+#: src/tools/hunspell.cxx:1291
+msgid ""
+"S\tAsk a stem and a model word and store them in the private dictionary.\n"
+"\tThe stem will be accepted also with the affixes of the model word.\n"
+msgstr ""
+"Θ\tΖητήστε ένα θέμα και μια πρότυπη λέξη και αποθηκεύστε τα στο ιδιωτικό "
+"λεξικό.\n"
+"\tΤο θέμα θα γίνει δεκτό και με τα επιθέματα της πρότυπης λέξης.\n"
+
+#: src/tools/hunspell.cxx:1295
+msgid "0-n\tReplace with one of the suggested words.\n"
+msgstr "0-n\tΑντικαταστήστε με μία από τις προτεινόμενες λέξεις.\n"
+
+#: src/tools/hunspell.cxx:1297
+msgid ""
+"X\tWrite the rest of this file, ignoring misspellings, and start next file.\n"
+msgstr ""
+"Κ\tΓράψτε το υπόλοιπο αυτού του αρχείου, αγνοώντας τα ορθογραφικά λάθη και "
+"ξεκινήστε το επόμενο αρχείο.\n"
+
+#: src/tools/hunspell.cxx:1300
+msgid "Q\tQuit immediately. Asks for confirmation. Leaves file unchanged.\n"
+msgstr "Ξ\tΆμεση έξοδος. Ζητάει επιβεβαίωση. Αφήνει το αρχείο αμετάβλητο.\n"
+
+#: src/tools/hunspell.cxx:1302
+msgid "^Z\tSuspend program. Restart with fg command.\n"
+msgstr "^Z\tΑναστολή προγράμματος. Επανεκκίνηση με την εντολή fg.\n"
+
+#: src/tools/hunspell.cxx:1303
+msgid "?\tShow this help screen.\n"
+msgstr "?\tΕμφάνιση αυτής της οθόνης βοήθειας.\n"
+
+#: src/tools/hunspell.cxx:1304
+msgid ""
+"\n"
+"-- Type space to continue -- \n"
+msgstr ""
+"\n"
+"-- Πληκτρολογήστε διάστημα για να συνεχίσετε -- \n"
+
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "R)epl" before
+#: src/tools/hunspell.cxx:1316
+msgid "r"
+msgstr "ν"
+
+#: src/tools/hunspell.cxx:1325
+msgid "Replace with: "
+msgstr "Αντικατάσταση με: "
+
+#. TRANSLATORS: translate these letters according to the shortcut letter
+#. used
+#. previously in the  translation of "U)ncap" and I)nsert before
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "U)ncap" and I)nsert before
+#: src/tools/hunspell.cxx:1349 src/tools/hunspell.cxx:1385
+msgid "u"
+msgstr "ζ"
+
+#: src/tools/hunspell.cxx:1350 src/tools/hunspell.cxx:1385
+msgid "i"
+msgstr "π"
+
+#: src/tools/hunspell.cxx:1378 src/tools/hunspell.cxx:1490
+#, c-format
+msgid "Cannot update personal dictionary."
+msgstr "Δεν είναι δυνατή η ενημέρωση του προσωπικού λεξικού."
+
+#: src/tools/hunspell.cxx:1386
+msgid "a"
+msgstr "α"
+
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "S)tem" before
+#: src/tools/hunspell.cxx:1394
+msgid "s"
+msgstr "θ"
+
+#: src/tools/hunspell.cxx:1409
+msgid "New word (stem): "
+msgstr "Νέα λέξη (θέμα): "
+
+#: src/tools/hunspell.cxx:1437
+msgid "Model word (a similar dictionary word): "
+msgstr "Πρότυπη λέξη (μια παρόμοια λέξη λεξικού): "
+
+#: src/tools/hunspell.cxx:1497
+msgid "Model word must be in the dictionary. Press any key!"
+msgstr ""
+"Η πρότυπη λέξη πρέπει να υπάρχει στο λεξικό. Πατήστε οποιοδήποτε πλήκτρο!"
+
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "e(X)it" before
+#: src/tools/hunspell.cxx:1507
+msgid "x"
+msgstr "ξ"
+
+#. TRANSLATORS: translate this letter according to the shortcut letter
+#. used
+#. previously in the  translation of "Q)uit" before
+#: src/tools/hunspell.cxx:1513
+msgid "q"
+msgstr "κ"
+
+#: src/tools/hunspell.cxx:1516
+msgid "Are you sure you want to throw away your changes? "
+msgstr "Είστε σίγουροι ότι θέλετε να απορρίψετε τις αλλαγές σας; "
+
+#. TRANSLATORS: translate this letter according to the shortcut
+#. * letter y)es
+#: src/tools/hunspell.cxx:1519
+msgid "y"
+msgstr "ν"
+
+#: src/tools/hunspell.cxx:1628
+msgid "Can't create tempfile"
+msgstr "Δεν είναι δυνατή η δημιουργία tempfile"
+
+#: src/tools/hunspell.cxx:1673
+msgid "Can't open outputfile"
+msgstr "Δεν είναι δυνατό το άνοιγμα του outputfile"
+
+#: src/tools/hunspell.cxx:1826
+msgid "Usage: hunspell [OPTION]... [FILE]...\n"
+msgstr "Χρήση: hunspell [ΕΠΙΛΟΓΉ]... [ΑΡΧΕΊΟ]...\n"
+
+#: src/tools/hunspell.cxx:1827
+msgid ""
+"Check spelling of each FILE. Without FILE, check standard input.\n"
+"\n"
+msgstr ""
+"Έλεγχος ορθογραφίας κάθε ΑΡΧΕΊΟΥ. Χωρίς ΑΡΧΕΊΟ, έλεγχος της κανονικής "
+"εισόδου.\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1829
+msgid "  -1\t\tcheck only first field in lines (delimiter = tabulator)\n"
+msgstr ""
+"  -1\t\tέλεγχος μόνο του πρώτου πεδίου στις γραμμές (διαχωριστής = Tab)\n"
+
+#: src/tools/hunspell.cxx:1831
+msgid "  -a\t\tIspell's pipe interface\n"
+msgstr "  -a\t\tΔιεπαφή σωλήνων του Ispell\n"
+
+#: src/tools/hunspell.cxx:1832
+msgid "  --check-url\tcheck URLs, e-mail addresses and directory paths\n"
+msgstr ""
+"  --check-url\tέλεγχος URLs, διευθύνσεων e-mail και διαδρομών καταλόγων\n"
+
+#: src/tools/hunspell.cxx:1837
+msgid "  --check-apostrophe\tcheck Unicode typographic apostrophe\n"
+msgstr "  --check-apostrophe\tέλεγχος τυπογραφικής αποστρόφου Unicode\n"
+
+#: src/tools/hunspell.cxx:1839
+msgid "  -d d[,d2,...]\tuse d (d2 etc.) dictionaries\n"
+msgstr "  -d d[,d2,...]\tχρήση d (d2 κλπ.) λεξικών\n"
+
+#: src/tools/hunspell.cxx:1840
+msgid "  -D\t\tshow available dictionaries\n"
+msgstr "  -D\t\tπροβολή διαθέσιμων λεξικών\n"
+
+#: src/tools/hunspell.cxx:1841
+msgid "  -G\t\tprint only correct words or lines\n"
+msgstr "  -G\t\tεμφάνιση μόνο των σωστών λέξεων ή γραμμών\n"
+
+#: src/tools/hunspell.cxx:1842
+msgid "  -h, --help\tdisplay this help and exit\n"
+msgstr "  -h, --help\tεμφάνιση αυτής της βοήθειας και έξοδος\n"
+
+#: src/tools/hunspell.cxx:1843
+msgid "  -H\t\tHTML input file format\n"
+msgstr "  -H\t\tΜορφή αρχείου εισόδου HTML\n"
+
+#: src/tools/hunspell.cxx:1844
+msgid "  -i enc\tinput encoding\n"
+msgstr "  -i enc\tκωδικοποίηση εισόδου\n"
+
+#: src/tools/hunspell.cxx:1845
+msgid "  -l\t\tprint misspelled words\n"
+msgstr "  -l\t\tεμφάνιση ανορθόγραφων λέξεων\n"
+
+#: src/tools/hunspell.cxx:1846
+msgid "  -L\t\tprint lines with misspelled words\n"
+msgstr "  -L\t\tεμφάνιση γραμμών με ανορθόγραφες λέξεις\n"
+
+#: src/tools/hunspell.cxx:1848
+msgid "  -m \t\tanalyze the words of the input text\n"
+msgstr "  -m \t\tανάλυση των λέξεων του αρχείου εισόδου\n"
+
+#: src/tools/hunspell.cxx:1849
+msgid "  -n\t\tnroff/troff input file format\n"
+msgstr "  -n\t\tαρχείου εισόδου μορφής nroff/troff\n"
+
+#: src/tools/hunspell.cxx:1853
+msgid "  -O\t\tOpenDocument (ODF or Flat ODF) input file format\n"
+msgstr "  -O\t\tαρχείο εισόδου μορφής OpenDocument (ODF ή Flat ODF)\n"
+
+#: src/tools/hunspell.cxx:1854
+msgid "  -p dict\tset dict custom dictionary\n"
+msgstr "  -p dict\tορισμός προσαρμοσμένου λεξικού dict\n"
+
+#: src/tools/hunspell.cxx:1856
+msgid "  -r\t\twarn of the potential mistakes (rare words)\n"
+msgstr "  -r\t\tπροειδοποίηση για πιθανά λάθη (σπάνιες λέξεις)\n"
+
+#: src/tools/hunspell.cxx:1859
+msgid "  -P password\tset password for encrypted dictionaries\n"
+msgstr "  -P password\tορισμός κωδικού πρόσβασης για κρυπτογραφημένα λεξικά\n"
+
+#: src/tools/hunspell.cxx:1860
+msgid "  -s \t\tstem the words of the input text\n"
+msgstr "  -s \t\tαποθήκευση των λέξεων του κειμένου εισόδου ως θέματα\n"
+
+#: src/tools/hunspell.cxx:1861
+msgid "  -S \t\tsuffix words of the input text\n"
+msgstr "  -S \t\tπροσθήκη επιθεμάτων από το αρχείο εισόδου\n"
+
+#: src/tools/hunspell.cxx:1862
+msgid "  -t\t\tTeX/LaTeX input file format\n"
+msgstr "  -t\t\tαρχείο εισόδου μορφής TeX/LaTeX\n"
+
+#: src/tools/hunspell.cxx:1863
+msgid "  -v, --version\tprint version number\n"
+msgstr "  -v, --version\tεμφάνιση αριθμού έκδωσης\n"
+
+#: src/tools/hunspell.cxx:1865
+msgid "  -vv\t\tprint Ispell compatible version number\n"
+msgstr "  -vv\t\tεμφάνιση συμβατής έκδοσης Ispell\n"
+
+#: src/tools/hunspell.cxx:1866
+msgid "  -w\t\tprint misspelled words (= lines) from one word/line input.\n"
+msgstr ""
+"  -w\t\tεμφάνιση ανορθόγραφων λέξεων (= γραμμές) από μία λέξη ή γραμμή "
+"εισόδου.\n"
+
+#: src/tools/hunspell.cxx:1868
+msgid ""
+"  -X\t\tXML input file format\n"
+"\n"
+msgstr ""
+"  -X\t\tαρχείου εισόδου μορφής XML\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1872
+msgid ""
+"Example: hunspell -d en_US file.txt    # interactive spelling\n"
+"         hunspell -i utf-8 file.txt    # check UTF-8 encoded file\n"
+"         hunspell -l *.odt             # print misspelled words of ODF "
+"files\n"
+"\n"
+"         # Quick fix of ODF documents by personal dictionary creation\n"
+"\n"
+"         # 1 Make a reduced list from misspelled and unknown words:\n"
+"\n"
+"         hunspell -l *.odt | sort | uniq >words\n"
+"\n"
+"         # 2 Delete misspelled words of the file by a text editor.\n"
+"         # 3 Use this personal dictionary to fix the deleted words:\n"
+"\n"
+"         hunspell -p words *.odt\n"
+"\n"
+msgstr ""
+"Παράδειγμα: hunspell -d en_US file.txt    # διαδραστική ορθογραφία\n"
+"         hunspell -i utf-8 file.txt    # έλεγχος αρχείου με κωδικοποίηση "
+"UTF-8\n"
+"         hunspell -l *.odt             # εμφάνιση ανορθόγραφων λέξεων "
+"αρχείων ODF\n"
+"\n"
+"         # Γρήγορη διόρθωση εγγράφων ODF με τη δημιουργία προσωπικού "
+"λεξικού\n"
+"\n"
+"         # 1 Δημιουργήστε μια μειωμένη λίστα από ανορθόγραφες και άγνωστες "
+"λέξεις:\n"
+"\n"
+"         hunspell -l *.odt | sort | uniq >words\n"
+"\n"
+"         # 2 Διαγράψτε τις ανορθόγραφες λέξεις του αρχείου με έναν "
+"επεξεργαστή κειμένου.\n"
+"         # 3 Χρησιμοποιήστε αυτό το προσωπικό λεξικό για να διορθώσετε τις "
+"διαγραμμένες λέξεις:\n"
+"\n"
+"         hunspell -p words *.odt\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1887
+msgid "Bug reports: http://hunspell.github.io/\n"
+msgstr "Αναφορές σφαλμάτων: http://hunspell.github.io/\n"
+
+#: src/tools/hunspell.cxx:1895
+#, fuzzy
+msgid ""
+"\n"
+"Copyright (C) 2002-2022 László Németh. License: MPL/GPL/LGPL.\n"
+"\n"
+"Based on OpenOffice.org's Myspell library.\n"
+"Myspell's copyright (C) Kevin Hendricks, 2001-2002, License: BSD.\n"
+"\n"
+msgstr ""
+"\n"
+"Πνευματικά δικαιώματα (C) 2002-2014 László Németh. Άδεια χρήσης: MPL/GPL/"
+"LGPL.\n"
+"\n"
+"Βασισμένο στην βιβλιοθήκη του OpenOffice.org Myspell.\n"
+"Πνευματικά δικαιώματα (C) του Myspell Kevin Hendricks, 2001-2002, Άδεια "
+"χρήσης: BSD.\n"
+"\n"
+
+#: src/tools/hunspell.cxx:1900
+msgid ""
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE,\n"
+"to the extent permitted by law.\n"
+msgstr ""
+"Αυτό είναι ελεύθερο λογισμικό; δείτε την πηγή για τους όρους αντιγραφής.  "
+"ΔΕΝ υπάρχει ΚΑΜΊΑ\n"
+"εγγύηση; ούτε καν για την ΕΜΠΟΡΕΥΣΙΜΌΤΗΤΑ ή την ΚΑΤΑΛΛΗΛΌΤΗΤΑ ΓΙΑ ΈΝΑΝ "
+"ΣΥΓΚΕΚΡΙΜΈΝΟ ΣΚΟΠΌ,\n"
+"στο βαθμό που επιτρέπεται από το νόμο.\n"
+
+#: src/tools/hunspell.cxx:2077
+#, c-format
+msgid ""
+"SEARCH PATH:\n"
+"%s\n"
+msgstr ""
+"ΔΙΑΔΡΟΜΉ ΑΝΑΖΉΤΗΣΗΣ:\n"
+"%s\n"
+
+#: src/tools/hunspell.cxx:2081
+msgid "AVAILABLE DICTIONARIES (path is not mandatory for -d option):\n"
+msgstr ""
+"ΔΙΑΘΈΣΙΜΑ ΛΕΞΙΚΆ (η διαδρομή δεν είναι υποχρεωτική για την επιλογή -d):\n"
+
+#: src/tools/hunspell.cxx:2095 src/tools/hunspell.cxx:2115
+#, c-format
+msgid ""
+"LOADED DICTIONARY:\n"
+"%s\n"
+"%s\n"
+msgstr ""
+"ΦΟΡΤΩΜΈΝΟ ΛΕΞΙΚΌ:\n"
+"%s\n"
+"%s\n"
+
+#: src/tools/hunspell.cxx:2118
+#, c-format
+msgid "error - %s exceeds dictionary limit.\n"
+msgstr "σφάλμα - %s υπερβαίνει το όριο του λεξικού.\n"
+
+#: src/tools/hunspell.cxx:2124
+#, c-format
+msgid "Can't open affix or dictionary files for dictionary named \"%s\".\n"
+msgstr ""
+"Δεν είναι δυνατό το άνοιγμα αρχείων επιθέματος ή λεξικού, για το λεξικό με "
+"το όνομα \"%s\".\n"
+
+#: src/tools/hunspell.cxx:2211
+msgid "Hunspell has been compiled without Ncurses user interface.\n"
+msgstr "Το Hunspell έχει μεταγλωττιστεί χωρίς τη διεπαφή χρήστη Ncurses.\n"
