@@ -1,11 +1,24 @@
 pre-1.9.30
     Bug Fixes
-      - fix css property value parsing to better handle !important
+      - fix Checkpointing to work with dulwich version 0.20.46+
+      - fix css value parsing when !important is used
+      - EmbeddedPython fixes to work with Python 3.11 and later (thank you sharkcz)
+      - leave cursor position unchanged if nothing found when search groups of files
+      - make all Numeric items in Reports align right
+      - add support for thousands separator to Reports
+      - allow blank dc:language values to prevent crashing (as Sigil-1.9.10 did)
+      - allow unknown language codes to pass through MetaEditor
+      - MetaEditor under epub2, allow custom opf scheme values
+      - prevent duplicate spaces when reformatting CSS in import, charset and namespace
+      - better prevent random OPF attribute order changes to simplify Checkpoint diffs
 
     New Features
       - allow user to edit Checkpoint descriptions for clarity via Checkpoint menu
       - Add ability to show the Checkpoint Change Log via Checkpoint menu 
-      
+      - Update to Hunspell 1.7.2 (released in December 2022) for spellchecking
+      - move completely away from ever using OS system tmp folder for storing Sigil wip files
+          instead create a new "workspace" folder inside Sigil Preferences folder
+
     
 Sigil-1.9.20
     Bug Fixes
