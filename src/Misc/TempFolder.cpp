@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -27,6 +27,7 @@
 
 #include "Misc/TempFolder.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 
 TempFolder::TempFolder()
     : m_tempDir(GetNewTempFolderTemplate())
@@ -61,10 +62,10 @@ QString TempFolder::GetPathToSigilScratchpad()
     SettingsStore ss;
     QString temp_path = ss.tempFolderHome();
     if (temp_path == "<SIGIL_DEFAULT_TEMP_HOME>") {
-        return QDir::tempPath();
+        return Utility::DefinePrefsDir() + "/workspace";
     }
     if (!QDir(temp_path).exists()) {
-        return QDir::tempPath();
+        return Utility::DefinePrefsDir() + "/workspace";;
     }
     return temp_path;
 }
@@ -75,10 +76,10 @@ QString TempFolder::GetNewTempFolderTemplate()
     SettingsStore ss;
     QString temp_path = ss.tempFolderHome();
     if (temp_path == "<SIGIL_DEFAULT_TEMP_HOME>") {
-        return QDir::tempPath() + "/Sigil-XXXXXX";;
+       return Utility::DefinePrefsDir() + "/workspace"  + "/Sigil-XXXXXX";
     }
     if (!QDir(temp_path).exists()) {
-        return QDir::tempPath() + "/Sigil-XXXXXX";;
+        return Utility::DefinePrefsDir() + "/workspace" + "/Sigil-XXXXXX";;
     }
     return temp_path + "/Sigil-XXXXXX"; 
 }

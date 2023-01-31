@@ -338,6 +338,13 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("sigil");
     QCoreApplication::setApplicationVersion(SIGIL_VERSION);
 
+    // make sure the default Sigil workspace folder has been created
+    QString workspace_path = Utility::DefinePrefsDir() + "/workspace";
+    QDir workspace_dir(workspace_path);
+    if (!workspace_dir.exists()) {
+        workspace_dir.mkpath(workspace_path);
+    }
+
     // handle all non-backwards compatible ini file changes
     update_ini_file_if_needed(Utility::DefinePrefsDir() + "/" + SEARCHES_SETTINGS_FILE,
                               Utility::DefinePrefsDir() + "/" + SEARCHES_V2_SETTINGS_FILE);
