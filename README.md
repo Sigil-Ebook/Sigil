@@ -110,10 +110,10 @@ Please see their respective folders for complete license information.
 
 Currently these projects include:
 
-* Hunspell - http://hunspell.sourceforge.net
+* Hunspell 1.7.2 - https://github.com/hunspell/hunspell
 * MiniZip version 1.1 (plus some security changes)
 * Perl-compatible Regular Expression Library 2 (pcre2 version 10.39)
-* ZLib Data Compression Library (zlib 1.2.8)
+* ZLib Data Compression Library (zlib 1.2.13)
 * jQuery-2.2.4 (src/Resource_Files/javascript/jquery-2.2.4.min.js)
 * jQuery.ScrollTo-2.1.2 (src/Resource_Files/javascript/jquery.scrollTo-2.1.2.min.js)
 * MathJax.js Version 3.2.X [required minimum is 3.2.2]: (src/Resource_Files/polyfills)
