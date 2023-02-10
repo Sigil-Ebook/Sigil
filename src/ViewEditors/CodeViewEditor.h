@@ -446,7 +446,7 @@ public slots:
      *
      * @param printer The printer interface to use for printing.
      */
-    void print(QPagedPaintDevice *printer);
+    void print(QPrinter *printer);
 
     void RenameClassClicked();
     void RenameClass();

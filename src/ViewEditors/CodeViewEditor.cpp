@@ -43,6 +43,7 @@
 #include <QString>
 #include <QStringRef>
 #include <QPointer>
+#include <QPrinter>
 #include <QApplication>
 #include <QInputDialog>
 #include <QTimer>
@@ -1211,7 +1212,7 @@ void CodeViewEditor::SetUpFindForSelectedText(const QString &search_regex)
 // method is not a slot, and we need it as a slot
 // for print preview support; so this is just
 // a slot wrapper around that function
-void CodeViewEditor::print(QPagedPaintDevice *printer)
+void CodeViewEditor::print(QPrinter *printer)
 {
     QPlainTextEdit::print(printer);
 }
