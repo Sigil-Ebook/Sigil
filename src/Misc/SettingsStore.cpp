@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2022  Kevin B. Hendricks, Stratford, ON
-**  Copyright (C) 2016-2020  Doug Massay
+**  Copyright (C) 2016-2023  Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2016-2023  Doug Massay
 **  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013  Dave Heiland
 **
@@ -110,6 +110,8 @@ static QString KEY_CODE_VIEW_XHTML_HTML_COLOR = SETTINGS_GROUP + "/" + "code_vie
 static QString KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR = SETTINGS_GROUP + "/" + "code_view_xhtml_html_comment_color";
 
 static QString KEY_CODE_VIEW_HIGHLIGHT_OPEN_CLOSE_TAGS = SETTINGS_GROUP + "/" + "code_view_highlight_open_close_tags";
+static QString KEY_SKIP_PRINT_WARNINGS = SETTINGS_GROUP + "/" + "skipprintwarnings";
+static QString KEY_SKIP_PRINT_PREVIEW = SETTINGS_GROUP + "/" + "skipprintpreview";
 
 // Dark Appearance
 static QString KEY_CV_DARK_CSS_COMMENT_COLOR = SETTINGS_GROUP + "/" + "cv_dark_css_comment_color";
@@ -498,6 +500,18 @@ bool SettingsStore::enableAltGr()
     return static_cast<bool>(value(KEY_ENABLE_ALTGR, false).toBool());
 }
 
+bool SettingsStore::skipPrintWarnings()
+{
+  clearSettingsGroup();
+  return value(KEY_SKIP_PRINT_WARNINGS, false).toBool();
+}
+
+bool SettingsStore::skipPrintPreview()
+{
+  clearSettingsGroup();
+  return value(KEY_SKIP_PRINT_PREVIEW, false).toBool();
+}
+
 void SettingsStore::setDefaultMetadataLang(const QString &lang)
 {
     clearSettingsGroup();
@@ -817,6 +831,18 @@ void SettingsStore::setEnableAltGr(bool enabled)
 {
     clearSettingsGroup();
     setValue(KEY_ENABLE_ALTGR, enabled);
+}
+
+void SettingsStore::setSkipPrintWarnings(bool skip)
+{
+  clearSettingsGroup();
+  return setValue(KEY_SKIP_PRINT_WARNINGS, skip);
+}
+
+void SettingsStore::setSkipPrintPreview(bool skip)
+{
+  clearSettingsGroup();
+  return setValue(KEY_SKIP_PRINT_PREVIEW, skip);
 }
 
 void SettingsStore::clearAppearanceSettings()

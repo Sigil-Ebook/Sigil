@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019-2022  Doug Massay
+**  Copyright (C) 2015-2023  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2023  Doug Massay
 **  Copyright (C) 2012       Dave Heiland, John Schember
 **
 **  This file is part of Sigil.
@@ -61,6 +61,9 @@ static const QString MATHJAX3_CONFIG =
 "    }; "
 " </script> ";
 
+static const QStringList DARKCSSLINKS = QStringList() << "qrc:///dark/mac_dark_scrollbar.css" 
+                                                      << "qrc:///dark/win_dark_scrollbar.css" 
+                                                      << "qrc:///dark/lin_dark_scrollbar.css";
 
 #define DBG if(0)
 
@@ -78,7 +81,10 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_titleText(QString()),
     m_updatingPage(false),
     m_usingMathML(false),
-    m_cycleCSSLevel(0)
+    m_cycleCSSLevel(0),
+    m_skipPrintWarnings(false),
+    m_skipPrintPreview(false),
+    m_WebViewPrinter(new WebViewPrinter(this))
 {
     m_progress->reset();
     m_progress->setMinimum(0);
@@ -254,6 +260,10 @@ void PreviewWindow::SetupView()
     m_cycleCSSAction = new QAction(QIcon(":/main/cycle-css.svg"),"", this);
     m_cycleCSSAction ->setEnabled(false);
     m_cycleCSSAction->setToolTip(tr("Cycle Custom CSS Files"));
+
+    m_webviewPrint = new QAction(QIcon(":/main/document-print.svg"), "", this);
+    m_webviewPrint ->setEnabled(true);
+    m_webviewPrint->setToolTip(tr("Print Preview View"));
     
     QToolBar * tb = new QToolBar();
     tb->addAction(m_inspectAction);
@@ -261,6 +271,7 @@ void PreviewWindow::SetupView()
     tb->addAction(m_copyAction);
     tb->addAction(m_reloadAction);
     tb->addAction(m_cycleCSSAction);
+    tb->addAction(m_webviewPrint);
     tb->addWidget(m_progress);
 
     m_buttons->addWidget(tb);
@@ -616,6 +627,96 @@ void PreviewWindow::InspectPreviewPage()
     m_Inspector->close();
 }
 
+QString PreviewWindow::GetHtmlWithNoDarkMode() 
+{
+    QString text = m_Preview->GetHTML();
+
+    // now remove any leftovers and make sure it is well formed
+    GumboInterface gi = GumboInterface(text, "any_version");
+
+    QList<GumboNode*> nodes;
+    QList<GumboTag> tags;
+
+    // remove any added AddDarkCSS (style node has id="Sigil_Injected")
+    tags = QList<GumboTag>() << GUMBO_TAG_STYLE;
+    nodes = gi.get_all_nodes_with_tags(tags);
+    foreach(GumboNode * node, nodes) {
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "id");
+        if (attr && QString::fromUtf8(attr->value) == "Sigil_Injected") {
+            // qDebug() << "removing Sigil_Injected dark style";
+            gumbo_remove_from_parent(node);
+            gumbo_destroy_node(node);
+            break;
+        }
+    }
+    // then the associated scrollbar stylesheet link
+    tags = QList<GumboTag>() << GUMBO_TAG_LINK;
+    nodes = gi.get_all_nodes_with_tags(tags);
+    foreach(GumboNode * node, nodes) {
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
+        if (attr) {
+            QString attrval = QString::fromUtf8(attr->value);
+            if (DARKCSSLINKS.contains(attrval) ) {
+                // qDebug() << "removing dark css links";
+                gumbo_remove_from_parent(node);
+                gumbo_destroy_node(node);
+                break;
+            }
+        }
+    }
+
+    text = gi.getxhtml();
+    return text;
+}
+
+void PreviewWindow::PrintRendered()
+{
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+    // Refresh skipflags from Prefs
+    SettingsStore settings;
+    m_skipPrintWarnings = settings.skipPrintWarnings();
+    m_skipPrintPreview = settings.skipPrintPreview();
+
+    if (!m_skipPrintWarnings) {
+        QCheckBox *cb = new QCheckBox(tr("Do not show this warning again"), this);
+        QString text = tr("This file may not print the way you expect it to.");
+        QString detailed_text = tr("Dark backgrounds and colored text applied with an EPUB's CSS will print.");
+        detailed_text = detailed_text + " " + tr("Use caution as this can result in a lot of ink being used!");
+        detailed_text = detailed_text + " " + tr("Use the following Print Preview to see how this file will print.");
+        detailed_text = detailed_text + " " + tr("Check the box if you don't wish to see this warning in the future.");
+        QMessageBox msgbox;
+        msgbox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
+        msgbox.setModal(true);
+        msgbox.setWindowTitle("Sigil");
+        msgbox.setText("<h3>" + text + "</h3><br/>");
+        msgbox.setIcon(QMessageBox::Icon::Warning);
+        msgbox.setTextFormat(Qt::RichText);
+        msgbox.setDetailedText(detailed_text);
+        msgbox.setStandardButtons(QMessageBox::Close);
+        msgbox.setCheckBox(cb);
+        connect(cb, &QCheckBox::stateChanged, [this](int state) {
+            if (static_cast<Qt::CheckState>(state) == Qt::CheckState::Checked) {
+                m_skipPrintWarnings = true;    
+            }
+        });
+        msgbox.exec();
+    }
+    settings.setSkipPrintWarnings(m_skipPrintWarnings);
+    m_WebViewPrinter->setContent(m_Filepath, GetHtmlWithNoDarkMode(), m_skipPrintPreview);
+#else
+    QMessageBox msgbox;
+    QString text = tr("Feature not available before Qt5.12.x");
+    msgbox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
+    msgbox.setModal(true);
+    msgbox.setWindowTitle("Sigil");
+    msgbox.setText("<h3>" + text + "</h3><br/>");
+    msgbox.setIcon(QMessageBox::Icon::Warning);
+    msgbox.setStandardButtons(QMessageBox::Close);
+    msgbox.exec();
+#endif
+
+}
+
 void PreviewWindow::SelectAllPreview()
 {
     m_Preview->triggerPageAction(QWebEnginePage::SelectAll);
@@ -664,7 +765,8 @@ void PreviewWindow::ConnectSignalsToSlots()
     connect(m_selectAction,  SIGNAL(triggered()),           this, SLOT(SelectAllPreview()));
     connect(m_copyAction,    SIGNAL(triggered()),           this, SLOT(CopyPreview()));
     connect(m_reloadAction,  SIGNAL(triggered()),           this, SLOT(ReloadPreview()));
-    connect(m_cycleCSSAction, SIGNAL(triggered()),          this, SLOT(CycleCustomCSS())); 
+    connect(m_cycleCSSAction, SIGNAL(triggered()),          this, SLOT(CycleCustomCSS()));
+    connect(m_webviewPrint, SIGNAL(triggered()),            this, SLOT(PrintRendered()));
     connect(m_Inspector,     SIGNAL(finished(int)),         this, SLOT(InspectorClosed(int)));
     connect(this,     SIGNAL(topLevelChanged(bool)),        this, SLOT(previewFloated(bool)));
 }

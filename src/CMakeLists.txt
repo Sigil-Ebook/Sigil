@@ -392,6 +392,8 @@ set( MISC_FILES
     Misc/XMLEntities.h
     Misc/MediaTypes.cpp
     Misc/MediaTypes.h
+    Misc/webviewprinter.cpp
+    Misc/webviewprinter.h
     )
 
 set( MISC_EDITORS_FILES

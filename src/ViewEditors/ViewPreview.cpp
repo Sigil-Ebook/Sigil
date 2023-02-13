@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019-2021 Doug Massay
+**  Copyright (C) 2019-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2023 Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -88,10 +88,27 @@ struct SetJavascriptResultFunctor {
     }
 };
 
+struct HTMLResult {
+   QString res;
+   bool finished;
+   HTMLResult() : res(QString("")), finished(false) {}
+   HTMLResult(HTMLResult * pRes) : res(pRes->res),  finished(pRes->finished) {}
+   bool isFinished() { return finished; }
+ };
+
+ struct SetToHTMLResultFunctor {
+     HTMLResult * pres;
+     SetToHTMLResultFunctor(HTMLResult * pres) : pres(pres) {}
+     void operator()(const QString &result) {
+         pres->res = result;
+         pres->finished = true;
+     }
+ };
+
 ViewPreview::ViewPreview(QWidget *parent)
     : QWebEngineView(parent),
       m_isLoadFinished(false),
-      m_ViewWebPage(new WebEngPage(this)),
+      m_ViewWebPage(new WebEngPage(this, false)),
       c_jQuery(Utility::ReadUnicodeTextFile(":/javascript/jquery-2.2.4.min.js")),
       c_jQueryScrollTo(Utility::ReadUnicodeTextFile(":/javascript/jquery.scrollTo-2.1.2-min.js")),
       c_GetCaretLocation(Utility::ReadUnicodeTextFile(":/javascript/book_view_current_location.js")),
@@ -329,6 +346,19 @@ void ViewPreview::ShowOverlay()
 {
     m_overlay->show();
 }
+
+QString ViewPreview::GetHTML() const 
+ {
+     HTMLResult * pres = new HTMLResult();
+     page()->toHtml(SetToHTMLResultFunctor(pres));
+     while(!pres->isFinished()) {
+         qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::ExcludeSocketNotifiers, 100);
+     }
+     QString res = pres->res;
+     delete pres;
+     return res;
+ }
+
 
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 {

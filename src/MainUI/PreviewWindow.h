@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2022 Doug Massay
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2023 Doug Massay
 **  Copyright (C) 2012      Dave Heiland, John Schember
 **
 **  This file is part of Sigil.
@@ -35,6 +35,7 @@
 #include <QStringList>
 #include <ViewEditors/Viewer.h>
 #include <Dialogs/Inspector.h>
+#include "Misc/webviewprinter.h"
 
 class ViewPreview;
 class Inspector;
@@ -83,6 +84,7 @@ public slots:
     void setTitleText(const QString &text);
     void previewFloated(bool wasFloated);
     void CycleCustomCSS();
+    void PrintRendered();
 
 signals:
     void Shown();
@@ -122,6 +124,7 @@ private:
     void UpdateWindowTitle();
     bool fixup_fullscreen_svg_images(const QString &text);
     void SetupOverlayTimer();
+    QString GetHtmlWithNoDarkMode();
     
     const QString titleText();
 
@@ -145,6 +148,7 @@ private:
     QAction * m_copyAction;
     QAction * m_reloadAction;
     QAction * m_cycleCSSAction;
+    QAction * m_webviewPrint;
 
     QList<ElementIndex> m_location;
     
@@ -152,6 +156,10 @@ private:
     bool m_updatingPage;
     bool m_usingMathML;
     int m_cycleCSSLevel;
+
+    bool m_skipPrintWarnings;
+    bool m_skipPrintPreview;
+    WebViewPrinter *m_WebViewPrinter;
 };
 
 #endif // PREVIEWWINDOW_H

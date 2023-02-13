@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2016-2020 Doug Massay
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2023 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -79,7 +79,7 @@
 static const QString URL_SAFE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-/~";
 
 static const QString DARK_STYLE =
-    "<style>:root { background-color: %1; color: %2; } ::-webkit-scrollbar { display: none; }</style>"
+    "<style id=\"Sigil_Injected\">:root { background-color: %1; color: %2; } ::-webkit-scrollbar { display: none; }</style>"
     "<link rel=\"stylesheet\" type=\"text/css\" href=\"%3\" />";
 
 #ifndef MAX_PATH
