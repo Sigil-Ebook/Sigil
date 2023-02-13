@@ -28,10 +28,9 @@
 #include <QObject>
 #include <QUrl>
 #include <QFileInfo>
-#include "ViewEditors/ViewPreview.h"
 
 class QPrinter;
-class QWebEngineView;
+class ViewPreview;
 
 class WebViewPrinter: public QObject
 {
@@ -76,6 +75,11 @@ private:
     **/
     void printDocument(QPrinter *printer);
 
+    /**
+    ** Remove any Sigil Injected dark mode code from the xhtml
+    **/
+    QString GetHtmlWithNoDarkMode(const QString xhtmltext);
+    
     /**
     ** New hidden ViewPreview
     **/

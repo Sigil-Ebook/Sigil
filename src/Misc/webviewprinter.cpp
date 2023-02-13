@@ -29,12 +29,19 @@
 #include <QDir>
 #include <QUrl>
 #include <QPrintPreviewDialog>
-#include <QtWebEngineWidgets>
-#include <QtWebEngineCore>
-#include <QWebEngineView>
-#include <QWebEnginePage>
+// #include <QtWebEngineWidgets>
+// #include <QtWebEngineCore>
+// #include <QWebEngineView>
+// #include <QWebEnginePage>
 #include <QStandardPaths>
 #include <QDebug>
+
+#include "ViewEditors/ViewPreview.h"
+#include "Parsers/GumboInterface.h"
+
+static const QStringList DARKCSSLINKS = QStringList() << "qrc:///dark/mac_dark_scrollbar.css"
+                                                      << "qrc:///dark/win_dark_scrollbar.css"
+                                                      << "qrc:///dark/lin_dark_scrollbar.css";
 
 #define DBG if(0)
 
@@ -65,11 +72,11 @@ void WebViewPrinter::setContent(QString filepath, QString text, bool skipPrev)
     m_skipPreview = skipPrev;
     m_inPrintPreview = false;
 
-    // Create new (undisplayed) QWebEngineView to which the EPUB's
-    // page url is loaded without any potential darkmode injections
-    m_viewprev = new ViewPreview(0, false);
+    // Create new (undisplayed) ViewPreview widget to which the EPUB's
+    // page url and text is loaded without any potential darkmode injections
+    m_viewprev = new ViewPreview(nullptr, false);
     connect(m_viewprev, &ViewPreview::loadFinished, this, &WebViewPrinter::loadFinished);
-    m_viewprev->CustomSetDocument(filepath, text);
+    m_viewprev->CustomSetDocument(filepath, GetHtmlWithNoDarkMode(text));
 }
 
 QString WebViewPrinter::getPrintToFilePath(QFileInfo &fi) {
@@ -159,4 +166,47 @@ void WebViewPrinter::loadFinished(bool ok)
     else {
        DBG  qDebug() << "not successfully loaded.";
     }
+}
+
+
+QString WebViewPrinter::GetHtmlWithNoDarkMode(const QString xhtmltext) 
+{
+    QString text = xhtmltext;
+
+    // now remove any leftovers and make sure it is well formed
+    GumboInterface gi = GumboInterface(text, "any_version");
+
+    QList<GumboNode*> nodes;
+    QList<GumboTag> tags;
+
+    // remove any added AddDarkCSS (style node has id="Sigil_Injected")
+    tags = QList<GumboTag>() << GUMBO_TAG_STYLE;
+    nodes = gi.get_all_nodes_with_tags(tags);
+    foreach(GumboNode * node, nodes) {
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "id");
+        if (attr && QString::fromUtf8(attr->value) == "Sigil_Injected") {
+            // qDebug() << "removing Sigil_Injected dark style";
+            gumbo_remove_from_parent(node);
+            gumbo_destroy_node(node);
+            break;
+        }
+    }
+    // then the associated scrollbar stylesheet link
+    tags = QList<GumboTag>() << GUMBO_TAG_LINK;
+    nodes = gi.get_all_nodes_with_tags(tags);
+    foreach(GumboNode * node, nodes) {
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "href");
+        if (attr) {
+            QString attrval = QString::fromUtf8(attr->value);
+            if (DARKCSSLINKS.contains(attrval) ) {
+                // qDebug() << "removing dark css links";
+                gumbo_remove_from_parent(node);
+                gumbo_destroy_node(node);
+                break;
+            }
+        }
+    }
+
+    text = gi.getxhtml();
+    return text;
 }
