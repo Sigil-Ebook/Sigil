@@ -44,7 +44,7 @@ public:
      *
      * @param parent The object's parent.
      */
-    ViewPreview(QWidget *parent = 0);
+    ViewPreview(QWidget *parent = 0, bool setbackground = true);
     ~ViewPreview();
 
     QSize sizeHint() const;

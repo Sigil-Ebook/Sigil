@@ -67,7 +67,7 @@ void WebViewPrinter::setContent(QString filepath, QString text, bool skipPrev)
 
     // Create new (undisplayed) QWebEngineView to which the EPUB's
     // page url is loaded without any potential darkmode injections
-    m_viewprev = new ViewPreview();
+    m_viewprev = new ViewPreview(0, false);
     connect(m_viewprev, &ViewPreview::loadFinished, this, &WebViewPrinter::loadFinished);
     m_viewprev->CustomSetDocument(filepath, text);
 }
