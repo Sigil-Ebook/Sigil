@@ -110,7 +110,6 @@ static QString KEY_CODE_VIEW_XHTML_HTML_COLOR = SETTINGS_GROUP + "/" + "code_vie
 static QString KEY_CODE_VIEW_XHTML_HTML_COMMENT_COLOR = SETTINGS_GROUP + "/" + "code_view_xhtml_html_comment_color";
 
 static QString KEY_CODE_VIEW_HIGHLIGHT_OPEN_CLOSE_TAGS = SETTINGS_GROUP + "/" + "code_view_highlight_open_close_tags";
-static QString KEY_SKIP_PRINT_WARNINGS = SETTINGS_GROUP + "/" + "skipprintwarnings";
 static QString KEY_SKIP_PRINT_PREVIEW = SETTINGS_GROUP + "/" + "skipprintpreview";
 
 // Dark Appearance
@@ -500,12 +499,6 @@ bool SettingsStore::enableAltGr()
     return static_cast<bool>(value(KEY_ENABLE_ALTGR, false).toBool());
 }
 
-bool SettingsStore::skipPrintWarnings()
-{
-  clearSettingsGroup();
-  return value(KEY_SKIP_PRINT_WARNINGS, false).toBool();
-}
-
 bool SettingsStore::skipPrintPreview()
 {
   clearSettingsGroup();
@@ -831,12 +824,6 @@ void SettingsStore::setEnableAltGr(bool enabled)
 {
     clearSettingsGroup();
     setValue(KEY_ENABLE_ALTGR, enabled);
-}
-
-void SettingsStore::setSkipPrintWarnings(bool skip)
-{
-  clearSettingsGroup();
-  return setValue(KEY_SKIP_PRINT_WARNINGS, skip);
 }
 
 void SettingsStore::setSkipPrintPreview(bool skip)

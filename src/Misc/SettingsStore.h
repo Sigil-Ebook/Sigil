@@ -257,8 +257,6 @@ public:
 
     bool enableAltGr();
 
-    bool skipPrintWarnings();
-
     bool skipPrintPreview();
 
 public slots:
@@ -413,8 +411,6 @@ public slots:
 
     void setEnableAltGr(bool enabled);
     
-    void setSkipPrintWarnings(bool skip);
-
     void setSkipPrintPreview(bool skip);
 
 private:

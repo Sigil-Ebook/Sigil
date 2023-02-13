@@ -22,17 +22,13 @@
 
 #include "Misc/webviewprinter.h"
 #include <QEventLoop>
-#include <QPrintDialog>
 #include <QPrinter>
+#include <QPrintDialog>
+#include <QPrintPreviewDialog>
 #include <QPainter>
 #include <QFileInfo>
 #include <QDir>
 #include <QUrl>
-#include <QPrintPreviewDialog>
-// #include <QtWebEngineWidgets>
-// #include <QtWebEngineCore>
-// #include <QWebEngineView>
-// #include <QWebEnginePage>
 #include <QStandardPaths>
 #include <QDebug>
 
@@ -88,7 +84,7 @@ QString WebViewPrinter::getPrintToFilePath(QFileInfo &fi) {
 void WebViewPrinter::print()
 {
     DBG qDebug() << "Skipping Print Preview.";
-    QPrinter printer;
+    QPrinter printer(QPrinter::HighResolution);
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     QFileInfo fi = QFileInfo(m_viewprev->page()->url().fileName());
     QString path = getPrintToFilePath(fi);
@@ -101,7 +97,6 @@ void WebViewPrinter::print()
     if (dialog.exec() != QDialog::Accepted)
         return;
     printDocument(&printer);
-
 }
 
 void WebViewPrinter::printDocument(QPrinter *printer)
@@ -139,7 +134,7 @@ void WebViewPrinter::printPreview()
     if (m_inPrintPreview)
         return;
     m_inPrintPreview = true;
-    QPrinter printer;
+    QPrinter printer(QPrinter::HighResolution);
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     QFileInfo fi = QFileInfo(m_viewprev->page()->url().fileName());
     QString path = getPrintToFilePath(fi);

@@ -35,7 +35,6 @@
 #include <QStringList>
 #include <ViewEditors/Viewer.h>
 #include <Dialogs/Inspector.h>
-#include "Misc/webviewprinter.h"
 
 class ViewPreview;
 class Inspector;
@@ -44,6 +43,7 @@ class QVBoxLayout;
 class QHBoxLayout;
 class QProgressBar;
 class OverlayHelperWidget;
+class WebViewPrinter;
 
 class PreviewWindow : public QDockWidget
 {
@@ -124,7 +124,6 @@ private:
     void UpdateWindowTitle();
     bool fixup_fullscreen_svg_images(const QString &text);
     void SetupOverlayTimer();
-    QString GetHtmlWithNoDarkMode();
     
     const QString titleText();
 
@@ -157,7 +156,6 @@ private:
     bool m_usingMathML;
     int m_cycleCSSLevel;
 
-    bool m_skipPrintWarnings;
     bool m_skipPrintPreview;
     WebViewPrinter *m_WebViewPrinter;
 };

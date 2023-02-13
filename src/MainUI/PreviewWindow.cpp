@@ -44,6 +44,7 @@
 #include "Misc/SleepFunctions.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "Misc/webviewprinter.h"
 #include "ViewEditors/ViewPreview.h"
 #include "ViewEditors/Overlay.h"
 #include "sigil_constants.h"
@@ -79,7 +80,6 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_updatingPage(false),
     m_usingMathML(false),
     m_cycleCSSLevel(0),
-    m_skipPrintWarnings(false),
     m_skipPrintPreview(false),
     m_WebViewPrinter(new WebViewPrinter(this))
 {
@@ -630,34 +630,7 @@ void PreviewWindow::PrintRendered()
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     // Refresh skipflags from Prefs
     SettingsStore settings;
-    m_skipPrintWarnings = settings.skipPrintWarnings();
     m_skipPrintPreview = settings.skipPrintPreview();
-
-    if (!m_skipPrintWarnings) {
-        QCheckBox *cb = new QCheckBox(tr("Do not show this warning again"), this);
-        QString text = tr("This file may not print the way you expect it to.");
-        QString detailed_text = tr("Dark backgrounds and colored text applied with an EPUB's CSS will print.");
-        detailed_text = detailed_text + " " + tr("Use caution as this can result in a lot of ink being used!");
-        detailed_text = detailed_text + " " + tr("Use the following Print Preview to see how this file will print.");
-        detailed_text = detailed_text + " " + tr("Check the box if you don't wish to see this warning in the future.");
-        QMessageBox msgbox;
-        msgbox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
-        msgbox.setModal(true);
-        msgbox.setWindowTitle("Sigil");
-        msgbox.setText("<h3>" + text + "</h3><br/>");
-        msgbox.setIcon(QMessageBox::Icon::Warning);
-        msgbox.setTextFormat(Qt::RichText);
-        msgbox.setDetailedText(detailed_text);
-        msgbox.setStandardButtons(QMessageBox::Close);
-        msgbox.setCheckBox(cb);
-        connect(cb, &QCheckBox::stateChanged, [this](int state) {
-            if (static_cast<Qt::CheckState>(state) == Qt::CheckState::Checked) {
-                m_skipPrintWarnings = true;    
-            }
-        });
-        msgbox.exec();
-    }
-    settings.setSkipPrintWarnings(m_skipPrintWarnings);
     m_WebViewPrinter->setContent(m_Filepath, m_Preview->GetHTML(), m_skipPrintPreview);
 #else
     QMessageBox msgbox;
