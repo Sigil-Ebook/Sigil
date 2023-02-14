@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -36,10 +36,6 @@
 #include <QtWebEngineCore>
 #include <QWebEngineView>
 #include <QWebEngineProfile>
-#include <QtPrintSupport>
-#include <QPrinter>
-#include <QPrintDialog>
-#include <QPrintPreviewDialog>
 #include <QVariant>
 #include <QDebug>
 
@@ -48,6 +44,7 @@
 #include "Misc/OpenExternally.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "Misc/webviewprinter.h"
 #include "ResourceObjects/ImageResource.h"
 #include "sigil_constants.h"
 #include "Tabs/ImageTab.h"
@@ -85,7 +82,8 @@ ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     m_WebView(new QWebEngineView(this)),
     m_ContextMenu(new QMenu(this)),
     m_OpenWithContextMenu(new QMenu(this)),
-    m_openWithMapper(new QSignalMapper(this))
+    m_openWithMapper(new QSignalMapper(this)),
+    m_WebViewPrinter(new WebViewPrinter(this))
 {
     m_WebView->setPage(new SimplePage(m_WebView));
     m_WebView->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -191,6 +189,7 @@ void ImageTab::RefreshContent()
 {
     m_WebView->page()->profile()->clearHttpCache();
     const QString path = m_Resource->GetFullPath();
+    const QString folderpath = m_Resource->GetFullFolderPath();
     const QFileInfo fileInfo = QFileInfo(path);
     const double ffsize = fileInfo.size() / 1024.0;
     const QString fsize = QLocale().toString(ffsize, 'f', 2);
@@ -213,6 +212,10 @@ void ImageTab::RefreshContent()
         html = Utility::AddDarkCSS(html);
     }
     m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
+    // store away image tab source html and
+    // make fake file url sitting right beside image for WebViewPrinter
+    m_page_source = html;
+    m_filepath = folderpath + "/temp.xhtml";
     m_WebView->setHtml(html, imgUrl);
 }
 
@@ -428,19 +431,10 @@ void ImageTab::Zoom()
 
 void ImageTab::PrintPreview()
 {
-    QPrintPreviewDialog *print_preview = new QPrintPreviewDialog(this);
-    connect(print_preview, SIGNAL(paintRequested(QPrinter *)), m_WebView, SLOT(print(QPrinter *)));
-    print_preview->exec();
-    print_preview->deleteLater();
+    m_WebViewPrinter->setContent(m_filepath, m_page_source, false);
 }
 
 void ImageTab::Print()
 {
-    QPrinter printer;
-    QPrintDialog print_dialog(&printer, this);
-    print_dialog.setWindowTitle(tr("Print %1").arg(GetFilename()));
-
-    if (print_dialog.exec() == QDialog::Accepted) {
-        // m_WebView->print(&printer);
-    }
+    m_WebViewPrinter->setContent(m_filepath, m_page_source, true);
 }

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario, Canada
+**  Copyright (C) 2019-2023 Kevin B. Hendricks, Stratford Ontario, Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -24,7 +24,7 @@
 #ifndef IMAGETAB_H
 #define IMAGETAB_H
 
-#include <QtCore/QUrl>
+#include <QUrl>
 #include <QPointer>
 
 #include "Tabs/ContentTab.h"
@@ -33,6 +33,7 @@ class ImageResource;
 class QWebEngineView;
 class QAction;
 class QMenu;
+class WebViewPrinter;
 
 class ImageTab : public ContentTab
 {
@@ -112,6 +113,10 @@ private:
     QAction *m_CopyImage;
 
     float m_CurrentZoomFactor;
+
+    WebViewPrinter * m_WebViewPrinter;
+    QString m_page_source;
+    QString m_filepath;
 };
 
 #endif // IMAGETAB_H
