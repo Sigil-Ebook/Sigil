@@ -1780,147 +1780,147 @@ Do you want to save your changes?</source>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="559"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="560"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="567"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="568"/>
         <source>No open tags found at this position.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1454"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1455"/>
         <source>Add To Default Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1467"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1468"/>
         <source>Add To Dictionary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1484"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1485"/>
         <source>Ignore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1546"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1547"/>
         <source>Reformat CSS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1548"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1549"/>
         <source>Multiple Lines Per Style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1549"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1550"/>
         <source>Single Line Per Style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1575"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1576"/>
         <source>Rename Selected Class</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1597"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1598"/>
         <source>Reformat HTML</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1599"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1600"/>
         <source>Mend and Prettify Code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1600"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1601"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1601"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1602"/>
         <source>Mend Code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1602"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1603"/>
         <source>Mend Code - All HTML Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1632"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1633"/>
         <source>Go To Link Or Style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1654"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1655"/>
         <source>Toggle Line Wrap Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1676"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1677"/>
         <source>View Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1677"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1678"/>
         <source>Open Tab For Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1703"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1704"/>
         <source>Mark Selected Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1705"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1706"/>
         <source>Unmark Marked Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1731"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1732"/>
         <source>Clips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1741"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1742"/>
         <source>Add To Clips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1870"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1871"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1880"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1881"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1944"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1945"/>
         <source>Selected Text is not a valid class name.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1951"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1952"/>
         <source>Rename Class</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1952"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1953"/>
         <source>Enter new class name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1972"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1973"/>
         <source>Class renamed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1974"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1975"/>
         <source>Class rename aborted.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4252,50 +4252,45 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="199"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="198"/>
         <source>shades</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="199"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="198"/>
         <source>colors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="200"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="199"/>
         <source>Grayscale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="200"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="199"/>
         <source>Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="322"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="380"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="325"/>
         <location filename="../../Tabs/ImageTab.cpp" line="383"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="386"/>
         <source>Open With</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="358"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="361"/>
         <source>Other Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="381"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="384"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="382"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="385"/>
         <source>Copy Image</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="441"/>
-        <source>Print %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -16433,36 +16428,46 @@ Entities can be separated by lines, commas, or spaces.</source>
 <context>
     <name>PreviewWindow</name>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="69"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="86"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="434"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="70"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="89"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="442"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="450"/>
         <source>Preview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="240"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="243"/>
         <source>Inspect Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="244"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="247"/>
         <source>Select-All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="248"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="251"/>
         <source>Copy Selection To ClipBoard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="252"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="255"/>
         <source>Update Preview Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="256"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="259"/>
         <source>Cycle Custom CSS Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="263"/>
+        <source>Print Preview View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="637"/>
+        <source>Feature not available before Qt5.12.x</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
