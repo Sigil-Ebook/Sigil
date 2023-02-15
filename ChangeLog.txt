@@ -11,13 +11,16 @@ pre-1.9.30
       - MetaEditor under epub2, allow custom opf scheme values
       - prevent duplicate spaces when reformatting CSS in import, charset and namespace
       - better prevent random OPF attribute order changes to simplify Checkpoint diffs
+      - fixed file menu Print Preview for xhtml and image tabs
 
     New Features
       - allow user to edit Checkpoint descriptions for clarity via Checkpoint menu
-      - Add ability to show the Checkpoint Change Log via Checkpoint menu 
-      - Update to Hunspell 1.7.2 (released in December 2022) for spellchecking
+      - add ability to show the Checkpoint Change Log via Checkpoint menu 
+      - update to Hunspell 1.7.2 (released in December 2022) for spellchecking
+      - update to latest zlib-1.2.13 for latest security fixes
       - move completely away from ever using OS system tmp folder for storing Sigil wip files
           instead create a new "workspace" folder inside Sigil Preferences folder
+      - added ability to Print Preview and Print contents of Sigil's Preview window
 
     
 Sigil-1.9.20
