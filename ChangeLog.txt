@@ -12,6 +12,7 @@ pre-1.9.30
       - prevent duplicate spaces when reformatting CSS in import, charset and namespace
       - better prevent random OPF attribute order changes to simplify Checkpoint diffs
       - fixed file menu Print Preview for xhtml and image tabs
+      - prevent plugins from crashing Sigil by deleting last xhtml file in epub
 
     New Features
       - allow user to edit Checkpoint descriptions for clarity via Checkpoint menu
