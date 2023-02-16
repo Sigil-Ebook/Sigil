@@ -469,7 +469,7 @@ void PluginRunner::pluginFinished(int exitcode, QProcess::ExitStatus exitstatus)
     // don't allow changes to proceed if they will remove the very last xhtml/html file
     if (m_xhtml_net_change < 0) {
         QList<Resource *> htmlresources = m_book->GetFolderKeeper()->GetResourceListByType(Resource::HTMLResourceType);
-        if (htmlresources.count() + m_xhtml_net_change < 0) {
+        if (htmlresources.count() + m_xhtml_net_change <= 0) {
             Utility::DisplayStdErrorDialog(tr("Error: Plugin Tried to Remove the Last XHTML file .. aborting changes"));
             ui.statusLbl->setText(tr("Status: No Changes Made"));
             m_result = "failed";
