@@ -4590,7 +4590,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/Inspector.cpp" line="155"/>
         <source>The Inspector functionality is not supported before Qt 5.11</source>
-        <translation>Функциональность Инспектора не поддерживается до Qt 5.11</translation>
+        <translation>Функции Инспектора не поддерживаются до Qt 5.11</translation>
     </message>
 </context>
 <context>
@@ -16654,7 +16654,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="263"/>
         <source>Print Preview View</source>
-        <translation type="unfinished"/>
+        <translation>Режим предпросмотра печати</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="637"/>

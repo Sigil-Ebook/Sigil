@@ -16638,7 +16638,7 @@ Les entités peuvent être séparées pas des lignes, des virgules ou des espace
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="263"/>
         <source>Print Preview View</source>
-        <translation type="unfinished"/>
+        <translation>Aperçu avant impression</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="637"/>

@@ -16655,7 +16655,7 @@ Encje mogą być oddzielone liniami, przecinkami lub spacjami.</translation>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="263"/>
         <source>Print Preview View</source>
-        <translation type="unfinished"/>
+        <translation>Drukuj podgląd</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="637"/>
