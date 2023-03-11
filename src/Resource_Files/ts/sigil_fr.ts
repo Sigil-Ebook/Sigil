@@ -10791,7 +10791,7 @@ soit redemarré.</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="2910"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
-        <translation>Générer un &amp;NCX/Guide pour les lisseuses ePub2</translation>
+        <translation>Générer un &amp;NCX/Guide pour les liseuses ePub2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2915"/>

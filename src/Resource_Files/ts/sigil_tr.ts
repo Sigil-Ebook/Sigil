@@ -16654,7 +16654,7 @@ Varlıklar çizgiler, virgül veya boşluklarla ayrılabilir.</translation>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="263"/>
         <source>Print Preview View</source>
-        <translation type="unfinished"/>
+        <translation>Baskı Önizleme Görünümü</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="637"/>

@@ -16654,7 +16654,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="263"/>
         <source>Print Preview View</source>
-        <translation type="unfinished"/>
+        <translation>Поглед прегледа пре штампе</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="637"/>

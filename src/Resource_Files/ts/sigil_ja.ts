@@ -10843,12 +10843,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2961"/>
         <source>Edit Checkpoint Descriptions</source>
-        <translation type="unfinished"/>
+        <translation>チェックポイントの説明を編集</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2966"/>
         <source>Show Log of Checkpoints</source>
-        <translation type="unfinished"/>
+        <translation>チェックポイントのログを表示</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="375"/>
@@ -11099,37 +11099,37 @@ This action cannot be reversed.</source>
         <location filename="../../MainUI/MainWindow.cpp" line="1164"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1184"/>
         <source>Description Edit Failed. No checkpoints found</source>
-        <translation type="unfinished"/>
+        <translation>説明の編集に失敗しました。チェックポイントが見つかりません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1201"/>
         <source>Description Edit Failed. No checkpoint selected to edit</source>
-        <translation type="unfinished"/>
+        <translation>説明の編集に失敗しました。編集するためのチェックポイントが選択されていません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1218"/>
         <source>Edit checkpoint Description</source>
-        <translation type="unfinished"/>
+        <translation>チェックポイントの説明を編集する</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1219"/>
         <source>New Checkpoint Description:</source>
-        <translation type="unfinished"/>
+        <translation>新しいチェックポイントの説明:&lt;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1235"/>
         <source>Description Edit Failed for unknown reason</source>
-        <translation type="unfinished"/>
+        <translation>説明の編集に失敗しました、理由は不明です。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1241"/>
         <source>Description edit cancelled or empty</source>
-        <translation type="unfinished"/>
+        <translation>説明の編集がキャンセルされたか、空になりました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1244"/>
         <source>Description successfully updated</source>
-        <translation type="unfinished"/>
+        <translation>説明の更新に成功しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1275"/>

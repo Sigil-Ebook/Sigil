@@ -587,7 +587,7 @@ als een schreefloze lettertypefamilie is opgegeven in uw CSS</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="352"/>
         <source>CSS Selector</source>
-        <translation>CSS selector</translation>
+        <translation>CSS-stijlregel</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="353"/>
@@ -751,7 +751,7 @@ als een schreefloze lettertypefamilie is opgegeven in uw CSS</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="303"/>
         <source>Delete Unused CSS Selectors.</source>
-        <translation>Ongebruikte CSS selectors verwijderen.</translation>
+        <translation>Ongebruikte CSS-stijlregels verwijderen.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="304"/>
@@ -1448,7 +1448,7 @@ Er moet altijd minstens één overblijven.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="86"/>
         <source>Matched Selector</source>
-        <translation>Bijbehorende selector</translation>
+        <translation>Bijbehorende stijlregel</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
@@ -1458,7 +1458,7 @@ Er moet altijd minstens één overblijven.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="93"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Dit is een lijst met de stijlklassen die gebruikt worden in alle HTML-bestanden en of de stijl al dan niet een bijbehorende selector heeft in een gekoppeld stijlblad.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;Dit is een lijst met de stijlklassen die gebruikt worden in alle HTML-bestanden en of de stijl al dan niet een bijbehorende stijlregel heeft in een gekoppeld stijlblad.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="94"/>
@@ -1816,17 +1816,17 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1547"/>
         <source>Reformat CSS</source>
-        <translation>CSS opnieuw opstellen</translation>
+        <translation>CSS opnieuw opmaken</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1549"/>
         <source>Multiple Lines Per Style</source>
-        <translation>Meerdere regels per stijl</translation>
+        <translation>Meer regels per stijl</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1550"/>
         <source>Single Line Per Style</source>
-        <translation>Enkele regel per stijl</translation>
+        <translation>Eén regel per stijl</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1576"/>
@@ -9693,7 +9693,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1895"/>
         <source>Delete &amp;Unused Stylesheet Selectors...</source>
-        <translation type="unfinished"/>
+        <translation>Ongebruikte &amp;stijlregels verwijderen van CSS-stijlblad</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1900"/>
@@ -11368,7 +11368,7 @@ Deze actie kan niet ongedaan worden gemaakt.</translation>
         <location filename="../../MainUI/MainWindow.cpp" line="2990"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2992"/>
         <source>There are no unused stylesheet selectors to delete.</source>
-        <translation type="unfinished"/>
+        <translation>Er zijn geen ongebruikte stijlregels om te verwijderen.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3006"/>
@@ -19523,7 +19523,7 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="14"/>
         <source>CSS Selectors</source>
-        <translation>CSS selectors</translation>
+        <translation>CSS-stijlregel</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
@@ -19543,7 +19543,7 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="83"/>
         <source>CSS Selector</source>
-        <translation>CSS selector</translation>
+        <translation>CSS-stijlregel</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="84"/>
@@ -19553,7 +19553,7 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="90"/>
         <source>&lt;p&gt;This is a list of the CSS selectors in all CSS files and whether or not the selector was matched in an HTML file.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Dit is een lijst met de CSS-stijlregels van alle CSS-stijlbladen en of de stijlregel al dan niet wordt gebruikt in een HTML-bestand.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="91"/>
@@ -19563,7 +19563,7 @@ Te gebruiken als u een HTML-bestand bewerkt wanneer spellingcontrole open staat.
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="92"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be absolutely certain if a selector is used or not.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Vanwege de complexiteit van CSS dient u de code handmatig te controleren om er absoluut zeker van te zijn of een selector al dan niet wordt gebruikt.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Vanwege de complexiteit van CSS dient u de code handmatig te controleren om er absoluut zeker van te zijn of een stijlregel al dan niet wordt gebruikt.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="92"/>

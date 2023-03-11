@@ -92,12 +92,12 @@
     <message>
         <location filename="../../Form_Files/AddAutomatePlugin.ui" line="14"/>
         <source>Add Automate Plugin</source>
-        <translation>Додати Плагін автоматизації</translation>
+        <translation>Додати модуль до списка автоматизації</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddAutomatePlugin.ui" line="50"/>
         <source>Plugin description</source>
-        <translation>Опис Плагіна</translation>
+        <translation>Опис модуля</translation>
     </message>
 </context>
 <context>
@@ -321,21 +321,21 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="311"/>
         <source>If no font is specified in the CSS for your page, the following font will be used to display within Sigil. These fonts will not be used in your actual ebook.</source>
-        <translation>Якщо у CSS для вашої сторінки не вказано жодного шрифту, для відображення в програмі Sigil буде використаний вказаний нижче шрифт. Ці шрифти не використовуватимуться у вашій фактичній електронній книзі.</translation>
+        <translation>Якщо у CSS для сторінки не вказано жодного шрифту для відображення в програмі Sigil, буде використаний вказаний нижче шрифт. Ці шрифти не будуть використані у Вашій фактичній електронній книзі.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="341"/>
         <source>Default font size to be used for Preview
 if no font-size specified in your CSS</source>
         <translation>Розмір шрифту за замовчуванням, який буде використовуватися для Попереднього перегляду
-якщо розмір шрифту не вказано у вашому CSS</translation>
+якщо розмір шрифту не вказано у CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="352"/>
         <source>Default font family to be used for Preview
 if no font-family specified in your CSS</source>
         <translation>Сімейство шрифтів за замовчуванням, яке буде використовуватися для Попереднього перегляду
-якщо сімейство шрифтів не вказано у вашому CSS</translation>
+якщо сімейство шрифтів не вказано у CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="356"/>
@@ -347,7 +347,7 @@ if no font-family specified in your CSS</source>
         <source>Default font family to be used for Preview
 if a serif font-family specified in your CSS</source>
         <translation>Сімейство шрифтів за замовчуванням, яке буде використовуватися для Попереднього перегляду
-якщо сімейство шрифтів &quot;serif&quot; не вказано у вашому CSS</translation>
+якщо сімейство шрифтів &quot;serif&quot; не вказано у CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="383"/>
@@ -359,7 +359,7 @@ if a serif font-family specified in your CSS</source>
         <source>Default font family to be used for Preview
 if a sans-serif font-family specified in your CSS</source>
         <translation>Сімейство шрифтів за замовчуванням, яке буде використовуватися для Попереднього перегляду
-якщо сімейство шрифтів &quot;sans-serif&quot; не вказано у вашому CSS</translation>
+якщо сімейство шрифтів &quot;sans-serif&quot; не вказано у CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="400"/>
@@ -369,22 +369,22 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="427"/>
         <source>Make Preview simulate a dark appearance in dark mode</source>
-        <translation>Зробити Preview імітування темного вигляду у темному режимі</translation>
+        <translation>Імітація темного вигляду у вікні Перегляду, якщо система в темному режимі</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="451"/>
         <source>Icon Themes</source>
-        <translation>Стилі піктограм</translation>
+        <translation>Теми піктограм</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="463"/>
         <source>Choose which icon theme you want to use (requires Sigil restart).</source>
-        <translation>Виберіть стиль оформлення піктограм, який Ви хочете використовувати (потрібен перезапуск Sigil).</translation>
+        <translation>Виберіть тему оформлення піктограм, яку Ви хочете використовувати (потрібен перезапуск Sigil).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="466"/>
         <source>Select your icon theme:</source>
-        <translation>Виберіть стиль піктограм:</translation>
+        <translation>Виберіть тему піктограм:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="475"/>
@@ -394,27 +394,27 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="478"/>
         <source>Default Icons</source>
-        <translation>Піктограми за замовчуванням</translation>
+        <translation>За замовчуванням</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="488"/>
         <source>Icons based on the Fluent theme:</source>
-        <translation>Піктограми на основі вільного стилю:</translation>
+        <translation>Піктограми на основі теми Fluent:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="491"/>
         <source>Fluent Icons</source>
-        <translation>Піктограми вільного стилю</translation>
+        <translation>Піктограми Fluent</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="501"/>
         <source>Icons based on Google&apos;s Material theme:</source>
-        <translation>Піктограми на основі стилю Google&apos;s Material:</translation>
+        <translation>Піктограми на основі теми Google&apos;s Material:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="504"/>
         <source>Material Icons</source>
-        <translation>&quot;Речеві&quot; піктограми</translation>
+        <translation>Піктограми Material</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="514"/>
@@ -424,7 +424,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="517"/>
         <source>Custom Icons</source>
-        <translation>Піктограми Користувача</translation>
+        <translation>Тема користувача</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="557"/>
@@ -504,7 +504,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="104"/>
         <source>Custom icon theme provided by the user</source>
-        <translation>Стиль піктограм, який задано користувачем</translation>
+        <translation>Тема піктограм, яку задано користувачем</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="118"/>
@@ -597,7 +597,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="354"/>
         <source>Line Highlight</source>
-        <translation>Підкреслений рядок</translation>
+        <translation>Підсвічений рядок</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="355"/>
@@ -685,12 +685,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="72"/>
         <source>Add a new Plugin element to the list.</source>
-        <translation>Додати новий елемент Плагіну до списку.</translation>
+        <translation>Додати новий модуль до списку.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="75"/>
         <source>Add Plugin</source>
-        <translation>Додати Плагін</translation>
+        <translation>Додати модуль</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="97"/>
@@ -731,7 +731,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="167"/>
         <source>[String parameter for next Plugin run here]</source>
-        <translation>[Строковий параметр для запуску наступного Плагіна отут]</translation>
+        <translation>[Місце для строкового параметра запуску наступного модуля]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="300"/>
@@ -741,7 +741,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="301"/>
         <source>Create HTML Table Of Contents.</source>
-        <translation>Створити файл HTML зі Змістом</translation>
+        <translation>Створити Зміст у файлі HTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="302"/>
@@ -826,7 +826,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="318"/>
         <source>set a string parameter to be passed to the next plugin.</source>
-        <translation>встановити строковий параметр, який буде переданий наступному плагіну.</translation>
+        <translation>встановити строковий параметр, який буде переданий наступному модулю.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="320"/>
@@ -1296,7 +1296,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="77"/>
         <source>Times Used</source>
-        <translation>Час використання</translation>
+        <translation>Використано</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="150"/>
@@ -1584,7 +1584,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</source>
-        <translation>Текст для вставки. Текст трактується як регулярний вираз Regex, тому \1 можна використовувати для вставки тексту, вибраного у Браузері Коду, коли Ви вставляєте фрагмент.</translation>
+        <translation>Текст для вставки. Текст трактується як регулярний вираз RegEx, тому \1 можна використовувати для вставки тексту, вибраного у Браузері Коду, коли Ви вставляєте фрагмент.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
@@ -1959,17 +1959,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="20"/>
         <source>Search Controls</source>
-        <translation>Пошук Контролів</translation>
+        <translation>Параметри пошуку</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="99"/>
         <source>Options:</source>
-        <translation>Параметри:</translation>
+        <translation>Варіанти:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="118"/>
         <source>For Regex searches, prefix your search with (?s).</source>
-        <translation>Для пошуку в Regex, використовується префікс пошуку (?s).</translation>
+        <translation>Для пошуку в RegEx, використовується префікс пошуку (?s).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="124"/>
@@ -1979,7 +1979,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="138"/>
         <source>For Regex searches, prefix your search with (?U).</source>
-        <translation>Для пошуку в Regex, використовується префікс пошуку (?U).</translation>
+        <translation>Для пошуку в RegEx, використовується префікс пошуку (?U).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="144"/>
@@ -1989,12 +1989,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="158"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation>Для пошуку з Regex, токенізація/екранування певних символів у виділенні при відкритті &quot;Пошук&quot;.</translation>
+        <translation>Для пошуку з RegEx, токенізація/екранування певних символів у виділенні при відкритті &quot;Пошук&quot;.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="164"/>
         <source>Auto-Tokenise</source>
-        <translation>Авто-Токенізатор</translation>
+        <translation>Автоекранування</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="178"/>
@@ -2035,7 +2035,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="260"/>
         <source>Ignore current settings and return an empty Controls value. </source>
-        <translation>Проігнорувати поточні налаштування та повернути пусті значення Контролів.</translation>
+        <translation>Ігнорувати поточні налаштування та очистити параметри.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="302"/>
@@ -2851,7 +2851,9 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find next match.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Знайти&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Знайти наступний збіг.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="186"/>
@@ -2863,19 +2865,23 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace highlighted match (if any) in Code View.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Замінити&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Замінити підсвічений збіг (одиничне входження) в Браузері Коду.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="218"/>
         <source>Restart</source>
-        <translation type="unfinished"/>
+        <translation>Перезапустити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="221"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Restart&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restart current search from beginning.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Перезапустити&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Виконати пошук з поточними параметрами ще раз.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="238"/>
@@ -2893,7 +2899,10 @@ locations and names for the OPF, NCX and/or Nav.</source>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace highlighted match (if any),
 then find the Next match in Code View.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Замінити/Знайти&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Замінити підсвічений збіг (одиничне входження),
+після чого знайти наступний збіг в Браузері Коду.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="309"/>
@@ -2906,7 +2915,10 @@ then find the Next match in Code View.&lt;/p&gt;</source>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace all matches in Code View.&lt;/p&gt;
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Use with SHIFT to Filter Replacements before changes are applied.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Замінити Все&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Замінити всі збіги в Браузері Коду.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Використовуйте SHIFT для фільтра замін перед застосуванням змін.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="342"/>
@@ -2919,7 +2931,10 @@ then find the Next match in Code View.&lt;/p&gt;</source>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Count all matches in Code View.&lt;/p&gt;
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Use with SHIFT to generate a Dry Run Replace All table.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Порахувати все&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Підрахунок всіх збігів в Браузері Коду.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Використовуйте SHIFT щоб генерувати таблицю пробного запуску &quot;Замінити Все&quot;.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="363"/>
@@ -2929,7 +2944,7 @@ then find the Next match in Code View.&lt;/p&gt;</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="401"/>
         <source>Regex Valid?</source>
-        <translation>Regex достовірний?</translation>
+        <translation>RegEx достовірний?</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="411"/>
@@ -2944,7 +2959,7 @@ then find the Next match in Code View.&lt;/p&gt;</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="426"/>
         <source>Regex Options</source>
-        <translation>Параметри Regex</translation>
+        <translation>Параметри RegEx</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="440"/>
@@ -3014,7 +3029,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="857"/>
         <source>End of search</source>
-        <translation type="unfinished"/>
+        <translation>Пошук закінчено</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="942"/>
@@ -3086,7 +3101,7 @@ Valid only when searching HTML files.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="2117"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2118"/>
         <source>Regex</source>
-        <translation>Регулярні вирази</translation>
+        <translation>RegEx</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2118"/>
@@ -3242,7 +3257,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2176"/>
         <source>For Regex searches, prefix your search with (?s).</source>
-        <translation>Для пошуку в Regex, використовується префікс пошуку (?s).</translation>
+        <translation>Для пошуку з RegEx, у виразі використовується префікс (?s).</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2180"/>
@@ -3252,22 +3267,22 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2183"/>
         <source>For Regex searches, prefix your search with (?U).</source>
-        <translation>Для пошуку в Regex, використовується префікс пошуку (?U).</translation>
+        <translation>Для пошуку з RegEx, у виразі використовується префікс (?U).</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2187"/>
         <source>Auto Tokenise</source>
-        <translation>Авторозбиття</translation>
+        <translation>Автотокенізація</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2190"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation>Для пошуку з Regex, токенізація/екранування певних символів у виділенні при відкритті &quot;Пошук&quot;.</translation>
+        <translation>Для пошуку з RegEx, токенізація/екранування певних символів у виділенні при відкритті &quot;Пошук&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2214"/>
         <source>Invalid Regex:</source>
-        <translation>Недостовірний Regex:</translation>
+        <translation>Недостовірний RegEx:</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2215"/>
@@ -3369,7 +3384,7 @@ when creating new or empty Epubs in Sigil.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="55"/>
         <source>Epub Version 2.</source>
-        <translation>Epub Version 2.</translation>
+        <translation>Epub версії 2.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="58"/>
@@ -3379,7 +3394,7 @@ when creating new or empty Epubs in Sigil.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="68"/>
         <source>Epub Version 3.</source>
-        <translation>Epub Version 3.</translation>
+        <translation>Epub версії 3.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="71"/>
@@ -3396,7 +3411,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="107"/>
         <source>Mend Not Well Formed HTML Source Code On:</source>
-        <translation>Виправити некоректний вихідний код HTML на:</translation>
+        <translation>Виправити некоректний код HTML по команді:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="116"/>
@@ -3421,7 +3436,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="152"/>
         <source>Number of clipboard history items to save (0 disables):</source>
-        <translation>Кількість елементів з історії буфера обміну для збереження (0 — не зберігати):</translation>
+        <translation>Кількість елементів історії буфера обміну для збереження (0 — не зберігати):</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="167"/>
@@ -3492,7 +3507,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="324"/>
         <source>Validation</source>
-        <translation>Перевірка</translation>
+        <translation>Валідація</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="336"/>
@@ -3839,7 +3854,7 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>Index</source>
-        <translation>Індекс</translation>
+        <translation>Покажчик</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="176"/>
@@ -4216,7 +4231,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="90"/>
         <source>Times Used</source>
-        <translation>Час використання</translation>
+        <translation>Використано</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="91"/>
@@ -4375,7 +4390,7 @@ Do you want to automatically fix the files?</source>
         <location filename="../../Form_Files/IndexEditor.ui" line="14"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
         <source>Index Editor</source>
-        <translation>Редактор Індексів</translation>
+        <translation>Редактор Покажчика</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="22"/>
@@ -4401,27 +4416,27 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="68"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
-        <translation>Ви також можете клацнути правою кнопкою миші у своєму документі, щоб додати вибраний текст до Індекса.</translation>
+        <translation>Ви також можете клацнути правою кнопкою миші в документі, щоб додати вибраний текст до Покажчика.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>Text to Include</source>
-        <translation>Текст для включення</translation>
+        <translation>Шаблон тексту</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
-        <translation>Шаблон, який повинен відповідати вашому документу, наприклад &quot;Гутенберг&quot;. Це шаблон регулярного вираження, тому &quot;(?i)Гутенберг&quot; ігнорує ситуацію при збігу.</translation>
+        <translation>Шаблон, який використовується для пошуку в документі, наприклад &quot;Гутенберг&quot;. Це шаблон регулярного виразу, тому &quot;(?i)Гутенберг&quot; ігнорує збіг у тексті.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
         <source>Index Entries</source>
-        <translation>Індексні записи</translation>
+        <translation>Ключові слова</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
-        <translation>Створення елемента в індексі. Залиште порожнім, щоб використовувати текст таким, яким він є, або введіть текст для відображення. Щоб створити багаторівневі записи, використовуйте &apos;/&apos; після назви рівня, наприклад &quot;Books/Fantasy/Alice in Wonderland&quot; або &quot;Books/Fantasy/&quot;.</translation>
+        <translation>Ключові слова Покажчика. Залиште порожнім, щоб використати текст як у шаблоні, або введіть текст який буде внесено до Покажчика. Щоб створити багаторівневі записи, використовуйте &quot;/&quot; після назви рубрики, наприклад &quot;Книги/Фентезі/Alice in Wonderland&quot; або &quot;Книги/Фентезі/&quot;.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
@@ -4436,7 +4451,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Якщо запущені інші екземпляри Sigil, вони будуть автоматично оновлені з вашими змінами.</translation>
+        <translation>Якщо запущені інші екземпляри Sigil, вони будуть автоматично оновлені з Вашими змінами.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="85"/>
@@ -4446,7 +4461,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="127"/>
         <source>Index entries loaded from file.</source>
-        <translation>Індексні записи, завантажені з файлу.</translation>
+        <translation>Ключові слова Покажчика, завантажені з файлу.</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
@@ -4456,7 +4471,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="294"/>
         <source>Index files: *.ini *.txt (*.ini *.txt)</source>
-        <translation>Файли індексів: *.ini *.txt (*.ini *.txt)</translation>
+        <translation>Файли покажчика: *.ini *.txt (*.ini *.txt)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="301"/>
@@ -4531,18 +4546,18 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="520"/>
         <source>Index entries saved.</source>
-        <translation>Записи індексу збережено.</translation>
+        <translation>Ключові слова покажчика збережено.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="549"/>
         <source>Sigil: Index Editor</source>
-        <translation>Sigil: Редактор Індексів</translation>
+        <translation>Sigil: Редактор Покажчика</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="550"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>Записи в індексі можливо бути змінені.
+        <translation>Покажчик було змінено.
 Ви хочете зберегти свої зміни?</translation>
     </message>
 </context>
@@ -4551,12 +4566,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="68"/>
         <source>Text to Include</source>
-        <translation>Текст для включення</translation>
+        <translation>Шаблон тексту</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="69"/>
         <source>Index Entries</source>
-        <translation>Індексні записи</translation>
+        <translation>Ключові слова</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="354"/>
@@ -4602,7 +4617,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="67"/>
         <source>Shortcut</source>
-        <translation>Швидкий виклик</translation>
+        <translation>Комбінація</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="72"/>
@@ -4612,12 +4627,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="82"/>
         <source>Reset all to default</source>
-        <translation>Скинути всі значення за замовчуванням</translation>
+        <translation>Скинути до значень за замовчуванням</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="85"/>
         <source>Reset All</source>
-        <translation>Скинути все</translation>
+        <translation>Скинути до початкових</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="105"/>
@@ -4628,12 +4643,12 @@ Do you want to save your changes?</source>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="122"/>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="132"/>
         <source>Press the key combination you want to use.</source>
-        <translation>Натисніть комбінацію клавіш, яку ви хочете використовувати.</translation>
+        <translation>Натисніть комбінацію клавіш, яку Ви хочете використовувати.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="125"/>
         <source>Shortcut:</source>
-        <translation>Швидкий виклик:</translation>
+        <translation>Комбінація клавіш:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="148"/>
@@ -4926,7 +4941,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>Index</source>
-        <translation>Індекс</translation>
+        <translation>Покажчик</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="178"/>
@@ -8418,12 +8433,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="326"/>
         <source>Spe&amp;llcheck</source>
-        <translation>Право&amp;пис</translation>
+        <translation>&amp;Орфографія</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="340"/>
         <source>&amp;Index</source>
-        <translation>&amp;Індекс</translation>
+        <translation>&amp;Покажчик</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="351"/>
@@ -8438,7 +8453,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="386"/>
         <source>Plugins</source>
-        <translation>Плагіни</translation>
+        <translation>Модулі</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="392"/>
@@ -8465,7 +8480,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="474"/>
         <source>Index</source>
-        <translation>Індекс</translation>
+        <translation>Покажчик</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="490"/>
@@ -8511,12 +8526,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="603"/>
         <source>Plugins Set 1</source>
-        <translation>Набір Плагінів 1</translation>
+        <translation>Набір модулів 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="619"/>
         <source>Plugins Set 2</source>
-        <translation>Набір Плагінів 2</translation>
+        <translation>Набір модулів 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="635"/>
@@ -9605,7 +9620,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1818"/>
         <source>&amp;Spellcheck...</source>
-        <translation>&amp;Орфо-перевірка...</translation>
+        <translation>&amp;Перевірка орфографії...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1821"/>
@@ -9669,7 +9684,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1869"/>
         <source>&amp;Clear Ignored Words</source>
-        <translation>&amp;Позбутися проігнорованих слів</translation>
+        <translation>&amp;Забути проігноровані слова</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1872"/>
@@ -9679,7 +9694,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1877"/>
         <source>&amp;Index Editor...</source>
-        <translation>&amp;Редактор Індексів...</translation>
+        <translation>&amp;Редактор Покажчика...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1885"/>
@@ -10577,22 +10592,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2649"/>
         <source>&amp;Add To Index Editor</source>
-        <translation>&amp;Додати до Редактора Індексів</translation>
+        <translation>&amp;Додати до Редактора Покажчика</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2656"/>
         <source>Add the selected text to the Index Editor.</source>
-        <translation>Додати вибраний текст до Редактора Індексів.</translation>
+        <translation>Додати вибраний текст до Редактора Покажчика.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2661"/>
         <source>&amp;Mark For Index</source>
-        <translation>&amp;Позначити як Індекс</translation>
+        <translation>&amp;Позначити для Покажчика</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2668"/>
         <source>Mark the selected text for inclusion in the Index.</source>
-        <translation>Позначити вибраний текст для включення до Індекса.</translation>
+        <translation>Позначити вибраний текст для включення до Покажчика.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2671"/>
@@ -10602,17 +10617,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2676"/>
         <source>&amp;Create Index</source>
-        <translation>&amp;Створити Індекс</translation>
+        <translation>&amp;Створити Покажчик</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2683"/>
         <source>Generate a new Index HTML file.</source>
-        <translation>Генерувати новий індексний HTML-файл.</translation>
+        <translation>Генерувати новий HTML-файл покажчика.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2688"/>
         <source>&amp;Create HTML from Table Of Contents</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Створити Зміст у файлі HTML</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2691"/>
@@ -10713,57 +10728,57 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2788"/>
         <source>Manage Plugins</source>
-        <translation>Управління Плагінами</translation>
+        <translation>Управління модулями</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2797"/>
         <source>Run Plugin 1</source>
-        <translation>Запустити Плагін 1</translation>
+        <translation>Запустити модуль 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2806"/>
         <source>Run Plugin 2</source>
-        <translation>Запустити Плагін 2</translation>
+        <translation>Запустити модуль 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2815"/>
         <source>Run Plugin 3</source>
-        <translation>Запустити Плагін 3</translation>
+        <translation>Запустити модуль 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2824"/>
         <source>Run Plugin 4</source>
-        <translation>Запустити Плагін 4</translation>
+        <translation>Запустити модуль 4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2833"/>
         <source>Run Plugin 5</source>
-        <translation>Запустити Плагін 5</translation>
+        <translation>Запустити модуль 5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2842"/>
         <source>Run Plugin 6</source>
-        <translation>Запустити Плагін 6</translation>
+        <translation>Запустити модуль 6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2851"/>
         <source>Run Plugin 7</source>
-        <translation>Запустити Плагін 7</translation>
+        <translation>Запустити модуль 7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2860"/>
         <source>Run Plugin 8</source>
-        <translation>Запустити Плагін 8</translation>
+        <translation>Запустити модуль 8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2869"/>
         <source>Run Plugin 9</source>
-        <translation>Запустити Плагін 9</translation>
+        <translation>Запустити модуль 9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2878"/>
         <source>Run Plugin 10</source>
-        <translation>Запустити Плагін 10</translation>
+        <translation>Запустити модуль 10</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2887"/>
@@ -10828,12 +10843,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2961"/>
         <source>Edit Checkpoint Descriptions</source>
-        <translation type="unfinished"/>
+        <translation>Редагування Опису контрольної точки</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2966"/>
         <source>Show Log of Checkpoints</source>
-        <translation type="unfinished"/>
+        <translation>Показати журнал Архіваріуса</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="375"/>
@@ -10873,7 +10888,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="511"/>
         <source>Missing or unknown plugin or tool</source>
-        <translation>Відсутній або невідомий плагін чи інструмент</translation>
+        <translation>Відсутній або невідомий модуль або інструмент</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="516"/>
@@ -11084,37 +11099,37 @@ This action cannot be reversed.</source>
         <location filename="../../MainUI/MainWindow.cpp" line="1164"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1184"/>
         <source>Description Edit Failed. No checkpoints found</source>
-        <translation type="unfinished"/>
+        <translation>Збій при редагуванні Опису. Контрольні точки не знайдені</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1201"/>
         <source>Description Edit Failed. No checkpoint selected to edit</source>
-        <translation type="unfinished"/>
+        <translation>Збій при редагуванні Опису. Контрольна точка не вибрана</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1218"/>
         <source>Edit checkpoint Description</source>
-        <translation type="unfinished"/>
+        <translation>Редагування Опису контрольної точки</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1219"/>
         <source>New Checkpoint Description:</source>
-        <translation type="unfinished"/>
+        <translation>Опис нової контрольної точки:</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1235"/>
         <source>Description Edit Failed for unknown reason</source>
-        <translation type="unfinished"/>
+        <translation>Збій при редагуванні Опису з невідомих причин</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1241"/>
         <source>Description edit cancelled or empty</source>
-        <translation type="unfinished"/>
+        <translation>Редагування Опису скасовано або пусте</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1244"/>
         <source>Description successfully updated</source>
-        <translation type="unfinished"/>
+        <translation>Опис успішно оновлено</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1275"/>
@@ -11328,7 +11343,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2703"/>
         <source>An existing Index file has been found.</source>
-        <translation>Знайдено існуючий файл індексу.</translation>
+        <translation>Знайдено існуючий файл покажчика.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2795"/>
@@ -11412,7 +11427,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3176"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
-        <translation>Ви не можете позначити індекс у цій позиції або не вибравши текст.</translation>
+        <translation>Ви не можете поставити маркер покажчика у цій позиції або не вибрали текст.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3186"/>
@@ -11422,7 +11437,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
         <source>You cannot mark an index at this position.</source>
-        <translation>Ви не можете позначити індекс на цій позиції.</translation>
+        <translation>Ви не можете поставити маркер покажчика на цій позиції.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3258"/>
@@ -11537,7 +11552,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4162"/>
         <source>RunPlugin</source>
-        <translation>ЗапуститиПлагін</translation>
+        <translation>ЗапуститиМодуль</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4188"/>
@@ -14517,7 +14532,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="169"/>
         <source>Use OK to commit your metadata changes to the epub, otherwise use Cancel.</source>
-        <translation>Натисніть &quot;Гаразд&quot;, щоб внести ваші зміни метаданих в epub, інакше натисніть &quot;Скасувати&quot;</translation>
+        <translation>Натисніть &quot;Гаразд&quot;, щоб внести Dаші зміни метаданих в epub, інакше натисніть &quot;Скасувати&quot;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="83"/>
@@ -15416,7 +15431,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1079"/>
         <source>This attribute is typically added to dc:identifier to indicate that a custom identifier scheme is being used.</source>
-        <translation type="unfinished"/>
+        <translation>Цей атрибут зазвичай додається до dc:identifier, щоб зазначити, що використовується схема ідентифікаторів корістувача. </translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1080"/>
@@ -16120,12 +16135,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="14"/>
         <source>Plugin Runner</source>
-        <translation>Засіб запуску Плагіна</translation>
+        <translation>Засіб запуску модуля</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
         <source>Plugin:</source>
-        <translation>Плагін:</translation>
+        <translation>Модуль:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="48"/>
@@ -16160,7 +16175,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="125"/>
         <source>Error: A plugin by that name does not exist</source>
-        <translation>Помилка: Плагін з такою назвою не існує</translation>
+        <translation>Помилка: Модуль з такою назвою не існує</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="156"/>
@@ -16175,7 +16190,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="169"/>
         <source>Installation Error: plugin launcher</source>
-        <translation>Помилка установки: запуск Плагіну</translation>
+        <translation>Помилка установки: запуск модулю</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="170"/>
@@ -16185,7 +16200,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="175"/>
         <source>Error: plugin engine</source>
-        <translation>Помилка: рушій Плагінів</translation>
+        <translation>Помилка: рушій модуля</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="176"/>
@@ -16200,7 +16215,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="279"/>
         <source>Error: plugin can not start</source>
-        <translation>Помилка: Плагін не може запуститися</translation>
+        <translation>Помилка: Модуль не може запуститися</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
@@ -16231,7 +16246,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="473"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
-        <translation>Помилка: Плагін намагався видалити останній XHTML-файл ... подальші зміни перервано</translation>
+        <translation>Помилка: Модуль намагався видалити останній XHTML-файл ... подальші зміни перервано</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="538"/>
@@ -16242,7 +16257,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="565"/>
         <source>Plugin failed to start</source>
-        <translation>Не вдалося запустити Плагін</translation>
+        <translation>Не вдалося запустити модуль</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="573"/>
@@ -16252,7 +16267,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="602"/>
         <source>Plugin cancelled</source>
-        <translation>Плагін скасовано</translation>
+        <translation>Модуль відмінено</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="603"/>
@@ -16310,7 +16325,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="897"/>
         <source>Input Plugin</source>
-        <translation>Ввести Плагін</translation>
+        <translation>Ввести модуль</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="898"/>
@@ -16340,7 +16355,7 @@ Are you Sure You Want to Continue?</source>
         <location filename="../../Form_Files/PPluginWidget.ui" line="14"/>
         <location filename="../../Form_Files/PPluginWidget.ui" line="116"/>
         <source>Plugins</source>
-        <translation>Плагіни</translation>
+        <translation>Модулі</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="28"/>
@@ -16355,7 +16370,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="41"/>
         <source>Use Bundled Python</source>
-        <translation>Використовувати вбудований Python</translation>
+        <translation>Python з комплекту Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="54"/>
@@ -16405,12 +16420,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="204"/>
         <source>Add Plugin</source>
-        <translation>Додати Плагін</translation>
+        <translation>Додати модуль</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="211"/>
         <source>Remove Plugin</source>
-        <translation>Вилучити Плагін</translation>
+        <translation>Вилучити модуль</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="218"/>
@@ -16425,87 +16440,87 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="249"/>
         <source>Quick Launch Plugin Assignments</source>
-        <translation>Призначення для швидкого запуску Плагіна</translation>
+        <translation>Призначення для швидкого запуску модуля</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="259"/>
         <source>Plugin 1:</source>
-        <translation>Плагін 1:</translation>
+        <translation>Модуль 1:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="272"/>
         <source>Plugin 6:</source>
-        <translation>Плагін 6:</translation>
+        <translation>Модуль 6:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="285"/>
         <source>Plugin 2:</source>
-        <translation>Плагін 2:</translation>
+        <translation>Модуль 2:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="298"/>
         <source>Plugin 7:</source>
-        <translation>Плагін 7:</translation>
+        <translation>Модуль 7:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="311"/>
         <source>Plugin 3:</source>
-        <translation>Плагін 3:</translation>
+        <translation>Модуль 3:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="324"/>
         <source>Plugin 8:</source>
-        <translation>Плагін 8:</translation>
+        <translation>Модуль 8:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="337"/>
         <source>Plugin 4:</source>
-        <translation>Плагін 4:</translation>
+        <translation>Модуль 4:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="350"/>
         <source>Plugin 9:</source>
-        <translation>Плагін 9:</translation>
+        <translation>Модуль 9:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="363"/>
         <source>Plugin 5:</source>
-        <translation>Плагін 5:</translation>
+        <translation>Модуль 5:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="376"/>
         <source>Plugin 10:</source>
-        <translation>Плагін 10:</translation>
+        <translation>Модуль 10:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="209"/>
         <source>Select Plugin Zip Archive</source>
-        <translation>Вибрати zip-архів Плагіну</translation>
+        <translation>Вибрати zip-архів модулю</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="211"/>
         <source>Plugin Files (*.zip)</source>
-        <translation>Файли Плагінів (*.zip)</translation>
+        <translation>Файли модулів (*.zip)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="229"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
-        <translation>Помилка: Плагін plugin.xml недійсний або не підтримується у вашій операційній системі.</translation>
+        <translation>Помилка: Модуль plugin.xml недійсний або не підтримується у Вашій операційній системі.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="232"/>
         <source>Warning: A plugin by that name already exists</source>
-        <translation>Попередження: Плагін із таким іменем вже існує</translation>
+        <translation>Попередження: Модуль з такою назвою вже існує</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="235"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
-        <translation>Помилка: Плагін не вдалося розпакувати.</translation>
+        <translation>Помилка: Модуль не вдалося розпакувати.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="238"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation>Помилка: Плагін не є дійсним плагіном Sigil.</translation>
+        <translation>Помилка: Модуль не є дійсним модулем Sigil.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="276"/>
@@ -16515,12 +16530,12 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="324"/>
         <source>Remove All Plugins</source>
-        <translation>Вилучити всі Плагіни</translation>
+        <translation>Вилучити всі модулі</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="325"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation>Ви впевнені, що хочете видалити всі свої плагіни?</translation>
+        <translation>Ви впевнені, що хочете видалити всі свої модулі?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="382"/>
@@ -16553,7 +16568,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="198"/>
         <source>Open Preferences Location</source>
-        <translation>Відкрити місце розташування Налаштувань</translation>
+        <translation>Каталог Налаштувань</translation>
     </message>
 </context>
 <context>
@@ -16566,14 +16581,14 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="32"/>
         <source>Entities to Preserve</source>
-        <translation>Позначення для символів</translation>
+        <translation>Позначення для спецсимволів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="47"/>
         <source>Enter or paste entities to add to the list.
 Entities can be separated by lines, commas, or spaces.</source>
-        <translation>Введіть або вставте позначення для символів, щоб додати їх до списку.
-Суб&apos;єкти можна розділити лініями, комами або пробілами.</translation>
+        <translation>Введіть або вставте позначення для спецсимволів, щоб додати їх до списку.
+Мнемоніки можна розділити рядками, комами або пробілами.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
@@ -16634,12 +16649,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="259"/>
         <source>Cycle Custom CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Наступний CSS-файл користувача</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="263"/>
         <source>Print Preview View</source>
-        <translation type="unfinished"/>
+        <translation>Режим перегляду перед друком</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="637"/>
@@ -16657,7 +16672,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="48"/>
         <source>Creating Index...</source>
-        <translation>Створення Індексу...</translation>
+        <translation>Створення Покажчика...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="48"/>
@@ -16851,7 +16866,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="75"/>
         <source>Index</source>
-        <translation>Індекс</translation>
+        <translation>Покажчик</translation>
     </message>
     <message>
         <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="215"/>
@@ -17088,12 +17103,12 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="14"/>
         <source>Saved Searches</source>
-        <translation>Результати пошуку збережені</translation>
+        <translation>Пошукові запити</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>Назва фільтру:</translation>
+        <translation>Фільтр за назвою:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="28"/>
@@ -17108,21 +17123,21 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="65"/>
         <source>Load the selected entry into the Find &amp; Replace window.</source>
-        <translation>Завантажте вибраний запис у вікно &quot;Знайти та замінити&quot;.</translation>
+        <translation>Завантажити вибраний запит у вікно &quot;Знайти &amp; Замінити&quot;.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="68"/>
         <source>Load Search</source>
-        <translation>Завантажити результати пошуку</translation>
+        <translation>Завантажити запит</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="91"/>
         <source>Run Find using the selected entry.
 If a group is selected, find the first entry in the list, 
 then if not found look for the second entry in the list, etc.</source>
-        <translation>Запустіть &quot;Знайти&quot;, використовуючи вибраний запис.
-Якщо вибрана група, буде знайдено перший запис у списку,
-потім, якщо не знайдено, буде шукайти другий запис у списку, і т.д.</translation>
+        <translation>Запустіть &quot;Знайти&quot;, використовуючи вибраний запит.
+Якщо вибрана група, пошук здійснюється по першому запиту в списку,
+ якщо не знайдено, буде шукати по другому запиту у списку, і т.д.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
@@ -17150,7 +17165,7 @@ and stop at the first successful replace.</source>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
-        <translation>Запустити &quot;Знайти/Замінити&quot;, використовуючи вибраний запис.
+        <translation>Запустити &quot;Замінити/Знайти&quot;, використовуючи вибраний запит.
 Якщо вибрана група, проводиться цикл для кожного елементу
 і зупиниться на знайденому або першій вдалій заміні.</translation>
     </message>
@@ -17163,8 +17178,8 @@ and stop at the first successful replace/find.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="143"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
-        <translation>Запустити &quot;Замінити все&quot; для вибраних записів у вибраному порядку.
-Виберіть групу, щоб замінити всі записи в групі за порядком.</translation>
+        <translation>Запустити &quot;Замінити все&quot; для вибраних запитів у вибраному порядку.
+Виберіть групу, щоб виконати всі запити в групі по черзі.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="147"/>
@@ -17175,8 +17190,8 @@ Select a group to replace all entries in the group in order.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="170"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation>Запустити &quot;Порахувати все&quot; для вибраних записів у вибраному порядку,
-включаючи записи у вибраних групах.</translation>
+        <translation>Запустити &quot;Порахувати все&quot; для вибраних запитів у вибраному порядку,
+включаючи запити у вибраних групах.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
@@ -17187,8 +17202,8 @@ including entries in selected groups.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="181"/>
         <source>Create a Counts report for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation>Створити Звіт Підрахунку для вибраних записів у вибраному порядку,
-включаючи записи у вибраних групах.</translation>
+        <translation>Створити Звіт Підрахунку для вибраних запитів у вибраному порядку,
+включаючи запити у вибраних групах.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="185"/>
@@ -17211,7 +17226,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation>Перемістити запис на рівень його батьків.</translation>
+        <translation>Перемістити запит на рівень його батьків.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="269"/>
@@ -17226,17 +17241,17 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="365"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
-        <translation>Натисніть &quot;Застосувати&quot;, щоб завантажити &quot;Знайти та замінити&quot; з вибраним пошуком. Натисніть кнопку &quot;Гаразд&quot;, щоб завантажити свій список пошуку, зберегти свої дані та закрити.</translation>
+        <translation>Натисніть &quot;Застосувати&quot;, щоб завантажити &quot;Знайти &amp; Замінити&quot; з вибраним пошуком. Натисніть кнопку &quot;OK&quot;, щоб завантажити свій список пошуку, зберегти свої дані та закрити.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="91"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Клацніть правою кнопкою миші на запис, щоб побачити контекстне меню дій.</translation>
+        <translation>Клацніть правою кнопкою миші на запит, щоб побачити контекстне меню дій.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="92"/>
         <source>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</source>
-        <translation>Ви також можете клацнути правою кнопкою миші на текстовому полі «Знайти» у вікні «Знайти та замінити», щоб вибрати запис.</translation>
+        <translation>Ви також можете клацнути правою кнопкою миші на текстовому полі &quot;Знайти&quot; у вікні &quot;Знайти &amp; Замінити&quot;, щоб вибрати запит.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
@@ -17246,22 +17261,22 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>Name of your entry or group.</source>
-        <translation>Назва Вашого запису чи групи.</translation>
+        <translation>Назва Вашого пошукового запиту чи групи.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
         <source>The text to put into the Find box.</source>
-        <translation>Текст, який потрібно помістити у поле Знайти.</translation>
+        <translation>Текст, який потрібно помістити у поле вводу &quot;Знайти&quot;.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
         <source>The text to put into the Replace box.</source>
-        <translation>Текст, який потрібно помістити у поле Замінити.</translation>
+        <translation>Текст, який потрібно помістити у поле вводу &quot;Замінити&quot;.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
         <source>Controls</source>
-        <translation>Контролі</translation>
+        <translation>Параметри</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
@@ -17276,7 +17291,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="99"/>
         <source>Mode: Regular Expression</source>
-        <translation>Режим: Регулярні вирази:</translation>
+        <translation>Режим: Регулярні вирази</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="100"/>
@@ -17376,7 +17391,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="129"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Якщо запущені інші екземпляри Sigil, вони будуть автоматично оновлені з вашими змінами.</translation>
+        <translation>Якщо запущені інші екземпляри Sigil, вони будуть автоматично оновлені з Вашими змінами.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="146"/>
@@ -17392,7 +17407,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="272"/>
         <source>You cannot select more than one entry when using this action.</source>
-        <translation>Ви не можете вибрати більше одного запису при використанні цієї дії.</translation>
+        <translation>Ви не можете вибрати більше одного запиту при використанні цієї дії.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="282"/>
@@ -17402,7 +17417,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="359"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation>Ви не можете вибрати запис та групу, що містить запис.</translation>
+        <translation>Ви не можете вибрати запит та групу, що містить запит.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="475"/>
@@ -17417,7 +17432,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="552"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Ви впевнені, що хочете перезавантажити всі записи? Це перезапише всі незбережені зміни.</translation>
+        <translation>Ви впевнені, що хочете перезавантажити всі запити? Це перезапише всі незбережені зміни.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="567"/>
@@ -17450,7 +17465,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="872"/>
         <source>Add Entry</source>
-        <translation>Додати запис</translation>
+        <translation>Додати запит</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="873"/>
@@ -17515,23 +17530,23 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="885"/>
         <source>Fill Controls</source>
-        <translation>Повний Контроль</translation>
+        <translation>Заповнити параметри</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="966"/>
         <source>Search entries saved.</source>
-        <translation>Пошукові записи збережені.</translation>
+        <translation>Пошукові запити збережені.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="995"/>
         <source>Sigil: Saved Searches</source>
-        <translation>Sigil: Результати пошуку збережені</translation>
+        <translation>Sigil: Збережені пошукові запити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="996"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
-        <translation>Пошукові записи, можливо, були змінені.
+        <translation>Пошукові запити були змінені.
 Ви хочете зберегти свої зміни?</translation>
     </message>
 </context>
@@ -17555,7 +17570,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="87"/>
         <source>Controls</source>
-        <translation>Контролі</translation>
+        <translation>Параметри</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="481"/>
@@ -17645,7 +17660,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
         <source>Option: Wrap</source>
-        <translation>Варіант: Перенос</translation>
+        <translation>Варіант: Шукати скрізь</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>
@@ -19092,17 +19107,17 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="14"/>
         <source>Mark For Index</source>
-        <translation>Позначка для Індексу</translation>
+        <translation>Позначка для Покажчика</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="22"/>
         <source>Enter the index entry to create for the selected text.</source>
-        <translation>Введіть індексний запис для створення з вибраного тексту.</translation>
+        <translation>Введіть ключове слово для вибраного тексту.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="25"/>
         <source>Index Entry:</source>
-        <translation>Записати індекс:</translation>
+        <translation>Ключове слово:</translation>
     </message>
 </context>
 <context>
@@ -19140,7 +19155,7 @@ ID names must be unique and start with a letter.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="109"/>
         <source>Check Numbers</source>
-        <translation>Перевіряти числа</translation>
+        <translation>Перевіряти слова з числами</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="180"/>
@@ -19234,7 +19249,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="53"/>
         <source>Enable</source>
-        <translation>Дозволити</translation>
+        <translation>Підключити</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="54"/>
@@ -19265,7 +19280,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="235"/>
         <source>A user dictionary already exists with this name!</source>
-        <translation>Словник користувача з цим ім’ям вже існує!</translation>
+        <translation>Словник користувача з такою назвою вже існує!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="142"/>
@@ -19341,8 +19356,8 @@ dictionary selected below.</source>
 HTML files to the word you select or type below.
 The selected word does not have to be misspelled.</source>
         <translation>Змінити усі входження вибраного слова в
-HTML-файли до вибраного або введеного нижче слова.
-Вибране слово не потрібно вводити неправильно.</translation>
+HTML-файли на вибране або введене нижче слово.
+Вибране слово має бути без помилок.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="139"/>
@@ -19362,7 +19377,7 @@ HTML-файли до вибраного або введеного нижче с�
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="191"/>
         <source>Locale-Aware Sort</source>
-        <translation>Сортувати ураховуючи локаль</translation>
+        <translation>Сортувати з урахуванням локалі</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="215"/>

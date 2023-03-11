@@ -92,7 +92,7 @@
     <message>
         <location filename="../../Form_Files/AddAutomatePlugin.ui" line="14"/>
         <source>Add Automate Plugin</source>
-        <translation>Добавить модуль автоматизации</translation>
+        <translation>Добавить модуль в список Автоматизации</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddAutomatePlugin.ui" line="50"/>
@@ -105,7 +105,7 @@
     <message>
         <location filename="../../Form_Files/AddAutomateTool.ui" line="14"/>
         <source>Add Automate Tool</source>
-        <translation>Добавить инструмент автоматизации</translation>
+        <translation>Добавить инструмент в список Автоматизации</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddAutomateTool.ui" line="50"/>
@@ -369,7 +369,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="427"/>
         <source>Make Preview simulate a dark appearance in dark mode</source>
-        <translation>Произвести Preview имитацию тёмного внешнего вида в тёмном режиме</translation>
+        <translation>Имитация тёмного оформления при тёмной теме в системе</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="451"/>
@@ -414,7 +414,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="504"/>
         <source>Material Icons</source>
-        <translation>Material значки</translation>
+        <translation>Значки Material</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="514"/>
@@ -424,7 +424,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="517"/>
         <source>Custom Icons</source>
-        <translation>Пользовательские значки</translation>
+        <translation>Значки пользователя</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="557"/>
@@ -434,12 +434,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="563"/>
         <source>Main Menu Icon Size:</source>
-        <translation>Размер иконок основного меню:</translation>
+        <translation>Размер значков основного меню:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="569"/>
         <source>Adjust the size of the icons in the main menu.</source>
-        <translation>Настройте размер иконок основного меню.</translation>
+        <translation>Настройте размер значков основного меню.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="607"/>
@@ -499,7 +499,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="745"/>
         <source>Reset All</source>
-        <translation>Восстановить всё</translation>
+        <translation>Значения по умолчанию</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="104"/>
@@ -516,18 +516,18 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="118"/>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="121"/>
         <source>On</source>
-        <translation>Вкл</translation>
+        <translation>Включено</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="118"/>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="123"/>
         <source>Off</source>
-        <translation>Выкл</translation>
+        <translation>Отключено</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="119"/>
         <source>Detect whether any high dpi scaling should take place.</source>
-        <translation>Определите, следует ли выполнять масштабирование с высоким разрешением.</translation>
+        <translation>Определяет, следует ли выполнять масштабирование с высоким разрешением.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="120"/>
@@ -537,17 +537,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="121"/>
         <source>Turns on high dpi scaling and ignores any Qt environment variables</source>
-        <translation>Включает масштабирование с высоким разрешением и игнорирует любые переменные среды Qt,</translation>
+        <translation>Включает масштабирование при высоком разрешении и игнорирует любые переменные среды Qt,</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="122"/>
         <source>that are set controlling high dpi behavior.</source>
-        <translation>которые установлены для управления поведением с высоким разрешением.</translation>
+        <translation>которые установлены для управления поведением при высоком разрешении.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="123"/>
         <source>Turns off high dpi scaling regardless if any Qt environment</source>
-        <translation>Отключает масштабирование с высоким разрешением независимо от того, установлены или нет переменные среды Qt,</translation>
+        <translation>Отключает масштабирование при высоком разрешении независимо от того, установлены или нет переменные среды Qt,</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="124"/>
@@ -557,7 +557,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="128"/>
         <source>Adjust the distance necessary to drag an item before a move event is triggered.</source>
-        <translation>Отрегулировать расстояние, необходимое элементу при перетаскивании до того, как сработает событие перемещения.</translation>
+        <translation>Регулирует расстояние, необходимое элементу при перетаскивании до того, как сработает событие перемещения.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="129"/>
@@ -685,17 +685,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="72"/>
         <source>Add a new Plugin element to the list.</source>
-        <translation>Добавить новый элемент плагина в список.</translation>
+        <translation>Добавить модуль в список автоматизации.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="75"/>
         <source>Add Plugin</source>
-        <translation>Добавить</translation>
+        <translation>Добавить модуль</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="97"/>
         <source>Move selected element up.</source>
-        <translation>Переместить выбранный элемент вверх.</translation>
+        <translation>Переместить выбранный элемент списка вверх.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="100"/>
@@ -706,12 +706,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="110"/>
         <source>Move selected element down.</source>
-        <translation>Переместить выбранный элемент вниз.</translation>
+        <translation>Переместить выбранный элемент списка вниз.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="169"/>
         <source>Use OK to commit your changes to the file, otherwise use Cancel.</source>
-        <translation>Используйте OK, чтобы зафиксировать изменения в файле или используйте Отменить.</translation>
+        <translation>Используйте OK, чтобы зафиксировать изменения в файле или нажмите Отменить.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="63"/>
@@ -726,12 +726,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="164"/>
         <source>[SavedSearch full name here]</source>
-        <translation>[SavedSearch полное имя здесь]</translation>
+        <translation>[SavedSearch полное название здесь]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="167"/>
         <source>[String parameter for next Plugin run here]</source>
-        <translation>[Строковый параметр для запуска следующего плагина]</translation>
+        <translation>[Строковый параметр для запуска следующего модуля]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="300"/>
@@ -756,7 +756,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="304"/>
         <source>Generate NCX and OPF Guide from Epub3 Nav.</source>
-        <translation>Сгенерировать NCX и OPF руководство из Epub3 Nav.</translation>
+        <translation>Генерировать NCX и OPF из Nav Epub3.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="305"/>
@@ -776,17 +776,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="308"/>
         <source>Reformat All CSS to Multiple Lines format.</source>
-        <translation>Переформатировать весь CSS в мультистрочный формат.</translation>
+        <translation>Переформатировать таблицы CSS в мультистрочный формат.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="309"/>
         <source>Reformat All CSS to Single Lines format.</source>
-        <translation>Переформатировать весь CSS в однострочный формат.</translation>
+        <translation>Переформатировать таблицы CSS в однострочный формат.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="310"/>
         <source>Remove NCX and OPF Guide from Epub3.</source>
-        <translation>Удалить NCX и OPF оглавление из Epub3.</translation>
+        <translation>Удалить NCX и OPF из Epub3.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="311"/>
@@ -796,7 +796,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="312"/>
         <source>Run the named Saved Search with Replace All.</source>
-        <translation>Запустить именованный сохраненный поиск с функцией &apos;Заменить все&apos;.</translation>
+        <translation>Запустить сохранённый поисковый запрос с командой &quot;Заменить всё&quot;.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="313"/>
@@ -826,12 +826,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="318"/>
         <source>set a string parameter to be passed to the next plugin.</source>
-        <translation>установить строковый параметр, который будет передан следующему плагину.</translation>
+        <translation>установить строковый параметр, который будет передан следующему модулю.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="320"/>
         <source>Split XHtml files on Sigil Section Markers</source>
-        <translation>Разделить файлы XHtml по маркерам Sigil разделов</translation>
+        <translation>Разделить файлы XHtml по меткам разделения</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="321"/>
@@ -879,7 +879,7 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="1812"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1939"/>
         <source>Open With</source>
-        <translation>Открыть с помощью...</translation>
+        <translation>Открыть с помощью</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/BookBrowser.cpp" line="155"/>
@@ -901,7 +901,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="267"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation>Вы уверены, что хотите отсортировать выбранные файлы по алфавиту и порядку чисел?</translation>
+        <translation>Вы уверены, что хотите сортировать выбранные файлы по алфавиту и порядку чисел?</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="268"/>
@@ -1053,7 +1053,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1789"/>
         <source>Select All</source>
-        <translation>Выбрать всё</translation>
+        <translation>Выделить всё</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1790"/>
@@ -1119,27 +1119,27 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1803"/>
         <source>None</source>
-        <translation>Никакие</translation>
+        <translation>Не использовать</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1804"/>
         <source>Use Adobe&apos;s Method</source>
-        <translation>Способ Adobe</translation>
+        <translation>Метод Adobe</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1805"/>
         <source>Use IDPF&apos;s Method</source>
-        <translation>Способ IDPF</translation>
+        <translation>Метод IDPF</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1806"/>
         <source>Sort</source>
-        <translation>Отсортировать</translation>
+        <translation>Сортировать</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1807"/>
         <source>Renumber TOC Entries</source>
-        <translation>Перенумеровать элементы оглавления</translation>
+        <translation>Перенумеровать элементы TOC</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1808"/>
@@ -1494,17 +1494,17 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>Фильтровать по названию:</translation>
+        <translation>Фильтр по названию:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation>Фильтровать по всем полям:</translation>
+        <translation>Фильтр по всем полям:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Показать только записи, содержащие введённый вами текст.</translation>
+        <translation>Показать только записи, содержащие введённый Вами текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="65"/>
@@ -1559,12 +1559,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Щёлкните правой кнопкой мыши на элементе, чтобы увидеть контекстное меню действий.</translation>
+        <translation>Кликните правой кнопкой мыши на элементе, чтобы увидеть контекстное меню действий.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="74"/>
         <source>You can also right click in your document to select an entry.</source>
-        <translation>Вы также можете щёлкнуть правой кнопкой мыши в документе, чтобы выбрать элемент.</translation>
+        <translation>Вы можете кликнуть правой кнопкой мыши в документе, чтобы выбрать элемент.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
@@ -1584,7 +1584,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</source>
-        <translation>Текст для вставки. Текст рассматривается как регулярное выражение, \1 поэтому может быть использован для вставки текста, выбранного в окне Просмотра кода, когда вы вставляете фрагмент.</translation>
+        <translation>Текст для вставки. Текст рассматривается как регулярное выражение, \1 поэтому может быть использован для вставки текста, выбранного в окне Просмотра кода, когда Вы вставляете фрагмент.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
@@ -1599,7 +1599,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Если запущены другие экземпляры Sigil, они будут автоматически обновляться с вашими изменениями.</translation>
+        <translation>Если запущены другие экземпляры Sigil, они будут автоматически обновлены с Вашими изменениями.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="91"/>
@@ -1649,7 +1649,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
         <source>Edit</source>
-        <translation>Изменить</translation>
+        <translation>Редактировать</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
@@ -1704,7 +1704,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="663"/>
         <source>Autofill</source>
-        <translation>Заполнить автоматически</translation>
+        <translation>Автозаполнение</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="745"/>
@@ -1964,7 +1964,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="99"/>
         <source>Options:</source>
-        <translation>Параметры:</translation>
+        <translation>Опции:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="118"/>
@@ -2030,7 +2030,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="257"/>
         <source>Clear All</source>
-        <translation>Очистить все</translation>
+        <translation>Очистить всё</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="260"/>
@@ -2198,13 +2198,13 @@ other end to continue searching.</source>
         <location filename="../../Dialogs/Controls.cpp" line="351"/>
         <location filename="../../Dialogs/Controls.cpp" line="355"/>
         <source>Up</source>
-        <translation>Выше</translation>
+        <translation>Вверх</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="352"/>
         <location filename="../../Dialogs/Controls.cpp" line="356"/>
         <source>Down</source>
-        <translation>Ниже</translation>
+        <translation>Вниз</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="353"/>
@@ -2867,21 +2867,21 @@ locations and names for the OPF, NCX and/or Nav.</source>
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace highlighted match (if any) in Code View.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заменить&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Заменить выделенное совпадение (если оно есть) в окне кода.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Заменить подсвеченное совпадение (если оно есть) в Просмотре кода.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="218"/>
         <source>Restart</source>
-        <translation>С начала</translation>
+        <translation>Повторить поиск</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="221"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Restart&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restart current search from beginning.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;С начала&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Повторить поиск&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Заново начать поиск с начала.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Выполнить текущий поисковый запрос ещё раз с начала первого файла.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="238"/>
@@ -2901,8 +2901,8 @@ locations and names for the OPF, NCX and/or Nav.</source>
 then find the Next match in Code View.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заменить/Найти&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Заменить выделенное совпадение
-(если оно есть), затем найти следующее в окне кода.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Заменить подсвеченное совпадение
+(если оно есть), затем найти следующее в Просмотре кода.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="309"/>
@@ -2915,10 +2915,10 @@ then find the Next match in Code View.&lt;/p&gt;</source>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace all matches in Code View.&lt;/p&gt;
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Use with SHIFT to Filter Replacements before changes are applied.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заменить все&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Заменить всё&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Заменить все совпадения в окне кода.&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Удерживайте SHIFT, чтобы выбрать применяемые изменения.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Заменить все совпадения в Просмотра кода.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Используйте SHIFT для фильтра замен перед применением изменений.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="342"/>
@@ -2931,11 +2931,11 @@ then find the Next match in Code View.&lt;/p&gt;</source>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Count all matches in Code View.&lt;/p&gt;
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Use with SHIFT to generate a Dry Run Replace All table.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Подсчитать всё&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Посчитать всё&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Подсчитать все совпадения в окне кода.&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Удерживайте SHIFT, чтобы составить таблицу 
-чернового прогона замены.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Посчитать все совпадения в Просмотре кода.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Используйте SHIFT для генерирования таблицы 
+чернового прогона &quot;Заменить всё&quot;.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="363"/>
@@ -2950,17 +2950,17 @@ then find the Next match in Code View.&lt;/p&gt;</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="411"/>
         <source>Options:</source>
-        <translation>Параметры:</translation>
+        <translation>Опции:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="423"/>
         <source>Set advanced Regex search flags / options.</source>
-        <translation>Установить дополнительные флаги/опции Regex для поиска.</translation>
+        <translation>Установить дополнительные флаги/опции RegEx для поиска.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="426"/>
         <source>Regex Options</source>
-        <translation>Опции Regex</translation>
+        <translation>Опции RegEx</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="440"/>
@@ -3006,7 +3006,7 @@ Valid only when searching HTML files.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="562"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1890"/>
         <source>Matches found: %n</source>
-        <translation><numerusform>Совпадений найдено: %n</numerusform><numerusform>Совпадений найдено: %n</numerusform><numerusform>Совпадений найдено: %n</numerusform><numerusform>Совпадений найдено: %n</numerusform></translation>
+        <translation><numerusform>Совпадений найдено: %n</numerusform><numerusform>Совпадений найдено: %n</numerusform><numerusform>Совпадений найдено: %n</numerusform><numerusform>Найдено %n совпадений</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="652"/>
@@ -3030,7 +3030,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="857"/>
         <source>End of search</source>
-        <translation>Поиск завершен</translation>
+        <translation>Поиск завершён</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="942"/>
@@ -3045,7 +3045,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1722"/>
         <source>Unnamed search loaded</source>
-        <translation>Загружен поиск без имени</translation>
+        <translation>Загружен поиск без названия</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1725"/>
@@ -3059,7 +3059,7 @@ Valid only when searching HTML files.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="1874"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1918"/>
         <source>No searches selected</source>
-        <translation>Поиск не выбран</translation>
+        <translation>Поисковый запрос не выбран</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1983"/>
@@ -3074,13 +3074,13 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2110"/>
         <source>What to search for</source>
-        <translation>Что искать</translation>
+        <translation>Как искать</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2111"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2112"/>
         <source>Normal</source>
-        <translation>Обычный</translation>
+        <translation>Обычный поиск</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2112"/>
@@ -3210,7 +3210,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2152"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
-        <translation>Чтобы ограничить поиск выбранным текстом, используйте Поиск&amp;rarr;Пометить выделенный текст.</translation>
+        <translation>Чтобы ограничить поиск выделенным текстом, используйте Поиск&amp;rarr;Отметить выделенный текст.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2157"/>
@@ -3221,7 +3221,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2158"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
-        <translation>Ограничить поиск или замену в выделенном тексте после Поиск&amp;rarr;Отметить выделенный текст. Очищается, если Вы используете Отменить, вводите текст или изменяете режим просмотра или вкладку.</translation>
+        <translation>Ограничить поиск или замену в тексте с маркером после Поиск&amp;rarr;Отметить выделенный текст. Очищается, если Вы используете Отменить, вводите текст, изменяете режим просмотра или вкладку.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2162"/>
@@ -3258,7 +3258,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2176"/>
         <source>For Regex searches, prefix your search with (?s).</source>
-        <translation>При использовании регулярных выражений задаёт префикс (?s).</translation>
+        <translation>При использовании регулярных выражений добавляет префикс (?s).</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2180"/>
@@ -3268,7 +3268,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2183"/>
         <source>For Regex searches, prefix your search with (?U).</source>
-        <translation>При использовании регулярных выражений задаёт префикс (?U).</translation>
+        <translation>При использовании регулярных выражений добавляет префикс (?U).</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2187"/>
@@ -3278,7 +3278,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2190"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation>При использовании регулярных выражений экранирует escape-символы, выделенные, когда открывается поиск.</translation>
+        <translation>При использовании регулярных выражений экранирует escape-символы в выделении, когда открывается поиск.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2214"/>
@@ -3306,12 +3306,12 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="77"/>
         <source>Tokenise Selection</source>
-        <translation>Экранированный выбор</translation>
+        <translation>Экранировать выделение</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="90"/>
         <source>Save Search</source>
-        <translation>Сохранить поиск</translation>
+        <translation>Сохранить поисковый запрос</translation>
     </message>
 </context>
 <context>
@@ -3412,7 +3412,7 @@ HTML-код.</translation>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="107"/>
         <source>Mend Not Well Formed HTML Source Code On:</source>
-        <translation>Исправить некорректный исходный код HTML на:</translation>
+        <translation>Исправить некорректный код HTML по команде:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="116"/>
@@ -3473,7 +3473,7 @@ HTML-код.</translation>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="245"/>
         <source> Control Access by Epubs to non-multimedia remote resources:</source>
-        <translation>Управление доступом Epubs к удалённым ресурсам, не являющихся мультимедийными:</translation>
+        <translation>Управление доступом EPUB к ресурсам, не являющихся мультимедийными:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="260"/>
@@ -3488,17 +3488,17 @@ HTML-код.</translation>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="276"/>
         <source>Determine if javascript is allowed to be used by Epubs</source>
-        <translation>Определяет, разрешено ли использование JavaScript книгой EPUBs</translation>
+        <translation>Определяет, разрешено ли использование JavaScript книгой EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="279"/>
         <source> Control Use of Javascript by Epubs.</source>
-        <translation>Управление использованием JavaScript книгой EPUBs.</translation>
+        <translation>Управление использованием JavaScript книгой EPUB.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="294"/>
         <source>Check to allow Epubs to use javascript.</source>
-        <translation>Установите флажок, чтобы разрешить книгам EPUBs использовать JavaScript.</translation>
+        <translation>Установите флажок, чтобы разрешить книгам EPUB использовать JavaScript.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="297"/>
@@ -3513,12 +3513,12 @@ HTML-код.</translation>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="336"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
-        <translation>Уровень CSS, указывающийся для инструмента проверки таблиц стилей W3C (EPUB2)</translation>
+        <translation>Уровень CSS, который указывается для инструмента проверки таблиц стилей W3C (EPUB2)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="339"/>
         <source>EPUB2 W3C Stylesheet Validation Level:</source>
-        <translation>EPUB 2 уровень для проверки таблицы стилей W3C:</translation>
+        <translation>Уровень таблиц стилей для W3C при проверке EPUB2:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="348"/>
@@ -3556,12 +3556,12 @@ HTML-код.</translation>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="406"/>
         <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
-        <translation>Уровень CSS, указывающийся для инструмента проверки таблиц стилей W3C (EPUB3)</translation>
+        <translation>Уровень CSS, который указывается для инструмента проверки таблиц стилей W3C (EPUB3)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="409"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
-        <translation>EPUB3 уровень для проверки таблицы стилей W3C:</translation>
+        <translation>Уровень таблиц стилей для W3C при проверке EPUB3:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="418"/>
@@ -4232,7 +4232,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="90"/>
         <source>Times Used</source>
-        <translation>Использовано раз</translation>
+        <translation>Использовано</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="91"/>
@@ -4391,7 +4391,7 @@ Do you want to automatically fix the files?</source>
         <location filename="../../Form_Files/IndexEditor.ui" line="14"/>
         <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
         <source>Index Editor</source>
-        <translation>Редактор указателя</translation>
+        <translation>Редактор Указателя</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="22"/>
@@ -4401,7 +4401,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="29"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Показать только записи, содержащие введённый вами текст.</translation>
+        <translation>Показать только записи, содержащие введённый Вами текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="55"/>
@@ -4412,32 +4412,32 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Щёлкните правой кнопкой мыши на элементе, чтобы увидеть контекстное меню действий.</translation>
+        <translation>Кликните правой кнопкой мыши на элементе, чтобы увидеть контекстное меню действий.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="68"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
-        <translation>Вы также можете щёлкнуть правой кнопкой мыши в документе, чтобы добавить выделенный текст в Указатель.</translation>
+        <translation>Вы можете кликнуть правой кнопкой мыши в документе, чтобы добавить выделенный текст в Указатель.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>Text to Include</source>
-        <translation>Включаемый текст</translation>
+        <translation>Шаблон текста</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
-        <translation>Шаблон для совпадений в документе, например, &quot;Гутенберг&quot;. Это шаблон регулярного выражения, так &quot;(?i)Гутенберг&quot; игнорирует регистр при сопоставлении.</translation>
+        <translation>Шаблон для поиска совпадений в документе, например, &quot;Гутенберг&quot;. Это шаблон регулярного выражения, так &quot;(?i)Гутенберг&quot; игнорирует регистр при сопоставлении.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
         <source>Index Entries</source>
-        <translation>Запись в указателе</translation>
+        <translation>Ключевые слова</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
-        <translation>Элемент указателя. Оставьте пустым, если хотите использовать текст как есть, или введите отображаемый текст. Чтобы создать многоуровневые элементы, используйте &quot;/&quot; после имени уровня, например, &quot;Книги/Фэнтези/Алиса в стране чудес&quot; или &quot;Книги/Фэнтези/&quot;.</translation>
+        <translation>Ключевые слова указателя. Оставьте пустым, если хотите использовать текст как есть (из шаблона);  введите текст, тогда этот текст будет включён в указатель. Чтобы создать многоуровневые элементы, используйте &quot;/&quot; после названия рубрики, например, &quot;Книги/Фэнтези/Алиса в стране чудес&quot; или &quot;Книги/Фэнтези/&quot;.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
@@ -4452,17 +4452,17 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Если запущены другие экземпляры Sigil, они будут автоматически обновляться с вашими изменениями.</translation>
+        <translation>Если запущены другие экземпляры Sigil, они будут автоматически обновлены вместе с этими изменениями.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="85"/>
         <source>Cannot save entries.</source>
-        <translation>Невозможно сохранить предустановки.</translation>
+        <translation>Невозможно сохранить записи.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="127"/>
         <source>Index entries loaded from file.</source>
-        <translation>Элементы указателя загружаются из файла.</translation>
+        <translation>Ключевые слова Указателя загружаются из файла.</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
@@ -4487,7 +4487,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="318"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Вы уверены, что хотите перезагрузить все элементы? Это перезапишет любые несохранённые изменения.</translation>
+        <translation>Вы уверены, что хотите загрузить заново все записи? Это перезапишет любые несохранённые изменения.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="341"/>
@@ -4497,7 +4497,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="434"/>
         <source>Edit</source>
-        <translation>Изменить</translation>
+        <translation>Редактировать</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="435"/>
@@ -4522,7 +4522,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="439"/>
         <source>Autofill</source>
-        <translation>Заполнить автоматически</translation>
+        <translation>Автозаполнение</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="440"/>
@@ -4542,17 +4542,17 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="443"/>
         <source>Select All</source>
-        <translation>Выбрать всё</translation>
+        <translation>Выделить всё</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="520"/>
         <source>Index entries saved.</source>
-        <translation>Элементы указателя сохранены.</translation>
+        <translation>Ключевые слова Указателя сохранены.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="549"/>
         <source>Sigil: Index Editor</source>
-        <translation>Редактор указателя</translation>
+        <translation>Sigil: Редактор Указателя</translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="550"/>
@@ -4567,12 +4567,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="68"/>
         <source>Text to Include</source>
-        <translation>Включаемый текст</translation>
+        <translation>Шаблон текста</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="69"/>
         <source>Index Entries</source>
-        <translation>Записи в указателе</translation>
+        <translation>Ключевые слова</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexEditorModel.cpp" line="354"/>
@@ -4585,7 +4585,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/Inspector.cpp" line="56"/>
         <source>Inspect Page or Element</source>
-        <translation>Обследовать страницу или элемент</translation>
+        <translation>Инспектор страницы</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Inspector.cpp" line="155"/>
@@ -4598,12 +4598,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="14"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Клавиатурные комбинации</translation>
+        <translation>Сочетания клавиш</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="34"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Показать только записи, содержащие введённый вами текст.</translation>
+        <translation>Показать только записи, содержащие введённый Вами текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="37"/>
@@ -4644,7 +4644,7 @@ Do you want to save your changes?</source>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="122"/>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="132"/>
         <source>Press the key combination you want to use.</source>
-        <translation>Нажмите сочетание клавиш, которое вы хотите использовать.</translation>
+        <translation>Нажмите сочетание клавиш, которое Вы хотите использовать.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="125"/>
@@ -4654,7 +4654,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="148"/>
         <source>Assign this keyboard shortcut, overriding any conflicting usages.</source>
-        <translation>Назначить это сочетание клавиш, отвергая любые конфликтующие использования.</translation>
+        <translation>Назначить это сочетание клавиш, переопределяя любые конфликтующие варианты использования.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="151"/>
@@ -4664,12 +4664,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="167"/>
         <source>Remove this keyboard shortcut.</source>
-        <translation>Удалить эту комбинацию.</translation>
+        <translation>Убрать эту клавиатурную комбинацию.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="170"/>
         <source>Remove</source>
-        <translation>Удалить</translation>
+        <translation>Убрать</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="439"/>
@@ -4942,7 +4942,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>Index</source>
-        <translation>Предметный указатель</translation>
+        <translation>Указатель</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="178"/>
@@ -9693,7 +9693,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1877"/>
         <source>&amp;Index Editor...</source>
-        <translation>&amp;Редактор указателей...</translation>
+        <translation>&amp;Редактор Указателя…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1885"/>
@@ -10591,22 +10591,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2649"/>
         <source>&amp;Add To Index Editor</source>
-        <translation>&amp;Добавить в редактор указателей</translation>
+        <translation>&amp;Добавить в редактор Указателя</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2656"/>
         <source>Add the selected text to the Index Editor.</source>
-        <translation>Добавить выбранный текст в указатель.</translation>
+        <translation>Добавить выделенный текст в редактор Указателя.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2661"/>
         <source>&amp;Mark For Index</source>
-        <translation>&amp;Пометить для указателя</translation>
+        <translation>&amp;Пометить для Указателя</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2668"/>
         <source>Mark the selected text for inclusion in the Index.</source>
-        <translation>Отметить выбранный текст для включения в указатель.</translation>
+        <translation>Отметить выделенный текст для включения в Указатель.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2671"/>
@@ -10616,12 +10616,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2676"/>
         <source>&amp;Create Index</source>
-        <translation>Создать &amp;указатель</translation>
+        <translation>Создать &amp;Указатель</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2683"/>
         <source>Generate a new Index HTML file.</source>
-        <translation>Генерировать новый HTML-файл указателя.</translation>
+        <translation>Генерировать новый HTML-файл Указателя.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2688"/>
@@ -11342,7 +11342,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2703"/>
         <source>An existing Index file has been found.</source>
-        <translation>Найден существующий индексный файл.</translation>
+        <translation>Найден существующий файл Указателя.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2795"/>
@@ -11426,7 +11426,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3176"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
-        <translation>Вы не можете создать метку указателя в этом месте или без выделения текста.</translation>
+        <translation>Вы не можете создать метку Указателя в этом месте или не  выделили текст.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3186"/>
@@ -11436,7 +11436,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
         <source>You cannot mark an index at this position.</source>
-        <translation>Вы не можете создать метку указателя в этом месте.</translation>
+        <translation>Вы не можете создать метку Указателя в этом месте.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3258"/>
@@ -16200,7 +16200,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="175"/>
         <source>Error: plugin engine</source>
-        <translation>Ошибка: подключаемый модуль</translation>
+        <translation>Ошибка: движок модуля</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="176"/>
@@ -16360,7 +16360,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="28"/>
         <source>Path to Interpreter Executable</source>
-        <translation>Путь интерпретатора</translation>
+        <translation>Путь к интерпретатору</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="38"/>
@@ -16370,7 +16370,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="41"/>
         <source>Use Bundled Python</source>
-        <translation>Использовать укомплектованный Python</translation>
+        <translation>Python из комплекта Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="54"/>
@@ -16430,7 +16430,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="218"/>
         <source>Remove All</source>
-        <translation>Удалить всё</translation>
+        <translation>Удалить все</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="241"/>
@@ -16535,7 +16535,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="325"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
-        <translation>Вы уверены, что хотите удалить все ваши подключаемые модули?</translation>
+        <translation>Вы уверены, что хотите удалить все подключаемые модули?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="382"/>
@@ -16568,7 +16568,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/Preferences.cpp" line="198"/>
         <source>Open Preferences Location</source>
-        <translation>Открыть каталог</translation>
+        <translation>Каталог настроек</translation>
     </message>
 </context>
 <context>
@@ -16588,7 +16588,7 @@ Are you Sure You Want to Continue?</source>
         <source>Enter or paste entities to add to the list.
 Entities can be separated by lines, commas, or spaces.</source>
         <translation>Введите или вставьте объекты для добавления в список.
-Объекты можно разделять запятыми, пробелами или переводом строки.</translation>
+Мнемоники разделяются запятыми, пробелами или разрывом строки.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="51"/>
@@ -16608,12 +16608,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="67"/>
         <source>Add Entities</source>
-        <translation>Добавление сущностей</translation>
+        <translation>Добавление мнемоники</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="67"/>
         <source>Entities:</source>
-        <translation>Объекты:</translation>
+        <translation>Мнемоники:</translation>
     </message>
 </context>
 <context>
@@ -16672,7 +16672,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="48"/>
         <source>Creating Index...</source>
-        <translation>Создаётся указатель...</translation>
+        <translation>Создаётся Указатель...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="48"/>
@@ -16916,12 +16916,12 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="14"/>
         <source>RE File Renamer</source>
-        <translation>RE файл Renamer</translation>
+        <translation>RE Renamer</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="42"/>
         <source>Enter Regular Expression to be Replaced</source>
-        <translation>Введите регулярное выражение для замены</translation>
+        <translation>Введите регулярное выражение для поиска заменяемого текста</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="55"/>
@@ -16936,7 +16936,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="81"/>
         <source>Enter Replacement text (can use subgroups replacements)</source>
-        <translation>Введите текст замены (можно использовать замены подгрупп)</translation>
+        <translation>Введите текст замены (можно использовать подгруппы для замены)</translation>
     </message>
 </context>
 <context>
@@ -16944,12 +16944,12 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="14"/>
         <source>Rename Table</source>
-        <translation>Переименовать таблицу</translation>
+        <translation>Таблица переименования</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="39"/>
         <source>Prior Filename</source>
-        <translation>Предыдущее имя файла</translation>
+        <translation>Текущее имя файла</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="44"/>
@@ -17107,36 +17107,36 @@ filename08.xhtml
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="23"/>
         <source>Filter Name:</source>
-        <translation>Фильтровать по названию:</translation>
+        <translation>Фильтр по названию:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="28"/>
         <source>Filter All:</source>
-        <translation>Фильтровать по всем полям:</translation>
+        <translation>Фильтр по всем полям:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="36"/>
         <source>List only the entries containing the text you enter.</source>
-        <translation>Показать только записи, содержащие введённый вами текст.</translation>
+        <translation>Показывать запросы, содержащие введённый Вами текст.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="65"/>
         <source>Load the selected entry into the Find &amp; Replace window.</source>
-        <translation>Загрузить выбранный элемент в окно &quot;Найти &amp; Заменить&quot;.</translation>
+        <translation>Загрузить выбранный поисковый запрос в окно &quot;Найти &amp; Заменить&quot;.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="68"/>
         <source>Load Search</source>
-        <translation>Загрузка поиска</translation>
+        <translation>Загрузка запроса</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="91"/>
         <source>Run Find using the selected entry.
 If a group is selected, find the first entry in the list, 
 then if not found look for the second entry in the list, etc.</source>
-        <translation>Запустите Найти с помощью выбранного элемента.
-Если выбрана группа, ищет первый элемент в списке,
-затем, если не найдено ищет второй элемент в списке, и т.д.</translation>
+        <translation>Выполнить &quot;Найти&quot; используя выбранный запрос.
+Если выбрана группа, ищет по первому запросу в списке;
+если не найдено ищет по второму запросу в списке и т.д.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="96"/>
@@ -17149,8 +17149,8 @@ then if not found look for the second entry in the list, etc.</source>
         <source>Run Replace using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
-        <translation>Запустите Заменить с помощью выбранной записи.
-Если выбрана группа, цикл повторяется для каждого элемента
+        <translation>Выполнить &quot;Заменить&quot; используя выбранный запрос.
+Если выбрана группа, цикл повторяется для каждого запроса
 и останавливается на первой успешной замене.</translation>
     </message>
     <message>
@@ -17164,8 +17164,8 @@ and stop at the first successful replace.</source>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
-        <translation>Запустите Заменить/Найти с помощью выбранной записи.
-Если выбрана группа, цикл повторяется для каждого элемента
+        <translation>Выполнить &quot;Заменить/Найти&quot; используя выбранный запрос.
+Если выбрана группа, цикл повторяется для каждого запроса
 и останавливается на первой успешной замене.</translation>
     </message>
     <message>
@@ -17177,20 +17177,20 @@ and stop at the first successful replace/find.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="143"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
-        <translation>Запустите &quot;Заменить все&quot; для выбранных элементов в выбранном порядке.
-Выберите группу, чтобы заменить все элементы в группе по порядку.</translation>
+        <translation>Последовательно выполнить все выделенные запросы.
+Выберите группу, чтобы выполнить все запросы в группе по порядку.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="147"/>
         <source>Replace All</source>
-        <translation>Заменить всё</translation>
+        <translation>Выполнить все</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="170"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation>Выполнить &quot;Посчитать все&quot; для выбранных элементов в выбранном порядке,
-включая элементы в выбранных группах.</translation>
+        <translation>Выполнить &quot;Посчитать все&quot; для выделенных запросов в выбранном порядке,
+включая запросы в выбранных группах.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
@@ -17201,8 +17201,8 @@ including entries in selected groups.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="181"/>
         <source>Create a Counts report for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation>Создать Отчёт подсчётов для выбранных элементов в выбранном порядке,
-включая элементы в выбранных группах.</translation>
+        <translation>Создать Отчёт подсчётов для выбранных запросов в выбранном порядке,
+включая запросы в выбранных группах.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="185"/>
@@ -17212,7 +17212,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="210"/>
         <source>Move an entry up one level in the same group.</source>
-        <translation>Переместить элемент на одну позицию вверх в той же группе.</translation>
+        <translation>Переместить запрос на одну позицию вверх в той же группе.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="213"/>
@@ -17225,7 +17225,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
         <source>Move an entry to the level of its parent.</source>
-        <translation>Переместить запись на уровень родительского элемента.</translation>
+        <translation>Переместить запрос на уровень родительского элемента.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="269"/>
@@ -17235,22 +17235,22 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="299"/>
         <source>Move an entry down one level in the same group.</source>
-        <translation>Переместить элемент на одну позицию вниз в той же группе.</translation>
+        <translation>Переместить запрос на одну позицию вниз в той же группе.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="365"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
-        <translation>Нажмите кнопку &quot;Применить&quot;, чтобы загрузить &quot;Найти &amp; Заменить&quot; с выбранным поиском. Нажмите &quot;OK&quot;, чтобы загрузить свой поиск, сохранить данные и закрыть.</translation>
+        <translation>Нажмите кнопку &quot;Применить&quot;, чтобы загрузить выделенный запрос в &quot;Найти &amp; Заменить&quot;. Нажмите &quot;OK&quot;, чтобы загрузить запрос, сохранить данные и закрыть.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="91"/>
         <source>Right click on an entry to see a context menu of actions.</source>
-        <translation>Щёлкните правой кнопкой мыши на элементе, чтобы увидеть контекстное меню действий.</translation>
+        <translation>Щёлкните правой кнопкой мыши на запросе, чтобы увидеть контекстное меню действий.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="92"/>
         <source>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</source>
-        <translation>Вы также можете кликнуть правой кнопкой мыши на текстовом поле поиска в окне &quot;Найти &amp; Заменить&quot;, чтобы выбрать элемент.</translation>
+        <translation>Вы также можете кликнуть правой кнопкой мыши на текстовом поле поиска в окне &quot;Найти &amp; Заменить&quot;, чтобы выбрать запрос.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
@@ -17260,7 +17260,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>Name of your entry or group.</source>
-        <translation>Название фрагмента или группы.</translation>
+        <translation>Название запроса или группы.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
@@ -17285,97 +17285,97 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="98"/>
         <source>Mode: Normal</source>
-        <translation>Режим: обычный</translation>
+        <translation>Режим: Обычный</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="99"/>
         <source>Mode: Regular Expression</source>
-        <translation>Режим: регулярное выражение</translation>
+        <translation>Режим: Регулярные выражения</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="100"/>
         <source>Mode: Case Sensitive</source>
-        <translation>Режим: с учетом регистра</translation>
+        <translation>Режим: С учётом регистра</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="102"/>
         <source>Direction: Up</source>
-        <translation>Поиск: вверх</translation>
+        <translation>Направление: Вверх</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="103"/>
         <source>Direction: Down</source>
-        <translation>Поиск: вниз</translation>
+        <translation>Направление: Вниз</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="105"/>
         <source>Target: Current File</source>
-        <translation>Где: текущий файл</translation>
+        <translation>Цель: Текущий файл</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="106"/>
         <source>Target: All HTML Files</source>
-        <translation>Где: все файлы HTML</translation>
+        <translation>Цель: Все файлы HTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="107"/>
         <source>Target: Selected HTML Files</source>
-        <translation>Где: выбранные файлы HTML</translation>
+        <translation>Цель: Выделенные файлы HTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="108"/>
         <source>Target: Tabbed HTML Files</source>
-        <translation>Где: вкладки HTML</translation>
+        <translation>Цель: Файлы HTML на вкладках</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="109"/>
         <source>Target: All CSS Files</source>
-        <translation>Где: все файлы CSS</translation>
+        <translation>Цель: Все файлы CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="110"/>
         <source>Target: Selected CSS Files</source>
-        <translation>Где: выбранные файлы CSS</translation>
+        <translation>Цель: Выделенные файлы CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="111"/>
         <source>Target: Tabbed CSS Files</source>
-        <translation>Где: вкладки CSS</translation>
+        <translation>Цель: Файлы CSS на вкладках</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="112"/>
         <source>Target: OPF File</source>
-        <translation>Где: файл OPF</translation>
+        <translation>Цель: Файл OPF</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="113"/>
         <source>Target: NCX File</source>
-        <translation>Где: файл NCX</translation>
+        <translation>Цель: Файл NCX</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
         <source>Option: DotAll</source>
-        <translation>Режим: DotAll</translation>
+        <translation>Опция: DotAll</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="116"/>
         <source>Option: Minimal Match</source>
-        <translation>Режим: минимальное совпадение</translation>
+        <translation>Опция: Минимальное совпадение</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="117"/>
         <source>Option: Auto Tokenise</source>
-        <translation>Режим: автоэкранирование</translation>
+        <translation>Опция: Автоэкранирование</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
         <source>Option: Wrap</source>
-        <translation>Режим: искать везде</translation>
+        <translation>Опция: Искать везде</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
         <source>Option: Text</source>
-        <translation>Режим: Текст</translation>
+        <translation>Опция: Текст</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="129"/>
@@ -17390,23 +17390,23 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="129"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
-        <translation>Если запущены другие экземпляры Sigil, они будут автоматически обновляться с вашими изменениями.</translation>
+        <translation>Если запущены другие экземпляры Sigil, они будут автоматически обновлены с Вашими изменениями.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="146"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="157"/>
         <source>Cannot save entries.</source>
-        <translation>Невозможно сохранить предустановки.</translation>
+        <translation>Невозможно сохранить поисковые запросы.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="235"/>
         <source>Saved Searches loaded from file.</source>
-        <translation>Сохранённые поиски загружены из файла.</translation>
+        <translation>Сохранённые поисковые запросы загружены из файла.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="272"/>
         <source>You cannot select more than one entry when using this action.</source>
-        <translation>Вы не можете выбрать больше одного элемента для этого действия.</translation>
+        <translation>Вы не можете выбрать больше одного запроса для этого действия.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="282"/>
@@ -17416,7 +17416,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="359"/>
         <source>You cannot select an entry and a group containing the entry.</source>
-        <translation>Вы не можете выбрать элемент и группу, содержащую элемент.</translation>
+        <translation>Вы не можете выбрать запрос и группу, содержащую запрос.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="475"/>
@@ -17431,7 +17431,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="552"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Вы уверены, что хотите перезагрузить все элементы? Это перезапишет любые несохранённые изменения.</translation>
+        <translation>Вы уверены, что хотите перезагрузить все запросы? Это перезапишет любые несохранённые изменения.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="567"/>
@@ -17464,7 +17464,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="872"/>
         <source>Add Entry</source>
-        <translation>Добавить запись</translation>
+        <translation>Добавить запрос</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="873"/>
@@ -17474,7 +17474,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="874"/>
         <source>Edit</source>
-        <translation>Изменить</translation>
+        <translation>Редактировать</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="875"/>
@@ -17539,7 +17539,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="995"/>
         <source>Sigil: Saved Searches</source>
-        <translation>Предустановки поиска и замены</translation>
+        <translation>Sigil: Сохранённые поисковые запросы</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="996"/>
@@ -17574,92 +17574,92 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="481"/>
         <source>Mode: Normal</source>
-        <translation>Режим: обычный</translation>
+        <translation>Режим: Обычный</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="484"/>
         <source>Mode: Regular Expression</source>
-        <translation>Режим: регулярное выражение</translation>
+        <translation>Режим: Регулярные выражения</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="487"/>
         <source>Mode: Case Sensitive</source>
-        <translation>Режим: с учетом регистра</translation>
+        <translation>Режим: С учётом регистра</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="490"/>
         <source>Direction: Up</source>
-        <translation>Поиск: вверх</translation>
+        <translation>Направление: Вверх</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="493"/>
         <source>Direction: Down</source>
-        <translation>Поиск: вниз</translation>
+        <translation>Направление: Вниз</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="496"/>
         <source>Target: Current File</source>
-        <translation>Где: текущий файл</translation>
+        <translation>Цель: Текущий файл</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="499"/>
         <source>Target: All HTML Files</source>
-        <translation>Где: все файлы HTML</translation>
+        <translation>Цель: Все файлы HTML</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="502"/>
         <source>Target: Selected HTML Files</source>
-        <translation>Где: выбранные файлы HTML</translation>
+        <translation>Цель: Выделенные файлы HTML</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="505"/>
         <source>Target: Tabbed HTML Files</source>
-        <translation>Где: вкладки HTML</translation>
+        <translation>Цель: Файлы HTML на вкладках</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="508"/>
         <source>Target: All CSS Files</source>
-        <translation>Где: все файлы CSS</translation>
+        <translation>Цель: Все файлы CSS</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="511"/>
         <source>Target: Selected CSS Files</source>
-        <translation>Где: выбранные файлы CSS</translation>
+        <translation>Цель: Выделенные файлы CSS</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="514"/>
         <source>Target: Tabbed CSS Files</source>
-        <translation>Где: вкладки CSS</translation>
+        <translation>Цель: Файлы CSS на вкладках</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="517"/>
         <source>Target: OPF File</source>
-        <translation>Где: файл OPF</translation>
+        <translation>Цель: Файл OPF</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="520"/>
         <source>Target: NCX File</source>
-        <translation>Где: файл NCX</translation>
+        <translation>Цель: Файл NCX</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="523"/>
         <source>Option: DotAll</source>
-        <translation>Режим: DotAll</translation>
+        <translation>Опция: DotAll</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="526"/>
         <source>Option: Minimal Match</source>
-        <translation>Режим: минимальное совпадение</translation>
+        <translation>Опция: Минимальное совпадение</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="529"/>
         <source>Option: Auto Tokenise</source>
-        <translation>Режим: автоэкранирование</translation>
+        <translation>Опция: Автоэкранирование</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
         <source>Option: Wrap</source>
-        <translation>Режим: искать везде</translation>
+        <translation>Опция: Искать везде</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>
@@ -19106,17 +19106,17 @@ ID должен быть уникален и начинаться с буквы.
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="14"/>
         <source>Mark For Index</source>
-        <translation>Пометка для указателя</translation>
+        <translation>Разметка ключевых слов</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="22"/>
         <source>Enter the index entry to create for the selected text.</source>
-        <translation>Введите элемент указателя, чтобы создать из выбранного текста.</translation>
+        <translation>Введите ключевое слово для выделенного текста.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="25"/>
         <source>Index Entry:</source>
-        <translation>Запись:</translation>
+        <translation>Ключевое слово:</translation>
     </message>
 </context>
 <context>
@@ -19124,7 +19124,7 @@ ID должен быть уникален и начинаться с буквы.
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="14"/>
         <source>Spellcheck Dictionaries</source>
-        <translation>Проверка орфографии</translation>
+        <translation>Словари орфографии</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="23"/>
@@ -19154,12 +19154,12 @@ ID должен быть уникален и начинаться с буквы.
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="109"/>
         <source>Check Numbers</source>
-        <translation>Проверить числа</translation>
+        <translation>Проверять слова с числами</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="180"/>
         <source>User Dictionaries</source>
-        <translation>Пользовательские словари</translation>
+        <translation>Словари пользователя</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="190"/>
@@ -19209,7 +19209,7 @@ and to make it the default dictionary.</source>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="281"/>
         <source>User Dictionary Word List</source>
-        <translation>Список слов в пользовательском словаре</translation>
+        <translation>Список слов в словаре пользователя</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="291"/>
@@ -19279,7 +19279,7 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="235"/>
         <source>A user dictionary already exists with this name!</source>
-        <translation>Пользовательский словарь с таким именем уже существует!</translation>
+        <translation>Словарь пользователя с таким названием уже существует!</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="142"/>
