@@ -1040,7 +1040,7 @@ QStringList Utility::ZipInspect(const QString &zippath)
 QString Utility::longestCommonPath(const QStringList& filepaths, const QString& sep)
 {
     if (filepaths.isEmpty()) return QString();
-    if (filepaths.length() == 1) return QFileInfo(filepaths.at(0)).absolutePath() + sep;
+    if (filepaths.length() == 1) return QFileInfo(filepaths.at(0)).filePath() + sep;
     QStringList fpaths(filepaths);
     fpaths.sort();
     const QStringList segs1 = fpaths.first().split(sep);
