@@ -1,4 +1,4 @@
-pre-1.9.30
+Sigil-1.9.30
     Bug Fixes
       - fix Checkpointing to work with dulwich version 0.20.46+
       - fix css value parsing when !important is used
@@ -13,6 +13,7 @@ pre-1.9.30
       - better prevent random OPF attribute order changes to simplify Checkpoint diffs
       - fixed file menu Print Preview for xhtml and image tabs
       - prevent plugins from crashing Sigil by deleting last xhtml file in epub
+      - fix issue where images/css could not be properly added in an epub3 with no css files
 
     New Features
       - allow user to edit Checkpoint descriptions for clarity via Checkpoint menu
