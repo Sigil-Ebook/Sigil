@@ -167,7 +167,7 @@ void gumbo_insert_node(GumboNode* node, GumboNode* target_parent, int target_ind
       assert(0);
     }
     assert(index >= 0);
-    assert(index < children->length);
+    assert(index <= children->length);
     node->parent = parent;
     node->index_within_parent = index;
     gumbo_vector_insert_at((void*) node, index, children);
