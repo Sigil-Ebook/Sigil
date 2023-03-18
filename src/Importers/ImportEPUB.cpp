@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2023 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -963,6 +963,7 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
     // now add the NCX to our folder
     QString bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
     NCXResource* nresource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
+    Q_UNUSED(nresource);
     if (!load_warning.isEmpty()) {
         AddLoadWarning(load_warning);
     }

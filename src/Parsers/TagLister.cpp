@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2020-2023 Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -198,7 +198,6 @@ QString TagLister::serializeAttribute(const QString& aname, const QString &avalu
 // static
 void TagLister::parseAttribute(const QStringRef &tagstring, const QString &attribute_name, AttInfo &ainfo)
 {
-    int taglen = tagstring.length();
     QChar c = tagstring.at(1);
     int p = 0;
 

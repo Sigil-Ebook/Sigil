@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2022 Doug Massay
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2023 Doug Massay
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -1432,7 +1432,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
 
             // We want to limit the number of suggestions so we don't
             // get a huge context menu.
-            for (int i = 0; i < std::min(static_cast<uint>(suggestions.length()), MAX_SPELLING_SUGGESTIONS); ++i) {
+            for (unsigned int i = 0; i < std::min(static_cast<uint>(suggestions.length()), MAX_SPELLING_SUGGESTIONS); ++i) {
                 suggestAction = new QAction(suggestions.at(i), menu);
                 connect(suggestAction, SIGNAL(triggered()), m_spellingMapper, SLOT(map()));
                 m_spellingMapper->setMapping(suggestAction, suggestions.at(i));

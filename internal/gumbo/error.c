@@ -79,7 +79,8 @@ static void print_tag_stack(const GumboParserError* error, GumboStringBuffer* ou
     if (i) {
       print_message(output, ", ");
     }
-    GumboTag tag = (GumboTag) error->tag_stack.data[i];
+    // cast to long first to prevent void ptr to enum cast warning
+    GumboTag tag = (GumboTag)( (long) error->tag_stack.data[i] );
     print_message(output, gumbo_normalized_tagname(tag));
   }
   gumbo_string_buffer_append_codepoint('.', output);

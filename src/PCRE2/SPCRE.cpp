@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2021-2023  Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -191,7 +191,7 @@ QList<SPCRE::MatchInfo> SPCRE::getEveryMatchInfo(const QString &text)
 
     // We keep track of the last offsets as we move though the string matching
     // sub strings.
-    int last_offset[2] = {0};
+    unsigned int last_offset[2] = {0};
     bool done = false;
     
     // Run until no matches are found.

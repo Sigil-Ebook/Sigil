@@ -174,19 +174,17 @@ QList <uint> CharactersInHTMLFilesWidget::GetDisplayedCharacters(QList<HTMLResou
         GumboInterface gi = GumboInterface(replaced_html, version);
         QString text = gi.get_body_text();
         for (int i=0; i < text.length(); i++) {
-            uint unichr;
             QChar c = text.at(i);
             if (c != '\n') {
                 if (c.isHighSurrogate()) {
                     if (++i < text.length()) {
                         QChar d = text.at(i);
-                        unichr = QChar::surrogateToUcs4(c,d);
+                        character_set.insert(QChar::surrogateToUcs4(c,d));
                     }
                     // intentionally skip high surrogate withouts a following character as invalid
                 } else {
-                    unichr = c.unicode();
+                    character_set.insert(c.unicode());
                 }
-                character_set.insert(unichr);
             }
         }
     }

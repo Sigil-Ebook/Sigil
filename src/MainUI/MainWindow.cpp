@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2015-2022 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
@@ -526,7 +526,7 @@ bool MainWindow::Automate(const QStringList &commands)
                 QMessageBox msgBox;
                 msgBox.setModal(false);
                 msgBox.setText(tr("Validation tool found errors - Abort or Ignore?"));
-                QPushButton * abortButton = msgBox.addButton(QMessageBox::Abort);
+                msgBox.addButton(QMessageBox::Abort);
                 QPushButton * ignoreButton = msgBox.addButton(QMessageBox::Ignore);
                 bool button_clicked = false;
                 connect(&msgBox, &QMessageBox::buttonClicked, this, [this, &button_clicked]() { button_clicked = true; });

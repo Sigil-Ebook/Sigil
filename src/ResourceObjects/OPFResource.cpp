@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks  Stratford, ON Canada
+**  Copyright (C) 2015-2023 Kevin B. Hendricks  Stratford, ON Canada
 **  Copyright (C) 2013      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -531,7 +531,7 @@ void OPFResource::AutoFixWellFormedErrors()
             }
         }
         std::sort(txts.begin(), txts.end(), Utility::sort_string_pairs_by_first);
-        for (int j=0; j < txts.size(); j++) {
+        for (unsigned int j=0; j < txts.size(); j++) {
             QString idref = txts.at(j).second;
             SpineEntry sp;
             sp.m_idref = idref;

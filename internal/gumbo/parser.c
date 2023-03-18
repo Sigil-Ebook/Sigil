@@ -624,7 +624,8 @@ static GumboInsertionMode get_current_template_insertion_mode(const GumboParser*
   if (template_insertion_modes->length == 0) {
     return GUMBO_INSERTION_MODE_INITIAL;
   }
-  return (GumboInsertionMode) template_insertion_modes->data[(template_insertion_modes->length - 1)];
+  // cast to a long first to prevent void ptr to enum warning
+  return (GumboInsertionMode) ( (long) (template_insertion_modes->data[(template_insertion_modes->length - 1)] ) );
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/multipage/tree-construction.html#mathml-text-integration-point

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -629,9 +629,8 @@ void BookBrowser::AddNewJS()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
     if (version.startsWith('2')) {
-        QMessageBox::StandardButton button_pressed;
-        button_pressed = QMessageBox::warning(this, tr("Sigil"),tr("Javascript is not supported on epub2.")
-                                              ,QMessageBox::Ok);
+        QMessageBox::warning(this, tr("Sigil"),tr("Javascript is not supported on epub2.")
+                                 ,QMessageBox::Ok);
         return;
     }
 
