@@ -2394,9 +2394,15 @@ bool MainWindow::AddCover()
 
     // Populate the HTML cover file with the necessary text.
     // If a template file exists, use its text for the cover source.
-    QString text = HTML_COVER_SOURCE;
-    if (version.startsWith('3')) text = HTML5_COVER_SOURCE;
-    QString cover_path = Utility::DefinePrefsDir() + "/" + HTML_COVER_FILENAME;
+    QString text;
+    QString cover_path;
+    if (version.startsWith('3')) {
+        text = HTML5_COVER_SOURCE;
+        cover_path = Utility::DefinePrefsDir() + "/cover-template3.xhtml";
+    } else {
+        text = HTML_COVER_SOURCE;
+        cover_path = Utility::DefinePrefsDir() + "/cover-template2.xhtml";
+    }
     if (QFile::exists(cover_path)) {
         text = Utility::ReadUnicodeTextFile(cover_path);
     }
