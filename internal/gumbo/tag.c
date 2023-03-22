@@ -101,5 +101,5 @@ GumboTag gumbo_tagn_enum(const char* tagname, int length) {
 }
 
 GumboTag gumbo_tag_enum(const char* tagname) {
-  return gumbo_tagn_enum(tagname, strlen(tagname));
+    return gumbo_tagn_enum(tagname, (int) (strlen(tagname)));
 }

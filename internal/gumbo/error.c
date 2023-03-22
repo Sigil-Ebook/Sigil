@@ -34,7 +34,7 @@
 // written.
 static int print_message(GumboStringBuffer* output, const char* format, ...) {
   va_list args;
-  int remaining_capacity = output->capacity - output->length;
+  unsigned int remaining_capacity = (unsigned int) (output->capacity - output->length);
   va_start(args, format);
   int bytes_written = vsnprintf(output->data + output->length,
                                 remaining_capacity, format, args);
@@ -63,7 +63,7 @@ static int print_message(GumboStringBuffer* output, const char* format, ...) {
 
   if (bytes_written >= remaining_capacity) {
     gumbo_string_buffer_reserve(output->capacity + bytes_written, output);
-    remaining_capacity = output->capacity - output->length;
+    remaining_capacity = (unsigned int) (output->capacity - output->length);
     va_start(args, format);
     bytes_written = vsnprintf(output->data + output->length,
                               remaining_capacity, format, args);
@@ -80,7 +80,7 @@ static void print_tag_stack(const GumboParserError* error, GumboStringBuffer* ou
       print_message(output, ", ");
     }
     // cast to long first to prevent void ptr to enum cast warning
-    GumboTag tag = (GumboTag)( (long) error->tag_stack.data[i] );
+    GumboTag tag = (GumboTag)( (long) (error->tag_stack.data[i]) );
     print_message(output, gumbo_normalized_tagname(tag));
   }
   gumbo_string_buffer_append_codepoint('.', output);

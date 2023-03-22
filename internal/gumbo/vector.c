@@ -29,7 +29,7 @@ const GumboVector kGumboEmptyVector = { NULL, 0, 0 };
 
 void gumbo_vector_init(size_t initial_capacity, GumboVector* vector) {
   vector->length = 0;
-  vector->capacity = initial_capacity;
+  vector->capacity = (unsigned int) initial_capacity;
   vector->data = NULL;
   if (initial_capacity)
     vector->data = gumbo_malloc(sizeof(void*) * initial_capacity);
