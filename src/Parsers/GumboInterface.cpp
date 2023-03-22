@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021  Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2015-2023  Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -1449,7 +1449,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, const
     bool is_structural          = in_set(structural_tags, tagname);
     // bool is_other               = in_set(other_text_holders, tagname);
     char c                      = indent_chars.at(0);
-    int  n                      = indent_chars.length(); 
+    unsigned int n              = (unsigned int) indent_chars.length(); 
     std::string indent_space    = std::string((lvl-1)*n,c);
     char last_char              = 'x';
     bool contains_block_tags    = false;
@@ -1616,7 +1616,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, const std::str
     bool single = is_void_tag || (in_xml_ns && testcontents.empty());
 
     char c = indent_chars.at(0);
-    int  n = indent_chars.length(); 
+    unsigned int  n = (unsigned int) indent_chars.length(); 
     std::string indent_space = std::string((lvl-1)*n,c);
 
     // handle self-closed tags with no contents first

@@ -742,7 +742,7 @@ static void finish_tag_name(GumboParser* parser) {
   GumboTagState* tag_state = &tokenizer->_tag_state;
 
   tag_state->_tag = gumbo_tagn_enum(
-		tag_state->_buffer.data, tag_state->_buffer.length);
+                                    tag_state->_buffer.data, (unsigned int) (tag_state->_buffer.length));
   reinitialize_tag_buffer(parser);
 }
 
@@ -831,7 +831,7 @@ static bool is_appropriate_end_tag(GumboParser* parser) {
   assert(!tag_state->_is_start_tag);
   return tag_state->_last_start_tag != GUMBO_TAG_LAST &&
       tag_state->_last_start_tag ==
-	  gumbo_tagn_enum(tag_state->_buffer.data, tag_state->_buffer.length);
+	  gumbo_tagn_enum(tag_state->_buffer.data, (unsigned int) (tag_state->_buffer.length));
 }
 
 void gumbo_tokenizer_state_init(

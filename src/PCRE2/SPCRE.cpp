@@ -82,7 +82,7 @@ SPCRE::SPCRE(const QString &patten)
 #else
         m_error = QString::fromUtf16(reinterpret_cast<char16_t*>(buffer));
 #endif
-        m_errpos = erroroffset;
+        m_errpos = (int) erroroffset;
         // qDebug() << "SPCRE invalid pattern: " << m_pattern;
         // qDebug() << "SPCRE error: " << m_error;
         // qDebug() << "SPCRE error position: " << m_errpos;
@@ -206,8 +206,8 @@ QList<SPCRE::MatchInfo> SPCRE::getEveryMatchInfo(const QString &text)
 
         done = (ovector[1] == last_offset[1]) || (ovector[0] >= ovector[1]);
 
-        last_offset[0] = ovector[0];
-        last_offset[1] = ovector[1];
+        last_offset[0] = (unsigned int)ovector[0];
+        last_offset[1] = (unsigned int)ovector[1];
 
         if (rc >= 0 && ovector[0] != ovector[1] && ovector[0] < ovector[1]) {
             info.append(generateMatchInfo(ovector, ovector_count));
@@ -276,8 +276,8 @@ SPCRE::MatchInfo SPCRE::generateMatchInfo(PCRE2_SIZE* ovector, int capture_patte
     MatchInfo match_info;
     // Store the offsets in the QString text that we are matching
     // against.
-    int match_start = ovector[0];
-    int match_end = ovector[1];
+    int match_start = (int) ovector[0];
+    int match_end = (int) ovector[1];
     match_info.offset = std::pair<int, int>(match_start, match_end);
     // We keep a list of the substrings within the matched string that
     // are captured by capture patterns.
@@ -289,8 +289,8 @@ SPCRE::MatchInfo SPCRE::generateMatchInfo(PCRE2_SIZE* ovector, int capture_patte
     // Translate the subpattern offsets into locations within the
     // matched substring.
     for (int i = 1; i < capture_pattern_count; i++) {
-        int subpattern_start = ovector[2 * i] - match_start;
-        int subpattern_end = ovector[2 * i + 1] - match_start;
+        int subpattern_start = (int) (ovector[2 * i] - match_start);
+        int subpattern_end = (int) (ovector[2 * i + 1] - match_start);
         match_info.capture_groups_offsets.append(std::pair<int, int>(subpattern_start, subpattern_end));
     }
 
