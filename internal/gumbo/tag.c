@@ -87,7 +87,7 @@ static int case_memcmp(const char* s1, const char* s2, unsigned int n) {
   return 0;
 }
 
-GumboTag gumbo_tagn_enum(const char* tagname, int length) {
+GumboTag gumbo_tagn_enum(const char* tagname, size_t length) {
   if (length) {
     unsigned int key = tag_hash(tagname, length);
     if (key < TAG_MAP_SIZE) {
@@ -101,5 +101,5 @@ GumboTag gumbo_tagn_enum(const char* tagname, int length) {
 }
 
 GumboTag gumbo_tag_enum(const char* tagname) {
-    return gumbo_tagn_enum(tagname, (int) (strlen(tagname)));
+    return gumbo_tagn_enum(tagname, strlen(tagname));
 }
