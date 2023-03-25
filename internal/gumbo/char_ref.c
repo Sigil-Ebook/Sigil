@@ -23037,7 +23037,7 @@ _again:
   if (cs >= 7623) {
     assert(output->first != kGumboNoChar);
     char last_char = *(te - 1);
-    int len = te - start;
+    int len = (int) (te - start);
     if (last_char == ';') {
       bool matched = utf8iterator_maybe_consume_match(input, start, len, true);
       assert(matched);
