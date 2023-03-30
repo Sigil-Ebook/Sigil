@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019-2023 Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -84,6 +84,7 @@ QString MediaTypes::GetGroupFromMediaType(const QString &media_type, const QStri
         if (media_type.startsWith("audio/")) group = "Audio";
         if (media_type.startsWith("video/")) group = "Video";
         if (media_type.contains("adobe") && media_type.contains("template")) group = "Misc";
+        if (media_type.startsWith("application/pdf")) group = "Misc";
     }
     if (group.isEmpty()) return fallback;
     return group;
@@ -102,6 +103,7 @@ QString MediaTypes::GetResourceDescFromMediaType(const QString &media_type, cons
         if (media_type.startsWith("audio/")) desc = "AudioResource";
         if (media_type.startsWith("video/")) desc = "VideoResource";
         if (media_type.contains("adobe") && media_type.contains("template")) desc = "XMLResource";
+        if (media_type.startsWith("application/pdf")) desc = "MiscResource";
     }
     if (desc.isEmpty()) return fallback;
     return desc;
@@ -144,6 +146,7 @@ void MediaTypes::SetExtToMTypeMap()
     m_ExtToMType[ "opus"  ] = "audio/opus";
     m_ExtToMType[ "otf"   ] = "font/otf";
     m_ExtToMType[ "pls"   ] = "application/pls+xml";
+    m_ExtToMType[ "pdf"   ] = "application/pdf";
     m_ExtToMType[ "png"   ] = "image/png";
     m_ExtToMType[ "smil"  ] = "application/smil+xml";
     m_ExtToMType[ "svg"   ] = "image/svg+xml";
@@ -234,6 +237,7 @@ void MediaTypes::SetMTypeToGroupMap()
     m_MTypeToGroup[ "application/javascript"                  ] = "Misc";
     m_MTypeToGroup[ "application/ecmascript"                  ] = "Misc";
     m_MTypeToGroup[ "text/javascript"                         ] = "Misc";
+    m_MTypeToGroup[ "application/pdf"                         ] = "Misc";
 
 
     m_MTypeToGroup[ "text/plain"                              ] = "Misc";
@@ -313,6 +317,7 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "text/plain"                              ] = "MiscTextResource";  // not a core media type
 
     m_MTypeToRDesc[ "vnd.apple.ibooks+xml"                    ] = "Resource";
+    m_MTypeToRDesc[ "application/pdf"                         ] = "Resource";
 
 }
 
