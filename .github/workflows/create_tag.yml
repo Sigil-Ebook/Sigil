@@ -40,6 +40,7 @@ jobs:
       id: create_archive
       if: ${{ steps.check_tag_name.outputs.match != '' }}
       run: |
+        git config tar.tar.gz.command 'gzip -cn'
         git tag -s ${{ github.event.inputs.tag_name }} -m 'Tag for ${{ github.event.inputs.tag_name }} release'
         git push origin ${{ github.event.inputs.tag_name }}
         REPO=$(basename "$(pwd)")
