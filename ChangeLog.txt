@@ -1,3 +1,13 @@
+pre-1.9.40
+    Bug Fixes
+      - fix incorrect assert in sigil-gumbo
+      - recognize application/pdf mediatype on epub import
+      - remove compiler build warnings to clean up the build output
+
+    New Features
+      - add support for a user's cover-template2.xhtml and cover-template3.xhtml
+
+
 Sigil-1.9.30
     Bug Fixes
       - fix Checkpointing to work with dulwich version 0.20.46+
