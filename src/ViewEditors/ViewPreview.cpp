@@ -126,7 +126,10 @@ ViewPreview::ViewPreview(QWidget *parent, bool setbackground)
     SettingsStore settings;
     SetCurrentZoomFactor(settings.zoomPreview());
     page()->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, false);
-    page()->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, false);
+    page()->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
+    page()->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
+#endif
     page()->settings()->setDefaultTextEncoding("UTF-8");
     // Javascript is allowed 
     page()->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, (settings.javascriptOn() == 1));

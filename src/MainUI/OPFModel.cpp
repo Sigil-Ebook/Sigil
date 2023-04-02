@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -152,6 +152,8 @@ QList <Resource *> OPFModel::GetResourceListInFolder(Resource::ResourceType reso
         folder = m_AudioFolderItem;
     } else if (resource_type == Resource::VideoResourceType) {
         folder = m_VideoFolderItem;
+    } else if (resource_type == Resource::PdfResourceType) {
+        folder = m_MiscFolderItem;
     } else if (resource_type != Resource::OPFResourceType && resource_type != Resource::NCXResourceType) {
         folder = m_MiscFolderItem;
     }
@@ -188,7 +190,7 @@ QModelIndex OPFModel::GetModelItemIndex(Resource *resource, IndexChoice indexCho
                  (resourceType == Resource::CSSResourceType)) ||
                 (child == m_FontsFolderItem && resourceType == Resource::FontResourceType) ||
                 (child == m_MiscFolderItem &&
-                 (resourceType == Resource::GenericResourceType || resourceType == Resource::XMLResourceType)) ||
+                 (resourceType == Resource::PdfResourceType || resourceType == Resource::GenericResourceType || resourceType == Resource::XMLResourceType)) ||
                 (child == m_AudioFolderItem && resourceType == Resource::AudioResourceType) ||
                 (child == m_VideoFolderItem && resourceType == Resource::VideoResourceType)
                ) {
@@ -250,7 +252,9 @@ Resource::ResourceType OPFModel::GetResourceType(QStandardItem const *item)
     }
 
     if (item == m_MiscFolderItem) {
-        return Resource::GenericResourceType;
+        const QString &identifier = item->data().toString();
+        return m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier)->Type();
+        // return Resource::GenericResourceType;
     }
 
     if (item == m_AudioFolderItem) {
@@ -558,6 +562,9 @@ void OPFModel::InitializeModel()
         } else if (resource->Type() == Resource::VideoResourceType) {
             item->setDragEnabled(false);
             m_VideoFolderItem->appendRow(item);
+        } else if (resource->Type() == Resource::PdfResourceType) {
+            item->setDragEnabled(false);
+            m_MiscFolderItem->appendRow(item);
         } else if (resource->Type() == Resource::OPFResourceType ||
                    resource->Type() == Resource::NCXResourceType) {
             item->setEditable(true);

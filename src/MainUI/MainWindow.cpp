@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2022 Doug Massay
+**  Copyright (C) 2015-2023 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -4998,7 +4998,7 @@ void MainWindow::ReadSettings()
     web_settings->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, false);
     web_settings->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, false);
     web_settings->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
-    web_settings->setAttribute(QWebEngineSettings::PluginsEnabled, false);
+    web_settings->setAttribute(QWebEngineSettings::PluginsEnabled, true);
     web_settings->setAttribute(QWebEngineSettings::AutoLoadIconsForPage, false);
     web_settings->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, true);
     web_settings->setAttribute(QWebEngineSettings::AllowRunningInsecureContent, false);
@@ -5018,6 +5018,10 @@ void MainWindow::ReadSettings()
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     web_settings->setAttribute(QWebEngineSettings::DnsPrefetchEnabled, false);
+#endif
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
+    web_settings->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
 #endif
 
     web_settings->setFontSize(QWebEngineSettings::DefaultFontSize, PVAppearance.font_size);
@@ -6621,6 +6625,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
     if (rType != Resource::ImageResourceType && 
         rType != Resource::AudioResourceType && 
         rType != Resource::VideoResourceType && 
+        rType != Resource::PdfResourceType && 
         rType != Resource::FontResourceType) {
         connect(ui.actionUndo,                     SIGNAL(triggered()),  tab,   SLOT(Undo()));
         connect(ui.actionRedo,                     SIGNAL(triggered()),  tab,   SLOT(Redo()));
@@ -6705,6 +6710,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
 
     if (rType != Resource::AudioResourceType && 
         rType != Resource::VideoResourceType &&
+        rType != Resource::PdfResourceType &&
         rType != Resource::FontResourceType) {
         connect(ui.actionPrintPreview,             SIGNAL(triggered()),  tab,   SLOT(PrintPreview()));
         connect(ui.actionPrint,                    SIGNAL(triggered()),  tab,   SLOT(Print()));

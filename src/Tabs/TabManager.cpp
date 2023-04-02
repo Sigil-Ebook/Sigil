@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -32,6 +32,8 @@
 #include "ResourceObjects/ImageResource.h"
 #include "ResourceObjects/MiscTextResource.h"
 #include "ResourceObjects/SVGResource.h"
+#include "ResourceObjects/PdfResource.h"
+#include "Tabs/PdfTab.h"
 #include "Tabs/AVTab.h"
 #include "Tabs/FontTab.h"
 #include "Tabs/CSSTab.h"
@@ -598,6 +600,12 @@ bool TabManager::SwitchedToExistingTab(const Resource *resource,
             return true;
         }
 
+        PdfTab *pdf_tab = qobject_cast<PdfTab *>(tab);
+
+        if (pdf_tab != NULL) {
+            return true;
+        }
+
         FontTab *font_tab = qobject_cast<FontTab *>(tab);
 
         if (font_tab != NULL) {
@@ -683,6 +691,11 @@ ContentTab *TabManager::CreateTabForResource(Resource *resource,
         case Resource::AudioResourceType:
         case Resource::VideoResourceType: {
             tab = new AVTab(qobject_cast<Resource *>(resource), this);
+            break;
+        }
+
+        case Resource::PdfResourceType: {
+            tab = new PdfTab(qobject_cast<Resource *>(resource), this);
             break;
         }
 
