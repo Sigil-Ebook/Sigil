@@ -109,7 +109,7 @@ ViewPreview::ViewPreview(QWidget *parent, bool setbackground)
     : QWebEngineView(parent),
       m_isLoadFinished(false),
       m_ViewWebPage(new WebEngPage(this, setbackground)),
-      c_jQuery(Utility::ReadUnicodeTextFile(":/javascript/jquery-2.2.4.min.js")),
+      c_jQuery(Utility::ReadUnicodeTextFile(":/javascript/jquery-3.6.4.min.js")),
       c_jQueryScrollTo(Utility::ReadUnicodeTextFile(":/javascript/jquery.scrollTo-2.1.2-min.js")),
       c_GetCaretLocation(Utility::ReadUnicodeTextFile(":/javascript/book_view_current_location.js")),
       m_CaretLocationUpdate(QString()),

@@ -6,6 +6,7 @@ pre-1.9.40
 
     New Features
       - add support for a user's cover-template2.xhtml and cover-template3.xhtml
+      - upgrade to the latest jquery version 3.6.4
 
 
 Sigil-1.9.30
