@@ -106,6 +106,7 @@ static const std::string aSRC = std::string("src");
 static const std::string aHREF = std::string("href");
 static const std::string aPOSTER = std::string("poster");
 static const std::string aDATA = std::string("data");
+static const std::string aSRCSET = std::string("srcset");
 QHash<QString,QString> EmptyHash = QHash<QString,QString>();
 
 // These need to match the GumboAttributeNamespaceEnum sequence
@@ -1184,7 +1185,8 @@ std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entiti
     std::string attvalue = at->value;
 
     if (run_src_updates && (local_name == aHREF || local_name == aSRC || 
-                            local_name == aPOSTER || local_name == aDATA)) {
+                            local_name == aPOSTER || local_name == aDATA ||
+                            local_name == aSRCSET )) {
         attvalue = update_attribute_value(attvalue);
     }
 

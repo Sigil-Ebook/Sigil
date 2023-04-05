@@ -3,6 +3,7 @@ pre-1.9.40
       - fix incorrect assert in sigil-gumbo
       - recognize application/pdf mediatype on epub import
       - remove compiler build warnings to clean up the build output
+      - recognize source tag attribute srcset for xhtml source updates
 
     New Features
       - add support for a user's cover-template2.xhtml and cover-template3.xhtml
