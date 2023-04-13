@@ -559,7 +559,7 @@ typedef void (*GumboDeallocatorFunction)(void* userdata, void* ptr);
 
 /**
  * Input struct containing configuration options for the parser.
- * These let you specify alternate memory managers, provide different error
+ * These let you provide different error
  * handling, etc.
  * Use kGumboDefaultOptions for sensible defaults, and only set what you need.
  */
@@ -599,6 +599,7 @@ typedef struct GumboInternalOptions {
    * Default: 50
    */
   int max_errors;
+
 } GumboOptions;
 
 /** Default options struct; use this with gumbo_parse_with_options. */

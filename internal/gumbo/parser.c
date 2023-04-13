@@ -55,11 +55,11 @@ static bool handle_in_template(GumboParser*, GumboToken*);
 static void free_node(GumboNode* node);
 
 const GumboOptions kGumboDefaultOptions = {
-  4,       /* tab_stop */
-  true,    /* use_xhtml_rules */
-  false,   /* stop_on_first_error */
-  400,     /* max_tree_depth */
-  50,      /* max_errors */
+  4,                        /* tab_stop */
+  true,                     /* use_xhtml_rules */
+  false,                    /* stop_on_first_error */
+  400,                      /* max_tree_depth */
+  50,                       /* max_errors */
 };
 
 static const GumboStringPiece kDoctypeHtml = GUMBO_STRING("html");
@@ -382,6 +382,11 @@ static void parser_state_destroy(GumboParser* parser) {
   GumboParserState* state = parser->_parser_state;
   if (state->_fragment_ctx) {
     free_node(state->_fragment_ctx);
+  }
+  if (state->_form_element) {
+      if (state->_form_element->parse_flags & GUMBO_INSERTION_BY_PARSER) {
+          free_node(state->_form_element);
+      }
   }
   gumbo_vector_destroy(&state->_active_formatting_elements);
   gumbo_vector_destroy(&state->_open_elements);
@@ -1431,7 +1436,7 @@ static bool is_special_node(const GumboNode* node) {
         TAG(IFRAME), TAG(IMG), TAG(INPUT), TAG(LI), TAG(LINK),
         TAG(LISTING), TAG(MARQUEE), TAG(MENU), TAG(META), TAG(NAV), TAG(NOEMBED),
         TAG(NOFRAMES), TAG(NOSCRIPT), TAG(OBJECT), TAG(OL), TAG(P), TAG(PARAM),
-        TAG(PLAINTEXT), TAG(PRE), TAG(SCRIPT), TAG(SECTION), TAG(SELECT), TAG(STYLE),
+        TAG(PLAINTEXT), TAG(PRE), TAG(SCRIPT), TAG(SEARCH), TAG(SECTION), TAG(SELECT), TAG(STYLE),
         TAG(SUMMARY), TAG(TABLE), TAG(TBODY), TAG(TD), TAG(TEMPLATE), TAG(TEXTAREA),
         TAG(TFOOT), TAG(TH), TAG(THEAD), TAG(TR), TAG(UL), TAG(WBR), TAG(XMP),
 
@@ -2169,6 +2174,7 @@ static bool handle_in_head_noscript(GumboParser* parser, GumboToken* token) {
   switch (token->type) {
     case GUMBO_TOKEN_DOCTYPE:
       parser_add_parse_error(parser, token);
+      ignore_token(parser);
       return false;
     case GUMBO_TOKEN_WHITESPACE:
     case GUMBO_TOKEN_COMMENT:
@@ -2475,6 +2481,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
             case GUMBO_TAG_NAV:
             case GUMBO_TAG_OL:
             case GUMBO_TAG_P:
+            case GUMBO_TAG_SEARCH:
             case GUMBO_TAG_SECTION:
             case GUMBO_TAG_SUMMARY:
             case GUMBO_TAG_UL: {
@@ -2947,6 +2954,7 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
             case GUMBO_TAG_NAV:
             case GUMBO_TAG_OL:
             case GUMBO_TAG_PRE:
+            case GUMBO_TAG_SEARCH:
             case GUMBO_TAG_SECTION:
             case GUMBO_TAG_SUMMARY:
             case GUMBO_TAG_UL: {
@@ -2970,7 +2978,8 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
                     generate_implied_end_tags(parser, GUMBO_TAG_LAST);
                     if (!node_html_tag_is(get_current_node(parser), GUMBO_TAG_FORM)) {
                         parser_add_parse_error(parser, token);
-                        return false;
+                        // was return false
+                        success = false;
                     }
                     while(!node_html_tag_is(pop_current_node(parser), GUMBO_TAG_FORM));
                     return success;
@@ -2985,13 +2994,16 @@ static bool handle_in_body(GumboParser* parser, GumboToken* token) {
                         ignore_token(parser);
                         return false;
                     }
+                    // Since we remove the form node without popping, we need to make sure
+                    // that we flush any text nodes at the end of the form
+                    maybe_flush_text_node_buffer(parser);
                     // This differs from implicitly_close_tags because we remove *only* the
                     // <form> element; other nodes are left in scope.
                     generate_implied_end_tags(parser, GUMBO_TAG_LAST);
                     if (get_current_node(parser) != node) {
                         parser_add_parse_error(parser, token);
                         result = false;
-                    } else record_end_of_element(token, &node->v.element);
+                    } // else record_end_of_element(token, &node->v.element);
 
                     GumboVector* open_elements = &state->_open_elements;
                     int index = gumbo_vector_index_of(open_elements, node);
@@ -3173,16 +3185,24 @@ static bool handle_in_table(GumboParser* parser, GumboToken* token) {
   switch (token->type) {
     case GUMBO_TOKEN_CHARACTER:
     case GUMBO_TOKEN_WHITESPACE:
-      // The "pending table character tokens" list described in the spec is
-      // nothing more than the TextNodeBufferState.  We accumulate text tokens
-      // as normal, except that when we go to flush them in the handle_in_table_text,
-      // we set _foster_parent_insertions if there're non-whitespace characters
-      // in the buffer.
-      assert(state->_text_node._buffer.length == 0);
-      state->_original_insertion_mode = state->_insertion_mode;
-      state->_reprocess_current_token = true;
-      set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_TABLE_TEXT);
-      return true;
+   /*
+    *   case GUMBO_TOKEN_NULL:
+    *     if (node_tag_in_set(get_current_node(parser), (const gumbo_tagset) { TAG(TABLE), TAG(TBODY), TAG(TEMPLATE), TAG(TFOOT), TAG(THEAD), TAG(TR) })) {
+    */
+          // The "pending table character tokens" list described in the spec is
+          // nothing more than the TextNodeBufferState.  We accumulate text tokens
+          // as normal, except that when we go to flush them in the handle_in_table_text,
+          // we set _foster_parent_insertions if there're non-whitespace characters
+          // in the buffer.
+          assert(state->_text_node._buffer.length == 0);
+          state->_original_insertion_mode = state->_insertion_mode;
+          state->_reprocess_current_token = true;
+          set_insertion_mode(parser, GUMBO_INSERTION_MODE_IN_TABLE_TEXT);
+          return true;
+      /*
+       *  }
+       */
+          
     case GUMBO_TOKEN_DOCTYPE:
       parser_add_parse_error(parser, token);
       ignore_token(parser);
@@ -4286,23 +4306,17 @@ static bool handle_in_foreign_content(GumboParser* parser, GumboToken* token) {
     /* Parse error */
     parser_add_parse_error(parser, token);
 
-    /*
-     * Fragment case: If the parser was originally created for the HTML
-     * fragment parsing algorithm, then act as described in the "any other
-     * start tag" entry below.
-     */
-    if (!is_fragment_parser(parser)) {
-      do {
-        pop_current_node(parser);
-      } while(!(is_mathml_integration_point(get_current_node(parser)) ||
-                is_html_integration_point(get_current_node(parser)) ||
-                get_current_node(parser)->v.element.tag_namespace ==
-                GUMBO_NAMESPACE_HTML));
-      parser->_parser_state->_reprocess_current_token = true;
-      return false;
-    }
+    while( !(is_mathml_integration_point(get_current_node(parser)) ||
+             is_html_integration_point(get_current_node(parser)) ||
+             get_current_node(parser)->v.element.tag_namespace == GUMBO_NAMESPACE_HTML) ) {
 
-    assert(token->type == GUMBO_TOKEN_START_TAG);
+        pop_current_node(parser);
+    }
+    /* 
+     * parser->_parser_state->_reprocess_current_token = true;
+     * return false;
+     */
+     return handle_html_content(parser, token);
   }
 
   if (token->type == GUMBO_TOKEN_START_TAG) {
@@ -4485,6 +4499,29 @@ static void fragment_parser_init(
 
   // 10.
   reset_insertion_mode_appropriately(parser);
+
+#if 0
+  // 11.
+  if (ctx_has_form_ancestor
+      || (fragment_context == GUMBO_TAG_FORM
+          && fragment_namespace == GUMBO_NAMESPACE_HTML)) {
+      GumboNode * form_ancestor = create_node(GUMBO_NODE_ELEMENT);
+      form_ancestor->parent = NULL;
+      form_ancestor->index_within_parent = -1;
+      form_ancestor->parse_flags = GUMBO_INSERTION_BY_PARSER;
+      gumbo_vector_init(1, &form_ancestor->v.element.children);
+      form_ancestor->v.element.tag = GUMBO_TAG_FORM;
+      form_ancestor->v.element.tag_namespace = GUMBO_NAMESPACE_HTML;
+      form_ancestor->v.element.original_tag = kGumboEmptyString;
+      form_ancestor->v.element.original_end_tag = kGumboEmptyString;
+      form_ancestor->v.element.start_pos = kGumboEmptySourcePosition;
+      form_ancestor->v.element.end_pos = kGumboEmptySourcePosition;
+      gumbo_vector_init(1, &form_ancestor->v.element.attributes);
+    };
+    parser->_parser_state->_form_element = form_ancestor;
+  }
+#endif
+
 }
 
 GumboOutput* gumbo_parse(const char* buffer) {
@@ -4618,13 +4655,31 @@ GumboOutput* gumbo_parse_fragment(
       }
     }
 
+#if 0
+    if (!state->_reprocess_current_token) {
+      // we are done processing this token
+      if (!parser._options->use_xhtml_rules) {
+        // in not using xhtml rules then handle
+        // non void html element start tag with trailing solidus errors
+        if (token.type == GUMBO_TOKEN_START_TAG &&
+            token.v.start_tag.is_self_closing &&
+            !state->_self_closing_flag_acknowledged) {
+               GumboError* error = parser_add_parse_error(&parser, &token);
+               if (error) {
+                  error->type = GUMBO_ERR_UNACKNOWLEDGED_SELF_CLOSING_TAG;
+               }
+        }
+      }
+    }
+#else
     if (!state->_self_closing_flag_acknowledged) {
       GumboError* error = parser_add_parse_error(&parser, &token);
       if (error) {
         error->type = GUMBO_ERR_UNACKNOWLEDGED_SELF_CLOSING_TAG;
       }
     }
-
+#endif
+    
     // use of unlikely might help here but does not exist on windows
     if (state->_open_elements.length > max_tree_depth) {
       /* this block is unlikely to be taken */
