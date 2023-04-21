@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2022 Doug Massay
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2023 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -42,10 +42,11 @@ const QString SIGIL_PREFS_DIR = QString(getenv("SIGIL_PREFS_DIR"));
 const bool DONT_CHECK_FOR_UPDATES = DONT_CHECK_UPDATES;
 
 #if __APPLE__
+const QString BUNDLED_PY_VERSION = QString(_BUNDLED_PYVER);
 const QString PATH_LIST_DELIM = ":";
-const QString PYTHON_MAIN_PREFIX = "/Frameworks/Python.framework/Versions/3.9";
+const QString PYTHON_MAIN_PREFIX = "/Frameworks/Python.framework/Versions/" + BUNDLED_PY_VERSION;
 const QString PYTHON_MAIN_BIN_PATH = PYTHON_MAIN_PREFIX + "/bin/python3";
-const QString PYTHON_LIB_PATH = "/lib/python3.9";
+const QString PYTHON_LIB_PATH = "/lib/python" + BUNDLED_PY_VERSION;
 const QString PYTHON_SITE_PACKAGES = PYTHON_MAIN_PREFIX + PYTHON_LIB_PATH + "/site-packages";
 const QStringList PYTHON_SYS_PATHS = QStringList () << "/lib-dynload" << "/site-packages";
 #endif

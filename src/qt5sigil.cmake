@@ -90,7 +90,6 @@ set( EXT_RCC_FILES
 # Define the Sigil version string for use in source files
 set_source_files_properties( Dialogs/About.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
 set_source_files_properties( Misc/Utility.cpp PROPERTIES COMPILE_DEFINITIONS SIGIL_FULL_VERSION="${SIGIL_FULL_VERSION}" )
-
 #############################################################################
 
 # Adds folders for Visual Studio solution explorer (and for Xcode explorer)
@@ -223,9 +222,11 @@ set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE2_LIBRARIES} ${GUMBO_LIBRARIES} ${
                   Qt5::Widgets  Qt5::Xml  Qt5::PrintSupport  Qt5::WebEngine  
                   Qt5::WebEngineWidgets  Qt5::Network  Qt5::Concurrent )
 if (${USE_NEWER_FINDPYTHON3})
+    set( _BUNDLED_PYVER "${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}" )
     message(STATUS "Using newer Python3::Python target to link to Python")
     list( APPEND LIBS_TO_LINK Python3::Python )
 else()
+    set( _BUNDLED_PYVER "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}" )
     message(STATUS "Using older PYTHON_LIBRARIES CMAKE variable to link to Python")
     list( APPEND LIBS_TO_LINK ${PYTHON_LIBRARIES} )
 endif()
@@ -280,6 +281,7 @@ if( APPLE )
         SOURCE sigil_constants.cpp
         PROPERTY COMPILE_DEFINITIONS
         DONT_CHECK_UPDATES=${DISABLE_UPDATE_CHECK}
+        _BUNDLED_PYVER="${_BUNDLED_PYVER}"
     )
 
     if(CMAKE_GENERATOR STREQUAL Xcode)

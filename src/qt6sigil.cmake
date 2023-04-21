@@ -224,9 +224,11 @@ set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE2_LIBRARIES} ${GUMBO_LIBRARIES} ${
 
 # Additions to LIBS_TO_LINK based on situation or platform
 if (${USE_NEWER_FINDPYTHON3})
+    set( _BUNDLED_PYVER "${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}" )
     message(STATUS "Using newer Python3::Python target to link to Python")
     list( APPEND LIBS_TO_LINK Python3::Python )
 else()
+    set( _BUNDLED_PYVER "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}" )
     message(STATUS "Using older PYTHON_LIBRARIES CMAKE variable to link to Python")
     list( APPEND LIBS_TO_LINK ${PYTHON_LIBRARIES} )
 endif()
@@ -289,6 +291,7 @@ if( APPLE )
         SOURCE sigil_constants.cpp
         PROPERTY COMPILE_DEFINITIONS
         DONT_CHECK_UPDATES=${DISABLE_UPDATE_CHECK}
+        _BUNDLED_PYVER="${_BUNDLED_PYVER}"
     )
 
     if(CMAKE_GENERATOR STREQUAL Xcode)

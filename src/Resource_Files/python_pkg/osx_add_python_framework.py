@@ -27,15 +27,35 @@ print('stdlib_name', stdlib_name)
 print('app_dir', app_dir)
 print('sys.prefix', os.path.abspath(sys.prefix))
 
+
 # the main Python.framework directories
 fwk_struct = ['Python.framework/Versions/' + pversion + '/lib/' + stdlib_name + '/site-packages',
               'Python.framework/Versions/' + pversion + '/bin'
 ]
 
 # minimal set of PyQt modules to support the plugin gui
-PYQT_MODULES = ['%s.so' % x for x in ('Qt', 'QtCore', 'QtDBus', 'QtGui', 'QtNetwork', 'QtPrintSupport',
-                                      'QtSvg', 'QtWidgets', 'QtWebEngine', 'QtWebEngineCore',
-                                      'QtWebEngineWidgets', 'QtWebChannel','sip')]
+# try to handle newer and older versions of sip/pyqt5
+PYQT_MODULE_NAMES = ['Qt', 'QtCore', 'QtDBus', 'QtGui', 'QtNetwork', 'QtPrintSupport',
+                     'QtSvg', 'QtWidgets', 'QtWebEngine', 'QtWebEngineCore',
+                     'QtWebEngineWidgets', 'QtWebChannel']
+
+fwk_PyQt5_site_path = os.path.join(build_fwk, 'lib', stdlib_name, 'site-packages', 'PyQt5')
+fwk_bin_ver = str(sys.version_info[0]) + str(sys.version_info[1])
+
+using_new_sip = os.path.exists(os.path.join(fwk_PyQt5_site_path, 'QtCore.abi3.so'))
+PYQT_MODULES = []
+for name in PYQT_MODULE_NAMES:
+    if using_new_sip:
+        mname = name + ".abi3.so"
+    else:
+        mname = name + ".so"
+    PYQT_MODULES.append(mname)
+
+if using_new_sip:
+    sip_name = 'sip.cpython-' + fwk_bin_ver + '-darwin.so'
+else:
+    sip_name = 'sip.so'
+PYQT_MODULES.append(sip_name)
 
 EXCLUDED_UIC_WIDGET_PLUGINS = ['%s.py' % x for x in ('qaxcontainer', 
                                                      'qscintilla', 'qtcharts', 'qtquickwidgets', 'qtwebkit')
@@ -268,13 +288,14 @@ def main():
 
     # Change any PyQt5 modules rpaths to point to the local Frameworks (app_dir) directory for Qt
     for module_name in PYQT_MODULES:
-        if module_name not in ['Qt.so']:
+        if module_name not in ['Qt.abi3.so', 'Qt.so']:
             module_path = os.path.abspath(os.path.join(app_dir,'Python.framework','Versions',
                              pversion,'lib',stdlib_name,'site-packages','PyQt5',module_name))
-            rpaths = get_rpaths(module_path)
-            for rpath in rpaths:
-                new_rpath = '@loader_path/../../../../../../..'
-                subprocess.check_call(['install_name_tool', '-rpath', rpath, new_rpath, module_path])
+            if os.path.exists(module_path):
+                rpaths = get_rpaths(module_path)
+                for rpath in rpaths:
+                    new_rpath = '@loader_path/../../../../../../..'
+                    subprocess.check_call(['install_name_tool', '-rpath', rpath, new_rpath, module_path])
 
 
 if __name__ == '__main__':
