@@ -33,7 +33,7 @@ WebEngPage::WebEngPage(QObject *parent, bool setbackgound)
     if (setbackgound) {
         setBackgroundColor(Utility::WebViewBackgroundColor(true));
     }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)  || QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
     setUrl(QUrl("about:blank"));
 #endif
 }

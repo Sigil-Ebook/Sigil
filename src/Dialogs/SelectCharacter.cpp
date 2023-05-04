@@ -407,7 +407,7 @@ void SelectCharacter::SetSelectedCharacter(const QString &text)
     }
 
     // Return focus to last window to allow typing to continue
-    QApplication::setActiveWindow(parentWidget());
+    parentWidget()->activateWindow();
 }
 
 void SelectCharacter::ReadSettings()

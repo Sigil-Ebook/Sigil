@@ -350,7 +350,7 @@ void CodeViewEditor::CutCodeTags()
     cursor.insertText(new_text);
     cursor.endEditBlock();
     cursor.setPosition(start);
-    cursor.setPosition(start + new_text.count(), QTextCursor::KeepAnchor);
+    cursor.setPosition(start + new_text.length(), QTextCursor::KeepAnchor);
     setTextCursor(cursor);
 }
 
@@ -464,7 +464,7 @@ QString CodeViewEditor::StripCodeTags(QString text)
     bool in_tag = false;
 
     // Remove anything between and including < and >
-    for (int i = 0; i < text.count(); i++) {
+    for (int i = 0; i < text.length(); i++) {
         QChar c = text.at(i);
 
         if (!in_tag && c != QChar('<')) {
@@ -936,7 +936,7 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
         }
     } else {
         if (misspelled_words) {
-            match_info = GetMisspelledWord(txt, selection_offset, txt.count(), search_regex, search_direction);
+            match_info = GetMisspelledWord(txt, selection_offset, txt.length(), search_regex, search_direction);
         } else {
             match_info = spcre->getFirstMatchInfo(Utility::Substring(selection_offset, end, txt));
         }

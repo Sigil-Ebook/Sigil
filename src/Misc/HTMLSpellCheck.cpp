@@ -69,12 +69,12 @@ QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const Q
         }
     }
 
-    for (int i = 0; i < text.count(); i++) {
+    for (int i = 0; i < text.length(); i++) {
         QChar c = text.at(i);
 
         if (!in_tag) {
             QChar prev_c = i > 0 ? text.at(i - 1) : QChar(' ');
-            QChar next_c = i < text.count() - 1 ? text.at(i + 1) : QChar(' ');
+            QChar next_c = i < text.length() - 1 ? text.at(i + 1) : QChar(' ');
 
             if (IsBoundary(prev_c, c, next_c, wordChars, use_nums)) {
                 // If we're in an entity and we hit a boundary and it isn't
@@ -178,12 +178,12 @@ bool HTMLSpellCheck::IsBoundary(QChar prev_c, QChar c, QChar next_c, const QStri
 
 QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const QString &text)
 {
-    return GetMisspelledWords(text, 0, text.count(), "");
+    return GetMisspelledWords(text, 0, text.length(), "");
 }
 
 QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetWords(const QString &text)
 {
-    return GetMisspelledWords(text, 0, text.count(), "", false, true);
+    return GetMisspelledWords(text, 0, text.length(), "", false, true);
 }
 
 HTMLSpellCheck::MisspelledWord HTMLSpellCheck::GetFirstMisspelledWord(const QString &text,
@@ -231,18 +231,18 @@ int HTMLSpellCheck::CountMisspelledWords(const QString &text,
 
 int HTMLSpellCheck::CountMisspelledWords(const QString &text)
 {
-    return CountMisspelledWords(text, 0, text.count(), "");
+    return CountMisspelledWords(text, 0, text.length(), "");
 }
 
 
 int HTMLSpellCheck::CountAllWords(const QString &text)
 {
-    return CountMisspelledWords(text, 0, text.count(), "", false, true);
+    return CountMisspelledWords(text, 0, text.length(), "", false, true);
 }
 
 QStringList HTMLSpellCheck::GetAllWords(const QString &text)
 {
-    QList<HTMLSpellCheck::MisspelledWord> words = GetMisspelledWords(text, 0, text.count(), "", false, true);
+    QList<HTMLSpellCheck::MisspelledWord> words = GetMisspelledWords(text, 0, text.length(), "", false, true);
     QStringList all_words_text;
     foreach(HTMLSpellCheck::MisspelledWord word, words) {
         all_words_text.append(word.text);

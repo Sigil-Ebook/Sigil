@@ -1029,7 +1029,7 @@ void FlowTab::ChangeCasing(const Utility::Casing casing)
 void FlowTab::HeadingStyle(const QString &heading_type, bool preserve_attributes)
 {
     if (m_wCodeView) {
-        QChar last_char = heading_type[ heading_type.count() - 1 ];
+        QChar last_char = heading_type[ heading_type.length() - 1 ];
 
         // For heading_type == "Heading #"
         if (last_char.isDigit()) {

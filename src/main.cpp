@@ -697,7 +697,6 @@ int main(int argc, char *argv[])
             // Create a viable Global MacOS QMenuBar
             QMenuBar *mac_bar = new QMenuBar(0);
 
-
             // Create the Application Menu
             QMenu *app_menu = new QMenu("Sigil");
             QIcon icon;
@@ -763,7 +762,7 @@ int main(int argc, char *argv[])
             VerifyPlugins();
             MainWindow *widget = GetMainWindow(arguments);
             widget->show();
-            QApplication::setActiveWindow(widget);
+            widget->activateWindow();
             return app.exec();
         }
     } catch (std::exception &e) {

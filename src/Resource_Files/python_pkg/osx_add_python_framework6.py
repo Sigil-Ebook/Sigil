@@ -249,5 +249,19 @@ def main():
             new_rpath = '@executable_path/../Frameworks/Python.framework/Versions/' + pversion
             subprocess.check_call(['install_name_tool', '-rpath', rpath, new_rpath, sigil_executable_path])
 
+    # Add rpath to all PySide6 modules so that they can find the apps local Qt Frameworks
+    pyside6_path = os.path.abspath(os.path.join(app_dir,'Python.framework','Versions', pversion,'lib',
+                                                stdlib_name,'site-packages','PySide6'))
+    for module_name in PYSIDE6_MODULES:
+        module_full_name = module_name + ".so"
+        if not os.path.exists(os.path.join(pyside6_path, module_full_name)):
+            module_full_name = module_name + ".abi3.so"
+        module_path = os.path.join(pyside6_path, module_full_name)
+        new_rpath = '@loader_path/../../../../../../..'
+        if os.path.exists(module_path):
+            rpaths = get_rpaths(module_path)
+            if new_rpath not in rpaths: 
+                subprocess.check_call(['install_name_tool', '-add_rpath', new_rpath, module_path])
+
 if __name__ == '__main__':
     sys.exit(main())

@@ -894,7 +894,7 @@ void HeadingSelector::SetOneHeadingInclusion(Headings::Heading &heading, int upT
 // Invoked when Select Heading is selected
 void HeadingSelector::SelectHeadingLevelInclusion(const QString &heading_level)
 {
-    QChar last_char = heading_level[ heading_level.count() - 1 ];
+    QChar last_char = heading_level[ heading_level.length() - 1 ];
 
     // For heading type == "Up to level #"
     if (last_char.isDigit()) {

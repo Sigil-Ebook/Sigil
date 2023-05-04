@@ -5754,7 +5754,7 @@ void MainWindow::ApplyHeadingStyleToTab(QAction* act)
     if (name == "actionHeadingNormal") {
         heading_type = "Normal";
     } else {
-        heading_type = name[ name.count() - 1 ];
+        heading_type = name[ name.length() - 1 ];
     }
 
     if (flow_tab) {

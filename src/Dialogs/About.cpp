@@ -91,7 +91,7 @@ QDateTime About::GetUTCBuildTime()
 // The __DATE__ macro *always* uses English month names.
 int About::MonthIndexFromString(const QString &three_letter_string)
 {
-    Q_ASSERT(three_letter_string.count() == 3);
+    Q_ASSERT(three_letter_string.length() == 3);
     Q_ASSERT(three_letter_string[ 0 ].isUpper());
 
     if (three_letter_string == "Jan") {

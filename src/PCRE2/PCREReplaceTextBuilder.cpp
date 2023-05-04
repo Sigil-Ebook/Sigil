@@ -225,7 +225,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                     if (is_hex(c)) {
                         control_x_hex += c;
 
-                        if (control_x_hex.count() == 2) {
+                        if (control_x_hex.length() == 2) {
                             accumulateReplcementText(QChar(control_x_hex.toUInt(NULL, 16)));
                             in_control = false;
                         }

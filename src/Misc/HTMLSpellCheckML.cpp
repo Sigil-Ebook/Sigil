@@ -59,10 +59,10 @@ void HTMLSpellCheckML::parse_text_into_words(QList<HTMLSpellCheckML::AWord> &wor
     bool in_invalid_word = false;
     int word_start = 0;
     QString text = QChar(' ') + parsetext + QChar(' ');
-    for (int i = 0; i < text.count(); i++) {
+    for (int i = 0; i < text.length(); i++) {
         QChar c = text.at(i);
         QChar prev_c = i > 0 ? text.at(i - 1) : QChar(' ');
-        QChar next_c = i < text.count() - 1 ? text.at(i + 1) : QChar(' ');
+        QChar next_c = i < text.length() - 1 ? text.at(i + 1) : QChar(' ');
         if (IsBoundary(prev_c, c, next_c, wc, use_nums)) {
             // If we're in an entity and we hit a boundary and it isn't
             // part of an entity then this is an invalid entity.

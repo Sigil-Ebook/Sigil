@@ -72,7 +72,7 @@ const QTextCodec *HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
     QString text;
     QTextCodec *codec;
 
-    if (raw_text.count() < 4) {
+    if (raw_text.length() < 4) {
         return QTextCodec::codecForName("UTF-8");
     }
 
