@@ -81,8 +81,8 @@ def copy_site_packages():
 def ignore_in_pyqt5_dirs(base, items, ignored_dirs=None):
     ans = []
     if ignored_dirs is None:
-        ignored_dirs = {'.svn', '.bzr', '.git', 'doc', 'examples', 'includes', 'mkspecs',
-                       'plugins', 'qml', 'qsci', 'Qt', 'sip', 'translations', 'port_v2', '__pycache__'}
+        ignored_dirs = {'.svn', 'bindings', '.bzr', '.git', 'doc', 'examples', 'includes', 'mkspecs',
+                       'plugins', 'qml', 'qsci', 'Qt', 'Qt5', 'sip', 'translations', 'port_v2', '__pycache__'}
     for name in items:
         path = os.path.join(base, name)
         if os.path.isdir(path):
