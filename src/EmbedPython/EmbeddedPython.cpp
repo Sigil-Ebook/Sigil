@@ -187,7 +187,27 @@ EmbeddedPython::EmbeddedPython()
     // Use new Python PyConfig and init routines
     PyStatus status;
     PyConfig config;
-    PyConfig_InitPythonConfig(&config);
+    // initialize to be embedded
+    PyConfig_InitIsolatedConfig(&config);
+
+    //From https://github.com/python/cpython/blob/main/Python/initconfig.c
+    // Isolated Config is equivalent to
+    //    config->_config_init = (int)_PyConfig_INIT_ISOLATED;
+    //    config->isolated = 1;
+    //    config->use_environment = 0;
+    //    config->user_site_directory = 0;
+    //    config->dev_mode = 0;
+    //    config->install_signal_handlers = 0;
+    //    config->use_hash_seed = 0;
+    //    config->faulthandler = 0;
+    //    config->tracemalloc = 0;
+    //    config->perf_profiling = 0;
+    //    config->int_max_str_digits = _PY_LONG_DEFAULT_MAX_STR_DIGITS;
+    //    config->safe_path = 1;
+    //    config->pathconfig_warnings = 0;
+    // #ifdef MS_WINDOWS
+    //    config->legacy_windows_stdio = 0;
+    // #endif
 
     status = PyConfig_Read(&config);
     if (PyStatus_Exception(status)) {
@@ -198,8 +218,6 @@ EmbeddedPython::EmbeddedPython()
     
     config.module_search_paths_set = 1;
     config.write_bytecode = 0;
-    config.use_environment = 0;    
-    config.user_site_directory = 0;
     config.optimization_level = 2;
 #endif
 
