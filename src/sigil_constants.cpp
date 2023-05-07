@@ -33,7 +33,7 @@ const QString SIGIL_PREFS_DIR = QProcessEnvironment::systemEnvironment().value("
 
 const QString PATH_LIST_DELIM = ";";
 const QString PYTHON_MAIN_PATH = "";  // Bundled Python interpreter is in same dir as Sigil exe now
-const QStringList PYTHON_SYS_PATHS = QStringList() << "/Lib" << "/DLLs" << "/Lib/site-packages";
+const QStringList PYTHON_SYS_PATHS = QStringList() << "" << "/Lib" << "/DLLs" << "/Lib/site-packages";
 #else
 const QString SIGIL_PREFS_DIR = QString(getenv("SIGIL_PREFS_DIR"));
 #endif
@@ -48,7 +48,7 @@ const QString PYTHON_MAIN_PREFIX = "/Frameworks/Python.framework/Versions/" + BU
 const QString PYTHON_MAIN_BIN_PATH = PYTHON_MAIN_PREFIX + "/bin/python3";
 const QString PYTHON_LIB_PATH = "/lib/python" + BUNDLED_PY_VERSION;
 const QString PYTHON_SITE_PACKAGES = PYTHON_MAIN_PREFIX + PYTHON_LIB_PATH + "/site-packages";
-const QStringList PYTHON_SYS_PATHS = QStringList () << "/lib-dynload" << "/site-packages";
+const QStringList PYTHON_SYS_PATHS = QStringList() << "" << "/lib-dynload" << "/site-packages";
 #endif
 
 #if !defined(_WIN32) && !defined(__APPLE__)

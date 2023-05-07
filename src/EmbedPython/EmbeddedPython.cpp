@@ -211,76 +211,87 @@ EmbeddedPython::EmbeddedPython()
 
     status = PyConfig_Read(&config);
     if (PyStatus_Exception(status)) {
-        PyConfig_Clear(&config);
         qDebug() << "EmbeddedPython constructor error: could not read the config";
+        qDebug() << QString(status.err_msg);
+        PyConfig_Clear(&config);
         return;
     }
     
-    config.module_search_paths_set = 1;
     config.write_bytecode = 0;
     config.optimization_level = 2;
-#endif
-
-
-    // Build platform specific string list of paths that will
-    // comprise the embedded Python's sys.path
+    config.module_search_paths_set = 1;
 
 #if defined(__APPLE__)
     QDir exedir(QCoreApplication::applicationDirPath());
     exedir.cdUp();
     QString pyhomepath = exedir.absolutePath() + PYTHON_MAIN_PREFIX;
-    QString pylibpath = pyhomepath + PYTHON_LIB_PATH;
-    wchar_t *hpath = new wchar_t[pyhomepath.size()+1];
-    pyhomepath.toWCharArray(hpath);
-    hpath[pyhomepath.size()]=L'\0';
-    QString pysyspath = pylibpath;
     foreach (const QString &src_path, PYTHON_SYS_PATHS) {
-        pysyspath = pysyspath + PATH_LIST_DELIM + pylibpath + src_path;
+        QString pysyspath = pyhomepath + PYTHON_LIB_PATH + src_path;
+        status = PyWideStringList_Append(&config.module_search_paths, pysyspath.toStdWString().c_str());
+        if (PyStatus_Exception(status)) {
+            qDebug() << "EmbeddedPython constructor error: Could not set sys.path";
+            qDebug() << QString(status.err_msg);
+        }
     }
-    wchar_t *mpath = new wchar_t[pysyspath.size()+1];
-    pysyspath.toWCharArray(mpath);
-    mpath[pysyspath.size()]=L'\0';
-    delete[] hpath;
-
 #else // Windows since Linux does not use a Bundled Python
     QString pyhomepath = QCoreApplication::applicationDirPath();
-    wchar_t *hpath = new wchar_t[pyhomepath.size()+1];
-    pyhomepath.toWCharArray(hpath);
-    hpath[pyhomepath.size()]=L'\0';
-
-    QString pysyspath = pyhomepath + PYTHON_MAIN_PATH;
     foreach (const QString &src_path, PYTHON_SYS_PATHS) {
-        pysyspath = pysyspath + PATH_LIST_DELIM + pyhomepath + PYTHON_MAIN_PATH + src_path;
+        QString pysyspath = pyhomepath + PYTHON_MAIN_PATH + src_path;
+        status = PyWideStringList_Append(&config.module_search_paths, pysyspath.toStdWString().c_str());
+        if (PyStatus_Exception(status)) {
+            qDebug() << "EmbeddedPython constructor error: Could not set sys.path";
+            qDebug() << QString(status.err_msg);
+        }
     }
+#endif
+    
+    // Use new Python PyConfig and init routines
+    status = Py_InitializeFromConfig(&config);
+    if (PyStatus_Exception(status)) {
+        qDebug() << "EmbeddedPython constructor error: Could not initialize from config";
+        qDebug() << QString(status.err_msg);
+        PyConfig_Clear(&config);
+        return;
+    }
+
+
+#else // Using Older technique to initialize Python
+    
+    // Build platform specific delimited string of paths that will
+    // comprise the embedded Python's sys.path
+    QString pysyspath;
+    
+#if defined(__APPLE__)
+    QDir exedir(QCoreApplication::applicationDirPath());
+    exedir.cdUp();
+    QString pyhomepath = exedir.absolutePath() + PYTHON_MAIN_PREFIX;
+    foreach (const QString &src_path, PYTHON_SYS_PATHS) {
+        QString segment = pyhomepath + PYTHON_LIB_PATH + src_path;
+        if (pysyspath.isEmpty()) {
+            pysyspath = segment;
+        } else {
+            pysyspath = pysyspath + PATH_LIST_DELIM + segment;
+        }
+    }
+#else // Windows since Linux does not use a Bundled Python
+    QString pyhomepath = QCoreApplication::applicationDirPath();
+    foreach (const QString &src_path, PYTHON_SYS_PATHS) {
+        QString segment = pyhomepath + PYTHON_MAIN_PATH + src_path;
+        if (pysyspath.isEmpty()) {
+            pysyspath = segment;
+        } else {
+            pysyspath = pysyspath + PATH_LIST_DELIM + segment;
+        }
+    }
+#endif
+
     wchar_t *mpath = new wchar_t[pysyspath.size()+1];
     pysyspath.toWCharArray(mpath);
     mpath[pysyspath.size()]=L'\0';
-    delete[] hpath;
-#endif
 
-
-#if PY_VERSION_HEX >= 0x03090000
-    // Use new Python PyConfig and init routines
-
-    // set module search paths
-    status = PyWideStringList_Append(&config.module_search_paths, mpath);
-    if (PyStatus_Exception(status)) {
-        PyConfig_Clear(&config);
-        qDebug() << "EmbeddedPython constructor error: Could not set sys.path";
-        delete[] mpath;
-        return;
-    }
+    // Set before Py_Initialize to ensure isolation from system python
+    Py_SetPath(mpath);
     delete[] mpath;
-
-    status = Py_InitializeFromConfig(&config);
-    if (PyStatus_Exception(status)) {
-        PyConfig_Clear(&config);
-        qDebug() << "EmbeddedPython constructor error: Could not initialize from config";
-        return;
-    }
-
-#else
-    // Using Older technique to initialize Python
     
     // Everyone uses these flags when python is bundled.
     Py_DontWriteBytecodeFlag = 1;
@@ -288,10 +299,6 @@ EmbeddedPython::EmbeddedPython()
     Py_NoUserSiteDirectory = 1;
     //Py_DebugFlag = 0;
     //Py_VerboseFlag = 0;
-
-    // Set before Py_Initialize to ensure isolation from system python
-    Py_SetPath(mpath);
-    delete[] mpath;
 
     Py_Initialize();
 
