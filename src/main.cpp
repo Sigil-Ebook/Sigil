@@ -406,9 +406,48 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
 
 #if defined(Q_OS_WIN32)
+    // Insert altgr and/or darkmode window decorations as needed
+    QString current_env_str = Utility::GetEnvironmentVar("QT_QPA_PLATFORM");
+    QStringList current_platform_args;
+    QString platform_prefix = "windows:";
+
+    // Take into account current system QT_QPA_PLATFORM values
+    if (!current_env_str.isEmpty()) {
+        if (current_env_str.startsWith(platform_prefix, Qt::CaseInsensitive)) {
+            current_platform_args = current_env_str.mid(platform_prefix.length()).split(':',  Qt::SkipEmptyParts);
+            qDebug() << "Current windows platform args: " << current_platform_args;
+        }
+    }
+
+    // if altgr is not already in the list of windows platform options, add it
     SettingsStore ss;
     if (ss.enableAltGr()) {
-        qputenv("QT_QPA_PLATFORM", "windows:altgr");
+        if (!current_platform_args.contains("altgr", Qt::CaseInsensitive)) {
+            current_platform_args.append("altgr");
+        }
+    }
+
+    // if darkmode options are not already in the list of windows platform options,
+    // Set it to 1 so that sigil title bars will be dark in Windows darkmode.
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    if (Utility::WindowsShouldUseDarkMode()) {
+        bool darkmode_arg_exists = false;
+        foreach(QString arg, current_platform_args) {
+            if (arg.startsWith("darkmode", Qt::CaseInsensitive)) {
+                darkmode_arg_exists = true;
+            }
+        }
+        if (!darkmode_arg_exists) {
+            current_platform_args.append("darkmode=1");
+        }
+    }
+#endif
+
+    // Rewrite the new (if any) windows platform options to QT_QPA_PLATFORM
+    if (!current_platform_args.isEmpty()) {
+        QString new_args = platform_prefix + current_platform_args.join(':');
+        qDebug() << "New windows platform args: " << new_args;
+        qputenv("QT_QPA_PLATFORM", new_args.toUtf8());
     }
 #endif
 
