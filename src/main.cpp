@@ -79,6 +79,14 @@ extern void disableWindowTabbing();
 extern void removeMacosSpecificMenuItems();
 #endif
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
+#else
+    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
+    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
+#endif
+
 // Creates a MainWindow instance depending
 // on command line arguments
 static MainWindow *GetMainWindow(const QStringList &arguments)
@@ -414,7 +422,7 @@ int main(int argc, char *argv[])
     // Take into account current system QT_QPA_PLATFORM values
     if (!current_env_str.isEmpty()) {
         if (current_env_str.startsWith(platform_prefix, Qt::CaseInsensitive)) {
-            current_platform_args = current_env_str.mid(platform_prefix.length()).split(':',  Qt::SkipEmptyParts);
+            current_platform_args = current_env_str.mid(platform_prefix.length()).split(':', QT_ENUM_SKIPEMPTYPARTS);
             qDebug() << "Current windows platform args: " << current_platform_args;
         }
     }
