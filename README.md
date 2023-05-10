@@ -55,23 +55,23 @@ For Building on Mac OS X
 Building using purely XCode is no longer supported on Mac OS X.  The easiest 
 way to build Sigil on Mac OS X is to use cmake 3.X and the command line.   
 
-Also because Sigil now embeds Python 3.9.9, see  
+Also because Sigil now embeds Python 3.11.3, see  
 
-> [docs/Building_A_Relocatable_Python_3.9_Framework_on_MacOSX.txt](./docs/Building_A_Relocatable_Python_3.9_Framework_on_MacOSX.txt)
+> [docs/Building_A_Relocatable_Python_3.11_Framework_on_MacOSX.txt](./docs/Building_A_Relocatable_Python_3.11_Framework_on_MacOSX.txt)
 
-for detailed instructions on how to build a fully relocatable Python 3.9.9 framework before
+for detailed instructions on how to build a fully relocatable Python 3.11.3 framework before
 building Sigil.  
 
-For official releases Sigil uses Qt-5.12.9 plus local patches see  
+For official releases Sigil uses Qt-5.15.9 plus local patches see  
 
 > [docs/Building_Qt5_From_Source_on_MacOSX.txt](./docs/Building_Qt5_From_Source_on_MacOSX.txt)
 
-Sigil master now supports building with Qt-5.10.X through to Qt-6.2.2.  For Qt6 see
+Sigil master now supports building with Qt-5.10.X through to Qt-6.5.0.  For Qt6 see
 
 > [docs/Building_Qt6_From_Source_on_MacOSX.txt](./docs/Building_Qt6_From_Source_on_MacOSX.txt)
 
 Due to not owning a MacOS M1 (arm64) machine for development, we do not (yet) make MacOS arm64 based release builds.
-But, building Sigil from source on MacOS M1 (arm64) machines using Python 3.9.9 and Qt6.2.2 does work.
+But, building Sigil from source on MacOS M1 (arm64) machines using recent Python and versions does work.
   
 And finally to build Sigil itself see:
 
@@ -122,7 +122,7 @@ In addtion, Sigil uses the following other packages that have been specifically
 modified for use inside Sigil:
 
 * Beautiful Soup 4 (src/Resource_Files/plugin_launchers/sigil_bs4)
-* Google's Gumbo Parser (internal/gumbo)
+* Sigil-gumbo based on Google's Gumbo Parser (internal/gumbo)
 
 
 
