@@ -308,7 +308,16 @@ EmbeddedPython::EmbeddedPython()
 
 #endif // PY_VERSION_HEX >= 0x03090000 
 
-#endif // defined(BUNDLING_PYTHON)
+#else // BUNDLING_PYTHON
+    // not bundling python so Linux, NetBSD, etc
+    // Since no path need be set just use the simplest way to initialize things
+    Py_Initialize();
+
+#if PY_VERSION_HEX < 0x03070000
+    PyEval_InitThreads();
+#endif
+
+#endif // BUNDLING_PYTHON
 
     m_threadstate = PyEval_SaveThread();
     m_pyobjmetaid = qMetaTypeId<PyObjectPtr>();
