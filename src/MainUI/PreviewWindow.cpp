@@ -360,6 +360,9 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         }
     }
 
+
+#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 5)
+    // This workaround to a QtWebEngine bug is no longer needed after Qt 5.12.5
     if (fixup_fullscreen_svg_images(text)) {
         QRegularExpression svg_height("<\\s*svg\\s[^>]*height\\s*=\\s*[\"'](100%)[\"'][^>]*>",
                                      QRegularExpression::CaseInsensitiveOption |
@@ -383,7 +386,8 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
             text = text.replace(bp, n, "100vw"); 
         }
     }
-
+#endif
+    
     m_Filepath = filename_url;
     m_Preview->CustomSetDocument(filename_url, text);
 
