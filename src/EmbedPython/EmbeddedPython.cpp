@@ -182,6 +182,7 @@ EmbeddedPython* EmbeddedPython::instance()
 EmbeddedPython::EmbeddedPython()
 {
 #if defined(BUNDLING_PYTHON)
+    // This is for Mac and Windows official builds
 
 #if PY_VERSION_HEX >= 0x03090000
     // Use new Python PyConfig and init routines
@@ -253,10 +254,12 @@ EmbeddedPython::EmbeddedPython()
         PyConfig_Clear(&config);
         return;
     }
+    PyConfig_Clear(&config);
 
 
-#else // Using Older technique to initialize Python
+#else // PY_VERSION_HEX >= 0x03090000
     
+    // Using Older technique to initialize Python
     // Build platform specific delimited string of paths that will
     // comprise the embedded Python's sys.path
     QString pysyspath;
@@ -308,14 +311,42 @@ EmbeddedPython::EmbeddedPython()
 
 #endif // PY_VERSION_HEX >= 0x03090000 
 
-#else // BUNDLING_PYTHON
-    // not bundling python so Linux, NetBSD, etc
-    // Since no path need be set just use the simplest way to initialize things
+
+#else // BUNDLING_PYTHON - NO BUNDLING
+
+    // For Linux, NetBSD, and everbody else
+
+#if PY_VERSION_HEX >= 0x03090000
+    // Use new Python PyConfig and init routines (but not embedded/isolated)
+    PyStatus status;
+    PyConfig config;
+    PyConfig_InitPythonConfig(&config);
+    status = PyConfig_Read(&config);
+    if (PyStatus_Exception(status)) {
+        qDebug() << "EmbeddedPython constructor error: could not read the config";
+        qDebug() << QString(status.err_msg);
+        PyConfig_Clear(&config);
+        return;
+    }
+    status = Py_InitializeFromConfig(&config);
+    if (PyStatus_Exception(status)) {
+        qDebug() << "EmbeddedPython constructor error: Could not initialize from config";
+        qDebug() << QString(status.err_msg);
+        PyConfig_Clear(&config);
+        return;
+    }
+    PyConfig_Clear(&config);
+    
+#else // NOT PY_VERSION_HEX >= 0x03090000
+
+    // Use old Python init routines
     Py_Initialize();
 
 #if PY_VERSION_HEX < 0x03070000
     PyEval_InitThreads();
 #endif
+
+#endif // PY_VERSION_HEX >= 0x03090000
 
 #endif // BUNDLING_PYTHON
 
