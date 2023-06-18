@@ -79,6 +79,21 @@ ContentTab *TabManager::GetCurrentContentTab()
     return qobject_cast<ContentTab *>(widget);
 }
 
+
+#if 0
+// keep this as it is useful for debuggin why preview will not update on some tabs
+ContentTab* TabManager::GetContentTabForResource(Resource* resource)
+{
+    int index = ResourceTabIndex(resource);
+
+    if (index != -1) {
+        ContentTab* tab = qobject_cast<ContentTab *>(widget(index));
+        return tab;
+    }
+    return NULL;
+}
+#endif
+
 QList<ContentTab *> TabManager::GetContentTabs()
 {
     QList <ContentTab *> tabs;
@@ -259,7 +274,12 @@ void TabManager::OpenResource(Resource *resource,
                           caret_location_to_scroll_to, fragment, grab_focus);
 
     if (new_tab) {
-        m_newTab = new_tab;
+        // only set m_newTab if going to be current tab (ie focus was grabbed)
+        // otherwise after injection of new tab preceding_current_tab will prevent
+        // proper updating of preview
+        if (grab_focus) {
+            m_newTab = new_tab;
+        }
         AddNewContentTab(new_tab, precede_current_tab);
         emit ShowStatusMessageRequest("");
     } else {

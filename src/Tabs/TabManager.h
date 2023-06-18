@@ -56,7 +56,9 @@ public:
      *
      * @return A reference to the current content tab.
      */
-    ContentTab *GetCurrentContentTab();
+    ContentTab* GetCurrentContentTab();
+
+    // Keep for possible debugging: ContentTab* GetContentTabForResource(Resource* resource);
 
     QList<ContentTab *> GetContentTabs();
 

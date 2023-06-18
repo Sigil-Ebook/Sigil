@@ -4806,14 +4806,14 @@ void MainWindow::CreateSectionBreakOldTab(QString content, HTMLResource *origina
 
     HTMLResource *html_resource = m_Book->CreateSectionBreakOriginalResource(content, originating_resource);
     m_BookBrowser->Refresh();
-    // Open the old shortened content in a new tab preceding the current one.
-    // without grabbing focus
-    OpenResource(html_resource, -1, -1, QString(), QUrl(), true);
-    FlowTab *flow_tab = GetCurrentFlowTab();
 
-    // We will reload the reduced content tab to ensure reflects updated resource.
+    // Open the split off piece of content in a new tab preceding the current one.
+    // * without grabbing focus 
+    OpenResource(html_resource, -1, -1, QString(), QUrl(), true);
+
+    // scroll current tab (bottom of split) to split point which is now top of file
+    FlowTab *flow_tab = GetCurrentFlowTab();
     if (flow_tab) {
-        flow_tab->LoadTabContent();
         flow_tab->ScrollToTop();
     }
 
