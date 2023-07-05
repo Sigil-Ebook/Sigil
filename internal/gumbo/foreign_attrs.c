@@ -49,9 +49,7 @@ inline
 #endif
 #endif
 static unsigned int
-hash (str, len)
-     register const char *str;
-     register unsigned int len;
+hash (const char* str, unsigned int len)
 {
   static const unsigned char asso_values[] =
     {

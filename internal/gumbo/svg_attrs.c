@@ -69,10 +69,7 @@ static unsigned char gperf_downcase[256] =
 #ifndef GPERF_CASE_MEMCMP
 #define GPERF_CASE_MEMCMP 1
 static int
-gperf_case_memcmp (s1, s2, n)
-     register const char *s1;
-     register const char *s2;
-     register unsigned int n;
+gperf_case_memcmp (const char* s1, const char* s2, unsigned int n)
 {
   for (; n > 0;)
     {
@@ -97,9 +94,7 @@ inline
 #endif
 #endif
 static unsigned int
-hash (str, len)
-     register const char *str;
-     register unsigned int len;
+hash (const char* str, unsigned int len)
 {
   static const unsigned char asso_values[] =
     {
