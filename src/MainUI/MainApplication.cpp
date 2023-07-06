@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2023 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Grant Drake
 **  Copyright (C) 2012      Dave Heiland
@@ -54,12 +54,18 @@ MainApplication::MainApplication(int &argc, char **argv)
 
 void MainApplication::saveInPreviewCache(const QString &key, const QString& xhtml)
 {
+    if (m_PreviewCache.size() > 10) {
+        m_PreviewCache.clear();
+    }
     m_PreviewCache[key] = xhtml;
 }
 
 QString MainApplication::loadFromPreviewCache(const QString &key)
 {
-    return m_PreviewCache.take(key);
+    if (m_PreviewCache.contains(key)) {
+        return m_PreviewCache[key];
+    }
+    return QString();
 }
 
 void MainApplication::fixMacDarkModePalette(QPalette &pal)
