@@ -61,6 +61,7 @@ private:
     QStyle * m_Style;
     bool m_isDark;
     QHash<QString, QString> m_PreviewCache;
+    // QStringList m_CacheKeys;
 };
 
 #endif // MAINAPPLICATION_H
