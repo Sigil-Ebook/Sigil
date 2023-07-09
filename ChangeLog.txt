@@ -4,10 +4,17 @@ pre-1.9.40
       - recognize application/pdf mediatype on epub import
       - remove compiler build warnings to clean up the build output
       - recognize source tag attribute srcset for xhtml source updates
+      - fix Preview disconnect bug after split at cursor
+      - fixed sigil-gumbo interface for plugins
+      - added workaround for ADE epub3 bug with scaled cover images
 
     New Features
       - add support for a user's cover-template2.xhtml and cover-template3.xhtml
-      - upgrade to the latest jquery version 3.6.4
+      - updated to the latest jquery version 3.6.4
+      - updated to Qt 5.15.9 or later or Qt 6.5.1 or later
+      - updated to Python 3.11.3 and uses the latest EmbededPython interface
+      - added dark window titlebars for Windows platforms
+      
 
 
 Sigil-1.9.30
