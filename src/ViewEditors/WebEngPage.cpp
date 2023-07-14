@@ -70,10 +70,12 @@ bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::Navig
         DBG qDebug() << "acceptNavigationRequest from scheme handler load" << url.toString();
         return true;
     }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     if (type == QWebEnginePage::NavigationTypeRedirect) {
         DBG qDebug() << "acceptNavigationRequest from scheme handler redirect" << url.toString();
         return true;
     }
+#endif
     qDebug() << " Unhandled acceptNavigationRequest with type: " << type;
     return true;
 }
