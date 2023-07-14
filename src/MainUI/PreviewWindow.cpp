@@ -297,9 +297,6 @@ void PreviewWindow::CycleCustomCSS()
 // you must delay before trying to update Preview to a specific location
 bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<ElementIndex> location)
 {
-    // ignore spurious page DocumentLoaded signals from ViewPreview
-    if (!m_updatingPage) return;
-
     DBG qDebug() << "Entered PV UpdatePage with filename: " << filename_url;
 
     if (!m_Preview->isVisible()) {
@@ -399,6 +396,9 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
 
 void PreviewWindow::UpdatePageDone()
 {
+    // ignore spurious page DocumentLoaded signals from ViewPreview
+    if (!m_updatingPage) return;
+
     if (!m_Preview->WasLoadOkay()) qDebug() << "PV loadFinished with okay set to false!";
  
     DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
