@@ -31,7 +31,6 @@
 #include <QtWidgets/QLayout>
 
 #include "ResourceObjects/ImageResource.h"
-#include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"
 #include "MainUI/MainApplication.h"
 #include "Widgets/ImageView.h"

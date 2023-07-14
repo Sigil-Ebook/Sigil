@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2022  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2018-2023  Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2019-2022  Doug Massay
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -41,7 +41,6 @@
 #include <QFontMetrics>
 #include <QtWebEngineWidgets>
 #include <QtWebEngineCore>
-#include <QWebEngineProfile>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
 #include <QWebEngineUrlScheme>
@@ -57,8 +56,7 @@
 #include "Misc/TempFolder.h"
 #include "Misc/UpdateChecker.h"
 #include "Misc/Utility.h"
-#include "Misc/URLInterceptor.h"
-#include "Misc/URLSchemeHandler.h"
+#include "Misc/WebProfileMgr.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
@@ -645,20 +643,11 @@ int main(int argc, char *argv[])
         app.setDesktopFileName(QStringLiteral("sigil.desktop"));
 #endif
 #endif
-
-        // Install our own URLSchemeHandler for QtWebEngine to bypass 2mb url limit
-        URLSchemeHandler handlescheme; 
-        QWebEngineProfile::defaultProfile()->installUrlSchemeHandler("sigil", &handlescheme);
-
-        // Install our own URLInterceptor for QtWebEngine to protect
-        // against bad file:: urls
-        URLInterceptor* urlint = new URLInterceptor();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
-        QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(urlint);
-#else
-        QWebEngineProfile::defaultProfile()->setRequestInterceptor(urlint);
-#endif
-
+        // Create the required QWebEngineProfiles, Initialize the settings
+        // just once, installing both URLInterceptor and URLSchemeHandler as needed
+        // to bypass 2mb url limit
+        WebProfileMgr* profile_mgr = WebProfileMgr::instance();
+        
         // Needs to be created on the heap so that
         // the reply has time to return.
         // Skip if compile-time define or runtime env var is set.

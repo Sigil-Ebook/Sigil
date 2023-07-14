@@ -43,6 +43,7 @@
 #include "ViewEditors/SimplePage.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/WebProfileMgr.h"
 #include "Misc/Utility.h"
 #include "Misc/webviewprinter.h"
 #include "ResourceObjects/ImageResource.h"
@@ -85,7 +86,8 @@ ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     m_openWithMapper(new QSignalMapper(this)),
     m_WebViewPrinter(new WebViewPrinter(this))
 {
-    m_WebView->setPage(new SimplePage(m_WebView));
+    QWebEngineProfile* profile = WebProfileMgr::instance()->GetOneTimeProfile();
+    m_WebView->setPage(new SimplePage(profile, m_WebView));
     m_WebView->setContextMenuPolicy(Qt::CustomContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);

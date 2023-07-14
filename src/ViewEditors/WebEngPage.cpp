@@ -22,13 +22,14 @@
 #include <QTimer>
 #include <QUrl>
 #include <QDebug>
+#include <QWebEngineProfile>
 #include "Misc/Utility.h"
 #include "ViewEditors/WebEngPage.h"
 
 #define DBG if(0)
  
-WebEngPage::WebEngPage(QObject *parent, bool setbackgound)
-    : QWebEnginePage(parent)
+WebEngPage::WebEngPage(QWebEngineProfile* profile, QObject *parent, bool setbackgound)
+    : QWebEnginePage(profile, parent)
 {
     if (setbackgound) {
         setBackgroundColor(Utility::WebViewBackgroundColor(true));
@@ -67,6 +68,10 @@ bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::Navig
     }
     if (type == QWebEnginePage::NavigationTypeTyped) {
         DBG qDebug() << "acceptNavigationRequest from scheme handler load" << url.toString();
+        return true;
+    }
+    if (type == QWebEnginePage::NavigationTypeRedirect) {
+        DBG qDebug() << "acceptNavigationRequest from scheme handler redirect" << url.toString();
         return true;
     }
     qDebug() << " Unhandled acceptNavigationRequest with type: " << type;

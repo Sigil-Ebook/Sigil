@@ -30,13 +30,14 @@
 #include <QtWebEngineCore>
 #include <QWebEnginePage>
 
+class QWebEngineProfile;
 
 class WebEngPage : public QWebEnginePage
 {
     Q_OBJECT
 
 public:
-    WebEngPage(QObject *parent = 0, bool setbackgound = true);
+    WebEngPage(QWebEngineProfile* profile=nullptr, QObject *parent = 0, bool setbackgound = true);
 
     bool acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType ntype, bool isMainFrame);
     void javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level, 

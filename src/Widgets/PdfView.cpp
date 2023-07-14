@@ -33,6 +33,7 @@
 #include <QApplication>
 #include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"
+#include "Misc/WebProfileMgr.h"
 #include "Widgets/PdfView.h"
 
 PdfView::PdfView(QWidget *parent)
@@ -40,11 +41,12 @@ PdfView::PdfView(QWidget *parent)
       m_WebView(new QWebEngineView(this)),
       m_layout(new QVBoxLayout(this))
 {
-    m_WebView->setPage(new SimplePage(m_WebView));
+    QWebEngineProfile* profile = WebProfileMgr::instance()->GetOneTimeProfile();
+    m_WebView->setPage(new SimplePage(profile, m_WebView));
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0) || QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
     m_WebView->setUrl(QUrl("about:blank"));
 #endif
     m_layout->addWidget(m_WebView);

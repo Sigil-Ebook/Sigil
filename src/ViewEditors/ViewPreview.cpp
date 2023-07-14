@@ -39,6 +39,7 @@
 #include <QDebug>
 
 #include "MainUI/MainApplication.h"
+#include "Misc/WebProfileMgr.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
@@ -108,7 +109,6 @@ struct HTMLResult {
 ViewPreview::ViewPreview(QWidget *parent, bool setbackground)
     : QWebEngineView(parent),
       m_isLoadFinished(false),
-      m_ViewWebPage(new WebEngPage(this, setbackground)),
       c_jQuery(Utility::ReadUnicodeTextFile(":/javascript/jquery-3.6.4.min.js")),
       c_jQueryScrollTo(Utility::ReadUnicodeTextFile(":/javascript/jquery.scrollTo-2.1.2-min.js")),
       c_GetCaretLocation(Utility::ReadUnicodeTextFile(":/javascript/book_view_current_location.js")),
@@ -118,33 +118,22 @@ ViewPreview::ViewPreview(QWidget *parent, bool setbackground)
       m_LoadOkay(false),
       m_overlay(new LoadingOverlay(this))
 {
+    QWebEngineProfile* profile = WebProfileMgr::instance()->GetPreviewProfile();
+    m_ViewWebPage = new WebEngPage(profile, this, setbackground);
     setPage(m_ViewWebPage);
-    // Now handled in the WebEngPage constructor to be faster
-    // page()->setBackgroundColor(Utility::WebViewBackgroundColor(true));
     setContextMenuPolicy(Qt::CustomContextMenu);
     // Set the Zoom factor but be sure no signals are set because of this.
-    SettingsStore settings;
-    SetCurrentZoomFactor(settings.zoomPreview());
-    page()->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, false);
-    page()->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
-    page()->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
-#endif
-    page()->settings()->setDefaultTextEncoding("UTF-8");
-    // Javascript is allowed 
-    page()->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, (settings.javascriptOn() == 1));
-    page()->settings()->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, (settings.javascriptOn() == 1));
-    // Allow epubs to access remote resources via the net
-    page()->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, (settings.remoteOn() == 1));
-    page()->settings()->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, false);
-    // Enable local-storage for epub3
-    page()->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
-    QString localStorePath = Utility::DefinePrefsDir() + "/local-storage";
-    QDir storageDir(localStorePath);
-    if (!storageDir.exists()) {
-        storageDir.mkpath(localStorePath);
-    }
-    page()->profile()->setPersistentStoragePath(localStorePath);
+    SettingsStore ss;
+    SetCurrentZoomFactor(ss.zoomPreview());
+    
+    // Update the Preview's Profile Settings with User's Preferences
+    m_ViewWebPage->profile()->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled,
+                                                       (ss.javascriptOn() == 1));
+    m_ViewWebPage->profile()->settings()->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows,
+                                                       (ss.javascriptOn() == 1));
+    m_ViewWebPage->profile()->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls,
+                                                       (ss.remoteOn() == 1));
+
     ConnectSignalsToSlots();
 }
 

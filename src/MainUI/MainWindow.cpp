@@ -39,7 +39,6 @@
 #include <QToolBar>
 #include <QtWebEngineWidgets>
 #include <QtWebEngineCore>
-#include <QWebEngineSettings>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -4981,53 +4980,6 @@ void MainWindow::ReadSettings()
     m_ClipboardHistorySelector->LoadClipboardHistory(clipboardHistory);
     settings.endGroup();
     m_ClipboardHistoryLimit = settings.clipboardHistoryLimit();
-
-    // Our default fonts for Preview
-    SettingsStore::PreviewAppearance PVAppearance = settings.previewAppearance();
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QWebEngineSettings *web_settings = QWebEngineSettings::defaultSettings();
-#else
-    QWebEngineSettings *web_settings = QWebEngineProfile::defaultProfile()->settings();
-#endif
-
-    // Default QWebEngine security settings to help prevent rogue epub3 javascripts
-    // User preferences control if javascript is allowed (on) or not for Preview
-    web_settings->setAttribute(QWebEngineSettings::AutoLoadImages, true);
-    web_settings->setAttribute(QWebEngineSettings::JavascriptEnabled, false);
-    web_settings->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, false);
-    web_settings->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, false);
-    web_settings->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, false);
-    web_settings->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
-    web_settings->setAttribute(QWebEngineSettings::PluginsEnabled, true);
-    web_settings->setAttribute(QWebEngineSettings::AutoLoadIconsForPage, false);
-    web_settings->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, true);
-    web_settings->setAttribute(QWebEngineSettings::AllowRunningInsecureContent, false);
-    web_settings->setAttribute(QWebEngineSettings::XSSAuditingEnabled, true);
-    web_settings->setAttribute(QWebEngineSettings::AllowGeolocationOnInsecureOrigins, false);
-    web_settings->setAttribute(QWebEngineSettings::ScreenCaptureEnabled, false);
-    web_settings->setAttribute(QWebEngineSettings::LocalStorageEnabled, false);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
-    web_settings->setAttribute(QWebEngineSettings::AllowWindowActivationFromJavaScript, false);
-#endif
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
-    web_settings->setUnknownUrlSchemePolicy(QWebEngineSettings::DisallowUnknownUrlSchemes);
-    web_settings->setAttribute(QWebEngineSettings::PlaybackRequiresUserGesture, true);
-    web_settings->setAttribute(QWebEngineSettings::JavascriptCanPaste, false);
-#endif
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-    web_settings->setAttribute(QWebEngineSettings::DnsPrefetchEnabled, false);
-#endif
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
-    web_settings->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
-#endif
-
-    web_settings->setFontSize(QWebEngineSettings::DefaultFontSize, PVAppearance.font_size);
-    web_settings->setFontFamily(QWebEngineSettings::StandardFont, PVAppearance.font_family_standard);
-    web_settings->setFontFamily(QWebEngineSettings::SerifFont, PVAppearance.font_family_serif);
-    web_settings->setFontFamily(QWebEngineSettings::SansSerifFont, PVAppearance.font_family_sans_serif);
 
     // Check for existing custom Preview stylesheets in Prefs dir and tell Preview about them
     QStringList usercssurls;

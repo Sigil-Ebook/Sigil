@@ -29,12 +29,14 @@
 #include <QtWebEngineCore>
 #include <QWebEnginePage>
 
+class QWebEngineProfile;
+
 class SimplePage : public QWebEnginePage
 {
     Q_OBJECT
 
 public:
-    SimplePage(QObject *parent = 0);
+    SimplePage(QWebEngineProfile* profile=nullptr, QObject *parent = 0);
 
 };
 

@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020-2021 Kevin B. Hendricks
+ **  Copyright (C) 2020-2023 Kevin B. Hendricks
  **
  **  This file is part of Sigil.
  **
@@ -33,7 +33,6 @@
 #include <QWebEngineView>
 #include <QGuiApplication>
 #include <QApplication>
-#include "ViewEditors/SimplePage.h"
 #include "Misc/Utility.h"
 #include "Misc/SettingsStore.h"
 #include "MainUI/MainApplication.h"

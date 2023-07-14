@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2023  Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -18,19 +18,42 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
-#include <QUrl>
-#include <QWebEngineProfile>
-#include <QDebug>
-#include "Misc/Utility.h"
-#include "ViewEditors/SimplePage.h"
 
- 
-SimplePage::SimplePage(QWebEngineProfile* profile, QObject *parent)
-    : QWebEnginePage(profile, parent)
+#pragma once
+#ifndef WEBPROFILEMGR_H
+#define WEBPROFILEMGR_H
+
+#include <QCoreApplication>
+
+/**
+ * Singleton.
+ *
+ * WebProfileMgr
+ */
+
+class URLInterceptor;
+class URLSchemeHandler;
+class QWebEngineProfile;
+
+class WebProfileMgr
 {
-    setBackgroundColor(Utility::WebViewBackgroundColor(true));
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0) || QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
-    setUrl(QUrl("about:blank"));
-#endif
-}
 
+public:
+
+    static WebProfileMgr *instance();
+    QWebEngineProfile* GetPreviewProfile();
+    QWebEngineProfile* GetOneTimeProfile();
+    
+private:
+
+    WebProfileMgr();
+    void InitializeDefaultSettings(QWebEngineSettings* web_settings);
+    URLInterceptor* m_URLint;
+    URLSchemeHandler* m_URLhandler;
+
+    QWebEngineProfile* m_preview_profile;
+    QWebEngineProfile* m_onetime_profile;
+    static WebProfileMgr *m_instance;
+};
+
+#endif // WEBPROFILEMGR_H

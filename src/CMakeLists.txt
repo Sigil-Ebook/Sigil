@@ -396,6 +396,8 @@ set( MISC_FILES
     Misc/XMLEntities.h
     Misc/MediaTypes.cpp
     Misc/MediaTypes.h
+    Misc/WebProfileMgr.cpp
+    Misc/WebProfileMgr.h
     Misc/webviewprinter.cpp
     Misc/webviewprinter.h
     )
