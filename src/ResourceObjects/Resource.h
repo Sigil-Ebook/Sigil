@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -64,7 +64,8 @@ public:
         NCXResourceType      = 1 <<  9, /**< Used for the NCX table of contents. */
         MiscTextResourceType = 1 <<  10, /**< Used for editable text resource. */
         AudioResourceType    = 1 <<  11, /**< Used for Audio resources. */
-        VideoResourceType    = 1 <<  12  /**< Used for Video resources. */
+        VideoResourceType    = 1 <<  12, /**< Used for Video resources. */
+        PdfResourceType      = 1 <<  13  /**< Used for PDF resources. */
     };
 
     /**

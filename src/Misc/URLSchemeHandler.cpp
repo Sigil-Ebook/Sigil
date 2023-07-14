@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020-2021  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2020-2023  Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -37,7 +37,7 @@
 
 #define DBG if(0)
 
-static const QStringList REDIRECT = QStringList() << "audio/mp4" << "video/mp4" << "audio/mpeg";
+static const QStringList REDIRECT = QStringList() << "audio/mp4" << "video/mp4" << "audio/mpeg" << "application/pdf";
 
 URLSchemeHandler::URLSchemeHandler(QObject *parent)
     : QWebEngineUrlSchemeHandler(parent)

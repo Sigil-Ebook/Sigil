@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2014-2019 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2014-2023 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -41,7 +41,7 @@
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/VideoResource.h"
 #include "ResourceObjects/AudioResource.h"
-#include "ResourceObjects/VideoResource.h"
+#include "ResourceObjects/PdfResource.h"
 #include "ResourceObjects/XMLResource.h"
 
 #include "ui_PluginRunner.h"

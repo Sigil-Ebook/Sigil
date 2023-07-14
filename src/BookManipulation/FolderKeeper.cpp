@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -40,6 +40,7 @@
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/VideoResource.h"
+#include "ResourceObjects/PdfResource.h"
 #include "Misc/Utility.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/SettingsStore.h"
@@ -209,6 +210,8 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
             resource = new AudioResource(m_FullPathToMainFolder, new_file_path);
         } else if (resdesc == "VideoResource") {
             resource = new VideoResource(m_FullPathToMainFolder, new_file_path);
+        } else if (resdesc == "PdfResource") {
+            resource = new PdfResource(m_FullPathToMainFolder, new_file_path);
         } else if (resdesc == "ImageResource") {
             resource = new ImageResource(m_FullPathToMainFolder, new_file_path);
         } else if (resdesc == "SVGResource") {

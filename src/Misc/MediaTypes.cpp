@@ -103,7 +103,7 @@ QString MediaTypes::GetResourceDescFromMediaType(const QString &media_type, cons
         if (media_type.startsWith("audio/")) desc = "AudioResource";
         if (media_type.startsWith("video/")) desc = "VideoResource";
         if (media_type.contains("adobe") && media_type.contains("template")) desc = "XMLResource";
-        if (media_type.startsWith("application/pdf")) desc = "MiscResource";
+        if (media_type.startsWith("application/pdf")) desc = "PdfResource";
     }
     if (desc.isEmpty()) return fallback;
     return desc;
@@ -316,8 +316,9 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "text/javascript"                         ] = "MiscTextResource";
     m_MTypeToRDesc[ "text/plain"                              ] = "MiscTextResource";  // not a core media type
 
+    m_MTypeToRDesc[ "application/pdf"                         ] = "PdfResource";  // not a core media type
+
     m_MTypeToRDesc[ "vnd.apple.ibooks+xml"                    ] = "Resource";
-    m_MTypeToRDesc[ "application/pdf"                         ] = "Resource";
 
 }
 

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford, Ontario
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -305,6 +305,11 @@ QString AllFilesWidget::GetType(Resource *resource)
 
         case Resource::VideoResourceType: {
             type = tr("Video");
+            break;
+        }
+
+        case Resource::PdfResourceType: {
+            type = tr("PDF");
             break;
         }
 
