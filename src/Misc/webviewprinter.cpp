@@ -32,6 +32,7 @@
 #include <QStandardPaths>
 #include <QDebug>
 
+#include "Misc/SettingsStore.h"
 #include "ViewEditors/ViewPreview.h"
 #include "Parsers/GumboInterface.h"
 
@@ -84,7 +85,10 @@ QString WebViewPrinter::getPrintToFilePath(QFileInfo &fi) {
 void WebViewPrinter::print()
 {
     DBG qDebug() << "Skipping Print Preview.";
+    SettingsStore ss;
     QPrinter printer(QPrinter::HighResolution);
+    printer.setResolution(ss.printDPI());
+    DBG qDebug() << "Print DPI = " << printer.resolution();
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     QFileInfo fi = QFileInfo(m_viewprev->page()->url().fileName());
     QString path = getPrintToFilePath(fi);
@@ -134,7 +138,11 @@ void WebViewPrinter::printPreview()
     if (m_inPrintPreview)
         return;
     m_inPrintPreview = true;
+
+    SettingsStore ss;
     QPrinter printer(QPrinter::HighResolution);
+    printer.setResolution(ss.printDPI());
+    DBG qDebug() << "Print Preview DPI = " << printer.resolution();
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     QFileInfo fi = QFileInfo(m_viewprev->page()->url().fileName());
     QString path = getPrintToFilePath(fi);

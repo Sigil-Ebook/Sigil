@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019-2023 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019-2023 Doug Massay
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -121,6 +122,8 @@ PreferencesWidget::ResultActions GeneralSettingsWidget::saveSettings()
     if (new_disable_gpu != m_disable_gpu) {
         results = results | PreferencesWidget::ResultAction_RestartSigil;
     }
+    settings.setSkipPrintPreview(ui.chkSkipPrintPreview->isChecked());
+        settings.setPrintDPI(ui.cboPrintDPI->currentText().toInt());
     settings.setExternalXEditorPath(new_xeditor_path);
     if (m_refreshClipboardHistoryLimit) {
         results = results | PreferencesWidget::ResultAction_RefreshClipHistoryLimit;
@@ -131,6 +134,7 @@ PreferencesWidget::ResultActions GeneralSettingsWidget::saveSettings()
 
 void GeneralSettingsWidget::readSettings()
 {
+    ui.cboPrintDPI->addItems({ "72", "96", "168", "300", "600", "1200" });
     SettingsStore settings;
     QString version = settings.defaultVersion();
     ui.EpubVersion2->setChecked(version == "2.0");
@@ -155,6 +159,15 @@ void GeneralSettingsWidget::readSettings()
     ui.lineEdit->setText(temp_folder_home);
     m_disable_gpu = settings.disableGPU();
     ui.DisableGPU->setChecked(m_disable_gpu);
+    ui.chkSkipPrintPreview->setChecked(settings.skipPrintPreview());
+    int index = ui.cboPrintDPI->findText(QString::number(settings.printDPI()));
+    if (index == -1) {
+        index = ui.cboPrintDPI->findText("300");
+        if (index == -1) {
+            index = 0;
+        }
+    }
+    ui.cboPrintDPI->setCurrentIndex(index);
     QString xeditor_path = settings.externalXEditorPath();
     ui.lineEdit7->setText(xeditor_path);
 }

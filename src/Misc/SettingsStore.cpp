@@ -66,6 +66,8 @@ static QString KEY_JAVASCRIPT_ON = SETTINGS_GROUP + "/" + "javascript_on";
 static QString KEY_SHOWFULLPATH_ON = SETTINGS_GROUP + "/" + "showfullpath_on";
 static QString KEY_HIGHDPI_SETTING = SETTINGS_GROUP + "/" + "high_dpi";
 static QString KEY_DISABLEGPU_SETTING = SETTINGS_GROUP + "/" + "disable_gpu";
+static QString KEY_PRINT_PREVIEW_DPI_SETTING = SETTINGS_GROUP + "/" + "print_preview_dpi";
+static QString KEY_PRINT_DPI_SETTING = SETTINGS_GROUP + "/" + "print_dpi";
 static QString KEY_PREVIEW_DARK_IN_DM = SETTINGS_GROUP + "/" + "preview_dark_in_dm";
 static QString KEY_DEFAULT_VERSION = SETTINGS_GROUP + "/" + "default_version";
 static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
@@ -295,6 +297,18 @@ bool SettingsStore::disableGPU()
 {
     clearSettingsGroup();
     return static_cast<bool>(value(KEY_DISABLEGPU_SETTING, false).toBool());
+}
+
+int SettingsStore::printPreviewDPI()
+{
+    clearSettingsGroup();
+    return value(KEY_PRINT_PREVIEW_DPI_SETTING, 96).toInt();
+}
+
+int SettingsStore::printDPI()
+{
+    clearSettingsGroup();
+    return value(KEY_PRINT_DPI_SETTING, 300).toInt();
 }
 
 int SettingsStore::previewDark()
@@ -647,6 +661,18 @@ void SettingsStore::setDisableGPU(bool value)
 {
     clearSettingsGroup();
     setValue(KEY_DISABLEGPU_SETTING, value);
+}
+
+void SettingsStore::setPrintPreviewDPI(int dpi)
+{
+    clearSettingsGroup();
+    setValue(KEY_PRINT_PREVIEW_DPI_SETTING, dpi);
+}
+
+void SettingsStore::setPrintDPI(int dpi)
+{
+    clearSettingsGroup();
+    setValue(KEY_PRINT_DPI_SETTING, dpi);
 }
 
 void SettingsStore::setPreviewDark(int enabled)

@@ -153,6 +153,16 @@ public:
 
     bool disableGPU();
 
+    /**
+     * DPI settings for Webviewprinter Preview
+     */
+    int printPreviewDPI();
+
+    /**
+     * DPI settings for Webviewprinter Print
+     */
+    int printDPI();
+
     int previewDark();
 
     int cleanOn();
@@ -365,6 +375,16 @@ public slots:
     void setHighDPI(int value);
 
     void setDisableGPU(bool value);
+
+    /**
+     * Set the Print Preview DPI for Webviewprinter
+     */
+    void setPrintPreviewDPI(int dpi);
+
+    /**
+     * Set the Print  DPI for Webviewprinter
+     */
+    void setPrintDPI(int dpi);
 
     void setPreviewDark(int enabled);
 
