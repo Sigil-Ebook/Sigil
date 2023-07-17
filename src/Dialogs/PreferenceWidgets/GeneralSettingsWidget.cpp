@@ -123,7 +123,7 @@ PreferencesWidget::ResultActions GeneralSettingsWidget::saveSettings()
         results = results | PreferencesWidget::ResultAction_RestartSigil;
     }
     settings.setSkipPrintPreview(ui.chkSkipPrintPreview->isChecked());
-        settings.setPrintDPI(ui.cboPrintDPI->currentText().toInt());
+    settings.setPrintDPI(ui.cboPrintDPI->currentText().toInt());
     settings.setExternalXEditorPath(new_xeditor_path);
     if (m_refreshClipboardHistoryLimit) {
         results = results | PreferencesWidget::ResultAction_RefreshClipHistoryLimit;
