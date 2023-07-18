@@ -46,7 +46,10 @@ public:
     **/
     void setContent(QString filepath, QString text, bool skipPrev);
     
-
+signals:
+    void printStarted();
+    void printEnded();
+                   
 private slots:
     /**
     ** Called when QWebEngineView::loadFinished signal fires

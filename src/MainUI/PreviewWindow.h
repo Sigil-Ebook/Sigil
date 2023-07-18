@@ -85,7 +85,9 @@ public slots:
     void previewFloated(bool wasFloated);
     void CycleCustomCSS();
     void PrintRendered();
-
+    void PrintStarted();
+    void PrintEnded();
+    
 signals:
     void Shown();
     void ZoomFactorChanged(float factor);

@@ -60,6 +60,7 @@ WebViewPrinter::~WebViewPrinter()
 
 void WebViewPrinter::setContent(QString filepath, QString text, bool skipPrev)
 {
+    emit printStarted();
     // destroy previous QWebEngineView to avoid leaking
     if (m_viewprev){
         delete m_viewprev;
@@ -99,8 +100,10 @@ void WebViewPrinter::print()
     //m_viewprev->show();
     QPrintDialog dialog(&printer);
     if (dialog.exec() != QDialog::Accepted)
+        emit printEnded();
         return;
     printDocument(&printer);
+    emit printEnded();
 }
 
 void WebViewPrinter::printDocument(QPrinter *printer)
@@ -153,6 +156,7 @@ void WebViewPrinter::printPreview()
     connect(&preview, &QPrintPreviewDialog::paintRequested,
             this, &WebViewPrinter::printDocument);
     preview.exec();
+    emit printEnded();
     m_inPrintPreview = false;
 }
 

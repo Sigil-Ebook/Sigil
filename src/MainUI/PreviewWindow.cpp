@@ -258,7 +258,10 @@ void PreviewWindow::SetupView()
     m_cycleCSSAction ->setEnabled(false);
     m_cycleCSSAction->setToolTip(tr("Cycle Custom CSS Files"));
 
-    m_webviewPrint = new QAction(QIcon(":/main/document-print.svg"), "", this);
+    QIcon pricon;
+    pricon.addFile(":/main/document-print.svg", QSize(), QIcon::Normal);
+    pricon.addFile(":/main/busy-working.svg", QSize(), QIcon::Disabled);
+    m_webviewPrint = new QAction(pricon, "", this);
     m_webviewPrint ->setEnabled(true);
     m_webviewPrint->setToolTip(tr("Print Preview View"));
     
@@ -280,6 +283,17 @@ void PreviewWindow::SetupView()
     m_Preview->Zoom();
 
     QApplication::restoreOverrideCursor();
+}
+
+
+void PreviewWindow::PrintStarted()
+{
+    m_webviewPrint ->setEnabled(false);
+}
+
+void PreviewWindow::PrintEnded()
+{
+    m_webviewPrint ->setEnabled(true);
 }
 
 
@@ -696,13 +710,15 @@ void PreviewWindow::ConnectSignalsToSlots()
     connect(m_Preview,   SIGNAL(LinkClicked(const QUrl &)), this, SLOT(LinkClicked(const QUrl &)));
     connect(m_Preview,   SIGNAL(DocumentLoaded()),          this, SLOT(UpdatePageDone()));
     connect(m_Preview,   SIGNAL(ViewProgress(int)),         this, SLOT(setProgress(int)));
-    connect(m_inspectAction, SIGNAL(triggered()),           this, SLOT(InspectPreviewPage()));
-    connect(m_selectAction,  SIGNAL(triggered()),           this, SLOT(SelectAllPreview()));
-    connect(m_copyAction,    SIGNAL(triggered()),           this, SLOT(CopyPreview()));
-    connect(m_reloadAction,  SIGNAL(triggered()),           this, SLOT(ReloadPreview()));
+    connect(m_inspectAction,  SIGNAL(triggered()),          this, SLOT(InspectPreviewPage()));
+    connect(m_selectAction,   SIGNAL(triggered()),          this, SLOT(SelectAllPreview()));
+    connect(m_copyAction,     SIGNAL(triggered()),          this, SLOT(CopyPreview()));
+    connect(m_reloadAction,   SIGNAL(triggered()),          this, SLOT(ReloadPreview()));
     connect(m_cycleCSSAction, SIGNAL(triggered()),          this, SLOT(CycleCustomCSS()));
-    connect(m_webviewPrint, SIGNAL(triggered()),            this, SLOT(PrintRendered()));
-    connect(m_Inspector,     SIGNAL(finished(int)),         this, SLOT(InspectorClosed(int)));
+    connect(m_webviewPrint,   SIGNAL(triggered()),          this, SLOT(PrintRendered()));
+    connect(m_WebViewPrinter, SIGNAL(printStarted()),       this, SLOT(PrintStarted()));
+    connect(m_WebViewPrinter, SIGNAL(printEnded()),         this, SLOT(PrintEnded()));
+    connect(m_Inspector,      SIGNAL(finished(int)),        this, SLOT(InspectorClosed(int)));
     connect(this,     SIGNAL(topLevelChanged(bool)),        this, SLOT(previewFloated(bool)));
 }
 
