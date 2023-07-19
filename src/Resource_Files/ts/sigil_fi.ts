@@ -39,7 +39,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation>Luontihetki:</translation>
+        <translation>Luontiaika:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="245"/>
@@ -64,7 +64,7 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation>Edellinen ylläpitäjä</translation>
+        <translation>Edelliset ylläpitäjät</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../../Form_Files/AddAutomatePlugin.ui" line="14"/>
         <source>Add Automate Plugin</source>
-        <translation type="unfinished"/>
+        <translation>Lisää automatisointilisäosa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddAutomatePlugin.ui" line="50"/>
         <source>Plugin description</source>
-        <translation type="unfinished"/>
+        <translation>Lisäosan kuvaus</translation>
     </message>
 </context>
 <context>
@@ -105,12 +105,12 @@
     <message>
         <location filename="../../Form_Files/AddAutomateTool.ui" line="14"/>
         <source>Add Automate Tool</source>
-        <translation type="unfinished"/>
+        <translation>Lisää automaatiotyökalu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddAutomateTool.ui" line="50"/>
         <source>Tool description</source>
-        <translation type="unfinished"/>
+        <translation>Työkalun kuvaus</translation>
     </message>
 </context>
 <context>
@@ -194,7 +194,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="259"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Tallenna raportti CSV-tiedostona, Comma Separated Values</translation>
+        <translation>Tallenna raportti CSV-tiedostona, pilkuilla erotettu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="272"/>
@@ -223,11 +223,16 @@
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="312"/>
+        <source>PDF</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="317"/>
         <source>Font</source>
         <translation>Fontti</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="339"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="344"/>
         <source>Unknown</source>
         <translation>Tuntematon</translation>
     </message>
@@ -242,12 +247,12 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="30"/>
         <source>Code View</source>
-        <translation type="unfinished"/>
+        <translation>Koodinäkymä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="36"/>
         <source>Monospaced Code Font:</source>
-        <translation type="unfinished"/>
+        <translation>Yksivälinen koodifontti:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="50"/>
@@ -270,7 +275,7 @@
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="70"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="136"/>
         <source>Font:</source>
-        <translation type="unfinished"/>
+        <translation>Fontti:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="102"/>
@@ -285,7 +290,7 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="164"/>
         <source>Colors:</source>
-        <translation type="unfinished"/>
+        <translation>Värit:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="172"/>
@@ -305,7 +310,7 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="220"/>
         <source>Highlight Matching Tags</source>
-        <translation type="unfinished"/>
+        <translation>Korosta vastaavat tagit</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="296"/>
@@ -316,7 +321,7 @@
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="302"/>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="639"/>
         <source>Fonts:</source>
-        <translation type="unfinished"/>
+        <translation>Fontit:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="311"/>
@@ -340,7 +345,7 @@ jos CSS-koodisi ei aseta font-family-ominaisuutta</translation>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="356"/>
         <source>Standard:</source>
-        <translation type="unfinished"/>
+        <translation>Vakio:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="379"/>
@@ -352,7 +357,7 @@ jos CSS-koodisi asettaa pääteviivallisen fonttityypin</translation>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="383"/>
         <source>Serif:</source>
-        <translation type="unfinished"/>
+        <translation>Serif:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="396"/>
@@ -364,77 +369,77 @@ jos CSS-koodisi asettaa pääteviivattoman fonttityypin</translation>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="400"/>
         <source>Sans-Serif:</source>
-        <translation type="unfinished"/>
+        <translation>Sans-Serif:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="427"/>
         <source>Make Preview simulate a dark appearance in dark mode</source>
-        <translation type="unfinished"/>
+        <translation>Tee esikatselusta tumma näkymä pimeässä tilassa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="451"/>
         <source>Icon Themes</source>
-        <translation type="unfinished"/>
+        <translation>Kuvaketeemat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="463"/>
         <source>Choose which icon theme you want to use (requires Sigil restart).</source>
-        <translation type="unfinished"/>
+        <translation>Valitse haluamasi kuvaketeema (vaatii Sigilin uudelleenkäynnistyksen).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="466"/>
         <source>Select your icon theme:</source>
-        <translation type="unfinished"/>
+        <translation>Valitse kuvaketeema:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="475"/>
         <source>Sigil&apos;s default icon theme.</source>
-        <translation type="unfinished"/>
+        <translation>Sigilin oletuskuvaketeema.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="478"/>
         <source>Default Icons</source>
-        <translation type="unfinished"/>
+        <translation>Oletuskuvakkeet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="488"/>
         <source>Icons based on the Fluent theme:</source>
-        <translation type="unfinished"/>
+        <translation>Fluent-teemaan perustuvat kuvakkeet:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="491"/>
         <source>Fluent Icons</source>
-        <translation type="unfinished"/>
+        <translation>Selkeät kuvakkeet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="501"/>
         <source>Icons based on Google&apos;s Material theme:</source>
-        <translation type="unfinished"/>
+        <translation>Googlen Material-teemaan perustuvat kuvakkeet:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="504"/>
         <source>Material Icons</source>
-        <translation type="unfinished"/>
+        <translation>Materiaalikuvakkeet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="514"/>
         <source>Custom Icon Theme:</source>
-        <translation type="unfinished"/>
+        <translation>Mukautettu kuvaketeema:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="517"/>
         <source>Custom Icons</source>
-        <translation type="unfinished"/>
+        <translation>Mukautetut kuvakkeet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="557"/>
         <source>Main UI</source>
-        <translation type="unfinished"/>
+        <translation>Pääkäyttöliittymä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="563"/>
         <source>Main Menu Icon Size:</source>
-        <translation type="unfinished"/>
+        <translation>Päävalikon kuvakekoko:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="569"/>
@@ -444,52 +449,52 @@ jos CSS-koodisi asettaa pääteviivattoman fonttityypin</translation>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="607"/>
         <source>High DPI Setting:</source>
-        <translation type="unfinished"/>
+        <translation>Suuren DPI:n asetus:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="616"/>
         <source>(Needs Sigil Restart)</source>
-        <translation type="unfinished"/>
+        <translation>(Tarvitsee Sigilin uudelleenkäynnistyksen)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="645"/>
         <source>UI Font:</source>
-        <translation type="unfinished"/>
+        <translation>Käyttöliittymäfontti:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="655"/>
         <source>Change the font used by Sigil&apos;s menus, buttons, etc...</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda Sigilin valikoissa, painikkeissa jne. käytettävää fonttia...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="658"/>
         <source>Change Font (Needs Sigil Restart)</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda fontti (Tarvitsee Sigilin uudelleenkäynnistyksen)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="681"/>
         <source>Determine if the BookBrowser should show full paths</source>
-        <translation type="unfinished"/>
+        <translation>Määritä, pitäisikö kirjaselaimen näyttää täydet polut.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="684"/>
         <source>Control Book Browser Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaselaimen ohjausulkoasu:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="693"/>
         <source>Check to make BookBrowser show full paths.</source>
-        <translation type="unfinished"/>
+        <translation>Tarkista, näyttääkö kirjaselain täydet polut.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="696"/>
         <source>BookBrowser should show full paths.</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaselaimen pitäisi näyttää täydet polut.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="709"/>
         <source>Tweak Drag Distance (Needs Sigil Restart):</source>
-        <translation type="unfinished"/>
+        <translation>Mukauta vetoetäisyyttä (Tarvitsee Sigilin uudelleenkäynnistyksen):</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="742"/>
@@ -504,70 +509,70 @@ jos CSS-koodisi asettaa pääteviivattoman fonttityypin</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="104"/>
         <source>Custom icon theme provided by the user</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjän toimittama mukautettu kuvaketeema</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="118"/>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="119"/>
         <source>Detect</source>
-        <translation type="unfinished"/>
+        <translation>Tunnista</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="118"/>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="121"/>
         <source>On</source>
-        <translation type="unfinished"/>
+        <translation>On</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="118"/>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="123"/>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>Ei</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="119"/>
         <source>Detect whether any high dpi scaling should take place.</source>
-        <translation type="unfinished"/>
+        <translation>Tunnista, pitäisikö korkean dpi:n skaalaus suorittaa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="120"/>
         <source>Defers to any Qt environment variables that are set to control high dpi behavior.</source>
-        <translation type="unfinished"/>
+        <translation>Ohittaa kaikki Qt-ympäristömuuttujat, jotka on asetettu ohjaamaan korkean dpi:n käyttäytymistä.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="121"/>
         <source>Turns on high dpi scaling and ignores any Qt environment variables</source>
-        <translation type="unfinished"/>
+        <translation>Ottaa käyttöön suuren dpi:n skaalauksen ja jättää huomiotta kaikki Qt-ympäristömuuttujat </translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="122"/>
         <source>that are set controlling high dpi behavior.</source>
-        <translation type="unfinished"/>
+        <translation>jotka on asetettu ohjaamaan korkean dpi:n käyttäytymistä.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="123"/>
         <source>Turns off high dpi scaling regardless if any Qt environment</source>
-        <translation type="unfinished"/>
+        <translation>Poistaa korkean dpi:n skaalauksen käytöstä riippumatta Qt-ympäristöstä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="124"/>
         <source>variables controlling high dpi behavior are set.</source>
-        <translation type="unfinished"/>
+        <translation>suuren dpi:n käyttäytymistä ohjaavat muuttujat on asetettu.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="128"/>
         <source>Adjust the distance necessary to drag an item before a move event is triggered.</source>
-        <translation type="unfinished"/>
+        <translation>Säädä etäisyyttä, joka tarvitaan kohteen vetämiseen ennen kuin siirtotapahtuma käynnistyy.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="129"/>
         <source>-20 to +20 pixel range</source>
-        <translation type="unfinished"/>
+        <translation>-20 ja +20 pikselin välinen alue</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="135"/>
         <source>Highlight matching tags in Code View when cursor is inside tags.</source>
-        <translation type="unfinished"/>
+        <translation>Korosta vastaavat tagit koodinäkymässä, kun kursori on tagien sisällä.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="349"/>
@@ -660,22 +665,22 @@ jos CSS-koodisi asettaa pääteviivattoman fonttityypin</translation>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="20"/>
         <source>Automate List Editor</source>
-        <translation type="unfinished"/>
+        <translation>Automatisoi luetteloeditori</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="52"/>
         <source>Add a new Tool element to the list.</source>
-        <translation type="unfinished"/>
+        <translation>Lisää uusi työkaluelementti luetteloon.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="55"/>
         <source>Add Tool</source>
-        <translation type="unfinished"/>
+        <translation>Lisää työkalu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="62"/>
         <source>Remove an Automate List element.</source>
-        <translation type="unfinished"/>
+        <translation>Poista automaatioluetteloelementti.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="65"/>
@@ -685,7 +690,7 @@ jos CSS-koodisi asettaa pääteviivattoman fonttityypin</translation>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="72"/>
         <source>Add a new Plugin element to the list.</source>
-        <translation type="unfinished"/>
+        <translation>Lisää uusi lisäosaelementti luetteloon.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="75"/>
@@ -695,7 +700,7 @@ jos CSS-koodisi asettaa pääteviivattoman fonttityypin</translation>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="97"/>
         <source>Move selected element up.</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä valittua elementtiä ylöspäin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="100"/>
@@ -706,152 +711,152 @@ jos CSS-koodisi asettaa pääteviivattoman fonttityypin</translation>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="110"/>
         <source>Move selected element down.</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä valittua elementtiä alaspäin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="169"/>
         <source>Use OK to commit your changes to the file, otherwise use Cancel.</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista muutokset tiedostoon OK:lla, muuten käytä Peruuta.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="63"/>
         <source>Command</source>
-        <translation type="unfinished"/>
+        <translation>Komento</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="63"/>
         <source>Parameter</source>
-        <translation type="unfinished"/>
+        <translation>Parametri</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="164"/>
         <source>[SavedSearch full name here]</source>
-        <translation type="unfinished"/>
+        <translation>[Tallennettu haku koko nimi tässä]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="167"/>
         <source>[String parameter for next Plugin run here]</source>
-        <translation type="unfinished"/>
+        <translation>[Merkkijonoparametri seuraavaa lisäosaa varten tässä]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="300"/>
         <source>Add Cover to epub.</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kansi epubiin.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="301"/>
         <source>Create HTML Table Of Contents.</source>
-        <translation type="unfinished"/>
+        <translation>Luo HTML-sisällysluettelo.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="302"/>
         <source>Delete Unused Media Resource.</source>
-        <translation type="unfinished"/>
+        <translation>Poista käyttämätön mediaresurssi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="303"/>
         <source>Delete Unused CSS Selectors.</source>
-        <translation type="unfinished"/>
+        <translation>Poista käyttämättömät CSS-valitsimet.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="304"/>
         <source>Generate NCX and OPF Guide from Epub3 Nav.</source>
-        <translation type="unfinished"/>
+        <translation>Luo NCX- ja OPF-opas Epub3 Nav -julkaisusta.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="305"/>
         <source>Generate TOC from Heading Tags.</source>
-        <translation type="unfinished"/>
+        <translation>Luo sisällysluettelo otsikkotageista.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="306"/>
         <source>Mend and Prettify all XHtml files.</source>
-        <translation type="unfinished"/>
+        <translation>Korjaa ja &amp;siisti kaikki HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="307"/>
         <source>Mend All XHtml files.</source>
-        <translation type="unfinished"/>
+        <translation>Korjaa kaikki XHtml-tiedostot.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="308"/>
         <source>Reformat All CSS to Multiple Lines format.</source>
-        <translation type="unfinished"/>
+        <translation>Muotoile kaikki CSS:t uudelleen monirivimuotoon.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="309"/>
         <source>Reformat All CSS to Single Lines format.</source>
-        <translation type="unfinished"/>
+        <translation>Muotoile kaikki CSS:t uudelleen yksirivimuotoon.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="310"/>
         <source>Remove NCX and OPF Guide from Epub3.</source>
-        <translation type="unfinished"/>
+        <translation>Poista NCX- ja OPF-opas Epub3:sta.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="311"/>
         <source>Save a Checkpoint of the current epub.</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna nykyisen epubin tarkistuspiste.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="312"/>
         <source>Run the named Saved Search with Replace All.</source>
-        <translation type="unfinished"/>
+        <translation>Suorita nimetty Tallennettu haku Korvaa kaikki -toiminnolla.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="313"/>
         <source>Save the current epub.</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna nykyinen epub.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="314"/>
         <source>Select all CSS Files in BookBrowser</source>
-        <translation type="unfinished"/>
+        <translation>Valitse kaikki CSS-tiedostot kirjaselaimessa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="315"/>
         <source>Select all HTML Files in BookBrowser</source>
-        <translation type="unfinished"/>
+        <translation>Valitse kaikki HTML-tiedostot kirjaselaimessa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="316"/>
         <source>Select all Image Files in BookBrowser</source>
-        <translation type="unfinished"/>
+        <translation>Valitse kaikki kuvatiedostot kirjaselaimessa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="317"/>
         <source>Reset BookBrowser to its initial selection</source>
-        <translation type="unfinished"/>
+        <translation>Palauta kirjaselain alkuperäiseen valintaan</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="318"/>
         <source>set a string parameter to be passed to the next plugin.</source>
-        <translation type="unfinished"/>
+        <translation>aseta merkkijonoparametri, joka välitetään seuraavalle lisäosalle.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="320"/>
         <source>Split XHtml files on Sigil Section Markers</source>
-        <translation type="unfinished"/>
+        <translation>Jaa XHtml-tiedostot Sigil-osiomerkinnöissä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="321"/>
         <source>Convert Epub layout to Sigil&apos;s historic Standard form.</source>
-        <translation type="unfinished"/>
+        <translation>Muunna Epubin ulkoasu Sigilin historialliseen vakiomuotoon.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="322"/>
         <source>Update Epub3 OPF Manifest properties.</source>
-        <translation type="unfinished"/>
+        <translation>Päivitä Epub3 OPF Manifestin ominaisuudet.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="323"/>
         <source>Validate All Stylesheets with W3C in external browser.</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista kaikki tyylitaulukot W3C:llä ulkoisessa selaimessa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="324"/>
         <source>Perform a basic Well-Formed Check on Epub XHtml files.</source>
-        <translation type="unfinished"/>
+        <translation>Suorita hyvin muotoiltu perustarkistus Epub XHtml -tiedostoille.</translation>
     </message>
 </context>
 <context>
@@ -867,17 +872,17 @@ jos CSS-koodisi asettaa pääteviivattoman fonttityypin</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="82"/>
         <source>Book Browser</source>
-        <translation>Kirjan tiedostot</translation>
+        <translation>Kirjaselain</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="94"/>
         <source>Font Obfuscation</source>
-        <translation>Fontin obfuskointi</translation>
+        <translation>Fontin hämärtäminen</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="95"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1812"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1939"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1811"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1938"/>
         <source>Open With</source>
         <translation>Avaa ohjelmalla</translation>
     </message>
@@ -888,13 +893,13 @@ jos CSS-koodisi asettaa pääteviivattoman fonttityypin</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="266"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="633"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="766"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="798"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="858"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="971"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="632"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="765"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="797"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="857"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="970"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -914,17 +919,17 @@ jos CSS-koodisi asettaa pääteviivattoman fonttityypin</translation>
         <translation>Tiedostoa &quot;%1&quot; ei ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="633"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="632"/>
         <source>Javascript is not supported on epub2.</source>
-        <translation type="unfinished"/>
+        <translation>Javascript ei ole tuettu epub2:ssa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="691"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="690"/>
         <source>Add Existing Files</source>
         <translation>Lisää valmiita tiedostoja</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="736"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="735"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -933,7 +938,7 @@ jos CSS-koodisi asettaa pääteviivattoman fonttityypin</translation>
 ”%1”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="745"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="744"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -942,7 +947,7 @@ jos CSS-koodisi asettaa pääteviivattoman fonttityypin</translation>
 ”%1”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="767"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="766"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -951,21 +956,21 @@ OK to replace?</source>
 Haluatko korvata sen?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="793"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="792"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
-        <translation>Ei voi poistaa tai korvata tiedostoa ”%1”.</translation>
+        <translation>Tiedostoa &quot;%1&quot; ei voi poistaa tai korvata.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="798"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="797"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation>Ei voi ladata tiedostoa ”%1”
+        <translation>Tiedostoa &quot;%1&quot; ei voida ladata 
 
-Kirjassa on jo tämänniminen tiedosto.</translation>
+Tämän niminen tiedosto on jo kirjassa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="859"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="858"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -974,235 +979,235 @@ Kirjassa on jo tämänniminen tiedosto.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="872"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="871"/>
         <source>File(s) added or replaced.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedosto(ja) lisätty tai korvattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="912"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="911"/>
         <source>Save As File</source>
         <translation>Tallenna tiedostona</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="935"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="934"/>
         <source>Unable to save the file.</source>
         <translation>Tiedostoa ei voi tallentaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="949"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="948"/>
         <source>Choose the directory to save the files to</source>
         <translation>Valitse hakemisto, johon tiedostot tallennetaan</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="971"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="970"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Yksi tai useampia tiedostoja on jo olemassa. Kirjoitetaanko päälle?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="988"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="987"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Tiedostoja ei voi tallentaa. Kohde ei ehkä ole hakemisto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="995"/>
         <source>Unable to save files.</source>
         <translation>Tiedostoja ei voi tallentaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Tiedostoja ei voi nimetä uudelleen, koska se aiheuttaisi, että sama nimi on usealla tiedostolla.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Kohdekansion polku &quot;%1&quot; on virheellinen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostoja ei voi siirtää, koska se johtaisi päällekkäisiin tiedostonimiin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1408"/>
         <source>The Nav document can not be removed.</source>
         <translation>Nav-tiedostoa ei voi poistaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1416"/>
         <source>The NCX can not be removed.</source>
-        <translation type="unfinished"/>
+        <translation>NCX tiedostoa ei voi poistaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1424"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1423"/>
         <source>The OPF is required for epub and can not be removed.</source>
-        <translation type="unfinished"/>
+        <translation>OPF tarvitaan epubia varten, eikä sitä voi poistaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1433"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1432"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Et voi poistaa kaikkia HTML-tiedostoja.
 Niitä on oltava ainakin yksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1574"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1573"/>
         <source>Unable to set file as cover image.</source>
         <translation>Tiedostoa ei voi asettaa kansikuvaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1789"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1788"/>
         <source>Select All</source>
         <translation>Valitse kaikki</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1790"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1789"/>
         <source>Add Blank HTML File</source>
         <translation>Lisää tyhjä HTML-tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1791"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1790"/>
         <source>Add Blank Stylesheet</source>
         <translation>Lisää tyhjä tyyliohje</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1792"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1791"/>
         <source>Add Blank Javascript</source>
-        <translation type="unfinished"/>
+        <translation>Lisää tyhjä Javascript</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1793"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1792"/>
         <source>Add Blank SVG Image</source>
         <translation>Lisää tyhjä SVG-kuva</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1794"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1793"/>
         <source>Add Existing Files...</source>
         <translation>Lisää valmiita tiedostoja...</translation>
     </message>
     <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1794"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1795"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1796"/>
         <source>Add Copy</source>
         <translation>Lisää kopio</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1797"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1796"/>
         <source>Rename</source>
         <translation>Nimeä uudelleen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1797"/>
         <source>RegEx Rename</source>
-        <translation type="unfinished"/>
+        <translation>RegEx uudelleennimeäminen</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
+        <source>Move</source>
+        <translation>Siirrä</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1799"/>
-        <source>Move</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1800"/>
         <source>Delete</source>
         <translation>Poista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1800"/>
         <source>Cover Image</source>
         <translation>Kansikuva</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1802"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
         <source>Merge</source>
         <translation>Yhdistä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1803"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1802"/>
         <source>None</source>
-        <translation>Ei mitää</translation>
+        <translation>Ei mitään</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1804"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1803"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Käytä Adoben menetelmää</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1805"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1804"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Käytä IDPF:n menetelmää</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1806"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1805"/>
         <source>Sort</source>
         <translation>Lajittele</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1807"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1806"/>
         <source>Renumber TOC Entries</source>
         <translation>Numeroi sisällysluettelon kohdat uudestaan</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1808"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1807"/>
         <source>Link Stylesheets...</source>
         <translation>Linkitä tyyliohjeita...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1809"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1808"/>
         <source>Link Javascripts...</source>
-        <translation type="unfinished"/>
+        <translation>Linkkitä Javascriptit...</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1809"/>
+        <source>Add Semantics...</source>
+        <translation>Lisää semantiikka...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1810"/>
-        <source>Add Semantics...</source>
-        <translation>Lisää semantiikka</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1811"/>
         <source>Validate with W3C</source>
         <translation>Tarkasta W3C:n validaattorilla</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1813"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1812"/>
         <source>Save As</source>
         <translation>Tallenna nimellä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1827"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1826"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Yhdistä edellisen tiedoston kanssa tai yhdistä useita tiedostoja yhdeksi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1830"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1829"/>
         <source>Rename selected file(s)</source>
-        <translation>Nimeä valittu tiedosto uudestaan</translation>
+        <translation>Nimeä valittu(t) tiedosto(t) uudelleen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1832"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1831"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
-        <translation type="unfinished"/>
+        <translation>Käytä säännöllisiä lausekkeita valitun tiedoston uudelleennimeämiseen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1835"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1834"/>
         <source>Move selected file(s) to a new folder</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä valittu tiedosto(t) uuteen kansioon.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1837"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1836"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Linkitä tyyliohjeet valittuihin tiedostoihin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1839"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1838"/>
         <source>Link Javascripts to selected file(s).</source>
-        <translation type="unfinished"/>
+        <translation>Linkitä Javascripti(t) valitun tiedoston kanssa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1841"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1840"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Lisää semantiikkaa valittuihin tiedostoihin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1974"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1973"/>
         <source>Other Application</source>
         <translation>Muu sovellus</translation>
     </message>
@@ -1212,7 +1217,7 @@ Niitä on oltava ainakin yksi.</translation>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="81"/>
         <source>Files Only in Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Vain tarkistuspisteessä olevat tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="81"/>
@@ -1224,46 +1229,46 @@ Niitä on oltava ainakin yksi.</translation>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="82"/>
         <source>Files Only in Current ePub</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostot vain nykyisessä ePubissa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="83"/>
         <source>Modified since Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Muutettu tarkistuspisteen jälkeen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="84"/>
         <location filename="../../Dialogs/CPCompare.cpp" line="197"/>
         <source>Results of Comparison</source>
-        <translation type="unfinished"/>
+        <translation>Vertailun tulokset</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="85"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Valmis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="191"/>
         <location filename="../../Dialogs/CPCompare.cpp" line="200"/>
         <source>Checkpoint:</source>
-        <translation type="unfinished"/>
+        <translation>Tarkistuspiste:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="191"/>
         <location filename="../../Dialogs/CPCompare.cpp" line="201"/>
         <source>Current:</source>
-        <translation type="unfinished"/>
+        <translation>Nykyinen:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="199"/>
         <source>These binary files differ in content:</source>
-        <translation type="unfinished"/>
+        <translation>Nämä binääritiedostot eroavat sisällöltään:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="200"/>
         <location filename="../../Dialogs/CPCompare.cpp" line="201"/>
         <source>bytes</source>
-        <translation type="unfinished"/>
+        <translation>tavua</translation>
     </message>
 </context>
 <context>
@@ -1347,7 +1352,7 @@ Niitä on oltava ainakin yksi.</translation>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="14"/>
         <source>Characters Used</source>
-        <translation type="unfinished"/>
+        <translation>Käytetyt merkit</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
@@ -1395,17 +1400,17 @@ Niitä on oltava ainakin yksi.</translation>
         <translation>&lt;p&gt;Tämä on luettelo HTML-tiedostoissa esiintyvistä merkeistä.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="279"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="277"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Tallenna raportti CSV-tiedostona, Comma Separated Values</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="292"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="290"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="292"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="290"/>
         <source>Cannot save report file.</source>
         <translation>Raporttitiedostoa ei voi tallentaa.</translation>
     </message>
@@ -1415,7 +1420,7 @@ Niitä on oltava ainakin yksi.</translation>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="14"/>
         <source>Classes Used</source>
-        <translation type="unfinished"/>
+        <translation>Käytetyt luokat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="34"/>
@@ -1604,7 +1609,7 @@ Niitä on oltava ainakin yksi.</translation>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="91"/>
         <source>Cannot save entries.</source>
-        <translation>Ei voi tallentaa kohtia</translation>
+        <translation>Merkintöjä ei voi tallentaa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="135"/>
@@ -1634,7 +1639,7 @@ Niitä on oltava ainakin yksi.</translation>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="378"/>
         <source>Import Entries</source>
-        <translation>Tuo kohtia</translation>
+        <translation>Tuo merkintöjä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="458"/>
@@ -1828,7 +1833,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1576"/>
         <source>Rename Selected Class</source>
-        <translation type="unfinished"/>
+        <translation>Nimeä valittu luokka uudelleen</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1598"/>
@@ -1863,7 +1868,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1655"/>
         <source>Toggle Line Wrap Mode</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda rivinvaihtotilaa</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1677"/>
@@ -1908,27 +1913,27 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1945"/>
         <source>Selected Text is not a valid class name.</source>
-        <translation type="unfinished"/>
+        <translation>Valittu teksti ei ole kelvollinen luokan nimi.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1952"/>
         <source>Rename Class</source>
-        <translation type="unfinished"/>
+        <translation>Nimeä luokka uudelleen</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1953"/>
         <source>Enter new class name</source>
-        <translation type="unfinished"/>
+        <translation>Syötä uusi luokan nimi</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1973"/>
         <source>Class renamed.</source>
-        <translation type="unfinished"/>
+        <translation>Luokka nimetty uudelleen.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1975"/>
         <source>Class rename aborted.</source>
-        <translation type="unfinished"/>
+        <translation>Luokan uudelleennimeäminen keskeytetty.</translation>
     </message>
 </context>
 <context>
@@ -1959,7 +1964,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="20"/>
         <source>Search Controls</source>
-        <translation type="unfinished"/>
+        <translation>Hakuohjaukset</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="99"/>
@@ -1974,17 +1979,17 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="124"/>
         <source>DotAll</source>
-        <translation>“.” vastaa myös rivinvaihtoa</translation>
+        <translation>Piste kaikkiin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="138"/>
         <source>For Regex searches, prefix your search with (?U).</source>
-        <translation>Säännöllisiä lausekkeita käytettäessä tämä aiheuttaa lyhimmän (eikä pisimmän) osuman etsimisen. Vastaa prefiksiä (?U).</translation>
+        <translation>Regex-hauissa etuliite on (?U).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="144"/>
         <source>Minimal Match</source>
-        <translation>Lyhin osuma</translation>
+        <translation>Minimaalinen osuma</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="158"/>
@@ -2001,7 +2006,9 @@ Haluatko tallentaa muutokset?</translation>
         <source>Search from current position to top or end of the 
 current file and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>Hae nykyisestä sijainnista alkuun tai loppuun
+nykyinen tiedosto ja rivitä sitten tiedostoon
+toinen pää jatkaaksesi etsintää.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="183"/>
@@ -2012,7 +2019,8 @@ other end to continue searching.</source>
         <location filename="../../Form_Files/Controls.ui" line="197"/>
         <source>Search only in text (outside tags).
               Valid only when searching HTML files.</source>
-        <translation type="unfinished"/>
+        <translation>Etsi vain tekstistä (tagien ulkopuolelta).
+Toimii vain HTML-tiedostoja etsittäessä.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="201"/>
@@ -2027,12 +2035,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="257"/>
         <source>Clear All</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä kaikki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="260"/>
         <source>Ignore current settings and return an empty Controls value. </source>
-        <translation type="unfinished"/>
+        <translation>Ohita nykyiset asetukset ja palauta tyhjä säädinarvo.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="302"/>
@@ -2042,7 +2050,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="303"/>
         <source>Select Mode</source>
-        <translation type="unfinished"/>
+        <translation>Valintatila</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="304"/>
@@ -2059,7 +2067,7 @@ other end to continue searching.</source>
         <location filename="../../Dialogs/Controls.cpp" line="307"/>
         <location filename="../../Dialogs/Controls.cpp" line="308"/>
         <source>Case Sensitive</source>
-        <translation>Kirjaintasoriippuva</translation>
+        <translation>Sama kirjainkoko</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="308"/>
@@ -2075,7 +2083,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="311"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
-        <translation>Etsi hahmon mukaan käyttäen säännöllisten lausekkeiden (regular expressions) syntaksia</translation>
+        <translation>Etsi kuviota käyttämällä säännöllisen lausekkeen syntaksia.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="316"/>
@@ -2124,84 +2132,84 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="328"/>
         <source>Tabbed HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Välilehtiset HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="329"/>
         <source>Restrict the find or replace to the HTML files open in Tabs.</source>
-        <translation type="unfinished"/>
+        <translation>Rajoita etsiminen tai korvaaminen koskemaan välilehdissä avoinna olevia HTML-tiedostoja.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="331"/>
         <location filename="../../Dialogs/Controls.cpp" line="332"/>
         <source>All CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Kaikki CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="332"/>
         <source>Find or replace in all CSS files in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Etsi tai korvaa kaikki CSS-tiedostot koodinäkymässä.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="334"/>
         <location filename="../../Dialogs/Controls.cpp" line="335"/>
         <source>Selected CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Valitut CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="335"/>
         <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Rajoita etsiminen tai korvaaminen CSS-tiedostoihin, jotka on valittu kirjaselaimen koodinäkymässä.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="337"/>
         <location filename="../../Dialogs/Controls.cpp" line="338"/>
         <source>Tabbed CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Välilehtiset CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="338"/>
         <source>Restrict the find or replace to the CSS files open in Tabs.</source>
-        <translation type="unfinished"/>
+        <translation>Rajoita etsiminen tai korvaaminen välilehdissä avoinna oleviin CSS-tiedostoihin.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="340"/>
         <location filename="../../Dialogs/Controls.cpp" line="341"/>
         <source>OPF File</source>
-        <translation type="unfinished"/>
+        <translation>OPF tiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="341"/>
         <source>Restrict the find or replace to the OPF file.</source>
-        <translation type="unfinished"/>
+        <translation>Rajoita haku tai korvaaminen OPF-tiedostoon.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="343"/>
         <location filename="../../Dialogs/Controls.cpp" line="344"/>
         <source>NCX File</source>
-        <translation type="unfinished"/>
+        <translation>NCX tiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="344"/>
         <source>Restrict the find or replace to the NCX file.</source>
-        <translation type="unfinished"/>
+        <translation>Rajoita haku tai korvaaminen NCX-tiedostoon.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="350"/>
         <source>Select Direction</source>
-        <translation type="unfinished"/>
+        <translation>Valitse suunta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="351"/>
         <location filename="../../Dialogs/Controls.cpp" line="355"/>
         <source>Up</source>
-        <translation>Taaksepäin</translation>
+        <translation>Ylöspäin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="352"/>
         <location filename="../../Dialogs/Controls.cpp" line="356"/>
         <source>Down</source>
-        <translation>Eteenpäin</translation>
+        <translation>Alaspäin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="353"/>
@@ -2224,12 +2232,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/CountsReport.ui" line="14"/>
         <source>Counts Report</source>
-        <translation type="unfinished"/>
+        <translation>Laskuriraportti</translation>
     </message>
     <message>
         <location filename="../../Form_Files/CountsReport.ui" line="34"/>
         <source>List only the table rows which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Luetteloi vain ne taulukon rivit, jotka sisältävät syöttämäsi tekstin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/CountsReport.ui" line="37"/>
@@ -2239,7 +2247,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="85"/>
         <source>Search Full Name</source>
-        <translation type="unfinished"/>
+        <translation>Etsi koko nimi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="86"/>
@@ -2269,32 +2277,32 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="103"/>
         <source>Tabbed HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Välilehtiset HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="104"/>
         <source>All CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Kaikki CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="105"/>
         <source>Selected CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Valitut CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="106"/>
         <source>Tabbed CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Välilehtiset CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="107"/>
         <source>OPF File</source>
-        <translation type="unfinished"/>
+        <translation>OPF tiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="108"/>
         <source>NCX File</source>
-        <translation type="unfinished"/>
+        <translation>NCX tiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="253"/>
@@ -2322,7 +2330,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="27"/>
         <source>Select / Unselect all</source>
-        <translation type="unfinished"/>
+        <translation>Valitse / Poista kaikki valinnat</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="68"/>
@@ -2350,7 +2358,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="27"/>
         <source>Select / Unselect all</source>
-        <translation type="unfinished"/>
+        <translation>Valitse / Poista kaikki valinnat</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="80"/>
@@ -2378,12 +2386,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="14"/>
         <source>Dry Run Replace-All Results</source>
-        <translation type="unfinished"/>
+        <translation>Kuivaharjoittelu - Korvaa kaikki tulokset</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="34"/>
         <source>List only the table rows which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Luetteloi vain ne taulukon rivit, jotka sisältävät syöttämäsi tekstin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="37"/>
@@ -2393,32 +2401,32 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="60"/>
         <source>Select the amount of context before and after the match in characters</source>
-        <translation type="unfinished"/>
+        <translation>Valitse kontekstin määrä ennen ja jälkeen vastaavuutta merkeissä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="63"/>
         <source>Context:</source>
-        <translation type="unfinished"/>
+        <translation>Konteksti:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="83"/>
         <source>Count:</source>
-        <translation type="unfinished"/>
+        <translation>Määrä:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="90"/>
         <source>Total Number of Matches/Replacements</source>
-        <translation type="unfinished"/>
+        <translation>Vastaavuuksien/vaihtojen kokonaismäärä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="93"/>
         <source>----   </source>
-        <translation type="unfinished"/>
+        <translation>----   </translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="129"/>
         <source>Perform the dry run ReplaceAll again and rebuild the table</source>
-        <translation type="unfinished"/>
+        <translation>Suorita kuivaharjoittelu - Korvaa kaikki uudelleen ja rakenna taulukko uudelleen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="132"/>
@@ -2428,7 +2436,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="152"/>
         <source>Close this dialog</source>
-        <translation type="unfinished"/>
+        <translation>Sulje tämä dialogi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="155"/>
@@ -2438,12 +2446,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="122"/>
         <source>... Creating Table</source>
-        <translation type="unfinished"/>
+        <translation>... Luodaan taulukko</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="127"/>
         <source>Book Path</source>
-        <translation type="unfinished"/>
+        <translation>Kirjan polku</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="128"/>
@@ -2453,17 +2461,17 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="129"/>
         <source>Before</source>
-        <translation type="unfinished"/>
+        <translation>Ennen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="130"/>
         <source>After</source>
-        <translation type="unfinished"/>
+        <translation>Jälkeen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="237"/>
         <source>Dry Run Replace-All</source>
-        <translation type="unfinished"/>
+        <translation>Kuivaharjoittelu - Korvaa kaikki</translation>
     </message>
 </context>
 <context>
@@ -2573,7 +2581,7 @@ Voit käyttää myös oikealle osoittavaa nuolinäppäintä (→).</translation>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="668"/>
+        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="782"/>
         <source>Embedded Python Error</source>
         <translation>Upotetun Python-koodin virhe</translation>
     </message>
@@ -2583,22 +2591,22 @@ Voit käyttää myös oikealle osoittavaa nuolinäppäintä (→).</translation>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="22"/>
         <source>Design Custom Epub Layout</source>
-        <translation type="unfinished"/>
+        <translation>Suunnittele mukautettu Epub-asettelu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="62"/>
         <source>Load a previously saved design from an ini file.</source>
-        <translation type="unfinished"/>
+        <translation>Lataa aiemmin tallennettu malli ini-tiedostosta.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="65"/>
         <source>Load</source>
-        <translation type="unfinished"/>
+        <translation>Lataa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="73"/>
         <source>Save the current design to an ini file.</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna nykyinen malli ini-tiedostoon.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="76"/>
@@ -2608,27 +2616,27 @@ Voit käyttää myös oikealle osoittavaa nuolinäppäintä (→).</translation>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="98"/>
         <source>Add a new folder to parent.</source>
-        <translation type="unfinished"/>
+        <translation>Lisää uusi kansio ylempään kansioon.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="101"/>
         <source>Add Folder</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kansio</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="109"/>
         <source>Add an allowed file type marker to an existing folder.</source>
-        <translation type="unfinished"/>
+        <translation>Lisää sallitun tiedostotyypin merkintä olemassa olevaan kansioon.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="112"/>
         <source>Add Marker</source>
-        <translation type="unfinished"/>
+        <translation>Lisää merkki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="120"/>
         <source>Remove an existing file type marker or folder.</source>
-        <translation type="unfinished"/>
+        <translation>Poista olemassa oleva tiedostotyyppimerkintä tai kansio.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="123"/>
@@ -2638,7 +2646,7 @@ Voit käyttää myös oikealle osoittavaa nuolinäppäintä (→).</translation>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="131"/>
         <source>Rename a folder or OPF, NCX or Nav marker.</source>
-        <translation type="unfinished"/>
+        <translation>Nimeä kansio tai OPF-, NCX- tai Nav-merkki uudelleen.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="134"/>
@@ -2651,152 +2659,155 @@ Voit käyttää myös oikealle osoittavaa nuolinäppäintä (→).</translation>
 the types of files that can be stored in each folder.  
 The file type markers can also be used to specify 
 locations and names for the OPF, NCX and/or Nav.</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kansiot/alikansiot ja tiedostomerkit, jotka määrittävät
+tiedostotyypit, jotka voidaan tallentaa kuhunkin kansioon.
+Määrittämiseen voidaan käyttää myös tiedostotyyppimerkkejä
+OPF:n, NCX:n ja/tai Navin sijainnit ja nimet.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="179"/>
         <source>Use OK to commit your custom epub design, otherwise use Cancel.</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista mukautettu epub-muotoilu valitsemalla OK, muuten Peruuta.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="155"/>
         <source>Xhtml files</source>
-        <translation type="unfinished"/>
+        <translation>Xhtml tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="155"/>
         <source>Style files</source>
-        <translation type="unfinished"/>
+        <translation>Tyylitiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="156"/>
         <source>Image files</source>
-        <translation type="unfinished"/>
+        <translation>Kuvatiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="156"/>
         <source>Font files</source>
-        <translation type="unfinished"/>
+        <translation>Fonttitiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="157"/>
         <source>Audio files</source>
-        <translation type="unfinished"/>
+        <translation>Audiotiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="157"/>
         <source>Video files</source>
-        <translation type="unfinished"/>
+        <translation>Videotiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="158"/>
         <source>Javascript files</source>
-        <translation type="unfinished"/>
+        <translation>Javascript tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="158"/>
         <source>Misc files</source>
-        <translation type="unfinished"/>
+        <translation>Muut tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="159"/>
         <source>OPF file</source>
-        <translation type="unfinished"/>
+        <translation>OPF tiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="159"/>
         <source>NCX file</source>
-        <translation type="unfinished"/>
+        <translation>NCX tiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="160"/>
         <source>Nav file</source>
-        <translation type="unfinished"/>
+        <translation>Nav tiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="233"/>
         <source>Select previously saved layout design ini File</source>
-        <translation type="unfinished"/>
+        <translation>Valitse aiemmin tallennettu taittosuunnittelun ini tiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="235"/>
         <source>Settings Files (*.ini)</source>
-        <translation type="unfinished"/>
+        <translation>Asetustiedostot (*.ini)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="342"/>
         <source>Save current design to an ini File</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna nykyinen suunnittelu ini-tiedostoon</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="374"/>
         <source>Add a Folder</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kansio</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="374"/>
         <source>New Folder Name?</source>
-        <translation type="unfinished"/>
+        <translation>Uuden kansion nimi?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="374"/>
         <source>untitled_folder</source>
-        <translation type="unfinished"/>
+        <translation>nimetön_kansio</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="411"/>
         <source>Rename a Folder</source>
-        <translation type="unfinished"/>
+        <translation>Nimeä kansio uudelleen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="411"/>
         <source>New Name for Folder?</source>
-        <translation type="unfinished"/>
+        <translation>Kansiolle uusi nimi?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="422"/>
         <source>Rename a File</source>
-        <translation type="unfinished"/>
+        <translation>Nimeä tiedosto uudelleen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="422"/>
         <source>New Name for File?</source>
-        <translation type="unfinished"/>
+        <translation>Tiedostolle uusi nimi?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="480"/>
         <source>A single OPF file is required.</source>
-        <translation type="unfinished"/>
+        <translation>Yksi OPF-tiedosto vaaditaan.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="481"/>
         <source>At least one xhtml marker must exist.</source>
-        <translation type="unfinished"/>
+        <translation>Vähintään yksi xhtml-merkki on oltava olemassa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="482"/>
         <source>At least one image marker must exist.</source>
-        <translation type="unfinished"/>
+        <translation>Vähintään yksi kuvamerkki on oltava olemassa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="483"/>
         <source>At least one css marker must exist.</source>
-        <translation type="unfinished"/>
+        <translation>Vähintään yksi css-merkki on oltava olemassa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="485"/>
         <source>A single NCX file is required.</source>
-        <translation type="unfinished"/>
+        <translation>Yksi NCX-tiedosto vaaditaan.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="487"/>
         <source>A single NAV file is required.</source>
-        <translation type="unfinished"/>
+        <translation>Yksi NAV-tiedosto vaaditaan.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="491"/>
         <source>Errors Detected</source>
-        <translation type="unfinished"/>
+        <translation>Havaitut virheet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="497"/>
@@ -2808,7 +2819,9 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>Do you want to set this layout as the default empty Epub layout for Sigil?
 
 </source>
-        <translation type="unfinished"/>
+        <translation>Haluatko asettaa tämän ulkoasun Sigilin tyhjän Epubin oletusasetteluksi?
+
+</translation>
     </message>
 </context>
 <context>
@@ -2843,7 +2856,9 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find next match.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Etsi&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Etsi seuraava vastaavuus.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="186"/>
@@ -2855,19 +2870,23 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace highlighted match (if any) in Code View.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Korvaa&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Korvaa korostettu osuma (jos sellainen on) koodinäkymässä.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="218"/>
         <source>Restart</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistä uudelleen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="221"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Restart&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restart current search from beginning.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Käynnistä uudelleen&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Käynnistä nykyinen haku alusta.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="238"/>
@@ -2885,7 +2904,10 @@ locations and names for the OPF, NCX and/or Nav.</source>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace highlighted match (if any),
 then find the Next match in Code View.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Korvaa/Etsi&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Korvaa korostettu osuma (jos sellainen on),
+etsi sitten seuraava osuma koodinäkymässä.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="309"/>
@@ -2898,7 +2920,10 @@ then find the Next match in Code View.&lt;/p&gt;</source>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace all matches in Code View.&lt;/p&gt;
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Use with SHIFT to Filter Replacements before changes are applied.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Korvaa kaikki&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Korvaa kaikki osumat koodinäkymässä.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Käytä SHIFT-näppäintä suodattaaksesi korvauksia ennen muutosten soveltamista..&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="342"/>
@@ -2911,7 +2936,10 @@ then find the Next match in Code View.&lt;/p&gt;</source>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Count all matches in Code View.&lt;/p&gt;
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Use with SHIFT to generate a Dry Run Replace All table.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Count All&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Laske kaikki osumat koodinäkymässä.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Käytä SHIFTiä luodaksesi Kuivahrjoittelu - Korvaa kaikki -taulukon.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="363"/>
@@ -2921,7 +2949,7 @@ then find the Next match in Code View.&lt;/p&gt;</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="401"/>
         <source>Regex Valid?</source>
-        <translation type="unfinished"/>
+        <translation>Regex kelvollinen?</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="411"/>
@@ -2931,19 +2959,21 @@ then find the Next match in Code View.&lt;/p&gt;</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="423"/>
         <source>Set advanced Regex search flags / options.</source>
-        <translation type="unfinished"/>
+        <translation>Aseta edistyneet Regex-hakuliput / -vaihtoehdot.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="426"/>
         <source>Regex Options</source>
-        <translation type="unfinished"/>
+        <translation>Regex-asetukset</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="440"/>
         <source>Search from current position to top or end of the
 current file and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>Hae nykyisestä sijainnista alkuun tai loppuun
+nykyinen tiedosto ja rivitä sitten tiedostoon
+toinen pää jatkaaksesi etsintää.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="445"/>
@@ -2954,7 +2984,8 @@ other end to continue searching.</source>
         <location filename="../../Form_Files/FindReplace.ui" line="459"/>
         <source>Search only in text (outside tags).
 Valid only when searching HTML files.</source>
-        <translation type="unfinished"/>
+        <translation>Etsi vain tekstistä (tagien ulkopuolelta).
+Toimii vain HTML-tiedostoja etsittäessä.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="463"/>
@@ -2965,51 +2996,50 @@ Valid only when searching HTML files.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="301"/>
         <location filename="../../MainUI/FindReplace.cpp" line="308"/>
         <source>Search will restart</source>
-        <translation type="unfinished"/>
+        <translation>Haku käynnistyy uudelleen</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="333"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2124"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2125"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2134"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2126"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2127"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
         <source>Current File</source>
         <translation>Nykyinen tiedosto</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="562"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1890"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1892"/>
         <source>Matches found: %n</source>
         <translation><numerusform>Osumia löytyi %n</numerusform><numerusform>Osumia löytyi %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="652"/>
         <source>Choose Replacements</source>
-        <translation type="unfinished"/>
+        <translation>Valitse korvaajat</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="670"/>
         <location filename="../../MainUI/FindReplace.cpp" line="729"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1933"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1935"/>
         <source>No replacements made</source>
         <translation>Korvauksia ei tehty.</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="672"/>
         <location filename="../../MainUI/FindReplace.cpp" line="731"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1935"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1937"/>
         <source>Replacements made: %n</source>
-        <translation><numerusform>Korvauksia tapahtui %n</numerusform><numerusform>Korvauksia tapahtui %n</numerusform></translation>
+        <translation><numerusform>Korvauksia tapahtui %n</numerusform><numerusform>Tehdyt korvaukset: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="857"/>
         <source>End of search</source>
-        <translation type="unfinished"/>
+        <translation>Etsinnän loppu</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="942"/>
         <source>No matches found</source>
-        <translation>
-        </translation>
+        <translation>Osumia ei löytynyt</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1679"/>
@@ -3027,247 +3057,247 @@ Valid only when searching HTML files.</source>
         <translation>Ladattu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1796"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1820"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1849"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1874"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1918"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1798"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1822"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1851"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1876"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1920"/>
         <source>No searches selected</source>
         <translation>Hakua ei ole valittu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1983"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1985"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1984"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1986"/>
         <source>Are you sure you want to clear your Find and Replace current values and history?</source>
-        <translation type="unfinished"/>
+        <translation>Oletko varma, että haluat tyhjentää Etsi ja korvaa -toiminnon nykyiset arvot ja historian?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2110"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2112"/>
         <source>What to search for</source>
         <translation>Mitä etsitään</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2111"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2112"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2113"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2114"/>
         <source>Normal</source>
         <translation>Normaali</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2112"/>
-        <source>Case in-sensitive search of exactly what you type.</source>
-        <translation>Kirjaintasoriippumaton haku (isoilla ja pienillä kirjaimilla ei eroa)</translation>
-    </message>
-    <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2114"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2115"/>
-        <source>Case Sensitive</source>
-        <translation>Kirjaintasoriippuva</translation>
+        <source>Case in-sensitive search of exactly what you type.</source>
+        <translation>Kirjainkoolla on väliä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2115"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2116"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2117"/>
+        <source>Case Sensitive</source>
+        <translation>Kirjainkoko huomioidaan</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="2117"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>Kirjaintasoriippuva haku (isot ja pienet kirjaimet eri kirjaimia)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2117"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2118"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2119"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2120"/>
         <source>Regex</source>
         <translation>Säännöllinen lauseke</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2118"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2120"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>Etsi hahmon mukaan käyttäen säännöllisten lausekkeiden (regular expressions) syntaksia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2122"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2156"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2124"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2158"/>
         <source>Where to search</source>
         <translation>Mistä etsitään</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2125"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2127"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>Rajoita etsi ja korvaa -toiminto avattuun tiedostoon. Pidä Ctrl-näppäintä alhaalla, kun napsautat hakupainiketta rajoittaaksesi haun tilapäisesti nykyiseen tiedostoon.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2127"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2128"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2129"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2130"/>
         <source>All HTML Files</source>
         <translation>Kaikki HTML-tiedostot</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2128"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2130"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>Etsi tai korvaa kaikissa HTML-tiedostoissa kooditilassa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2130"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2131"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2132"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2133"/>
         <source>Selected HTML Files</source>
         <translation>Valitut HTML-tiedostot</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2131"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2133"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>Rajoita etsi ja korvaa -toiminto Kirjan tiedostot -näkymässä valittuihin HTML-tiedostoihin kooditilassa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2133"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2135"/>
         <source>Tabbed HTML Files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2134"/>
-        <source>Restrict the find or replace to the HTML files open in Tabs.</source>
-        <translation type="unfinished"/>
+        <translation>Välilehtiset HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2137"/>
-        <source>All CSS Files</source>
-        <translation type="unfinished"/>
+        <source>Restrict the find or replace to the HTML files open in Tabs.</source>
+        <translation>Rajoita etsiminen tai korvaaminen koskemaan välilehdissä avoinna olevia HTML-tiedostoja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2137"/>
-        <source>Find or replace in all CSS files in Code View.</source>
-        <translation type="unfinished"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2138"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2139"/>
+        <source>All CSS Files</source>
+        <translation>Kaikki CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2139"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2140"/>
-        <source>Selected CSS Files</source>
-        <translation type="unfinished"/>
+        <source>Find or replace in all CSS files in Code View.</source>
+        <translation>Etsi tai korvaa kaikki CSS-tiedostot koodinäkymässä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2140"/>
-        <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2141"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2142"/>
+        <source>Selected CSS Files</source>
+        <translation>Valitut CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2142"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2143"/>
-        <source>Tabbed CSS Files</source>
-        <translation type="unfinished"/>
+        <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
+        <translation>Rajoita etsiminen tai korvaaminen CSS-tiedostoihin, jotka on valittu kirjaselaimen koodinäkymässä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2143"/>
-        <source>Restrict the find or replace to the CSS files open in Tabs.</source>
-        <translation type="unfinished"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2144"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2145"/>
+        <source>Tabbed CSS Files</source>
+        <translation>Välilehtiset CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2145"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2146"/>
-        <source>OPF File</source>
-        <translation type="unfinished"/>
+        <source>Restrict the find or replace to the CSS files open in Tabs.</source>
+        <translation>Rajoita etsiminen tai korvaaminen välilehdissä avoinna oleviin CSS-tiedostoihin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2146"/>
-        <source>Restrict the find or replace to the OPF file.</source>
-        <translation type="unfinished"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2147"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2148"/>
+        <source>OPF File</source>
+        <translation>OPF tiedosto</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2148"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2149"/>
+        <source>Restrict the find or replace to the OPF file.</source>
+        <translation>Rajoita haku tai korvaaminen OPF-tiedostoon.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/FindReplace.cpp" line="2150"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2151"/>
         <source>NCX File</source>
-        <translation type="unfinished"/>
+        <translation>NCX tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2149"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2151"/>
         <source>Restrict the find or replace to the NCX file.</source>
-        <translation type="unfinished"/>
+        <translation>Rajoita haku tai korvaaminen NCX-tiedostoon.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2152"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2154"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
         <translation>Voit rajoittaa haun valittuun tekstiin käskyllä Hae&amp;rarr;Merkitse valittu teksti.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2157"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2158"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2159"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2160"/>
         <source>Marked Text</source>
         <translation>Merkitty teksti</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2158"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2160"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
         <translation>Rajoita Etsi ja korvaa -toiminto siihen tekstiin, joka on merkitty komennolla Etsi &amp;rarr; Merkitse valittu teksti. Valinta poistuu, kun tehdään Kumoa-toiminto, kirjoitetaan tekstiä, vaihdetaan kooditilasta kirjatilaan tai päinvastoin taikka vaihdetaan välilehteä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2162"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2166"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2164"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2168"/>
         <source>Up</source>
         <translation>Taaksepäin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2163"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2167"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2165"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
         <source>Down</source>
         <translation>Eteenpäin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2164"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2166"/>
         <source>Direction to search</source>
         <translation>Etsinnän suunta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2166"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2168"/>
         <source>Search for the previous match from your current position.</source>
         <translation>Etsi edellistä osumaa nykyisestä kohdasta lähtien.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2167"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
         <source>Search for the next match from your current position.</source>
         <translation>Etsi seuraavaa osumaa nykyisestä paikasta lähtien.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2173"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2175"/>
         <source>Dot All</source>
-        <translation type="unfinished"/>
+        <translation>Pisteet kaikille</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2176"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2178"/>
         <source>For Regex searches, prefix your search with (?s).</source>
         <translation>Säännöllisiä lausekkeita käytettäessä tämä valinta merkitsee, että piste vastaa mitä tahansa merkkiä, rivinvaihdot mukaan lukien. Vastaa prefiksiä (?s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2180"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2182"/>
         <source>Minimal Match</source>
         <translation>Lyhin osuma</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2183"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2185"/>
         <source>For Regex searches, prefix your search with (?U).</source>
         <translation>Säännöllisiä lausekkeita käytettäessä tämä aiheuttaa lyhimmän (eikä pisimmän) osuman etsimisen. Vastaa prefiksiä (?U).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2187"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2189"/>
         <source>Auto Tokenise</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen tokenisointi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2190"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2192"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
         <translation>Säännöllisiä lausekkeita käytettäessä tämä aiheuttaa valinnan jäsentämisen alkioiksi, kun Etsi-toiminto avataan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2214"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2216"/>
         <source>Invalid Regex:</source>
-        <translation type="unfinished"/>
+        <translation>Virheellinen Regex:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2215"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
         <source>offset:</source>
-        <translation type="unfinished"/>
+        <translation>siirtymä:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2219"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2221"/>
         <source>Valid Regex</source>
-        <translation type="unfinished"/>
+        <translation>Kelvollinen Regex</translation>
     </message>
 </context>
 <context>
@@ -3275,7 +3305,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="64"/>
         <source>Clear Find Replace History</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä Etsi / korvaa historia</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="77"/>
@@ -3291,7 +3321,7 @@ Valid only when searching HTML files.</source>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="864"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="863"/>
         <source>Print %1</source>
         <translation>Tulosta %1</translation>
     </message>
@@ -3301,35 +3331,35 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../ResourceObjects/FontResource.cpp" line="70"/>
         <source>No reliable font data</source>
-        <translation type="unfinished"/>
+        <translation>Luotettavia fonttitietoja ei ole</translation>
     </message>
 </context>
 <context>
     <name>FontView</name>
     <message>
-        <location filename="../../Widgets/FontView.cpp" line="125"/>
+        <location filename="../../Widgets/FontView.cpp" line="127"/>
         <source>No reliable font data</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Widgets/FontView.cpp" line="136"/>
-        <source>abcdefghijklmnopqrstuvwxyz</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Widgets/FontView.cpp" line="137"/>
-        <source>ABCDEFGHIJKLMNOPQRSTUVWXYZ</source>
-        <translation type="unfinished"/>
+        <translation>Luotettavia fonttitietoja ei ole</translation>
     </message>
     <message>
         <location filename="../../Widgets/FontView.cpp" line="138"/>
-        <source>0123456789.:,;(*!?&apos;\/&quot;)$%^&amp;-+@=_-~&gt;&lt;</source>
-        <translation type="unfinished"/>
+        <source>abcdefghijklmnopqrstuvwxyz</source>
+        <translation>abcdefghijklmnopqrstuvwxyzäöå</translation>
     </message>
     <message>
         <location filename="../../Widgets/FontView.cpp" line="139"/>
+        <source>ABCDEFGHIJKLMNOPQRSTUVWXYZ</source>
+        <translation>ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÅ</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/FontView.cpp" line="140"/>
+        <source>0123456789.:,;(*!?&apos;\/&quot;)$%^&amp;-+@=_-~&gt;&lt;</source>
+        <translation>0123456789.:,;(*!?&apos;\/&quot;)$%^&amp;-+@=_-~&gt;&lt;</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/FontView.cpp" line="141"/>
         <source>The quick brown fox jumps over the lazy dog</source>
-        <translation type="unfinished"/>
+        <translation>Nopea ruskea kettu hyppää laiskan koiran yli -</translation>
     </message>
 </context>
 <context>
@@ -3342,7 +3372,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="30"/>
         <source>Basics</source>
-        <translation type="unfinished"/>
+        <translation>Perusasiat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="42"/>
@@ -3380,17 +3410,18 @@ luotaessa uusia tai tyhjiä EPUB-tiedostoja Sigilissä.</translation>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="103"/>
         <source>Choose when your not well formed HTML code is automatically 
 mended.</source>
-        <translation type="unfinished"/>
+        <translation>Valitse, kun huonosti muodostettu HTML-koodisi on automaattisesti 
+korjattu.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="107"/>
         <source>Mend Not Well Formed HTML Source Code On:</source>
-        <translation type="unfinished"/>
+        <translation>Korjaa huonosti muotoiltu HTML-lähdekoodi:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="116"/>
         <source>Mend Not Well Formed HTML when opening an Epub or HTML file.</source>
-        <translation type="unfinished"/>
+        <translation>Korjaa huonosti muotoiltu HTML avatessasi Epub- tai HTML-tiedoston.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="119"/>
@@ -3400,7 +3431,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="126"/>
         <source>Mend Not Well Formed HTML when saving an Epub.</source>
-        <translation type="unfinished"/>
+        <translation>Korjaa huonosti muotoiltu HTML tallentaessasi Epubia.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="129"/>
@@ -3410,7 +3441,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="152"/>
         <source>Number of clipboard history items to save (0 disables):</source>
-        <translation type="unfinished"/>
+        <translation>Tallennettavien leikepöydän historiakohteiden määrä (0 poistaa käytöstä):</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="167"/>
@@ -3420,12 +3451,12 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="186"/>
         <source>Set your preferred external xhtml editor:</source>
-        <translation type="unfinished"/>
+        <translation>Aseta haluamasi ulkoinen xhtml-editori:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="203"/>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="210"/>
@@ -3436,7 +3467,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="236"/>
         <source>Security</source>
-        <translation type="unfinished"/>
+        <translation>Turvallisuus</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="242"/>
@@ -3446,7 +3477,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="245"/>
         <source> Control Access by Epubs to non-multimedia remote resources:</source>
-        <translation type="unfinished"/>
+        <translation> Epubien pääsyn valvonta muihin kuin multimedian etäresursseihin:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="260"/>
@@ -3554,17 +3585,17 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="484"/>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Lisäasetukset</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="490"/>
         <source>Unless you know exactly what you&apos;re doing, there&apos;s very little reason to ever change this setting. Use extreme caution!</source>
-        <translation type="unfinished"/>
+        <translation>Ellet tiedä tarkalleen, mitä olet tekemässä, tätä asetusta ei ole juurikaan syytä muuttaa. Ole äärimmäisen varovainen!</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="500"/>
         <source>Set folder where temporary files should be created:</source>
-        <translation type="unfinished"/>
+        <translation>Määritä kansio, johon väliaikaiset tiedostot luodaan:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="517"/>
@@ -3574,31 +3605,47 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="536"/>
         <source>Disable GPU Acceleration in QtWebEngine/Preview</source>
-        <translation type="unfinished"/>
+        <translation>Poista GPU-kiihdytys käytöstä QtWebEngine/Previewissa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="539"/>
         <source> Disable GPU Acceleration in QtWebEngine/Preview.</source>
-        <translation type="unfinished"/>
+        <translation>Poista GPU-kiihdytys käytöstä QtWebEngine/Previewissa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="554"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="557"/>
         <source>Disable GPU Acceleration in QtWebEngine.</source>
+        <translation>Poista GPU-kiihdytys käytöstä QtWebEnginessa.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="570"/>
+        <source>Preview Print Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="209"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="576"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="579"/>
+        <source>Skip Print Preview</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="588"/>
+        <source>Print DPI:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="222"/>
         <source>Incorrect Path for External Xhtml Editor selected</source>
         <translation>Virheellinen ulkoisen XHTML-editorin polku</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="229"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="242"/>
         <source>Select Folder for Temporary Files</source>
         <translation>Valitse kansio väliaikaisille tiedostoille</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="246"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="259"/>
         <source>Incorrect Folder for Temporary Files selected</source>
         <translation>Virheellinen kansio valittu väliaikaisille tiedostoille</translation>
     </message>
@@ -3683,7 +3730,7 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="161"/>
         <source>An ending section that typically wraps up the work.</source>
-        <translation>Loppujakso, joka tyypillisesti kokoa yhteen teoksen sisältöä.</translation>
+        <translation>Loppujakso, joka tyypillisesti kokoaa yhteen teoksen sisältöä.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="162"/>
@@ -4261,44 +4308,44 @@ Voit sitten valita tai poistaa yksittäisiä otsikoita yllä olevasta listasta.<
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="198"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="200"/>
         <source>shades</source>
         <translation>sävyä</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="198"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="200"/>
         <source>colors</source>
         <translation>väriä</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="199"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="201"/>
         <source>Grayscale</source>
         <translation>Harmaasävy</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="199"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="201"/>
         <source>Color</source>
         <translation>Väri</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="325"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="383"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="386"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="327"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="385"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="388"/>
         <source>Open With</source>
         <translation>Avaa ohjelmalla</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="361"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="363"/>
         <source>Other Application</source>
         <translation>Muu sovellus</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="384"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="386"/>
         <source>Save As</source>
         <translation>Tallenna nimellä</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="385"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="387"/>
         <source>Copy Image</source>
         <translation>Kopioi kuvaa</translation>
     </message>
@@ -4306,22 +4353,22 @@ Voit sitten valita tai poistaa yksittäisiä otsikoita yllä olevasta listasta.<
 <context>
     <name>ImageView</name>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="88"/>
+        <location filename="../../Widgets/ImageView.cpp" line="90"/>
         <source>shades</source>
         <translation>sävyä</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="88"/>
+        <location filename="../../Widgets/ImageView.cpp" line="90"/>
         <source>colors</source>
         <translation>väriä</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="89"/>
+        <location filename="../../Widgets/ImageView.cpp" line="91"/>
         <source>Grayscale</source>
         <translation>Harmaasävy</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="89"/>
+        <location filename="../../Widgets/ImageView.cpp" line="91"/>
         <source>Color</source>
         <translation>Väri</translation>
     </message>
@@ -4343,7 +4390,9 @@ Voit sitten valita tai poistaa yksittäisiä otsikoita yllä olevasta listasta.<
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements. Sigil can automatically fix these files, although this may very rarely result in minor data loss in extreme circumstances.
 
 Do you want to automatically fix the files?</source>
-        <translation type="unfinished"/>
+        <translation>Tämä EPUB sisältää HTML-tiedostoja, jotka eivät ole hyvin muotoiltuja tai joista puuttuu DOCTYPE-, html-, head- tai body-elementit. Sigil voi korjata nämä tiedostot automaattisesti, vaikka tämä saattaa hyvin harvoin johtaa vähäiseen tietojen menettämiseen äärimmäisissä olosuhteissa.
+
+Haluatko korjata tiedostot automaattisesti?</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="592"/>
@@ -4353,7 +4402,7 @@ Do you want to automatically fix the files?</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="632"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
-        <translation type="unfinished"/>
+        <translation>Tässä epubissa on useita esityksiä (useita OPF-tiedostoja). Tämän epubin muokkaaminen Sigilissä tuottaa normaalin yksittäisversion epub-muodon käyttämällä vain löydettyä (ensimmäistä) OPF-tiedostoa.</translation>
     </message>
 </context>
 <context>
@@ -4609,7 +4658,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="105"/>
         <source>Enable AltGr on international keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Ota AltGr käyttöön kansainvälisellä näppäimistöllä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="122"/>
@@ -5337,12 +5386,12 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Bosnian</source>
-        <translation>bosnia</translation>
+        <translation>Bosnia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Breton</source>
-        <translation>bretoni</translation>
+        <translation>Breton</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="124"/>
@@ -5552,7 +5601,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Philippines</source>
-        <translation type="unfinished"/>
+        <translation>Filippiinit</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="161"/>
@@ -6271,7 +6320,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Colombia</source>
-        <translation type="unfinished"/>
+        <translation>Kolumbia</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="300"/>
@@ -8100,14 +8149,16 @@ Käytä komentoa Asetukset → Oikeinkirjoituksen tarkistus asettaakseni oikeink
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="14"/>
         <source>Link Javascripts</source>
-        <translation type="unfinished"/>
+        <translation>Linkkitä javascriptit</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="43"/>
         <source>Move the selected javascripts up in priority.
 
 Javascripts that are listed first are loaded first.</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä valitut javascriptien prioriteetit ylöspäin.
+
+Ensimmäisenä luetellut javascriptit ladataan ensin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="48"/>
@@ -8117,7 +8168,7 @@ Javascripts that are listed first are loaded first.</source>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="58"/>
         <source>Move the selected javascripts down in priority.</source>
-        <translation type="unfinished"/>
+        <translation>Siirrä valitut javascriptien prioriteetit alaspäin.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="61"/>
@@ -8127,12 +8178,12 @@ Javascripts that are listed first are loaded first.</source>
     <message>
         <location filename="../../Dialogs/LinkJavascripts.cpp" line="61"/>
         <source>Include</source>
-        <translation>Ota mukaan</translation>
+        <translation>Sisällytä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/LinkJavascripts.cpp" line="62"/>
         <source>Javascript</source>
-        <translation type="unfinished"/>
+        <translation>Javascripti</translation>
     </message>
 </context>
 <context>
@@ -8292,7 +8343,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Dialogs/ListSelector.h" line="48"/>
         <source>View selected</source>
-        <translation type="unfinished"/>
+        <translation>Näytä valittu</translation>
     </message>
 </context>
 <context>
@@ -8300,7 +8351,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../ViewEditors/Overlay.h" line="97"/>
         <source>Loading...</source>
-        <translation type="unfinished"/>
+        <translation>Ladataan...</translation>
     </message>
 </context>
 <context>
@@ -8313,112 +8364,112 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
         <source>&amp;File</source>
-        <translation>Tiedosto</translation>
+        <translation>&amp;Tiedosto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="62"/>
         <source>A&amp;dd</source>
-        <translation>Lisää</translation>
+        <translation>&amp;Lisää</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="73"/>
         <source>&amp;New</source>
-        <translation>Uusi</translation>
+        <translation>&amp;Uusi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="97"/>
         <source>&amp;Edit</source>
-        <translation>Muokkaa</translation>
+        <translation>Mu&amp;okkaa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="101"/>
         <source>C&amp;hange Case</source>
-        <translation>Muuta kirjaintaso</translation>
+        <translation>Vai&amp;hda kirjainkoko</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="126"/>
         <source>&amp;Insert</source>
-        <translation>Lisää</translation>
+        <translation>L&amp;isää</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="130"/>
         <source>Cli&amp;p</source>
-        <translation>Leike</translation>
+        <translation>Lei&amp;ke</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="155"/>
         <source>Cli&amp;p2</source>
-        <translation type="unfinished"/>
+        <translation>Lei&amp;ke2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="193"/>
         <source>&amp;Help</source>
-        <translation>Ohje</translation>
+        <translation>O&amp;hje</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="203"/>
         <source>For&amp;mat</source>
-        <translation>Muotoile</translation>
+        <translation>&amp;Muotoile</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="207"/>
         <source>&amp;Heading</source>
-        <translation>Otsikko</translation>
+        <translation>&amp;Otsikko</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="248"/>
         <source>&amp;View</source>
-        <translation>Näytä</translation>
+        <translation>&amp;Näytä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="252"/>
         <source>&amp;Toolbars</source>
-        <translation>Työkalupalkit</translation>
+        <translation>&amp;Työkalupalkit</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="264"/>
         <source>&amp;Search</source>
-        <translation>Etsi</translation>
+        <translation>Et&amp;si</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="268"/>
         <source>Current Fil&amp;e</source>
-        <translation>Nykyinen tiedosto</translation>
+        <translation>Nykyinen ti&amp;edosto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="302"/>
         <source>&amp;Window</source>
-        <translation>Ikkuna</translation>
+        <translation>&amp;Ikkuna</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="314"/>
         <source>&amp;Tools</source>
-        <translation>Työkalut</translation>
+        <translation>&amp;Työkalut</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="318"/>
         <source>&amp;Table Of Contents</source>
-        <translation>Sisällysluettelo</translation>
+        <translation>Sisällyslue&amp;ttelo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="326"/>
         <source>Spe&amp;llcheck</source>
-        <translation>Oikeinkirjoituksen tarkistus</translation>
+        <translation>Oikeinkir&amp;joituksen tarkistus</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="340"/>
         <source>&amp;Index</source>
-        <translation>Hakemisto</translation>
+        <translation>Hakem&amp;isto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="351"/>
         <source>Re&amp;format HTML</source>
-        <translation>Muotoile HTML-koodi</translation>
+        <translation>Muotoile &amp;HTML uudelleen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="358"/>
         <source>Epub&amp;3 Tools</source>
-        <translation>Epub3-työkalut</translation>
+        <translation>Epub&amp;3-työkalut</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="386"/>
@@ -8429,23 +8480,23 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <location filename="../../Form_Files/main.ui" line="392"/>
         <location filename="../../Form_Files/main.ui" line="459"/>
         <source>Checkpoints</source>
-        <translation type="unfinished"/>
+        <translation>Tarkastuspisteet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="418"/>
         <source>New</source>
-        <translation type="unfinished"/>
+        <translation>Uusi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="432"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1645"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1644"/>
         <source>File</source>
         <translation>Tiedosto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="446"/>
         <source>Add Existing</source>
-        <translation type="unfinished"/>
+        <translation>Lisää olemassa oleva</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="474"/>
@@ -8455,18 +8506,18 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="490"/>
         <source>Undo/Redo</source>
-        <translation type="unfinished"/>
+        <translation>Kumoa/tee uudelleen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="504"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="641"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="640"/>
         <source>Edit</source>
         <translation>Muokkaa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="520"/>
         <source>External Editor</source>
-        <translation type="unfinished"/>
+        <translation>Ulkoinen editori</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="533"/>
@@ -8506,22 +8557,22 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="635"/>
         <source>Automation Lists</source>
-        <translation type="unfinished"/>
+        <translation>Automaatioluettelot</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="649"/>
         <source>Automation List 1</source>
-        <translation type="unfinished"/>
+        <translation>Automaatioluettelo 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="660"/>
         <source>Automation List 2</source>
-        <translation type="unfinished"/>
+        <translation>Automaatioluettelo 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="671"/>
         <source>Automation List 3</source>
-        <translation type="unfinished"/>
+        <translation>Automaatioluettelo 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="679"/>
@@ -8531,7 +8582,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="693"/>
         <source>Set Heading Level of Selected Text</source>
-        <translation type="unfinished"/>
+        <translation>Määritä valitun tekstin otsikkotaso</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="706"/>
@@ -8551,17 +8602,17 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="751"/>
         <source>Indent</source>
-        <translation>Sisennä</translation>
+        <translation>Sisennys</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="764"/>
         <source>Change Case</source>
-        <translation>Vaihda kirjaintaso</translation>
+        <translation>Vaihda kirjainkoko</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="778"/>
         <source>Set Case of Selected Text</source>
-        <translation type="unfinished"/>
+        <translation>Aseta valitun tekstin kirjainkoko</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="788"/>
@@ -8576,19 +8627,21 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="833"/>
         <source>Clip Bar2</source>
-        <translation type="unfinished"/>
+        <translation>Leikepalkki 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="869"/>
         <source>New Default</source>
-        <translation type="unfinished"/>
+        <translation>Uusi oletusarvo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="872"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new default book.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uusi&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Luo uusi oletuskirja.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="877"/>
@@ -8598,31 +8651,35 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="887"/>
         <source>ePub&amp;2</source>
-        <translation type="unfinished"/>
+        <translation>ePub&amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="890"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub2 book.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uusi ePub2&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Luo uusi ePub2-kirja.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="902"/>
         <source>ePub&amp;3</source>
-        <translation type="unfinished"/>
+        <translation>ePub&amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="905"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub3 book.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uusi ePub3&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Luo uusi ePub3-kirja.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="917"/>
         <source>&amp;Save</source>
-        <translation>Tallenna</translation>
+        <translation>&amp;Tallenna</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="920"/>
@@ -8641,7 +8698,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="930"/>
         <source>Save &amp;As...</source>
-        <translation>Tallenna nimellä...</translation>
+        <translation>Tallenn&amp;a nimellä...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="933"/>
@@ -8660,7 +8717,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="943"/>
         <source>Save A &amp;Copy...</source>
-        <translation>Tallenna kopio</translation>
+        <translation>Tallenna &amp;kopio</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="946"/>
@@ -8670,7 +8727,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="955"/>
         <source>Cu&amp;t</source>
-        <translation>Leikkaa</translation>
+        <translation>Lei&amp;kkaa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="958"/>
@@ -8684,7 +8741,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="969"/>
         <source>&amp;Paste</source>
-        <translation>Liitä</translation>
+        <translation>&amp;Liitä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="972"/>
@@ -8698,7 +8755,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="979"/>
         <source>&amp;Closing Tag</source>
-        <translation>Lopputagi</translation>
+        <translation>&amp;Lopputagi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="982"/>
@@ -8713,7 +8770,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="994"/>
         <source>&amp;Undo</source>
-        <translation>Kumoa</translation>
+        <translation>K&amp;umoa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="997"/>
@@ -8732,7 +8789,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1011"/>
         <source>&amp;Redo</source>
-        <translation>Tee uudestaan</translation>
+        <translation>Tee &amp;uudestaan</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1014"/>
@@ -8751,7 +8808,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1028"/>
         <source>&amp;Copy</source>
-        <translation>Kopioi</translation>
+        <translation>&amp;Kopioi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1031"/>
@@ -8765,7 +8822,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1045"/>
         <source>Align &amp;Left</source>
-        <translation>Tasaa vasemmalle</translation>
+        <translation>Tasaa &amp;vasemmalle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1048"/>
@@ -8779,7 +8836,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1062"/>
         <source>Align &amp;Right</source>
-        <translation>Tasaa oikealle</translation>
+        <translation>Tasaa &amp;oikealle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1065"/>
@@ -8793,7 +8850,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1079"/>
         <source>&amp;Center</source>
-        <translation>Keskitä</translation>
+        <translation>Ke&amp;skitä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1082"/>
@@ -8812,7 +8869,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1099"/>
         <source>&amp;Justify</source>
-        <translation>Tasaa</translation>
+        <translation>&amp;Tasaa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1102"/>
@@ -8831,7 +8888,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1119"/>
         <source>&amp;Bold</source>
-        <translation>Lihavoi</translation>
+        <translation>Li&amp;havoi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1122"/>
@@ -8850,7 +8907,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1139"/>
         <source>&amp;Italic</source>
-        <translation>Kursivoi</translation>
+        <translation>Kurs&amp;ivoi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1142"/>
@@ -8869,7 +8926,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1156"/>
         <source>&amp;Open...</source>
-        <translation>Avaa...</translation>
+        <translation>&amp;Avaa...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1159"/>
@@ -8888,7 +8945,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1176"/>
         <source>&amp;Underline</source>
-        <translation>Alleviivaa</translation>
+        <translation>&amp;Alleviivaa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1179"/>
@@ -8907,7 +8964,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1196"/>
         <source>&amp;Quit</source>
-        <translation>Lopeta</translation>
+        <translation>&amp;Lopeta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1199"/>
@@ -8922,7 +8979,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1214"/>
         <source>&amp;About...</source>
-        <translation>Tietoja...</translation>
+        <translation>Tietoj&amp;a...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1217"/>
@@ -8932,7 +8989,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1222"/>
         <source>Add &amp;Cover...</source>
-        <translation>Lisää kansi</translation>
+        <translation>Lisää &amp;kansi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1225"/>
@@ -8946,7 +9003,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1236"/>
         <source>&amp;Metadata Editor...</source>
-        <translation>Metatietoeditori</translation>
+        <translation>&amp;Metatietoeditori</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1239"/>
@@ -8965,7 +9022,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1253"/>
         <source>&amp;Generate Table Of Contents...</source>
-        <translation>Luo sisällysluettelo</translation>
+        <translation>&amp;Luo sisällysluettelo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1256"/>
@@ -8984,7 +9041,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1270"/>
         <source>&amp;Edit Table Of Contents...</source>
-        <translation>Muokkaa sisällysluetteloa</translation>
+        <translation>Muokkaa sisällysluett&amp;eloa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1273"/>
@@ -8998,7 +9055,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1284"/>
         <source>&amp;Split At Cursor</source>
-        <translation>Jaa kohdistimen kohdalta</translation>
+        <translation>Jaa kohdi&amp;stimen kohdalta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1287"/>
@@ -9017,7 +9074,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1301"/>
         <source>&amp;File...</source>
-        <translation>Tiedosto...</translation>
+        <translation>&amp;Tiedosto...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1304"/>
@@ -9040,7 +9097,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1320"/>
         <source>&amp;Special Character...</source>
-        <translation>Erikoismerkki...</translation>
+        <translation>Erikoi&amp;smerkki...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1323"/>
@@ -9054,7 +9111,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1334"/>
         <source>I&amp;D...</source>
-        <translation>Tunniste</translation>
+        <translation>Tunn&amp;iste...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1337"/>
@@ -9068,7 +9125,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1348"/>
         <source>&amp;Link...</source>
-        <translation>Linkki</translation>
+        <translation>&amp;Linkki...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1351"/>
@@ -9082,7 +9139,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1365"/>
         <source>&amp;Numbered List</source>
-        <translation>Numerointi</translation>
+        <translation>&amp;Numeroitu luettelo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1368"/>
@@ -9096,7 +9153,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1382"/>
         <source>Bulle&amp;ted List</source>
-        <translation>Luettelomerkit</translation>
+        <translation>Lue&amp;ttelomerkit</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1385"/>
@@ -9115,7 +9172,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1402"/>
         <source>Stri&amp;kethrough</source>
-        <translation>Yliviivaa</translation>
+        <translation>Yli&amp;viivaa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1405"/>
@@ -9129,7 +9186,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1419"/>
         <source>&amp;Subscript</source>
-        <translation>Alaindeksi</translation>
+        <translation>Alaindek&amp;si</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1422"/>
@@ -9143,7 +9200,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1436"/>
         <source>Su&amp;perscript</source>
-        <translation>Yläindeksi</translation>
+        <translation>Ylä&amp;indeksi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1439"/>
@@ -9157,12 +9214,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1450"/>
         <source>&amp;Print...</source>
-        <translation>Tulosta...</translation>
+        <translation>&amp;Tulosta...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1453"/>
         <source>Print</source>
-        <translation>Tulosta</translation>
+        <translation>Tulostus</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1456"/>
@@ -9172,7 +9229,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1465"/>
         <source>Print Pre&amp;view...</source>
-        <translation>Tulostuksen esikatselu</translation>
+        <translation>Tulostuksen &amp;esikatselu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1468"/>
@@ -9193,17 +9250,17 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1484"/>
         <source>Restructure Epub to Sigil Norm</source>
-        <translation type="unfinished"/>
+        <translation>Rakenna Epub uudelleen Sigil-normin mukaiseksi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1487"/>
         <source>Restructure Epub to Sigil Standard Form</source>
-        <translation type="unfinished"/>
+        <translation>Rakenna Epub uudelleen Sigil-standardimuotoon</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1496"/>
         <source>Zoom &amp;In</source>
-        <translation>Suurenna fonttikokoa</translation>
+        <translation>Lähe&amp;nnä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1499"/>
@@ -9218,7 +9275,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1511"/>
         <source>Zoom &amp;Out</source>
-        <translation>Pienennä fonttikokoa</translation>
+        <translation>L&amp;oitonna</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1514"/>
@@ -9233,7 +9290,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1526"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
-        <translation>Etsi ja korvaa...</translation>
+        <translation>&amp;Etsi ja korvaa...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1529"/>
@@ -9252,7 +9309,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1543"/>
         <source>Incre&amp;ase Indent</source>
-        <translation>Suurenna sisennystä</translation>
+        <translation>Suurenn&amp;a sisennystä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1546"/>
@@ -9271,7 +9328,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1560"/>
         <source>&amp;Decrease Indent</source>
-        <translation>Pienennä sisennystä</translation>
+        <translation>&amp;Pienennä sisennystä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1563"/>
@@ -9291,7 +9348,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1577"/>
         <source>Te&amp;xt Direction LTR</source>
-        <translation>Tekstin suunta vasemmalta oikealle</translation>
+        <translation>Tek&amp;stin suunta vasemmalta oikealle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1580"/>
@@ -9309,7 +9366,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1593"/>
         <source>T&amp;ext Direction RTL</source>
-        <translation>Tekstin suunta oikealta vasemmalle</translation>
+        <translation>T&amp;ekstin suunta oikealta vasemmalle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1596"/>
@@ -9327,7 +9384,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1609"/>
         <source>Text Directi&amp;on Default</source>
-        <translation>Tekstin suunta periytyvä</translation>
+        <translation>Tekstisuunnan &amp;oletusarvo</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1612"/>
@@ -9345,7 +9402,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1621"/>
         <source>Remove &amp;Formatting</source>
-        <translation>Poista muotoilu</translation>
+        <translation>Poista &amp;muotoilu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1624"/>
@@ -9355,19 +9412,21 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1633"/>
         <source>Remove Tag Pair</source>
-        <translation type="unfinished"/>
+        <translation>Poista tagipari</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1636"/>
         <source>
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Remove Open and Close Tag Pair.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Poista avaus- ja sulkutagipari.&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1647"/>
         <source>&amp;Lowercase</source>
-        <translation>Gemena</translation>
+        <translation>&amp;Gemena</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1650"/>
@@ -9385,12 +9444,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1657"/>
         <source>Ctrl+Alt+L</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+L</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1666"/>
         <source>&amp;Uppercase</source>
-        <translation>Versaali</translation>
+        <translation>&amp;Versaali</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1669"/>
@@ -9408,12 +9467,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1676"/>
         <source>Ctrl+Alt+U</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+U</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1685"/>
         <source>&amp;Titlecase</source>
-        <translation>Sanat versaalialkuisiksi</translation>
+        <translation>O&amp;tsikkokoko</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1688"/>
@@ -9431,7 +9490,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1701"/>
         <source>&amp;Capitalize</source>
-        <translation>Ensimmäinen kirjain versaaliksi</translation>
+        <translation>Iso &amp;alkukirjain</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1704"/>
@@ -9443,7 +9502,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <translation>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ensimmäinen kirjain versaalilla&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muuta valitun tekstin ensimmäinen kirjain isoksi (versaaliksi) ja muut kirjaimet pieniksi (gemenaksi).&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Muuta valitun tekstin ensimmäinen sana isoksi (versaaliksi) ja muut kirjaimet pieniksi (gemenaksi).&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -9454,7 +9513,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1718"/>
         <source>&amp;Next Tab</source>
-        <translation>Seuraava välilehti</translation>
+        <translation>&amp;Seuraava välilehti</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1721"/>
@@ -9464,7 +9523,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1726"/>
         <source>&amp;Previous Tab</source>
-        <translation>Edellinen välilehti</translation>
+        <translation>&amp;Edellinen välilehti</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1729"/>
@@ -9474,7 +9533,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1734"/>
         <source>&amp;Close Tab</source>
-        <translation>Sulje välilehti</translation>
+        <translation>&amp;Sulje välilehti</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1737"/>
@@ -9484,7 +9543,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1742"/>
         <source>Split At &amp;Markers</source>
-        <translation>Jaa jakomerkkien kohdalta</translation>
+        <translation>Jaa &amp;merkkien kohdalta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1745"/>
@@ -9499,7 +9558,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1753"/>
         <source>Split &amp;Marker</source>
-        <translation>Jakomerkki</translation>
+        <translation>Jako&amp;merkki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1756"/>
@@ -9514,7 +9573,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1764"/>
         <source>User &amp;Guide...</source>
-        <translation>Käyttöopas (engl.)</translation>
+        <translation>Käyttö&amp;opas...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1767"/>
@@ -9529,7 +9588,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1775"/>
         <source>&amp;Frequently Asked Questions...</source>
-        <translation>Usein kysyttyä (engl.)...</translation>
+        <translation>&amp;Usein kysyttyä...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1778"/>
@@ -9539,7 +9598,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1783"/>
         <source>&amp;Tutorials...</source>
-        <translation>Oppaita (engl.)...</translation>
+        <translation>&amp;Oppaita...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1786"/>
@@ -9549,7 +9608,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1791"/>
         <source>Well-Formed Check &amp;EPUB</source>
-        <translation>Tarkista EPUBin oikeamuotoisuus</translation>
+        <translation>Tarkista &amp;EPUBin oikeamuotoisuus</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1794"/>
@@ -9564,7 +9623,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1802"/>
         <source>Validate Stylesheets With &amp;W3C</source>
-        <translation>Tarkista tyyliohjeet W3C:n CSS-tarkistimella</translation>
+        <translation>Tarkista tyyliohjeet &amp;W3C:n CSS-tarkistimella</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1805"/>
@@ -9582,7 +9641,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1818"/>
         <source>&amp;Spellcheck...</source>
-        <translation>Oikeinkirjoituksen tarkistus</translation>
+        <translation>&amp;Oikoluku...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1821"/>
@@ -9596,12 +9655,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1826"/>
         <source>Ctrl+Alt+Q</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+Q</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1834"/>
         <source>&amp;Highlight Misspelled Words</source>
-        <translation>Korosta väärin kirjoitetut sanat</translation>
+        <translation>&amp;Korosta väärin kirjoitetut sanat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1837"/>
@@ -9611,7 +9670,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1842"/>
         <source>&amp;Next Misspelled Word</source>
-        <translation>Seuraava väärin kirjoitettu sana</translation>
+        <translation>Seuraava vääri&amp;n kirjoitettu sana</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1845"/>
@@ -9626,7 +9685,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1853"/>
         <source>&amp;Add Misspelled Word</source>
-        <translation>Lisää väärin kirjoitettu sana</translation>
+        <translation>Lisää väärin kirjoitettu s&amp;ana</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1856"/>
@@ -9636,7 +9695,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1861"/>
         <source>&amp;Ignore Misspelled Word</source>
-        <translation>Jätä väärin kirjoitettu sana huomiotta</translation>
+        <translation>Jätä väärin k&amp;irjoitettu sana huomiotta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1864"/>
@@ -9646,7 +9705,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1869"/>
         <source>&amp;Clear Ignored Words</source>
-        <translation>Tyhjennä huomiotta jätettävien sanojen lista</translation>
+        <translation>&amp;Tyhjennä huomiotta jätettävien sanojen lista</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1872"/>
@@ -9656,7 +9715,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1877"/>
         <source>&amp;Index Editor...</source>
-        <translation>Hakemistoeditori</translation>
+        <translation>Hakem&amp;istoeditori...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1885"/>
@@ -9666,17 +9725,17 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1890"/>
         <source>&amp;Delete Unused Media Files...</source>
-        <translation>Poista käyttämättömät mediatiedostot...</translation>
+        <translation>&amp;Poista käyttämättömät mediatiedostot...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1895"/>
         <source>Delete &amp;Unused Stylesheet Selectors...</source>
-        <translation type="unfinished"/>
+        <translation>Poista &amp;käyttämättömät tyylilomakevalitsimet...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1900"/>
         <source>&amp;Reports...</source>
-        <translation>Raportit...</translation>
+        <translation>&amp;Raportit...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1903"/>
@@ -9686,7 +9745,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1912"/>
         <source>&amp;Donate...</source>
-        <translation>Lahjoita...</translation>
+        <translation>&amp;Lahjoita...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1915"/>
@@ -9702,7 +9761,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1923"/>
         <source>Close &amp;Other Tabs</source>
-        <translation>Sulje muut välilehdet</translation>
+        <translation>&amp;Sulje muut välilehdet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1926"/>
@@ -9712,7 +9771,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1931"/>
         <source>Go To &amp;Line...</source>
-        <translation>Siirry riville...</translation>
+        <translation>Siirry rivi&amp;lle...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1934"/>
@@ -9722,7 +9781,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1939"/>
         <source>Find &amp;Next</source>
-        <translation>Etsi seuraava</translation>
+        <translation>Etsi &amp;seuraava</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1942"/>
@@ -9732,7 +9791,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1947"/>
         <source>Find &amp;Previous</source>
-        <translation>Etsi edellinen</translation>
+        <translation>Etsi &amp;edellinen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1950"/>
@@ -9752,7 +9811,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1963"/>
         <source>&amp;Replace/Find Next</source>
-        <translation>Korvaa ja etsi seuraava</translation>
+        <translation>Ko&amp;rvaa ja etsi seuraava</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1966"/>
@@ -9762,7 +9821,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1971"/>
         <source>R&amp;eplace/Find Previous</source>
-        <translation>Korvaa ja etsi edellinen</translation>
+        <translation>Korvaa ja &amp;etsi edellinen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1974"/>
@@ -9772,62 +9831,62 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="1979"/>
         <source>Replace &amp;All</source>
-        <translation>Korvaa kaikki</translation>
+        <translation>Korvaa k&amp;aikki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1982"/>
         <source>Ctrl+Alt+A</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+A</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1987"/>
         <source>&amp;Count All</source>
-        <translation>Laske osumat</translation>
+        <translation>Las&amp;ke kaikki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1990"/>
         <source>Ctrl+Alt+N</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+N</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1995"/>
         <source>Dry Run Replace All</source>
-        <translation type="unfinished"/>
+        <translation>Kuivaharjoittelu - Vaihda kaikki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2000"/>
         <source>Filter Replacements</source>
-        <translation type="unfinished"/>
+        <translation>Suodatinkorvaukset</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2005"/>
         <source>Mar&amp;k Selected Text</source>
-        <translation>Merkitse valittu teksti</translation>
+        <translation>Mer&amp;kitse valittu teksti</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2013"/>
         <source>Find &amp;Next In File</source>
-        <translation>Etsi seuraava tiedostosta</translation>
+        <translation>Etsi &amp;seuraava tiedostosta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2018"/>
         <source>&amp;Replace Next In File</source>
-        <translation>Korvaa ja etsi seuraava tiedostossa</translation>
+        <translation>Korvaa ja etsi &amp;seuraava tiedostossa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2023"/>
         <source>Replace &amp;All In File</source>
-        <translation>Korvaa kaikki tiedostossa</translation>
+        <translation>Korvaa k&amp;aikki tiedostossa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2028"/>
         <source>&amp;Count All In File</source>
-        <translation>Laske osumat tiedostossa</translation>
+        <translation>Las&amp;ke osumat tiedostossa</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2037"/>
         <source>&amp;Saved Searches...</source>
-        <translation>Tallennetut haut...</translation>
+        <translation>&amp;Tallennetut haut...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2040"/>
@@ -9837,7 +9896,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2045"/>
         <source>&amp;Clip Editor...</source>
-        <translation>Leike-editori</translation>
+        <translation>&amp;Leike-editori</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2048"/>
@@ -9847,12 +9906,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2051"/>
         <source>Ctrl+Alt+C</source>
-        <translation>AltGr+C</translation>
+        <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2056"/>
         <source>Clip &amp;1</source>
-        <translation>Leike 1</translation>
+        <translation>Leike &amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2059"/>
@@ -9862,12 +9921,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2062"/>
         <source>Ctrl+Alt+1</source>
-        <translation>AltGr+1</translation>
+        <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2067"/>
         <source>Clip &amp;2</source>
-        <translation>Leike 2</translation>
+        <translation>Leike &amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2070"/>
@@ -9877,12 +9936,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2073"/>
         <source>Ctrl+Alt+2</source>
-        <translation>AltGr+2</translation>
+        <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2078"/>
         <source>Clip &amp;3</source>
-        <translation>Leike 3</translation>
+        <translation>Leike &amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2081"/>
@@ -9892,12 +9951,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2084"/>
         <source>Ctrl+Alt+3</source>
-        <translation>AltGr+3</translation>
+        <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2089"/>
         <source>Clip &amp;4</source>
-        <translation>Leike 4</translation>
+        <translation>Leike &amp;4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2092"/>
@@ -9907,12 +9966,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2095"/>
         <source>Ctrl+Alt+4</source>
-        <translation>AltGr+4</translation>
+        <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2100"/>
         <source>Clip &amp;5</source>
-        <translation>Leike 5</translation>
+        <translation>Leike &amp;5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2103"/>
@@ -9922,12 +9981,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2106"/>
         <source>Ctrl+Alt+5</source>
-        <translation>AltGr+5</translation>
+        <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2111"/>
         <source>Clip &amp;6</source>
-        <translation>Leike 6</translation>
+        <translation>Leike &amp;6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2114"/>
@@ -9937,12 +9996,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2117"/>
         <source>Ctrl+Alt+6</source>
-        <translation>AltGr+6</translation>
+        <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2122"/>
         <source>Clip &amp;7</source>
-        <translation>Leike 7</translation>
+        <translation>Leike &amp;7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2125"/>
@@ -9952,12 +10011,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2128"/>
         <source>Ctrl+Alt+7</source>
-        <translation>AltGr+7</translation>
+        <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2133"/>
         <source>Clip &amp;8</source>
-        <translation>Leike 8</translation>
+        <translation>Leike &amp;8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2136"/>
@@ -9967,12 +10026,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2139"/>
         <source>Ctrl+Alt+8</source>
-        <translation>AltGr+8</translation>
+        <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2144"/>
         <source>Clip &amp;9</source>
-        <translation>Leike 9</translation>
+        <translation>Leike &amp;9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2147"/>
@@ -9982,12 +10041,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2150"/>
         <source>Ctrl+Alt+9</source>
-        <translation>AltGr+9</translation>
+        <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2155"/>
         <source>Clip 1&amp;0</source>
-        <translation>Leike 10</translation>
+        <translation>Leike 1&amp;0</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2158"/>
@@ -9997,7 +10056,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2161"/>
         <source>Ctrl+Alt+0</source>
-        <translation>AltGr+0</translation>
+        <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2166"/>
@@ -10102,207 +10161,207 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2247"/>
         <source>Clip 21</source>
-        <translation type="unfinished"/>
+        <translation>Leike 21</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2250"/>
         <source>Insert Clip 21</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 21</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2255"/>
         <source>Clip 22</source>
-        <translation type="unfinished"/>
+        <translation>Leike 22</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2258"/>
         <source>Insert Clip 22</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 22</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2263"/>
         <source>Clip 23</source>
-        <translation type="unfinished"/>
+        <translation>Leike 23</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2266"/>
         <source>Insert Clip 23</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 23</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2271"/>
         <source>Clip 24</source>
-        <translation type="unfinished"/>
+        <translation>Leike 24</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2274"/>
         <source>Insert Clip 24</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 24</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2279"/>
         <source>Clip 25</source>
-        <translation type="unfinished"/>
+        <translation>Leike 25</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2282"/>
         <source>Insert Clip 25</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 25</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2287"/>
         <source>Clip 26</source>
-        <translation type="unfinished"/>
+        <translation>Leike 26</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2290"/>
         <source>Insert Clip 26</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 26</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2295"/>
         <source>Clip 27</source>
-        <translation type="unfinished"/>
+        <translation>Leike 27</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2298"/>
         <source>Insert Clip 27</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 27</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2303"/>
         <source>Clip 28</source>
-        <translation type="unfinished"/>
+        <translation>Leike 28</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2306"/>
         <source>Insert Clip 28</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 28</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2311"/>
         <source>Clip 29</source>
-        <translation type="unfinished"/>
+        <translation>Leike 29</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2314"/>
         <source>Insert Clip 29</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 29</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2319"/>
         <source>Clip 30</source>
-        <translation type="unfinished"/>
+        <translation>Leike 30</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2322"/>
         <source>Insert Clip 30</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 30</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2327"/>
         <source>Clip 31</source>
-        <translation type="unfinished"/>
+        <translation>Leike 31</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2330"/>
         <source>Insert Clip 31</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 31</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2335"/>
         <source>Clip 32</source>
-        <translation type="unfinished"/>
+        <translation>Leike 32</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2338"/>
         <source>Insert Clip 32</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 32</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2343"/>
         <source>Clip 33</source>
-        <translation type="unfinished"/>
+        <translation>Leike 33</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2346"/>
         <source>Insert Clip 33</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 33</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2351"/>
         <source>Clip 34</source>
-        <translation type="unfinished"/>
+        <translation>Leike 34</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2354"/>
         <source>Insert Clip 34</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 34</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2359"/>
         <source>Clip 35</source>
-        <translation type="unfinished"/>
+        <translation>Leike 35</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2362"/>
         <source>Insert Clip 35</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 35</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2367"/>
         <source>Clip 36</source>
-        <translation type="unfinished"/>
+        <translation>Leike 36</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2370"/>
         <source>Insert Clip 36</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 36</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2375"/>
         <source>Clip 37</source>
-        <translation type="unfinished"/>
+        <translation>Leike 37</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2378"/>
         <source>Insert Clip 37</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 37</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2383"/>
         <source>Clip 38</source>
-        <translation type="unfinished"/>
+        <translation>Leike 38</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2386"/>
         <source>Insert Clip 38</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 38</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2391"/>
         <source>Clip 39</source>
-        <translation type="unfinished"/>
+        <translation>Leike 39</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2394"/>
         <source>Insert Clip 39</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 39</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2399"/>
         <source>Clip 40</source>
-        <translation type="unfinished"/>
+        <translation>Leike 40</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2402"/>
         <source>Insert Clip 40</source>
-        <translation type="unfinished"/>
+        <translation>Liitä leike 40</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2411"/>
         <source>&amp;Preferences...</source>
-        <translation>Asetukset...</translation>
+        <translation>Ase&amp;tukset...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2414"/>
@@ -10312,7 +10371,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2419"/>
         <source>&amp;Zoom Reset</source>
-        <translation>Palauta fonttikoko</translation>
+        <translation>&amp;Zoomin palautus</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2422"/>
@@ -10327,14 +10386,14 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2437"/>
         <source>Heading &amp;1</source>
-        <translation>Otsikko 1</translation>
+        <translation>Otsikko &amp;1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2440"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Otsikko1&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Otsikko 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Tee kappaleesta 1. tason otsikko.&lt;/p&gt;</translation>
     </message>
@@ -10346,7 +10405,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2457"/>
         <source>Heading &amp;2</source>
-        <translation>Otsikko 2</translation>
+        <translation>Otsikko &amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2460"/>
@@ -10365,7 +10424,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2477"/>
         <source>Heading &amp;3</source>
-        <translation>Otsikko 3</translation>
+        <translation>Otsikko &amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2480"/>
@@ -10384,7 +10443,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2497"/>
         <source>Heading &amp;4</source>
-        <translation>Otsikko 4</translation>
+        <translation>Otsikko &amp;4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2500"/>
@@ -10403,7 +10462,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2517"/>
         <source>Heading &amp;5</source>
-        <translation>Otsikko 5</translation>
+        <translation>Otsikko &amp;5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2520"/>
@@ -10422,7 +10481,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2537"/>
         <source>Heading &amp;6</source>
-        <translation>Otsikko 6</translation>
+        <translation>Otsikko &amp;6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2540"/>
@@ -10441,7 +10500,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2557"/>
         <source>&amp;Normal</source>
-        <translation>Normaali</translation>
+        <translation>&amp;Normaali</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2560"/>
@@ -10460,7 +10519,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2573"/>
         <source>&amp;Preserve Existing Attributes</source>
-        <translation>Säilytä olemassaolevat määritteet</translation>
+        <translation>&amp;Säilytä olemassaolevat määritteet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2576"/>
@@ -10504,12 +10563,12 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2611"/>
         <source>Blank Javascript</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjä javascripti</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2614"/>
         <source>Add a new blank javascript to the book.</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kirjaan uusi tyhjä javascripti.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2619"/>
@@ -10524,7 +10583,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2627"/>
         <source>Pre&amp;vious File</source>
-        <translation>Edellinen tiedosto</translation>
+        <translation>&amp;Edellinen tiedosto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2630"/>
@@ -10539,7 +10598,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2638"/>
         <source>Next &amp;File</source>
-        <translation>Seuraava tiedosto</translation>
+        <translation>&amp;Seuraava tiedosto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2641"/>
@@ -10554,7 +10613,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2649"/>
         <source>&amp;Add To Index Editor</source>
-        <translation>Lisää hakemistoeditoriin</translation>
+        <translation>Lisää h&amp;akemistoeditoriin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2656"/>
@@ -10564,7 +10623,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2661"/>
         <source>&amp;Mark For Index</source>
-        <translation>Merkitse hakemistoa varten</translation>
+        <translation>&amp;Merkitse hakemistoa varten</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2668"/>
@@ -10579,7 +10638,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2676"/>
         <source>&amp;Create Index</source>
-        <translation>Luo hakemisto</translation>
+        <translation>&amp;Luo hakemisto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2683"/>
@@ -10589,7 +10648,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2688"/>
         <source>&amp;Create HTML from Table Of Contents</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Luo HTML sisällysluettelosta</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2691"/>
@@ -10599,17 +10658,17 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2696"/>
         <source>Book&amp;mark Location</source>
-        <translation>Tee kirjanmerkki</translation>
+        <translation>Kirjan&amp;merkin sijainti</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2699"/>
         <source>Ctrl+Alt+B</source>
-        <translation>AltGr+B</translation>
+        <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2704"/>
         <source>&amp;Go To Link Or Style</source>
-        <translation>Siirry linkkiin tai tyyliin</translation>
+        <translation>&amp;Siirry linkkiin tai tyyliin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2707"/>
@@ -10619,7 +10678,7 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2716"/>
         <source>&amp;Back</source>
-        <translation>Takaisin</translation>
+        <translation>&amp;Takaisin</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2719"/>
@@ -10635,22 +10694,22 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2725"/>
         <source>Ctrl+\</source>
-        <translation>  ‌</translation>
+        <translation>Ctrl+\</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2730"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
-        <translation>Editoi leikepöydän historiaa t. liitä siitä</translation>
+        <translation>Muokkaa/liitä leikepöydän &amp;historiasta...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2733"/>
         <source>Ctrl+Alt+V</source>
-        <translation>AltGr+V</translation>
+        <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2738"/>
         <source>&amp;Delete Line</source>
-        <translation>Poista rivi</translation>
+        <translation>&amp;Poista rivi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2741"/>
@@ -10660,32 +10719,32 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2750"/>
         <source>Run Automate List 1</source>
-        <translation type="unfinished"/>
+        <translation>Suorita automatisoitu luettelo 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2755"/>
         <source>Edit Automate List 1</source>
-        <translation type="unfinished"/>
+        <translation>Editoi automatisoitua luetteloa 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2764"/>
         <source>Run Automate List 2</source>
-        <translation type="unfinished"/>
+        <translation>Suorita automatisoitu luettelo 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2769"/>
         <source>Edit Automate List 2</source>
-        <translation type="unfinished"/>
+        <translation>Editoi automatisoitua luetteloa 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2778"/>
         <source>Run Automate List 3</source>
-        <translation type="unfinished"/>
+        <translation>Suorita automatisoitu luettelo 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2783"/>
         <source>Edit Automate List 3</source>
-        <translation type="unfinished"/>
+        <translation>Editoi automatisoitua luetteloa 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2788"/>
@@ -10755,395 +10814,396 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
     <message>
         <location filename="../../Form_Files/main.ui" line="2895"/>
         <source>Mend and &amp;Prettify All HTML Files</source>
-        <translation>Korjaa ja siisti kaikki HTML-tiedostot</translation>
+        <translation>Korjaa ja &amp;siisti kaikki HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2900"/>
         <source>&amp;Mend All HTML Files</source>
-        <translation>Siisti kaikki HTML-tiedostot</translation>
+        <translation>&amp;Siisti kaikki HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2905"/>
         <source>&amp;Update Manifest Properties</source>
-        <translation>Päivitä manifestin ominaisuudet</translation>
+        <translation>&amp;Päivitä manifestin ominaisuudet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2910"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
-        <translation type="unfinished"/>
+        <translation>Luo &amp;NCX/opas epub2-lukulaitteita varten</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2915"/>
         <source>Create a Custom Empty Epub</source>
-        <translation type="unfinished"/>
+        <translation>Luo mukautettu tyhjä Epub</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2920"/>
         <source>Remove the NCX and Guide</source>
-        <translation type="unfinished"/>
+        <translation>Poista NCX ja opas</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2929"/>
         <source>Create Checkpoint for Epub</source>
-        <translation type="unfinished"/>
+        <translation>Luo tarkistuspiste Epubille</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2938"/>
         <source>Restore Epub from previous Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Palauta Epub edellisestä tarkistuspisteestä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2947"/>
         <source>Compare Epub against Previous Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Vertaa Epubia edelliseen tarkistuspisteeseen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2956"/>
         <source>Manage Checkpoint Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Hallitse tarkistuspistevarastoja</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2961"/>
         <source>Edit Checkpoint Descriptions</source>
-        <translation type="unfinished"/>
+        <translation>Muokkaa tarkistuspisteiden kuvauksia</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2966"/>
         <source>Show Log of Checkpoints</source>
-        <translation type="unfinished"/>
+        <translation>Näytä tarkistuspisteloki</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="375"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="374"/>
         <source>Automate List Editor cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Luetteloeditorin automatisointi peruutettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="378"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="377"/>
         <source>Automate List edited.</source>
-        <translation type="unfinished"/>
+        <translation>Automaattista luetteloa muokattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="384"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="383"/>
         <source>Error: Automation Already in Use</source>
-        <translation type="unfinished"/>
+        <translation>Virhe: Automaatio on jo käytössä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="390"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="389"/>
         <source>Missing Automation List</source>
-        <translation type="unfinished"/>
+        <translation>Puuttuva automaatioluettelo</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="424"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="423"/>
         <source>running</source>
-        <translation type="unfinished"/>
+        <translation>käynnissä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="482"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="481"/>
         <source>skipped since not an epub3</source>
-        <translation type="unfinished"/>
+        <translation>ohitettu, koska ei ole epub3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="507"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="506"/>
         <source>Missing or unknown Saved Search name</source>
-        <translation type="unfinished"/>
+        <translation>Puuttuva tai tuntematon tallennetun haun nimi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="511"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="510"/>
         <source>Missing or unknown plugin or tool</source>
-        <translation type="unfinished"/>
+        <translation>Puuttuva tai tuntematon lisäosa tai työkalu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="515"/>
         <source>failed</source>
-        <translation type="unfinished"/>
+        <translation>epäonnistui</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="523"/>
+        <source>Validation tool</source>
+        <translation>Validointityökalu</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="524"/>
-        <source>Validation tool</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="525"/>
         <source>found errors</source>
-        <translation type="unfinished"/>
+        <translation>havaitut virheet</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="528"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="527"/>
         <source>Validation tool found errors - Abort or Ignore?</source>
-        <translation type="unfinished"/>
+        <translation>Validointityökalu löysi virheitä - Keskeytetäänkö vai jätetäänkö huomiotta?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="537"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="536"/>
         <source>Aborted due to Validation Errors</source>
-        <translation type="unfinished"/>
+        <translation>Keskeytetty validointivirheiden vuoksi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="539"/>
         <source>Ignored Validation Errors</source>
-        <translation type="unfinished"/>
+        <translation>Huomioimatta jätetyt validointivirheet</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="542"/>
         <source>Validation Tool Reported No Problems Found</source>
-        <translation type="unfinished"/>
+        <translation>Validointityökalu ilmoitti, että ongelmia ei löytynyt</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="550"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="549"/>
         <source>Automation List Failed</source>
-        <translation type="unfinished"/>
+        <translation>Automaatioluettelo epäonnistui</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="552"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="551"/>
         <source>Automation List Completed</source>
-        <translation type="unfinished"/>
+        <translation>Automaatioluettelo valmis</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="554"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="553"/>
         <source>Automate Log</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen loki</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="629"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="628"/>
         <source>Input</source>
         <translation>Syöte</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="635"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="634"/>
         <source>Output</source>
         <translation>Tulosta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="647"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="646"/>
         <source>Validation</source>
         <translation>Validointi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="696"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="709"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="718"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="726"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="803"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1609"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1940"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2175"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2320"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2814"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2910"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2963"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2973"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2992"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3006"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3112"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3128"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="695"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="708"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="717"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1608"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1939"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2174"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2819"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2915"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2968"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2978"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2997"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3011"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3117"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3133"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3146"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3159"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3138"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3151"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3176"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3186"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3181"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3340"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3347"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3363"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3422"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3454"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3653"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4791"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4832"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4838"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4844"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5144"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5164"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5212"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5481"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5685"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3196"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3345"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3352"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3368"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4796"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4837"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4843"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4849"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5106"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5126"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5174"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5443"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5647"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="697"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="696"/>
         <source>Are you sure you want to restructure this epub?
 This action cannot be reversed.</source>
-        <translation type="unfinished"/>
+        <translation>Oletko varma, että haluat muuttaa tämän epubin rakennetta?
+Tätä toimenpidettä ei voi peruuttaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="710"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="719"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="727"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="709"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="726"/>
         <source>Restructure cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Rakenneuudistus peruutettu: %1, XML ei ole hyvin muodostettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="801"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="803"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5210"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5212"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5685"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="800"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5172"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5174"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5645"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5647"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="801"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5210"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="800"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5172"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5645"/>
         <source>Sigil [std]</source>
-        <translation type="unfinished"/>
+        <translation>Sigil [std]</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="805"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="804"/>
         <source>Restructure completed.</source>
-        <translation type="unfinished"/>
+        <translation>Rakenneuudistus toteutettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="918"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="917"/>
         <source>Checkpoint generation failed.</source>
-        <translation type="unfinished"/>
+        <translation>Tarkistuspisteen luominen epäonnistui.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="924"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="923"/>
         <source>Checkpoint saved.</source>
-        <translation type="unfinished"/>
+        <translation>Tarkistuspiste tallennettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="966"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="965"/>
         <source>Checkout Failed. No checkpoints found</source>
-        <translation type="unfinished"/>
+        <translation>Tarkistus epäonnistui. Tarkastuspisteitä ei löytynyt</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="983"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="982"/>
         <source>Checkout Failed. No checkpoint selected</source>
-        <translation type="unfinished"/>
+        <translation>Tarkistus epäonnistui. Tarkistuspistettä ei ole valittu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1012"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1011"/>
         <source>Epub Generate from Tag Failed.</source>
-        <translation type="unfinished"/>
+        <translation>Epub luonti tagista epäonnistui.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1017"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1016"/>
         <source>Epub Generation succeeded</source>
-        <translation type="unfinished"/>
+        <translation>Epub luonti onnistui</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1030"/>
+        <source>Repository Checkout</source>
+        <translation>Varaston tarkistaminen</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1031"/>
-        <source>Repository Checkout</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1032"/>
         <source>Your current book will be replaced losing any unsaved changes ... Are you sure you want to proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Nykyinen kirjasi korvataan ja samalla menetetään kaikki tallentamattomat muutokset ... Haluatko varmasti jatkaa?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1056"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1085"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1055"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1084"/>
         <source>Diff Failed. No checkpoints found</source>
-        <translation type="unfinished"/>
+        <translation>Erotushaku epäonnistui. Tarkistuspisteitä ei löytynyt</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1100"/>
         <source>Diff Failed. No checkpoint selected for comparison</source>
-        <translation type="unfinished"/>
+        <translation>Erotushaku epäonnistui. Vertailupistettä ei ole valittu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1142"/>
         <source>Results of Comparison</source>
-        <translation type="unfinished"/>
+        <translation>Vertailun tulokset</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1142"/>
         <source>No differences were found.</source>
-        <translation type="unfinished"/>
+        <translation>Eroja ei havaittu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1164"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1163"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1183"/>
         <source>Description Edit Failed. No checkpoints found</source>
-        <translation type="unfinished"/>
+        <translation>Kuvauksen editointi epäonnistui. Tarkistuspisteitä ei löytynyt</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1201"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1200"/>
         <source>Description Edit Failed. No checkpoint selected to edit</source>
-        <translation type="unfinished"/>
+        <translation>Kuvauksen editointi epäonnistui. Muokattavaa tarkistuspistettä ei ole valittu</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1217"/>
+        <source>Edit checkpoint Description</source>
+        <translation>Muokkaa tarkistuspisteen kuvausta</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1218"/>
-        <source>Edit checkpoint Description</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1219"/>
         <source>New Checkpoint Description:</source>
-        <translation type="unfinished"/>
+        <translation>Uusi tarkistuspisteen kuvaus:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1235"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1234"/>
         <source>Description Edit Failed for unknown reason</source>
-        <translation type="unfinished"/>
+        <translation>Kuvauksen editointi epäonnistui tuntemattomasta syystä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1241"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1240"/>
         <source>Description edit cancelled or empty</source>
-        <translation type="unfinished"/>
+        <translation>Kuvauksen editointi peruutettu tai tyhjä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1244"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1243"/>
         <source>Description successfully updated</source>
-        <translation type="unfinished"/>
+        <translation>Kuvauksen päivitys onnistui</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1275"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1274"/>
         <source>Repository Log</source>
-        <translation type="unfinished"/>
+        <translation>Säilytysloki</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1302"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1301"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
         <translation>Ulkoista XHTML-editoria ei ole määritelty. Ks. Asetukset-kohtaa,</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1309"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1308"/>
         <source>Specified External Xhtml Editor path does not exist</source>
         <translation>Määritelty ulkoisen XHTML-editorin polku ei toimi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1318"/>
         <source>PageEdit XHtml Editor works only on Html/OPF Resources</source>
-        <translation type="unfinished"/>
+        <translation>Sivun muokkaus XHtml-editorilla toimii vain Html/OPF-resursseissa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1325"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1324"/>
         <source>External XHtml Editor works only on Html Resources</source>
-        <translation type="unfinished"/>
+        <translation>Ulkoinen XHtml-editori toimii vain Html-resursseissa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1366"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1365"/>
         <source>Executing PageEdit Xhtml Editor</source>
-        <translation type="unfinished"/>
+        <translation>Suoritetaan sivun muokkaaminen Xhtml-editorilla</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1379"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1378"/>
         <source>Executing External Xhtml Editor</source>
         <translation>Ulkoinen XHTML-editori käynnistyy</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1383"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1382"/>
         <source>Failed to Launch External Xhtml Editor</source>
         <translation>Ulkoisen XHTML-editorin käynnistys epäonnistui</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1527"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1526"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>Navigointi peruutettu, koska kohdetta ei enää ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1544"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1543"/>
         <source>Location bookmarked.</source>
         <translation>Kohde lisätty kirjanmerkkeihin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1609"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1608"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -11152,438 +11212,438 @@ This action cannot be reversed.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1645"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1644"/>
         <source>was updated</source>
         <translation>päivitettiin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1651"/>
         <source>Warning</source>
         <translation>Varoitus</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1651"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>Tiedosto ei ollut oikeamuotoinen ja voi olla vahingoittunut.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1681"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1680"/>
         <source>Opening this EPUB generated warnings.</source>
         <translation>Tämän EPUB-kirjan avaaminen tuotti varoituksia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1682"/>
         <source>Select Show Details for more information.</source>
         <translation>Valitse ”Näytä yksityiskohdat” saadaksesi lisää tietoa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1806"/>
         <source>Sigil is closing...</source>
         <translation>Sigil suljetaan...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1874"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1873"/>
         <source>New file created.</source>
         <translation>Uusi tiedosto luotu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1899"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1898"/>
         <source>Open File</source>
         <translation>Avaa tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1939"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1938"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Tätä tiedostoa ei enää ole. Napsauta OK-painiketta poistaaksesi sen valikosta.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2017"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2016"/>
         <source>Save File</source>
         <translation>Tallenna tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2071"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2070"/>
         <source>Save a Copy</source>
         <translation>Tallenna kopio</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2110"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2109"/>
         <source>Epub layout discarded.</source>
-        <translation type="unfinished"/>
+        <translation>Epub-asettelu hylätty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2117"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2116"/>
         <source>New epub created.</source>
-        <translation type="unfinished"/>
+        <translation>Luotu uusi epub.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2152"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2151"/>
         <source>Go To Line</source>
         <translation>Siirry riville</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2152"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2151"/>
         <source>Line #</source>
         <translation>Rivi nro</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2175"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2174"/>
         <source>Image does not exist: </source>
         <translation>Kuvaa ei ole:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2235"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2234"/>
         <source>or</source>
         <translation>tai</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2243"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2242"/>
         <source>No CSS styles named</source>
         <translation>Ei nimettyjä CSS-tyylejä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2243"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2242"/>
         <source>found, or stylesheet not linked.</source>
         <translation>löydy, tai tyyliohjetta ei ole linkitetty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2316"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2315"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;Href-määritteen arvoa &lt;b&gt;%1&lt;/b&gt;, joka esiintyy kohteessa &lt;b&gt;%2&lt;/b&gt;, ei ole olemassa (ja tällaisia tapauksia voi olla useita). Näissä oloissa tiedostojen jakaminen tai yhdistäminen voi tuottaa rikkinäisiä linkkejä.&lt;/p&gt;&lt;p&gt;Haluatko silti jatkaa?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2340"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2339"/>
         <source>Add Cover</source>
         <translation>Lisää kansi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2389"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2388"/>
         <source>An existing Cover file has been found.</source>
-        <translation type="unfinished"/>
+        <translation>Olemassa oleva kansitiedosto löydetty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2446"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2451"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Odottamaton virhe. Kantta varten voidaan käyttää vain kuvatiedostoja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2465"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2470"/>
         <source>Cover added.</source>
         <translation>Kansi lisätty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2475"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2493"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2480"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2498"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2530"/>
         <source>Not Available for epub2.</source>
         <translation>Ei käytettävissä Epub2:lle.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2483"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2488"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>OPF-manifestin ominaisuudet päivitetty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2515"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2520"/>
         <source>NCX and Guide removed.</source>
-        <translation type="unfinished"/>
+        <translation>NCX ja Guide poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2542"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2580"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2547"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2585"/>
         <source>NCX and Guide generation failed.</source>
-        <translation type="unfinished"/>
+        <translation>NCX:n ja oppaan luominen epäonnistui.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2618"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2623"/>
         <source>NCX and Guide generated.</source>
-        <translation type="unfinished"/>
+        <translation>NCX ja Guide luotu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2703"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2708"/>
         <source>An existing Index file has been found.</source>
-        <translation type="unfinished"/>
+        <translation>Olemassa oleva hakemistotiedosto löydetty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2795"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2800"/>
         <source>Styles deleted.</source>
         <translation>Tyylit poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2803"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2808"/>
         <source>Reports Being Generated.</source>
-        <translation type="unfinished"/>
+        <translation>Luodut raportit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2814"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2819"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Raporttien tuottaminen peruutettiin, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2910"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2915"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Käyttämättömien mediatiedostojen poisto peruuntui, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2958"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2963"/>
         <source>Unused media files deleted.</source>
         <translation>Käyttämättömät mediatiedostot poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2961"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2966"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2968"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Ei ole käyttämättömiä kuva-, video- tai audiotiedostoja poistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2973"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2978"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Käyttämättömien tyylien poisto peruuntui, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2990"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2995"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2997"/>
         <source>There are no unused stylesheet selectors to delete.</source>
-        <translation type="unfinished"/>
+        <translation>Poistettavia käyttämättömiä tyylilajivalitsimia ei ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3006"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3011"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Et voi liittää tiedostoa tähän kohtaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3018"/>
         <source>Insert File</source>
         <translation>Lisää tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3066"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3071"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Tiedostoa &quot;%1&quot; ei ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3112"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3133"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3117"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3138"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Et voi lisätä tähän paikkaan tunnistetta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3128"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3133"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>Tunniste on virheellinen. Tunnisteen pitää alkaa kirjaimella, ja siinä saa olla kirjaimia, numeroita ja merkkejä ”_:-.”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3146"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3151"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Tähän kohtaan ei voi lisätä linkkiä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3159"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Linkki on virheellinen – ei voi sisältää merkkiä ”&lt;” tai ”&gt;”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3181"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Et voi tehdä hakemistomerkintää tähän kohtaan tai valitsematta tekstiä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3186"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Kohta on virheellinen – ei voi sisältää merkkiä ”&lt;” tai ”&gt;”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3196"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Et voi tehdä hakemistomerkintää tähän kohtaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3258"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3270"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3289"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3275"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
         <source>Select the destination to paste into first.</source>
         <translation>Valitse ensin kohde, johon liitetään.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3278"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3283"/>
         <source>Pasted clip entry %1.</source>
         <translation>Liitettiin leike %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3340"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3345"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Yksi resurssi on valittuna eikä sitä ennen ole resurssia, johon sen voisi yhdistää.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3353"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Oletko varma, että haluat yhdistää valitut tiedostot?
 Tätä toimenpidettä ei voi peruuttaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3363"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3368"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistäminen peruutettu: yhdistämiseen liittyvät XHTML-tiedostot eivät ole hyvin muotoiltuja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3422"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
         <source>Cannot merge file %1</source>
         <translation>Ei voi yhdistää tiedostoa %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3436"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3441"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Yhdistäminen tehty. Sisällysluettelon uudelleen luominen tai muokkaaminen voi olla tarpeellista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3459"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Tyyliohjeiden linkitys peruutettiin: %1, XML ei ole oikeamuotoista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3584"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3589"/>
         <source>Word updated.</source>
         <translation>Sana päivitetty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3653"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3658"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Javascriptien linkitys peruutettu: %1, XML ei ole hyvin muodostettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3768"/>
         <source>File(s) deleted.</source>
         <translation>Tiedosto(ja) poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3774"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Sisällysluettelon muokkaus peruutettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
         <source>Table Of Contents edited.</source>
         <translation>Sisällysluetteloa muokattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3797"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3802"/>
         <source>Generate TOC cancelled.</source>
         <translation>Sisällysluettelon luonti peruutettiin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3822"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3827"/>
         <source>Table Of Contents generated.</source>
         <translation>Sisällysluettelo luotu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3829"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Sisällysluetteloon ei tarvittu muutoksia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3898"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3903"/>
         <source>An existing HTML Table of Contents file has been found.</source>
-        <translation type="unfinished"/>
+        <translation>Olemassa oleva HTML-sisällysluettelotiedosto löydetty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3982"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3987"/>
         <source>Text selection marked.</source>
         <translation>Valittu teksti merkitty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3984"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4002"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3989"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4007"/>
         <source>Text selection unmarked.</source>
         <translation>Valitun tekstin merkitseminen poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4051"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4056"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Metatietoeditorista poistuttiin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4054"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4059"/>
         <source>Metadata edited.</source>
         <translation>Metatietoa editoitiin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4162"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4167"/>
         <source>RunPlugin</source>
         <translation>Lisäosan suoritus</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4188"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4193"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Tämä kirja ei sisällä CSS-tyyliohjeita tarkistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4219"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4224"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
-        <translation type="unfinished"/>
+        <translation>Tämä EPUB ei sisällä CSS-tyylitaulukoita, jotka pitäisi muotoilla uudelleen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4703"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4708"/>
         <source>Line: %1, Col: %2</source>
         <translation>Rivi: %1, sarake: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4791"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4796"/>
         <source>File cannot be split at this position.</source>
         <translation>Tiedostoa ei voida jakaa tästä kohdasta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4814"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4819"/>
         <source>Split completed.</source>
         <translation>Jako suoritettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4832"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4837"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Ei voi jakaa, koska ainakin yksi tiedoista ei ole HTML-tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4838"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4843"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Ei voi jakaa: %1 XML ei ole oikeamuotoista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4844"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4849"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Ei voi jakaa, koska ainakin yksi tiedoista ei ehkä ole HTML-tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4877"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4882"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Jako tehty. Sisällysluettelon uudelleen luominen voi olla tarpeellista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4879"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4884"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Jakokohtamerkintöjä ei löytynyt. Käytä komentoa Lisää → Jakokohta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5145"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5107"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokumenttia on muutettu.
 Haluatko tallentaa muutoksesi?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5166"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5128"/>
         <source>Should Sigil overwrite this file?</source>
-        <translation type="unfinished"/>
+        <translation>Pitäisikö Sigilin korvata tämä tiedosto?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5352"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5314"/>
         <source>No importer for file type: %1</source>
         <translation>Ei tuontiohjelmaa tyyppiä ”%1” olevalle tiedostolle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5359"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5321"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -11596,108 +11656,110 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Kokeile, auttaako tähän se, että teet yleisissä asetuksissa asetuksen ”Korjaa XHTML-lähdekoodi, kun toiminto on Avaa” ja avaat tiedoston uudestaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5364"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5326"/>
         <source>Loading file...</source>
         <translation>Ladataan tiedostoa...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5378"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5340"/>
         <source>File loaded.</source>
         <translation>Tiedosto ladattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5406"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5368"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Tämän tiedoston tuottaja on salannut sen DRM:llä. Sigil ei voi avata sellaisia tiedostoja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5376"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Kirjaa ei voi ladata: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5381"/>
         <source>Cannot load file %1: %2</source>
         <translation>Ei voi ladata tiedostoa %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5448"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5410"/>
         <source>Saving EPUB...</source>
         <translation>Kirjaa tallennetaan...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5457"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5419"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil ei voi tallentaa tyyppiä ”%1” olevia tiedostoja.
 Valitse toinen muoto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5482"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5444"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in some data loss.
 
 Do you want to automatically mend the files before saving?</source>
-        <translation type="unfinished"/>
+        <translation>Tässä EPUB:ssa on HTML-tiedostoja, jotka eivät ole hyvin muotoiltuja, ja nykyiset puhtaan lähdekoodin asetuksesi korjataan automaattisesti tallennuksen yhteydessä. Jos tallennat huonosti muotoillun tiedoston, se korjataan automaattisesti, mikä saattaa hyvin harvoin johtaa tietojen menetykseen.
+
+Haluatko korjata tiedostot automaattisesti ennen tallennusta?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5511"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5473"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>Kirja on tallennettu, mutta kaikki HTML-tiedostot eivät ole oikeamuotoisia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5475"/>
         <source>EPUB saved.</source>
         <translation>Kirja tallennettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5519"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5481"/>
         <source>Cannot save file %1: %2</source>
         <translation>Ei voi tallentaa tiedostoa %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5614"/>
         <source>EPUB files (*.epub)</source>
         <translation>Epub-tiedostot (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5653"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5654"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5655"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5615"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5616"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5617"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML-tiedostot (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5618"/>
         <source>Text files (*.txt)</source>
         <translation>Tekstitiedostot (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5657"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
         <source>All files (*.*)</source>
         <translation>Kaikki tiedostot (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5665"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5627"/>
         <source>EPUB file (*.epub)</source>
         <translation>Epub-tiedosto (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5725"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Säilytä olemassaolevat otsikoiden määritteet on nyt:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5764"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5726"/>
         <source>ON</source>
-        <translation>käytössä</translation>
+        <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5764"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5726"/>
         <source>OFF</source>
-        <translation>ei käytössä</translation>
+        <translation>EI</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5789"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5751"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -11707,17 +11769,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="14"/>
         <source>Manage Checkpoint Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Hallitse tarkistuspistevarastoja</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="22"/>
         <source>Checkpoint Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Tarkistuspistevarastot</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="69"/>
         <source>ePub FileName</source>
-        <translation type="unfinished"/>
+        <translation>ePub tiedostonimi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="74"/>
@@ -11727,7 +11789,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="79"/>
         <source>Modified</source>
-        <translation type="unfinished"/>
+        <translation>Muokattu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="84"/>
@@ -11737,12 +11799,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="89"/>
         <source>ePub:UUID</source>
-        <translation type="unfinished"/>
+        <translation>ePub:UUID</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="112"/>
         <source>Show Log</source>
-        <translation type="unfinished"/>
+        <translation>Näytä loki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="120"/>
@@ -11763,17 +11825,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="170"/>
         <source>Repository Log</source>
-        <translation type="unfinished"/>
+        <translation>Säilytysloki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="205"/>
         <source>Remove All Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Poista kaikki tietovarastot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="206"/>
         <source>Are you sure sure you want to remove all checkpoint repositories?</source>
-        <translation type="unfinished"/>
+        <translation>Oletko varma, että haluat poistaa kaikki tarkistuspistevarastot?</translation>
     </message>
 </context>
 <context>
@@ -12301,7 +12363,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Complainant-appellant</source>
-        <translation>Complainant-appellant</translation>
+        <translation>Kantelija-valittaja</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
@@ -12477,7 +12539,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
-        <translation>Käytä henkilölle tai organisaatiolle, joka on ilmoitettu tekijänoikeuden haltijaksi rekisteröintihetkellä.</translation>
+        <translation>Käyttö rekisteröintihetkellä tekijänoikeuden omistajaksi ilmoitetulle henkilölle tai organisaatiolle. Tekijänoikeus voidaan myöntää tai myöhemmin siirtää toiselle henkilölle tai organisaatiolle, jolloin hakijasta tulee tekijänoikeuden haltija.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
@@ -14493,7 +14555,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="169"/>
         <source>Use OK to commit your metadata changes to the epub, otherwise use Cancel.</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista metatietomuutokset epubiin käyttämällä OK, muuten Peruuta.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="83"/>
@@ -14533,7 +14595,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="446"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
         <source>[Amazon ASIN here]</source>
-        <translation type="unfinished"/>
+        <translation>[Amazon ASIN tähän]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="462"/>
@@ -14560,7 +14622,7 @@ Do you want to automatically mend the files before saving?</source>
         <location filename="../../Dialogs/MetaEditor.cpp" line="648"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="692"/>
         <source>[Value here]</source>
-        <translation type="unfinished"/>
+        <translation>[Arvo tähän]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="480"/>
@@ -14584,12 +14646,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="643"/>
         <source>[Insert identifier type here]</source>
-        <translation type="unfinished"/>
+        <translation>[Lisää tunnisteen tyyppi tähän]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="645"/>
         <source>[Insert scheme type here]</source>
-        <translation type="unfinished"/>
+        <translation>[Lisää järjestelmän tyyppi tähän]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="647"/>
@@ -14674,7 +14736,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="858"/>
         <source>Date Published</source>
-        <translation type="unfinished"/>
+        <translation>Julkaisupäivä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="858"/>
@@ -14685,7 +14747,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="859"/>
         <source>Date Created</source>
-        <translation type="unfinished"/>
+        <translation>Luontiajankohta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="859"/>
@@ -14696,7 +14758,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="860"/>
         <source>Date Modified</source>
-        <translation type="unfinished"/>
+        <translation>Muokkauspäivä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="860"/>
@@ -14752,7 +14814,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
         <source>Related To</source>
-        <translation type="unfinished"/>
+        <translation>Liittyen </translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
@@ -14793,7 +14855,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation type="unfinished"/>
+        <translation>Edustaa EPUB-julkaisun sisällön luomisesta vastaavan henkilön, organisaation jne. nimeä. Elementtiin voidaan liittää rooli-ominaisuus (Role) osoittamaan, mikä tehtävä luojalla oli sisällön luomisessa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
@@ -14804,12 +14866,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation type="unfinished"/>
+        <translation>Edustaa sellaisen henkilön, organisaation tms. nimeä, jolla oli toissijainen rooli EPUB-julkaisun sisällön luomisessa. Elementtiin voidaan liittää rooli-ominaisuus (Role) osoittamaan, mikä tehtävä luojalla oli sisällön luomisessa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
         <source>Belongs to a Collection</source>
-        <translation type="unfinished"/>
+        <translation>Kuuluu kokoelmaan</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
@@ -14835,7 +14897,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
         <source>Digital Object Identifier associated with this publication.</source>
-        <translation type="unfinished"/>
+        <translation>Tähän julkaisuun liittyvä digitaalisen objektin tunniste.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
@@ -14845,7 +14907,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
         <source>International Standard Book Number associated with this publication.</source>
-        <translation type="unfinished"/>
+        <translation>Tähän julkaisuun liittyvä kansainvälinen vakiokirjanumero.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
@@ -14855,7 +14917,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
         <source>International Standard Serial Number associated with this publication.</source>
-        <translation type="unfinished"/>
+        <translation>Tähän julkaisuun liittyvä kansainvälinen sarjanumero.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
@@ -14865,17 +14927,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
         <source>A Universally Unique Identifier generated for this publication.</source>
-        <translation type="unfinished"/>
+        <translation>Tätä julkaisua varten luotu universaalisti yksilöllinen tunniste.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
         <source>Identifier: ASIN</source>
-        <translation type="unfinished"/>
+        <translation>Tunniste: ASIN</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
         <source>An Amazon Standard Identification Number associated with this publication.</source>
-        <translation type="unfinished"/>
+        <translation>Tähän julkaisuun liittyvä Amazonin vakiomuotoinen tunnistenumero.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
@@ -14896,12 +14958,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
         <source>Meta Element (primary)</source>
-        <translation type="unfinished"/>
+        <translation>Metaelementti (ensisijainen)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
         <source>An empty primary metadata element you can modify.</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjä ensisijainen metatietoelementti, jota voit muokata.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="905"/>
@@ -14924,12 +14986,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="906"/>
         <source>Optional, language specifying attribute.  Uses same codes as Language. Not for use with Language, Date, or Identifier metadata elements.</source>
-        <translation type="unfinished"/>
+        <translation>Valinnainen, kielen määrittelevä määrite. Käyttää samoja koodeja kuin kieli. Ei käytettäväksi kieli-, päivämäärä- tai tunniste-metatietoelementtien kanssa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="907"/>
         <source>Uses Right To Left Text</source>
-        <translation type="unfinished"/>
+        <translation>Käyttää oikealta vasemmalle tekstiä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="907"/>
@@ -14939,7 +15001,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="908"/>
         <source>Uses Left to Right Text</source>
-        <translation type="unfinished"/>
+        <translation>Käyttää vasemmalta oikealle tekstiä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="908"/>
@@ -14949,7 +15011,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="909"/>
         <source>Title: Main Title</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko: Pääotsikko</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="909"/>
@@ -14959,7 +15021,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="910"/>
         <source>Title: Subtitle</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko: Alaotsikko</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="910"/>
@@ -14969,7 +15031,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="911"/>
         <source>Title: Short Title</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko: Lyhyt nimi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="911"/>
@@ -14979,7 +15041,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
         <source>Title: Collection Title</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko: Kokoelman nimi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
@@ -14989,7 +15051,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
         <source>Title: Edition Title</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko: Painoksen nimi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
@@ -14999,7 +15061,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
         <source>Title: Expanded Title</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko: Laajennettu nimi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
@@ -15014,7 +15076,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an xml:lang attribute.</source>
-        <translation type="unfinished"/>
+        <translation>Tarjoaa liittyvän ominaisuuden arvon vaihtoehtoisen ilmaisun xml:lang-attribuutin määrittelemällä kielellä ja komentosarjalla.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
@@ -15029,7 +15091,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
         <source>Collection is a Set</source>
-        <translation type="unfinished"/>
+        <translation>Kokoelma on joukko</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
@@ -15039,7 +15101,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
         <source>Collection is a Series</source>
-        <translation type="unfinished"/>
+        <translation>Kokoelma on sarja</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
@@ -15071,7 +15133,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
         <source>Position In Group</source>
-        <translation type="unfinished"/>
+        <translation>Sijainti ryhmässä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
@@ -15109,7 +15171,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
         <source>This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
-        <translation type="unfinished"/>
+        <translation>Tämä attribuutti lisätään yleensä tunnisteeseen, lähteeseen, tekijään tai tekijöihin, jotta voidaan osoittaa käytetty valvottu sanastojärjestelmä. (esim. marc:relators määrittelemään kelvollisia arvoja rooliominaisuudelle).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
@@ -15134,131 +15196,131 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="954"/>
         <source>Optional text direction attribute for this metadata item.</source>
-        <translation type="unfinished"/>
+        <translation>Valinnainen tekstin suunta -attribuutti tälle metatietoelementille.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="955"/>
         <source>Title Type</source>
-        <translation type="unfinished"/>
+        <translation>Otsikkotyyppi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="955"/>
         <source>Indicates the kind or type of the title</source>
-        <translation type="unfinished"/>
+        <translation>Osoittaa otsikon lajin tai tyypin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="956"/>
         <source>Collection Type</source>
-        <translation type="unfinished"/>
+        <translation>Kokoelman tyyppi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="956"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection.</source>
-        <translation type="unfinished"/>
+        <translation>Ominaisuus, jota käytetään belongs-to-collectionin kanssa. Ilmaisee kokoelman muodon tai luonteen.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="957"/>
         <source>Source of</source>
-        <translation type="unfinished"/>
+        <translation>Lähde</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="957"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.</source>
-        <translation type="unfinished"/>
+        <translation>Ilmaisee mukautetun lähderesurssin ainutlaatuisen ominaisuuden, joka on säilytetty EPUB-julkaisun kyseisessä versiossa.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
         <source>Published</source>
-        <translation type="unfinished"/>
+        <translation>Julkaistu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
         <source>Event Type is Published.</source>
-        <translation type="unfinished"/>
+        <translation>Tapahtuman tyyppi on julkaistu.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
         <source>Publication</source>
-        <translation type="unfinished"/>
+        <translation>Julkaisu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
         <source>Event Type is Publication.</source>
-        <translation type="unfinished"/>
+        <translation>Tapahtuman tyyppi on julkaisu.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="986"/>
         <source>Creation</source>
-        <translation type="unfinished"/>
+        <translation>Luominen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="986"/>
         <source>Event Type is Creation.</source>
-        <translation type="unfinished"/>
+        <translation>Tapahtuman tyyppi on luominen.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="987"/>
         <source>Modification</source>
-        <translation type="unfinished"/>
+        <translation>Muokkaus</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="987"/>
         <source>Event Type is Modification.</source>
-        <translation type="unfinished"/>
+        <translation>Tapahtuman tyyppi on muuttaminen.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="988"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
         <source>Digital Object Identifier</source>
-        <translation>Digital Object Identifier</translation>
+        <translation>Digitaalisen objektin tunniste</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="988"/>
         <source>Identifier Scheme: Digital Object Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Tunnusjärjestelmä: Digitaalinen objektitunniste</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="989"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
         <source>International Standard Book Number</source>
-        <translation>International Standard Book Number</translation>
+        <translation>Kansainvälinen standardikirjanumero</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="989"/>
         <source>Identifier Scheme: International Standard Book Number</source>
-        <translation type="unfinished"/>
+        <translation>Tunnusjärjestelmä: Kansainvälinen vakiokirjanumero</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="990"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
         <source>International Standard Serial Number</source>
-        <translation>International Standard Serial Number</translation>
+        <translation>Kansainvälinen standardisarjanumero</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="990"/>
         <source>Identifier Scheme: International Standard Serial Number</source>
-        <translation type="unfinished"/>
+        <translation>Tunnusjärjestelmä: Kansainvälinen vakiosarjanumero</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
         <source>Universally Unique Identifier</source>
-        <translation>Universally Unique Identifier</translation>
+        <translation>Yleismaailmallisesti yksilöllinen tunniste</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
         <source>Identifier Scheme: Universally Unique Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Tunnusjärjestelmä: Yleismaailmallisesti yksilöllinen tunniste</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
         <source>Amazon Unique Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Amazonin yksilöllinen tunniste</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
         <source>Identifier Scheme: Amazon Unique Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Tunnusjärjestelmä: Amazonin yksilöllinen tunniste</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
@@ -15283,7 +15345,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
         <source>A date associated with this epub, typically refined by event type information</source>
-        <translation type="unfinished"/>
+        <translation>Tähän epubiin liittyvä päivämäärä, jota tyypillisesti tarkennetaan tapahtumatyyppitiedoilla.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
@@ -15332,12 +15394,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
         <source>Amazon Standard Identification Number</source>
-        <translation type="unfinished"/>
+        <translation>Amazonin vakiomuotoinen tunnistenumero</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
         <source>A custom identifier</source>
-        <translation type="unfinished"/>
+        <translation>Mukautettu tunniste</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
@@ -15367,12 +15429,12 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
-        <translation type="unfinished"/>
+        <translation>E-kirjan otsikon versio, jota käytetään lajittelussa (Calibresta).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
         <source>An empty element for you to modify</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjä elementti, jota voit muokata</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1075"/>
@@ -15382,17 +15444,17 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1078"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.</source>
-        <translation type="unfinished"/>
+        <translation>Tämä attribuutti lisätään yleensä dc:identifieriin osoittamaan käytettävän tunnisteen tyyppi: DOI, ISBN, ISSN, UUID tai AMAZON.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1079"/>
         <source>Custom Scheme</source>
-        <translation type="unfinished"/>
+        <translation>Mukautettu järjestelmä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1079"/>
         <source>This attribute is typically added to dc:identifier to indicate that a custom identifier scheme is being used.</source>
-        <translation type="unfinished"/>
+        <translation>Tämä attribuutti lisätään yleensä dc:identifieriin osoittamaan, että käytetään mukautettua tunnistejärjestelmää.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1080"/>
@@ -15424,57 +15486,57 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Widgets/Navigator.h" line="48"/>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>Vasen</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="49"/>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>Oikea</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="55"/>
         <source>Go to previous change - [p]</source>
-        <translation type="unfinished"/>
+        <translation>Siirry edelliseen muutokseen - [p]</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="61"/>
         <source>Go to next change - [n]</source>
-        <translation type="unfinished"/>
+        <translation>Siirry seuraavaan muutokseen - [n]</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="67"/>
         <source>Search ...</source>
-        <translation type="unfinished"/>
+        <translation>Haku...</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="71"/>
         <source>Find Next</source>
-        <translation type="unfinished"/>
+        <translation>Etsi seuraava</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="77"/>
         <source>Find Previous</source>
-        <translation type="unfinished"/>
+        <translation>Etsi edellinen</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="82"/>
         <source>Use Left Panel</source>
-        <translation type="unfinished"/>
+        <translation>Käytä vasenta paneelia</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="85"/>
         <source>Use Right Panel</source>
-        <translation type="unfinished"/>
+        <translation>Käytä oikeaa paneelia</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="90"/>
         <source>Close this window</source>
-        <translation type="unfinished"/>
+        <translation>Sulje tämä ikkuna</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="91"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Valmis</translation>
     </message>
 </context>
 <context>
@@ -15482,68 +15544,69 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Widgets/Navigator2.h" line="53"/>
         <source>Go to previous page - [p]</source>
-        <translation type="unfinished"/>
+        <translation>Siirry edelliselle sivulle - [p]</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator2.h" line="60"/>
         <source>Go to next page - [n]</source>
-        <translation type="unfinished"/>
+        <translation>Siirry seuraavalle sivulle - [n]</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator2.h" line="67"/>
         <source>Search ...</source>
-        <translation type="unfinished"/>
+        <translation>Haku...</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator2.h" line="72"/>
         <source>Find Next</source>
-        <translation type="unfinished"/>
+        <translation>Etsi seuraava</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator2.h" line="79"/>
         <source>Find Previous</source>
-        <translation type="unfinished"/>
+        <translation>Etsi edellinen</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator2.h" line="85"/>
         <source>Close this window</source>
-        <translation type="unfinished"/>
+        <translation>Sulje tämä ikkuna</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator2.h" line="86"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Valmis</translation>
     </message>
 </context>
 <context>
     <name>OPFModel</name>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="713"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="720"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
         <translation>Tiedostonimi ei voi sisältää merkkiä ”%1”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="724"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="731"/>
         <source>The filename cannot be empty.</source>
         <translation>Tiedostonimi ei voi olla tyhjä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="736"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="743"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
         <translation>Tiedostonimi ”%1” on jo käytössä.
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="748"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="755"/>
         <source>The book path cannot be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Kirjapolku ei voi olla tyhjä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="755"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="762"/>
         <source>That book path &quot;%1&quot; is already in use.
 </source>
-        <translation type="unfinished"/>
+        <translation>Tämä kirjapolku &quot;%1&quot; on jo käytössä.
+</translation>
     </message>
 </context>
 <context>
@@ -15592,502 +15655,502 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="59"/>
         <source>no error</source>
-        <translation type="unfinished"/>
+        <translation>ei virheitä</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="60"/>
         <source>\ at end of pattern</source>
-        <translation type="unfinished"/>
+        <translation>\ mallin lopussa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="61"/>
         <source>\c at end of pattern</source>
-        <translation type="unfinished"/>
+        <translation>\c mallin lopussa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="62"/>
         <source>unrecognized character follows \</source>
-        <translation type="unfinished"/>
+        <translation>tunnistamatonta merkkiä seuraa \</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="63"/>
         <source>numbers out of order in {} quantifier</source>
-        <translation type="unfinished"/>
+        <translation>numerot epäjärjestyksessä {}-kvantifikaattorissa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="65"/>
         <source>number too big in {} quantifier</source>
-        <translation type="unfinished"/>
+        <translation>numero liian suuri {}-kvantifikaattorissa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="66"/>
         <source>missing terminating ] for character class</source>
-        <translation type="unfinished"/>
+        <translation>puuttuu päättävä ] merkkiluokassa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="67"/>
         <source>escape sequence is invalid in character class</source>
-        <translation type="unfinished"/>
+        <translation>escape-sekvenssi on virheellinen merkkiluokassa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="68"/>
         <source>range out of order in character class</source>
-        <translation type="unfinished"/>
+        <translation>alue merkkiluokassa ei ole järjestyksessä</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="69"/>
         <source>quantifier does not follow a repeatable item</source>
-        <translation type="unfinished"/>
+        <translation>kvantifikaattori ei seuraa toistettavaa kohtaa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="72"/>
         <source>internal error: unexpected repeat</source>
-        <translation type="unfinished"/>
+        <translation>sisäinen virhe: odottamaton toisto</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="73"/>
         <source>unrecognized character after (? or (?-</source>
-        <translation type="unfinished"/>
+        <translation>tunnistamaton merkki (? tai (?- jälkeen.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="74"/>
         <source>POSIX named classes are supported only within a class</source>
-        <translation type="unfinished"/>
+        <translation>POSIX-nimisiä luokkia tuetaan vain luokan sisällä.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="75"/>
         <source>POSIX collating elements are not supported</source>
-        <translation type="unfinished"/>
+        <translation>POSIX-lajitteluelementtejä ei tueta</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="76"/>
         <source>missing closing parenthesis</source>
-        <translation type="unfinished"/>
+        <translation>puuttuu sulkeva sulku</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="79"/>
         <source>reference to non-existent subpattern</source>
-        <translation type="unfinished"/>
+        <translation>viittaus olemattomaan alamalliin</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="80"/>
         <source>pattern passed as NULL</source>
-        <translation type="unfinished"/>
+        <translation>malli välitetty NULL:na</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="81"/>
         <source>unrecognised compile-time option bit(s)</source>
-        <translation type="unfinished"/>
+        <translation>tunnistamaton kääntämisaikainen optiobitti(t)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="82"/>
         <source>missing ) after (?# comment</source>
-        <translation type="unfinished"/>
+        <translation>puuttuva ) (?# kommentin jälkeen</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="83"/>
         <source>parentheses are too deeply nested</source>
-        <translation type="unfinished"/>
+        <translation>sulut ovat liian syvällä sisäkkäin</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="86"/>
         <source>regular expression is too large</source>
-        <translation type="unfinished"/>
+        <translation>säännöllinen lauseke on liian suuri</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="87"/>
         <source>failed to allocate heap memory</source>
-        <translation type="unfinished"/>
+        <translation>heap-muistia ei onnistuttu varaamaan </translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="88"/>
         <source>unmatched closing parenthesis</source>
-        <translation type="unfinished"/>
+        <translation>yhteensopimaton sulkeva sulku</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="89"/>
         <source>internal error: code overflow</source>
-        <translation type="unfinished"/>
+        <translation>sisäinen virhe: koodin ylivuoto</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="90"/>
         <source>missing closing parenthesis for condition</source>
-        <translation type="unfinished"/>
+        <translation>ehdon sulkeva sulkumerkki puuttuu</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="93"/>
         <source>lookbehind assertion is not fixed length</source>
-        <translation type="unfinished"/>
+        <translation>lookbehind-väite ei ole kiinteän pituinen.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="94"/>
         <source>a relative value of zero is not allowed</source>
-        <translation type="unfinished"/>
+        <translation>suhteellinen arvo nolla ei ole sallittu</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="95"/>
         <source>conditional subpattern contains more than two branches</source>
-        <translation type="unfinished"/>
+        <translation>ehdollinen alamalli sisältää enemmän kuin kaksi haaraa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="96"/>
         <source>assertion expected after (?( or (?(?C)</source>
-        <translation type="unfinished"/>
+        <translation>väite odotettavissa (?( tai (?(?C) jälkeen</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="97"/>
         <source>digit expected after (?+ or (?-<byte value="x0"/></source>
-        <translation type="unfinished"/>
+        <translation>numeroa odotetaan jälkeen (?+ or (?-&lt;byte value=&quot;x0&quot;/&gt;</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="100"/>
         <source>unknown POSIX class name</source>
-        <translation type="unfinished"/>
+        <translation>tuntematon POSIX-luokan nimi</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="101"/>
         <source>internal error in pcre2_study(): should not occur</source>
-        <translation type="unfinished"/>
+        <translation>pcre2_study():n sisäinen virhe: ei pitäisi tapahtua</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="102"/>
         <source>this version of PCRE2 does not have Unicode support</source>
-        <translation type="unfinished"/>
+        <translation>tässä PCRE2-versiossa ei ole Unicode-tukea.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="103"/>
         <source>parentheses are too deeply nested (stack check)</source>
-        <translation type="unfinished"/>
+        <translation>sulut ovat liian syvällä sisäkkäin (pinon tarkistus)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="104"/>
         <source>character code point value in \x{} or \o{} is too large</source>
-        <translation type="unfinished"/>
+        <translation>merkkikoodin pistearvo kohdassa \x{} tai \o{} on liian suuri</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="107"/>
         <source>lookbehind is too complicated</source>
-        <translation type="unfinished"/>
+        <translation>lookbehind on liian monimutkainen</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="108"/>
         <source>\C is not allowed in a lookbehind assertion in UTF-16 mode</source>
-        <translation type="unfinished"/>
+        <translation>\C ei ole sallittu lookbehind-vakuutuksessa UTF-16-tilassa.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="109"/>
         <source>PCRE2 does not support \F, \L, \l, \N{name}, \U, or \u</source>
-        <translation type="unfinished"/>
+        <translation>PCRE2 ei tue \F, \L, \l, \N{name}, \U tai \u.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="110"/>
         <source>number after (?C is greater than 255</source>
-        <translation type="unfinished"/>
+        <translation>(?C:n jälkeinen luku on suurempi kuin 255</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="111"/>
         <source>closing parenthesis for (?C expected</source>
-        <translation type="unfinished"/>
+        <translation>sulkevaa sulkua (?C odotetaan</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="114"/>
         <source>invalid escape sequence in (*VERB) name</source>
-        <translation type="unfinished"/>
+        <translation>virheellinen escape-sekvenssi (*VERB) nimessä</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="115"/>
         <source>unrecognized character after (?P</source>
-        <translation type="unfinished"/>
+        <translation>tunnistamaton merkki (?P jälkeen</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="116"/>
         <source>syntax error in subpattern name (missing terminator?)</source>
-        <translation type="unfinished"/>
+        <translation>syntaksivirhe osamallin nimessä (puuttuva lopetusmerkki?)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="117"/>
         <source>two named subpatterns have the same name (PCRE2_DUPNAMES not set)</source>
-        <translation type="unfinished"/>
+        <translation>kahdella nimetyllä alimallilla on sama nimi (PCRE2_DUPNAMES ei ole asetettu).</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="118"/>
         <source>subpattern name must start with a non-digit</source>
-        <translation type="unfinished"/>
+        <translation>alamallin nimen on alettava muulla kuin numerolla.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="121"/>
         <source>this version of PCRE2 does not have support for \P, \p, or \X</source>
-        <translation type="unfinished"/>
+        <translation>tämä PCRE2-versio ei tue merkkejä \P, \p tai \X</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="122"/>
         <source>malformed \P or \p sequence</source>
-        <translation type="unfinished"/>
+        <translation>muotovirheellinen \P- tai \p-sekvenssi</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="123"/>
         <source>unknown property name after \P or \p</source>
-        <translation type="unfinished"/>
+        <translation>tuntematon ominaisuuden nimi \P:n tai \p:n jälkeen</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="124"/>
         <source>subpattern name is too long (maximum 32 code units)</source>
-        <translation type="unfinished"/>
+        <translation>alamallin nimi on liian pitkä (enintään 32 koodiyksikköä).</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="125"/>
         <source>too many named subpatterns (maximum 10000)</source>
-        <translation type="unfinished"/>
+        <translation>liikaa nimettyjä alamalleja (enintään 10000)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="128"/>
         <source>invalid range in character class</source>
-        <translation type="unfinished"/>
+        <translation>virheellinen alue merkkiluokassa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="129"/>
         <source>octal value is greater than \377 in 8-bit non-UTF-8 mode</source>
-        <translation type="unfinished"/>
+        <translation>oktaaliarvo on suurempi kuin \377 8-bittisessä ei-UTF-8-tilassa.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="130"/>
         <source>internal error: overran compiling workspace</source>
-        <translation type="unfinished"/>
+        <translation>sisäinen virhe: työtilan käännös ylittyi</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="131"/>
         <source>internal error: previously-checked referenced subpattern not found</source>
-        <translation type="unfinished"/>
+        <translation>sisäinen virhe: aiemmin tarkistettua viitattua alamallia ei löydy.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="132"/>
         <source>DEFINE subpattern contains more than one branch</source>
-        <translation type="unfinished"/>
+        <translation>DEFINE-alamalli sisältää useamman kuin yhden haaran.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="135"/>
         <source>missing opening brace after \o</source>
-        <translation type="unfinished"/>
+        <translation>puuttuva avaussulku \o:n jälkeen</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="136"/>
         <source>internal error: unknown newline setting</source>
-        <translation type="unfinished"/>
+        <translation>sisäinen virhe: tuntematon rivinvaihtoasetus</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="137"/>
         <source>\g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number</source>
-        <translation type="unfinished"/>
+        <translation>\g:n perässä ei ole aaltosulkuinen, kulmasulkuinen tai lainausmerkkinen nimi/numero tai pelkkä numero</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="138"/>
         <source>(?R (recursive pattern call) must be followed by a closing parenthesis</source>
-        <translation type="unfinished"/>
+        <translation>(?R (rekursiivinen mallikutsu) on seurattava sulkevan sulkumerkin jälkeen</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="139"/>
         <source>obsolete error (should not occur)</source>
-        <translation type="unfinished"/>
+        <translation>tarpeeton virhe (ei pitäisi esiintyä)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="142"/>
         <source>(*VERB) not recognized or malformed</source>
-        <translation type="unfinished"/>
+        <translation>(*VERB) ei tunnistettu tai muotoiltu väärin</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="143"/>
         <source>subpattern number is too big</source>
-        <translation type="unfinished"/>
+        <translation>alamallinumero on liian suuri</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="144"/>
         <source>subpattern name expected</source>
-        <translation type="unfinished"/>
+        <translation>alamallin nimi odotettu</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="145"/>
         <source>internal error: parsed pattern overflow</source>
-        <translation type="unfinished"/>
+        <translation>sisäinen virhe: jäsennelty kuvio ylivuotaa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="146"/>
         <source>non-octal character in \o{} (closing brace missing?)</source>
-        <translation type="unfinished"/>
+        <translation>\o{}:ssä ei-oktaalinen merkki (sulkeutuva sulku puuttuu?)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="149"/>
         <source>different names for subpatterns of the same number are not allowed</source>
-        <translation type="unfinished"/>
+        <translation>saman numeron alamallien eri nimet eivät ole sallittuja</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="150"/>
         <source>(*MARK) must have an argument</source>
-        <translation type="unfinished"/>
+        <translation>(*MARK):lla on oltava argumentti</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="151"/>
         <source>non-hex character in \x{} (closing brace missing?)</source>
-        <translation type="unfinished"/>
+        <translation>muu kuin hex-merkki kohdassa \x{} (sulkeva sulku puuttuu?)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="152"/>
         <source>\c must be followed by a printable ASCII character</source>
-        <translation type="unfinished"/>
+        <translation>\c:n jälkeen on oltava tulostettava ASCII-merkki.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="153"/>
         <source>\k is not followed by a braced, angle-bracketed, or quoted name</source>
-        <translation type="unfinished"/>
+        <translation>\k:ta ei seuraa suluissa, kulmasulkeissa tai lainausmerkeissä oleva nimi.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="156"/>
         <source>internal error: unknown meta code in check_lookbehinds()</source>
-        <translation type="unfinished"/>
+        <translation>sisäinen virhe: tuntematon metakoodi kohdassa check_lookbehinds()</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="157"/>
         <source>\N is not supported in a class</source>
-        <translation type="unfinished"/>
+        <translation>\N ei tueta luokassa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="158"/>
         <source>callout string is too long</source>
-        <translation type="unfinished"/>
+        <translation>kutsumerkkijono on liian pitkä</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="159"/>
         <source>disallowed Unicode code point (&gt;= 0xd800 &amp;&amp; &lt;= 0xdfff)</source>
-        <translation type="unfinished"/>
+        <translation>kielletty Unicode-koodipiste (&gt;= 0xd800 &amp;&amp; &lt;= 0xdfff)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="160"/>
         <source>using UTF is disabled by the application</source>
-        <translation type="unfinished"/>
+        <translation>UTF:n käyttäminen ei ole sovelluksen käytössä</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="163"/>
         <source>using UCP is disabled by the application</source>
-        <translation type="unfinished"/>
+        <translation>sovellus on poistanut UCP:n käytöstä</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="164"/>
         <source>name is too long in (*MARK), (*PRUNE), (*SKIP), or (*THEN)</source>
-        <translation type="unfinished"/>
+        <translation>nimi on liian pitkä merkeissä (*MARK), (*PRUNE), (*SKIP) tai (*THEN)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="165"/>
         <source>character code point value in \u.... sequence is too large</source>
-        <translation type="unfinished"/>
+        <translation>merkin koodipisteen arvo sarjassa \u.... on liian suuri.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="166"/>
         <source>digits missing in \x{} or \o{} or \N{U+}</source>
-        <translation type="unfinished"/>
+        <translation>numeroita puuttuu kohdasta \x{} tai \o{} tai \N{U+}</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="167"/>
         <source>syntax error or number too big in (?(VERSION condition</source>
-        <translation type="unfinished"/>
+        <translation>syntaksivirhe tai liian suuri luku (?(VERSION ehtokentässä</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="170"/>
         <source>internal error: unknown opcode in auto_possessify()</source>
-        <translation type="unfinished"/>
+        <translation>sisäinen virhe: tuntematon opcode funktiossa auto_possessify()</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="171"/>
         <source>missing terminating delimiter for callout with string argument</source>
-        <translation type="unfinished"/>
+        <translation>merkkijonoargumenttia sisältävästä kutsusta puuttuu päättävä rajausmerkki</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="172"/>
         <source>unrecognized string delimiter follows (?C</source>
-        <translation type="unfinished"/>
+        <translation>tunnistamaton merkkijonon erotin seuraa (?C</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="173"/>
         <source>using \C is disabled by the application</source>
-        <translation type="unfinished"/>
+        <translation>sovellus on poistanut käytöstä \C:n käytön</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="174"/>
         <source>(?| and/or (?J: or (?x: parentheses are too deeply nested</source>
-        <translation type="unfinished"/>
+        <translation>(?| ja/tai (?J: or (?x: sulut ovat liian syvällä sisäkkäin</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="177"/>
         <source>using \C is disabled in this PCRE2 library</source>
-        <translation type="unfinished"/>
+        <translation>\C:n käyttö on poistettu käytöstä tässä PCRE2-kirjastossa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="178"/>
         <source>regular expression is too complicated</source>
-        <translation type="unfinished"/>
+        <translation>säännöllinen lauseke on liian monimutkainen</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="179"/>
         <source>lookbehind assertion is too long</source>
-        <translation type="unfinished"/>
+        <translation>lookbehind väite on liian pitkä</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="180"/>
         <source>pattern string is longer than the limit set by the application</source>
-        <translation type="unfinished"/>
+        <translation>mallijono on pidempi kuin sovelluksen asettama raja</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="181"/>
         <source>internal error: unknown code in parsed pattern</source>
-        <translation type="unfinished"/>
+        <translation>sisäinen virhe: tuntematon koodi jäsennetyssä mallissa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="184"/>
         <source>internal error: bad code value in parsed_skip()</source>
-        <translation type="unfinished"/>
+        <translation>sisäinen virhe: virheellinen koodiarvo parsed_skip():ssä</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="185"/>
         <source>PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES is not allowed in UTF-16 mode</source>
-        <translation type="unfinished"/>
+        <translation>PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES ei ole sallittu UTF-16-tilassa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="186"/>
         <source>invalid option bits with PCRE2_LITERAL</source>
-        <translation type="unfinished"/>
+        <translation>virheelliset optiobitit PCRE2_LITERAL:lla</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="187"/>
         <source>\N{U+dddd} is supported only in Unicode (UTF) mode</source>
-        <translation type="unfinished"/>
+        <translation>\N{U+dddd} on tuettu vain Unicode (UTF) -tilassa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="188"/>
         <source>invalid hyphen in option setting</source>
-        <translation type="unfinished"/>
+        <translation>virheellinen yhdysmerkki vaihtoehtoasetuksessa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="191"/>
         <source>(*alpha_assertion) not recognized</source>
-        <translation type="unfinished"/>
+        <translation>(*alpha_assertion) ei tunnistettu</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="192"/>
         <source>script runs require Unicode support, which this version of PCRE2 does not have</source>
-        <translation type="unfinished"/>
+        <translation>komentosarjan suorittaminen vaatii Unicode-tuen, jota tässä PCRE2-versiossa ei ole</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="193"/>
         <source>too many capturing groups (maximum 65535)</source>
-        <translation type="unfinished"/>
+        <translation>liian monta sieppausryhmää (enintään 65535)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="194"/>
         <source>atomic assertion expected after (?( or (?(?C)</source>
-        <translation type="unfinished"/>
+        <translation>atomiväite odotettavissa jälkeen (?( tai (?(?C)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="195"/>
         <source>\K is not allowed in lookarounds (but see PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK)</source>
-        <translation type="unfinished"/>
+        <translation>\K ei ole sallittu katselualueella (mutta katso PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK)</translation>
     </message>
 </context>
 <context>
@@ -16350,7 +16413,7 @@ Oletko varma, että haluat jatkaa.</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="108"/>
         <source>Add/Remove</source>
-        <translation type="unfinished"/>
+        <translation>Lisää/Poista</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="163"/>
@@ -16395,7 +16458,7 @@ Oletko varma, että haluat jatkaa.</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="241"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Pikakuvakkeet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="249"/>
@@ -16581,45 +16644,45 @@ Viittaukset voidaan erottaa rivinvaihdoilla, pilkuilla tai välilyönneillä.</t
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="70"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="89"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="442"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="450"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="462"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="470"/>
         <source>Preview</source>
         <translation>Esikatselu</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="243"/>
         <source>Inspect Page</source>
-        <translation type="unfinished"/>
+        <translation>Tarkista sivu</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="247"/>
         <source>Select-All</source>
-        <translation type="unfinished"/>
+        <translation>Valitse kaikki</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="251"/>
         <source>Copy Selection To ClipBoard</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi valinta leikepöydälle</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="255"/>
         <source>Update Preview Window</source>
-        <translation type="unfinished"/>
+        <translation>Päivitä esikatseluikkuna</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="259"/>
         <source>Cycle Custom CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Kierrä mukautettuja CSS-tiedostoja</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="263"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="266"/>
         <source>Print Preview View</source>
-        <translation type="unfinished"/>
+        <translation>Tulosta esikatselunäkymä</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="637"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="657"/>
         <source>Feature not available before Qt5.12.x</source>
-        <translation type="unfinished"/>
+        <translation>Ominaisuus ei ole käytettävissä ennen Qt5.12.x:ää.</translation>
     </message>
 </context>
 <context>
@@ -16643,16 +16706,16 @@ Viittaukset voidaan erottaa rivinvaihdoilla, pilkuilla tai välilyönneillä.</t
         <location filename="../../Dialogs/EmptyLayout.cpp" line="100"/>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="305"/>
         <source>Custom Epub Layout Designer</source>
-        <translation type="unfinished"/>
+        <translation>Mukautettu Epub-asettelusuunnittelija</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="175"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="188"/>
         <location filename="../../Misc/OpenExternally.cpp" line="315"/>
         <source>Applications</source>
         <translation>Sovellukset</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="193"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="206"/>
         <source>Select External Xhtml Editor</source>
         <translation>Valitse ulkoinen XHTML-editori</translation>
     </message>
@@ -16673,14 +16736,14 @@ Viittaukset voidaan erottaa rivinvaihdoilla, pilkuilla tai välilyönneillä.</t
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="249"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="947"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="948"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil on luonut sinulle uuden.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="250"/>
         <source>Please verify and correct the OPF Spine order.</source>
-        <translation type="unfinished"/>
+        <translation>Tarkista ja korjaa OPF Spine -järjestys.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="299"/>
@@ -16697,7 +16760,7 @@ Rivi: %1 Sarake %2–%3</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="489"/>
         <source>Possible evil or corrupt epub file name: %1</source>
-        <translation type="unfinished"/>
+        <translation>Mahdollisesti huono tai korruptoitunut epub-tiedoston nimi: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="520"/>
@@ -16734,50 +16797,50 @@ Rivi: %1 Sarake %2 - %3</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="796"/>
         <source>The OPF uses an unrecognized media type &quot;%1&quot; for file &quot;%2&quot;</source>
-        <translation type="unfinished"/>
+        <translation>OPF käyttää tiedostolle &quot;%2&quot; tunnistamatonta mediatyyppiä &quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="797"/>
         <source>A temporary media type of &quot;%1&quot; has been assigned. You should edit your OPF file to fix this problem.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="810"/>
-        <source>The OPF has an illegal Manifest entry for a file inside the META-INF folder for file &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Väliaikainen mediatyyppi &quot;%1&quot; määritetty. Ongelma on korjattava muokkaamalla OPF-tiedostoa.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="811"/>
-        <source>You should edit your OPF file to remove this entry.</source>
-        <translation type="unfinished"/>
+        <source>The OPF has an illegal Manifest entry for a file inside the META-INF folder for file &quot;%1&quot;</source>
+        <translation>OPF:ssä on laiton manifestimerkintä META-INF-kansion sisällä olevalle tiedostolle tiedostolle &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="830"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="812"/>
+        <source>You should edit your OPF file to remove this entry.</source>
+        <translation>Sinun pitäisi muokata OPF-tiedostoasi tämän merkinnän poistamiseksi.</translation>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="831"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>OPF-manifesti sisältää kaksoismäärittelyn seuraville tunnuksille: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="831"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="832"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>Väliaikainen tunniste on otettu käyttöön tämän kirjan lataamiseksi. OPF-tiedostoa tulisi muokata päällekkäisyyden poistamiseksi.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="922"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="923"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>OPF-tiedosto ei ilmoittanut NCX-tiedostoa oikein.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="923"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="924"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil on käyttänyt seuraavaa tiedostoa NCX:nä:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="946"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="947"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>OPF-tiedosto ei sisällä NCX-tiedostoa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="711"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="710"/>
         <source>Adding Existing Files..</source>
         <translation>Lisätään valmiita tiedostoja...</translation>
     </message>
@@ -16845,28 +16908,28 @@ Rivi: %1 Sarake %2 - %3</translation>
         <translation>Virheellinen OPF-tiedosto: %1</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="706"/>
-        <location filename="../../main.cpp" line="754"/>
+        <location filename="../../main.cpp" line="744"/>
+        <location filename="../../main.cpp" line="792"/>
         <source>Quit</source>
         <translation>Lopeta</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="716"/>
+        <location filename="../../main.cpp" line="754"/>
         <source>About</source>
         <translation>Tietoja ohjelmasta</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="725"/>
+        <location filename="../../main.cpp" line="763"/>
         <source>Preferences</source>
         <translation>Asetukset</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="736"/>
+        <location filename="../../main.cpp" line="774"/>
         <source>New</source>
-        <translation type="unfinished"/>
+        <translation>Uusi</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="745"/>
+        <location filename="../../main.cpp" line="783"/>
         <source>Open</source>
         <translation>Avaa</translation>
     </message>
@@ -16876,27 +16939,27 @@ Rivi: %1 Sarake %2 - %3</translation>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="14"/>
         <source>RE File Renamer</source>
-        <translation type="unfinished"/>
+        <translation>RE Tiedoston uudelleennimeäminen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="42"/>
         <source>Enter Regular Expression to be Replaced</source>
-        <translation type="unfinished"/>
+        <translation>Anna korvattava säännöllinen lauseke</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="55"/>
         <source>Regular Expression:</source>
-        <translation type="unfinished"/>
+        <translation>Säännöllinen lauseke:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="68"/>
         <source>Replacement:</source>
-        <translation type="unfinished"/>
+        <translation>Korvaava:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="81"/>
         <source>Enter Replacement text (can use subgroups replacements)</source>
-        <translation type="unfinished"/>
+        <translation>Syötä korvaava teksti (voi käyttää alaryhmien korvaavia tekstejä)</translation>
     </message>
 </context>
 <context>
@@ -16904,17 +16967,17 @@ Rivi: %1 Sarake %2 - %3</translation>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="14"/>
         <source>Rename Table</source>
-        <translation type="unfinished"/>
+        <translation>Nimeä taulukko uudelleen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="39"/>
         <source>Prior Filename</source>
-        <translation type="unfinished"/>
+        <translation>Edellinen tiedostonimi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="44"/>
         <source>Revised Filename</source>
-        <translation type="unfinished"/>
+        <translation>Tarkistettu tiedostonimi</translation>
     </message>
 </context>
 <context>
@@ -16973,54 +17036,56 @@ Huolehdi siitä, että käytetty tyyppimerkintä on kelvollinen kaikille valitui
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
         <source>Replacements (Delete Unwanted Replacements)</source>
-        <translation type="unfinished"/>
+        <translation>Korvaukset (Poista ei-toivotut korvaukset)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="47"/>
         <source>Select the amount of context in characters shown before and after the match.</source>
-        <translation type="unfinished"/>
+        <translation>Valitse kontekstin määrä merkeissä, jotka näytetään ennen osumaa ja sen jälkeen.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="50"/>
         <source>Context:</source>
-        <translation type="unfinished"/>
+        <translation>Konteksti:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="70"/>
         <source>Count:</source>
-        <translation type="unfinished"/>
+        <translation>Määrä:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="77"/>
         <source>Total Number of Matches/Replacements</source>
-        <translation type="unfinished"/>
+        <translation>Vastaavuuksien/vaihtojen kokonaismäärä</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="80"/>
         <source>----   </source>
-        <translation type="unfinished"/>
+        <translation>----   </translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="110"/>
         <source>Delete unwanted replacements from the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>Poista ei-toivotut korvaukset taulukosta.
+Varoitus: Kun korvaukset on otettu käyttöön, kumoaminen ei ole mahdollista.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="120"/>
         <source>Apply the remaining replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>Sovita loput taulukossa luetellut korvaavat osat.
+Varoitus: Kun korvauksia on sovellettu, niitä ei voi peruuttaa.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="124"/>
         <source>Apply Changes</source>
-        <translation type="unfinished"/>
+        <translation>Käytä muutoksia</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="96"/>
         <source>Book Path</source>
-        <translation type="unfinished"/>
+        <translation>Kirjan polku</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="97"/>
@@ -17030,17 +17095,17 @@ Huolehdi siitä, että käytetty tyyppimerkintä on kelvollinen kaikille valitui
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="98"/>
         <source>Before</source>
-        <translation type="unfinished"/>
+        <translation>Ennen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="99"/>
         <source>After</source>
-        <translation type="unfinished"/>
+        <translation>Jälkeen</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="377"/>
         <source>Delete Selected Rows</source>
-        <translation type="unfinished"/>
+        <translation>Poista valitut rivit</translation>
     </message>
 </context>
 <context>
@@ -17155,18 +17220,19 @@ mukaan lukien valittujen ryhmien kohdat.</translation>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
         <source>Count All</source>
-        <translation>Laske osumat</translation>
+        <translation>Laske kaikki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="181"/>
         <source>Create a Counts report for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation type="unfinished"/>
+        <translation>Luo laskentaraportti valituista merkinnöistä valitussa järjestyksessä,
+mukaan lukien valittujen ryhmien merkinnät.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="185"/>
         <source>Counts Report</source>
-        <translation type="unfinished"/>
+        <translation>Laskuriraportti</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="210"/>
@@ -17237,107 +17303,107 @@ hiiren kakkospainikkeella valitaksesi kohdan.
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
         <source>Controls</source>
-        <translation type="unfinished"/>
+        <translation>Ohjaimet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
         <source>Two character codes to control the search Mode, Direction, Target and Options.  Codes can be in any order comma or space separated.</source>
-        <translation type="unfinished"/>
+        <translation>Kaksi merkkikoodia ohjaamaan hakutilaa, suuntaa, kohdetta ja asetuksia. Koodit voivat olla missä tahansa järjestyksessä pilkuilla tai välilyönneillä erotettuina.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="98"/>
         <source>Mode: Normal</source>
-        <translation type="unfinished"/>
+        <translation>Tila: Normaali</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="99"/>
         <source>Mode: Regular Expression</source>
-        <translation type="unfinished"/>
+        <translation>Tila: Säännöllinen lauseke</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="100"/>
         <source>Mode: Case Sensitive</source>
-        <translation type="unfinished"/>
+        <translation>Tila: Sama kirjainkoko</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="102"/>
         <source>Direction: Up</source>
-        <translation type="unfinished"/>
+        <translation>Suunta: Ylös</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="103"/>
         <source>Direction: Down</source>
-        <translation type="unfinished"/>
+        <translation>Suunta: Alas</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="105"/>
         <source>Target: Current File</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Nykyinen tiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="106"/>
         <source>Target: All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Kaikki HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="107"/>
         <source>Target: Selected HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Valitut HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="108"/>
         <source>Target: Tabbed HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Välilehdillä varustetut HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="109"/>
         <source>Target: All CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Kaikki CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="110"/>
         <source>Target: Selected CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Valitut CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="111"/>
         <source>Target: Tabbed CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Välilehdillä varustetut CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="112"/>
         <source>Target: OPF File</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: OPF-tiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="113"/>
         <source>Target: NCX File</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: NCX-tiedosto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
         <source>Option: DotAll</source>
-        <translation type="unfinished"/>
+        <translation>Vaihtoehto: Pisteytä kaikki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="116"/>
         <source>Option: Minimal Match</source>
-        <translation type="unfinished"/>
+        <translation>Vaihtoehto: Minimaalinen vastaavuus</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="117"/>
         <source>Option: Auto Tokenise</source>
-        <translation type="unfinished"/>
+        <translation>Vaihtoehto: Autom. tokenisaatio</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
         <source>Option: Wrap</source>
-        <translation type="unfinished"/>
+        <translation>Vaihtoehto: Kierrä</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
         <source>Option: Text</source>
-        <translation type="unfinished"/>
+        <translation>Vaihtoehto: Teksti</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="129"/>
@@ -17399,13 +17465,13 @@ hiiren kakkospainikkeella valitaksesi kohdan.
         <location filename="../../Dialogs/SearchEditor.cpp" line="567"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="666"/>
         <source>Sigil INI files (*.ini)</source>
-        <translation type="unfinished"/>
+        <translation>Sigil INI-tiedostot (*.ini)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="568"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="667"/>
         <source>CSV files (*.csv)</source>
-        <translation type="unfinished"/>
+        <translation>CSV-tiedostot (*.csv)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="569"/>
@@ -17491,7 +17557,7 @@ hiiren kakkospainikkeella valitaksesi kohdan.
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="885"/>
         <source>Fill Controls</source>
-        <translation type="unfinished"/>
+        <translation>Täytönohjaukset</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="966"/>
@@ -17531,97 +17597,97 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="87"/>
         <source>Controls</source>
-        <translation type="unfinished"/>
+        <translation>Ohjaimet</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="481"/>
         <source>Mode: Normal</source>
-        <translation type="unfinished"/>
+        <translation>Tila: Normaali</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="484"/>
         <source>Mode: Regular Expression</source>
-        <translation type="unfinished"/>
+        <translation>Tila: Säännöllinen lauseke</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="487"/>
         <source>Mode: Case Sensitive</source>
-        <translation type="unfinished"/>
+        <translation>Tila: Sama kirjainkoko</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="490"/>
         <source>Direction: Up</source>
-        <translation type="unfinished"/>
+        <translation>Suunta: Ylös</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="493"/>
         <source>Direction: Down</source>
-        <translation type="unfinished"/>
+        <translation>Suunta: Alas</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="496"/>
         <source>Target: Current File</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Nykyinen tiedosto</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="499"/>
         <source>Target: All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Kaikki HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="502"/>
         <source>Target: Selected HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Valitut HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="505"/>
         <source>Target: Tabbed HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Välilehdillä varustetut HTML-tiedostot</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="508"/>
         <source>Target: All CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Kaikki CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="511"/>
         <source>Target: Selected CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Valitut CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="514"/>
         <source>Target: Tabbed CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: Välilehdillä varustetut CSS-tiedostot</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="517"/>
         <source>Target: OPF File</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: OPF-tiedosto</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="520"/>
         <source>Target: NCX File</source>
-        <translation type="unfinished"/>
+        <translation>Kohde: NCX-tiedosto</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="523"/>
         <source>Option: DotAll</source>
-        <translation type="unfinished"/>
+        <translation>Vaihtoehto: Pisteytä kaikki</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="526"/>
         <source>Option: Minimal Match</source>
-        <translation type="unfinished"/>
+        <translation>Vaihtoehto: Minimaalinen vastaavuus</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="529"/>
         <source>Option: Auto Tokenise</source>
-        <translation type="unfinished"/>
+        <translation>Vaihtoehto: Autom. tokenointi</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
         <source>Option: Wrap</source>
-        <translation type="unfinished"/>
+        <translation>Vaihtoehto: Kierrä</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>
@@ -17639,7 +17705,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="85"/>
         <source>non-breaking space</source>
-        <translation type="unfinished"/>
+        <translation>katkaisematon välilyönti</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="86"/>
@@ -17664,47 +17730,47 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="90"/>
         <source>narrow non-breaking space</source>
-        <translation type="unfinished"/>
+        <translation>kapea katkaisematon välilyönti</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="94"/>
         <source>left single quote</source>
-        <translation type="unfinished"/>
+        <translation>vasen yksittäinen lainausmerkki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="95"/>
         <source>right single quote</source>
-        <translation type="unfinished"/>
+        <translation>oikea yksittäinen lainausmerkki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="96"/>
         <source>left double quote</source>
-        <translation type="unfinished"/>
+        <translation>vasen kaksinkertainen lainausmerkki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="97"/>
         <source>right double quote</source>
-        <translation type="unfinished"/>
+        <translation>oikea kaksinkertainen lainausmerkki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="98"/>
         <source>left-pointing single angle quote</source>
-        <translation type="unfinished"/>
+        <translation>vasemmalle osoittava yhden kulman lainaus</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="99"/>
         <source>right-pointing single angle quote</source>
-        <translation type="unfinished"/>
+        <translation>oikealle osoittava yhden kulman lainaus</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="100"/>
         <source>left-pointing double angle quote</source>
-        <translation type="unfinished"/>
+        <translation>vasemmalle osoittava kaksoiskulmalainaus</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="101"/>
         <source>right-pointing double angle quote</source>
-        <translation type="unfinished"/>
+        <translation>oikealle osoittava kaksoiskulmalainaus</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="102"/>
@@ -17714,17 +17780,17 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="103"/>
         <source>double quote</source>
-        <translation type="unfinished"/>
+        <translation>kaksoislainausmerkki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="104"/>
         <source>single low-9 quote</source>
-        <translation type="unfinished"/>
+        <translation>yksittäinen matala-9 lainaus</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="105"/>
         <source>double low-9 quote</source>
-        <translation type="unfinished"/>
+        <translation>kaksois matala-9 lainaus</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="106"/>
@@ -17744,17 +17810,17 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="109"/>
         <source>pilcrow - paragraph sign</source>
-        <translation type="unfinished"/>
+        <translation>pilcrow - kappale merkki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="110"/>
         <source>dagger</source>
-        <translation type="unfinished"/>
+        <translation>dagger</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="111"/>
         <source>double dagger</source>
-        <translation type="unfinished"/>
+        <translation>kaksois-dagger</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="112"/>
@@ -17774,7 +17840,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="115"/>
         <source>copyright</source>
-        <translation type="unfinished"/>
+        <translation>tekijänoikeus</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="116"/>
@@ -17789,12 +17855,12 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="118"/>
         <source>left arrow</source>
-        <translation type="unfinished"/>
+        <translation>vasen nuoli</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="119"/>
         <source>right arrow</source>
-        <translation type="unfinished"/>
+        <translation>oikea nuoli</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="120"/>
@@ -17809,12 +17875,12 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="122"/>
         <source>degree sign</source>
-        <translation type="unfinished"/>
+        <translation>asteen merkki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="123"/>
         <source>plus minus sign</source>
-        <translation type="unfinished"/>
+        <translation>plus miinus-merkki</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="124"/>
@@ -17834,57 +17900,57 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="127"/>
         <source>fraction 1/4</source>
-        <translation type="unfinished"/>
+        <translation>murto-osa 1/4</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="128"/>
         <source>fraction 1/2</source>
-        <translation type="unfinished"/>
+        <translation>murto-osa 1/2</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="129"/>
         <source>fraction 3/4</source>
-        <translation type="unfinished"/>
+        <translation>murto-osa 3/4</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="130"/>
         <source>fraction 1/3</source>
-        <translation type="unfinished"/>
+        <translation>murto-osa 1/3</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="131"/>
         <source>fraction 2/3</source>
-        <translation type="unfinished"/>
+        <translation>murto-osa 2/3</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="132"/>
         <source>fraction 1/8</source>
-        <translation type="unfinished"/>
+        <translation>murto-osa 1/8</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="133"/>
         <source>fraction 3/8</source>
-        <translation type="unfinished"/>
+        <translation>murto-osa 3/8</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="134"/>
         <source>fraction 5/8</source>
-        <translation type="unfinished"/>
+        <translation>murto-osa 5/8</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="135"/>
         <source>fraction 7/8</source>
-        <translation type="unfinished"/>
+        <translation>murto-osa 7/8</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="136"/>
         <source>horizontal ellipsis</source>
-        <translation type="unfinished"/>
+        <translation>horizontal ellipsis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="137"/>
         <source>micron</source>
-        <translation type="unfinished"/>
+        <translation>micron</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="138"/>
@@ -17929,357 +17995,357 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="146"/>
         <source>circumflex accent</source>
-        <translation type="unfinished"/>
+        <translation>circumflex accent</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="147"/>
         <source>small tilde</source>
-        <translation type="unfinished"/>
+        <translation>small tilde</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="148"/>
         <source>capital A with grave</source>
-        <translation type="unfinished"/>
+        <translation>capital A with grave</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="149"/>
         <source>capital A with acute</source>
-        <translation type="unfinished"/>
+        <translation>capital A with acute</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="150"/>
         <source>capital A with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>capital A with circumflex</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="151"/>
         <source>capital A with tilde</source>
-        <translation type="unfinished"/>
+        <translation>capital A with tilde</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="152"/>
         <source>capital A with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>capital A with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="153"/>
         <source>capital A with ring above</source>
-        <translation type="unfinished"/>
+        <translation>capital A with ring above</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="154"/>
         <source>capital AE</source>
-        <translation type="unfinished"/>
+        <translation>capital AE</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="155"/>
         <source>capital C with cedilla</source>
-        <translation type="unfinished"/>
+        <translation>capital C with cedilla</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="156"/>
         <source>capital E with grave</source>
-        <translation type="unfinished"/>
+        <translation>capital E with grave</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="157"/>
         <source>capital E with acute</source>
-        <translation type="unfinished"/>
+        <translation>capital E with acute</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="158"/>
         <source>capital E with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>capital E with circumflex</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="159"/>
         <source>capital E with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>capital E with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="160"/>
         <source>capital I with grave</source>
-        <translation type="unfinished"/>
+        <translation>capital I with grave</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="161"/>
         <source>capital I with acute</source>
-        <translation type="unfinished"/>
+        <translation>capital I with acute</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="162"/>
         <source>capital I with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>capital I with circumflex</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="163"/>
         <source>capital I with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>capital I with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
         <source>capital eth</source>
-        <translation type="unfinished"/>
+        <translation>capital eth</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
         <source>capital N with tilde</source>
-        <translation type="unfinished"/>
+        <translation>capital N with tilde</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="166"/>
         <source>capital O with grave</source>
-        <translation type="unfinished"/>
+        <translation>capital O with grave</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="167"/>
         <source>capital O with acute</source>
-        <translation type="unfinished"/>
+        <translation>capital O with acute</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="168"/>
         <source>capital O with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>capital O with circumflex</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="169"/>
         <source>capital O with tilde</source>
-        <translation type="unfinished"/>
+        <translation>capital O with tilde</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="170"/>
         <source>capital O with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>capital O with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="171"/>
         <source>capital O with stroke</source>
-        <translation type="unfinished"/>
+        <translation>capital O with stroke</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="172"/>
         <source>capital ligature OE</source>
-        <translation type="unfinished"/>
+        <translation>capital ligature OE</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="173"/>
         <source>capital S with caron</source>
-        <translation type="unfinished"/>
+        <translation>capital S with caron</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="174"/>
         <source>capital U with grave</source>
-        <translation type="unfinished"/>
+        <translation>capital U with grave</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="175"/>
         <source>capital U with acute</source>
-        <translation type="unfinished"/>
+        <translation>capital U with acute</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="176"/>
         <source>capital U with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>capital U with circumflex</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="177"/>
         <source>capital U with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>capital U with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="178"/>
         <source>capital Y with acute</source>
-        <translation type="unfinished"/>
+        <translation>capital Y with acute</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="179"/>
         <source>capital Y with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>capital Y with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="180"/>
         <source>capital THORN</source>
-        <translation type="unfinished"/>
+        <translation>capital THORN</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
         <source>small sharp s</source>
-        <translation type="unfinished"/>
+        <translation>small sharp s</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
         <source>small a with grave</source>
-        <translation type="unfinished"/>
+        <translation>small a with grave</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="183"/>
         <source>small a with acute</source>
-        <translation type="unfinished"/>
+        <translation>small a with acute</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="184"/>
         <source>small a with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>small a with circumflex</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="185"/>
         <source>small a with tilde</source>
-        <translation type="unfinished"/>
+        <translation>small a with tilde</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="186"/>
         <source>small a with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>small a with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="187"/>
         <source>small a with ring above</source>
-        <translation type="unfinished"/>
+        <translation>small a with ring above</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="188"/>
         <source>small ae</source>
-        <translation type="unfinished"/>
+        <translation>small ae</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="189"/>
         <source>small c with cedilia</source>
-        <translation type="unfinished"/>
+        <translation>small c with cedilia</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="190"/>
         <source>small e with grave</source>
-        <translation type="unfinished"/>
+        <translation>small e with grave</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="191"/>
         <source>small e with acute</source>
-        <translation type="unfinished"/>
+        <translation>small e with acute</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="192"/>
         <source>small e with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>small e with circumflex</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="193"/>
         <source>small e with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>small e with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="194"/>
         <source>small i with grave</source>
-        <translation type="unfinished"/>
+        <translation>small i with grave</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="195"/>
         <source>small i with acute</source>
-        <translation type="unfinished"/>
+        <translation>small i with acute</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="196"/>
         <source>small i with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>small i with circumflex</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="197"/>
         <source>small i with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>small i with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
         <source>small eth</source>
-        <translation type="unfinished"/>
+        <translation>small eth</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
         <source>small n with tilde</source>
-        <translation type="unfinished"/>
+        <translation>small n with tilde</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="200"/>
         <source>small o with grave</source>
-        <translation type="unfinished"/>
+        <translation>small o with grave</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="201"/>
         <source>small o with acute</source>
-        <translation type="unfinished"/>
+        <translation>small o with acute</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="202"/>
         <source>small o with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>small o with circumflex</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="203"/>
         <source>small o with tilde</source>
-        <translation type="unfinished"/>
+        <translation>small o with tilde</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="204"/>
         <source>small o with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>small o with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="205"/>
         <source>small o with stroke</source>
-        <translation type="unfinished"/>
+        <translation>small o with stroke</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="206"/>
         <source>small ligature oe</source>
-        <translation type="unfinished"/>
+        <translation>small ligature oe</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="207"/>
         <source>small s with caron</source>
-        <translation type="unfinished"/>
+        <translation>small s with caron</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="208"/>
         <source>small u with grave</source>
-        <translation type="unfinished"/>
+        <translation>small u with grave</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="209"/>
         <source>small u with acute</source>
-        <translation type="unfinished"/>
+        <translation>small u with acute</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="210"/>
         <source>small u with circumflex</source>
-        <translation type="unfinished"/>
+        <translation>small u with circumflex</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="211"/>
         <source>small u with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>small u with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="212"/>
         <source>small y with acute</source>
-        <translation type="unfinished"/>
+        <translation>small y with acute</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="213"/>
         <source>small y with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>small y with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="214"/>
         <source>small thorn</source>
-        <translation type="unfinished"/>
+        <translation>small thorn</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="215"/>
         <source>feminine ordinal indicator</source>
-        <translation type="unfinished"/>
+        <translation>feminiininen järjestysluku</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="216"/>
         <source>masculine ordinal indicator</source>
-        <translation type="unfinished"/>
+        <translation>maskuliininen järjestysluku</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="217"/>
@@ -18294,7 +18360,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="222"/>
         <source>Greek lower letter alpha</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter alpha</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="223"/>
@@ -18304,7 +18370,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="224"/>
         <source>Greek lower letter beta</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter beta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="225"/>
@@ -18314,7 +18380,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="226"/>
         <source>Greek lower letter chi</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter chi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="227"/>
@@ -18324,7 +18390,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="228"/>
         <source>Greek lower letter delta</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter delta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="229"/>
@@ -18334,7 +18400,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="230"/>
         <source>Greek lower letter epsilon</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter epsilon</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="231"/>
@@ -18344,7 +18410,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="232"/>
         <source>Greek lower letter eta</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter eta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="233"/>
@@ -18354,7 +18420,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="234"/>
         <source>Greek lower letter gamma</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter gamma</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="235"/>
@@ -18364,7 +18430,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="236"/>
         <source>Greek lower letter iota</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter iota</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="237"/>
@@ -18374,7 +18440,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="238"/>
         <source>Greek lower letter kappa</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter kappa</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="239"/>
@@ -18384,7 +18450,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="240"/>
         <source>Greek lower letter lambda</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter lambda</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="241"/>
@@ -18394,7 +18460,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
         <source>Greek lower letter mu</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter mu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
@@ -18404,7 +18470,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
         <source>Greek lower letter nu</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter nu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="245"/>
@@ -18414,7 +18480,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="246"/>
         <source>Greek lower letter omega</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter omega</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="247"/>
@@ -18424,7 +18490,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="248"/>
         <source>Greek lower letter omicron</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter omicron</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="249"/>
@@ -18434,7 +18500,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="250"/>
         <source>Greek lower letter phi</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter phi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="251"/>
@@ -18444,17 +18510,17 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="252"/>
         <source>Greek lower letter pi</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter pi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="253"/>
         <source>Greek double prime</source>
-        <translation type="unfinished"/>
+        <translation>Greek double prime</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="254"/>
         <source>Greek single prime</source>
-        <translation type="unfinished"/>
+        <translation>Greek single prime</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="255"/>
@@ -18464,7 +18530,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="256"/>
         <source>Greek lower letter psi</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter psi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="257"/>
@@ -18474,7 +18540,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="258"/>
         <source>Greek lower letter rho</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter rho</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="259"/>
@@ -18484,7 +18550,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="260"/>
         <source>Greek lower letter sigma</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter sigma</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="261"/>
@@ -18494,7 +18560,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="262"/>
         <source>Greek lower letter tau</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter tau</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="263"/>
@@ -18504,7 +18570,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="264"/>
         <source>Greek lower letter theta</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter theta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="265"/>
@@ -18514,7 +18580,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="266"/>
         <source>Greek lower letter upsilon</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter upsilon</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
@@ -18524,7 +18590,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
         <source>Greek lower letter xi</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter xi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="269"/>
@@ -18534,7 +18600,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="270"/>
         <source>Greek lower letter zeta</source>
-        <translation type="unfinished"/>
+        <translation>Greek lower letter zeta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="274"/>
@@ -18604,7 +18670,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
         <source>identical to</source>
-        <translation>identtisyysmerkki</translation>
+        <translation>sama kuin</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="288"/>
@@ -18614,7 +18680,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="289"/>
         <source>Latin small letter f with hook</source>
-        <translation>koukullinen gemena-s. guldenin merkki</translation>
+        <translation>Latinalainen pieni f-kirjain koukulla</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="290"/>
@@ -18634,7 +18700,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
         <source>left right single arrow</source>
-        <translation type="unfinished"/>
+        <translation>vasen oikea yksittäinen nuoli</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="294"/>
@@ -18659,7 +18725,7 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="298"/>
         <source>double right arrow</source>
-        <translation type="unfinished"/>
+        <translation>kaksinkertainen oikea nuoli</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="299"/>
@@ -18887,12 +18953,12 @@ Haluatko tallentaa muutokset?</translation>
     <message>
         <location filename="../../Form_Files/SelectCheckpoint.ui" line="14"/>
         <source>Select Checkpoint Version</source>
-        <translation type="unfinished"/>
+        <translation>Valitse tarkistuspisteversio</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectCheckpoint.ui" line="56"/>
         <source>Description of Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Tarkistuspisteen kuvaus</translation>
     </message>
 </context>
 <context>
@@ -18930,52 +18996,52 @@ kirjaan ja liitetään automaattisesti siihen.</translation>
         <translation>Pienoiskuvan koko:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="114"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="117"/>
         <source>All</source>
         <translation>Kaikki</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="115"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="118"/>
         <source>Images</source>
         <translation>Kuvat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="116"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="119"/>
         <source>Video</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="117"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="120"/>
         <source>Audio</source>
         <translation>Audio</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="165"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="168"/>
         <source>Files In the Book</source>
         <translation>Kirjan tiedostot</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="168"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="171"/>
         <source>Thumbnails</source>
         <translation>Pienoiskuvat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="328"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="331"/>
         <source>shades</source>
         <translation>sävyä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="328"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="331"/>
         <source>colors</source>
         <translation>väriä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="329"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="332"/>
         <source>Grayscale</source>
         <translation>Harmaasävy</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="329"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="332"/>
         <source>Color</source>
         <translation>Väri</translation>
     </message>
@@ -18985,19 +19051,21 @@ kirjaan ja liitetään automaattisesti siihen.</translation>
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="14"/>
         <source>Select Destination Folder </source>
-        <translation type="unfinished"/>
+        <translation>Valitse kohdekansio </translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="22"/>
         <source>Enter or select an ebook path to the desired destination folder.
 
 The dropdown box shows existing Folder paths for this file type.</source>
-        <translation type="unfinished"/>
+        <translation>Syötä tai valitse ebook-polku haluttuun kohdekansioon.
+
+Pudotusvalikko näyttää tämän tiedostotyypin olemassa olevat kansiopolut.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="27"/>
         <source>Folders:</source>
-        <translation type="unfinished"/>
+        <translation>Kansiot:</translation>
     </message>
 </context>
 <context>
@@ -19089,12 +19157,12 @@ Tunnisteiden nimien tulee olla yksikäsitteisiä, ja niiden pitää alkaa kirjai
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="23"/>
         <source>Primary Language Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Ensisijainen kielisanakirja:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="53"/>
         <source>Secondary Language Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Toissijainen kielisanakirja:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="83"/>
@@ -19331,12 +19399,12 @@ tarvitse olla väärin kirjoitettu.</translation>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="188"/>
         <source>Sort words as in a locale specific manner, typically AaBbCc instead of ABCabc.</source>
-        <translation type="unfinished"/>
+        <translation>Lajittele sanat paikkakuntakohtaisesti, tyypillisesti AaBbCc ABCabc:n sijaan.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="191"/>
         <source>Locale-Aware Sort</source>
-        <translation type="unfinished"/>
+        <translation>Paikkatietoinen lajittelu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="215"/>
@@ -19355,25 +19423,25 @@ aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="58"/>
         <source>f</source>
         <comment>Filter</comment>
-        <translation>s</translation>
+        <translation>f</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="59"/>
         <source>s</source>
         <comment>ShowAllWords</comment>
-        <translation>n</translation>
+        <translation>s</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="60"/>
         <source>a</source>
         <comment>Locale-AwareSort</comment>
-        <translation type="unfinished"/>
+        <translation>a</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="61"/>
         <source>r</source>
         <comment>Refresh</comment>
-        <translation>p</translation>
+        <translation>r</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="159"/>
@@ -19464,7 +19532,7 @@ aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="14"/>
         <source>CSS Selectors</source>
-        <translation type="unfinished"/>
+        <translation>CSS-valitsimet</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
@@ -19494,7 +19562,9 @@ aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="90"/>
         <source>&lt;p&gt;This is a list of the CSS selectors in all CSS files and whether or not the selector was matched in an HTML file.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Tämä on luettelo kaikissa CSS-tiedostoissa olevista CSS-selektoreista ja siitä, onko selektoria käytetty HTML-tiedostossa.
+&lt;p&gt;
+</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="91"/>
@@ -19504,12 +19574,12 @@ aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="92"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be absolutely certain if a selector is used or not.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;CSS:n monimutkaisuuden vuoksi sinun on tarkistettava koodisi manuaalisesti, jotta voit olla täysin varma, käytetäänkö valitsijaa vai ei.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="92"/>
         <source>&lt;p&gt;Note: Only one HTML File is listed among the many possible matches.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Huomautus: Vain yksi HTML-tiedosto on lueteltu monien mahdollisten osumien joukossa.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="243"/>
@@ -19543,7 +19613,7 @@ aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
 <context>
     <name>TabManager</name>
     <message>
-        <location filename="../../Tabs/TabManager.cpp" line="266"/>
+        <location filename="../../Tabs/TabManager.cpp" line="288"/>
         <source>Cannot edit file</source>
         <translation>Tiedostoa ei voi muokata</translation>
     </message>
@@ -19611,7 +19681,7 @@ Haluatko jatkaa käyttäen antamaasi tiedostonimeä?</translation>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="104"/>
         <source>CSV files (*.csv)</source>
-        <translation type="unfinished"/>
+        <translation>CSV-tiedostot (*.csv)</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="105"/>
@@ -19621,12 +19691,12 @@ Haluatko jatkaa käyttäen antamaasi tiedostonimeä?</translation>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="119"/>
         <source>Export Validation Results</source>
-        <translation type="unfinished"/>
+        <translation>Vie validointitulokset</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="152"/>
         <source>Export of Validation Results failed: </source>
-        <translation type="unfinished"/>
+        <translation>Validointitulosten vienti epäonnistui: </translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="379"/>
@@ -19658,14 +19728,14 @@ Haluatko jatkaa käyttäen antamaasi tiedostonimeä?</translation>
 <context>
     <name>ViewAV</name>
     <message>
-        <location filename="../../Dialogs/ViewAV.cpp" line="53"/>
+        <location filename="../../Dialogs/ViewAV.cpp" line="52"/>
         <source>Close this window</source>
-        <translation type="unfinished"/>
+        <translation>Sulje tämä ikkuna</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ViewAV.cpp" line="54"/>
+        <location filename="../../Dialogs/ViewAV.cpp" line="53"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Valmis</translation>
     </message>
 </context>
 <context>
@@ -19673,25 +19743,25 @@ Haluatko jatkaa käyttäen antamaasi tiedostonimeä?</translation>
     <message>
         <location filename="../../Dialogs/ViewFont.cpp" line="46"/>
         <source>Close this window</source>
-        <translation type="unfinished"/>
+        <translation>Sulje tämä ikkuna</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ViewFont.cpp" line="47"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Valmis</translation>
     </message>
 </context>
 <context>
     <name>ViewImage</name>
     <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="51"/>
+        <location filename="../../Dialogs/ViewImage.cpp" line="50"/>
         <source>Close this window</source>
-        <translation type="unfinished"/>
+        <translation>Sulje tämä ikkuna</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="52"/>
+        <location filename="../../Dialogs/ViewImage.cpp" line="51"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Valmis</translation>
     </message>
 </context>
 <context>
@@ -19722,7 +19792,7 @@ Haluatko jatkaa käyttäen antamaasi tiedostonimeä?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>quotation mark</source>
-        <translation>lainausmerkk</translation>
+        <translation>lainausmerkki</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="98"/>
@@ -20227,7 +20297,7 @@ Haluatko jatkaa käyttäen antamaasi tiedostonimeä?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Latin capital ligature OE</source>
-        <translation type="unfinished"/>
+        <translation>Latin capital ligature OE</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="199"/>
@@ -20237,7 +20307,7 @@ Haluatko jatkaa käyttäen antamaasi tiedostonimeä?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Latin capital letter S with caron</source>
-        <translation type="unfinished"/>
+        <translation>Latin capital letter S with caron</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="201"/>
@@ -20247,7 +20317,7 @@ Haluatko jatkaa käyttäen antamaasi tiedostonimeä?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Latin capital letter Y with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Latin capital letter Y with diaeresis</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="203"/>
