@@ -30,9 +30,6 @@ on:
 env:
   BUILD_TYPE: Release
   DOWNLOADQT: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/Qt5.15.9_x64_VS2022.7z
-  GDRIVE: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/gdrive-windows-x64.exe
-  GDRIVE_REFRESH_TOKEN: ${{ secrets.GDRIVE_REFRESH_TOKEN }}
-  GDRIVE_DIR: ${{ secrets.SIGIL_WIN_GDRIVE_DIR }}
   QT: Qt5.15.9
   INNO: C:\Program Files (x86)\Inno Setup 6
   CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
@@ -65,17 +62,11 @@ jobs:
 
     - uses: lukka/get-cmake@latest
 
-    #- name: Cache pip modules
-    #  uses: actions/cache@v3
-    #  with:
-    #    path: C:\hostedtoolcache\windows\Python\3.8.6\x64\lib\site-packages
-    #    key: ${{ runner.os }}-pipdeps-${{hashFiles('**/reset-win-caches.txt')}}
-
     - name: Install pip dependencies
       shell: cmd
       run: |
         set PATH=C:\%PYTHON%;C:\%PYTHON%\Scripts;%PATH%
-        python -m pip install pip==21.0.1
+        python -m pip install --upgrade pip
         pip install six==1.16.0
         pip install html5lib==1.1
         pip install regex==2023.3.23
@@ -97,8 +88,6 @@ jobs:
         echo ${{runner.workspace}}
         mkdir ${{runner.workspace}}\build
         cd ${{runner.workspace}}\build
-        curl.exe -L -o gdrive.exe "%GDRIVE%"
-        gdrive.exe version
         qmake -v
         python --version
 
@@ -133,13 +122,14 @@ jobs:
         call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
         ninja -j2 makeinstaller
 
-    - name: Upload to gdrive
-      shell: cmd
-      working-directory: ${{runner.workspace}}\build
-      if: "contains(github.event.head_commit.message, '[deploy]') && github.event_name != 'pull_request'"
-      run: |
-        set PATH=C:\%PYTHON%;${{runner.workspace}}\build;%PATH%
-        python %GITHUB_WORKSPACE%\ci_scripts\newgddeploy.py
+    # RIP gdrive
+    #- name: Upload to gdrive
+    #  shell: cmd
+    #  working-directory: ${{runner.workspace}}\build
+    #  if: "contains(github.event.head_commit.message, '[deploy]') && github.event_name != 'pull_request'"
+    #  run: |
+    #    set PATH=C:\%PYTHON%;${{runner.workspace}}\build;%PATH%
+    #    python %GITHUB_WORKSPACE%\ci_scripts\newgddeploy.py
 
     - uses: actions/upload-artifact@v3
       if: "contains(github.event.head_commit.message, '[deploy]')"

@@ -26,16 +26,13 @@ on:
     - '.retired_travis.yml'
     - '**/**.md'
 env:
-  GDRIVE_REFRESH_TOKEN: ${{ secrets.GDRIVE_REFRESH_TOKEN }}
-  GDRIVE_DIR: ${{ secrets.SIGIL_MAC_GDRIVE_DIR }}
   HOMEBREW_NO_AUTO_UPDATE: 1
   HOMEBREW_NO_INSTALL_CLEANUP: 1
   MACOSX_DEPLOYMENT_TARGET: 10.12
-  DOWNLOADQT: https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Qt5129.tar.xz
+  DOWNLOADQT: https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Qt5159.tar.xz
   DOWNLOADPY: https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Python.framework.tar.xz
-  DOWNLOADGDRIVE: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/gdrive-darwin-amd64
-  PY_VER: 3.9
-  QT: Qt5129
+  PY_VER: 3.11
+  QT: Qt5159
 
 jobs:
   build:
@@ -43,16 +40,16 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Cache Custom Qt
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ${{runner.workspace}}/${{env.QT}}
         key: ${{ runner.os }}-qtdeps-${{hashFiles('**/reset-mac-caches.txt')}}
 
     - name: Cache Custom Python
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ${{runner.workspace}}/Frameworks
         key: ${{ runner.os }}-qtdeps-${{hashFiles('**/reset-mac-caches.txt')}}
@@ -61,7 +58,6 @@ jobs:
       shell: bash
       working-directory: ${{runner.workspace}}
       run: |
-        brew install wget
         pwd
         if [[ ! -d ${{runner.workspace}}/${{env.QT}} ]]; \
         then wget ${DOWNLOADQT} && tar xzf ${{env.QT}}.tar.xz; fi
@@ -77,10 +73,6 @@ jobs:
         if [[ ! -d ${{runner.workspace}}/Frameworks ]]; \
         then mkdir Frameworks && cd ${{runner.workspace}}/Frameworks && \
         wget ${DOWNLOADPY} && tar xzf Python.framework.tar.xz; fi
-
-        curl -L -o gdrive ${DOWNLOADGDRIVE}
-        chmod a+x ./gdrive
-        echo ${{runner.workspace}} >> $GITHUB_PATH
 
         export MYDEST=${{runner.workspace}}/Frameworks
         echo ${MYDEST}/Python.framework/Versions/${PY_VER}/bin >> $GITHUB_PATH
@@ -101,7 +93,7 @@ jobs:
       shell: bash
       run: |
         cmake -DPKG_SYSTEM_PYTHON=1 \
-        -DCMAKE_OSX_DEPLOYMENT_TARGET=10.12 \
+        -DCMAKE_OSX_DEPLOYMENT_TARGET=10.13 \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
         -DCMAKE_PREFIX_PATH=${{runner.workspace}}/${{env.QT}}/lib/cmake \
@@ -119,18 +111,19 @@ jobs:
         cd ./bin
         tar -cJf Sigil.tar.xz Sigil.app
 
-    - name: Upload to gdrive
-      working-directory: ${{runner.workspace}}/build
-      shell: bash
-      if: "contains(github.event.head_commit.message, '[deploy]') && github.event_name != 'pull_request'"
-      run: |
-        gdrive version
-        python3 $GITHUB_WORKSPACE/ci_scripts/newgddeploy.py
+    # RIP gdrive
+    #- name: Upload to gdrive
+    #  working-directory: ${{runner.workspace}}/build
+    #  shell: bash
+    #  if: "contains(github.event.head_commit.message, '[deploy]') && github.event_name != 'pull_request'"
+    #  run: |
+    #    gdrive version
+    #    python3 $GITHUB_WORKSPACE/ci_scripts/newgddeploy.py
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       if: "contains(github.event.head_commit.message, '[deploy]')"
       with:
         name: sigil-installer
         path: ${{runner.workspace}}/build/bin/Sigil.tar.xz
-        retention-days: 3
+        retention-days: 5
          
