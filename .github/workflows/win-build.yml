@@ -66,7 +66,7 @@ jobs:
     - uses: lukka/get-cmake@latest
 
     #- name: Cache pip modules
-    #  uses: actions/cache@v2
+    #  uses: actions/cache@v3
     #  with:
     #    path: C:\hostedtoolcache\windows\Python\3.8.6\x64\lib\site-packages
     #    key: ${{ runner.os }}-pipdeps-${{hashFiles('**/reset-win-caches.txt')}}
@@ -146,4 +146,4 @@ jobs:
       with:
         name: sigil-installer
         path: ${{runner.workspace}}\build\installer\*.exe
-        retention-days: 3
+        retention-days: 5
