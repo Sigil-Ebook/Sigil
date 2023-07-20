@@ -247,6 +247,7 @@ install_name_tool -id @rpath/libtk8.6.dylib ./libtk8.6.dylib
 cd ${MYDEST}/Python.framework/Versions/3.11/lib/python3.11/lib-dynload
 install_name_tool -add_rpath @loader_path/../.. _tkinter.cpython-311-darwin.so
 install_name_tool -change ${MYDEST}/Python.framework/Versions/3.11/lib/libtcl8.6.dylib @rpath/libtcl8.6.dylib _tkinter.cpython-311-darwin.so
+install_name_tool -change ${MYDEST}/Python.framework/Versions/3.11/lib/libtk8.6.dylib @rpath/libtk8.6.dylib _tkinter.cpython-311-darwin.so
 
 
 # We should now have a fully relocatable Python.framework
