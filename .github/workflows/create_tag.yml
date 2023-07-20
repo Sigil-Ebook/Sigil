@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         token: ${{ secrets.ROBO_ACTIONS }}
 
@@ -29,7 +29,7 @@ jobs:
 
     - name: GPG Import
       if: ${{ steps.check_tag_name.outputs.match != '' }}
-      uses: crazy-max/ghaction-import-gpg@v3
+      uses: crazy-max/ghaction-import-gpg@v5
       with:
         gpg-private-key: ${{ secrets.SIGNING_BONUS_TAGS }}
         passphrase: ${{ secrets.SIGNING_BONUS_PHRASE }}
@@ -46,7 +46,7 @@ jobs:
         REPO=$(basename "$(pwd)")
         TAG=${{ github.event.inputs.tag_name }}
         FNAME=${REPO}-${TAG#v}
-        echo "::set-output name=fname::$FNAME"
+        echo "fname=$FNAME" >> $GITHUB_OUTPUT
         URL="https://github.com/$GITHUB_REPOSITORY/archive/refs/tags/${{ github.event.inputs.tag_name }}.zip"
         git archive --prefix=${REPO}-${TAG#v}/ -o ${FNAME}.tar.gz ${TAG}
         gpg --detach-sign --pinentry-mode loopback --passphrase ${{ secrets.SIGNING_BONUS_PHRASE }} ${FNAME}.tar.gz
