@@ -40,7 +40,6 @@ jobs:
       id: create_archive
       if: ${{ steps.check_tag_name.outputs.match != '' }}
       run: |
-        export GPG_TTY=$(tty)
         git config tar.tar.gz.command 'gzip -cn'
         git tag -s ${{ github.event.inputs.tag_name }} -m 'Tag for ${{ github.event.inputs.tag_name }} release'
         git push origin ${{ github.event.inputs.tag_name }}
@@ -50,9 +49,9 @@ jobs:
         echo "fname=$FNAME" >> $GITHUB_OUTPUT
         URL="https://github.com/$GITHUB_REPOSITORY/archive/refs/tags/${{ github.event.inputs.tag_name }}.zip"
         git archive --prefix=${REPO}-${TAG#v}/ -o ${FNAME}.tar.gz ${TAG}
-        gpg --detach-sign --pinentry-mode loopback --passphrase ${{ secrets.SIGNING_BONUS_PHRASE }} ${FNAME}.tar.gz
+        gpg --detach-sign --pinentry-mode=loopback --passphrase ${{ secrets.SIGNING_BONUS_PHRASE }} ${FNAME}.tar.gz
         curl -L -o ${FNAME}.zip ${URL}
-        gpg --detach-sign --pinentry-mode loopback --passphrase ${{ secrets.SIGNING_BONUS_PHRASE }} ${FNAME}.zip
+        gpg --detach-sign --pinentry-mode=loopback --passphrase ${{ secrets.SIGNING_BONUS_PHRASE }} ${FNAME}.zip
 
     - name: Create Release
       if: ${{ steps.check_tag_name.outputs.match != '' }}
