@@ -367,7 +367,7 @@ elseif (MSVC)
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     set( PYTHON_DEST_DIR ${MAIN_PACKAGE_DIR}/python3 )
-    set( VCREDIST_VER "2017" )
+    set( VCREDIST_VER "2022" )
     if ( USE_ALT_ICONS )
         set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_alt )
     else()
@@ -394,8 +394,8 @@ elseif (MSVC)
     configure_file( ${ISS_MAIN_LOCATION} ${ISS_CONFIGURED_LOCATION} )
 
     if ( PKG_SYSTEM_PYTHON )
-        # Include PyQt5 with the bundled Python by default.
-        # Pass -DPACKAGE_PYQT5=0 to initial cmake command to disable.
+        # Include PySide6 with the bundled Python by default.
+        # Pass -DPACKAGE_PYSIDE6=0 to initial cmake command to disable.
         if ( NOT DEFINED PACKAGE_PYSIDE6 )
             set( PACKAGE_PYSIDE6 1 )
         endif()
