@@ -29,8 +29,8 @@ on:
 
 env:
   BUILD_TYPE: Release
-  DOWNLOADQT: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/Qt5.15.9_x64_VS2022.7z
-  QT: Qt5.15.9
+  DOWNLOADQT: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/Qt6.5.2_x64_VS2022.7z
+  QT: Qt6.5.2
   INNO: C:\Program Files (x86)\Inno Setup 6
   CMAKE64BIT: -DWIN_INSTALLER_USE_64BIT_CRT=1
   PYTHON: \hostedtoolcache\windows\Python\3.11.3\x64
@@ -74,12 +74,12 @@ jobs:
         pip install cssselect==1.2.0
         pip install urllib3==1.26.15
         pip install certifi==2022.12.7
-        pip install dulwich==0.21.3 --global-option="--pure"
+        pip install dulwich==0.21.3
         pip install chardet==5.1.0
         pip install pillow==9.5.0
-        pip install PyQt5==5.15.9 PyQt5-sip==12.12.0
-        pip install PyQtWebEngine==5.15.6
         pip install lxml==4.9.2
+        pip install shiboken6@https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/shiboken6-6.5.2-6.5.2-cp311-cp311-win_amd64.whl
+        pip install PySide6@https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/PySide6-6.5.2-6.5.2-cp311-cp311-win_amd64.whl
 
     - name: Create Build Environment
       shell: cmd
@@ -105,7 +105,8 @@ jobs:
         -DPYTHON_INCLUDE_DIR="C:\%PYTHON%\include" ^
         -DPYTHON_EXECUTABLE="C:\%PYTHON%\python.exe" ^
         -DUSE_ALT_ICONS=1 ^
-        -DQt5_DIR="${{runner.workspace}}\$QT\lib\cmake\Qt5" ^
+        -DUSE_QT6=1 ^
+        -DQt6_DIR="${{runner.workspace}}\$QT\lib\cmake\Qt6" ^
         %CMAKE64BIT%
         ninja -j2
 

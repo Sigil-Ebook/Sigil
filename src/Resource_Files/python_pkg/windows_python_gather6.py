@@ -70,8 +70,8 @@ def copy_site_packages():
 def ignore_in_pyside6_dirs(base, items, ignored_dirs=None):
     ans = []
     if ignored_dirs is None:
-        ignored_dirs = {'.svn', '.bzr', '.git', 'docs', 'examples', 'glue', 'include', 'plugins', 'qml',
-                       'resources', 'scripts', 'support', 'translations', 'typesystems', '__pycache__'}
+        ignored_dirs = {'.svn', '.bzr', '.git', 'docs', 'examples', 'glue', 'include', 'metatypes', 'modules', 
+                       'plugins', 'qml', 'resources', 'scripts', 'support', 'translations', 'typesystems', '__pycache__'}
     for name in items:
         path = os.path.join(base, name)
         if os.path.isdir(path):
@@ -96,7 +96,7 @@ def ignore_in_pyside6_dirs(base, items, ignored_dirs=None):
 def ignore_in_dirs(base, items, ignored_dirs=None):
     ans = []
     if ignored_dirs is None:
-        ignored_dirs = {'.svn', '.bzr', '.git', 'test', 'tests', 'testing', '__pycache__'}
+        ignored_dirs = {'.svn', '.bzr', '.git', 'test', 'tests', 'testing', 'turtledemo', '__pycache__'}
     for name in items:
         path = os.path.join(base, name)
         if os.path.isdir(path):
