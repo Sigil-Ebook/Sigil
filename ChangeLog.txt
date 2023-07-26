@@ -1,4 +1,4 @@
-pre-1.9.40
+Sigil-2.0.0
     Bug Fixes
       - fix incorrect assert in sigil-gumbo
       - recognize application/pdf mediatype on epub import
@@ -9,12 +9,12 @@ pre-1.9.40
       - added workaround for ADE epub3 bug with scaled cover images
 
     New Features
-      - add support for a user's cover-template2.xhtml and cover-template3.xhtml
-      - updated to the latest jquery version 3.6.4
-      - updated to Qt 5.15.9 or later or Qt 6.5.1 or later
+      - updated to Qt 6.5.2 which is now used for releases
       - updated to Python 3.11.3 and uses the latest EmbededPython interface
+      - updated to the latest jquery version 3.6.4
+      - supports use of embedded pdfs ala ADE
       - added dark window titlebars for Windows platforms
-      - support use of embedded pdfs ala ADE for Qt >= 5.13.0
+      - add support for a user's cover-template2.xhtml and cover-template3.xhtml
       - add user preference to control printing dpi and add busy indicator icon 
 
 

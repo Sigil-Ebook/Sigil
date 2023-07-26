@@ -1,6 +1,6 @@
---- qtbase/src/plugins/platforms/cocoa/qcocoamenubar.mm.orig	2021-12-18 10:17:32.000000000 -0500
-+++ qtbase/src/plugins/platforms/cocoa/qcocoamenubar.mm	2021-12-18 10:18:42.000000000 -0500
-@@ -81,13 +81,13 @@
+--- .//qtbase/src/plugins/platforms/cocoa/qcocoamenubar.mm.orig	2023-03-14 04:29:43.000000000 -0400
++++ .//qtbase/src/plugins/platforms/cocoa/qcocoamenubar.mm	2023-04-23 20:20:26.000000000 -0400
+@@ -53,13 +53,13 @@
  
      if (!m_window.isNull() && m_window->menubar() == this) {
          m_window->setMenubar(nullptr);

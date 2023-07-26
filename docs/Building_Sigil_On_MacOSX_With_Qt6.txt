@@ -1,6 +1,6 @@
 # FIRST:  See Building_Qt6_From_Source_on_MacOSX.txt
 #
-# SECOND: See Building_A_Relocatable_Python_3.9_Framework_on_MacOSX.txt
+# SECOND: See Building_A_Relocatable_Python_3.11_Framework_on_MacOSX.txt
 #
 
 #         Also make sure you have the latest XCode and ** Command Line tools** Installed
@@ -9,17 +9,17 @@
 #         You will need to have CMake 3.22.1 or later installed and in your path
 
 # standard deployment target
-export MACOSX_DEPLOYMENT_TARGET=10.14
+export MACOSX_DEPLOYMENT_TARGET=11.0
 
 # Set the location of where the relocatable Python framework was installed
-# See "Building_A_Relocatable_Python_3.9_Framework_on_MacOSX.txt
+# See "Building_A_Relocatable_Python_3.11_Framework_on_MacOSX.txt
 
 # Remember to stay away from /tmp locations as Mac OSX has a daemon that will delete 
 # files in tmp older than 3 days right out from underneath the user
 export MYDEST=/Users/$USER/devpython/libraries/Frameworks
 
 # Set the location of where Qt is installed
-export MYQTHOME=~/Qt622
+export MYQTHOME=~/Qt652
 
 # Set the location of where you want your Sigil repo to be stored
 export MYSIGILREPO=~/repo
@@ -34,7 +34,7 @@ export PATH=${PATH}:${MYQTHOME}/bin
 # Make sure the newly created relocatable python framework is found first
 # **before** any system version of Python3
 
-export PATH=${MYDEST}/Python.framework/Versions/3.9/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.11/bin:${PATH}
 
 mkdir build
 cd build
@@ -42,14 +42,14 @@ cd build
 # Use the latest XCode version that is supported by your version of MacOS
 # For example:
 
-# Mac OS Catalina (OSX 10.15) use the following with XCode 12.4
+# Mac OS Ventura use the following with XCode 14
 cmake -DPKG_SYSTEM_PYTHON=1 \
       -DUSE_QT6=1 \
-      -DCMAKE_OSX_DEPLOYMENT_TARGET=10.14 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
       -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
-      -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/ \
+      -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/ \
       ../Sigil
 
 
@@ -65,6 +65,7 @@ inside an app even one using the specified Qt app layout.
 These installed Qt plugins need to have an specific @loader_path rpath added
 as follows:
 
+
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/iconengines/libqsvgicon.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqgif.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqicns.dylib
@@ -72,21 +73,18 @@ install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Conte
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqjpeg.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqmacheif.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqmacjp2.dylib
+install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqpdf.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqtga.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqtiff.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqwbmp.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqwebp.dylib
+install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/networkinformation/libqscnetworkreachability.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/platforminputcontexts/libqtvirtualkeyboardplugin.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/platforms/libqcocoa.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/position/libqtposition_cl.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/position/libqtposition_nmea.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/position/libqtposition_positionpoll.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/styles/libqmacstyle.dylib
-install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/virtualkeyboard/libqtvirtualkeyboard_hangul.dylib
-install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/virtualkeyboard/libqtvirtualkeyboard_openwnn.dylib
-install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/virtualkeyboard/libqtvirtualkeyboard_pinyin.dylib
-install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/virtualkeyboard/libqtvirtualkeyboard_tcime.dylib
-install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/virtualkeyboard/libqtvirtualkeyboard_thai.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/tls/libqcertonlybackend.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/tls/libqsecuretransportbackend.dylib
 

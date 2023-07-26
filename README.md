@@ -53,7 +53,7 @@ For Building on Mac OS X
 ========================
 
 Building using purely XCode is no longer supported on Mac OS X.  The easiest 
-way to build Sigil on Mac OS X is to use cmake 3.X and the command line.   
+way to build Sigil on Mac OS X is to use cmake 3.X and the XCode CommandLineTools.   
 
 Also because Sigil now embeds Python 3.11.3, see  
 
@@ -62,24 +62,21 @@ Also because Sigil now embeds Python 3.11.3, see
 for detailed instructions on how to build a fully relocatable Python 3.11.3 framework before
 building Sigil.  
 
-For official releases Sigil uses Qt-5.15.9 plus local patches see  
-
-> [docs/Building_Qt5_From_Source_on_MacOSX.txt](./docs/Building_Qt5_From_Source_on_MacOSX.txt)
-
-Sigil master now supports building with Qt-5.10.X through to Qt-6.5.0.  For Qt6 see
+For official releases Sigil uses Qt6.5.2  plus official cve and local patches see:  
 
 > [docs/Building_Qt6_From_Source_on_MacOSX.txt](./docs/Building_Qt6_From_Source_on_MacOSX.txt)
 
-Due to not owning a MacOS M1 (arm64) machine for development, we do not (yet) make MacOS arm64 based release builds.
-But, building Sigil from source on MacOS M1 (arm64) machines using recent Python and versions does work.
-  
+Sigil master now supports building with Qt-5.10.X through to Qt-6.5.2.  For older Qt5 see:
+
+> [docs/Building_Qt5_From_Source_on_MacOSX.txt](./docs/Building_Qt5_From_Source_on_MacOSX.txt)
+
 And finally to build Sigil itself see:
 
-> [docs/Building_Sigil_On_MacOSX.txt](./docs/Building_Sigil_On_MacOSX.txt)
+> [docs/Building_Sigil_On_MacOSX_With_Qt6.txt](./docs/Building_Sigil_On_MacOSX_With_Qt6.txt)
 
-and for building Sigil under Qt6 see:
+and for building Sigil under the older Qt5 see:
 
-> [docs/Building_Sigil_On_MacOSX_With_QT6.txt](./docs/Building_Sigil_On_MacOSX_With_QT6.txt)
+> [docs/Building_Sigil_On_MacOSX_With_Qt5.txt](./docs/Building_Sigil_On_MacOSX_With_Qt5.txt)
 
 
 

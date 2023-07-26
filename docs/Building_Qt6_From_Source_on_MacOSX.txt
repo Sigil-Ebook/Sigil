@@ -1,10 +1,5 @@
 # Building_Qt6_From_Source_on_MacOSX
 
-On Catalina you need XCode 12.4 (and nothing lower or higher)
-The key is to use the latest XCode that runs on your build machine that includes
-the macOS 11 SDK (or higher) and can target back to at least as far as macOS 10.14
-(the farther back the better)
-
 # *** IMPORTANT ***
 # Qt Pre-Built Binary Versions do NOT support proprietary codecs such as 
 # mpeg4 or gif multipmedia in its QWebEngine by default!
@@ -13,34 +8,35 @@ the macOS 11 SDK (or higher) and can target back to at least as far as macOS 10.
 # directly from source.
 
 # We do highly recommend you use the same Qt versions as official Sigil builds on Mac OS X.
-# which is now Qt 6.2.4 or later
+# which is now Qt 6.5.2 or later
 
 # These instructions will lead you through building from source
-# FIRST:  make sure you have XCode 12 or later installed and the Command Line Tools
+# FIRST:  make sure you have XCode 13 or Xcode 14 or later installed and the Command Line Tools
 
 # set the deployment target (this is minimum needed)
 
-export MACOSX_DEPLOYMENT_TARGET=10.14
+export MACOSX_DEPLOYMENT_TARGET=11.0
 
 # cd to a location to store your src tree then do
 export MYQTSRC=`pwd`
 
-
 # Build Prerequisites
 # -------------------
-# First build and install the following prerequisites for the build: 
-#      cmake, ninja, libpng, and libjpeg-turbo
+
+# 1. Make sure you have installed Python 3.11.3 or later and then use pip3 install html5lib as these
+are needed by QtWebEngine
+
+# 2. Next build and install the following prerequisites for the build: 
+#      cmake, libpng, libjpeg-turbo 
 # and install into /usr/local so that they can be found during qtwebkit's build
 # Note: older versions of these prerequisites may work but have not been tested
 
-
-# Download cmake 3.22.1 or later from https://cmake.org/download
-tar -zxvf cmake-3.22.1.tar.gz
-cd cmake-3.22.1
+# Download cmake 3.26.4 or later from https://cmake.org/download
+tar -zxvf cmake-3.26.4.tar.gz
+cd cmake-3.26.4
 ./bootstrap --prefix=/usr/local -- -DCMAKE_BUILD_TYPE:STRING=Release
 make
 sudo make install
-
 
 # Need to download and install latest ninja - from https://github.com/ninja-build/ninja/releases
 unzip ninja-mac.zip
@@ -48,14 +44,11 @@ sudo cp ninja /usr/local/bin
 which ninja
 
 
-# Download libpng 1.6.36 or later from png's sourceforge site: http://www.libpng.org/pub/png/libpng.html
-# If you are building on MacOS 10.12, you will need to patch libpng
-# to support macos 10.12
-export LDFLAGS="-Wl,-macosx_version_min,10.14"
-export CFLAGS="-mmacosx-version-min=10.14 -Werror=partial-availability"
-tar -zxvf libpng-1.6.36.tar.gz
-cd libpng-1.6.36
-patch -p0 < libpng_support_macos_10.11.patch
+# Download libpng 1.6.39 or later from png's sourceforge site: http://www.libpng.org/pub/png/libpng.html
+export LDFLAGS="-Wl,-macosx_version_min,11.0"
+export CFLAGS="-mmacosx-version-min=11.0 -Werror=partial-availability"
+tar -zxvf libpng-1.6.39.tar.gz
+cd libpng-1.6.39
 ./configure --enable-static=yes --enable-shared=no --prefix=/usr/local
 make
 sudo make install
@@ -63,84 +56,131 @@ unset CFLAGS
 unset LDFLAGS
 
 
-# libjpeg-turbo 2.0.0 or later from libjpeg-turbo.org
+# libjpeg-turbo 2.1.5/1 or later from libjpeg-turbo.org
 # https://sourceforge.net/projects/libjpeg-turbo/files/2.0.2/
-tar -xvf libjpeg-turbo-2.0.2.tar.gz
+tar -xvf libjpeg-turbo-2.1.5.1.tar.gz
 mkdir buildjt
 cd buildjt
-cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local -DENABLE_SHARED=0 -DCMAKE_OSX_DEPLOYMENT_TARGET=10.14 \
-  -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=10.14 -Werror=partial-availability" ../libjpeg-turbo-2.0.2/
+cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local -DENABLE_SHARED=0 -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0 \
+  -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=11.0 -Werror=partial-availability" ../libjpeg-turbo-2.1.5.1/
 make
 sudo make install
 
 
-# Building Qt6.2.4 from source
+
+# Building Qt6.5.2 from source
 # -----------------------------
 
+# download qt-everywhere-src-6.5.2.tar.xz directly from Qt
+# from:  https://download.qt.io/archive/qt/
 # For: PySide - https://download.qt.io/official_releases/QtForPython/
 
-
-# download qt-everywhere-src-6.2.4.tar.xz directly from Qt
-# from:  http://download.qt.io/archive/qt/
+export MACOSX_DEPLOYMENT_TARGET=11.0
+export MYDEST=/Users/${USER}/devpython/libraries/Frameworks
+export PATH=${MYDEST}/Python.framework/Versions/3.11/bin:${PATH}
 
 # and then unpack it
 # Note to get unxz - you may need to download and build xz-5.2.5.tar.gz
 # see the docs on building a relocatable python for instruction on building xz
 
-unxz qt-everywhere-src-6.2.4.tar.xz
-tar -xvf qt-everywhere-src-6.2.4.tar
+tar -jxvf qt-everywhere-src-6.5.2.tar.xz
 
-cd qt-everywhere-src-6.2.4
+cd qt-everywhere-src-6.5.2
 
-# now copy 4 required patches from Sigil/docs/ into this directory
-
-# cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt624_avoid_qtabbar_segfault.patch ./
-# cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt624_fix_h6_insertParagraph.patch ./
-# cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt624_fix_missing_macos_menubar.patch ./
-# cp YOUR_PATH_TO_SIGIL_SRC_TREE/Sigil/docs/qt624_post_install_macos_ignore_bad_cups_cmake_find_failure.patch ./
-
-# apply mouse press and flick on qtabbar tab fix to prevent segfault
-# See https://bugreports.qt.io/browse/QTBUG-74478
-patch -p0 < ./qt624_avoid_qtabbar_segfault.patch
-
-# then apply an obvious fix for insertParagraph execcommand and h6 (see w3c spec)
+# apply an obvious fix for insertParagraph execcommand and h6 (see w3c spec)
 # See https://bugreports.qt.io/browse/QTBUG-79778
-patch -p0 < ./qt624_fix_h6_insertParagraph.patch
+patch -p0 < ./qt652_fix_h6_insertParagraph.patch
+
+# apply an official Qt CVE fix
+cd qtbase
+patch -p1 < qt652_CVE-2023-38197-qtbase-6.5.diff
+cd ..
+
+# Note: All of the following patches have *already* been applied in qt6.5.2 sources
+    # CVE-2023-32573-qtsvg-6.5.diff
+    # CVE-2023-32762-qtbase-6.5.diff
+    # CVE-2023-32763-qtbase-6.5.diff
+    # CVE-2023-37369-qtbase-6.5.diff
+    # CVE-2023-33285-qtbase-6.5.diff
+    # CVE-2023-34410-qtbase-6.5.diff
 
 # the remaining patches are ONLY important for Qt on macOS
 
 # apply workaround to prevent missing macos application menu items
 # See https://bugreports.qt.io/browse/QTBUG-80795
-patch -p0 < ./qt624_fix_missing_macos_menubar.patch
+patch -p0 < ./qt652_fix_missing_macos_menubar.patch
 
 # The last patch is for a generated cmake file fix and it must be used to fix the cmake
-# file *AFTER* the Qt6 is built and installed
-
-# this is the new minimum supported by Qt
-export MACOSX_DEPLOYMENT_TARGET=10.14
+# file *AFTER* the Qt6.5.2 is built and installed
 
 # Create a destination directory to house your complete Qt binary in your home directory
 # to be similar to how stock Qt does it
 cd ~/
-mkdir Qt624
+mkdir Qt652
 
 # Now return and create a shadow build inside a new directory to keep your Qt sources clean
 cd ${MYQTSRC}
-mkdir build624
-cd buildqt624
+mkdir build652
+cd buildqt652
 
 
 # Remember to include the -webengine-proprietary-codecs configure switch
 
-../qt-everywhere-src-6.2.4/configure --prefix=/Users/${USER}/Qt624 -webengine-proprietary-codecs -- -DCMAKE_OSX_DEPLOYMENT_TARGET="10.14"
+../qt-everywhere-src-6.5.2/configure --prefix=/Users/${USER}/Qt652 =feature-optimize_full -webengine-proprietary-codecs -- -DCMAKE_OSX_DEPLOYMENT_TARGET="11.0"
 
 # note the build itself can take a couple of hours depending on memory available, disk and cpus used
 cmake --build . --parallel
 cmake --install .
 
 # Now apply the final patch to the post installed cmake file
-cd /Users/${USER}/Qt624
-patch -p0 < qt624_post_install_macos_ignore_bad_cups_cmake_find_failure.patch
+cd /Users/${USER}/Qt652
+patch -p0 < qt652_post_install_macos_ignore_bad_cups_cmake_find_failure.patch
 
-# After the install phase completes your newly built Qt should exist in ~/Qt624 ready to be used
+# After the install phase completes your newly built Qt should exist in ~/Qt652 ready to be used
 # to build Sigil and PageEdit
+
+
+#
+# To build PySide6 so that Python/Sigil Plugins can use Qt
+#
+
+
+# Download pyside-setup-everywhere-src-6.5.2.tar.xz from https://download.qt.io/official_releases/QtForPython/
+export MACOSX_DEPLOYMENT_TARGET=11.0
+
+export MYDEST=/Users/${USER}/devpython/libraries/Frameworks
+export MYQTHOME=~/Qt652
+export PATH=${PATH}:${MYQTHOME}/bin
+export PATH=${MYDEST}/Python.framework/Versions/3.11/bin:${PATH}
+
+which qmake
+which python3
+
+# Prerequisites
+
+# Your will need to have the packaging module installed on your python3
+pip3 install --upgrade packaging
+
+# note for PySide 6.5.X you will need the latest version of setuptools
+# pip3 install --upgrade setuptools
+
+
+# You will need libclang (although macOS has this lib pre-installed, it can *not* 
+# be found by Qt's cmake.  Qt has pre-built binaries ready to be used for each platform.
+# I recommend storing it someplace *outside* the normal path such as /opt to help 
+# prevent future any name clash issues.
+# Download  libclang-release_140-based-macos-universal.7z from:
+#       https://download.qt.io/development_releases/prebuilt/libclang/
+# cd /opt
+# and unpack libclang-release_140-based-macos-universal.7z in /opt to create /opt/libclang
+
+
+# Tell the pyside6 build where to find it
+export CLANG_INSTALL_DIR=/opt/libclang
+
+# You should now be ready to build pyside6
+
+tar -jxf sources/pyside-setup-everywhere-src-6.5.2.tar.xz
+cd pyside-setup-everywhere-src-6.5.2
+
+python3 setup.py install --parallel=6 --build-tests
