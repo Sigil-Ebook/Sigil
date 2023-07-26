@@ -17,7 +17,7 @@ install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Conte
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/platforminputcontexts/libqtvirtualkeyboardplugin.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/platforms/libqcocoa.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/position/libqtposition_cl.dylib
-install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/position/libqtposition_serialnmea.dylib
+install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/position/libqtposition_nmea.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/position/libqtposition_positionpoll.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/styles/libqmacstyle.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/tls/libqcertonlybackend.dylib
