@@ -4,45 +4,45 @@
 
 To build Sigil on Windows, you need to get/do the following things:
 
-1. [Visual Studio 2019+](#vsstudio) The free Community Edition will work fine
-2. [CMake](#cmake) (3.16 or higher)
+1. [Visual Studio 2022+](#vsstudio) The free Community Edition will work fine
+2. [CMake](#cmake) (3.18 or higher)
 3. [Inno Setup](#inno) (Version 6 - unicode version - or higher required)
-4. [Qt6.2.2+/QtWebEngine](#qt6) (**NOTE**: Qt no longer provides free binary installers for Qt6+)
-5. [Python 3.6.x+](#python)
+4. [Qt6.5.2+/QtWebEngine](#qt6)
+5. [Python 3.11.3+](#python)
 6. [The Sigil source code](#sigil) (downloaded zipfile or a git clone)
 7. [Building Sigil](#build)
 8. [Advanced stuff](#advanced)
 
 ## <a name="vsstudio"/>Visual Studio
 
-Sigil for Qt6 is built with VS2019 in the latest versions of Sigil. Begin with making sure you have a working version of [Visual Studio](https://visualstudio.microsoft.com/vs/community/), (the free Community edition will work fine). Older versions of  Visual Studio can be found [here](https://visualstudio.microsoft.com/vs/older-downloads/)
+Sigil for Qt6 is built with VS2022 in the latest versions of Sigil. Begin with making sure you have a working version of [Visual Studio](https://visualstudio.microsoft.com/vs/community/), (the free Community edition will work fine). Older versions of  Visual Studio can be found [here](https://visualstudio.microsoft.com/vs/older-downloads/)
 
 The instructions given here will focus on using the command-line cmake and nmake tools. But if you're more comfortable in an IDE, you should find sufficient instructions to get you going. I simply don't use the IDE. Too many fiddly bits (sign-ins and expiring licenses for free software) for my taste. But it did work the last time I tried it.
 
-From the Start button (you're on your own if you don't have one), go to "All Programs->Visual Studio 201x" and find the command prompt you'll need for your platform. Probably "VS201x x64 Native Tools Command Prompt" for building a 64-bit package. If you're going to be building 32-bit packages, then use the "VS201x x86 Native Tools Command Prompt". Create a shortcut to the applicable command-prompt on your Desktop. That's what you'll be using to configure and build Sigil.
+From the Start button (you're on your own if you don't have one), go to "All Programs->Visual Studio 2022" and find the command prompt you'll need for your platform. Probably "VS2022 x64 Native Tools Command Prompt" for building a 64-bit package. Create a shortcut to the applicable command-prompt on your Desktop. That's what you'll be using to configure and build Sigil.
 
 If you're going to use the Visual Studio IDE and cmake-gui, you won't need to use these command-prompts.
 
 ## <a name="cmake"/>Getting CMake
-CMake 3.16 or better is required. Download it from [cmake.org](http://www.cmake.org) and install it. **Make sure CMake's "bin" directory (the one containing "cmake.exe") is added to your PATH**.
+CMake 3.18 or better is required. Download it from [cmake.org](http://www.cmake.org) and install it. **Make sure CMake's "bin" directory (the one containing "cmake.exe") is added to your PATH**.
 
 ## <a name="inno"/>Inno Setup
 Get the unicode version of version 6+ (6.2 at the time of this writing) from [jrsoftware.org](http://www.jrsoftware.org/isdl.php) make sure you say yes to the Preprocessor option when installing. **Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH**. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.
 
-## <a name="qt6"/>Qt6.2.2+
+## <a name="qt6"/>Qt6.5.2+
 As of Qt6+, there there are no binary Qt installers provided for free. You must compile it yourself from source (applying the appropriate patches from the Sigil Docs directory).
 
-If you want to use the exact, patched versions of Qt6.2.x and QtWebEngine that I'm using to release Sigil, feel free to download the whole shebang [from my personal repository](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). It's the archive named: Qt6.2.4_x64_VS2019.7z. Unzip it with 7-zip and note the location.
+If you want to use the exact, patched versions of Qt6.5.2 and QtWebEngine that I'm using to release Sigil, feel free to download the whole shebang [from my personal repository](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). It's the archive named: Qt6.5.2_x64_VS2022.7z. Unzip it with 7-zip and note the location.
 
-Once you have Qt6.2.x built/installed/unzipped, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH**
+Once you have Qt6.5.2+ built/installed/unzipped, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH**
 
-## <a name="python"/>Getting Python 3.6+
-**This is important**. If you're going to be building the 64-bit version of Sigil, you need to install the 64-bit version of Python 3.6+. If you're building a 32-bit version of Sigil then you need to install a 32-bit version of Python 3.6+.
+## <a name="python"/>Getting Python 3.11.3+
+**This is important**. You're going to be building the 64-bit version of Sigil, so you need to install the 64-bit version of Python 3.11.3+. 
 
-The official Windows Sigil installer uses Python 3.6+ from [Python.org](http://www.python.org) (3.9.9 at the time of this writing). Other flavors of Python may work, but you're on your own if they don't. Download it and install it. If you install somewhere that requires special privileges to add/remove files, you may need to use an administator command prompt to install Sigil's extra Python module dependencies. **I recommend installing Python to the default location ($USER/appdata) to avoid that problem. I also recommend allowing the Python installer to add Python to your PATH**. This will make it easier for Sigil to locate the necessary Python pieces it needs, and will make it easy to install the extra Python modules using Pythons "pip" tool. I'm going to assume you've done so for the rest of these instructions.
+The official Windows Sigil installer uses Python 3.11.3 from [Python.org](http://www.python.org).  Other flavors of Python may work, but you're on your own if they don't. Download it and install it. If you install somewhere that requires special privileges to add/remove files, you may need to use an administator command prompt to install Sigil's extra Python module dependencies. **I recommend installing Python to the default location ($USER/appdata) to avoid that problem. I also recommend allowing the Python installer to add Python to your PATH**. This will make it easier for Sigil to locate the necessary Python pieces it needs, and will make it easy to install the extra Python modules using Pythons "pip" tool. I'm going to assume you've done so for the rest of these instructions.
 
 ### Getting the extra Python module dependencies
-After installing Python 3.6+, I recommend making sure Python's pip/setuptools is updated to the latest version. The easiest way to do this is to open a command prompt (the shortcut to the Visual Studio command prompt you made on your desktop [in step 1](#vsstudio) will work fine) and type:
+After installing Python 3.11.3+, I recommend making sure Python's pip/setuptools is updated to the latest version. The easiest way to do this is to open a command prompt (the shortcut to the Visual Studio command prompt you made on your desktop [in step 1](#vsstudio) will work fine) and type:
 
 >`python -m pip install -U pip`
 
@@ -50,15 +50,16 @@ Once finished, you can begin to install the extra modules needed by Sigil.
 
 + six
 + html5lib (1.1+)
-+ regex (2021.11.10+)
-+ cssselect (1.1.0+)
-+ css-parser (1.0.7+)
-+ chardet (4.0.0+)
-+ dulwich (0.20.26+) dulwich also requires urllib3 and certifi minimums
-+ Pillow (8.4.0+)
-+ lxml (4.7.1+)
-+ Shiboken6 (6.2.2+)
-+ PySide6 (6.2.2+) Use the same version as Shiboken6
++ regex (2023.3.23+)
++ cssselect (1.2.0+)
++ css-parser (1.0.8+)
++ chardet (5.1.0+)
++ dulwich (0.21.3+) dulwich also requires urllib3 and certifi minimums
++ Pillow (9.5.0+)
++ lxml (4.9.2+)
++ Shiboken6 (6.5.2+)
++ PySide6 (6.5.2+) Use the same version as Shiboken6
++ Pyside6-Addons (6.5.2+)
 
 From the same command prompt you updated pip with, install the "six" module with the following command:
 
@@ -74,7 +75,7 @@ etc...
 
 Other versions of Pillow will probably work fine, but Sigil's installer build is predicated on a v6.2.1 minimum. To install that specific version, use the following pip command.
 
->`pip install Pillow==8.4.0`
+>`pip install Pillow==9.5.0`
 
 Otherwise:
 
@@ -84,15 +85,17 @@ will suffice.
 
 ### Installing lxml.
 
-Version 4.4.2 comes with precompiled binary wheels for Windows. Not all versions do. So if you want to install a different version, you'll need to find out if there's precompiled binaries for Windows or not. Install a specific version with pip using the following command
+Install a specific version with pip using the following command
 
->`pip install lxml==4.7.1`
+>`pip install lxml==4.9.2`
 
 ### Installing PySide6.
 
-PyQt5 was replaced with Qt's own PySide6/Shiboken with Sigil-Qt6
+PyQt5 was replaced with Qt's own Shiboken/PySide6 with Sigil-Qt6
 
->`pip install PySide6==6.2.3 Shiboken6==6.2.3`
+>`pip install PySide6==6.5.2 Shiboken6==6.5.2 PySide6-Addons==6.5.2`
+
+PySide6-Addons provides WebEngine and PDF support
 
 ## <a name="sigil"/>Getting Sigil's Source Code
 
@@ -100,7 +103,7 @@ You can clone the Sigil Github repository (Requires a Windows git client - I use
 
 >`git clone https://github.com/Sigil-Ebook/Sigil.git`
 
-Or you can download a specific release's zipfile from Sigil's [releases page](https://github.com/Sigil-Ebook/Sigil/releases/latest) on Github (1.9.2 at the time of this writing).
+Or you can download a specific release's zipfile from Sigil's [releases page](https://github.com/Sigil-Ebook/Sigil/releases/latest) on Github (1.9.40 at the time of this writing).
 
 I recommend the latter method, as the github repository version might not always be stable at any given moment (even though we try hard not to leave it broken).
 
@@ -110,9 +113,9 @@ Unzip the source code. Rename the uppermost directory to something useful like "
 
 To build the Sigil installer package, you'll need to copy the Visual Studio redistributable runtime installer to the `<sigil-src>\installer` folder (the one that contains the Sigil.iss file). These redistributable files can usually be found somewhere in Visual Studio's folder structure:
 
-`C:\Program Files (x86)\Microsoft Visual Studio\201x\Community\VC\Redist\MSVC\14.XX.XXXXX\`
+`C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Redist\MSVC\14.XX.XXXXX\`
 
-vcredist_x64.exe for 64-bit builds, and vcredist_x86.exe for 32-bit builds.
+vc_redist.x64.exe for 64-bit builds.
 
 **The file names are important so don't rename them**. Just copy the appropriate one to the "installer" folder in Sigil's source mentioned above.
 
@@ -124,21 +127,18 @@ With all the pre-requisites met and all the necessary additions to your PATH, th
 
 Using the shortcut to the proper VSStudio command-prompt created in [step 1](#vsstudio), cd to a suitable empty directory for building Sigil (I recommend "sigil-build", or some such similar name), and issue the following command:
 
-> `cmake -G "NMake Makefiles" -DUSE_QT6=1 -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt6_DIR="C:\MyQtx64\Qt6.2.x\lib\cmake\Qt6" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+> `cmake -G "NMake Makefiles" -DUSE_QT6=1 -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt6_DIR="C:\Qt6.5.2\lib\cmake\Qt6" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
 
-Leave out the -DWIN_INSTALLER_USE_64BIT_CRT=1 part if you're building a 32-bit version of Sigil with the "Visual Studio x86 Native Tools Command Prompt" shortcut.
+Obviously change the paths to match where you've actually installed Qt6.2.x+ and the Sigil source code. For instance: using my specially compiled version of Qt5/WebEngine, it would look like:
 
-Obviously change the paths to match where you've actually installed Qt6.2.x and the Sigil source code. For instance: using my specially compiled version of Qt5/WebEngine, it would look like:
-
-`cmake -G "NMake Makefiles" -DUSE_QT6=1 -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt6_DIR="C:\MyQtx64\Qt6.12.x\lib\cmake\Qt6" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+`cmake -G "NMake Makefiles" -DUSE_QT6=1 -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt6_DIR="C:Qt6.5.2\lib\cmake\Qt6" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
 
 If this completes successfully, then you're ready to compile Sigil (leave the command prompt open).
 
 You can also generate Visual Studio Project/Solution Files with cmake by using:
 
-> `cmake -G "Visual Studio 16 2019" -A x64 -DUSE_QT6=1 -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt6_DIR="C:\MyQtx64\Qt6.12.x\lib\cmake\Qt6" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+> `cmake -G "Visual Studio 17 2022" -A x64 -DUSE_QT6=1 -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt6_DIR="C:\Qt6.5.2\lib\cmake\Qt6" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
 
-Change -A x64 to -A Win32 and drop -DWIN_INSTALLER_USE_64BIT_CRT=1 if you're building the 32-bit version of Sigil.
 
 You can also use cmake-gui (double-click on cmake-gui in the cmake/bin directory) and avoid using the command-prompt altogether if you wish (although you're on your own in figuring out how to enter all the cmake configuration options in the gui).
 
@@ -150,7 +150,7 @@ You can also use cmake-gui (double-click on cmake-gui in the cmake/bin directory
 
 The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version. They can come in handy if you have multiple versions of Python 3 installed on your computer.
 
--DPYTHON_LIBRARY=`<the full path to the python3.x library (ex. python39.lib)>`
+-DPYTHON_LIBRARY=`<the full path to the python3.x library (ex. python311.lib)>`
 
 -DPYTHON_INCLUDE_DIR=`<the path to the directory where python3.x's header files (python.h) can be found>`
 
