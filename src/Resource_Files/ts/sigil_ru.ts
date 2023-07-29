@@ -224,7 +224,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="312"/>
         <source>PDF</source>
-        <translation type="unfinished"/>
+        <translation>PDF</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="317"/>
@@ -1334,7 +1334,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="99"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation>Sigil пошлёт ваши данные CSS в &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</translation>
+        <translation>Sigil пошлёт данные Ваших CSS в &lt;a href=&apos;http://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
@@ -2307,7 +2307,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="253"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Сохранить отчёт как файл с разделителями запятыми</translation>
+        <translation>Сохранить отчёт как файл в формате CSV</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="266"/>
@@ -3622,18 +3622,18 @@ HTML-код.</translation>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="570"/>
         <source>Preview Print Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройка предпросмотра печати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="576"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="579"/>
         <source>Skip Print Preview</source>
-        <translation type="unfinished"/>
+        <translation>Пропустить предпросмотр печати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="588"/>
         <source>Print DPI:</source>
-        <translation type="unfinished"/>
+        <translation>DPI при печати:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="222"/>
@@ -4888,7 +4888,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
-        <translation>Обнаруженные ошибки — в печатных работах, обычно, отдельный листок-вкладыш, иногда страница, содержащие исправления в работе.</translation>
+        <translation>Обнаруженные ошибки – в печатных работах, обычно, отдельный листок-вкладыш, иногда страница, содержащие исправления в работе.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="171"/>
@@ -8360,7 +8360,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
         <source>untitled.epub[*] - Sigil</source>
-        <translation>без_имени.epub[*] - Sigil</translation>
+        <translation>без_имени.epub[*] – Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
@@ -9251,7 +9251,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1484"/>
         <source>Restructure Epub to Sigil Norm</source>
-        <translation>Привести Epub к прежней структуре Sigil</translation>
+        <translation>Изменить структуру Epub до Sigil Norm</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1487"/>
@@ -13818,7 +13818,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
-        <translation>Лицо, производящее корректуру печатного текста. Для рукописных материалов используется код [crr] — Корректор рукописей.</translation>
+        <translation>Лицо, производящее корректуру печатного текста. Для рукописных материалов используется код [crr] – Корректор рукописей.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
@@ -16665,7 +16665,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="255"/>
         <source>Update Preview Window</source>
-        <translation>Обновить окно предварительного просмотра</translation>
+        <translation>Обновить окно предпросмотра</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="259"/>

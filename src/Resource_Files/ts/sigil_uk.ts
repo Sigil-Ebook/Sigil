@@ -224,7 +224,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="312"/>
         <source>PDF</source>
-        <translation type="unfinished"/>
+        <translation>PDF</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="317"/>
@@ -3621,18 +3621,18 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="570"/>
         <source>Preview Print Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки перегляду перед друком</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="576"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="579"/>
         <source>Skip Print Preview</source>
-        <translation type="unfinished"/>
+        <translation>Пропустити перегляд перед друком</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="588"/>
         <source>Print DPI:</source>
-        <translation type="unfinished"/>
+        <translation>DPI для друку:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="222"/>
