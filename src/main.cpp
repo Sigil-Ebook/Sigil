@@ -436,7 +436,7 @@ int main(int argc, char *argv[])
     // if darkmode options are not already in the list of windows platform options,
     // Set it to 1 so that sigil title bars will be dark in Windows darkmode.
     // This is setting is assumed with a dark palette starting with Qt6.5.
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0) && QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0) && QT_VERSION <= QT_VERSION_CHECK(6, 5, 0)
     if (Utility::WindowsShouldUseDarkMode()) {
         bool darkmode_arg_exists = false;
         foreach(QString arg, current_platform_args) {
