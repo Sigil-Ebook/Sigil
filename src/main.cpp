@@ -435,7 +435,8 @@ int main(int argc, char *argv[])
 
     // if darkmode options are not already in the list of windows platform options,
     // Set it to 1 so that sigil title bars will be dark in Windows darkmode.
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    // This is setting is assumed with a dark palette starting with Qt6.5.
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0) && QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
     if (Utility::WindowsShouldUseDarkMode()) {
         bool darkmode_arg_exists = false;
         foreach(QString arg, current_platform_args) {
@@ -444,7 +445,7 @@ int main(int argc, char *argv[])
             }
         }
         if (!darkmode_arg_exists) {
-            current_platform_args.append("darkmode=0");
+            current_platform_args.append("darkmode=1");
         }
     }
 #endif
@@ -547,7 +548,7 @@ int main(int argc, char *argv[])
         if (Utility::WindowsShouldUseDarkMode()) {
             // Apply custom dark style
             app.setStyle(new SigilDarkStyle);
-#if QT_VERSION <= QT_VERSION_CHECK(5, 15, 0)
+#if QT_VERSION <= QT_VERSION_CHECK(5, 15, 0)  && QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
             // At this point, I have no idea where along the 5.15.x series this
             // being present will break dark mode. I only know the first official
             // official windows version that uses 5.15.9 needs it to be gone.
