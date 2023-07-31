@@ -444,7 +444,7 @@ int main(int argc, char *argv[])
             }
         }
         if (!darkmode_arg_exists) {
-            current_platform_args.append("darkmode=1");
+            current_platform_args.append("darkmode=0");
         }
     }
 #endif
