@@ -548,7 +548,7 @@ int main(int argc, char *argv[])
         if (Utility::WindowsShouldUseDarkMode()) {
             // Apply custom dark style
             app.setStyle(new SigilDarkStyle);
-#if QT_VERSION <= QT_VERSION_CHECK(5, 15, 0)  && QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+#if QT_VERSION <= QT_VERSION_CHECK(5, 15, 0) || QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
             // At this point, I have no idea where along the 5.15.x series this
             // being present will break dark mode. I only know the first official
             // official windows version that uses 5.15.9 needs it to be gone.
