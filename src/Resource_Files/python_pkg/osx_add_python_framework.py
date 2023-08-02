@@ -35,7 +35,7 @@ fwk_struct = ['Python.framework/Versions/' + pversion + '/lib/' + stdlib_name + 
 
 # minimal set of PyQt modules to support the plugin gui
 # try to handle newer and older versions of sip/pyqt5
-PYQT_MODULE_NAMES = ['Qt', 'QtCore', 'QtDBus', 'QtGui', 'QtNetwork', 'QtPrintSupport',
+PYQT_MODULE_NAMES = ['Qt', 'QtCore', 'QtDBus', 'QtGui', 'QtNetwork', 'QtPdf', 'QtPrintSupport',
                      'QtSvg', 'QtWidgets', 'QtWebEngine', 'QtWebEngineCore',
                      'QtWebEngineWidgets', 'QtWebChannel']
 

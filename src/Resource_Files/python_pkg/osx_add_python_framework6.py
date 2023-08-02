@@ -33,7 +33,7 @@ fwk_struct = ['Python.framework/Versions/' + pversion + '/lib/' + stdlib_name + 
 ]
 
 # minimal set of PySide modules to support the plugin gui need *.so and *.pyi
-PYSIDE6_MODULES = ['QtCore', 'QtDBus', 'QtGui', 'QtNetwork', 'QtPrintSupport',
+PYSIDE6_MODULES = ['QtCore', 'QtDBus', 'QtGui', 'QtNetwork', 'QtPdf', 'QtPrintSupport',
                   'QtSvg', 'QtWidgets', 'QtWebEngine', 'QtWebEngineCore',
                    'QtWebEngineWidgets', 'QtWebChannel', 'QtUiTools',
                    'QtOpenGL', 'QtOpenGLWidgets']
