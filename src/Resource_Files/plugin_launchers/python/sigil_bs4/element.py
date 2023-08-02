@@ -42,6 +42,9 @@ EBOOK_XML_PARENT_TAGS = ("package","metadata","manifest","spine","guide","ncx",
                          "head","doctitle","docauthor","navmap", "navpoint",
                           "navlabel", "pagelist", "pagetarget") 
 
+IS_ENTITY = re.compile("(&#\d+;|&#x[0-9a-fA-F]+;|&\w+;)")
+
+
 def _alias(attr):
     """Alias one attribute name to another for backward compatibility"""
     @property
@@ -1324,6 +1327,15 @@ class Tag(PageElement):
                 s.append(val)
             if text:
                 text = text.strip()
+                # walk the contents and escape html named entities from xml tag contents
+                pieces = IS_ENTITY.split(text);
+                for i in range(1, len(pieces),2):
+                    piece = pieces[i]
+                    if piece not in ["&lt;", "&gt;", "&amp;"]:
+                        # not a xml base entity
+                        piece = "&amp;" + piece[1:]
+                    pieces[i] = piece
+                text = "".join(pieces)
             if text:
                 if is_xmlparent and len(s) == 0:
                     s.append(indent_chars * (indent_level - 1))

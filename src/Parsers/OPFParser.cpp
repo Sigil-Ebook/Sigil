@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021-2022 Kevin B. Hendricks
+**  Copyright (C) 2021-2023 Kevin B. Hendricks
 **
 **  This file is part of Sigil.
 **
