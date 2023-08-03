@@ -18,7 +18,7 @@ site_dest = os.path.join(lib_dir, 'site-packages')
 
 # QUiTools needs QtOpenGlWidgets (on Windows anyway)
 PYSIDE6_MODULES = [
-    'QtCore', 'QtGui', 'QtNetwork', 'QtOpenGlWidgets','QtPrintSupport',
+    'QtCore', 'QtGui', 'QtNetwork', 'QtOpenGlWidgets', 'QtPdf', 'QtPrintSupport',
     'QtUiTools','QtWebEngine', 'QtWebEngineCore', 'QtWebEngineWidgets',
     'QtWebChannel', 'QtSvg', 'QtWidgets', 'Shiboken'
     ]
