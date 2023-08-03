@@ -224,7 +224,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="312"/>
         <source>PDF</source>
-        <translation type="unfinished"/>
+        <translation>PDF</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="317"/>
@@ -736,7 +736,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="167"/>
         <source>[String parameter for next Plugin run here]</source>
-        <translation type="unfinished"/>
+        <translation>[zde parametr řetězce pro další spuštění přídavného modulu]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="300"/>
@@ -831,7 +831,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="318"/>
         <source>set a string parameter to be passed to the next plugin.</source>
-        <translation type="unfinished"/>
+        <translation>nastavit parametr řetězce, který se předá dalšímu přídavnému modulu.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="320"/>
@@ -856,7 +856,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="324"/>
         <source>Perform a basic Well-Formed Check on Epub XHtml files.</source>
-        <translation type="unfinished"/>
+        <translation>Proveďte základní kontrolu správného tvaru souborů EPUB XHTML.</translation>
     </message>
 </context>
 <context>
@@ -1869,7 +1869,7 @@ Chcete uložit své změny?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1655"/>
         <source>Toggle Line Wrap Mode</source>
-        <translation type="unfinished"/>
+        <translation>Přepnout režim obtékání řádků</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1677"/>
@@ -1914,27 +1914,27 @@ Chcete uložit své změny?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1945"/>
         <source>Selected Text is not a valid class name.</source>
-        <translation type="unfinished"/>
+        <translation>Vybraný text není platný název třídy.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1952"/>
         <source>Rename Class</source>
-        <translation type="unfinished"/>
+        <translation>Přejmenovat třídu</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1953"/>
         <source>Enter new class name</source>
-        <translation type="unfinished"/>
+        <translation>Zadejte nový název třídy</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1973"/>
         <source>Class renamed.</source>
-        <translation type="unfinished"/>
+        <translation>Třída přejmenována.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1975"/>
         <source>Class rename aborted.</source>
-        <translation type="unfinished"/>
+        <translation>Přejmenování třídy přerušeno.</translation>
     </message>
 </context>
 <context>
@@ -2007,7 +2007,9 @@ Chcete uložit své změny?</translation>
         <source>Search from current position to top or end of the 
 current file and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>Hledat od nynější polohy po začátek nebo konec
+nynějšího souboru, a pak se přesunout na opačný
+konec a pokračovat v hledání.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="183"/>
@@ -2018,7 +2020,8 @@ other end to continue searching.</source>
         <location filename="../../Form_Files/Controls.ui" line="197"/>
         <source>Search only in text (outside tags).
               Valid only when searching HTML files.</source>
-        <translation type="unfinished"/>
+        <translation>Vyhledávání pouze v textu (mimo značky).
+Platí pouze při vyhledávání v souborech HTML.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="201"/>
@@ -2038,7 +2041,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="260"/>
         <source>Ignore current settings and return an empty Controls value. </source>
-        <translation type="unfinished"/>
+        <translation>Přehlížet nynější nastavení a odstranit nastavení vyhledávání.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="302"/>
@@ -2230,12 +2233,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/CountsReport.ui" line="14"/>
         <source>Counts Report</source>
-        <translation type="unfinished"/>
+        <translation>Zpráva o počtu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/CountsReport.ui" line="34"/>
         <source>List only the table rows which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Ukáže pouze řádky tabulky, které obsahují zadaný text.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/CountsReport.ui" line="37"/>
@@ -2245,7 +2248,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="85"/>
         <source>Search Full Name</source>
-        <translation type="unfinished"/>
+        <translation>Úplný název hledaného výrazu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="86"/>
@@ -2328,7 +2331,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="27"/>
         <source>Select / Unselect all</source>
-        <translation type="unfinished"/>
+        <translation>Vybrat/Zrušit výběr všeho</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="68"/>
@@ -2356,7 +2359,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="27"/>
         <source>Select / Unselect all</source>
-        <translation type="unfinished"/>
+        <translation>Vybrat/Zrušit výběr všeho</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="80"/>
@@ -2384,12 +2387,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="14"/>
         <source>Dry Run Replace-All Results</source>
-        <translation type="unfinished"/>
+        <translation>Výsledky zkušebního běhu Nahradit vše</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="34"/>
         <source>List only the table rows which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Ukáže pouze řádky tabulky, které obsahují zadaný text.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="37"/>
@@ -2399,32 +2402,32 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="60"/>
         <source>Select the amount of context before and after the match in characters</source>
-        <translation type="unfinished"/>
+        <translation>Nastavuje, kolik znaků se zobrazí před a po shodě</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="63"/>
         <source>Context:</source>
-        <translation type="unfinished"/>
+        <translation>Souvislost:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="83"/>
         <source>Count:</source>
-        <translation type="unfinished"/>
+        <translation>Počet:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="90"/>
         <source>Total Number of Matches/Replacements</source>
-        <translation type="unfinished"/>
+        <translation>Celkový počet shod/nahrazení</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="93"/>
         <source>----   </source>
-        <translation type="unfinished"/>
+        <translation>----   </translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="129"/>
         <source>Perform the dry run ReplaceAll again and rebuild the table</source>
-        <translation type="unfinished"/>
+        <translation>Provést nový zkušební běh a znovu vytvořit tabulku.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="132"/>
@@ -2434,7 +2437,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="152"/>
         <source>Close this dialog</source>
-        <translation type="unfinished"/>
+        <translation>Zavřít toto dialogové okno</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="155"/>
@@ -2444,12 +2447,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="122"/>
         <source>... Creating Table</source>
-        <translation type="unfinished"/>
+        <translation>... Vytváří se tabulka</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="127"/>
         <source>Book Path</source>
-        <translation type="unfinished"/>
+        <translation>Cesta ke knize</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="128"/>
@@ -2459,17 +2462,17 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="129"/>
         <source>Before</source>
-        <translation type="unfinished"/>
+        <translation>Před</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="130"/>
         <source>After</source>
-        <translation type="unfinished"/>
+        <translation>Po</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="237"/>
         <source>Dry Run Replace-All</source>
-        <translation type="unfinished"/>
+        <translation>Zkušební běh Nahradit vše</translation>
     </message>
 </context>
 <context>
@@ -2952,7 +2955,9 @@ then find the Next match in Code View.&lt;/p&gt;</source>
         <source>Search from current position to top or end of the
 current file and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>Hledat od nynější polohy po začátek nebo konec
+nynějšího souboru, a pak se přesunout na opačný
+konec a pokračovat v hledání.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="445"/>
@@ -9821,7 +9826,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1995"/>
         <source>Dry Run Replace All</source>
-        <translation type="unfinished"/>
+        <translation>Zkušební běh Nahradit vše</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2000"/>
@@ -13467,7 +13472,7 @@ Do you want to automatically mend the files before saving?</source>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>A performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., Narrator, Host) is either not applicable or not desired.</source>
-        <translation type="unfinished"/>
+        <translation>Umělec, který přispívá k výrazu díla tím, že poskytuje kontext nebo informace v pozadí v nehraných nebo zábavných filmech. Používá se v případech, kdy jiný termín (např. &quot;vypravěč&quot; [nrt], &quot;moderátor&quot;[host]) není použitelný nebo žádoucí.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
@@ -17007,27 +17012,27 @@ je platná pro všechny vybrané soubory.
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="47"/>
         <source>Select the amount of context in characters shown before and after the match.</source>
-        <translation type="unfinished"/>
+        <translation>Nastavuje, kolik znaků se zobrazí před a po shodě.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="50"/>
         <source>Context:</source>
-        <translation type="unfinished"/>
+        <translation>Souvislost:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="70"/>
         <source>Count:</source>
-        <translation type="unfinished"/>
+        <translation>Počet:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="77"/>
         <source>Total Number of Matches/Replacements</source>
-        <translation type="unfinished"/>
+        <translation>Celkový počet shod/nahrazení</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="80"/>
         <source>----   </source>
-        <translation type="unfinished"/>
+        <translation>----   </translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="110"/>
@@ -17049,7 +17054,7 @@ je platná pro všechny vybrané soubory.
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="96"/>
         <source>Book Path</source>
-        <translation type="unfinished"/>
+        <translation>Cesta ke knize</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="97"/>
@@ -17059,12 +17064,12 @@ je platná pro všechny vybrané soubory.
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="98"/>
         <source>Before</source>
-        <translation type="unfinished"/>
+        <translation>Před</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="99"/>
         <source>After</source>
-        <translation type="unfinished"/>
+        <translation>Po</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="377"/>
@@ -17194,7 +17199,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="185"/>
         <source>Counts Report</source>
-        <translation type="unfinished"/>
+        <translation>Zpráva o počtu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="210"/>
