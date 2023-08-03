@@ -7,6 +7,8 @@ Sigil-2.0.0
       - fix Preview disconnect bug after split at cursor
       - fixed sigil-gumbo interface for plugins
       - added workaround for ADE epub3 bug with scaled cover images
+      - fix encoding for named entities in opf metadata
+      - fix crash by disabling drop inside CodeViewEditor
 
     New Features
       - updated to Qt 6.5.2 which is now used for releases
