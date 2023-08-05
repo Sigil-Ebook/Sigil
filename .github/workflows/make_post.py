@@ -33,7 +33,8 @@ asset_patterns = {
     'Windows-Setup.exe'        : 'Windows x86 download',
     'Windows-x64-Setup.exe'    : 'Windows x64 download',
     'Windows-Legacy-Setup.exe' : 'Windows Legacy download',
-    'Mac.txz'                  : 'MacOS download'
+    'Mac-x86_64.txz'           : 'MacOS (Intel) download',
+    'Mac-arm64.txz'            : 'MacOS (Arm64) download'
 }
 
 link = "[{}]({}){{: .btn .btn--success}}<br/>"

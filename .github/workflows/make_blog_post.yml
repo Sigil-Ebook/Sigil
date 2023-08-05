@@ -11,16 +11,16 @@ jobs:
     steps:
       - name: Get tag name
         id: get_tag_name
-        run: echo ::set-output name=TAGNAME::${GITHUB_REF/refs\/tags\//}
+        run: echo "TAGNAME=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_OUTPUT
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: master
           path: main
 
       - name: Checkout website
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.ROBO_ACTIONS }}
           repository: sigil-ebook/sigil-ebook.github.io
