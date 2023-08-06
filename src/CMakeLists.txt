@@ -602,13 +602,6 @@ set( QRC_FILES
     Resource_Files/icon/icon.qrc
     Resource_Files/dark/dark.qrc
     )
-if( UNIX AND NOT APPLE )
-    if ( USE_ALT_ICONS )
-        LIST( APPEND QRC_FILES Resource_Files/icon/app_icons_alt/app_icons.qrc )
-    else()
-        LIST( APPEND QRC_FILES Resource_Files/icon/app_icons_orig/app_icons.qrc )
-    endif()
-endif()
 
 set( MAIN_BINARY_QRC_FILES
     Resource_Files/main/main.qrc

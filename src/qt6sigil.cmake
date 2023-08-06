@@ -8,6 +8,11 @@ add_definitions(-DQT_IMPLICIT_QCHAR_CONSTRUCTION)
 
 set(QT6_NEEDED 6.2)
 
+# Qt6 gets shiny new(ish) teal icons
+if( UNIX AND NOT APPLE )
+    LIST( APPEND QRC_FILES Resource_Files/icon/app_icons_alt/app_icons.qrc )
+endif()
+
 set( PKGS_TO_FIND Core Core5Compat Network WebEngineCore WebEngineWidgets Widgets Xml Concurrent PrintSupport LinguistTools )
 if (APPLE)
     list( APPEND PKGS_TO_FIND UiTools )
@@ -15,11 +20,9 @@ endif()
 if ( WIN32 )
     # QtWinExtras not in Qt6 as of 6.2.2
     # list( APPEND PKGS_TO_FIND WinExtras )
-    if ( USE_ALT_ICONS )
-        set(APP_ICON_PATH "${CMAKE_SOURCE_DIR}/src/Resource_Files/icon/app_icons_alt/app.ico" )
-    else()
-        set(APP_ICON_PATH "${CMAKE_SOURCE_DIR}/src/Resource_Files/icon/app_icons_orig/app.ico" )
-    endif()
+    # Qt6 gets shiny new(ish) teal icons
+    set(APP_ICON_PATH "${CMAKE_SOURCE_DIR}/src/Resource_Files/icon/app_icons_alt/app.ico" )
+
 endif()
 find_package( Qt6 ${QT6_NEEDED} COMPONENTS ${PKGS_TO_FIND} REQUIRED )
 
@@ -142,11 +145,9 @@ if( APPLE )
     # TODO: put these in some sort of add_custom_command( TARGET ${PROJECT_NAME} PRE_BUILD COMMAND ...)
     # also delete the Sigil.app folder as PRE_BUILD of Sigil executable
 
-    if ( USE_ALT_ICONS )
-        set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_alt/Sigil.icns )
-    else()
-        set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_orig/Sigil.icns )
-    endif()
+    # Qt6 gets shiny new(ish) teal icons
+    set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_alt/Sigil.icns )
+
 
     if( CMAKE_GENERATOR STREQUAL Xcode )
         exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
@@ -368,11 +369,8 @@ elseif (MSVC)
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     set( PYTHON_DEST_DIR ${MAIN_PACKAGE_DIR}/python3 )
     set( VCREDIST_VER "2022" )
-    if ( USE_ALT_ICONS )
-        set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_alt )
-    else()
-        set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_orig )
-    endif()
+    # Qt6 gets shiny new(ish) teal icons
+    set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_alt )
 
     # ISS conf file for the Inno Setup compiler
     # We first create a CMake configured version of the ISS file,
@@ -627,11 +625,8 @@ if( UNIX AND NOT APPLE )
     endif()
     install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/applications/ )
 
-    if ( USE_ALT_ICONS )
-        set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_alt )
-    else()
-        set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_orig )
-    endif()
+    # Qt6 gets shiny new(ish) teal icons
+    set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_alt )
     if( INSTALL_HICOLOR_ICONS )
         set( ICON_SIZE 16 32 48 64 128 256 512)
         foreach( SIZE ${ICON_SIZE} )
