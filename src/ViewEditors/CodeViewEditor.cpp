@@ -2683,7 +2683,7 @@ QList<ElementIndex> CodeViewEditor::GetCaretLocation()
     QString element_name;
     foreach(ElementIndex ei, hierarchy) {
         if (BLOCK_LEVEL_TAGS.contains(ei.name)) {
-        element_name = ei.name;
+            element_name = ei.name;
         }
     }
     m_element_name = element_name;
@@ -2707,7 +2707,11 @@ QStack<CodeViewEditor::StackElement> CodeViewEditor::GetCaretLocationStack(int o
     while (!reader.atEnd()) {
         reader.readNext();
 
-        if (reader.isStartElement()) {
+        if (reader.isComment()) {
+            if (reader.characterOffset() == offset) {
+                break;
+            }
+        } else if (reader.isStartElement()) {
             // If we detected the start of a new element, then
             // the element currently on the top of the stack
             // has one more child element
@@ -2716,7 +2720,7 @@ QStack<CodeViewEditor::StackElement> CodeViewEditor::GetCaretLocationStack(int o
             }
 
             StackElement new_element;
-            new_element.name         = reader.name().toString();
+            new_element.name = reader.name().toString();
             new_element.num_children = 0;
             stack.push(new_element);
 
