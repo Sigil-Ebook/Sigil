@@ -8,10 +8,11 @@ Sigil-2.0.0
       - fixed sigil-gumbo interface for plugins
       - added workaround for ADE epub3 bug with scaled cover images
       - fix encoding for named entities in opf metadata
-      - fix crash by disabling drop inside CodeViewEditor
+      - fix drag/drop crash by disabling drop inside CodeViewEditor
+      - fix CodeView to Preview syncing on text after an inline xhtml comment
 
     New Features
-      - updated to Qt 6.5.2 which is now used for releases
+      - updated to Qt 6.5.2 which is now used for official releases
       - updated to Python 3.11.3 and uses the latest EmbededPython interface
       - updated to the latest jquery version 3.6.4
       - supports use of embedded pdfs ala ADE
