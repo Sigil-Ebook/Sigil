@@ -229,7 +229,7 @@ void PreviewWindow::SetupView()
     // QWebEngineView events are routed to their parent
     m_Preview->installEventFilter(this);
 
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+#if 1 //!defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // this may be needed by all platforms in the future
     QWidget * fp = m_Preview->focusProxy();
     if (fp) fp->installEventFilter(this);
