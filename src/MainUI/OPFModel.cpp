@@ -252,9 +252,9 @@ Resource::ResourceType OPFModel::GetResourceType(QStandardItem const *item)
     }
 
     if (item == m_MiscFolderItem) {
-        const QString &identifier = item->data().toString();
-        return m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier)->Type();
-        // return Resource::GenericResourceType;
+        // filler lines to keep
+        // line numbers in sync with translation ts files
+        return Resource::GenericResourceType;
     }
 
     if (item == m_AudioFolderItem) {
