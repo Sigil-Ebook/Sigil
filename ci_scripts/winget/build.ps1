@@ -39,6 +39,9 @@ if (-not $env:WINGET_TOKEN) {
     Exit 1
 }
 # Get the latest wingetcreate exe
-Invoke-WebRequest 'https://aka.ms/wingetcreate/latest/self-contained' -OutFile wingetcreate.exe
+Invoke-WebRequest 'https://aka.ms/wingetcreate/preview' -OutFile wingetcreate.exe
+
+$prtitle = "New Version: Sigil-Ebook.Sigil version $Version"
+
 # Create the PR
-./wingetcreate.exe submit --token $env:WINGET_TOKEN $Version
+./wingetcreate.exe submit --prtitle $prtitle --token $env:WINGET_TOKEN $Version
