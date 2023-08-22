@@ -1,7 +1,9 @@
 Sigil-2.0.1
     Bug Fixes
       - fix crash when right click on Misc folder in BookBrowser
-
+      - Allow user to revert CodeView drag_and_drop change via environment variable: SIGIL_ALLOW_CODEVIEW_DROP=1
+        Note: Using DragnDrop in CodeView is still NOT officially supported.
+      - add inadvertantly missed updated serbian translation (ts) file
 
 Sigil-2.0.0
     Bug Fixes
