@@ -1,3 +1,8 @@
+Sigil-2.0.1
+    Bug Fixes
+      - fix crash when right click on Misc folder in BookBrowser
+
+
 Sigil-2.0.0
     Bug Fixes
       - fix incorrect assert in sigil-gumbo
