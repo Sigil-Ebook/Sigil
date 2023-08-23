@@ -6287,9 +6287,9 @@ void MainWindow::changeEvent(QEvent *e)
 #endif
                 }
 
-                DWINGEO {
+                if (qEnvironmentVariableIsSet("SIGIL_DEBUG_LOGFILE")) {
                     QScreen * srn = qApp->primaryScreen();
-                    qDebug() << "Primary Screen";
+                    qDebug() << "Primary Screen: " << srn->name() << srn->manufacturer() << srn->serialNumber();
                     qDebug() << "    geo        : " << srn->geometry();
                     qDebug() << "    avail   geo: " << srn->availableGeometry();
                     qDebug() << "    devideRatio: " << srn->devicePixelRatio();
@@ -6300,8 +6300,8 @@ void MainWindow::changeEvent(QEvent *e)
                     QList<QScreen*>screenlist = QGuiApplication::screens();
                     int numscreens = screenlist.count();
                     for (int i = 0; i < numscreens; i++) {
-                        qDebug() << "Screen: " << i;
                         QScreen *asrn = screenlist.at(i);
+                        qDebug() << "Screen: " << i << asrn->name() << asrn->manufacturer() << asrn->serialNumber();
                         qDebug() << "    geo        : " << asrn->geometry();
                         qDebug() << "    avail   geo: " << asrn->availableGeometry();
                         qDebug() << "    devideRatio: " << asrn->devicePixelRatio();
