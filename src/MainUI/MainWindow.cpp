@@ -3210,6 +3210,8 @@ void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)
 {
     QWidget *window = QApplication::activeWindow();
 
+    qDebug() << "Focus Changed" << window << old << now;
+    
     if (!window || !now) {
         // Nothing to do - application is exiting
         return;
@@ -3220,6 +3222,8 @@ void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)
         return;
     }
 
+    qDebug() << "Updating Last Paste Target";
+    
     m_LastPasteTarget = dynamic_cast<PasteTarget *>(now);
 
     // Update the zoom target based on current window.
