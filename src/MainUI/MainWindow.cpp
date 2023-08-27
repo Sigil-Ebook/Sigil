@@ -3210,6 +3210,16 @@ void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)
 {
     QWidget *window = QApplication::activeWindow();
 
+    // sometimes QApplication::activeWindow() returns nullptr but
+    // the destination for focus (now) exists.  What we really
+    // need to know is the QMainWindow whose descendent is now
+    if (!window) {
+        window = now;
+        while(window && !(qobject_cast<QMainWindow *>(window))) {
+            window = window->parentWidget();
+        }
+    }
+    
     qDebug() << "Focus Changed" << window << old << now;
     
     if (!window || !now) {
