@@ -1,3 +1,9 @@
+pre-2.0.2
+    Bug Fixes
+      - fix incorrect clip tool button insertion point
+      - fix Windows multiple screen issues when not properly identified (Qt6.5.2 patch fix)
+      - fix Mac Accessibility related crashes when using non-native QFileDialog (Qt 6.5.2 patch fix)
+
 Sigil-2.0.1
     Bug Fixes
       - fix crash when right click on Misc folder in BookBrowser
