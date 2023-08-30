@@ -79,6 +79,7 @@ jobs:
       run: |
         cmake $GITHUB_WORKSPACE \
         -G "Ninja" \
+        -DCMAKE_PREFIX_PATH="$QT_ROOT_DIR\lib\cmake" \
         -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
         -DUSE_SYSTEM_LIBS=1 \
         -DSYSTEM_LIBS_REQUIRED=0
