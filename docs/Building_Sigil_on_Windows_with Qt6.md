@@ -127,11 +127,13 @@ With all the pre-requisites met and all the necessary additions to your PATH, th
 
 Using the shortcut to the proper VSStudio command-prompt created in [step 1](#vsstudio), cd to a suitable empty directory for building Sigil (I recommend "sigil-build", or some such similar name), and issue the following command:
 
-> `cmake -G "NMake Makefiles" -DUSE_QT6=1 -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt6_DIR="C:\Qt6.5.2\lib\cmake\Qt6" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+> `cmake -G "NMake Makefiles" -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt6_DIR="C:\Qt6.5.2\lib\cmake\Qt6" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
 
 Obviously change the paths to match where you've actually installed Qt6.2.x+ and the Sigil source code. For instance: using my specially compiled version of Qt5/WebEngine, it would look like:
 
-`cmake -G "NMake Makefiles" -DUSE_QT6=1 -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt6_DIR="C:Qt6.5.2\lib\cmake\Qt6" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+`cmake -G "NMake Makefiles" -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt6_DIR="C:Qt6.5.2\lib\cmake\Qt6" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
+
+**Starting with Sigil 2.0.2, the -DUSE_QT6=1 is assumed and no longer used. If you wish to build Sigil with Qt5, you will need to add -DUSE_QT5=1 to the cmake configure command.**
 
 If this completes successfully, then you're ready to compile Sigil (leave the command prompt open).
 
@@ -144,7 +146,7 @@ You can also use cmake-gui (double-click on cmake-gui in the cmake/bin directory
 
 #### Advanced CMAKE Options
 
--DUSE_QT6=(0|1) Defaults to 0. Build Sigil using Qt6 or Qt5
+-DUSE_QT5=(0|1) Defaults to 0 (Use Qt6). Build Sigil using Qt6 or Qt5
 
 -DUSE_ALT_ICONS=(0|1) Defaults to 0. Install/use alternative teal-colored Sigil application icon.
 

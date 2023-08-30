@@ -105,7 +105,6 @@ jobs:
         -DPYTHON_INCLUDE_DIR="C:\%PYTHON%\include" ^
         -DPYTHON_EXECUTABLE="C:\%PYTHON%\python.exe" ^
         -DUSE_ALT_ICONS=1 ^
-        -DUSE_QT6=1 ^
         -DQt6_DIR="${{runner.workspace}}\$QT\lib\cmake\Qt6" ^
         %CMAKE64BIT%
         ninja -j2

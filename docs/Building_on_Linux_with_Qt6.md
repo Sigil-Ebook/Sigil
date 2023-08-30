@@ -113,9 +113,11 @@ So first off, open a terminal and cd into your sigil-build directory
 
 Then issue the following command to configure Sigil for building:
 
-> `/usr/lib/qt6/bin/qt-cmake -G "Unix Makefiles" -DUSE_QT6=1 -DCMAKE_BUILD_TYPE=Release ../sigil-src`
+> `/usr/lib/qt6/bin/qt-cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ../sigil-src`
 
 If there are no errors, you're ready to build.
+
+**Starting with Sigil 2.0.2, the -DUSE_QT6=1 is assumed and no longer used. If you wish to build Sigil with Qt5, you will need to add -DUSE_QT5=1 to the cmake configure command.**
 
 The default install prefix is /usr/local. If you wish to change the install location, you can do so by adding a `-DCMAKE_INSTALL_PREFIX` option to the above cmake configure command like so:
 
@@ -162,7 +164,7 @@ There are several configuration and environment variable options that can tailor
 
 ### CMake options
 
--DUSE_QT6=(0|1) Defaults to 0. Build Sigil using Qt5 or Qt6
+-DUSE_QT5=(0|1) Defaults to 0 (use Qt6). Build Sigil using Qt5 or Qt6
 
 -DQt6_DIR=`<path>` Configures cmake to use a Qt6 installation other than the normal system version of Qt5 (ex. /opt/Qt6.2.3/lib/cmake/Qt6 - the path should alays end in /lib/cmake/Qt6)
 

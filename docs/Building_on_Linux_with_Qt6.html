@@ -101,9 +101,10 @@
 </blockquote>
 <p>Then issue the following command to configure Sigil for building:</p>
 <blockquote>
-<p><code>/usr/lib/qt6/bin/qt-cmake -G "Unix Makefiles" -DUSE_QT6=1 -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
+<p><code>/usr/lib/qt6/bin/qt-cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
 </blockquote>
 <p>If there are no errors, you're ready to build.</p>
+<p><b>Starting with Sigil 2.0.2, the -DUSE_QT6=1 is assumed and no longer used. If you wish to build Sigil with Qt5, you will need to add -DUSE_QT5=1 to the cmake configure command.</b></p>
 <p>The default install prefix is /usr/local. If you wish to change the install location, you can do so by adding a <code>-DCMAKE_INSTALL_PREFIX</code> option to the above cmake configure command like so:</p>
 <blockquote>
 <p><code>/usr/lib/qt6/bin/qt-cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/a/different/install/prefix -DCMAKE_BUILD_TYPE=Release ../sigil-src</code></p>
@@ -139,7 +140,7 @@
 <h2><a name="advanced"/>Advanced Stuff</h2>
 <p>There are several configuration and environment variable options that can tailor how Sigil is built and/or run. I've talked about a few of the cmake options already, but I'll mention them here again along with the rest--with a brief explanation of their purposes.</p>
 <h3>CMake options</h3>
-<p>-DUSE_QT6=(0|1) Defaults to 0. Build Sigil using Qt5 or Qt6</p>
+<p>-DUSE_QT5=(0|1) Defaults to 0 (Use Qt6). Build Sigil using Qt5 or Qt6</p>
 <p>-DQt6_DIR=<code>&lt;path&gt;</code> Configures cmake to use a Qt6 installation other than the normal system version of Qt5 (ex. /opt/Qt6.2.3/lib/cmake/Qt6 - the path should alays end in /lib/cmake/Qt6)</p>
 <p>-DCMAKE_INSTALL_PREFIX=<code>&lt;path&gt;</code> Configures the prefix where Sigil will be installed to (default is /usr/local)</p>
 <p>-DSHARE_INSTALL_PREFIX=<code>&lt;path&gt;</code> Configures the prefix where Sigil's support files will be installed to (default is /usr/local meaning the support files will be installed in /usr/local/share/sigil)</p>
