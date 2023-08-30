@@ -14,7 +14,6 @@ on:
     - 'appveyor.yml'
     - '.retired_travis.yml'
     - '**.md'
-    - '**/reset-**-caches.txt'
 
   pull_request:
     branches: [ master ]
@@ -29,7 +28,6 @@ on:
     - 'appveyor.yml'
     - '.retired_travis.yml'
     - '**.md'
-    - '**/reset-**-caches.txt'
 
 env:
   BUILD_TYPE: Debug
