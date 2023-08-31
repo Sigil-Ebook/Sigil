@@ -1,8 +1,9 @@
 pre-2.0.2
     Bug Fixes
-      - fix incorrect clip tool button insertion point
+      - fix incorrect clip tool button insertion point due to null activeWindow value
       - fix Windows multiple screen issues when not properly identified (Qt6.5.2 patch fix)
       - fix Mac Accessibility related crashes when using non-native QFileDialog (Qt 6.5.2 patch fix)
+      - workaround MacOS QMessageBox loss of focus Qt 6.5.X bug without hurting other platforms
 
 Sigil-2.0.1
     Bug Fixes
