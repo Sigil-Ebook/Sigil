@@ -488,13 +488,13 @@ void EmptyLayout::saveData()
     }
     if (!Errors.isEmpty()) {
         QString error_message = Errors.join('\n');
-        QMessageBox::warning(this, tr("Errors Detected"), error_message, QMessageBox::Ok);
+        Utility::warning(this, tr("Errors Detected"), error_message, QMessageBox::Ok);
         return;
     }
     m_BookPaths = bookpaths;
 
     // allow the user to set this layout as Sigil's default empty epub layout
-    bool make_default = QMessageBox::Yes == QMessageBox::warning(this, tr("Sigil"),
+    bool make_default = QMessageBox::Yes == Utility::warning(this, tr("Sigil"),
                                    tr("Do you want to set this layout as the default empty "
                                       "Epub layout for Sigil?\n\n"),
                                    QMessageBox::Yes|QMessageBox::No);

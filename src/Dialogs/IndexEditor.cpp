@@ -285,7 +285,7 @@ void IndexEditor::AutoFill()
         count++;
     }
     ui.IndexEditorTree->sortByColumn(0, Qt::AscendingOrder);
-    QMessageBox::information(this, tr("Index Editor"), tr("Entries added: %n", "", count));
+    Utility::information(this, tr("Index Editor"), tr("Entries added: %n", "", count));
 }
 
 void IndexEditor::Open()
@@ -315,7 +315,7 @@ void IndexEditor::Open()
 void IndexEditor::Reload()
 {
     QMessageBox::StandardButton button_pressed;
-    button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to reload all entries?  This will overwrite any unsaved changes."), QMessageBox::Ok | QMessageBox::Cancel);
+    button_pressed = Utility::warning(this, tr("Sigil"), tr("Are you sure you want to reload all entries?  This will overwrite any unsaved changes."), QMessageBox::Ok | QMessageBox::Cancel);
 
     if (button_pressed == QMessageBox::Ok) {
         m_IndexEditorModel->LoadInitialData();
@@ -545,7 +545,7 @@ bool IndexEditor::MaybeSaveDialogSaysProceed(bool is_forced)
         QMessageBox::StandardButton button_pressed;
         QMessageBox::StandardButtons buttons = is_forced ? QMessageBox::Save | QMessageBox::Discard
                                                : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
-        button_pressed = QMessageBox::warning(this,
+        button_pressed = Utility::warning(this,
                                               tr("Sigil: Index Editor"),
                                               tr("The Index entries may have been modified.\n"
                                                       "Do you want to save your changes?"),

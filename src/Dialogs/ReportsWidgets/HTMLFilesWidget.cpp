@@ -352,7 +352,7 @@ void HTMLFilesWidget::Save()
     try {
         Utility::WriteUnicodeTextFile(data, destination);
     } catch (CannotOpenFile&) {
-        QMessageBox::warning(this, tr("Sigil"), tr("Cannot save report file."));
+        Utility::warning(this, tr("Sigil"), tr("Cannot save report file."));
     }
 
     m_LastDirSaved = QFileInfo(destination).absolutePath();

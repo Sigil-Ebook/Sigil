@@ -130,7 +130,7 @@ void SpellCheckWidget::addUserDict()
     }
 
     if (currentDicts.contains(name, Qt::CaseInsensitive)) {
-        QMessageBox::critical(this, tr("Error"), tr("A user dictionary already exists with this name!"));
+        Utility::critical(this, tr("Error"), tr("A user dictionary already exists with this name!"));
         return;
     }
 
@@ -170,7 +170,7 @@ bool SpellCheckWidget::createUserDict(QString dict_name)
     if (dict_file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
         dict_file.close();
     } else {
-        QMessageBox::critical(this, tr("Error"), tr("Could not create file!"));
+        Utility::critical(this, tr("Error"), tr("Could not create file!"));
         return false;
     }
 
@@ -232,7 +232,7 @@ void SpellCheckWidget::renameUserDict()
     }
 
     if (currentDicts.contains(new_name)) {
-        QMessageBox::critical(this, tr("Error"), tr("A user dictionary already exists with this name!"));
+        Utility::critical(this, tr("Error"), tr("A user dictionary already exists with this name!"));
         return;
     }
 
@@ -240,7 +240,7 @@ void SpellCheckWidget::renameUserDict()
     QString new_path = SpellCheck::userDictionaryDirectory() + "/" + new_name;
 
     if (!Utility::RenameFile(orig_path, new_path)) {
-        QMessageBox::critical(this, tr("Error"), tr("Could not rename file!"));
+        Utility::critical(this, tr("Error"), tr("Could not rename file!"));
         return;
     }
 
@@ -259,7 +259,7 @@ void SpellCheckWidget::removeUserDict()
 
     // Don't remove the last dictionary
     if (m_Model.rowCount() == 1) {
-        QMessageBox::warning(this, tr("Error"), tr("You cannot delete the last dictionary."));
+        Utility::warning(this, tr("Error"), tr("You cannot delete the last dictionary."));
         return;
     }
 

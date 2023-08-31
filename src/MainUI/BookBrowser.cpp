@@ -262,7 +262,7 @@ void BookBrowser::SortHTML()
 {
     QList <Resource *> resources = ValidSelectedResources();
     QMessageBox::StandardButton button_pressed;
-    button_pressed = QMessageBox::warning(this,
+    button_pressed = Utility::warning(this,
                                           tr("Sigil"),
                                           tr("Are you sure you want to sort the selected files alphanumerically?") % "\n" 
                                               % tr("This action cannot be reversed."),
@@ -629,7 +629,7 @@ void BookBrowser::AddNewJS()
 {
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
     if (version.startsWith('2')) {
-        QMessageBox::warning(this, tr("Sigil"),tr("Javascript is not supported on epub2.")
+        Utility::warning(this, tr("Sigil"),tr("Javascript is not supported on epub2.")
                                  ,QMessageBox::Ok);
         return;
     }
@@ -762,7 +762,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
                 if (no_to_all) do_replacement = false;
                 if (!yes_to_all && !no_to_all) {
                    QMessageBox::StandardButton button_pressed;
-                   button_pressed = QMessageBox::warning(this, tr("Sigil"), 
+                   button_pressed = Utility::warning(this, tr("Sigil"), 
                         tr("The multimedia file \"%1\" already exists in the book.\n\nOK to replace?").arg(filename),
                                   QMessageBox::Yes | QMessageBox::YesToAll | QMessageBox::No | QMessageBox::NoToAll);
 
@@ -794,7 +794,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
                     continue;
                 }
             } else {
-                QMessageBox::warning(this, tr("Sigil"), tr("Unable to load \"%1\"\n\nA file with this name already exists in the book.").arg(filename));
+                Utility::warning(this, tr("Sigil"), tr("Unable to load \"%1\"\n\nA file with this name already exists in the book.").arg(filename));
                 continue;
             }
         }
@@ -854,7 +854,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
     progress.setValue(file_count);
 
     if (!invalid_filenames.isEmpty()) {
-        QMessageBox::warning(this, tr("Sigil"),
+        Utility::warning(this, tr("Sigil"),
                              tr("The following file(s) were not loaded due to invalid content or not well formed XML:\n\n%1")
                              .arg(invalid_filenames.join("\n")));
     }
@@ -966,7 +966,7 @@ void BookBrowser::SaveAsFiles()
     QMessageBox::StandardButton button_pressed;
 
     if (files_exist) {
-        button_pressed = QMessageBox::warning(this,
+        button_pressed = Utility::warning(this,
                                               tr("Sigil"), tr("One or more files already exists.  OK to overwrite?"),
                                               QMessageBox::Ok | QMessageBox::Cancel);
 
@@ -1253,7 +1253,7 @@ void BookBrowser::RenameSelected()
 
         // Stop if the new name is already used or will be used by a different entry
         if ((book_filenames.contains(name) && resources[i]->Filename() != name) || new_filenames.contains(name)) {
-            QMessageBox::critical(this, tr("Sigil"), tr("Cannot rename files since this would result in duplicate filenames."));
+            Utility::critical(this, tr("Sigil"), tr("Cannot rename files since this would result in duplicate filenames."));
             return;
         }
 
@@ -1358,7 +1358,7 @@ void BookBrowser::MoveSelected()
 
         // Stop if the new bookpath already exists or will be used by a different entry
         if (existing_bookpaths.contains(newbookpath) || new_bookpaths.contains(newbookpath)) {
-            QMessageBox::critical(this, tr("Sigil"), tr("Cannot move files since this would result in duplicate filenames."));
+            Utility::critical(this, tr("Sigil"), tr("Cannot move files since this would result in duplicate filenames."));
             return;
         }
 

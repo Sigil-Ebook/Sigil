@@ -113,7 +113,7 @@ void Preferences::saveSettings()
     settings.endGroup();
 
     if (m_restartSigil) {
-        QMessageBox::warning(this, tr("Sigil"), tr("Changes will take effect when you restart Sigil."));
+        Utility::warning(this, tr("Sigil"), tr("Changes will take effect when you restart Sigil."));
     }
 }
 

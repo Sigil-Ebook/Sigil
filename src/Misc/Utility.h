@@ -29,6 +29,7 @@
 #include <QCoreApplication>
 #include <QtCore/QString>
 #include <QColor>
+#include <QMessageBox>
 #include <QSet>
 #include <QStringList>
 
@@ -250,6 +251,23 @@ public:
 
     // Generate a CRC32 checksum on a file
     static QString FileCRC32(const QString& filepath);
+
+    // Added to work around macOS specific QMessageBox issues with reactivating proper window upon return
+    static QMessageBox::StandardButton warning(QWidget *parent, const QString &title, const QString &text,
+                                               QMessageBox::StandardButtons buttons = QMessageBox::Ok,
+                                               QMessageBox::StandardButton defaultButton = QMessageBox::NoButton);
+
+    static QMessageBox::StandardButton question(QWidget *parent, const QString &title, const QString &text,
+                                                QMessageBox::StandardButtons buttons = QMessageBox::Yes | QMessageBox::No,
+                                                QMessageBox::StandardButton defaultButton = QMessageBox::NoButton);
+
+    static QMessageBox::StandardButton information(QWidget *parent, const QString &title, const QString &text,
+                                                   QMessageBox::StandardButtons buttons = QMessageBox::Ok,
+                                                   QMessageBox::StandardButton defaultButton = QMessageBox::NoButton);
+
+    static QMessageBox::StandardButton critical(QWidget *parent, const QString &title, const QString &text,
+                                                QMessageBox::StandardButtons buttons = QMessageBox::Ok,
+                                                QMessageBox::StandardButton defaultButton = QMessageBox::NoButton);
 };
 #endif // UTILITY_H
 

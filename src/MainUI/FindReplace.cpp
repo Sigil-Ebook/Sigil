@@ -43,6 +43,7 @@
 #include "Tabs/FlowTab.h"
 #include "MainUI/FindReplace.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "Misc/FindReplaceQLineEdit.h"
 #include "PCRE2/PCREErrors.h"
 #include "ResourceObjects/Resource.h"
@@ -1981,7 +1982,7 @@ void FindReplace::SetSearchDirection(int search_direction)
 void FindReplace::ClearHistory()
 {
     QMessageBox::StandardButton button_pressed;
-    button_pressed = QMessageBox::warning(this,
+    button_pressed = Utility::warning(this,
             tr("Sigil"),
             tr("Are you sure you want to clear your Find and Replace current values and history?"),
             QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel

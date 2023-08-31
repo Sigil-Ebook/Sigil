@@ -184,7 +184,7 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
     }
     if (!non_well_formed.isEmpty()) {
         QApplication::restoreOverrideCursor();
-        if (QMessageBox::Yes == QMessageBox::warning(QApplication::activeWindow(),
+        if (QMessageBox::Yes == Utility::warning(QApplication::activeWindow(),
                 tr("Sigil"),
                 tr("This EPUB has HTML files that are not well formed or are "
                    "missing a DOCTYPE, html, head or body elements. "

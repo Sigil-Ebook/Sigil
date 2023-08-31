@@ -703,7 +703,8 @@ QString Utility::URLDecodePath(const QString &path)
 
 void Utility::DisplayExceptionErrorDialog(const QString &error_info)
 {
-    QMessageBox message_box(QApplication::activeWindow());
+    QWidget * parent = QApplication::activeWindow();
+    QMessageBox message_box(parent);
     message_box.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
     message_box.setModal(true);
     message_box.setIcon(QMessageBox::Critical);
@@ -722,12 +723,16 @@ void Utility::DisplayExceptionErrorDialog(const QString &error_info)
 
     message_box.setDetailedText(detailed_text.join("\n"));
     message_box.exec();
+#ifdef Q_OS_MAC    
+    if (parent) parent->activateWindow();
+#endif
 }
 
 
 void Utility::DisplayStdErrorDialog(const QString &error_message, const QString &detailed_text)
 {
-    QMessageBox message_box(QApplication::activeWindow());
+    QWidget * parent = QApplication::activeWindow();
+    QMessageBox message_box(parent);
     message_box.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
     message_box.setModal(true);
     message_box.setIcon(QMessageBox::Critical);
@@ -740,12 +745,16 @@ void Utility::DisplayStdErrorDialog(const QString &error_message, const QString 
 
     message_box.setStandardButtons(QMessageBox::Close);
     message_box.exec();
+#ifdef Q_OS_MAC    
+    if (parent) parent->activateWindow();
+#endif
 }
 
 
 void Utility::DisplayStdWarningDialog(const QString &warning_message, const QString &detailed_text)
 {
-    SigilMessageBox message_box(QApplication::activeWindow());
+    QWidget * parent = QApplication::activeWindow();
+    SigilMessageBox message_box(parent);
     message_box.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
     message_box.setModal(true);
     message_box.setIcon(QMessageBox::Warning);
@@ -758,6 +767,9 @@ void Utility::DisplayStdWarningDialog(const QString &warning_message, const QStr
     }
     message_box.setStandardButtons(QMessageBox::Ok);
     message_box.exec();
+#ifdef Q_OS_MAC    
+    if (parent) parent->activateWindow();
+#endif    
 }
 
 // Returns a value for the environment variable name passed;
@@ -816,7 +828,7 @@ bool Utility::has_non_ascii_chars(const QString &str)
 bool Utility::use_filename_warning(const QString &filename)
 {
     if (has_non_ascii_chars(filename)) {
-        return QMessageBox::Apply == QMessageBox::warning(QApplication::activeWindow(),
+        return QMessageBox::Apply == Utility::warning(QApplication::activeWindow(),
                 tr("Sigil"),
                 tr("The requested file name contains non-ASCII characters. "
                    "You should only use ASCII characters in filenames. "
@@ -1436,4 +1448,52 @@ QString Utility::FileCRC32(const QString& filePath)
 
 	file.close();
 	return QString("%1").arg(crc32, 8, 16, QLatin1Char('0'));
+}
+
+
+QMessageBox::StandardButton Utility::warning(QWidget* parent, const QString &title, const QString &text,
+                                             QMessageBox::StandardButtons buttons,
+                                             QMessageBox::StandardButton defaultButton)
+{
+  QMessageBox::StandardButton result = QMessageBox::warning(parent, title, text, buttons, defaultButton);
+#ifdef Q_OS_MAC
+  if (parent) parent->activateWindow();
+#endif
+  return result;
+}
+
+
+QMessageBox::StandardButton Utility::question(QWidget* parent, const QString &title, const QString &text,
+                                              QMessageBox::StandardButtons buttons,
+                                              QMessageBox::StandardButton defaultButton)
+{
+  QMessageBox::StandardButton result = QMessageBox::question(parent, title, text, buttons, defaultButton);
+#ifdef Q_OS_MAC
+  if (parent) parent->activateWindow();
+#endif
+  return result;
+}
+
+
+QMessageBox::StandardButton Utility::information(QWidget* parent, const QString &title, const QString &text,
+                                                 QMessageBox::StandardButtons buttons,
+                                                 QMessageBox::StandardButton defaultButton)
+{
+  QMessageBox::StandardButton result = QMessageBox::information(parent, title, text, buttons, defaultButton);
+#ifdef Q_OS_MAC
+  if (parent) parent->activateWindow();
+#endif
+  return result;
+}
+
+
+QMessageBox::StandardButton Utility::critical(QWidget* parent, const QString &title, const QString &text,
+                                              QMessageBox::StandardButtons buttons,
+                                              QMessageBox::StandardButton defaultButton)
+{
+  QMessageBox::StandardButton result = QMessageBox::critical(parent, title, text, buttons, defaultButton);
+#ifdef Q_OS_MAC
+  if (parent) parent->activateWindow();
+#endif
+  return result;
 }

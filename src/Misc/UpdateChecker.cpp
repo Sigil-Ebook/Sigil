@@ -32,6 +32,7 @@
 #include <QDebug>
 
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "Misc/UpdateChecker.h"
 #include "sigil_constants.h"
 
@@ -93,7 +94,7 @@ void UpdateChecker::CheckForUpdate()
         // and only if the user hasn't been informed about this release before
         if (is_newer && (current_online_version != last_online_version)) {
             QMessageBox::StandardButton button_clicked;
-            button_clicked = QMessageBox::question(
+            button_clicked = Utility::question(
                                  0,
                                  QObject::tr("Sigil"),
                                  QObject::tr("<p>A newer version of Sigil is available, version <b>%1</b>.<br/>"

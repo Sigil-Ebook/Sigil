@@ -354,7 +354,7 @@ void ClipEditor::Delete()
 void ClipEditor::Reload()
 {
     QMessageBox::StandardButton button_pressed;
-    button_pressed = QMessageBox::warning(this, tr("Sigil"), tr("Are you sure you want to reload all entries?  This will overwrite any unsaved changes."), QMessageBox::Ok | QMessageBox::Cancel);
+    button_pressed = Utility::warning(this, tr("Sigil"), tr("Are you sure you want to reload all entries?  This will overwrite any unsaved changes."), QMessageBox::Ok | QMessageBox::Cancel);
 
     if (button_pressed == QMessageBox::Ok) {
         m_ClipEditorModel->LoadInitialData();
@@ -770,7 +770,7 @@ bool ClipEditor::MaybeSaveDialogSaysProceed(bool is_forced)
         QMessageBox::StandardButton button_pressed;
         QMessageBox::StandardButtons buttons = is_forced ? QMessageBox::Save | QMessageBox::Discard
                                                : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
-        button_pressed = QMessageBox::warning(this,
+        button_pressed = Utility::warning(this,
                                               tr("Sigil: Clip Editor"),
                                               tr("The Clip entries may have been modified.\n"
                                                       "Do you want to save your changes?"),
