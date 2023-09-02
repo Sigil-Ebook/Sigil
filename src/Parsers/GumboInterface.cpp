@@ -48,12 +48,13 @@ static std::unordered_set<std::string> nonbreaking_inline  = {
     "dfn","em","font","i","image","img","input","ins","kbd","label","map",
     "mark", "nobr","object","q","ruby","rt","s","samp","select","small",
     "span","strike","strong","sub","sup","textarea","tt","u","var",
-    "wbr", "mbp:nu"
+    "wbr", "mbp:nu","mi","mn","mo","ms","mspace","mtext","msub","msup",
+    "msubsup"
 };
 
 
 static std::unordered_set<std::string> preserve_whitespace = {
-    "code", "pre","textarea","script","style"
+    "code","cs","pre","textarea","script","style"
 };
 
 
@@ -79,7 +80,10 @@ static std::unordered_set<std::string> void_tags          = {
 static std::unordered_set<std::string> structural_tags     = {
     "article","aside","blockquote","body","canvas","colgroup","div","dl",
     "figure","footer","head","header","hr","html","ol","section",
-    "table","tbody","tfoot","thead","td","th","tr","ul"
+    "table","tbody","tfoot","thead","td","th","tr","ul","math","maction",
+    "annotation","annotation-xml","menclose","mfrac","mmultiscripts",
+    "mover","mpadded","mphantom","mroot","mrow","semantics",
+    "msqrt","mstyle","mtable","mtd","mtr","munder","munderover"
 };
 
 

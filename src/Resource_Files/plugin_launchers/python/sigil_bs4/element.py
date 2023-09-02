@@ -18,14 +18,17 @@ NON_BREAKING_INLINE_TAGS = ("a","abbr","acronym","b","bdo","big","br",
     "button","cite","code","del","dfn","em","font","i","image","img",
     "input","ins","kbd","label","map","mark", "nobr","object","q",
     "ruby","rt","s","samp","select","small","span","strike","strong",
-    "sub","sup","textarea","tt","u","var","wbr","mbp:nu")
+    "sub","sup","textarea","tt","u","var","wbr","mbp:nu",
+    "mi","mn","mo","ms","mspace","mtext","msub","msup","msubsup"
+)
 
-PRESERVE_WHITESPACE_TAGS = ("code","pre","textarea","script","style")
+PRESERVE_WHITESPACE_TAGS = ("code","pre","textarea","script","style","cs")
 
 VOID_TAGS = ("area","base","basefont","bgsound","br","col","command",
     "embed","event-source","frame","hr","img","input","keygen",
     "link","meta","param","source","spacer","track","wbr",
-    "mbp:pagebreak")
+    "mbp:pagebreak","mglyph","mspace","mprescripts","none",
+    "maligngroup","malignmark","msline")
 
 NO_ENTITY_SUB_TAGS = ("script", "style")
 
@@ -33,7 +36,11 @@ SPECIAL_HANDLING_TAGS = ("html", "body")
 
 STRUCTURAL_TAGS = ("article","aside","blockquote","body","canvas",
     "colgroup","div","dl","figure","footer","head","header","hr","html",
-    "ol","section","table","tbody","tfoot","thead","td","th","tr","ul")
+    "ol","section","table","tbody","tfoot","thead","td","th","tr","ul",
+    "math","maction","annotation","annotation-xml","menclose","mfrac",
+    "mmultiscripts","mover","mpadded","mphantom","mroot","mrow","semantics",
+    "msqrt","mstyle","mtable","mtd","mtr","munder","munderover"
+)
 
 OTHER_TEXTHOLDING_TAGS = ("address","caption","dd","div","dt","figcaption","h1","h2",
     "h3","h4","h5","h6","legend","li","option","p","td","th","title")
