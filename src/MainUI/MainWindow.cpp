@@ -2912,7 +2912,6 @@ bool MainWindow::DeleteUnusedMedia(bool in_automate)
 {
     SaveTabData();
     if (!m_Book.data()->GetNonWellFormedHTMLFiles().isEmpty()) {
-        // Utility::warning(this, tr("Sigil"), tr("Delete Unused Media Files cancelled due to XML not well formed."));
         Utility::warning(this, tr("Sigil"), tr("Delete Unused Media Files cancelled due to XML not well formed."));
         return false;
     }

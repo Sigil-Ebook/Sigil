@@ -377,6 +377,10 @@ bool CAttributeSelector::match(GumboNode* apNode)
         }
 
         std::string value = attr->value;
+        if (mKey == "class") {
+            // right trim class values as trailing whitespace can not be part of a class name value
+            value.erase(value.find_last_not_of(" \n\r\t\f")+1);
+        }
         switch (mOp)
         {
             case EExists:
