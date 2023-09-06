@@ -158,6 +158,12 @@ bool CleanSource::IsWellFormedXML(const QString &source, const QString mtype)
 
 QString CleanSource::ProcessXML(const QString &source, const QString mtype)
 {
+    if (mtype == "application/x-dtbncx+xml") {
+        // test for and handle case of user deleting ncx tag to prevent crash 
+        if (source.indexOf("<ncx") == -1) {
+            return source;
+        }
+    }
     return XMLPrettyPrintBS4(source, mtype);
 }
 

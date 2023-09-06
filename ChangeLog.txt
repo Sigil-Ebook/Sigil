@@ -5,6 +5,8 @@ pre-2.0.2
       - fix Mac Accessibility related crashes when using non-native QFileDialog (Qt 6.5.2 patch fix)
       - workaround MacOS QMessageBox loss of focus Qt 6.5.X bug without hurting other platforms
       - fix pretty print mend not formatting mathml
+      - fix Accessibility related crashes in QFontComboBox (Qt 6.5.2 patch fix)
+      - prevent crashing is user mistakenly tries to delete entire ncx in CodeView
 
 Sigil-2.0.1
     Bug Fixes
