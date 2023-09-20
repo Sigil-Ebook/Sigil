@@ -8,6 +8,7 @@ pre-2.0.2
       - fix Accessibility related crashes in QFontComboBox (Qt 6.5.2 patch fix)
       - prevent crashing is user mistakenly tries to delete entire ncx in CodeView
       - harden delete unused styles to trailing whitespace in class names
+      - fix unrecognized media-types application/xml and text/xml
 
 Sigil-2.0.1
     Bug Fixes
