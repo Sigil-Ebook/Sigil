@@ -3337,6 +3337,8 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
         while (pos > 0 && text[pos] != QChar('<')) {
             pos--;
         }
+        // special case: cursor just before closing < so move back by 1 to be in text.
+        if (pos > 0) pos--; 
     }
     if (pos < 0) return QString();
 
