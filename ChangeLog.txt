@@ -10,6 +10,7 @@ pre-2.0.2
       - harden delete unused styles to trailing whitespace in class names
       - fix unrecognized media-types application/xml and text/xml
       - fix cursor just before end tag bug in align justiry, centre, right
+      - fix crash when all metadata removed by user in MetaEditor
 
 
 Sigil-2.0.1
