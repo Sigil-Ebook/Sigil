@@ -44,6 +44,7 @@ cd build
 
 # Mac OS Vetura should use the following with XCode 14
 cmake -DPKG_SYSTEM_PYTHON=1 \
+      -DUSE_QT5=1 \
       -DCMAKE_OSX_DEPLOYMENT_TARGET=10.13 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \

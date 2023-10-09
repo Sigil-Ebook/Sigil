@@ -1,0 +1,52 @@
+# ***** IF USING QT6 *****
+
+# Download pyside-setup-everywhere-src-6.5.3.tar.xz from 
+# https://download.qt.io/official_releases/QtForPython/
+
+# or
+
+# git clone https://github.com/qtproject/pyside-pyside-setup.git
+# cd pyside-pyside-setup
+# git checkout 6.5.3
+
+
+export MACOSX_DEPLOYMENT_TARGET=11.0
+
+export MYDEST=/Users/${USER}/devpython/libraries/Frameworks
+export MYQTHOME=~/Qt653
+export PATH=${PATH}:${MYQTHOME}/bin
+export PATH=${MYDEST}/Python.framework/Versions/3.11/bin:${PATH}
+
+which qmake
+which python3
+
+# Prerequisites
+
+# Your may need to have the packaging module installed on your python3
+# pip3 install --upgrade packaging
+
+# As well as a recent version of setuptools 
+# (some newer versions have broken compatibility)
+# pip3 install setuptools==59.8.0
+
+# note for PySide 6.5.X you will need the latest version of setuptools
+
+# You will need libclang (although macOS has this lib pre-installed, it can *not* 
+# be found by Qt's cmake.  Qt has pre-build binaries ready to be used for each platform.
+# I recommend storing it someplace *outside* the normal path such as /opt to help 
+# prevent future any name clash issues.
+# Download  libclang-release_140-based-macos-universal.7z from:
+#       https://download.qt.io/development_releases/prebuilt/libclang/
+# cd /opt
+# and unpack libclang-release_140-based-macos-universal.7z in /opt to create /opt/libclang
+
+# Tell the pyside6 build where to find it
+export CLANG_INSTALL_DIR=/opt/libclang
+
+# You should now be ready to build pyside6
+
+tar -jxf pyside-setup-everywhere-src-6.5.3.tar.xz
+cd pyside-setup-everywhere-src-6.5.3
+
+python3 setup.py install --parallel=6 --build-tests
+
