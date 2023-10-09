@@ -5,11 +5,11 @@
 	<key>CFBundleVersion</key>
 	<string>SGVERSION</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © Sigil Authors 2010-2014, GNU GPL v3</string>
+	<string>Copyright © Sigil Authors 2010-2023, GNU GPL v3</string>
 	<key>CFBundleShortVersionString</key>
 	<string>SGVERSION</string>
 	<key>CFBundleGetInfoString</key>
-	<string>SGVERSION Sigil Open Source ePub Editor. See http://code.google.com/p/sigil/</string>
+	<string>SGVERSION Sigil Open Source ePub Editor. See http://github.com/Sigil-Ebook/Sigil/</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.sigil-ebook.Sigil.app</string>
 	<key>CFBundleDocumentTypes</key>
@@ -56,6 +56,6 @@
     <key>LSApplicationCategoryType</key>
     <string>public.app-category.productivity</string>
     <key>LSMinimumSystemVersion</key>
-    <string>10.9.5</string>
+    <string>11.0</string>
 </dict>
 </plist>
