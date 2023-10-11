@@ -1791,147 +1791,147 @@ Haluatko tallentaa muutokset?</translation>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="560"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="561"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>Lopputagia ei voi lisätä tähän kohtaan.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="568"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="569"/>
         <source>No open tags found at this position.</source>
         <translation>Tässä kohdassa ei ole mitään sulkematonta elementtiä.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1455"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1456"/>
         <source>Add To Default Dictionary</source>
         <translation>Lisää oletussanakirjaan</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1468"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1469"/>
         <source>Add To Dictionary</source>
         <translation>Lisää sanakirjaan</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1485"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1486"/>
         <source>Ignore</source>
         <translation>Jätä huomiotta</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1547"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1548"/>
         <source>Reformat CSS</source>
         <translation>Muotoile CSS uudelleen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1549"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1550"/>
         <source>Multiple Lines Per Style</source>
         <translation>Useita rivejä tyyliä kohti</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1550"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1551"/>
         <source>Single Line Per Style</source>
         <translation>Yksi rivi tyyliä kohti</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1576"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1577"/>
         <source>Rename Selected Class</source>
         <translation>Nimeä valittu luokka uudelleen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1598"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1599"/>
         <source>Reformat HTML</source>
         <translation>Muotoile HTML uudelleen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1600"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1601"/>
         <source>Mend and Prettify Code</source>
         <translation>Korjaa ja siisti koodi</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1601"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1602"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Korjaa ja siisti koodi – kaikki HTML-tiedostot</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1602"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1603"/>
         <source>Mend Code</source>
         <translation>Korjaa koodi</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1603"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1604"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Korjaa koodi – kaikki HTML-tiedostot</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1633"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1634"/>
         <source>Go To Link Or Style</source>
         <translation>Siirry linkkiin tai tyyliin</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1655"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1656"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>Vaihda rivinvaihtotilaa</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1677"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1678"/>
         <source>View Image</source>
         <translation>Näytä kuva</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1678"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1679"/>
         <source>Open Tab For Image</source>
         <translation>Avaa välilehti kuvaa varten</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1704"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1705"/>
         <source>Mark Selected Text</source>
         <translation>Merkitse valittu teksti</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1706"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1707"/>
         <source>Unmark Marked Text</source>
         <translation>Poista merkityn tekstin merkintä</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1732"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1733"/>
         <source>Clips</source>
         <translation>Leikkeet</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1742"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1743"/>
         <source>Add To Clips</source>
         <translation>Lisää leikkeisiin</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1871"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1872"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Sinun on oltava HTML-alkutagissa voidaksesi käyttää tätä piirrettä.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1881"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1882"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Sinun on oltava HTML-alkutagin sisällä voidaksesi käyttää tätä piirrettä.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1945"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1946"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>Valittu teksti ei ole kelvollinen luokan nimi.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1952"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1953"/>
         <source>Rename Class</source>
         <translation>Nimeä luokka uudelleen</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1953"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1954"/>
         <source>Enter new class name</source>
         <translation>Syötä uusi luokan nimi</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1973"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1974"/>
         <source>Class renamed.</source>
         <translation>Luokka nimetty uudelleen.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1975"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1976"/>
         <source>Class rename aborted.</source>
         <translation>Luokan uudelleennimeäminen keskeytetty.</translation>
     </message>
@@ -2993,309 +2993,309 @@ Toimii vain HTML-tiedostoja etsittäessä.</translation>
         <translation>Teksti</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="301"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="308"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="302"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="309"/>
         <source>Search will restart</source>
         <translation>Haku käynnistyy uudelleen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="333"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2126"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="334"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2127"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2128"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2137"/>
         <source>Current File</source>
         <translation>Nykyinen tiedosto</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="562"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1892"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="563"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1893"/>
         <source>Matches found: %n</source>
         <translation><numerusform>Osumia löytyi %n</numerusform><numerusform>Osumia löytyi %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="652"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="653"/>
         <source>Choose Replacements</source>
         <translation>Valitse korvaajat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="670"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="729"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1935"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="671"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="730"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1936"/>
         <source>No replacements made</source>
         <translation>Korvauksia ei tehty.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="672"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="731"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1937"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="673"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="732"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1938"/>
         <source>Replacements made: %n</source>
         <translation><numerusform>Korvauksia tapahtui %n</numerusform><numerusform>Tehdyt korvaukset: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="857"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="858"/>
         <source>End of search</source>
         <translation>Etsinnän loppu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="942"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="943"/>
         <source>No matches found</source>
         <translation>Osumia ei löytynyt</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1679"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1680"/>
         <source>This tab cannot be searched</source>
         <translation>Tähän välilehteen ei voi kohdistaa hakuja</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1722"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1723"/>
         <source>Unnamed search loaded</source>
         <translation>Nimetön haku ladattu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1725"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1726"/>
         <source>Loaded</source>
         <translation>Ladattu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1798"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1822"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1851"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1876"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1920"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1799"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1823"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1852"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1877"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1921"/>
         <source>No searches selected</source>
         <translation>Hakua ei ole valittu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1985"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1986"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1986"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1987"/>
         <source>Are you sure you want to clear your Find and Replace current values and history?</source>
         <translation>Oletko varma, että haluat tyhjentää Etsi ja korvaa -toiminnon nykyiset arvot ja historian?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2112"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2113"/>
         <source>What to search for</source>
         <translation>Mitä etsitään</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2113"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2114"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2115"/>
         <source>Normal</source>
         <translation>Normaali</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2114"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2115"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation>Kirjainkoolla on väliä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2116"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2117"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2118"/>
         <source>Case Sensitive</source>
         <translation>Kirjainkoko huomioidaan</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2117"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2118"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>Kirjaintasoriippuva haku (isot ja pienet kirjaimet eri kirjaimia)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2119"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2120"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2121"/>
         <source>Regex</source>
         <translation>Säännöllinen lauseke</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2120"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2121"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>Etsi hahmon mukaan käyttäen säännöllisten lausekkeiden (regular expressions) syntaksia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2124"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2158"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2125"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2159"/>
         <source>Where to search</source>
         <translation>Mistä etsitään</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2127"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2128"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>Rajoita etsi ja korvaa -toiminto avattuun tiedostoon. Pidä Ctrl-näppäintä alhaalla, kun napsautat hakupainiketta rajoittaaksesi haun tilapäisesti nykyiseen tiedostoon.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2129"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2130"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2131"/>
         <source>All HTML Files</source>
         <translation>Kaikki HTML-tiedostot</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2130"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2131"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>Etsi tai korvaa kaikissa HTML-tiedostoissa kooditilassa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2132"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2133"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2134"/>
         <source>Selected HTML Files</source>
         <translation>Valitut HTML-tiedostot</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2133"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2134"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>Rajoita etsi ja korvaa -toiminto Kirjan tiedostot -näkymässä valittuihin HTML-tiedostoihin kooditilassa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2135"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
         <source>Tabbed HTML Files</source>
         <translation>Välilehtiset HTML-tiedostot</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2137"/>
         <source>Restrict the find or replace to the HTML files open in Tabs.</source>
         <translation>Rajoita etsiminen tai korvaaminen koskemaan välilehdissä avoinna olevia HTML-tiedostoja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2138"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2139"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2140"/>
         <source>All CSS Files</source>
         <translation>Kaikki CSS-tiedostot</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2139"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2140"/>
         <source>Find or replace in all CSS files in Code View.</source>
         <translation>Etsi tai korvaa kaikki CSS-tiedostot koodinäkymässä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2141"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2142"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2143"/>
         <source>Selected CSS Files</source>
         <translation>Valitut CSS-tiedostot</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2142"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2143"/>
         <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
         <translation>Rajoita etsiminen tai korvaaminen CSS-tiedostoihin, jotka on valittu kirjaselaimen koodinäkymässä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2144"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2145"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2146"/>
         <source>Tabbed CSS Files</source>
         <translation>Välilehtiset CSS-tiedostot</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2145"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2146"/>
         <source>Restrict the find or replace to the CSS files open in Tabs.</source>
         <translation>Rajoita etsiminen tai korvaaminen välilehdissä avoinna oleviin CSS-tiedostoihin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2147"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2148"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2149"/>
         <source>OPF File</source>
         <translation>OPF tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2148"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2149"/>
         <source>Restrict the find or replace to the OPF file.</source>
         <translation>Rajoita haku tai korvaaminen OPF-tiedostoon.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2150"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2151"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2152"/>
         <source>NCX File</source>
         <translation>NCX tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2151"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2152"/>
         <source>Restrict the find or replace to the NCX file.</source>
         <translation>Rajoita haku tai korvaaminen NCX-tiedostoon.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2154"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2155"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
         <translation>Voit rajoittaa haun valittuun tekstiin käskyllä Hae&amp;rarr;Merkitse valittu teksti.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2159"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2160"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2161"/>
         <source>Marked Text</source>
         <translation>Merkitty teksti</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2160"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2161"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
         <translation>Rajoita Etsi ja korvaa -toiminto siihen tekstiin, joka on merkitty komennolla Etsi &amp;rarr; Merkitse valittu teksti. Valinta poistuu, kun tehdään Kumoa-toiminto, kirjoitetaan tekstiä, vaihdetaan kooditilasta kirjatilaan tai päinvastoin taikka vaihdetaan välilehteä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2164"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2168"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2165"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
         <source>Up</source>
         <translation>Taaksepäin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2165"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2166"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2170"/>
         <source>Down</source>
         <translation>Eteenpäin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2166"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2167"/>
         <source>Direction to search</source>
         <translation>Etsinnän suunta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2168"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
         <source>Search for the previous match from your current position.</source>
         <translation>Etsi edellistä osumaa nykyisestä kohdasta lähtien.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2170"/>
         <source>Search for the next match from your current position.</source>
         <translation>Etsi seuraavaa osumaa nykyisestä paikasta lähtien.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2175"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2176"/>
         <source>Dot All</source>
         <translation>Pisteet kaikille</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2178"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2179"/>
         <source>For Regex searches, prefix your search with (?s).</source>
         <translation>Säännöllisiä lausekkeita käytettäessä tämä valinta merkitsee, että piste vastaa mitä tahansa merkkiä, rivinvaihdot mukaan lukien. Vastaa prefiksiä (?s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2182"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2183"/>
         <source>Minimal Match</source>
         <translation>Lyhin osuma</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2185"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2186"/>
         <source>For Regex searches, prefix your search with (?U).</source>
         <translation>Säännöllisiä lausekkeita käytettäessä tämä aiheuttaa lyhimmän (eikä pisimmän) osuman etsimisen. Vastaa prefiksiä (?U).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2189"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2190"/>
         <source>Auto Tokenise</source>
         <translation>Automaattinen tokenisointi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2192"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2193"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
         <translation>Säännöllisiä lausekkeita käytettäessä tämä aiheuttaa valinnan jäsentämisen alkioiksi, kun Etsi-toiminto avataan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2216"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
         <source>Invalid Regex:</source>
         <translation>Virheellinen Regex:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2218"/>
         <source>offset:</source>
         <translation>siirtymä:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2221"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2222"/>
         <source>Valid Regex</source>
         <translation>Kelvollinen Regex</translation>
     </message>
@@ -10988,34 +10988,34 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <location filename="../../MainUI/MainWindow.cpp" line="2319"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2819"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2915"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2968"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2978"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2997"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3011"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3117"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3133"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3138"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3151"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3181"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3196"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3345"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3352"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3368"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3459"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3658"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4796"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4837"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4843"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4849"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5106"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5126"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5174"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5443"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5647"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2969"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3139"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3152"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3165"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3170"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3182"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3197"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3363"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3438"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4848"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4854"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4860"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5117"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5137"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5185"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5658"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -11036,17 +11036,17 @@ Tätä toimenpidettä ei voi peruuttaa.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="800"/>
         <location filename="../../MainUI/MainWindow.cpp" line="802"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5172"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5174"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5645"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5647"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5185"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5658"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="800"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5172"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5645"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -11393,257 +11393,257 @@ Tätä toimenpidettä ei voi peruuttaa.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2966"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2968"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2969"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Ei ole käyttämättömiä kuva-, video- tai audiotiedostoja poistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2978"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Käyttämättömien tyylien poisto peruuntui, koska XML ei ole oikeamuotoista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2995"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2997"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2996"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>Poistettavia käyttämättömiä tyylilajivalitsimia ei ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3011"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Et voi liittää tiedostoa tähän kohtaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3018"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3019"/>
         <source>Insert File</source>
         <translation>Lisää tiedosto</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3071"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Tiedostoa &quot;%1&quot; ei ole.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3117"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3138"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3139"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Et voi lisätä tähän paikkaan tunnistetta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3133"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>Tunniste on virheellinen. Tunnisteen pitää alkaa kirjaimella, ja siinä saa olla kirjaimia, numeroita ja merkkejä ”_:-.”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3151"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3152"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3170"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Tähän kohtaan ei voi lisätä linkkiä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3165"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Linkki on virheellinen – ei voi sisältää merkkiä ”&lt;” tai ”&gt;”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3181"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3182"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Et voi tehdä hakemistomerkintää tähän kohtaan tai valitsematta tekstiä.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Kohta on virheellinen – ei voi sisältää merkkiä ”&lt;” tai ”&gt;”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3196"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3197"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Et voi tehdä hakemistomerkintää tähän kohtaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3263"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3275"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3274"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
         <source>Select the destination to paste into first.</source>
         <translation>Valitse ensin kohde, johon liitetään.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3283"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
         <source>Pasted clip entry %1.</source>
         <translation>Liitettiin leike %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3345"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Yksi resurssi on valittuna eikä sitä ennen ole resurssia, johon sen voisi yhdistää.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3364"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Oletko varma, että haluat yhdistää valitut tiedostot?
 Tätä toimenpidettä ei voi peruuttaa.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3368"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>Yhdistäminen peruutettu: yhdistämiseen liittyvät XHTML-tiedostot eivät ole hyvin muotoiltuja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3438"/>
         <source>Cannot merge file %1</source>
         <translation>Ei voi yhdistää tiedostoa %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3441"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Yhdistäminen tehty. Sisällysluettelon uudelleen luominen tai muokkaaminen voi olla tarpeellista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Tyyliohjeiden linkitys peruutettiin: %1, XML ei ole oikeamuotoista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3589"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3600"/>
         <source>Word updated.</source>
         <translation>Sana päivitetty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>Javascriptien linkitys peruutettu: %1, XML ei ole hyvin muodostettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3768"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
         <source>File(s) deleted.</source>
         <translation>Tiedosto(ja) poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3790"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Sisällysluettelon muokkaus peruutettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3795"/>
         <source>Table Of Contents edited.</source>
         <translation>Sisällysluetteloa muokattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3813"/>
         <source>Generate TOC cancelled.</source>
         <translation>Sisällysluettelon luonti peruutettiin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3827"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
         <source>Table Of Contents generated.</source>
         <translation>Sisällysluettelo luotu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3829"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3840"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Sisällysluetteloon ei tarvittu muutoksia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3903"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3914"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>Olemassa oleva HTML-sisällysluettelotiedosto löydetty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3987"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3998"/>
         <source>Text selection marked.</source>
         <translation>Valittu teksti merkitty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3989"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4000"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4018"/>
         <source>Text selection unmarked.</source>
         <translation>Valitun tekstin merkitseminen poistettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4056"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4067"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Metatietoeditorista poistuttiin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4059"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4070"/>
         <source>Metadata edited.</source>
         <translation>Metatietoa editoitiin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4167"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4178"/>
         <source>RunPlugin</source>
         <translation>Lisäosan suoritus</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4193"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4204"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Tämä kirja ei sisällä CSS-tyyliohjeita tarkistettavaksi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4224"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4235"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>Tämä EPUB ei sisällä CSS-tyylitaulukoita, jotka pitäisi muotoilla uudelleen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4708"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4719"/>
         <source>Line: %1, Col: %2</source>
         <translation>Rivi: %1, sarake: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4796"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4807"/>
         <source>File cannot be split at this position.</source>
         <translation>Tiedostoa ei voida jakaa tästä kohdasta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4819"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4830"/>
         <source>Split completed.</source>
         <translation>Jako suoritettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4837"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4848"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Ei voi jakaa, koska ainakin yksi tiedoista ei ole HTML-tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4843"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4854"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Ei voi jakaa: %1 XML ei ole oikeamuotoista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4849"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4860"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Ei voi jakaa, koska ainakin yksi tiedoista ei ehkä ole HTML-tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4882"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4893"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Jako tehty. Sisällysluettelon uudelleen luominen voi olla tarpeellista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4884"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4895"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Jakokohtamerkintöjä ei löytynyt. Käytä komentoa Lisää → Jakokohta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5107"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5118"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokumenttia on muutettu.
 Haluatko tallentaa muutoksesi?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5128"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5139"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Pitäisikö Sigilin korvata tämä tiedosto?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5325"/>
         <source>No importer for file type: %1</source>
         <translation>Ei tuontiohjelmaa tyyppiä ”%1” olevalle tiedostolle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5321"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5332"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -11656,44 +11656,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Kokeile, auttaako tähän se, että teet yleisissä asetuksissa asetuksen ”Korjaa XHTML-lähdekoodi, kun toiminto on Avaa” ja avaat tiedoston uudestaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5337"/>
         <source>Loading file...</source>
         <translation>Ladataan tiedostoa...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5340"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
         <source>File loaded.</source>
         <translation>Tiedosto ladattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5368"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5379"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Tämän tiedoston tuottaja on salannut sen DRM:llä. Sigil ei voi avata sellaisia tiedostoja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5376"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5387"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Kirjaa ei voi ladata: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5381"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5392"/>
         <source>Cannot load file %1: %2</source>
         <translation>Ei voi ladata tiedostoa %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5421"/>
         <source>Saving EPUB...</source>
         <translation>Kirjaa tallennetaan...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5430"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil ei voi tallentaa tyyppiä ”%1” olevia tiedostoja.
 Valitse toinen muoto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5444"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5455"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in some data loss.
 
 Do you want to automatically mend the files before saving?</source>
@@ -11702,64 +11702,64 @@ Do you want to automatically mend the files before saving?</source>
 Haluatko korjata tiedostot automaattisesti ennen tallennusta?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5473"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5484"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>Kirja on tallennettu, mutta kaikki HTML-tiedostot eivät ole oikeamuotoisia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5486"/>
         <source>EPUB saved.</source>
         <translation>Kirja tallennettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5481"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5492"/>
         <source>Cannot save file %1: %2</source>
         <translation>Ei voi tallentaa tiedostoa %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5614"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5625"/>
         <source>EPUB files (*.epub)</source>
         <translation>Epub-tiedostot (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5615"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5616"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5617"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5626"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5627"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5628"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML-tiedostot (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5618"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5629"/>
         <source>Text files (*.txt)</source>
         <translation>Tekstitiedostot (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5630"/>
         <source>All files (*.*)</source>
         <translation>Kaikki tiedostot (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5627"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5638"/>
         <source>EPUB file (*.epub)</source>
         <translation>Epub-tiedosto (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5736"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Säilytä olemassaolevat otsikoiden määritteet on nyt:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5726"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5737"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5726"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5737"/>
         <source>OFF</source>
         <translation>EI</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5762"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -14558,916 +14558,916 @@ Haluatko korjata tiedostot automaattisesti ennen tallennusta?</translation>
         <translation>Vahvista metatietomuutokset epubiin käyttämällä OK, muuten Peruuta.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="83"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="90"/>
         <source>Name</source>
         <translation>Nimi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="83"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="90"/>
         <source>Value</source>
         <translation>Arvo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="430"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="511"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="437"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="518"/>
         <source>[ISBN here]</source>
         <translation>[ISBN tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="434"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="516"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="441"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="523"/>
         <source>[ISSN here]</source>
         <translation>[ISSN tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="438"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="521"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="445"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="528"/>
         <source>[DOI here]</source>
         <translation>[DOI tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="442"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="526"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="449"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
         <source>[UUID here]</source>
         <translation>[UUID tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="446"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="453"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="538"/>
         <source>[Amazon ASIN here]</source>
         <translation>[Amazon ASIN tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="462"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="469"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <source>[Author name here]</source>
         <translation>[Tekijän nimi tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="468"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="475"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <source>[Creator name here]</source>
         <translation>[Teoksen luojan nimi tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="472"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="479"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
         <source>[Contributor name here]</source>
         <translation>[Avustajan nimi tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="476"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="481"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="648"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="692"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="483"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="488"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="699"/>
         <source>[Value here]</source>
         <translation>[Arvo tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="480"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="487"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
         <source>Custom Element</source>
         <translation>Itse määritelty elementti</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="480"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="487"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
         <source>[Custom element]</source>
         <translation>[Itse määritelty elementti]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="536"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="543"/>
         <source>[Custom identifier here]</source>
         <translation>[Itse määritelty tunnus tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="643"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>[Insert identifier type here]</source>
         <translation>[Lisää tunnisteen tyyppi tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="645"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>[Insert scheme type here]</source>
         <translation>[Lisää järjestelmän tyyppi tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="647"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
         <source>Custom Property</source>
         <translation>Itse määritelty ominaisuus</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="647"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>[Custom property/attribute]</source>
         <translation>[Itse määritelty ominaisuus tai määrite]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="691"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="698"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1088"/>
         <source>Custom Attribute</source>
         <translation>Itse määritelty määrite</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="691"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="698"/>
         <source>[Custom metadata property/attribute]</source>
         <translation>[Itse määritelty metatieto-ominaisuus tai -määrite]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="750"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="757"/>
         <source>[Place value here]</source>
         <translation>[Sijoita arvo tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="789"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="796"/>
         <source>[Your value here]</source>
         <translation>[Arvosi tähän]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="854"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="861"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
         <source>Author</source>
         <translation>Tekijä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="854"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="861"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
         <source>Represents a primary author of the book or publication</source>
         <translation>Kirjan tai julkaisun ensisijainen tekijä.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="855"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1024"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="862"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
         <source>Subject</source>
         <translation>Aihe</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="855"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1024"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="862"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation>Mikä tahansa fraasi tai avainsana, joka kuvaa kyseessä olevaa aihetta. Käytä tarvittaessa useita Aihe-elementtejä.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="856"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1025"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="863"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
         <source>Description</source>
         <translation>Kuvaus</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="856"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1025"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="863"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
         <source>Description of the publication&apos;s content.</source>
         <translation>Julkaisun sisällön kuvaus.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="857"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1026"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="864"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1033"/>
         <source>Publisher</source>
         <translation>Julkaisija</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="857"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1026"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="864"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1033"/>
         <source>An entity responsible for making the publication available.</source>
         <translation>Taho, joka on vastuussa julkaisun saattamisesta saataville.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="858"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
         <source>Date Published</source>
         <translation>Julkaisupäivä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="858"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
         <source>The date of publication.</source>
         <translation>Julkaisemisen ajankohta.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="859"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
         <source>Date Created</source>
         <translation>Luontiajankohta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="859"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1029"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
         <source>The date of creation.</source>
         <translation>Luomisen ajankohta.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="860"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
         <source>Date Modified</source>
         <translation>Muokkauspäivä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="860"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1030"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
         <source>The date of modification.</source>
         <translation>Muuttamisen ajankohta.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="861"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
         <source>Type</source>
         <translation>Tyyppi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="861"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
         <translation>Käytetään osoittamaan, että kyseinen epub-julkaisu on erityistä tyyppiä.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="862"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
         <source>Format</source>
         <translation>Muoto</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="862"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation>Julkaisun mediatyyppi tai ulottuvuudet. Hyvä käytäntö on, että käytetään arvoa, joka kuuluu hallittuun sanastoon (esimerkiksi MIME-mediatyyppejä).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="863"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1033"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
         <source>Source</source>
         <translation>Lähde</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="863"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
         <translation>Yksilöi lähteen (tai lähteet), johon epub-julkaisu perustuu.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="864"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1034"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
         <source>Language</source>
         <translation>Kieli</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="864"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
         <translation>Ilmoittaa julkaisun kielen. Valitse pudotusvalikosta.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
         <source>Related To</source>
         <translation>Liittyen </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation>Viittaus resurssiin, joka liittyy teokseen. Suositeltu käytäntö on, että tällainen resurssi yksilöidään merkkijonolla tai luvulla, joka on jonkin muodollisen tunnistejärjestelmän mukainen.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
         <source>Coverage</source>
         <translation>Kattavuus</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation>Julkaisun sisällön laajuus tai aihepiiri.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
         <source>Rights</source>
         <translation>Oikeudet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation>Tietoja julkaisussa olevista ja sitä koskevista oikeuksista. Oikeustietoihin sisältyy usein immateriaalioikeuksia kuten tekijänoikeuksia. Jos Oikeudet-elementti puuttuu, ei mitään oletuksia saa tehdä mistään julkaisussa olevista tai sitä koskevista oikeuksista.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1029"/>
         <source>Creator</source>
         <translation>Luoja</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Edustaa EPUB-julkaisun sisällön luomisesta vastaavan henkilön, organisaation jne. nimeä. Elementtiin voidaan liittää rooli-ominaisuus (Role) osoittamaan, mikä tehtävä luojalla oli sisällön luomisessa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1023"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1030"/>
         <source>Contributor</source>
         <translation>Avustaja</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Edustaa sellaisen henkilön, organisaation tms. nimeä, jolla oli toissijainen rooli EPUB-julkaisun sisällön luomisessa. Elementtiin voidaan liittää rooli-ominaisuus (Role) osoittamaan, mikä tehtävä luojalla oli sisällön luomisessa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
         <source>Belongs to a Collection</source>
         <translation>Kuuluu kokoelmaan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
         <translation>Ilmoittaa sellaisen kokoelman nimen, johon epub-julkaisu kuuluu. Epub-julkaisu voi kuulua useampaan kuin yhteen kokoelmaan.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
         <source>Title</source>
         <translation>Nimi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
         <translation>Julkaisun nimi. Julkaisulla voi olla vain yksi päänimi, mutta sillä voi olla usein muita nimityyppejä. Näihin kuuluvat päänimi, alanimi, lyhyt nimi, kokoelman nimi, version nimi ja laajennetut nimityypit.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
         <source>Identifier: DOI</source>
         <translation>Tunnus: DOI</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
         <source>Digital Object Identifier associated with this publication.</source>
         <translation>Tähän julkaisuun liittyvä digitaalisen objektin tunniste.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
         <source>Identifier: ISBN</source>
         <translation>Tunnus: ISBN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
         <source>International Standard Book Number associated with this publication.</source>
         <translation>Tähän julkaisuun liittyvä kansainvälinen vakiokirjanumero.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
         <source>Identifier: ISSN</source>
         <translation>Tunnus: ISSN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
         <source>International Standard Serial Number associated with this publication.</source>
         <translation>Tähän julkaisuun liittyvä kansainvälinen sarjanumero.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
         <source>Identifier: UUID</source>
         <translation>Tunnus: UUID</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
         <source>A Universally Unique Identifier generated for this publication.</source>
         <translation>Tätä julkaisua varten luotu universaalisti yksilöllinen tunniste.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
         <source>Identifier: ASIN</source>
         <translation>Tunniste: ASIN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
         <source>An Amazon Standard Identification Number associated with this publication.</source>
         <translation>Tähän julkaisuun liittyvä Amazonin vakiomuotoinen tunnistenumero.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>Identifier: Custom</source>
         <translation>Tunnus: itse määritelty</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
         <source>A custom identifier based on a specified scheme</source>
         <translation>Itse määritelty tunnus, joka perustuu määrättyyn skeemaan</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
         <source>An empty metadata element you can modify.</source>
         <translation>Tyhjä metatietoelementti, jota voit muokata.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
         <source>Meta Element (primary)</source>
         <translation>Metaelementti (ensisijainen)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
         <source>An empty primary metadata element you can modify.</source>
         <translation>Tyhjä ensisijainen metatietoelementti, jota voit muokata.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="905"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1074"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
         <source>Id Attribute</source>
         <translation>Id-määrite</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="905"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1074"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
         <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
         <translation>Valinnainen, tyypillisesti lyhyt, yksikäsitteinen tunniste, jota käytetään määritteenä pakkauksen kuvauksessa (OPF-tiedostossa).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="906"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1075"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1082"/>
         <source>XML Language</source>
         <translation>XML:ssä määritelty kieli</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="906"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
         <source>Optional, language specifying attribute.  Uses same codes as Language. Not for use with Language, Date, or Identifier metadata elements.</source>
         <translation>Valinnainen, kielen määrittelevä määrite. Käyttää samoja koodeja kuin kieli. Ei käytettäväksi kieli-, päivämäärä- tai tunniste-metatietoelementtien kanssa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="907"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
         <source>Uses Right To Left Text</source>
         <translation>Käyttää oikealta vasemmalle tekstiä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="907"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Valinnainen määrite, joka ilmoittaa, että tekstin suunta on oikealta vasemmalle (right to left).  Ei käytetä yhdessä metatietoelementtien dc:language, dc:date tai dc:identifier kanssa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="908"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
         <source>Uses Left to Right Text</source>
         <translation>Käyttää vasemmalta oikealle tekstiä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="908"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Valinnainen määrite, joka ilmoittaa, että tekstin suunta on vasemmalta oikealle (left to right).  Ei käytetä yhdessä metatietoelementtien dc:language, dc:date tai dc:identifier kanssa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="909"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
         <source>Title: Main Title</source>
         <translation>Otsikko: Pääotsikko</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="909"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
         <translation>Ilmoittaa, että kyseessä oleva nimi on julkaisun päänimi. Päänimiä tulisi olla vain yksi.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="910"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
         <source>Title: Subtitle</source>
         <translation>Otsikko: Alaotsikko</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="910"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
         <translation>Ilmoittaa, että kyseessä oleva nimi on julkaisun alanimi, jos sellainen on olemassa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="911"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
         <source>Title: Short Title</source>
         <translation>Otsikko: Lyhyt nimi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="911"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
         <translation>Ilmoittaa, että kyseessä oleva nimi on julkaisun lyhyt nimi, jos sellainen on olemassa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="919"/>
         <source>Title: Collection Title</source>
         <translation>Otsikko: Kokoelman nimi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="919"/>
         <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
         <translation>Osoittaa, että kyseessä oleva nimi on sellaisen kokoelman nimi, johon tämä julkaisu kuuluu, jos sellainen on olemassa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
         <source>Title: Edition Title</source>
         <translation>Otsikko: Painoksen nimi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
         <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
         <translation>Ilmoittaa, että kyseessä oleva nimi on julkaisun version nimi, jos sellainen on olemassa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
         <source>Title: Expanded Title</source>
         <translation>Otsikko: Laajennettu nimi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
         <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
         <translation>Ilmoittaa, että kyseessä oleva nimi on julkaisun laajennettu nimi, jos sellainen on olemassa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
         <source>Alternate Script</source>
         <translation>Vaihtoehtoinen kirjoitusjärjestelmä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an xml:lang attribute.</source>
         <translation>Tarjoaa liittyvän ominaisuuden arvon vaihtoehtoisen ilmaisun xml:lang-attribuutin määrittelemällä kielellä ja komentosarjalla.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
         <source>Alternate Language</source>
         <translation>Vaihtoehtoinen kieli</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
         <source>Language code for the language used in the associated alternate-script property value.</source>
         <translation>Sen kielen kielikoodi, johon tähän liittyvä ominaisuuden ”Vaihtoehtoinen kirjoitusjärjestelmä” arvo viittaa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
         <source>Collection is a Set</source>
         <translation>Kokoelma on joukko</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
         <translation>Tätä ominaisuutta käytetään yhdessä ominaisuuden ”Kuuluu kokoelmaan” kanssa, ja se ilmoittaa kokoelman luonteen. Arvoa ”yhdistelmä” tulisi käyttää äärelliselle teosten kokoelmalle, kun ne yhdessä muodostavat yhden henkisen yksikön, jotka tyypillisesti julkaistaan yhdessä ja voidaan myydä yksikkönä.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
         <source>Collection is a Series</source>
         <translation>Kokoelma on sarja</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
         <translation>Ominaisuus, jota käytetään kokoelmailmoituksen yhteydessä. Ilmoittaa kokoelman muodon tai lajin. Arvoa ”sarja” tulisi käyttää, jos kyseessä on toisiinsa liittyvien teosten sarja ja ne on muodollisesti määritelty ryhmäksi; tyypillisesti sarjalle ei ole ilmoitettu loppua, ja se koostuu teoksista, jotka julkaistaan yksilöllisesti eri aikoina.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="919"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
         <source>Display Sequence</source>
         <translation>Järjestynumero</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="919"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
         <translation>Ilmoittaa järjestysnumeron, jolla tämä ominaisuus esitetään suhteessa identtisiin metatieto-ominaisuuksiin. (Tässä määrätään esimerkiksi se, missä keskinäisessä järjestyksessä dokumentin eri nimet tai useat tekijät esitetään.)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1076"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="927"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1083"/>
         <source>File As</source>
         <translation>Tallenna nimellä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1076"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="927"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1083"/>
         <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
         <translation>Esittää ominaisuuden normalisoidun muodon lajittelua varten. Käytetään tyypillisesti tekijän, luojan tai avustajan nimelle.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="928"/>
         <source>Position In Group</source>
         <translation>Sijainti ryhmässä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="928"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
         <translation>Ilmoittaa epub-julkaisun järjestysnumeron ryhmässä, johon se kuuluu yhdessä muiden julkaisujen (jotka voivat olla muitakin kuin epub-julkaisuja) kanssa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
         <source>Identifier Type</source>
         <translation>Tunnuksen tyyppi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
         <translation>Ilmoittaa tunnuksen muodon tai luonteen. Jos tämän ominaisuuden arvo on otettu jostakin koodiluettelosta tai muusta muodollisesta määrittelystä, skeema-määritettä tulisi käyttää ilmoittamaan tällainen lähde.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1077"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1084"/>
         <source>Role</source>
         <translation>Rooli</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1077"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1084"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
         <translation>Ilmoittaa luojan tai avustajan suorittaman työn luonteen (esimerkiksi että henkilö on teoksen tekijä tai toimittaja). Käytetään tyypillisesti siten, että arvo otetaan skeeman marc:relators valvotusta sanastosta.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1078"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1085"/>
         <source>Scheme</source>
         <translation>Skeema</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
         <source>This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
         <translation>Tämä attribuutti lisätään yleensä tunnisteeseen, lähteeseen, tekijään tai tekijöihin, jotta voidaan osoittaa käytetty valvottu sanastojärjestelmä. (esim. marc:relators määrittelemään kelvollisia arvoja rooliominaisuudelle).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
         <source>Source of Pagination</source>
         <translation>Sivutuksen lähde</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
         <translation>Ilmaisee lähderesurssin erityisen piirteen, joka on säilytetty kyseessä olevassa epub-julkaisun muotoilussa. Tämä määrittely määrittelee arvon ”pagination”, joka kertoo, että sisällössä määritellyt sivunvaihdot perustuvat ilmoitettuun lähteeseen. Tämä arvo tulisi asettaa aina, kun sivutus on määritelty ja painettu lähde on tiedossa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
         <source>An empty metadata property or attribute you can modify.</source>
         <translation>Tyhjä metatieto-ominaisuus tai -määrite, jota voit muokata.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="954"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="961"/>
         <source>Text Direction</source>
         <translation>Tekstin suunta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="954"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="961"/>
         <source>Optional text direction attribute for this metadata item.</source>
         <translation>Valinnainen tekstin suunta -attribuutti tälle metatietoelementille.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="955"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="962"/>
         <source>Title Type</source>
         <translation>Otsikkotyyppi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="955"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="962"/>
         <source>Indicates the kind or type of the title</source>
         <translation>Osoittaa otsikon lajin tai tyypin</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="956"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="963"/>
         <source>Collection Type</source>
         <translation>Kokoelman tyyppi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="956"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="963"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection.</source>
         <translation>Ominaisuus, jota käytetään belongs-to-collectionin kanssa. Ilmaisee kokoelman muodon tai luonteen.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="957"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
         <source>Source of</source>
         <translation>Lähde</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="957"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.</source>
         <translation>Ilmaisee mukautetun lähderesurssin ainutlaatuisen ominaisuuden, joka on säilytetty EPUB-julkaisun kyseisessä versiossa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
         <source>Published</source>
         <translation>Julkaistu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
         <source>Event Type is Published.</source>
         <translation>Tapahtuman tyyppi on julkaistu.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
         <source>Publication</source>
         <translation>Julkaisu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
         <source>Event Type is Publication.</source>
         <translation>Tapahtuman tyyppi on julkaisu.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="986"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="993"/>
         <source>Creation</source>
         <translation>Luominen</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="986"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="993"/>
         <source>Event Type is Creation.</source>
         <translation>Tapahtuman tyyppi on luominen.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="987"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="994"/>
         <source>Modification</source>
         <translation>Muokkaus</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="987"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="994"/>
         <source>Event Type is Modification.</source>
         <translation>Tapahtuman tyyppi on muuttaminen.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="988"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="995"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
         <source>Digital Object Identifier</source>
         <translation>Digitaalisen objektin tunniste</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="988"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="995"/>
         <source>Identifier Scheme: Digital Object Identifier</source>
         <translation>Tunnusjärjestelmä: Digitaalinen objektitunniste</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="989"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="996"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
         <source>International Standard Book Number</source>
         <translation>Kansainvälinen standardikirjanumero</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="989"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="996"/>
         <source>Identifier Scheme: International Standard Book Number</source>
         <translation>Tunnusjärjestelmä: Kansainvälinen vakiokirjanumero</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="990"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="997"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
         <source>International Standard Serial Number</source>
         <translation>Kansainvälinen standardisarjanumero</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="990"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="997"/>
         <source>Identifier Scheme: International Standard Serial Number</source>
         <translation>Tunnusjärjestelmä: Kansainvälinen vakiosarjanumero</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="998"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1048"/>
         <source>Universally Unique Identifier</source>
         <translation>Yleismaailmallisesti yksilöllinen tunniste</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="998"/>
         <source>Identifier Scheme: Universally Unique Identifier</source>
         <translation>Tunnusjärjestelmä: Yleismaailmallisesti yksilöllinen tunniste</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
         <source>Amazon Unique Identifier</source>
         <translation>Amazonin yksilöllinen tunniste</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
         <source>Identifier Scheme: Amazon Unique Identifier</source>
         <translation>Tunnusjärjestelmä: Amazonin yksilöllinen tunniste</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
         <translation>EPUB-julkaisun päänimi. Päänimiä voi olla vain yksi.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1029"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Esittää EPUB-julkaisun luomisesta vastaavan henkilön, organisaation tms. nimen. Elementtiin voidaan liittää määritteet opf:role, opf:scheme ja opf:file-as ilmoittamaan, mikä rooli luojalla oli sisällön luomisessa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1023"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1030"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
         <translation>Sellaisen henkilön, organisaation tms. nimi, jolla oli toissijainen rooli EPUB-julkaisun sisällön luomisessa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1034"/>
         <source>Date</source>
         <translation>Päivämäärä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1034"/>
         <source>A date associated with this epub, typically refined by event type information</source>
         <translation>Tähän epubiin liittyvä päivämäärä, jota tyypillisesti tarkennetaan tapahtumatyyppitiedoilla.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
         <source>Date: Publication</source>
         <translation>Ajankohta: Julkaiseminen</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1029"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
         <source>Date: Creation</source>
         <translation>Ajankohta: Luominen</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1030"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
         <source>Date: Modification</source>
         <translation>Ajankohta: Muuttaminen</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
         <source>The nature or genre of the content of the resource.</source>
         <translation>Resurssin sisällön luonne tai genre.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1033"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
         <source>A reference to a resource from which the present publication is derived.</source>
         <translation>Viittaus resurssiin, josta tämä julkaisu on johdettu.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1034"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
         <source>A language used in the publication. Choose a RFC5646 value.</source>
         <translation>Julkaisussa käytetty kieli. Käytä RFC 5646:n mukaista arvoa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
         <source>Relation</source>
         <translation>Viittaus</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1048"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
         <source>Identifier</source>
         <translation>Tunnus</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
         <source>Amazon Standard Identification Number</source>
         <translation>Amazonin vakiomuotoinen tunnistenumero</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>A custom identifier</source>
         <translation>Mukautettu tunniste</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>Series</source>
         <translation>Sarja</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>Series title or name (from calibre)</source>
         <translation>Sarjan otsikko tai nimi (Calibresta)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>Series Index</source>
         <translation>Järjestysnumero sarjassa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>Index of this book in the series (from calibre)</source>
         <translation>Tämän kirjan järjestysnumero sarjassa (Calibresta)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
         <source>Title for Sorting</source>
         <translation>Nimi lajittelua varten</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
         <translation>E-kirjan otsikon versio, jota käytetään lajittelussa (Calibresta).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
         <source>An empty element for you to modify</source>
         <translation>Tyhjä elementti, jota voit muokata</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1075"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1082"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Valinnainen määrite, joka ilmoittaa kielen. Käyttää samoja koodeja kuin dc:language. Ei käytetä metatietoelementeissä dc:language, dc:date ja dc:identifier.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1078"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1085"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.</source>
         <translation>Tämä attribuutti lisätään yleensä dc:identifieriin osoittamaan käytettävän tunnisteen tyyppi: DOI, ISBN, ISSN, UUID tai AMAZON.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1079"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1086"/>
         <source>Custom Scheme</source>
         <translation>Mukautettu järjestelmä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1079"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1086"/>
         <source>This attribute is typically added to dc:identifier to indicate that a custom identifier scheme is being used.</source>
         <translation>Tämä attribuutti lisätään yleensä dc:identifieriin osoittamaan, että käytetään mukautettua tunnistejärjestelmää.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1080"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1087"/>
         <source>Event</source>
         <translation>Tapahtuma</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1080"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1087"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
         <translation>Tämä määrite lisätään tyypillisesti dc:date-elementteihin ilmoittamaan ajankohdan tyyppi: julkaiseminen, luominen tai muuttaminen.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1088"/>
         <source>An empty metadata attribute you can modify.</source>
         <translation>Tyhjä metatietomäärite, jota voit muokata</translation>
     </message>
@@ -16688,7 +16688,7 @@ Viittaukset voidaan erottaa rivinvaihdoilla, pilkuilla tai välilyönneillä.</t
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="291"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="297"/>
         <source>Cleaning...</source>
         <translation>Siistitään...</translation>
     </message>
@@ -16860,12 +16860,12 @@ Rivi: %1 Sarake %2 - %3</translation>
         <translation>Korvataan hakutermi...</translation>
     </message>
     <message>
-        <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
+        <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
+        <location filename="../../Misc/UpdateChecker.cpp" line="100"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
         <translation>&lt;p&gt;Sigilistä on saatavilla uudempi versio, versio &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Haluaisitko siirtyä lataussivulle?&lt;/p&gt;</translation>
     </message>
@@ -16877,12 +16877,12 @@ Rivi: %1 Sarake %2 - %3</translation>
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="712"/>
+        <location filename="../../Misc/Utility.cpp" line="713"/>
         <source>Sigil has encountered a problem.</source>
         <translation>Sigil on kohdannut ongelman.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="713"/>
+        <location filename="../../Misc/Utility.cpp" line="714"/>
         <source>Sigil may need to close.</source>
         <translation>Sigilin täytyy ehkä pysäyttää itsensä.</translation>
     </message>
@@ -16908,28 +16908,28 @@ Rivi: %1 Sarake %2 - %3</translation>
         <translation>Virheellinen OPF-tiedosto: %1</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="744"/>
-        <location filename="../../main.cpp" line="792"/>
+        <location filename="../../main.cpp" line="745"/>
+        <location filename="../../main.cpp" line="793"/>
         <source>Quit</source>
         <translation>Lopeta</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="754"/>
+        <location filename="../../main.cpp" line="755"/>
         <source>About</source>
         <translation>Tietoja ohjelmasta</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="763"/>
+        <location filename="../../main.cpp" line="764"/>
         <source>Preferences</source>
         <translation>Asetukset</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="774"/>
+        <location filename="../../main.cpp" line="775"/>
         <source>New</source>
         <translation>Uusi</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="783"/>
+        <location filename="../../main.cpp" line="784"/>
         <source>Open</source>
         <translation>Avaa</translation>
     </message>
@@ -19652,12 +19652,12 @@ aikaa, kun oikeinkirjoituksen tarkistus on avoinna.</translation>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="820"/>
+        <location filename="../../Misc/Utility.cpp" line="832"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="821"/>
+        <location filename="../../Misc/Utility.cpp" line="833"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>

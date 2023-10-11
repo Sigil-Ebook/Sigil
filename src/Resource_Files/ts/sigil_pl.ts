@@ -1792,147 +1792,147 @@ Czy chcesz zapisać zmiany?</translation>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="560"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="561"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>Nie można wstawić zamykającego tagu w tym miejscu.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="568"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="569"/>
         <source>No open tags found at this position.</source>
         <translation>Brak otwartych tagów w tym miejscu.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1455"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1456"/>
         <source>Add To Default Dictionary</source>
         <translation>Dodaj do domyślnego słownika</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1468"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1469"/>
         <source>Add To Dictionary</source>
         <translation>Dodaj do słownika</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1485"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1486"/>
         <source>Ignore</source>
         <translation>Ignoruj</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1547"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1548"/>
         <source>Reformat CSS</source>
         <translation>Przeformatuj CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1549"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1550"/>
         <source>Multiple Lines Per Style</source>
         <translation>Wiele linii na styl</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1550"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1551"/>
         <source>Single Line Per Style</source>
         <translation>Jedna linia na styl</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1576"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1577"/>
         <source>Rename Selected Class</source>
         <translation>Zmień nazwę zaznaczonej klasy</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1598"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1599"/>
         <source>Reformat HTML</source>
         <translation>Ponownie formatuj HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1600"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1601"/>
         <source>Mend and Prettify Code</source>
         <translation>Popraw i upiększ kod</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1601"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1602"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Popraw i upiększ kod - wszystkie pliki HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1602"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1603"/>
         <source>Mend Code</source>
         <translation>Popraw kod</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1603"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1604"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Popraw kod - wszystkie pliki HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1633"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1634"/>
         <source>Go To Link Or Style</source>
         <translation>Idź do łącza lub stylu</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1655"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1656"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>Przełącz tryb zawijania linii</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1677"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1678"/>
         <source>View Image</source>
         <translation>Podgląd obrazu</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1678"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1679"/>
         <source>Open Tab For Image</source>
         <translation>Otwórz obraz w nowej zakładce</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1704"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1705"/>
         <source>Mark Selected Text</source>
         <translation>Zaznacz wybrany tekst</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1706"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1707"/>
         <source>Unmark Marked Text</source>
         <translation>Odznacz wybrany tekst</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1732"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1733"/>
         <source>Clips</source>
         <translation>Wycinki</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1742"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1743"/>
         <source>Add To Clips</source>
         <translation>Dodaj do wycinków</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1871"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1872"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Musisz być w otwierającym tagu HTML by korzystać z tej funkcji.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1881"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1882"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Musisz być w otwierającym tagu HTML by korzystać z tej funkcji.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1945"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1946"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>Zaznaczony tekst nie jest prawidłową nazwą klasy.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1952"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1953"/>
         <source>Rename Class</source>
         <translation>Zmień nazwę klasy</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1953"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1954"/>
         <source>Enter new class name</source>
         <translation>Wpisz nową nazwę klasy</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1973"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1974"/>
         <source>Class renamed.</source>
         <translation>Nazwa klasy została zmieniona.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1975"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1976"/>
         <source>Class rename aborted.</source>
         <translation>Przerwano zmianę nazwy klasy.</translation>
     </message>
@@ -2995,310 +2995,310 @@ Valid only when searching HTML files.</source>
         <translation>Tylko tekst</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="301"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="308"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="302"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="309"/>
         <source>Search will restart</source>
         <translation>Wyszukiwanie zostanie uruchomione od początku</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="333"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2126"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="334"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2127"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2128"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2137"/>
         <source>Current File</source>
         <translation>Bieżący plik</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="562"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1892"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="563"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1893"/>
         <source>Matches found: %n</source>
         <translation><numerusform>Znaleziono pasujący: %n</numerusform><numerusform>Znaleziono pasujące: %n</numerusform><numerusform>Znaleziono pasujących: %n</numerusform><numerusform>Znalezione dopasowania: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="652"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="653"/>
         <source>Choose Replacements</source>
         <translation>Wybierz zastąpienia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="670"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="729"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1935"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="671"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="730"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1936"/>
         <source>No replacements made</source>
         <translation>Nie znaleziono do zastąpienia</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="672"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="731"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1937"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="673"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="732"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1938"/>
         <source>Replacements made: %n</source>
         <translation><numerusform>Dokonano zmiany: %n</numerusform><numerusform>Dokonano zmian: %n</numerusform><numerusform>Dokonano zmian: %n</numerusform><numerusform>Dokonano zmian: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="857"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="858"/>
         <source>End of search</source>
         <translation>Koniec wyszukiwania</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="942"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="943"/>
         <source>No matches found</source>
         <translation>Nie znaleziono dopasowań</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1679"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1680"/>
         <source>This tab cannot be searched</source>
         <translation>Ta zakładka nie może być przeszukiwana</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1722"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1723"/>
         <source>Unnamed search loaded</source>
         <translation>Wczytano wyszukiwania bez nazwy</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1725"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1726"/>
         <source>Loaded</source>
         <translation>Wczytano</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1798"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1822"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1851"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1876"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1920"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1799"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1823"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1852"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1877"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1921"/>
         <source>No searches selected</source>
         <translation>Nie wybrano wyszukiwań</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1985"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1986"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1986"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1987"/>
         <source>Are you sure you want to clear your Find and Replace current values and history?</source>
         <translation>Czy na pewno chcesz wyczyścić bieżące i historyczne wartości w oknie Znajdź i Zastąp?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2112"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2113"/>
         <source>What to search for</source>
         <translation>Czego szukać</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2113"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2114"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2115"/>
         <source>Normal</source>
         <translation>Normalny</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2114"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2115"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation>Wielkość liter napisanych w szukaniu nie ma znaczenia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2116"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2117"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2118"/>
         <source>Case Sensitive</source>
         <translation>Z rozróżnieniem wielkości liter</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2117"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2118"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>Wielkość liter w szukaniu dokładnie taka jak napisane.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2119"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2120"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2121"/>
         <source>Regex</source>
         <translation>Wyrażenie regularne</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2120"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2121"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>Wyszukiwanie wzorca przy użyciu składni wyrażeń regularnych.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2124"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2158"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2125"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2159"/>
         <source>Where to search</source>
         <translation>Gdzie szukać</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2127"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2128"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>Ogranicza szukanie lub zastępowanie do otwartych plików. Przytrzymaj klawisz Ctrl przy klikaniu na przycisk szukania, by tymczasowo ograniczyć szukanie do bieżącego pliku.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2129"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2130"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2131"/>
         <source>All HTML Files</source>
         <translation>Wszystkie pliki HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2130"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2131"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>Znajdź lub zastąp we wszystkich plikach HTML w Widoku kodu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2132"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2133"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2134"/>
         <source>Selected HTML Files</source>
         <translation>Wybrane pliki HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2133"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2134"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>Ogranicza szukanie lub zastępowanie do plików HTML wybranych w Zawartości książki w Widoku kodu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2135"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
         <source>Tabbed HTML Files</source>
         <translation>Pliki HTML w kartach</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2137"/>
         <source>Restrict the find or replace to the HTML files open in Tabs.</source>
         <translation>Ogranicza szukanie lub zastępowanie do plików HTML otworzonych w zakładkach.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2138"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2139"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2140"/>
         <source>All CSS Files</source>
         <translation>Wszystkie pliki CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2139"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2140"/>
         <source>Find or replace in all CSS files in Code View.</source>
         <translation>Znajdź lub zastąp we wszystkich plikach CSS w Widoku kodu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2141"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2142"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2143"/>
         <source>Selected CSS Files</source>
         <translation>Wybrane pliki CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2142"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2143"/>
         <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
         <translation>Ogranicza szukanie lub zastępowanie do plików CSS wybranych w Zawartości książki w Widoku kodu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2144"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2145"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2146"/>
         <source>Tabbed CSS Files</source>
         <translation>Pliki CSS w kartach</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2145"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2146"/>
         <source>Restrict the find or replace to the CSS files open in Tabs.</source>
         <translation>Ogranicza szukanie lub zastępowanie do plików CSS otworzonych w kartach.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2147"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2148"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2149"/>
         <source>OPF File</source>
         <translation>Plik OPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2148"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2149"/>
         <source>Restrict the find or replace to the OPF file.</source>
         <translation>Ogranicza szukanie lub zastępowanie do pliku OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2150"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2151"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2152"/>
         <source>NCX File</source>
         <translation>Plik NCX</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2151"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2152"/>
         <source>Restrict the find or replace to the NCX file.</source>
         <translation>Ogranicza szukanie lub zastępowanie do pliku NCX.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2154"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2155"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
         <translation>Aby ograniczyć wyszukiwanie do wybranego tekstu użyj Szukaj &amp;rarr; Zaznacz wybrany tekst.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2159"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2160"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2161"/>
         <source>Marked Text</source>
         <translation>Zaznaczony tekst</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2160"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2161"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
         <translation>Ogranicz szukanie lub zastępowanie tylko do zaznaczonego tekstu przez Szukaj &amp;rarr; Zaznacz wybrany tekst. Przywrócenie poprzedniego zakresu wyszukiwania nastąpi po użyciu Cofnij, wprowadzeniu tekstu, zmianie widoku lub zakładki.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2164"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2168"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2165"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
         <source>Up</source>
         <translation>W górę</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2165"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2166"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2170"/>
         <source>Down</source>
         <translation>W dół</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2166"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2167"/>
         <source>Direction to search</source>
         <translation>Kierunek przeszukiwania</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2168"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
         <source>Search for the previous match from your current position.</source>
         <translation>Znajdź poprzednie dopasowanie od obecnej pozycji.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2170"/>
         <source>Search for the next match from your current position.</source>
         <translation>Znajdź następne dopasowanie od obecnej pozycji.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2175"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2176"/>
         <source>Dot All</source>
         <translation>Dot All</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2178"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2179"/>
         <source>For Regex searches, prefix your search with (?s).</source>
         <translation>Szukając przy pomocy wyrażeń regularnych, do szukanego dodaj prefiks (?s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2182"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2183"/>
         <source>Minimal Match</source>
         <translation>Najmniejsza zgodność</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2185"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2186"/>
         <source>For Regex searches, prefix your search with (?U).</source>
         <translation>Szukając przy pomocy wyrażeń regularnych, do szukanego dodaj prefiks (?U).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2189"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2190"/>
         <source>Auto Tokenise</source>
         <translation>Automatyczna tokenizacja</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2192"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2193"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
         <translation>Szukając przy pomocy wyrażeń regularnych, tokenizuj (dodawaj ukośnik wsteczny w odpowiednich miejscach) podczas otwierania okienka Znajdź.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2216"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
         <source>Invalid Regex:</source>
         <translation>Nieprawidłowe wyrażenie regularne: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2218"/>
         <source>offset:</source>
         <translation>
 Offset:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2221"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2222"/>
         <source>Valid Regex</source>
         <translation>Prawidłowe wyrażenie regularne</translation>
     </message>
@@ -10990,34 +10990,34 @@ Tworzy nowy dokument ePub3.&lt;/p&gt;</translation>
         <location filename="../../MainUI/MainWindow.cpp" line="2319"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2819"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2915"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2968"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2978"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2997"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3011"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3117"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3133"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3138"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3151"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3181"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3196"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3345"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3352"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3368"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3459"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3658"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4796"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4837"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4843"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4849"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5106"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5126"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5174"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5443"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5647"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2969"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3139"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3152"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3165"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3170"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3182"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3197"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3363"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3438"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4848"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4854"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4860"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5117"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5137"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5185"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5658"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -11038,17 +11038,17 @@ Tej akcji nie można cofnąć.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="800"/>
         <location filename="../../MainUI/MainWindow.cpp" line="802"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5172"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5174"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5645"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5647"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5185"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5658"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="800"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5172"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5645"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -11395,257 +11395,257 @@ Tej akcji nie można cofnąć.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2966"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2968"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2969"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Brak nieużywanych plików obrazów, plików wideo lub audio do usunięcia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2978"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Usunięcie nieużywanych stylów anulowane z powodu błędów składniowych XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2995"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2997"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2996"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>Brak nieużywanych selektorów w arkuszach stylów do usunięcia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3011"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Nie można wstawić pliku w tej pozycji.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3018"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3019"/>
         <source>Insert File</source>
         <translation>Wstaw plik</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3071"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Plik &quot;%1&quot; nie istnieje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3117"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3138"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3139"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Nie można wstawić identyfikatora w tej pozycji.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3133"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>Identyfikator jest błędny - musi zaczynać się od litery, a następnie składać się z litery, liczby, znaków _ : - lub .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3151"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3152"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3170"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Nie można wstawić łącza w tym miejscu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3165"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Łącze jest nieprawidłowe - nie może zawierać &apos;&lt;&apos; lub &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3181"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3182"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Nie można oznaczyć indeksu w tej pozycji lub bez zaznaczania tekstu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Wpis jest nieprawidłowy - nie może zawierać &apos;&lt;&apos; lub &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3196"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3197"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Nie można oznaczyć indeksu w tym miejscu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3263"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3275"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3274"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
         <source>Select the destination to paste into first.</source>
         <translation>Najpierw wybierz miejsce docelowe do wklejenia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3283"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
         <source>Pasted clip entry %1.</source>
         <translation>Wklejono wpis wycinka %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3345"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Jeden zasób wybrany i nie ma możliwości scalenia go z poprzednim.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3364"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Czy na pewno scalić zaznaczone pliki?
 Tej akcji nie można cofnąć.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3368"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>Scalanie anulowane: pliki XHTML przeznaczone dla scalenia nie są poprawne składniowo.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3438"/>
         <source>Cannot merge file %1</source>
         <translation>Nie można scalić pliku %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3441"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Scalanie zakończone. Sprawdź, czy nie trzeba poprawić lub edytować spisu treści.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Łącze do arkusza stylów anulowane: %1, XML nie jest poprawny składniowo.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3589"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3600"/>
         <source>Word updated.</source>
         <translation>Słowo uaktualniono.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>Łącze do skryptu anulowane: %1, XML nie jest poprawny składniowo.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3768"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
         <source>File(s) deleted.</source>
         <translation>Plik(ów) usunięto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3790"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Anulowano edycję spisu treści.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3795"/>
         <source>Table Of Contents edited.</source>
         <translation>Edycja spisu treści.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3813"/>
         <source>Generate TOC cancelled.</source>
         <translation>Anulowano generowanie spisu treści (TOC).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3827"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
         <source>Table Of Contents generated.</source>
         <translation>Utworzono spis treści.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3829"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3840"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Spis treści nie wymagał zmian.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3903"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3914"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>Znaleziono istniejący plik ze spisem treści HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3987"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3998"/>
         <source>Text selection marked.</source>
         <translation>Wybrany tekst zaznaczono.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3989"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4000"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4018"/>
         <source>Text selection unmarked.</source>
         <translation>Wybrany tekst odznaczono.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4056"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4067"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Anulowano edycję metadanych.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4059"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4070"/>
         <source>Metadata edited.</source>
         <translation>Edycja metadanych.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4167"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4178"/>
         <source>RunPlugin</source>
         <translation>Uruchom wtyczkę</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4193"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4204"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Ten EPUB nie zawiera żadnych arkuszy stylów CSS do sprawdzania.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4224"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4235"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>Ten EPUB nie zawiera żadnych arkuszy stylów CSS do przeformatowania.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4708"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4719"/>
         <source>Line: %1, Col: %2</source>
         <translation>Linia: %1 Kolumna: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4796"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4807"/>
         <source>File cannot be split at this position.</source>
         <translation>Plik nie może być podzielony w tym miejscu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4819"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4830"/>
         <source>Split completed.</source>
         <translation>Podział zakończony.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4837"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4848"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Nie można podzielić, ponieważ co najmniej jeden plik nie jest plikiem HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4843"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4854"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Nie można podzielić: %1, XML nie jest poprawny składniowo.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4849"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4860"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Nie można podzielić, ponieważ co najmniej jeden plik może nie być plikiem HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4882"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4893"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Podział zakończony. Sprawdź, czy nie musisz zaktualizować spisu treści.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4884"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4895"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Nie znaleziono znaczników podziału. Użyj Wstaw -&gt; Znacznik podziału.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5107"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5118"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokument został zmieniony.
 Czy chcesz zapisać swoje zmiany?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5128"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5139"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Czy Sigil ma nadpisać ten plik?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5325"/>
         <source>No importer for file type: %1</source>
         <translation>Nie można zaimportować plików typu: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5321"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5332"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -11658,44 +11658,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Spróbuj włączyć w ustawieniach poprawianie kodu źródłowego XHTML przy otwieraniu oraz ponownie załaduj plik.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5337"/>
         <source>Loading file...</source>
         <translation>Wczytywanie pliku...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5340"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
         <source>File loaded.</source>
         <translation>Plik załadowano.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5368"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5379"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Twórca tego pliku zaszyfrował go przy pomocy technologi DRM. Sigil nie może odczytać takich plików.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5376"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5387"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Nie można wczytać EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5381"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5392"/>
         <source>Cannot load file %1: %2</source>
         <translation>Nie można załadować pliku %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5421"/>
         <source>Saving EPUB...</source>
         <translation>Zapisywanie EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5430"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil nie może zapisać pliku typu &quot;%1&quot;.
 Proszę wybrać inny format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5444"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5455"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in some data loss.
 
 Do you want to automatically mend the files before saving?</source>
@@ -11704,64 +11704,64 @@ Do you want to automatically mend the files before saving?</source>
 Czy automatycznie poprawić pliki przed zapisaniem?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5473"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5484"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB został zapisany, jednak nie wszystkie pliki HTML są poprawne składniowo.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5486"/>
         <source>EPUB saved.</source>
         <translation>EPUB zapisany.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5481"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5492"/>
         <source>Cannot save file %1: %2</source>
         <translation>Nie można zapisać pliku %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5614"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5625"/>
         <source>EPUB files (*.epub)</source>
         <translation>Pliki EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5615"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5616"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5617"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5626"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5627"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5628"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Pliki HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5618"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5629"/>
         <source>Text files (*.txt)</source>
         <translation>Pliki tekstowe (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5630"/>
         <source>All files (*.*)</source>
         <translation>Wszystkie pliki (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5627"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5638"/>
         <source>EPUB file (*.epub)</source>
         <translation>Plik EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5736"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Zachowaj istniejące atrybuty nagłówków:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5726"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5737"/>
         <source>ON</source>
         <translation>WŁ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5726"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5737"/>
         <source>OFF</source>
         <translation>WYŁ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5762"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -14558,916 +14558,916 @@ Czy automatycznie poprawić pliki przed zapisaniem?</translation>
         <translation>Wybierz OK, aby zatwierdzić zmiany metadanych w pliku EPUB, w przeciwnym razie wybierz Anuluj.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="83"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="90"/>
         <source>Name</source>
         <translation>Nazwa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="83"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="90"/>
         <source>Value</source>
         <translation>Wartość</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="430"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="511"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="437"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="518"/>
         <source>[ISBN here]</source>
         <translation>[Tu wpisz ISBN]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="434"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="516"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="441"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="523"/>
         <source>[ISSN here]</source>
         <translation>[Tu wpisz ISSN]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="438"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="521"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="445"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="528"/>
         <source>[DOI here]</source>
         <translation>[Tu wpisz DOI]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="442"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="526"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="449"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
         <source>[UUID here]</source>
         <translation>[Tu wpisz UUID]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="446"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="453"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="538"/>
         <source>[Amazon ASIN here]</source>
         <translation>[Tu wpisz Amazon ASIN]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="462"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="469"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <source>[Author name here]</source>
         <translation>[Tutaj nazwisko autora]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="468"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="475"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <source>[Creator name here]</source>
         <translation>[Tutaj nazwisko twórcy]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="472"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="479"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
         <source>[Contributor name here]</source>
         <translation>[Tutaj nazwisko współautora]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="476"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="481"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="648"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="692"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="483"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="488"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="699"/>
         <source>[Value here]</source>
         <translation>[Tutaj wartość]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="480"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="487"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
         <source>Custom Element</source>
         <translation>Element niestandardowy</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="480"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="487"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
         <source>[Custom element]</source>
         <translation>[Element niestandardowy]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="536"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="543"/>
         <source>[Custom identifier here]</source>
         <translation>[Tutaj niestandardowy identyfikator]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="643"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>[Insert identifier type here]</source>
         <translation>[Tutaj wstaw typ identyfikatora]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="645"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>[Insert scheme type here]</source>
         <translation>[Tutaj wstaw typ schematu]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="647"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
         <source>Custom Property</source>
         <translation>Właściwości niestandardowe</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="647"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>[Custom property/attribute]</source>
         <translation>[Niestandardowa właściwość/atrybut]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="691"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="698"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1088"/>
         <source>Custom Attribute</source>
         <translation>Atrybut niestandardowy</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="691"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="698"/>
         <source>[Custom metadata property/attribute]</source>
         <translation>[Niestandardowa właściwość/atrybut metadanych]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="750"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="757"/>
         <source>[Place value here]</source>
         <translation>[Miejsce na wartość]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="789"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="796"/>
         <source>[Your value here]</source>
         <translation>[Tutaj twoja wartość]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="854"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="861"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
         <source>Author</source>
         <translation>Autor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="854"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="861"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
         <source>Represents a primary author of the book or publication</source>
         <translation>Reprezentuje podstawowego autora książki lub publikacji</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="855"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1024"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="862"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
         <source>Subject</source>
         <translation>Temat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="855"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1024"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="862"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation>Dowolne frazy lub słowa opisujące temat w pytaniu. Użyj wielu elementów „temat” gdy ich nie ma.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="856"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1025"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="863"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
         <source>Description</source>
         <translation>Opis</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="856"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1025"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="863"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
         <source>Description of the publication&apos;s content.</source>
         <translation>Opis zawartości publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="857"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1026"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="864"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1033"/>
         <source>Publisher</source>
         <translation>Wydawca</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="857"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1026"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="864"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1033"/>
         <source>An entity responsible for making the publication available.</source>
         <translation>Podmiot odpowiedzialny za udostępnienie publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="858"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
         <source>Date Published</source>
         <translation>Data opublikowania</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="858"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
         <source>The date of publication.</source>
         <translation>Data publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="859"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
         <source>Date Created</source>
         <translation>Data utworzenia</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="859"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1029"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
         <source>The date of creation.</source>
         <translation>Data powstania dzieła.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="860"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
         <source>Date Modified</source>
         <translation>Data modyfikacji</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="860"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1030"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
         <source>The date of modification.</source>
         <translation>Data modyfikacji.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="861"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
         <source>Type</source>
         <translation>Typ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="861"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
         <translation>Używana do wskazania, że dana Publikacja EPUB jest typu specjalistycznego...</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="862"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
         <source>Format</source>
         <translation>Format</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="862"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation>Typ nośnika lub wymiary publikacji. Najlepiej jest użyć wartości z kontrolowanego słownictwa (np. typy MIME mediów).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="863"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1033"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
         <source>Source</source>
         <translation>Źródło</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="863"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
         <translation>Identyfikuje zasób(y) związane z którego pochodzi ta publikacja EPUB.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="864"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1034"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
         <source>Language</source>
         <translation>Język</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="864"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
         <translation>Określa język publikacji. Wybierz z listy rozwijalnej</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
         <source>Related To</source>
         <translation>Związany z</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation>Odniesienie do powiązanego zasobu. Zalecaną praktyką jest identyfikować odwołanie do zasobu poprzez ciąg znaków lub liczb zgodnych z formalnym systemem identyfikacyjnym.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
         <source>Coverage</source>
         <translation>Zakres</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation>Zakres lub dziedzina treści publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
         <source>Rights</source>
         <translation>Prawa autorskie</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation>Informacje na temat posiadanych praw na publikację. Informacja na temat tego prawa często obejmuje Prawo Własności Intelektualnej (IPR), Prawa Autorskie, i różne Prawa Własności. Jeśli takiego prawa nie ma, nie ma założenia, że można wykorzystać wszelkie posiadane prawa w lub do publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1029"/>
         <source>Creator</source>
         <translation>Twórca</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Reprezentuje nazwę osoby, organizacji itp. odpowiedzialnych za tworzenie zawartości publikacji EPUB itp. Właściwość roli może być dołączona do elementu wskazującego funkcję, jaką Twórca odegrał w tworzeniu treści.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1023"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1030"/>
         <source>Contributor</source>
         <translation>Współautor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Reprezentuje nazwę osoby, organizacji itp., które odegrały drugorządną rolę podczas tworzenie zawartości publikacji EPUB itp. Właściwość roli może być dołączona do elementu wskazującego funkcję, jaką Twórca odegrał w tworzeniu treści.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
         <source>Belongs to a Collection</source>
         <translation>Należy do zbioru</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
         <translation>Identyfikuje nazwę zbioru, do której należy dana publikacja EPUB. Publikacja EPUB może należeć do jednego lub większej ilości zbiorów.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
         <source>Title</source>
         <translation>Tytuł</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
         <translation>Tytuł publikacji. Publikacja może mieć tylko jeden główny tytuł, ale może mieć też wiele innych typów tytułów. Obejmuje on [tytuł]; główny, podtytuł, skrócony, zbiór, wydanie, oraz rozszerzony typ tytułów.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
         <source>Identifier: DOI</source>
         <translation>Identyfikator: DOI</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
         <source>Digital Object Identifier associated with this publication.</source>
         <translation>Cyfrowy identyfikator obiektu (Digital Object Identifier) związany z tą publikacją.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
         <source>Identifier: ISBN</source>
         <translation>Identyfikator: ISBN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
         <source>International Standard Book Number associated with this publication.</source>
         <translation>Międzynarodowy znormalizowany numer książki (International Standard Book Number) związany z tą publikacją.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
         <source>Identifier: ISSN</source>
         <translation>Identyfikator: ISSN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
         <source>International Standard Serial Number associated with this publication.</source>
         <translation>Międzynarodowy standardowy numer seryjny (International Standard Serial Number) związany z tą publikacją.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
         <source>Identifier: UUID</source>
         <translation>Identyfikator: UUID</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
         <source>A Universally Unique Identifier generated for this publication.</source>
         <translation>Uniwersalny unikatowy identyfikator (Universally Unique Idenitifier) generowany dla tej publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
         <source>Identifier: ASIN</source>
         <translation>Identyfikator: ASIN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
         <source>An Amazon Standard Identification Number associated with this publication.</source>
         <translation>Znormalizowany Numer Seryjny Amazona (Amazon Standard Identification Number) związany z tą publikacją.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>Identifier: Custom</source>
         <translation>Identyfikator: niestandardowy</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
         <source>A custom identifier based on a specified scheme</source>
         <translation>Niestandardowy identyfikator na podstawie określonego schematu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
         <source>An empty metadata element you can modify.</source>
         <translation>Pusty element metadanych, który można zmodyfikować.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
         <source>Meta Element (primary)</source>
         <translation>Element meta (podstawowy)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
         <source>An empty primary metadata element you can modify.</source>
         <translation>Pusty podstawowy element metadanych, który można zmodyfikować.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="905"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1074"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
         <source>Id Attribute</source>
         <translation>Atrybut Id</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="905"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1074"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
         <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
         <translation>Opcjonalny, zazwyczaj krótki, unikatowy identyfikator w postaci ciągu znaków, używany jako atrybut w pliku OPF.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="906"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1075"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1082"/>
         <source>XML Language</source>
         <translation>Język XML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="906"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
         <source>Optional, language specifying attribute.  Uses same codes as Language. Not for use with Language, Date, or Identifier metadata elements.</source>
         <translation>Opcjonalny atrybut określający język. Używa tych samych kodów co Język. Nie do użytku z elementami metadanych Język, Data lub Identyfikator.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="907"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
         <source>Uses Right To Left Text</source>
         <translation>Używa tekstu od prawej do lewej</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="907"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Opcjonalny atrybut kierunku tekstu dla tego elementu metadanych. od prawej do lewej (PDL). Nie stosować z dc:language, dc:date, lub dc:identifier identyfikatorami metadanych.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="908"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
         <source>Uses Left to Right Text</source>
         <translation>Używa tekstu od lewej do prawej</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="908"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Opcjonalny atrybut kierunku tekstu dla tego elementu metadanych. od lewej do prawej (LDP). Nie stosować z dc:language, dc:date, lub dc:identifier identyfikatorami metadanych.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="909"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
         <source>Title: Main Title</source>
         <translation>Tytuł: Główny tytuł</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="909"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
         <translation>Wskazuje, że związany tytuł jest głównym tytułem publikacji. Powinien istnieć tylko jeden główny tytuł.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="910"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
         <source>Title: Subtitle</source>
         <translation>Tytuł: Podtytuł</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="910"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
         <translation>Wskazuje, że związany tytuł jest podtytułem publikacji. O ile taki istnieje.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="911"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
         <source>Title: Short Title</source>
         <translation>Tytuł: Skrócony tytuł</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="911"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
         <translation>Wskazuje, że związany tytuł jest skróconym tytułem publikacji. O ile taki istnieje...</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="919"/>
         <source>Title: Collection Title</source>
         <translation>Tytuł: Tytuł zbioru</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="919"/>
         <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
         <translation>Wskazuje, powiązany tytuł w nazwie zbioru, który zawiera tę publikację, jeśli taki istnieje.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
         <source>Title: Edition Title</source>
         <translation>Tytuł: Tytuł wydania</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
         <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
         <translation>Wskazuje, że nazwa związana jest z nazwą tytułu edycji publikacji, o ile taki istnieje.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
         <source>Title: Expanded Title</source>
         <translation>Tytuł: Rozszerzony tytuł</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
         <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
         <translation>Wskazuje, że nazwa związana jest z rozszerzonym tytułem tej publikacji, o ile taki istnieje.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
         <source>Alternate Script</source>
         <translation>Alternatywny zapis</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an xml:lang attribute.</source>
         <translation>Zapewnia alternatywne wyrażenie skojarzonej wartości właściwości w języku i skrypcie identyfikowanym przez atrybut xml:lang.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
         <source>Alternate Language</source>
         <translation>Alternatywny język</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
         <source>Language code for the language used in the associated alternate-script property value.</source>
         <translation>Kod języka, dla języka używanego w powiązanej wartości, właściwości alternatywnego scenariusza.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
         <source>Collection is a Set</source>
         <translation>Zbiór jest zamknięty</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
         <translation>Właściwość stosować należy do zbioru (kolekcji). Wskazuje formę lub charakter zbioru. Wartość „zamknięty” powinna być wykorzystywana do skończonego zbioru utworów, które razem tworzą jedną całość intelektualną; zazwyczaj wystawianą razem ale może być sprzedawana jako jednostka.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
         <source>Collection is a Series</source>
         <translation>Zbiór jest serią</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
         <translation>Właściwość stosować należy do zbioru. Wskazuje formę lub charakter zbioru. Wartości „serii” powinny być wykorzystywane do porządkowania powiązanych prac, które formalnie są identyfikowane jako grupa; zazwyczaj rozpoczynane-kończone prace wykonywane są indywidualnie w czasie.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="919"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
         <source>Display Sequence</source>
         <translation>Kolejność wyświetlania</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="919"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
         <translation>Wskazuje pozycję numeryczną by wyświetlić bieżące właściwości względem identycznych metadanych właściwości (np. aby wskazać kolejność, w której pokazać wiele tytułów lub wielu autorów).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1076"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="927"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1083"/>
         <source>File As</source>
         <translation>Sortuj jako</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1076"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="927"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1083"/>
         <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
         <translation>Zapewnia znormalizowaną formę powiązanej właściwości do sortowania. Zwykle używa się nazw autorów, twórców i współautorów.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="928"/>
         <source>Position In Group</source>
         <translation>Pozycja w grupie</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="928"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
         <translation>Wskazuje pozycję numeryczną, w której publikacja EPUB jest uporządkowana w stosunku do innych dzieł należących do tej samej grupy (czy wszystkie publikacje EPUB, czy nie).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
         <source>Identifier Type</source>
         <translation>Typ identyfikatora</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
         <translation>Wskazuje na formę lub rodzaj identyfikatora. Gdy wartość typu identyfikatora jest pobierana z listy kodów lub innych formalnych wyliczeń, atrybut schematu powinien służyć do identyfikacji źródła.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1077"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1084"/>
         <source>Role</source>
         <translation>Rola</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1077"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1084"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
         <translation>Opisuje charakter pracy wykonanej przez twórcę lub współautorów (np. że osoba jest Autorem lub Redaktorem pracy). Zazwyczaj używany w schemacie „marc:relators” dla kontroli słownictwa.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1078"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1085"/>
         <source>Scheme</source>
         <translation>Schemat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
         <source>This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
         <translation>Atrybut ten jest zazwyczaj dodawany do Idetyfikatora, Źródła, Twórcy lub Współautora, aby wskazać zastosowany system kontrolowania słownictwa. (np. marc:relators aby określić prawidłowe wartości dla właściwości Roli).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
         <source>Source of Pagination</source>
         <translation>Źródło stronicowania</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
         <translation>Wskazuje, unikalną cechę dostosowania zasobów źródła, która została utrzymana w danym wydaniu publikacji EPUB. Ta specyfikacja definiuje wartości numeracji stron, aby wskazać, że odwołanie do źródła elementu jest źródłem właściwości podziału strony określonej w treści. Ta wartość powinna być ustawiona, gdy podział na strony jest włączony i znany w źródle wydruku. Prawidłowo values: pagination.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
         <source>An empty metadata property or attribute you can modify.</source>
         <translation>Puste atrybuty lub właściwości metadanych, które można modyfikować.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="954"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="961"/>
         <source>Text Direction</source>
         <translation>Kierunek tekstu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="954"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="961"/>
         <source>Optional text direction attribute for this metadata item.</source>
         <translation>Opcjonalny atrybut kierunku tekstu dla tego elementu metadanych.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="955"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="962"/>
         <source>Title Type</source>
         <translation>Typ tytułu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="955"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="962"/>
         <source>Indicates the kind or type of the title</source>
         <translation>Wskazuje rodzaj lub typ tytułu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="956"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="963"/>
         <source>Collection Type</source>
         <translation>Typ zbioru</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="956"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="963"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection.</source>
         <translation>Właściwość stosować należy do zbioru (kolekcji). Wskazuje formę lub charakter zbioru.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="957"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
         <source>Source of</source>
         <translation>Żródło</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="957"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.</source>
         <translation>Wskazuje unikatowy aspekt zaadaptowanego zasobu źródłowego, który został zachowany w danej wersji publikacji EPUB.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
         <source>Published</source>
         <translation>Opublikowany</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
         <source>Event Type is Published.</source>
         <translation>Typ zdarzenia: Opublikowany.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
         <source>Publication</source>
         <translation>Opublikowanie</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
         <source>Event Type is Publication.</source>
         <translation>Typ zdarzenia: Opublikowanie.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="986"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="993"/>
         <source>Creation</source>
         <translation>Utworzenie</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="986"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="993"/>
         <source>Event Type is Creation.</source>
         <translation>Typ zdarzenia: Utworzenie.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="987"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="994"/>
         <source>Modification</source>
         <translation>Modyfikacja</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="987"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="994"/>
         <source>Event Type is Modification.</source>
         <translation>Typ zdarzenia: Modyfikacja.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="988"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="995"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
         <source>Digital Object Identifier</source>
         <translation>Identyfikator Dokumentu Elektronicznego (DOI)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="988"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="995"/>
         <source>Identifier Scheme: Digital Object Identifier</source>
         <translation>Schemat Identyfikatora: Identyfikator Dokumentu Elektronicznego (DOI)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="989"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="996"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
         <source>International Standard Book Number</source>
         <translation>Międzynarodowy Znormalizowany Numer Książki (ISBN)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="989"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="996"/>
         <source>Identifier Scheme: International Standard Book Number</source>
         <translation>Schemat Identyfikatora: Międzynarodowy Znormalizowany Numer Książki (ISBN)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="990"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="997"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
         <source>International Standard Serial Number</source>
         <translation>Międzynarodowy Znormalizowany Numer Seryjny (ISSN)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="990"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="997"/>
         <source>Identifier Scheme: International Standard Serial Number</source>
         <translation>Schemat Identyfikatora: Międzynarodowy Znormalizowany Numer Seryjny (ISSN)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="998"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1048"/>
         <source>Universally Unique Identifier</source>
         <translation>Uniwersalny Unikatowy Identyfikator</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="998"/>
         <source>Identifier Scheme: Universally Unique Identifier</source>
         <translation>Schemat Identyfikatora: Uniwersalny Unikatowy Identyfikator (UUID)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
         <source>Amazon Unique Identifier</source>
         <translation>Schemat Identyfikatora: Unikatowy Identyfikator Amazona</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
         <source>Identifier Scheme: Amazon Unique Identifier</source>
         <translation>Schemat Identyfikatora: Unikatowy Identyfikator Amazona</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
         <translation>Główny tytuł publikacji EPUB. Może istnieć tylko jeden tytuł.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1029"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Reprezentuje nazwę osoby, organizacji, itp. odpowiedzialnej za stworzenie treści publikacji EPUB. Atrybuty opf:role, opf:scheme i opf:file-as mogą być przywiązane do elementu, aby wskazać funkcję jaką odegrał Twórca w tworzeniu treści.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1023"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1030"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
         <translation>Reprezentuje nazwę osoby, organizacji, itp. „który grał drugorzędną rolę w tworzeniu treści publikacji EPUB”</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1034"/>
         <source>Date</source>
         <translation>Data</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1034"/>
         <source>A date associated with this epub, typically refined by event type information</source>
         <translation>Data związana z tym plikiem EPUB, zwykle doprecyzowana przez informację o typie zdarzenia</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
         <source>Date: Publication</source>
         <translation>Data: publikacji</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1029"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
         <source>Date: Creation</source>
         <translation>Data: utworzenia</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1030"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
         <source>Date: Modification</source>
         <translation>Data: modyfikacji</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
         <source>The nature or genre of the content of the resource.</source>
         <translation>Rodzaj lub gatunek zawartości zasobu.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1033"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
         <source>A reference to a resource from which the present publication is derived.</source>
         <translation>Odniesienie do zasobu, z którego wywodzi się obecna publikacja.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1034"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
         <source>A language used in the publication. Choose a RFC5646 value.</source>
         <translation>Język używany w publikacji. Wybierz wartość RFC5646.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
         <source>Relation</source>
         <translation>Relacja</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1048"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
         <source>Identifier</source>
         <translation>Identyfikator</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
         <source>Amazon Standard Identification Number</source>
         <translation>Znormalizowany Numer Seryjny Amazona</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>A custom identifier</source>
         <translation>Niestandardowy identyfikator</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>Series</source>
         <translation>Cykl</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>Series title or name (from calibre)</source>
         <translation>Nazwa lub tytuł cyklu (z calibre)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>Series Index</source>
         <translation>Numer w cyklu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>Index of this book in the series (from calibre)</source>
         <translation>Numer tej książki w cyklu (z calibre)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
         <source>Title for Sorting</source>
         <translation>Tytuł przy sortowaniu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
         <translation>Wersja tytułu ebooka używana przy sortowaniu (z calibre)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
         <source>An empty element for you to modify</source>
         <translation>Pusty element, który można zmodyfikować</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1075"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1082"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Opcjonalny atrybut określający język. Używa tych samych kodów co dc:language. Nie do użytku z elementami metadanych dc:language, dc:date lub dc:identifier.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1078"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1085"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.</source>
         <translation>Ten atrybut jest zazwyczaj dodawany do elementu dc:identifier, aby określić typ używanego identyfikatora: DOI, ISBN, ISSN, UUID lub AMAZON.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1079"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1086"/>
         <source>Custom Scheme</source>
         <translation>Niestandardowy schemat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1079"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1086"/>
         <source>This attribute is typically added to dc:identifier to indicate that a custom identifier scheme is being used.</source>
         <translation>Ten atrybut jest zwykle dodawany do dc:identifier, aby wskazać, że używany jest niestandardowy schemat identyfikatora.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1080"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1087"/>
         <source>Event</source>
         <translation>Zdarzenie</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1080"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1087"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
         <translation>Ten atrybut jest zazwyczaj dodawany do elementów dc:date, aby określić typ danych: publikacja, utworzenie, lub modyfikacja.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1088"/>
         <source>An empty metadata attribute you can modify.</source>
         <translation>Pusty atrybut metadanych, który można zmodyfikować.</translation>
     </message>
@@ -16687,7 +16687,7 @@ Encje mogą być oddzielone liniami, przecinkami lub spacjami.</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="291"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="297"/>
         <source>Cleaning...</source>
         <translation>Czyszczenie...</translation>
     </message>
@@ -16859,12 +16859,12 @@ Linia: %1 Kolumna %2 - %3</translation>
         <translation>Zastępowanie frazy...</translation>
     </message>
     <message>
-        <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
+        <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
+        <location filename="../../Misc/UpdateChecker.cpp" line="100"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
         <translation>&lt;p&gt;Nowy Sigil w wersji &lt;b&gt;%1&lt;/b&gt; jest już dostępny.&lt;br/&gt;&lt;p&gt;Czy przejść do strony pobierania?&lt;/p&gt;</translation>
     </message>
@@ -16876,12 +16876,12 @@ Linia: %1 Kolumna %2 - %3</translation>
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="712"/>
+        <location filename="../../Misc/Utility.cpp" line="713"/>
         <source>Sigil has encountered a problem.</source>
         <translation>Sigil napotkał problem.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="713"/>
+        <location filename="../../Misc/Utility.cpp" line="714"/>
         <source>Sigil may need to close.</source>
         <translation>Sigil może wymagać zamknięcia.</translation>
     </message>
@@ -16907,28 +16907,28 @@ Linia: %1 Kolumna %2 - %3</translation>
         <translation>Uszkodzony plik NCX: %1</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="744"/>
-        <location filename="../../main.cpp" line="792"/>
+        <location filename="../../main.cpp" line="745"/>
+        <location filename="../../main.cpp" line="793"/>
         <source>Quit</source>
         <translation>Wyjście</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="754"/>
+        <location filename="../../main.cpp" line="755"/>
         <source>About</source>
         <translation>O programie</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="763"/>
+        <location filename="../../main.cpp" line="764"/>
         <source>Preferences</source>
         <translation>Ustawienia</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="774"/>
+        <location filename="../../main.cpp" line="775"/>
         <source>New</source>
         <translation>Nowy</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="783"/>
+        <location filename="../../main.cpp" line="784"/>
         <source>Open</source>
         <translation>Otwierania</translation>
     </message>
@@ -19646,12 +19646,12 @@ Użyj, jeśli edytowałeś jakieś pliki HTML podczas sprawdzania pisowni.</tran
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="820"/>
+        <location filename="../../Misc/Utility.cpp" line="832"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="821"/>
+        <location filename="../../Misc/Utility.cpp" line="833"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>

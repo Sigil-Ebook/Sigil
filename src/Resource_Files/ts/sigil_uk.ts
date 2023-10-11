@@ -1791,147 +1791,147 @@ Do you want to save your changes?</source>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="560"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="561"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>Неможливо вставити закриваючий тег у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="568"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="569"/>
         <source>No open tags found at this position.</source>
         <translation>У цій позиції не знайдено відкритих тегів.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1455"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1456"/>
         <source>Add To Default Dictionary</source>
         <translation>Додати до Словника за замовчуванням</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1468"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1469"/>
         <source>Add To Dictionary</source>
         <translation>Додати до Словника</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1485"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1486"/>
         <source>Ignore</source>
         <translation>Ігнорувати</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1547"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1548"/>
         <source>Reformat CSS</source>
         <translation>Переформатувати CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1549"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1550"/>
         <source>Multiple Lines Per Style</source>
         <translation>Багаторядковий Стиль</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1550"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1551"/>
         <source>Single Line Per Style</source>
         <translation>Однорядковий Стиль</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1576"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1577"/>
         <source>Rename Selected Class</source>
         <translation>Перейменувати вибраний клас</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1598"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1599"/>
         <source>Reformat HTML</source>
         <translation>Переформатувати HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1600"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1601"/>
         <source>Mend and Prettify Code</source>
         <translation>Виправити та відформатувати Код</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1601"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1602"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Виправити та відформатувати Код – Всі HTML файли</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1602"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1603"/>
         <source>Mend Code</source>
         <translation>Виправити Код</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1603"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1604"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Виправити Код – Всі HTML файли</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1633"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1634"/>
         <source>Go To Link Or Style</source>
         <translation>Перейти до посилання або стилю</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1655"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1656"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>Перемикач режиму перенесення рядків</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1677"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1678"/>
         <source>View Image</source>
         <translation>Перегляд зображення</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1678"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1679"/>
         <source>Open Tab For Image</source>
         <translation>Відкрити вкладку для зображення</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1704"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1705"/>
         <source>Mark Selected Text</source>
         <translation>Позначити вибраний текст</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1706"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1707"/>
         <source>Unmark Marked Text</source>
         <translation>Зняти позначку з відміченого тексту</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1732"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1733"/>
         <source>Clips</source>
         <translation>Фрагменти</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1742"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1743"/>
         <source>Add To Clips</source>
         <translation>Додати до фрагментів</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1871"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1872"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Щоб скористатися цією функцією, Ви повинні знаходитися у відкриваючому HTML-тегу.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1881"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1882"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Щоб скористатися цією функцією, Ви повинні знаходитися всередині відкриваючого HTML-тегу.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1945"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1946"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>Вибраний текст не є допустимою назвою класу.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1952"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1953"/>
         <source>Rename Class</source>
         <translation>Перейменувати клас</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1953"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1954"/>
         <source>Enter new class name</source>
         <translation>Введіть нову назву класу</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1973"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1974"/>
         <source>Class renamed.</source>
         <translation>Клас перейменовано.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1975"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1976"/>
         <source>Class rename aborted.</source>
         <translation>Перейменування класу перервано.</translation>
     </message>
@@ -2993,309 +2993,309 @@ Valid only when searching HTML files.</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="301"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="308"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="302"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="309"/>
         <source>Search will restart</source>
         <translation>Перезапуск пошуку</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="333"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2126"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="334"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2127"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2128"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2137"/>
         <source>Current File</source>
         <translation>Поточний Файл</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="562"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1892"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="563"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1893"/>
         <source>Matches found: %n</source>
         <translation><numerusform>Знайдено збігів: %n</numerusform><numerusform>Знайдено збігів: %n</numerusform><numerusform>Знайдено збігів: %n</numerusform><numerusform>Знайдено збігів: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="652"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="653"/>
         <source>Choose Replacements</source>
         <translation>Вибрати Заміни</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="670"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="729"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1935"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="671"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="730"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1936"/>
         <source>No replacements made</source>
         <translation>Замін не зроблено</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="672"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="731"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1937"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="673"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="732"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1938"/>
         <source>Replacements made: %n</source>
         <translation><numerusform>Зроблено замін: %n</numerusform><numerusform>Зроблено замін: %n</numerusform><numerusform>Зроблено замін: %n</numerusform><numerusform>Зроблено замін: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="857"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="858"/>
         <source>End of search</source>
         <translation>Пошук закінчено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="942"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="943"/>
         <source>No matches found</source>
         <translation>Збігів не знайдено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1679"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1680"/>
         <source>This tab cannot be searched</source>
         <translation>Не можна шукати на цій вкладці</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1722"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1723"/>
         <source>Unnamed search loaded</source>
         <translation>Завантажено пошук без назви</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1725"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1726"/>
         <source>Loaded</source>
         <translation>Завантажено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1798"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1822"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1851"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1876"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1920"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1799"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1823"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1852"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1877"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1921"/>
         <source>No searches selected</source>
         <translation>Не вибрано пошукових запитів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1985"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1986"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1986"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1987"/>
         <source>Are you sure you want to clear your Find and Replace current values and history?</source>
         <translation>Ви впевнені, що хочете очистити поточні значення пошуку та заміни а також історію?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2112"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2113"/>
         <source>What to search for</source>
         <translation>Що шукати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2113"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2114"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2115"/>
         <source>Normal</source>
         <translation>Звичайний</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2114"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2115"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation>Пошук без урахування регістру безпосередньо того, що Ви друкуєте.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2116"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2117"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2118"/>
         <source>Case Sensitive</source>
         <translation>З урахуванням регістру</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2117"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2118"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>Пошук з урахуванням регістру безпосередньо того, що Ви друкуєте.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2119"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2120"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2121"/>
         <source>Regex</source>
         <translation>RegEx</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2120"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2121"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>Пошук за шаблоном з використанням синтаксису регулярних виразів.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2124"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2158"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2125"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2159"/>
         <source>Where to search</source>
         <translation>Де шукати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2127"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2128"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>Обмежити пошук або заміну відкритим файлом. Утримуйте клавішу Ctrl при натисканні будь-яких кнопок пошуку, щоб тимчасово обмежити пошук поточним файлом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2129"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2130"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2131"/>
         <source>All HTML Files</source>
         <translation>Всі HTML файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2130"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2131"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>Знайти або замінити у всіх HTML файлах у Браузері Коду.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2132"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2133"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2134"/>
         <source>Selected HTML Files</source>
         <translation>Вибрані HTML файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2133"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2134"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>Обмежити пошук або заміну файлами HTML, вибраними у вікні Структури Книги.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2135"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
         <source>Tabbed HTML Files</source>
         <translation>Файли HTML з вкладками</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2137"/>
         <source>Restrict the find or replace to the HTML files open in Tabs.</source>
         <translation>Обмежити пошук або заміну файлами HTML, відкритими у вкладках.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2138"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2139"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2140"/>
         <source>All CSS Files</source>
         <translation>Всі CSS файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2139"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2140"/>
         <source>Find or replace in all CSS files in Code View.</source>
         <translation>Знайти або замінити у всіх CSS файлах у Браузері Коду.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2141"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2142"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2143"/>
         <source>Selected CSS Files</source>
         <translation>Вибрані CSS файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2142"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2143"/>
         <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
         <translation>Обмежити пошук або заміну файлами CSS, вибраними у вікні Структури Книги.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2144"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2145"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2146"/>
         <source>Tabbed CSS Files</source>
         <translation>Файли CSS з вкладками</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2145"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2146"/>
         <source>Restrict the find or replace to the CSS files open in Tabs.</source>
         <translation>Обмежити пошук або заміну файлами CSS, відкритими у вкладках.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2147"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2148"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2149"/>
         <source>OPF File</source>
         <translation>Файл OPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2148"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2149"/>
         <source>Restrict the find or replace to the OPF file.</source>
         <translation>Обмежити пошук або заміну файлами OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2150"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2151"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2152"/>
         <source>NCX File</source>
         <translation>Файл NCX</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2151"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2152"/>
         <source>Restrict the find or replace to the NCX file.</source>
         <translation>Обмежити пошук або заміну файлами NCX.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2154"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2155"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
         <translation>Щоб обмежити пошук вибраним текстом, використовуйте Пошук&amp;rarr;Позначити вибраний текст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2159"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2160"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2161"/>
         <source>Marked Text</source>
         <translation>Позначений Текст</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2160"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2161"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
         <translation>Обмежити пошук або заміну текстом, позначеним Пошук&amp;rarr;Позначити вибраний текст. Очищається, якщо використовується «Відмінити», вводиться текст або змінюється режим перегляду або вкладки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2164"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2168"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2165"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
         <source>Up</source>
         <translation>Вгору</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2165"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2166"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2170"/>
         <source>Down</source>
         <translation>Вниз</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2166"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2167"/>
         <source>Direction to search</source>
         <translation>Напрямок пошуку</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2168"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
         <source>Search for the previous match from your current position.</source>
         <translation>Пошук попереднього збігу з поточної позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2169"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2170"/>
         <source>Search for the next match from your current position.</source>
         <translation>Пошук наступного збігу з поточної позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2175"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2176"/>
         <source>Dot All</source>
         <translation>DotAll</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2178"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2179"/>
         <source>For Regex searches, prefix your search with (?s).</source>
         <translation>Для пошуку з RegEx, у виразі використовується префікс (?s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2182"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2183"/>
         <source>Minimal Match</source>
         <translation>Мінімальний збіг</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2185"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2186"/>
         <source>For Regex searches, prefix your search with (?U).</source>
         <translation>Для пошуку з RegEx, у виразі використовується префікс (?U).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2189"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2190"/>
         <source>Auto Tokenise</source>
         <translation>Автотокенізація</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2192"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2193"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
         <translation>Для пошуку з RegEx, токенізація/екранування певних символів у виділенні при відкритті «Пошук».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2216"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
         <source>Invalid Regex:</source>
         <translation>Недостовірний RegEx:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2218"/>
         <source>offset:</source>
         <translation>позиція:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2221"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2222"/>
         <source>Valid Regex</source>
         <translation>Достовірний Regex</translation>
     </message>
@@ -10988,34 +10988,34 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="2319"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2819"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2915"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2968"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2978"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2997"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3011"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3117"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3133"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3138"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3151"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3181"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3196"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3345"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3352"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3368"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3459"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3658"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4796"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4837"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4843"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4849"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5106"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5126"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5174"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5443"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5647"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2969"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3139"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3152"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3165"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3170"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3182"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3197"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3363"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3438"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4848"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4854"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4860"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5117"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5137"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5185"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5454"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5658"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -11036,17 +11036,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="800"/>
         <location filename="../../MainUI/MainWindow.cpp" line="802"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5172"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5174"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5645"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5647"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5185"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5658"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] – epub%2 – %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="800"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5172"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5645"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -11393,257 +11393,257 @@ This action cannot be reversed.</source>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2966"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2968"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2969"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Немає використаних файлів зображень, відео чи аудіо, які можна видалити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2978"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Видалення невикористаних стилів скасовано через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2995"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2997"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2996"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>Немає невикористаних селекторів таблиць стилів, які потрібно видалити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3011"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Ви не можете вставити файл у цій позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3018"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3019"/>
         <source>Insert File</source>
         <translation>Вставити Файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3071"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3117"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3138"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3139"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Ви не можете вставити ідентифікатор у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3133"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID недійсний – повинен починатися з літери, після чого можуть додаватися букви, цифри, знаки  «-», «_», «:», або «.»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3151"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3169"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3152"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3170"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Ви не можете вставити посилання у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3165"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Посилання недійсне – не може містити «&lt;» або «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3181"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3182"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Ви не можете поставити маркер покажчика у цій позиції або не вибрали текст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Запис недійсний – не може містити «&lt;» або «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3196"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3197"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Ви не можете поставити маркер покажчика на цій позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3263"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3275"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3274"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
         <source>Select the destination to paste into first.</source>
         <translation>Виберіть місце призначення, що слід вставити спочатку.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3283"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
         <source>Pasted clip entry %1.</source>
         <translation>Вставлено елемент фрагменту %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3345"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Вибраний тільки один ресурс,  другий ресурс для об’єднання відсутній.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3364"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Ви впевнені, що хочете об&apos;єднати вибрані файли?
 Цю дію неможливо відмінити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3368"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>Об’єднання скасовано: файли XHTML, залучені до злиття, сформовані неправильно.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3438"/>
         <source>Cannot merge file %1</source>
         <translation>Неможливо об&apos;єднати файл %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3441"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Об’єднання успішно завершено. Можливо, Вам доведеться обновити або відредагувати зміст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Зв&apos;язування з Таблицями Стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3589"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3600"/>
         <source>Word updated.</source>
         <translation>Слово оновлено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>Зв&apos;язування з Таблицями Стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3768"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
         <source>File(s) deleted.</source>
         <translation>Файл(и) видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3790"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Редагування Змісту скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3795"/>
         <source>Table Of Contents edited.</source>
         <translation>Зміст відредаговано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3813"/>
         <source>Generate TOC cancelled.</source>
         <translation>Створення Змісту скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3827"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
         <source>Table Of Contents generated.</source>
         <translation>Зміст сформовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3829"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3840"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Зміни Змісту не потрібні.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3903"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3914"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>Знайдено існуючий HTML-файл змісту.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3987"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3998"/>
         <source>Text selection marked.</source>
         <translation>Вибраний текст позначений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3989"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4000"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4018"/>
         <source>Text selection unmarked.</source>
         <translation>Знято позначення вибраного тексту.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4056"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4067"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Роботу Редактора МетаДаних скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4059"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4070"/>
         <source>Metadata edited.</source>
         <translation>МетаДані відредаговані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4167"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4178"/>
         <source>RunPlugin</source>
         <translation>ЗапуститиМодуль</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4193"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4204"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Цей EPUB не містить таблиць стилів CSS для перевірки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4224"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4235"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>Цей EPUB не містить таблиць стилів CSS для переформатування.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4708"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4719"/>
         <source>Line: %1, Col: %2</source>
         <translation>Рядок: %1, Стовпець: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4796"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4807"/>
         <source>File cannot be split at this position.</source>
         <translation>Файл неможливо розділити з цієї позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4819"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4830"/>
         <source>Split completed.</source>
         <translation>Розділення завершено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4837"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4848"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Неможливо розділити, оскільки принаймні один файл не є файлом HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4843"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4854"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Неможливо розділити: %1 XML неправильно сформований</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4849"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4860"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Неможливо розділити, оскільки принаймні один файл може бути не HTML файлом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4882"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4893"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Розділення завершено. Можливо, Вам доведеться оновити Зміст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4884"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4895"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Не знайдено маркерів розділення файлу. Використовуйте Вставити -&gt; Маркер розділення.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5107"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5118"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>В документ були внесені зміни.
 Ви хочете зберегти свої зміни?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5128"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5139"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Чи повинен Sigil перезаписати цей файл?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5325"/>
         <source>No importer for file type: %1</source>
         <translation>Відсутній контейнер для типу файлу: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5321"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5332"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -11656,44 +11656,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Спробуйте настроїти параметр Clean Source на «Виправляти вихідний код XHTML при відкритті» та перезавантажте файл.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5337"/>
         <source>Loading file...</source>
         <translation>Завантаження файлу…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5340"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
         <source>File loaded.</source>
         <translation>Файл завантажено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5368"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5379"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Той хто створив цей файл зашифрував його за допомогою DRM. Sigil не може відкрити такі файли.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5376"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5387"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Неможливо завантажити EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5381"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5392"/>
         <source>Cannot load file %1: %2</source>
         <translation>Неможливо завантажити файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5421"/>
         <source>Saving EPUB...</source>
         <translation>Збереження EPUB…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5430"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil не може зберігати файли типу «%1».
 Будь ласка, виберіть інший формат.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5444"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5455"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in some data loss.
 
 Do you want to automatically mend the files before saving?</source>
@@ -11702,64 +11702,64 @@ Do you want to automatically mend the files before saving?</source>
 Ви хочете,  автоматично виправляти формат  файлів перед збереженням?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5473"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5484"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB збережено, але не всі файли HTML добре сформовані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5486"/>
         <source>EPUB saved.</source>
         <translation>EPUB збережено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5481"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5492"/>
         <source>Cannot save file %1: %2</source>
         <translation>Неможливо зберегти файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5614"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5625"/>
         <source>EPUB files (*.epub)</source>
         <translation>Файли EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5615"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5616"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5617"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5626"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5627"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5628"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Файли HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5618"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5629"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5630"/>
         <source>All files (*.*)</source>
         <translation>Усі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5627"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5638"/>
         <source>EPUB file (*.epub)</source>
         <translation>Файл EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5736"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Зберегти існуючі атрибути заголовка зараз:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5726"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5737"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5726"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5737"/>
         <source>OFF</source>
         <translation>OFF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5762"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
@@ -14556,916 +14556,916 @@ Do you want to automatically mend the files before saving?</source>
         <translation>Натисніть «ОК», щоб внести Ваші зміни метаданих в epub, інакше натисніть «Скасувати».</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="83"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="90"/>
         <source>Name</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="83"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="90"/>
         <source>Value</source>
         <translation>Значення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="430"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="511"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="437"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="518"/>
         <source>[ISBN here]</source>
         <translation>[ISBN отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="434"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="516"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="441"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="523"/>
         <source>[ISSN here]</source>
         <translation>[ISSN отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="438"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="521"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="445"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="528"/>
         <source>[DOI here]</source>
         <translation>[DOI отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="442"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="526"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="449"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="533"/>
         <source>[UUID here]</source>
         <translation>[UUID отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="446"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="453"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="538"/>
         <source>[Amazon ASIN here]</source>
         <translation>[Amazon ASIN отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="462"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="469"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <source>[Author name here]</source>
         <translation>[Ім&apos;я автора отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="468"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="475"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <source>[Creator name here]</source>
         <translation>[Ім&apos;я основного автора отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="472"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="558"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="479"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="565"/>
         <source>[Contributor name here]</source>
         <translation>[Імена співавторів отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="476"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="481"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="562"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="648"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="692"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="483"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="488"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="655"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="699"/>
         <source>[Value here]</source>
         <translation>[Значення отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="480"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="487"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
         <source>Custom Element</source>
         <translation>Елемент Користувача</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="480"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="487"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
         <source>[Custom element]</source>
         <translation>[Елемент Користувача]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="536"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="543"/>
         <source>[Custom identifier here]</source>
         <translation>[Кастомний ідентифікатор отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="643"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="650"/>
         <source>[Insert identifier type here]</source>
         <translation>[Вставити тип ідентифікатора отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="645"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="652"/>
         <source>[Insert scheme type here]</source>
         <translation>[Вставити тип схеми отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="647"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
         <source>Custom Property</source>
         <translation>Кастомна властивість</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="647"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="654"/>
         <source>[Custom property/attribute]</source>
         <translation>[Кастомна властивість/атрибут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="691"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="698"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1088"/>
         <source>Custom Attribute</source>
         <translation>Кастомний Атрибут</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="691"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="698"/>
         <source>[Custom metadata property/attribute]</source>
         <translation>[Кастомна властивість/атрибут МетаДаних]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="750"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="757"/>
         <source>[Place value here]</source>
         <translation>[Помістити значення отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="789"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="796"/>
         <source>[Your value here]</source>
         <translation>[Ваше значення отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="854"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="861"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
         <source>Author</source>
         <translation>Автор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="854"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="861"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
         <source>Represents a primary author of the book or publication</source>
         <translation>Представляє основного автора книги чи публікації</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="855"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1024"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="862"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
         <source>Subject</source>
         <translation>Тема</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="855"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1024"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="862"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation>Довільна фраза або ключове слово, що описує предмет, про який йде мова. Використовуйте декілька елементів «теми», якщо це необхідно.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="856"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1025"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="863"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
         <source>Description</source>
         <translation>Опис</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="856"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1025"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="863"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
         <source>Description of the publication&apos;s content.</source>
         <translation>Опис вмісту публікації.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="857"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1026"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="864"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1033"/>
         <source>Publisher</source>
         <translation>Видавець</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="857"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1026"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="864"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1033"/>
         <source>An entity responsible for making the publication available.</source>
         <translation>Суб&apos;єкт, відповідальний за видання публікації.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="858"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
         <source>Date Published</source>
         <translation>Дата публікації</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="858"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
         <source>The date of publication.</source>
         <translation>Дата публікації.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="859"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
         <source>Date Created</source>
         <translation>Дата створення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="859"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1029"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
         <source>The date of creation.</source>
         <translation>Дата створення.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="860"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
         <source>Date Modified</source>
         <translation>Дата внесення змін</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="860"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1030"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
         <source>The date of modification.</source>
         <translation>Дата внесення змін.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="861"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="861"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
         <translation>Використовується для вказівки на те, що дана публікація EPUB має спеціалізований тип.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="862"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="862"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation>Тип носія або розміри видання. Найкраща практика – використовувати значення керованого словника (наприклад, типів мультимедійних файлів MIME).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="863"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1033"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
         <source>Source</source>
         <translation>Джерело</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="863"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
         <translation>Визначає пов&apos;язані ресурси (джерела), з яких походить ця публікація EPUB.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="864"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1034"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
         <source>Language</source>
         <translation>Мова</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="864"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
         <translation>Вказує мову публікації. Виберіть з меню, що випадає</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
         <source>Related To</source>
         <translation>Пов&apos;язано з</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="865"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation>Посилання на пов&apos;язаний ресурс. Рекомендована найкраща практика – ідентифікувати ресурс за допомогою рядка або числа, що відповідає формальній системі ідентифікації.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
         <source>Coverage</source>
         <translation>Охоплення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="866"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation>Ступінь або обсяг вмісту змісту публікації.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
         <source>Rights</source>
         <translation>Права</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="867"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation>Інформація про права, що зберігаються у публікації та над нею. Інформація про права часто охоплює права інтелектуальної власності (IPR), авторські права та різні права власності. Якщо елемент «Права» відсутній, жодних припущень щодо будь-яких прав, що зберігаються в публікації або над нею, не можна робити.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1029"/>
         <source>Creator</source>
         <translation>Основний Автор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="868"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Представляє ім’я людини, організації, тощо, відповідальної за створення вмісту Публікації EPUB. Властивість ролі може бути приєднана до елемента, щоб вказати функцію, яку автор грав у створенні вмісту.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1023"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1030"/>
         <source>Contributor</source>
         <translation>Співавтор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Представляє ім’я людини, організації, тощо, які відігравали другорядну роль у створенні змісту публікації EPUB. Властивість ролі може бути приєднана до елемента, щоб вказати функцію, яку автор грав у створенні вмісту.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
         <source>Belongs to a Collection</source>
         <translation>Належить до колекції</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
         <translation>Визначає назву колекції, до якої належить Публікація EPUB. Публікація EPUB може належати до однієї або декількох колекцій.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
         <source>Title</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
         <translation>Назва видання. Видання може мати лише одну головну назву, але може мати численні інші типи заголовків. До них відносяться основні, підзаголовки, короткі, збірники, видання та розширені типи заголовків.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
         <source>Identifier: DOI</source>
         <translation>Ідентифікатор: DOI</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
         <source>Digital Object Identifier associated with this publication.</source>
         <translation>Цифровий ідентифікатор об&apos;єкта, пов’язаний з цією публікацією.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
         <source>Identifier: ISBN</source>
         <translation>Ідентифікатор: ISBN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
         <source>International Standard Book Number associated with this publication.</source>
         <translation>Міжнародний стандартний номер книги, пов’язаний із даною публікацією.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
         <source>Identifier: ISSN</source>
         <translation>Ідентифікатор: ISSN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
         <source>International Standard Serial Number associated with this publication.</source>
         <translation>Міжнародний стандартний серійний номер, пов’язаний із даною публікацією.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
         <source>Identifier: UUID</source>
         <translation>Ідентифікатор: UUID</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
         <source>A Universally Unique Identifier generated for this publication.</source>
         <translation>Універсальний унікальний ідентифікатор, створений для цієї публікації.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
         <source>Identifier: ASIN</source>
         <translation>Ідентифікатор: ASIN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
         <source>An Amazon Standard Identification Number associated with this publication.</source>
         <translation>Стандартний ідентифікаційний номер Amazon, пов&apos;язаний з цією публікацією.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>Identifier: Custom</source>
         <translation>Ідентифікатор: Custom</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
         <source>A custom identifier based on a specified scheme</source>
         <translation>Ідентифікатор що настроюється або ідентифікатор користувача або кастомний на основі визначеної схеми</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
         <source>An empty metadata element you can modify.</source>
         <translation>Порожній елемент МетаДаних, який ви можете змінити.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
         <source>Meta Element (primary)</source>
         <translation>Мета елемент (первинний)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
         <source>An empty primary metadata element you can modify.</source>
         <translation>Порожній основний елемент МетаДаних, який ви можете змінити.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="905"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1074"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
         <source>Id Attribute</source>
         <translation>Атрибут Id</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="905"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1074"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
         <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
         <translation>Необов&apos;язкова, як правило, коротка унікальна послідовність символів (рядок) ідентифікатора, яка використовується як атрибут у документі Package (opf).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="906"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1075"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1082"/>
         <source>XML Language</source>
         <translation>Мова XML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="906"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
         <source>Optional, language specifying attribute.  Uses same codes as Language. Not for use with Language, Date, or Identifier metadata elements.</source>
         <translation>Необов’язковий, атрибут мови. Використовує ті ж коди, що й Language. Не використовується для Language, Date або Identifier елементів МетаДаних.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="907"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
         <source>Uses Right To Left Text</source>
         <translation>Текст справа-Наліво</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="907"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Необов’язковий атрибут тексту для цього елемента МетаДаних. справа-наліво (СН). Не використовується для dc:language, dc:date або dc:identifier елементів МетаДаних.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="908"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
         <source>Uses Left to Right Text</source>
         <translation>Текст Зліва-Направо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="908"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Необов’язковий атрибут тексту для цього елемента МетаДаних. зліва-направо (ЗН). Не використовується для dc:language, dc:date або dc:identifier елементів МетаДаних.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="909"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
         <source>Title: Main Title</source>
         <translation>Заголовок: Головний заголовок</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="909"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
         <translation>Вказує, що асоційована назва є основною назвою видання. Має існувати лише одна головна назва.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="910"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
         <source>Title: Subtitle</source>
         <translation>Заголовок: Підзаголовок</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="910"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
         <translation>Вказує, що пов&apos;язаний заголовок є підзаголовком публікації, якщо така існує.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="911"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
         <source>Title: Short Title</source>
         <translation>Заголовок: Скорочений заголовок</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="911"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
         <translation>Вказує, що пов’язана назва – це скорочена назва публікації, якщо така існує.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="919"/>
         <source>Title: Collection Title</source>
         <translation>Заголовок: Назва колекції</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="912"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="919"/>
         <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
         <translation>Вказує, що пов&apos;язаний заголовок – це назва колекції, до якої належить ця публікація, якщо така існує.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
         <source>Title: Edition Title</source>
         <translation>Заголовок: Назва видання</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="913"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
         <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
         <translation>Вказує, що пов’язана назва – це назва видання для цих публікацій, якщо таке існує.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
         <source>Title: Expanded Title</source>
         <translation>Заголовок: Розширений заголовок</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="914"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
         <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
         <translation>Вказує, що пов’язаний заголовок – це розширений заголовок для цієї публікації, якщо такий існує.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
         <source>Alternate Script</source>
         <translation>Альтернативний сценарій</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="915"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an xml:lang attribute.</source>
         <translation>Забезпечує альтернативне вираження асоційованого значення властивості у мові та сценарії, ідентифікованому атрибутом xml:lang.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
         <source>Alternate Language</source>
         <translation>Альтернативна мова</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="916"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
         <source>Language code for the language used in the associated alternate-script property value.</source>
         <translation>Код мови для мови, що використовується у відповідному значенні властивості альтернативного сценарію.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
         <source>Collection is a Set</source>
         <translation>Колекція являє собою набір</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="917"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
         <translation>Властивість , яка використовується з «belongs-to-collection». Позначає форму або характер колекції. Значення «set» слід використовувати для скінченної колекції творів, які разом становлять єдину інтелектуальну одиницю; як правило, випускаються разом і можуть продаватися як одиниця.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
         <source>Collection is a Series</source>
         <translation>Колекція являє собою серію</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="918"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
         <translation>Властивість , яка використовується з «belongs-to-collection». Позначає форму або характер колекції. Значення «серія» слід використовувати для послідовності пов&apos;язаних творів, які формально ідентифікуються як група; як правило, з безстроковими публікаціями або роботами, що випускаються індивідуально на протязі часу.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="919"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
         <source>Display Sequence</source>
         <translation>Послідовність відображення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="919"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
         <translation>Позначає числове положення, в якому відображається поточна властивість відносно ідентичних властивостей метаданих (наприклад, вказується на порядок відображення декількох назв або декількох авторів).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1076"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="927"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1083"/>
         <source>File As</source>
         <translation>Файл як</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1076"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="927"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1083"/>
         <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
         <translation>Надає нормалізовану форму пов&apos;язаної властивості для сортування. Зазвичай використовується з іменами автора, творця та дописувача.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="928"/>
         <source>Position In Group</source>
         <translation>Позиція в групі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="928"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
         <translation>Позначає числове положення, в якому впорядковується публікація EPUB щодо інших творів, що належать до тієї ж групи (будь то всі публікації EPUB чи ні).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
         <source>Identifier Type</source>
         <translation>Тип ідентифікатора</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
         <translation>Позначає форму або характер ідентифікатора. Коли значення типу ідентифікатора виводиться зі списку коду чи іншого формального перерахування, для ідентифікації його джерела слід використовувати атрибут схеми.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1077"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1084"/>
         <source>Role</source>
         <translation>Роль</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1077"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1084"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
         <translation>Описує характер роботи, яку виконує творець або автор (наприклад, що людина є автором чи редактором твору). Зазвичай використовується схема marc:relators для керованої лексики.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1078"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1085"/>
         <source>Scheme</source>
         <translation>Схема</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
         <source>This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
         <translation>Цей атрибут зазвичай додається до Identifier, Source, Creator, або Contributor, щоб вказати на керовану систему лексики, що використовується (наприклад, marc:relators, щоб вказати дійсні значення для властивості ролі).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
         <source>Source of Pagination</source>
         <translation>Джерело Пагінації</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
         <translation>Вказує на унікальний аспект адаптованого джерельного ресурсу, який зберігався в даному випуску публікації EPUB. Ця специфікація визначає значення сторінки, що вказує на те, що вихідний елемент є джерелом властивостей розбиття сторінки, визначених у вмісті. Це значення слід встановлювати щоразу, коли включається пагинація та відомо джерело друку. Дійсні значення: pagination.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
         <source>An empty metadata property or attribute you can modify.</source>
         <translation>Порожня властивість або атрибут МетаДаних, які Ви можете змінити.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="954"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="961"/>
         <source>Text Direction</source>
         <translation>Напрямок тексту</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="954"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="961"/>
         <source>Optional text direction attribute for this metadata item.</source>
         <translation>Необов’язковий атрибут напряму тексту для цього елемента МетаДаних.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="955"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="962"/>
         <source>Title Type</source>
         <translation>Тип заголовка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="955"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="962"/>
         <source>Indicates the kind or type of the title</source>
         <translation>Вказує вид або тип заголовка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="956"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="963"/>
         <source>Collection Type</source>
         <translation>Тип колекції</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="956"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="963"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection.</source>
         <translation>Властивість, яка використовується разом із колекцією. Вказує на форму або характер колекції.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="957"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
         <source>Source of</source>
         <translation>Джерело з</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="957"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.</source>
         <translation>Вказує на унікальний аспект адаптованого вихідного ресурсу, який був збережений у даній редакції публікації EPUB.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
         <source>Published</source>
         <translation>Опубліковано</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
         <source>Event Type is Published.</source>
         <translation>Тип події – Опубліковано.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
         <source>Publication</source>
         <translation>Публікація</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
         <source>Event Type is Publication.</source>
         <translation>Тип події – Публікація.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="986"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="993"/>
         <source>Creation</source>
         <translation>Створення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="986"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="993"/>
         <source>Event Type is Creation.</source>
         <translation>Тип події – Створення.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="987"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="994"/>
         <source>Modification</source>
         <translation>Внесення змін</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="987"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="994"/>
         <source>Event Type is Modification.</source>
         <translation>Тип події – Внесення змін.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="988"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="995"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
         <source>Digital Object Identifier</source>
         <translation>Цифровий ідентифікатор об&apos;єкта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="988"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="995"/>
         <source>Identifier Scheme: Digital Object Identifier</source>
         <translation>Ідентифікатор схеми: Ідентифікатор цифрового об&apos;єкта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="989"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="996"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
         <source>International Standard Book Number</source>
         <translation>Міжнародний стандартний номер книги</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="989"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="996"/>
         <source>Identifier Scheme: International Standard Book Number</source>
         <translation>Ідентифікатор схеми: Міжнародний стандартний номер книги</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="990"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="997"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
         <source>International Standard Serial Number</source>
         <translation>Міжнародний стандартний серійний номер</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="990"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="997"/>
         <source>Identifier Scheme: International Standard Serial Number</source>
         <translation>Ідентифікатор схеми: Міжнародний стандартний серійний номер</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="998"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1048"/>
         <source>Universally Unique Identifier</source>
         <translation>Універсальний унікальний ідентифікатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="991"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="998"/>
         <source>Identifier Scheme: Universally Unique Identifier</source>
         <translation>Ідентифікатор схеми: Універсальний унікальний ідентифікатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
         <source>Amazon Unique Identifier</source>
         <translation>Унікальний ідентифікатор Amazon</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="992"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
         <source>Identifier Scheme: Amazon Unique Identifier</source>
         <translation>Ідентифікатор схеми: Унікальний ідентифікатор Amazon</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
         <translation>Основна назва видання epub. Може існувати лише одна назва.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1029"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Представляє ім’я людини, організації, тощо, відповідальної за створення вмісту Публікації EPUB. Атрибути opf:role, opf:scheme та opf:file-as можуть бути приєднані до елемента, щоб вказати функцію, яку виконував автор при створенні вмісту.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1023"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1030"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
         <translation>Представляє ім’я людини, організації, тощо, які відігравали другорядну роль у створенні вмісту публікації EPUB</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1034"/>
         <source>Date</source>
         <translation>Дата</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1034"/>
         <source>A date associated with this epub, typically refined by event type information</source>
         <translation>Дата, пов’язана з цим epub, зазвичай уточнюється за інформацією про тип події</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
         <source>Date: Publication</source>
         <translation>Дата: Опубліковано</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1029"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
         <source>Date: Creation</source>
         <translation>Дата: Створено</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1030"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
         <source>Date: Modification</source>
         <translation>Дата: Внесення змін</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
         <source>The nature or genre of the content of the resource.</source>
         <translation>Характер або жанр контенту ресурсу.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1033"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
         <source>A reference to a resource from which the present publication is derived.</source>
         <translation>Посилання на ресурс, з якого походить ця публікація.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1034"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
         <source>A language used in the publication. Choose a RFC5646 value.</source>
         <translation>Мова, що використовується в публікації. Виберіть значення RFC5646</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
         <source>Relation</source>
         <translation>Відношення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1048"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
         <source>Identifier</source>
         <translation>Ідентифікатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
         <source>Amazon Standard Identification Number</source>
         <translation>Стандартний ідентифікаційний номер Amazon</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>A custom identifier</source>
         <translation>Кастомний ідентифікатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>Series</source>
         <translation>Серія</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>Series title or name (from calibre)</source>
         <translation>Назва серії або найменування (як в Calibre)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>Series Index</source>
         <translation>Індекс серії</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>Index of this book in the series (from calibre)</source>
         <translation>Номер книги в серії (як в Calibre)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
         <source>Title for Sorting</source>
         <translation>Назва для сортування</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
         <translation>Версія назви електронної книги для сортування (як в Calibre)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
         <source>An empty element for you to modify</source>
         <translation>Порожній елемент, який ви можете змінити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1075"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1082"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Необов’язковий, атрибут мови. Використовує ті ж коди, що й dc: language. Не використовується для dc: langauge, dc: date або dc:identifier елементів МетаДаних.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1078"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1085"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.</source>
         <translation>Цей атрибут зазвичай додається в dc:identifier, щоб вказати тип використовуваного ідентифікатора: DOI, ISBN, ISSN, UUID або AMAZON..</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1079"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1086"/>
         <source>Custom Scheme</source>
         <translation>Схема Користувача</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1079"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1086"/>
         <source>This attribute is typically added to dc:identifier to indicate that a custom identifier scheme is being used.</source>
         <translation>Цей атрибут зазвичай додається до dc:identifier, щоб зазначити, що використовується схема ідентифікаторів корістувача. </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1080"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1087"/>
         <source>Event</source>
         <translation>Подія</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1080"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1087"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
         <translation>Цей атрибут зазвичай додається до елемента dc:date, щоб вказати тип дати: публікація, створення або внесення змін.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1088"/>
         <source>An empty metadata attribute you can modify.</source>
         <translation>Порожній атрибут МетаДаних, який ви можете змінити.</translation>
     </message>
@@ -16686,7 +16686,7 @@ Entities can be separated by lines, commas, or spaces.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="291"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="297"/>
         <source>Cleaning...</source>
         <translation>Очищення…</translation>
     </message>
@@ -16858,12 +16858,12 @@ Line: %1 Column %2 - %3</source>
         <translation>Заміна умов пошуку…</translation>
     </message>
     <message>
-        <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
+        <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
+        <location filename="../../Misc/UpdateChecker.cpp" line="100"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
         <translation>&lt;p&gt;Доступна нова версія Sigil, версія &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Ви хочете перейти на сторінку завантаження?&lt;/p&gt;</translation>
     </message>
@@ -16875,12 +16875,12 @@ Line: %1 Column %2 - %3</source>
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="712"/>
+        <location filename="../../Misc/Utility.cpp" line="713"/>
         <source>Sigil has encountered a problem.</source>
         <translation>У Sigil виникли проблеми.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="713"/>
+        <location filename="../../Misc/Utility.cpp" line="714"/>
         <source>Sigil may need to close.</source>
         <translation>Sigil, має закритися.</translation>
     </message>
@@ -16906,28 +16906,28 @@ Line: %1 Column %2 - %3</source>
         <translation>Неприпустимий NCX-файл: %1</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="744"/>
-        <location filename="../../main.cpp" line="792"/>
+        <location filename="../../main.cpp" line="745"/>
+        <location filename="../../main.cpp" line="793"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="754"/>
+        <location filename="../../main.cpp" line="755"/>
         <source>About</source>
         <translation>Про програму</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="763"/>
+        <location filename="../../main.cpp" line="764"/>
         <source>Preferences</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="774"/>
+        <location filename="../../main.cpp" line="775"/>
         <source>New</source>
         <translation>Новий</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="783"/>
+        <location filename="../../main.cpp" line="784"/>
         <source>Open</source>
         <translation>Відкрити</translation>
     </message>
@@ -19643,12 +19643,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="820"/>
+        <location filename="../../Misc/Utility.cpp" line="832"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="821"/>
+        <location filename="../../Misc/Utility.cpp" line="833"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
