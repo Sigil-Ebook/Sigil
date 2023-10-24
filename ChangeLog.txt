@@ -6,12 +6,13 @@ pre-2.0.2
       - workaround MacOS QMessageBox loss of focus Qt 6.5.X bug without hurting other platforms
       - fix pretty print mend not formatting mathml
       - fix Accessibility related crashes in QFontComboBox (Qt 6.5.2 patch fix)
-      - prevent crashing is user mistakenly tries to delete entire ncx in CodeView
+      - prevent crashing if user mistakenly tries to delete entire ncx in CodeView
       - harden delete unused styles to trailing whitespace in class names
       - fix unrecognized media-types application/xml and text/xml
       - fix cursor just before end tag bug in align justiry, centre, right
       - fix crash when all metadata removed by user in MetaEditor
       - fix macOS min in Info.plist to be the actual 11.0
+      - update build docs to Qt 6.5.3
 
 
 Sigil-2.0.1
