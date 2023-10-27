@@ -32,7 +32,7 @@ Get the unicode version of version 6+ (6.2 at the time of this writing) from [jr
 ## <a name="qt6"/>Qt6.5.2+
 As of Qt6+, there there are no binary Qt installers provided for free. You must compile it yourself from source (applying the appropriate patches from the Sigil Docs directory).
 
-If you want to use the exact, patched versions of Qt6.5.2 and QtWebEngine that I'm using to release Sigil, feel free to download the whole shebang [from my personal repository](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). It's the archive named: Qt6.5.2_x64_VS2022.7z. Unzip it with 7-zip and note the location.
+If you want to use the exact, patched versions of Qt6.5.3 and QtWebEngine that I'm using to release Sigil, feel free to download the whole shebang [from my personal repository](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). It's the archive named: Qt6.5.3_x64_VS2022.7z. Unzip it with 7-zip and note the location.
 
 Once you have Qt6.5.2+ built/installed/unzipped, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH**
 
@@ -60,6 +60,7 @@ Once finished, you can begin to install the extra modules needed by Sigil.
 + Shiboken6 (6.5.2+)
 + PySide6 (6.5.2+) Use the same version as Shiboken6
 + Pyside6-Addons (6.5.2+)
+(I've also compiled PySide/Shiboken6 for Qt6.5.3. You can download the wheels from the same place as my custom version of Qt6.5)
 
 From the same command prompt you updated pip with, install the "six" module with the following command:
 
