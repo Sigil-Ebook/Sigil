@@ -93,7 +93,7 @@ The latest Sigil versions are also typically available via the [winget (Windows 
 
 To build Sigil on Windows yourself, see:
 
-> [docs/Building_Sigil_on_Windows.md](./docs/Building_Sigil_on_Windows_using_Qt6.md) ([or .html](./docs/Building_Sigil_on_Windows_using_Qt6.html))
+> [docs/Building_Sigil_on_Windows_using_Qt6.md](./docs/Building_Sigil_on_Windows_using_Qt6.md) ([or .html](./docs/Building_Sigil_on_Windows_using_Qt6.html))
 
 
 
