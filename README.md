@@ -87,13 +87,13 @@ and for building Sigil under the older Qt5 see:
 For Installing/Building on Windows
 ==================================
 
-Sigil currently provides Windows installers for x86 and x64 and will only work on Windows 8 or newer. There's a Legacy installer that's suitable for Windows 7.
+Sigil currently provides a Windows installer for x64 and will only work on Windows 10 or newer.
 
-The latest Sigil versions are also typically available via the [winget (Windows 10+)](https://winstall.app/apps/Sigil-Ebook.Sigil), [Chocolatey (Windows 7+)](https://community.chocolatey.org/packages/Sigil), and [Npackd](https://npackd.appspot.com/p?q=sigil) Windows package managers. There are no "scary" Microsoft warnings about unknown publishers if you install Sigil via one of these package managers. 
+The latest Sigil versions are also typically available via the [winget (Windows 10+)](https://winstall.app/apps/Sigil-Ebook.Sigil), [Chocolatey (Windows 10+)](https://community.chocolatey.org/packages/Sigil), and [Npackd](https://npackd.appspot.com/p?q=sigil) Windows package managers. There are no "scary" Microsoft warnings about unknown publishers if you install Sigil via one of these package managers. 
 
 To build Sigil on Windows yourself, see:
 
-> [docs/Building_Sigil_on_Windows.md](./docs/Building_Sigil_on_Windows.md) ([or .html](./docs/Building_Sigil_on_Windows.html))
+> [docs/Building_Sigil_on_Windows.md](./docs/Building_Sigil_on_Windows_using_Qt6.md) ([or .html](./docs/Building_Sigil_on_Windows_using_Qt6.html))
 
 
 
