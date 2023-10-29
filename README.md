@@ -1,4 +1,4 @@
-Sigil
+!Sigil
 =====
 
 Sigil is a free, open source, multi-platform ebook editor that uses
@@ -93,7 +93,7 @@ The latest Sigil versions are also typically available via the [winget (Windows 
 
 To build Sigil on Windows yourself, see:
 
-> [docs/Building_Sigil_on_Windows_using_Qt6.md](./docs/Building_Sigil_on_Windows_with_Qt6.md).
+> [docs/Building_Sigil_on_Windows_witb_Qt6.md](./docs/Building_Sigil_on_Windows_with_Qt6.md).
 
 
 
