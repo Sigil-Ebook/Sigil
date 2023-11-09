@@ -1,6 +1,8 @@
 # <center>Building Sigil on Linux</center>
 ## <center>Systems like Ubuntu 20.04 (and its derivatives) or newer</center>
 
+Starting with Sigil 2.0.2, Sigil defaults to building with Qt6. If your distro provides recent enough versions of Qt6 modules, It is recommended to [build Sigil that way](./Building_on_Linux_with_Qt6.md). If not, the latest versions of Sigil will still be able to be built with Qt5 for a little while (but not indefinitely).
+
 If you're looking for instructions on how to build on systems older than Ubuntu 20.04 (systems whose repo version of Qt5 is less than 5.10), you should look at the [Building_on_older_Linux](./Building_on_older_Linux.md) documentation.
 
 ## General Overview
@@ -113,9 +115,11 @@ So first off, open a terminal and cd into your sigil-build directory
 
 >`cd ~/sigil-build`
 
-Then issue the following command to configure Sigil for building:
+Then issue the following command to configure Sigil for building (for Sigil 2.0.2 and higher):
 
-> `cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ../sigil-src`
+> `cmake -G "Unix Makefiles" -DUSE_QT5=1 -DCMAKE_BUILD_TYPE=Release ../sigil-src`
+
+For earlier than Sigil 2.0.2 you can leave out -DUSE_QT5=1 (but it will hurt nothing if left in).
 
 If there are no errors, you're ready to build.
 
