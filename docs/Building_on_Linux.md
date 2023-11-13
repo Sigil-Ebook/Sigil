@@ -1,99 +1,159 @@
-# <center>Building Sigil on Linux</center>
-## <center>Systems like Ubuntu 20.04 (and its derivatives) or newer</center>
+# <center>Building Sigil on Linux with Qt6</center>
+## <center>Systems like Arch (and its derivatives) or newer</center>
 
-Starting with Sigil 2.0.2, Sigil defaults to building with Qt6. If your distro provides recent enough versions of Qt6 modules, It is recommended to [build Sigil that way](./Building_on_Linux_with_Qt6.md). If not, the latest versions of Sigil will still be able to be built with Qt5 for a little while (but not indefinitely).
-
-If you're looking for instructions on how to build on systems older than Ubuntu 20.04 (systems whose repo version of Qt5 is less than 5.10), you should look at the [Building_on_older_Linux](./Building_on_older_Linux.md) documentation.
+If you're looking for instructions on how to build on systems that don't provide Qt6, you should look at the [Building_on_Linux_older](./Building_on_Linux_older.md) documentation.
 
 ## General Overview
 
-The requirements for building Sigil on newer Linux systems like Ubuntu 20.04, Mint 20, Arch Linux, etc., should be able to be installed entirely from your system's software repositories.
+The requirements for building Sigil on newer Linux systems Arch Linux, should be able to be installed entirely from your system's software repositories.
 
 To build Sigil on newer Linux systems, you need to get/do the following things:
 
-1. [A Linux build-toolchain](#gcc) with a C++11 capable compiler (gcc 4.9.x or higher recommended)
-2. [CMake](#cmake) (3.0 or higher)
-3. [Qt5.10 or higher](#qt5) (with QtWebEngine) Qt5.12+ recommended
+1. [A Linux build-toolchain](#gcc) with a C++17 capable compiler (gcc 7.x.x or higher recommended)
+2. [CMake](#cmake) (3.16 or higher)
+3. [Qt6.2.2 or higher](#qt6) (with QtWebEngine)
 4. [3rd-party dependencies](#thirdparty) (an optional step)
-5. [Python 3.5](#python) (or higher) 3.6+ recommended
+5. [Python 3.6](#python) (or higher)
 6. [The Sigil source code](#sigil) (downloaded tarball/zipfile or a git clone)
 7. [Build/Install Sigil](#build)
 8. [Test Sigil's Plugin Framework](#testing)
 9. [Advanced Stuff](#advanced)
 
-Since I'm basically an Ubuntu/Debian guy at heart, I'll be mentioning stuff like:
+Arch Linux users should use the pacman commands.
 
->`sudo apt-get install`
+>`sudo pacman -S`
 
-from here on out. You'll have to forgive me for not knowing all the yum/pacman/emerge equivalents. It's not a slight--I can assure you.
+While users of Debian-based distros should use the apt-get commands
+
+ >`sudo apt-get install`
+
+from here on out. You'll have to forgive me for not knowing all the yum/emerge equivalents. It's not a slight–I can assure you.
 
 ## <a name="gcc"/>Linux Build Environment
-On Ubuntu-type systems you can use:
+On Arch-type systems you can use:
+
+>`sudo pacman -S base-devel git`
+
+On Debian-type systems you can use:
 
 >`sudo apt-get install build-essential git`
 
 to get pretty-much everything you need to configure/compile/install C++ projects. On other flavors of Linux you need to basically make sure that you have gcc/g++ and "make" installed.
 
 ## <a name="cmake"/>Getting CMake
-Once again: `sudo apt-get install cmake` will get you what you need on Ubuntu-type systems.
+Once again: `sudo pacman -S cmake` will get you what you need on Arch-type systems.
 
-## <a name="qt5"/>Getting Qt5
-<center>**If your repos don't provide at least Qt5.10, use the [Building_on_older_Linux](./Building_on_older_Linux.md) documentation**</center>
-To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
-
-+ qtbase5-dev
-+ qttools5-dev
-+ qttools5-dev-tools
-+ qtwebengine5-dev
+and `sudo apt-get install cmake` will get you what you need on Debian-type systems.
 
 
-The folllowing command can be copied and pasted for convenience:
+## <a name="qt6"/>Getting Qt6
+**If your repos don't provide at least Qt6.2.2, use the [Building_on_Linux_older](./Building_on_Linux_older.md) documentation for Qt5.**
 
-`sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine5-dev`
+To get Sigil's Qt6 requirements on Arch, `sudo pacman -S` the following packages:
+
++ qt6-svg
++ qt6-webengine
++ qt6-tools
++ qt6-5compat
+
+The folllowing command can be copied and pasted for convenience on Arch-based systems:
+
+`sudo pacman -S qt6-svg qt6-webengine qt6-tools qt6-5compat`
+
+On Debian-based systems `sudo apt-get install` the following packages.
+
++ qt6-webengine-dev-tools
++ qt6-base-dev-tools
++ qt6-tools-dev
++ qt6-tools-dev-tools
++ qt6-5compat-dev
++ qt6-svg (needed for runtime support for icons)
+
+The folllowing command can be copied and pasted for convenience on Debian-based systems:
+
+`sudo apt-get install qt6-webengine-dev-tools qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools qt6-5compat-dev qt6-svg`
 
 ## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
-Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, `sudo apt-get install` the following packages.
+Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them on Arch, `sudo pacman -S` the following packages.
+
++ hunspell
++ pcre2
++ minizip
+
+The folllowing command can be copied and pasted for convenience on Arch-based systems:
+
+`sudo pacman -S hunspell pcre2 minizip`
+
+If you want to make use of them on Debian, `sudo apt-get install` the following packages.
 
 + libhunspell-dev
 + libpcre2-dev
 + libminizip-dev
 
-The folllowing command can be copied and pasted for convenience:
+The folllowing command can be copied and pasted for convenience on Debian-based systems:
 
 `sudo apt-get install libhunspell-dev libpcre2-dev libminizip-dev`
 
 If you do install them, remember to use use the -DUSE_SYSTEM_LIBS=1 option when configuring Sigil with cmake later on. Otherwise, the build process will ignore them and provide/build its own.
 
-## <a name="python"/>Getting Python 3.5 (or higher -- 3.6+ recommended) 
-On Ubuntu/Debian `sudo apt-get install` (at a minimum) the following packages:
+## <a name="python"/>Getting Python 3.6 (or higher)
+On Arch `sudo pacman -S` (at a minimum) the following packages:
+
++ python
++ python-lxml
++ python-six
++ python-css-parser (you may have to use `pip install css-parser` if your distro has no package for this)
++ python-dulwich (dulwich requires that the urllib3 and certifi modules be installed as well)
+
+The folllowing command can be copied and pasted for convenience on Arch-based systems:
+
+`sudo pacman -S python python-lxml python-six python-css-parser python-dulwich`
+
+On Debian 'sudo apt-get install` the following packages:
 
 + python3-dev
 + python3-pip
 + python3-lxml
 + python3-six
-+ python3-css-parser (may have to use `pip3 install css-parser` if your distro has no package for this)
-+ python3-dulwich (unless your distro has very recent version (0.19.x) in its repos, you'll probably need to use `pip3 install dulwich` to install a new enough version that will work with Sigil. dulwich requires that the urllib3 and certifi modules be installed as well)
++ python3-css-parser (may have to use `pip3 install css-parser` if your distro has no package for this
++ python3-dulwich (dulwich requires that the urllib3 and certifi modules be installed as well)
 
-The folllowing command can be copied and pasted for convenience:
+The folllowing command can be copied and pasted for convenience on Debian-based systems:
 
 `sudo apt-get install python3-dev python3-pip python3-lxml python3-six python3-css-parser python3-dulwich`
 
-That's all the Python 3.5 (or higher) stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X. These should all be able to be installed with `sudo apt-get install`.
+That's all the Python 3.6 (or higher) stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X.
 
+These should all be able to be installed with `sudo pacman -S` on Arch-based systems.
+
++ tk
++ pyside6
++ python-html5lib
++ python-regex
++ python-pillow
++ python-cssselect
++ python-chardet
+
+The following command can be copied and pasted for convenience on Arch:
+
+`sudo pacman -S tk pyside6 python-html5lib python-regex python-pillow python-cssselect python-chardet`
+
+On Debian-based systems, these should all be able to be installed with `sudo apt-get install`.
 + python3-tk
-+ python3-pyqt5
-+ python3-pyqt5.qtwebengine
 + python3-html5lib
 + python3-regex
-+ python3-pillow (could be python3-pil)
++ python3-pil.imagetk
 + python3-cssselect
 + python3-chardet
 
-The folllowing command can be copied and pasted for convenience:
+The folllowing command can be copied and pasted for convenience on Debian-based systems:
 
-`sudo apt-get install python3-tk python3-pyqt5 python3-pyqt5.qtwebengine python3-html5lib python3-regex python3-pillow python3-cssselect python3-chardet`
+`sudo apt-get install python3-tk python3-html5lib python3-regex python3-pillow python3-cssselect python3-chardet`
 
-If you run into any that won't install with `sudo apt-get install` you can still use pip3 to install them.
+The PySide6 requirement for many 3rd-party plugins is not available via distro-maintained packages on Debian-based systems at the time of this writing).
+It can installed via PyPi.org if your distro still allows using pip to install packages into the system-maintained Python environment. You may need to learn how to work with (or get around) the newer PEP 668 rules that distros are adopting.  We do not have the time or inclination to guide people in this regard.
+
+If you run into any that won't install with `sudo pacman -S` you may still use pip to install them.
 
 ## <a name="sigil"/>Getting Sigil's Source Code
 
@@ -115,35 +175,32 @@ So first off, open a terminal and cd into your sigil-build directory
 
 >`cd ~/sigil-build`
 
-Then issue the following command to configure Sigil for building (for Sigil 2.0.2 and higher):
+Then issue the following command to configure Sigil for building:
 
-> `cmake -G "Unix Makefiles" -DUSE_QT5=1 -DCMAKE_BUILD_TYPE=Release ../sigil-src`
-
-For earlier than Sigil 2.0.2 you can leave out -DUSE_QT5=1 (but it will hurt nothing if left in).
+> `/usr/lib/qt6/bin/qt-cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ../sigil-src`
 
 If there are no errors, you're ready to build.
 
+**Starting with Sigil 2.0.2, the -DUSE_QT6=1 is assumed and no longer used. If you wish to build Sigil with Qt5, you will need to add -DUSE_QT5=1 to the cmake configure command.**
+
 The default install prefix is /usr/local. If you wish to change the install location, you can do so by adding a `-DCMAKE_INSTALL_PREFIX` option to the above cmake configure command like so:
 
-> `cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/a/different/install/prefix -DCMAKE_BUILD_TYPE=Release ../sigil-src`
+> `/usr/lib/qt6/bin/qt-cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/a/different/install/prefix -DCMAKE_BUILD_TYPE=Release ../sigil-src`
 
 You can also customize/override where the Sigil support files get installed (`<CMAKE_INSTALL_PREFIX>/share` by default) with the `-DSHARE_INSTALL_PREFIX` option (not recommended for beginners).
 
 If cmake couldn't automatically find the necessary Python 3.4 (or higher) stuff it needs (like if you installed manually in an unusual location, or you want to use a different Python version) you may need to tell cmake *specifically* where things can be found. Do so with:
 
->`-DPYTHON_LIBRARY=<the full path to the python3.4 (or higher) shared library> (usually something similar to /usr/lib/libpython34.so)`
+>`-DPYTHON_LIBRARY=<the full path to the python3.6 (or higher) shared library> (usually something similar to /usr/lib/libpython36.so)`
 
->`-DPYTHON_INCLUDE_DIR=<the full path to the directory where python3.4's (or higher) header files can be found> (ex: /usr/include/python3.4)`
+>`-DPYTHON_INCLUDE_DIR=<the full path to the directory where python3.6's (or higher) header files can be found> (ex: /usr/include/python3.6)`
 
->`-DPYTHON_EXECUTABLE=<the full path to the python3.4 (or higher) interpreter> (ex: /usr/lib/python3)`
+>`-DPYTHON_EXECUTABLE=<the full path to the python3.6 (or higher) interpreter> (ex: /usr/bin/python)`
 
 Once the cmake configure command finishes with no errors, build Sigil with:
 
 >`make (or make -j4 if you have plenty of processor cores)`
 
-### Common compilation failures/Errors.
-
-To be determined.
 
 ### Installing Sigil
 If all goes well, install Sigil with:
@@ -154,7 +211,7 @@ If you configured with the default install prefix, you can launch by entering "s
 
 ## <a name="testing"/>Testing Sigil's Python plugin framework
 
-To test if Sigil's Python 3.5+ plugin framework is fully functional, you can do the following:
+To test if Sigil's Python 3.6+ plugin framework is fully functional, you can do the following:
 
 1. download testplugin_v019.zip from [https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v019.zip](https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v019.zip)
 2. open Sigil to the normal nearly blank template epub it generates when opened
@@ -163,7 +220,7 @@ To test if Sigil's Python 3.5+ plugin framework is fully functional, you can do 
 5. use Plugins->Edit->testplugin to launch the plugin and hit the "Start" button to run it
 6. check the plugin output window for your missing or broken plugin test results
 
-Install any missing Python modules with your system's package management system or Python's pip3.
+Install any missing Python modules with your system's package management system or Python's pip.
 
 ## <a name="advanced"/>Advanced Stuff
 
@@ -171,7 +228,9 @@ There are several configuration and environment variable options that can tailor
 
 ### CMake options
 
--DQt5_DIR=`<path>` Configures cmake to use a Qt5 installation other than the normal system version of Qt5 (ex. /opt/Qt5.12.3/5.12/gcc_64/lib/cmake/Qt5 - the path should alays end in /lib/cmake/Qt5)
+-DUSE_QT5=(0|1) Defaults to 0 (use Qt6). Build Sigil using Qt5 or Qt6
+
+-DQt6_DIR=`<path>` Configures cmake to use a Qt6 installation other than the normal system version of Qt5 (ex. /opt/Qt6.2.3/lib/cmake/Qt6 - the path should alays end in /lib/cmake/Qt6)
 
 -DCMAKE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil will be installed to (default is /usr/local)
 
@@ -185,13 +244,13 @@ There are several configuration and environment variable options that can tailor
 
 -DDISABLE_UPDATE_CHECK=(0|1) Defaults to 0. Use -DDISABLE_UPDATE_CHECK=1 to disable the builtin online update check. Mainly for use by *nix distros whose Sigil packages can't make use of the new release downloads anyway.
 
--DINSTALL_BUNDLED_DICTS=(0|1) Default is 1. Can be used to enable/disable the installation of the bundled Hunspell dictionaries used for spellchecking. If this is disabled (-DINSTALL_BUNDLED_DICTS=0), then the standard system spell-check dictionary location of /usr/share/hunspell will be searched for eligible dictionaries. If additional system paths need to be searched for dictionaries, they can be added using the -DEXTRA_DICT_DIRS option. Setting this to 0 will require that you manually install the language-specific hunspell dictionaries (from your software repos) yourself (e.g. `sudo apt-get install hunspell-en-us`).
+-DINSTALL_BUNDLED_DICTS=(0|1) Default is 1. Can be used to enable/disable the installation of the bundled Hunspell dictionaries used for spellchecking. If this is disabled (-DINSTALL_BUNDLED_DICTS=0), then the standard system spell-check dictionary location of /usr/share/hunspell will be searched for eligible dictionaries. If additional system paths need to be searched for dictionaries, they can be added using the -DEXTRA_DICT_DIRS option. Setting this to 0 will require that you manually install the language-specific hunspell dictionaries (from your software repos) yourself (e.g. `sudo pacman -S hunspell-en-us`).
 
 -DEXTRA_DICT_DIRS=`<path1>`:`<path2>` Path(s) that should be searched for eligible spellcheck dictionaries (in addition to /usr/share/hunspell). Multiple paths should be separated by colons. This option is only relevant if -DINSTALL_BUNDLED_DICTS=0 is also specified.
 
 -DMATHJAX_DIR=`<path>` **Only for Sigil 1.9.10 and earlier!** If you would like use your system's MathJax implementation instead of the one that comes bundled with Sigil, use this cmake directive when first configuring. A minimum of MathJax v2.7.0 is required to work with Sigil. NOTE: if -DMATHJAX_DIR=`<path>` is used, Sigil will install a config script to `<path>`/config/local. This file is required for Sigil's Preview to be able properly render MathML. This feature was added between Sigil 0.9.12 and 0.9.13.
 
--DMATHJAX3_DIR=`<path>` **Only for Sigil 1.9.20 and Later!** If you would like use your system's MathJax implementation instead of the one that comes bundled with Sigil, use this cmake directive when first configuring. A minimum of MathJax v3.2.2 is required to work with Sigil. MathJax 3.2.2+ is required for Sigil's Preview to be able properly render MathML starting with Sigil v1.9.20.
+-DMATHJAX3_DIR=`<path>` **Only for Sigil 1.9.20 and Later!** If you would like use your system's MathJax implementation instead of the one that comes bundled with Sigil, use this cmake directive when first configuring. A minimum of MathJax v3.2.2 is required to work with Sigil. MathJax 3.2.2+ is required for Sigil's Preview to be able properly render MathML starting with Sigil v1.9.20. Ensure your system MathJax meets this minimum version requirement before using usinf this CMAKE define.
 
 -DINSTALL_HICOLOR_ICONS=(0|1) Install various-sized Sigil application icons to the typical hicolor theme directories (`<INSTALL_PREFIX>/share/icons/hicolor`). The default is 0, which installs a single icon to the `<INSTALL_PREFIX>/share/pixmap` folder.
 

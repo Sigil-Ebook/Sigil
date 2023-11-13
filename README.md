@@ -42,14 +42,14 @@ Starting with Sigil 2.0.2, the default cmake configuration is to build with Qt6.
 
 For newer Linux systems like Ubuntu 23.04 (and its derivitives), or Arch Linux, or Debian Unstable, you should be able to compile Sigil using repo-provided dependencies. Instructions for doing so can be found in:
 
-> [docs/Building_on_Linux_with_Qt6.md](./docs/Building_on_Linux_with_Qt6.md) ([or .html](./docs/Building_on_Linux_with_Qt6.html))
+> [docs/Building_on_Linux.md](./docs/Building_on_Linux.md)
 
 The Qt6 build documentation is Arch-centric (as that is the distro I've built Sigil on for quite a few years now). Apologies to other distros. The slight is not intentional. Time has simply moved on, and the dependency package naming conventions are no longer familiar to me. I'd be happy to host community-supplied build instructions for other distros.
 
 For older Linux systems whose software repositories do not provide Qt6.2.3 (or higher), the
 detailed instructions for building/installing Sigil with Qt5 can be found in:
 
-> [docs/Building_on_Linux.md](./docs/Building_on_Linux.md) ([or .html](./docs/Building_on_Linux.html))
+> [docs/Building_on_Linux_older.md](./docs/Building_on_Linux.md)
 
 An up-to-date version of Sigil is available via flatpak on Flathub. So if your distro can use Flatpak, you can always use [Sigil that way](https://flathub.org/apps/details/com.sigil_ebook.Sigil) if your distro's Sigil package seems to be lagging too far behind.
 
