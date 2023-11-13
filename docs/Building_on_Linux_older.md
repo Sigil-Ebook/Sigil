@@ -85,13 +85,13 @@ That's all the Python 3.5 (or higher) stuff you will need to get Sigil "up and r
 + python3-pyqt5.qtwebengine
 + python3-html5lib
 + python3-regex
-+ python3-pillow (could be python3-pil)
++ python3-pil.imagetk
 + python3-cssselect
 + python3-chardet
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install python3-tk python3-pyqt5 python3-pyqt5.qtwebengine python3-html5lib python3-regex python3-pillow python3-cssselect python3-chardet`
+`sudo apt-get install python3-tk python3-pyqt5 python3-pyqt5.qtwebengine python3-html5lib python3-regex python3-pil.imagetk python3-cssselect python3-chardet`
 
 If you run into any that won't install with `sudo apt-get install` you can still use pip3 to install them.
 
