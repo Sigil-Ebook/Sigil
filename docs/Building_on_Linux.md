@@ -1,11 +1,12 @@
 # <center>Building Sigil on Linux with Qt6</center>
 ## <center>Systems like Arch (and its derivatives) or newer</center>
+## <center>Systems like Debian Trixie or Ubuntu 23.04 or newer</center>
 
 If you're looking for instructions on how to build on systems that don't provide Qt6, you should look at the [Building_on_Linux_older](./Building_on_Linux_older.md) documentation.
 
 ## General Overview
 
-The requirements for building Sigil on newer Linux systems Arch Linux, should be able to be installed entirely from your system's software repositories.
+The requirements for building Sigil on newer Linux systems Arch Linux or Ubuntu 23.04, should be able to be installed entirely from your system's software repositories.
 
 To build Sigil on newer Linux systems, you need to get/do the following things:
 
@@ -146,14 +147,14 @@ On Debian-based systems, these should all be able to be installed with `sudo apt
 + python3-cssselect
 + python3-chardet
 
-The folllowing command can be copied and pasted for convenience on Debian-based systems:
+The following command can be copied and pasted for convenience on Debian-based systems:
 
-`sudo apt-get install python3-tk python3-html5lib python3-regex python3-pillow python3-cssselect python3-chardet`
+`sudo apt-get install python3-pil.imagetk python3-html5lib python3-regex python3-pillow python3-cssselect python3-chardet`
 
 The PySide6 requirement for many 3rd-party plugins is not available via distro-maintained packages on Debian-based systems at the time of this writing).
-It can installed via PyPi.org if your distro still allows using pip to install packages into the system-maintained Python environment. You may need to learn how to work with (or get around) the newer PEP 668 rules that distros are adopting.  We do not have the time or inclination to guide people in this regard.
+It can installed via PyPi.org with pip (or pip3) if your distro still allows using pip to install packages into the system-maintained Python environment. You may need to learn how to work with (or get around) the newer PEP 668 rules that distros are adopting.  We do not have the time or inclination to guide people in this regard.
 
-If you run into any that won't install with `sudo pacman -S` you may still use pip to install them.
+If you run into any that won't install with `sudo pacman -S` (or `sudo apt-get install`) you may be able to use pip to install them.
 
 ## <a name="sigil"/>Getting Sigil's Source Code
 
