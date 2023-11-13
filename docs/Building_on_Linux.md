@@ -176,9 +176,10 @@ So first off, open a terminal and cd into your sigil-build directory
 
 >`cd ~/sigil-build`
 
-Then issue the following command to configure Sigil for building:
+Then issue the following command to configure Sigil:
 
-> `/usr/lib/qt6/bin/qt-cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ../sigil-src`
+> `cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ../sigil-src`
+
 
 If there are no errors, you're ready to build.
 
