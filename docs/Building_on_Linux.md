@@ -68,7 +68,7 @@ On Debian-based systems `sudo apt-get install` the following packages.
 + qt6-tools-dev
 + qt6-tools-dev-tools
 + qt6-5compat-dev
-+ qt6-svg (needed for runtime support for icons)
++ libqt6svg6 (needed for runtime support for icons)
 
 The folllowing command can be copied and pasted for convenience on Debian-based systems:
 
