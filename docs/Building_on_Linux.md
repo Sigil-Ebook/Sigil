@@ -72,7 +72,7 @@ On Debian-based systems `sudo apt-get install` the following packages.
 
 The folllowing command can be copied and pasted for convenience on Debian-based systems:
 
-`sudo apt-get install qt6-webengine-dev-tools qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools qt6-5compat-dev qt6-svg`
+`sudo apt-get install qt6-webengine-dev-tools qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools qt6-5compat-dev libqt6svg6`
 
 ## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
 Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them on Arch, `sudo pacman -S` the following packages.
