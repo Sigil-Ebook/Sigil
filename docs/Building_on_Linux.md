@@ -1,6 +1,6 @@
 # <center>Building Sigil on Linux with Qt6</center>
 ## <center>Systems like Arch (and its derivatives) or newer</center>
-## <center>Systems like Debian Trixie or Ubuntu 23.04 or newer</center>
+## <center>Systems like Debian 12 or Ubuntu 23.04 or newer</center>
 
 If you're looking for instructions on how to build on systems that don't provide Qt6, you should look at the [Building_on_Linux_older](./Building_on_Linux_older.md) documentation.
 
