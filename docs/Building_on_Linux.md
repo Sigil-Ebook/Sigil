@@ -103,7 +103,7 @@ On Arch `sudo pacman -S` (at a minimum) the following packages:
 + python
 + python-lxml
 + python-six
-+ python-css-parser (you may have to use `pip install css-parser` if your distro has no package for this)
++ python-css-parser
 + python-dulwich (dulwich requires that the urllib3 and certifi modules be installed as well)
 
 The following command can be copied and pasted for convenience on Arch-based systems:
@@ -116,7 +116,7 @@ On Debian 'sudo apt-get install` the following packages:
 + python3-pip
 + python3-lxml
 + python3-six
-+ python3-css-parser (may have to use `pip3 install css-parser` if your distro has no package for this
++ python3-css-parser
 + python3-dulwich (dulwich requires that the urllib3 and certifi modules be installed as well)
 
 The following command can be copied and pasted for convenience on Debian-based systems:
