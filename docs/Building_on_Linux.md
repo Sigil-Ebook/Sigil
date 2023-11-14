@@ -63,7 +63,7 @@ The folllowing command can be copied and pasted for convenience on Arch-based sy
 
 On Debian-based systems `sudo apt-get install` the following packages.
 
-+ qt6-webengine-dev-tools
++ qt6-webengine-dev
 + qt6-base-dev-tools
 + qt6-tools-dev
 + qt6-tools-dev-tools
