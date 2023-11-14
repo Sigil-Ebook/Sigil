@@ -6,15 +6,15 @@ If you're looking for instructions on how to build on systems that don't provide
 
 ## General Overview
 
-The requirements for building Sigil on newer Linux systems Arch Linux or Ubuntu 23.04, should be able to be installed entirely from your system's software repositories.
+The requirements for building Sigil on newer Linux systems Arch Linux, Debian 12, or Ubuntu 23.04, should be able to be installed entirely from your system's software repositories.
 
 To build Sigil on newer Linux systems, you need to get/do the following things:
 
 1. [A Linux build-toolchain](#gcc) with a C++17 capable compiler (gcc 7.x.x or higher recommended)
 2. [CMake](#cmake) (3.16 or higher)
-3. [Qt6.2.2 or higher](#qt6) (with QtWebEngine)
+3. [Qt6.2.2 or higher](#qt6) 6.4+ is more realistic (with QtWebEngine)
 4. [3rd-party dependencies](#thirdparty) (an optional step)
-5. [Python 3.6](#python) (or higher)
+5. [Python 3.6](#python) (3.9+ is more realistic)
 6. [The Sigil source code](#sigil) (downloaded tarball/zipfile or a git clone)
 7. [Build/Install Sigil](#build)
 8. [Test Sigil's Plugin Framework](#testing)
@@ -28,7 +28,7 @@ While users of Debian-based distros should use the apt-get commands
 
  >`sudo apt-get install`
 
-from here on out. You'll have to forgive me for not knowing all the yum/emerge equivalents. It's not a slight–I can assure you.
+You'll have to forgive me for not knowing all the yum/emerge equivalents. It's not a slight–I can assure you.
 
 ## <a name="gcc"/>Linux Build Environment
 On Arch-type systems you can use:
@@ -48,7 +48,7 @@ and `sudo apt-get install cmake` will get you what you need on Debian-type syste
 
 
 ## <a name="qt6"/>Getting Qt6
-**If your repos don't provide at least Qt6.2.2, use the [Building_on_Linux_older](./Building_on_Linux_older.md) documentation for Qt5.**
+**If your repos don't provide at least Qt6.2.2 (and 6.4+ is more realistic) use the [Building_on_Linux_older](./Building_on_Linux_older.md) documentation for Qt5.**
 
 To get Sigil's Qt6 requirements on Arch, `sudo pacman -S` the following packages:
 
@@ -57,7 +57,7 @@ To get Sigil's Qt6 requirements on Arch, `sudo pacman -S` the following packages
 + qt6-tools
 + qt6-5compat
 
-The folllowing command can be copied and pasted for convenience on Arch-based systems:
+The following command can be copied and pasted for convenience on Arch-based systems:
 
 `sudo pacman -S qt6-svg qt6-webengine qt6-tools qt6-5compat`
 
@@ -70,7 +70,7 @@ On Debian-based systems `sudo apt-get install` the following packages.
 + qt6-5compat-dev
 + libqt6svg6 (needed for runtime support for icons)
 
-The folllowing command can be copied and pasted for convenience on Debian-based systems:
+The following command can be copied and pasted for convenience on Debian-based systems:
 
 `sudo apt-get install qt6-webengine-dev-tools qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools qt6-5compat-dev libqt6svg6`
 
@@ -81,7 +81,7 @@ Sigil will provide the extra third-party libs if you do nothing, but most (if no
 + pcre2
 + minizip
 
-The folllowing command can be copied and pasted for convenience on Arch-based systems:
+The following command can be copied and pasted for convenience on Arch-based systems:
 
 `sudo pacman -S hunspell pcre2 minizip`
 
@@ -91,13 +91,13 @@ If you want to make use of them on Debian, `sudo apt-get install` the following 
 + libpcre2-dev
 + libminizip-dev
 
-The folllowing command can be copied and pasted for convenience on Debian-based systems:
+The following command can be copied and pasted for convenience on Debian-based systems:
 
 `sudo apt-get install libhunspell-dev libpcre2-dev libminizip-dev`
 
 If you do install them, remember to use use the -DUSE_SYSTEM_LIBS=1 option when configuring Sigil with cmake later on. Otherwise, the build process will ignore them and provide/build its own.
 
-## <a name="python"/>Getting Python 3.6 (or higher)
+## <a name="python"/>Getting Python 3.6 (3.9+ is more realistic)
 On Arch `sudo pacman -S` (at a minimum) the following packages:
 
 + python
@@ -106,7 +106,7 @@ On Arch `sudo pacman -S` (at a minimum) the following packages:
 + python-css-parser (you may have to use `pip install css-parser` if your distro has no package for this)
 + python-dulwich (dulwich requires that the urllib3 and certifi modules be installed as well)
 
-The folllowing command can be copied and pasted for convenience on Arch-based systems:
+The following command can be copied and pasted for convenience on Arch-based systems:
 
 `sudo pacman -S python python-lxml python-six python-css-parser python-dulwich`
 
@@ -119,11 +119,11 @@ On Debian 'sudo apt-get install` the following packages:
 + python3-css-parser (may have to use `pip3 install css-parser` if your distro has no package for this
 + python3-dulwich (dulwich requires that the urllib3 and certifi modules be installed as well)
 
-The folllowing command can be copied and pasted for convenience on Debian-based systems:
+The following command can be copied and pasted for convenience on Debian-based systems:
 
 `sudo apt-get install python3-dev python3-pip python3-lxml python3-six python3-css-parser python3-dulwich`
 
-That's all the Python 3.6 (or higher) stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X.
+That's all the Python stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X.
 
 These should all be able to be installed with `sudo pacman -S` on Arch-based systems.
 
@@ -140,6 +140,7 @@ The following command can be copied and pasted for convenience on Arch:
 `sudo pacman -S tk pyside6 python-html5lib python-regex python-pillow python-cssselect python-chardet`
 
 On Debian-based systems, these should all be able to be installed with `sudo apt-get install`.
+
 + python3-tk
 + python3-html5lib
 + python3-regex
