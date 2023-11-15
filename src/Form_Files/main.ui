@@ -383,13 +383,13 @@
    </widget>
    <widget class="QMenu" name="menuPlugins">
     <property name="title">
-     <string>Plugins</string>
+     <string>&amp;Plugins</string>
     </property>
     <addaction name="actionManage_Plugins"/>
    </widget>
    <widget class="QMenu" name="menuCheckpoints">
     <property name="title">
-     <string>Checkpoints</string>
+     <string>Chec&amp;kpoints</string>
     </property>
     <addaction name="actionCommit"/>
     <addaction name="actionCheckout"/>

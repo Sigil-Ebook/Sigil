@@ -1,4 +1,8 @@
-pre-2.0.2
+pre-2.x.x
+    New Features
+      - assign menu accelerators P - &Plugins, and K - Chec&kpoints (thank you BeckyEbook)
+
+Sigil-2.0.2
     Bug Fixes
       - fix incorrect clip tool button insertion point due to null activeWindow value
       - fix Windows multiple screen issues when not properly identified (Qt6.5.2 patch fix)
