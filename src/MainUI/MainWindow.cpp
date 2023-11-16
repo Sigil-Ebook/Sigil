@@ -6792,7 +6792,7 @@ void MainWindow::FocusOnPreview()
 {
     FocusOn(m_PreviewWindow);
     m_PreviewWindow->SetFocusOnPreview();
-    ShowMessageOnStatusBar(tr("Focus changed to Preview window"));
+    ShowMessageOnStatusBar(tr("Focus changed to Preview window."));
 }
 
 void MainWindow::FocusOnTOC()
