@@ -87,6 +87,7 @@ public slots:
     void PrintRendered();
     void PrintStarted();
     void PrintEnded();
+    void SetFocusOnPreview();
     
 signals:
     void Shown();

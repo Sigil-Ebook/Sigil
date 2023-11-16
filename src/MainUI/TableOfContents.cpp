@@ -76,6 +76,11 @@ void TableOfContents::showEvent(QShowEvent *event)
     raise();
 }
 
+void TableOfContents::SetFocusOnTOC()
+{
+  if (m_TreeView) m_TreeView->setFocus();
+}
+
 void TableOfContents::SetBook(QSharedPointer<Book> book)
 {
     m_Book = book;

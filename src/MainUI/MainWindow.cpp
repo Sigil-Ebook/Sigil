@@ -5921,7 +5921,12 @@ void MainWindow::ExtendUI()
     m_TableOfContents->toggleViewAction()->setShortcut(QKeySequence(Qt::ALT | Qt::Key_F3));
     ui.menuView->addAction(m_ValidationResultsView->toggleViewAction());
     m_ValidationResultsView->toggleViewAction()->setShortcut(QKeySequence(Qt::ALT | Qt::Key_F2));
-
+    ui.menuView->addAction(ui.actionFocusBookBrowser);
+    ui.menuView->addAction(ui.actionFocusCodeView);
+    ui.menuView->addAction(ui.actionFocusPreview);
+    ui.menuView->addAction(ui.actionFocusTOC);
+    ui.menuView->addAction(ui.actionFocusClips);
+    
     // Create the view menu to hide and show toolbars.
     ui.menuToolbars->addAction(ui.toolBarNewActions->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarFileActions->toggleViewAction());
@@ -6162,6 +6167,13 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionPlugin9,  "MainWindow.Plugins.RunPlugin9");
     sm->registerAction(this, ui.actionPlugin10, "MainWindow.Plugins.RunPlugin10");
 
+    // for keyboard focus navigation
+    sm->registerAction(this, ui.actionFocusCodeView,    "MainWindow.FocusOnCodeView");
+    sm->registerAction(this, ui.actionFocusBookBrowser, "MainWindow.FocusOnBookBrowser");
+    sm->registerAction(this, ui.actionFocusPreview,     "MainWindow.FocusOnPreview");
+    sm->registerAction(this, ui.actionFocusTOC,         "MainWindow.FocusOnTOC");
+    sm->registerAction(this, ui.actionFocusClips,       "MainWindow.FocusOnClips");
+    
     // Headings QToolButton
     ui.tbHeadings->setPopupMode(QToolButton::InstantPopup);
 
@@ -6470,6 +6482,12 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionGoBackFromLinkOrStyle,  SIGNAL(triggered()), this,   SLOT(GoBackFromLinkOrStyle()));
     connect(ui.actionSplitOnSGFSectionMarkers, SIGNAL(triggered()),  this,   SLOT(SplitOnSGFSectionMarkers()));
     connect(ui.actionPasteClipboardHistory,    SIGNAL(triggered()),  this,   SLOT(ShowPasteClipboardHistoryDialog()));
+    // Keyboard Focus Navigation
+    connect(ui.actionFocusCodeView,    SIGNAL(triggered()), this, SLOT(FocusOnCodeView()));
+    connect(ui.actionFocusBookBrowser, SIGNAL(triggered()), this, SLOT(FocusOnBookBrowser()));
+    connect(ui.actionFocusPreview,     SIGNAL(triggered()), this, SLOT(FocusOnPreview()));
+    connect(ui.actionFocusTOC,         SIGNAL(triggered()), this, SLOT(FocusOnTOC()));
+    connect(ui.actionFocusClips,       SIGNAL(triggered()), this, SLOT(FocusOnClips()));
 
     // Clips
     foreach(QAction* clipaction, m_clactions) {
@@ -6572,6 +6590,7 @@ void MainWindow::ConnectSignalsToSlots()
     // Plugins
     PluginDB *pdb = PluginDB::instance();
     connect(pdb, SIGNAL(plugins_changed()), this, SLOT(loadPluginsMenu()));
+
 }
 
 void MainWindow::MakeTabConnections(ContentTab *tab)
@@ -6750,4 +6769,51 @@ QList<SearchEditorModel::searchEntry*> MainWindow::SearchEditorGetCurrentEntries
 void MainWindow::SearchEditorRecordEntryAsCompleted(SearchEditorModel::searchEntry* entry)
 {
     m_SearchEditor->RecordEntryAsCompleted(entry);
+}
+
+void MainWindow::FocusOnCodeView()
+{
+    FocusOn(m_TabManager);
+    ContentTab * tab = GetCurrentContentTab();
+    if (tab) {
+        tab->setFocus();
+    }
+    ShowMessageOnStatusBar(tr("Focus changed to CodeView window."));
+}
+
+void MainWindow::FocusOnBookBrowser()
+{
+    FocusOn(m_BookBrowser);
+    m_BookBrowser->FocusOnBookBrowser();
+    ShowMessageOnStatusBar(tr("Focus changed to BookBrowser window."));
+}
+
+void MainWindow::FocusOnPreview()
+{
+    FocusOn(m_PreviewWindow);
+    m_PreviewWindow->SetFocusOnPreview();
+    ShowMessageOnStatusBar(tr("Focus changed to Preview window"));
+}
+
+void MainWindow::FocusOnTOC()
+{
+    FocusOn(m_TableOfContents);
+    m_TableOfContents->SetFocusOnTOC();
+    ShowMessageOnStatusBar(tr("Focus changed to Table Of Contents window."));
+}
+
+void MainWindow::FocusOnClips()
+{
+    FocusOn(m_Clips);
+    m_Clips->SetFocusOnClips();
+    ShowMessageOnStatusBar(tr("Focus changed to Clips window."));
+}
+
+void MainWindow::FocusOn(QWidget* dw)
+{
+    if (dw) {
+        dw->show();
+        dw->activateWindow();
+        dw->setFocus(Qt::ShortcutFocusReason);
+    }
 }

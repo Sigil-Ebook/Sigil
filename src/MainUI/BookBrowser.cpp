@@ -105,6 +105,7 @@ BookBrowser::BookBrowser(QWidget *parent)
     m_OpenWithContextMenu->addAction(m_OpenWithEditor3);
     m_OpenWithContextMenu->addAction(m_OpenWithEditor4);
     m_OpenWithContextMenu->addAction(m_OpenWith);
+    setFocusPolicy(Qt::StrongFocus);
 }
 
 

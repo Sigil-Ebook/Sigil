@@ -81,6 +81,8 @@ public slots:
 
     TOCModel::TOCEntry GetRootEntry();
 
+    void SetFocusOnTOC();
+
 private slots:
 
     /**

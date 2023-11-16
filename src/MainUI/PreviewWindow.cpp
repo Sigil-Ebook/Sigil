@@ -217,6 +217,11 @@ bool PreviewWindow::HasFocus()
     return m_Preview->hasFocus();
 }
 
+void PreviewWindow::SetFocusOnPreview()
+{
+    if (m_Preview) m_Preview->setFocus();
+}
+
 float PreviewWindow::GetZoomFactor()
 {
     return m_Preview->GetZoomFactor();

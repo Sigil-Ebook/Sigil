@@ -27,8 +27,8 @@
 #ifndef SIGIL_H
 #define SIGIL_H
 
-#include <QtCore/QSharedPointer>
-#include <QtWidgets/QMainWindow>
+#include <QSharedPointer>
+#include <QMainWindow>
 
 #include "ui_main.h"
 #include "BookManipulation/Book.h"
@@ -72,6 +72,7 @@ class ClipsWindow;
 class SelectCharacter;
 class ViewImage;
 class FlowTab;
+class QWidget;
 
 
 /**
@@ -288,6 +289,12 @@ public slots:
 
     void CreateEpubLayout();
 
+    void FocusOnCodeView();
+    void FocusOnBookBrowser();
+    void FocusOnPreview();
+    void FocusOnTOC();
+    void FocusOnClips();
+
 signals:
     void SettingsChanged();
 
@@ -445,6 +452,11 @@ private slots:
 
     void ClipEditorDialog(ClipEditorModel::clipEntry *clip_entry = NULL);
 
+    /**
+     * Allow Keyboard Focus Navigation to main QDockWidgets
+     */
+    void FocusOn(QWidget* dw=nullptr);
+  
     /**
      * Implements User Guide action functionality.
      */

@@ -2966,6 +2966,31 @@
     <string>Show Log of Checkpoints</string>
    </property>
   </action>
+  <action name="actionFocusCodeView">
+   <property name="text">
+    <string>Focus on CodeView</string>
+   </property>
+  </action>
+  <action name="actionFocusBookBrowser">
+   <property name="text">
+    <string>Focus on BookBrowser</string>
+   </property>
+  </action>
+  <action name="actionFocusPreview">
+   <property name="text">
+    <string>Focus on Preview</string>
+   </property>
+  </action>
+  <action name="actionFocusTOC">
+   <property name="text">
+    <string>Focus on Table of Contents</string>
+   </property>
+  </action>
+  <action name="actionFocusClips">
+   <property name="text">
+    <string>Focus on Clips Window</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../Resource_Files/main/main.qrc"/>

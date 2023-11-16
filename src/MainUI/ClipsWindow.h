@@ -48,6 +48,9 @@ public:
      */
     ClipsWindow(QWidget *parent = 0);
 
+public slots:
+    void SetFocusOnClips();
+
 private slots:
 
     /**
