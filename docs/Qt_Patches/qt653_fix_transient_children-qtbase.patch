@@ -1,0 +1,108 @@
+From 614e0f1daa9da2c285e2fd3868f7ebfa9837164c Mon Sep 17 00:00:00 2001
+From: Timothée Keller <timothee.keller@qt.io>
+Date: Tue, 10 Oct 2023 07:57:09 +0000
+Subject: [PATCH] Revert "Windows QPA: Move transient children with a window move"
+
+This reverts commit 530d092eae0579bbb88e95f853715cac214da636.
+
+Reason for revert: Moving transient children as a whole is too broad, and forces unrelated windows to have their position completely dependent on a transient parent.
+
+Fixes: QTBUG-117779
+Pick-to: 6.6 6.5
+Change-Id: I01312e26e95c8144c392eca33aec41f54aaa40b0
+Reviewed-by: Tor Arne Vestbø <tor.arne.vestbo@qt.io>
+---
+
+diff --git a/src/plugins/platforms/windows/qwindowswindow.cpp b/src/plugins/platforms/windows/qwindowswindow.cpp
+index 295ee93..b095b23 100644
+--- a/src/plugins/platforms/windows/qwindowswindow.cpp
++++ b/src/plugins/platforms/windows/qwindowswindow.cpp
+@@ -944,7 +944,6 @@
+ 
+     result.geometry = obtainedGeometry;
+     result.restoreGeometry = frameGeometry(result.hwnd, topLevel);
+-    result.preMoveGeometry = obtainedGeometry;
+     result.fullFrameMargins = context->margins;
+     result.embedded = embedded;
+     result.hasFrame = hasFrame;
+@@ -2161,56 +2160,11 @@
+     }
+ }
+ 
+-QWindow *QWindowsWindow::topTransientOf(QWindow *w)
+-{
+-    while (QWindow *transientParent = w->transientParent())
+-        w = transientParent;
+-    return w;
+-}
+-
+-void QWindowsWindow::moveTransientChildren()
+-{
+-    // We need the topmost Transient parent since it is the window that will initiate
+-    // the chain of moves, and is the only one with an already up to date DPI, which we
+-    // need for the scaling.
+-    const QWindowsWindow *topTransient = QWindowsWindow::windowsWindowOf(topTransientOf(window()));
+-
+-    const QWindow *currentWindow = window();
+-    const QWindowList allWindows = QGuiApplication::allWindows();
+-    for (QWindow *w : allWindows) {
+-        if (w->transientParent() == currentWindow && w != currentWindow && w->isVisible()) {
+-            QWindowsWindow *transientChild = QWindowsWindow::windowsWindowOf(w);
+-
+-            RECT oldChildPos{};
+-            GetWindowRect(transientChild->handle(), &oldChildPos);
+-            const RECT oldParentPos = RECTfromQRect(preMoveRect());
+-
+-            const qreal scale =
+-                    QHighDpiScaling::roundScaleFactor(qreal(topTransient->savedDpi()) / QWindowsScreen::baseDpi) /
+-                    QHighDpiScaling::roundScaleFactor(qreal(transientChild->savedDpi()) / QWindowsScreen::baseDpi);
+-
+-            const RECT offset =
+-                    RECTfromQRect(QRect(scale * (oldChildPos.left - oldParentPos.left),
+-                                        scale * (oldChildPos.top - oldParentPos.top), 0, 0));
+-            const RECT newParentPos = RECTfromQRect(m_data.geometry);
+-            const RECT newChildPos { newParentPos.left + offset.left,
+-                                     newParentPos.top + offset.top,
+-                                     transientChild->geometry().width(),
+-                                     transientChild->geometry().height() };
+-
+-            SetWindowPos(transientChild->handle(), nullptr, newChildPos.left, newChildPos.top,
+-                         newChildPos.right, newChildPos.bottom, SWP_NOZORDER | SWP_NOACTIVATE);
+-        }
+-    }
+-}
+-
+ void QWindowsWindow::handleMoved()
+ {
+-    setPreMoveRect(geometry());
+     // Minimize/Set parent can send nonsensical move events.
+     if (!IsIconic(m_data.hwnd) && !testFlag(WithinSetParent))
+         handleGeometryChange();
+-    moveTransientChildren();
+ }
+ 
+ void QWindowsWindow::handleResized(int wParam, LPARAM lParam)
+diff --git a/src/plugins/platforms/windows/qwindowswindow.h b/src/plugins/platforms/windows/qwindowswindow.h
+index bd936ec..0d393ec 100644
+--- a/src/plugins/platforms/windows/qwindowswindow.h
++++ b/src/plugins/platforms/windows/qwindowswindow.h
+@@ -78,7 +78,6 @@
+ {
+     Qt::WindowFlags flags;
+     QRect geometry;
+-    QRect preMoveGeometry;
+     QRect restoreGeometry;
+     QMargins fullFrameMargins; // Do not use directly for windows, see FrameDirty.
+     QMargins customMargins;    // User-defined, additional frame for NCCALCSIZE
+@@ -223,11 +222,6 @@
+     QRect restoreGeometry() const { return m_data.restoreGeometry; }
+     void updateRestoreGeometry();
+ 
+-    static QWindow *topTransientOf(QWindow *w);
+-    QRect preMoveRect() const { return m_data.preMoveGeometry; }
+-    void setPreMoveRect(const QRect &rect) { m_data.preMoveGeometry = rect; }
+-    void moveTransientChildren();
+-
+     void setVisible(bool visible) override;
+     bool isVisible() const;
+     bool isExposed() const override { return testFlag(Exposed); }
