@@ -6773,9 +6773,11 @@ void MainWindow::SearchEditorRecordEntryAsCompleted(SearchEditorModel::searchEnt
 
 void MainWindow::FocusOnCodeView()
 {
+    if (!m_TabManager) return;
     FocusOn(m_TabManager);
     ContentTab * tab = GetCurrentContentTab();
     if (tab) {
+        tab->raise();
         tab->setFocus();
     }
     ShowMessageOnStatusBar(tr("Focus changed to CodeView window."));
@@ -6783,28 +6785,36 @@ void MainWindow::FocusOnCodeView()
 
 void MainWindow::FocusOnBookBrowser()
 {
+    if (!m_BookBrowser) return;
     FocusOn(m_BookBrowser);
+    m_BookBrowser->raise();
     m_BookBrowser->FocusOnBookBrowser();
     ShowMessageOnStatusBar(tr("Focus changed to BookBrowser window."));
 }
 
 void MainWindow::FocusOnPreview()
 {
+    if (!m_PreviewWindow) return;
     FocusOn(m_PreviewWindow);
+    m_PreviewWindow->raise();
     m_PreviewWindow->SetFocusOnPreview();
     ShowMessageOnStatusBar(tr("Focus changed to Preview window."));
 }
 
 void MainWindow::FocusOnTOC()
 {
+    if (!m_TableOfContents) return;
     FocusOn(m_TableOfContents);
+    m_TableOfContents->raise();
     m_TableOfContents->SetFocusOnTOC();
     ShowMessageOnStatusBar(tr("Focus changed to Table Of Contents window."));
 }
 
 void MainWindow::FocusOnClips()
 {
+    if (!m_Clips) return;
     FocusOn(m_Clips);
+    m_Clips->raise();
     m_Clips->SetFocusOnClips();
     ShowMessageOnStatusBar(tr("Focus changed to Clips window."));
 }
