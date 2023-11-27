@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020 Kevin B Hendricks, Stratford, Ontario Canada 
+**  Copyright (C) 2016-2023 Kevin B Hendricks, Stratford, Ontario Canada 
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -66,6 +66,7 @@ TableOfContents::TableOfContents(QWidget *parent)
     m_RefreshTimer.setSingleShot(true);
     SetupTreeView();
     connect(m_TreeView, SIGNAL(clicked(const QModelIndex &)), this, SLOT(ItemClickedHandler(const QModelIndex &)));
+    connect(m_TreeView, SIGNAL(activated(const QModelIndex &)), this, SLOT(ItemClickedHandler(const QModelIndex &)));
     connect(&m_RefreshTimer, SIGNAL(timeout()), this, SLOT(Refresh()));
     connect(m_TOCModel, SIGNAL(RefreshDone()), m_TreeView, SLOT(expandAll()));
 }
