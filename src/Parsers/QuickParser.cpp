@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2020-2023 Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -28,6 +28,8 @@
 #include "Parsers/TagAtts.h"
 #include "Misc/Utility.h"
 #include "Parsers/QuickParser.h"
+
+const QString WHITESPACE_CHARS=" \v\t\n\r\f";
 
 QuickParser::QuickParser(const QString &source, QString default_lang)
     : m_source(source),
@@ -261,7 +263,7 @@ int QuickParser::findTarget(const QString &tgt, int p, bool after)
 
 int QuickParser::skipAnyBlanks(const QStringRef &tgt, int p)
 {
-    while((p < tgt.length()) && (tgt.at(p) == ' ')) p++;
+    while((p < tgt.length()) && (WHITESPACE_CHARS.contains(tgt.at(p)))) p++;
     return p;
 }
 
