@@ -23,6 +23,8 @@
 #include "Parsers/OPFParser.h"
 #include <QDebug>
 
+const QString WHITESPACE_CHARS=" \t\n\r";  // valid in pure xml
+
 // Note: all hrefs/urls should always be kept in URLEncoded form
 // as decoding urls before splitting into component parts can lead
 // to data loss (paths can legally contain url delimiters when decoded - such as #)
@@ -358,7 +360,7 @@ int BaseParser::findTarget(const QString &tgt, int p, bool after)
 
 int BaseParser::skipAnyBlanks(const QStringRef &tgt, int p)
 {
-    while((p < tgt.length()) && (tgt.at(p) == ' ')) p++;
+    while((p < tgt.length()) && (WHITESPACE_CHARS.contains(tgt.at(p)))) p++;
     return p;
 }
 
