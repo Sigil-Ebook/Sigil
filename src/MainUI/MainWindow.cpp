@@ -2980,12 +2980,17 @@ bool MainWindow::DeleteUnusedStyles(bool in_automate)
         return false;
     }
 
+    // get list of any media overlay active class selectors from the opf
+    QStringList activeclassselectors = m_Book->GetOPF()->GetMediaOverlayActiveClassSelectors();
+    
     // This one handles all selector types
     QList<BookReports::StyleData *> css_selector_usage = BookReports::GetAllCSSSelectorsUsed(m_Book, true);
     QList<BookReports::StyleData *> css_selectors_to_delete;
     foreach(BookReports::StyleData *selector, css_selector_usage) {
         if (selector->html_filename.isEmpty()) {
-            css_selectors_to_delete.append(selector);
+            if (!activeclassselectors.contains(selector->css_selector_text)) {
+                css_selectors_to_delete.append(selector);
+            }
         }
     }
 

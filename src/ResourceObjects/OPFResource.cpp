@@ -57,6 +57,8 @@
     #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
 #endif
 
+static const QString MEDIA_PLAYBACK_ACTIVE_CLASS = "media:playback-active-class";
+static const QString MEDIA_ACTIVE_CLASS          = "media:active-class";
 static const QString SIGIL_VERSION_META_NAME  = "Sigil version";
 static const QString OPF_XML_NAMESPACE        = "http://www.idpf.org/2007/opf";
 static const QString FALLBACK_MIMETYPE        = "text/plain";
@@ -560,6 +562,30 @@ QStringList OPFResource::GetSpineOrderBookPaths() const
     }
     return book_paths_in_reading_order;
 }
+
+
+QStringList OPFResource::GetMediaOverlayActiveClassSelectors() const
+{
+    QReadLocker locker(&GetLock());
+    QStringList activeclassselectors;
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    for (int i=0; i < p.m_metadata.count(); ++i) {
+        if (p.m_metadata.at(i).m_name == "meta") {
+            MetaEntry me = p.m_metadata.at(i);
+            QString propval = me.m_atts.value("property", "");
+            if (propval == MEDIA_ACTIVE_CLASS) {
+                activeclassselectors << "." + me.m_content;
+            }
+            if (propval == MEDIA_PLAYBACK_ACTIVE_CLASS) {
+                activeclassselectors << "." + me.m_content;
+            }
+        }
+    }
+    return activeclassselectors;
+}
+
 
 QString OPFResource::GetPrimaryBookTitle() const
 {

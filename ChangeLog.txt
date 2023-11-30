@@ -3,9 +3,12 @@ pre-2.x.x
       - assign menu accelerators P - &Plugins, and K - Chec&kpoints (thank you BeckyEbook)
       - add ability to change keyboard focus using keyboard shortcuts or menus
           to BookBrowser, Preview, CodeView, ClipsWindow, and TableOfContents Windows
+      - preserve Media Overlay Active Classes when deleting unused classes
+
     Bug Fixes
       - patch Qt6.5.3 to avoid transient child window resize bug on Windows
       - fix QuickParser bug when parseing attribute names not properly ignoreing all legal whitespace
+      - make OPF parsing robust to alternative whitespace usage as well
 
 
 Sigil-2.0.2
