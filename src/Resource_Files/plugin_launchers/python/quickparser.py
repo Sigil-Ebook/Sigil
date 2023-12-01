@@ -39,7 +39,7 @@ SPECIAL_HANDLING_TAGS = OrderedDict([
 
 SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment', 'cdata', 'pi']
 
-WHITESPACE_CHARS = (' ', '\n', '\r', '\f', '\t', '\v')
+WHITESPACE_CHARS = (' ', '\n', '\r', '\t')
 
 class QuickXHTMLParser(object):
 
@@ -116,7 +116,7 @@ class QuickXHTMLParser(object):
                 while p < n and s[p:p + 1] != '=' : p += 1
                 # attribute names can be mixed case and are in SVG
                 aname = s[b:p]
-                aname = aname.rstrip(' ')
+                aname = aname.rstrip(' \n\r\t')
                 p += 1
                 while p < n and s[p:p + 1] in WHITESPACE_CHARS : p += 1
                 if s[p:p + 1] in ('"', "'") :

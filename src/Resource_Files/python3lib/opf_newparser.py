@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014 Kevin B. Hendricks, John Schember, and Doug Massay
+# Copyright (c) 2014-2023 Kevin B. Hendricks, John Schember, and Doug Massay
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -50,6 +50,8 @@ def xmldecode(data):
     newdata = newdata.replace('&lt;', '<')
     newdata = newdata.replace('&amp;', '&')
     return newdata
+
+WHITESPACE_CHARS = (' ', '\n', '\r', '\t')
 
 SPECIAL_HANDLING_TAGS = OrderedDict([
     ('?xml', ('xmlheader', -1)),
@@ -237,13 +239,13 @@ class Opf_Parser(object):
         if ttype is None:
             # parse any attributes of begin or single tags
             while s.find('=',p) != -1 :
-                while p < n and s[p:p+1] == ' ' : p += 1
+                while p < n and s[p:p+1] in WHITESPACE_CHARS : p += 1
                 b = p
                 while p < n and s[p:p+1] != '=' : p += 1
                 aname = s[b:p].lower()
-                aname = aname.rstrip(' ')
+                aname = aname.rstrip(' \n\r\t')
                 p += 1
-                while p < n and s[p:p+1] == ' ' : p += 1
+                while p < n and s[p:p+1] in WHITESPACE_CHARS: p += 1
                 if s[p:p+1] in ('"', "'") :
                     qt = s[p:p+1]
                     p = p + 1
