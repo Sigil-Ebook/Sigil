@@ -26,7 +26,9 @@
 #include <QtCore/QFileInfo>
 #include <QEventLoop>
 #include <QImage>
+#include <QPainter>
 #include <QPixmap>
+#include <QtSvg/QSvgRenderer>
 #include <QtWidgets/QLayout>
 #include <QtWebEngineWidgets>
 #include <QtWebEngineCore>
@@ -163,6 +165,7 @@ void SelectFiles::SetImages()
     }
     m_WebView->setHtml(html, QUrl());
 
+    ui.imageTree->reset();
     m_SelectFilesModel->clear();
     QStringList header;
     header.append(tr("Files In the Book"));
@@ -200,13 +203,31 @@ void SelectFiles::SetImages()
 
         // Do not show thumbnail if file is not an image
         if ((type == Resource::ImageResourceType || type == Resource::SVGResourceType) && m_ThumbnailSize) {
-              QPixmap pixmap(resource->GetFullPath());
-
+            QPixmap pixmap;
+            if (type == Resource::ImageResourceType) {
+                pixmap = QPixmap(resource->GetFullPath());
+            } else { // Svg
+                QSvgRenderer renderer(resource->GetFullPath());
+                QSize sz = renderer.defaultSize();
+#if 1
+                QImage image(sz, QImage::Format_ARGB32);
+                // **must** fill it with tranparent pixels BEFORE trying to render anything
+                image.fill(qRgba(0,0,0,0));
+                QPainter painter(&image);
+                renderer.render(&painter);
+                pixmap = QPixmap::fromImage(image);
+#else
+                // or use this approach which seems to work although svg is not a documented format
+                pixmap = QPixmap(sz);
+                pixmap.load(resource->GetFullPath());
+#endif
+            }
             if (pixmap.height() > m_ThumbnailSize || pixmap.width() > m_ThumbnailSize) {
                 pixmap = pixmap.scaled(QSize(m_ThumbnailSize, m_ThumbnailSize), Qt::KeepAspectRatio);
             }
             QStandardItem *icon_item = new QStandardItem();
-            icon_item->setIcon(QIcon(pixmap));
+            icon_item->setData(QVariant(pixmap), Qt::DecorationRole);
+            // icon_item->setIcon(QIcon(pixmap));
             icon_item->setEditable(false);
             rowItems << icon_item;
         }
