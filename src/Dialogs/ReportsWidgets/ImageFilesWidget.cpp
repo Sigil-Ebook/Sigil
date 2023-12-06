@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin Hendricks, Statford, ON 
+**  Copyright (C) 2015-2023 Kevin Hendricks, Statford, ON 
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **
@@ -26,6 +26,10 @@
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QPushButton>
+#include <QImage>
+#include <QPainter>
+#include <QPixmap>
+#include <QtSvg/QSvgRenderer>
 
 #include "sigil_exception.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -107,9 +111,26 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     int total_links = 0;
     QHash<QString, QStringList> image_html_files_hash = m_Book->GetHTMLFilesUsingImages();
     foreach(Resource * resource, m_AllImageResources) {
+        Resource::ResourceType rt = resource->Type();
         QString filepath = resource->GetRelativePath();
         QString path = resource->GetFullPath();
-        QImage image(path);
+        QImage image;
+        if (resource->Type() == Resource::SVGResourceType) {
+            QString svgdata = Utility::ReadUnicodeTextFile(path);
+            // QtSvg has many issues with desc, title, and flowRoot tags  
+            svgdata = Utility::FixupSvgForRendering(svgdata);
+            QSvgRenderer renderer(this);
+            renderer.load(svgdata.toUtf8());
+            QSize sz = renderer.defaultSize();
+            QImage svgimage(sz, QImage::Format_ARGB32);
+            // **must** fill it with tranparent pixels BEFORE trying to render anything
+            svgimage.fill(qRgba(0,0,0,0));
+            QPainter painter(&svgimage);
+            renderer.render(&painter);
+            image = svgimage;
+        } else {
+            image.load(path);
+        }
         QList<QStandardItem *> rowItems;
         // Filename
         QStandardItem *name_item = new QStandardItem();
@@ -157,15 +178,13 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << color_item;
 
         // Thumbnail
+        QPixmap pixmap = QPixmap::fromImage(image);
         if (m_ThumbnailSize) {
-            QPixmap pixmap(resource->GetFullPath());
-
             if (pixmap.height() > m_ThumbnailSize || pixmap.width() > m_ThumbnailSize) {
                 pixmap = pixmap.scaled(QSize(m_ThumbnailSize, m_ThumbnailSize), Qt::KeepAspectRatio);
             }
-
             QStandardItem *icon_item = new QStandardItem();
-            icon_item->setIcon(QIcon(pixmap));
+            icon_item->setData(QVariant(pixmap), Qt::DecorationRole);
             rowItems << icon_item;
         }
 

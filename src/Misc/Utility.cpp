@@ -67,6 +67,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/SleepFunctions.h"
 #include "MainUI/MainApplication.h"
+#include "Parsers/QuickParser.h"
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
@@ -1496,4 +1497,34 @@ QMessageBox::StandardButton Utility::critical(QWidget* parent, const QString &ti
   if (parent) parent->activateWindow();
 #endif
   return result;
+}
+
+
+// QtSvg is broken with respect to desc and title tags used
+// inside text tags and does not support flowRoot and its children
+// so strip them all out before trying to render using QSvgRenderer
+QString Utility::FixupSvgForRendering(const QString& data)
+{
+    QStringList svgdata;
+    QuickParser qp(data);
+    bool skip = false;
+    while(true) {
+        QuickParser::MarkupInfo mi = qp.parse_next();
+        if (mi.pos < 0) break;
+        if (mi.tname == "desc" || mi.tname == "title" || mi.tname == "flowRoot") {
+            if (mi.ttype == "single") {
+                continue;
+            } else if (mi.ttype == "begin") {
+                skip = true;
+                continue;
+            } else if (mi.ttype == "end") {
+                skip = false;
+                continue;
+            }
+        }
+        if (!skip) {
+            svgdata << qp.serialize_markup(mi);
+        }
+    }
+    return svgdata.join("");
 }

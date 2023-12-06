@@ -203,31 +203,29 @@ void SelectFiles::SetImages()
 
         // Do not show thumbnail if file is not an image
         if ((type == Resource::ImageResourceType || type == Resource::SVGResourceType) && m_ThumbnailSize) {
-            QPixmap pixmap;
+            QImage image;
             if (type == Resource::ImageResourceType) {
-                pixmap = QPixmap(resource->GetFullPath());
+                image.load(resource->GetFullPath());
             } else { // Svg
-                QSvgRenderer renderer(resource->GetFullPath());
+                QString svgdata = Utility::ReadUnicodeTextFile(resource->GetFullPath());
+                // QtSvg has many issues with desc, title, and flowRoot tags
+                svgdata = Utility::FixupSvgForRendering(svgdata);
+                QSvgRenderer renderer(this);
+                renderer.load(svgdata.toUtf8());
                 QSize sz = renderer.defaultSize();
-#if 1
-                QImage image(sz, QImage::Format_ARGB32);
+                QImage svgimage(sz, QImage::Format_ARGB32);
                 // **must** fill it with tranparent pixels BEFORE trying to render anything
-                image.fill(qRgba(0,0,0,0));
-                QPainter painter(&image);
+                svgimage.fill(qRgba(0,0,0,0));
+                QPainter painter(&svgimage);
                 renderer.render(&painter);
-                pixmap = QPixmap::fromImage(image);
-#else
-                // or use this approach which seems to work although svg is not a documented format
-                pixmap = QPixmap(sz);
-                pixmap.load(resource->GetFullPath());
-#endif
+                image = svgimage;
             }
+            QPixmap pixmap = QPixmap::fromImage(image);
             if (pixmap.height() > m_ThumbnailSize || pixmap.width() > m_ThumbnailSize) {
                 pixmap = pixmap.scaled(QSize(m_ThumbnailSize, m_ThumbnailSize), Qt::KeepAspectRatio);
             }
             QStandardItem *icon_item = new QStandardItem();
             icon_item->setData(QVariant(pixmap), Qt::DecorationRole);
-            // icon_item->setIcon(QIcon(pixmap));
             icon_item->setEditable(false);
             rowItems << icon_item;
         }

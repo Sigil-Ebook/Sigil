@@ -268,6 +268,9 @@ public:
     static QMessageBox::StandardButton critical(QWidget *parent, const QString &title, const QString &text,
                                                 QMessageBox::StandardButtons buttons = QMessageBox::Ok,
                                                 QMessageBox::StandardButton defaultButton = QMessageBox::NoButton);
+
+    static QString FixupSvgForRendering(const QString& data);
+
 };
 #endif // UTILITY_H
 
