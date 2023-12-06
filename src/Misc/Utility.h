@@ -32,10 +32,12 @@
 #include <QMessageBox>
 #include <QSet>
 #include <QStringList>
+#include <QImage>
 
 class QStringRef;
 class QWidget;
 class QMenu;
+
 
 struct ExceptionBase;
 
@@ -270,6 +272,7 @@ public:
                                                 QMessageBox::StandardButton defaultButton = QMessageBox::NoButton);
 
     static QString FixupSvgForRendering(const QString& data);
+    static QImage  RenderSvgToImage(const QString& filepath);
 
 };
 #endif // UTILITY_H

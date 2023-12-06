@@ -9,6 +9,7 @@ pre-2.x.x
       - patch Qt6.5.3 to avoid transient child window resize bug on Windows
       - fix QuickParser bug when parseing attribute names not properly ignoreing all legal whitespace
       - make OPF parsing robust to alternative whitespace usage as well
+      - fix creation of thumbnails of svg images in SelectFiles and Image Report for macOS
 
 
 Sigil-2.0.2

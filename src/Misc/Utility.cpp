@@ -59,6 +59,9 @@
 #include <QMenu>
 #include <QSet>
 #include <QVector>
+#include <QImage>
+#include <QPainter>
+#include <QtSvg/QSvgRenderer>
 #include <QDebug>
 
 #include "sigil_constants.h"
@@ -1527,4 +1530,21 @@ QString Utility::FixupSvgForRendering(const QString& data)
         }
     }
     return svgdata.join("");
+}
+
+QImage Utility::RenderSvgToImage(const QString& filepath)
+{
+    QString svgdata = Utility::ReadUnicodeTextFile(filepath);
+    // QtSvg has many issues with desc, title, and flowRoot tags
+    svgdata = Utility::FixupSvgForRendering(svgdata);
+    QSvgRenderer renderer;
+    renderer.load(svgdata.toUtf8());
+    QSize sz = renderer.defaultSize();
+    QImage svgimage(sz, QImage::Format_ARGB32);
+    // **must** fill it with tranparent pixels BEFORE trying to render anything
+    svgimage.fill(qRgba(0,0,0,0));
+    QPainter painter(&svgimage);
+    renderer.render(&painter);
+    return svgimage;
+
 }

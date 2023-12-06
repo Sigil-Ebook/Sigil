@@ -27,9 +27,7 @@
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QPushButton>
 #include <QImage>
-#include <QPainter>
 #include <QPixmap>
-#include <QtSvg/QSvgRenderer>
 
 #include "sigil_exception.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -116,18 +114,7 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         QString path = resource->GetFullPath();
         QImage image;
         if (resource->Type() == Resource::SVGResourceType) {
-            QString svgdata = Utility::ReadUnicodeTextFile(path);
-            // QtSvg has many issues with desc, title, and flowRoot tags  
-            svgdata = Utility::FixupSvgForRendering(svgdata);
-            QSvgRenderer renderer(this);
-            renderer.load(svgdata.toUtf8());
-            QSize sz = renderer.defaultSize();
-            QImage svgimage(sz, QImage::Format_ARGB32);
-            // **must** fill it with tranparent pixels BEFORE trying to render anything
-            svgimage.fill(qRgba(0,0,0,0));
-            QPainter painter(&svgimage);
-            renderer.render(&painter);
-            image = svgimage;
+            image = Utility::RenderSvgToImage(path);
         } else {
             image.load(path);
         }

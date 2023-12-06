@@ -26,9 +26,7 @@
 #include <QtCore/QFileInfo>
 #include <QEventLoop>
 #include <QImage>
-#include <QPainter>
 #include <QPixmap>
-#include <QtSvg/QSvgRenderer>
 #include <QtWidgets/QLayout>
 #include <QtWebEngineWidgets>
 #include <QtWebEngineCore>
@@ -206,19 +204,8 @@ void SelectFiles::SetImages()
             QImage image;
             if (type == Resource::ImageResourceType) {
                 image.load(resource->GetFullPath());
-            } else { // Svg
-                QString svgdata = Utility::ReadUnicodeTextFile(resource->GetFullPath());
-                // QtSvg has many issues with desc, title, and flowRoot tags
-                svgdata = Utility::FixupSvgForRendering(svgdata);
-                QSvgRenderer renderer(this);
-                renderer.load(svgdata.toUtf8());
-                QSize sz = renderer.defaultSize();
-                QImage svgimage(sz, QImage::Format_ARGB32);
-                // **must** fill it with tranparent pixels BEFORE trying to render anything
-                svgimage.fill(qRgba(0,0,0,0));
-                QPainter painter(&svgimage);
-                renderer.render(&painter);
-                image = svgimage;
+            } else {
+                image = Utility::RenderSvgToImage(resource->GetFullPath());
             }
             QPixmap pixmap = QPixmap::fromImage(image);
             if (pixmap.height() > m_ThumbnailSize || pixmap.width() > m_ThumbnailSize) {
