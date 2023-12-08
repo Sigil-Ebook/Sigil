@@ -37,7 +37,7 @@ env:
 jobs:
   build:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    runs-on: macos-latest-xl
+    runs-on: macos-latest-large
 
     steps:
     - uses: actions/checkout@v3
