@@ -1541,8 +1541,10 @@ QImage Utility::RenderSvgToImage(const QString& filepath)
     renderer.load(svgdata.toUtf8());
     QSize sz = renderer.defaultSize();
     QImage svgimage(sz, QImage::Format_ARGB32);
-    // **must** fill it with tranparent pixels BEFORE trying to render anything
-    svgimage.fill(qRgba(0,0,0,0));
+    // **must** fill it with pixels BEFORE trying to render anything
+    // transparent fill will not work with light and dark modes: svgimage.fill(qRgba(0,0,0,0));
+    svgimage.fill(QColor("white"));
+    // was svgimage.fill(qRgba(0,0,0,0));
     QPainter painter(&svgimage);
     renderer.render(&painter);
     return svgimage;
