@@ -112,6 +112,20 @@ CSSInfo::CSSSelector *CSSInfo::getCSSSelectorForElementClass(const QString &elem
 }
 
 
+QList<CSSInfo::CSSSelector *> CSSInfo::getAllSelectorsWithCombinators()
+{
+    QList<CSSInfo::CSSSelector *> matches;
+    foreach(CSSInfo::CSSSelector * cssSelector, m_CSSSelectors) {
+        QString asel = cssSelector->text;
+        if (asel.contains(' ') || asel.contains('>') ||
+            asel.contains('~') || asel.contains('+')) {
+            matches.append(cssSelector);
+        }
+    }
+    return matches;
+}
+
+
 QList<CSSInfo::CSSSelector *> CSSInfo::getAllCSSSelectorsForElementClass(const QString &elementName, const QString &className)
 {
     QList<CSSInfo::CSSSelector *> matches;

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2022 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2016-2023 Kevin B. Hendricks, Stratford, ON, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -54,6 +54,8 @@ public:
     };
 
     QList<CSSSelector*> getAllSelectors();
+
+    QList<CSSSelector*> getAllSelectorsWithCombinators();
 
     /**
      * Return selectors subset for only class based CSS declarations.

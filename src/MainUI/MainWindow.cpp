@@ -2224,7 +2224,27 @@ void MainWindow::GoToLinkedStyleDefinition(const QString &element_name, const QS
                 }
             }
         }
-
+        // if nothing found try one last time looking in selectors with combinators for a close match
+        if (!found_match) {
+            QString sel1 = element_name + "." + style_class_name + " ";
+            QString sel2 = "." + style_class_name + " ";
+            foreach(QString bookpath, stylesheets) {
+                Resource * resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(bookpath);
+                CSSResource *css_resource = qobject_cast<CSSResource*>( resource );
+                if (css_resource) {
+                    CSSInfo css_info(css_resource->GetText());
+                    QList<CSSInfo::CSSSelector*> combinators = css_info.getAllSelectorsWithCombinators();
+                    foreach(CSSInfo::CSSSelector* selector, combinators) {
+                        QString asel = selector->text;
+                        if (asel.startsWith(sel1) || asel.startsWith(sel2)) {
+                            m_TabManager->OpenResource(css_resource, -1, selector->pos);
+                            found_match = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
         if (!found_match) {
             QString display_name;
 
