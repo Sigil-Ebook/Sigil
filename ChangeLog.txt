@@ -5,13 +5,18 @@ pre-2.x.x
           to BookBrowser, Preview, CodeView, ClipsWindow, and TableOfContents Windows
       - preserve Media Overlay Active Classes when deleting unused classes
       - Goto Link Or Style (or Ctrl-Clicking on a class will now search selectors
-          with combinators if notthing found in normal css classes
+          with combinators if nothing found in normal css classes
+      - update to a newer Spanish hunspell dictionary
+      - overhaul of Building on Linux documentation
 
     Bug Fixes
       - patch Qt6.5.3 to avoid transient child window resize bug on Windows
-      - fix QuickParser bug when parseing attribute names not properly ignoreing all legal whitespace
+      - fix QuickParser bug when parseing attribute names not properly ignoring all legal whitespace
       - make OPF parsing robust to alternative whitespace usage as well
       - fix creation of thumbnails of svg images in SelectFiles and Image Report for macOS
+      - fix svg rendering in QtSvg by filtering out desc and title tags inside text tags pre-rendering
+      - fix Python plugin quickparser.py to better handle svg mixed case tag names
+      - better handle cancelling out of plugins prior to their completion
 
 
 Sigil-2.0.2
