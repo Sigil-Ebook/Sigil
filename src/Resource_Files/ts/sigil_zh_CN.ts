@@ -3567,7 +3567,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="409"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
-        <translation>针对EPUB2文件 W3C样式校验器 应依据：</translation>
+        <translation>针对EPUB3文件 W3C样式校验器 应依据：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="418"/>
