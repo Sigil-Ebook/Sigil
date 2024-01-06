@@ -64,15 +64,18 @@ The following command can be copied and pasted for convenience on Arch-based sys
 On Debian-based systems `sudo apt-get install` the following packages.
 
 + qt6-webengine-dev
++ qt6-webengine-dev-tools (provides qwebengine_convert_dict binary)
 + qt6-base-dev-tools
 + qt6-tools-dev
 + qt6-tools-dev-tools
-+ qt6-5compat-dev
-+ libqt6svg6 (needed for runtime support for icons)
++ qt6-l10n-tools (provides lconvert binary)
++ qt6-5compat-dev (use libqt6corecompat6-dev instead on Ubuntu 22.04 and earlier)
++ libqt6svg6 (needed at runtime for icon support)
++ libqt6webenginecore6-bin (provides QtWebEngineProcess runtime binary)
 
 The following command can be copied and pasted for convenience on Debian-based systems:
 
-`sudo apt-get install qt6-webengine-dev qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools qt6-5compat-dev libqt6svg6`
+`sudo apt-get install qt6-webengine-dev qt6-webengine-dev-tools qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-5compat-dev libqt6svg6 libqt6webenginecore6-bin`
 
 ## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
 Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them on Arch, `sudo pacman -S` the following packages.
