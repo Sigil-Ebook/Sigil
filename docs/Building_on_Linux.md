@@ -77,7 +77,7 @@ The following command can be copied and pasted for convenience on Debian-based s
 
 `sudo apt-get install qt6-webengine-dev qt6-webengine-dev-tools qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-5compat-dev libqt6svg6 libqt6webenginecore6-bin`
 
-**Note: ** On Debian-based systems, you may need to also install the libgl1-mesa-dev package if cmake complains of missing OpenGL headers and/or includes
+**Note:** On Debian-based systems, you may need to also install the libgl1-mesa-dev package if cmake complains of missing OpenGL headers and/or includes
 
 ## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
 Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them on Arch, `sudo pacman -S` the following packages.
