@@ -6,7 +6,9 @@
 # add_definitions(-DQT_NO_DEPRECATED_WARNINGS)
 add_definitions(-DQT_IMPLICIT_QCHAR_CONSTRUCTION)
 
-cmake_policy(SET CMP0153 OLD)
+if (CMAKE_VERSION VERSION_GREATER "3.27.9")
+    cmake_policy(SET CMP0153 OLD)
+endif()
 
 set(QT6_NEEDED 6.2)
 
