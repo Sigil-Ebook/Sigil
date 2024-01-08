@@ -6,6 +6,8 @@
 # add_definitions(-DQT_NO_DEPRECATED_WARNINGS)
 add_definitions(-DQT_IMPLICIT_QCHAR_CONSTRUCTION)
 
+cmake_policy(SET CMP0153 OLD)
+
 set(QT6_NEEDED 6.2)
 
 # Qt6 gets shiny new(ish) teal icons
