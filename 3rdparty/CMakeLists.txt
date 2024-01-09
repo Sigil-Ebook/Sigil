@@ -1,6 +1,3 @@
-# Default to cmake minimum in master CMakeLists.txt file
-# cmake_minimum_required(VERSION 3.5)
-
 project(3rdparty)
 
 # Note: All files in the cmake dir will be included as if they were in this file.

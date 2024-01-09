@@ -1,6 +1,3 @@
-# Default to cmake minimum in master CMakeLists.txt file
-# cmake_minimum_required( VERSION 3.5 )
-
 PROJECT(zlib C)
 
 set( ZLIB_LIBRARIES ${PROJECT_NAME} CACHE INTERNAL "" )
