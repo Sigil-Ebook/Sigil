@@ -646,8 +646,9 @@ int main(int argc, char *argv[])
 #endif
         // Create the required QWebEngineProfiles, Initialize the settings
         // just once, installing both URLInterceptor and URLSchemeHandler as needed
-        // to bypass 2mb url limit
+        // to bypass 2mb url limit (singleton)
         WebProfileMgr* profile_mgr = WebProfileMgr::instance();
+        Q_UNUSED(profile_mgr);
         
         // Needs to be created on the heap so that
         // the reply has time to return.

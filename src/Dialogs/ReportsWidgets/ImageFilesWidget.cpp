@@ -109,7 +109,6 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     int total_links = 0;
     QHash<QString, QStringList> image_html_files_hash = m_Book->GetHTMLFilesUsingImages();
     foreach(Resource * resource, m_AllImageResources) {
-        Resource::ResourceType rt = resource->Type();
         QString filepath = resource->GetRelativePath();
         QString path = resource->GetFullPath();
         QImage image;
