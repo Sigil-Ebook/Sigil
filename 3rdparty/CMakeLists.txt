@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.0)
+# Default to cmake minimum in master CMakeLists.txt file
+# cmake_minimum_required(VERSION 3.5)
 
 project(3rdparty)
 

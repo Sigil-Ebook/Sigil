@@ -7,7 +7,8 @@
 #
 #########################################################
 
-cmake_minimum_required( VERSION 3.0 ) 
+# Hard minimum version of cmake for all sub projects and Sigil
+cmake_minimum_required( VERSION 3.5 ) 
 
 project( Sigil )
 
