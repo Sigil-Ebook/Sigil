@@ -18,6 +18,7 @@ Sigil-pre-2.x.x
       - fix Python plugin quickparser.py to better handle svg mixed case tag names
       - better handle cancelling out of plugins prior to their completion
       - better handle Guide/Landmark title translations (thank you BeckyEbook)
+      - clean up cmake and build warnings
 
 
 Sigil-2.0.2
