@@ -1511,20 +1511,26 @@ QString Utility::FixupSvgForRendering(const QString& data)
     QStringList svgdata;
     QuickParser qp(data);
     bool skip = false;
+    bool in_svg = false;
     while(true) {
         QuickParser::MarkupInfo mi = qp.parse_next();
         if (mi.pos < 0) break;
-        if (mi.tname == "desc" || mi.tname == "title" || mi.tname == "flowRoot") {
-            if (mi.ttype == "single") {
-                continue;
-            } else if (mi.ttype == "begin") {
-                skip = true;
-                continue;
-            } else if (mi.ttype == "end") {
-                skip = false;
-                continue;
-            }
+	if (mi.tname == "svg" && mi.ttype == "begin") {
+	    in_svg = true;
         }
+	if (mi.tname == "svg" && mi.ttype == "end") {
+	    in_svg = false;
+	    skip = false;
+	}
+	if (in_svg) {
+            if (mi.tname == "desc" || mi.tname == "title" || mi.tname == "flowRoot") {
+	        if (mi.ttype == "single") continue; // no need to update skip since open self-closing
+	        // allow for arbitrary nesting of these tags which is not explicitly ruled out by the spec
+	        QStringList tagpath = mi.tpath.split(".");
+	        skip = tagpath.contains("desc")  || tagpath.contains("title") || tagpath.contains( "flowRoot");
+		if (mi.ttype == "end") continue; // do not output end tags after updating skip
+	    }
+	}
         if (!skip) {
             svgdata << qp.serialize_markup(mi);
         }
