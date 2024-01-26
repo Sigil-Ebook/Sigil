@@ -131,7 +131,7 @@ extern zipFile ZEXPORT zipOpen64(const void *pathname, int append);
 
 /* Note : there is no delete function into a zipfile.
    If you want delete file into a zipfile, you must open a zipfile, and create another
-   Of couse, you can use RAW reading and writing to copy the file you did not want delte
+   Of course, you can use RAW reading and writing to copy the file you did not want delete
 */
 
 extern zipFile ZEXPORT zipOpen2(const char *pathname,
@@ -177,9 +177,9 @@ extern int ZEXPORT zipOpenNewFileInZip64(zipFile file,
   filename : the filename in zip (if NULL, '-' without quote will be used
   *zipfi contain supplemental information
   if extrafield_local!=NULL and size_extrafield_local>0, extrafield_local
-    contains the extrafield data the the local header
+    contains the extrafield data for the local header
   if extrafield_global!=NULL and size_extrafield_global>0, extrafield_global
-    contains the extrafield data the the local header
+    contains the extrafield data for the global header
   if comment != NULL, comment contain the comment string
   method contain the compression method (0 for store, Z_DEFLATED for deflate)
   level contain the level of compression (can be Z_DEFAULT_COMPRESSION)

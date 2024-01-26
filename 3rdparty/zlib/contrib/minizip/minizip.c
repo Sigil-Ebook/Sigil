@@ -28,7 +28,7 @@
         #endif
 #endif
 
-#ifdef __APPLE__
+#if defined(__APPLE__) || defined(__HAIKU__) || defined(MINIZIP_FOPEN_NO_64)
 // In darwin and perhaps other BSD variants off_t is a 64 bit value, hence no need for specific 64 bit functions
 #define FOPEN_FUNC(filename, mode) fopen(filename, mode)
 #define FTELLO_FUNC(stream) ftello(stream)
@@ -110,7 +110,7 @@ static int filetime(const char *f, tm_zip *tmzip, uLong *dt) {
       len = MAXFILENAME;
 
     strncpy(name, f,MAXFILENAME-1);
-    /* strncpy doesnt append the trailing NULL, of the string is too long. */
+    /* strncpy doesn't append the trailing NULL, of the string is too long. */
     name[ MAXFILENAME ] = '\0';
 
     if (name[len - 1] == '/')
@@ -136,7 +136,7 @@ static int filetime(const char *f, tm_zip *tmzip, uLong *dt) {
 #else
 /* f: name of file to get info on, tmzip: return value: access,
    modification and creation times, dt: dostime */
-uLong filetime(const char *f, tm_zip *tmzip, uLong *dt) {
+static int filetime(const char *f, tm_zip *tmzip, uLong *dt) {
     (void)f;
     (void)tmzip;
     (void)dt;
@@ -224,7 +224,7 @@ static int isLargeFile(const char* filename) {
     FSEEKO_FUNC(pFile, 0, SEEK_END);
     pos = (ZPOS64_T)FTELLO_FUNC(pFile);
 
-                printf("File : %s is %lld bytes\n", filename, pos);
+                printf("File : %s is %llu bytes\n", filename, pos);
 
     if(pos >= 0xffffffff)
      largeFile = 1;
@@ -311,7 +311,7 @@ int main(int argc, char *argv[]) {
 
         zipok = 1 ;
         strncpy(filename_try, argv[zipfilenamearg],MAXFILENAME-1);
-        /* strncpy doesnt append the trailing NULL, of the string is too long. */
+        /* strncpy doesn't append the trailing NULL, of the string is too long. */
         filename_try[ MAXFILENAME ] = '\0';
 
         len=(int)strlen(filename_try);
@@ -381,10 +381,10 @@ int main(int argc, char *argv[]) {
                   ((argv[i][1]=='o') || (argv[i][1]=='O') ||
                    (argv[i][1]=='a') || (argv[i][1]=='A') ||
                    (argv[i][1]=='p') || (argv[i][1]=='P') ||
-                   ((argv[i][1]>='0') || (argv[i][1]<='9'))) &&
+                   ((argv[i][1]>='0') && (argv[i][1]<='9'))) &&
                   (strlen(argv[i]) == 2)))
             {
-                FILE * fin;
+                FILE * fin = NULL;
                 size_t size_read;
                 const char* filenameinzip = argv[i];
                 const char *savefilenameinzip;

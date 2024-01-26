@@ -8,7 +8,8 @@ Sigil-pre-2.x.x
           with combinators if nothing found in normal css classes
       - update to a newer Spanish hunspell dictionary
       - overhaul of Building on Linux documentation
-
+      - updated 3rdparty zlib to version 1.3.1 for security fixes
+      
     Bug Fixes
       - patch Qt6.5.3 to avoid transient child window resize bug on Windows
       - fix QuickParser bug when parseing attribute names not properly ignoring all legal whitespace
