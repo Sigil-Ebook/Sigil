@@ -1,4 +1,4 @@
-.TH PCRE2UNICODE 3 "23 February 2020" "PCRE2 10.35"
+.TH PCRE2UNICODE 3 "22 December 2021" "PCRE2 10.40"
 .SH NAME
 PCRE - Perl-compatible regular expressions (revised API)
 .SH "UNICODE AND UTF SUPPORT"
@@ -40,10 +40,11 @@ handled, as documented below.
 .sp
 When PCRE2 is built with Unicode support, the escape sequences \ep{..},
 \eP{..}, and \eX can be used. This is not dependent on the PCRE2_UTF setting.
-The Unicode properties that can be tested are limited to the general category
-properties such as Lu for an upper case letter or Nd for a decimal number, the
-Unicode script names such as Arabic or Han, and the derived properties Any and
-L&. Full lists are given in the
+The Unicode properties that can be tested are a subset of those that Perl
+supports. Currently they are limited to the general category properties such as
+Lu for an upper case letter or Nd for a decimal number, the Unicode script
+names such as Arabic or Han, Bidi_Class, Bidi_Control, and the derived
+properties Any and LC (synonym L&). Full lists are given in the
 .\" HREF
 \fBpcre2pattern\fP
 .\"
@@ -51,10 +52,10 @@ and
 .\" HREF
 \fBpcre2syntax\fP
 .\"
-documentation. Only the short names for properties are supported. For example,
-\ep{L} matches a letter. Its Perl synonym, \ep{Letter}, is not supported.
-Furthermore, in Perl, many properties may optionally be prefixed by "Is", for
-compatibility with Perl 5.6. PCRE2 does not support this.
+documentation. In general, only the short names for properties are supported.
+For example, \ep{L} matches a letter. Its longer synonym, \ep{Letter}, is not
+supported. Furthermore, in Perl, many properties may optionally be prefixed by
+"Is", for compatibility with Perl 5.6. PCRE2 does not support this.
 .
 .
 .SH "WIDE CHARACTERS AND UTF MODES"
@@ -448,7 +449,7 @@ can be useful when searching for UTF text in executable or other binary files.
 .sp
 .nf
 Philip Hazel
-University Computing Service
+Retired from University Computing Service
 Cambridge, England.
 .fi
 .
@@ -457,6 +458,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 23 February 2020
-Copyright (c) 1997-2020 University of Cambridge.
+Last updated: 22 December 2021
+Copyright (c) 1997-2021 University of Cambridge.
 .fi

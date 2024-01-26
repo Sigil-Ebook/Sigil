@@ -1,12 +1,12 @@
-#! /bin/sh
+#! /usr/bin/env sh
 ## DO NOT EDIT - This file generated from ./build-aux/ltmain.in
-##               by inline-source v2018-07-24.06
+##               by inline-source v2019-02-19.15
 
-# libtool (GNU libtool) 2.4.6.42-b88ce-dirty
+# libtool (GNU libtool) 2.4.7-dirty
 # Provide generalized library-building support services.
 # Written by Gordon Matzigkeit <gord@gnu.ai.mit.edu>, 1996
 
-# Copyright (C) 1996-2018 Free Software Foundation, Inc.
+# Copyright (C) 1996-2019, 2021-2022 Free Software Foundation, Inc.
 # This is free software; see the source for copying conditions.  There is NO
 # warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
@@ -31,8 +31,8 @@
 
 PROGRAM=libtool
 PACKAGE=libtool
-VERSION=2.4.6.42-b88ce-dirty
-package_revision=2.4.6.42
+VERSION=2.4.7-dirty
+package_revision=2.4.7
 
 
 ## ------ ##
@@ -64,7 +64,7 @@ package_revision=2.4.6.42
 # libraries, which are installed to $pkgauxdir.
 
 # Set a version string for this script.
-scriptversion=2018-07-24.06; # UTC
+scriptversion=2019-02-19.15; # UTC
 
 # General shell script boiler plate, and helper functions.
 # Written by Gary V. Vaughan, 2004
@@ -72,10 +72,10 @@ scriptversion=2018-07-24.06; # UTC
 # This is free software.  There is NO warranty; not even for
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #
-# Copyright (C) 2004-2018 Bootstrap Authors
+# Copyright (C) 2004-2019, 2021 Bootstrap Authors
 #
 # This file is dual licensed under the terms of the MIT license
-# <https://opensource.org/license/MIT>, and GPL version 3 or later
+# <https://opensource.org/license/MIT>, and GPL version 2 or later
 # <http://www.gnu.org/licenses/gpl-2.0.html>.  You must apply one of
 # these licenses when using or redistributing this software or any of
 # the files within it.  See the URLs above, or the file `LICENSE`
@@ -130,6 +130,12 @@ do
 	  _G_safe_locale=\"$_G_var=C; \$_G_safe_locale\"
 	fi"
 done
+# These NLS vars are set unconditionally (bootstrap issue #24).  Unset those
+# in case the environment reset is needed later and the $save_* variant is not
+# defined (see the code above).
+LC_ALL=C
+LANGUAGE=C
+export LANGUAGE LC_ALL
 
 # Make sure IFS has a sensible default
 sp=' '
@@ -367,6 +373,35 @@ sed_double_backslash="\
   s/^$_G_bs2$_G_dollar/$_G_bs&/
   s/\\([^$_G_bs]\\)$_G_bs2$_G_dollar/\\1$_G_bs2$_G_bs$_G_dollar/g
   s/\n//g"
+
+# require_check_ifs_backslash
+# ---------------------------
+# Check if we can use backslash as IFS='\' separator, and set
+# $check_ifs_backshlash_broken to ':' or 'false'.
+require_check_ifs_backslash=func_require_check_ifs_backslash
+func_require_check_ifs_backslash ()
+{
+  _G_save_IFS=$IFS
+  IFS='\'
+  _G_check_ifs_backshlash='a\\b'
+  for _G_i in $_G_check_ifs_backshlash
+  do
+  case $_G_i in
+  a)
+    check_ifs_backshlash_broken=false
+    ;;
+  '')
+    break
+    ;;
+  *)
+    check_ifs_backshlash_broken=:
+    break
+    ;;
+  esac
+  done
+  IFS=$_G_save_IFS
+  require_check_ifs_backslash=:
+}
 
 
 ## ----------------- ##
@@ -1108,6 +1143,8 @@ func_quote_portable ()
 {
     $debug_cmd
 
+    $require_check_ifs_backslash
+
     func_quote_portable_result=$2
 
     # one-time-loop (easy break)
@@ -1122,8 +1159,10 @@ func_quote_portable ()
       # Quote for eval.
       case $func_quote_portable_result in
         *[\\\`\"\$]*)
-          case $func_quote_portable_result in
-            *[\[\*\?]*)
+          # Fallback to sed for $func_check_bs_ifs_broken=:, or when the string
+          # contains the shell wildcard characters.
+          case $check_ifs_backshlash_broken$func_quote_portable_result in
+            :*|*[\[\*\?]*)
               func_quote_portable_result=`$ECHO "$func_quote_portable_result" \
                   | $SED "$sed_quote_subst"`
               break
@@ -1497,10 +1536,10 @@ func_lt_ver ()
 # This is free software.  There is NO warranty; not even for
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #
-# Copyright (C) 2010-2018 Bootstrap Authors
+# Copyright (C) 2010-2019, 2021 Bootstrap Authors
 #
 # This file is dual licensed under the terms of the MIT license
-# <https://opensource.org/license/MIT>, and GPL version 3 or later
+# <https://opensource.org/license/MIT>, and GPL version 2 or later
 # <http://www.gnu.org/licenses/gpl-2.0.html>.  You must apply one of
 # these licenses when using or redistributing this software or any of
 # the files within it.  See the URLs above, or the file `LICENSE`
@@ -1510,7 +1549,7 @@ func_lt_ver ()
 # <https://github.com/gnulib-modules/bootstrap/issues>
 
 # Set a version string for this script.
-scriptversion=2018-07-24.06; # UTC
+scriptversion=2019-02-19.15; # UTC
 
 
 ## ------ ##
@@ -2056,7 +2095,7 @@ else
 
       func_split_equals_lhs=`expr "x$1" : 'x\([^=]*\)'`
       func_split_equals_rhs=
-      test "x$func_split_equals_lhs" = "x$1" \
+      test "x$func_split_equals_lhs=" = "x$1" \
         || func_split_equals_rhs=`expr "x$1" : 'x[^=]*=\(.*\)$'`
   }
 fi #func_split_equals
@@ -2082,7 +2121,7 @@ else
   {
       $debug_cmd
 
-      func_split_short_opt_name=`expr "x$1" : 'x-\(.\)'`
+      func_split_short_opt_name=`expr "x$1" : 'x\(-.\)'`
       func_split_short_opt_arg=`expr "x$1" : 'x-.\(.*\)$'`
   }
 fi #func_split_short_opt
@@ -2176,7 +2215,7 @@ func_version ()
 # End:
 
 # Set a version string.
-scriptversion='(GNU libtool) 2.4.6.42-b88ce-dirty'
+scriptversion='(GNU libtool) 2.4.7-dirty'
 
 
 # func_echo ARG...
@@ -2267,7 +2306,7 @@ include the following information:
        compiler:       $LTCC
        compiler flags: $LTCFLAGS
        linker:         $LD (gnu? $with_gnu_ld)
-       version:        $progname (GNU libtool) 2.4.6.42-b88ce-dirty
+       version:        $progname (GNU libtool) 2.4.7-dirty
        automake:       `($AUTOMAKE --version) 2>/dev/null |$SED 1q`
        autoconf:       `($AUTOCONF --version) 2>/dev/null |$SED 1q`
 
@@ -3862,7 +3901,8 @@ This mode accepts the following additional options:
   -prefer-non-pic   try to build non-PIC objects only
   -shared           do not build a '.o' file suitable for static linking
   -static           only build a '.o' file suitable for static linking
-  -Wc,FLAG          pass FLAG directly to the compiler
+  -Wc,FLAG
+  -Xcompiler FLAG   pass FLAG directly to the compiler
 
 COMPILE-COMMAND is a command to be used in creating a 'standard' object file
 from the given SOURCEFILE.
@@ -3968,6 +4008,8 @@ The following components of LINK-COMMAND are treated specially:
   -weak LIBNAME     declare that the target provides the LIBNAME interface
   -Wc,FLAG
   -Xcompiler FLAG   pass linker-specific FLAG directly to the compiler
+  -Wa,FLAG
+  -Xassembler FLAG  pass linker-specific FLAG directly to the assembler
   -Wl,FLAG
   -Xlinker FLAG     pass linker-specific FLAG directly to the linker
   -XCClinker FLAG   pass link-specific FLAG to the compiler driver (CC)
@@ -7064,6 +7106,13 @@ func_mode_link ()
 	  prev=
 	  continue
 	  ;;
+	xassembler)
+	  func_append compiler_flags " -Xassembler $qarg"
+	  prev=
+	  func_append compile_command " -Xassembler $qarg"
+	  func_append finalize_command " -Xassembler $qarg"
+	  continue
+	  ;;
 	xcclinker)
 	  func_append linker_flags " $qarg"
 	  func_append compiler_flags " $qarg"
@@ -7234,7 +7283,7 @@ func_mode_link ()
 	    # These systems don't actually have a C library (as such)
 	    test X-lc = "X$arg" && continue
 	    ;;
-	  *-*-openbsd* | *-*-freebsd* | *-*-dragonfly* | *-*-bitrig*)
+	  *-*-openbsd* | *-*-freebsd* | *-*-dragonfly* | *-*-bitrig* | *-*-midnightbsd*)
 	    # Do not include libc due to us having libc/libc_r.
 	    test X-lc = "X$arg" && continue
 	    ;;
@@ -7254,7 +7303,7 @@ func_mode_link ()
 	  esac
 	elif test X-lc_r = "X$arg"; then
 	 case $host in
-	 *-*-openbsd* | *-*-freebsd* | *-*-dragonfly* | *-*-bitrig*)
+	 *-*-openbsd* | *-*-freebsd* | *-*-dragonfly* | *-*-bitrig* | *-*-midnightbsd*)
 	   # Do not include libc_r directly, use -pthread flag.
 	   continue
 	   ;;
@@ -7284,8 +7333,20 @@ func_mode_link ()
 	prev=xcompiler
 	continue
 	;;
-
-      -mt|-mthreads|-kthread|-Kthread|-pthread|-pthreads|--thread-safe \
+     # Solaris ld rejects as of 11.4. Refer to Oracle bug 22985199.
+     -pthread)
+	case $host in
+	  *solaris2*) ;;
+	  *)
+	    case "$new_inherited_linker_flags " in
+	        *" $arg "*) ;;
+	        * ) func_append new_inherited_linker_flags " $arg" ;;
+	    esac
+	  ;;
+	esac
+	continue
+	;;
+      -mt|-mthreads|-kthread|-Kthread|-pthreads|--thread-safe \
       |-threads|-fopenmp|-openmp|-mp|-xopenmp|-omp|-qsmp=*)
 	func_append compiler_flags " $arg"
 	func_append compile_command " $arg"
@@ -7452,6 +7513,11 @@ func_mode_link ()
 	arg=$func_stripname_result
 	;;
 
+      -Xassembler)
+        prev=xassembler
+        continue
+        ;;
+
       -Xcompiler)
 	prev=xcompiler
 	continue
@@ -7491,10 +7557,11 @@ func_mode_link ()
       # -stdlib=*            select c++ std lib with clang
       # -fsanitize=*         Clang/GCC memory and address sanitizer
       # -fuse-ld=*           Linker select flags for GCC
+      # -Wa,*                Pass flags directly to the assembler
       -64|-mips[0-9]|-r[0-9][0-9]*|-xarch=*|-xtarget=*|+DA*|+DD*|-q*|-m*| \
       -t[45]*|-txscale*|-p|-pg|--coverage|-fprofile-*|-F*|@*|-tp=*|--sysroot=*| \
       -O*|-g*|-flto*|-fwhopr*|-fuse-linker-plugin|-fstack-protector*|-stdlib=*| \
-      -specs=*|-fsanitize=*|-fuse-ld=*)
+      -specs=*|-fsanitize=*|-fuse-ld=*|-Wa,*)
         func_quote_arg pretty "$arg"
 	arg=$func_quote_arg_result
         func_append compile_command " $arg"
@@ -8851,7 +8918,7 @@ func_mode_link ()
       test CXX = "$tagname" && {
         case $host_os in
         linux*)
-          case `$CC -V 2>&1 | sed 5q` in
+          case `$CC -V 2>&1 | $SED 5q` in
           *Sun\ C*) # Sun C++ 5.9
             func_suncc_cstd_abi
 
@@ -9024,7 +9091,7 @@ func_mode_link ()
 	  #
 	  case $version_type in
 	  # correct linux to gnu/linux during the next big refactor
-	  darwin|freebsd-elf|linux|osf|windows|none)
+	  darwin|freebsd-elf|linux|midnightbsd-elf|osf|windows|none)
 	    func_arith $number_major + $number_minor
 	    current=$func_arith_result
 	    age=$number_minor
@@ -9115,7 +9182,7 @@ func_mode_link ()
 	  versuffix=.$current.$revision
 	  ;;
 
-	freebsd-elf)
+	freebsd-elf | midnightbsd-elf)
 	  func_arith $current - $age
 	  major=.$func_arith_result
 	  versuffix=$major.$age.$revision
@@ -9341,7 +9408,7 @@ func_mode_link ()
 	  *-*-netbsd*)
 	    # Don't link with libc until the a.out ld.so is fixed.
 	    ;;
-	  *-*-openbsd* | *-*-freebsd* | *-*-dragonfly*)
+	  *-*-openbsd* | *-*-freebsd* | *-*-dragonfly* | *-*-midnightbsd*)
 	    # Do not include libc due to us having libc/libc_r.
 	    ;;
 	  *-*-sco3.2v5* | *-*-sco5v6*)

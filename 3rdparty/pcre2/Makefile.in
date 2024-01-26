@@ -93,9 +93,10 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-TESTS = $(am__EXEEXT_4) RunTest $(am__append_32)
+TESTS = $(am__EXEEXT_4) $(am__EXEEXT_5) RunTest $(am__append_34)
 bin_PROGRAMS = $(am__EXEEXT_1) pcre2test$(EXEEXT)
-noinst_PROGRAMS = $(am__EXEEXT_2) $(am__EXEEXT_3) $(am__EXEEXT_4)
+noinst_PROGRAMS = $(am__EXEEXT_2) $(am__EXEEXT_3) $(am__EXEEXT_4) \
+	$(am__EXEEXT_5)
 @WITH_REBUILD_CHARTABLES_TRUE@am__append_1 = pcre2_dftables
 @WITH_PCRE2_8_TRUE@am__append_2 = libpcre2-8.la
 @WITH_PCRE2_16_TRUE@am__append_3 = libpcre2-16.la
@@ -114,26 +115,28 @@ noinst_PROGRAMS = $(am__EXEEXT_2) $(am__EXEEXT_3) $(am__EXEEXT_4)
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@am__append_16 = pcre2fuzzcheck
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@am__append_17 = $(GCOV_CFLAGS)
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@am__append_18 = $(GCOV_LIBS)
-@WITH_JIT_TRUE@am__append_19 = pcre2_jit_test
-@WITH_JIT_TRUE@am__append_20 = pcre2_jit_test
-@WITH_JIT_TRUE@@WITH_PCRE2_8_TRUE@am__append_21 = libpcre2-8.la
-@WITH_JIT_TRUE@@WITH_PCRE2_16_TRUE@am__append_22 = libpcre2-16.la
-@WITH_JIT_TRUE@@WITH_PCRE2_32_TRUE@am__append_23 = libpcre2-32.la
-@WITH_GCOV_TRUE@@WITH_JIT_TRUE@am__append_24 = $(GCOV_CFLAGS)
-@WITH_GCOV_TRUE@@WITH_JIT_TRUE@am__append_25 = $(GCOV_LIBS)
-@WITH_PCRE2_8_TRUE@am__append_26 = libpcre2-8.la libpcre2-posix.la
-@WITH_PCRE2_16_TRUE@am__append_27 = libpcre2-16.la
-@WITH_PCRE2_32_TRUE@am__append_28 = libpcre2-32.la
-@WITH_VALGRIND_TRUE@am__append_29 = $(VALGRIND_CFLAGS)
-@WITH_GCOV_TRUE@am__append_30 = $(GCOV_CFLAGS)
-@WITH_GCOV_TRUE@am__append_31 = $(GCOV_LIBS)
-@WITH_PCRE2_8_TRUE@am__append_32 = RunGrepTest
-@WITH_PCRE2_8_TRUE@am__append_33 = RunGrepTest.bat
+@WITH_PCRE2_8_TRUE@am__append_19 = pcre2posix_test
+@WITH_PCRE2_8_TRUE@am__append_20 = pcre2posix_test
+@WITH_JIT_TRUE@am__append_21 = pcre2_jit_test
+@WITH_JIT_TRUE@am__append_22 = pcre2_jit_test
+@WITH_JIT_TRUE@@WITH_PCRE2_8_TRUE@am__append_23 = libpcre2-8.la
+@WITH_JIT_TRUE@@WITH_PCRE2_16_TRUE@am__append_24 = libpcre2-16.la
+@WITH_JIT_TRUE@@WITH_PCRE2_32_TRUE@am__append_25 = libpcre2-32.la
+@WITH_GCOV_TRUE@@WITH_JIT_TRUE@am__append_26 = $(GCOV_CFLAGS)
+@WITH_GCOV_TRUE@@WITH_JIT_TRUE@am__append_27 = $(GCOV_LIBS)
+@WITH_PCRE2_8_TRUE@am__append_28 = libpcre2-8.la libpcre2-posix.la
+@WITH_PCRE2_16_TRUE@am__append_29 = libpcre2-16.la
+@WITH_PCRE2_32_TRUE@am__append_30 = libpcre2-32.la
+@WITH_VALGRIND_TRUE@am__append_31 = $(VALGRIND_CFLAGS)
+@WITH_GCOV_TRUE@am__append_32 = $(GCOV_CFLAGS)
+@WITH_GCOV_TRUE@am__append_33 = $(GCOV_LIBS)
 @WITH_PCRE2_8_TRUE@am__append_34 = RunGrepTest
-@WITH_PCRE2_8_TRUE@am__append_35 = libpcre2-8.pc libpcre2-posix.pc
-@WITH_PCRE2_16_TRUE@am__append_36 = libpcre2-16.pc
-@WITH_PCRE2_32_TRUE@am__append_37 = libpcre2-32.pc
-@WITH_GCOV_FALSE@am__append_38 = src/*.gcda src/*.gcno
+@WITH_PCRE2_8_TRUE@am__append_35 = RunGrepTest.bat
+@WITH_PCRE2_8_TRUE@am__append_36 = RunGrepTest
+@WITH_PCRE2_8_TRUE@am__append_37 = libpcre2-8.pc libpcre2-posix.pc
+@WITH_PCRE2_16_TRUE@am__append_38 = libpcre2-16.pc
+@WITH_PCRE2_32_TRUE@am__append_39 = libpcre2-32.pc
+@WITH_GCOV_FALSE@am__append_40 = src/*.gcda src/*.gcno
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_pthread.m4 \
@@ -163,7 +166,8 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(libdir)" \
 	"$(DESTDIR)$(includedir)" "$(DESTDIR)$(includedir)"
 @WITH_REBUILD_CHARTABLES_TRUE@am__EXEEXT_2 = pcre2_dftables$(EXEEXT)
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@am__EXEEXT_3 = pcre2fuzzcheck$(EXEEXT)
-@WITH_JIT_TRUE@am__EXEEXT_4 = pcre2_jit_test$(EXEEXT)
+@WITH_PCRE2_8_TRUE@am__EXEEXT_4 = pcre2posix_test$(EXEEXT)
+@WITH_JIT_TRUE@am__EXEEXT_5 = pcre2_jit_test$(EXEEXT)
 PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS)
 LIBRARIES = $(noinst_LIBRARIES)
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
@@ -385,8 +389,8 @@ pcre2_jit_test_OBJECTS = $(am_pcre2_jit_test_OBJECTS)
 am__DEPENDENCIES_1 =
 @WITH_GCOV_TRUE@@WITH_JIT_TRUE@am__DEPENDENCIES_2 =  \
 @WITH_GCOV_TRUE@@WITH_JIT_TRUE@	$(am__DEPENDENCIES_1)
-@WITH_JIT_TRUE@pcre2_jit_test_DEPENDENCIES = $(am__append_21) \
-@WITH_JIT_TRUE@	$(am__append_22) $(am__append_23) \
+@WITH_JIT_TRUE@pcre2_jit_test_DEPENDENCIES = $(am__append_23) \
+@WITH_JIT_TRUE@	$(am__append_24) $(am__append_25) \
 @WITH_JIT_TRUE@	$(am__DEPENDENCIES_2)
 pcre2_jit_test_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
@@ -415,11 +419,20 @@ pcre2grep_OBJECTS = $(am_pcre2grep_OBJECTS)
 pcre2grep_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(pcre2grep_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+am__pcre2posix_test_SOURCES_DIST = src/pcre2posix_test.c
+@WITH_PCRE2_8_TRUE@am_pcre2posix_test_OBJECTS = src/pcre2posix_test-pcre2posix_test.$(OBJEXT)
+pcre2posix_test_OBJECTS = $(am_pcre2posix_test_OBJECTS)
+@WITH_PCRE2_8_TRUE@pcre2posix_test_DEPENDENCIES = libpcre2-posix.la \
+@WITH_PCRE2_8_TRUE@	libpcre2-8.la
+pcre2posix_test_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(pcre2posix_test_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
+	-o $@
 am_pcre2test_OBJECTS = src/pcre2test-pcre2test.$(OBJEXT)
 pcre2test_OBJECTS = $(am_pcre2test_OBJECTS)
 @WITH_GCOV_TRUE@am__DEPENDENCIES_5 = $(am__DEPENDENCIES_1)
-pcre2test_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__append_26) \
-	$(am__append_27) $(am__append_28) $(am__DEPENDENCIES_5)
+pcre2test_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__append_28) \
+	$(am__append_29) $(am__append_30) $(am__DEPENDENCIES_5)
 pcre2test_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(pcre2test_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
@@ -527,6 +540,7 @@ am__depfiles_remade = src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsuppo
 	src/$(DEPDIR)/pcre2_jit_test-pcre2_jit_test.Po \
 	src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Po \
 	src/$(DEPDIR)/pcre2grep-pcre2grep.Po \
+	src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Po \
 	src/$(DEPDIR)/pcre2test-pcre2test.Po
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
@@ -553,7 +567,8 @@ SOURCES = $(_libs_libpcre2_fuzzsupport_a_SOURCES) \
 	$(libpcre2_8_la_SOURCES) $(nodist_libpcre2_8_la_SOURCES) \
 	$(libpcre2_posix_la_SOURCES) $(pcre2_dftables_SOURCES) \
 	$(pcre2_jit_test_SOURCES) $(pcre2fuzzcheck_SOURCES) \
-	$(pcre2grep_SOURCES) $(pcre2test_SOURCES)
+	$(pcre2grep_SOURCES) $(pcre2posix_test_SOURCES) \
+	$(pcre2test_SOURCES)
 DIST_SOURCES = $(am___libs_libpcre2_fuzzsupport_a_SOURCES_DIST) \
 	$(am__libpcre2_16_la_SOURCES_DIST) \
 	$(am__libpcre2_32_la_SOURCES_DIST) \
@@ -562,7 +577,8 @@ DIST_SOURCES = $(am___libs_libpcre2_fuzzsupport_a_SOURCES_DIST) \
 	$(am__pcre2_dftables_SOURCES_DIST) \
 	$(am__pcre2_jit_test_SOURCES_DIST) \
 	$(am__pcre2fuzzcheck_SOURCES_DIST) \
-	$(am__pcre2grep_SOURCES_DIST) $(pcre2test_SOURCES)
+	$(am__pcre2grep_SOURCES_DIST) \
+	$(am__pcre2posix_test_SOURCES_DIST) $(pcre2test_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -829,6 +845,7 @@ EXTRA_LIBPCRE2_32_LDFLAGS = @EXTRA_LIBPCRE2_32_LDFLAGS@
 EXTRA_LIBPCRE2_8_LDFLAGS = @EXTRA_LIBPCRE2_8_LDFLAGS@
 EXTRA_LIBPCRE2_POSIX_LDFLAGS = @EXTRA_LIBPCRE2_POSIX_LDFLAGS@
 FGREP = @FGREP@
+FILECMD = @FILECMD@
 GCOV_CFLAGS = @GCOV_CFLAGS@
 GCOV_CXXFLAGS = @GCOV_CXXFLAGS@
 GCOV_LIBS = @GCOV_LIBS@
@@ -1165,7 +1182,7 @@ dist_man_MANS = \
 lib_LTLIBRARIES = $(am__append_2) $(am__append_3) $(am__append_4) \
 	$(am__append_11)
 check_SCRIPTS = 
-dist_noinst_SCRIPTS = RunTest $(am__append_34)
+dist_noinst_SCRIPTS = RunTest $(am__append_36)
 
 # Additional files to delete on 'make clean', 'make distclean',
 # and 'make maintainer-clean'.
@@ -1176,7 +1193,7 @@ CLEANFILES = src/pcre2_chartables.c testSinput test3input test3output \
 	test3outputA test3outputB testtry teststdout teststderr \
 	teststderrgrep testtemp1grep testtemp2grep testtrygrep \
 	testNinputgrep
-DISTCLEANFILES = src/config.h.in~ $(am__append_38)
+DISTCLEANFILES = src/config.h.in~ $(am__append_40)
 MAINTAINERCLEANFILES = src/pcre2.h.generic src/config.h.generic
 
 # Additional files to bundle with the distribution, over and above what
@@ -1192,6 +1209,8 @@ MAINTAINERCLEANFILES = src/pcre2.h.generic src/config.h.generic
 # for the benefit of people who are building PCRE2 manually, without the
 # Autotools support.
 
+# The pcre2_ucptables.c file is #included by pcre2_tables.c
+
 # The pcre2_chartables.c.dist file is the default version of
 # pcre2_chartables.c, used unless --enable-rebuild-chartables is specified.
 
@@ -1200,33 +1219,40 @@ MAINTAINERCLEANFILES = src/pcre2.h.generic src/config.h.generic
 
 # Some of the JIT sources are also in separate files that are #included.
 
-# PCRE2 demonstration program. Not built automatcally. The point is that the
+# PCRE2 demonstration program. Not built automatically. The point is that the
 # users should build it themselves. So just distribute the source.
 EXTRA_DIST = m4/ax_pthread.m4 m4/pcre2_visibility.m4 \
 	NON-AUTOTOOLS-BUILD HACKING PrepareRelease CheckMan CleanTxt \
 	Detrail 132html doc/index.html.src src/pcre2.h.generic \
-	src/config.h.generic src/pcre2_chartables.c.dist \
-	src/sljit/sljitConfig.h src/sljit/sljitConfigInternal.h \
-	src/sljit/sljitExecAllocator.c src/sljit/sljitLir.c \
-	src/sljit/sljitLir.h src/sljit/sljitNativeARM_32.c \
-	src/sljit/sljitNativeARM_64.c src/sljit/sljitNativeARM_T2_32.c \
+	src/config.h.generic src/pcre2_ucptables.c \
+	src/pcre2_chartables.c.dist src/sljit/sljitConfig.h \
+	src/sljit/sljitConfigInternal.h src/sljit/sljitExecAllocator.c \
+	src/sljit/sljitLir.c src/sljit/sljitLir.h \
+	src/sljit/sljitNativeARM_32.c src/sljit/sljitNativeARM_64.c \
+	src/sljit/sljitNativeARM_T2_32.c \
 	src/sljit/sljitNativeMIPS_32.c src/sljit/sljitNativeMIPS_64.c \
 	src/sljit/sljitNativeMIPS_common.c \
 	src/sljit/sljitNativePPC_32.c src/sljit/sljitNativePPC_64.c \
-	src/sljit/sljitNativePPC_common.c src/sljit/sljitNativeS390X.c \
-	src/sljit/sljitNativeSPARC_32.c \
-	src/sljit/sljitNativeSPARC_common.c \
-	src/sljit/sljitNativeX86_32.c src/sljit/sljitNativeX86_64.c \
+	src/sljit/sljitNativePPC_common.c \
+	src/sljit/sljitNativeRISCV_32.c \
+	src/sljit/sljitNativeRISCV_64.c \
+	src/sljit/sljitNativeRISCV_common.c \
+	src/sljit/sljitNativeS390X.c src/sljit/sljitNativeX86_32.c \
+	src/sljit/sljitNativeX86_64.c \
 	src/sljit/sljitNativeX86_common.c \
 	src/sljit/sljitProtExecAllocator.c src/sljit/sljitUtils.c \
 	src/sljit/sljitWXExecAllocator.c src/pcre2_jit_match.c \
 	src/pcre2_jit_misc.c src/pcre2_printint.c RunTest.bat \
-	$(am__append_33) testdata/grepbinary testdata/grepfilelist \
+	$(am__append_35) testdata/grepbinary testdata/grepfilelist \
 	testdata/grepinput testdata/grepinput3 testdata/grepinput8 \
+	testdata/grepinputC.bz2 testdata/grepinputC.gz \
 	testdata/grepinputM testdata/grepinputv testdata/grepinputx \
-	testdata/greplist testdata/grepoutput testdata/grepoutput8 \
-	testdata/grepoutputC testdata/grepoutputCN \
-	testdata/grepoutputN testdata/greppatN4 testdata/testbtables \
+	testdata/greplist testdata/grepnot.bz2 testdata/grepoutput \
+	testdata/grepoutput8 testdata/grepoutputC \
+	testdata/grepoutputCN testdata/grepoutputCNU \
+	testdata/grepoutputCU testdata/grepoutputCbz2 \
+	testdata/grepoutputCgz testdata/grepoutputN \
+	testdata/grepoutputUN testdata/greppatN4 testdata/testbtables \
 	testdata/testinput1 testdata/testinput2 testdata/testinput3 \
 	testdata/testinput4 testdata/testinput5 testdata/testinput6 \
 	testdata/testinput7 testdata/testinput8 testdata/testinput9 \
@@ -1235,7 +1261,8 @@ EXTRA_DIST = m4/ax_pthread.m4 m4/pcre2_visibility.m4 \
 	testdata/testinput16 testdata/testinput17 testdata/testinput18 \
 	testdata/testinput19 testdata/testinput20 testdata/testinput21 \
 	testdata/testinput22 testdata/testinput23 testdata/testinput24 \
-	testdata/testinput25 testdata/testinputEBC \
+	testdata/testinput25 testdata/testinput26 \
+	testdata/testinputEBC testdata/testinputheap \
 	testdata/testoutput1 testdata/testoutput2 testdata/testoutput3 \
 	testdata/testoutput3A testdata/testoutput3B \
 	testdata/testoutput4 testdata/testoutput5 testdata/testoutput6 \
@@ -1255,7 +1282,9 @@ EXTRA_DIST = m4/ax_pthread.m4 m4/pcre2_visibility.m4 \
 	testdata/testoutput21 testdata/testoutput22-16 \
 	testdata/testoutput22-32 testdata/testoutput22-8 \
 	testdata/testoutput23 testdata/testoutput24 \
-	testdata/testoutput25 testdata/testoutputEBC \
+	testdata/testoutput25 testdata/testoutput26 \
+	testdata/testoutputEBC testdata/testoutputheap-16 \
+	testdata/testoutputheap-32 testdata/testoutputheap-8 \
 	testdata/valgrind-jit.supp testdata/wintestinput3 \
 	testdata/wintestoutput3 perltest.sh src/pcre2demo.c \
 	cmake/COPYING-CMAKE-SCRIPTS cmake/FindEditline.cmake \
@@ -1367,19 +1396,22 @@ COMMON_SOURCES = \
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@pcre2fuzzcheck_LDADD =  \
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	libpcre2-8.la \
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	$(am__append_18)
+@WITH_PCRE2_8_TRUE@pcre2posix_test_SOURCES = src/pcre2posix_test.c
+@WITH_PCRE2_8_TRUE@pcre2posix_test_CFLAGS = $(AM_CFLAGS)
+@WITH_PCRE2_8_TRUE@pcre2posix_test_LDADD = libpcre2-posix.la libpcre2-8.la
 @WITH_JIT_TRUE@pcre2_jit_test_SOURCES = src/pcre2_jit_test.c
-@WITH_JIT_TRUE@pcre2_jit_test_CFLAGS = $(AM_CFLAGS) $(am__append_24)
-@WITH_JIT_TRUE@pcre2_jit_test_LDADD = $(am__append_21) \
-@WITH_JIT_TRUE@	$(am__append_22) $(am__append_23) \
-@WITH_JIT_TRUE@	$(am__append_25)
+@WITH_JIT_TRUE@pcre2_jit_test_CFLAGS = $(AM_CFLAGS) $(am__append_26)
+@WITH_JIT_TRUE@pcre2_jit_test_LDADD = $(am__append_23) \
+@WITH_JIT_TRUE@	$(am__append_24) $(am__append_25) \
+@WITH_JIT_TRUE@	$(am__append_27)
 pcre2test_SOURCES = src/pcre2test.c
-pcre2test_CFLAGS = $(AM_CFLAGS) $(am__append_29) $(am__append_30)
-pcre2test_LDADD = $(LIBREADLINE) $(am__append_26) $(am__append_27) \
-	$(am__append_28) $(am__append_31)
+pcre2test_CFLAGS = $(AM_CFLAGS) $(am__append_31) $(am__append_32)
+pcre2test_LDADD = $(LIBREADLINE) $(am__append_28) $(am__append_29) \
+	$(am__append_30) $(am__append_33)
 
 # We have .pc files for pkg-config users.
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = $(am__append_35) $(am__append_36) $(am__append_37)
+pkgconfig_DATA = $(am__append_37) $(am__append_38) $(am__append_39)
 
 # gcov/lcov code coverage reporting
 #
@@ -1781,6 +1813,12 @@ src/pcre2grep-pcre2grep.$(OBJEXT): src/$(am__dirstamp) \
 pcre2grep$(EXEEXT): $(pcre2grep_OBJECTS) $(pcre2grep_DEPENDENCIES) $(EXTRA_pcre2grep_DEPENDENCIES) 
 	@rm -f pcre2grep$(EXEEXT)
 	$(AM_V_CCLD)$(pcre2grep_LINK) $(pcre2grep_OBJECTS) $(pcre2grep_LDADD) $(LIBS)
+src/pcre2posix_test-pcre2posix_test.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
+
+pcre2posix_test$(EXEEXT): $(pcre2posix_test_OBJECTS) $(pcre2posix_test_DEPENDENCIES) $(EXTRA_pcre2posix_test_DEPENDENCIES) 
+	@rm -f pcre2posix_test$(EXEEXT)
+	$(AM_V_CCLD)$(pcre2posix_test_LINK) $(pcre2posix_test_OBJECTS) $(pcre2posix_test_LDADD) $(LIBS)
 src/pcre2test-pcre2test.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 
@@ -1918,6 +1956,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2_jit_test-pcre2_jit_test.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2grep-pcre2grep.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2test-pcre2test.Po@am__quote@ # am--include-marker
 
 $(am__depfiles_remade):
@@ -2580,6 +2619,20 @@ src/pcre2grep-pcre2grep.obj: src/pcre2grep.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2grep_CFLAGS) $(CFLAGS) -c -o src/pcre2grep-pcre2grep.obj `if test -f 'src/pcre2grep.c'; then $(CYGPATH_W) 'src/pcre2grep.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2grep.c'; fi`
 
+src/pcre2posix_test-pcre2posix_test.o: src/pcre2posix_test.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2posix_test_CFLAGS) $(CFLAGS) -MT src/pcre2posix_test-pcre2posix_test.o -MD -MP -MF src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Tpo -c -o src/pcre2posix_test-pcre2posix_test.o `test -f 'src/pcre2posix_test.c' || echo '$(srcdir)/'`src/pcre2posix_test.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Tpo src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2posix_test.c' object='src/pcre2posix_test-pcre2posix_test.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2posix_test_CFLAGS) $(CFLAGS) -c -o src/pcre2posix_test-pcre2posix_test.o `test -f 'src/pcre2posix_test.c' || echo '$(srcdir)/'`src/pcre2posix_test.c
+
+src/pcre2posix_test-pcre2posix_test.obj: src/pcre2posix_test.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2posix_test_CFLAGS) $(CFLAGS) -MT src/pcre2posix_test-pcre2posix_test.obj -MD -MP -MF src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Tpo -c -o src/pcre2posix_test-pcre2posix_test.obj `if test -f 'src/pcre2posix_test.c'; then $(CYGPATH_W) 'src/pcre2posix_test.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2posix_test.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Tpo src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2posix_test.c' object='src/pcre2posix_test-pcre2posix_test.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2posix_test_CFLAGS) $(CFLAGS) -c -o src/pcre2posix_test-pcre2posix_test.obj `if test -f 'src/pcre2posix_test.c'; then $(CYGPATH_W) 'src/pcre2posix_test.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2posix_test.c'; fi`
+
 src/pcre2test-pcre2test.o: src/pcre2test.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2test_CFLAGS) $(CFLAGS) -MT src/pcre2test-pcre2test.o -MD -MP -MF src/$(DEPDIR)/pcre2test-pcre2test.Tpo -c -o src/pcre2test-pcre2test.o `test -f 'src/pcre2test.c' || echo '$(srcdir)/'`src/pcre2test.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/pcre2test-pcre2test.Tpo src/$(DEPDIR)/pcre2test-pcre2test.Po
@@ -2995,6 +3048,13 @@ recheck: all $(check_SCRIPTS)
 	        am__force_recheck=am--force-recheck \
 	        TEST_LOGS="$$log_list"; \
 	exit $$?
+pcre2posix_test.log: pcre2posix_test$(EXEEXT)
+	@p='pcre2posix_test$(EXEEXT)'; \
+	b='pcre2posix_test'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 pcre2_jit_test.log: pcre2_jit_test$(EXEEXT)
 	@p='pcre2_jit_test$(EXEEXT)'; \
 	b='pcre2_jit_test'; \
@@ -3351,6 +3411,7 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/pcre2_jit_test-pcre2_jit_test.Po
 	-rm -f src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Po
 	-rm -f src/$(DEPDIR)/pcre2grep-pcre2grep.Po
+	-rm -f src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Po
 	-rm -f src/$(DEPDIR)/pcre2test-pcre2test.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
@@ -3489,6 +3550,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/pcre2_jit_test-pcre2_jit_test.Po
 	-rm -f src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Po
 	-rm -f src/$(DEPDIR)/pcre2grep-pcre2grep.Po
+	-rm -f src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Po
 	-rm -f src/$(DEPDIR)/pcre2test-pcre2test.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic

@@ -8,7 +8,7 @@ features, and the internals have been improved. The original PCRE1 library is
 now obsolete and no longer maintained. The latest release of PCRE2 is available
 in .tar.gz, tar.bz2, or .zip form from this GitHub repository:
 
-https://github.com/PhilipHazel/pcre2/releases
+https://github.com/PCRE2Project/pcre2/releases
 
 There is a mailing list for discussion about the development of PCRE2 at
 pcre2-dev@googlegroups.com. You can subscribe by sending an email to
@@ -17,7 +17,7 @@ pcre2-dev+subscribe@googlegroups.com.
 You can access the archives and also subscribe or manage your subscription
 here:
 
-https://groups.google.com/pcre2-dev
+https://groups.google.com/g/pcre2-dev
 
 Please read the NEWS file if you are upgrading from a previous release. The
 contents of this README file are:
@@ -114,11 +114,17 @@ Building PCRE2 using autotools
 The following instructions assume the use of the widely used "configure; make;
 make install" (autotools) process.
 
-To build PCRE2 on system that supports autotools, first run the "configure"
-command from the PCRE2 distribution directory, with your current directory set
+If you have downloaded and unpacked a PCRE2 release tarball, run the
+"configure" command from the PCRE2 directory, with your current directory set
 to the directory where you want the files to be created. This command is a
 standard GNU "autoconf" configuration script, for which generic instructions
 are supplied in the file INSTALL.
+
+The files in the GitHub repository do not contain "configure". If you have
+downloaded the PCRE2 source files from GitHub, before you can run "configure"
+you must run the shell script called autogen.sh. This runs a number of
+autotools to create a "configure" script (you must of course have the autotools
+commands installed in order to do this).
 
 Most commonly, people build PCRE2 within its own distribution directory, and in
 this case, on many systems, just running "./configure" is sufficient. However,
@@ -188,10 +194,10 @@ library. They are also documented in the pcre2build man page.
 
   As well as supporting UTF strings, Unicode support includes support for the
   \P, \p, and \X sequences that recognize Unicode character properties.
-  However, only the basic two-letter properties such as Lu are supported.
-  Escape sequences such as \d and \w in patterns do not by default make use of
-  Unicode properties, but can be made to do so by setting the PCRE2_UCP option
-  or starting a pattern with (*UCP).
+  However, only a subset of Unicode properties are supported; see the
+  pcre2pattern man page for details. Escape sequences such as \d and \w in
+  patterns do not by default make use of Unicode properties, but can be made to
+  do so by setting the PCRE2_UCP option or starting a pattern with (*UCP).
 
 . You can build PCRE2 to recognize either CR or LF or the sequence CRLF, or any
   of the preceding, or any of the Unicode newline sequences, or the NUL (zero)
@@ -369,10 +375,10 @@ library. They are also documented in the pcre2build man page.
   necessary to specify something like LIBS="-lncurses" as well. This is
   because, to quote the readline INSTALL, "Readline uses the termcap functions,
   but does not link with the termcap or curses library itself, allowing
-  applications which link with readline the to choose an appropriate library."
-  If you get error messages about missing functions tgetstr, tgetent, tputs,
-  tgetflag, or tgoto, this is the problem, and linking with the ncurses library
-  should fix it.
+  applications which link with readline the option to choose an appropriate
+  library." If you get error messages about missing functions tgetstr, tgetent,
+  tputs, tgetflag, or tgoto, this is the problem, and linking with the ncurses
+  library should fix it.
 
 . The C99 standard defines formatting modifiers z and t for size_t and
   ptrdiff_t values, respectively. By default, PCRE2 uses these modifiers in
@@ -394,24 +400,24 @@ library. They are also documented in the pcre2build man page.
   Setting --enable-fuzz-support also causes a binary called pcre2fuzzcheck to
   be created. This is normally run under valgrind or used when PCRE2 is
   compiled with address sanitizing enabled. It calls the fuzzing function and
-  outputs information about it is doing. The input strings are specified by
-  arguments: if an argument starts with "=" the rest of it is a literal input
-  string. Otherwise, it is assumed to be a file name, and the contents of the
-  file are the test string.
+  outputs information about what it is doing. The input strings are specified
+  by arguments: if an argument starts with "=" the rest of it is a literal
+  input string. Otherwise, it is assumed to be a file name, and the contents
+  of the file are the test string.
 
 . Releases before 10.30 could be compiled with --disable-stack-for-recursion,
   which caused pcre2_match() to use individual blocks on the heap for
   backtracking instead of recursive function calls (which use the stack). This
-  is now obsolete since pcre2_match() was refactored always to use the heap (in
-  a much more efficient way than before). This option is retained for backwards
-  compatibility, but has no effect other than to output a warning.
+  is now obsolete because pcre2_match() was refactored always to use the heap
+  (in a much more efficient way than before). This option is retained for
+  backwards compatibility, but has no effect other than to output a warning.
 
 The "configure" script builds the following files for the basic C library:
 
 . Makefile             the makefile that builds the library
 . src/config.h         build-time configuration options for the library
 . src/pcre2.h          the public PCRE2 header file
-. pcre2-config          script that shows the building settings such as CFLAGS
+. pcre2-config         script that shows the building settings such as CFLAGS
                          that were set for "configure"
 . libpcre2-8.pc        )
 . libpcre2-16.pc       ) data for the pkg-config command
@@ -432,8 +438,9 @@ Once "configure" has run, you can run "make". This builds whichever of the
 libraries libpcre2-8, libpcre2-16 and libpcre2-32 are configured, and a test
 program called pcre2test. If you enabled JIT support with --enable-jit, another
 test program called pcre2_jit_test is built as well. If the 8-bit library is
-built, libpcre2-posix and the pcre2grep command are also built. Running
-"make" with the -j option may speed up compilation on multiprocessor systems.
+built, libpcre2-posix, pcre2posix_test, and the pcre2grep command are also
+built. Running "make" with the -j option may speed up compilation on
+multiprocessor systems.
 
 The command "make check" runs all the appropriate tests. Details of the PCRE2
 tests are given below in a separate section of this document. The -j option of
@@ -571,9 +578,9 @@ at build time" for more details.
 Making new tarballs
 -------------------
 
-The command "make dist" creates two PCRE2 tarballs, in tar.gz and zip formats.
-The command "make distcheck" does the same, but then does a trial build of the
-new distribution to ensure that it works.
+The command "make dist" creates three PCRE2 tarballs, in tar.gz, tar.bz2, and
+zip formats. The command "make distcheck" does the same, but then does a trial
+build of the new distribution to ensure that it works.
 
 If you have modified any of the man page sources in the doc directory, you
 should first run the PrepareRelease script before making a distribution. This
@@ -585,9 +592,11 @@ Testing PCRE2
 
 To test the basic PCRE2 library on a Unix-like system, run the RunTest script.
 There is another script called RunGrepTest that tests the pcre2grep command.
-When JIT support is enabled, a third test program called pcre2_jit_test is
-built. Both the scripts and all the program tests are run if you obey "make
-check". For other environments, see the instructions in NON-AUTOTOOLS-BUILD.
+When the 8-bit library is built, a test program for the POSIX wrapper, called
+pcre2posix_test, is compiled, and when JIT support is enabled, a test program
+called pcre2_jit_test is built. The scripts and the program tests are all run
+when you obey "make check". For other environments, see the instructions in
+NON-AUTOTOOLS-BUILD.
 
 The RunTest script runs the pcre2test test program (which is documented in its
 own man page) on each of the relevant testinput files in the testdata
@@ -602,13 +611,13 @@ is available. RunTest outputs a comment when it skips a test.
 
 Many (but not all) of the tests that are not skipped are run twice if JIT
 support is available. On the second run, JIT compilation is forced. This
-testing can be suppressed by putting "nojit" on the RunTest command line.
+testing can be suppressed by putting "-nojit" on the RunTest command line.
 
 The entire set of tests is run once for each of the 8-bit, 16-bit and 32-bit
 libraries that are enabled. If you want to run just one set of tests, call
 RunTest with either the -8, -16 or -32 option.
 
-If valgrind is installed, you can run the tests under it by putting "valgrind"
+If valgrind is installed, you can run the tests under it by putting "-valgrind"
 on the RunTest command line. To run pcre2test on just one or more specific test
 files, give their numbers as arguments to RunTest, for example:
 
@@ -689,7 +698,7 @@ Test 14 contains some special UTF and UCP tests that give different output for
 different code unit widths.
 
 Test 15 contains a number of tests that must not be run with JIT. They check,
-among other non-JIT things, the match-limiting features of the intepretive
+among other non-JIT things, the match-limiting features of the interpretive
 matcher.
 
 Test 16 is run only when JIT support is not available. It checks that an
@@ -709,6 +718,9 @@ and with UTF support, respectively. Test 23 tests \C when it is locked out.
 
 Tests 24 and 25 test the experimental pattern conversion functions, without and
 with UTF support, respectively.
+
+Test 26 checks Unicode property support using tests that are generated
+automatically from the Unicode data tables.
 
 
 Character tables
@@ -813,6 +825,7 @@ The distribution should contain the files listed below.
   src/pcre2_substring.c    )
   src/pcre2_tables.c       )
   src/pcre2_ucd.c          )
+  src/pcre2_ucptables.c    )
   src/pcre2_valid_utf.c    )
   src/pcre2_xclass.c       )
 
@@ -824,6 +837,8 @@ The distribution should contain the files listed below.
   src/pcre2posix.h         header for the external POSIX wrapper API
   src/pcre2_internal.h     header for internal use
   src/pcre2_intmodedep.h   a mode-specific internal header
+  src/pcre2_jit_neon_inc.h header used by JIT
+  src/pcre2_jit_simd_inc.h header used by JIT
   src/pcre2_ucp.h          header for Unicode property handling
 
   sljit/*                  source files for the JIT compiler
@@ -834,6 +849,7 @@ The distribution should contain the files listed below.
   src/pcre2grep.c          source of a grep utility that uses PCRE2
   src/pcre2test.c          comprehensive test program
   src/pcre2_jit_test.c     JIT test program
+  src/pcre2posix_test.c    POSIX wrapper API test program
 
 (C) Auxiliary files:
 
@@ -905,4 +921,4 @@ The distribution should contain the files listed below.
 Philip Hazel
 Email local part: Philip.Hazel
 Email domain: gmail.com
-Last updated: 29 October 2021
+Last updated: 10 December 2022

@@ -425,6 +425,7 @@ RC=0
 595:before
 595:zero
 596:zero
+597:after
 597:zero
 RC=0
 ---------------------------- Test 45 ------------------------------
@@ -434,7 +435,10 @@ RC=0
 597:binary
 RC=0
 ---------------------------- Test 46 ------------------------------
+pcre2grep: Error in 1st command-line regex at offset 8: unmatched closing parenthesis
 pcre2grep: Error in 2nd command-line regex at offset 9: missing closing parenthesis
+pcre2grep: Error in 3rd command-line regex at offset 9: missing terminating ] for character class
+pcre2grep: Error in 4th command-line regex at offset 9: missing terminating ] for character class
 RC=2
 ---------------------------- Test 47 ------------------------------
 AB.VE
@@ -871,6 +875,18 @@ RC=0
 ./testdata/grepinput:a binary zero:zeroa
 ./testdata/grepinput:the binary zero.:zerothe.
 RC=0
+the binary zero.:	
+RC=0
+pcre2grep: Error in output text at offset 2: decimal number expected
+RC=2
+pcre2grep: Error in output text at offset 3: no character after $
+RC=2
+pcre2grep: Error in output text at offset 8: too many hex digits
+RC=2
+pcre2grep: Error in output text at offset 5: missing closing brace
+RC=2
+pcre2grep: Error in output text at offset 7: code point greater than 0xff is invalid
+RC=2
 ---------------------------- Test 121 -----------------------------
 This line contains \E and (regex) *meta* [characters].
 RC=0
@@ -946,9 +962,13 @@ RC=0
 RC=0
 [1;31ma[0mb[1;31mc[0md
 RC=0
+[1;20ma[0mb[1;20mc[0md
+RC=0
 ---------------------------- Test 126 -----------------------------
 ABC XYZ
 RC=0
+pcre2grep: Error in regex in line 2 of testtemp1grep at offset 4: unmatched closing parenthesis
+RC=2
 ---------------------------- Test 127 -----------------------------
 pattern
 RC=0
@@ -978,5 +998,237 @@ match 2:
  a
 RC=0
 ---------------------------- Test 133 -----------------------------
-=AB3CD5=
+match 1:
+ a
+match 2:
+ b
+---
+match 2:
+ b
+match 3:
+ c
 RC=0
+---------------------------- Test 134 -----------------------------
+(standard input):2:=AB3CD5=
+RC=0
+---------------------------- Test 135 -----------------------------
+./testdata/grepinputv@The word is cat in this line
+RC=0
+./testdata/grepinputv@./testdata/grepinputv@RC=0
+./testdata/grepinputv@This line contains \E and (regex) *meta* [characters].
+./testdata/grepinputv@The word is cat in this line
+./testdata/grepinputv@The caterpillar sat on the mat
+RC=0
+testdata/grepinputM 3:start end in between start
+end and following
+testdata/grepinputM 7:start end in between start
+end and following start
+end other stuff
+testdata/grepinputM 11:start end in between start
+
+end
+testdata/grepinputM 16:start end in between start
+end
+RC=0
+---------------------------- Test 136 -----------------------------
+pcre2grep: Malformed number "1MK" after -m
+Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Type "pcre2grep --help" for more information and the long options.
+RC=2
+pcre2grep: Malformed number "1MK" after --max-count
+Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Type "pcre2grep --help" for more information and the long options.
+RC=2
+---------------------------- Test 137 -----------------------------
+Last line
+has no newline
+RC=0
+---------------------------- Test 138 -----------------------------
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: pcre2_match() gave error -63 while matching this text:
+
+AbC
+
+pcre2grep: Too many errors - abandoned.
+pcre2grep: Error -46, -47, -53 or -63 means that a resource limit was exceeded.
+pcre2grep: Check your regex for nested unlimited loops.
+RC=2
+---------------------------- Test 139 -----------------------------
+fox jumps
+RC=0
+---------------------------- Test 140 -----------------------------
+The quick brown
+fox jumps
+RC=0
+---------------------------- Test 141 -----------------------------
+(standard input):This is a line from stdin.
+RC=0
+---------------------------- Test 142 -----------------------------
+pcre2grep: Failed to open /does/not/exist: No such file or directory
+RC=2
+---------------------------- Test 143 -----------------------------
+fox jumps
+The word is cat in this line
+The caterpillar sat on the mat
+The snowcat is not an animal
+A buried feline in the syndicate
+RC=0
+---------------------------- Test 144 -----------------------------
+pcre2grep: Failed to open /non/exist: No such file or directory
+RC=2
+---------------------------- Test 145 -----------------------------
+The quick brown
+fox jumps
+over the lazy dog.
+This time it jumps and jumps and jumps.
+This line contains \E and (regex) *meta* [characters].
+The word is cat in this line
+The caterpillar sat on the mat
+The snowcat is not an animal
+A buried feline in the syndicate
+RC=0
+---------------------------- Test 146 -----------------------------
+(standard input):A123B
+RC=0
+A123B
+fox jumps
+RC=0
+Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Type "pcre2grep --help" for more information and the long options.
+RC=2
+---------------------------- Test 147 -----------------------------
+pcre2grep: Failed to open -nonfile: No such file or directory
+RC=2
+---------------------------- Test 148 -----------------------------
+pcre2grep: Unknown option --nonexist
+Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Type "pcre2grep --help" for more information and the long options.
+RC=2
+pcre2grep: Unknown option letter '-' in "-n-n-bad"
+Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Type "pcre2grep --help" for more information and the long options.
+RC=2
+pcre2grep: Data missing after --context
+Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Type "pcre2grep --help" for more information and the long options.
+RC=2
+pcre2grep: Cannot mix --only-matching, --output, --file-offsets and/or --line-offsets
+Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Type "pcre2grep --help" for more information and the long options.
+RC=2
+pcre2grep: Unknown colour setting "badvalue"
+RC=2
+pcre2grep: Invalid newline specifier "badvalue"
+RC=2
+pcre2grep: Invalid value "badvalue" for -d
+RC=2
+pcre2grep: Invalid value "badvalue" for -D
+RC=2
+pcre2grep: --buffer-size must be greater than zero
+RC=2
+pcre2grep: Error in --exclude regex at offset 7: missing closing parenthesis
+RC=2
+pcre2grep: Failed to open /non/exist: No such file or directory
+RC=2
+pcre2grep: Failed to open /non/exist: No such file or directory
+RC=2
+pcre2grep: Failed to open /non/exist: No such file or directory
+RC=2
+---------------------------- Test 149 -----------------------------
+Binary file ./testdata/grepbinary matches
+RC=0
+pcre2grep: unknown value "wrong" for binary-files
+Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Type "pcre2grep --help" for more information and the long options.
+RC=2
+---------------------------- Test 150 -----------------------------
+pcre2grep: Failed to set locale badlocale (obtained from LC_CTYPE)
+RC=2
+---------------------------- Test 151 -----------------------------
+[1;31mThe[0m quick brown
+[1;31mThe wo[0mrd is cat in [1;31mthis[0m line
+[1;31mThe[0m caterpillar sat on the mat
+[1;31mThe[0m snowcat is not an animal

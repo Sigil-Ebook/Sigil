@@ -3298,7 +3298,7 @@ No match
         AllAny+
         notprop Any
         AllAny+
-        prop L&
+        prop Lc
         AllAny+
         prop L
         AllAny+
@@ -3322,29 +3322,29 @@ No match
 /\p{L&}+\p{Any} \p{L&}+\p{L&} \P{L&}+\p{L&} \p{L&}+\p{L} \p{L&}+\p{Lu} \p{L&}+\p{Han} \p{L&}+\p{Xan} \p{L&}+\P{Xan} \p{L&}+\p{Xsp} \p{L&}+\p{Xps} \p{Xwd}+\p{L&} \p{L&}+\p{Xuc}/Bx,ucp
 ------------------------------------------------------------------
         Bra
-        prop L& +
+        prop Lc +
         AllAny
-        prop L& +
-        prop L&
-        notprop L& ++
-        prop L&
-        prop L& +
+        prop Lc +
+        prop Lc
+        notprop Lc ++
+        prop Lc
+        prop Lc +
         prop L
-        prop L& +
+        prop Lc +
         prop Lu
-        prop L& +
+        prop Lc +
         prop Han
-        prop L& +
+        prop Lc +
         prop Xan
-        prop L& ++
+        prop Lc ++
         notprop Xan
-        prop L& ++
+        prop Lc ++
         prop Xsp
-        prop L& ++
+        prop Lc ++
         prop Xps
         prop Xwd +
-        prop L&
-        prop L& +
+        prop Lc
+        prop Lc +
         prop Xuc
         Ket
         End
@@ -3356,7 +3356,7 @@ No match
         prop N +
         AllAny
         prop N +
-        prop L&
+        prop Lc
         prop N ++
         prop L
         prop N +
@@ -3387,7 +3387,7 @@ No match
         prop Lu +
         AllAny
         prop Lu +
-        prop L&
+        prop Lc
         prop Lu +
         prop L
         prop Lu +
@@ -3420,7 +3420,7 @@ No match
         prop Han +
         prop Lu
         prop Han +
-        prop L&
+        prop Lc
         prop Han +
         prop L
         prop Han +
@@ -3449,9 +3449,9 @@ No match
         prop Xan +
         AllAny
         prop Xan +
-        prop L&
+        prop Lc
         notprop Xan ++
-        prop L&
+        prop Lc
         prop Xan +
         prop L
         prop Xan +
@@ -3480,7 +3480,7 @@ No match
         prop Xsp +
         AllAny
         prop Xsp ++
-        prop L&
+        prop Lc
         prop Xsp ++
         prop L
         prop Xsp ++
@@ -3509,7 +3509,7 @@ No match
         prop Xwd +
         AllAny
         prop Xwd +
-        prop L&
+        prop Lc
         prop Xwd +
         prop L
         prop Xwd +
@@ -3538,7 +3538,7 @@ No match
         prop Xuc +
         AllAny
         prop Xuc +
-        prop L&
+        prop Lc
         prop Xuc +
         prop L
         prop Xuc +
@@ -4620,7 +4620,7 @@ No match
  0: \x{1e900}\x{104b0}
     \x{1E922}\x{104D8}
  0: \x{1e922}\x{104d8}
-
+    
 /^(?:(\X)(?C))+$/utf
     \x{1E900}\x{1E924}\x{1E953}\x{11C00}\x{11C2D}\x{11C3E}\x{11C70}\x{11C77}\x{11CAB}\x{11400}\x{1142F}\x{11455}\x{104B0}\x{104D8}\x{104FB}\x{16FE0}\x{18800}\x{18AF2}\x{11D00}\x{11D3A}\x{11D59}\x{16FE1}\x{1B170}\x{1B2FB}\x{11A50}\x{11A58}\x{11AA2}\x{11A00}\x{11A07}\x{11A47}\=callout_capture,callout_no_where 
 Callout 0: last capture = 1
@@ -4720,21 +4720,6 @@ Callout 0: last capture = 1
     
 # More differences from Perl
 
-/^[\p{Arabic}]/utf
-\= Expect no match
-    \x{650}
-No match
-    \x{651}  
-No match
-    \x{652}  
-No match
-    \x{653}  
-No match
-    \x{654} 
-No match
-    \x{655} 
-No match
-    
 /^\p{Common}/utf
     \x{60c}
  0: \x{60c}
@@ -4949,4 +4934,86 @@ Subject length lower bound = 3
  0: \xc1\xe1
  1: \xc1
     
+/\p{L&}+\p{bidi_control}/B
+------------------------------------------------------------------
+        Bra
+        prop Lc +
+        prop Bidicontrol
+        Ket
+        End
+------------------------------------------------------------------
+
+/\p{bidi_control}+\p{L&}/B
+------------------------------------------------------------------
+        Bra
+        prop Bidicontrol +
+        prop Lc
+        Ket
+        End
+------------------------------------------------------------------
+
+/\p{han}/B
+------------------------------------------------------------------
+        Bra
+        prop Han
+        Ket
+        End
+------------------------------------------------------------------
+
+/\p{script:han}/B
+------------------------------------------------------------------
+        Bra
+        prop script:Han
+        Ket
+        End
+------------------------------------------------------------------
+
+/\p{sc:han}/B
+------------------------------------------------------------------
+        Bra
+        prop script:Han
+        Ket
+        End
+------------------------------------------------------------------
+
+/\p{script extensions:han}/B
+------------------------------------------------------------------
+        Bra
+        prop Han
+        Ket
+        End
+------------------------------------------------------------------
+
+/\p{scx:han}/B
+------------------------------------------------------------------
+        Bra
+        prop Han
+        Ket
+        End
+------------------------------------------------------------------
+
+# Test error - invalid script name
+
+/\p{sc:L}/
+Failed: error 147 at offset 8: unknown property after \P or \p
+
+# Some Boolean property tests that differ from Perl
+
+/\p{emojimodifierbase}\p{ebase}/g,utf
+    >AN<>\x{261d}\x{1faf6}<>yz<
+ 0: \x{261d}\x{1faf6}
+
+/\p{graphemelink}\p{grlink}/g,utf
+    >AN<>\x{11d97}\x{94d}<>yz<
+ 0: \x{11d97}\x{94d}
+ 
+/\p{soft dotted}\p{sd}/g,utf
+    >AF23<>\x{1df1a}\x{69}<>yz<
+ 0: \x{1df1a}i
+    
+# ------------------------------------------------ 
+
+/\p{\2b[:xäigi:t:_/
+Failed: error 146 at offset 17: malformed \P or \p sequence
+
 # End of testinput5

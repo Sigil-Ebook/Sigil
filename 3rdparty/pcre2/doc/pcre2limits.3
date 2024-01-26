@@ -1,4 +1,4 @@
-.TH PCRE2LIMITS 3 "03 February 2019" "PCRE2 10.33"
+.TH PCRE2LIMITS 3 "26 July 2022" "PCRE2 10.41"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "SIZE AND OTHER LIMITATIONS"
@@ -51,6 +51,10 @@ is 255 code units for the 8-bit library and 65535 code units for the 16-bit and
 .P
 The maximum length of a string argument to a callout is the largest number a
 32-bit unsigned integer can hold.
+.P
+The maximum amount of heap memory used for matching is controlled by the heap
+limit, which can be set in a pattern or in a match context. The default is a
+very large number, effectively unlimited.
 .
 .
 .SH AUTHOR
@@ -58,7 +62,7 @@ The maximum length of a string argument to a callout is the largest number a
 .sp
 .nf
 Philip Hazel
-University Computing Service
+Retired from University Computing Service
 Cambridge, England.
 .fi
 .
@@ -67,6 +71,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 02 February 2019
-Copyright (c) 1997-2019 University of Cambridge.
+Last updated: 26 July 2022
+Copyright (c) 1997-2022 University of Cambridge.
 .fi

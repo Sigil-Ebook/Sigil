@@ -68,6 +68,27 @@ diff -b  /dev/null /dev/null 2>/dev/null && cf="diff -b"
 diff -u  /dev/null /dev/null 2>/dev/null && cf="diff -u"
 diff -ub /dev/null /dev/null 2>/dev/null && cf="diff -ub"
 
+# Add a -a (always treat as text) if available. This was added in an attempt
+# to get more detail from an Alpine Linux test failure on GitHub.
+
+$cf -a /dev/null /dev/null 2>/dev/null && cf="$cf -a"
+
+# Some tests involve NUL characters. It seems impossible to handle them easily
+# in many operating systems. An earlier version of this script used sed to
+# translate NUL into the string ZERO, but this didn't work on Solaris (aka
+# SunOS), where the version of sed explicitly doesn't like them, and also MacOS
+# (Darwin), OpenBSD, FreeBSD, NetBSD, and some Linux distributions like Alpine,
+# even when using GNU sed. A user suggested using tr instead, which
+# necessitates translating to a single character. However, on (some versions
+# of?) Solaris, the normal "tr" cannot handle binary zeros, but if
+# /usr/xpg4/bin/tr is available, it can do so, so test for that.
+
+if [ -x /usr/xpg4/bin/tr ] ; then
+  tr=/usr/xpg4/bin/tr
+else
+  tr=tr
+fi
+
 # If this test is being run from "make check", $srcdir will be set. If not, set
 # it to the current or parent directory, whichever one contains the test data.
 # Subsequently, we run most of the pcre2grep tests in the source directory so
@@ -254,7 +275,7 @@ echo "---------------------------- Test 35 -----------------------------" >>test
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 36 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep -L -r --include=grepinput --exclude 'grepinput$' --exclude=grepinput8 --exclude=grepinputM --exclude-dir='^\.' 'fox' ./testdata | sort) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -L -r --include='grepinput[^C]' --exclude 'grepinput$' --exclude=grepinput8 --exclude=grepinputM --exclude-dir='^\.' 'fox' ./testdata | sort) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 37 -----------------------------" >>testtrygrep
@@ -296,7 +317,10 @@ echo "---------------------------- Test 45 ------------------------------" >>tes
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 46 ------------------------------" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -e 'unopened)' -e abc ./testdata/grepinput) >>testtrygrep 2>&1
 (cd $srcdir; $valgrind $vjs $pcre2grep -eabc -e '(unclosed' ./testdata/grepinput) >>testtrygrep 2>&1
+(cd $srcdir; $valgrind $vjs $pcre2grep -eabc -e xyz -e '[unclosed' ./testdata/grepinput) >>testtrygrep 2>&1
+(cd $srcdir; $valgrind $vjs $pcre2grep --regex=123 -eabc -e xyz -e '[unclosed' ./testdata/grepinput) >>testtrygrep 2>&1
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 47 ------------------------------" >>testtrygrep
@@ -339,11 +363,11 @@ echo "---------------------------- Test 55 -----------------------------" >>test
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 56 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep -c lazy ./testdata/grepinput*) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -c --exclude=grepinputC lazy ./testdata/grepinput*) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 57 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep -c -l lazy ./testdata/grepinput*) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -c -l --exclude=grepinputC lazy ./testdata/grepinput*) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 58 -----------------------------" >>testtrygrep
@@ -367,7 +391,7 @@ echo "---------------------------- Test 62 -----------------------------" >>test
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 63 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $pcre2grep --recursion-limit=1000 --no-jit -M 'This is a file(.|\R)*file.' ./testdata/grepinput) >>testtrygrep 2>&1
+(cd $srcdir; $valgrind $pcre2grep --recursion-limit=1K --no-jit -M 'This is a file(.|\R)*file.' ./testdata/grepinput) >>testtrygrep 2>&1
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 64 ------------------------------" >>testtrygrep
@@ -506,25 +530,25 @@ echo "---------------------------- Test 95 -----------------------------" >>test
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 96 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep -L -r --include-dir=testdata --exclude '^(?!grepinput)' --exclude=grepinputM 'fox' ./test* | sort) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -L -r --include-dir=testdata --exclude '^(?!grepinput)' --exclude=grepinput[MC] 'fox' ./test* | sort) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 97 -----------------------------" >>testtrygrep
 echo "grepinput$" >testtemp1grep
 echo "grepinput8" >>testtemp1grep
-(cd $srcdir; $valgrind $vjs $pcre2grep -L -r --include=grepinput --exclude=grepinputM --exclude-from $builddir/testtemp1grep --exclude-dir='^\.' 'fox' ./testdata | sort) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -L -r --include=grepinput --exclude=grepinput[MC] --exclude-from $builddir/testtemp1grep --exclude-dir='^\.' 'fox' ./testdata | sort) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 98 -----------------------------" >>testtrygrep
 echo "grepinput$" >testtemp1grep
 echo "grepinput8" >>testtemp1grep
-(cd $srcdir; $valgrind $vjs $pcre2grep -L -r --exclude=grepinput3 --exclude=grepinputM --include=grepinput --exclude-from $builddir/testtemp1grep --exclude-dir='^\.' 'fox' ./testdata | sort) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -L -r --exclude=grepinput3 --exclude=grepinput[MC] --include=grepinput --exclude-from $builddir/testtemp1grep --exclude-dir='^\.' 'fox' ./testdata | sort) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 99 -----------------------------" >>testtrygrep
 echo "grepinput$" >testtemp1grep
 echo "grepinput8" >testtemp2grep
-(cd $srcdir; $valgrind $vjs $pcre2grep -L -r --include grepinput --exclude=grepinputM --exclude-from $builddir/testtemp1grep --exclude-from=$builddir/testtemp2grep --exclude-dir='^\.' 'fox' ./testdata | sort) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -L -r --include grepinput --exclude=grepinput[MC] --exclude-from $builddir/testtemp1grep --exclude-from=$builddir/testtemp2grep --exclude-dir='^\.' 'fox' ./testdata | sort) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 100 ------------------------------" >>testtrygrep
@@ -566,7 +590,7 @@ echo "---------------------------- Test 108 ------------------------------" >>te
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 109 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep -cq lazy ./testdata/grepinput*) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -cq --exclude=grepinputC lazy ./testdata/grepinput*) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 110 -----------------------------" >>testtrygrep
@@ -582,27 +606,27 @@ echo "---------------------------- Test 112 -----------------------------" >>tes
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 113 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep --total-count 'the' testdata/grepinput*) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep --total-count --exclude=grepinputC 'the' testdata/grepinput*) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 114 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep -tc 'the' testdata/grepinput*) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -tc --exclude=grepinputC 'the' testdata/grepinput*) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 115 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep -tlc 'the' testdata/grepinput*) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -tlc --exclude=grepinputC 'the' testdata/grepinput*) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 116 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep --exclude=grepinputM -th 'the' testdata/grepinput*) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep --exclude=grepinput[MC] -th 'the' testdata/grepinput*) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 117 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep -tch 'the' testdata/grepinput*) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -tch --exclude=grepinputC 'the' testdata/grepinput*) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 118 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep -tL 'the' testdata/grepinput*) >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -tL --exclude=grepinputC 'the' testdata/grepinput*) >>testtrygrep
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 119 -----------------------------" >>testtrygrep
@@ -612,6 +636,18 @@ echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 120 ------------------------------" >>testtrygrep
 (cd $srcdir; $valgrind $vjs $pcre2grep -HO '$0:$2$1$3' '(\w+) binary (\w+)(\.)?' ./testdata/grepinput) >>testtrygrep
+echo "RC=$?" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -m 1 -O '$0:$a$b$e$f$r$t$v' '(\w+) binary (\w+)(\.)?' ./testdata/grepinput) >>testtrygrep
+echo "RC=$?" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -HO '${X}' '(\w+) binary (\w+)(\.)?' ./testdata/grepinput) >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -HO 'XX$' '(\w+) binary (\w+)(\.)?' ./testdata/grepinput) >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -O '$x{12345678}' '(\w+) binary (\w+)(\.)?' ./testdata/grepinput) >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -O '$x{123Z' '(\w+) binary (\w+)(\.)?' ./testdata/grepinput) >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep --output '$x{1234}' '(\w+) binary (\w+)(\.)?' ./testdata/grepinput) >>testtrygrep 2>&1
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 121 -----------------------------" >>testtrygrep
@@ -646,11 +682,16 @@ $valgrind $vjs $pcre2grep --colour=always --allow-lookaround-bsk '(?<=\K[ac])' t
 echo "RC=$?" >>testtrygrep
 $valgrind $vjs $pcre2grep --colour=always --allow-lookaround-bsk '(?=[ac]\K)' testNinputgrep >>testtrygrep
 echo "RC=$?" >>testtrygrep
+GREP_COLORS='ms=1;20' $valgrind $vjs $pcre2grep --colour=always --allow-lookaround-bsk '(?=[ac]\K)' testNinputgrep >>testtrygrep
+echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 126 -----------------------------" >>testtrygrep
 printf 'Next line pattern has binary zero\nABC\0XYZ\n' >testtemp1grep
 printf 'ABC\0XYZ\nABCDEF\nDEFABC\n' >testtemp2grep
 $valgrind $vjs $pcre2grep -a -f testtemp1grep testtemp2grep >>testtrygrep
+echo "RC=$?" >>testtrygrep
+printf 'Next line pattern is erroneous.\n^abc)(xy' >testtemp1grep
+$valgrind $vjs $pcre2grep -a -f testtemp1grep testtemp2grep >>testtrygrep 2>&1
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 127 -----------------------------" >>testtrygrep
@@ -658,7 +699,7 @@ echo "---------------------------- Test 127 -----------------------------" >>tes
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 128 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep -o1 --om-capture=0 'pattern()()()()' testdata/grepinput) >>testtrygrep 2>&1
+(cd $srcdir; $valgrind $vjs $pcre2grep -m1M -o1 --om-capture=0 'pattern()()()()' testdata/grepinput) >>testtrygrep 2>&1
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 129 -----------------------------" >>testtrygrep
@@ -674,12 +715,146 @@ echo "---------------------------- Test 131 -----------------------------" >>tes
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 132 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep -m1 -A3 '^match'; echo '---'; head -1) <$srcdir/testdata/grepinput >>testtrygrep 2>&1
+(cd $srcdir; exec 3<testdata/grepinput; $valgrind $vjs $pcre2grep -m1 -A3 '^match' <&3; echo '---'; head -1 <&3; exec 3<&-) >>testtrygrep 2>&1
 echo "RC=$?" >>testtrygrep
 
 echo "---------------------------- Test 133 -----------------------------" >>testtrygrep
-(cd $srcdir; $valgrind $vjs $pcre2grep -m1 -O '=$x{41}$x423$o{103}$o1045=' 'fox') <$srcdir/testdata/grepinputv >>testtrygrep 2>&1
+(cd $srcdir; exec 3<testdata/grepinput; $valgrind $vjs $pcre2grep -m1 -A3 '^match' <&3; echo '---'; $valgrind $vjs $pcre2grep -m1 -A3 '^match' <&3; exec 3<&-) >>testtrygrep 2>&1
 echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 134 -----------------------------" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep --max-count=1 -nH -O '=$x{41}$x423$o{103}$o1045=' 'fox' -) <$srcdir/testdata/grepinputv >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 135 -----------------------------" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -HZ 'word' ./testdata/grepinputv) | $tr '\000' '@' >>testtrygrep
+echo "RC=$?" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -lZ 'word' ./testdata/grepinputv ./testdata/grepinputv) | $tr '\000' '@' >>testtrygrep
+echo "RC=$?" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -A 1 -B 1 -HZ 'word' ./testdata/grepinputv) | $tr '\000' '@' >>testtrygrep
+echo "RC=$?" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -MHZn 'start[\s]+end' testdata/grepinputM) >>testtrygrep
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 136 -----------------------------" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -m1MK -o1 --om-capture=0 'pattern()()()()' testdata/grepinput) >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep --max-count=1MK -o1 --om-capture=0 'pattern()()()()' testdata/grepinput) >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 137 -----------------------------" >>testtrygrep
+printf 'Last line\nhas no newline' >testtemp1grep
+$valgrind $vjs $pcre2grep -A1 Last testtemp1grep >>testtrygrep
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 138 -----------------------------" >>testtrygrep
+printf 'AbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\n' >testtemp1grep
+$valgrind $vjs $pcre2grep --no-jit --heap-limit=0 b testtemp1grep >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 139 -----------------------------" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep --line-buffered 'fox' testdata/grepinputv) >>testtrygrep
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 140 -----------------------------" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep --buffer-size=10 -A1 'brown' testdata/grepinputv) >>testtrygrep
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 141 -----------------------------" >>testtrygrep
+printf "$srcdir/testdata/grepinputv\n-\n" >testtemp1grep
+printf 'This is a line from stdin.' >testtemp2grep
+$valgrind $vjs $pcre2grep --file-list testtemp1grep "line from stdin" <testtemp2grep >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 142 -----------------------------" >>testtrygrep
+printf "/does/not/exist\n" >testtemp1grep
+printf 'This is a line from stdin.' >testtemp2grep
+$valgrind $vjs $pcre2grep --file-list testtemp1grep "line from stdin" >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 143 -----------------------------" >>testtrygrep
+printf 'fox|cat' >testtemp1grep
+$valgrind $vjs $pcre2grep -f - $srcdir/testdata/grepinputv <testtemp1grep >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 144 -----------------------------" >>testtrygrep
+$valgrind $vjs $pcre2grep -f /non/exist $srcdir/testdata/grepinputv >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 145 -----------------------------" >>testtrygrep
+printf '*meta*\rdog.' >testtemp1grep
+$valgrind $vjs $pcre2grep -Ncr -F -f testtemp1grep $srcdir/testdata/grepinputv >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 146 -----------------------------" >>testtrygrep
+printf 'A123B' >testtemp1grep
+$valgrind $vjs $pcre2grep -H -e '123|fox' - <testtemp1grep >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep -h -e '123|fox' - $srcdir/testdata/grepinputv <testtemp1grep >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep - $srcdir/testdata/grepinputv <testtemp1grep >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 147 -----------------------------" >>testtrygrep
+$valgrind $vjs $pcre2grep -e '123|fox' -- -nonfile >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 148 -----------------------------" >>testtrygrep
+$valgrind $vjs $pcre2grep --nonexist >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep -n-n-bad >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep --context >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep --only-matching --output=xx >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep --colour=badvalue >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep --newline=badvalue >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep -d badvalue >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep -D badvalue >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep --buffer-size=0 >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep --exclude '(badpat' abc /dev/null >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep --exclude-from /non/exist abc /dev/null >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep --include-from /non/exist abc /dev/null >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+$valgrind $vjs $pcre2grep --file-list=/non/exist abc /dev/null >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+
+echo "---------------------------- Test 149 -----------------------------" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep --binary-files=binary "dog" ./testdata/grepbinary) >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep --binary-files=wrong "dog" ./testdata/grepbinary) >>testtrygrep 2>&1
+echo "RC=$?" >>testtrygrep
+
+# This test runs the code that tests locale support. However, on some systems
+# (e.g. Alpine Linux) there is no locale support and running this test just
+# generates a "no match" result. Therefore, we test for locale support, and if
+# it is found missing, we pretend that the test has run as expected so that the
+# output matches.
+
+echo "---------------------------- Test 150 -----------------------------" >>testtrygrep
+which locale >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+  echo "pcre2grep: Failed to set locale badlocale (obtained from LC_CTYPE)" >>testtrygrep
+  echo "RC=2" >>testtrygrep
+else
+
+  (cd $srcdir; unset LC_ALL; env LC_CTYPE=badlocale $valgrind $vjs $pcre2grep abc /dev/null) >>testtrygrep 2>&1
+  echo "RC=$?" >>testtrygrep
+fi
+
+echo "---------------------------- Test 151 -----------------------------" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep --colour=always -e this -e The -e 'The wo' testdata/grepinputv) >>testtrygrep
+
+
+
 
 # Now compare the results.
 
@@ -738,9 +913,11 @@ printf 'abc\rdef\r\nghi\njkl' >testNinputgrep
 
 printf '%c--------------------------- Test N1 ------------------------------\r\n' - >testtrygrep
 $valgrind $vjs $pcre2grep -n -N CR "^(abc|def|ghi|jkl)" testNinputgrep >>testtrygrep
+$valgrind $vjs $pcre2grep -B1 -n -N CR "^def" testNinputgrep >>testtrygrep
 
 printf '%c--------------------------- Test N2 ------------------------------\r\n' - >>testtrygrep
 $valgrind $vjs $pcre2grep -n --newline=crlf "^(abc|def|ghi|jkl)" testNinputgrep >>testtrygrep
+$valgrind $vjs $pcre2grep -B1 -n -N CRLF "^ghi" testNinputgrep >>testtrygrep
 
 printf '%c--------------------------- Test N3 ------------------------------\r\n' - >>testtrygrep
 pattern=`printf 'def\rjkl'`
@@ -751,33 +928,38 @@ $valgrind $vjs $pcre2grep -n --newline=crlf -F -f $srcdir/testdata/greppatN4 tes
 
 printf '%c--------------------------- Test N5 ------------------------------\r\n' - >>testtrygrep
 $valgrind $vjs $pcre2grep -n --newline=any "^(abc|def|ghi|jkl)" testNinputgrep >>testtrygrep
+$valgrind $vjs $pcre2grep -B1 -n --newline=any "^def" testNinputgrep >>testtrygrep
 
 printf '%c--------------------------- Test N6 ------------------------------\r\n' - >>testtrygrep
 $valgrind $vjs $pcre2grep -n --newline=anycrlf "^(abc|def|ghi|jkl)" testNinputgrep >>testtrygrep
-
-# This next test involves NUL characters. It seems impossible to handle them
-# easily in many operating systems. An earlier version of this script used sed
-# to translate NUL into the string ZERO, but this didn't work on Solaris (aka
-# SunOS), where the version of sed explicitly doesn't like them, and also MacOS
-# (Darwin), OpenBSD, FreeBSD, NetBSD, and some Linux distributions like Alpine,
-# even when using GNU sed. A user suggested using tr instead, which
-# necessitates translating to a single character (@). However, on (some
-# versions of?) Solaris, the normal "tr" cannot handle binary zeros, but if
-# /usr/xpg4/bin/tr is available, it can do so, so test for that.
-
-if [ -x /usr/xpg4/bin/tr ] ; then
-  tr=/usr/xpg4/bin/tr
-else
-  tr=tr
-fi
+$valgrind $vjs $pcre2grep -B1 -n --newline=anycrlf "^jkl" testNinputgrep >>testtrygrep
 
 printf '%c--------------------------- Test N7 ------------------------------\r\n' - >>testtrygrep
-printf 'abc\0def' >testNinputgrep
+printf 'xyz\0abc\0def' >testNinputgrep
 $valgrind $vjs $pcre2grep -na --newline=nul "^(abc|def)" testNinputgrep | $tr '\000' '@' >>testtrygrep
+$valgrind $vjs $pcre2grep -B1 -na --newline=nul "^(abc|def)" testNinputgrep | $tr '\000' '@' >>testtrygrep
 echo "" >>testtrygrep
 
 $cf $srcdir/testdata/grepoutputN testtrygrep
 if [ $? != 0 ] ; then exit 1; fi
+
+
+# These newline tests need UTF support.
+
+if [ $utf8 -ne 0 ] ; then
+  echo "Testing pcre2grep newline settings with UTF-8 features"
+
+  printf '%c--------------------------- Test UN1 ------------------------------\r\n' - >testtrygrep
+  printf 'abc\341\210\264def\nxyz' >testNinputgrep
+  $valgrind $vjs $pcre2grep -nau --newline=anycrlf "^(abc|def)" testNinputgrep >>testtrygrep
+  echo "" >>testtrygrep
+
+  $cf $srcdir/testdata/grepoutputUN testtrygrep
+  if [ $? != 0 ] ; then exit 1; fi
+else
+  echo "Skipping pcre2grep newline UTF-8 tests: no UTF-8 support in PCRE2 library"
+fi
+
 
 # If pcre2grep supports script callouts, run some tests on them. It is possible
 # to restrict these callouts to the non-fork case, either for security, or for
@@ -789,19 +971,58 @@ if $valgrind $vjs $pcre2grep --help | $valgrind $vjs $pcre2grep -q 'callout scri
   $valgrind $vjs $pcre2grep '(T)(..(.))(?C"/bin/echo|Arg1: [$1] [$2] [$3]|Arg2: $|${1}$| ($4) ($14) ($0)")()' $srcdir/testdata/grepinputv >testtrygrep
   $valgrind $vjs $pcre2grep '(T)(..(.))()()()()()()()(..)(?C"/bin/echo|Arg1: [$11] [${11}]")' $srcdir/testdata/grepinputv >>testtrygrep
   $valgrind $vjs $pcre2grep '(T)(?C"|$0:$1$n")' $srcdir/testdata/grepinputv >>testtrygrep
+  $valgrind $vjs $pcre2grep '(T)(?C"/bin/echo|$0:$1$n")' $srcdir/testdata/grepinputv >>testtrygrep
   $valgrind $vjs $pcre2grep '(T)(?C"|$1$n")(*F)' $srcdir/testdata/grepinputv >>testtrygrep
   $valgrind $vjs $pcre2grep -m1 '(T)(?C"|$0:$1:$x{41}$o{101}$n")' $srcdir/testdata/grepinputv >>testtrygrep
 
   if $valgrind $vjs $pcre2grep --help | $valgrind $vjs $pcre2grep -q 'Non-fork callout scripts in patterns are supported'; then
+    nonfork=1
     $cf $srcdir/testdata/grepoutputCN testtrygrep
   else
+    nonfork=0
     $cf $srcdir/testdata/grepoutputC testtrygrep
   fi
-
   if [ $? != 0 ] ; then exit 1; fi
+
+  # These callout tests need UTF support.
+
+  if [ $utf8 -ne 0 ] ; then
+    echo "Testing pcre2grep script callout with UTF-8 features"
+    $valgrind $vjs $pcre2grep -u '(T)(?C"|$0:$x{a6}$n")' $srcdir/testdata/grepinputv >testtrygrep
+    $valgrind $vjs $pcre2grep -u '(T)(?C"/bin/echo|$0:$x{a6}$n")' $srcdir/testdata/grepinputv >>testtrygrep
+
+    if [ $nonfork = 1 ] ; then
+      $cf $srcdir/testdata/grepoutputCNU testtrygrep
+    else
+      $cf $srcdir/testdata/grepoutputCU testtrygrep
+    fi
+    if [ $? != 0 ] ; then exit 1; fi
+  fi
 else
   echo "Script callouts are not supported"
 fi
+
+
+# Test reading .gz and .bz2 files when supported.
+
+if $valgrind $vjs $pcre2grep --help | $valgrind $vjs $pcre2grep -q '\.gz are read using zlib'; then
+  echo "Testing reading .gz file"
+  $valgrind $vjs $pcre2grep 'one|two' $srcdir/testdata/grepinputC.gz >testtrygrep
+  echo "RC=$?" >>testtrygrep
+  $cf $srcdir/testdata/grepoutputCgz testtrygrep
+  if [ $? != 0 ] ; then exit 1; fi
+fi
+
+if $valgrind $vjs $pcre2grep --help | $valgrind $vjs $pcre2grep -q '\.bz2 are read using bzlib2'; then
+  echo "Testing reading .bz2 file"
+  $valgrind $vjs $pcre2grep 'one|two' $srcdir/testdata/grepinputC.bz2 >testtrygrep
+  echo "RC=$?" >>testtrygrep
+  $valgrind $vjs $pcre2grep 'one|two' $srcdir/testdata/grepnot.bz2 >>testtrygrep
+  echo "RC=$?" >>testtrygrep
+  $cf $srcdir/testdata/grepoutputCbz2 testtrygrep
+  if [ $? != 0 ] ; then exit 1; fi
+fi
+
 
 # Finally, some tests to exercise code that is not tested above, just to be
 # sure that it runs OK. Doing this improves the coverage statistics. The output
@@ -812,6 +1033,9 @@ echo '' >testtrygrep
 checkspecial '-xxxxx' 2
 checkspecial '--help' 0
 checkspecial '--line-buffered --colour=auto abc /dev/null' 1
+checkspecial '--line-buffered --color abc /dev/null' 1
+checkspecial '-dskip abc .' 1
+checkspecial '-Dread -Dskip abc /dev/null' 1
 
 # Clean up local working files
 rm -f testNinputgrep teststderrgrep testtrygrep testtemp1grep testtemp2grep

@@ -1,4 +1,4 @@
-.TH PCRE2PERFORM 3 "03 February 2019" "PCRE2 10.33"
+.TH PCRE2PERFORM 3 "27 July 2022" "PCRE2 10.41"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "PCRE2 PERFORMANCE"
@@ -69,12 +69,28 @@ From release 10.30, the interpretive (non-JIT) version of \fBpcre2_match()\fP
 uses very little system stack at run time. In earlier releases recursive
 function calls could use a great deal of stack, and this could cause problems,
 but this usage has been eliminated. Backtracking positions are now explicitly
-remembered in memory frames controlled by the code. An initial 20KiB vector of
-frames is allocated on the system stack (enough for about 100 frames for small
-patterns), but if this is insufficient, heap memory is used. The amount of heap
-memory can be limited; if the limit is set to zero, only the initial stack
-vector is used. Rewriting patterns to be time-efficient, as described below,
-may also reduce the memory requirements.
+remembered in memory frames controlled by the code.
+.P
+The size of each frame depends on the size of pointer variables and the number
+of capturing parenthesized groups in the pattern being matched. On a 64-bit
+system the frame size for a pattern with no captures is 128 bytes. For each
+capturing group the size increases by 16 bytes.
+.P
+Until release 10.41, an initial 20KiB frames vector was allocated on the system
+stack, but this still caused some issues for multi-thread applications where
+each thread has a very small stack. From release 10.41 backtracking memory
+frames are always held in heap memory. An initial heap allocation is obtained
+the first time any match data block is passed to \fBpcre2_match()\fP. This is
+remembered with the match data block and re-used if that block is used for
+another match. It is freed when the match data block itself is freed.
+.P
+The size of the initial block is the larger of 20KiB or ten times the pattern's
+frame size, unless the heap limit is less than this, in which case the heap
+limit is used. If the initial block proves to be too small during matching, it
+is replaced by a larger block, subject to the heap limit. The heap limit is
+checked only when a new block is to be allocated. Reducing the heap limit
+between calls to \fBpcre2_match()\fP with the same match data block does not
+affect the saved block.
 .P
 In contrast to \fBpcre2_match()\fP, \fBpcre2_dfa_match()\fP does use recursive
 function calls, but only for processing atomic groups, lookaround assertions,
@@ -230,7 +246,7 @@ pattern to match. This is done by repeatedly matching with different limits.
 .sp
 .nf
 Philip Hazel
-University Computing Service
+Retired from University Computing Service
 Cambridge, England.
 .fi
 .
@@ -239,6 +255,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 03 February 2019
-Copyright (c) 1997-2019 University of Cambridge.
+Last updated: 27 July 2022
+Copyright (c) 1997-2022 University of Cambridge.
 .fi

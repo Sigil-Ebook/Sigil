@@ -7,7 +7,7 @@ and semantics are as close as possible to those of the Perl 5 language.
 
                        Written by Philip Hazel
      Original API code Copyright (c) 1997-2012 University of Cambridge
-          New API code Copyright (c) 2016-2018 University of Cambridge
+          New API code Copyright (c) 2016-2022 University of Cambridge
 
 -----------------------------------------------------------------------------
 Redistribution and use in source and binary forms, with or without
@@ -519,7 +519,7 @@ it is. This is called only in UTF-32 mode - we don't put a test within the
 macro because almost all calls are already within a block of UTF-32 only
 code.
 
-These are all no-ops since all UTF-32 characters fit into one pcre_uchar. */
+These are all no-ops since all UTF-32 characters fit into one PCRE2_UCHAR. */
 
 #define BACKCHAR(eptr) do { } while (0)
 
@@ -649,19 +649,23 @@ the size varies from call to call. As the maximum number of capturing
 subpatterns is 65535 we must allow for 65536 strings to include the overall
 match. (See also the heapframe structure below.) */
 
+struct heapframe;  /* Forward reference */
+
 typedef struct pcre2_real_match_data {
-  pcre2_memctl     memctl;
-  const pcre2_real_code *code;    /* The pattern used for the match */
-  PCRE2_SPTR       subject;       /* The subject that was matched */
-  PCRE2_SPTR       mark;          /* Pointer to last mark */
-  PCRE2_SIZE       leftchar;      /* Offset to leftmost code unit */
-  PCRE2_SIZE       rightchar;     /* Offset to rightmost code unit */
-  PCRE2_SIZE       startchar;     /* Offset to starting code unit */
-  uint8_t          matchedby;     /* Type of match (normal, JIT, DFA) */
-  uint8_t          flags;         /* Various flags */
-  uint16_t         oveccount;     /* Number of pairs */
-  int              rc;            /* The return code from the match */
-  PCRE2_SIZE       ovector[131072]; /* Must be last in the structure */
+  pcre2_memctl     memctl;           /* Memory control fields */
+  const pcre2_real_code *code;       /* The pattern used for the match */
+  PCRE2_SPTR       subject;          /* The subject that was matched */
+  PCRE2_SPTR       mark;             /* Pointer to last mark */
+  struct heapframe *heapframes;      /* Backtracking frames heap memory */
+  PCRE2_SIZE       heapframes_size;  /* Malloc-ed size */
+  PCRE2_SIZE       leftchar;         /* Offset to leftmost code unit */
+  PCRE2_SIZE       rightchar;        /* Offset to rightmost code unit */
+  PCRE2_SIZE       startchar;        /* Offset to starting code unit */
+  uint8_t          matchedby;        /* Type of match (normal, JIT, DFA) */
+  uint8_t          flags;            /* Various flags */
+  uint16_t         oveccount;        /* Number of pairs */
+  int              rc;               /* The return code from the match */
+  PCRE2_SIZE       ovector[131072];  /* Must be last in the structure */
 } pcre2_real_match_data;
 
 
@@ -747,8 +751,8 @@ typedef struct compile_block {
   uint32_t class_range_start;      /* Overall class range start */
   uint32_t class_range_end;        /* Overall class range end */
   PCRE2_UCHAR nl[4];               /* Newline string when fixed length */
+  uint32_t req_varyopt;            /* "After variable item" flag for reqbyte */
   int  max_lookbehind;             /* Maximum lookbehind (characters) */
-  int  req_varyopt;                /* "After variable item" flag for reqbyte */
   BOOL had_accept;                 /* (*ACCEPT) encountered */
   BOOL had_pruneorskip;            /* (*PRUNE) or (*SKIP) encountered */
   BOOL had_recurse;                /* Had a recursion or subroutine call */
@@ -764,7 +768,7 @@ typedef struct pcre2_real_jit_stack {
 } pcre2_real_jit_stack;
 
 /* Structure for items in a linked list that represents an explicit recursive
-call within the pattern when running pcre_dfa_match(). */
+call within the pattern when running pcre2_dfa_match(). */
 
 typedef struct dfa_recursion_info {
   struct dfa_recursion_info *prevrec;
@@ -838,15 +842,22 @@ multiple of PCRE2_SIZE. See various comments above. */
 typedef char check_heapframe_size[
   ((sizeof(heapframe) % sizeof(PCRE2_SIZE)) == 0)? (+1):(-1)];
 
+/* Structure for computing the alignment of heapframe. */
+
+typedef struct heapframe_align {
+  char unalign;    /* Completely unalign the current offset */
+  heapframe frame; /* Offset is its alignment */
+} heapframe_align;
+
+/* This define is the minimum alignment required for a heapframe, in bytes. */
+
+#define HEAPFRAME_ALIGNMENT offsetof(heapframe_align, frame)
+
 /* Structure for passing "static" information around between the functions
 doing traditional NFA matching (pcre2_match() and friends). */
 
 typedef struct match_block {
   pcre2_memctl memctl;            /* For general use */
-  PCRE2_SIZE frame_vector_size;   /* Size of a backtracking frame */
-  heapframe *match_frames;        /* Points to vector of frames */
-  heapframe *match_frames_top;    /* Points after the end of the vector */
-  heapframe *stack_frames;        /* The original vector on the stack */
   PCRE2_SIZE heap_limit;          /* As it says */
   uint32_t match_limit;           /* As it says */
   uint32_t match_limit_depth;     /* As it says */

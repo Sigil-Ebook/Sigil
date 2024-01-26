@@ -2043,7 +2043,7 @@
 /^\x{1E900}\x{104B0}/i,utf
     \x{1E900}\x{104B0}
     \x{1E922}\x{104D8}
-
+    
 /^(?:(\X)(?C))+$/utf
     \x{1E900}\x{1E924}\x{1E953}\x{11C00}\x{11C2D}\x{11C3E}\x{11C70}\x{11C77}\x{11CAB}\x{11400}\x{1142F}\x{11455}\x{104B0}\x{104D8}\x{104FB}\x{16FE0}\x{18800}\x{18AF2}\x{11D00}\x{11D3A}\x{11D59}\x{16FE1}\x{1B170}\x{1B2FB}\x{11A50}\x{11A58}\x{11AA2}\x{11A00}\x{11A07}\x{11A47}\=callout_capture,callout_no_where 
 
@@ -2071,15 +2071,6 @@
     
 # More differences from Perl
 
-/^[\p{Arabic}]/utf
-\= Expect no match
-    \x{650}
-    \x{651}  
-    \x{652}  
-    \x{653}  
-    \x{654} 
-    \x{655} 
-    
 /^\p{Common}/utf
     \x{60c}
     \x{61f}  
@@ -2188,4 +2179,37 @@
 /(\xc1)\1/i,ucp
     \xc1\xe1\=no_jit
     
+/\p{L&}+\p{bidi_control}/B
+
+/\p{bidi_control}+\p{L&}/B
+
+/\p{han}/B
+
+/\p{script:han}/B
+
+/\p{sc:han}/B
+
+/\p{script extensions:han}/B
+
+/\p{scx:han}/B
+
+# Test error - invalid script name
+
+/\p{sc:L}/
+
+# Some Boolean property tests that differ from Perl
+
+/\p{emojimodifierbase}\p{ebase}/g,utf
+    >AN<>\x{261d}\x{1faf6}<>yz<
+
+/\p{graphemelink}\p{grlink}/g,utf
+    >AN<>\x{11d97}\x{94d}<>yz<
+ 
+/\p{soft dotted}\p{sd}/g,utf
+    >AF23<>\x{1df1a}\x{69}<>yz<
+    
+# ------------------------------------------------ 
+
+/\p{\2b[:xäigi:t:_/
+
 # End of testinput5

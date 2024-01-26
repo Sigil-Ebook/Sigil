@@ -1,0 +1,13 @@
+#pattern framesize, memory
+
+/abcd/
+    abcd\=memory
+    abcd\=find_limits
+
+/(((((((((((((((((((((((((((((( (^abc|xyz){1,20}$  ))))))))))))))))))))))))))))))/x
+    abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcX\=memory
+    abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcX\=find_limits
+
+/ab(cd)/
+    abcd\=memory
+    abcd\=memory,ovector=0 

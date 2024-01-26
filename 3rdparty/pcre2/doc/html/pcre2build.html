@@ -142,8 +142,9 @@ locked this out by setting PCRE2_NEVER_UTF.
 UTF support allows the libraries to process character code points up to
 0x10ffff in the strings that they handle. Unicode support also gives access to
 the Unicode properties of characters, using pattern escapes such as \P, \p,
-and \X. Only the general category properties such as <i>Lu</i> and <i>Nd</i> are
-supported. Details are given in the
+and \X. Only the general category properties such as <i>Lu</i> and <i>Nd</i>,
+script names, and some bi-directional properties are supported. Details are
+given in the
 <a href="pcre2pattern.html"><b>pcre2pattern</b></a>
 documentation.
 </P>
@@ -283,12 +284,11 @@ to the <b>configure</b> command. This setting also applies to the
 counting is done differently).
 </P>
 <P>
-The <b>pcre2_match()</b> function starts out using a 20KiB vector on the system
-stack to record backtracking points. The more nested backtracking points there
-are (that is, the deeper the search tree), the more memory is needed. If the
-initial vector is not large enough, heap memory is used, up to a certain limit,
-which is specified in kibibytes (units of 1024 bytes). The limit can be changed
-at run time, as described in the
+The <b>pcre2_match()</b> function uses heap memory to record backtracking
+points. The more nested backtracking points there are (that is, the deeper the
+search tree), the more memory is needed. There is an upper limit, specified in
+kibibytes (units of 1024 bytes). This limit can be changed at run time, as
+described in the
 <a href="pcre2api.html"><b>pcre2api</b></a>
 documentation. The default limit (in effect unlimited) is 20 million. You can
 change this by a setting such as
@@ -307,7 +307,7 @@ You can also explicitly limit the depth of nested backtracking in the
 for --with-match-limit. You can set a lower default limit by adding, for
 example,
 <pre>
-  --with-match-limit_depth=10000
+  --with-match-limit-depth=10000
 </pre>
 to the <b>configure</b> command. This value can be overridden at run time. This
 depth limit indirectly limits the amount of heap memory that is used, but
@@ -608,16 +608,16 @@ give a warning.
 <P>
 Philip Hazel
 <br>
-University Computing Service
+Retired from University Computing Service
 <br>
 Cambridge, England.
 <br>
 </P>
 <br><a name="SEC26" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 20 March 2020
+Last updated: 27 July 2022
 <br>
-Copyright &copy; 1997-2020 University of Cambridge.
+Copyright &copy; 1997-2022 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

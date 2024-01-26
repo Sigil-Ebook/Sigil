@@ -94,7 +94,10 @@ echo "Making pcre2demo.3"
 perl <<"END" >pcre2demo.3
   open(IN, "../src/pcre2demo.c") || die "Failed to open src/pcre2demo.c\n";
   open(OUT, ">pcre2demo.3") || die "Failed to open pcre2demo.3\n";
-  print OUT ".\\\" Start example.\n" .
+  print OUT ".SH NAME\n" .
+            "// - A demonstration C program for PCRE2 - //\n" .
+            ".sp\n" .  
+            ".\\\" Start example.\n" .
             ".de EX\n" .
             ".  nr mE \\\\n(.f\n" .
             ".  nf\n" .

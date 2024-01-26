@@ -17,8 +17,16 @@
 # individual test numbers, ranges of tests such as 3-6 or 3- (meaning 3 to the
 # end), or a number preceded by ~ to exclude a test. For example, "3-15 ~10"
 # runs tests 3 to 15, excluding test 10, and just "~10" runs all the tests
-# except test 10. Whatever order the arguments are in, the tests are always run
-# in numerical order.
+# except test 10. Whatever order the arguments are in, these tests are always
+# run in numerical order.
+#
+# If no specific tests are selected (which is the case when this script is run
+# via 'make check') the default is to run all the numbered tests.
+#
+# There may also be named (as well as numbered) tests for special purposes. At
+# present there is just one, called "heap". This test's output contains the
+# sizes of heap frames and frame vectors, which depend on the environment. It
+# is therefore not run unless explicitly requested.
 #
 # Inappropriate tests are automatically skipped (with a comment to say so). For
 # example, if JIT support is not compiled, test 16 is skipped, whereas if JIT
@@ -80,7 +88,9 @@ title22="Test 22: \C tests with UTF (not supported for DFA matching)"
 title23="Test 23: \C disabled test"
 title24="Test 24: Non-UTF pattern conversion tests"
 title25="Test 25: UTF pattern conversion tests"
-maxtest=25
+title26="Test 26: Auto-generated unicode property tests"
+maxtest=26
+titleheap="Test 'heap': Environment-specific heap tests"
 
 if [ $# -eq 1 -a "$1" = "list" ]; then
   echo $title0
@@ -109,6 +119,12 @@ if [ $# -eq 1 -a "$1" = "list" ]; then
   echo $title23
   echo $title24
   echo $title25
+  echo $title26
+  echo ""
+  echo $titleheap
+  echo ""
+  echo "Numbered tests are automatically run if nothing selected."
+  echo "Named tests must be explicitly selected."
   exit 0
 fi
 
@@ -238,6 +254,8 @@ do22=no
 do23=no
 do24=no
 do25=no
+do26=no
+doheap=no
 
 while [ $# -gt 0 ] ; do
   case $1 in
@@ -267,6 +285,8 @@ while [ $# -gt 0 ] ; do
    23) do23=yes;;
    24) do24=yes;;
    25) do25=yes;;
+   26) do26=yes;;
+ heap) doheap=yes;;
    -8) arg8=yes;;
   -16) arg16=yes;;
   -32) arg32=yes;;
@@ -320,7 +340,8 @@ fi
 # set up a large stack.
 
 $sim ./pcre2test -S 64 /dev/null /dev/null
-if [ $? -eq 0 -a "$bigstack" != "" ] ; then
+support_setstack=$?
+if [ $support_setstack -eq 0 -a "$bigstack" != "" ] ; then
   setstack="-S 64"
 else
   setstack=""
@@ -407,8 +428,8 @@ if [ $jit -ne 0 -a "$nojit" != "yes" ] ; then
   fi
 fi
 
-# If no specific tests were requested, select all. Those that are not
-# relevant will be automatically skipped.
+# If no specific tests were requested, select all the numbered tests. Those
+# that are not relevant will be automatically skipped.
 
 if [ $do0  = no -a $do1  = no -a $do2  = no -a $do3  = no -a \
      $do4  = no -a $do5  = no -a $do6  = no -a $do7  = no -a \
@@ -416,7 +437,7 @@ if [ $do0  = no -a $do1  = no -a $do2  = no -a $do3  = no -a \
      $do12 = no -a $do13 = no -a $do14 = no -a $do15 = no -a \
      $do16 = no -a $do17 = no -a $do18 = no -a $do19 = no -a \
      $do20 = no -a $do21 = no -a $do22 = no -a $do23 = no -a \
-     $do24 = no -a $do25 = no \
+     $do24 = no -a $do25 = no -a $do26 = no -a $doheap = no \
    ]; then
   do0=yes
   do1=yes
@@ -444,6 +465,7 @@ if [ $do0  = no -a $do1  = no -a $do2  = no -a $do3  = no -a \
   do23=yes
   do24=yes
   do25=yes
+  do26=yes
 fi
 
 # Handle any explicit skips at this stage, so that an argument list may consist
@@ -479,7 +501,9 @@ for bmode in "$test8" "$test16" "$test32"; do
     echo '' >testtry
     checkspecial '-C'
     checkspecial '--help'
-    checkspecial '-S 1 -t 10 testSinput'
+    if [ $support_setstack -eq 0 ] ; then
+      checkspecial '-S 1 -t 10 testSinput'
+    fi
     echo "  OK"
   fi
 
@@ -632,7 +656,7 @@ for bmode in "$test8" "$test16" "$test32"; do
   # Test of internal offsets and code sizes. This test is run only when there
   # is UTF/UCP support. The actual tests are mostly the same as in some of the
   # above, but in this test we inspect some offsets and sizes. This is a
-  # doublecheck for the maintainer, just in case something changes unexpectely.
+  # doublecheck for the maintainer, just in case something changes unexpectedly.
   # The output from this test is different in 8-bit, 16-bit, and 32-bit modes
   # and for different link sizes, so there are different output files for each
   # mode and link size.
@@ -858,6 +882,29 @@ for bmode in "$test8" "$test16" "$test32"; do
       $sim $valgrind ./pcre2test -q $setstack $bmode $testdata/testinput25 testtry
       checkresult $? 25 ""
     fi
+  fi
+
+  # Auto-generated unicode property tests
+
+  if [ $do26 = yes ] ; then
+    echo $title26
+    if [ $utf -eq 0 ] ; then
+      echo "  Skipped because UTF-$bits support is not available"
+    else
+      for opt in "" $jitopt; do
+        $sim $valgrind ${opt:+$vjs} ./pcre2test -q $setstack $bmode $opt $testdata/testinput26 testtry
+        checkresult $? 26 "$opt"
+      done
+    fi
+  fi
+
+  # Manually selected heap tests - output may vary in different environments,
+  # which is why that are not automatically run.
+
+  if [ $doheap = yes ] ; then
+    echo $titleheap
+    $sim $valgrind ./pcre2test -q $setstack $bmode $testdata/testinputheap testtry
+    checkresult $? heap-$bits ""
   fi
 
 # End of loop for 8/16/32-bit tests

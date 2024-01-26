@@ -1,0 +1,40 @@
+#pattern framesize, memory
+
+/abcd/
+Memory allocation (code space): 15
+Frame size for pcre2_match(): 128
+    abcd\=memory
+malloc  20480
+ 0: abcd
+    abcd\=find_limits
+Minimum heap limit = 1
+Minimum match limit = 2
+Minimum depth limit = 2
+ 0: abcd
+
+/(((((((((((((((((((((((((((((( (^abc|xyz){1,20}$  ))))))))))))))))))))))))))))))/x
+Memory allocation (code space): 855
+Frame size for pcre2_match(): 624
+    abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcX\=memory
+malloc  40960
+free unremembered block
+No match
+    abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcX\=find_limits
+Minimum heap limit = 22
+Minimum match limit = 37
+Minimum depth limit = 35
+No match
+
+/ab(cd)/
+Memory allocation (code space): 23
+Frame size for pcre2_match(): 144
+    abcd\=memory
+ 0: abcd
+ 1: cd
+    abcd\=memory,ovector=0 
+free    40960
+free unremembered block
+malloc    128
+malloc  20480
+ 0: abcd
+ 1: cd

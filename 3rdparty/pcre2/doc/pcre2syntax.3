@@ -1,4 +1,4 @@
-.TH PCRE2SYNTAX 3 "30 August 2021" "PCRE2 10.38"
+.TH PCRE2SYNTAX 3 "12 January 2022" "PCRE2 10.40"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "PCRE2 REGULAR EXPRESSION SYNTAX SUMMARY"
@@ -102,6 +102,10 @@ happening, \es and \ew may also match characters with code points in the range
 128-255. If the PCRE2_UCP option is set, the behaviour of these escape
 sequences is changed to use Unicode properties and they match many more
 characters.
+.P
+Property descriptions in \ep and \eP are matched caselessly; hyphens,
+underscores, and white space are ignored, in accordance with Unicode's "loose
+matching" rules.
 .
 .
 .SH "GENERAL CATEGORY PROPERTIES FOR \ep and \eP"
@@ -120,6 +124,7 @@ characters.
   Lo         Other letter
   Lt         Title case letter
   Lu         Upper case letter
+  Lc         Ll, Lu, or Lt
   L&         Ll, Lu, or Lt
 .sp
   M          Mark
@@ -167,170 +172,59 @@ Perl and POSIX space are now the same. Perl added VT to its space character set
 at release 5.18.
 .
 .
-.SH "SCRIPT NAMES FOR \ep AND \eP"
+.SH "BINARY PROPERTIES FOR \ep AND \eP"
 .rs
 .sp
-Adlam,
-Ahom,
-Anatolian_Hieroglyphs,
-Arabic,
-Armenian,
-Avestan,
-Balinese,
-Bamum,
-Bassa_Vah,
-Batak,
-Bengali,
-Bhaiksuki,
-Bopomofo,
-Brahmi,
-Braille,
-Buginese,
-Buhid,
-Canadian_Aboriginal,
-Carian,
-Caucasian_Albanian,
-Chakma,
-Cham,
-Cherokee,
-Chorasmian,
-Common,
-Coptic,
-Cuneiform,
-Cypriot,
-Cypro_Minoan,
-Cyrillic,
-Deseret,
-Devanagari,
-Dives_Akuru,
-Dogra,
-Duployan,
-Egyptian_Hieroglyphs,
-Elbasan,
-Elymaic,
-Ethiopic,
-Georgian,
-Glagolitic,
-Gothic,
-Grantha,
-Greek,
-Gujarati,
-Gunjala_Gondi,
-Gurmukhi,
-Han,
-Hangul,
-Hanifi_Rohingya,
-Hanunoo,
-Hatran,
-Hebrew,
-Hiragana,
-Imperial_Aramaic,
-Inherited,
-Inscriptional_Pahlavi,
-Inscriptional_Parthian,
-Javanese,
-Kaithi,
-Kannada,
-Katakana,
-Kayah_Li,
-Kharoshthi,
-Khitan_Small_Script,
-Khmer,
-Khojki,
-Khudawadi,
-Lao,
-Latin,
-Lepcha,
-Limbu,
-Linear_A,
-Linear_B,
-Lisu,
-Lycian,
-Lydian,
-Mahajani,
-Makasar,
-Malayalam,
-Mandaic,
-Manichaean,
-Marchen,
-Masaram_Gondi,
-Medefaidrin,
-Meetei_Mayek,
-Mende_Kikakui,
-Meroitic_Cursive,
-Meroitic_Hieroglyphs,
-Miao,
-Modi,
-Mongolian,
-Mro,
-Multani,
-Myanmar,
-Nabataean,
-Nandinagari,
-New_Tai_Lue,
-Newa,
-Nko,
-Nushu,
-Nyakeng_Puachue_Hmong,
-Ogham,
-Ol_Chiki,
-Old_Hungarian,
-Old_Italic,
-Old_North_Arabian,
-Old_Permic,
-Old_Persian,
-Old_Sogdian,
-Old_South_Arabian,
-Old_Turkic,
-Old_Uyghur,
-Oriya,
-Osage,
-Osmanya,
-Pahawh_Hmong,
-Palmyrene,
-Pau_Cin_Hau,
-Phags_Pa,
-Phoenician,
-Psalter_Pahlavi,
-Rejang,
-Runic,
-Samaritan,
-Saurashtra,
-Sharada,
-Shavian,
-Siddham,
-SignWriting,
-Sinhala,
-Sogdian,
-Sora_Sompeng,
-Soyombo,
-Sundanese,
-Syloti_Nagri,
-Syriac,
-Tagalog,
-Tagbanwa,
-Tai_Le,
-Tai_Tham,
-Tai_Viet,
-Takri,
-Tamil,
-Tangsa,
-Tangut,
-Telugu,
-Thaana,
-Thai,
-Tibetan,
-Tifinagh,
-Tirhuta,
-Toto,
-Ugaritic,
-Vai,
-Vithkuqi,
-Wancho,
-Warang_Citi,
-Yezidi,
-Yi,
-Zanabazar_Square.
+Unicode defines a number of binary properties, that is, properties whose only
+values are true or false. You can obtain a list of those that are recognized by
+\ep and \eP, along with their abbreviations, by running this command:
+.sp
+  pcre2test -LP
+.
+.
+.
+.SH "SCRIPT MATCHING WITH \ep AND \eP"
+.rs
+.sp
+Many script names and their 4-letter abbreviations are recognized in
+\ep{sc:...} or \ep{scx:...} items, or on their own with \ep (and also \eP of
+course). You can obtain a list of these scripts by running this command:
+.sp
+  pcre2test -LS
+.
+.
+.
+.SH "THE BIDI_CLASS PROPERTY FOR \ep AND \eP"
+.rs
+.sp
+  \ep{Bidi_Class:<class>}   matches a character with the given class
+  \ep{BC:<class>}           matches a character with the given class
+.sp
+The recognized classes are:
+.sp
+  AL          Arabic letter
+  AN          Arabic number
+  B           paragraph separator
+  BN          boundary neutral
+  CS          common separator
+  EN          European number
+  ES          European separator
+  ET          European terminator
+  FSI         first strong isolate
+  L           left-to-right
+  LRE         left-to-right embedding
+  LRI         left-to-right isolate
+  LRO         left-to-right override
+  NSM         non-spacing mark
+  ON          other neutral
+  PDF         pop directional format
+  PDI         pop directional isolate
+  R           right-to-left
+  RLE         right-to-left embedding
+  RLI         right-to-left isolate
+  RLO         right-to-left override
+  S           segment separator
+  WS          which space
 .
 .
 .SH "CHARACTER CLASSES"
@@ -684,6 +578,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 30 August 2021
-Copyright (c) 1997-2021 University of Cambridge.
+Last updated: 12 January 2022
+Copyright (c) 1997-2022 University of Cambridge.
 .fi

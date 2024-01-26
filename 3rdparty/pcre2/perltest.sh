@@ -218,7 +218,7 @@ for (;;)
 
   $showrest = ($mod =~ s/aftertext,?//);
 
-  # The "subject_literal" modifer disables escapes in subjects.
+  # The "subject_literal" modifier disables escapes in subjects.
 
   $subject_literal = ($mod =~ s/subject_literal,?//);
 

@@ -92,8 +92,18 @@ Additional options may be set in the compile context via the
 function.
 </P>
 <P>
-The yield of this function is a pointer to a private data structure that
-contains the compiled pattern, or NULL if an error was detected.
+If either of <i>errorcode</i> or <i>erroroffset</i> is NULL, the function returns
+NULL immediately. Otherwise, the yield of this function is a pointer to a
+private data structure that contains the compiled pattern, or NULL if an error
+was detected. In the error case, a text error message can be obtained by
+passing the value returned via the <i>errorcode</i> argument to the the
+<b>pcre2_get_error_message()</b> function. The offset (in code units) where the
+error was encountered is returned via the <i>erroroffset</i> argument.
+</P>
+<P>
+If there is no error, the value passed via <i>errorcode</i> returns the message
+"no error" if passed to <b>pcre2_get_error_message()</b>, and the value passed
+via <i>erroroffset</i> is zero.
 </P>
 <P>
 There is a complete description of the PCRE2 native API, with more detail on

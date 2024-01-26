@@ -2,6 +2,61 @@ News about PCRE2 releases
 -------------------------
 
 
+Version 10.42 11-December-2022
+------------------------------
+
+This is an unexpectedly early release to fix a problem that was introduced in
+10.41. ChangeLog number 19 (GitHub #139) added the default definition of
+PCRE2_CALL_CONVENTION to pcre2posix.c instead of pcre2posix.h, which meant that
+programs including pcre2posix.h but not pcre2.h couldn't compile. A new test
+that checks this case has been added.
+
+A couple of other minor issues are also fixed, and a patch for an intermittent
+JIT fault is also included. See ChangeLog and the Git log.
+
+
+Version 10.41 06-December-2022
+------------------------------
+
+This is another mainly bug-fixing and code-tidying release. There is one
+significant upgrade to pcre2grep: it now behaves like GNU grep when matching
+more than one pattern and a later pattern matches at an earlier point in the
+subject when the matched substrings are being identified by colour or by
+offsets.
+
+
+Version 10.40 15-April-2022
+---------------------------
+
+This is mostly a bug-fixing and code-tidying release. However, there are some
+extensions to Unicode property handling:
+
+* Added support for Bidi_Class and a number of binary Unicode properties,
+including Bidi_Control.
+
+* A number of changes to script matching for \p and \P:
+
+  (a) Script extensions for a character are now coded as a bitmap instead of
+      a list of script numbers, which should be faster and does not need a
+      loop.
+
+  (b) Added the syntax \p{script:xxx} and \p{script_extensions:xxx} (synonyms
+      sc and scx).
+
+  (c) Changed \p{scriptname} from being the same as \p{sc:scriptname} to being
+      the same as \p{scx:scriptname} because this change happened in Perl at
+      release 5.26.
+
+  (d) The standard Unicode 4-letter abbreviations for script names are now
+      recognized.
+
+  (e) In accordance with Unicode and Perl's "loose matching" rules, spaces,
+      hyphens, and underscores are ignored in property names, which are then
+      matched independent of case.
+
+As always, see ChangeLog for a list of all changes (also the Git log).
+
+
 Version 10.39 29-October-2021
 -----------------------------
 

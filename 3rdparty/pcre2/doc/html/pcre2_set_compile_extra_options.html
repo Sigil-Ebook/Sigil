@@ -30,8 +30,8 @@ This function sets additional option bits for <b>pcre2_compile()</b> that are
 housed in a compile context. It completely replaces all the bits. The extra
 options are:
 <pre>
-  PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK     Allow \K in lookarounds PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES  Allow \x{df800} to \x{dfff}
-                                         in UTF-8 and UTF-32 modes
+  PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK     Allow \K in lookarounds
+  PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES  Allow \x{d800} to \x{dfff} in UTF-8 and UTF-32 modes
   PCRE2_EXTRA_ALT_BSUX                 Extended alternate \u, \U, and \x handling
   PCRE2_EXTRA_BAD_ESCAPE_IS_LITERAL    Treat all invalid escapes as a literal following character
   PCRE2_EXTRA_ESCAPED_CR_IS_LF         Interpret \r as \n

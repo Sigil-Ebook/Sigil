@@ -5767,7 +5767,7 @@ a)"xI
 
 /(?(DEFINE)b)((?<=b).*)/B
 
-/(?(VERSION=10.4)b)((?<=b).*)/B
+/(?(VERSION=10.3)b)((?<=b).*)/B
 
 /[aA]b[cC]/IB
 
@@ -5901,5 +5901,43 @@ a)"xI
     abcd
     
 # --------- 
+
+# Tests for zero-length NULL to be treated as an empty string.
+
+//
+    \=null_subject
+\= Expect error     
+    abc\=null_subject
+
+//replace=[20]
+    abc\=null_replacement
+    \=null_subject
+    \=null_replacement
+
+/X*/g,replace=xy
+\= Expect error
+    >X<\=null_replacement
+
+/X+/replace=[20]
+    >XX<\=null_replacement
+
+# --------- 
+
+/[Aa]{2}/BI
+    aabcd
+
+/A{2}/iBI
+    aabcd
+
+/[Aa]{2,3}/BI
+    aabcd
+
+--
+    \[X]{-10}
+    
+# Check imposition of maximum by match_data_create().
+
+/abcd/
+    abcd\=ovector=65536
 
 # End of testinput2

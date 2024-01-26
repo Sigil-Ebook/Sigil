@@ -78,7 +78,7 @@ to 8-bit code units for output.
 </P>
 <P>
 In the rest of this document, the names of library functions and structures
-are given in generic form, for example, <b>pcre_compile()</b>. The actual
+are given in generic form, for example, <b>pcre2_compile()</b>. The actual
 names used in the libraries have a suffix _8, _16, or _32, as appropriate.
 <a name="inputencoding"></a></P>
 <br><a name="SEC3" href="#TOC1">INPUT ENCODING</a><br>
@@ -253,7 +253,19 @@ available, and the use of JIT for matching is verified.
 <b>-LM</b>
 List modifiers: write a list of available pattern and subject modifiers to the
 standard output, then exit with zero exit code. All other options are ignored.
-If both -C and -LM are present, whichever is first is recognized.
+If both -C and any -Lx options are present, whichever is first is recognized.
+</P>
+<P>
+<b>-LP</b>
+List properties: write a list of recognized Unicode properties to the standard
+output, then exit with zero exit code. All other options are ignored. If both
+-C and any -Lx options are present, whichever is first is recognized.
+</P>
+<P>
+<b>-LS</b>
+List scripts: write a list of recognized Unicode script names to the standard
+output, then exit with zero exit code. All other options are ignored. If both
+-C and any -Lx options are present, whichever is first is recognized.
 </P>
 <P>
 <b>-pattern</b> <i>modifier-list</i>
@@ -1229,7 +1241,8 @@ pattern, but can be overridden by modifiers on the subject.
       copy=&#60;number or name&#62;      copy captured substring
       depth_limit=&#60;n&#62;            set a depth limit
       dfa                        use <b>pcre2_dfa_match()</b>
-      find_limits                find match and depth limits
+      find_limits                find heap, match and depth limits
+      find_limits_noheap         find match and depth limits
       get=&#60;number or name&#62;       extract captured substring
       getall                     extract all captured substrings
   /g  global                     global matching
@@ -1239,6 +1252,8 @@ pattern, but can be overridden by modifiers on the subject.
       match_limit=&#60;n&#62;            set a match limit
       memory                     show heap memory usage
       null_context               match with a NULL context
+      null_replacement           substitute with NULL replacement
+      null_subject               match with NULL subject
       offset=&#60;n&#62;                 set starting offset
       offset_limit=&#60;n&#62;           set offset limit
       ovector=&#60;n&#62;                set size of output vector
@@ -1353,7 +1368,7 @@ functions, unless <b>callout_none</b> is specified. Its behaviour can be
 controlled by various modifiers listed above whose names begin with
 <b>callout_</b>. Details are given in the section entitled "Callouts"
 <a href="#callouts">below.</a>
-Testing callouts from <b>pcre2_substitute()</b> is decribed separately in
+Testing callouts from <b>pcre2_substitute()</b> is described separately in
 "Testing the substitution function"
 <a href="#substitution">below.</a>
 </P>
@@ -1550,7 +1565,7 @@ Setting heap, match, and depth limits
 <P>
 The <b>heap_limit</b>, <b>match_limit</b>, and <b>depth_limit</b> modifiers set
 the appropriate limits in the match context. These values are ignored when the
-<b>find_limits</b> modifier is specified.
+<b>find_limits</b> or <b>find_limits_noheap</b> modifier is specified.
 </P>
 <br><b>
 Finding minimum limits
@@ -1560,8 +1575,12 @@ If the <b>find_limits</b> modifier is present on a subject line, <b>pcre2test</b
 calls the relevant matching function several times, setting different values in
 the match context via <b>pcre2_set_heap_limit()</b>,
 <b>pcre2_set_match_limit()</b>, or <b>pcre2_set_depth_limit()</b> until it finds
-the minimum values for each parameter that allows the match to complete without
-error. If JIT is being used, only the match limit is relevant.
+the smallest value for each parameter that allows the match to complete without
+a "limit exceeded" error. The match itself may succeed or fail. An alternative
+modifier, <b>find_limits_noheap</b>, omits the heap limit. This is used in the
+standard tests, because the minimum heap limit varies between systems. If JIT
+is being used, only the match limit is relevant, and the other two are
+automatically omitted.
 </P>
 <P>
 When using this modifier, the pattern should not contain any limit settings
@@ -1589,9 +1608,7 @@ overall amount of computing resource that is used.
 </P>
 <P>
 For both kinds of matching, the <i>heap_limit</i> number, which is in kibibytes
-(units of 1024 bytes), limits the amount of heap memory used for matching. A
-value of zero disables the use of any heap memory; many simple pattern matches
-can be done without using the heap, so zero is not an unreasonable setting.
+(units of 1024 bytes), limits the amount of heap memory used for matching.
 </P>
 <br><b>
 Showing MARK names
@@ -1609,12 +1626,10 @@ Showing memory usage
 <P>
 The <b>memory</b> modifier causes <b>pcre2test</b> to log the sizes of all heap
 memory allocation and freeing calls that occur during a call to
-<b>pcre2_match()</b> or <b>pcre2_dfa_match()</b>. These occur only when a match
-requires a bigger vector than the default for remembering backtracking points
-(<b>pcre2_match()</b>) or for internal workspace (<b>pcre2_dfa_match()</b>). In
-many cases there will be no heap memory used and therefore no additional
-output. No heap memory is allocated during matching with JIT, so in that case
-the <b>memory</b> modifier never has any effect. For this modifier to work, the
+<b>pcre2_match()</b> or <b>pcre2_dfa_match()</b>. In the latter case, heap memory
+is used only when a match requires more internal workspace that the default
+allocation on the stack, so in many cases there will be no output. No heap
+memory is allocated during matching with JIT. For this modifier to work, the
 <b>null_context</b> modifier must not be set on both the pattern and the
 subject, though it can be set on one or the other.
 </P>
@@ -1668,7 +1683,7 @@ When testing <b>pcre2_substitute()</b>, this modifier also has the effect of
 passing the replacement string as zero-terminated.
 </P>
 <br><b>
-Passing a NULL context
+Passing a NULL context, subject, or replacement
 </b><br>
 <P>
 Normally, <b>pcre2test</b> passes a context block to <b>pcre2_match()</b>,
@@ -1676,7 +1691,13 @@ Normally, <b>pcre2test</b> passes a context block to <b>pcre2_match()</b>,
 If the <b>null_context</b> modifier is set, however, NULL is passed. This is for
 testing that the matching and substitution functions behave correctly in this
 case (they use default values). This modifier cannot be used with the
-<b>find_limits</b> or <b>substitute_callout</b> modifiers.
+<b>find_limits</b>, <b>find_limits_noheap</b>, or <b>substitute_callout</b>
+modifiers.
+</P>
+<P>
+Similarly, for testing purposes, if the <b>null_subject</b> or
+<b>null_replacement</b> modifier is set, the subject or replacement string
+pointers are passed as NULL, respectively, to the relevant functions.
 </P>
 <br><a name="SEC12" href="#TOC1">THE ALTERNATIVE MATCHING FUNCTION</a><br>
 <P>
@@ -2101,7 +2122,7 @@ If <b>jitverify</b> is used with #pop, it does not automatically imply
 <b>jit</b>, which is different behaviour from when it is used on a pattern.
 </P>
 <P>
-The #popcopy command is analagous to the <b>pushcopy</b> modifier in that it
+The #popcopy command is analogous to the <b>pushcopy</b> modifier in that it
 makes current a copy of the topmost stack pattern, leaving the original still
 on the stack.
 </P>
@@ -2122,9 +2143,9 @@ Cambridge, England.
 </P>
 <br><a name="SEC21" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 30 August 2021
+Last updated: 27 July 2022
 <br>
-Copyright &copy; 1997-2021 University of Cambridge.
+Copyright &copy; 1997-2022 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

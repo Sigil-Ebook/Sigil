@@ -1,5 +1,5 @@
 # This set of tests checks UTF and Unicode property support with the DFA
-# matching functionality of pcre_dfa_match(). A default subject modifier is
+# matching functionality of pcre2_dfa_match(). A default subject modifier is
 # used to force DFA matching for all tests.
 
 #subject dfa
@@ -3538,5 +3538,222 @@ No match
     \x{100}\x{200}\x{300}
  0: \x{100}\x{200}\x{300}
     <<<<<<<       >>>>>>>
+
+# -----------------------------------------------------------------------------
+# Tests for bidi control and bidi class properties
+
+/\p{ bidi_control }/utf
+    -->\x{202c}<--
+ 0: \x{202c}
+
+/\p{bidicontrol}+/utf
+    -->\x{061c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}<--
+ 0: \x{61c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}
+    -->\x{2066}\x{2067}\x{2068}\x{2069}<--
+ 0: \x{2066}\x{2067}\x{2068}\x{2069}
+
+/\p{bidicontrol}+?/utf
+    -->\x{061c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}<--
+ 0: \x{61c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}
+ 1: \x{61c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}
+ 2: \x{61c}\x{200e}\x{200f}\x{202a}\x{202b}
+ 3: \x{61c}\x{200e}\x{200f}\x{202a}
+ 4: \x{61c}\x{200e}\x{200f}
+ 5: \x{61c}\x{200e}
+ 6: \x{61c}
+    -->\x{2066}\x{2067}\x{2068}\x{2069}<--
+ 0: \x{2066}\x{2067}\x{2068}\x{2069}
+ 1: \x{2066}\x{2067}\x{2068}
+ 2: \x{2066}\x{2067}
+ 3: \x{2066}
+
+/\p{bidicontrol}++/utf
+    -->\x{061c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}<--
+ 0: \x{61c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}
+    -->\x{2066}\x{2067}\x{2068}\x{2069}<--
+ 0: \x{2066}\x{2067}\x{2068}\x{2069}
+
+/[\p{bidi_control}]/utf
+    -->\x{202c}<--
+ 0: \x{202c}
+
+/[\p{bidicontrol}]+/utf
+    -->\x{061c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}<--
+ 0: \x{61c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}
+    -->\x{2066}\x{2067}\x{2068}\x{2069}<--
+ 0: \x{2066}\x{2067}\x{2068}\x{2069}
+
+/[\p{bidicontrol}]+?/utf
+    -->\x{061c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}<--
+ 0: \x{61c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}
+ 1: \x{61c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}
+ 2: \x{61c}\x{200e}\x{200f}\x{202a}\x{202b}
+ 3: \x{61c}\x{200e}\x{200f}\x{202a}
+ 4: \x{61c}\x{200e}\x{200f}
+ 5: \x{61c}\x{200e}
+ 6: \x{61c}
+    -->\x{2066}\x{2067}\x{2068}\x{2069}<--
+ 0: \x{2066}\x{2067}\x{2068}\x{2069}
+ 1: \x{2066}\x{2067}\x{2068}
+ 2: \x{2066}\x{2067}
+ 3: \x{2066}
+
+/[\p{bidicontrol}]++/utf
+    -->\x{061c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}<--
+ 0: \x{61c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}
+    -->\x{2066}\x{2067}\x{2068}\x{2069}<--
+ 0: \x{2066}\x{2067}\x{2068}\x{2069}
+
+/[\p{bidicontrol}<>]+/utf
+    -->\x{061c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}<--
+ 0: >\x{61c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}<
+    -->\x{2066}\x{2067}\x{2068}\x{2069}<--
+ 0: >\x{2066}\x{2067}\x{2068}\x{2069}<
+
+/\P{bidicontrol}+/g,utf
+    -->\x{061c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}<--
+ 0: -->
+ 0: <--
+    -->\x{2066}\x{2067}\x{2068}\x{2069}<--
+ 0: -->
+ 0: <--
+
+/\p{^bidicontrol}+/g,utf
+    -->\x{061c}\x{200e}\x{200f}\x{202a}\x{202b}\x{202c}\x{202d}<--
+ 0: -->
+ 0: <--
+    -->\x{2066}\x{2067}\x{2068}\x{2069}<--
+ 0: -->
+ 0: <--
+
+/\p{bidi class = al}/utf
+    -->\x{061D}<--
+ 0: \x{61d}
+
+/\p{bidi class = al}+/utf
+    -->\x{061D}\x{061e}\x{061f}<--
+ 0: \x{61d}\x{61e}\x{61f}
+
+/\p{bidi_class : AL}+?/utf
+    -->\x{061D}\x{061e}\x{061f}<--
+ 0: \x{61d}\x{61e}\x{61f}
+ 1: \x{61d}\x{61e}
+ 2: \x{61d}
+
+/\p{Bidi_Class : AL}++/utf
+    -->\x{061D}\x{061e}\x{061f}<--
+ 0: \x{61d}\x{61e}\x{61f}
+
+/\p{bidi class = aN}+/utf
+    -->\x{061D}\x{0602}\x{0604}\x{061f}<--
+ 0: \x{602}\x{604}
+
+/\p{bidi class = B}+/utf
+    -->\x{0a}\x{0d}\x{01c}\x{01e}\x{085}\x{2029}<--
+ 0: \x{0a}\x{0d}\x{1c}\x{1e}\x{85}\x{2029}
+
+/\p{bidi class:BN}+/utf
+    -->\x{0}\x{08}\x{200c}\x{fffe}\x{dfffe}\x{10ffff}<--
+ 0: \x{00}\x{08}\x{200c}\x{fffe}\x{dfffe}\x{10ffff}
+
+/\p{bidiclass:cs}+/utf
+    -->,.\x{060c}\x{ff1a}<--
+ 0: ,.\x{60c}\x{ff1a}
+
+/\p{bidiclass:En}+/utf
+    -->09\x{b2}\x{2074}\x{1fbf9}<--
+ 0: 09\x{b2}\x{2074}\x{1fbf9}
+
+/\p{bidiclass:es}+/utf
+    ==>+-\x{207a}\x{ff0d}<==
+ 0: +-\x{207a}\x{ff0d}
+
+/\p{bidiclass:et}+/utf
+    -->#\{24}%\x{a2}\x{A838}\x{1e2ff}<--
+ 0: #
+
+/\p{bidiclass:FSI}+/utf
+    -->\x{2068}<--
+ 0: \x{2068}
+
+/\p{bidi class:L}+/utf
+    -->ABC<--
+ 0: ABC
+
+/\P{bidi class:L}+/utf
+    -->ABC<--
+ 0: -->
+
+/\p{bidi class:LRE}+\p{bidiclass=lri}*\p{bidiclass:lro}/utf
+    -->\x{202a}\x{2066}\x{202d}<--
+ 0: \x{202a}\x{2066}\x{202d}
+
+/\p{bidi class:NSM}+/utf
+    -->\x{9bc}\x{a71}\x{e31}<--
+ 0: \x{9bc}\x{a71}\x{e31}
+
+/\p{bidi class:ON}+/utf
+    -->\x{21}'()*;@\x{384}\x{2039}<=-
+ 0: >!'()*;@\x{384}\x{2039}<=
+
+/\p{bidiclass:pdf}\p{bidiclass:pdi}/utf
+    -->\x{202c}\x{2069}<--
+ 0: \x{202c}\x{2069}
+
+/\p{bidi class:R}+/utf
+    -->\x{590}\x{5c6}\x{200f}\x{10805}<--
+ 0: \x{590}\x{5c6}\x{200f}\x{10805}
+
+/\p{bidi class:RLE}+\p{bidi class:RLI}*\p{bidi class:RLO}+/utf
+    -->\x{202b}\x{2067}\x{202e}<-- 
+ 0: \x{202b}\x{2067}\x{202e}
+    
+/\p{bidi class:S}+\p{bidiclass:WS}+/utf
+    -->\x{9}\x{b}\x{1f}  \x{c} \x{2000} \x{3000}<--
+ 0: \x{09}\x{0b}\x{1f}  \x{0c} \x{2000} \x{3000}
+
+# -----------------------------------------------------------------------------
+
+/\p{katakana}/utf
+    \x{30a1}
+ 0: \x{30a1}
+    \x{3001} 
+ 0: \x{3001}
+
+/\p{scx:katakana}/utf
+    \x{30a1}
+ 0: \x{30a1}
+    \x{3001} 
+ 0: \x{3001}
+    
+/\p{script extensions:katakana}/utf
+    \x{30a1}
+ 0: \x{30a1}
+    \x{3001} 
+ 0: \x{3001}
+    
+/\p{sc:katakana}/utf
+    \x{30a1}
+ 0: \x{30a1}
+\= Expect no match     
+    \x{3001} 
+No match
+    
+/\p{script:katakana}/utf
+    \x{30a1}
+ 0: \x{30a1}
+\= Expect no match     
+    \x{3001}
+No match
+    
+/\p{sc:katakana}{3,}/utf
+    \x{30a1}\x{30fa}\x{32d0}\x{1b122}\x{ff66}\x{3001}ABC
+ 0: \x{30a1}\x{30fa}\x{32d0}\x{1b122}\x{ff66}
+
+/\p{sc:katakana}{3,}?/utf
+    \x{30a1}\x{30fa}\x{32d0}\x{1b122}\x{ff66}\x{3001}ABC
+ 0: \x{30a1}\x{30fa}\x{32d0}\x{1b122}\x{ff66}
+ 1: \x{30a1}\x{30fa}\x{32d0}\x{1b122}
+ 2: \x{30a1}\x{30fa}\x{32d0}
 
 # End of testinput7

@@ -71,13 +71,15 @@ For example:
 <pre>
   pcre2grep some-pattern file1 - file3
 </pre>
-Input files are searched line by line. By default, each line that matches a
+By default, input files are searched line by line. Each line that matches a
 pattern is copied to the standard output, and if there is more than one file,
 the file name is output at the start of each line, followed by a colon.
-However, there are options that can change how <b>pcre2grep</b> behaves. In
-particular, the <b>-M</b> option makes it possible to search for strings that
-span line boundaries. What defines a line boundary is controlled by the
-<b>-N</b> (<b>--newline</b>) option.
+However, there are options that can change how <b>pcre2grep</b> behaves. For
+example, the <b>-M</b> option makes it possible to search for strings that span
+line boundaries. What defines a line boundary is controlled by the <b>-N</b>
+(<b>--newline</b>) option. The <b>-h</b> and <b>-H</b> options control whether or
+not file names are shown, and the <b>-Z</b> option changes the file name
+terminator to a zero byte.
 </P>
 <P>
 The amount of memory used for buffering files that are being scanned is
@@ -106,19 +108,24 @@ patterns are tried before the <b>-f</b> patterns.
 <P>
 By default, as soon as one pattern matches a line, no further patterns are
 considered. However, if <b>--colour</b> (or <b>--color</b>) is used to colour the
-matching substrings, or if <b>--only-matching</b>, <b>--file-offsets</b>, or
-<b>--line-offsets</b> is used to output only the part of the line that matched
-(either shown literally, or as an offset), scanning resumes immediately
-following the match, so that further matches on the same line can be found. If
-there are multiple patterns, they are all tried on the remainder of the line,
-but patterns that follow the one that matched are not tried on the earlier
-matched part of the line.
+matching substrings, or if <b>--only-matching</b>, <b>--file-offsets</b>,
+<b>--line-offsets</b>, or <b>--output</b> is used to output only the part of the
+line that matched (either shown literally, or as an offset), the behaviour is
+different. In this situation, all the patterns are applied to the line. If
+there is more than one match, the one that begins nearest to the start of the
+subject is processed; if there is more than one match at that position, the one
+with the longest matching substring is processed; if the matching substrings
+are equal, the first match found is processed.
 </P>
 <P>
-This behaviour means that the order in which multiple patterns are specified
-can affect the output when one of the above options is used. This is no longer
-the same behaviour as GNU grep, which now manages to display earlier matches
-for later patterns (as long as there is no overlap).
+Scanning with all the patterns resumes immediately following the match, so that
+later matches on the same line can be found. Note, however, that an overlapping
+match that starts in the middle of another match will not be processed.
+</P>
+<P>
+The above behaviour was changed at release 10.41 to be more compatible with GNU
+grep. In earlier releases, <b>pcre2grep</b> did not recognize matches from
+later patterns that were earlier in the subject.
 </P>
 <P>
 Patterns that can match an empty string are accepted, but empty string
@@ -134,14 +141,15 @@ The <b>--locale</b> option can be used to override this.
 </P>
 <br><a name="SEC3" href="#TOC1">SUPPORT FOR COMPRESSED FILES</a><br>
 <P>
-It is possible to compile <b>pcre2grep</b> so that it uses <b>libz</b> or
-<b>libbz2</b> to read compressed files whose names end in <b>.gz</b> or
+Compile-time options for <b>pcre2grep</b> can set it up to use <b>libz</b> or
+<b>libbz2</b> for reading compressed files whose names end in <b>.gz</b> or
 <b>.bz2</b>, respectively. You can find out whether your <b>pcre2grep</b> binary
 has support for one or both of these file types by running it with the
 <b>--help</b> option. If the appropriate support is not present, all files are
-treated as plain text. The standard input is always so treated. When input is
-from a compressed .gz or .bz2 file, the <b>--line-buffered</b> option is
-ignored.
+treated as plain text. The standard input is always so treated. If a file with
+a <b>.gz</b> or <b>.bz2</b> extension is not in fact compressed, it is read as a
+plain text file. When input is from a compressed .gz or .bz2 file, the
+<b>--line-buffered</b> option is ignored.
 </P>
 <br><a name="SEC4" href="#TOC1">BINARY FILES</a><br>
 <P>
@@ -178,9 +186,11 @@ Output up to <i>number</i> lines of context after each matching line. Fewer
 lines are output if the next match or the end of the file is reached, or if the
 processing buffer size has been set too small. If file names and/or line
 numbers are being output, a hyphen separator is used instead of a colon for the
-context lines. A line containing "--" is output between each group of lines,
-unless they are in fact contiguous in the input file. The value of <i>number</i>
-is expected to be relatively small. When <b>-c</b> is used, <b>-A</b> is ignored.
+context lines (the <b>-Z</b> option can be used to change the file name
+terminator to a zero byte). A line containing "--" is output between each group
+of lines, unless they are in fact contiguous in the input file. The value of
+<i>number</i> is expected to be relatively small. When <b>-c</b> is used,
+<b>-A</b> is ignored.
 </P>
 <P>
 <b>-a</b>, <b>--text</b>
@@ -199,9 +209,10 @@ Output up to <i>number</i> lines of context before each matching line. Fewer
 lines are output if the previous match or the start of the file is within
 <i>number</i> lines, or if the processing buffer size has been set too small. If
 file names and/or line numbers are being output, a hyphen separator is used
-instead of a colon for the context lines. A line containing "--" is output
-between each group of lines, unless they are in fact contiguous in the input
-file. The value of <i>number</i> is expected to be relatively small. When
+instead of a colon for the context lines (the <b>-Z</b> option can be used to
+change the file name terminator to a zero byte). A line containing "--" is
+output between each group of lines, unless they are in fact contiguous in the
+input file. The value of <i>number</i> is expected to be relatively small. When
 <b>-c</b> is used, <b>-B</b> is ignored.
 </P>
 <P>
@@ -254,12 +265,14 @@ equals sign.
 <P>
 <b>--colour=</b><i>value</i>, <b>--color=</b><i>value</i>
 This option specifies under what circumstances the parts of a line that matched
-a pattern should be coloured in the output. By default, the output is not
-coloured. The value (which is optional, see above) may be "never", "always", or
-"auto". In the latter case, colouring happens only if the standard output is
-connected to a terminal. More resources are used when colouring is enabled,
-because <b>pcre2grep</b> has to search for all possible matches in a line, not
-just one, in order to colour them all.
+a pattern should be coloured in the output. It is ignored if
+<b>--file-offsets</b>, <b>--line-offsets</b>, or <b>--output</b> is set. By
+default, output is not coloured. The value for the <b>--colour</b> option (which
+is optional, see above) may be "never", "always", or "auto". In the latter
+case, colouring happens only if the standard output is connected to a terminal.
+More resources are used when colouring is enabled, because <b>pcre2grep</b> has
+to search for all possible matches in a line, not just one, in order to colour
+them all.
 <br>
 <br>
 The colour that is used can be specified by setting one of the environment
@@ -307,18 +320,12 @@ order to specify several patterns. It can also be used as a way of specifying a
 single pattern that starts with a hyphen. When <b>-e</b> is used, no argument
 pattern is taken from the command line; all arguments are treated as file
 names. There is no limit to the number of patterns. They are applied to each
-line in the order in which they are defined until one matches.
+line in the order in which they are defined.
 <br>
 <br>
 If <b>-f</b> is used with <b>-e</b>, the command line patterns are matched first,
 followed by the patterns from the file(s), independent of the order in which
-these options are specified. Note that multiple use of <b>-e</b> is not the same
-as a single pattern with alternatives. For example, X|Y finds the first
-character in a line that is X or Y, whereas if the two patterns are given
-separately, with X first, <b>pcre2grep</b> finds X if it is present, even if it
-follows Y in the line. It finds Y only if there is no X in the line. This
-matters only if you are using <b>-o</b> or <b>--colo(u)r</b> to show the part(s)
-of the line that matched.
+these options are specified.
 </P>
 <P>
 <b>--exclude</b>=<i>pattern</i>
@@ -367,23 +374,20 @@ files; it does not apply to patterns specified by any of the <b>--include</b> or
 </P>
 <P>
 <b>-f</b> <i>filename</i>, <b>--file=</b><i>filename</i>
-Read patterns from the file, one per line, and match them against each line of
-input. As is the case with patterns on the command line, no delimiters should
-be used. What constitutes a newline when reading the file is the operating
-system's default interpretation of \n. The <b>--newline</b> option has no
-effect on this option. Trailing white space is removed from each line, and
-blank lines are ignored. An empty file contains no patterns and therefore
-matches nothing. Patterns read from a file in this way may contain binary
-zeros, which are treated as ordinary data characters. See also the comments
-about multiple patterns versus a single pattern with alternatives in the
-description of <b>-e</b> above.
+Read patterns from the file, one per line. As is the case with patterns on the
+command line, no delimiters should be used. What constitutes a newline when
+reading the file is the operating system's default interpretation of \n. The
+<b>--newline</b> option has no effect on this option. Trailing white space is
+removed from each line, and blank lines are ignored. An empty file contains no
+patterns and therefore matches nothing. Patterns read from a file in this way
+may contain binary zeros, which are treated as ordinary data characters.
 <br>
 <br>
 If this option is given more than once, all the specified files are read. A
 data line is output if any of the patterns match it. A file name can be given
 as "-" to refer to the standard input. When <b>-f</b> is used, patterns
 specified on the command line using <b>-e</b> may also be present; they are
-tested before the file's patterns. However, no other pattern is taken from the
+matched before the file's patterns. However, no pattern is taken from the
 command line; all arguments are treated as the names of paths to be searched.
 </P>
 <P>
@@ -403,28 +407,30 @@ specified files are read.
 <b>--file-offsets</b>
 Instead of showing lines or parts of lines that match, show each match as an
 offset from the start of the file and a length, separated by a comma. In this
-mode, no context is shown. That is, the <b>-A</b>, <b>-B</b>, and <b>-C</b>
-options are ignored. If there is more than one match in a line, each of them is
-shown separately. This option is mutually exclusive with <b>--output</b>,
-<b>--line-offsets</b>, and <b>--only-matching</b>.
+mode, <b>--colour</b> has no effect, and no context is shown. That is, the
+<b>-A</b>, <b>-B</b>, and <b>-C</b> options are ignored. If there is more than one
+match in a line, each of them is shown separately. This option is mutually
+exclusive with <b>--output</b>, <b>--line-offsets</b>, and <b>--only-matching</b>.
 </P>
 <P>
 <b>-H</b>, <b>--with-filename</b>
 Force the inclusion of the file name at the start of output lines when
-searching a single file. By default, the file name is not shown in this case.
-For matching lines, the file name is followed by a colon; for context lines, a
-hyphen separator is used. If a line number is also being output, it follows the
-file name. When the <b>-M</b> option causes a pattern to match more than one
-line, only the first is preceded by the file name. This option overrides any
-previous <b>-h</b>, <b>-l</b>, or <b>-L</b> options.
+searching a single file. The file name is not normally shown in this case.
+By default, for matching lines, the file name is followed by a colon; for
+context lines, a hyphen separator is used. The <b>-Z</b> option can be used to
+change the terminator to a zero byte. If a line number is also being output,
+it follows the file name. When the <b>-M</b> option causes a pattern to match
+more than one line, only the first is preceded by the file name. This option
+overrides any previous <b>-h</b>, <b>-l</b>, or <b>-L</b> options.
 </P>
 <P>
 <b>-h</b>, <b>--no-filename</b>
-Suppress the output file names when searching multiple files. By default,
-file names are shown when multiple files are searched. For matching lines, the
-file name is followed by a colon; for context lines, a hyphen separator is used.
-If a line number is also being output, it follows the file name. This option
-overrides any previous <b>-H</b>, <b>-L</b>, or <b>-l</b> options.
+Suppress the output file names when searching multiple files. File names are
+normally shown when multiple files are searched. By default, for matching
+lines, the file name is followed by a colon; for context lines, a hyphen
+separator is used. The <b>-Z</b> option can be used to change the terminator to
+a zero byte. If a line number is also being output, it follows the file name.
+This option overrides any previous <b>-H</b>, <b>-L</b>, or <b>-l</b> options.
 </P>
 <P>
 <b>--heap-limit</b>=<i>number</i>
@@ -481,18 +487,20 @@ given any number of times. If a directory matches both <b>--include-dir</b> and
 <b>-L</b>, <b>--files-without-match</b>
 Instead of outputting lines from the files, just output the names of the files
 that do not contain any lines that would have been output. Each file name is
-output once, on a separate line. This option overrides any previous <b>-H</b>,
-<b>-h</b>, or <b>-l</b> options.
+output once, on a separate line by default, but if the <b>-Z</b> option is set,
+they are separated by zero bytes instead of newlines. This option overrides any
+previous <b>-H</b>, <b>-h</b>, or <b>-l</b> options.
 </P>
 <P>
 <b>-l</b>, <b>--files-with-matches</b>
 Instead of outputting lines from the files, just output the names of the files
 containing lines that would have been output. Each file name is output once, on
-a separate line. Searching normally stops as soon as a matching line is found
-in a file. However, if the <b>-c</b> (count) option is also used, matching
-continues in order to obtain the correct count, and those files that have at
-least one match are listed along with their counts. Using this option with
-<b>-c</b> is a way of suppressing the listing of files with no matches that
+a separate line, but if the <b>-Z</b> option is set, they are separated by zero
+bytes instead of newlines. Searching normally stops as soon as a matching line
+is found in a file. However, if the <b>-c</b> (count) option is also used,
+matching continues in order to obtain the correct count, and those files that
+have at least one match are listed along with their counts. Using this option
+with <b>-c</b> is a way of suppressing the listing of files with no matches that
 occurs with <b>-c</b> on its own. This option overrides any previous <b>-H</b>,
 <b>-h</b>, or <b>-L</b> options.
 </P>
@@ -520,11 +528,11 @@ ceases to work. When input is from a compressed .gz or .bz2 file,
 Instead of showing lines or parts of lines that match, show each match as a
 line number, the offset from the start of the line, and a length. The line
 number is terminated by a colon (as usual; see the <b>-n</b> option), and the
-offset and length are separated by a comma. In this mode, no context is shown.
-That is, the <b>-A</b>, <b>-B</b>, and <b>-C</b> options are ignored. If there is
-more than one match in a line, each of them is shown separately. This option is
-mutually exclusive with <b>--output</b>, <b>--file-offsets</b>, and
-<b>--only-matching</b>.
+offset and length are separated by a comma. In this mode, <b>--colour</b> has no
+effect, and no context is shown. That is, the <b>-A</b>, <b>-B</b>, and <b>-C</b>
+options are ignored. If there is more than one match in a line, each of them is
+shown separately. This option is mutually exclusive with <b>--output</b>,
+<b>--file-offsets</b>, and <b>--only-matching</b>.
 </P>
 <P>
 <b>--locale</b>=<i>locale-name</i>
@@ -592,10 +600,7 @@ value set by <b>--match-limit</b> is reached, an error occurs.
 <br>
 <br>
 The <b>--heap-limit</b> option specifies, as a number of kibibytes (units of
-1024 bytes), the amount of heap memory that may be used for matching. Heap
-memory is needed only if matching the pattern requires a significant number of
-nested backtracking points to be remembered. This parameter can be set to zero
-to forbid the use of heap memory altogether.
+1024 bytes), the maximum amount of heap memory that may be used for matching.
 <br>
 <br>
 The <b>--depth-limit</b> option limits the depth of nested backtracking points,
@@ -667,12 +672,12 @@ It should never be needed in normal use.
 <b>-O</b> <i>text</i>, <b>--output</b>=<i>text</i>
 When there is a match, instead of outputting the line that matched, output just
 the text specified in this option, followed by an operating-system standard
-newline. In this mode, no context is shown. That is, the <b>-A</b>, <b>-B</b>,
-and <b>-C</b> options are ignored. The <b>--newline</b> option has no effect on
-this option, which is mutually exclusive with <b>--only-matching</b>,
-<b>--file-offsets</b>, and <b>--line-offsets</b>. However, like
-<b>--only-matching</b>, if there is more than one match in a line, each of them
-causes a line of output.
+newline. In this mode, <b>--colour</b> has no effect, and no context is shown.
+That is, the <b>-A</b>, <b>-B</b>, and <b>-C</b> options are ignored. The
+<b>--newline</b> option has no effect on this option, which is mutually
+exclusive with <b>--only-matching</b>, <b>--file-offsets</b>, and
+<b>--line-offsets</b>. However, like <b>--only-matching</b>, if there is more
+than one match in a line, each of them causes a line of output.
 <br>
 <br>
 Escape sequences starting with a dollar character may be used to insert the
@@ -838,6 +843,13 @@ be more than one line. This is equivalent to having "^(?:" at the start of each
 pattern and ")$" at the end. This option applies only to the patterns that are
 matched against the contents of files; it does not apply to patterns specified
 by any of the <b>--include</b> or <b>--exclude</b> options.
+</P>
+<P>
+<b>-Z</b>, <b>--null</b>
+Terminate files names in the regular output with a zero byte (the NUL
+character) instead of what would normally appear. This is useful when file
+names contain unusual characters such as colons, hyphens, or even newlines. The
+option does not apply to file names in error messages.
 </P>
 <br><a name="SEC7" href="#TOC1">ENVIRONMENT VARIABLES</a><br>
 <P>
@@ -1053,9 +1065,9 @@ Cambridge, England.
 </P>
 <br><a name="SEC16" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 31 August 2021
+Last updated: 21 November 2022
 <br>
-Copyright &copy; 1997-2021 University of Cambridge.
+Copyright &copy; 1997-2022 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

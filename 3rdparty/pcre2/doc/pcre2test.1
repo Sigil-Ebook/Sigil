@@ -1,4 +1,4 @@
-.TH PCRE2TEST 1 "30 August 2021" "PCRE 10.38"
+.TH PCRE2TEST 1 "27 July 2022" "PCRE 10.41"
 .SH NAME
 pcre2test - a program for testing Perl-compatible regular expressions.
 .SH SYNOPSIS
@@ -47,7 +47,7 @@ format before being passed to the library functions. Results are converted back
 to 8-bit code units for output.
 .P
 In the rest of this document, the names of library functions and structures
-are given in generic form, for example, \fBpcre_compile()\fP. The actual
+are given in generic form, for example, \fBpcre2_compile()\fP. The actual
 names used in the libraries have a suffix _8, _16, or _32, as appropriate.
 .
 .
@@ -211,7 +211,17 @@ available, and the use of JIT for matching is verified.
 \fB-LM\fP
 List modifiers: write a list of available pattern and subject modifiers to the
 standard output, then exit with zero exit code. All other options are ignored.
-If both -C and -LM are present, whichever is first is recognized.
+If both -C and any -Lx options are present, whichever is first is recognized.
+.TP 10
+\fB-LP\fP
+List properties: write a list of recognized Unicode properties to the standard
+output, then exit with zero exit code. All other options are ignored. If both
+-C and any -Lx options are present, whichever is first is recognized.
+.TP 10
+\fB-LS\fP
+List scripts: write a list of recognized Unicode script names to the standard
+output, then exit with zero exit code. All other options are ignored. If both
+-C and any -Lx options are present, whichever is first is recognized.
 .TP 10
 \fB-pattern\fP \fImodifier-list\fP
 Behave as if each pattern line contains the given modifiers.
@@ -1196,7 +1206,8 @@ pattern, but can be overridden by modifiers on the subject.
       copy=<number or name>      copy captured substring
       depth_limit=<n>            set a depth limit
       dfa                        use \fBpcre2_dfa_match()\fP
-      find_limits                find match and depth limits
+      find_limits                find heap, match and depth limits
+      find_limits_noheap         find match and depth limits
       get=<number or name>       extract captured substring
       getall                     extract all captured substrings
   /g  global                     global matching
@@ -1206,6 +1217,8 @@ pattern, but can be overridden by modifiers on the subject.
       match_limit=<n>            set a match limit
       memory                     show heap memory usage
       null_context               match with a NULL context
+      null_replacement           substitute with NULL replacement
+      null_subject               match with NULL subject
       offset=<n>                 set starting offset
       offset_limit=<n>           set offset limit
       ovector=<n>                set size of output vector
@@ -1321,7 +1334,7 @@ controlled by various modifiers listed above whose names begin with
 .\" </a>
 below.
 .\"
-Testing callouts from \fBpcre2_substitute()\fP is decribed separately in
+Testing callouts from \fBpcre2_substitute()\fP is described separately in
 "Testing the substitution function"
 .\" HTML <a href="#substitution">
 .\" </a>
@@ -1516,7 +1529,7 @@ value that was set on the pattern.
 .sp
 The \fBheap_limit\fP, \fBmatch_limit\fP, and \fBdepth_limit\fP modifiers set
 the appropriate limits in the match context. These values are ignored when the
-\fBfind_limits\fP modifier is specified.
+\fBfind_limits\fP or \fBfind_limits_noheap\fP modifier is specified.
 .
 .
 .SS "Finding minimum limits"
@@ -1526,8 +1539,12 @@ If the \fBfind_limits\fP modifier is present on a subject line, \fBpcre2test\fP
 calls the relevant matching function several times, setting different values in
 the match context via \fBpcre2_set_heap_limit()\fP,
 \fBpcre2_set_match_limit()\fP, or \fBpcre2_set_depth_limit()\fP until it finds
-the minimum values for each parameter that allows the match to complete without
-error. If JIT is being used, only the match limit is relevant.
+the smallest value for each parameter that allows the match to complete without
+a "limit exceeded" error. The match itself may succeed or fail. An alternative
+modifier, \fBfind_limits_noheap\fP, omits the heap limit. This is used in the
+standard tests, because the minimum heap limit varies between systems. If JIT
+is being used, only the match limit is relevant, and the other two are
+automatically omitted.
 .P
 When using this modifier, the pattern should not contain any limit settings
 such as (*LIMIT_MATCH=...) within it. If such a setting is present and is
@@ -1551,9 +1568,7 @@ and non-recursive, to the internal matching function, thus controlling the
 overall amount of computing resource that is used.
 .P
 For both kinds of matching, the \fIheap_limit\fP number, which is in kibibytes
-(units of 1024 bytes), limits the amount of heap memory used for matching. A
-value of zero disables the use of any heap memory; many simple pattern matches
-can be done without using the heap, so zero is not an unreasonable setting.
+(units of 1024 bytes), limits the amount of heap memory used for matching.
 .
 .
 .SS "Showing MARK names"
@@ -1572,12 +1587,10 @@ is added to the non-match message.
 .sp
 The \fBmemory\fP modifier causes \fBpcre2test\fP to log the sizes of all heap
 memory allocation and freeing calls that occur during a call to
-\fBpcre2_match()\fP or \fBpcre2_dfa_match()\fP. These occur only when a match
-requires a bigger vector than the default for remembering backtracking points
-(\fBpcre2_match()\fP) or for internal workspace (\fBpcre2_dfa_match()\fP). In
-many cases there will be no heap memory used and therefore no additional
-output. No heap memory is allocated during matching with JIT, so in that case
-the \fBmemory\fP modifier never has any effect. For this modifier to work, the
+\fBpcre2_match()\fP or \fBpcre2_dfa_match()\fP. In the latter case, heap memory
+is used only when a match requires more internal workspace that the default
+allocation on the stack, so in many cases there will be no output. No heap
+memory is allocated during matching with JIT. For this modifier to work, the
 \fBnull_context\fP modifier must not be set on both the pattern and the
 subject, though it can be set on one or the other.
 .
@@ -1629,7 +1642,7 @@ When testing \fBpcre2_substitute()\fP, this modifier also has the effect of
 passing the replacement string as zero-terminated.
 .
 .
-.SS "Passing a NULL context"
+.SS "Passing a NULL context, subject, or replacement"
 .rs
 .sp
 Normally, \fBpcre2test\fP passes a context block to \fBpcre2_match()\fP,
@@ -1637,7 +1650,12 @@ Normally, \fBpcre2test\fP passes a context block to \fBpcre2_match()\fP,
 If the \fBnull_context\fP modifier is set, however, NULL is passed. This is for
 testing that the matching and substitution functions behave correctly in this
 case (they use default values). This modifier cannot be used with the
-\fBfind_limits\fP or \fBsubstitute_callout\fP modifiers.
+\fBfind_limits\fP, \fBfind_limits_noheap\fP, or \fBsubstitute_callout\fP
+modifiers.
+.P
+Similarly, for testing purposes, if the \fBnull_subject\fP or
+\fBnull_replacement\fP modifier is set, the subject or replacement string
+pointers are passed as NULL, respectively, to the relevant functions.
 .
 .
 .SH "THE ALTERNATIVE MATCHING FUNCTION"
@@ -2075,7 +2093,7 @@ reloads two patterns.
 If \fBjitverify\fP is used with #pop, it does not automatically imply
 \fBjit\fP, which is different behaviour from when it is used on a pattern.
 .P
-The #popcopy command is analagous to the \fBpushcopy\fP modifier in that it
+The #popcopy command is analogous to the \fBpushcopy\fP modifier in that it
 makes current a copy of the topmost stack pattern, leaving the original still
 on the stack.
 .
@@ -2103,6 +2121,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 30 August 2021
-Copyright (c) 1997-2021 University of Cambridge.
+Last updated: 27 July 2022
+Copyright (c) 1997-2022 University of Cambridge.
 .fi

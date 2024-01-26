@@ -1,4 +1,4 @@
-.TH PCRE2JIT 3 "23 May 2019" "PCRE2 10.34"
+.TH PCRE2JIT 3 "30 November 2021" "PCRE2 10.40"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "PCRE2 JUST-IN-TIME COMPILER SUPPORT"
@@ -251,11 +251,11 @@ non-sequential matches in one thread is to use callouts: if a callout function
 starts another match, that match must use a different JIT stack to the one used
 for currently suspended match(es).
 .P
-In a multithread application, if you do not
-specify a JIT stack, or if you assign or pass back NULL from a callback, that
-is thread-safe, because each thread has its own machine stack. However, if you
-assign or pass back a non-NULL JIT stack, this must be a different stack for
-each thread so that the application is thread-safe.
+In a multithread application, if you do not specify a JIT stack, or if you
+assign or pass back NULL from a callback, that is thread-safe, because each
+thread has its own machine stack. However, if you assign or pass back a
+non-NULL JIT stack, this must be a different stack for each thread so that the
+application is thread-safe.
 .P
 Strictly speaking, even more is allowed. You can assign the same non-NULL stack
 to a match context that is used by any number of patterns, as long as they are
@@ -355,8 +355,8 @@ out this complicated API.
 .B void pcre2_jit_free_unused_memory(pcre2_general_context *\fIgcontext\fP);
 .fi
 .P
-The JIT executable allocator does not free all memory when it is possible.
-It expects new allocations, and keeps some free memory around to improve
+The JIT executable allocator does not free all memory when it is possible. It
+expects new allocations, and keeps some free memory around to improve
 allocation speed. However, in low memory conditions, it might be better to free
 all possible memory. You can cause this to happen by calling
 pcre2_jit_free_unused_memory(). Its argument is a general context, for custom
@@ -416,10 +416,10 @@ that was not compiled.
 .P
 When you call \fBpcre2_match()\fP, as well as testing for invalid options, a
 number of other sanity checks are performed on the arguments. For example, if
-the subject pointer is NULL, an immediate error is given. Also, unless
-PCRE2_NO_UTF_CHECK is set, a UTF subject string is tested for validity. In the
-interests of speed, these checks do not happen on the JIT fast path, and if
-invalid data is passed, the result is undefined.
+the subject pointer is NULL but the length is non-zero, an immediate error is
+given. Also, unless PCRE2_NO_UTF_CHECK is set, a UTF subject string is tested
+for validity. In the interests of speed, these checks do not happen on the JIT
+fast path, and if invalid data is passed, the result is undefined.
 .P
 Bypassing the sanity checks and the \fBpcre2_match()\fP wrapping can give
 speedups of more than 10%.
@@ -445,6 +445,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 23 May 2019
-Copyright (c) 1997-2019 University of Cambridge.
+Last updated: 30 November 2021
+Copyright (c) 1997-2021 University of Cambridge.
 .fi

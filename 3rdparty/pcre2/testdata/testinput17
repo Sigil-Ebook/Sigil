@@ -304,4 +304,7 @@
 /[aCz]/mg,firstline,newline=lf
     match\nmatch
 
+//jitfast
+    \=null_subject
+
 # End of testinput17

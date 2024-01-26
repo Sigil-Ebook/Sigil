@@ -9,15 +9,15 @@ dnl The PCRE2_PRERELEASE feature is for identifying release candidates. It might
 dnl be defined as -RC2, for example. For real releases, it should be empty.
 
 m4_define(pcre2_major, [10])
-m4_define(pcre2_minor, [39])
+m4_define(pcre2_minor, [42])
 m4_define(pcre2_prerelease, [])
-m4_define(pcre2_date, [2021-10-29])
+m4_define(pcre2_date, [2022-12-11])
 
 # Libtool shared library interface versions (current:revision:age)
-m4_define(libpcre2_8_version,     [10:4:10])
-m4_define(libpcre2_16_version,    [10:4:10])
-m4_define(libpcre2_32_version,    [10:4:10])
-m4_define(libpcre2_posix_version, [3:1:0])
+m4_define(libpcre2_8_version,     [11:2:11])
+m4_define(libpcre2_16_version,    [11:2:11])
+m4_define(libpcre2_32_version,    [11:2:11])
+m4_define(libpcre2_posix_version, [3:4:0])
 
 # NOTE: The CMakeLists.txt file searches for the above variables in the first
 # 50 lines of this file. Please update that if the variables above are moved.
@@ -66,6 +66,8 @@ AC_TYPE_INT64_T
 AC_PROG_INSTALL
 LT_INIT([win32-dll])
 AC_PROG_LN_S
+
+AC_SYS_LARGEFILE
 
 # Check for GCC visibility feature
 
@@ -512,7 +514,20 @@ AC_TYPE_SIZE_T
 
 # Checks for library functions.
 
-AC_CHECK_FUNCS(bcopy memfd_create memmove mkostemp realpath secure_getenv strerror)
+AC_CHECK_FUNCS(bcopy memfd_create memmove mkostemp secure_getenv strerror)
+AC_MSG_CHECKING([for realpath])
+AC_LINK_IFELSE([AC_LANG_PROGRAM([[
+#include <stdlib.h>
+#include <limits.h>
+]],[[
+char buffer[PATH_MAX];
+realpath(".", buffer);
+]])],
+[AC_MSG_RESULT([yes])
+ AC_DEFINE([HAVE_REALPATH], 1,
+  [Define to 1 if you have the `realpath' function.])
+],
+AC_MSG_RESULT([no]))
 
 # Check for the availability of libz (aka zlib)
 
@@ -584,14 +599,14 @@ if test "$enable_pcre2test_libreadline" = "yes"; then
  fi
 fi
 
-
 # Check for the availability of libedit. Different distributions put its
 # headers in different places. Try to cover the most common ones.
 
 if test "$enable_pcre2test_libedit" = "yes"; then
-  AC_CHECK_HEADERS([editline/readline.h], [HAVE_EDITLINE_READLINE_H=1],
-    [AC_CHECK_HEADERS([edit/readline/readline.h], [HAVE_READLINE_READLINE_H=1],
-      [AC_CHECK_HEADERS([readline/readline.h], [HAVE_READLINE_READLINE_H=1])])])
+  AC_CHECK_HEADERS([editline/readline.h edit/readline/readline.h readline.h], [
+    HAVE_LIBEDIT_HEADER=1
+    break
+  ])
   AC_CHECK_LIB([edit], [readline], [LIBEDIT="-ledit"])
 fi
 
@@ -927,10 +942,9 @@ if test "$enable_pcre2test_libedit" = "yes"; then
     echo "** Cannot use both --enable-pcre2test-libedit and --enable-pcre2test-readline"
     exit 1
   fi
-  if test "$HAVE_EDITLINE_READLINE_H" != "1" -a \
-          "$HAVE_READLINE_READLINE_H" != "1"; then
-    echo "** Cannot --enable-pcre2test-libedit because neither editline/readline.h"
-    echo "** nor readline/readline.h was found."
+  if test -z "$HAVE_LIBEDIT_HEADER"; then
+    echo "** Cannot --enable-pcre2test-libedit because neither editline/readline.h,"
+    echo "** edit/readline/readline.h nor a compatible header was found."
     exit 1
   fi
   if test -z "$LIBEDIT"; then

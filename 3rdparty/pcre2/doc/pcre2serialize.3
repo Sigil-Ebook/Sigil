@@ -6,11 +6,11 @@ PCRE2 - Perl-compatible regular expressions (revised API)
 .sp
 .nf
 .B int32_t pcre2_serialize_decode(pcre2_code **\fIcodes\fP,
-.B "  int32_t \fInumber_of_codes\fP, const uint32_t *\fIbytes\fP,"
+.B "  int32_t \fInumber_of_codes\fP, const uint8_t *\fIbytes\fP,"
 .B "  pcre2_general_context *\fIgcontext\fP);"
 .sp
-.B int32_t pcre2_serialize_encode(pcre2_code **\fIcodes\fP,
-.B "  int32_t \fInumber_of_codes\fP, uint32_t **\fIserialized_bytes\fP,"
+.B int32_t pcre2_serialize_encode(const pcre2_code **\fIcodes\fP,
+.B "  int32_t \fInumber_of_codes\fP, uint8_t **\fIserialized_bytes\fP,"
 .B "  PCRE2_SIZE *\fIserialized_size\fP, pcre2_general_context *\fIgcontext\fP);"
 .sp
 .B void pcre2_serialize_free(uint8_t *\fIbytes\fP);
@@ -81,7 +81,7 @@ of serialized patterns, or one of the following negative error codes:
 .sp
   PCRE2_ERROR_BADDATA      the number of patterns is zero or less
   PCRE2_ERROR_BADMAGIC     mismatch of id bytes in one of the patterns
-  PCRE2_ERROR_MEMORY       memory allocation failed
+  PCRE2_ERROR_NOMEMORY     memory allocation failed
   PCRE2_ERROR_MIXEDTABLES  the patterns do not all use the same tables
   PCRE2_ERROR_NULL         the 1st, 3rd, or 4th argument is NULL
 .sp
@@ -141,7 +141,6 @@ mangagement functions for the decoded patterns. If this argument is NULL,
 \fBmalloc()\fP and \fBfree()\fP are used. After deserialization, the byte
 stream is no longer needed and can be discarded.
 .sp
-  int32_t number_of_codes;
   pcre2_code *list_of_codes[2];
   uint8_t *bytes = <serialized data>;
   int32_t number_of_codes =

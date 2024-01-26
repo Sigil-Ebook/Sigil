@@ -17397,7 +17397,7 @@ Subject length lower bound = 1
         End
 ------------------------------------------------------------------
 
-/(?(VERSION=10.4)b)((?<=b).*)/B
+/(?(VERSION=10.3)b)((?<=b).*)/B
 ------------------------------------------------------------------
         Bra
         Cond
@@ -17673,6 +17673,88 @@ Failed: error 199 at offset 14: \K is not allowed in lookarounds (but see PCRE2_
  0: abcd
     
 # --------- 
+
+# Tests for zero-length NULL to be treated as an empty string.
+
+//
+    \=null_subject
+ 0: 
+\= Expect error     
+    abc\=null_subject
+Failed: error -51: NULL argument passed with non-zero length
+
+//replace=[20]
+    abc\=null_replacement
+ 1: abc
+    \=null_subject
+ 1: 
+    \=null_replacement
+ 1: 
+
+/X*/g,replace=xy
+\= Expect error
+    >X<\=null_replacement
+Failed: error -51: NULL argument passed with non-zero length
+
+/X+/replace=[20]
+    >XX<\=null_replacement
+ 1: ><
+
+# --------- 
+
+/[Aa]{2}/BI
+------------------------------------------------------------------
+        Bra
+     /i A{2}
+        Ket
+        End
+------------------------------------------------------------------
+Capture group count = 0
+First code unit = 'A' (caseless)
+Last code unit = 'A' (caseless)
+Subject length lower bound = 2
+    aabcd
+ 0: aa
+
+/A{2}/iBI
+------------------------------------------------------------------
+        Bra
+     /i A{2}
+        Ket
+        End
+------------------------------------------------------------------
+Capture group count = 0
+Options: caseless
+First code unit = 'A' (caseless)
+Last code unit = 'A' (caseless)
+Subject length lower bound = 2
+    aabcd
+ 0: aa
+
+/[Aa]{2,3}/BI
+------------------------------------------------------------------
+        Bra
+     /i A{2}
+     /i A?+
+        Ket
+        End
+------------------------------------------------------------------
+Capture group count = 0
+First code unit = 'A' (caseless)
+Last code unit = 'A' (caseless)
+Subject length lower bound = 2
+    aabcd
+ 0: aa
+
+--
+    \[X]{-10}
+** Zero or negative repeat not allowed
+    
+# Check imposition of maximum by match_data_create().
+
+/abcd/
+    abcd\=ovector=65536
+ 0: abcd
 
 # End of testinput2
 Error -70: PCRE2_ERROR_BADDATA (unknown error number)

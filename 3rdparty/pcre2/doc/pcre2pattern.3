@@ -1,4 +1,4 @@
-.TH PCRE2PATTERN 3 "3o0 August 2021" "PCRE2 10.38"
+.TH PCRE2PATTERN 3 "12 January 2022" "PCRE2 10.40"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "PCRE2 REGULAR EXPRESSION DETAILS"
@@ -509,7 +509,6 @@ for themselves. For example, outside a character class:
 .\" JOIN
   \e377   might be a backreference, otherwise
             the value 255 (decimal)
-.\" JOIN
   \e81    is always a backreference
 .sp
 Note that octal values of 100 or greater that are specified using this syntax
@@ -773,200 +772,64 @@ can be used in any mode, though in 8-bit and 16-bit non-UTF modes these
 sequences are of course limited to testing characters whose code points are
 less than U+0100 and U+10000, respectively. In 32-bit non-UTF mode, code points
 greater than 0x10ffff (the Unicode limit) may be encountered. These are all
-treated as being in the Unknown script and with an unassigned type. The extra
-escape sequences are:
+treated as being in the Unknown script and with an unassigned type.
+.P
+Matching characters by Unicode property is not fast, because PCRE2 has to do a
+multistage table lookup in order to find a character's property. That is why
+the traditional escape sequences such as \ed and \ew do not use Unicode
+properties in PCRE2 by default, though you can make them do so by setting the
+PCRE2_UCP option or by starting the pattern with (*UCP).
+.P
+The extra escape sequences that provide property support are:
 .sp
   \ep{\fIxx\fP}   a character with the \fIxx\fP property
   \eP{\fIxx\fP}   a character without the \fIxx\fP property
   \eX       a Unicode extended grapheme cluster
 .sp
-The property names represented by \fIxx\fP above are case-sensitive. There is
-support for Unicode script names, Unicode general category properties, "Any",
-which matches any character (including newline), and some special PCRE2
-properties (described in the
+The property names represented by \fIxx\fP above are not case-sensitive, and in
+accordance with Unicode's "loose matching" rules, spaces, hyphens, and
+underscores are ignored. There is support for Unicode script names, Unicode
+general category properties, "Any", which matches any character (including
+newline), Bidi_Class, a number of binary (yes/no) properties, and some special
+PCRE2 properties (described
 .\" HTML <a href="#extraprops">
 .\" </a>
-next section).
+below).
 .\"
-Other Perl properties such as "InMusicalSymbols" are not supported by PCRE2.
-Note that \eP{Any} does not match any characters, so always causes a match
-failure.
+Certain other Perl properties such as "InMusicalSymbols" are not supported by
+PCRE2. Note that \eP{Any} does not match any characters, so always causes a
+match failure.
+.
+.
+.
+.SS "Script properties for \ep and \eP"
+.rs
+.sp
+There are three different syntax forms for matching a script. Each Unicode
+character has a basic script and, optionally, a list of other scripts ("Script
+Extensions") with which it is commonly used. Using the Adlam script as an
+example, \ep{sc:Adlam} matches characters whose basic script is Adlam, whereas
+\ep{scx:Adlam} matches, in addition, characters that have Adlam in their
+extensions list. The full names "script" and "script extensions" for the
+property types are recognized, and a equals sign is an alternative to the
+colon. If a script name is given without a property type, for example,
+\ep{Adlam}, it is treated as \ep{scx:Adlam}. Perl changed to this
+interpretation at release 5.26 and PCRE2 changed at release 10.40.
 .P
-Sets of Unicode characters are defined as belonging to certain scripts. A
-character from one of these sets can be matched using a script name. For
-example:
-.sp
-  \ep{Greek}
-  \eP{Han}
-.sp
 Unassigned characters (and in non-UTF 32-bit mode, characters with code points
 greater than 0x10FFFF) are assigned the "Unknown" script. Others that are not
 part of an identified script are lumped together as "Common". The current list
-of scripts is:
-.P
-Adlam,
-Ahom,
-Anatolian_Hieroglyphs,
-Arabic,
-Armenian,
-Avestan,
-Balinese,
-Bamum,
-Bassa_Vah,
-Batak,
-Bengali,
-Bhaiksuki,
-Bopomofo,
-Brahmi,
-Braille,
-Buginese,
-Buhid,
-Canadian_Aboriginal,
-Carian,
-Caucasian_Albanian,
-Chakma,
-Cham,
-Cherokee,
-Chorasmian,
-Common,
-Coptic,
-Cuneiform,
-Cypriot,
-Cypro_Minoan,
-Cyrillic,
-Deseret,
-Devanagari,
-Dives_Akuru,
-Dogra,
-Duployan,
-Egyptian_Hieroglyphs,
-Elbasan,
-Elymaic,
-Ethiopic,
-Georgian,
-Glagolitic,
-Gothic,
-Grantha,
-Greek,
-Gujarati,
-Gunjala_Gondi,
-Gurmukhi,
-Han,
-Hangul,
-Hanifi_Rohingya,
-Hanunoo,
-Hatran,
-Hebrew,
-Hiragana,
-Imperial_Aramaic,
-Inherited,
-Inscriptional_Pahlavi,
-Inscriptional_Parthian,
-Javanese,
-Kaithi,
-Kannada,
-Katakana,
-Kayah_Li,
-Kharoshthi,
-Khitan_Small_Script,
-Khmer,
-Khojki,
-Khudawadi,
-Lao,
-Latin,
-Lepcha,
-Limbu,
-Linear_A,
-Linear_B,
-Lisu,
-Lycian,
-Lydian,
-Mahajani,
-Makasar,
-Malayalam,
-Mandaic,
-Manichaean,
-Marchen,
-Masaram_Gondi,
-Medefaidrin,
-Meetei_Mayek,
-Mende_Kikakui,
-Meroitic_Cursive,
-Meroitic_Hieroglyphs,
-Miao,
-Modi,
-Mongolian,
-Mro,
-Multani,
-Myanmar,
-Nabataean,
-Nandinagari,
-New_Tai_Lue,
-Newa,
-Nko,
-Nushu,
-Nyakeng_Puachue_Hmong,
-Ogham,
-Ol_Chiki,
-Old_Hungarian,
-Old_Italic,
-Old_North_Arabian,
-Old_Permic,
-Old_Persian,
-Old_Sogdian,
-Old_South_Arabian,
-Old_Turkic,
-Old_Uyghur,
-Oriya,
-Osage,
-Osmanya,
-Pahawh_Hmong,
-Palmyrene,
-Pau_Cin_Hau,
-Phags_Pa,
-Phoenician,
-Psalter_Pahlavi,
-Rejang,
-Runic,
-Samaritan,
-Saurashtra,
-Sharada,
-Shavian,
-Siddham,
-SignWriting,
-Sinhala,
-Sogdian,
-Sora_Sompeng,
-Soyombo,
-Sundanese,
-Syloti_Nagri,
-Syriac,
-Tagalog,
-Tagbanwa,
-Tai_Le,
-Tai_Tham,
-Tai_Viet,
-Takri,
-Tamil,
-Tangsa,
-Tangut,
-Telugu,
-Thaana,
-Thai,
-Tibetan,
-Tifinagh,
-Tirhuta,
-Toto,
-Ugaritic,
-Unknown,
-Vai,
-Vithkuqi,
-Wancho,
-Warang_Citi,
-Yezidi,
-Yi,
-Zanabazar_Square.
-.P
+of recognized script names and their 4-character abbreviations can be obtained
+by running this command:
+.sp
+  pcre2test -LS
+.sp
+.
+.
+.
+.SS "The general category property for \ep and \eP"
+.rs
+.sp
 Each character has exactly one Unicode general category property, specified by
 a two-letter abbreviation. For compatibility with Perl, negation can be
 specified by including a circumflex between the opening brace and the property
@@ -1026,9 +889,9 @@ The following general category property codes are supported:
   Zp    Paragraph separator
   Zs    Space separator
 .sp
-The special property L& is also supported: it matches a character that has
-the Lu, Ll, or Lt property, in other words, a letter that is not classified as
-a modifier or "other".
+The special property LC, which has the synonym L&, is also supported: it
+matches a character that has the Lu, Ll, or Lt property, in other words, a
+letter that is not classified as a modifier or "other".
 .P
 The Cs (Surrogate) property applies only to characters whose code points are in
 the range U+D800 to U+DFFF. These characters are no different to any other
@@ -1052,12 +915,53 @@ Unicode table.
 Specifying caseless matching does not affect these escape sequences. For
 example, \ep{Lu} always matches only upper case letters. This is different from
 the behaviour of current versions of Perl.
-.P
-Matching characters by Unicode property is not fast, because PCRE2 has to do a
-multistage table lookup in order to find a character's property. That is why
-the traditional escape sequences such as \ed and \ew do not use Unicode
-properties in PCRE2 by default, though you can make them do so by setting the
-PCRE2_UCP option or by starting the pattern with (*UCP).
+.
+.
+.SS "Binary (yes/no) properties for \ep and \eP"
+.rs
+.sp
+Unicode defines a number of binary properties, that is, properties whose only
+values are true or false. You can obtain a list of those that are recognized by
+\ep and \eP, along with their abbreviations, by running this command:
+.sp
+  pcre2test -LP
+.sp
+.
+.
+.SS "The Bidi_Class property for \ep and \eP"
+.rs
+.sp
+  \ep{Bidi_Class:<class>}   matches a character with the given class
+  \ep{BC:<class>}           matches a character with the given class
+.sp
+The recognized classes are:
+.sp
+  AL          Arabic letter
+  AN          Arabic number
+  B           paragraph separator
+  BN          boundary neutral
+  CS          common separator
+  EN          European number
+  ES          European separator
+  ET          European terminator
+  FSI         first strong isolate
+  L           left-to-right
+  LRE         left-to-right embedding
+  LRI         left-to-right isolate
+  LRO         left-to-right override
+  NSM         non-spacing mark
+  ON          other neutral
+  PDF         pop directional format
+  PDI         pop directional isolate
+  R           right-to-left
+  RLE         right-to-left embedding
+  RLI         right-to-left isolate
+  RLO         right-to-left override
+  S           segment separator
+  WS          which space
+.sp
+An equals sign may be used instead of a colon. The class names are
+case-insensitive; only the short names listed above are recognized.
 .
 .
 .SS Extended grapheme clusters
@@ -1336,14 +1240,19 @@ end of the subject in both modes, and if all branches of a pattern start with
 .sp
 Outside a character class, a dot in the pattern matches any one character in
 the subject string except (by default) a character that signifies the end of a
-line.
+line. One or more characters may be specified as line terminators (see
+.\" HTML <a href="#newlines">
+.\" </a>
+"Newline conventions"
+.\"
+above).
 .P
-When a line ending is defined as a single character, dot never matches that
-character; when the two-character sequence CRLF is used, dot does not match CR
-if it is immediately followed by LF, but otherwise it matches all characters
-(including isolated CRs and LFs). When any Unicode line endings are being
-recognized, dot does not match CR or LF or any of the other line ending
-characters.
+Dot never matches a single line-ending character. When the two-character
+sequence CRLF is the only line ending, dot does not match CR if it is
+immediately followed by LF, but otherwise it matches all characters (including
+isolated CRs and LFs). When ANYCRLF is selected for line endings, no occurences
+of CR of LF match dot. When all Unicode line endings are being recognized, dot
+does not match CR or LF or any of the other line ending characters.
 .P
 The behaviour of dot with regard to newlines can be changed. If the
 PCRE2_DOTALL option is set, a dot matches any one character, without exception.
@@ -2186,10 +2095,10 @@ be easier to remember:
 .sp
   (*atomic:\ed+)foo
 .sp
-This kind of parenthesized group "locks up" the  part of the pattern it
-contains once it has matched, and a failure further into the pattern is
-prevented from backtracking into it. Backtracking past it to previous items,
-however, works as normal.
+This kind of parenthesized group "locks up" the part of the pattern it contains
+once it has matched, and a failure further into the pattern is prevented from
+backtracking into it. Backtracking past it to previous items, however, works as
+normal.
 .P
 An alternative description is that a group of this type matches exactly the
 string of characters that an identical standalone pattern would match, if
@@ -3905,6 +3814,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 30 August 2021
-Copyright (c) 1997-2021 University of Cambridge.
+Last updated: 12 January 2022
+Copyright (c) 1997-2022 University of Cambridge.
 .fi

@@ -1,4 +1,4 @@
-.TH PCRE2_COMPILE 3 "23 May 2019" "PCRE2 10.34"
+.TH PCRE2_COMPILE 3 "22 April 2022" "PCRE2 10.41"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH SYNOPSIS
@@ -80,8 +80,17 @@ Additional options may be set in the compile context via the
 .\"
 function.
 .P
-The yield of this function is a pointer to a private data structure that
-contains the compiled pattern, or NULL if an error was detected.
+If either of \fIerrorcode\fP or \fIerroroffset\fP is NULL, the function returns
+NULL immediately. Otherwise, the yield of this function is a pointer to a
+private data structure that contains the compiled pattern, or NULL if an error
+was detected. In the error case, a text error message can be obtained by
+passing the value returned via the \fIerrorcode\fP argument to the the
+\fBpcre2_get_error_message()\fP function. The offset (in code units) where the
+error was encountered is returned via the \fIerroroffset\fP argument.
+.P
+If there is no error, the value passed via \fIerrorcode\fP returns the message
+"no error" if passed to \fBpcre2_get_error_message()\fP, and the value passed
+via \fIerroroffset\fP is zero.
 .P
 There is a complete description of the PCRE2 native API, with more detail on
 each option, in the

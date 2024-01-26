@@ -6,38 +6,44 @@
 
 # (2) Other tests that must not be run with JIT.
 
+# This test is first so that it doesn't inherit a large enough heap frame 
+# vector from a previous test.
+
+/(*LIMIT_HEAP=21)\[(a)]{60}/expand
+    \[a]{60}
+
 /(a+)*zz/I
-  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazzbbbbbb\=find_limits
-  aaaaaaaaaaaaaz\=find_limits
+  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazzbbbbbb\=find_limits_noheap
+  aaaaaaaaaaaaaz\=find_limits_noheap
 
 !((?:\s|//.*\\n|/[*](?:\\n|.)*?[*]/)*)!I
-   /* this is a C style comment */\=find_limits
+   /* this is a C style comment */\=find_limits_noheap
 
 /^(?>a)++/
-    aa\=find_limits
-    aaaaaaaaa\=find_limits
+    aa\=find_limits_noheap
+    aaaaaaaaa\=find_limits_noheap
 
 /(a)(?1)++/
-    aa\=find_limits
-    aaaaaaaaa\=find_limits
+    aa\=find_limits_noheap
+    aaaaaaaaa\=find_limits_noheap
 
 /a(?:.)*?a/ims
-    abbbbbbbbbbbbbbbbbbbbba\=find_limits
+    abbbbbbbbbbbbbbbbbbbbba\=find_limits_noheap
 
 /a(?:.(*THEN))*?a/ims
-    abbbbbbbbbbbbbbbbbbbbba\=find_limits
+    abbbbbbbbbbbbbbbbbbbbba\=find_limits_noheap
 
 /a(?:.(*THEN:ABC))*?a/ims
-    abbbbbbbbbbbbbbbbbbbbba\=find_limits
+    abbbbbbbbbbbbbbbbbbbbba\=find_limits_noheap
 
 /^(?>a+)(?>b+)(?>c+)(?>d+)(?>e+)/
-     aabbccddee\=find_limits
+     aabbccddee\=find_limits_noheap
 
 /^(?>(a+))(?>(b+))(?>(c+))(?>(d+))(?>(e+))/
-     aabbccddee\=find_limits
+     aabbccddee\=find_limits_noheap
 
 /^(?>(a+))(?>b+)(?>(c+))(?>d+)(?>(e+))/
-     aabbccddee\=find_limits
+     aabbccddee\=find_limits_noheap
 
 /(*LIMIT_MATCH=12bc)abc/
 
@@ -227,9 +233,6 @@
 
 /(|]+){2,2452}/
     (|]+){2,2452}
-
-/(*LIMIT_HEAP=21)\[(a)]{60}/expand
-    \[a]{60}
 
 /b(?<!ax)(?!cx)/allusedtext
     abc

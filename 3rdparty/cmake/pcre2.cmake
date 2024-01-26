@@ -121,6 +121,7 @@ SET(SOURCES
     ${PROJECT_NAME}/src/pcre2_substring.c
     ${PROJECT_NAME}/src/pcre2_tables.c
     ${PROJECT_NAME}/src/pcre2_ucd.c
+    ${PROJECT_NAME}/src/pcre2_ucptables.c
     ${PROJECT_NAME}/src/pcre2_valid_utf.c
     ${PROJECT_NAME}/src/pcre2_xclass.c
 )

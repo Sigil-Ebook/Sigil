@@ -135,9 +135,9 @@ if "%all%" == "yes" (
   set do7=yes
   set do8=yes
   set do9=yes
-  set do10=yes
+  set do10=no
   set do11=yes
-  set do12=yes
+  set do12=no
   set do13=yes
   set do14=yes
   set do15=yes

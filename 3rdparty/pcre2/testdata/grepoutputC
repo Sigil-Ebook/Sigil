@@ -1,26 +1,26 @@
 Arg1: [T] [he ] [ ] Arg2: |T| () () (0)
-Arg1: [T] [his] [s] Arg2: |T| () () (0)
-Arg1: [T] [his] [s] Arg2: |T| () () (0)
-Arg1: [T] [he ] [ ] Arg2: |T| () () (0)
-Arg1: [T] [he ] [ ] Arg2: |T| () () (0)
-Arg1: [T] [he ] [ ] Arg2: |T| () () (0)
 The quick brown
+Arg1: [T] [his] [s] Arg2: |T| () () (0)
 This time it jumps and jumps and jumps.
+Arg1: [T] [his] [s] Arg2: |T| () () (0)
 This line contains \E and (regex) *meta* [characters].
+Arg1: [T] [he ] [ ] Arg2: |T| () () (0)
 The word is cat in this line
+Arg1: [T] [he ] [ ] Arg2: |T| () () (0)
 The caterpillar sat on the mat
+Arg1: [T] [he ] [ ] Arg2: |T| () () (0)
 The snowcat is not an animal
 Arg1: [qu] [qu]
-Arg1: [ t] [ t]
-Arg1: [ l] [ l]
-Arg1: [wo] [wo]
-Arg1: [ca] [ca]
-Arg1: [sn] [sn]
 The quick brown
+Arg1: [ t] [ t]
 This time it jumps and jumps and jumps.
+Arg1: [ l] [ l]
 This line contains \E and (regex) *meta* [characters].
+Arg1: [wo] [wo]
 The word is cat in this line
+Arg1: [ca] [ca]
 The caterpillar sat on the mat
+Arg1: [sn] [sn]
 The snowcat is not an animal
 0:T
 The quick brown
@@ -33,6 +33,24 @@ The word is cat in this line
 0:T
 The caterpillar sat on the mat
 0:T
+The snowcat is not an animal
+0:T
+
+The quick brown
+0:T
+
+This time it jumps and jumps and jumps.
+0:T
+
+This line contains \E and (regex) *meta* [characters].
+0:T
+
+The word is cat in this line
+0:T
+
+The caterpillar sat on the mat
+0:T
+
 The snowcat is not an animal
 T
 T

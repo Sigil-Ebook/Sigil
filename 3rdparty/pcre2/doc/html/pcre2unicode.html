@@ -50,17 +50,18 @@ UNICODE PROPERTY SUPPORT
 <P>
 When PCRE2 is built with Unicode support, the escape sequences \p{..},
 \P{..}, and \X can be used. This is not dependent on the PCRE2_UTF setting.
-The Unicode properties that can be tested are limited to the general category
-properties such as Lu for an upper case letter or Nd for a decimal number, the
-Unicode script names such as Arabic or Han, and the derived properties Any and
-L&. Full lists are given in the
+The Unicode properties that can be tested are a subset of those that Perl
+supports. Currently they are limited to the general category properties such as
+Lu for an upper case letter or Nd for a decimal number, the Unicode script
+names such as Arabic or Han, Bidi_Class, Bidi_Control, and the derived
+properties Any and LC (synonym L&). Full lists are given in the
 <a href="pcre2pattern.html"><b>pcre2pattern</b></a>
 and
 <a href="pcre2syntax.html"><b>pcre2syntax</b></a>
-documentation. Only the short names for properties are supported. For example,
-\p{L} matches a letter. Its Perl synonym, \p{Letter}, is not supported.
-Furthermore, in Perl, many properties may optionally be prefixed by "Is", for
-compatibility with Perl 5.6. PCRE2 does not support this.
+documentation. In general, only the short names for properties are supported.
+For example, \p{L} matches a letter. Its longer synonym, \p{Letter}, is not
+supported. Furthermore, in Perl, many properties may optionally be prefixed by
+"Is", for compatibility with Perl 5.6. PCRE2 does not support this.
 </P>
 <br><b>
 WIDE CHARACTERS AND UTF MODES
@@ -477,7 +478,7 @@ AUTHOR
 <P>
 Philip Hazel
 <br>
-University Computing Service
+Retired from University Computing Service
 <br>
 Cambridge, England.
 <br>
@@ -486,9 +487,9 @@ Cambridge, England.
 REVISION
 </b><br>
 <P>
-Last updated: 23 February 2020
+Last updated: 22 December 2021
 <br>
-Copyright &copy; 1997-2020 University of Cambridge.
+Copyright &copy; 1997-2021 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

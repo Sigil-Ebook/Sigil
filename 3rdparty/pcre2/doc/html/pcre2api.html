@@ -1017,7 +1017,7 @@ has its own memory control arrangements (see the
 documentation for more details). If the limit is reached, the negative error
 code PCRE2_ERROR_HEAPLIMIT is returned. The default limit can be set when PCRE2
 is built; if it is not, the default is set very large and is essentially
-"unlimited".
+unlimited.
 </P>
 <P>
 A value for the heap limit may also be supplied by an item at the start of a
@@ -1030,19 +1030,17 @@ less than the limit set by the caller of <b>pcre2_match()</b> or, if no such
 limit is set, less than the default.
 </P>
 <P>
-The <b>pcre2_match()</b> function starts out using a 20KiB vector on the system
-stack for recording backtracking points. The more nested backtracking points
-there are (that is, the deeper the search tree), the more memory is needed.
-Heap memory is used only if the initial vector is too small. If the heap limit
-is set to a value less than 21 (in particular, zero) no heap memory will be
-used. In this case, only patterns that do not have a lot of nested backtracking
-can be successfully processed.
+The <b>pcre2_match()</b> function always needs some heap memory, so setting a
+value of zero guarantees a "heap limit exceeded" error. Details of how
+<b>pcre2_match()</b> uses the heap are given in the
+<a href="pcre2perform.html"><b>pcre2perform</b></a>
+documentation.
 </P>
 <P>
-Similarly, for <b>pcre2_dfa_match()</b>, a vector on the system stack is used
-when processing pattern recursions, lookarounds, or atomic groups, and only if
-this is not big enough is heap memory used. In this case, too, setting a value
-of zero disables the use of the heap.
+For <b>pcre2_dfa_match()</b>, a vector on the system stack is used when
+processing pattern recursions, lookarounds, or atomic groups, and only if this
+is not big enough is heap memory used. In this case, setting a value of zero
+disables the use of the heap.
 <br>
 <br>
 <b>int pcre2_set_match_limit(pcre2_match_context *<i>mcontext</i>,</b>
@@ -1089,10 +1087,10 @@ less than the limit set by the caller of <b>pcre2_match()</b> or
 <br>
 <br>
 This parameter limits the depth of nested backtracking in <b>pcre2_match()</b>.
-Each time a nested backtracking point is passed, a new memory "frame" is used
+Each time a nested backtracking point is passed, a new memory frame is used
 to remember the state of matching at that point. Thus, this parameter
 indirectly limits the amount of memory that is used in a match. However,
-because the size of each memory "frame" depends on the number of capturing
+because the size of each memory frame depends on the number of capturing
 parentheses, the actual memory limit varies from pattern to pattern. This limit
 was more useful in versions before 10.30, where function recursion was used for
 backtracking.
@@ -1383,8 +1381,7 @@ If <i>errorcode</i> or <i>erroroffset</i> is NULL, <b>pcre2_compile()</b> return
 NULL immediately. Otherwise, the variables to which these point are set to an
 error code and an offset (number of code units) within the pattern,
 respectively, when <b>pcre2_compile()</b> returns NULL because a compilation
-error has occurred. The values are not defined when compilation is successful
-and <b>pcre2_compile()</b> returns a non-NULL value.
+error has occurred.
 </P>
 <P>
 There are nearly 100 positive error codes that <b>pcre2_compile()</b> may return
@@ -1399,15 +1396,18 @@ because the textual error messages that are obtained by calling the
 message"
 <a href="#geterrormessage">below)</a>
 should be self-explanatory. Macro names starting with PCRE2_ERROR_ are defined
-for both positive and negative error codes in <b>pcre2.h</b>.
+for both positive and negative error codes in <b>pcre2.h</b>. When compilation
+is successful <i>errorcode</i> is set to a value that returns the message "no
+error" if passed to <b>pcre2_get_error_message()</b>.
 </P>
 <P>
 The value returned in <i>erroroffset</i> is an indication of where in the
-pattern the error occurred. It is not necessarily the furthest point in the
-pattern that was read. For example, after the error "lookbehind assertion is
-not fixed length", the error offset points to the start of the failing
-assertion. For an invalid UTF-8 or UTF-16 string, the offset is that of the
-first code unit of the failing character.
+pattern an error occurred. When there is no error, zero is returned. A non-zero
+value is not necessarily the furthest point in the pattern that was read. For
+example, after the error "lookbehind assertion is not fixed length", the error
+offset points to the start of the failing assertion. For an invalid UTF-8 or
+UTF-16 string, the offset is that of the first code unit of the failing
+character.
 </P>
 <P>
 Some errors are not detected until the whole pattern has been scanned; in these
@@ -1845,7 +1845,7 @@ undefined. It may cause your program to crash or loop.
 </P>
 <P>
 Note that this option can also be passed to <b>pcre2_match()</b> and
-<b>pcre_dfa_match()</b>, to suppress UTF validity checking of the subject
+<b>pcre2_dfa_match()</b>, to suppress UTF validity checking of the subject
 string.
 </P>
 <P>
@@ -2055,8 +2055,8 @@ point. However, this applies only to characters whose code points are less than
 \d.
 </P>
 <P>
-When PCRE2 is built with Unicode support (the default), the Unicode properties
-of all characters can be tested with \p and \P, or, alternatively, the
+When PCRE2 is built with Unicode support (the default), certain Unicode
+character properties can be tested with \p and \P, or, alternatively, the
 PCRE2_UCP option can be set when a pattern is compiled; this causes \w and
 friends to use Unicode property support instead of the built-in tables.
 PCRE2_UCP also causes upper/lower casing operations on characters with code
@@ -2316,7 +2316,7 @@ return zero. The third argument should point to a <b>size_t</b> variable.
   PCRE2_INFO_LASTCODETYPE
 </pre>
 Returns 1 if there is a rightmost literal code unit that must exist in any
-matched string, other than at its start. The third argument should  point to a
+matched string, other than at its start. The third argument should point to a
 <b>uint32_t</b> variable. If there is no such value, 0 is returned. When 1 is
 returned, the code unit value itself can be retrieved using
 PCRE2_INFO_LASTCODEUNIT. For anchored patterns, a last literal value is
@@ -2543,7 +2543,9 @@ large enough to hold as many as are expected.
 A minimum of at least 1 pair is imposed by <b>pcre2_match_data_create()</b>, so
 it is always possible to return the overall matched string in the case of
 <b>pcre2_match()</b> or the longest match in the case of
-<b>pcre2_dfa_match()</b>.
+<b>pcre2_dfa_match()</b>. The maximum number of pairs is 65535; if the the first
+argument of <b>pcre2_match_data_create()</b> is greater than this, 65535 is
+used.
 </P>
 <P>
 The second argument of <b>pcre2_match_data_create()</b> is a pointer to a
@@ -2640,7 +2642,9 @@ The subject string is passed to <b>pcre2_match()</b> as a pointer in
 <i>startoffset</i>. The length and offset are in code units, not characters.
 That is, they are in bytes for the 8-bit library, 16-bit code units for the
 16-bit library, and 32-bit code units for the 32-bit library, whether or not
-UTF processing is enabled.
+UTF processing is enabled. As a special case, if <i>subject</i> is NULL and
+<i>length</i> is zero, the subject is assumed to be an empty string. If
+<i>length</i> is non-zero, an error occurs if <i>subject</i> is NULL.
 </P>
 <P>
 If <i>startoffset</i> is greater than the length of the subject,
@@ -3144,11 +3148,11 @@ The backtracking match limit was reached.
 <pre>
   PCRE2_ERROR_NOMEMORY
 </pre>
-If a pattern contains many nested backtracking points, heap memory is used to
-remember them. This error is given when the memory allocation function (default
-or custom) fails. Note that a different error, PCRE2_ERROR_HEAPLIMIT, is given
-if the amount of memory needed exceeds the heap limit. PCRE2_ERROR_NOMEMORY is
-also returned if PCRE2_COPY_MATCHED_SUBJECT is set and memory allocation fails.
+Heap memory is used to remember backgracking points. This error is given when
+the memory allocation function (default or custom) fails. Note that a different
+error, PCRE2_ERROR_HEAPLIMIT, is given if the amount of memory needed exceeds
+the heap limit. PCRE2_ERROR_NOMEMORY is also returned if
+PCRE2_COPY_MATCHED_SUBJECT is set and memory allocation fails.
 <pre>
   PCRE2_ERROR_NULL
 </pre>
@@ -3394,12 +3398,17 @@ same number causes an error at compile time.
 <P>
 This function optionally calls <b>pcre2_match()</b> and then makes a copy of the
 subject string in <i>outputbuffer</i>, replacing parts that were matched with
-the <i>replacement</i> string, whose length is supplied in <b>rlength</b>. This
-can be given as PCRE2_ZERO_TERMINATED for a zero-terminated string. There is an
-option (see PCRE2_SUBSTITUTE_REPLACEMENT_ONLY below) to return just the
-replacement string(s). The default action is to perform just one replacement if
-the pattern matches, but there is an option that requests multiple replacements
-(see PCRE2_SUBSTITUTE_GLOBAL below).
+the <i>replacement</i> string, whose length is supplied in <b>rlength</b>, which
+can be given as PCRE2_ZERO_TERMINATED for a zero-terminated string. As a
+special case, if <i>replacement</i> is NULL and <i>rlength</i> is zero, the
+replacement is assumed to be an empty string. If <i>rlength</i> is non-zero, an
+error occurs if <i>replacement</i> is NULL.
+</P>
+<P>
+There is an option (see PCRE2_SUBSTITUTE_REPLACEMENT_ONLY below) to return just
+the replacement string(s). The default action is to perform just one
+replacement if the pattern matches, but there is an option that requests
+multiple replacements (see PCRE2_SUBSTITUTE_GLOBAL below).
 </P>
 <P>
 If successful, <b>pcre2_substitute()</b> returns the number of substitutions
@@ -3433,12 +3442,12 @@ block may or may not have been changed.
 As well as the usual options for <b>pcre2_match()</b>, a number of additional
 options can be set in the <i>options</i> argument of <b>pcre2_substitute()</b>.
 One such option is PCRE2_SUBSTITUTE_MATCHED. When this is set, an external
-<i>match_data</i> block must be provided, and it must have been used for an
-external call to <b>pcre2_match()</b>. The data in the <i>match_data</i> block
-(return code, offset vector) is used for the first substitution instead of
-calling <b>pcre2_match()</b> from within <b>pcre2_substitute()</b>. This allows
-an application to check for a match before choosing to substitute, without
-having to repeat the match.
+<i>match_data</i> block must be provided, and it must have already been used for
+an external call to <b>pcre2_match()</b> with the same pattern and subject
+arguments. The data in the <i>match_data</i> block (return code, offset vector)
+is then used for the first substitution instead of calling <b>pcre2_match()</b>
+from within <b>pcre2_substitute()</b>. This allows an application to check for a
+match before choosing to substitute, without having to repeat the match.
 </P>
 <P>
 The contents of the externally supplied match data block are not changed when
@@ -3583,7 +3592,7 @@ and force lower case. The escape sequences change the current state: \U and
 terminating a \Q quoted sequence) reverts to no case forcing. The sequences
 \u and \l force the next character (if it is a letter) to upper or lower
 case, respectively, and then the state automatically reverts to no case
-forcing. Case forcing applies to all inserted  characters, including those from
+forcing. Case forcing applies to all inserted characters, including those from
 capture groups and letters within \Q...\E quoted sequences. If either
 PCRE2_UTF or PCRE2_UCP was set when the pattern was compiled, Unicode
 properties are used for case forcing characters whose code points are greater
@@ -3655,7 +3664,9 @@ default.
 </P>
 <P>
 PCRE2_ERROR_NULL is returned if PCRE2_SUBSTITUTE_MATCHED is set but the
-<i>match_data</i> argument is NULL.
+<i>match_data</i> argument is NULL or if the <i>subject</i> or <i>replacement</i>
+arguments are NULL. For backward compatibility reasons an exception is made for
+the <i>replacement</i> argument if the <i>rlength</i> argument is also 0.
 </P>
 <P>
 PCRE2_ERROR_BADREPLACEMENT is used for miscellaneous syntax errors in the
@@ -3810,12 +3821,13 @@ other alternatives. Ultimately, when it runs out of matches,
 <P>
 The function <b>pcre2_dfa_match()</b> is called to match a subject string
 against a compiled pattern, using a matching algorithm that scans the subject
-string just once (not counting lookaround assertions), and does not backtrack.
-This has different characteristics to the normal algorithm, and is not
-compatible with Perl. Some of the features of PCRE2 patterns are not supported.
-Nevertheless, there are times when this kind of matching can be useful. For a
-discussion of the two matching algorithms, and a list of features that
-<b>pcre2_dfa_match()</b> does not support, see the
+string just once (not counting lookaround assertions), and does not backtrack
+(except when processing lookaround assertions). This has different
+characteristics to the normal algorithm, and is not compatible with Perl. Some
+of the features of PCRE2 patterns are not supported. Nevertheless, there are
+times when this kind of matching can be useful. For a discussion of the two
+matching algorithms, and a list of features that <b>pcre2_dfa_match()</b> does
+not support, see the
 <a href="pcre2matching.html"><b>pcre2matching</b></a>
 documentation.
 </P>
@@ -3850,7 +3862,7 @@ Here is an example of a simple call to <b>pcre2_dfa_match()</b>:
 </PRE>
 </P>
 <br><b>
-Option bits for <b>pcre_dfa_match()</b>
+Option bits for <b>pcre2_dfa_match()</b>
 </b><br>
 <P>
 The unused bits of the <i>options</i> argument for <b>pcre2_dfa_match()</b> must
@@ -4008,9 +4020,9 @@ Cambridge, England.
 </P>
 <br><a name="SEC42" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 30 August 2021
+Last updated: 27 July 2022
 <br>
-Copyright &copy; 1997-2021 University of Cambridge.
+Copyright &copy; 1997-2022 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

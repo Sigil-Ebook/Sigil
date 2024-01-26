@@ -269,11 +269,11 @@ starts another match, that match must use a different JIT stack to the one used
 for currently suspended match(es).
 </P>
 <P>
-In a multithread application, if you do not
-specify a JIT stack, or if you assign or pass back NULL from a callback, that
-is thread-safe, because each thread has its own machine stack. However, if you
-assign or pass back a non-NULL JIT stack, this must be a different stack for
-each thread so that the application is thread-safe.
+In a multithread application, if you do not specify a JIT stack, or if you
+assign or pass back NULL from a callback, that is thread-safe, because each
+thread has its own machine stack. However, if you assign or pass back a
+non-NULL JIT stack, this must be a different stack for each thread so that the
+application is thread-safe.
 </P>
 <P>
 Strictly speaking, even more is allowed. You can assign the same non-NULL stack
@@ -382,8 +382,8 @@ out this complicated API.
 <b>void pcre2_jit_free_unused_memory(pcre2_general_context *<i>gcontext</i>);</b>
 </P>
 <P>
-The JIT executable allocator does not free all memory when it is possible.
-It expects new allocations, and keeps some free memory around to improve
+The JIT executable allocator does not free all memory when it is possible. It
+expects new allocations, and keeps some free memory around to improve
 allocation speed. However, in low memory conditions, it might be better to free
 all possible memory. You can cause this to happen by calling
 pcre2_jit_free_unused_memory(). Its argument is a general context, for custom
@@ -442,10 +442,10 @@ that was not compiled.
 <P>
 When you call <b>pcre2_match()</b>, as well as testing for invalid options, a
 number of other sanity checks are performed on the arguments. For example, if
-the subject pointer is NULL, an immediate error is given. Also, unless
-PCRE2_NO_UTF_CHECK is set, a UTF subject string is tested for validity. In the
-interests of speed, these checks do not happen on the JIT fast path, and if
-invalid data is passed, the result is undefined.
+the subject pointer is NULL but the length is non-zero, an immediate error is
+given. Also, unless PCRE2_NO_UTF_CHECK is set, a UTF subject string is tested
+for validity. In the interests of speed, these checks do not happen on the JIT
+fast path, and if invalid data is passed, the result is undefined.
 </P>
 <P>
 Bypassing the sanity checks and the <b>pcre2_match()</b> wrapping can give
@@ -466,9 +466,9 @@ Cambridge, England.
 </P>
 <br><a name="SEC14" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 23 May 2019
+Last updated: 30 November 2021
 <br>
-Copyright &copy; 1997-2019 University of Cambridge.
+Copyright &copy; 1997-2021 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

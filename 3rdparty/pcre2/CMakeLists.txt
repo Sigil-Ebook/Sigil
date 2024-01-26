@@ -99,16 +99,21 @@
 #            build in one go.
 # 2021-08-28 PH increased minimum version
 # 2021-08-28 PH added test for realpath()
-
-PROJECT(PCRE2 C)
+# 2022-12-10 PH added support for pcre2posix_test
 
 # Increased minimum to 2.8.5 to support GNUInstallDirs.
-# Increased minimum to 3.0.0 because older than 2.8.12 is deprecated.
-CMAKE_MINIMUM_REQUIRED(VERSION 3.0.0)
+# Increased minimum to 3.1 to support imported targets.
+CMAKE_MINIMUM_REQUIRED(VERSION 3.1)
+PROJECT(PCRE2 C)
 
 # Set policy CMP0026 to avoid warnings for the use of LOCATION in
 # GET_TARGET_PROPERTY. This should no longer be required.
 # CMAKE_POLICY(SET CMP0026 OLD)
+
+# With a recent cmake, you can provide a rootdir to look for non
+# standard installed library dependencies, but to do so, the policy
+# needs to be set to new (by uncommenting the following)
+# CMAKE_POLICY(SET CMP0074 NEW)
 
 # For FindReadline.cmake. This was changed to allow setting CMAKE_MODULE_PATH
 # on the command line.
@@ -142,9 +147,15 @@ CHECK_INCLUDE_FILE(windows.h    HAVE_WINDOWS_H)
 CHECK_SYMBOL_EXISTS(bcopy         "strings.h"  HAVE_BCOPY)
 CHECK_SYMBOL_EXISTS(memfd_create  "sys/mman.h" HAVE_MEMFD_CREATE)
 CHECK_SYMBOL_EXISTS(memmove       "string.h"   HAVE_MEMMOVE)
-CHECK_SYMBOL_EXISTS(realpath      "stdlib.h"   HAVE_REALPATH)
 CHECK_SYMBOL_EXISTS(secure_getenv "stdlib.h"   HAVE_SECURE_GETENV)
 CHECK_SYMBOL_EXISTS(strerror      "string.h"   HAVE_STRERROR)
+
+CHECK_C_SOURCE_COMPILES(
+  "#include <stdlib.h>
+   #include <limits.h>
+   int main(int c, char *v[]) { char buf[PATH_MAX]; realpath(v[1], buf); return 0; }"
+  HAVE_REALPATH
+)
 
 set(ORIG_CMAKE_REQUIRED_FLAGS ${CMAKE_REQUIRED_FLAGS})
 set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} -Werror")
@@ -300,9 +311,19 @@ ENDIF(PCRE2_SUPPORT_LIBZ)
 IF(EDITLINE_FOUND)
   OPTION (PCRE2_SUPPORT_LIBEDIT  "Enable support for linking pcre2test with libedit." OFF)
 ENDIF(EDITLINE_FOUND)
-IF(PCRE2_SUPPORT_LIBEDIT)
-  INCLUDE_DIRECTORIES(${EDITLINE_INCLUDE_DIR})
-ENDIF(PCRE2_SUPPORT_LIBEDIT)
+IF(EDITLINE_FOUND)
+  IF(PCRE2_SUPPORT_LIBEDIT)
+    INCLUDE_DIRECTORIES(${EDITLINE_INCLUDE_DIR})
+  ENDIF(PCRE2_SUPPORT_LIBEDIT)
+ELSE(EDITLINE_FOUND)
+  IF(PCRE2_SUPPORT_LIBEDIT)
+    MESSAGE(FATAL_ERROR
+      " libedit not found, set EDITLINE_INCLUDE_DIR to a compatible header\n"
+      " or set Editline_ROOT to a full libedit installed tree, as needed\n"
+      " Might need to enable policy CMP0074 in CMakeLists.txt"
+    )
+  ENDIF(PCRE2_SUPPORT_LIBEDIT)
+ENDIF(EDITLINE_FOUND)
 
 # readline lib
 IF(READLINE_FOUND)
@@ -340,7 +361,12 @@ IF(PCRE2_BUILD_PCRE2GREP AND NOT PCRE2_BUILD_PCRE2_8)
 ENDIF(PCRE2_BUILD_PCRE2GREP AND NOT PCRE2_BUILD_PCRE2_8)
 
 IF(PCRE2_SUPPORT_LIBREADLINE AND PCRE2_SUPPORT_LIBEDIT)
-        MESSAGE(FATAL_ERROR "Only one of libreadline or libeditline can be specified")
+        IF(READLINE_FOUND)
+                MESSAGE(FATAL_ERROR
+                  " Only one of the readline compatible libraries can be enabled.\n"
+                  " Disable libreadline with -DPCRE2_SUPPORT_LIBREADLINE=OFF"
+                )
+        ENDIF(READLINE_FOUND)
 ENDIF(PCRE2_SUPPORT_LIBREADLINE AND PCRE2_SUPPORT_LIBEDIT)
 
 IF(PCRE2_SUPPORT_BSR_ANYCRLF)
@@ -356,7 +382,13 @@ IF(PCRE2_SUPPORT_UNICODE)
 ENDIF(PCRE2_SUPPORT_UNICODE)
 
 IF(PCRE2_SUPPORT_JIT)
-        SET(SUPPORT_JIT 1)
+	SET(SUPPORT_JIT 1)
+	IF(UNIX)
+		FIND_PACKAGE(Threads REQUIRED)
+		IF(CMAKE_USE_PTHREADS_INIT)
+			SET(REQUIRE_PTHREAD 1)
+		ENDIF(CMAKE_USE_PTHREADS_INIT)
+	ENDIF(UNIX)
 ENDIF(PCRE2_SUPPORT_JIT)
 
 IF(PCRE2_SUPPORT_JIT_SEALLOC)
@@ -626,6 +658,8 @@ IF(MINGW AND BUILD_SHARED_LIBS)
 ENDIF(MINGW AND BUILD_SHARED_LIBS)
 
 IF(MSVC AND BUILD_SHARED_LIBS)
+  SET(dll_pdb_files ${PROJECT_BINARY_DIR}/pcre2-posix.pdb ${dll_pdb_files})
+  SET(dll_pdb_debug_files ${PROJECT_BINARY_DIR}/pcre2-posixd.pdb ${dll_pdb_debug_files})
   IF (EXISTS ${PROJECT_SOURCE_DIR}/pcre2.rc)
     SET(PCRE2_SOURCES ${PCRE2_SOURCES} pcre2.rc)
   ENDIF(EXISTS ${PROJECT_SOURCE_DIR}/pcre2.rc)
@@ -671,6 +705,10 @@ IF(PCRE2_BUILD_PCRE2_8)
       VERSION ${LIBPCRE2_8_VERSION}
       SOVERSION ${LIBPCRE2_8_SOVERSION})
     TARGET_COMPILE_DEFINITIONS(pcre2-8-static PUBLIC PCRE2_STATIC)
+    TARGET_INCLUDE_DIRECTORIES(pcre2-8-static PUBLIC ${PROJECT_BINARY_DIR})
+    IF(REQUIRE_PTHREAD)
+        TARGET_LINK_LIBRARIES(pcre2-8-static Threads::Threads)
+    ENDIF(REQUIRE_PTHREAD)
     SET(targets ${targets} pcre2-8-static)
     ADD_LIBRARY(pcre2-posix-static STATIC ${PCRE2POSIX_HEADERS} ${PCRE2POSIX_SOURCES})
     SET_TARGET_PROPERTIES(pcre2-posix-static PROPERTIES
@@ -681,6 +719,7 @@ IF(PCRE2_BUILD_PCRE2_8)
       SOVERSION ${LIBPCRE2_POSIX_SOVERSION})
     TARGET_LINK_LIBRARIES(pcre2-posix-static pcre2-8-static)
     TARGET_COMPILE_DEFINITIONS(pcre2-posix-static PUBLIC PCRE2_STATIC)
+    TARGET_INCLUDE_DIRECTORIES(pcre2-posix-static PUBLIC ${PROJECT_BINARY_DIR})
     SET(targets ${targets} pcre2-posix-static)
 
     IF(MSVC)
@@ -697,6 +736,7 @@ IF(PCRE2_BUILD_PCRE2_8)
 
   IF(BUILD_SHARED_LIBS)
     ADD_LIBRARY(pcre2-8-shared SHARED ${PCRE2_HEADERS} ${PCRE2_SOURCES} ${PROJECT_BINARY_DIR}/config.h)
+    TARGET_INCLUDE_DIRECTORIES(pcre2-8-shared PUBLIC ${PROJECT_BINARY_DIR})
     SET_TARGET_PROPERTIES(pcre2-8-shared PROPERTIES
       COMPILE_DEFINITIONS PCRE2_CODE_UNIT_WIDTH=8
       MACHO_COMPATIBILITY_VERSION "${LIBPCRE2_8_MACHO_COMPATIBILITY_VERSION}"
@@ -704,8 +744,12 @@ IF(PCRE2_BUILD_PCRE2_8)
       VERSION ${LIBPCRE2_8_VERSION}
       SOVERSION ${LIBPCRE2_8_SOVERSION}
       OUTPUT_NAME pcre2-8)
+    IF(REQUIRE_PTHREAD)
+        TARGET_LINK_LIBRARIES(pcre2-8-shared Threads::Threads)
+    ENDIF(REQUIRE_PTHREAD)
     SET(targets ${targets} pcre2-8-shared)
     ADD_LIBRARY(pcre2-posix-shared SHARED ${PCRE2POSIX_HEADERS} ${PCRE2POSIX_SOURCES})
+    TARGET_INCLUDE_DIRECTORIES(pcre2-posix-shared PUBLIC ${PROJECT_BINARY_DIR})
     SET_TARGET_PROPERTIES(pcre2-posix-shared PROPERTIES
       COMPILE_DEFINITIONS PCRE2_CODE_UNIT_WIDTH=8
       MACHO_COMPATIBILITY_VERSION "${LIBPCRE2_POSIX_MACHO_COMPATIBILITY_VERSION}"
@@ -715,6 +759,8 @@ IF(PCRE2_BUILD_PCRE2_8)
       OUTPUT_NAME pcre2-posix)
     TARGET_LINK_LIBRARIES(pcre2-posix-shared pcre2-8-shared)
     SET(targets ${targets} pcre2-posix-shared)
+    SET(dll_pdb_files ${PROJECT_BINARY_DIR}/pcre2-8.pdb ${dll_pdb_files})
+    SET(dll_pdb_debug_files ${PROJECT_BINARY_DIR}/pcre2-8d.pdb ${dll_pdb_debug_files})
 
     IF(MINGW)
       IF(NON_STANDARD_LIB_PREFIX)
@@ -740,6 +786,7 @@ ENDIF(PCRE2_BUILD_PCRE2_8)
 IF(PCRE2_BUILD_PCRE2_16)
   IF(BUILD_STATIC_LIBS)
     ADD_LIBRARY(pcre2-16-static STATIC ${PCRE2_HEADERS} ${PCRE2_SOURCES} ${PROJECT_BINARY_DIR}/config.h)
+    TARGET_INCLUDE_DIRECTORIES(pcre2-16-static PUBLIC ${PROJECT_BINARY_DIR})
     SET_TARGET_PROPERTIES(pcre2-16-static PROPERTIES
       COMPILE_DEFINITIONS PCRE2_CODE_UNIT_WIDTH=16
       MACHO_COMPATIBILITY_VERSION "${LIBPCRE2_32_MACHO_COMPATIBILITY_VERSION}"
@@ -747,6 +794,9 @@ IF(PCRE2_BUILD_PCRE2_16)
       VERSION ${LIBPCRE2_16_VERSION}
       SOVERSION ${LIBPCRE2_16_SOVERSION})
     TARGET_COMPILE_DEFINITIONS(pcre2-16-static PUBLIC PCRE2_STATIC)
+    IF(REQUIRE_PTHREAD)
+      TARGET_LINK_LIBRARIES(pcre2-16-static Threads::Threads)
+    ENDIF(REQUIRE_PTHREAD)
     SET(targets ${targets} pcre2-16-static)
 
     IF(MSVC)
@@ -761,6 +811,7 @@ IF(PCRE2_BUILD_PCRE2_16)
 
   IF(BUILD_SHARED_LIBS)
     ADD_LIBRARY(pcre2-16-shared SHARED ${PCRE2_HEADERS} ${PCRE2_SOURCES} ${PROJECT_BINARY_DIR}/config.h)
+    TARGET_INCLUDE_DIRECTORIES(pcre2-16-shared PUBLIC ${PROJECT_BINARY_DIR})
     SET_TARGET_PROPERTIES(pcre2-16-shared PROPERTIES
       COMPILE_DEFINITIONS PCRE2_CODE_UNIT_WIDTH=16
       MACHO_COMPATIBILITY_VERSION "${LIBPCRE2_32_MACHO_COMPATIBILITY_VERSION}"
@@ -768,7 +819,12 @@ IF(PCRE2_BUILD_PCRE2_16)
       VERSION ${LIBPCRE2_16_VERSION}
       SOVERSION ${LIBPCRE2_16_SOVERSION}
       OUTPUT_NAME pcre2-16)
+    IF(REQUIRE_PTHREAD)
+      TARGET_LINK_LIBRARIES(pcre2-16-shared Threads::Threads)
+    ENDIF(REQUIRE_PTHREAD)
     SET(targets ${targets} pcre2-16-shared)
+    SET(dll_pdb_files ${PROJECT_BINARY_DIR}/pcre2-16.pdb ${dll_pdb_files})
+    SET(dll_pdb_debug_files ${PROJECT_BINARY_DIR}/pcre2-16d.pdb ${dll_pdb_debug_files})
 
     IF(MINGW)
       IF(NON_STANDARD_LIB_PREFIX)
@@ -792,6 +848,7 @@ ENDIF(PCRE2_BUILD_PCRE2_16)
 IF(PCRE2_BUILD_PCRE2_32)
   IF(BUILD_STATIC_LIBS)
     ADD_LIBRARY(pcre2-32-static STATIC ${PCRE2_HEADERS} ${PCRE2_SOURCES} ${PROJECT_BINARY_DIR}/config.h)
+    TARGET_INCLUDE_DIRECTORIES(pcre2-32-static PUBLIC ${PROJECT_BINARY_DIR})
     SET_TARGET_PROPERTIES(pcre2-32-static PROPERTIES
       COMPILE_DEFINITIONS PCRE2_CODE_UNIT_WIDTH=32
       MACHO_COMPATIBILITY_VERSION "${LIBPCRE2_32_MACHO_COMPATIBILITY_VERSION}"
@@ -799,6 +856,9 @@ IF(PCRE2_BUILD_PCRE2_32)
       VERSION ${LIBPCRE2_32_VERSION}
       SOVERSION ${LIBPCRE2_32_SOVERSION})
     TARGET_COMPILE_DEFINITIONS(pcre2-32-static PUBLIC PCRE2_STATIC)
+    IF(REQUIRE_PTHREAD)
+      TARGET_LINK_LIBRARIES(pcre2-32-static Threads::Threads)
+    ENDIF(REQUIRE_PTHREAD)
     SET(targets ${targets} pcre2-32-static)
 
     IF(MSVC)
@@ -813,6 +873,7 @@ IF(PCRE2_BUILD_PCRE2_32)
 
   IF(BUILD_SHARED_LIBS)
     ADD_LIBRARY(pcre2-32-shared SHARED ${PCRE2_HEADERS} ${PCRE2_SOURCES} ${PROJECT_BINARY_DIR}/config.h)
+    TARGET_INCLUDE_DIRECTORIES(pcre2-32-shared PUBLIC ${PROJECT_BINARY_DIR})
     SET_TARGET_PROPERTIES(pcre2-32-shared PROPERTIES
       COMPILE_DEFINITIONS PCRE2_CODE_UNIT_WIDTH=32
       MACHO_COMPATIBILITY_VERSION "${LIBPCRE2_32_MACHO_COMPATIBILITY_VERSION}"
@@ -820,7 +881,12 @@ IF(PCRE2_BUILD_PCRE2_32)
       VERSION ${LIBPCRE2_32_VERSION}
       SOVERSION ${LIBPCRE2_32_SOVERSION}
       OUTPUT_NAME pcre2-32)
+    IF(REQUIRE_PTHREAD)
+      TARGET_LINK_LIBRARIES(pcre2-32-shared Threads::Threads)
+    ENDIF(REQUIRE_PTHREAD)
     SET(targets ${targets} pcre2-32-shared)
+    SET(dll_pdb_files ${PROJECT_BINARY_DIR}/pcre2-32.pdb ${dll_pdb_files})
+    SET(dll_pdb_debug_files ${PROJECT_BINARY_DIR}/pcre2-32d.pdb ${dll_pdb_debug_files})
 
     IF(MINGW)
       IF(NON_STANDARD_LIB_PREFIX)
@@ -876,10 +942,16 @@ IF(PCRE2_BUILD_TESTS)
   ENDIF(PCRE2_BUILD_PCRE2_32)
   TARGET_LINK_LIBRARIES(pcre2test ${PCRE2TEST_LIBS} ${PCRE2TEST_LINKER_FLAGS})
 
+  IF(PCRE2_BUILD_PCRE2_8)
+    ADD_EXECUTABLE(pcre2posix_test src/pcre2posix_test.c)
+    SET(targets ${targets} pcre2posix_test)
+    TARGET_LINK_LIBRARIES(pcre2posix_test pcre2-posix pcre2-8)
+  ENDIF(PCRE2_BUILD_PCRE2_8)
+
   IF(PCRE2_SUPPORT_JIT)
     ADD_EXECUTABLE(pcre2_jit_test src/pcre2_jit_test.c)
     SET(targets ${targets} pcre2_jit_test)
-    SET(PCRE2_JIT_TEST_LIBS )
+    SET(PCRE2_JIT_TEST_LIBS)
     IF(PCRE2_BUILD_PCRE2_8)
       LIST(APPEND PCRE2_JIT_TEST_LIBS pcre2-8)
     ENDIF(PCRE2_BUILD_PCRE2_8)
@@ -991,6 +1063,11 @@ echo RunTest.bat tests successfully completed
     ADD_TEST(pcre2_jit_test pcre2_jit_test)
   ENDIF(PCRE2_SUPPORT_JIT)
 
+  IF(PCRE2_BUILD_PCRE2_8)
+    ADD_TEST(pcre2posix_test pcre2posix_test)
+  ENDIF(PCRE2_BUILD_PCRE2_8)
+
+
 ENDIF(PCRE2_BUILD_TESTS)
 
 # Installation
@@ -1022,25 +1099,13 @@ FILE(GLOB html ${PROJECT_SOURCE_DIR}/doc/html/*.html)
 FILE(GLOB man1 ${PROJECT_SOURCE_DIR}/doc/*.1)
 FILE(GLOB man3 ${PROJECT_SOURCE_DIR}/doc/*.3)
 
-FOREACH(man ${man3})
-        GET_FILENAME_COMPONENT(man_tmp ${man} NAME)
-        SET(man3_new ${man3} ${man})
-ENDFOREACH(man ${man3})
-SET(man3 ${man3_new})
-
 INSTALL(FILES ${man1} DESTINATION man/man1)
 INSTALL(FILES ${man3} DESTINATION man/man3)
 INSTALL(FILES ${html} DESTINATION share/doc/pcre2/html)
 
 IF(MSVC AND INSTALL_MSVC_PDB)
-    INSTALL(FILES ${PROJECT_BINARY_DIR}/pcre2.pdb
-                  ${PROJECT_BINARY_DIR}/pcre2posix.pdb
-            DESTINATION bin
-            CONFIGURATIONS RelWithDebInfo)
-    INSTALL(FILES ${PROJECT_BINARY_DIR}/pcre2d.pdb
-                  ${PROJECT_BINARY_DIR}/pcre2posixd.pdb
-            DESTINATION bin
-            CONFIGURATIONS Debug)
+ INSTALL(FILES ${dll_pdb_files} DESTINATION bin CONFIGURATIONS RelWithDebInfo)
+ INSTALL(FILES ${dll_pdb_debug_files} DESTINATION bin CONFIGURATIONS Debug)
 ENDIF(MSVC AND INSTALL_MSVC_PDB)
 
 # Help, only for nice output

@@ -550,4 +550,8 @@ Failed: error -47: match limit exceeded
     match\nmatch
  0: a (JIT)
 
+//jitfast
+    \=null_subject
+ 0:  (JIT)
+
 # End of testinput17

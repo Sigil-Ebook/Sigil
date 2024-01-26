@@ -55,32 +55,42 @@ automatically added.
 The subject and replacement lengths can be given as PCRE2_ZERO_TERMINATED for
 zero-terminated strings. The options are:
 .sp
-  PCRE2_ANCHORED             Match only at the first position
-  PCRE2_ENDANCHORED          Pattern can match only at end of subject
-  PCRE2_NOTBOL               Subject is not the beginning of a line
-  PCRE2_NOTEOL               Subject is not the end of a line
-  PCRE2_NOTEMPTY             An empty string is not a valid match
+  PCRE2_ANCHORED                     Match only at the first position
+  PCRE2_ENDANCHORED                  Match only at end of subject
 .\" JOIN
-  PCRE2_NOTEMPTY_ATSTART     An empty string at the start of the
-                              subject is not a valid match
-  PCRE2_NO_JIT               Do not use JIT matching
+  PCRE2_NOTBOL                       Subject is not the beginning of a
+                                      line
+  PCRE2_NOTEOL                       Subject is not the end of a line
 .\" JOIN
-  PCRE2_NO_UTF_CHECK         Do not check the subject or replacement
-                              for UTF validity (only relevant if
-                              PCRE2_UTF was set at compile time)
-  PCRE2_SUBSTITUTE_EXTENDED  Do extended replacement processing
-  PCRE2_SUBSTITUTE_GLOBAL    Replace all occurrences in the subject
-  PCRE2_SUBSTITUTE_LITERAL   The replacement string is literal
-  PCRE2_SUBSTITUTE_MATCHED   Use pre-existing match data for 1st match
-  PCRE2_SUBSTITUTE_OVERFLOW_LENGTH  If overflow, compute needed length
+  PCRE2_NOTEMPTY                     An empty string is not a
+                                      valid match
+.\" JOIN
+  PCRE2_NOTEMPTY_ATSTART             An empty string at the start of
+                                      the subject is not a valid match
+  PCRE2_NO_JIT                       Do not use JIT matching
+.\" JOIN
+  PCRE2_NO_UTF_CHECK                 Do not check for UTF validity in
+                                      the subject or replacement
+.\" JOIN
+                                      (only relevant if PCRE2_UTF was
+                                      set at compile time)
+  PCRE2_SUBSTITUTE_EXTENDED          Do extended replacement processing
+.\" JOIN
+  PCRE2_SUBSTITUTE_GLOBAL            Replace all occurrences in the
+                                      subject
+  PCRE2_SUBSTITUTE_LITERAL           The replacement string is literal
+.\" JOIN
+  PCRE2_SUBSTITUTE_MATCHED           Use pre-existing match data for
+                                      first match
+  PCRE2_SUBSTITUTE_OVERFLOW_LENGTH   If overflow, compute needed length
   PCRE2_SUBSTITUTE_REPLACEMENT_ONLY  Return only replacement string(s)
-  PCRE2_SUBSTITUTE_UNKNOWN_UNSET  Treat unknown group as unset
-  PCRE2_SUBSTITUTE_UNSET_EMPTY  Simple unset insert = empty string
+  PCRE2_SUBSTITUTE_UNKNOWN_UNSET     Treat unknown group as unset
+  PCRE2_SUBSTITUTE_UNSET_EMPTY       Simple unset insert = empty string
 .sp
 If PCRE2_SUBSTITUTE_LITERAL is set, PCRE2_SUBSTITUTE_EXTENDED,
 PCRE2_SUBSTITUTE_UNKNOWN_UNSET, and PCRE2_SUBSTITUTE_UNSET_EMPTY are ignored.
 .P
-If PCRE2_SUBSTITUTE_MATCHED is set, \fImatch_data\fP must be non-zero; its
+If PCRE2_SUBSTITUTE_MATCHED is set, \fImatch_data\fP must be non-NULL; its
 contents must be the result of a call to \fBpcre2_match()\fP using the same
 pattern and subject.
 .P

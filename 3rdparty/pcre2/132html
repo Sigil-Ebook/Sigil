@@ -94,7 +94,7 @@ while (<STDIN>)
       die "*** Processing abandoned\n";
       }
 
-    # Instead of .br, relevent "literal" sections are enclosed in .nf/.fi.
+    # Instead of .br, relevant "literal" sections are enclosed in .nf/.fi.
 
     elsif (/^\.nf/)
       {

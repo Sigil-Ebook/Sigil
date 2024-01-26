@@ -71,13 +71,18 @@ is 255 code units for the 8-bit library and 65535 code units for the 16-bit and
 The maximum length of a string argument to a callout is the largest number a
 32-bit unsigned integer can hold.
 </P>
+<P>
+The maximum amount of heap memory used for matching is controlled by the heap
+limit, which can be set in a pattern or in a match context. The default is a
+very large number, effectively unlimited.
+</P>
 <br><b>
 AUTHOR
 </b><br>
 <P>
 Philip Hazel
 <br>
-University Computing Service
+Retired from University Computing Service
 <br>
 Cambridge, England.
 <br>
@@ -86,9 +91,9 @@ Cambridge, England.
 REVISION
 </b><br>
 <P>
-Last updated: 02 February 2019
+Last updated: 26 July 2022
 <br>
-Copyright &copy; 1997-2019 University of Cambridge.
+Copyright &copy; 1997-2022 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.
