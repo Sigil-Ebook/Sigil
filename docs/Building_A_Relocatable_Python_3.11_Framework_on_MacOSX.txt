@@ -1,6 +1,6 @@
 # *** IMPORTANT ***
 
-# Build Prerequisite requirements for Python 3.11.3 on macOS 10.13 Sierra and later users:
+# Build Prerequisite requirements for Python 3.11.3 on macOS 11.0 and later users:
 #
 #     First make sure you are using the latest XCode for your version of Mac OSX
 #     Then make sure you have the command line tools (CLT) installed (via xcode-select --install)
@@ -27,13 +27,13 @@ cd devpython
 
 # First build the main prerequisites
 
-# Download openssl-1.1.1t.tar.gz or later into sources from https://www.openssl.org/source
+# Download openssl-1.1.1u.tar.gz *or later* into sources from https://www.openssl.org/source
 
-export MACOSX_DEPLOYMENT_TARGET=10.13
-export LDFLAGS="-Wl,-macosx_version_min,10.13"
+export MACOSX_DEPLOYMENT_TARGET=11.0
+export LDFLAGS="-Wl,-macosx_version_min,11.0"
 
-tar -zxvf ../sources/openssl-1.1.1t.tar.gz
-cd openssl-1.1.1t
+tar -zxvf ../sources/openssl-1.1.1u.tar.gz
+cd openssl-1.1.1u
 ./config no-shared --prefix=/usr/local
 make -j4
 sudo make install
@@ -41,9 +41,9 @@ sudo make install
 
 # Download xz-5.4.2.tar.gz or later into sources from https://tukaani.org/xz/  (via sourceforge)
 
-export MACOSX_DEPLOYMENT_TARGET=10.13
-export LDFLAGS="-Wl,-macosx_version_min,10.13"
-export CFLAGS="-mmacosx-version-min=10.13 -Werror=partial-availability"
+export MACOSX_DEPLOYMENT_TARGET=11.0
+export LDFLAGS="-Wl,-macosx_version_min,11.0"
+export CFLAGS="-mmacosx-version-min=11.0 -Werror=partial-availability"
 
 tar -zxvf ../sources/xz-5.4.2.tar.gz
 cd xz-5.4.2
@@ -55,9 +55,9 @@ sudo make install
 # Download sqlite-autoconf-3410200.tar.gz into sources from 
 # https://sqlite.org/2021/sqlite-autoconf-3410200.tar.gz"
 
-export MACOSX_DEPLOYMENT_TARGET=10.13
-export LDFLAGS="-Wl,-macosx_version_min,10.13"
-export CFLAGS="-mmacosx-version-min=10.13 -Werror=partial-availability -Os -DSQLITE_ENABLE_FTS5 \
+export MACOSX_DEPLOYMENT_TARGET=11.0
+export LDFLAGS="-Wl,-macosx_version_min,11.0"
+export CFLAGS="-mmacosx-version-min=11.0 -Werror=partial-availability -Os -DSQLITE_ENABLE_FTS5 \
             -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_JSON1 \
             -DSQLITE_ENABLE_RTREE -DSQLITE_TCL=0 "
 tar -zxvf ../sources/sqlite-autoconf-3410200.tar.gz
@@ -91,8 +91,8 @@ tar -zxvf ../../sources/tk8.6.12-src.tar.gz
 
 # Note: TCL_LIBRARY and TK_LIBRARY and libdir are appended to DESTDIR to get actual paths
 
-export MACOSX_DEPLOYMENT_TARGET=10.13
-export CFLAGS="-arch x86_64 -mmacosx-version-min=10.13"
+export MACOSX_DEPLOYMENT_TARGET=11.0
+export CFLAGS="-arch x86_64 -mmacosx-version-min=11.0"
 cd tcl8.6.12/unix
 ./configure --enable-shared --enable-threads --libdir=/Frameworks/Python.framework/Versions/3.11/lib
 make TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.11/lib/tcl8.6 DESTDIR=${MYLIBS}
@@ -126,7 +126,7 @@ install_name_tool -id ${MYDEST}/Python.framework/Versions/3.11/lib/libtk8.6.dyli
 #     if you are using Qt6, we will building the required PySide6 module, you will need to have built
 #         or downloaded prebuilt versions of Qt 6.2.2 or later
 
-# Building Python 3.11.3 to be fully relocatable for macOS 10.13 and later
+# Building Python 3.11.3 to be fully relocatable for macOS 11.0 and later
 
 # Before building remember to rename any /Applications/Python 3.11.app to save it and 
 # replace it afterwards as the damn python installation from source always overwrites
@@ -137,7 +137,7 @@ install_name_tool -id ${MYDEST}/Python.framework/Versions/3.11/lib/libtk8.6.dyli
 cd ${MYDEST}
 cd ../../
 
-export MACOSX_DEPLOYMENT_TARGET=10.13
+export MACOSX_DEPLOYMENT_TARGET=11.0
 
 # now build Python 3.11.3 as a framework
 # no need to worry about what symbols exist in what version of 
@@ -146,8 +146,8 @@ export MACOSX_DEPLOYMENT_TARGET=10.13
 tar -xvf ../sources/Python-3.11.3.tgz
 cd Python-3.11.3
 
-export LDFLAGS="-Wl,-macosx_version_min,10.13" 
-export CFLAGS="-mmacosx-version-min=10.13" 
+export LDFLAGS="-Wl,-macosx_version_min,11.0" 
+export CFLAGS="-mmacosx-version-min=11.0" 
 ./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip \
     TCLTK_CFLAGS="-I${MYLIBS}/usr/local/include" \
     TCLTK_LIBS="-L${MYDEST}/Python.framework/Versions/3.11/lib -ltcl8.6 -ltk8.6"
@@ -253,138 +253,6 @@ install_name_tool -change ${MYDEST}/Python.framework/Versions/3.11/lib/libtk8.6.
 # We should now have a fully relocatable Python.framework
 
 
-# We will now use this just-built Python3.11 interpreter to install PyQt5, PyQtWebEngine and sip
-# for Qt 5.15.X or PySide6 for Qt 6.X
+# We will now use this just-built Python3.11 interpreter to install PySide6 for Qt 6.X
 
-
-# ***** IF USING QT5 ******
-
-# **** Important: versions of PyQt5 and sip must be selected to match with the Qt version
-# **** In these instructions we are using Qt 5.15.X and therefore need:
-# **** sip-6.7.8 and PyQt5-5.15.9 and PyQtWebEngine-5.15.6 and PyQtS-sip
-
-# First Build sip
-# Building sip-6.7.8 from source and installing it into your Python Interpreter
-
-# From https://www.riverbankcomputing.com/software/pyqt/download5
-# Download sip-6.7.8.tar.gz
-
-# Must have the python interpreter you want to install PyQt5 into in the PATH to be found first
-
-export PATH=${MYDEST}/Python.framework/Versions/3.11/bin:${PATH}
-which python3
-
-# but first we need a few support modules
-
-pip3 install packaging
-pip3 install ply
-pip3 install PyQt-builder
-
-# to build sip
-
-tar -zxvf ../sources/sip-6.7.8.tar.gz
-cd sip-6.7.8
-python3 ./setup.py build
-python3 ./setup.py install
-cd ..
-
-
-# Must have the Qt5.15.9 bin directory in the path to specify which Qt to use
-# See Building_Qt5_From_Source_on_MacOSX.txt
-
-export PATH=/Users/${USER}/Qt5159/bin:${PATH}
-which qmake
-
-export MACOSX_DEPLOYMENT_TARGET=10.13
-
-
-# Next Build PyQt5 for Qt-5.15.9 from source and installing it into your Python Interpreter
-# From https://www.riverbankcomputing.com/software/pyqt/download5
-# Download PyQt5-5.15.9.tar.gz
-
-tar -zxvf ../sources/PyQt5-5.15.9.tar.gz
-cd PyQt5-5.15.9
-sip-install
-
-# And Next build PyQtWebEngine (again with the destination python3 and qmake in your path)
-# From https://sourceforge.net/projects/pyqtwebengine/
-# Download: PyQtWebEngine-5.15.6.tar.gz
-
-export MACOSX_DEPLOYMENT_TARGET=10.13
-
-tar -zxvf ../sources/PyQtWebEngine-5.15.6.tar.gz
-cd PyQtWebEngine-5.15.6/
-sip-install
-
-
-# And finally build PyQt5_sip and install it from source using PyQt5_sip-12.12.0
-# Or use pip3 to install the latest PyQt5-sip
-# pip3 install PyQt5-sip
-
-tar -zxvf ../sources/PyQt5_sip-12.12.0.tar.gz
-cd PyQt5_sip-12.12.0
-python3 setup.py build
-python3 setup.py install
-
-# And of course, the damn PyQt5_sip source build puts the pieces inside a
-# damn egg and not where they truly belong inside site-packages/PyQt5.
-# So fix it with the following:
-
-cd ${MYDEST}/Python.framework/Versions/3.11/lib/python3.11/site-packages
-cd PyQt5_sip-12.12.0-py3.11-macosx-10.13-x86_64.egg/PyQt5
-cp *.so ../../PyQt5/
-cp *.py ../../PyQt5/
-
- 
-
-
-# ***** IF USING QT6 *****
-
-# Download pyside-setup-opensource-src-6.2.2.tar.xz from
-# https://download.qt.io/official_releases/QtForPython/
-
-export MACOSX_DEPLOYMENT_TARGET=10.14
-
-export MYQTHOME=~/Qt624
-export PATH=${PATH}:${MYQTHOME}/bin
-export PATH=${MYDEST}/Python.framework/Versions/3.11/bin:${PATH}
-
-which qmake
-which python3
-
-# Prerequisites
-
-# Your will need to have the packaging module installed on your python3
-
-pip3 install --upgrade --force-reinstall packaging
-
-# As well as a recent version of setuptools 
-# (some newer versions have broken compatibility)
-# pip3 install setuptools==59.8.0
-
-# You will need libclang (although macOS has this lib pre-installed, it can *not* 
-# be found by Qt's cmake.  Qt has pre-build binaries ready to be used for each platform.
-# I recommend storing it someplace *outside* the normal path such as /opt to help 
-# prevent future any name clash issues.
-# Download  libclang-release_130-based-macos-universal.7z from:
-#       https://download.qt.io/development_releases/prebuilt/libclang/
-
-cd /opt
-# and unpack libclang-release_130-based-macos-universal.7z in /opt to create /opt/libclang
-
-# Tell the pyside6 build where to find it
-
-export CLANG_INSTALL_DIR=/opt/libclang
-
-
-# You should now be ready to build pyside6
-
-unxz ./sources/pyside-setup-opensource-src-6.2.4.tar.xz
-tar -xvf ./sources/pyside-setup-opensource-src-6.2.4.tar
-cd pyside-setup-opensource-src-6.2.4
-
-python3 setup.py install --parallel=8 --build-tests
-
-
-# Once complete you will have properly built a Python 3.11 interpreter to be embedded inside
-# of Sigil
+See Building_PySide6_for_Qt6_on_MacOSX.txt

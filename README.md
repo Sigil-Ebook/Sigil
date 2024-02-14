@@ -66,11 +66,11 @@ Also because Sigil now embeds Python 3.11.3, see
 for detailed instructions on how to build a fully relocatable Python 3.11.3 framework before
 building Sigil.  
 
-For official releases Sigil uses Qt6.5.3  plus official cve and local patches see:  
+For official releases Sigil uses Qt6.6.2 plus official local patches see:  
 
-> [docs/Building_Qt6.5_From_Source_on_MacOSX.txt](./docs/Building_Qt6.5_From_Source_on_MacOSX.txt)
+> [docs/Building_Qt6_From_Source_on_MacOSX.txt](./docs/Building_Qt6_From_Source_on_MacOSX.txt)
 
-Sigil master now supports building with Qt-5.10.X through to Qt-6.5.3.  For older Qt5 see:
+Sigil master now supports building with Qt-5.10.X through to Qt-6.6.2.  For older Qt5 see:
 
 > [docs/Building_Qt5_From_Source_on_MacOSX.txt](./docs/Building_Qt5_From_Source_on_MacOSX.txt)
 

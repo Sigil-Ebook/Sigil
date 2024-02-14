@@ -1,10 +1,10 @@
-# Building_Qt6.5.3_From_Source_on_MacOSX
+# Building_Qt6.6.2_From_Source_on_MacOSX
 
 On Ventura you need XCode 14.3.1
 
 # *** IMPORTANT ***
 # We do highly recommend you use the same Qt versions as official Sigil builds on Mac OS X.
-# which is now Qt 6.5.3 or later
+# which is now Qt 6.6.2
 
 # These instructions will lead you through building from source
 # FIRST:  make sure you have XCode 14 or later installed and the Command Line Tools
@@ -27,11 +27,10 @@ are needed by QtWebEngine
 
 
 # Next build and install the following prerequisites for the build: 
-#      cmake, libpng, libjpeg-turbo 
-# and install into /usr/local so that they can be found during qtwebkit's build
+#      cmake, libpng, libjpeg-turbo, openssl3, nodejs (see https://nodejs.org/en/download/), 
+#      ninja build tool
+# and install into /usr/local so that they can be found during qtwebengine's build
 # Note: older versions of these prerequisites may work but have not been tested
-
-# You should also download and install the ninja build tool
 
 # Download cmake 3.26.4 or later from https://cmake.org/download
 tar -zxvf sources/cmake-3.26.4.tar.gz
@@ -41,53 +40,79 @@ make -j4
 sudo make install
 
 
-# Download libpng 1.6.39 or later from png's sourceforge site: http://www.libpng.org/pub/png/libpng.html
+# Download libpng 1.6.42 or later from png's sourceforge site: http://www.libpng.org/pub/png/libpng.html
 export LDFLAGS="-Wl,-macosx_version_min,11.0"
 export CFLAGS="-mmacosx-version-min=11.0 -Werror=partial-availability"
-tar -zxvf sources/libpng-1.6.39.tar.gz
-cd libpng-1.6.39
+tar -zxvf sources/libpng-1.6.42.tar.gz
+cd libpng-1.6.42
 ./configure --enable-static=yes --enable-shared=no --prefix=/usr/local
 make -j4
 sudo make install
 unset CFLAGS
 unset LDFLAGS
 
+# if the "nasm" network assembler tool is not installed, you may
+# want to install it before building libjpegturbo to spped up the jpeg
+# library performance
+# https://github.com/netwide-assembler/nasm
+# get a stable release and configure with --prefix=/usr/local
 
-# libjpeg-turbo 2.1.5.1 or later from libjpeg-turbo.org
+
+# libjpeg-turbo 3.0.2 or later from libjpeg-turbo.org
 # https://sourceforge.net/projects/libjpeg-turbo/files/
-tar -xvf libjpeg-turbo-2.1.5.1.tar.gz
-mkdir buildjt
-cd buildjt
+tar -zxvf sources/libjpeg-turbo-3.0.2.tar.gz
+mkdir buildjt3
+cd buildjt3
 cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local -DENABLE_SHARED=0 -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0 \
-  -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=11.0 -Werror=partial-availability" ../libjpeg-turbo-2.1.5.1/
+  -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=11.0 -Werror=partial-availability" ../libjpeg-turbo-3.0.2/
 make -j4
 sudo make install
 
 
-# Building Qt6.5.3 from source
+# Download openssl-3.0.13.tar.gz or later into sources from https://www.openssl.org/source
+export MACOSX_DEPLOYMENT_TARGET=11.0
+export LDFLAGS="-Wl,-macosx_version_min,11.0"
+tar -zxvf sources/openssl-3.0.13.tar.gz
+cd openssl-3.0.13
+./config no-shared --prefix=/usr/local
+make -j4
+sudo make install
+
+
+# Building Qt6.6.2 from source
 # -----------------------------
 
-# download qt-everywhere-src-6.5.3.tar.xz directly from Qt
+# download qt-everywhere-src-6.6.2.tar.xz directly from Qt
 # from:  https://download.qt.io/archive/qt/
 # for: PySide - https://download.qt.io/official_releases/QtForPython/
+
+
+# alternatively use git to check out the source
+# ---------------------------------------------
+# git clone https://code.qt.io/qt/qt5.git qt6
+# cd qt6
+# git switch 6.6.2
+# perl init-repository --branch
+
+# without '--branch' specified, init-repository pulls a fixed set of shas
+# determined at the time of branch first creation and not the current branch
+# heads.  This creates the potential to miss late cherry-picked bug fix 
+# commits made to the branch after first creation
 
 export MACOSX_DEPLOYMENT_TARGET=11.0
 export MYDEST=/Users/kbhend/devpython/libraries/Frameworks
 export PATH=${MYDEST}/Python.framework/Versions/3.11/bin:${PATH}
 
+tar -jxf qt-everywhere-src-6.6.2.tar.xz
 
-tar -jxf qt-everywhere-src-6.5.3.tar.xz
-
-cd qt-everywhere-src-6.5.3
+cd qt-everywhere-src-6.6.2
 
 # Apply an obvious fix for insertParagraph execcommand and h6 (see w3c spec)
 # See https://bugreports.qt.io/browse/QTBUG-79778
 patch -p0 < ../sources/qt650_fix_h6_insertParagraph.patch
 
-# now apply the CVE security fix that is still needed in 6.5.3
-cd qtbase
-patch -p1 < ../../sources/CVE-2023-43114-6.5-qtbase.patch
-cd ..
+# Apply the fix for poor qtreeview performance due to accessibility
+patch -p0 < ../sources/qt662_fix_qtreeview_perf_issue_0b474e1.diff
 
 # the remaining patches are ONLY important for Qt on macOS
 
@@ -101,26 +126,26 @@ patch -p0 < ../sources/qt650_fix_missing_macos_menubar.patch
 # Create a destination directory to house your complete Qt binary in your home directory
 # to be similar to how stock Qt does it
 cd ~/
-mkdir Qt653
+mkdir Qt662
 
 # Now return and create a shadow build inside a new directory to keep your Qt sources clean
 cd ${MYQTSRC}
-mkdir buildqt653
-cd buildqt653
+mkdir buildqt662
+cd buildqt662
 
 
 # Remember to include the -webengine-proprietary-codecs configure switch
 # and add -feature-optimize_full to use -O3 (note _full not -full)
 
-../qt-everywhere-src-6.5.3/configure --prefix=/Users/${USER}/Qt653 -webengine-proprietary-codecs -feature-optimize_full -- -DCMAKE_OSX_DEPLOYMENT_TARGET="11.0" -DCMAKE_BUILD_TYPE=Release 
+../qt-everywhere-src-6.6.2/configure --prefix=/Users/${USER}/Qt662 -webengine-proprietary-codecs -feature-optimize_full -- -DCMAKE_OSX_DEPLOYMENT_TARGET="11.0" -DCMAKE_BUILD_TYPE=Release 
 
 # note the build itself can take a couple of hours depending on memory available, disk and cpus used
 cmake --build . --parallel
 cmake --install .
 
 # Now apply the final patch to the post installed cmake file
-cd /Users/${USER}/Qt653
+cd /Users/${USER}/Qt662
 patch -p0 < ~/Desktop/qt650_post_install_macos_ignore_bad_cups_cmake_find_failure.patch
 
-# After the install phase completes your newly built Qt should exist in ~/Qt653 ready to be used
+# After the install phase completes your newly built Qt should exist in ~/Qt662 ready to be used
 # to build Sigil and PageEdit

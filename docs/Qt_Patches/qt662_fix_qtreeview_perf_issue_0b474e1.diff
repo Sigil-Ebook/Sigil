@@ -1,0 +1,118 @@
+From 0b474e1b49d0576cf48c8611df33b67ac049416a Mon Sep 17 00:00:00 2001
+From: Volker Hilsheimer <volker.hilsheimer@qt.io>
+Date: Fri, 09 Feb 2024 15:00:48 +0100
+Subject: [PATCH] QTreeView: fix performance regression from accessibility updates
+
+When expanding items in a tree view, the model as seen by accessibility
+changes size and structure, and needs to be reset. This was done in
+6a4afebc5ce8db69a6c9fb398cada31e6bad5e3c by emitting a ModelReset update
+at the end of QTreeViewPrivate::layout when laying out the items had
+changed the number of visible items.
+
+However, QTreeViewPrivate::layout is called both recursively, and in a
+loop when expanding all items, or expanding items to a certain depth,
+resulting in a heavy performance hit when each recursion or iteration
+causes the accessibility bridge to rebuild its representation from
+scratch.
+
+Instead, we now only store a flag that the model has to be reset in
+QTreeViewPrivate::layout, and then trigger the reset in the function
+that call layout, after the laying out is complete.
+
+Fixes: QTBUG-122054
+Change-Id: Icb8384b56a4727c8c5050a1d501aebb55f48aafe
+Reviewed-by: Oliver Eftevaag <oliver.eftevaag@qt.io>
+Reviewed-by: Tor Arne Vestbø <tor.arne.vestbo@qt.io>
+(cherry picked from commit a86321cb665b1af03b245b3b0fe0b57faa4a678f)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+(cherry picked from commit c374e512776f715024698c6ad79ea3597b6d7f48)
+Reviewed-by: Volker Hilsheimer <volker.hilsheimer@qt.io>
+---
+
+diff --git qtbase/src/widgets/itemviews/qtreeview.cpp qtbase/src/widgets/itemviews/qtreeview.cpp
+--- qtbase/src/widgets/itemviews/qtreeview.cpp
++++ qtbase/src/widgets/itemviews/qtreeview.cpp
+@@ -2142,6 +2142,7 @@
+     }
+     QAbstractItemView::doItemsLayout();
+     d->header->doItemsLayout();
++    d->updateAccessibility();
+ }
+ 
+ /*!
+@@ -2705,6 +2706,7 @@
+     d->layout(-1, true);
+     updateGeometries();
+     d->viewport->update();
++    d->updateAccessibility();
+ }
+ 
+ /*!
+@@ -2828,6 +2830,7 @@
+ 
+     updateGeometries();
+     d->viewport->update();
++    d->updateAccessibility();
+ }
+ 
+ /*!
+@@ -3124,6 +3127,7 @@
+             beginAnimatedOperation();
+ #endif // animation
+     }
++    updateAccessibility();
+ }
+ 
+ void QTreeViewPrivate::insertViewItems(int pos, int count, const QTreeViewItem &viewItem)
+@@ -3332,6 +3336,21 @@
+     QAbstractItemViewPrivate::_q_columnsRemoved(parent, start, end);
+ }
+ 
++void QTreeViewPrivate::updateAccessibility()
++{
++#if QT_CONFIG(accessibility)
++    Q_Q(QTreeView);
++    if (pendingAccessibilityUpdate) {
++        pendingAccessibilityUpdate = false;
++        if (QAccessible::isActive()) {
++            QAccessibleTableModelChangeEvent event(q, QAccessibleTableModelChangeEvent::ModelReset);
++            QAccessible::updateAccessibility(&event);
++        }
++    }
++#endif
++}
++
++
+ /** \internal
+     creates and initialize the viewItem structure of the children of the element \li
+ 
+@@ -3356,11 +3375,8 @@
+     // QAccessibleTree's rowCount implementation uses viewItems.size(), so
+     // we need to invalidate any cached accessibility data structures if
+     // that value changes during the run of this function.
+-    const auto resetModelIfNeeded = qScopeGuard([oldViewItemsSize = viewItems.size(), this, q]{
+-        if (oldViewItemsSize != viewItems.size() && QAccessible::isActive()) {
+-            QAccessibleTableModelChangeEvent event(q, QAccessibleTableModelChangeEvent::ModelReset);
+-            QAccessible::updateAccessibility(&event);
+-        }
++    const auto resetModelIfNeeded = qScopeGuard([oldViewItemsSize = viewItems.size(), this]{
++        pendingAccessibilityUpdate |= oldViewItemsSize != viewItems.size();
+     });
+ #endif
+ 
+diff --git qtbase/src/widgets/itemviews/qtreeview_p.h qtbase/src/widgets/itemviews/qtreeview_p.h
+--- qtbase/src/widgets/itemviews/qtreeview_p.h
++++ qtbase/src/widgets/itemviews/qtreeview_p.h
+@@ -254,6 +254,12 @@
+ 
+     // tree position
+     int treePosition;
++
++    // pending accessibility update
++#if QT_CONFIG(accessibility)
++    bool pendingAccessibilityUpdate = false;
++#endif
++    void updateAccessibility();
+ };
+ 
+ QT_END_NAMESPACE

@@ -1,4 +1,4 @@
-Sigil-pre-2.x.x
+Sigil-2.1.0
     New Features
       - assign menu accelerators P - &Plugins, and K - Chec&kpoints (thank you BeckyEbook)
       - add ability to change keyboard focus using keyboard shortcuts or menus
@@ -10,10 +10,11 @@ Sigil-pre-2.x.x
       - overhaul of Building on Linux documentation
       - update 3rdparty zlib to version 1.3.1 for security fixes
       - update 3rdparty pcre2 to version 10.42 for security fixes
+      - update to Qt 6.6.2 for security fixes, accessibility improvements
       
     Bug Fixes
-      - patch Qt6.5.3 to avoid transient child window resize bug on Windows
-      - fix QuickParser bug when parseing attribute names not properly ignoring all legal whitespace
+      - multiple bug fixes from Qt 6.6.2 such as the transient child window resize bug on Windows, etc
+      - fix QuickParser bug when parsing attribute names not properly ignoring all legal whitespace
       - make OPF parsing robust to alternative whitespace usage as well
       - fix creation of thumbnails of svg images in SelectFiles and Image Report for macOS
       - fix svg rendering in QtSvg by filtering out desc and title tags inside text tags pre-rendering

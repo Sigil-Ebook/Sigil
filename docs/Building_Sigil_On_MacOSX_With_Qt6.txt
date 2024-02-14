@@ -19,7 +19,7 @@ export MACOSX_DEPLOYMENT_TARGET=11.0
 export MYDEST=/Users/$USER/devpython/libraries/Frameworks
 
 # Set the location of where Qt is installed
-export MYQTHOME=~/Qt653
+export MYQTHOME=~/Qt662
 
 # Set the location of where you want your Sigil repo to be stored
 export MYSIGILREPO=~/repo
