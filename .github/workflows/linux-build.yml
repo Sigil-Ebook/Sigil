@@ -54,7 +54,7 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
-        version: '6.5.3'
+        version: '6.6.2'
         dir: ${{runner.workspace}}/Qt
         modules: 'qtwebengine qtpositioning qt5compat qtpdf qtwebchannel'
         setup-python: 'false'
