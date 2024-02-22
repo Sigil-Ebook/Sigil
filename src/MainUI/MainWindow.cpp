@@ -5477,7 +5477,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
                 QApplication::restoreOverrideCursor();
                 QMessageBox::StandardButton button_pressed = Utility::warning(this, tr("Sigil"),
                             tr("This EPUB has HTML files that are not well formed and "
-                               "your current Clean Source preferences are set to automatically mend on Save.\n\n"
+                               "your current Clean Source preferences are set to mend on Save.\n\n"
                                "Do you want to automatically mend the files before saving? Or cancel the Save?"),
                                QMessageBox::Yes|QMessageBox::No|QMessageBox::Cancel);
                 if (button_pressed == QMessageBox::Cancel) {
