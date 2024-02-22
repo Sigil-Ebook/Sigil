@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2023 Doug Massay
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -5475,16 +5475,17 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
         if (ss.cleanOn() & CLEANON_SAVE) {
             if (not_well_formed) {
                 QApplication::restoreOverrideCursor();
-                bool auto_fix = QMessageBox::Yes == Utility::warning(this,
-                                tr("Sigil"),
-                                tr("This EPUB has HTML files that are not well formed and "
-                                   "your current Clean Source preferences are set to automatically mend on Save. "
-                                   "Saving a file that is not well formed will cause it to be automatically "
-                                   "fixed, which very rarely may result in some data loss.\n\n"
-                                   "Do you want to automatically mend the files before saving?"),
-                                QMessageBox::Yes|QMessageBox::No);
+                QMessageBox::StandardButton button_pressed = Utility::warning(this, tr("Sigil"),
+                            tr("This EPUB has HTML files that are not well formed and "
+                               "your current Clean Source preferences are set to automatically mend on Save.\n\n"
+                               "Do you want to automatically mend the files before saving? Or cancel the Save?"),
+                               QMessageBox::Yes|QMessageBox::No|QMessageBox::Cancel);
+                if (button_pressed == QMessageBox::Cancel) {
+                    ShowMessageOnStatusBar(tr("Saving EPUB... cancelled"), 0);
+                    return false;
+                }
                 QApplication::setOverrideCursor(Qt::WaitCursor);
-                if (auto_fix) {
+                if (button_pressed == QMessageBox::Yes) {
                     CleanSource::ReformatAll(broken_resources, CleanSource::Mend);
                     not_well_formed = false;
                 }
