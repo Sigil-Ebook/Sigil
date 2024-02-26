@@ -75,6 +75,11 @@
 \= Expect no match
     école
 
+/\xb5/i
+    µ
+\= Expect no match
+    \x9c
+
 /\W+/
     >>>\xaa<<<
     >>>\xba<<< 

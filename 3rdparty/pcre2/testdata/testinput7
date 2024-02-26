@@ -1657,7 +1657,7 @@
 /^[\p{Xwd}]+/utf
     ABCD1234\x{6ca}\x{a6c}\x{10a7}_
 
-# Unicode properties for \b abd \B 
+# Unicode properties for \b and \B
 
 /\b...\B/utf,ucp
     abc_
@@ -2230,5 +2230,305 @@
 
 /\p{sc:katakana}{3,}?/utf
     \x{30a1}\x{30fa}\x{32d0}\x{1b122}\x{ff66}\x{3001}ABC
+
+# Tests for PCRE2_EXTRA_CASELESS_RESTRICT. Compare each test with and without
+# the restriction.
+
+/AskZ/i,utf,caseless_restrict
+    AskZ
+    aSKz
+\= Expect no match
+    A\x{17f}kZ
+    As\x{212a}Z      
+
+/AskZ/i,utf
+    AskZ
+    aSKz
+    A\x{17f}kZ
+    As\x{212a}Z      
+
+/A\x{17f}\x{212a}Z/ir,utf
+    \= Expect no match
+    AskZ
+
+/A\x{17f}\x{212a}Z/i,utf
+    AskZ
+
+/[AskZ]+/i,utf,caseless_restrict
+    AskZ
+    aSKz 
+    A\x{17f}kZ
+    As\x{212a}Z      
+
+/[AskZ]+/i,utf
+    AskZ
+    aSKz 
+    A\x{17f}kZ
+    As\x{212a}Z      
+
+/[\x{17f}\x{212a}]+/ir,utf
+\= Expect no match
+    AskZ
+
+/[\x{17f}\x{212a}]+/i,utf
+    AskZ
+
+/[^s]+/ir,utf
+    A\x{17f}Z 
+
+/[^s]+/i,utf
+    A\x{17f}Z 
+
+/[^k]+/ir,utf
+    A\x{212a}Z 
+    
+/[^k]+/i,utf
+    A\x{212a}Z 
+    
+/[^sk]+/ir,utf
+    A\x{17f}\x{212a}Z 
+
+/[^sk]+/i,utf
+    A\x{17f}\x{212a}Z 
+
+/[^\x{17f}]+/ir,utf
+    AsSZ 
+
+/[^\x{17f}]+/i,utf
+    AsSZ 
+
+/[Ss]+/irB,utf
+    Sss\x{17f}ss
+
+/[Ss]+/iB,utf
+    Sss\x{17f}ss
+
+/[S\x{17f}]/irB,utf
+
+/[S\x{17f}]/iB,utf
+
+/[\x{17f}s]/irB,utf
+
+/[\x{17f}s]/iB,utf
+
+/[\x{4b}\x{6b}]/irB,utf
+
+/[\x{4b}\x{6b}]/iB,utf
+
+/s(?r)s(?-r)s(?r:s)s/i,utf
+    \x{17f}S\x{17f}S\x{17f}
+\= Expect no match     
+    \x{17f}\x{17f}\x{17f}S\x{17f}
+    \x{17f}S\x{17f}\x{17f}\x{17f}
+
+/k(?^i)k/ir,utf
+    K\x{212a}
+\= Expect no match          
+    \x{212a}\x{212a}
+
+# End caseless restrict tests
+
+# TESTS for PCRE2_EXTRA_ASCII_xxx - again, tests with and without.
+
+# DIGITS
+
+/\d+/i,utf
+    123\x{660}456
+
+/\d+/i,utf,ucp
+    123\x{660}456
+
+/\d+/i,utf,ucp,ascii_bsd
+    123\x{660}456
+
+/[\d]+/i,utf
+    123\x{660}456
+
+/[\d]+/i,utf,ucp
+    123\x{660}456
+
+/[\d]+/i,utf,ucp,ascii_bsd
+    123\x{660}456
+
+/\d(?aD)\d(?-aD)\d/utf,ucp
+    \x{660}9\x{660}
+\= Expect no match     
+    \x{660}\x{660}\x{660}
+
+/\d(?-aD)\d(?aD)\d/utf,ucp,ascii_bsd
+    999
+    9\x{660}9
+
+/\d(?a)\d(?-a)\d/utf,ucp
+    \x{660}9\x{660}
+\= Expect no match     
+    \x{660}\x{660}\x{660}
+
+/\d(?-aD)\d(?aD)\d/utf,ucp,ascii_bsd
+    999
+    9\x{660}9
+
+# SPACES
+
+/>\s+</i,utf
+    >  <
+\= Expect no match     
+    >\x{a0} <
+
+/>\s+</i,utf,ucp
+    >  <
+    >\x{a0} <
+
+/>\s+</i,utf,ucp,ascii_bss
+    >  <
+\= Expect no match     
+    >\x{a0} <
+
+/>[\s]+</i,utf
+    >  <
+\= Expect no match     
+    >\x{a0} <
+
+/>[\s]+</i,utf,ucp
+    >  <
+    >\x{a0} <
+
+/>[\s]+</i,utf,ucp,ascii_bss
+    >  <
+\= Expect no match     
+    >\x{a0} <
+
+/>\s(?aS)\s(?-aS)\s</utf,ucp
+    >\x{a0} \x{a0}<
+\= Expect no match     
+    >\x{a0}\x{a0}\x{a0}<
+
+/>\s(?a)\s(?-a)\s</utf,ucp
+    >\x{a0} \x{a0}<
+\= Expect no match     
+    >\x{a0}\x{a0}\x{a0}<
+    
+# WORDS
+
+/\w+/i,utf
+    123\x{660}abc
+
+/\w+/i,utf,ucp
+    123\x{660}abc
+
+/\w+/i,utf,ucp,ascii_bsw
+    123\x{660}abc
+
+/[\w]+/i,utf
+    123\x{660}abc
+
+/[\w]+/i,utf,ucp
+    123\x{660}abc
+
+/[\w]+/i,utf,ucp,ascii_bsw
+    123\x{660}abc
+
+/\w(?aW)\w(?-aW)\w/utf,ucp
+    \x{660}A\x{c0}
+\= Expect no match     
+    \x{660}\x{c0}\x{c0}
+
+/\w(?a)\w(?-a)\w/utf,ucp
+    \x{660}A\x{c0}
+\= Expect no match     
+    \x{660}\x{c0}\x{c0}
+
+# POSIX
+
+/^[[:digit:]]+$/utf,ucp
+    123456
+    123\x{660}456
+
+/^[[:digit:]]+$/utf,ucp,ascii_digit
+    123456
+\= Expect no match
+    123\x{660}456
+
+/[[:digit:]]+/g,utf,ucp,ascii_digit
+    123\x{660}456
+
+/(?-aT)[[:digit:]](?aT)[[:digit:]]/utf,ucp,ascii_digit
+    11
+    \x{ff11}1
+\= Expect no match
+    1\x{ff11}
+
+/(?-aT:[[:digit:]])[[:digit:]]/utf,ucp,ascii_digit
+    11
+    \x{ff11}1
+\= Expect no match
+    1\x{ff11}
+
+/(?-aT:[[:digit:]])[[:digit:]]/utf,never_ucp,ascii_digit
+    11
+\= Expect no match
+    \x{ff11}1
+    1\x{ff11}
+
+/[[:digit:]]+/utf,ucp,ascii_posix
+    123\x{660}456
+
+/(?-aP)[[:digit:]](?aP)[[:digit:]]/utf,ucp,ascii_posix
+    11
+    \x{ff11}1
+\= Expect no match
+    1\x{ff11}
+
+/(?-aP:[[:digit:]])[[:digit:]]/utf,ucp,ascii_posix
+    11
+    \x{ff11}1
+\= Expect no match
+    1\x{ff11}
+
+/(?-a:[[:digit:]])[[:digit:]]/a,utf,ucp
+    11
+    \x{ff11}1
+\= Expect no match
+    1\x{ff11}
+
+/>[[:space:]]+</utf,ucp
+    >\x{a0} \x{a0}<
+    >\x{a0}\x{a0}\x{a0}<
+
+/>[[:space:]]+</utf,ucp,ascii_posix
+\= Expect no match     
+    >\x{a0} \x{a0}<
+
+/(?aP)[[:alnum:]]+/i,ucp,utf
+    abcáxyz
+    abc\x{660}xyz
+
+/(?aP)[[:alnum:]\d]+/i,ucp,utf
+    abc\x{660}xyz
+    
+/(*UCP)(*UTF)[[:alnum:]](?aP:[[:alnum:]])[[:alnum:]]/
+    \x{660}A\x{660}
+\= Expect no match     
+    \x{660}\x{660}\x{660}
+    
+# VARIOUS
+
+/[\d\s\w]+/a,ucp,utf
+    9 A\x{660}À 
+    9 AÀ\x{660} 
+
+# End PCRE2_EXTRA_ASCII_xxx tests
+
+/\w+/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
+
+/[\w]+/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
+
+/\b.+?\b/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
+
+/caf\B.+?\B/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
 
 # End of testinput7

@@ -853,7 +853,13 @@ fi
 echo "---------------------------- Test 151 -----------------------------" >>testtrygrep
 (cd $srcdir; $valgrind $vjs $pcre2grep --colour=always -e this -e The -e 'The wo' testdata/grepinputv) >>testtrygrep
 
+echo "---------------------------- Test 152 -----------------------------" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -nA3 --group-separator='++' 'four' ./testdata/grepinputx) >>testtrygrep
+echo "RC=$?" >>testtrygrep
 
+echo "---------------------------- Test 153 -----------------------------" >>testtrygrep
+(cd $srcdir; $valgrind $vjs $pcre2grep -nA3 --no-group-separator 'four' ./testdata/grepinputx) >>testtrygrep
+echo "RC=$?" >>testtrygrep
 
 
 # Now compare the results.
@@ -891,6 +897,22 @@ if [ $utf8 -ne 0 ] ; then
 
   echo "---------------------------- Test U6 -----------------------------" >>testtrygrep
   (cd $srcdir; $valgrind $vjs $pcre2grep -u -m1 -O '=$x{1d3}$o{744}=' 'fox') <$srcdir/testdata/grepinputv >>testtrygrep 2>&1
+  echo "RC=$?" >>testtrygrep
+
+  echo "---------------------------- Test U7 ------------------------------" >>testtrygrep
+  (cd $srcdir; $valgrind $vjs $pcre2grep -ui --colour=always 'k+|\babc\b' ./testdata/grepinput8) >>testtrygrep
+  echo "RC=$?" >>testtrygrep
+
+  echo "---------------------------- Test U8 ------------------------------" >>testtrygrep
+  (cd $srcdir; $valgrind $vjs $pcre2grep -UiEP --colour=always 'k+|\babc\b' ./testdata/grepinput8) >>testtrygrep
+  echo "RC=$?" >>testtrygrep
+
+  echo "---------------------------- Test U9 ------------------------------" >>testtrygrep
+  (cd $srcdir; $valgrind $vjs $pcre2grep -u --colour=always 'A\d' ./testdata/grepinput8) >>testtrygrep
+  echo "RC=$?" >>testtrygrep
+
+  echo "---------------------------- Test U10 ------------------------------" >>testtrygrep
+  (cd $srcdir; $valgrind $vjs $pcre2grep -u --posix-digit --colour=always 'A\d' ./testdata/grepinput8) >>testtrygrep
   echo "RC=$?" >>testtrygrep
 
   $cf $srcdir/testdata/grepoutput8 testtrygrep

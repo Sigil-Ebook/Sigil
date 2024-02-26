@@ -4,7 +4,7 @@ Building PCRE2 without using autotools
 This document contains the following sections:
 
   General
-  Generic instructions for the PCRE2 C library
+  Generic instructions for the PCRE2 C libraries
   Stack size in Windows environments
   Linking programs in Windows environments
   Calling conventions in Windows environments
@@ -17,9 +17,9 @@ This document contains the following sections:
 
 GENERAL
 
-The basic PCRE2 library consists entirely of code written in Standard C, and so
-should compile successfully on any system that has a Standard C compiler and
-library.
+The source of the PCRE2 libraries consists entirely of code written in Standard
+C, and so should compile successfully on any system that has a Standard C
+compiler and library.
 
 The PCRE2 distribution includes a "configure" file for use by the
 configure/make (autotools) build system, as found in many Unix-like
@@ -36,21 +36,25 @@ provided for those who build PCRE2 without using "configure" or CMake. If you
 use "configure" or CMake, the .generic versions are not used.
 
 
-GENERIC INSTRUCTIONS FOR THE PCRE2 C LIBRARY
+GENERIC INSTRUCTIONS FOR THE PCRE2 C LIBRARIES
 
-The following are generic instructions for building the PCRE2 C library "by
-hand". If you are going to use CMake, this section does not apply to you; you
-can skip ahead to the CMake section. Note that the settings concerned with
-8-bit, 16-bit, and 32-bit code units relate to the type of data string that
-PCRE2 processes. They are NOT referring to the underlying operating system bit
-width. You do not have to do anything special to compile in a 64-bit
-environment, for example.
+There are three possible PCRE2 libraries, each handling data with a specific
+code unit width: 8, 16, or 32 bits. You can build any combination of them. The
+following are generic instructions for building a PCRE2 C library "by hand". If
+you are going to use CMake, this section does not apply to you; you can skip
+ahead to the CMake section. Note that the settings concerned with 8-bit,
+16-bit, and 32-bit code units relate to the type of data string that PCRE2
+processes. They are NOT referring to the underlying operating system bit width.
+You do not have to do anything special to compile in a 64-bit environment, for
+example.
 
  (1) Copy or rename the file src/config.h.generic as src/config.h, and edit the
      macro settings that it contains to whatever is appropriate for your
      environment. In particular, you can alter the definition of the NEWLINE
      macro to specify what character(s) you want to be interpreted as line
-     terminators by default.
+     terminators by default. You need to #define at least one of
+     SUPPORT_PCRE2_8, SUPPORT_PCRE2_16, or SUPPORT_PCRE2_32, depending on which
+     libraries you are going to build. You must set all that apply.
 
      When you subsequently compile any of the PCRE2 modules, you must specify
      -DHAVE_CONFIG_H to your compiler so that src/config.h is included in the
@@ -97,6 +101,7 @@ environment, for example.
      or else use other -D settings to change the configuration as required.
 
        pcre2_auto_possess.c
+       pcre2_chkdint.c
        pcre2_chartables.c
        pcre2_compile.c
        pcre2_config.c
@@ -121,7 +126,6 @@ environment, for example.
        pcre2_substring.c
        pcre2_tables.c
        pcre2_ucd.c
-       pcre2_ucptables.c
        pcre2_valid_utf.c
        pcre2_xclass.c
 
@@ -143,22 +147,24 @@ environment, for example.
      you are doing that, you can ignore it.
 
  (5) Now link all the compiled code into an object library in whichever form
-     your system keeps such libraries. This is the basic PCRE2 C 8-bit library.
-     If your system has static and shared libraries, you may have to do this
-     once for each type.
+     your system keeps such libraries. This is the PCRE2 C 8-bit library,
+     typically called something like libpcre2-8. If your system has static and
+     shared libraries, you may have to do this once for each type.
 
  (6) If you want to build a library that supports 16-bit or 32-bit code units,
-     (as well as, or instead of the 8-bit library) just supply 16 or 32 as the
-     value of -DPCRE2_CODE_UNIT_WIDTH when you are compiling.
+     set 16 or 32 as the value of -DPCRE2_CODE_UNIT_WIDTH when obeying step 4
+     above. If you want to build more than one PCRE2 library, repeat steps 4
+     and 5 as necessary.
 
  (7) If you want to build the POSIX wrapper functions (which apply only to the
      8-bit library), ensure that you have the src/pcre2posix.h file and then
      compile src/pcre2posix.c. Link the result (on its own) as the pcre2posix
-     library.
+     library. If targeting a DLL in Windows, make sure to include
+     -DPCRE2POSIX_SHARED with your compiler flags.
 
  (8) The pcre2test program can be linked with any combination of the 8-bit,
-     16-bit and 32-bit libraries (depending on what you selected in
-     src/config.h). Compile src/pcre2test.c; don't forget -DHAVE_CONFIG_H if
+     16-bit and 32-bit libraries (depending on what you specfied in
+     src/config.h) . Compile src/pcre2test.c; don't forget -DHAVE_CONFIG_H if
      necessary, but do NOT define PCRE2_CODE_UNIT_WIDTH. Then link with the
      appropriate library/ies. If you compiled an 8-bit library, pcre2test also
      needs the pcre2posix wrapper library.
@@ -191,8 +197,8 @@ environment, for example.
      both the pcre2posix library and the 8-bit PCRE2 library.
 
 (12) If you want to use the pcre2grep command, compile and link
-     src/pcre2grep.c; it uses only the basic 8-bit PCRE2 library (it does not
-     need the pcre2posix library). If you have built the PCRE2 library with JIT
+     src/pcre2grep.c; it uses only the 8-bit PCRE2 library (it does not need
+     the pcre2posix library). If you have built the PCRE2 library with JIT
      support by defining SUPPORT_JIT in src/config.h, you can also define
      SUPPORT_PCRE2GREP_JIT, which causes pcre2grep to make use of JIT (unless
      it is run with --no-jit). If you define SUPPORT_PCRE2GREP_JIT without
@@ -216,7 +222,7 @@ CALLING CONVENTIONS IN WINDOWS ENVIRONMENTS
 
 It is possible to compile programs to use different calling conventions using
 MSVC. Search the web for "calling conventions" for more information. To make it
-easier to change the calling convention for the exported functions in the
+easier to change the calling convention for the exported functions in a
 PCRE2 library, the macro PCRE2_CALL_CONVENTION is present in all the external
 definitions. It can be set externally when compiling (e.g. in CFLAGS). If it is
 not set, it defaults to empty; the default calling convention is then used
@@ -410,6 +416,6 @@ Everything in that location, source and executable, is in EBCDIC and native
 z/OS file formats. The port provides an API for LE languages such as COBOL and
 for the z/OS and z/VM versions of the Rexx languages.
 
-==============================
-Last Updated: 10 December 2022
-==============================
+===========================
+Last Updated: 15 April 2023
+===========================

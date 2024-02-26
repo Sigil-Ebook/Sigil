@@ -527,7 +527,7 @@ for bmode in "$test8" "$test16" "$test32"; do
       $sim $valgrind ${opt:+$vjs} ./pcre2test -q $setstack $bmode $opt $testdata/testinput2 testtry
       saverc=$?
       if [ $saverc = 0 ] ; then
-        $sim $valgrind ${opt:+$vjs} ./pcre2test -q $bmode $opt -error -70,-62,-2,-1,0,100,101,191,200 >>testtry
+        $sim $valgrind ${opt:+$vjs} ./pcre2test -q $bmode $opt -error -70,-62,-2,-1,0,100,101,191,300 >>testtry
         checkresult $? 2 "$opt"
       else
         checkresult $saverc 2 "$opt"

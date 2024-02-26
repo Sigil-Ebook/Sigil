@@ -1,4 +1,4 @@
-.TH PCRE2_COMPILE 3 "22 April 2022" "PCRE2 10.41"
+.TH PCRE2_COMPILE 3 "19 January 2024" "PCRE2 10.43"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH SYNOPSIS
@@ -20,24 +20,26 @@ arguments are:
 .sp
   \fIpattern\fP       A string containing expression to be compiled
   \fIlength\fP        The length of the string or PCRE2_ZERO_TERMINATED
-  \fIoptions\fP       Option bits
+  \fIoptions\fP       Primary option bits
   \fIerrorcode\fP     Where to put an error code
   \fIerroffset\fP     Where to put an error offset
   \fIccontext\fP      Pointer to a compile context or NULL
 .sp
 The length of the pattern and any error offset that is returned are in code
-units, not characters. A compile context is needed only if you want to provide
-custom memory allocation functions, or to provide an external function for
-system stack size checking, or to change one or more of these parameters:
+units, not characters. A NULL pattern with zero length is treated as an empty
+string. A compile context is needed only if you want to provide custom memory
+allocation functions, or to provide an external function for system stack size
+checking (see \fBpcre2_set_compile_recursion_guard()\fP), or to change one or
+more of these parameters:
 .sp
   What \eR matches (Unicode newlines, or CR, LF, CRLF only);
   PCRE2's character tables;
   The newline character sequence;
   The compile time nested parentheses limit;
-  The maximum pattern length (in code units) that is allowed.
-  The additional options bits (see pcre2_set_compile_extra_options())
+  The maximum pattern length (in code units) that is allowed;
+  The additional options bits.
 .sp
-The option bits are:
+The primary option bits are:
 .sp
   PCRE2_ANCHORED           Force pattern anchoring
   PCRE2_ALLOW_EMPTY_CLASS  Allow empty classes
@@ -84,7 +86,7 @@ If either of \fIerrorcode\fP or \fIerroroffset\fP is NULL, the function returns
 NULL immediately. Otherwise, the yield of this function is a pointer to a
 private data structure that contains the compiled pattern, or NULL if an error
 was detected. In the error case, a text error message can be obtained by
-passing the value returned via the \fIerrorcode\fP argument to the the
+passing the value returned via the \fIerrorcode\fP argument to the
 \fBpcre2_get_error_message()\fP function. The offset (in code units) where the
 error was encountered is returned via the \fIerroroffset\fP argument.
 .P

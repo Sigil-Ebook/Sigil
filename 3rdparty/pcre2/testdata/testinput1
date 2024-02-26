@@ -3126,9 +3126,6 @@
 /a(?:b|c|d){4,5}?(.)/
     acdbcdbe
 
-/((foo)|(bar))*/
-    foobar
-
 /a(?:b|c|d){6,7}(.)/
     acdbcdbe
 
@@ -3171,9 +3168,6 @@
 \= Expect no match
     aaaaaaaaa
     aaaaaaaaaaa
-
-/(?:(f)(o)(o)|(b)(a)(r))*/
-    foobar
 
 /(?<=a)b/
     ab
@@ -3605,9 +3599,6 @@
     <a href=abcd xyz
     <a href=\"abcd xyz pqr\" cats
     <a href       =       \'abcd xyz pqr\' cats
-
-/((Z)+|A)*/
-    ZABCDEFG
 
 /(Z()|A)*/
     ZABCDEFG
@@ -4380,6 +4371,17 @@
 
 /^(?(DEFINE) (?<A> a) (?<B> b) )  (?&A) (?&B) /x
     abcd
+
+/(?<all>(?:(?:a(?&all))|(b))(c?))/
+    aabc
+    
+/(a(b)|(c))(?1)/
+    abc
+    cab 
+
+/(?1)(a(b)|(c))/
+    abc
+    cab 
 
 /(?<NAME>(?&NAME_PAT))\s+(?<ADDR>(?&ADDRESS_PAT))
   (?(DEFINE)
@@ -5676,9 +5678,6 @@ name)/mark
 /(?P=same)?(?P<same>a)(?P<same>b)/g,dupnames
     abbaba
 
-/(?:(?P=same)?(?:(?P<same>a)|(?P<same>b))(?P=same))+/g,dupnames
-    bbbaaabaabb
-
 /(?:(?P=same)?(?:(?P=same)(?P<same>a)(?P=same)|(?P=same)?(?P<same>b)(?P=same)){2}(?P=same)(?P<same>c)(?P=same)){2}(?P<same>z)?/g,dupnames
 \= Expect no match
     bbbaaaccccaaabbbcc
@@ -6386,15 +6385,6 @@ ef) x/x,mark
 /^((\1+)|\d)+133X$/
     111133X
 
-/^(?=.*(?=(([A-Z]).*(?(1)\1)))(?!.+\2)){26}/i
-    The quick brown fox jumps over the lazy dog.
-    Jackdaws love my big sphinx of quartz.
-    Pack my box with five dozen liquor jugs.
-\= Expect no match
-    The quick brown fox jumps over the lazy cat.
-    Hackdaws love my big sphinx of quartz.
-    Pack my fox with five dozen liquor jugs.
-
 /^(?>.*?([A-Z])(?!.*\1)){26}/i
     The quick brown fox jumps over the lazy dog.
     Jackdaws love my big sphinx of quartz.
@@ -6434,5 +6424,234 @@ ef) x/x,mark
 
 /(a\K.(?1)*)/
     abac
+
+# -------------------------------------------------------------------------- 
+# Perl-compatible tests of variable-length lookbehinds.
+
+/(?<=ab?c).../g
+    abcdefgacxyz
+
+/(?<=PQR|ab?c).../g
+    abcdefgacxyzPQR123
+
+/(?<=ab?c|PQR).../g
+    abcdefgacxyzPQR123
+
+/(?<=PQ|ab?c).../g
+    abcdefgacxyzPQR123
+
+/(?<=ab?c|PQ).../g
+    abcdefgacxyzPQR123
+
+/(?<=a(b?c|d?e?e)f)X./g
+     acfX1zzzaefX2zzzadeefX3zzzX4zzz
+
+/(?<!a(b?c|d?e?e)f)X./g
+     acfX1zzzaefX2zzzadeefX3zzzX4zzz
+     
+/(?(?<=ab?c)d|e)/
+    abcdefg
+    acdefg
+    axdefg
+    
+/(?<=\d{2,3}|ABC)./
+    ABCD   
+
+/(?<=(\d{1,255}))X/
+    1234X
+
+/(?<=a(b?c){3}d)X/
+   ZXacbccdXYZ
+   
+/(?<=a(b?c){0}d)X/
+   ZXadXYZ
+ 
+/(?<=a?(b?c){0}d)X./
+   ZXadXYZ
+ 
+/(?<=\R)X/
+    \x{0a}X
+    a\x{0a}X
+    a\x{0d}\x{0a}X
+
+# -------------------------------------------------------------------------- 
+
+# Altered interpretation of {,n}
+
+/a{,3}B/
+    XBBB
+    XaBBB
+    XaaBBB
+    XaaaBBB
+    XaaaaBBB
+
+# But {,} remains not a qualifier
+
+/a{,}B/
+    Xa{,}BBB
+\= Expect no match     
+    XBBB
+    XaBBB
+    
+# Checks for non-quantifiers after refactored code
+
+/X{/
+    ZZX{}YY
+
+/X{A/
+    ZZX{ABC}
+
+/X{}/
+    ZZX{}YZ
+    
+/X{1234/
+    ZZX{123456
+    
+/X{12ABC}/ 
+    ZZX{12ABC}Y
+    
+/X{1,/
+    ZZX{1,...
+    
+/X{,9/
+    ZZX{,9}abc
+    
+/X{,9]/
+    ZZX{,9]..   
+    
+# -------------------------------------------------------------------------- 
+
+/(A)(?-1)(?+1)(B)/
+    xxAABBzz
+   
+/(A)(\g{ -2 }B)/
+    XAABX
+
+/(A)((?-2)B)/
+    XAABX
+
+/a\c\X/
+    --a\x1cX--
+    
+/(a)\g{ 1 }/
+    baab
+
+/a{ 1,2 }/
+    Xaaaaa
+
+/a{ 1 , 2 }/
+    Xaaaaa
+
+/(?'name'ab)\k{ name }(?P=name)/
+    XabababX 
+
+/A{,}B/
+    A{,}B
+
+/A{ , }B/
+    A{ , }B
+    
+/A{ ,3}/
+    AAAAAACC 
+
+/A{ 3, }/
+    BBAAAAAACC 
+
+# This pattern validates regular expression patterns. The original that I was
+# sent was this:
+# /^((?:(?:[^?+*{}()[\]\\|]+|\\.|\[(?:\^?\\.|\^[^\\]|[^\\^])(?:[^\]\\]+|\\.)*\]|\((?:\?[:=!]|\?<[=!]|\?>)?(?1)??\)|\(\?(?:R|[+-]?\d+)\))(?:(?:[?+*]|\{\d+(?:,\d*)?\})[?+]?)?|\|)*)$/
+# This is not very readable, and also does not handle all features. I have done
+# some work on it.
+
+/^
+(?<re>
+# A regular expression is zero or more of these items.
+  (?:
+  # An item is one of these:
+    (?:
+      [^?+*{}()\[\]\\|]++|  # Non-meta characters or unquoted .
+      \\.|                  # Quoted .
+
+      \[                    # Class, which is [
+      (?:                   # Followed by
+        \^?\\.|             # Optional ^ and any escaped character
+        \^[^\\]|            # OR ^ and not escaped character
+        [^\\^]              # OR neither ^ nor \
+      )                     # Followed by
+      (?:[^\]\\]+|\\.)*+    # Zero or more (not ] or \) OR escaped dot
+      \]|                   # Class ends with ]
+
+      \(                    # Parenthesized group
+        (?:                 # Start with optional
+          \?[:=!]|          # ? followed by : = !
+          \?<[=!]|          # OR ?< followed by = or !
+          \?>               # OR ?>
+        )?
+        (?&re)??            # Then a nested <re>
+      \)|                   # End parenthesized group
+
+      \(\?                  # Other parenthesized items
+        (?:                 # (? followed by
+          R|                # R
+          [+-]?\d++         # Or optional +- and digits
+        )
+      \)|                   # End parens
+
+      \(\*                  # Verbs
+        (?:
+          COMMIT|
+          FAIL|
+          MARK:[^)]*|
+          (?:PRUNE|SKIP|THEN)(?::[^\)]*+)?
+        )
+      \)
+    )                       # End list of items
+
+    # Followed by an optional quantifier
+
+    (?:
+      (?:
+        [?+*]     # ?+*
+        |         # OR
+        \{\d+     # { digits
+        (?:,\d*)? # optionally followed by ,digits
+        \}        # then closing }
+        |         # OR
+        \{,\d+}   # {,digits}
+      )
+      [?+]?       # optional ungreedy or possessive
+    )?
+
+    | # OR an "item" is a branch ending
+
+    \|
+
+  )*  # Zero or more top-level items.
+)     # End regex group.
+$/x
+    [abcdef]
+    [abc\\]def]
+    a.b|abcd
+    ab()d
+    ab{1,3}d
+    ab{,3}d
+    ab(*FAIL)d(*COMMIT)(*SKIP)(*THEN:abc)
+    ab(*MARK:xyz)
+    (?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[,;:])(?=.{8,16})(?!.*[\\s])
+    abcd\\t\\n\\r\\f\\a\\e\\071\\x3b\\^\\\\\\?caxyz
+    a*abc?xyz+pqr{3}ab{2,}xy{4,5}pq{0,6}AB{0,}zz
+    \\G(?:(?=(\\1.|)(.))){1,13}?(?!.*\\2.*\\2)\\1\\K\\2
+\= Expect no match
+    ab)d
+    ab(d
+    {4,5}
+    a[]b
+    (a)(?(1)a|b|c)
+
+/^..A(*SKIP)B|C/
+    12ADC
+
+/(?<!a?)/
+    a
 
 # End of testinput1 

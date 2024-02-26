@@ -1,6 +1,8 @@
 # This set of tests is for UTF-8 support and Unicode property support, with
 # relevance only for the 8-bit library.
 
+#newline_default lf any anycrlf
+
 # The next 5 patterns have UTF-8 errors
 
 /[Ã]/utf
@@ -506,6 +508,25 @@
 \= Expect no match
     ab\x80cdef\=ph
 
+/.a/match_invalid_utf
+    ab\=ph
+    ab\=ps
+    b\xf0\x91\x88b\=ph
+    b\xf0\x91\x88b\=ps
+    b\xf0\x91\x88\xb4a
+\= Expect no match
+    b\x80\=ph
+    b\x80\=ps
+    b\xf0\x91\x88\=ph
+    b\xf0\x91\x88\=ps
+
+/.a$/match_invalid_utf
+    ab\=ph
+    ab\=ps
+\= Expect no match
+    b\xf0\x91\x98\=ph
+    b\xf0\x91\x98\=ps
+
 /ab$/match_invalid_utf
     ab\x80cdeab
 \= Expect no match
@@ -616,5 +637,12 @@
 /\bch\b/utf,match_invalid_utf
     qchq\=ph
     qchq\=ps
+
+/line1\nbreak/firstline,utf,match_invalid_utf
+    line1\nbreak
+    line0\nline1\nbreak
+
+/A\z/utf,match_invalid_utf
+    A\x80\x42\n
 
 # End of testinput10

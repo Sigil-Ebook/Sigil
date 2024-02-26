@@ -6,11 +6,16 @@
 
 # (2) Other tests that must not be run with JIT.
 
-# This test is first so that it doesn't inherit a large enough heap frame 
+# These tests are first so that they don't inherit a large enough heap frame 
 # vector from a previous test.
 
 /(*LIMIT_HEAP=21)\[(a)]{60}/expand
     \[a]{60}
+
+"(*LIMIT_HEAP=21)()((?))()()()()()()()()()()()()()()()()()()()()()()()(())()()()()()()()()()()()()()()()()()()()()()(())()()()()()()()()()()()()()"
+  xx
+
+# -----------------------------------------------------------------------
 
 /(a+)*zz/I
   aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazzbbbbbb\=find_limits_noheap
@@ -237,5 +242,12 @@
 /b(?<!ax)(?!cx)/allusedtext
     abc
     abcz
+
+# This test triggers the recursion limit in the interpreter, but completes in
+# JIT. It's in testinput2 with disable_recurse_loop_check to get it to work
+# in the interpreter.
+
+/(a(?1)z||(?1)++)$/
+    abcd
 
 # End of testinput15

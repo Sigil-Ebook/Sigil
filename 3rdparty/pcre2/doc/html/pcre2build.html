@@ -24,21 +24,22 @@ please consult the man page, in case the conversion went wrong.
 <li><a name="TOC9" href="#SEC9">WHAT \R MATCHES</a>
 <li><a name="TOC10" href="#SEC10">HANDLING VERY LARGE PATTERNS</a>
 <li><a name="TOC11" href="#SEC11">LIMITING PCRE2 RESOURCE USAGE</a>
-<li><a name="TOC12" href="#SEC12">CREATING CHARACTER TABLES AT BUILD TIME</a>
-<li><a name="TOC13" href="#SEC13">USING EBCDIC CODE</a>
-<li><a name="TOC14" href="#SEC14">PCRE2GREP SUPPORT FOR EXTERNAL SCRIPTS</a>
-<li><a name="TOC15" href="#SEC15">PCRE2GREP OPTIONS FOR COMPRESSED FILE SUPPORT</a>
-<li><a name="TOC16" href="#SEC16">PCRE2GREP BUFFER SIZE</a>
-<li><a name="TOC17" href="#SEC17">PCRE2TEST OPTION FOR LIBREADLINE SUPPORT</a>
-<li><a name="TOC18" href="#SEC18">INCLUDING DEBUGGING CODE</a>
-<li><a name="TOC19" href="#SEC19">DEBUGGING WITH VALGRIND SUPPORT</a>
-<li><a name="TOC20" href="#SEC20">CODE COVERAGE REPORTING</a>
-<li><a name="TOC21" href="#SEC21">DISABLING THE Z AND T FORMATTING MODIFIERS</a>
-<li><a name="TOC22" href="#SEC22">SUPPORT FOR FUZZERS</a>
-<li><a name="TOC23" href="#SEC23">OBSOLETE OPTION</a>
-<li><a name="TOC24" href="#SEC24">SEE ALSO</a>
-<li><a name="TOC25" href="#SEC25">AUTHOR</a>
-<li><a name="TOC26" href="#SEC26">REVISION</a>
+<li><a name="TOC12" href="#SEC12">LIMITING VARIABLE-LENGTH LOOKBEHIND ASSERTIONS</a>
+<li><a name="TOC13" href="#SEC13">CREATING CHARACTER TABLES AT BUILD TIME</a>
+<li><a name="TOC14" href="#SEC14">USING EBCDIC CODE</a>
+<li><a name="TOC15" href="#SEC15">PCRE2GREP SUPPORT FOR EXTERNAL SCRIPTS</a>
+<li><a name="TOC16" href="#SEC16">PCRE2GREP OPTIONS FOR COMPRESSED FILE SUPPORT</a>
+<li><a name="TOC17" href="#SEC17">PCRE2GREP BUFFER SIZE</a>
+<li><a name="TOC18" href="#SEC18">PCRE2TEST OPTION FOR LIBREADLINE SUPPORT</a>
+<li><a name="TOC19" href="#SEC19">INCLUDING DEBUGGING CODE</a>
+<li><a name="TOC20" href="#SEC20">DEBUGGING WITH VALGRIND SUPPORT</a>
+<li><a name="TOC21" href="#SEC21">CODE COVERAGE REPORTING</a>
+<li><a name="TOC22" href="#SEC22">DISABLING THE Z AND T FORMATTING MODIFIERS</a>
+<li><a name="TOC23" href="#SEC23">SUPPORT FOR FUZZERS</a>
+<li><a name="TOC24" href="#SEC24">OBSOLETE OPTION</a>
+<li><a name="TOC25" href="#SEC25">SEE ALSO</a>
+<li><a name="TOC26" href="#SEC26">AUTHOR</a>
+<li><a name="TOC27" href="#SEC27">REVISION</a>
 </ul>
 <br><a name="SEC1" href="#TOC1">BUILDING PCRE2</a><br>
 <P>
@@ -118,7 +119,19 @@ one of
   --disable-shared
   --disable-static
 </pre>
-to the <b>configure</b> command.
+to the <b>configure</b> command. Setting --disable-shared ensures that PCRE2
+libraries are built as static libraries. The binaries that are then created as
+part of the build process (for example, <b>pcre2test</b> and <b>pcre2grep</b>)
+are linked statically with one or more PCRE2 libraries, but may also be
+dynamically linked with other libraries such as <b>libc</b>. If you want these
+binaries to be fully statically linked, you can set LDFLAGS like this:
+<br>
+<br>
+LDFLAGS=--static ./configure --disable-shared
+<br>
+<br>
+Note the two hyphens in --static. Of course, this works only if static versions
+of all the relevant libraries are available for linking.
 </P>
 <br><a name="SEC5" href="#TOC1">UNICODE AND UTF SUPPORT</a><br>
 <P>
@@ -321,8 +334,22 @@ As well as applying to <b>pcre2_match()</b>, the depth limit also controls
 the depth of recursive function calls in <b>pcre2_dfa_match()</b>. These are
 used for lookaround assertions, atomic groups, and recursion within patterns.
 The limit does not apply to JIT matching.
+</P>
+<br><a name="SEC12" href="#TOC1">LIMITING VARIABLE-LENGTH LOOKBEHIND ASSERTIONS</a><br>
+<P>
+Lookbehind assertions in which one or more branches can match a variable number
+of characters are supported only if there is a maximum matching length for each
+top-level branch. There is a limit to this maximum that defaults to 255
+characters. You can alter this default by a setting such as
+<pre>
+  --with-max-varlookbehind=100
+</pre>
+The limit can be changed at runtime by calling
+<b>pcre2_set_max_varlookbehind()</b>. Lookbehind assertions in which every
+branch matches a fixed number of characters (not necessarily all the same) are
+not constrained by this limit.
 <a name="createtables"></a></P>
-<br><a name="SEC12" href="#TOC1">CREATING CHARACTER TABLES AT BUILD TIME</a><br>
+<br><a name="SEC13" href="#TOC1">CREATING CHARACTER TABLES AT BUILD TIME</a><br>
 <P>
 PCRE2 uses fixed tables for processing characters whose code points are less
 than 256. By default, PCRE2 is built with a set of tables that are distributed
@@ -361,7 +388,7 @@ just a string of bytes, independent of hardware characteristics such as
 endianness. This means they can be bundled with an application that runs in
 different environments, to ensure consistent behaviour.
 </P>
-<br><a name="SEC13" href="#TOC1">USING EBCDIC CODE</a><br>
+<br><a name="SEC14" href="#TOC1">USING EBCDIC CODE</a><br>
 <P>
 PCRE2 assumes by default that it will run in an environment where the character
 code is ASCII or Unicode, which is a superset of ASCII. This is the case for
@@ -396,7 +423,7 @@ The options that select newline behaviour, such as --enable-newline-is-cr,
 and equivalent run-time options, refer to these character values in an EBCDIC
 environment.
 </P>
-<br><a name="SEC14" href="#TOC1">PCRE2GREP SUPPORT FOR EXTERNAL SCRIPTS</a><br>
+<br><a name="SEC15" href="#TOC1">PCRE2GREP SUPPORT FOR EXTERNAL SCRIPTS</a><br>
 <P>
 By default <b>pcre2grep</b> supports the use of callouts with string arguments
 within the patterns it is matching. There are two kinds: one that generates
@@ -408,7 +435,7 @@ callouts, see the
 <a href="pcre2grep.html"><b>pcre2grep</b></a>
 documentation.
 </P>
-<br><a name="SEC15" href="#TOC1">PCRE2GREP OPTIONS FOR COMPRESSED FILE SUPPORT</a><br>
+<br><a name="SEC16" href="#TOC1">PCRE2GREP OPTIONS FOR COMPRESSED FILE SUPPORT</a><br>
 <P>
 By default, <b>pcre2grep</b> reads all files as plain text. You can build it so
 that it recognizes files whose names end in <b>.gz</b> or <b>.bz2</b>, and reads
@@ -421,7 +448,7 @@ to the <b>configure</b> command. These options naturally require that the
 relevant libraries are installed on your system. Configuration will fail if
 they are not.
 </P>
-<br><a name="SEC16" href="#TOC1">PCRE2GREP BUFFER SIZE</a><br>
+<br><a name="SEC17" href="#TOC1">PCRE2GREP BUFFER SIZE</a><br>
 <P>
 <b>pcre2grep</b> uses an internal buffer to hold a "window" on the file it is
 scanning, in order to be able to output "before" and "after" lines when it
@@ -439,7 +466,7 @@ default parameter values by adding, for example,
 to the <b>configure</b> command. The caller of <b>pcre2grep</b> can override
 these values by using --buffer-size and --max-buffer-size on the command line.
 </P>
-<br><a name="SEC17" href="#TOC1">PCRE2TEST OPTION FOR LIBREADLINE SUPPORT</a><br>
+<br><a name="SEC18" href="#TOC1">PCRE2TEST OPTION FOR LIBREADLINE SUPPORT</a><br>
 <P>
 If you add one of
 <pre>
@@ -457,7 +484,7 @@ with <b>libedit</b>, which has a BSD licence.
 <P>
 Setting --enable-pcre2test-libreadline causes the <b>-lreadline</b> option to be
 added to the <b>pcre2test</b> build. In many operating environments with a
-sytem-installed readline library this is sufficient. However, in some
+system-installed readline library this is sufficient. However, in some
 environments (e.g. if an unmodified distribution version of readline is in
 use), some extra configuration may be necessary. The INSTALL file for
 <b>libreadline</b> says this:
@@ -473,7 +500,7 @@ automatically included, you may need to add something like
 </pre>
 immediately before the <b>configure</b> command.
 </P>
-<br><a name="SEC18" href="#TOC1">INCLUDING DEBUGGING CODE</a><br>
+<br><a name="SEC19" href="#TOC1">INCLUDING DEBUGGING CODE</a><br>
 <P>
 If you add
 <pre>
@@ -482,7 +509,7 @@ If you add
 to the <b>configure</b> command, additional debugging code is included in the
 build. This feature is intended for use by the PCRE2 maintainers.
 </P>
-<br><a name="SEC19" href="#TOC1">DEBUGGING WITH VALGRIND SUPPORT</a><br>
+<br><a name="SEC20" href="#TOC1">DEBUGGING WITH VALGRIND SUPPORT</a><br>
 <P>
 If you add
 <pre>
@@ -492,7 +519,7 @@ to the <b>configure</b> command, PCRE2 will use valgrind annotations to mark
 certain memory regions as unaddressable. This allows it to detect invalid
 memory accesses, and is mostly useful for debugging PCRE2 itself.
 </P>
-<br><a name="SEC20" href="#TOC1">CODE COVERAGE REPORTING</a><br>
+<br><a name="SEC21" href="#TOC1">CODE COVERAGE REPORTING</a><br>
 <P>
 If your C compiler is gcc, you can build a version of PCRE2 that can generate a
 code coverage report for its test suite. To enable this, you must install
@@ -549,7 +576,7 @@ This cleans all coverage data including the generated coverage report. For more
 information about code coverage, see the <b>gcov</b> and <b>lcov</b>
 documentation.
 </P>
-<br><a name="SEC21" href="#TOC1">DISABLING THE Z AND T FORMATTING MODIFIERS</a><br>
+<br><a name="SEC22" href="#TOC1">DISABLING THE Z AND T FORMATTING MODIFIERS</a><br>
 <P>
 The C99 standard defines formatting modifiers z and t for size_t and
 ptrdiff_t values, respectively. By default, PCRE2 uses these modifiers in
@@ -564,7 +591,7 @@ support these modifiers. If
 is specified, no use is made of the z or t modifiers. Instead of %td or %zu,
 a suitable format is used depending in the size of long for the platform.
 </P>
-<br><a name="SEC22" href="#TOC1">SUPPORT FOR FUZZERS</a><br>
+<br><a name="SEC23" href="#TOC1">SUPPORT FOR FUZZERS</a><br>
 <P>
 There is a special option for use by people who want to run fuzzing tests on
 PCRE2:
@@ -588,7 +615,7 @@ arguments: if an argument starts with "=" the rest of it is a literal input
 string. Otherwise, it is assumed to be a file name, and the contents of the
 file are the test string.
 </P>
-<br><a name="SEC23" href="#TOC1">OBSOLETE OPTION</a><br>
+<br><a name="SEC24" href="#TOC1">OBSOLETE OPTION</a><br>
 <P>
 In versions of PCRE2 prior to 10.30, there were two ways of handling
 backtracking in the <b>pcre2_match()</b> function. The default was to use the
@@ -600,11 +627,11 @@ was set, memory on the heap was used. From release 10.30 onwards this has
 changed (the stack is no longer used) and this option now does nothing except
 give a warning.
 </P>
-<br><a name="SEC24" href="#TOC1">SEE ALSO</a><br>
+<br><a name="SEC25" href="#TOC1">SEE ALSO</a><br>
 <P>
 <b>pcre2api</b>(3), <b>pcre2-config</b>(3).
 </P>
-<br><a name="SEC25" href="#TOC1">AUTHOR</a><br>
+<br><a name="SEC26" href="#TOC1">AUTHOR</a><br>
 <P>
 Philip Hazel
 <br>
@@ -613,11 +640,11 @@ Retired from University Computing Service
 Cambridge, England.
 <br>
 </P>
-<br><a name="SEC26" href="#TOC1">REVISION</a><br>
+<br><a name="SEC27" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 27 July 2022
+Last updated: 24 November 2023
 <br>
-Copyright &copy; 1997-2022 University of Cambridge.
+Copyright &copy; 1997-2023 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

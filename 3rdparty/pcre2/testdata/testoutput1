@@ -4924,13 +4924,6 @@ No match
  0: acdbcd
  1: d
 
-/((foo)|(bar))*/
-    foobar
- 0: foobar
- 1: bar
- 2: foo
- 3: bar
-
 /a(?:b|c|d){6,7}(.)/
     acdbcdbe
  0: acdbcdbe
@@ -5002,16 +4995,6 @@ No match
 No match
     aaaaaaaaaaa
 No match
-
-/(?:(f)(o)(o)|(b)(a)(r))*/
-    foobar
- 0: foobar
- 1: f
- 2: o
- 3: o
- 4: b
- 5: a
- 6: r
 
 /(?<=a)b/
     ab
@@ -5709,12 +5692,6 @@ No match
  0: <a href       =       'abcd xyz pqr'
  1: '
  2: abcd xyz pqr
-
-/((Z)+|A)*/
-    ZABCDEFG
- 0: ZA
- 1: A
- 2: Z
 
 /(Z()|A)*/
     ZABCDEFG
@@ -6970,6 +6947,35 @@ No match
 /^(?(DEFINE) (?<A> a) (?<B> b) )  (?&A) (?&B) /x
     abcd
  0: ab
+
+/(?<all>(?:(?:a(?&all))|(b))(c?))/
+    aabc
+ 0: aabc
+ 1: aabc
+ 2: <unset>
+ 3: 
+    
+/(a(b)|(c))(?1)/
+    abc
+ 0: abc
+ 1: ab
+ 2: b
+    cab 
+ 0: cab
+ 1: c
+ 2: <unset>
+ 3: c
+
+/(?1)(a(b)|(c))/
+    abc
+ 0: abc
+ 1: c
+ 2: <unset>
+ 3: c
+    cab 
+ 0: cab
+ 1: ab
+ 2: b
 
 /(?<NAME>(?&NAME_PAT))\s+(?<ADDR>(?&ADDRESS_PAT))
   (?(DEFINE)
@@ -9024,15 +9030,6 @@ No match
  1: a
  2: b
 
-/(?:(?P=same)?(?:(?P<same>a)|(?P<same>b))(?P=same))+/g,dupnames
-    bbbaaabaabb
- 0: bbbaaaba
- 1: a
- 2: b
- 0: bb
- 1: <unset>
- 2: b
-
 /(?:(?P=same)?(?:(?P=same)(?P<same>a)(?P=same)|(?P=same)?(?P<same>b)(?P=same)){2}(?P=same)(?P<same>c)(?P=same)){2}(?P<same>z)?/g,dupnames
 \= Expect no match
     bbbaaaccccaaabbbcc
@@ -10116,27 +10113,6 @@ No match
  1: 11
  2: 11
 
-/^(?=.*(?=(([A-Z]).*(?(1)\1)))(?!.+\2)){26}/i
-    The quick brown fox jumps over the lazy dog.
- 0: 
- 1: quick brown fox jumps over the lazy dog.
- 2: q
-    Jackdaws love my big sphinx of quartz.
- 0: 
- 1: Jackdaws love my big sphinx of quartz.
- 2: J
-    Pack my box with five dozen liquor jugs.
- 0: 
- 1: Pack my box with five dozen liquor jugs.
- 2: P
-\= Expect no match
-    The quick brown fox jumps over the lazy cat.
-No match
-    Hackdaws love my big sphinx of quartz.
-No match
-    Pack my fox with five dozen liquor jugs.
-No match
-
 /^(?>.*?([A-Z])(?!.*\1)){26}/i
     The quick brown fox jumps over the lazy dog.
  0: The quick brown fox jumps over the lazy dog
@@ -10196,5 +10172,335 @@ No match
     abac
  0: c
  1: abac
+
+# -------------------------------------------------------------------------- 
+# Perl-compatible tests of variable-length lookbehinds.
+
+/(?<=ab?c).../g
+    abcdefgacxyz
+ 0: def
+ 0: xyz
+
+/(?<=PQR|ab?c).../g
+    abcdefgacxyzPQR123
+ 0: def
+ 0: xyz
+ 0: 123
+
+/(?<=ab?c|PQR).../g
+    abcdefgacxyzPQR123
+ 0: def
+ 0: xyz
+ 0: 123
+
+/(?<=PQ|ab?c).../g
+    abcdefgacxyzPQR123
+ 0: def
+ 0: xyz
+ 0: R12
+
+/(?<=ab?c|PQ).../g
+    abcdefgacxyzPQR123
+ 0: def
+ 0: xyz
+ 0: R12
+
+/(?<=a(b?c|d?e?e)f)X./g
+     acfX1zzzaefX2zzzadeefX3zzzX4zzz
+ 0: X1
+ 1: c
+ 0: X2
+ 1: e
+ 0: X3
+ 1: dee
+
+/(?<!a(b?c|d?e?e)f)X./g
+     acfX1zzzaefX2zzzadeefX3zzzX4zzz
+ 0: X4
+     
+/(?(?<=ab?c)d|e)/
+    abcdefg
+ 0: d
+    acdefg
+ 0: d
+    axdefg
+ 0: e
+    
+/(?<=\d{2,3}|ABC)./
+    ABCD   
+ 0: D
+
+/(?<=(\d{1,255}))X/
+    1234X
+ 0: X
+ 1: 1234
+
+/(?<=a(b?c){3}d)X/
+   ZXacbccdXYZ
+ 0: X
+ 1: c
+   
+/(?<=a(b?c){0}d)X/
+   ZXadXYZ
+ 0: X
+ 
+/(?<=a?(b?c){0}d)X./
+   ZXadXYZ
+ 0: XY
+ 
+/(?<=\R)X/
+    \x{0a}X
+ 0: X
+    a\x{0a}X
+ 0: X
+    a\x{0d}\x{0a}X
+ 0: X
+
+# -------------------------------------------------------------------------- 
+
+# Altered interpretation of {,n}
+
+/a{,3}B/
+    XBBB
+ 0: B
+    XaBBB
+ 0: aB
+    XaaBBB
+ 0: aaB
+    XaaaBBB
+ 0: aaaB
+    XaaaaBBB
+ 0: aaaB
+
+# But {,} remains not a qualifier
+
+/a{,}B/
+    Xa{,}BBB
+ 0: a{,}B
+\= Expect no match     
+    XBBB
+No match
+    XaBBB
+No match
+    
+# Checks for non-quantifiers after refactored code
+
+/X{/
+    ZZX{}YY
+ 0: X{
+
+/X{A/
+    ZZX{ABC}
+ 0: X{A
+
+/X{}/
+    ZZX{}YZ
+ 0: X{}
+    
+/X{1234/
+    ZZX{123456
+ 0: X{1234
+    
+/X{12ABC}/ 
+    ZZX{12ABC}Y
+ 0: X{12ABC}
+    
+/X{1,/
+    ZZX{1,...
+ 0: X{1,
+    
+/X{,9/
+    ZZX{,9}abc
+ 0: X{,9
+    
+/X{,9]/
+    ZZX{,9]..   
+ 0: X{,9]
+    
+# -------------------------------------------------------------------------- 
+
+/(A)(?-1)(?+1)(B)/
+    xxAABBzz
+ 0: AABB
+ 1: A
+ 2: B
+   
+/(A)(\g{ -2 }B)/
+    XAABX
+ 0: AAB
+ 1: A
+ 2: AB
+
+/(A)((?-2)B)/
+    XAABX
+ 0: AAB
+ 1: A
+ 2: AB
+
+/a\c\X/
+    --a\x1cX--
+ 0: a\x1cX
+    
+/(a)\g{ 1 }/
+    baab
+ 0: aa
+ 1: a
+
+/a{ 1,2 }/
+    Xaaaaa
+ 0: aa
+
+/a{ 1 , 2 }/
+    Xaaaaa
+ 0: aa
+
+/(?'name'ab)\k{ name }(?P=name)/
+    XabababX 
+ 0: ababab
+ 1: ab
+
+/A{,}B/
+    A{,}B
+ 0: A{,}B
+
+/A{ , }B/
+    A{ , }B
+ 0: A{ , }B
+    
+/A{ ,3}/
+    AAAAAACC 
+ 0: AAA
+
+/A{ 3, }/
+    BBAAAAAACC 
+ 0: AAAAAA
+
+# This pattern validates regular expression patterns. The original that I was
+# sent was this:
+# /^((?:(?:[^?+*{}()[\]\\|]+|\\.|\[(?:\^?\\.|\^[^\\]|[^\\^])(?:[^\]\\]+|\\.)*\]|\((?:\?[:=!]|\?<[=!]|\?>)?(?1)??\)|\(\?(?:R|[+-]?\d+)\))(?:(?:[?+*]|\{\d+(?:,\d*)?\})[?+]?)?|\|)*)$/
+# This is not very readable, and also does not handle all features. I have done
+# some work on it.
+
+/^
+(?<re>
+# A regular expression is zero or more of these items.
+  (?:
+  # An item is one of these:
+    (?:
+      [^?+*{}()\[\]\\|]++|  # Non-meta characters or unquoted .
+      \\.|                  # Quoted .
+
+      \[                    # Class, which is [
+      (?:                   # Followed by
+        \^?\\.|             # Optional ^ and any escaped character
+        \^[^\\]|            # OR ^ and not escaped character
+        [^\\^]              # OR neither ^ nor \
+      )                     # Followed by
+      (?:[^\]\\]+|\\.)*+    # Zero or more (not ] or \) OR escaped dot
+      \]|                   # Class ends with ]
+
+      \(                    # Parenthesized group
+        (?:                 # Start with optional
+          \?[:=!]|          # ? followed by : = !
+          \?<[=!]|          # OR ?< followed by = or !
+          \?>               # OR ?>
+        )?
+        (?&re)??            # Then a nested <re>
+      \)|                   # End parenthesized group
+
+      \(\?                  # Other parenthesized items
+        (?:                 # (? followed by
+          R|                # R
+          [+-]?\d++         # Or optional +- and digits
+        )
+      \)|                   # End parens
+
+      \(\*                  # Verbs
+        (?:
+          COMMIT|
+          FAIL|
+          MARK:[^)]*|
+          (?:PRUNE|SKIP|THEN)(?::[^\)]*+)?
+        )
+      \)
+    )                       # End list of items
+
+    # Followed by an optional quantifier
+
+    (?:
+      (?:
+        [?+*]     # ?+*
+        |         # OR
+        \{\d+     # { digits
+        (?:,\d*)? # optionally followed by ,digits
+        \}        # then closing }
+        |         # OR
+        \{,\d+}   # {,digits}
+      )
+      [?+]?       # optional ungreedy or possessive
+    )?
+
+    | # OR an "item" is a branch ending
+
+    \|
+
+  )*  # Zero or more top-level items.
+)     # End regex group.
+$/x
+    [abcdef]
+ 0: [abcdef]
+ 1: [abcdef]
+    [abc\\]def]
+ 0: [abc\]def]
+ 1: [abc\]def]
+    a.b|abcd
+ 0: a.b|abcd
+ 1: a.b|abcd
+    ab()d
+ 0: ab()d
+ 1: ab()d
+    ab{1,3}d
+ 0: ab{1,3}d
+ 1: ab{1,3}d
+    ab{,3}d
+ 0: ab{,3}d
+ 1: ab{,3}d
+    ab(*FAIL)d(*COMMIT)(*SKIP)(*THEN:abc)
+ 0: ab(*FAIL)d(*COMMIT)(*SKIP)(*THEN:abc)
+ 1: ab(*FAIL)d(*COMMIT)(*SKIP)(*THEN:abc)
+    ab(*MARK:xyz)
+ 0: ab(*MARK:xyz)
+ 1: ab(*MARK:xyz)
+    (?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[,;:])(?=.{8,16})(?!.*[\\s])
+ 0: (?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[,;:])(?=.{8,16})(?!.*[\s])
+ 1: (?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[,;:])(?=.{8,16})(?!.*[\s])
+    abcd\\t\\n\\r\\f\\a\\e\\071\\x3b\\^\\\\\\?caxyz
+ 0: abcd\t\n\r\f\a\e\071\x3b\^\\\?caxyz
+ 1: abcd\t\n\r\f\a\e\071\x3b\^\\\?caxyz
+    a*abc?xyz+pqr{3}ab{2,}xy{4,5}pq{0,6}AB{0,}zz
+ 0: a*abc?xyz+pqr{3}ab{2,}xy{4,5}pq{0,6}AB{0,}zz
+ 1: a*abc?xyz+pqr{3}ab{2,}xy{4,5}pq{0,6}AB{0,}zz
+    \\G(?:(?=(\\1.|)(.))){1,13}?(?!.*\\2.*\\2)\\1\\K\\2
+ 0: \G(?:(?=(\1.|)(.))){1,13}?(?!.*\2.*\2)\1\K\2
+ 1: \G(?:(?=(\1.|)(.))){1,13}?(?!.*\2.*\2)\1\K\2
+\= Expect no match
+    ab)d
+No match
+    ab(d
+No match
+    {4,5}
+No match
+    a[]b
+No match
+    (a)(?(1)a|b|c)
+No match
+
+/^..A(*SKIP)B|C/
+    12ADC
+ 0: C
+
+/(?<!a?)/
+    a
+No match
 
 # End of testinput1 

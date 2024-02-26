@@ -93,10 +93,10 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-TESTS = $(am__EXEEXT_4) $(am__EXEEXT_5) RunTest $(am__append_34)
+TESTS = $(am__EXEEXT_6) $(am__EXEEXT_7) RunTest $(am__append_43)
 bin_PROGRAMS = $(am__EXEEXT_1) pcre2test$(EXEEXT)
 noinst_PROGRAMS = $(am__EXEEXT_2) $(am__EXEEXT_3) $(am__EXEEXT_4) \
-	$(am__EXEEXT_5)
+	$(am__EXEEXT_5) $(am__EXEEXT_6) $(am__EXEEXT_7)
 @WITH_REBUILD_CHARTABLES_TRUE@am__append_1 = pcre2_dftables
 @WITH_PCRE2_8_TRUE@am__append_2 = libpcre2-8.la
 @WITH_PCRE2_16_TRUE@am__append_3 = libpcre2-16.la
@@ -112,31 +112,40 @@ noinst_PROGRAMS = $(am__EXEEXT_2) $(am__EXEEXT_3) $(am__EXEEXT_4) \
 @WITH_PCRE2_8_TRUE@am__append_13 = pcre2grep
 @WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@am__append_14 = $(GCOV_CFLAGS)
 @WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@am__append_15 = $(GCOV_LIBS)
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@am__append_16 = pcre2fuzzcheck
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@am__append_17 = $(GCOV_CFLAGS)
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@am__append_18 = $(GCOV_LIBS)
-@WITH_PCRE2_8_TRUE@am__append_19 = pcre2posix_test
-@WITH_PCRE2_8_TRUE@am__append_20 = pcre2posix_test
-@WITH_JIT_TRUE@am__append_21 = pcre2_jit_test
-@WITH_JIT_TRUE@am__append_22 = pcre2_jit_test
-@WITH_JIT_TRUE@@WITH_PCRE2_8_TRUE@am__append_23 = libpcre2-8.la
-@WITH_JIT_TRUE@@WITH_PCRE2_16_TRUE@am__append_24 = libpcre2-16.la
-@WITH_JIT_TRUE@@WITH_PCRE2_32_TRUE@am__append_25 = libpcre2-32.la
-@WITH_GCOV_TRUE@@WITH_JIT_TRUE@am__append_26 = $(GCOV_CFLAGS)
-@WITH_GCOV_TRUE@@WITH_JIT_TRUE@am__append_27 = $(GCOV_LIBS)
-@WITH_PCRE2_8_TRUE@am__append_28 = libpcre2-8.la libpcre2-posix.la
-@WITH_PCRE2_16_TRUE@am__append_29 = libpcre2-16.la
-@WITH_PCRE2_32_TRUE@am__append_30 = libpcre2-32.la
-@WITH_VALGRIND_TRUE@am__append_31 = $(VALGRIND_CFLAGS)
-@WITH_GCOV_TRUE@am__append_32 = $(GCOV_CFLAGS)
-@WITH_GCOV_TRUE@am__append_33 = $(GCOV_LIBS)
-@WITH_PCRE2_8_TRUE@am__append_34 = RunGrepTest
-@WITH_PCRE2_8_TRUE@am__append_35 = RunGrepTest.bat
-@WITH_PCRE2_8_TRUE@am__append_36 = RunGrepTest
-@WITH_PCRE2_8_TRUE@am__append_37 = libpcre2-8.pc libpcre2-posix.pc
-@WITH_PCRE2_16_TRUE@am__append_38 = libpcre2-16.pc
-@WITH_PCRE2_32_TRUE@am__append_39 = libpcre2-32.pc
-@WITH_GCOV_FALSE@am__append_40 = src/*.gcda src/*.gcno
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@am__append_16 = .libs/libpcre2-fuzzsupport.a
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@am__append_17 = pcre2fuzzcheck-8
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@am__append_18 = $(GCOV_CFLAGS)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@am__append_19 = $(GCOV_LIBS)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@am__append_20 = .libs/libpcre2-fuzzsupport-16.a
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@am__append_21 = pcre2fuzzcheck-16
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_16_TRUE@am__append_22 = $(GCOV_CFLAGS)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_16_TRUE@am__append_23 = $(GCOV_LIBS)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@am__append_24 = .libs/libpcre2-fuzzsupport-32.a
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@am__append_25 = pcre2fuzzcheck-32
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_32_TRUE@am__append_26 = $(GCOV_CFLAGS)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_32_TRUE@am__append_27 = $(GCOV_LIBS)
+@WITH_PCRE2_8_TRUE@am__append_28 = pcre2posix_test
+@WITH_PCRE2_8_TRUE@am__append_29 = pcre2posix_test
+@WITH_JIT_TRUE@am__append_30 = pcre2_jit_test
+@WITH_JIT_TRUE@am__append_31 = pcre2_jit_test
+@WITH_JIT_TRUE@@WITH_PCRE2_8_TRUE@am__append_32 = libpcre2-8.la
+@WITH_JIT_TRUE@@WITH_PCRE2_16_TRUE@am__append_33 = libpcre2-16.la
+@WITH_JIT_TRUE@@WITH_PCRE2_32_TRUE@am__append_34 = libpcre2-32.la
+@WITH_GCOV_TRUE@@WITH_JIT_TRUE@am__append_35 = $(GCOV_CFLAGS)
+@WITH_GCOV_TRUE@@WITH_JIT_TRUE@am__append_36 = $(GCOV_LIBS)
+@WITH_PCRE2_8_TRUE@am__append_37 = libpcre2-8.la libpcre2-posix.la
+@WITH_PCRE2_16_TRUE@am__append_38 = libpcre2-16.la
+@WITH_PCRE2_32_TRUE@am__append_39 = libpcre2-32.la
+@WITH_VALGRIND_TRUE@am__append_40 = $(VALGRIND_CFLAGS)
+@WITH_GCOV_TRUE@am__append_41 = $(GCOV_CFLAGS)
+@WITH_GCOV_TRUE@am__append_42 = $(GCOV_LIBS)
+@WITH_PCRE2_8_TRUE@am__append_43 = RunGrepTest
+@WITH_PCRE2_8_TRUE@am__append_44 = RunGrepTest.bat
+@WITH_PCRE2_8_TRUE@am__append_45 = RunGrepTest
+@WITH_PCRE2_8_TRUE@am__append_46 = libpcre2-8.pc libpcre2-posix.pc
+@WITH_PCRE2_16_TRUE@am__append_47 = libpcre2-16.pc
+@WITH_PCRE2_32_TRUE@am__append_48 = libpcre2-32.pc
+@WITH_GCOV_FALSE@am__append_49 = src/*.gcda src/*.gcno
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_pthread.m4 \
@@ -165,9 +174,11 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(libdir)" \
 	"$(DESTDIR)$(htmldir)" "$(DESTDIR)$(pkgconfigdir)" \
 	"$(DESTDIR)$(includedir)" "$(DESTDIR)$(includedir)"
 @WITH_REBUILD_CHARTABLES_TRUE@am__EXEEXT_2 = pcre2_dftables$(EXEEXT)
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@am__EXEEXT_3 = pcre2fuzzcheck$(EXEEXT)
-@WITH_PCRE2_8_TRUE@am__EXEEXT_4 = pcre2posix_test$(EXEEXT)
-@WITH_JIT_TRUE@am__EXEEXT_5 = pcre2_jit_test$(EXEEXT)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@am__EXEEXT_3 = pcre2fuzzcheck-8$(EXEEXT)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@am__EXEEXT_4 = pcre2fuzzcheck-16$(EXEEXT)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@am__EXEEXT_5 = pcre2fuzzcheck-32$(EXEEXT)
+@WITH_PCRE2_8_TRUE@am__EXEEXT_6 = pcre2posix_test$(EXEEXT)
+@WITH_JIT_TRUE@am__EXEEXT_7 = pcre2_jit_test$(EXEEXT)
 PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS)
 LIBRARIES = $(noinst_LIBRARIES)
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
@@ -203,19 +214,33 @@ AM_V_AR = $(am__v_AR_@AM_V@)
 am__v_AR_ = $(am__v_AR_@AM_DEFAULT_V@)
 am__v_AR_0 = @echo "  AR      " $@;
 am__v_AR_1 = 
+_libs_libpcre2_fuzzsupport_16_a_AR = $(AR) $(ARFLAGS)
+_libs_libpcre2_fuzzsupport_16_a_DEPENDENCIES =
+am___libs_libpcre2_fuzzsupport_16_a_SOURCES_DIST =  \
+	src/pcre2_fuzzsupport.c
+am__dirstamp = $(am__leading_dot)dirstamp
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@am__libs_libpcre2_fuzzsupport_16_a_OBJECTS = src/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.$(OBJEXT)
+_libs_libpcre2_fuzzsupport_16_a_OBJECTS =  \
+	$(am__libs_libpcre2_fuzzsupport_16_a_OBJECTS)
+_libs_libpcre2_fuzzsupport_32_a_AR = $(AR) $(ARFLAGS)
+_libs_libpcre2_fuzzsupport_32_a_DEPENDENCIES =
+am___libs_libpcre2_fuzzsupport_32_a_SOURCES_DIST =  \
+	src/pcre2_fuzzsupport.c
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@am__libs_libpcre2_fuzzsupport_32_a_OBJECTS = src/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.$(OBJEXT)
+_libs_libpcre2_fuzzsupport_32_a_OBJECTS =  \
+	$(am__libs_libpcre2_fuzzsupport_32_a_OBJECTS)
 _libs_libpcre2_fuzzsupport_a_AR = $(AR) $(ARFLAGS)
 _libs_libpcre2_fuzzsupport_a_DEPENDENCIES =
 am___libs_libpcre2_fuzzsupport_a_SOURCES_DIST =  \
 	src/pcre2_fuzzsupport.c
-am__dirstamp = $(am__leading_dot)dirstamp
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@am__libs_libpcre2_fuzzsupport_a_OBJECTS = src/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.$(OBJEXT)
 _libs_libpcre2_fuzzsupport_a_OBJECTS =  \
 	$(am__libs_libpcre2_fuzzsupport_a_OBJECTS)
 libpcre2_16_la_DEPENDENCIES =
 am__libpcre2_16_la_SOURCES_DIST = src/pcre2_auto_possess.c \
-	src/pcre2_compile.c src/pcre2_config.c src/pcre2_context.c \
-	src/pcre2_convert.c src/pcre2_dfa_match.c src/pcre2_error.c \
-	src/pcre2_extuni.c src/pcre2_find_bracket.c \
+	src/pcre2_chkdint.c src/pcre2_compile.c src/pcre2_config.c \
+	src/pcre2_context.c src/pcre2_convert.c src/pcre2_dfa_match.c \
+	src/pcre2_error.c src/pcre2_extuni.c src/pcre2_find_bracket.c \
 	src/pcre2_internal.h src/pcre2_intmodedep.h \
 	src/pcre2_jit_compile.c src/pcre2_jit_neon_inc.h \
 	src/pcre2_jit_simd_inc.h src/pcre2_maketables.c \
@@ -227,6 +252,7 @@ am__libpcre2_16_la_SOURCES_DIST = src/pcre2_auto_possess.c \
 	src/pcre2_tables.c src/pcre2_ucd.c src/pcre2_ucp.h \
 	src/pcre2_valid_utf.c src/pcre2_xclass.c
 am__objects_1 = src/libpcre2_16_la-pcre2_auto_possess.lo \
+	src/libpcre2_16_la-pcre2_chkdint.lo \
 	src/libpcre2_16_la-pcre2_compile.lo \
 	src/libpcre2_16_la-pcre2_config.lo \
 	src/libpcre2_16_la-pcre2_context.lo \
@@ -268,9 +294,9 @@ libpcre2_16_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 @WITH_PCRE2_16_TRUE@am_libpcre2_16_la_rpath = -rpath $(libdir)
 libpcre2_32_la_DEPENDENCIES =
 am__libpcre2_32_la_SOURCES_DIST = src/pcre2_auto_possess.c \
-	src/pcre2_compile.c src/pcre2_config.c src/pcre2_context.c \
-	src/pcre2_convert.c src/pcre2_dfa_match.c src/pcre2_error.c \
-	src/pcre2_extuni.c src/pcre2_find_bracket.c \
+	src/pcre2_chkdint.c src/pcre2_compile.c src/pcre2_config.c \
+	src/pcre2_context.c src/pcre2_convert.c src/pcre2_dfa_match.c \
+	src/pcre2_error.c src/pcre2_extuni.c src/pcre2_find_bracket.c \
 	src/pcre2_internal.h src/pcre2_intmodedep.h \
 	src/pcre2_jit_compile.c src/pcre2_jit_neon_inc.h \
 	src/pcre2_jit_simd_inc.h src/pcre2_maketables.c \
@@ -282,6 +308,7 @@ am__libpcre2_32_la_SOURCES_DIST = src/pcre2_auto_possess.c \
 	src/pcre2_tables.c src/pcre2_ucd.c src/pcre2_ucp.h \
 	src/pcre2_valid_utf.c src/pcre2_xclass.c
 am__objects_3 = src/libpcre2_32_la-pcre2_auto_possess.lo \
+	src/libpcre2_32_la-pcre2_chkdint.lo \
 	src/libpcre2_32_la-pcre2_compile.lo \
 	src/libpcre2_32_la-pcre2_config.lo \
 	src/libpcre2_32_la-pcre2_context.lo \
@@ -319,9 +346,9 @@ libpcre2_32_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 @WITH_PCRE2_32_TRUE@am_libpcre2_32_la_rpath = -rpath $(libdir)
 libpcre2_8_la_DEPENDENCIES =
 am__libpcre2_8_la_SOURCES_DIST = src/pcre2_auto_possess.c \
-	src/pcre2_compile.c src/pcre2_config.c src/pcre2_context.c \
-	src/pcre2_convert.c src/pcre2_dfa_match.c src/pcre2_error.c \
-	src/pcre2_extuni.c src/pcre2_find_bracket.c \
+	src/pcre2_chkdint.c src/pcre2_compile.c src/pcre2_config.c \
+	src/pcre2_context.c src/pcre2_convert.c src/pcre2_dfa_match.c \
+	src/pcre2_error.c src/pcre2_extuni.c src/pcre2_find_bracket.c \
 	src/pcre2_internal.h src/pcre2_intmodedep.h \
 	src/pcre2_jit_compile.c src/pcre2_jit_neon_inc.h \
 	src/pcre2_jit_simd_inc.h src/pcre2_maketables.c \
@@ -333,6 +360,7 @@ am__libpcre2_8_la_SOURCES_DIST = src/pcre2_auto_possess.c \
 	src/pcre2_tables.c src/pcre2_ucd.c src/pcre2_ucp.h \
 	src/pcre2_valid_utf.c src/pcre2_xclass.c
 am__objects_5 = src/libpcre2_8_la-pcre2_auto_possess.lo \
+	src/libpcre2_8_la-pcre2_chkdint.lo \
 	src/libpcre2_8_la-pcre2_compile.lo \
 	src/libpcre2_8_la-pcre2_config.lo \
 	src/libpcre2_8_la-pcre2_context.lo \
@@ -389,33 +417,55 @@ pcre2_jit_test_OBJECTS = $(am_pcre2_jit_test_OBJECTS)
 am__DEPENDENCIES_1 =
 @WITH_GCOV_TRUE@@WITH_JIT_TRUE@am__DEPENDENCIES_2 =  \
 @WITH_GCOV_TRUE@@WITH_JIT_TRUE@	$(am__DEPENDENCIES_1)
-@WITH_JIT_TRUE@pcre2_jit_test_DEPENDENCIES = $(am__append_23) \
-@WITH_JIT_TRUE@	$(am__append_24) $(am__append_25) \
+@WITH_JIT_TRUE@pcre2_jit_test_DEPENDENCIES = $(am__append_32) \
+@WITH_JIT_TRUE@	$(am__append_33) $(am__append_34) \
 @WITH_JIT_TRUE@	$(am__DEPENDENCIES_2)
 pcre2_jit_test_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(pcre2_jit_test_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o \
 	$@
-am__pcre2fuzzcheck_SOURCES_DIST = src/pcre2_fuzzsupport.c
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@am_pcre2fuzzcheck_OBJECTS = src/pcre2fuzzcheck-pcre2_fuzzsupport.$(OBJEXT)
-pcre2fuzzcheck_OBJECTS = $(am_pcre2fuzzcheck_OBJECTS)
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@am__DEPENDENCIES_3 = $(am__DEPENDENCIES_1)
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@pcre2fuzzcheck_DEPENDENCIES =  \
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	libpcre2-8.la \
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	$(am__DEPENDENCIES_3)
-pcre2fuzzcheck_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+am__pcre2fuzzcheck_16_SOURCES_DIST = src/pcre2_fuzzsupport.c
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@am_pcre2fuzzcheck_16_OBJECTS = src/pcre2fuzzcheck_16-pcre2_fuzzsupport.$(OBJEXT)
+pcre2fuzzcheck_16_OBJECTS = $(am_pcre2fuzzcheck_16_OBJECTS)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_16_TRUE@am__DEPENDENCIES_3 = $(am__DEPENDENCIES_1)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@pcre2fuzzcheck_16_DEPENDENCIES =  \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@	libpcre2-16.la \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@	$(am__DEPENDENCIES_3)
+pcre2fuzzcheck_16_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(pcre2fuzzcheck_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o \
-	$@
+	$(pcre2fuzzcheck_16_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
+	-o $@
+am__pcre2fuzzcheck_32_SOURCES_DIST = src/pcre2_fuzzsupport.c
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@am_pcre2fuzzcheck_32_OBJECTS = src/pcre2fuzzcheck_32-pcre2_fuzzsupport.$(OBJEXT)
+pcre2fuzzcheck_32_OBJECTS = $(am_pcre2fuzzcheck_32_OBJECTS)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_32_TRUE@am__DEPENDENCIES_4 = $(am__DEPENDENCIES_1)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@pcre2fuzzcheck_32_DEPENDENCIES =  \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@	libpcre2-32.la \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@	$(am__DEPENDENCIES_4)
+pcre2fuzzcheck_32_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(pcre2fuzzcheck_32_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
+	-o $@
+am__pcre2fuzzcheck_8_SOURCES_DIST = src/pcre2_fuzzsupport.c
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@am_pcre2fuzzcheck_8_OBJECTS = src/pcre2fuzzcheck_8-pcre2_fuzzsupport.$(OBJEXT)
+pcre2fuzzcheck_8_OBJECTS = $(am_pcre2fuzzcheck_8_OBJECTS)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@am__DEPENDENCIES_5 = $(am__DEPENDENCIES_1)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@pcre2fuzzcheck_8_DEPENDENCIES =  \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	libpcre2-8.la \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	$(am__DEPENDENCIES_5)
+pcre2fuzzcheck_8_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(pcre2fuzzcheck_8_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
+	-o $@
 am__pcre2grep_SOURCES_DIST = src/pcre2grep.c
 @WITH_PCRE2_8_TRUE@am_pcre2grep_OBJECTS =  \
 @WITH_PCRE2_8_TRUE@	src/pcre2grep-pcre2grep.$(OBJEXT)
 pcre2grep_OBJECTS = $(am_pcre2grep_OBJECTS)
-@WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@am__DEPENDENCIES_4 =  \
+@WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@am__DEPENDENCIES_6 =  \
 @WITH_GCOV_TRUE@@WITH_PCRE2_8_TRUE@	$(am__DEPENDENCIES_1)
 @WITH_PCRE2_8_TRUE@pcre2grep_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 @WITH_PCRE2_8_TRUE@	$(am__DEPENDENCIES_1) libpcre2-8.la \
-@WITH_PCRE2_8_TRUE@	$(am__DEPENDENCIES_4)
+@WITH_PCRE2_8_TRUE@	$(am__DEPENDENCIES_6)
 pcre2grep_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(pcre2grep_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
@@ -430,9 +480,9 @@ pcre2posix_test_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	-o $@
 am_pcre2test_OBJECTS = src/pcre2test-pcre2test.$(OBJEXT)
 pcre2test_OBJECTS = $(am_pcre2test_OBJECTS)
-@WITH_GCOV_TRUE@am__DEPENDENCIES_5 = $(am__DEPENDENCIES_1)
-pcre2test_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__append_28) \
-	$(am__append_29) $(am__append_30) $(am__DEPENDENCIES_5)
+@WITH_GCOV_TRUE@am__DEPENDENCIES_7 = $(am__DEPENDENCIES_1)
+pcre2test_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__append_37) \
+	$(am__append_38) $(am__append_39) $(am__DEPENDENCIES_7)
 pcre2test_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(pcre2test_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
@@ -453,9 +503,12 @@ am__v_at_1 =
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/src
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__maybe_remake_depfiles = depfiles
-am__depfiles_remade = src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.Po \
+am__depfiles_remade = src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.Po \
+	src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.Po \
+	src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.Po \
 	src/$(DEPDIR)/libpcre2_16_la-pcre2_auto_possess.Plo \
 	src/$(DEPDIR)/libpcre2_16_la-pcre2_chartables.Plo \
+	src/$(DEPDIR)/libpcre2_16_la-pcre2_chkdint.Plo \
 	src/$(DEPDIR)/libpcre2_16_la-pcre2_compile.Plo \
 	src/$(DEPDIR)/libpcre2_16_la-pcre2_config.Plo \
 	src/$(DEPDIR)/libpcre2_16_la-pcre2_context.Plo \
@@ -483,6 +536,7 @@ am__depfiles_remade = src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsuppo
 	src/$(DEPDIR)/libpcre2_16_la-pcre2_xclass.Plo \
 	src/$(DEPDIR)/libpcre2_32_la-pcre2_auto_possess.Plo \
 	src/$(DEPDIR)/libpcre2_32_la-pcre2_chartables.Plo \
+	src/$(DEPDIR)/libpcre2_32_la-pcre2_chkdint.Plo \
 	src/$(DEPDIR)/libpcre2_32_la-pcre2_compile.Plo \
 	src/$(DEPDIR)/libpcre2_32_la-pcre2_config.Plo \
 	src/$(DEPDIR)/libpcre2_32_la-pcre2_context.Plo \
@@ -510,6 +564,7 @@ am__depfiles_remade = src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsuppo
 	src/$(DEPDIR)/libpcre2_32_la-pcre2_xclass.Plo \
 	src/$(DEPDIR)/libpcre2_8_la-pcre2_auto_possess.Plo \
 	src/$(DEPDIR)/libpcre2_8_la-pcre2_chartables.Plo \
+	src/$(DEPDIR)/libpcre2_8_la-pcre2_chkdint.Plo \
 	src/$(DEPDIR)/libpcre2_8_la-pcre2_compile.Plo \
 	src/$(DEPDIR)/libpcre2_8_la-pcre2_config.Plo \
 	src/$(DEPDIR)/libpcre2_8_la-pcre2_context.Plo \
@@ -538,7 +593,9 @@ am__depfiles_remade = src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsuppo
 	src/$(DEPDIR)/libpcre2_posix_la-pcre2posix.Plo \
 	src/$(DEPDIR)/pcre2_dftables.Po \
 	src/$(DEPDIR)/pcre2_jit_test-pcre2_jit_test.Po \
-	src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Po \
+	src/$(DEPDIR)/pcre2fuzzcheck_16-pcre2_fuzzsupport.Po \
+	src/$(DEPDIR)/pcre2fuzzcheck_32-pcre2_fuzzsupport.Po \
+	src/$(DEPDIR)/pcre2fuzzcheck_8-pcre2_fuzzsupport.Po \
 	src/$(DEPDIR)/pcre2grep-pcre2grep.Po \
 	src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Po \
 	src/$(DEPDIR)/pcre2test-pcre2test.Po
@@ -561,22 +618,29 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(_libs_libpcre2_fuzzsupport_a_SOURCES) \
+SOURCES = $(_libs_libpcre2_fuzzsupport_16_a_SOURCES) \
+	$(_libs_libpcre2_fuzzsupport_32_a_SOURCES) \
+	$(_libs_libpcre2_fuzzsupport_a_SOURCES) \
 	$(libpcre2_16_la_SOURCES) $(nodist_libpcre2_16_la_SOURCES) \
 	$(libpcre2_32_la_SOURCES) $(nodist_libpcre2_32_la_SOURCES) \
 	$(libpcre2_8_la_SOURCES) $(nodist_libpcre2_8_la_SOURCES) \
 	$(libpcre2_posix_la_SOURCES) $(pcre2_dftables_SOURCES) \
-	$(pcre2_jit_test_SOURCES) $(pcre2fuzzcheck_SOURCES) \
+	$(pcre2_jit_test_SOURCES) $(pcre2fuzzcheck_16_SOURCES) \
+	$(pcre2fuzzcheck_32_SOURCES) $(pcre2fuzzcheck_8_SOURCES) \
 	$(pcre2grep_SOURCES) $(pcre2posix_test_SOURCES) \
 	$(pcre2test_SOURCES)
-DIST_SOURCES = $(am___libs_libpcre2_fuzzsupport_a_SOURCES_DIST) \
+DIST_SOURCES = $(am___libs_libpcre2_fuzzsupport_16_a_SOURCES_DIST) \
+	$(am___libs_libpcre2_fuzzsupport_32_a_SOURCES_DIST) \
+	$(am___libs_libpcre2_fuzzsupport_a_SOURCES_DIST) \
 	$(am__libpcre2_16_la_SOURCES_DIST) \
 	$(am__libpcre2_32_la_SOURCES_DIST) \
 	$(am__libpcre2_8_la_SOURCES_DIST) \
 	$(am__libpcre2_posix_la_SOURCES_DIST) \
 	$(am__pcre2_dftables_SOURCES_DIST) \
 	$(am__pcre2_jit_test_SOURCES_DIST) \
-	$(am__pcre2fuzzcheck_SOURCES_DIST) \
+	$(am__pcre2fuzzcheck_16_SOURCES_DIST) \
+	$(am__pcre2fuzzcheck_32_SOURCES_DIST) \
+	$(am__pcre2fuzzcheck_8_SOURCES_DIST) \
 	$(am__pcre2grep_SOURCES_DIST) \
 	$(am__pcre2posix_test_SOURCES_DIST) $(pcre2test_SOURCES)
 am__can_run_installinfo = \
@@ -888,6 +952,7 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
+PCRE2POSIX_CFLAG = @PCRE2POSIX_CFLAG@
 PCRE2_DATE = @PCRE2_DATE@
 PCRE2_MAJOR = @PCRE2_MAJOR@
 PCRE2_MINOR = @PCRE2_MINOR@
@@ -1007,6 +1072,7 @@ dist_html_DATA = \
   doc/html/pcre2_general_context_free.html \
   doc/html/pcre2_get_error_message.html \
   doc/html/pcre2_get_mark.html \
+  doc/html/pcre2_get_match_data_heapframes_size.html \
   doc/html/pcre2_get_match_data_size.html \
   doc/html/pcre2_get_ovector_count.html \
   doc/html/pcre2_get_ovector_pointer.html \
@@ -1043,6 +1109,7 @@ dist_html_DATA = \
   doc/html/pcre2_set_heap_limit.html \
   doc/html/pcre2_set_match_limit.html \
   doc/html/pcre2_set_max_pattern_length.html \
+  doc/html/pcre2_set_max_varlookbehind.html \
   doc/html/pcre2_set_offset_limit.html \
   doc/html/pcre2_set_newline.html \
   doc/html/pcre2_set_parens_nest_limit.html \
@@ -1103,6 +1170,7 @@ dist_man_MANS = \
   doc/pcre2_general_context_free.3 \
   doc/pcre2_get_error_message.3 \
   doc/pcre2_get_mark.3 \
+  doc/pcre2_get_match_data_heapframes_size.3 \
   doc/pcre2_get_match_data_size.3 \
   doc/pcre2_get_ovector_count.3 \
   doc/pcre2_get_ovector_pointer.3 \
@@ -1139,6 +1207,7 @@ dist_man_MANS = \
   doc/pcre2_set_heap_limit.3 \
   doc/pcre2_set_match_limit.3 \
   doc/pcre2_set_max_pattern_length.3 \
+  doc/pcre2_set_max_varlookbehind.3 \
   doc/pcre2_set_offset_limit.3 \
   doc/pcre2_set_newline.3 \
   doc/pcre2_set_parens_nest_limit.3 \
@@ -1182,7 +1251,7 @@ dist_man_MANS = \
 lib_LTLIBRARIES = $(am__append_2) $(am__append_3) $(am__append_4) \
 	$(am__append_11)
 check_SCRIPTS = 
-dist_noinst_SCRIPTS = RunTest $(am__append_36)
+dist_noinst_SCRIPTS = RunTest $(am__append_45)
 
 # Additional files to delete on 'make clean', 'make distclean',
 # and 'make maintainer-clean'.
@@ -1193,7 +1262,7 @@ CLEANFILES = src/pcre2_chartables.c testSinput test3input test3output \
 	test3outputA test3outputB testtry teststdout teststderr \
 	teststderrgrep testtemp1grep testtemp2grep testtrygrep \
 	testNinputgrep
-DISTCLEANFILES = src/config.h.in~ $(am__append_40)
+DISTCLEANFILES = src/config.h.in~ $(am__append_49)
 MAINTAINERCLEANFILES = src/pcre2.h.generic src/config.h.generic
 
 # Additional files to bundle with the distribution, over and above what
@@ -1226,10 +1295,11 @@ EXTRA_DIST = m4/ax_pthread.m4 m4/pcre2_visibility.m4 \
 	Detrail 132html doc/index.html.src src/pcre2.h.generic \
 	src/config.h.generic src/pcre2_ucptables.c \
 	src/pcre2_chartables.c.dist src/sljit/sljitConfig.h \
-	src/sljit/sljitConfigInternal.h src/sljit/sljitExecAllocator.c \
+	src/sljit/sljitConfigCPU.h src/sljit/sljitConfigInternal.h \
 	src/sljit/sljitLir.c src/sljit/sljitLir.h \
 	src/sljit/sljitNativeARM_32.c src/sljit/sljitNativeARM_64.c \
 	src/sljit/sljitNativeARM_T2_32.c \
+	src/sljit/sljitNativeLOONGARCH_64.c \
 	src/sljit/sljitNativeMIPS_32.c src/sljit/sljitNativeMIPS_64.c \
 	src/sljit/sljitNativeMIPS_common.c \
 	src/sljit/sljitNativePPC_32.c src/sljit/sljitNativePPC_64.c \
@@ -1239,12 +1309,20 @@ EXTRA_DIST = m4/ax_pthread.m4 m4/pcre2_visibility.m4 \
 	src/sljit/sljitNativeRISCV_common.c \
 	src/sljit/sljitNativeS390X.c src/sljit/sljitNativeX86_32.c \
 	src/sljit/sljitNativeX86_64.c \
-	src/sljit/sljitNativeX86_common.c \
-	src/sljit/sljitProtExecAllocator.c src/sljit/sljitUtils.c \
-	src/sljit/sljitWXExecAllocator.c src/pcre2_jit_match.c \
-	src/pcre2_jit_misc.c src/pcre2_printint.c RunTest.bat \
-	$(am__append_35) testdata/grepbinary testdata/grepfilelist \
-	testdata/grepinput testdata/grepinput3 testdata/grepinput8 \
+	src/sljit/sljitNativeX86_common.c src/sljit/sljitUtils.c \
+	src/sljit/allocator_src/sljitExecAllocatorApple.c \
+	src/sljit/allocator_src/sljitExecAllocatorCore.c \
+	src/sljit/allocator_src/sljitExecAllocatorFreeBSD.c \
+	src/sljit/allocator_src/sljitExecAllocatorPosix.c \
+	src/sljit/allocator_src/sljitExecAllocatorWindows.c \
+	src/sljit/allocator_src/sljitProtExecAllocatorNetBSD.c \
+	src/sljit/allocator_src/sljitProtExecAllocatorPosix.c \
+	src/sljit/allocator_src/sljitWXExecAllocatorPosix.c \
+	src/sljit/allocator_src/sljitWXExecAllocatorWindows.c \
+	src/pcre2_jit_match.c src/pcre2_jit_misc.c \
+	src/pcre2_printint.c RunTest.bat $(am__append_44) \
+	testdata/grepbinary testdata/grepfilelist testdata/grepinput \
+	testdata/grepinput3 testdata/grepinput8 \
 	testdata/grepinputC.bz2 testdata/grepinputC.gz \
 	testdata/grepinputM testdata/grepinputv testdata/grepinputx \
 	testdata/greplist testdata/grepnot.bz2 testdata/grepoutput \
@@ -1304,6 +1382,7 @@ BUILT_SOURCES = src/pcre2_chartables.c
 NODIST_SOURCES = src/pcre2_chartables.c
 COMMON_SOURCES = \
   src/pcre2_auto_possess.c \
+  src/pcre2_chkdint.c \
   src/pcre2_compile.c \
   src/pcre2_config.c \
   src/pcre2_context.c \
@@ -1376,42 +1455,67 @@ COMMON_SOURCES = \
 @WITH_PCRE2_8_TRUE@libpcre2_posix_la_SOURCES = src/pcre2posix.c
 @WITH_PCRE2_8_TRUE@libpcre2_posix_la_CFLAGS =  \
 @WITH_PCRE2_8_TRUE@	-DPCRE2_CODE_UNIT_WIDTH=8 \
-@WITH_PCRE2_8_TRUE@	$(VISIBILITY_CFLAGS) $(AM_CFLAGS) \
-@WITH_PCRE2_8_TRUE@	$(am__append_12)
+@WITH_PCRE2_8_TRUE@	@PCRE2POSIX_CFLAG@ $(VISIBILITY_CFLAGS) \
+@WITH_PCRE2_8_TRUE@	$(AM_CFLAGS) $(am__append_12)
 @WITH_PCRE2_8_TRUE@libpcre2_posix_la_LDFLAGS = $(EXTRA_LIBPCRE2_POSIX_LDFLAGS)
 @WITH_PCRE2_8_TRUE@libpcre2_posix_la_LIBADD = libpcre2-8.la
 @WITH_PCRE2_8_TRUE@pcre2grep_SOURCES = src/pcre2grep.c
 @WITH_PCRE2_8_TRUE@pcre2grep_CFLAGS = $(AM_CFLAGS) $(am__append_14)
 @WITH_PCRE2_8_TRUE@pcre2grep_LDADD = $(LIBZ) $(LIBBZ2) libpcre2-8.la \
 @WITH_PCRE2_8_TRUE@	$(am__append_15)
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@noinst_LIBRARIES = .libs/libpcre2-fuzzsupport.a
+@WITH_FUZZ_SUPPORT_TRUE@noinst_LIBRARIES = $(am__append_16) \
+@WITH_FUZZ_SUPPORT_TRUE@	$(am__append_20) $(am__append_24)
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@_libs_libpcre2_fuzzsupport_a_SOURCES = src/pcre2_fuzzsupport.c
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@_libs_libpcre2_fuzzsupport_a_CFLAGS = $(AM_CFLAGS)
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@_libs_libpcre2_fuzzsupport_a_LIBADD = 
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@pcre2fuzzcheck_SOURCES = src/pcre2_fuzzsupport.c
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@pcre2fuzzcheck_CFLAGS =  \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@pcre2fuzzcheck_8_SOURCES = src/pcre2_fuzzsupport.c
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@pcre2fuzzcheck_8_CFLAGS =  \
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	-DSTANDALONE \
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	$(AM_CFLAGS) \
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	$(am__append_17)
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@pcre2fuzzcheck_LDADD =  \
-@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	libpcre2-8.la \
 @WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	$(am__append_18)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@pcre2fuzzcheck_8_LDADD =  \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	libpcre2-8.la \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_8_TRUE@	$(am__append_19)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@_libs_libpcre2_fuzzsupport_16_a_SOURCES = src/pcre2_fuzzsupport.c
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@_libs_libpcre2_fuzzsupport_16_a_CFLAGS = $(AM_CFLAGS) -DPCRE2_CODE_UNIT_WIDTH=16
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@_libs_libpcre2_fuzzsupport_16_a_LIBADD = 
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@pcre2fuzzcheck_16_SOURCES = src/pcre2_fuzzsupport.c
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@pcre2fuzzcheck_16_CFLAGS =  \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@	-DSTANDALONE \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@	$(AM_CFLAGS) \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@	-DPCRE2_CODE_UNIT_WIDTH=16 \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@	$(am__append_22)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@pcre2fuzzcheck_16_LDADD =  \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@	libpcre2-16.la \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_16_TRUE@	$(am__append_23)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@_libs_libpcre2_fuzzsupport_32_a_SOURCES = src/pcre2_fuzzsupport.c
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@_libs_libpcre2_fuzzsupport_32_a_CFLAGS = $(AM_CFLAGS) -DPCRE2_CODE_UNIT_WIDTH=32
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@_libs_libpcre2_fuzzsupport_32_a_LIBADD = 
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@pcre2fuzzcheck_32_SOURCES = src/pcre2_fuzzsupport.c
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@pcre2fuzzcheck_32_CFLAGS =  \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@	-DSTANDALONE \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@	$(AM_CFLAGS) \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@	-DPCRE2_CODE_UNIT_WIDTH=32 \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@	$(am__append_26)
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@pcre2fuzzcheck_32_LDADD =  \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@	libpcre2-32.la \
+@WITH_FUZZ_SUPPORT_TRUE@@WITH_PCRE2_32_TRUE@	$(am__append_27)
 @WITH_PCRE2_8_TRUE@pcre2posix_test_SOURCES = src/pcre2posix_test.c
-@WITH_PCRE2_8_TRUE@pcre2posix_test_CFLAGS = $(AM_CFLAGS)
+@WITH_PCRE2_8_TRUE@pcre2posix_test_CFLAGS = $(AM_CFLAGS) @PCRE2POSIX_CFLAG@
 @WITH_PCRE2_8_TRUE@pcre2posix_test_LDADD = libpcre2-posix.la libpcre2-8.la
 @WITH_JIT_TRUE@pcre2_jit_test_SOURCES = src/pcre2_jit_test.c
-@WITH_JIT_TRUE@pcre2_jit_test_CFLAGS = $(AM_CFLAGS) $(am__append_26)
-@WITH_JIT_TRUE@pcre2_jit_test_LDADD = $(am__append_23) \
-@WITH_JIT_TRUE@	$(am__append_24) $(am__append_25) \
-@WITH_JIT_TRUE@	$(am__append_27)
+@WITH_JIT_TRUE@pcre2_jit_test_CFLAGS = $(AM_CFLAGS) $(am__append_35)
+@WITH_JIT_TRUE@pcre2_jit_test_LDADD = $(am__append_32) \
+@WITH_JIT_TRUE@	$(am__append_33) $(am__append_34) \
+@WITH_JIT_TRUE@	$(am__append_36)
 pcre2test_SOURCES = src/pcre2test.c
-pcre2test_CFLAGS = $(AM_CFLAGS) $(am__append_31) $(am__append_32)
-pcre2test_LDADD = $(LIBREADLINE) $(am__append_28) $(am__append_29) \
-	$(am__append_30) $(am__append_33)
+pcre2test_CFLAGS = $(AM_CFLAGS) $(am__append_40) $(am__append_41)
+pcre2test_LDADD = $(LIBREADLINE) $(am__append_37) $(am__append_38) \
+	$(am__append_39) $(am__append_42)
 
 # We have .pc files for pkg-config users.
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = $(am__append_37) $(am__append_38) $(am__append_39)
+pkgconfig_DATA = $(am__append_46) $(am__append_47) $(am__append_48)
 
 # gcov/lcov code coverage reporting
 #
@@ -1603,17 +1707,33 @@ src/$(am__dirstamp):
 src/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) src/$(DEPDIR)
 	@: > src/$(DEPDIR)/$(am__dirstamp)
-src/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.$(OBJEXT):  \
+src/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.$(OBJEXT):  \
 	src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 .libs/$(am__dirstamp):
 	@$(MKDIR_P) .libs
 	@: > .libs/$(am__dirstamp)
+
+.libs/libpcre2-fuzzsupport-16.a: $(_libs_libpcre2_fuzzsupport_16_a_OBJECTS) $(_libs_libpcre2_fuzzsupport_16_a_DEPENDENCIES) $(EXTRA__libs_libpcre2_fuzzsupport_16_a_DEPENDENCIES) .libs/$(am__dirstamp)
+	$(AM_V_at)-rm -f .libs/libpcre2-fuzzsupport-16.a
+	$(AM_V_AR)$(_libs_libpcre2_fuzzsupport_16_a_AR) .libs/libpcre2-fuzzsupport-16.a $(_libs_libpcre2_fuzzsupport_16_a_OBJECTS) $(_libs_libpcre2_fuzzsupport_16_a_LIBADD)
+	$(AM_V_at)$(RANLIB) .libs/libpcre2-fuzzsupport-16.a
+src/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.$(OBJEXT):  \
+	src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
+
+.libs/libpcre2-fuzzsupport-32.a: $(_libs_libpcre2_fuzzsupport_32_a_OBJECTS) $(_libs_libpcre2_fuzzsupport_32_a_DEPENDENCIES) $(EXTRA__libs_libpcre2_fuzzsupport_32_a_DEPENDENCIES) .libs/$(am__dirstamp)
+	$(AM_V_at)-rm -f .libs/libpcre2-fuzzsupport-32.a
+	$(AM_V_AR)$(_libs_libpcre2_fuzzsupport_32_a_AR) .libs/libpcre2-fuzzsupport-32.a $(_libs_libpcre2_fuzzsupport_32_a_OBJECTS) $(_libs_libpcre2_fuzzsupport_32_a_LIBADD)
+	$(AM_V_at)$(RANLIB) .libs/libpcre2-fuzzsupport-32.a
+src/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.$(OBJEXT):  \
+	src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 
 .libs/libpcre2-fuzzsupport.a: $(_libs_libpcre2_fuzzsupport_a_OBJECTS) $(_libs_libpcre2_fuzzsupport_a_DEPENDENCIES) $(EXTRA__libs_libpcre2_fuzzsupport_a_DEPENDENCIES) .libs/$(am__dirstamp)
 	$(AM_V_at)-rm -f .libs/libpcre2-fuzzsupport.a
 	$(AM_V_AR)$(_libs_libpcre2_fuzzsupport_a_AR) .libs/libpcre2-fuzzsupport.a $(_libs_libpcre2_fuzzsupport_a_OBJECTS) $(_libs_libpcre2_fuzzsupport_a_LIBADD)
 	$(AM_V_at)$(RANLIB) .libs/libpcre2-fuzzsupport.a
 src/libpcre2_16_la-pcre2_auto_possess.lo: src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
+src/libpcre2_16_la-pcre2_chkdint.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/libpcre2_16_la-pcre2_compile.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
@@ -1672,6 +1792,8 @@ libpcre2-16.la: $(libpcre2_16_la_OBJECTS) $(libpcre2_16_la_DEPENDENCIES) $(EXTRA
 	$(AM_V_CCLD)$(libpcre2_16_la_LINK) $(am_libpcre2_16_la_rpath) $(libpcre2_16_la_OBJECTS) $(libpcre2_16_la_LIBADD) $(LIBS)
 src/libpcre2_32_la-pcre2_auto_possess.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/libpcre2_32_la-pcre2_chkdint.lo: src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/libpcre2_32_la-pcre2_compile.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/libpcre2_32_la-pcre2_config.lo: src/$(am__dirstamp) \
@@ -1728,6 +1850,8 @@ src/libpcre2_32_la-pcre2_chartables.lo: src/$(am__dirstamp) \
 libpcre2-32.la: $(libpcre2_32_la_OBJECTS) $(libpcre2_32_la_DEPENDENCIES) $(EXTRA_libpcre2_32_la_DEPENDENCIES) 
 	$(AM_V_CCLD)$(libpcre2_32_la_LINK) $(am_libpcre2_32_la_rpath) $(libpcre2_32_la_OBJECTS) $(libpcre2_32_la_LIBADD) $(LIBS)
 src/libpcre2_8_la-pcre2_auto_possess.lo: src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
+src/libpcre2_8_la-pcre2_chkdint.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/libpcre2_8_la-pcre2_compile.lo: src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
@@ -1801,12 +1925,24 @@ src/pcre2_jit_test-pcre2_jit_test.$(OBJEXT): src/$(am__dirstamp) \
 pcre2_jit_test$(EXEEXT): $(pcre2_jit_test_OBJECTS) $(pcre2_jit_test_DEPENDENCIES) $(EXTRA_pcre2_jit_test_DEPENDENCIES) 
 	@rm -f pcre2_jit_test$(EXEEXT)
 	$(AM_V_CCLD)$(pcre2_jit_test_LINK) $(pcre2_jit_test_OBJECTS) $(pcre2_jit_test_LDADD) $(LIBS)
-src/pcre2fuzzcheck-pcre2_fuzzsupport.$(OBJEXT): src/$(am__dirstamp) \
+src/pcre2fuzzcheck_16-pcre2_fuzzsupport.$(OBJEXT):  \
+	src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
+
+pcre2fuzzcheck-16$(EXEEXT): $(pcre2fuzzcheck_16_OBJECTS) $(pcre2fuzzcheck_16_DEPENDENCIES) $(EXTRA_pcre2fuzzcheck_16_DEPENDENCIES) 
+	@rm -f pcre2fuzzcheck-16$(EXEEXT)
+	$(AM_V_CCLD)$(pcre2fuzzcheck_16_LINK) $(pcre2fuzzcheck_16_OBJECTS) $(pcre2fuzzcheck_16_LDADD) $(LIBS)
+src/pcre2fuzzcheck_32-pcre2_fuzzsupport.$(OBJEXT):  \
+	src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
+
+pcre2fuzzcheck-32$(EXEEXT): $(pcre2fuzzcheck_32_OBJECTS) $(pcre2fuzzcheck_32_DEPENDENCIES) $(EXTRA_pcre2fuzzcheck_32_DEPENDENCIES) 
+	@rm -f pcre2fuzzcheck-32$(EXEEXT)
+	$(AM_V_CCLD)$(pcre2fuzzcheck_32_LINK) $(pcre2fuzzcheck_32_OBJECTS) $(pcre2fuzzcheck_32_LDADD) $(LIBS)
+src/pcre2fuzzcheck_8-pcre2_fuzzsupport.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 
-pcre2fuzzcheck$(EXEEXT): $(pcre2fuzzcheck_OBJECTS) $(pcre2fuzzcheck_DEPENDENCIES) $(EXTRA_pcre2fuzzcheck_DEPENDENCIES) 
-	@rm -f pcre2fuzzcheck$(EXEEXT)
-	$(AM_V_CCLD)$(pcre2fuzzcheck_LINK) $(pcre2fuzzcheck_OBJECTS) $(pcre2fuzzcheck_LDADD) $(LIBS)
+pcre2fuzzcheck-8$(EXEEXT): $(pcre2fuzzcheck_8_OBJECTS) $(pcre2fuzzcheck_8_DEPENDENCIES) $(EXTRA_pcre2fuzzcheck_8_DEPENDENCIES) 
+	@rm -f pcre2fuzzcheck-8$(EXEEXT)
+	$(AM_V_CCLD)$(pcre2fuzzcheck_8_LINK) $(pcre2fuzzcheck_8_OBJECTS) $(pcre2fuzzcheck_8_LDADD) $(LIBS)
 src/pcre2grep-pcre2grep.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 
@@ -1869,9 +2005,12 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_16_la-pcre2_auto_possess.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_16_la-pcre2_chartables.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_16_la-pcre2_chkdint.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_16_la-pcre2_compile.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_16_la-pcre2_config.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_16_la-pcre2_context.Plo@am__quote@ # am--include-marker
@@ -1899,6 +2038,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_16_la-pcre2_xclass.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_32_la-pcre2_auto_possess.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_32_la-pcre2_chartables.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_32_la-pcre2_chkdint.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_32_la-pcre2_compile.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_32_la-pcre2_config.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_32_la-pcre2_context.Plo@am__quote@ # am--include-marker
@@ -1926,6 +2066,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_32_la-pcre2_xclass.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_8_la-pcre2_auto_possess.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_8_la-pcre2_chartables.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_8_la-pcre2_chkdint.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_8_la-pcre2_compile.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_8_la-pcre2_config.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_8_la-pcre2_context.Plo@am__quote@ # am--include-marker
@@ -1954,7 +2095,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/libpcre2_posix_la-pcre2posix.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2_dftables.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2_jit_test-pcre2_jit_test.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2fuzzcheck_16-pcre2_fuzzsupport.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2fuzzcheck_32-pcre2_fuzzsupport.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2fuzzcheck_8-pcre2_fuzzsupport.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2grep-pcre2grep.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pcre2test-pcre2test.Po@am__quote@ # am--include-marker
@@ -1989,6 +2132,34 @@ am--depfiles: $(am__depfiles_remade)
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
 
+src/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.o: src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(_libs_libpcre2_fuzzsupport_16_a_CFLAGS) $(CFLAGS) -MT src/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.o -MD -MP -MF src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.Tpo -c -o src/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_fuzzsupport.c' object='src/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(_libs_libpcre2_fuzzsupport_16_a_CFLAGS) $(CFLAGS) -c -o src/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
+
+src/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.obj: src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(_libs_libpcre2_fuzzsupport_16_a_CFLAGS) $(CFLAGS) -MT src/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.obj -MD -MP -MF src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.Tpo -c -o src/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.obj `if test -f 'src/pcre2_fuzzsupport.c'; then $(CYGPATH_W) 'src/pcre2_fuzzsupport.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_fuzzsupport.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_fuzzsupport.c' object='src/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(_libs_libpcre2_fuzzsupport_16_a_CFLAGS) $(CFLAGS) -c -o src/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.obj `if test -f 'src/pcre2_fuzzsupport.c'; then $(CYGPATH_W) 'src/pcre2_fuzzsupport.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_fuzzsupport.c'; fi`
+
+src/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.o: src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(_libs_libpcre2_fuzzsupport_32_a_CFLAGS) $(CFLAGS) -MT src/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.o -MD -MP -MF src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.Tpo -c -o src/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_fuzzsupport.c' object='src/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(_libs_libpcre2_fuzzsupport_32_a_CFLAGS) $(CFLAGS) -c -o src/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
+
+src/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.obj: src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(_libs_libpcre2_fuzzsupport_32_a_CFLAGS) $(CFLAGS) -MT src/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.obj -MD -MP -MF src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.Tpo -c -o src/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.obj `if test -f 'src/pcre2_fuzzsupport.c'; then $(CYGPATH_W) 'src/pcre2_fuzzsupport.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_fuzzsupport.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_fuzzsupport.c' object='src/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(_libs_libpcre2_fuzzsupport_32_a_CFLAGS) $(CFLAGS) -c -o src/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.obj `if test -f 'src/pcre2_fuzzsupport.c'; then $(CYGPATH_W) 'src/pcre2_fuzzsupport.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_fuzzsupport.c'; fi`
+
 src/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.o: src/pcre2_fuzzsupport.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(_libs_libpcre2_fuzzsupport_a_CFLAGS) $(CFLAGS) -MT src/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.o -MD -MP -MF src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.Tpo -c -o src/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.Po
@@ -2009,6 +2180,13 @@ src/libpcre2_16_la-pcre2_auto_possess.lo: src/pcre2_auto_possess.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_auto_possess.c' object='src/libpcre2_16_la-pcre2_auto_possess.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpcre2_16_la_CFLAGS) $(CFLAGS) -c -o src/libpcre2_16_la-pcre2_auto_possess.lo `test -f 'src/pcre2_auto_possess.c' || echo '$(srcdir)/'`src/pcre2_auto_possess.c
+
+src/libpcre2_16_la-pcre2_chkdint.lo: src/pcre2_chkdint.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpcre2_16_la_CFLAGS) $(CFLAGS) -MT src/libpcre2_16_la-pcre2_chkdint.lo -MD -MP -MF src/$(DEPDIR)/libpcre2_16_la-pcre2_chkdint.Tpo -c -o src/libpcre2_16_la-pcre2_chkdint.lo `test -f 'src/pcre2_chkdint.c' || echo '$(srcdir)/'`src/pcre2_chkdint.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libpcre2_16_la-pcre2_chkdint.Tpo src/$(DEPDIR)/libpcre2_16_la-pcre2_chkdint.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_chkdint.c' object='src/libpcre2_16_la-pcre2_chkdint.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpcre2_16_la_CFLAGS) $(CFLAGS) -c -o src/libpcre2_16_la-pcre2_chkdint.lo `test -f 'src/pcre2_chkdint.c' || echo '$(srcdir)/'`src/pcre2_chkdint.c
 
 src/libpcre2_16_la-pcre2_compile.lo: src/pcre2_compile.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpcre2_16_la_CFLAGS) $(CFLAGS) -MT src/libpcre2_16_la-pcre2_compile.lo -MD -MP -MF src/$(DEPDIR)/libpcre2_16_la-pcre2_compile.Tpo -c -o src/libpcre2_16_la-pcre2_compile.lo `test -f 'src/pcre2_compile.c' || echo '$(srcdir)/'`src/pcre2_compile.c
@@ -2199,6 +2377,13 @@ src/libpcre2_32_la-pcre2_auto_possess.lo: src/pcre2_auto_possess.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpcre2_32_la_CFLAGS) $(CFLAGS) -c -o src/libpcre2_32_la-pcre2_auto_possess.lo `test -f 'src/pcre2_auto_possess.c' || echo '$(srcdir)/'`src/pcre2_auto_possess.c
 
+src/libpcre2_32_la-pcre2_chkdint.lo: src/pcre2_chkdint.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpcre2_32_la_CFLAGS) $(CFLAGS) -MT src/libpcre2_32_la-pcre2_chkdint.lo -MD -MP -MF src/$(DEPDIR)/libpcre2_32_la-pcre2_chkdint.Tpo -c -o src/libpcre2_32_la-pcre2_chkdint.lo `test -f 'src/pcre2_chkdint.c' || echo '$(srcdir)/'`src/pcre2_chkdint.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libpcre2_32_la-pcre2_chkdint.Tpo src/$(DEPDIR)/libpcre2_32_la-pcre2_chkdint.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_chkdint.c' object='src/libpcre2_32_la-pcre2_chkdint.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpcre2_32_la_CFLAGS) $(CFLAGS) -c -o src/libpcre2_32_la-pcre2_chkdint.lo `test -f 'src/pcre2_chkdint.c' || echo '$(srcdir)/'`src/pcre2_chkdint.c
+
 src/libpcre2_32_la-pcre2_compile.lo: src/pcre2_compile.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpcre2_32_la_CFLAGS) $(CFLAGS) -MT src/libpcre2_32_la-pcre2_compile.lo -MD -MP -MF src/$(DEPDIR)/libpcre2_32_la-pcre2_compile.Tpo -c -o src/libpcre2_32_la-pcre2_compile.lo `test -f 'src/pcre2_compile.c' || echo '$(srcdir)/'`src/pcre2_compile.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libpcre2_32_la-pcre2_compile.Tpo src/$(DEPDIR)/libpcre2_32_la-pcre2_compile.Plo
@@ -2387,6 +2572,13 @@ src/libpcre2_8_la-pcre2_auto_possess.lo: src/pcre2_auto_possess.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_auto_possess.c' object='src/libpcre2_8_la-pcre2_auto_possess.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpcre2_8_la_CFLAGS) $(CFLAGS) -c -o src/libpcre2_8_la-pcre2_auto_possess.lo `test -f 'src/pcre2_auto_possess.c' || echo '$(srcdir)/'`src/pcre2_auto_possess.c
+
+src/libpcre2_8_la-pcre2_chkdint.lo: src/pcre2_chkdint.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpcre2_8_la_CFLAGS) $(CFLAGS) -MT src/libpcre2_8_la-pcre2_chkdint.lo -MD -MP -MF src/$(DEPDIR)/libpcre2_8_la-pcre2_chkdint.Tpo -c -o src/libpcre2_8_la-pcre2_chkdint.lo `test -f 'src/pcre2_chkdint.c' || echo '$(srcdir)/'`src/pcre2_chkdint.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/libpcre2_8_la-pcre2_chkdint.Tpo src/$(DEPDIR)/libpcre2_8_la-pcre2_chkdint.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_chkdint.c' object='src/libpcre2_8_la-pcre2_chkdint.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpcre2_8_la_CFLAGS) $(CFLAGS) -c -o src/libpcre2_8_la-pcre2_chkdint.lo `test -f 'src/pcre2_chkdint.c' || echo '$(srcdir)/'`src/pcre2_chkdint.c
 
 src/libpcre2_8_la-pcre2_compile.lo: src/pcre2_compile.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpcre2_8_la_CFLAGS) $(CFLAGS) -MT src/libpcre2_8_la-pcre2_compile.lo -MD -MP -MF src/$(DEPDIR)/libpcre2_8_la-pcre2_compile.Tpo -c -o src/libpcre2_8_la-pcre2_compile.lo `test -f 'src/pcre2_compile.c' || echo '$(srcdir)/'`src/pcre2_compile.c
@@ -2591,19 +2783,47 @@ src/pcre2_jit_test-pcre2_jit_test.obj: src/pcre2_jit_test.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2_jit_test_CFLAGS) $(CFLAGS) -c -o src/pcre2_jit_test-pcre2_jit_test.obj `if test -f 'src/pcre2_jit_test.c'; then $(CYGPATH_W) 'src/pcre2_jit_test.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_jit_test.c'; fi`
 
-src/pcre2fuzzcheck-pcre2_fuzzsupport.o: src/pcre2_fuzzsupport.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_CFLAGS) $(CFLAGS) -MT src/pcre2fuzzcheck-pcre2_fuzzsupport.o -MD -MP -MF src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Tpo -c -o src/pcre2fuzzcheck-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_fuzzsupport.c' object='src/pcre2fuzzcheck-pcre2_fuzzsupport.o' libtool=no @AMDEPBACKSLASH@
+src/pcre2fuzzcheck_16-pcre2_fuzzsupport.o: src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_16_CFLAGS) $(CFLAGS) -MT src/pcre2fuzzcheck_16-pcre2_fuzzsupport.o -MD -MP -MF src/$(DEPDIR)/pcre2fuzzcheck_16-pcre2_fuzzsupport.Tpo -c -o src/pcre2fuzzcheck_16-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/pcre2fuzzcheck_16-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/pcre2fuzzcheck_16-pcre2_fuzzsupport.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_fuzzsupport.c' object='src/pcre2fuzzcheck_16-pcre2_fuzzsupport.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_CFLAGS) $(CFLAGS) -c -o src/pcre2fuzzcheck-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_16_CFLAGS) $(CFLAGS) -c -o src/pcre2fuzzcheck_16-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
 
-src/pcre2fuzzcheck-pcre2_fuzzsupport.obj: src/pcre2_fuzzsupport.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_CFLAGS) $(CFLAGS) -MT src/pcre2fuzzcheck-pcre2_fuzzsupport.obj -MD -MP -MF src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Tpo -c -o src/pcre2fuzzcheck-pcre2_fuzzsupport.obj `if test -f 'src/pcre2_fuzzsupport.c'; then $(CYGPATH_W) 'src/pcre2_fuzzsupport.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_fuzzsupport.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_fuzzsupport.c' object='src/pcre2fuzzcheck-pcre2_fuzzsupport.obj' libtool=no @AMDEPBACKSLASH@
+src/pcre2fuzzcheck_16-pcre2_fuzzsupport.obj: src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_16_CFLAGS) $(CFLAGS) -MT src/pcre2fuzzcheck_16-pcre2_fuzzsupport.obj -MD -MP -MF src/$(DEPDIR)/pcre2fuzzcheck_16-pcre2_fuzzsupport.Tpo -c -o src/pcre2fuzzcheck_16-pcre2_fuzzsupport.obj `if test -f 'src/pcre2_fuzzsupport.c'; then $(CYGPATH_W) 'src/pcre2_fuzzsupport.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_fuzzsupport.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/pcre2fuzzcheck_16-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/pcre2fuzzcheck_16-pcre2_fuzzsupport.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_fuzzsupport.c' object='src/pcre2fuzzcheck_16-pcre2_fuzzsupport.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_CFLAGS) $(CFLAGS) -c -o src/pcre2fuzzcheck-pcre2_fuzzsupport.obj `if test -f 'src/pcre2_fuzzsupport.c'; then $(CYGPATH_W) 'src/pcre2_fuzzsupport.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_fuzzsupport.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_16_CFLAGS) $(CFLAGS) -c -o src/pcre2fuzzcheck_16-pcre2_fuzzsupport.obj `if test -f 'src/pcre2_fuzzsupport.c'; then $(CYGPATH_W) 'src/pcre2_fuzzsupport.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_fuzzsupport.c'; fi`
+
+src/pcre2fuzzcheck_32-pcre2_fuzzsupport.o: src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_32_CFLAGS) $(CFLAGS) -MT src/pcre2fuzzcheck_32-pcre2_fuzzsupport.o -MD -MP -MF src/$(DEPDIR)/pcre2fuzzcheck_32-pcre2_fuzzsupport.Tpo -c -o src/pcre2fuzzcheck_32-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/pcre2fuzzcheck_32-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/pcre2fuzzcheck_32-pcre2_fuzzsupport.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_fuzzsupport.c' object='src/pcre2fuzzcheck_32-pcre2_fuzzsupport.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_32_CFLAGS) $(CFLAGS) -c -o src/pcre2fuzzcheck_32-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
+
+src/pcre2fuzzcheck_32-pcre2_fuzzsupport.obj: src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_32_CFLAGS) $(CFLAGS) -MT src/pcre2fuzzcheck_32-pcre2_fuzzsupport.obj -MD -MP -MF src/$(DEPDIR)/pcre2fuzzcheck_32-pcre2_fuzzsupport.Tpo -c -o src/pcre2fuzzcheck_32-pcre2_fuzzsupport.obj `if test -f 'src/pcre2_fuzzsupport.c'; then $(CYGPATH_W) 'src/pcre2_fuzzsupport.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_fuzzsupport.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/pcre2fuzzcheck_32-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/pcre2fuzzcheck_32-pcre2_fuzzsupport.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_fuzzsupport.c' object='src/pcre2fuzzcheck_32-pcre2_fuzzsupport.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_32_CFLAGS) $(CFLAGS) -c -o src/pcre2fuzzcheck_32-pcre2_fuzzsupport.obj `if test -f 'src/pcre2_fuzzsupport.c'; then $(CYGPATH_W) 'src/pcre2_fuzzsupport.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_fuzzsupport.c'; fi`
+
+src/pcre2fuzzcheck_8-pcre2_fuzzsupport.o: src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_8_CFLAGS) $(CFLAGS) -MT src/pcre2fuzzcheck_8-pcre2_fuzzsupport.o -MD -MP -MF src/$(DEPDIR)/pcre2fuzzcheck_8-pcre2_fuzzsupport.Tpo -c -o src/pcre2fuzzcheck_8-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/pcre2fuzzcheck_8-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/pcre2fuzzcheck_8-pcre2_fuzzsupport.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_fuzzsupport.c' object='src/pcre2fuzzcheck_8-pcre2_fuzzsupport.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_8_CFLAGS) $(CFLAGS) -c -o src/pcre2fuzzcheck_8-pcre2_fuzzsupport.o `test -f 'src/pcre2_fuzzsupport.c' || echo '$(srcdir)/'`src/pcre2_fuzzsupport.c
+
+src/pcre2fuzzcheck_8-pcre2_fuzzsupport.obj: src/pcre2_fuzzsupport.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_8_CFLAGS) $(CFLAGS) -MT src/pcre2fuzzcheck_8-pcre2_fuzzsupport.obj -MD -MP -MF src/$(DEPDIR)/pcre2fuzzcheck_8-pcre2_fuzzsupport.Tpo -c -o src/pcre2fuzzcheck_8-pcre2_fuzzsupport.obj `if test -f 'src/pcre2_fuzzsupport.c'; then $(CYGPATH_W) 'src/pcre2_fuzzsupport.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_fuzzsupport.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/pcre2fuzzcheck_8-pcre2_fuzzsupport.Tpo src/$(DEPDIR)/pcre2fuzzcheck_8-pcre2_fuzzsupport.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pcre2_fuzzsupport.c' object='src/pcre2fuzzcheck_8-pcre2_fuzzsupport.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2fuzzcheck_8_CFLAGS) $(CFLAGS) -c -o src/pcre2fuzzcheck_8-pcre2_fuzzsupport.obj `if test -f 'src/pcre2_fuzzsupport.c'; then $(CYGPATH_W) 'src/pcre2_fuzzsupport.c'; else $(CYGPATH_W) '$(srcdir)/src/pcre2_fuzzsupport.c'; fi`
 
 src/pcre2grep-pcre2grep.o: src/pcre2grep.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(pcre2grep_CFLAGS) $(CFLAGS) -MT src/pcre2grep-pcre2grep.o -MD -MP -MF src/$(DEPDIR)/pcre2grep-pcre2grep.Tpo -c -o src/pcre2grep-pcre2grep.o `test -f 'src/pcre2grep.c' || echo '$(srcdir)/'`src/pcre2grep.c
@@ -3324,9 +3544,12 @@ clean-am: clean-binPROGRAMS clean-generic clean-libLTLIBRARIES \
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
-		-rm -f src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.Po
+		-rm -f src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.Po
+	-rm -f src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.Po
+	-rm -f src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.Po
 	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_auto_possess.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_chartables.Plo
+	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_chkdint.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_compile.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_config.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_context.Plo
@@ -3354,6 +3577,7 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_xclass.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_auto_possess.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_chartables.Plo
+	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_chkdint.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_compile.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_config.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_context.Plo
@@ -3381,6 +3605,7 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_xclass.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_8_la-pcre2_auto_possess.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_8_la-pcre2_chartables.Plo
+	-rm -f src/$(DEPDIR)/libpcre2_8_la-pcre2_chkdint.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_8_la-pcre2_compile.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_8_la-pcre2_config.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_8_la-pcre2_context.Plo
@@ -3409,7 +3634,9 @@ distclean: distclean-am
 	-rm -f src/$(DEPDIR)/libpcre2_posix_la-pcre2posix.Plo
 	-rm -f src/$(DEPDIR)/pcre2_dftables.Po
 	-rm -f src/$(DEPDIR)/pcre2_jit_test-pcre2_jit_test.Po
-	-rm -f src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Po
+	-rm -f src/$(DEPDIR)/pcre2fuzzcheck_16-pcre2_fuzzsupport.Po
+	-rm -f src/$(DEPDIR)/pcre2fuzzcheck_32-pcre2_fuzzsupport.Po
+	-rm -f src/$(DEPDIR)/pcre2fuzzcheck_8-pcre2_fuzzsupport.Po
 	-rm -f src/$(DEPDIR)/pcre2grep-pcre2grep.Po
 	-rm -f src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Po
 	-rm -f src/$(DEPDIR)/pcre2test-pcre2test.Po
@@ -3463,9 +3690,12 @@ installcheck-am:
 maintainer-clean: maintainer-clean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -rf $(top_srcdir)/autom4te.cache
-		-rm -f src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.Po
+		-rm -f src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_16_a-pcre2_fuzzsupport.Po
+	-rm -f src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_32_a-pcre2_fuzzsupport.Po
+	-rm -f src/$(DEPDIR)/_libs_libpcre2_fuzzsupport_a-pcre2_fuzzsupport.Po
 	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_auto_possess.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_chartables.Plo
+	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_chkdint.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_compile.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_config.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_context.Plo
@@ -3493,6 +3723,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/libpcre2_16_la-pcre2_xclass.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_auto_possess.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_chartables.Plo
+	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_chkdint.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_compile.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_config.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_context.Plo
@@ -3520,6 +3751,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/libpcre2_32_la-pcre2_xclass.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_8_la-pcre2_auto_possess.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_8_la-pcre2_chartables.Plo
+	-rm -f src/$(DEPDIR)/libpcre2_8_la-pcre2_chkdint.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_8_la-pcre2_compile.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_8_la-pcre2_config.Plo
 	-rm -f src/$(DEPDIR)/libpcre2_8_la-pcre2_context.Plo
@@ -3548,7 +3780,9 @@ maintainer-clean: maintainer-clean-am
 	-rm -f src/$(DEPDIR)/libpcre2_posix_la-pcre2posix.Plo
 	-rm -f src/$(DEPDIR)/pcre2_dftables.Po
 	-rm -f src/$(DEPDIR)/pcre2_jit_test-pcre2_jit_test.Po
-	-rm -f src/$(DEPDIR)/pcre2fuzzcheck-pcre2_fuzzsupport.Po
+	-rm -f src/$(DEPDIR)/pcre2fuzzcheck_16-pcre2_fuzzsupport.Po
+	-rm -f src/$(DEPDIR)/pcre2fuzzcheck_32-pcre2_fuzzsupport.Po
+	-rm -f src/$(DEPDIR)/pcre2fuzzcheck_8-pcre2_fuzzsupport.Po
 	-rm -f src/$(DEPDIR)/pcre2grep-pcre2grep.Po
 	-rm -f src/$(DEPDIR)/pcre2posix_test-pcre2posix_test.Po
 	-rm -f src/$(DEPDIR)/pcre2test-pcre2test.Po
@@ -3626,8 +3860,7 @@ src/pcre2.h.generic: src/pcre2.h.in configure.ac
 # config.status out of the way while doing the default configuration. The
 # resulting config.h is munged by perl to put #ifdefs round any #defines for
 # macros with values, and to #undef all boolean macros such as HAVE_xxx and
-# SUPPORT_xxx. We also get rid of any gcc-specific visibility settings. Make
-# sure that PCRE2_EXP_DEFN is unset (in case it has visibility settings).
+# SUPPORT_xxx. We also get rid of any gcc-specific visibility settings.
 
 src/config.h.generic: configure.ac
 	rm -rf $@ _generic
@@ -3638,9 +3871,7 @@ src/config.h.generic: configure.ac
 	test -f _generic/src/config.h
 	perl -n \
 	  -e 'BEGIN{$$blank=0;}' \
-	  -e 'if(/PCRE2_EXP_DEFN/){print"/* #undef PCRE2_EXP_DEFN */\n";$$blank=0;next;}' \
-	  -e 'if(/to make a symbol visible/){next;}' \
-	  -e 'if(/__attribute__ \(\(visibility/){next;}' \
+	  -e 'if(/(.+?)\s*__attribute__ \(\(visibility/){print"$$1\n";$$blank=0;next;}' \
 	  -e 'if(/LT_OBJDIR/){print"/* This is ignored unless you are using libtool. */\n";}' \
 	  -e 'if(/^#define\s((?:HAVE|SUPPORT|STDC)_\w+)/){print"/* #undef $$1 */\n";$$blank=0;next;}' \
 	  -e 'if(/^#define\s(?!PACKAGE|VERSION)(\w+)/){print"#ifndef $$1\n$$_#endif\n";$$blank=0;next;}' \

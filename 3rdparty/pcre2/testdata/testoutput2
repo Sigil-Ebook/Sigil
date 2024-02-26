@@ -477,10 +477,7 @@ No match
 No match
 
 /abc(?<=a+)b/
-Failed: error 125 at offset 3: lookbehind assertion is not fixed length
-
-/12345(?<=aaa|b{0,3})b/
-Failed: error 125 at offset 5: lookbehind assertion is not fixed length
+Failed: error 125 at offset 3: length of lookbehind assertion is not limited
 
 /(?<!(foo)a\1)bar/
 
@@ -722,13 +719,10 @@ Subject length lower bound = 3
 No match
 
 /(?<=ab(c+)d)ef/
-Failed: error 125 at offset 0: lookbehind assertion is not fixed length
+Failed: error 125 at offset 0: length of lookbehind assertion is not limited
 
 /(?<=ab(?<=c+)d)ef/
-Failed: error 125 at offset 6: lookbehind assertion is not fixed length
-
-/(?<=ab(c|de)f)g/
-Failed: error 125 at offset 0: lookbehind assertion is not fixed length
+Failed: error 125 at offset 6: length of lookbehind assertion is not limited
 
 /The next three are in testinput2 because they have variable length branches/
 
@@ -920,7 +914,7 @@ Failed: error 124 at offset 4: missing closing parenthesis for condition
 Failed: error 106 at offset 8: missing terminating ] for character class
 
 /(?<=x+)y/
-Failed: error 125 at offset 0: lookbehind assertion is not fixed length
+Failed: error 125 at offset 0: length of lookbehind assertion is not limited
 
 /a{37,17}/
 Failed: error 104 at offset 7: numbers out of order in {} quantifier
@@ -3245,6 +3239,16 @@ Failed: error 137 at offset 2: PCRE2 does not support \F, \L, \l, \N{name}, \U, 
 /\U/I
 Failed: error 137 at offset 2: PCRE2 does not support \F, \L, \l, \N{name}, \U, or \u
 
+/\N{4}/
+    abcdefg
+ 0: abcd
+
+/\N{,}/
+Failed: error 137 at offset 2: PCRE2 does not support \F, \L, \l, \N{name}, \U, or \u
+
+/\N{25,ab}/
+Failed: error 137 at offset 2: PCRE2 does not support \F, \L, \l, \N{name}, \U, or \u
+
 /a{1,3}b/ungreedy
     ab
  0: ab
@@ -5065,7 +5069,7 @@ Subject length lower bound = 6
  0: abcdcdcd
  1: cd
 
-/([ab]{,4}c|xy)/IB,auto_callout
+/([ab]{,}c|xy)/IB,auto_callout
 ------------------------------------------------------------------
         Bra
         Callout 255 0 1
@@ -5077,20 +5081,18 @@ Subject length lower bound = 6
         Callout 255 6 1
         ,
         Callout 255 7 1
-        4
-        Callout 255 8 1
         }
-        Callout 255 9 1
+        Callout 255 8 1
         c
-        Callout 255 10 1
+        Callout 255 9 1
         Alt
-        Callout 255 11 1
+        Callout 255 10 1
         x
-        Callout 255 12 1
+        Callout 255 11 1
         y
-        Callout 255 13 1
+        Callout 255 12 1
         Ket
-        Callout 255 14 0
+        Callout 255 13 0
         Ket
         End
 ------------------------------------------------------------------
@@ -5099,23 +5101,23 @@ Options: auto_callout
 Starting code units: a b x 
 Subject length lower bound = 2
 \= Expect no match
-    Note: that { does NOT introduce a quantifier
---->Note: that { does NOT introduce a quantifier
- +0         ^                                        (
- +1         ^                                        [ab]
- +5         ^^                                       {
-+11         ^                                        x
- +0                                 ^                (
- +1                                 ^                [ab]
- +5                                 ^^               {
-+11                                 ^                x
- +0                                     ^            (
- +1                                     ^            [ab]
- +5                                     ^^           {
-+11                                     ^            x
+    Note: that {,} does NOT introduce a quantifier
+--->Note: that {,} does NOT introduce a quantifier
+ +0         ^                                          (
+ +1         ^                                          [ab]
+ +5         ^^                                         {
++10         ^                                          x
+ +0                                   ^                (
+ +1                                   ^                [ab]
+ +5                                   ^^               {
++10                                   ^                x
+ +0                                       ^            (
+ +1                                       ^            [ab]
+ +5                                       ^^           {
++10                                       ^            x
 No match
 
-/([ab]{,4}c|xy)/IB,auto_callout
+/([ab]{,}c|xy)/IB,auto_callout
 ------------------------------------------------------------------
         Bra
         Callout 255 0 1
@@ -5127,20 +5129,18 @@ No match
         Callout 255 6 1
         ,
         Callout 255 7 1
-        4
-        Callout 255 8 1
         }
-        Callout 255 9 1
+        Callout 255 8 1
         c
-        Callout 255 10 1
+        Callout 255 9 1
         Alt
-        Callout 255 11 1
+        Callout 255 10 1
         x
-        Callout 255 12 1
+        Callout 255 11 1
         y
-        Callout 255 13 1
+        Callout 255 12 1
         Ket
-        Callout 255 14 0
+        Callout 255 13 0
         Ket
         End
 ------------------------------------------------------------------
@@ -5149,20 +5149,20 @@ Options: auto_callout
 Starting code units: a b x 
 Subject length lower bound = 2
 \= Expect no match
-    Note: that { does NOT introduce a quantifier
---->Note: that { does NOT introduce a quantifier
- +0         ^                                        (
- +1         ^                                        [ab]
- +5         ^^                                       {
-+11         ^                                        x
- +0                                 ^                (
- +1                                 ^                [ab]
- +5                                 ^^               {
-+11                                 ^                x
- +0                                     ^            (
- +1                                     ^            [ab]
- +5                                     ^^           {
-+11                                     ^            x
+    Note: that {,} does NOT introduce a quantifier
+--->Note: that {,} does NOT introduce a quantifier
+ +0         ^                                          (
+ +1         ^                                          [ab]
+ +5         ^^                                         {
++10         ^                                          x
+ +0                                   ^                (
+ +1                                   ^                [ab]
+ +5                                   ^^               {
++10                                   ^                x
+ +0                                       ^            (
+ +1                                       ^            [ab]
+ +5                                       ^^           {
++10                                       ^            x
 No match
 
 /([ab]{1,4}c|xy){4,5}?123/IB,auto_callout
@@ -9643,19 +9643,19 @@ No match
 /(a)(?<=b\1)/
 
 /(a)(?<=b+(?1))/
-Failed: error 125 at offset 3: lookbehind assertion is not fixed length
+Failed: error 125 at offset 3: length of lookbehind assertion is not limited
 
 /(a+)(?<=b(?1))/
-Failed: error 125 at offset 4: lookbehind assertion is not fixed length
+Failed: error 125 at offset 4: length of lookbehind assertion is not limited
 
 /(a(?<=b(?1)))/
-Failed: error 125 at offset 2: lookbehind assertion is not fixed length
+Failed: error 125 at offset 2: length of lookbehind assertion is not limited
 
 /(?<=b(?1))xyz/
 Failed: error 115 at offset 8: reference to non-existent subpattern
 
 /(?<=b(?1))xyz(b+)pqrstuvew/
-Failed: error 125 at offset 0: lookbehind assertion is not fixed length
+Failed: error 125 at offset 0: length of lookbehind assertion is not limited
 
 /(a|bc)\1/I
 Capture group count = 1
@@ -10600,7 +10600,7 @@ Last code unit = '4'
 Subject length lower bound = 5
 
 /(?<=(abc)+)X/
-Failed: error 125 at offset 0: lookbehind assertion is not fixed length
+Failed: error 125 at offset 0: length of lookbehind assertion is not limited
 
 /(^ab)/I
 Capture group count = 1
@@ -11357,6 +11357,22 @@ No match
 /^\u{7a}/extra_alt_bsux
     zoo 
  0: z
+
+/\u{}/extra_alt_bsux
+    u{}
+ 0: u{}
+
+/\u{Q12}/extra_alt_bsux
+    --u{Q12}--
+ 0: u{Q12}
+
+/\u{ 12}/extra_alt_bsux
+    --u{ 12}--
+ 0: u{ 12}
+
+/\u{{3}}/extra_alt_bsux
+    --u{{{}--
+ 0: u{{{}
 
 /(?(?=c)c|d)++Y/B
 ------------------------------------------------------------------
@@ -14277,7 +14293,7 @@ Failed: error 115 at offset 15: reference to non-existent subpattern
 Failed: error 115 at offset 15: reference to non-existent subpattern
 
 ";(?<=()((?3))((?2)))"
-Failed: error 125 at offset 1: lookbehind assertion is not fixed length
+Failed: error 125 at offset 1: length of lookbehind assertion is not limited
 
 # Perl loops on this (PCRE2 used to!)
 
@@ -14455,7 +14471,7 @@ Failed: error 115 at offset 7: reference to non-existent subpattern
 "(?J)(?'d'(?'d'\g{d}))"
 
 "(?=!((?2)(?))({8(?<=(?1){29}8bbbb\x16\xd\xc6^($(\xa9H4){4}h}?1)B))\x15')"
-Failed: error 125 at offset 16: lookbehind assertion is not fixed length
+Failed: error 125 at offset 16: length of lookbehind assertion is not limited
 
 /A(?'')Z/
 Failed: error 162 at offset 4: subpattern name expected
@@ -15416,7 +15432,7 @@ Failed: error 114 at offset 1: missing closing parenthesis
 No match
 
 /(?|([ab]))...(?<=\1)z/
-Failed: error 125 at offset 13: lookbehind assertion is not fixed length
+Failed: error 125 at offset 13: length of lookbehind assertion is not limited
 
 /([ab])(\1)...(?<=\2)z/
     aa11az
@@ -15425,7 +15441,7 @@ Failed: error 125 at offset 13: lookbehind assertion is not fixed length
  2: a
 
 /(a\2)(b\1)(?<=\2)/
-Failed: error 125 at offset 10: lookbehind assertion is not fixed length
+Failed: error 125 at offset 10: length of lookbehind assertion is not limited
 
 /(?<A>[ab])...(?<=\k'A')z/
     a11az
@@ -15439,7 +15455,7 @@ Failed: error 125 at offset 10: lookbehind assertion is not fixed length
 No match
 
 /(?<A>[ab])...(?<=\k'A')(?<A>)z/dupnames
-Failed: error 125 at offset 13: lookbehind assertion is not fixed length
+Failed: error 125 at offset 13: length of lookbehind assertion is not limited
 
 # Perl does not support \g+n
 
@@ -15516,7 +15532,7 @@ May match empty string
 Subject length lower bound = 0
 
 /()(?<=(?0))/
-Failed: error 125 at offset 2: lookbehind assertion is not fixed length
+Failed: error 125 at offset 2: length of lookbehind assertion is not limited
 
 /(?<!|!(?<!))/
 
@@ -17239,11 +17255,17 @@ No match
  0: bb
  1: b
 
+/(*naplb:ab?c|PQ).../g
+    abcdefgacxyzPQR123
+ 0: def
+ 0: xyz
+ 0: R12
+
 # ----
 
 # Expect error (recursion => not fixed length)
 /(\2)((?=(?<=\1)))/
-Failed: error 125 at offset 8: lookbehind assertion is not fixed length
+Failed: error 125 at offset 8: length of lookbehind assertion is not limited
 
 /c*+(?<=[bc])/
     abc\=ph
@@ -17595,7 +17617,7 @@ Failed: error -55 at offset 3 in replacement: requested value is not set
 # Expect non-fixed-length error
 
 "(?<=X(?(DEFINE)(.*))(?1))."
-Failed: error 125 at offset 0: lookbehind assertion is not fixed length
+Failed: error 125 at offset 0: length of lookbehind assertion is not limited
 
 /\sxxx\s/tables=1
 \= Expect no match
@@ -17756,6 +17778,266 @@ Subject length lower bound = 2
     abcd\=ovector=65536
  0: abcd
 
+# Use recurse to test \K and Mark in atomic scope.
+/(?>this line\s*((?R)|)\K)/
+    this line this line this line
+ 0: 
+ 1: this line this line
+
+/(?>this line\s*((?R)|)(*MARK:A))/
+    this line this line this line
+ 0: this line this line this line
+ 1: this line this line
+    
+# Check use of NULL pattern with zero length.
+
+//null_pattern,use_length
+    abc
+ 0: 
+    
+//null_pattern
+Failed: error 116 at offset 0: pattern passed as NULL with non-zero length
+
+/bad null pattern/null_pattern,use_length
+Failed: error 116 at offset 0: pattern passed as NULL with non-zero length
+
+/bad null pattern/null_pattern
+Failed: error 116 at offset 0: pattern passed as NULL with non-zero length
+
+# -------- Variable length lookbehinds --------
+/12345(?<=\d{1,256})X/
+Failed: error 200 at offset 5: branch too long in variable-length lookbehind assertion
+
+/(?<=(\d{1,256}))X/max_varlookbehind=256
+    12345XYZ
+ 0: X
+ 1: 12345
+
+/12345(?<=a?bc)X/max_varlookbehind=0
+Failed: error 200 at offset 5: branch too long in variable-length lookbehind assertion
+
+/12345(?<=abc)X/max_varlookbehind=0
+
+/(?<!( {65054}){9,44965})/
+Failed: error 187 at offset 0: lookbehind assertion is too long
+
+/(?(?<!|(|a)))/
+    aaaa\=get=0
+ 0: 
+ 0G  (0)
+
+/(?(?<!|a?))/
+    aaaa\=get=0
+ 0: 
+ 0G  (0)
+
+# --------
+
+/(?<=(()()()()()()()()()()()()()(()()()()(())()()()()(()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()(())()()()()(()()()()()()(()()()()()()()()()()()()()()()()()()()()()(())()()()()(()()()()()()()()()()()()()(()()()()()()()()()()()()()(()())))))))))/
+
+/(?<!( {65054}){0,44965})/auto_callout
+Failed: error 187 at offset 0: lookbehind assertion is too long
+
+/A+{,3}/
+Failed: error 109 at offset 5: quantifier does not follow a repeatable item
+
+/(\g{+1}Z|(A))+/
+    BAAZCD 
+ 0: AAZ
+ 1: AZ
+ 2: A
+    ZAAAZAZAZAACD 
+ 0: AAAZAZAZAA
+ 1: A
+ 2: A
+
+# This doesn't work in Perl (though I think it used to)
+
+/^(?=.*(?=(([A-Z]).*(?(1)\1)))(?!.+\2)){26}/i
+    The quick brown fox jumps over the lazy dog.
+ 0: 
+ 1: quick brown fox jumps over the lazy dog.
+ 2: q
+    Jackdaws love my big sphinx of quartz.
+ 0: 
+ 1: Jackdaws love my big sphinx of quartz.
+ 2: J
+    Pack my box with five dozen liquor jugs.
+ 0: 
+ 1: Pack my box with five dozen liquor jugs.
+ 2: P
+\= Expect no match
+    The quick brown fox jumps over the lazy cat.
+No match
+    Hackdaws love my big sphinx of quartz.
+No match
+    Pack my fox with five dozen liquor jugs.
+No match
+    
+# These are different to Perl because of the different capturing in repeating
+# groups.
+
+/((foo)|(bar))*/
+    foobar
+ 0: foobar
+ 1: bar
+ 2: foo
+ 3: bar
+
+/(?:(f)(o)(o)|(b)(a)(r))*/
+    foobar
+ 0: foobar
+ 1: f
+ 2: o
+ 3: o
+ 4: b
+ 5: a
+ 6: r
+
+/((Z)+|A)*/
+    ZABCDEFG
+ 0: ZA
+ 1: A
+ 2: Z
+
+/(?:(?P=same)?(?:(?P<same>a)|(?P<same>b))(?P=same))+/g,dupnames
+    bbbaaabaabb
+ 0: bbbaaaba
+ 1: a
+ 2: b
+ 0: bb
+ 1: <unset>
+ 2: b
+
+# --------
+
+/
+/anchored, firstline
+    \x0a
+ 0: \x0a
+
+/
+/anchored,firstline,no_start_optimize
+    \x0a
+ 0: \x0a
+
+/
+/firstline
+    \x0a
+ 0: \x0a
+    abc\x0adef
+ 0: \x0a
+
+# This test is currently broken in the interpreter
+# /|a(?0)/endanchored
+#    aaaa
+
+/A +/extended
+
+/(*ACCEPT)+/B,auto_callout
+------------------------------------------------------------------
+        Bra
+        Callout 255 0 10
+        SBra
+        *ACCEPT
+        KetRmax
+        Callout 255 10 0
+        Ket
+        End
+------------------------------------------------------------------
+
+/a\z/
+    a
+ 0: a
+    a\=noteol 
+ 0: a
+
+# This matches a character that only exists once in the subject, sort of like a
+# hypothetical "(.)(?<!\1.+)(?!.*\1)". That has unlimited variable length
+# lookbehind, so is invalid. This pattern doesn't work in Perl 5.38.0.
+
+/\G(?:(?=(\1.|)(.))){1,13}?(?!.*\2.*\2)\1\K\2/g
+    aaabcccdeee
+ 0: b
+ 1: aaa
+ 2: b
+ 0: d
+ 1: ccc
+ 2: d
+
+/|(?0)./endanchored
+    abcd
+ 0: abcd
+
+/|a(?0)/endanchored
+    aaaa
+ 0: aaaa
+
+/(?:|(?0).)(?(R)|\z)/
+    abcd
+ 0: abcd
+
+/a?(?=b(*COMMIT)c|)d/I
+Capture group count = 0
+Starting code units: a d 
+Last code unit = 'd'
+Subject length lower bound = 1
+    bd
+ 0: d
+
+/(?=b(*COMMIT)c|)d/I
+Capture group count = 0
+First code unit = 'd'
+Subject length lower bound = 1
+    bd
+ 0: d
+
+/a?(?=b(*COMMIT)c|)d/I,no_start_optimize
+Capture group count = 0
+Options: no_start_optimize
+    bd
+No match
+
+/(?=b(*COMMIT)c|)d/I,no_start_optimize
+Capture group count = 0
+Options: no_start_optimize
+    bd
+No match
+
+/a?(?=bc|)d/I,auto_callout
+Capture group count = 0
+Options: auto_callout
+Starting code units: a d 
+Last code unit = 'd'
+Subject length lower bound = 1
+    bd
+--->bd
+ +0  ^     a?
+ +2  ^     (?=
+ +5  ^     b
+ +8  ^     )
+ +9  ^     d
++10  ^^    End of pattern
+ 0: d
+    
+/a?(?=bc|)\bd/I 
+Capture group count = 0
+Max lookbehind = 1
+Starting code units: a d 
+Last code unit = 'd'
+Subject length lower bound = 1
+    bd
+No match
+
+/(?0)/
+    abc\=disable_recurseloop_check,match_limit=100
+Failed: error -47: match limit exceeded
+
+/(a(?1)z||(?1)++)$/
+    abcd\=disable_recurseloop_check
+ 0: 
+ 1: 
+
 # End of testinput2
 Error -70: PCRE2_ERROR_BADDATA (unknown error number)
 Error -62: bad serialized data
@@ -17765,4 +18047,4 @@ Error 0: PCRE2_ERROR_BADDATA (unknown error number)
 Error 100: no error
 Error 101: \ at end of pattern
 Error 191: PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES is not allowed in UTF-16 mode
-Error 200: PCRE2_ERROR_BADDATA (unknown error number)
+Error 300: PCRE2_ERROR_BADDATA (unknown error number)

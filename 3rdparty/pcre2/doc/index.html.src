@@ -255,6 +255,9 @@ in the library.
 <tr><td><a href="pcre2_set_max_pattern_length.html">pcre2_set_max_pattern_length</a></td>
     <td>&nbsp;&nbsp;Set the maximum length of pattern</td></tr>
 
+<tr><td><a href="pcre2_set_max_varlookbehind.html">pcre2_set_max_varlookbehind</a></td>
+    <td>&nbsp;&nbsp;Set the maximum match length for a variable-length lookbehind</td></tr>
+
 <tr><td><a href="pcre2_set_newline.html">pcre2_set_newline</a></td>
     <td>&nbsp;&nbsp;Set the newline convention</td></tr>
 

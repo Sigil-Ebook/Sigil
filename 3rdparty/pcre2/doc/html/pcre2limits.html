@@ -47,7 +47,12 @@ and unset offsets.
 All values in repeating quantifiers must be less than 65536.
 </P>
 <P>
-The maximum length of a lookbehind assertion is 65535 characters.
+There are two different limits that apply to branches of lookbehind assertions.
+If every branch in such an assertion matches a fixed number of characters,
+the maximum length of any branch is 65535 characters. If any branch matches a
+variable number of characters, then the maximum matching length for every
+branch is limited. The default limit is set at compile time, defaulting to 255,
+but can be changed by the calling program.
 </P>
 <P>
 There is no limit to the number of parenthesized groups, but there can be no
@@ -91,9 +96,9 @@ Cambridge, England.
 REVISION
 </b><br>
 <P>
-Last updated: 26 July 2022
+Last updated: August 2023
 <br>
-Copyright &copy; 1997-2022 University of Cambridge.
+Copyright &copy; 1997-2023 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

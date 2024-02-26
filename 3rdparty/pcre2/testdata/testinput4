@@ -2790,5 +2790,76 @@
     >AF23<>\x{146}\x{30}<>yz<
 
 # -----------------------------------------------------------------------------
+# Variable-length lookbehinds.
+
+/(?<=áb?c).../g,utf
+    ábcdèfgácxyz
+
+/(?<=PQR|áb?c).../g,utf
+    ábcdèfgácxyzPQR123
+
+/(?<=áb?c|PQR).../g,utf
+    ábcdèfgácxyzPQR123
+
+/(?<=PQ|áb?c).../g,utf
+    ábcdèfgácxyzPQR123
+
+/(?<=áb?c|PQ).../g,utf
+    ábcdèfgácxyzPQR123
+
+/(?<=á(b?c|d?è?è)f)X./g,utf
+     ácfX1zzzáèfX2zzzádèèfX3zzzX4zzz
+
+/(?<!á(b?c|d?è?è)f)X./g,utf
+     ácfX1zzzáèfX2zzzádèèfX3zzzX4zzz
+     
+/(?(?<=áb?c)d|è)/utf
+    ábcdèfg
+    ácdèfg
+    áxdèfg
+    
+/(?<=\d{2,3}|áBC)./utf
+    áBCD   
+
+/(?<=á(b?c){3}d)X/utf
+   ZXácbccdXYZ
+   
+/(?<=á(b?c){0}d)X/utf
+   ZXádXYZ
+ 
+/(?<=á?(b?c){0}d)X./utf
+   ZXádXYZ
+ 
+# -------------------------------------------------------------------------- 
+
+/\N{ U+1234 }/utf
+    \x{1234}
+
+/\o{ 1234 }/utf
+    x\o{1234}y
+
+/\x{ 1234 }/utf
+    x\x{1234}y
+
+/\p{ L }/
+    23AB56
+
+/\w+/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
+
+/[\w]+/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
+
+/[[:word:]]+/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
+
+/[[:xdigit:]]+/utf,ucp
+    --123ef\x{ff10}\x{ff19}\x{ff21}\x{ff26}\x{ff1a}
+
+/\b.+?\b/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
+
+/caf\B.+?\B/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
 
 # End of testinput4

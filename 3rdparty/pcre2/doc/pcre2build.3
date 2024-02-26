@@ -1,4 +1,4 @@
-.TH PCRE2BUILD 3 "27 July 2022" "PCRE2 10.41"
+.TH PCRE2BUILD 3 "24 November" "PCRE2 10.43"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .
@@ -98,7 +98,17 @@ one of
   --disable-shared
   --disable-static
 .sp
-to the \fBconfigure\fP command.
+to the \fBconfigure\fP command. Setting --disable-shared ensures that PCRE2
+libraries are built as static libraries. The binaries that are then created as
+part of the build process (for example, \fBpcre2test\fP and \fBpcre2grep\fP)
+are linked statically with one or more PCRE2 libraries, but may also be
+dynamically linked with other libraries such as \fBlibc\fP. If you want these
+binaries to be fully statically linked, you can set LDFLAGS like this:
+.sp
+LDFLAGS=--static ./configure --disable-shared
+.sp
+Note the two hyphens in --static. Of course, this works only if static versions
+of all the relevant libraries are available for linking.
 .
 .
 .SH "UNICODE AND UTF SUPPORT"
@@ -317,6 +327,22 @@ used for lookaround assertions, atomic groups, and recursion within patterns.
 The limit does not apply to JIT matching.
 .
 .
+.SH "LIMITING VARIABLE-LENGTH LOOKBEHIND ASSERTIONS"
+.rs
+.sp
+Lookbehind assertions in which one or more branches can match a variable number
+of characters are supported only if there is a maximum matching length for each
+top-level branch. There is a limit to this maximum that defaults to 255
+characters. You can alter this default by a setting such as
+.sp
+  --with-max-varlookbehind=100
+.sp
+The limit can be changed at runtime by calling
+\fBpcre2_set_max_varlookbehind()\fP. Lookbehind assertions in which every
+branch matches a fixed number of characters (not necessarily all the same) are
+not constrained by this limit.
+.
+.
 .\" HTML <a name="createtables"></a>
 .SH "CREATING CHARACTER TABLES AT BUILD TIME"
 .rs
@@ -461,7 +487,7 @@ with \fBlibedit\fP, which has a BSD licence.
 .P
 Setting --enable-pcre2test-libreadline causes the \fB-lreadline\fP option to be
 added to the \fBpcre2test\fP build. In many operating environments with a
-sytem-installed readline library this is sufficient. However, in some
+system-installed readline library this is sufficient. However, in some
 environments (e.g. if an unmodified distribution version of readline is in
 use), some extra configuration may be necessary. The INSTALL file for
 \fBlibreadline\fP says this:
@@ -633,6 +659,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 27 July 2022
-Copyright (c) 1997-2022 University of Cambridge.
+Last updated: 24 November 2023
+Copyright (c) 1997-2023 University of Cambridge.
 .fi

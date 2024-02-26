@@ -550,8 +550,19 @@ Failed: error -47: match limit exceeded
     match\nmatch
  0: a (JIT)
 
-//jitfast
+//jit
     \=null_subject
  0:  (JIT)
+    
+/(.)(.)/jitfast,replace=$2+$1
+    ABCD
+ 1: B+ACD
+
+/(...)-(...)/jitfast
+    abc-xyz\=get=2
+ 0: abc-xyz (JIT)
+ 1: abc
+ 2: xyz
+ 2G xyz (3)
 
 # End of testinput17

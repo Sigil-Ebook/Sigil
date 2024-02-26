@@ -1,4 +1,4 @@
-.TH PCRE2_SET_COMPILE_EXTRA_OPTIONS 3 "31 August 2021" "PCRE2 10.38"
+.TH PCRE2_SET_COMPILE_EXTRA_OPTIONS 3 "03 February 2023" "PCRE2 10.43"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH SYNOPSIS
@@ -25,9 +25,21 @@ options are:
 .\" JOIN
   PCRE2_EXTRA_ALT_BSUX                 Extended alternate \eu, \eU, and
                                          \ex handling
+  PCRE2_EXTRA_ASCII_BSD                \ed remains ASCII in UCP mode
+  PCRE2_EXTRA_ASCII_BSS                \es remains ASCII in UCP mode
+  PCRE2_EXTRA_ASCII_BSW                \ew remains ASCII in UCP mode
+.\" JOIN
+  PCRE2_EXTRA_ASCII_DIGIT              [:digit:] and [:xdigit:] POSIX classes
+                                         remain ASCII in UCP mode
+.\" JOIN
+  PCRE2_EXTRA_ASCII_POSIX              POSIX classes remain ASCII in
+                                         UCP mode
 .\" JOIN
   PCRE2_EXTRA_BAD_ESCAPE_IS_LITERAL    Treat all invalid escapes as
                                          a literal following character
+.\" JOIN
+  PCRE2_EXTRA_CASELESS_RESTRICT        Disable mixed ASCII/non-ASCII
+                                         case folding
   PCRE2_EXTRA_ESCAPED_CR_IS_LF         Interpret \er as \en
   PCRE2_EXTRA_MATCH_LINE               Pattern matches whole lines
   PCRE2_EXTRA_MATCH_WORD               Pattern matches "words"

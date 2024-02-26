@@ -1032,11 +1032,11 @@ end
 RC=0
 ---------------------------- Test 136 -----------------------------
 pcre2grep: Malformed number "1MK" after -m
-Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Usage: pcre2grep [-AaBCcDdEeFfHhIilLMmNnOoPqrstuUVvwxZ] [long options] [pattern] [files]
 Type "pcre2grep --help" for more information and the long options.
 RC=2
 pcre2grep: Malformed number "1MK" after --max-count
-Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Usage: pcre2grep [-AaBCcDdEeFfHhIilLMmNnOoPqrstuUVvwxZ] [long options] [pattern] [files]
 Type "pcre2grep --help" for more information and the long options.
 RC=2
 ---------------------------- Test 137 -----------------------------
@@ -1176,7 +1176,7 @@ RC=0
 A123B
 fox jumps
 RC=0
-Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Usage: pcre2grep [-AaBCcDdEeFfHhIilLMmNnOoPqrstuUVvwxZ] [long options] [pattern] [files]
 Type "pcre2grep --help" for more information and the long options.
 RC=2
 ---------------------------- Test 147 -----------------------------
@@ -1184,19 +1184,19 @@ pcre2grep: Failed to open -nonfile: No such file or directory
 RC=2
 ---------------------------- Test 148 -----------------------------
 pcre2grep: Unknown option --nonexist
-Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Usage: pcre2grep [-AaBCcDdEeFfHhIilLMmNnOoPqrstuUVvwxZ] [long options] [pattern] [files]
 Type "pcre2grep --help" for more information and the long options.
 RC=2
 pcre2grep: Unknown option letter '-' in "-n-n-bad"
-Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Usage: pcre2grep [-AaBCcDdEeFfHhIilLMmNnOoPqrstuUVvwxZ] [long options] [pattern] [files]
 Type "pcre2grep --help" for more information and the long options.
 RC=2
 pcre2grep: Data missing after --context
-Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Usage: pcre2grep [-AaBCcDdEeFfHhIilLMmNnOoPqrstuUVvwxZ] [long options] [pattern] [files]
 Type "pcre2grep --help" for more information and the long options.
 RC=2
 pcre2grep: Cannot mix --only-matching, --output, --file-offsets and/or --line-offsets
-Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Usage: pcre2grep [-AaBCcDdEeFfHhIilLMmNnOoPqrstuUVvwxZ] [long options] [pattern] [files]
 Type "pcre2grep --help" for more information and the long options.
 RC=2
 pcre2grep: Unknown colour setting "badvalue"
@@ -1221,7 +1221,7 @@ RC=2
 Binary file ./testdata/grepbinary matches
 RC=0
 pcre2grep: unknown value "wrong" for binary-files
-Usage: pcre2grep [-AaBCcDdeFfHhIilLMmNnOoqrstuUVvwxZ] [long options] [pattern] [files]
+Usage: pcre2grep [-AaBCcDdEeFfHhIilLMmNnOoPqrstuUVvwxZ] [long options] [pattern] [files]
 Type "pcre2grep --help" for more information and the long options.
 RC=2
 ---------------------------- Test 150 -----------------------------
@@ -1232,3 +1232,24 @@ RC=2
 [1;31mThe wo[0mrd is cat in [1;31mthis[0m line
 [1;31mThe[0m caterpillar sat on the mat
 [1;31mThe[0m snowcat is not an animal
+---------------------------- Test 152 -----------------------------
+24:four
+25-five
+26-six
+27-seven
+++
+34:fourteen
+35-fifteen
+36-sixteen
+37-seventeen
+RC=0
+---------------------------- Test 153 -----------------------------
+24:four
+25-five
+26-six
+27-seven
+34:fourteen
+35-fifteen
+36-sixteen
+37-seventeen
+RC=0

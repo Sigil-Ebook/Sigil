@@ -74,7 +74,7 @@ No match: POSIX code 17: match failed
  0: abc
 
 /(abc)\2/
-Failed: POSIX code 15: bad back reference at offset 6     
+Failed: POSIX code 15: bad back reference at offset 6
 
 /(abc\1)/
 \= Expect no match
@@ -146,13 +146,13 @@ No match: POSIX code 17: match failed
  0+ issippi
 
 /abc/\
-Failed: POSIX code 9: bad escape sequence at offset 4     
+Failed: POSIX code 9: bad escape sequence at offset 4
 
 "(?(?C)"
-Failed: POSIX code 11: unbalanced () at offset 6     
+Failed: POSIX code 11: unbalanced () at offset 6
 
 "(?(?C))"
-Failed: POSIX code 3: pattern error at offset 6     
+Failed: POSIX code 3: pattern error at offset 6
 
 /abcd/substitute_extended
 ** Ignored with POSIX interface: substitute_extended
@@ -199,7 +199,7 @@ No match: POSIX code 17: match failed
  0: a\b(c
 
 /a\b(c/literal,posix,dotall
-Failed: POSIX code 16: bad argument at offset 0     
+Failed: POSIX code 16: bad argument at offset 0
 
 /((a)(b)?(c))/posix
     123ace

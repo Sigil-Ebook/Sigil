@@ -43,7 +43,7 @@ one-off matches. JIT support is available for all of the 8-bit, 16-bit and
 <P>
 JIT support applies only to the traditional Perl-compatible matching function.
 It does not apply when the DFA matching function is being used. The code for
-this support was written by Zoltan Herczeg.
+JIT support was written by Zoltan Herczeg.
 </P>
 <br><a name="SEC2" href="#TOC1">AVAILABILITY OF JIT SUPPORT</a><br>
 <P>
@@ -56,19 +56,33 @@ platforms:
   ARM 64-bit
   IBM s390x 64 bit
   Intel x86 32-bit and 64-bit
+  LoongArch 64 bit
   MIPS 32-bit and 64-bit
   Power PC 32-bit and 64-bit
-  SPARC 32-bit
+  RISC-V 32-bit and 64-bit
 </pre>
 If --enable-jit is set on an unsupported platform, compilation fails.
 </P>
 <P>
-A program can tell if JIT support is available by calling <b>pcre2_config()</b>
-with the PCRE2_CONFIG_JIT option. The result is 1 when JIT is available, and 0
-otherwise. However, a simple program does not need to check this in order to
-use JIT. The API is implemented in a way that falls back to the interpretive
-code if JIT is not available. For programs that need the best possible
-performance, there is also a "fast path" API that is JIT-specific.
+A client program can tell if JIT support is available by calling
+<b>pcre2_config()</b> with the PCRE2_CONFIG_JIT option. The result is one if
+PCRE2 was built with JIT support, and zero otherwise. However, having the JIT
+code available does not guarantee that it will be used for any particular
+match. One reason for this is that there are a number of options and pattern
+items that are
+<a href="#unsupported">not supported by JIT</a>
+(see below). Another reason is that in some environments JIT is unable to get
+memory in which to build its compiled code. The only guarantee from
+<b>pcre2_config()</b> is that if it returns zero, JIT will definitely <i>not</i>
+be used.
+</P>
+<P>
+A simple program does not need to check availability in order to use JIT when
+possible. The API is implemented in a way that falls back to the interpretive
+code if JIT is not available or cannot be used for a given match. For programs
+that need the best possible performance, there is a
+<a href="#fastpath">"fast path"</a>
+API that is JIT-specific.
 </P>
 <br><a name="SEC3" href="#TOC1">SIMPLE USE OF JIT</a><br>
 <P>
@@ -127,9 +141,10 @@ below.
 <P>
 There are some <b>pcre2_match()</b> options that are not supported by JIT, and
 there are also some pattern items that JIT cannot handle. Details are given
-below. In both cases, matching automatically falls back to the interpretive
-code. If you want to know whether JIT was actually used for a particular match,
-you should arrange for a JIT callback function to be set up as described in the
+<a href="#unsupported">below.</a>
+In both cases, matching automatically falls back to the interpretive code. If
+you want to know whether JIT was actually used for a particular match, you
+should arrange for a JIT callback function to be set up as described in the
 section entitled
 <a href="#stackcontrol">"Controlling the JIT stack"</a>
 below, even if you do not need to supply a non-default JIT stack. Such a
@@ -139,12 +154,14 @@ not obeyed.
 </P>
 <P>
 If the JIT compiler finds an unsupported item, no JIT data is generated. You
-can find out if JIT matching is available after compiling a pattern by calling
-<b>pcre2_pattern_info()</b> with the PCRE2_INFO_JITSIZE option. A non-zero
-result means that JIT compilation was successful. A result of 0 means that JIT
-support is not available, or the pattern was not processed by
+can find out if JIT compilation was successful for a compiled pattern by
+calling <b>pcre2_pattern_info()</b> with the PCRE2_INFO_JITSIZE option. A
+non-zero result means that JIT compilation was successful. A result of 0 means
+that JIT support is not available, or the pattern was not processed by
 <b>pcre2_jit_compile()</b>, or the JIT compiler was not able to handle the
-pattern.
+pattern. Successful JIT compilation does not, however, guarantee the use of JIT
+at match time because there are some match time options that are not supported
+by JIT.
 </P>
 <br><a name="SEC4" href="#TOC1">MATCHING SUBJECTS CONTAINING INVALID UTF</a><br>
 <P>
@@ -154,15 +171,16 @@ checked at the start of matching and an error is generated if invalid UTF is
 detected. The PCRE2_NO_UTF_CHECK option can be passed to <b>pcre2_match()</b> to
 skip the check (for improved performance) if you are sure that a subject string
 is valid. If this option is used with an invalid string, the result is
-undefined.
+undefined. The calling program may crash or loop or otherwise misbehave.
 </P>
 <P>
 However, a way of running matches on strings that may contain invalid UTF
 sequences is available. Calling <b>pcre2_compile()</b> with the
 PCRE2_MATCH_INVALID_UTF option has two effects: it tells the interpreter in
 <b>pcre2_match()</b> to support invalid UTF, and, if <b>pcre2_jit_compile()</b>
-is called, the compiled JIT code also supports invalid UTF. Details of how this
-support works, in both the JIT and the interpretive cases, is given in the
+is subsequently called, the compiled JIT code also supports invalid UTF.
+Details of how this support works, in both the JIT and the interpretive cases,
+is given in the
 <a href="pcre2unicode.html"><b>pcre2unicode</b></a>
 documentation.
 </P>
@@ -171,7 +189,7 @@ There is also an obsolete option for <b>pcre2_jit_compile()</b> called
 PCRE2_JIT_INVALID_UTF, which currently exists only for backward compatibility.
 It is superseded by the <b>pcre2_compile()</b> option PCRE2_MATCH_INVALID_UTF
 and should no longer be used. It may be removed in future.
-</P>
+<a name="unsupported"></a></P>
 <br><a name="SEC5" href="#TOC1">UNSUPPORTED OPTIONS AND PATTERN ITEMS</a><br>
 <P>
 The <b>pcre2_match()</b> options that are supported for JIT matching are
@@ -191,10 +209,10 @@ in a conditional group.
 </P>
 <br><a name="SEC6" href="#TOC1">RETURN VALUES FROM JIT MATCHING</a><br>
 <P>
-When a pattern is matched using JIT matching, the return values are the same
-as those given by the interpretive <b>pcre2_match()</b> code, with the addition
-of one new error code: PCRE2_ERROR_JIT_STACKLIMIT. This means that the memory
-used for the JIT stack was insufficient. See
+When a pattern is matched using JIT, the return values are the same as those
+given by the interpretive <b>pcre2_match()</b> code, with the addition of one
+new error code: PCRE2_ERROR_JIT_STACKLIMIT. This means that the memory used for
+the JIT stack was insufficient. See
 <a href="#stackcontrol">"Controlling the JIT stack"</a>
 below for a discussion of JIT stack usage.
 </P>
@@ -363,7 +381,7 @@ pattern causes stack overflow with a stack of 1MiB? Is that 1MiB kept until the
 stack is freed?
 <br>
 <br>
-Especially on embedded sytems, it might be a good idea to release memory
+Especially on embedded systems, it might be a good idea to release memory
 sometimes without freeing the stack. There is no API for this at the moment.
 Probably a function call which returns with the currently allocated memory for
 any stack and another which allows releasing memory (shrinking the stack) would
@@ -416,7 +434,7 @@ calls.
   pcre2_match_context_free(mcontext);
   pcre2_jit_stack_free(jit_stack);
 
-</PRE>
+<a name="fastpath"></a></PRE>
 </P>
 <br><a name="SEC11" href="#TOC1">JIT FAST PATH API</a><br>
 <P>
@@ -433,11 +451,10 @@ processed by <b>pcre2_jit_compile()</b>).
 The fast path function is called <b>pcre2_jit_match()</b>, and it takes exactly
 the same arguments as <b>pcre2_match()</b>. However, the subject string must be
 specified with a length; PCRE2_ZERO_TERMINATED is not supported. Unsupported
-option bits (for example, PCRE2_ANCHORED, PCRE2_ENDANCHORED and
-PCRE2_COPY_MATCHED_SUBJECT) are ignored, as is the PCRE2_NO_JIT option. The
-return values are also the same as for <b>pcre2_match()</b>, plus
-PCRE2_ERROR_JIT_BADOPTION if a matching mode (partial or complete) is requested
-that was not compiled.
+option bits (for example, PCRE2_ANCHORED and PCRE2_ENDANCHORED) are ignored, as
+is the PCRE2_NO_JIT option. The return values are also the same as for
+<b>pcre2_match()</b>, plus PCRE2_ERROR_JIT_BADOPTION if a matching mode (partial
+or complete) is requested that was not compiled.
 </P>
 <P>
 When you call <b>pcre2_match()</b>, as well as testing for invalid options, a
@@ -445,7 +462,11 @@ number of other sanity checks are performed on the arguments. For example, if
 the subject pointer is NULL but the length is non-zero, an immediate error is
 given. Also, unless PCRE2_NO_UTF_CHECK is set, a UTF subject string is tested
 for validity. In the interests of speed, these checks do not happen on the JIT
-fast path, and if invalid data is passed, the result is undefined.
+fast path. If invalid UTF data is passed when PCRE2_MATCH_INVALID_UTF was not
+set for <b>pcre2_compile()</b>, the result is undefined. The program may crash
+or loop or give wrong results. In the absence of PCRE2_MATCH_INVALID_UTF you
+should call <b>pcre2_jit_match()</b> in UTF mode only if you are sure the
+subject is valid.
 </P>
 <P>
 Bypassing the sanity checks and the <b>pcre2_match()</b> wrapping can give
@@ -453,22 +474,22 @@ speedups of more than 10%.
 </P>
 <br><a name="SEC12" href="#TOC1">SEE ALSO</a><br>
 <P>
-<b>pcre2api</b>(3)
+<b>pcre2api</b>(3), <b>pcre2unicode</b>(3)
 </P>
 <br><a name="SEC13" href="#TOC1">AUTHOR</a><br>
 <P>
 Philip Hazel (FAQ by Zoltan Herczeg)
 <br>
-University Computing Service
+Retired from University Computing Service
 <br>
 Cambridge, England.
 <br>
 </P>
 <br><a name="SEC14" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 30 November 2021
+Last updated: 23 January 2023
 <br>
-Copyright &copy; 1997-2021 University of Cambridge.
+Copyright &copy; 1997-2023 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

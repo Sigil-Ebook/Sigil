@@ -33,7 +33,13 @@ options are:
   PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK     Allow \K in lookarounds
   PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES  Allow \x{d800} to \x{dfff} in UTF-8 and UTF-32 modes
   PCRE2_EXTRA_ALT_BSUX                 Extended alternate \u, \U, and \x handling
+  PCRE2_EXTRA_ASCII_BSD                \d remains ASCII in UCP mode
+  PCRE2_EXTRA_ASCII_BSS                \s remains ASCII in UCP mode
+  PCRE2_EXTRA_ASCII_BSW                \w remains ASCII in UCP mode
+  PCRE2_EXTRA_ASCII_DIGIT              [:digit:] and [:xdigit:] POSIX classes remain ASCII in UCP mode
+  PCRE2_EXTRA_ASCII_POSIX              POSIX classes remain ASCII in UCP mode
   PCRE2_EXTRA_BAD_ESCAPE_IS_LITERAL    Treat all invalid escapes as a literal following character
+  PCRE2_EXTRA_CASELESS_RESTRICT        Disable mixed ASCII/non-ASCII case folding
   PCRE2_EXTRA_ESCAPED_CR_IS_LF         Interpret \r as \n
   PCRE2_EXTRA_MATCH_LINE               Pattern matches whole lines
   PCRE2_EXTRA_MATCH_WORD               Pattern matches "words"

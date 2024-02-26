@@ -1,4 +1,4 @@
-.TH PCRE2JIT 3 "30 November 2021" "PCRE2 10.40"
+.TH PCRE2JIT 3 "23 January 2023" "PCRE2 10.43"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "PCRE2 JUST-IN-TIME COMPILER SUPPORT"
@@ -16,7 +16,7 @@ one-off matches. JIT support is available for all of the 8-bit, 16-bit and
 .P
 JIT support applies only to the traditional Perl-compatible matching function.
 It does not apply when the DFA matching function is being used. The code for
-this support was written by Zoltan Herczeg.
+JIT support was written by Zoltan Herczeg.
 .
 .
 .SH "AVAILABILITY OF JIT SUPPORT"
@@ -31,18 +31,37 @@ platforms:
   ARM 64-bit
   IBM s390x 64 bit
   Intel x86 32-bit and 64-bit
+  LoongArch 64 bit
   MIPS 32-bit and 64-bit
   Power PC 32-bit and 64-bit
-  SPARC 32-bit
+  RISC-V 32-bit and 64-bit
 .sp
 If --enable-jit is set on an unsupported platform, compilation fails.
 .P
-A program can tell if JIT support is available by calling \fBpcre2_config()\fP
-with the PCRE2_CONFIG_JIT option. The result is 1 when JIT is available, and 0
-otherwise. However, a simple program does not need to check this in order to
-use JIT. The API is implemented in a way that falls back to the interpretive
-code if JIT is not available. For programs that need the best possible
-performance, there is also a "fast path" API that is JIT-specific.
+A client program can tell if JIT support is available by calling
+\fBpcre2_config()\fP with the PCRE2_CONFIG_JIT option. The result is one if
+PCRE2 was built with JIT support, and zero otherwise. However, having the JIT
+code available does not guarantee that it will be used for any particular
+match. One reason for this is that there are a number of options and pattern
+items that are
+.\" HTML <a href="#unsupported">
+.\" </a>
+not supported by JIT
+.\"
+(see below). Another reason is that in some environments JIT is unable to get
+memory in which to build its compiled code. The only guarantee from
+\fBpcre2_config()\fP is that if it returns zero, JIT will definitely \fInot\fP
+be used.
+.P
+A simple program does not need to check availability in order to use JIT when
+possible. The API is implemented in a way that falls back to the interpretive
+code if JIT is not available or cannot be used for a given match. For programs
+that need the best possible performance, there is a
+.\" HTML <a href="#fastpath">
+.\" </a>
+"fast path"
+.\"
+API that is JIT-specific.
 .
 .
 .SH "SIMPLE USE OF JIT"
@@ -99,9 +118,13 @@ below.
 .P
 There are some \fBpcre2_match()\fP options that are not supported by JIT, and
 there are also some pattern items that JIT cannot handle. Details are given
-below. In both cases, matching automatically falls back to the interpretive
-code. If you want to know whether JIT was actually used for a particular match,
-you should arrange for a JIT callback function to be set up as described in the
+.\" HTML <a href="#unsupported">
+.\" </a>
+below.
+.\"
+In both cases, matching automatically falls back to the interpretive code. If
+you want to know whether JIT was actually used for a particular match, you
+should arrange for a JIT callback function to be set up as described in the
 section entitled
 .\" HTML <a href="#stackcontrol">
 .\" </a>
@@ -113,12 +136,14 @@ match-time options are not right for JIT execution, the callback function is
 not obeyed.
 .P
 If the JIT compiler finds an unsupported item, no JIT data is generated. You
-can find out if JIT matching is available after compiling a pattern by calling
-\fBpcre2_pattern_info()\fP with the PCRE2_INFO_JITSIZE option. A non-zero
-result means that JIT compilation was successful. A result of 0 means that JIT
-support is not available, or the pattern was not processed by
+can find out if JIT compilation was successful for a compiled pattern by
+calling \fBpcre2_pattern_info()\fP with the PCRE2_INFO_JITSIZE option. A
+non-zero result means that JIT compilation was successful. A result of 0 means
+that JIT support is not available, or the pattern was not processed by
 \fBpcre2_jit_compile()\fP, or the JIT compiler was not able to handle the
-pattern.
+pattern. Successful JIT compilation does not, however, guarantee the use of JIT
+at match time because there are some match time options that are not supported
+by JIT.
 .
 .
 .SH "MATCHING SUBJECTS CONTAINING INVALID UTF"
@@ -130,14 +155,15 @@ checked at the start of matching and an error is generated if invalid UTF is
 detected. The PCRE2_NO_UTF_CHECK option can be passed to \fBpcre2_match()\fP to
 skip the check (for improved performance) if you are sure that a subject string
 is valid. If this option is used with an invalid string, the result is
-undefined.
+undefined. The calling program may crash or loop or otherwise misbehave.
 .P
 However, a way of running matches on strings that may contain invalid UTF
 sequences is available. Calling \fBpcre2_compile()\fP with the
 PCRE2_MATCH_INVALID_UTF option has two effects: it tells the interpreter in
 \fBpcre2_match()\fP to support invalid UTF, and, if \fBpcre2_jit_compile()\fP
-is called, the compiled JIT code also supports invalid UTF. Details of how this
-support works, in both the JIT and the interpretive cases, is given in the
+is subsequently called, the compiled JIT code also supports invalid UTF.
+Details of how this support works, in both the JIT and the interpretive cases,
+is given in the
 .\" HREF
 \fBpcre2unicode\fP
 .\"
@@ -149,6 +175,7 @@ It is superseded by the \fBpcre2_compile()\fP option PCRE2_MATCH_INVALID_UTF
 and should no longer be used. It may be removed in future.
 .
 .
+.\" HTML <a name="unsupported"></a>
 .SH "UNSUPPORTED OPTIONS AND PATTERN ITEMS"
 .rs
 .sp
@@ -169,10 +196,10 @@ in a conditional group.
 .SH "RETURN VALUES FROM JIT MATCHING"
 .rs
 .sp
-When a pattern is matched using JIT matching, the return values are the same
-as those given by the interpretive \fBpcre2_match()\fP code, with the addition
-of one new error code: PCRE2_ERROR_JIT_STACKLIMIT. This means that the memory
-used for the JIT stack was insufficient. See
+When a pattern is matched using JIT, the return values are the same as those
+given by the interpretive \fBpcre2_match()\fP code, with the addition of one
+new error code: PCRE2_ERROR_JIT_STACKLIMIT. This means that the memory used for
+the JIT stack was insufficient. See
 .\" HTML <a href="#stackcontrol">
 .\" </a>
 "Controlling the JIT stack"
@@ -335,7 +362,7 @@ list of patterns.
 pattern causes stack overflow with a stack of 1MiB? Is that 1MiB kept until the
 stack is freed?
 .sp
-Especially on embedded sytems, it might be a good idea to release memory
+Especially on embedded systems, it might be a good idea to release memory
 sometimes without freeing the stack. There is no API for this at the moment.
 Probably a function call which returns with the currently allocated memory for
 any stack and another which allows releasing memory (shrinking the stack) would
@@ -393,6 +420,7 @@ calls.
 .sp
 .
 .
+.\" HTML <a name="fastpath"></a>
 .SH "JIT FAST PATH API"
 .rs
 .sp
@@ -408,18 +436,21 @@ processed by \fBpcre2_jit_compile()\fP).
 The fast path function is called \fBpcre2_jit_match()\fP, and it takes exactly
 the same arguments as \fBpcre2_match()\fP. However, the subject string must be
 specified with a length; PCRE2_ZERO_TERMINATED is not supported. Unsupported
-option bits (for example, PCRE2_ANCHORED, PCRE2_ENDANCHORED and
-PCRE2_COPY_MATCHED_SUBJECT) are ignored, as is the PCRE2_NO_JIT option. The
-return values are also the same as for \fBpcre2_match()\fP, plus
-PCRE2_ERROR_JIT_BADOPTION if a matching mode (partial or complete) is requested
-that was not compiled.
+option bits (for example, PCRE2_ANCHORED and PCRE2_ENDANCHORED) are ignored, as
+is the PCRE2_NO_JIT option. The return values are also the same as for
+\fBpcre2_match()\fP, plus PCRE2_ERROR_JIT_BADOPTION if a matching mode (partial
+or complete) is requested that was not compiled.
 .P
 When you call \fBpcre2_match()\fP, as well as testing for invalid options, a
 number of other sanity checks are performed on the arguments. For example, if
 the subject pointer is NULL but the length is non-zero, an immediate error is
 given. Also, unless PCRE2_NO_UTF_CHECK is set, a UTF subject string is tested
 for validity. In the interests of speed, these checks do not happen on the JIT
-fast path, and if invalid data is passed, the result is undefined.
+fast path. If invalid UTF data is passed when PCRE2_MATCH_INVALID_UTF was not
+set for \fBpcre2_compile()\fP, the result is undefined. The program may crash
+or loop or give wrong results. In the absence of PCRE2_MATCH_INVALID_UTF you
+should call \fBpcre2_jit_match()\fP in UTF mode only if you are sure the
+subject is valid.
 .P
 Bypassing the sanity checks and the \fBpcre2_match()\fP wrapping can give
 speedups of more than 10%.
@@ -428,7 +459,7 @@ speedups of more than 10%.
 .SH "SEE ALSO"
 .rs
 .sp
-\fBpcre2api\fP(3)
+\fBpcre2api\fP(3), \fBpcre2unicode\fP(3)
 .
 .
 .SH AUTHOR
@@ -436,7 +467,7 @@ speedups of more than 10%.
 .sp
 .nf
 Philip Hazel (FAQ by Zoltan Herczeg)
-University Computing Service
+Retired from University Computing Service
 Cambridge, England.
 .fi
 .
@@ -445,6 +476,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 30 November 2021
-Copyright (c) 1997-2021 University of Cambridge.
+Last updated: 23 January 2023
+Copyright (c) 1997-2023 University of Cambridge.
 .fi

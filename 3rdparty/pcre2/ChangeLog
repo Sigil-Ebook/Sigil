@@ -1,5 +1,215 @@
-Change Log for PCRE2 - see also the Git log
--------------------------------------------
+Change Log for PCRE2
+--------------------
+
+Before the move to GitHub, this was the only record of changes to PCRE2. Now
+there is often more detail in the pull requests.
+
+
+Version 10.43 16-February-2024
+------------------------------
+
+1. The test program added by change 2 of 10.42 didn't work when the default
+newline setting didn't include \n as a newline. One test needed (*LF) to ensure
+that it worked.
+
+2. Added the new freestanding POSIX test program to the ManyConfigTests script
+in the maint directory (overlooked in 2 below). Also improved the selection
+facilities in that script, and added a test with JIT in a non-source directory,
+fixing an oversight that would have made such a test fail before.
+
+3. Added pcre2_get_match_data_heapframes_size() and related pcre2test flags
+to allow for finer control of the heap used when pcre2_match() without JIT is
+used and the match_data might be reused. This began as PR #191, but has had
+further refinement and documentation edits.
+
+4. Applied PR #181, which tidies some casts in pcre2_valid_utf.c.
+
+5. Applied PR #184, which avoids overflow issues with the heap limit
+(introduced in 10.41/9).
+
+6. Applied PR #192, which changes the timing units for pcre2test from
+milliseconds to microseconds. This is more useful for modern CPUs.
+
+7. Applied PR #193, which makes the requirement for C99 explicit in
+configure.ac and CMakeLists.txt.
+
+8. Fixed a bug in pcre2test when a ridiculously large string repeat required a
+stupid amount of memory. It now gives a clean realloc() failure error.
+
+9. Updates to restrict the interaction between ASCII and non-ASCII characters
+for caseless matching and items like \d:
+
+   (a) Added PCRE2_EXTRA_CASELESS_RESTRICT to lock out mixing of ASCII and
+       non-ASCII when matching caselessly. This is also /r in pcre2test and
+       (?r) within patterns.
+
+   (b) Added PCRE2_EXTRA_ASCII_{BSD,BSS,BSW,POSIX} and corresponding (?aD) etc
+       in patterns and /a in pcre2test.
+
+   (c) Corresponding updates to pcre2test.
+
+10. Unicode has been updated to 15.0.0.
+
+11. The Python scripts and ucptest.c in maint have been updated (a) a minor
+change needed for 9(a) above; (b) fix bugs in ucptest,
+
+12. Integer overflow testing is now centralized in a new function.
+
+13. Made PCRE2_UCP the default in UTF mode in pcre2grep, and added new options
+--case-restrict and --no-ucp.
+
+14. In the debugging printint module (which is normally only linked into
+pcre2test), avoid the use of a variable called "not" because that's deprecated
+in C and forbidden in C++. Also rewrite some code to avoid a goto into a block
+that bypassed its initialization (though it didn't actually matter).
+
+15. More minor code adjustments to avoid using reserved C++ words as variable
+names ("new" and "typename") and another jump that bypassed an (irrelevant)
+initialization.
+
+16. Merged a pull request that removed pcre2_ucptables.c from the list of files
+to compile in NON-AUTOTOOLS-BUILD because it is #included in pcre2_tables.c.
+Also adjusted the BUILD.bazel and build.zig files, which had the same issue. At
+the same time, fixed a typo in the Bazel file.
+
+17. Add PCRE2_EXTRA_ASCII_DIGIT to allow [:digit:] to be kept on sync with \d
+even in UCP mode.
+
+18. Fix an invalid match of ascii word classes when invalid utf is enabled.
+
+19. Add a --posix-digit to pcre2grep for compatibility with GNU grep, and
+other tools that prefer the POSIX compatible unicode definition for \d.
+
+20. Report the bit width of the library in use by pcre2test for usability.
+
+21. A pathological pattern conversion test could result in a string longer than
+the available input buffer. Cause such a test to fail.
+
+22. Add a check that forces a compiler error if PCRE2_CODE_UNIT_WIDTH is not 8,
+16, or 32 when compiling any of the library modules.
+
+23. Update pcre2_compile() to treat a NULL pattern with zero length as an empty
+string.
+
+24. Add support for limited-length variable-length lookbehind assertions, with
+default maximum length 255 characters (same as Perl) but with a function to
+adjust the limit.
+
+25. Applied pull request #262, which updates the zig configuration, and #278
+which fixes a bug with out-of-source-tree CMake build testing.
+
+26. Add support for LoongArch to JIT.
+
+27. Fixed a bug in pcre2_match() in the code for handling the vector of
+backtracking frames on the heap, which caused a heap overflow if *LIMIT_HEAP
+restricted an attempt to extend to less than the frame size. Generally tidy up
+the code for extending the heap frames vector. This fixes GitHub issue #275.
+
+28. Update pcre2_fuzzsupport.c to avoid clang sanitize complaint about shifting
+left by 16 when there are non-zeros in the top 16 bits.
+
+29. Perl 5.34.0 changed the meaning of (for example) {,3} which did not used to
+be treated as a quantifier. Now it is interpreted as {0,3} and PCRE2 has
+changed to match. Note that {,} is still not a quantifier.
+
+30. Perl allows spaces and/or horizontal tabs after { or before } in all items
+that use braces, and also before or after the comma in quantifiers. PCRE2 now
+does the same, except for \u{...}, which is recognized only when
+PCRE2_EXTRA_ALT_BSUX is set. This an ECMAScript, non-Perl compatible,
+extension, so PCRE2 follows ECMAScript rather than Perl.
+
+31. Applied pull request #300 by Carlo, which fixes #261. The bug was that
+pcre2_match() was not fully resetting all captures that had been set within a
+(possibly recursive) subroutine call such as (?3).
+
+32. Changed the meaning of \w (and its synonyms) in UCP mode to match Perl. It
+now matches characters whose general categories are L or N or whose particular
+categories are Mn (non-spacing mark) or Pc (combining puntuation). The latter
+includes underscore.
+
+33. Changed the meaning of [:xdigit:] in UCP mode to match Perl. It now also
+matches the "fullwidth" versions of the hex digits. Just like it is done for
+[:digit:], PCRE2_EXTRA_ASCII_DIGIT can be used to keep this class ASCII only
+without affecting other POSIX classes.
+
+34. GitHub PR305 fixes a potential integer overflow in pcre2_dfa_match().
+
+35. Updated handling of \b and \B in UCP mode to match the changes to \w in 32
+above because \b and \B are defined in terms of \w.
+
+36. Within a pattern (?aT) and (?-aT) set and reset the PCRE2_EXTRA_ASCII_DIGIT
+option, and (?aP) also sets (?aT) so that (?-aP) disables all ASCII
+restrictions on POSIX classes.
+
+37. If PCRE2_FIRSTLINE was set on an anchored pattern, pcre2_match() and
+pcre2_dfa_match() misbehaved. PCRE2_FIRSTLINE is now ignored for anchored
+patterns.
+
+38. Add a test for ridiculous ovector offset values to the substring extraction
+functions.
+
+39. Make OP_REVERSE use IMM2_SIZE for its data instead of LINK_SIZE, for
+consistency with OP_VREVERSE.
+
+40. In some legacy environments with a pre C99 snprintf, pcre2_regerror could
+return an incorrect value when the provided buffer was too small.
+
+41. Applied pull request #342 which adds sanity checks for ctype functions and
+locks out any accidental sign-extension.
+
+42. In the 32-bit library, in non-UTF mode, a quantifier that followed a
+literal character with a value greater than or equal to 0x80000000u caused
+undefined behaviour.
+
+43. \z was misbehaving when matching fragments inside invalid UTF strings.
+
+44. Implement --group-separator and --no-group-separator for pcre2grep.
+
+45. Fix \X matching in 32 bit mode without UTF in JIT.
+
+46. Fix backref iterators when PCRE2_MATCH_UNSET_BACKREF is set in JIT.
+
+47. Refactor the handling of whole-pattern recursion (?0) in pcre2_match() so
+that its end is handled similarly to other recursions. This has altered the
+behaviour of   /|(?0)./endanchored   which was previously not right.
+
+48. Improved the test for looping recursion by checking the last referenced
+character as well as the current character. This allows some patterns that
+previously triggered the check to run to completion instead of giving the loop
+error.
+
+49. In 32-bit mode, the compiler looped for the pattern /[\x{ffffffff}]/ when
+PCRE2_CASELESS and PCRE2_UCP (but not PCRE2_UTF) were set. Fixed by not trying
+to look for other cases for characters above the Unicode range.
+
+50. In caseless 32-bit mode with UCP (but not UTF) set, the character
+0xffffffff incorrectly matched any character that has more than one other case,
+in particular k and s.
+
+51. Fix accept and endanchored interaction in JIT.
+
+52. Fix backreferences with unset backref and non-greedy iterators in JIT.
+
+53. Improve the logic that checks for a list of starting code units -- positive
+lookahead assertions are now ignored if the immediately following item is one
+that sets a mandatory starting character. For example, /a?(?=bc|)d/ used to set
+all of a, b, and d as possible starting code units; now it sets only a and d.
+
+54. Fix incorrect class character matches in JIT.
+
+55. In pcre2test, ensure pcre2_jit_match() is used when jitfast is used with
+substitution testing.
+
+56. Insert omitted setting of subject length in match data at the end of
+pcre2_jit_match().
+
+57. Implemented PCRE2_DISABLE_RECURSELOOP_CHECK for pcre2_match() to enable
+some apparently looping recursions to run to completion and therefore match the
+JIT behaviour. With this set, real loops will eventually get caught by match or
+heap limits or run out of resource.
+
+58. AC did a lot of work on pcre2_fuzzsupport.c to extend it to 16-bit and
+32-bit libraries and to compare JIT and non-JIT matching.
 
 
 Version 10.42 11-December-2022
@@ -23,6 +233,13 @@ caused a crash because the field in the match data block is only 16 bits. A
 maximum of 65535 is now silently applied.
 
 5. Merged @carenas patch #175 which fixes #86 - segfault on aarch64 (ARM),
+
+6. The prototype for pcre2_substring_list_free() specified its argument as
+PCRE2_SPTR * which is a const data type, whereas the yield from
+pcre2_substring_list() is not const. This caused compiler warnings. I have
+changed the argument of pcre2_substring_list_free() to be PCRE2_UCHAR ** to
+remove this anomaly. This might cause new warnings in existing code where a
+cast has been used to avoid previous ones.
 
 
 Version 10.41 06-December-2022
@@ -965,7 +1182,7 @@ gets rid of the warnings. There were also two missing casts in pcre2test.
 Version 10.32 10-September-2018
 -------------------------------
 
-1. When matching using the the REG_STARTEND feature of the POSIX API with a
+1. When matching using the REG_STARTEND feature of the POSIX API with a
 non-zero starting offset, unset capturing groups with lower numbers than a
 group that did capture something were not being correctly returned as "unset"
 (that is, with offset values of -1).
@@ -1140,7 +1357,7 @@ assumed empty second branch cannot be anchored. Demonstrated by test patterns
 such as /(?(1)^())b/ or /(?(?=^))b/.
 
 40. A repeated conditional subpattern that could match an empty string was
-always assumed to be unanchored. Now it it checked just like any other
+always assumed to be unanchored. Now it is checked just like any other
 repeated conditional subpattern, and can be found to be anchored if the minimum
 quantifier is one or more. I can't see much use for a repeated anchored
 pattern, but the behaviour is now consistent.

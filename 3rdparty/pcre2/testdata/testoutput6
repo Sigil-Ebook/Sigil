@@ -7655,12 +7655,12 @@ No match
 
 /()()a+/no_auto_possess
     aaa\=allcaptures
-** Ignored after DFA matching: allcaptures
+** Ignored for DFA matching: allcaptures
  0: aaa
  1: aa
  2: a
     a\=allcaptures
-** Ignored after DFA matching: allcaptures
+** Ignored for DFA matching: allcaptures
  0: a
 
 /(*LIMIT_DEPTH=100)^((.)(?1)|.)$/
@@ -7894,5 +7894,30 @@ Partial match:
 /c*+/
     ab\=ph,offset=2
 Partial match: 
+
+/
+/anchored, firstline
+    \x0a
+ 0: \x0a
+
+/
+/anchored,firstline,no_start_optimize
+    \x0a
+ 0: \x0a
+
+/
+/firstline
+    \x0a
+ 0: \x0a
+    abc\x0adef
+ 0: \x0a
+
+/|a(?0)/endanchored
+    aaaa
+ 0: aaaa
+ 1: aaa
+ 2: aa
+ 3: a
+ 4: 
 
 # End of testinput6

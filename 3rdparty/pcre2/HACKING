@@ -1,4 +1,4 @@
-Technical Notes about PCRE2
+Technical notes about PCRE2
 ---------------------------
 
 These are very rough technical notes that record potentially useful information
@@ -226,7 +226,8 @@ META_ESCAPE           non-literal escape sequence
 META_RECURSE          recursion call
 
 If the data for META_ALT is non-zero, it is inside a lookbehind, and the data
-is the length of its branch, for which OP_REVERSE must be generated.
+is the maximum length of its branch (see META_LOOKBEHIND below for more
+detail).
 
 META_BACKREF, META_CAPTURE, and META_RECURSE have the capture group number as
 their data in the lower 16 bits of the element. META_RECURSE is followed by an
@@ -248,7 +249,6 @@ by a length and an offset into the pattern to specify the name.
 The following have one data item that follows in the next vector element:
 
 META_BIGVALUE         Next is a literal >= META_END
-META_OPTIONS          (?i) and friends (data is new option bits)
 META_POSIX            POSIX class item (data identifies the class)
 META_POSIX_NEG        negative POSIX class item (ditto)
 
@@ -282,21 +282,33 @@ The following is followed just by an offset, for use in error messages:
 
 META_COND_DEFINE      (?(DEFINE)
 
-The following are also followed just by an offset, but also the lower 16 bits
-of the main word contain the length of the first branch of the lookbehind
-group; this is used when generating OP_REVERSE for that branch.
+The following are at first also followed just by an offset for use in error
+messages. After the lengths of the branches of a lookbehind group have been
+checked the error offset is no longer needed. The lower 16 bits of the main
+word are now set to the maximum length of the first branch of the lookbehind
+group, and the second word is set to the mimimum matching length for a
+variable-length lookbehind group, or to LOOKBEHIND_MAX for a group whose
+branches are all of fixed length. These values are used when generating
+OP_REVERSE or OP_VREVERSE for the first branch. The miminum value is also used
+for any subsequent branches because there is only room for one value (the
+branch maximum length) in a META_ALT item.
 
 META_LOOKBEHIND       (?<=      start of lookbehind
 META_LOOKBEHIND_NA    (*naplb:  start of non-atomic lookbehind
 META_LOOKBEHINDNOT    (?<!      start of negative lookbehind
 
 The following are followed by two elements, the minimum and maximum. The
-maximum value is limited to 65535 (MAX_REPEAT). A maximum value of "unlimited"
-is represented by UNLIMITED_REPEAT, which is bigger than MAX_REPEAT:
+maximum value is limited to 65535 (MAX_REPEAT_COUNT). A maximum value of
+"unlimited" is represented by REPEAT_UNLIMITED, which is bigger than it:
 
 META_MINMAX           {n,m}  repeat
 META_MINMAX_PLUS      {n,m}+ repeat
 META_MINMAX_QUERY     {n,m}? repeat
+
+This one is followed by two elements, giving the new option settings for the
+main and extra options, respectively.
+
+META_OPTIONS          (?i) and friends
 
 This one is followed by three elements. The first is 0 for '>' and 1 for '>=';
 the next two are the major and minor numbers:
@@ -369,7 +381,7 @@ data that follows it.
 In many cases listed below, LINK_SIZE data values are specified for offsets
 within the compiled pattern. LINK_SIZE always specifies a number of bytes. The
 default value for LINK_SIZE is 2, except for the 32-bit library, where it can
-only be 4. The 8-bit library can be compiled to used 3-byte or 4-byte values,
+only be 4. The 8-bit library can be compiled to use 3-byte or 4-byte values,
 and the 16-bit library can be compiled to use 4-byte values, though this
 impairs performance. Specifying a LINK_SIZE larger than 2 for these libraries is
 necessary only when patterns whose compiled length is greater than 65535 code
@@ -718,14 +730,25 @@ Assertions
 
 Forward assertions are also just like other subpatterns, but starting with one
 of the opcodes OP_ASSERT, OP_ASSERT_NA (non-atomic assertion), or
-OP_ASSERT_NOT. Backward assertions use the opcodes OP_ASSERTBACK,
-OP_ASSERTBACK_NA, and OP_ASSERTBACK_NOT, and the first opcode inside the
-assertion is OP_REVERSE, followed by a count of the number of characters to
-move back the pointer in the subject string. In ASCII or UTF-32 mode, the count
-is also the number of code units, but in UTF-8/16 mode each character may
-occupy more than one code unit. A separate count is present in each alternative
-of a lookbehind assertion, allowing each branch to have a different (but fixed)
-length.
+OP_ASSERT_NOT.
+
+Backward assertions use the opcodes OP_ASSERTBACK, OP_ASSERTBACK_NA, and
+OP_ASSERTBACK_NOT. If all the branches of a backward assertion are of fixed
+length (not necessarily the same), the first opcode inside each branch is
+OP_REVERSE, followed by an IMM2_SIZE count of the number of characters to move
+back the pointer in the subject string, thus allowing each branch to have a
+different (but fixed) length.
+
+Variable-length backward assertions whose maximum matching length is limited
+are also supported. For such assertions, the first opcode inside each branch is
+OP_VREVERSE, followed by the minimum and maximum lengths for that branch,
+unless these happen to be equal, in which case OP_REVERSE is used. These
+IMM2_SIZE values occupy two code units each in 8-bit mode, and 1 code unit in
+16/32 bit modes.
+
+In ASCII or UTF-32 mode, the character counts in OP_REVERSE and OP_VREVERSE are
+also the number of code units, but in UTF-8/16 mode each character may occupy
+more than one code unit.
 
 
 Conditional subpatterns
@@ -827,4 +850,4 @@ not a real opcode, but is used to check at compile time that tables indexed by
 opcode are the correct length, in order to catch updating errors.
 
 Philip Hazel
-April 2022
+November 2023

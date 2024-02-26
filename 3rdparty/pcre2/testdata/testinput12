@@ -413,6 +413,20 @@
 \= Expect no match
     ab\x{df00}cdef\=ph
 
+/.a/match_invalid_utf
+    ab\=ph
+    ab\=ps
+\= Expect no match
+    b\x{df00}\=ph
+    b\x{df00}\=ps
+
+/.a$/match_invalid_utf
+    ab\=ph
+    ab\=ps
+\= Expect no match
+    b\x{df00}\=ph
+    b\x{df00}\=ps
+
 /ab$/match_invalid_utf
     ab\x{df00}cdeab
 \= Expect no match
@@ -450,6 +464,9 @@
 
 /aa/utf,ucp,match_invalid_utf,global
     \x{d800}aa
+    
+/A\z/utf,match_invalid_utf
+    A\x{df00}\n
 
 # ---------------------------------------------------- 
 
@@ -545,5 +562,45 @@
     \x{17f} 
 
 # ---------------------------------------------------- 
+
+# Quantifier after a literal that has the value of META_ACCEPT (not UTF). This
+# fails in 16-bit mode, but is OK for 32-bit.
+
+/\x{802a0000}*/
+    \x{802a0000}\x{802a0000}
+
+# UTF matching without UTF, check invalid UTF characters
+/\X++/
+    a\x{110000}\x{ffffffff}
+
+# This used to loop in 32-bit mode; it will fail in 16-bit mode.
+/[\x{ffffffff}]/caseless,ucp
+    \x{ffffffff}xyz
+    
+# These are 32-bit tests for handing 0xffffffff when in UCP caselsss mode. They
+# will give errors in 16-bit mode.
+
+/k*\x{ffffffff}/caseless,ucp
+    \x{ffffffff}
+
+/k+\x{ffffffff}/caseless,ucp,no_start_optimize
+    K\x{ffffffff}
+\= Expect no match     
+    \x{ffffffff}\x{ffffffff}
+
+/k{2}\x{ffffffff}/caseless,ucp,no_start_optimize
+\= Expect no match
+    \x{ffffffff}\x{ffffffff}\x{ffffffff}
+
+/k\x{ffffffff}/caseless,ucp,no_start_optimize
+    K\x{ffffffff}
+\= Expect no match
+    \x{ffffffff}\x{ffffffff}\x{ffffffff}
+
+/k{2,}?Z/caseless,ucp,no_start_optimize,no_auto_possess
+\= Expect no match
+    Kk\x{ffffffff}\x{ffffffff}\x{ffffffff}Z
+
+# --------------------------------------------------------- 
 
 # End of testinput12

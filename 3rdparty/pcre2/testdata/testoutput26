@@ -8,8 +8,8 @@
  0: A
 
 /^\p{Script=Latn}/utf
-  \x{1df1e}
- 0: \x{1df1e}
+  \x{1df2a}
+ 0: \x{1df2a}
 
 # Script extension check
 /^\p{Latin}/utf
@@ -31,7 +31,7 @@ No match
 
 # Character not in script
 /^\p{Latin}/utf
-  \x{1df1f}
+  \x{1df2b}
 No match
 
 # Base script check
@@ -72,8 +72,8 @@ No match
  0: \x{400}
 
 /^\p{Script=Cyrl}/utf
-  \x{fe2f}
- 0: \x{fe2f}
+  \x{1e08f}
+ 0: \x{1e08f}
 
 # Script extension check
 /^\p{Cyrillic}/utf
@@ -95,7 +95,7 @@ No match
 
 # Character not in script
 /^\p{Cyrillic}/utf
-  \x{fe30}
+  \x{1e090}
 No match
 
 # Base script check
@@ -200,8 +200,8 @@ No match
  0: \x{900}
 
 /^\p{Script=Deva}/utf
-  \x{a8ff}
- 0: \x{a8ff}
+  \x{11b09}
+ 0: \x{11b09}
 
 # Script extension check
 /^\p{Devanagari}/utf
@@ -223,7 +223,7 @@ No match
 
 # Character not in script
 /^\p{Devanagari}/utf
-  \x{a900}
+  \x{11b0a}
 No match
 
 # Base script check
@@ -424,8 +424,8 @@ No match
  0: \x{c80}
 
 /^\p{Script=Knda}/utf
-  \x{cf2}
- 0: \x{cf2}
+  \x{cf3}
+ 0: \x{cf3}
 
 # Script extension check
 /^\p{Kannada}/utf
@@ -744,8 +744,8 @@ No match
  0: \x{2e80}
 
 /^\p{Script=Hani}/utf
-  \x{3134a}
- 0: \x{3134a}
+  \x{323af}
+ 0: \x{323af}
 
 # Script extension check
 /^\p{Han}/utf
@@ -767,7 +767,7 @@ No match
 
 # Character not in script
 /^\p{Han}/utf
-  \x{3134b}
+  \x{323b0}
 No match
 
 # Base script check
@@ -1544,8 +1544,8 @@ No match
  0: \x{11200}
 
 /^\p{Script=Khoj}/utf
-  \x{1123e}
- 0: \x{1123e}
+  \x{11241}
+ 0: \x{11241}
 
 # Script extension check
 /^\p{Khojki}/utf
@@ -1567,7 +1567,7 @@ No match
 
 # Character not in script
 /^\p{Khojki}/utf
-  \x{1123f}
+  \x{11242}
 No match
 
 # Base script check
@@ -2744,12 +2744,12 @@ No match
  0: \x{13000}
 
 /^\p{Script=Egyp}/utf
-  \x{13438}
- 0: \x{13438}
+  \x{13455}
+ 0: \x{13455}
 
 # Character not in script
 /^\p{Egyptian_Hieroglyphs}/utf
-  \x{13439}
+  \x{13456}
 No match
 
 # Base script check
@@ -3478,6 +3478,34 @@ No match
 # Character not in script
 /^\p{Vithkuqi}/utf
   \x{105bd}
+No match
+
+# Base script check
+/^\p{sc=Kawi}/utf
+  \x{11f00}
+ 0: \x{11f00}
+
+/^\p{Script=Kawi}/utf
+  \x{11f59}
+ 0: \x{11f59}
+
+# Character not in script
+/^\p{Kawi}/utf
+  \x{11f5a}
+No match
+
+# Base script check
+/^\p{sc=Nag_Mundari}/utf
+  \x{1e4d0}
+ 0: \x{1e4d0}
+
+/^\p{Script=Nagm}/utf
+  \x{1e4f9}
+ 0: \x{1e4f9}
+
+# Character not in script
+/^\p{Nag_Mundari}/utf
+  \x{1e4fa}
 No match
 
 # End of testinput26

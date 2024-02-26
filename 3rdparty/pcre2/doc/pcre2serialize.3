@@ -75,7 +75,7 @@ being a pointer to a vector of pointers to compiled patterns, and the length of
 the vector. The third and fourth arguments point to variables which are set to
 point to the created byte stream and its length, respectively. The final
 argument is a pointer to a general context, which can be used to specify custom
-memory mangagement functions. If this argument is NULL, \fBmalloc()\fP is used
+memory management functions. If this argument is NULL, \fBmalloc()\fP is used
 to obtain memory for the byte stream. The yield of the function is the number
 of serialized patterns, or one of the following negative error codes:
 .sp
@@ -137,7 +137,7 @@ the compiled patterns in new memory blocks, setting pointers to them in a
 vector. The first two arguments are a pointer to a suitable vector and its
 length, and the third argument points to a byte stream. The final argument is a
 pointer to a general context, which can be used to specify custom memory
-mangagement functions for the decoded patterns. If this argument is NULL,
+management functions for the decoded patterns. If this argument is NULL,
 \fBmalloc()\fP and \fBfree()\fP are used. After deserialization, the byte
 stream is no longer needed and can be discarded.
 .sp
@@ -184,7 +184,7 @@ save/restore cycle. You can, however, process a restored pattern with
 .sp
 .nf
 Philip Hazel
-University Computing Service
+Retired from University Computing Service
 Cambridge, England.
 .fi
 .

@@ -350,12 +350,12 @@ The <i>next_item_length</i> field contains the length of the next item to be
 processed in the pattern string. When the callout is at the end of the pattern,
 the length is zero. When the callout precedes an opening parenthesis, the
 length includes meta characters that follow the parenthesis. For example, in a
-callout before an assertion such as (?=ab) the length is 3. For an an
-alternation bar or a closing parenthesis, the length is one, unless a closing
-parenthesis is followed by a quantifier, in which case its length is included.
-(This changed in release 10.23. In earlier releases, before an opening
-parenthesis the length was that of the entire group, and before an alternation
-bar or a closing parenthesis the length was zero.)
+callout before an assertion such as (?=ab) the length is 3. For an alternation
+bar or a closing parenthesis, the length is one, unless a closing parenthesis
+is followed by a quantifier, in which case its length is included. (This
+changed in release 10.23. In earlier releases, before an opening parenthesis
+the length was that of the entire group, and before an alternation bar or a
+closing parenthesis the length was zero.)
 </P>
 <P>
 The <i>pattern_position</i> and <i>next_item_length</i> fields are intended to
@@ -464,16 +464,16 @@ value, scanning the pattern stops, and that value is returned from
 <P>
 Philip Hazel
 <br>
-University Computing Service
+Retired from University Computing Service
 <br>
 Cambridge, England.
 <br>
 </P>
 <br><a name="SEC8" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 03 February 2019
+Last updated: 19 January 2024
 <br>
-Copyright &copy; 1997-2019 University of Cambridge.
+Copyright &copy; 1997-2024 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

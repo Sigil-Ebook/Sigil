@@ -15,35 +15,36 @@ please consult the man page, in case the conversion went wrong.
 <ul>
 <li><a name="TOC1" href="#SEC1">PCRE2 REGULAR EXPRESSION SYNTAX SUMMARY</a>
 <li><a name="TOC2" href="#SEC2">QUOTING</a>
-<li><a name="TOC3" href="#SEC3">ESCAPED CHARACTERS</a>
-<li><a name="TOC4" href="#SEC4">CHARACTER TYPES</a>
-<li><a name="TOC5" href="#SEC5">GENERAL CATEGORY PROPERTIES FOR \p and \P</a>
-<li><a name="TOC6" href="#SEC6">PCRE2 SPECIAL CATEGORY PROPERTIES FOR \p and \P</a>
-<li><a name="TOC7" href="#SEC7">BINARY PROPERTIES FOR \p AND \P</a>
-<li><a name="TOC8" href="#SEC8">SCRIPT MATCHING WITH \p AND \P</a>
-<li><a name="TOC9" href="#SEC9">THE BIDI_CLASS PROPERTY FOR \p AND \P</a>
-<li><a name="TOC10" href="#SEC10">CHARACTER CLASSES</a>
-<li><a name="TOC11" href="#SEC11">QUANTIFIERS</a>
-<li><a name="TOC12" href="#SEC12">ANCHORS AND SIMPLE ASSERTIONS</a>
-<li><a name="TOC13" href="#SEC13">REPORTED MATCH POINT SETTING</a>
-<li><a name="TOC14" href="#SEC14">ALTERNATION</a>
-<li><a name="TOC15" href="#SEC15">CAPTURING</a>
-<li><a name="TOC16" href="#SEC16">ATOMIC GROUPS</a>
-<li><a name="TOC17" href="#SEC17">COMMENT</a>
-<li><a name="TOC18" href="#SEC18">OPTION SETTING</a>
-<li><a name="TOC19" href="#SEC19">NEWLINE CONVENTION</a>
-<li><a name="TOC20" href="#SEC20">WHAT \R MATCHES</a>
-<li><a name="TOC21" href="#SEC21">LOOKAHEAD AND LOOKBEHIND ASSERTIONS</a>
-<li><a name="TOC22" href="#SEC22">NON-ATOMIC LOOKAROUND ASSERTIONS</a>
-<li><a name="TOC23" href="#SEC23">SCRIPT RUNS</a>
-<li><a name="TOC24" href="#SEC24">BACKREFERENCES</a>
-<li><a name="TOC25" href="#SEC25">SUBROUTINE REFERENCES (POSSIBLY RECURSIVE)</a>
-<li><a name="TOC26" href="#SEC26">CONDITIONAL PATTERNS</a>
-<li><a name="TOC27" href="#SEC27">BACKTRACKING CONTROL</a>
-<li><a name="TOC28" href="#SEC28">CALLOUTS</a>
-<li><a name="TOC29" href="#SEC29">SEE ALSO</a>
-<li><a name="TOC30" href="#SEC30">AUTHOR</a>
-<li><a name="TOC31" href="#SEC31">REVISION</a>
+<li><a name="TOC3" href="#SEC3">BRACED ITEMS</a>
+<li><a name="TOC4" href="#SEC4">ESCAPED CHARACTERS</a>
+<li><a name="TOC5" href="#SEC5">CHARACTER TYPES</a>
+<li><a name="TOC6" href="#SEC6">GENERAL CATEGORY PROPERTIES FOR \p and \P</a>
+<li><a name="TOC7" href="#SEC7">PCRE2 SPECIAL CATEGORY PROPERTIES FOR \p and \P</a>
+<li><a name="TOC8" href="#SEC8">BINARY PROPERTIES FOR \p AND \P</a>
+<li><a name="TOC9" href="#SEC9">SCRIPT MATCHING WITH \p AND \P</a>
+<li><a name="TOC10" href="#SEC10">THE BIDI_CLASS PROPERTY FOR \p AND \P</a>
+<li><a name="TOC11" href="#SEC11">CHARACTER CLASSES</a>
+<li><a name="TOC12" href="#SEC12">QUANTIFIERS</a>
+<li><a name="TOC13" href="#SEC13">ANCHORS AND SIMPLE ASSERTIONS</a>
+<li><a name="TOC14" href="#SEC14">REPORTED MATCH POINT SETTING</a>
+<li><a name="TOC15" href="#SEC15">ALTERNATION</a>
+<li><a name="TOC16" href="#SEC16">CAPTURING</a>
+<li><a name="TOC17" href="#SEC17">ATOMIC GROUPS</a>
+<li><a name="TOC18" href="#SEC18">COMMENT</a>
+<li><a name="TOC19" href="#SEC19">OPTION SETTING</a>
+<li><a name="TOC20" href="#SEC20">NEWLINE CONVENTION</a>
+<li><a name="TOC21" href="#SEC21">WHAT \R MATCHES</a>
+<li><a name="TOC22" href="#SEC22">LOOKAHEAD AND LOOKBEHIND ASSERTIONS</a>
+<li><a name="TOC23" href="#SEC23">NON-ATOMIC LOOKAROUND ASSERTIONS</a>
+<li><a name="TOC24" href="#SEC24">SCRIPT RUNS</a>
+<li><a name="TOC25" href="#SEC25">BACKREFERENCES</a>
+<li><a name="TOC26" href="#SEC26">SUBROUTINE REFERENCES (POSSIBLY RECURSIVE)</a>
+<li><a name="TOC27" href="#SEC27">CONDITIONAL PATTERNS</a>
+<li><a name="TOC28" href="#SEC28">BACKTRACKING CONTROL</a>
+<li><a name="TOC29" href="#SEC29">CALLOUTS</a>
+<li><a name="TOC30" href="#SEC30">SEE ALSO</a>
+<li><a name="TOC31" href="#SEC31">AUTHOR</a>
+<li><a name="TOC32" href="#SEC32">REVISION</a>
 </ul>
 <br><a name="SEC1" href="#TOC1">PCRE2 REGULAR EXPRESSION SYNTAX SUMMARY</a><br>
 <P>
@@ -57,15 +58,27 @@ documentation. This document contains a quick-reference summary of the syntax.
 <pre>
   \x         where x is non-alphanumeric is a literal x
   \Q...\E    treat enclosed characters as literal
-</PRE>
+</pre>
+Note that white space inside \Q...\E is always treated as literal, even if
+PCRE2_EXTENDED is set, causing most other white space to be ignored.
 </P>
-<br><a name="SEC3" href="#TOC1">ESCAPED CHARACTERS</a><br>
+<br><a name="SEC3" href="#TOC1">BRACED ITEMS</a><br>
+<P>
+With one exception, wherever brace characters { and } are required to enclose
+data for constructions such as \g{2} or \k{name}, space and/or horizontal tab
+characters that follow { or precede } are allowed and are ignored. In the case
+of quantifiers, they may also appear before or after the comma. The exception
+is \u{...} which is not Perl-compatible and is recognized only when
+PCRE2_EXTRA_ALT_BSUX is set. This is an ECMAScript compatibility feature, and
+follows ECMAScript's behaviour.
+</P>
+<br><a name="SEC4" href="#TOC1">ESCAPED CHARACTERS</a><br>
 <P>
 This table applies to ASCII and Unicode environments. An unrecognized escape
 sequence causes an error.
 <pre>
   \a         alarm, that is, the BEL character (hex 07)
-  \cx        "control-x", where x is any ASCII printing character
+  \cx        "control-x", where x is a non-control ASCII character
   \e         escape (hex 1B)
   \f         form feed (hex 0C)
   \n         newline (hex 0A)
@@ -103,7 +116,7 @@ also given. \N{U+hh..} is synonymous with \x{hh..} in PCRE2 but is not
 supported in EBCDIC environments. Note that \N not followed by an opening
 curly bracket has a different meaning (see below).
 </P>
-<br><a name="SEC4" href="#TOC1">CHARACTER TYPES</a><br>
+<br><a name="SEC5" href="#TOC1">CHARACTER TYPES</a><br>
 <P>
 <pre>
   .          any character except newline;
@@ -136,14 +149,15 @@ or in the 16-bit and 32-bit libraries. However, if locale-specific matching is
 happening, \s and \w may also match characters with code points in the range
 128-255. If the PCRE2_UCP option is set, the behaviour of these escape
 sequences is changed to use Unicode properties and they match many more
-characters.
+characters, but there are some option settings that can restrict individual
+sequences to matching only ASCII characters.
 </P>
 <P>
 Property descriptions in \p and \P are matched caselessly; hyphens,
 underscores, and white space are ignored, in accordance with Unicode's "loose
 matching" rules.
 </P>
-<br><a name="SEC5" href="#TOC1">GENERAL CATEGORY PROPERTIES FOR \p and \P</a><br>
+<br><a name="SEC6" href="#TOC1">GENERAL CATEGORY PROPERTIES FOR \p and \P</a><br>
 <P>
 <pre>
   C          Other
@@ -193,20 +207,20 @@ matching" rules.
   Zs         Space separator
 </PRE>
 </P>
-<br><a name="SEC6" href="#TOC1">PCRE2 SPECIAL CATEGORY PROPERTIES FOR \p and \P</a><br>
+<br><a name="SEC7" href="#TOC1">PCRE2 SPECIAL CATEGORY PROPERTIES FOR \p and \P</a><br>
 <P>
 <pre>
   Xan        Alphanumeric: union of properties L and N
   Xps        POSIX space: property Z or tab, NL, VT, FF, CR
   Xsp        Perl space: property Z or tab, NL, VT, FF, CR
-  Xuc        Univerally-named character: one that can be
+  Xuc        Universally-named character: one that can be
                represented by a Universal Character Name
   Xwd        Perl word: property Xan or underscore
 </pre>
 Perl and POSIX space are now the same. Perl added VT to its space character set
 at release 5.18.
 </P>
-<br><a name="SEC7" href="#TOC1">BINARY PROPERTIES FOR \p AND \P</a><br>
+<br><a name="SEC8" href="#TOC1">BINARY PROPERTIES FOR \p AND \P</a><br>
 <P>
 Unicode defines a number of binary properties, that is, properties whose only
 values are true or false. You can obtain a list of those that are recognized by
@@ -215,7 +229,7 @@ values are true or false. You can obtain a list of those that are recognized by
   pcre2test -LP
 </PRE>
 </P>
-<br><a name="SEC8" href="#TOC1">SCRIPT MATCHING WITH \p AND \P</a><br>
+<br><a name="SEC9" href="#TOC1">SCRIPT MATCHING WITH \p AND \P</a><br>
 <P>
 Many script names and their 4-letter abbreviations are recognized in
 \p{sc:...} or \p{scx:...} items, or on their own with \p (and also \P of
@@ -224,7 +238,7 @@ course). You can obtain a list of these scripts by running this command:
   pcre2test -LS
 </PRE>
 </P>
-<br><a name="SEC9" href="#TOC1">THE BIDI_CLASS PROPERTY FOR \p AND \P</a><br>
+<br><a name="SEC10" href="#TOC1">THE BIDI_CLASS PROPERTY FOR \p AND \P</a><br>
 <P>
 <pre>
   \p{Bidi_Class:&#60;class&#62;}   matches a character with the given class
@@ -257,7 +271,7 @@ The recognized classes are:
   WS          which space
 </PRE>
 </P>
-<br><a name="SEC10" href="#TOC1">CHARACTER CLASSES</a><br>
+<br><a name="SEC11" href="#TOC1">CHARACTER CLASSES</a><br>
 <P>
 <pre>
   [...]       positive character class
@@ -285,7 +299,7 @@ In PCRE2, POSIX character set names recognize only ASCII characters by default,
 but some of them use Unicode properties if PCRE2_UCP is set. You can use
 \Q...\E inside a character class.
 </P>
-<br><a name="SEC11" href="#TOC1">QUANTIFIERS</a><br>
+<br><a name="SEC12" href="#TOC1">QUANTIFIERS</a><br>
 <P>
 <pre>
   ?           0 or 1, greedy
@@ -304,9 +318,12 @@ but some of them use Unicode properties if PCRE2_UCP is set. You can use
   {n,}        n or more, greedy
   {n,}+       n or more, possessive
   {n,}?       n or more, lazy
+  {,m}        zero up to m, greedy
+  {,m}+       zero up to m, possessive
+  {,m}?       zero up to m, lazy
 </PRE>
 </P>
-<br><a name="SEC12" href="#TOC1">ANCHORS AND SIMPLE ASSERTIONS</a><br>
+<br><a name="SEC13" href="#TOC1">ANCHORS AND SIMPLE ASSERTIONS</a><br>
 <P>
 <pre>
   \b          word boundary
@@ -324,7 +341,7 @@ but some of them use Unicode properties if PCRE2_UCP is set. You can use
   \G          first matching position in subject
 </PRE>
 </P>
-<br><a name="SEC13" href="#TOC1">REPORTED MATCH POINT SETTING</a><br>
+<br><a name="SEC14" href="#TOC1">REPORTED MATCH POINT SETTING</a><br>
 <P>
 <pre>
   \K          set reported start of match
@@ -334,13 +351,13 @@ for compatibility with Perl. However, if the PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK
 option is set, the previous behaviour is re-enabled. When this option is set,
 \K is honoured in positive assertions, but ignored in negative ones.
 </P>
-<br><a name="SEC14" href="#TOC1">ALTERNATION</a><br>
+<br><a name="SEC15" href="#TOC1">ALTERNATION</a><br>
 <P>
 <pre>
   expr|expr|expr...
 </PRE>
 </P>
-<br><a name="SEC15" href="#TOC1">CAPTURING</a><br>
+<br><a name="SEC16" href="#TOC1">CAPTURING</a><br>
 <P>
 <pre>
   (...)           capture group
@@ -355,35 +372,47 @@ In non-UTF modes, names may contain underscores and ASCII letters and digits;
 in UTF modes, any Unicode letters and Unicode decimal digits are permitted. In
 both cases, a name must not start with a digit.
 </P>
-<br><a name="SEC16" href="#TOC1">ATOMIC GROUPS</a><br>
+<br><a name="SEC17" href="#TOC1">ATOMIC GROUPS</a><br>
 <P>
 <pre>
   (?&#62;...)         atomic non-capture group
   (*atomic:...)   atomic non-capture group
 </PRE>
 </P>
-<br><a name="SEC17" href="#TOC1">COMMENT</a><br>
+<br><a name="SEC18" href="#TOC1">COMMENT</a><br>
 <P>
 <pre>
   (?#....)        comment (not nestable)
 </PRE>
 </P>
-<br><a name="SEC18" href="#TOC1">OPTION SETTING</a><br>
+<br><a name="SEC19" href="#TOC1">OPTION SETTING</a><br>
 <P>
 Changes of these options within a group are automatically cancelled at the end
 of the group.
 <pre>
+  (?a)            all ASCII options
+  (?aD)           restrict \d to ASCII in UCP mode
+  (?aS)           restrict \s to ASCII in UCP mode
+  (?aW)           restrict \w to ASCII in UCP mode
+  (?aP)           restrict all POSIX classes to ASCII in UCP mode
+  (?aT)           restrict POSIX digit classes to ASCII in UCP mode
   (?i)            caseless
   (?J)            allow duplicate named groups
   (?m)            multiline
   (?n)            no auto capture
+  (?r)            restrict caseless to either ASCII or non-ASCII
   (?s)            single line (dotall)
   (?U)            default ungreedy (lazy)
-  (?x)            extended: ignore white space except in classes
+  (?x)            ignore white space except in classes or \Q...\E
   (?xx)           as (?x) but also ignore space and tab in classes
-  (?-...)         unset option(s)
-  (?^)            unset imnsx options
+  (?-...)         unset the given option(s)
+  (?^)            unset imnrsx options
 </pre>
+(?aP) implies (?aT) as well, though this has no additional effect. However, it
+means that (?-aP) is really (?-PT) which disables all ASCII restrictions for
+POSIX classes.
+</P>
+<P>
 Unsetting x or xx unsets both. Several options may be set at once, and a
 mixture of setting and unsetting such as (?i-x) is allowed, but there may be
 only one hyphen. Setting (but no unsetting) is allowed after (?^ for example
@@ -413,7 +442,7 @@ not increase them. LIMIT_RECURSION is an obsolete synonym for LIMIT_DEPTH. The
 application can lock out the use of (*UTF) and (*UCP) by setting the
 PCRE2_NEVER_UTF or PCRE2_NEVER_UCP options, respectively, at compile time.
 </P>
-<br><a name="SEC19" href="#TOC1">NEWLINE CONVENTION</a><br>
+<br><a name="SEC20" href="#TOC1">NEWLINE CONVENTION</a><br>
 <P>
 These are recognized only at the very start of the pattern or after option
 settings with a similar syntax.
@@ -426,7 +455,7 @@ settings with a similar syntax.
   (*NUL)          the NUL character (binary zero)
 </PRE>
 </P>
-<br><a name="SEC20" href="#TOC1">WHAT \R MATCHES</a><br>
+<br><a name="SEC21" href="#TOC1">WHAT \R MATCHES</a><br>
 <P>
 These are recognized only at the very start of the pattern or after option
 setting with a similar syntax.
@@ -435,7 +464,7 @@ setting with a similar syntax.
   (*BSR_UNICODE)  any Unicode newline sequence
 </PRE>
 </P>
-<br><a name="SEC21" href="#TOC1">LOOKAHEAD AND LOOKBEHIND ASSERTIONS</a><br>
+<br><a name="SEC22" href="#TOC1">LOOKAHEAD AND LOOKBEHIND ASSERTIONS</a><br>
 <P>
 <pre>
   (?=...)                     )
@@ -454,9 +483,14 @@ setting with a similar syntax.
   (*nlb:...)                  ) negative lookbehind
   (*negative_lookbehind:...)  )
 </pre>
-Each top-level branch of a lookbehind must be of a fixed length.
+Each top-level branch of a lookbehind must have a limit for the number of
+characters it matches. If any branch can match a variable number of characters,
+the maximum for each branch is limited to a value set by the caller of
+<b>pcre2_compile()</b> or defaulted. The default is set when PCRE2 is built
+(ultimate default 255). If every branch matches a fixed number of characters,
+the limit for each branch is 65535 characters.
 </P>
-<br><a name="SEC22" href="#TOC1">NON-ATOMIC LOOKAROUND ASSERTIONS</a><br>
+<br><a name="SEC23" href="#TOC1">NON-ATOMIC LOOKAROUND ASSERTIONS</a><br>
 <P>
 These assertions are specific to PCRE2 and are not Perl-compatible.
 <pre>
@@ -469,7 +503,7 @@ These assertions are specific to PCRE2 and are not Perl-compatible.
   (*non_atomic_positive_lookbehind:...)  )
 </PRE>
 </P>
-<br><a name="SEC23" href="#TOC1">SCRIPT RUNS</a><br>
+<br><a name="SEC24" href="#TOC1">SCRIPT RUNS</a><br>
 <P>
 <pre>
   (*script_run:...)           ) script run, can be backtracked into
@@ -479,7 +513,7 @@ These assertions are specific to PCRE2 and are not Perl-compatible.
   (*asr:...)                  )
 </PRE>
 </P>
-<br><a name="SEC24" href="#TOC1">BACKREFERENCES</a><br>
+<br><a name="SEC25" href="#TOC1">BACKREFERENCES</a><br>
 <P>
 <pre>
   \n              reference by number (can be ambiguous)
@@ -496,7 +530,7 @@ These assertions are specific to PCRE2 and are not Perl-compatible.
   (?P=name)       reference by name (Python)
 </PRE>
 </P>
-<br><a name="SEC25" href="#TOC1">SUBROUTINE REFERENCES (POSSIBLY RECURSIVE)</a><br>
+<br><a name="SEC26" href="#TOC1">SUBROUTINE REFERENCES (POSSIBLY RECURSIVE)</a><br>
 <P>
 <pre>
   (?R)            recurse whole pattern
@@ -515,15 +549,15 @@ These assertions are specific to PCRE2 and are not Perl-compatible.
   \g'-n'          call subroutine by relative number (PCRE2 extension)
 </PRE>
 </P>
-<br><a name="SEC26" href="#TOC1">CONDITIONAL PATTERNS</a><br>
+<br><a name="SEC27" href="#TOC1">CONDITIONAL PATTERNS</a><br>
 <P>
 <pre>
   (?(condition)yes-pattern)
   (?(condition)yes-pattern|no-pattern)
 
   (?(n)               absolute reference condition
-  (?(+n)              relative reference condition
-  (?(-n)              relative reference condition
+  (?(+n)              relative reference condition (PCRE2 extension)
+  (?(-n)              relative reference condition (PCRE2 extension)
   (?(&#60;name&#62;)          named reference condition (Perl)
   (?('name')          named reference condition (Perl)
   (?(name)            named reference condition (PCRE2, deprecated)
@@ -538,7 +572,7 @@ Note the ambiguity of (?(R) and (?(Rn) which might be named reference
 conditions or recursion tests. Such a condition is interpreted as a reference
 condition if the relevant named group exists.
 </P>
-<br><a name="SEC27" href="#TOC1">BACKTRACKING CONTROL</a><br>
+<br><a name="SEC28" href="#TOC1">BACKTRACKING CONTROL</a><br>
 <P>
 All backtracking control verbs may be in the form (*VERB:NAME). For (*MARK) the
 name is mandatory, for the others it is optional. (*SKIP) changes its behaviour
@@ -565,7 +599,7 @@ pattern is not anchored.
 The effect of one of these verbs in a group called as a subroutine is confined
 to the subroutine call.
 </P>
-<br><a name="SEC28" href="#TOC1">CALLOUTS</a><br>
+<br><a name="SEC29" href="#TOC1">CALLOUTS</a><br>
 <P>
 <pre>
   (?C)            callout (assumed number 0)
@@ -576,12 +610,12 @@ The allowed string delimiters are ` ' " ^ % # $ (which are the same for the
 start and the end), and the starting delimiter { matched with the ending
 delimiter }. To encode the ending delimiter within the string, double it.
 </P>
-<br><a name="SEC29" href="#TOC1">SEE ALSO</a><br>
+<br><a name="SEC30" href="#TOC1">SEE ALSO</a><br>
 <P>
 <b>pcre2pattern</b>(3), <b>pcre2api</b>(3), <b>pcre2callout</b>(3),
 <b>pcre2matching</b>(3), <b>pcre2</b>(3).
 </P>
-<br><a name="SEC30" href="#TOC1">AUTHOR</a><br>
+<br><a name="SEC31" href="#TOC1">AUTHOR</a><br>
 <P>
 Philip Hazel
 <br>
@@ -590,11 +624,11 @@ Retired from University Computing Service
 Cambridge, England.
 <br>
 </P>
-<br><a name="SEC31" href="#TOC1">REVISION</a><br>
+<br><a name="SEC32" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 12 January 2022
+Last updated: 12 October 2023
 <br>
-Copyright &copy; 1997-2022 University of Cambridge.
+Copyright &copy; 1997-2023 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

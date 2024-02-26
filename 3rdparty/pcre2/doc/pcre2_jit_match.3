@@ -1,4 +1,4 @@
-.TH PCRE2_JIT_MATCH 3 "11 February 2020" "PCRE2 10.35"
+.TH PCRE2_JIT_MATCH 3 "20 January 2023" "PCRE2 10.43"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH SYNOPSIS
@@ -20,7 +20,15 @@ This function matches a compiled regular expression that has been successfully
 processed by the JIT compiler against a given subject string, using a matching
 algorithm that is similar to Perl's. It is a "fast path" interface to JIT, and
 it bypasses some of the sanity checks that \fBpcre2_match()\fP applies.
-Its arguments are exactly the same as for
+.P
+In UTF mode, the subject string is not checked for UTF validity. Unless
+PCRE2_MATCH_INVALID_UTF was set when the pattern was compiled, passing an
+invalid UTF string results in undefined behaviour. Your program may crash or
+loop or give wrong results. In the absence of PCRE2_MATCH_INVALID_UTF you
+should only call \fBpcre2_jit_match()\fP in UTF mode if you are sure the
+subject is valid.
+.P
+The arguments for \fBpcre2_jit_match()\fP are exactly the same as for
 .\" HREF
 \fBpcre2_match()\fP,
 .\"
@@ -29,7 +37,7 @@ PCRE2_ZERO_TERMINATED is not supported.
 .P
 The supported options are PCRE2_NOTBOL, PCRE2_NOTEOL, PCRE2_NOTEMPTY,
 PCRE2_NOTEMPTY_ATSTART, PCRE2_PARTIAL_HARD, and PCRE2_PARTIAL_SOFT. Unsupported
-options are ignored. The subject string is not checked for UTF validity.
+options are ignored.
 .P
 The return values are the same as for \fBpcre2_match()\fP plus
 PCRE2_ERROR_JIT_BADOPTION if a matching mode (partial or complete) is requested

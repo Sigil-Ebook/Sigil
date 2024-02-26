@@ -1,4 +1,4 @@
-.TH PCRE2CALLOUT 3 "03 February 2019" "PCRE2 10.33"
+.TH PCRE2CALLOUT 3 "19 January 2024" "PCRE2 10.43"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH SYNOPSIS
@@ -327,12 +327,12 @@ The \fInext_item_length\fP field contains the length of the next item to be
 processed in the pattern string. When the callout is at the end of the pattern,
 the length is zero. When the callout precedes an opening parenthesis, the
 length includes meta characters that follow the parenthesis. For example, in a
-callout before an assertion such as (?=ab) the length is 3. For an an
-alternation bar or a closing parenthesis, the length is one, unless a closing
-parenthesis is followed by a quantifier, in which case its length is included.
-(This changed in release 10.23. In earlier releases, before an opening
-parenthesis the length was that of the entire group, and before an alternation
-bar or a closing parenthesis the length was zero.)
+callout before an assertion such as (?=ab) the length is 3. For an alternation
+bar or a closing parenthesis, the length is one, unless a closing parenthesis
+is followed by a quantifier, in which case its length is included. (This
+changed in release 10.23. In earlier releases, before an opening parenthesis
+the length was that of the entire group, and before an alternation bar or a
+closing parenthesis the length was zero.)
 .P
 The \fIpattern_position\fP and \fInext_item_length\fP fields are intended to
 help in distinguishing between different automatic callouts, which all have the
@@ -443,7 +443,7 @@ value, scanning the pattern stops, and that value is returned from
 .sp
 .nf
 Philip Hazel
-University Computing Service
+Retired from University Computing Service
 Cambridge, England.
 .fi
 .
@@ -452,6 +452,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 03 February 2019
-Copyright (c) 1997-2019 University of Cambridge.
+Last updated: 19 January 2024
+Copyright (c) 1997-2024 University of Cambridge.
 .fi

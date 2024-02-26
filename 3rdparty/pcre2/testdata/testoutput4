@@ -4464,5 +4464,115 @@ No match
  0: yz
 
 # -----------------------------------------------------------------------------
+# Variable-length lookbehinds.
+
+/(?<=áb?c).../g,utf
+    ábcdèfgácxyz
+ 0: d\x{e8}f
+ 0: xyz
+
+/(?<=PQR|áb?c).../g,utf
+    ábcdèfgácxyzPQR123
+ 0: d\x{e8}f
+ 0: xyz
+ 0: 123
+
+/(?<=áb?c|PQR).../g,utf
+    ábcdèfgácxyzPQR123
+ 0: d\x{e8}f
+ 0: xyz
+ 0: 123
+
+/(?<=PQ|áb?c).../g,utf
+    ábcdèfgácxyzPQR123
+ 0: d\x{e8}f
+ 0: xyz
+ 0: R12
+
+/(?<=áb?c|PQ).../g,utf
+    ábcdèfgácxyzPQR123
+ 0: d\x{e8}f
+ 0: xyz
+ 0: R12
+
+/(?<=á(b?c|d?è?è)f)X./g,utf
+     ácfX1zzzáèfX2zzzádèèfX3zzzX4zzz
+ 0: X1
+ 1: c
+ 0: X2
+ 1: \x{e8}
+ 0: X3
+ 1: d\x{e8}\x{e8}
+
+/(?<!á(b?c|d?è?è)f)X./g,utf
+     ácfX1zzzáèfX2zzzádèèfX3zzzX4zzz
+ 0: X4
+     
+/(?(?<=áb?c)d|è)/utf
+    ábcdèfg
+ 0: d
+    ácdèfg
+ 0: d
+    áxdèfg
+ 0: \x{e8}
+    
+/(?<=\d{2,3}|áBC)./utf
+    áBCD   
+ 0: D
+
+/(?<=á(b?c){3}d)X/utf
+   ZXácbccdXYZ
+ 0: X
+ 1: c
+   
+/(?<=á(b?c){0}d)X/utf
+   ZXádXYZ
+ 0: X
+ 
+/(?<=á?(b?c){0}d)X./utf
+   ZXádXYZ
+ 0: XY
+ 
+# -------------------------------------------------------------------------- 
+
+/\N{ U+1234 }/utf
+    \x{1234}
+ 0: \x{1234}
+
+/\o{ 1234 }/utf
+    x\o{1234}y
+ 0: \x{29c}
+
+/\x{ 1234 }/utf
+    x\x{1234}y
+ 0: \x{1234}
+
+/\p{ L }/
+    23AB56
+ 0: A
+
+/\w+/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
+ 0: cafe\x{300}_au\x{203f}lait
+
+/[\w]+/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
+ 0: cafe\x{300}_au\x{203f}lait
+
+/[[:word:]]+/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
+ 0: cafe\x{300}_au\x{203f}lait
+
+/[[:xdigit:]]+/utf,ucp
+    --123ef\x{ff10}\x{ff19}\x{ff21}\x{ff26}\x{ff1a}
+ 0: 123ef\x{ff10}\x{ff19}\x{ff21}\x{ff26}
+
+/\b.+?\b/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
+ 0: cafe\x{300}_au\x{203f}lait
+
+/caf\B.+?\B/utf,ucp
+    --cafe\x{300}_au\x{203f}lait!
+ 0: cafe
 
 # End of testinput4

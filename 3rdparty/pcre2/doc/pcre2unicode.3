@@ -1,4 +1,4 @@
-.TH PCRE2UNICODE 3 "22 December 2021" "PCRE2 10.40"
+.TH PCRE2UNICODE 3 "04 February 2023" "PCRE2 10.43"
 .SH NAME
 PCRE - Perl-compatible regular expressions (revised API)
 .SH "UNICODE AND UTF SUPPORT"
@@ -42,9 +42,11 @@ When PCRE2 is built with Unicode support, the escape sequences \ep{..},
 \eP{..}, and \eX can be used. This is not dependent on the PCRE2_UTF setting.
 The Unicode properties that can be tested are a subset of those that Perl
 supports. Currently they are limited to the general category properties such as
-Lu for an upper case letter or Nd for a decimal number, the Unicode script
-names such as Arabic or Han, Bidi_Class, Bidi_Control, and the derived
-properties Any and LC (synonym L&). Full lists are given in the
+Lu for an upper case letter or Nd for a decimal number, the derived properties
+Any and LC (synonym L&), the Unicode script names such as Arabic or Han,
+Bidi_Class, Bidi_Control, and a few binary properties.
+.P
+The full lists are given in the
 .\" HREF
 \fBpcre2pattern\fP
 .\"
@@ -107,8 +109,8 @@ and \eB, because they are defined in terms of \ew and \eW. If you want
 to test for a wider sense of, say, "digit", you can use explicit Unicode
 property tests such as \ep{Nd}. Alternatively, if you set the PCRE2_UCP option,
 the way that the character escapes work is changed so that Unicode properties
-are used to determine which characters match. There are more details in the
-section on
+are used to determine which characters match, though there are some options
+that suppress this for individual escapes. For details see the section on
 .\" HTML <a href="pcre2pattern.html#genericchartypes">
 .\" </a>
 generic character types
@@ -119,12 +121,13 @@ in the
 .\"
 documentation.
 .P
-Similarly, characters that match the POSIX named character classes are all
-low-valued characters, unless the PCRE2_UCP option is set.
+Like the escapes, characters that match the POSIX named character classes are
+all low-valued characters unless the PCRE2_UCP option is set, but there is an
+option to override this.
 .P
-However, the special horizontal and vertical white space matching escapes (\eh,
-\eH, \ev, and \eV) do match all the appropriate Unicode characters, whether or
-not PCRE2_UCP is set.
+In contrast to the character escapes and character classes, the special
+horizontal and vertical white space escapes (\eh, \eH, \ev, and \eV) do match
+all the appropriate Unicode characters, whether or not PCRE2_UCP is set.
 .
 .
 .SH "UNICODE CASE-EQUIVALENCE"
@@ -137,6 +140,13 @@ lookup is used for speed. A few Unicode characters such as Greek sigma have
 more than two code points that are case-equivalent, and these are treated
 specially. Setting PCRE2_UCP without PCRE2_UTF allows Unicode-style case
 processing for non-UTF character encodings such as UCS-2.
+.P
+There are two ASCII characters (S and K) that, in addition to their ASCII lower
+case equivalents, have a non-ASCII one as well (long S and Kelvin sign).
+Recognition of these non-ASCII characters as case-equivalent to their ASCII
+counterparts can be disabled by setting the PCRE2_EXTRA_CASELESS_RESTRICT
+option. When this is set, all characters in a case equivalence must either be
+ASCII or non-ASCII; there can be no mixing.
 .
 .
 .\" HTML <a name="scriptruns"></a>
@@ -409,6 +419,13 @@ not by \fBpcre2_dfa_match()\fP. When PCRE2_MATCH_INVALID_UTF is set, it forces
 PCRE2_UTF to be set as well. Note, however, that the pattern itself must be a
 valid UTF string.
 .P
+If you do not set PCRE2_MATCH_INVALID_UTF when calling \fBpcre2_compile\fP, and
+you are not certain that your subject strings are valid UTF sequences, you
+should not make use of the JIT "fast path" function \fBpcre2_jit_match()\fP
+because it bypasses sanity checks, including the one for UTF validity. An
+invalid string may cause undefined behaviour, including looping, crashing, or
+giving the wrong answer.
+.P
 Setting PCRE2_MATCH_INVALID_UTF does not affect what \fBpcre2_compile()\fP
 generates, but if \fBpcre2_jit_compile()\fP is subsequently called, it does
 generate different code. If JIT is not used, the option affects the behaviour
@@ -442,6 +459,11 @@ would match an instance of WORD that is surrounded by invalid UTF code units.
 Using PCRE2_MATCH_INVALID_UTF, an application can run matches on arbitrary
 data, knowing that any matched strings that are returned are valid UTF. This
 can be useful when searching for UTF text in executable or other binary files.
+.P
+Note, however, that the 16-bit and 32-bit PCRE2 libraries process strings as
+sequences of uint16_t or uint32_t code points. They cannot find valid UTF
+sequences within an arbitrary string of bytes unless such sequences are
+suitably aligned.
 .
 .
 .SH AUTHOR
@@ -458,6 +480,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 22 December 2021
-Copyright (c) 1997-2021 University of Cambridge.
+Last updated: 12 October 2023
+Copyright (c) 1997-2023 University of Cambridge.
 .fi

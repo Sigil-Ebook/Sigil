@@ -8,8 +8,8 @@ Sigil-2.1.0
           with combinators if nothing found in normal css classes
       - update to a newer Spanish hunspell dictionary
       - overhaul of Building on Linux documentation
-      - update 3rdparty zlib to version 1.3.1 for security fixes
-      - update 3rdparty pcre2 to version 10.42 for security fixes
+      - update 3rdparty zlib to version 1.3.1 for security and other bug fixes
+      - update 3rdparty pcre2 to version 10.43 for security and other bug fixes
       - update to Qt 6.6.2 for security fixes, accessibility improvements
       - allow cancelling of Save if mend on save set and not well formed
       

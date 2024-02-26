@@ -1,9 +1,10 @@
-PCRE2-CONFIG(1)             General Commands Manual            PCRE2-CONFIG(1)
 
+PCRE2-CONFIG(1)             General Commands Manual            PCRE2-CONFIG(1)
 
 
 NAME
        pcre2-config - program to return PCRE2 configuration
+
 
 SYNOPSIS
 
@@ -15,9 +16,9 @@ SYNOPSIS
 DESCRIPTION
 
        pcre2-config returns the configuration of the installed PCRE2 libraries
-       and the options required to compile a program to use them. Some of  the
-       options  apply  only  to the 8-bit, or 16-bit, or 32-bit libraries, re-
-       spectively, and are not available for  libraries  that  have  not  been
+       and  the options required to compile a program to use them. Some of the
+       options apply only to the 8-bit, or 16-bit, or  32-bit  libraries,  re-
+       spectively,  and  are  not  available  for libraries that have not been
        built. If an unavailable option is encountered, the "usage" information
        is output.
 
@@ -58,9 +59,9 @@ OPTIONS
                  -I options, but is blank on many systems).
 
        --cflags-posix
-                 Writes  to  the  standard output the command line options re-
-                 quired to compile files that use PCRE2's  POSIX  API  wrapper
-                 library  (this  may  include some -I options, but is blank on
+                 Writes to the standard output the command  line  options  re-
+                 quired  to  compile  files that use PCRE2's POSIX API wrapper
+                 library (this may include some -I options, but  is  blank  on
                  many systems).
 
 
@@ -71,11 +72,14 @@ SEE ALSO
 
 AUTHOR
 
-       This manual page was originally written by Mark Baker  for  the  Debian
-       GNU/Linux  system.  It has been subsequently revised as a generic PCRE2
+       This  manual  page  was originally written by Mark Baker for the Debian
+       GNU/Linux system. It has been subsequently revised as a  generic  PCRE2
        man page.
 
 
 REVISION
 
        Last updated: 28 September 2014
+
+
+PCRE2 10.00                    28 September 2014               PCRE2-CONFIG(1)

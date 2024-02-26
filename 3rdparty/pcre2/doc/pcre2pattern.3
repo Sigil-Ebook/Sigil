@@ -1,4 +1,4 @@
-.TH PCRE2PATTERN 3 "12 January 2022" "PCRE2 10.40"
+.TH PCRE2PATTERN 3 "19 January 2024" "PCRE2 10.43"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "PCRE2 REGULAR EXPRESSION DETAILS"
@@ -77,6 +77,12 @@ such as \ed and \ew to use Unicode properties to determine character types,
 instead of recognizing only characters with codes less than 256 via a lookup
 table. If also causes upper/lower casing operations to use Unicode properties
 for characters with code points greater than 127, even when UTF is not set.
+These behaviours can be changed within the pattern; see the section entitled
+.\" HTML <a href="#internaloptions">
+.\" </a>
+"Internal Option Setting"
+.\"
+below.
 .P
 Some applications that allow their users to supply patterns may wish to
 restrict them for security reasons. If the PCRE2_NEVER_UCP option is passed to
@@ -267,7 +273,9 @@ caseless matching is specified (the PCRE2_CASELESS option or (?i) within the
 pattern), letters are matched independently of case. Note that there are two
 ASCII characters, K and S, that, in addition to their lower case ASCII
 equivalents, are case-equivalent with Unicode U+212A (Kelvin sign) and U+017F
-(long S) respectively when either PCRE2_UTF or PCRE2_UCP is set.
+(long S) respectively when either PCRE2_UTF or PCRE2_UCP is set, unless the
+PCRE2_EXTRA_CASELESS_RESTRICT option is in force (either passed to
+\fBpcre2_compile()\fP or set by (?r) within the pattern).
 .P
 The power of regular expressions comes from the ability to include wild cards,
 character classes, alternatives, and repetitions in the pattern. These are
@@ -290,8 +298,17 @@ are as follows:
   *      0 or more quantifier
   +      1 or more quantifier; also "possessive quantifier"
   ?      0 or 1 quantifier; also quantifier minimizer
-  {      start min/max quantifier
+  {      potential start of min/max quantifier
 .sp
+Brace characters { and } are also used to enclose data for constructions such
+as \eg{2} or \ek{name}. In almost all uses of braces, space and/or horizontal
+tab characters that follow { or precede } are allowed and are ignored. In the
+case of quantifiers, they may also appear before or after the comma. The
+exception to this is \eu{...} which is an ECMAScript compatibility feature
+that is recognized only when the PCRE2_EXTRA_ALT_BSUX option is set. ECMAScript
+does not ignore such white space; it causes the item to be interpreted as
+literal.
+.P
 Part of a pattern that is in square brackets is called a "character class". In
 a character class the only metacharacters are:
 .sp
@@ -302,11 +319,11 @@ a character class the only metacharacters are:
   ]      terminates the character class
 .sp
 If a pattern is compiled with the PCRE2_EXTENDED option, most white space in
-the pattern, other than in a character class, and characters between a #
-outside a character class and the next newline, inclusive, are ignored. An
-escaping backslash can be used to include a white space or a # character as
-part of the pattern. If the PCRE2_EXTENDED_MORE option is set, the same
-applies, but in addition unescaped space and horizontal tab characters are
+the pattern, other than in a character class, within a \eQ...\eE sequence, or
+between a # outside a character class and the next newline, inclusive, are
+ignored. An escaping backslash can be used to include a white space or a #
+character as part of the pattern. If the PCRE2_EXTENDED_MORE option is set, the
+same applies, but in addition unescaped space and horizontal tab characters are
 ignored inside a character class. Note: only these two characters are ignored,
 not the full set of pattern white space characters that are ignored outside a
 character class. Option settings can be changed within a pattern; see the
@@ -339,12 +356,14 @@ other characters (in particular, those whose code points are greater than 127)
 are treated as literals.
 .P
 If you want to treat all characters in a sequence as literals, you can do so by
-putting them between \eQ and \eE. This is different from Perl in that $ and @
-are handled as literals in \eQ...\eE sequences in PCRE2, whereas in Perl, $ and
-@ cause variable interpolation. Also, Perl does "double-quotish backslash
-interpolation" on any backslashes between \eQ and \eE which, its documentation
-says, "may lead to confusing results". PCRE2 treats a backslash between \eQ and
-\eE just like any other character. Note the following examples:
+putting them between \eQ and \eE. Note that this includes white space even when
+the PCRE2_EXTENDED option is set so that most other white space is ignored. The
+behaviour is different from Perl in that $ and @ are handled as literals in
+\eQ...\eE sequences in PCRE2, whereas in Perl, $ and @ cause variable
+interpolation. Also, Perl does "double-quotish backslash interpolation" on any
+backslashes between \eQ and \eE which, its documentation says, "may lead to
+confusing results". PCRE2 treats a backslash between \eQ and \eE just like any
+other character. Note the following examples:
 .sp
   Pattern            PCRE2 matches   Perl matches
 .sp
@@ -360,8 +379,8 @@ The \eQ...\eE sequence is recognized both inside and outside character classes.
 An isolated \eE that is not preceded by \eQ is ignored. If \eQ is not followed
 by \eE later in the pattern, the literal interpretation continues to the end of
 the pattern (that is, \eE is assumed at the end). If the isolated \eQ is inside
-a character class, this causes an error, because the character class is not
-terminated by a closing square bracket.
+a character class, this causes an error, because the character class is then
+not terminated by a closing square bracket.
 .
 .
 .\" HTML <a name="digitsafterbackslash"></a>
@@ -376,7 +395,7 @@ instead of the binary character it represents. In an ASCII or Unicode
 environment, these escapes are as follows:
 .sp
   \ea          alarm, that is, the BEL character (hex 07)
-  \ecx         "control-x", where x is any printable ASCII character
+  \ecx         "control-x", where x is a non-control ASCII character
   \ee          escape (hex 1B)
   \ef          form feed (hex 0C)
   \en          linefeed (hex 0A)
@@ -410,8 +429,9 @@ interpreted as a literal "u" character.
 .P
 PCRE2_EXTRA_ALT_BSUX has the same effect as PCRE2_ALT_BSUX and, in addition,
 \eu{hhh..} is recognized as the character specified by hexadecimal code point.
-There may be any number of hexadecimal digits. This syntax is from ECMAScript
-6.
+There may be any number of hexadecimal digits, but unlike other places that
+also use curly brackets, spaces are not allowed and would result in the string
+being interpreted as a literal. This syntax is from ECMAScript 6.
 .P
 The \eN{U+hhh..} escape sequence is recognized only when PCRE2 is operating in
 UTF mode. Perl also uses \eN{name} to specify characters by Unicode name; PCRE2
@@ -424,12 +444,13 @@ match a newline. If the PCRE2_EXTRA_ESCAPED_CR_IS_LF option is set, \er in a
 pattern is converted to \en so that it matches a LF (linefeed) instead of a CR
 (carriage return) character.
 .P
-The precise effect of \ecx on ASCII characters is as follows: if x is a lower
-case letter, it is converted to upper case. Then bit 6 of the character (hex
-40) is inverted. Thus \ecA to \ecZ become hex 01 to hex 1A (A is 41, Z is 5A),
-but \ec{ becomes hex 3B ({ is 7B), and \ec; becomes hex 7B (; is 3B). If the
-code unit following \ec has a value less than 32 or greater than 126, a
-compile-time error occurs.
+An error occurs if \ec is not followed by a character whose ASCII code point
+is in the range 32 to 126. The precise effect of \ecx is as follows: if x is a
+lower case letter, it is converted to upper case. Then bit 6 of the character
+(hex 40) is inverted. Thus \ecA to \ecZ become hex 01 to hex 1A (A is 41, Z is
+5A), but \ec{ becomes hex 3B ({ is 7B), and \ec; becomes hex 7B (; is 3B). If
+the code unit following \ec has a code point less than 32 or greater than 126,
+a compile-time error occurs.
 .P
 When PCRE2 is compiled in EBCDIC mode, \eN{U+hhh..} is not supported. \ea, \ee,
 \ef, \en, \er, and \et generate the appropriate EBCDIC code values. The \ec
@@ -465,8 +486,8 @@ numbers greater than 0777, and it also allows octal numbers and backreferences
 to be unambiguously specified.
 .P
 For greater clarity and unambiguity, it is best to avoid following \e by a
-digit greater than zero. Instead, use \eo{} or \ex{} to specify numerical
-character code points, and \eg{} to specify backreferences. The following
+digit greater than zero. Instead, use \eo{...} or \ex{...} to specify numerical
+character code points, and \eg{...} to specify backreferences. The following
 paragraphs describe the old, ambiguous syntax.
 .P
 The handling of a backslash followed by a digit other than 0 is complicated,
@@ -667,13 +688,26 @@ determine character types, as follows:
 .sp
   \ed  any character that matches \ep{Nd} (decimal digit)
   \es  any character that matches \ep{Z} or \eh or \ev
-  \ew  any character that matches \ep{L} or \ep{N}, plus underscore
+  \ew  any character that matches \ep{L}, \ep{N}, \ep{Mn}, or \ep{Pc}
 .sp
+The addition of \ep{Mn} (non-spacing mark) and the replacement of an explicit
+test for underscore with a test for \ep{Pc} (connector punctuation) happened in
+PCRE2 release 10.43. This brings PCRE2 into line with Perl.
+.P
 The upper case escapes match the inverse sets of characters. Note that \ed
 matches only decimal digits, whereas \ew matches any Unicode digit, as well as
-any Unicode letter, and underscore. Note also that PCRE2_UCP affects \eb, and
+other character categories. Note also that PCRE2_UCP affects \eb, and
 \eB because they are defined in terms of \ew and \eW. Matching these sequences
 is noticeably slower when PCRE2_UCP is set.
+.P
+The effect of PCRE2_UCP on any one of these escape sequences can be negated by
+the options PCRE2_EXTRA_ASCII_BSD, PCRE2_EXTRA_ASCII_BSS, and
+PCRE2_EXTRA_ASCII_BSW, respectively. These options can be set and reset within
+a pattern by means of an internal option setting
+.\" HTML <a href="#internaloptions">
+.\" </a>
+(see below).
+.\"
 .P
 The sequences \eh, \eH, \ev, and \eV, in contrast to the other sequences, which
 match only ASCII characters by default, always match a specific list of code
@@ -1030,7 +1064,8 @@ property. Xps matches the characters tab, linefeed, vertical tab, form feed, or
 carriage return, and any other character that has the Z (separator) property.
 Xsp is the same as Xps; in PCRE1 it used to exclude vertical tab, for Perl
 compatibility, but Perl changed. Xwd matches the same characters as Xan, plus
-underscore.
+those that match Mn (non-spacing mark) or Pc (connector punctuation, which
+includes underscore).
 .P
 There is another non-standard property, Xuc, which matches any character that
 can be represented by a Universal Character Name in C++ and other programming
@@ -1062,11 +1097,11 @@ though it again reports the matched string as "bar". This feature is similar to
 a lookbehind assertion
 .\" HTML <a href="#lookbehind">
 .\" </a>
-(described below).
+(described below),
 .\"
-However, in this case, the part of the subject before the real match does not
-have to be of fixed length, as lookbehind assertions do. The use of \eK does
-not interfere with the setting of
+but the part of the pattern that precedes \eK is not constrained to match a
+limited number of characters, as is required for a lookbehind assertion. The
+use of \eK does not interfere with the setting of
 .\" HTML <a href="#group">
 .\" </a>
 captured substrings.
@@ -1250,7 +1285,7 @@ above).
 Dot never matches a single line-ending character. When the two-character
 sequence CRLF is the only line ending, dot does not match CR if it is
 immediately followed by LF, but otherwise it matches all characters (including
-isolated CRs and LFs). When ANYCRLF is selected for line endings, no occurences
+isolated CRs and LFs). When ANYCRLF is selected for line endings, no occurrences
 of CR of LF match dot. When all Unicode line endings are being recognized, dot
 does not match CR or LF or any of the other line ending characters.
 .P
@@ -1401,7 +1436,7 @@ or immediately after a range. For example, [b-d-z] matches letters in the range
 b to d, a hyphen character, or z.
 .P
 Perl treats a hyphen as a literal if it appears before or after a POSIX class
-(see below) or before or after a character type escape such as as \ed or \eH.
+(see below) or before or after a character type escape such as \ed or \eH.
 However, unless the hyphen is the last character in the class, Perl outputs a
 warning in its warning mode, as this is most likely a user error. As PCRE2 has
 no facility for warning, an error is given in these cases.
@@ -1482,7 +1517,7 @@ are:
 The default "space" characters are HT (9), LF (10), VT (11), FF (12), CR (13),
 and space (32). If locale-specific matching is taking place, the list of space
 characters may be different; there may be fewer or more of them. "Space" and
-\es match the same set of characters.
+\es match the same set of characters, as do "word" and \ew.
 .P
 The name "word" is a Perl extension, and "blank" is a GNU extension from Perl
 5.8. Another Perl extension is negation, which is indicated by a ^ character
@@ -1496,10 +1531,10 @@ supported, and an error is given if they are encountered.
 .P
 By default, characters with values greater than 127 do not match any of the
 POSIX character classes, although this may be different for characters in the
-range 128-255 when locale-specific matching is happening. However, if the
-PCRE2_UCP option is passed to \fBpcre2_compile()\fP, some of the classes are
-changed so that Unicode character properties are used. This is achieved by
-replacing certain POSIX classes with other sequences, as follows:
+range 128-255 when locale-specific matching is happening. However, in UCP mode,
+unless certain options are set (see below), some of the classes are changed so
+that Unicode character properties are used. This is achieved by replacing
+POSIX classes with other sequences, as follows:
 .sp
   [:alnum:]  becomes  \ep{Xan}
   [:alpha:]  becomes  \ep{L}
@@ -1511,7 +1546,7 @@ replacing certain POSIX classes with other sequences, as follows:
   [:upper:]  becomes  \ep{Lu}
   [:word:]   becomes  \ep{Xwd}
 .sp
-Negated versions, such as [:^alpha:] use \eP instead of \ep. Three other POSIX
+Negated versions, such as [:^alpha:] use \eP instead of \ep. Four other POSIX
 classes are handled specially in UCP mode:
 .TP 10
 [:graph:]
@@ -1532,9 +1567,21 @@ not controls, that is, characters with the Zs property.
 This matches all characters that have the Unicode P (punctuation) property,
 plus those characters with code points less than 256 that have the S (Symbol)
 property.
+.TP 10
+[:xdigit:]
+In addition to the ASCII hexadecimal digits, this also matches the "fullwidth"
+versions of those characters, whose Unicode code points start at U+FF10. This
+is a change that was made in PCRE release 10.43 for Perl compatibility.
 .P
-The other POSIX classes are unchanged, and match only characters with code
-points less than 256.
+The other POSIX classes are unchanged by PCRE2_UCP, and match only characters
+with code points less than 256.
+.P
+There are two options that can be used to restrict the POSIX classes to ASCII
+characters when PCRE2_UCP is set. The option PCRE2_EXTRA_ASCII_DIGIT affects
+just [:digit:] and [:xdigit:]. Within a pattern, this can be set and unset by
+(?aT) and (?-aT). The PCRE2_EXTRA_ASCII_POSIX option disables UCP processing
+for all POSIX classes, including [:digit:] and [:xdigit:]. Within a pattern,
+(?aP) and (?-aP) set and unset both these options for consistency.
 .
 .
 .SH "COMPATIBILITY FEATURE FOR WORD BOUNDARIES"
@@ -1558,7 +1605,9 @@ at the start and the end of a word (see
 .\"
 above), and in a Perl-style pattern the preceding or following character
 normally shows which is wanted, without the need for the assertions that are
-used above in order to give exactly the POSIX behaviour.
+used above in order to give exactly the POSIX behaviour. Note also that the
+PCRE2_UCP option changes the meaning of \ew (and therefore \eb) by default, so
+it also affects these POSIX sequences.
 .
 .
 .SH "VERTICAL BAR"
@@ -1585,10 +1634,9 @@ alternative in the group.
 .SH "INTERNAL OPTION SETTING"
 .rs
 .sp
-The settings of the PCRE2_CASELESS, PCRE2_MULTILINE, PCRE2_DOTALL,
-PCRE2_EXTENDED, PCRE2_EXTENDED_MORE, and PCRE2_NO_AUTO_CAPTURE options can be
-changed from within the pattern by a sequence of letters enclosed between "(?"
-and ")". These options are Perl-compatible, and are described in detail in the
+The settings of several options can be changed within a pattern by a sequence
+of letters enclosed between "(?" and ")". The following are Perl-compatible,
+and are described in detail in the
 .\" HREF
 \fBpcre2api\fP
 .\"
@@ -1603,8 +1651,8 @@ documentation. The option letters are:
 .sp
 For example, (?im) sets caseless, multiline matching. It is also possible to
 unset these options by preceding the relevant letters with a hyphen, for
-example (?-im). The two "extended" options are not independent; unsetting either
-one cancels the effects of both of them.
+example (?-im). The two "extended" options are not independent; unsetting
+either one cancels the effects of both of them.
 .P
 A combined setting and unsetting such as (?im-sx), which sets PCRE2_CASELESS
 and PCRE2_MULTILINE while unsetting PCRE2_DOTALL and PCRE2_EXTENDED, is also
@@ -1613,25 +1661,41 @@ appears both before and after the hyphen, the option is unset. An empty options
 setting "(?)" is allowed. Needless to say, it has no effect.
 .P
 If the first character following (? is a circumflex, it causes all of the above
-options to be unset. Thus, (?^) is equivalent to (?-imnsx). Letters may follow
-the circumflex to cause some options to be re-instated, but a hyphen may not
-appear.
+options to be unset. Letters may follow the circumflex to cause some options to
+be re-instated, but a hyphen may not appear.
 .P
-The PCRE2-specific options PCRE2_DUPNAMES and PCRE2_UNGREEDY can be changed in
-the same way as the Perl-compatible options by using the characters J and U
-respectively. However, these are not unset by (?^).
+Some PCRE2-specific options can be changed by the same mechanism using these
+pairs or individual letters:
+.sp
+  aD for PCRE2_EXTRA_ASCII_BSD
+  aS for PCRE2_EXTRA_ASCII_BSS
+  aW for PCRE2_EXTRA_ASCII_BSW
+  aP for PCRE2_EXTRA_ASCII_POSIX and PCRE2_EXTRA_ASCII_DIGIT
+  aT for PCRE2_EXTRA_ASCII_DIGIT
+  r  for PCRE2_EXTRA_CASELESS_RESTRICT
+  J  for PCRE2_DUPNAMES
+  U  for PCRE2_UNGREEDY
+.sp
+However, except for 'r', these are not unset by (?^), which is equivalent to
+(?-imnrsx). If 'a' is not followed by any of the upper case letters shown
+above, it sets (or unsets) all the ASCII options.
 .P
-When one of these option changes occurs at top level (that is, not inside
-group parentheses), the change applies to the remainder of the pattern
-that follows. An option change within a group (see below for a description
-of groups) affects only that part of the group that follows it, so
+PCRE2_EXTRA_ASCII_DIGIT has no additional effect when PCRE2_EXTRA_ASCII_POSIX
+is set, but including it in (?aP) means that (?-aP) suppresses all ASCII
+restrictions for POSIX classes.
+.P
+When one of these option changes occurs at top level (that is, not inside group
+parentheses), the change applies until a subsequent change, or the end of the
+pattern. An option change within a group (see below for a description of
+groups) affects only that part of the group that follows it. At the end of the
+group these options are reset to the state they were before the group. For
+example,
 .sp
   (a(?i)b)c
 .sp
-matches abc and aBc and no other strings (assuming PCRE2_CASELESS is not used).
-By this means, options can be made to have different settings in different
-parts of the pattern. Any changes made in one alternative do carry on
-into subsequent branches within the same group. For example,
+matches abc and aBc and no other strings (assuming PCRE2_CASELESS is not set
+externally). Any changes made in one alternative do carry on into subsequent
+branches within the same group. For example,
 .sp
   (a(?i)b|c)
 .sp
@@ -1661,7 +1725,7 @@ Details are given in the section entitled
 above. There are also the (*UTF) and (*UCP) leading sequences that can be used
 to set UTF and Unicode property modes; they are equivalent to setting the
 PCRE2_UTF and PCRE2_UCP options, respectively. However, the application can set
-the PCRE2_NEVER_UTF and PCRE2_NEVER_UCP options, which lock out the use of the
+the PCRE2_NEVER_UTF or PCRE2_NEVER_UCP options, which lock out the use of the
 (*UTF) and (*UCP) sequences.
 .
 .
@@ -1902,7 +1966,7 @@ documentation.
 .SH REPETITION
 .rs
 .sp
-Repetition is specified by quantifiers, which can follow any of the following
+Repetition is specified by quantifiers, which may follow any one of these
 items:
 .sp
   a literal data character
@@ -1910,16 +1974,17 @@ items:
   the \eC escape sequence
   the \eR escape sequence
   the \eX escape sequence
-  an escape such as \ed or \epL that matches a single character
+  any escape sequence that matches a single character
   a character class
   a backreference
   a parenthesized group (including lookaround assertions)
   a subroutine call (recursive or otherwise)
 .sp
-The general repetition quantifier specifies a minimum and maximum number of
-permitted matches, by giving the two numbers in curly brackets (braces),
-separated by a comma. The numbers must be less than 65536, and the first must
-be less than or equal to the second. For example,
+If a quantifier does not follow a repeatable item, an error occurs. The
+general repetition quantifier specifies a minimum and maximum number of
+permitted matches by giving two numbers in curly brackets (braces), separated
+by a comma. The numbers must be less than 65536, and the first must be less
+than or equal to the second. For example,
 .sp
   z{2,4}
 .sp
@@ -1934,10 +1999,21 @@ matches at least 3 successive vowels, but may match many more, whereas
 .sp
   \ed{8}
 .sp
-matches exactly 8 digits. An opening curly bracket that appears in a position
-where a quantifier is not allowed, or one that does not match the syntax of a
-quantifier, is taken as a literal character. For example, {,6} is not a
-quantifier, but a literal string of four characters.
+matches exactly 8 digits. If the first number is omitted, the lower limit is
+taken as zero; in this case the upper limit must be present.
+.sp
+  X{,4} is interpreted as X{0,4}
+.sp
+This is a change in behaviour that happened in Perl 5.34.0 and PCRE2 10.43. In
+earlier versions such a sequence was not interpreted as a quantifier. Other
+regular expression engines may behave either way.
+.P
+If the characters that follow an opening brace do not match the syntax of a
+quantifier, the brace is taken as a literal character. In particular, this
+means that {,} is a literal string of three characters.
+.P
+Note that not every opening brace is potentially the start of a quantifier
+because braces are used in other items such as \eN{U+345} or \ek{name}.
 .P
 In UTF modes, quantifiers apply to characters rather than to individual code
 units. Thus, for example, \ex{100}{2} matches two characters, each of
@@ -1980,11 +2056,11 @@ repeatedly matching an empty string. This does not prevent backtracking into
 any of the iterations if a subsequent item fails to match.
 .P
 By default, quantifiers are "greedy", that is, they match as much as possible
-(up to the maximum number of permitted times), without causing the rest of the
-pattern to fail. The classic example of where this gives problems is in trying
-to match comments in C programs. These appear between /* and */ and within the
-comment, individual * and / characters may appear. An attempt to match C
-comments by applying the pattern
+(up to the maximum number of permitted repetitions), without causing the rest
+of the pattern to fail. The classic example of where this gives problems is in
+trying to match comments in C programs. These appear between /* and */ and
+within the comment, individual * and / characters may appear. An attempt to
+match C comments by applying the pattern
 .sp
   /\e*.*\e*/
 .sp
@@ -1999,10 +2075,10 @@ pattern
 .sp
   /\e*.*?\e*/
 .sp
-does the right thing with the C comments. The meaning of the various
-quantifiers is not otherwise changed, just the preferred number of matches.
-Do not confuse this use of question mark with its use as a quantifier in its
-own right. Because it has two uses, it can sometimes appear doubled, as in
+does the right thing with C comments. The meaning of the various quantifiers is
+not otherwise changed, just the preferred number of matches. Do not confuse
+this use of question mark with its use as a quantifier in its own right.
+Because it has two uses, it can sometimes appear doubled, as in
 .sp
   \ed??\ed
 .sp
@@ -2211,15 +2287,23 @@ the reference. A signed number is a relative reference. Consider this example:
 .sp
   (abc(def)ghi)\eg{-1}
 .sp
-The sequence \eg{-1} is a reference to the most recently started capture group
-before \eg, that is, is it equivalent to \e2 in this example. Similarly,
-\eg{-2} would be equivalent to \e1. The use of relative references can be
-helpful in long patterns, and also in patterns that are created by joining
-together fragments that contain references within themselves.
+The sequence \eg{-1} is a reference to the capture group whose number is one
+less than the number of the next group to be started, so in this example (where
+the next group would be numbered 3) is it equivalent to \e2, and \eg{-2} would
+be equivalent to \e1. Note that if this construct is inside a capture group,
+that group is included in the count, so in this example \eg{-2} also refers to
+group 1:
+.sp
+  (A)(\eg{-2}B)
+.sp
+The use of relative references can be helpful in long patterns, and also in
+patterns that are created by joining together fragments that contain references
+within themselves.
 .P
-The sequence \eg{+1} is a reference to the next capture group. This kind of
-forward reference can be useful in patterns that repeat. Perl does not support
-the use of + in this way.
+The sequence \eg{+1} is a reference to the next capture group that is started
+after this item, and \eg{+2} refers to the one after that, and so on. This kind
+of forward reference can be useful in patterns that repeat. Perl does not
+support the use of + in this way.
 .P
 A backreference matches whatever actually most recently matched the capture
 group in the current subject string, rather than anything at all that matches
@@ -2242,11 +2326,11 @@ matches "rah rah" and "RAH RAH", but not "RAH rah", even though the original
 capture group is matched caselessly.
 .P
 There are several different ways of writing backreferences to named capture
-groups. The .NET syntax \ek{name} and the Perl syntax \ek<name> or \ek'name'
-are supported, as is the Python syntax (?P=name). Perl 5.10's unified
-backreference syntax, in which \eg can be used for both numeric and named
-references, is also supported. We could rewrite the above example in any of the
-following ways:
+groups. The .NET syntax is \ek{name}, the Python syntax is (?=name), and the
+original Perl syntax is \ek<name> or \ek'name'. All of these are now supported
+by both Perl and PCRE2. Perl 5.10's unified backreference syntax, in which \eg
+can be used for both numeric and named references, is also supported by PCRE2.
+We could rewrite the above example in any of the following ways:
 .sp
   (?<p1>(?i)rah)\es+\ek<p1>
   (?'p1'(?i)rah)\es+\ek{p1}
@@ -2436,41 +2520,33 @@ negative assertions. For example,
   (?<!foo)bar
 .sp
 does find an occurrence of "bar" that is not preceded by "foo". The contents of
-a lookbehind assertion are restricted such that all the strings it matches must
-have a fixed length. However, if there are several top-level alternatives, they
-do not all have to have the same fixed length. Thus
+a lookbehind assertion are restricted such that there must be a known maximum
+to the lengths of all the strings it matches. There are two cases:
+.P
+If every top-level alternative matches a fixed length, for example
 .sp
-  (?<=bullock|donkey)
+  (?<=colour|color)
 .sp
-is permitted, but
+there is a limit of 65535 characters to the lengths, which do not have to be
+the same, as this example demonstrates. This is the only kind of lookbehind
+supported by PCRE2 versions earlier than 10.43 and by the alternative matching
+function \fBpcre2_dfa_match()\fP.
+.P
+In PCRE2 10.43 and later, \fBpcre2_match()\fP supports lookbehind assertions in
+which one or more top-level alternatives can match more than one string length,
+for example
 .sp
-  (?<!dogs?|cats?)
+  (?<=colou?r)
 .sp
-causes an error at compile time. Branches that match different length strings
-are permitted only at the top level of a lookbehind assertion. This is an
-extension compared with Perl, which requires all branches to match the same
-length of string. An assertion such as
-.sp
-  (?<=ab(c|de))
-.sp
-is not permitted, because its single top-level branch can match two different
-lengths, but it is acceptable to PCRE2 if rewritten to use two top-level
-branches:
-.sp
-  (?<=abc|abde)
-.sp
-In some cases, the escape sequence \eK
+The maximum matching length for any branch of the lookbehind is limited to a
+value set by the calling program (default 255 characters). Unlimited repetition
+(for example \ed*) is not supported. In some cases, the escape sequence \eK
 .\" HTML <a href="#resetmatchstart">
 .\" </a>
 (see above)
 .\"
-can be used instead of a lookbehind assertion to get round the fixed-length
-restriction.
-.P
-The implementation of lookbehind assertions is, for each alternative, to
-temporarily move the current position back by the fixed length and then try to
-match. If there are insufficient characters before the current position, the
-assertion fails.
+can be used instead of a lookbehind assertion at the start of a pattern to get
+round the length limit restriction.
 .P
 In UTF-8 and UTF-16 modes, PCRE2 does not allow the \eC escape (which matches a
 single code unit even in a UTF mode) to appear in lookbehind assertions,
@@ -2483,7 +2559,7 @@ permitted in lookbehinds.
 "Subroutine"
 .\"
 calls (see below) such as (?2) or (?&X) are permitted in lookbehinds, as long
-as the called capture group matches a fixed-length string. However,
+as the called capture group matches a limited-length string. However,
 .\" HTML <a href="#recursion">
 .\" </a>
 recursion,
@@ -2491,19 +2567,19 @@ recursion,
 that is, a "subroutine" call into a group that is already active,
 is not supported.
 .P
-Perl does not support backreferences in lookbehinds. PCRE2 does support them,
-but only if certain conditions are met. The PCRE2_MATCH_UNSET_BACKREF option
-must not be set, there must be no use of (?| in the pattern (it creates
-duplicate group numbers), and if the backreference is by name, the name
-must be unique. Of course, the referenced group must itself match a fixed
-length substring. The following pattern matches words containing at least two
-characters that begin and end with the same character:
+PCRE2 supports backreferences in lookbehinds, but only if certain conditions
+are met. The PCRE2_MATCH_UNSET_BACKREF option must not be set, there must be no
+use of (?| in the pattern (it creates duplicate group numbers), and if the
+backreference is by name, the name must be unique. Of course, the referenced
+group must itself match a limited length substring. The following pattern
+matches words containing at least two characters that begin and end with the
+same character:
 .sp
    \eb(\ew)\ew++(?<=\e1)
 .P
 Possessive quantifiers can be used in conjunction with lookbehind assertions to
-specify efficient matching of fixed-length strings at the end of subject
-strings. Consider a simple pattern such as
+specify efficient matching at the end of subject strings. Consider a simple
+pattern such as
 .sp
   abcd$
 .sp
@@ -2566,11 +2642,10 @@ characters that are not "999".
 .SH "NON-ATOMIC ASSERTIONS"
 .rs
 .sp
-The traditional Perl-compatible lookaround assertions are atomic. That is, if
-an assertion is true, but there is a subsequent matching failure, there is no
-backtracking into the assertion. However, there are some cases where non-atomic
-positive assertions can be useful. PCRE2 provides these using the following
-syntax:
+Traditional lookaround assertions are atomic. That is, if an assertion is true,
+but there is a subsequent matching failure, there is no backtracking into the
+assertion. However, there are some cases where non-atomic positive assertions
+can be useful. PCRE2 provides these using the following syntax:
 .sp
   (*non_atomic_positive_lookahead:  or (*napla: or (?*
   (*non_atomic_positive_lookbehind: or (*naplb: or (?<*
@@ -2593,7 +2668,7 @@ The current matching point is then reset to the start of the subject, and the
 rest of the pattern match checks for two occurrences of the captured word,
 using an ungreedy .*? to scan from the left. If this succeeds, we are done, but
 if the last word in the string does not occur twice, this part of the pattern
-fails. If a traditional atomic lookhead (?= or (*pla: had been used, the
+fails. If a traditional atomic lookahead (?= or (*pla: had been used, the
 assertion could not be re-entered, and the whole match would fail. The pattern
 would succeed only if the very last word in the subject was found twice.
 .P
@@ -2729,13 +2804,14 @@ there is more than one capture group with the same number (see the earlier
 .\" </a>
 section about duplicate group numbers),
 .\"
-the condition is true if any of them have matched. An alternative notation is
-to precede the digits with a plus or minus sign. In this case, the group number
-is relative rather than absolute. The most recently opened capture group can be
-referenced by (?(-1), the next most recent by (?(-2), and so on. Inside loops
-it can also make sense to refer to subsequent groups. The next capture group
-can be referenced as (?(+1), and so on. (The value zero in any of these forms
-is not used; it provokes a compile-time error.)
+the condition is true if any of them have matched. An alternative notation,
+which is a PCRE2 extension, not supported by Perl, is to precede the digits
+with a plus or minus sign. In this case, the group number is relative rather
+than absolute. The most recently opened capture group (which could be enclosing
+this condition) can be referenced by (?(-1), the next most recent by (?(-2),
+and so on. Inside loops it can also make sense to refer to subsequent groups.
+The next capture group to be opened can be referenced as (?(+1), and so on. The
+value zero in any of these forms is not used; it provokes a compile-time error.
 .P
 Consider the following pattern, which contains non-significant white space to
 make it more readable (assume the PCRE2_EXTENDED option) and to divide it into
@@ -2876,7 +2952,6 @@ than two digits.
 If the condition is not in any of the above formats, it must be a parenthesized
 assertion. This may be a positive or negative lookahead or lookbehind
 assertion. However, it must be a traditional atomic assertion, not one of the
-PCRE2-specific
 .\" HTML <a href="#nonatomicassertions">
 .\" </a>
 non-atomic assertions.
@@ -3696,7 +3771,7 @@ If A matches but B fails, the backtrack to (*COMMIT) causes the entire match to
 fail. However, if A and B match, but C fails, the backtrack to (*THEN) causes
 the next alternative (ABD) to be tried. This behaviour is consistent, but is
 not always the same as Perl's. It means that if two or more backtracking verbs
-appear in succession, all the the last of them has no effect. Consider this
+appear in succession, all but the last of them has no effect. Consider this
 example:
 .sp
   ...(*COMMIT)(*PRUNE)...
@@ -3814,6 +3889,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 12 January 2022
-Copyright (c) 1997-2022 University of Cambridge.
+Last updated: 19 January 2024
+Copyright (c) 1997-2024 University of Cambridge.
 .fi

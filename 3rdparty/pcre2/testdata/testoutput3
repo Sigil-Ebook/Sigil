@@ -108,6 +108,13 @@ Subject length lower bound = 1
     école
 No match
 
+/\xb5/i
+    µ
+ 0: µ
+\= Expect no match
+    \x9c
+No match
+
 /\W+/
     >>>\xaa<<<
  0: >>>

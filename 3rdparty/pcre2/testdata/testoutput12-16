@@ -1522,6 +1522,28 @@ Partial match: ab
     ab\x{df00}cdef\=ph
 No match
 
+/.a/match_invalid_utf
+    ab\=ph
+Partial match: b
+    ab\=ps
+Partial match: b
+\= Expect no match
+    b\x{df00}\=ph
+No match
+    b\x{df00}\=ps
+No match
+
+/.a$/match_invalid_utf
+    ab\=ph
+Partial match: b
+    ab\=ps
+Partial match: b
+\= Expect no match
+    b\x{df00}\=ph
+No match
+    b\x{df00}\=ps
+No match
+
 /ab$/match_invalid_utf
     ab\x{df00}cdeab
  0: ab
@@ -1585,6 +1607,10 @@ No match
 /aa/utf,ucp,match_invalid_utf,global
     \x{d800}aa
  0: aa
+    
+/A\z/utf,match_invalid_utf
+    A\x{df00}\n
+No match
 
 # ---------------------------------------------------- 
 
@@ -1780,5 +1806,63 @@ No match
 No match
 
 # ---------------------------------------------------- 
+
+# Quantifier after a literal that has the value of META_ACCEPT (not UTF). This
+# fails in 16-bit mode, but is OK for 32-bit.
+
+/\x{802a0000}*/
+Failed: error 134 at offset 11: character code point value in \x{} or \o{} is too large
+    \x{802a0000}\x{802a0000}
+
+# UTF matching without UTF, check invalid UTF characters
+/\X++/
+    a\x{110000}\x{ffffffff}
+** Character \x{110000} is greater than 0xffff and UTF-16 mode is not enabled.
+** Truncation will probably give the wrong result.
+** Character \x{ffffffff} is greater than 0xffff and UTF-16 mode is not enabled.
+** Truncation will probably give the wrong result.
+ 0: a\x00\x{ffff}
+
+# This used to loop in 32-bit mode; it will fail in 16-bit mode.
+/[\x{ffffffff}]/caseless,ucp
+Failed: error 134 at offset 12: character code point value in \x{} or \o{} is too large
+    \x{ffffffff}xyz
+    
+# These are 32-bit tests for handing 0xffffffff when in UCP caselsss mode. They
+# will give errors in 16-bit mode.
+
+/k*\x{ffffffff}/caseless,ucp
+Failed: error 134 at offset 13: character code point value in \x{} or \o{} is too large
+    \x{ffffffff}
+
+/k+\x{ffffffff}/caseless,ucp,no_start_optimize
+Failed: error 134 at offset 13: character code point value in \x{} or \o{} is too large
+    K\x{ffffffff}
+\= Expect no match     
+    \x{ffffffff}\x{ffffffff}
+
+/k{2}\x{ffffffff}/caseless,ucp,no_start_optimize
+Failed: error 134 at offset 15: character code point value in \x{} or \o{} is too large
+\= Expect no match
+    \x{ffffffff}\x{ffffffff}\x{ffffffff}
+
+/k\x{ffffffff}/caseless,ucp,no_start_optimize
+Failed: error 134 at offset 12: character code point value in \x{} or \o{} is too large
+    K\x{ffffffff}
+\= Expect no match
+    \x{ffffffff}\x{ffffffff}\x{ffffffff}
+
+/k{2,}?Z/caseless,ucp,no_start_optimize,no_auto_possess
+\= Expect no match
+    Kk\x{ffffffff}\x{ffffffff}\x{ffffffff}Z
+** Character \x{ffffffff} is greater than 0xffff and UTF-16 mode is not enabled.
+** Truncation will probably give the wrong result.
+** Character \x{ffffffff} is greater than 0xffff and UTF-16 mode is not enabled.
+** Truncation will probably give the wrong result.
+** Character \x{ffffffff} is greater than 0xffff and UTF-16 mode is not enabled.
+** Truncation will probably give the wrong result.
+No match
+
+# --------------------------------------------------------- 
 
 # End of testinput12

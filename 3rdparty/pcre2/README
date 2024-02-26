@@ -157,7 +157,18 @@ library. They are also documented in the pcre2build man page.
   --disable-shared
   --disable-static
 
-  (See also "Shared libraries on Unix-like systems" below.)
+  Setting --disable-shared ensures that PCRE2 libraries are built as static
+  libraries. The binaries that are then created as part of the build process
+  (for example, pcre2test and pcre2grep) are linked statically with one or more
+  PCRE2 libraries, but may also be dynamically linked with other libraries such
+  as libc. If you want these binaries to be fully statically linked, you can
+  set LDFLAGS like this:
+
+  LDFLAGS=--static ./configure --disable-shared
+
+  Note the two hyphens in --static. Of course, this works only if static
+  versions of all the relevant libraries are available for linking. See also
+  "Shared libraries" below.
 
 . By default, only the 8-bit library is built. If you add --enable-pcre2-16 to
   the "configure" command, the 16-bit library is also built. If you add
@@ -271,6 +282,17 @@ library. They are also documented in the pcre2build man page.
   performance in the 8-bit and 16-bit libraries. In the 32-bit library, the
   link size setting is ignored, as 4-byte offsets are always used.
 
+. Lookbehind assertions in which one or more branches can match a variable
+  number of characters are supported only if there is a maximum matching length
+  for each top-level branch. There is a limit to this maximum that defaults to
+  255 characters. You can alter this default by a setting such as
+
+  --with-max-varlookbehind=100
+
+  The limit can be changed at runtime by calling pcre2_set_max_varlookbehind().
+  Lookbehind assertions in which every branch matches a fixed number of
+  characters (not necessarily all the same) are not constrained by this limit.
+
 . For speed, PCRE2 uses four tables for manipulating and identifying characters
   whose code point values are less than 256. By default, it uses a set of
   tables for ASCII encoding that is part of the distribution. If you specify
@@ -369,7 +391,7 @@ library. They are also documented in the pcre2build man page.
   avoided by linking with libedit (which has a BSD licence) instead.
 
   Enabling libreadline causes the -lreadline option to be added to the
-  pcre2test build. In many operating environments with a sytem-installed
+  pcre2test build. In many operating environments with a system-installed
   readline library this is sufficient. However, in some environments (e.g. if
   an unmodified distribution version of readline is in use), it may be
   necessary to specify something like LIBS="-lncurses" as well. This is
@@ -549,7 +571,10 @@ configuring it. For example:
 ./configure --prefix=/usr/gnu --disable-shared
 
 Then run "make" in the usual way. Similarly, you can use --disable-static to
-build only shared libraries.
+build only shared libraries. Note, however, that when you build only static
+libraries, binary programs such as pcre2test and pcre2grep may still be
+dynamically linked with other libraries (for example, libc) unless you set
+LDFLAGS to --static when running "configure".
 
 
 Cross-compiling using autotools
@@ -800,6 +825,7 @@ The distribution should contain the files listed below.
 
   src/pcre2posix.c         )
   src/pcre2_auto_possess.c )
+  src/pcre2_chkdint.c      )
   src/pcre2_compile.c      )
   src/pcre2_config.c       )
   src/pcre2_context.c      )
@@ -921,4 +947,4 @@ The distribution should contain the files listed below.
 Philip Hazel
 Email local part: Philip.Hazel
 Email domain: gmail.com
-Last updated: 10 December 2022
+Last updated: 24 November 2023

@@ -198,6 +198,8 @@ static struct regression_test_case regression_test_cases[] = {
 	{ M, A, 0, 0, "[3-57-9]", "5" },
 	{ PCRE2_AUTO_CALLOUT, A, 0, 0, "12345678901234567890123456789012345678901234567890123456789012345678901234567890",
 		"12345678901234567890123456789012345678901234567890123456789012345678901234567890" },
+	{ 0, A, 0, 0, "..a.......b", "bbbbbbbbbbbbbbbbbbbbbabbbbbbbb" },
+	{ 0, A, 0, 0, "..a.....b", "bbbbbbbbbbbbbbbbbbbbbabbbbbbbb" },
 
 	/* Assertions. */
 	{ MU, A, 0, 0, "\\b[^A]", "A_B#" },
@@ -273,6 +275,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ CM, A, 0, 0, "ab|cd", "CD" },
 	{ CM, A, 0, 0, "a1277|a1377|bX487", "bx487" },
 	{ CM, A, 0, 0, "a1277|a1377|bx487", "bX487" },
+	{ 0, A, 0, 0, "(a|)b*+a", "a" },
 
 	/* Greedy and non-greedy ? operators. */
 	{ MU, A, 0, 0, "(?:a)?a", "laab" },
@@ -355,6 +358,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MU, A, 0, 0, "#(A+)#\\d+", "#A#A#0" },
 	{ MU, A, 0, 0, "(?P<size>\\d+)m|M", "4M" },
 	{ M, PCRE2_NEWLINE_CRLF, 0, 0, "\\n?.+#", "\n,\n,#" },
+	{ 0, A, 0, 0, "<(\\w+)[\\s\\w]+id>", "<br><div id>" },
 
 	/* Bracket repeats with limit. */
 	{ MU, A, 0, 0, "(?:(ab){2}){5}M", "abababababababababababM" },
@@ -390,7 +394,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MU, A, 0, 0, "[^\\x{801}-\\x{fffe}]+", "\xe0\xa0\x81#\xc3\xa9\xf0\x90\x90\x80\xe0\xa0\x80\xef\xbf\xbf\xef\xbf\xbe" },
 	{ MU, A, 0, 0, "[\\x{10001}-\\x{10fffe}]+", "#\xc3\xa9\xe2\xb1\xa5\xf0\x90\x80\x80\xf0\x90\x80\x81\xf4\x8f\xbf\xbe\xf4\x8f\xbf\xbf" },
 	{ MU, A, 0, 0, "[^\\x{10001}-\\x{10fffe}]+", "\xf0\x90\x80\x81#\xc3\xa9\xe2\xb1\xa5\xf0\x90\x80\x80\xf4\x8f\xbf\xbf\xf4\x8f\xbf\xbe" },
-	{ CMU, A, 0, 0 | F_NOMATCH, "^[\\x{0100}-\\x{017f}]", " " },
+	{ CMU, A, 0, 0 | F_NOMATCH | F_PROPERTY, "^[\\x{100}-\\x{17f}]", " " },
 
 	/* Unicode properties. */
 	{ MUP, A, 0, 0, "[1-5\xc3\xa9\\w]", "\xc3\xa1_" },
@@ -413,10 +417,13 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MUP, A, 0, 0 | F_PROPERTY, "[\xc3\xa2-\xc3\xa6\xc3\x81-\xc3\x84\xe2\x80\xa8-\xe2\x80\xa9\xe6\x92\xad\\p{Zs}]{2,}", "\xe2\x80\xa7\xe2\x80\xa9\xe6\x92\xad \xe6\x92\xae" },
 	{ MUP, A, 0, 0 | F_PROPERTY, "[\\P{L&}]{2}[^\xc2\x85-\xc2\x89\\p{Ll}\\p{Lu}]{2}", "\xc3\xa9\xe6\x92\xad.a\xe6\x92\xad|\xc2\x8a#" },
 	{ PCRE2_UCP, 0, 0, 0 | F_PROPERTY, "[a-b\\s]{2,5}[^a]", "AB  baaa" },
-	{ MUP, 0, 0, 0 | F_NOMATCH, "[^\\p{Hangul}\\p{Z}]", " " },
+	{ MUP, 0, 0, 0 | F_NOMATCH | F_PROPERTY, "[^\\p{Hangul}\\p{Z}]", " " },
 	{ MUP, 0, 0, 0, "[\\p{Lu}\\P{Latin}]+", "c\xEA\xA4\xAE,A,b" },
 	{ MUP, 0, 0, 0, "[\\x{a92e}\\p{Lu}\\P{Latin}]+", "c\xEA\xA4\xAE,A,b" },
 	{ CMUP, 0, 0, 0, "[^S]\\B", "\xe2\x80\x8a" },
+	{ MUP, 0, 0, 0 | F_NOMATCH, "[^[:print:]\\x{f6f6}]", "\xef\x9b\xb6" },
+	{ MUP, 0, 0, 0, "[[:xdigit:]\\x{6500}]#", "\xe6\x94\x80#" },
+	{ MUP, 0, 0, 0 | F_PROPERTY, "[\\pC\\PC]#", "A#" },
 
 	/* Possible empty brackets. */
 	{ MU, A, 0, 0, "(?:|ab||bc|a)+d", "abcxabcabd" },
@@ -512,6 +519,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MU, A, 0, 0 | F_PROPERTY, "\\X{2,4}..", "#\xcc\x8d#\xcc\x8d##" },
 	{ MU, A, 0, 0, "(c(ab)?+ab)+", "cabcababcab" },
 	{ MU, A, 0, 0, "(?>(a+)b)+aabab", "aaaabaaabaabab" },
+	{ MU, A, 0, 0 | F_NOMATCH, "(?>a*|)a", "aaa" },
 
 	/* Possessive quantifiers. */
 	{ MU, A, 0, 0, "(?:a|b)++m", "mababbaaxababbaam" },
@@ -544,6 +552,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MU, A, 0, 0, "((b*))++m", "bxbbxbbbxbbm" },
 	{ MU, A, 0, 0, "((b*))*+m", "bxbbxbbbxm" },
 	{ MU, A, 0, 0, "((b*))*+m", "bxbbxbbbxbbm" },
+	{ MU, A, 0, 0, "(A)*+$", "ABC" },
 	{ MU, A, 0, 0 | F_NOMATCH, "(?>(b{2,4}))(?:(?:(aa|c))++m|(?:(aa|c))+n)", "bbaacaaccaaaacxbbbmbn" },
 	{ MU, A, 0, 0, "((?:b)++a)+(cd)*+m", "bbababbacdcdnbbababbacdcdm" },
 	{ MU, A, 0, 0, "((?:(b))++a)+((c)d)*+m", "bbababbacdcdnbbababbacdcdm" },
@@ -590,6 +599,8 @@ static struct regression_test_case regression_test_cases[] = {
 	{ CMU | PCRE2_DUPNAMES, A, 0, 0, "(?:(?<A>AA)|(?<A>BB))\\k<A>{1,3}M", "aaaaaaaabbbbaabbbbm" },
 	{ CMU | PCRE2_DUPNAMES, A, 0, 0, "(?:(?<A>AA)|(?<A>BB))\\k<A>{0,3}?M", "aaaaaabbbbbbaabbbbbbbbbbm" },
 	{ CMU | PCRE2_DUPNAMES, A, 0, 0, "(?:(?<A>AA)|(?<A>BB))\\k<A>{2,3}?", "aaaabbbbaaaabbbbbbbbbb" },
+	{ MU | PCRE2_MATCH_UNSET_BACKREF, A, 0, 0, "(a)|\\1+c", "xxc" },
+	{ MU | PCRE2_MATCH_UNSET_BACKREF, A, 0, 0, "\\1+?()", "" },
 
 	/* Assertions. */
 	{ MU, A, 0, 0, "(?=xx|yy|zz)\\w{4}", "abczzdefg" },
@@ -626,6 +637,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MU, A, 0, 0, "c(?(?!\\b|(?C)\\B(?C`x`))ab|a)", "cab" },
 	{ MU, A, 0, 0, "a(?=)b", "ab" },
 	{ MU, A, 0, 0 | F_NOMATCH, "a(?!)b", "ab" },
+	{ MU, A, 0, 0, "(?(?<!|(|a)))", "a" },
 
 	/* Not empty, ACCEPT, FAIL */
 	{ MU, A, PCRE2_NOTEMPTY, 0 | F_NOMATCH, "a*", "bcx" },
@@ -648,6 +660,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MU, A, 0, 0, "(?=(a(b(*ACCEPT)b)))a", "ab" },
 	{ MU, A, PCRE2_NOTEMPTY, 0, "(?=a*(*ACCEPT))c", "c" },
 	{ MU, A, PCRE2_NOTEMPTY, 0 | F_NOMATCH, "(?=A)", "AB" },
+	{ MU | PCRE2_ENDANCHORED, A, 0, 0, "aa(*ACCEPT)aa", "aaa" },
 
 	/* Conditional blocks. */
 	{ MU, A, 0, 0, "(?(?=(a))a|b)+k", "ababbalbbadabak" },
@@ -872,6 +885,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MU, A, 0, 0, "(?!(?(?=a)ab|b(*THEN)d))bn|bnn", "bnn" },
 	{ MU, A, 0, 0, "(?=(*THEN: ))* ", " " },
 	{ MU, A, 0, 0, "a(*THEN)(?R) |", "a" },
+	{ MU, A, 0, 0 | F_NOMATCH, "(?<!(*THEN)a|(*THEN)b|(*THEN)ab?|(*THEN)ba?|)", "c" },
 
 	/* Recurse and control verbs. */
 	{ MU, A, 0, 0, "(a(*ACCEPT)b){0}a(?1)b", "aacaabb" },
@@ -893,7 +907,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MU, A, 0, 0, "!(*sr:\\w\\w|\\w\\w\\w)++#", "!abcdefghijklmno!abcdefghijklmno!abcdef#" },
 	{ MU, A, 0, 0, "!(*sr:\\w\\w|\\w\\w\\w)?#", "!ab!abc!ab!ab#" },
 	{ MU, A, 0, 0, "!(*sr:\\w\\w|\\w\\w\\w)??#", "!ab!abc!ab!ab#" },
-#endif
+#endif /* SUPPORT_UNICODE */
 
 	/* Deep recursion. */
 	{ MU, A, 0, 0, "((((?:(?:(?:\\w)+)?)*|(?>\\w)+?)+|(?>\\w)?\?)*)?\\s", "aaaaa+ " },
@@ -1981,6 +1995,9 @@ static const struct invalid_utf8_regression_test_case invalid_utf8_regression_te
 	{ PCRE2_UTF, CI, 0, 0, 0, 7, 11, { "#\xc7\x85#", NULL }, "\x80\x80#\xc7\x80\x80\x80#\xc7\x85#" },
 
 	{ PCRE2_UTF | PCRE2_UCP, CI, 0, 0, 0, -1, -1, { "[\\s]", NULL }, "\xed\xa0\x80" },
+	{ PCRE2_UTF, CI, 0, 0, 0, 0, 3, { "[\\D]", NULL }, "\xe0\xab\xaa@" },
+	{ PCRE2_UTF, CI, 0, 0, 0, 0, 3, { "\\D+", NULL }, "n\xc3\xb1" },
+	{ PCRE2_UTF, CI, 0, 0, 0, 0, 5, { "\\W+", NULL }, "@\xf0\x9d\x84\x9e" },
 
 	/* These two are not invalid UTF tests, but this infrastructure fits better for them. */
 	{ 0, PCRE2_JIT_COMPLETE, 0, 0, 1, -1, -1, { "\\X{2}", NULL }, "\r\n\n" },

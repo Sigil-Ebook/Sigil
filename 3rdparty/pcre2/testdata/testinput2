@@ -191,8 +191,6 @@
 
 /abc(?<=a+)b/
 
-/12345(?<=aaa|b{0,3})b/
-
 /(?<!(foo)a\1)bar/
 
 /(?i)abc/I
@@ -287,8 +285,6 @@
 /(?<=ab(c+)d)ef/
 
 /(?<=ab(?<=c+)d)ef/
-
-/(?<=ab(c|de)f)g/
 
 /The next three are in testinput2 because they have variable length branches/
 
@@ -913,6 +909,13 @@
 
 /\U/I
 
+/\N{4}/
+    abcdefg
+
+/\N{,}/
+
+/\N{25,ab}/
+
 /a{1,3}b/ungreedy
     ab
 
@@ -1307,13 +1310,13 @@
   abcdabcd
   abcdcdcdcdcd
 
-/([ab]{,4}c|xy)/IB,auto_callout
+/([ab]{,}c|xy)/IB,auto_callout
 \= Expect no match
-    Note: that { does NOT introduce a quantifier
+    Note: that {,} does NOT introduce a quantifier
 
-/([ab]{,4}c|xy)/IB,auto_callout
+/([ab]{,}c|xy)/IB,auto_callout
 \= Expect no match
-    Note: that { does NOT introduce a quantifier
+    Note: that {,} does NOT introduce a quantifier
 
 /([ab]{1,4}c|xy){4,5}?123/IB,auto_callout
     aacaacaacaacaac123
@@ -3416,6 +3419,18 @@
 
 /^\u{7a}/extra_alt_bsux
     zoo 
+
+/\u{}/extra_alt_bsux
+    u{}
+
+/\u{Q12}/extra_alt_bsux
+    --u{Q12}--
+
+/\u{ 12}/extra_alt_bsux
+    --u{ 12}--
+
+/\u{{3}}/extra_alt_bsux
+    --u{{{}--
 
 /(?(?=c)c|d)++Y/B
 
@@ -5714,6 +5729,9 @@ a)"xI
     aabc
     abbc   
 
+/(*naplb:ab?c|PQ).../g
+    abcdefgacxyzPQR123
+
 # ----
 
 # Expect error (recursion => not fixed length)
@@ -5939,5 +5957,146 @@ a)"xI
 
 /abcd/
     abcd\=ovector=65536
+
+# Use recurse to test \K and Mark in atomic scope.
+/(?>this line\s*((?R)|)\K)/
+    this line this line this line
+
+/(?>this line\s*((?R)|)(*MARK:A))/
+    this line this line this line
+    
+# Check use of NULL pattern with zero length.
+
+//null_pattern,use_length
+    abc
+    
+//null_pattern
+
+/bad null pattern/null_pattern,use_length
+
+/bad null pattern/null_pattern
+
+# -------- Variable length lookbehinds --------
+/12345(?<=\d{1,256})X/
+
+/(?<=(\d{1,256}))X/max_varlookbehind=256
+    12345XYZ
+
+/12345(?<=a?bc)X/max_varlookbehind=0
+
+/12345(?<=abc)X/max_varlookbehind=0
+
+/(?<!( {65054}){9,44965})/
+
+/(?(?<!|(|a)))/
+    aaaa\=get=0
+
+/(?(?<!|a?))/
+    aaaa\=get=0
+
+# --------
+
+/(?<=(()()()()()()()()()()()()()(()()()()(())()()()()(()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()(())()()()()(()()()()()()(()()()()()()()()()()()()()()()()()()()()()(())()()()()(()()()()()()()()()()()()()(()()()()()()()()()()()()()(()())))))))))/
+
+/(?<!( {65054}){0,44965})/auto_callout
+
+/A+{,3}/
+
+/(\g{+1}Z|(A))+/
+    BAAZCD 
+    ZAAAZAZAZAACD 
+
+# This doesn't work in Perl (though I think it used to)
+
+/^(?=.*(?=(([A-Z]).*(?(1)\1)))(?!.+\2)){26}/i
+    The quick brown fox jumps over the lazy dog.
+    Jackdaws love my big sphinx of quartz.
+    Pack my box with five dozen liquor jugs.
+\= Expect no match
+    The quick brown fox jumps over the lazy cat.
+    Hackdaws love my big sphinx of quartz.
+    Pack my fox with five dozen liquor jugs.
+    
+# These are different to Perl because of the different capturing in repeating
+# groups.
+
+/((foo)|(bar))*/
+    foobar
+
+/(?:(f)(o)(o)|(b)(a)(r))*/
+    foobar
+
+/((Z)+|A)*/
+    ZABCDEFG
+
+/(?:(?P=same)?(?:(?P<same>a)|(?P<same>b))(?P=same))+/g,dupnames
+    bbbaaabaabb
+
+# --------
+
+/
+/anchored, firstline
+    \x0a
+
+/
+/anchored,firstline,no_start_optimize
+    \x0a
+
+/
+/firstline
+    \x0a
+    abc\x0adef
+
+# This test is currently broken in the interpreter
+# /|a(?0)/endanchored
+#    aaaa
+
+/A +/extended
+
+/(*ACCEPT)+/B,auto_callout
+
+/a\z/
+    a
+    a\=noteol 
+
+# This matches a character that only exists once in the subject, sort of like a
+# hypothetical "(.)(?<!\1.+)(?!.*\1)". That has unlimited variable length
+# lookbehind, so is invalid. This pattern doesn't work in Perl 5.38.0.
+
+/\G(?:(?=(\1.|)(.))){1,13}?(?!.*\2.*\2)\1\K\2/g
+    aaabcccdeee
+
+/|(?0)./endanchored
+    abcd
+
+/|a(?0)/endanchored
+    aaaa
+
+/(?:|(?0).)(?(R)|\z)/
+    abcd
+
+/a?(?=b(*COMMIT)c|)d/I
+    bd
+
+/(?=b(*COMMIT)c|)d/I
+    bd
+
+/a?(?=b(*COMMIT)c|)d/I,no_start_optimize
+    bd
+
+/(?=b(*COMMIT)c|)d/I,no_start_optimize
+    bd
+
+/a?(?=bc|)d/I,auto_callout
+    bd
+    
+/a?(?=bc|)\bd/I 
+    bd
+
+/(?0)/
+    abc\=disable_recurseloop_check,match_limit=100
+
+/(a(?1)z||(?1)++)$/
+    abcd\=disable_recurseloop_check
 
 # End of testinput2

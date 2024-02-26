@@ -53,9 +53,14 @@ documentation for a description of PCRE2's native API, which contains much
 additional functionality.
 </P>
 <P>
-The functions described here are wrapper functions that ultimately call the
-PCRE2 native API. Their prototypes are defined in the <b>pcre2posix.h</b> header
-file, and they all have unique names starting with <b>pcre2_</b>. However, the
+<b>IMPORTANT NOTE</b>: The functions described here are NOT thread-safe, and
+should not be used in multi-threaded applications. They are also limited to
+processing subjects that are not bigger than 2GB. Use the native API instead.
+</P>
+<P>
+These functions are wrapper functions that ultimately call the PCRE2 native
+API. Their prototypes are defined in the <b>pcre2posix.h</b> header file, and
+they all have unique names starting with <b>pcre2_</b>. However, the
 <b>pcre2posix.h</b> header also contains macro definitions that convert the
 standard POSIX names such <b>regcomp()</b> into <b>pcre2_regcomp()</b> etc. This
 means that a program can use the usual POSIX names without running the risk of
@@ -68,7 +73,13 @@ application. Because the POSIX functions call the native ones, it is also
 necessary to add <b>-lpcre2-8</b>.
 </P>
 <P>
-Although they were not defined as protypes in <b>pcre2posix.h</b>, releases
+On Windows systems, if you are linking to a DLL version of the library, it is
+recommended that <b>PCRE2POSIX_SHARED</b> is defined before including the
+<b>pcre2posix.h</b> header, as it will allow for a more efficient way to
+invoke the functions by adding the <b>__declspec(dllimport)</b> decorator.
+</P>
+<P>
+Although they were not defined as prototypes in <b>pcre2posix.h</b>, releases
 10.33 to 10.36 of the library contained functions with the POSIX names
 <b>regcomp()</b> etc. These simply passed their arguments to the PCRE2
 functions. These functions were provided for backwards compatibility with
@@ -86,6 +97,11 @@ captured substrings. It also defines some constants whose names start with
 "REG_"; these are used for setting options and identifying error codes.
 </P>
 <br><a name="SEC3" href="#TOC1">USING THE POSIX FUNCTIONS</a><br>
+<P>
+Note that these functions are just POSIX-style wrappers for PCRE2's native API.
+They do not give POSIX regular expression behaviour, and they are not
+thread-safe or even POSIX compatible.
+</P>
 <P>
 Those POSIX option bits that can reasonably be mapped to PCRE2 native options
 have been implemented. In addition, the option REG_EXTENDED is defined with the
@@ -117,8 +133,10 @@ The function <b>pcre2_regcomp()</b> is called to compile a pattern into an
 internal form. By default, the pattern is a C string terminated by a binary
 zero (but see REG_PEND below). The <i>preg</i> argument is a pointer to a
 <b>regex_t</b> structure that is used as a base for storing information about
-the compiled regular expression. (It is also used for input when REG_PEND is
-set.)
+the compiled regular expression. It is also used for input when REG_PEND is
+set. The <b>regex_t</b> structure used by <b>pcre2_regcomp()</b> is defined in
+<b>pcre2posix.h</b> and is not the same as the structure used by other libraries
+that provide POSIX-style matching.
 </P>
 <P>
 The argument <i>cflags</i> is either zero, or contains one or more of the bits
@@ -171,7 +189,7 @@ caution in software intended to be portable to other systems.
 </pre>
 The PCRE2_UCP option is set when the regular expression is passed for
 compilation to the native function. This causes PCRE2 to use Unicode properties
-when matchine \d, \w, etc., instead of just recognizing ASCII values. Note
+when matching \d, \w, etc., instead of just recognizing ASCII values. Note
 that REG_UCP is not part of the POSIX standard.
 <pre>
   REG_UNGREEDY
@@ -189,7 +207,7 @@ is not part of the POSIX standard.
 </P>
 <P>
 In the absence of these flags, no options are passed to the native function.
-This means the the regex is compiled with PCRE2 default semantics. In
+This means that the regex is compiled with PCRE2 default semantics. In
 particular, the way it handles newline characters in the subject string is the
 Perl way, not the POSIX way. Note that setting PCRE2_MULTILINE has only
 <i>some</i> of the effects specified for REG_NEWLINE. It does not affect the way
@@ -315,6 +333,11 @@ the capturing subpatterns of the regular expression. Unused entries in the
 array have both structure members set to -1.
 </P>
 <P>
+<i>regmatch_t</i> as well as the <i>regoff_t</i> typedef it uses are defined in
+<b>pcre2posix.h</b> and are not warranted to have the same size or layout as other
+similarly named types from other libraries that provide POSIX-style matching.
+</P>
+<P>
 A successful match yields a zero return; various error codes are defined in the
 header file, of which REG_NOMATCH is the "expected" failure code.
 </P>
@@ -340,16 +363,16 @@ expression.
 <P>
 Philip Hazel
 <br>
-University Computing Service
+Retired from University Computing Service
 <br>
 Cambridge, England.
 <br>
 </P>
 <br><a name="SEC10" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 26 April 2021
+Last updated: 19 January 2024
 <br>
-Copyright &copy; 1997-2021 University of Cambridge.
+Copyright &copy; 1997-2024 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

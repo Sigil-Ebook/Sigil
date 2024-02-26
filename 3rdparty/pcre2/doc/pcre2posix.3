@@ -1,4 +1,4 @@
-.TH PCRE2POSIX 3 "26 April 2021" "PCRE2 10.37"
+.TH PCRE2POSIX 3 "19 January 2024" "PCRE2 10.43"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "SYNOPSIS"
@@ -31,9 +31,13 @@ and 32-bit libraries. See the
 documentation for a description of PCRE2's native API, which contains much
 additional functionality.
 .P
-The functions described here are wrapper functions that ultimately call the
-PCRE2 native API. Their prototypes are defined in the \fBpcre2posix.h\fP header
-file, and they all have unique names starting with \fBpcre2_\fP. However, the
+\fBIMPORTANT NOTE\fP: The functions described here are NOT thread-safe, and
+should not be used in multi-threaded applications. They are also limited to
+processing subjects that are not bigger than 2GB. Use the native API instead.
+.P
+These functions are wrapper functions that ultimately call the PCRE2 native
+API. Their prototypes are defined in the \fBpcre2posix.h\fP header file, and
+they all have unique names starting with \fBpcre2_\fP. However, the
 \fBpcre2posix.h\fP header also contains macro definitions that convert the
 standard POSIX names such \fBregcomp()\fP into \fBpcre2_regcomp()\fP etc. This
 means that a program can use the usual POSIX names without running the risk of
@@ -44,7 +48,12 @@ can be accessed by adding \fB-lpcre2-posix\fP to the command for linking an
 application. Because the POSIX functions call the native ones, it is also
 necessary to add \fB-lpcre2-8\fP.
 .P
-Although they were not defined as protypes in \fBpcre2posix.h\fP, releases
+On Windows systems, if you are linking to a DLL version of the library, it is
+recommended that \fBPCRE2POSIX_SHARED\fP is defined before including the
+\fBpcre2posix.h\fP header, as it will allow for a more efficient way to
+invoke the functions by adding the \fB__declspec(dllimport)\fP decorator.
+.P
+Although they were not defined as prototypes in \fBpcre2posix.h\fP, releases
 10.33 to 10.36 of the library contained functions with the POSIX names
 \fBregcomp()\fP etc. These simply passed their arguments to the PCRE2
 functions. These functions were provided for backwards compatibility with
@@ -64,6 +73,10 @@ captured substrings. It also defines some constants whose names start with
 .SH "USING THE POSIX FUNCTIONS"
 .rs
 .sp
+Note that these functions are just POSIX-style wrappers for PCRE2's native API.
+They do not give POSIX regular expression behaviour, and they are not
+thread-safe or even POSIX compatible.
+.P
 Those POSIX option bits that can reasonably be mapped to PCRE2 native options
 have been implemented. In addition, the option REG_EXTENDED is defined with the
 value zero. This has no effect, but since programs that are written to the
@@ -93,8 +106,10 @@ The function \fBpcre2_regcomp()\fP is called to compile a pattern into an
 internal form. By default, the pattern is a C string terminated by a binary
 zero (but see REG_PEND below). The \fIpreg\fP argument is a pointer to a
 \fBregex_t\fP structure that is used as a base for storing information about
-the compiled regular expression. (It is also used for input when REG_PEND is
-set.)
+the compiled regular expression. It is also used for input when REG_PEND is
+set. The \fBregex_t\fP structure used by \fBpcre2_regcomp()\fP is defined in
+\fBpcre2posix.h\fP and is not the same as the structure used by other libraries
+that provide POSIX-style matching.
 .P
 The argument \fIcflags\fP is either zero, or contains one or more of the bits
 defined by the following macros:
@@ -146,7 +161,7 @@ caution in software intended to be portable to other systems.
 .sp
 The PCRE2_UCP option is set when the regular expression is passed for
 compilation to the native function. This causes PCRE2 to use Unicode properties
-when matchine \ed, \ew, etc., instead of just recognizing ASCII values. Note
+when matching \ed, \ew, etc., instead of just recognizing ASCII values. Note
 that REG_UCP is not part of the POSIX standard.
 .sp
   REG_UNGREEDY
@@ -163,7 +178,7 @@ strings used for matching it to be treated as UTF-8 strings. Note that REG_UTF
 is not part of the POSIX standard.
 .P
 In the absence of these flags, no options are passed to the native function.
-This means the the regex is compiled with PCRE2 default semantics. In
+This means that the regex is compiled with PCRE2 default semantics. In
 particular, the way it handles newline characters in the subject string is the
 Perl way, not the POSIX way. Note that setting PCRE2_MULTILINE has only
 \fIsome\fP of the effects specified for REG_NEWLINE. It does not affect the way
@@ -284,6 +299,10 @@ entire portion of \fIstring\fP that was matched; subsequent elements relate to
 the capturing subpatterns of the regular expression. Unused entries in the
 array have both structure members set to -1.
 .P
+\fIregmatch_t\fP as well as the \fIregoff_t\fP typedef it uses are defined in
+\fBpcre2posix.h\fP and are not warranted to have the same size or layout as other
+similarly named types from other libraries that provide POSIX-style matching.
+.P
 A successful match yields a zero return; various error codes are defined in the
 header file, of which REG_NOMATCH is the "expected" failure code.
 .
@@ -315,7 +334,7 @@ expression.
 .sp
 .nf
 Philip Hazel
-University Computing Service
+Retired from University Computing Service
 Cambridge, England.
 .fi
 .
@@ -324,6 +343,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 26 April 2021
-Copyright (c) 1997-2021 University of Cambridge.
+Last updated: 19 January 2024
+Copyright (c) 1997-2024 University of Cambridge.
 .fi

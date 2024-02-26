@@ -27,6 +27,8 @@
 @rem Tidied and updated for new tests 21, 22, 23 by PH, October 2015.
 @rem PH added missing "set type" for test 22, April 2016.
 @rem PH added copy command for new testbtables file, November 2020
+@rem PH caused it to show comparison output when comparison faile, July 2023
+@rem PH updated unknown error number in test
 
 
 setlocal enabledelayedexpansion
@@ -264,7 +266,7 @@ if errorlevel 1 (
   set failed="yes"
   goto :eof
 ) else if [%1]==[2] (
-  %pcre2test% %mode% %4 %5 %6 %7 %8 %9 -error -70,-62,-2,-1,0,100,101,191,200 >>%2%bits%\%testoutput%
+  %pcre2test% %mode% %4 %5 %6 %7 %8 %9 -error -70,-62,-2,-1,0,100,101,191,300 >>%2%bits%\%testoutput%
 )
 
 set type=
@@ -292,6 +294,7 @@ if errorlevel 1 (
     echo.
     goto :eof
 )
+  fc /n %srcdir%\testdata\%testoutput%%type% %2%bits%\%testoutput%
 
   set failed="yes"
   goto :eof

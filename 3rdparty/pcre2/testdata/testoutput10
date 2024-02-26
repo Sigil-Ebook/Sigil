@@ -1,6 +1,8 @@
 # This set of tests is for UTF-8 support and Unicode property support, with
 # relevance only for the 8-bit library.
 
+#newline_default lf any anycrlf
+
 # The next 5 patterns have UTF-8 errors
 
 /[Ã]/utf
@@ -1646,6 +1648,38 @@ Partial match: ab
     ab\x80cdef\=ph
 No match
 
+/.a/match_invalid_utf
+    ab\=ph
+Partial match: b
+    ab\=ps
+Partial match: b
+    b\xf0\x91\x88b\=ph
+Partial match: b
+    b\xf0\x91\x88b\=ps
+Partial match: b
+    b\xf0\x91\x88\xb4a
+ 0: \x{11234}a
+\= Expect no match
+    b\x80\=ph
+No match
+    b\x80\=ps
+No match
+    b\xf0\x91\x88\=ph
+No match
+    b\xf0\x91\x88\=ps
+No match
+
+/.a$/match_invalid_utf
+    ab\=ph
+Partial match: b
+    ab\=ps
+Partial match: b
+\= Expect no match
+    b\xf0\x91\x98\=ph
+No match
+    b\xf0\x91\x98\=ps
+No match
+
 /ab$/match_invalid_utf
     ab\x80cdeab
  0: ab
@@ -1880,5 +1914,15 @@ Subject length lower bound = 1
 Partial match: 
     qchq\=ps
 Partial match: 
+
+/line1\nbreak/firstline,utf,match_invalid_utf
+    line1\nbreak
+ 0: line1\x{0a}break
+    line0\nline1\nbreak
+No match
+
+/A\z/utf,match_invalid_utf
+    A\x80\x42\n
+No match
 
 # End of testinput10

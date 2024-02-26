@@ -90,14 +90,14 @@ end of file, and no further data is read, so this character should be avoided
 unless you really want that action.
 </P>
 <P>
-The input is processed using using C's string functions, so must not
-contain binary zeros, even though in Unix-like environments, <b>fgets()</b>
-treats any bytes other than newline as data characters. An error is generated
-if a binary zero is encountered. By default subject lines are processed for
-backslash escapes, which makes it possible to include any data value in strings
-that are passed to the library for matching. For patterns, there is a facility
-for specifying some or all of the 8-bit input characters as hexadecimal pairs,
-which makes it possible to include binary zeros.
+The input is processed using C's string functions, so must not contain binary
+zeros, even though in Unix-like environments, <b>fgets()</b> treats any bytes
+other than newline as data characters. An error is generated if a binary zero
+is encountered. By default subject lines are processed for backslash escapes,
+which makes it possible to include any data value in strings that are passed to
+the library for matching. For patterns, there is a facility for specifying some
+or all of the 8-bit input characters as hexadecimal pairs, which makes it
+possible to include binary zeros.
 </P>
 <br><b>
 Input for the 16-bit and 32-bit libraries
@@ -138,15 +138,15 @@ error.
 </P>
 <P>
 <b>-16</b>
-If the 16-bit library has been built, this option causes it to be used. If only
-the 16-bit library has been built, this is the default. If the 16-bit library
+If the 16-bit library has been built, this option causes it to be used. If the
+8-bit library has not been built, this is the default. If the 16-bit library
 has not been built, this option causes an error.
 </P>
 <P>
 <b>-32</b>
-If the 32-bit library has been built, this option causes it to be used. If only
-the 32-bit library has been built, this is the default. If the 32-bit library
-has not been built, this option causes an error.
+If the 32-bit library has been built, this option causes it to be used. If no
+other library has been built, this is the default. If the 32-bit library has
+not been built, this option causes an error.
 </P>
 <P>
 <b>-ac</b>
@@ -507,8 +507,8 @@ followed by a backslash, for example,
 <pre>
   /abc/\
 </pre>
-then a backslash is added to the end of the pattern. This is done to provide a
-way of testing the error condition that arises if a pattern finishes with a
+a backslash is added to the end of the pattern. This is done to provide a way
+of testing the error condition that arises if a pattern finishes with a
 backslash, because
 <pre>
   /abc\/
@@ -612,12 +612,11 @@ Setting compilation options
 <P>
 The following modifiers set options for <b>pcre2_compile()</b>. Most of them set
 bits in the options argument of that function, but those whose names start with
-PCRE2_EXTRA are additional options that are set in the compile context. For the
-main options, there are some single-letter abbreviations that are the same as
-Perl options. There is special handling for /x: if a second x is present,
-PCRE2_EXTENDED is converted into PCRE2_EXTENDED_MORE as in Perl. A third
-appearance adds PCRE2_EXTENDED as well, though this makes no difference to the
-way <b>pcre2_compile()</b> behaves. See
+PCRE2_EXTRA are additional options that are set in the compile context.
+Some of these options have single-letter abbreviations. There is special
+handling for /x: if a second x is present, PCRE2_EXTENDED is converted into
+PCRE2_EXTENDED_MORE as in Perl. A third appearance adds PCRE2_EXTENDED as well,
+though this makes no difference to the way <b>pcre2_compile()</b> behaves. See
 <a href="pcre2api.html"><b>pcre2api</b></a>
 for a description of the effects of these options.
 <pre>
@@ -628,9 +627,16 @@ for a description of the effects of these options.
       alt_circumflex            set PCRE2_ALT_CIRCUMFLEX
       alt_verbnames             set PCRE2_ALT_VERBNAMES
       anchored                  set PCRE2_ANCHORED
+  /a  ascii_all                 set all ASCII options
+      ascii_bsd                 set PCRE2_EXTRA_ASCII_BSD
+      ascii_bss                 set PCRE2_EXTRA_ASCII_BSS
+      ascii_bsw                 set PCRE2_EXTRA_ASCII_BSW
+      ascii_digit               set PCRE2_EXTRA_ASCII_DIGIT
+      ascii_posix               set PCRE2_EXTRA_ASCII_POSIX
       auto_callout              set PCRE2_AUTO_CALLOUT
       bad_escape_is_literal     set PCRE2_EXTRA_BAD_ESCAPE_IS_LITERAL
   /i  caseless                  set PCRE2_CASELESS
+  /r  caseless_restrict         set PCRE2_EXTRA_CASELESS_RESTRICT
       dollar_endonly            set PCRE2_DOLLAR_ENDONLY
   /s  dotall                    set PCRE2_DOTALL
       dupnames                  set PCRE2_DUPNAMES
@@ -690,10 +696,12 @@ heavily used in the test files.
       jitfast                   use JIT fast path
       jitverify                 verify JIT use
       locale=&#60;name&#62;             use this locale
-      max_pattern_length=&#60;n&#62;    set the maximum pattern length
+      max_pattern_length=&#60;n&#62;    set maximum pattern length
+      max_varlookbehind=&#60;n&#62;     set maximum variable lookbehind length
       memory                    show memory used
       newline=&#60;type&#62;            set newline type
       null_context              compile with a NULL context
+      null_pattern              pass pattern as NULL
       parens_nest_limit=&#60;n&#62;     set maximum parentheses depth
       posix                     use the POSIX API
       posix_nosub               use the POSIX API with REG_NOSUB
@@ -773,9 +781,11 @@ ending code units are recorded. The subject length line is omitted when
 when it can never be used.
 </P>
 <P>
-The <b>framesize</b> modifier shows the size, in bytes, of the storage frames
+The <b>framesize</b> modifier shows the size, in bytes, of each storage frame
 used by <b>pcre2_match()</b> for handling backtracking. The size depends on the
-number of capturing parentheses in the pattern.
+number of capturing parentheses in the pattern. A vector of these frames is
+used at matching time; its overall size is shown when the <b>heaframes_size</b>
+subject modifier is set.
 </P>
 <P>
 The <b>callout_info</b> modifier requests information about all the callouts in
@@ -791,6 +801,15 @@ Normally, <b>pcre2test</b> passes a context block to <b>pcre2_compile()</b>. If
 the <b>null_context</b> modifier is set, however, NULL is passed. This is for
 testing that <b>pcre2_compile()</b> behaves correctly in this case (it uses
 default values).
+</P>
+<br><b>
+Passing a NULL pattern
+</b><br>
+<P>
+The <b>null_pattern</b> modifier is for testing the behaviour of
+<b>pcre2_compile()</b> when the pattern argument is NULL. The length value
+passed is the default PCRE2_ZERO_TERMINATED unless <b>use_length</b> is set.
+Any length other than zero causes an error.
 </P>
 <br><b>
 Specifying pattern characters in hexadecimal
@@ -828,6 +847,17 @@ because patterns specified in hexadecimal may contain binary zeros.
 If <b>hex</b> or <b>use_length</b> is used with the POSIX wrapper API (see
 <a href="#posixwrapper">"Using the POSIX wrapper API"</a>
 below), the REG_PEND extension is used to pass the pattern's length.
+</P>
+<br><b>
+Specifying a maximum for variable lookbehinds
+</b><br>
+<P>
+Variable lookbehind assertions are supported only if, for each one, there is a
+maximum length (in characters) that it can match. There is a limit on this,
+whose default can be set at build time, with an ultimate default of 255. The
+<b>max_varlookbehind</b> modifier uses the <b>pcre2_set_max_varlookbehind()</b>
+function to change the limit. Lookbehinds whose branches each match a fixed
+length are limited to 65535 characters per branch.
 </P>
 <br><b>
 Specifying wide characters in 16-bit and 32-bit modes
@@ -1081,6 +1111,7 @@ process.
       allusedtext                 show all consulted text
       altglobal                   alternative global matching
   /g  global                      global matching
+      heapframes_size             show match data heapframes size
       jitstack=&#60;n&#62;                set size of JIT stack
       mark                        show mark values
       replace=&#60;string&#62;            specify a replacement string
@@ -1178,18 +1209,19 @@ The following modifiers set options for <b>pcre2_match()</b> or
 <a href="pcreapi.html"><b>pcreapi</b></a>
 for a description of their effects.
 <pre>
-      anchored                  set PCRE2_ANCHORED
-      endanchored               set PCRE2_ENDANCHORED
-      dfa_restart               set PCRE2_DFA_RESTART
-      dfa_shortest              set PCRE2_DFA_SHORTEST
-      no_jit                    set PCRE2_NO_JIT
-      no_utf_check              set PCRE2_NO_UTF_CHECK
-      notbol                    set PCRE2_NOTBOL
-      notempty                  set PCRE2_NOTEMPTY
-      notempty_atstart          set PCRE2_NOTEMPTY_ATSTART
-      noteol                    set PCRE2_NOTEOL
-      partial_hard (or ph)      set PCRE2_PARTIAL_HARD
-      partial_soft (or ps)      set PCRE2_PARTIAL_SOFT
+      anchored                   set PCRE2_ANCHORED
+      endanchored                set PCRE2_ENDANCHORED
+      dfa_restart                set PCRE2_DFA_RESTART
+      dfa_shortest               set PCRE2_DFA_SHORTEST
+      disable_recurseloop_check  set PCRE2_DISABLE_RECURSELOOP_CHECK
+      no_jit                     set PCRE2_NO_JIT
+      no_utf_check               set PCRE2_NO_UTF_CHECK
+      notbol                     set PCRE2_NOTBOL
+      notempty                   set PCRE2_NOTEMPTY
+      notempty_atstart           set PCRE2_NOTEMPTY_ATSTART
+      noteol                     set PCRE2_NOTEOL
+      partial_hard (or ph)       set PCRE2_PARTIAL_HARD
+      partial_soft (or ps)       set PCRE2_PARTIAL_SOFT
 </pre>
 The partial matching modifiers are provided with abbreviations because they
 appear frequently in tests.
@@ -1246,6 +1278,7 @@ pattern, but can be overridden by modifiers on the subject.
       get=&#60;number or name&#62;       extract captured substring
       getall                     extract all captured substrings
   /g  global                     global matching
+      heapframes_size            show match data heapframes size
       heap_limit=&#60;n&#62;             set a limit on heap memory (Kbytes)
       jitstack=&#60;n&#62;               set size of JIT stack
       mark                       show mark values
@@ -1511,7 +1544,7 @@ Testing substitute callouts
 If the <b>substitute_callout</b> modifier is set, a substitution callout
 function is set up. The <b>null_context</b> modifier must not be set, because
 the address of the callout function is passed in a match context. When the
-callout function is called (after each substitution), details of the the input
+callout function is called (after each substitution), details of the input
 and output strings are output. For example:
 <pre>
   /abc/g,replace=&#60;$0&#62;,substitute_callout
@@ -1634,6 +1667,24 @@ memory is allocated during matching with JIT. For this modifier to work, the
 subject, though it can be set on one or the other.
 </P>
 <br><b>
+Showing the heap frame overall vector size
+</b><br>
+<P>
+The <b>heapframes_size</b> modifier is relevant for matches using
+<b>pcre2_match()</b> without JIT. After a match has run (whether successful or
+not) the size, in bytes, of the allocated heap frames vector that is left
+attached to the match data block is shown. If the matching action involved
+several calls to <b>pcre2_match()</b> (for example, global matching or for
+timing) only the final value is shown.
+</P>
+<P>
+This modifier is ignored, with a warning, for POSIX or DFA matching. JIT
+matching does not use the heap frames vector, so the size is always zero,
+unless there was a previous non-JIT match. Note that specifing a size of zero
+for the output vector (see below) causes <b>pcre2test</b> to free its match data
+block (and associated heap frames vector) and allocate a new one.
+</P>
+<br><b>
 Setting a starting offset
 </b><br>
 <P>
@@ -1664,9 +1715,9 @@ A value of zero is useful when testing the POSIX API because it causes
 <b>regexec()</b> to be called with a NULL capture vector. When not testing the
 POSIX API, a value of zero is used to cause
 <b>pcre2_match_data_create_from_pattern()</b> to be called, in order to create a
-match block of exactly the right size for the pattern. (It is not possible to
-create a match block with a zero-length ovector; there is always at least one
-pair of offsets.)
+new match block of exactly the right size for the pattern. (It is not possible
+to create a match block with a zero-length ovector; there is always at least
+one pair of offsets.) The old match data block is freed.
 </P>
 <br><b>
 Passing the subject as zero-terminated
@@ -1764,9 +1815,8 @@ unset substring is shown as "&#60;unset&#62;", as for the second data line.
 If the strings contain any non-printing characters, they are output as \xhh
 escapes if the value is less than 256 and UTF mode is not set. Otherwise they
 are output as \x{hh...} escapes. See below for the definition of non-printing
-characters. If the <b>aftertext</b> modifier is set, the output for substring
-0 is followed by the the rest of the subject string, identified by "0+" like
-this:
+characters. If the <b>aftertext</b> modifier is set, the output for substring 0
+is followed by the rest of the subject string, identified by "0+" like this:
 <pre>
     re&#62; /cat/aftertext
   data&#62; cataract
@@ -2143,9 +2193,9 @@ Cambridge, England.
 </P>
 <br><a name="SEC21" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 27 July 2022
+Last updated: 27 January 2024
 <br>
-Copyright &copy; 1997-2022 University of Cambridge.
+Copyright &copy; 1997-2024 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

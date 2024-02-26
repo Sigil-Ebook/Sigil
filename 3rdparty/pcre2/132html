@@ -180,6 +180,9 @@ while (<STDIN>)
       $wrotetext = 1;
       }
 
+    # Remove the "AUTOMATICALLY GENERATED" warning from pcre2demo.3
+    elsif (/^\.\\"AUTOMATICALLY GENERATED/) { next; }
+
     # A comment that starts "HREF" takes the next line as a name that
     # is turned into a hyperlink, using the text given, which might be
     # in a special font. If it ends in () or (digits) or punctuation, they

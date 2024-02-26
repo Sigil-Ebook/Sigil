@@ -9,7 +9,7 @@ PCRE2 - Perl-compatible regular expressions (revised API)
 .nf
 .B int pcre2_set_recursion_memory_management(
 .B "  pcre2_match_context *\fImcontext\fP,"
-.B "  void *(*\fIprivate_malloc\fP)(PCRE2_SIZE, void *),"
+.B "  void *(*\fIprivate_malloc\fP)(size_t, void *),"
 .B "  void (*\fIprivate_free\fP)(void *, void *), void *\fImemory_data\fP);"
 .fi
 .

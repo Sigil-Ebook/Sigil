@@ -32,24 +32,26 @@ arguments are:
 <pre>
   <i>pattern</i>       A string containing expression to be compiled
   <i>length</i>        The length of the string or PCRE2_ZERO_TERMINATED
-  <i>options</i>       Option bits
+  <i>options</i>       Primary option bits
   <i>errorcode</i>     Where to put an error code
   <i>erroffset</i>     Where to put an error offset
   <i>ccontext</i>      Pointer to a compile context or NULL
 </pre>
 The length of the pattern and any error offset that is returned are in code
-units, not characters. A compile context is needed only if you want to provide
-custom memory allocation functions, or to provide an external function for
-system stack size checking, or to change one or more of these parameters:
+units, not characters. A NULL pattern with zero length is treated as an empty
+string. A compile context is needed only if you want to provide custom memory
+allocation functions, or to provide an external function for system stack size
+checking (see <b>pcre2_set_compile_recursion_guard()</b>), or to change one or
+more of these parameters:
 <pre>
   What \R matches (Unicode newlines, or CR, LF, CRLF only);
   PCRE2's character tables;
   The newline character sequence;
   The compile time nested parentheses limit;
-  The maximum pattern length (in code units) that is allowed.
-  The additional options bits (see pcre2_set_compile_extra_options())
+  The maximum pattern length (in code units) that is allowed;
+  The additional options bits.
 </pre>
-The option bits are:
+The primary option bits are:
 <pre>
   PCRE2_ANCHORED           Force pattern anchoring
   PCRE2_ALLOW_EMPTY_CLASS  Allow empty classes
@@ -96,7 +98,7 @@ If either of <i>errorcode</i> or <i>erroroffset</i> is NULL, the function return
 NULL immediately. Otherwise, the yield of this function is a pointer to a
 private data structure that contains the compiled pattern, or NULL if an error
 was detected. In the error case, a text error message can be obtained by
-passing the value returned via the <i>errorcode</i> argument to the the
+passing the value returned via the <i>errorcode</i> argument to the
 <b>pcre2_get_error_message()</b> function. The offset (in code units) where the
 error was encountered is returned via the <i>erroroffset</i> argument.
 </P>

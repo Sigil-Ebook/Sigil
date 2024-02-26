@@ -6,12 +6,18 @@
 
 # (2) Other tests that must not be run with JIT.
 
-# This test is first so that it doesn't inherit a large enough heap frame 
+# These tests are first so that they don't inherit a large enough heap frame 
 # vector from a previous test.
 
 /(*LIMIT_HEAP=21)\[(a)]{60}/expand
     \[a]{60}
 Failed: error -63: heap limit exceeded
+
+"(*LIMIT_HEAP=21)()((?))()()()()()()()()()()()()()()()()()()()()()()()(())()()()()()()()()()()()()()()()()()()()()()(())()()()()()()()()()()()()()"
+  xx
+Failed: error -63: heap limit exceeded
+
+# -----------------------------------------------------------------------
 
 /(a+)*zz/I
 Capture group count = 1
@@ -522,5 +528,13 @@ No match
     abcz
  0: abcz
     < >>
+
+# This test triggers the recursion limit in the interpreter, but completes in
+# JIT. It's in testinput2 with disable_recurse_loop_check to get it to work
+# in the interpreter.
+
+/(a(?1)z||(?1)++)$/
+    abcd
+Failed: error -52: nested recursion at the same subject position
 
 # End of testinput15

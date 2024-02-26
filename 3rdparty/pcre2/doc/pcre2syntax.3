@@ -1,4 +1,4 @@
-.TH PCRE2SYNTAX 3 "12 January 2022" "PCRE2 10.40"
+.TH PCRE2SYNTAX 3 "12 October 2023" "PCRE2 10.43"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "PCRE2 REGULAR EXPRESSION SYNTAX SUMMARY"
@@ -17,6 +17,21 @@ documentation. This document contains a quick-reference summary of the syntax.
 .sp
   \ex         where x is non-alphanumeric is a literal x
   \eQ...\eE    treat enclosed characters as literal
+.sp
+Note that white space inside \eQ...\eE is always treated as literal, even if
+PCRE2_EXTENDED is set, causing most other white space to be ignored.
+.
+.
+.SH "BRACED ITEMS"
+.rs
+.sp
+With one exception, wherever brace characters { and } are required to enclose
+data for constructions such as \eg{2} or \ek{name}, space and/or horizontal tab
+characters that follow { or precede } are allowed and are ignored. In the case
+of quantifiers, they may also appear before or after the comma. The exception
+is \eu{...} which is not Perl-compatible and is recognized only when
+PCRE2_EXTRA_ALT_BSUX is set. This is an ECMAScript compatibility feature, and
+follows ECMAScript's behaviour.
 .
 .
 .SH "ESCAPED CHARACTERS"
@@ -26,7 +41,7 @@ This table applies to ASCII and Unicode environments. An unrecognized escape
 sequence causes an error.
 .sp
   \ea         alarm, that is, the BEL character (hex 07)
-  \ecx        "control-x", where x is any ASCII printing character
+  \ecx        "control-x", where x is a non-control ASCII character
   \ee         escape (hex 1B)
   \ef         form feed (hex 0C)
   \en         newline (hex 0A)
@@ -101,7 +116,8 @@ or in the 16-bit and 32-bit libraries. However, if locale-specific matching is
 happening, \es and \ew may also match characters with code points in the range
 128-255. If the PCRE2_UCP option is set, the behaviour of these escape
 sequences is changed to use Unicode properties and they match many more
-characters.
+characters, but there are some option settings that can restrict individual
+sequences to matching only ASCII characters.
 .P
 Property descriptions in \ep and \eP are matched caselessly; hyphens,
 underscores, and white space are ignored, in accordance with Unicode's "loose
@@ -164,7 +180,7 @@ matching" rules.
   Xan        Alphanumeric: union of properties L and N
   Xps        POSIX space: property Z or tab, NL, VT, FF, CR
   Xsp        Perl space: property Z or tab, NL, VT, FF, CR
-  Xuc        Univerally-named character: one that can be
+  Xuc        Universally-named character: one that can be
                represented by a Universal Character Name
   Xwd        Perl word: property Xan or underscore
 .sp
@@ -275,6 +291,9 @@ but some of them use Unicode properties if PCRE2_UCP is set. You can use
   {n,}        n or more, greedy
   {n,}+       n or more, possessive
   {n,}?       n or more, lazy
+  {,m}        zero up to m, greedy
+  {,m}+       zero up to m, possessive
+  {,m}?       zero up to m, lazy
 .
 .
 .SH "ANCHORS AND SIMPLE ASSERTIONS"
@@ -346,17 +365,28 @@ both cases, a name must not start with a digit.
 Changes of these options within a group are automatically cancelled at the end
 of the group.
 .sp
+  (?a)            all ASCII options
+  (?aD)           restrict \ed to ASCII in UCP mode
+  (?aS)           restrict \es to ASCII in UCP mode
+  (?aW)           restrict \ew to ASCII in UCP mode
+  (?aP)           restrict all POSIX classes to ASCII in UCP mode
+  (?aT)           restrict POSIX digit classes to ASCII in UCP mode
   (?i)            caseless
   (?J)            allow duplicate named groups
   (?m)            multiline
   (?n)            no auto capture
+  (?r)            restrict caseless to either ASCII or non-ASCII
   (?s)            single line (dotall)
   (?U)            default ungreedy (lazy)
-  (?x)            extended: ignore white space except in classes
+  (?x)            ignore white space except in classes or \eQ...\eE
   (?xx)           as (?x) but also ignore space and tab in classes
-  (?-...)         unset option(s)
-  (?^)            unset imnsx options
+  (?-...)         unset the given option(s)
+  (?^)            unset imnrsx options
 .sp
+(?aP) implies (?aT) as well, though this has no additional effect. However, it
+means that (?-aP) is really (?-PT) which disables all ASCII restrictions for
+POSIX classes.
+.P
 Unsetting x or xx unsets both. Several options may be set at once, and a
 mixture of setting and unsetting such as (?i-x) is allowed, but there may be
 only one hyphen. Setting (but no unsetting) is allowed after (?^ for example
@@ -429,7 +459,12 @@ setting with a similar syntax.
   (*nlb:...)                  ) negative lookbehind
   (*negative_lookbehind:...)  )
 .sp
-Each top-level branch of a lookbehind must be of a fixed length.
+Each top-level branch of a lookbehind must have a limit for the number of
+characters it matches. If any branch can match a variable number of characters,
+the maximum for each branch is limited to a value set by the caller of
+\fBpcre2_compile()\fP or defaulted. The default is set when PCRE2 is built
+(ultimate default 255). If every branch matches a fixed number of characters,
+the limit for each branch is 65535 characters.
 .
 .
 .SH "NON-ATOMIC LOOKAROUND ASSERTIONS"
@@ -499,8 +534,8 @@ These assertions are specific to PCRE2 and are not Perl-compatible.
   (?(condition)yes-pattern|no-pattern)
 .sp
   (?(n)               absolute reference condition
-  (?(+n)              relative reference condition
-  (?(-n)              relative reference condition
+  (?(+n)              relative reference condition (PCRE2 extension)
+  (?(-n)              relative reference condition (PCRE2 extension)
   (?(<name>)          named reference condition (Perl)
   (?('name')          named reference condition (Perl)
   (?(name)            named reference condition (PCRE2, deprecated)
@@ -578,6 +613,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 12 January 2022
-Copyright (c) 1997-2022 University of Cambridge.
+Last updated: 12 October 2023
+Copyright (c) 1997-2023 University of Cambridge.
 .fi

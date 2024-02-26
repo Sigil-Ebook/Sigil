@@ -1,4 +1,4 @@
-.TH PCRE2LIMITS 3 "26 July 2022" "PCRE2 10.41"
+.TH PCRE2LIMITS 3 "1 August 2023" "PCRE2 10.43"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "SIZE AND OTHER LIMITATIONS"
@@ -32,7 +32,12 @@ and unset offsets.
 .P
 All values in repeating quantifiers must be less than 65536.
 .P
-The maximum length of a lookbehind assertion is 65535 characters.
+There are two different limits that apply to branches of lookbehind assertions.
+If every branch in such an assertion matches a fixed number of characters,
+the maximum length of any branch is 65535 characters. If any branch matches a
+variable number of characters, then the maximum matching length for every
+branch is limited. The default limit is set at compile time, defaulting to 255,
+but can be changed by the calling program.
 .P
 There is no limit to the number of parenthesized groups, but there can be no
 more than 65535 capture groups, and there is a limit to the depth of nesting of
@@ -71,6 +76,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 26 July 2022
-Copyright (c) 1997-2022 University of Cambridge.
+Last updated: August 2023
+Copyright (c) 1997-2023 University of Cambridge.
 .fi

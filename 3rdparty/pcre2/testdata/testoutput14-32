@@ -122,4 +122,38 @@ No match
 
 # ---------------------------------------------------- 
 
+# ---------------------------------------------------- 
+# Tests for handling 0xffffffff in caseless UCP mode. They only apply to 32-bit
+# mode; for the other widths they will fail.
+
+/k*\x{ffffffff}/caseless,ucp
+    \x{ffffffff}
+ 0: \x{ffffffff}
+
+/k+\x{ffffffff}/caseless,ucp,no_start_optimize
+    K\x{ffffffff}
+ 0: K\x{ffffffff}
+\= Expect no match     
+    \x{ffffffff}\x{ffffffff}
+No match
+
+/k{2}\x{ffffffff}/caseless,ucp,no_start_optimize
+\= Expect no match
+    \x{ffffffff}\x{ffffffff}\x{ffffffff}
+No match
+
+/k\x{ffffffff}/caseless,ucp,no_start_optimize
+    K\x{ffffffff}
+ 0: K\x{ffffffff}
+\= Expect no match
+    \x{ffffffff}\x{ffffffff}\x{ffffffff}
+No match
+
+/k{2,}?Z/caseless,ucp,no_start_optimize,no_auto_possess
+\= Expect no match
+    Kk\x{ffffffff}\x{ffffffff}\x{ffffffff}Z
+No match
+
+# ---------------------------------------------------- 
+
 # End of testinput14

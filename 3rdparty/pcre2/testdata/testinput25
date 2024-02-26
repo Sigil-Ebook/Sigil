@@ -15,4 +15,8 @@
 
 /'>' c4 a3 '<'/hex,utf,convert_length=13
 
+# This expansion creates a string that is too long for the input buffer.
+
+/\[()]{65535}()/expand
+
 # End of testinput25
