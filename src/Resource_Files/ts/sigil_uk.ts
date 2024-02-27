@@ -881,55 +881,55 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="95"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1811"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1938"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1812"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1939"/>
         <source>Open With</source>
         <translation>Відкрити за допомогою</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="155"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="156"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n файл</numerusform><numerusform>%n файли</numerusform><numerusform>%n файлів</numerusform><numerusform>%n файл(и)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="266"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="632"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="765"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="797"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="857"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="970"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="267"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="633"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="766"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="798"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="858"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="971"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="267"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="268"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Ви впевнені, що хочете відсортувати обрані файли в абетко-цифровому форматі?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="268"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="269"/>
         <source>This action cannot be reversed.</source>
         <translation>Цю дію не можна буде повернути.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="311"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="312"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="632"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="633"/>
         <source>Javascript is not supported on epub2.</source>
         <translation>Javascript не підтримується в epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="690"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="691"/>
         <source>Add Existing Files</source>
         <translation>Додати існуючі файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="735"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="736"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -938,7 +938,7 @@ if a sans-serif font-family specified in your CSS</source>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="744"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="745"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -947,7 +947,7 @@ if a sans-serif font-family specified in your CSS</source>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="766"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="767"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -956,12 +956,12 @@ OK to replace?</source>
 натисніть «ОК», якщо бажаете замінити?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="792"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="793"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Неможливо видалити або замінити файл «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="797"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="798"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -970,7 +970,7 @@ A file with this name already exists in the book.</source>
 Файл з цим ім’ям вже є у книзі.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="858"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="859"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -979,235 +979,235 @@ A file with this name already exists in the book.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="871"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="872"/>
         <source>File(s) added or replaced.</source>
         <translation>Файл(и) додано або замінено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="911"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="912"/>
         <source>Save As File</source>
         <translation>Зберегти як файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="934"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="935"/>
         <source>Unable to save the file.</source>
         <translation>Неможливо зберегти файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="948"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="949"/>
         <source>Choose the directory to save the files to</source>
         <translation>Оберіть каталог для збереження файлів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="970"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="971"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Один або декілька файлів вже існують. Бажаєте перезаписати?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="987"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="988"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Неможливо зберегти файли. Місце призначення має бути каталогом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="995"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
         <source>Unable to save files.</source>
         <translation>Неможливо зберегти файли.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Неможливо змінити назву файлу, через можливість повторення імен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>У папки призначення недійсний шлях «%1»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation>Неможливо перемістити файли, через можливість повторення імен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1408"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
         <source>The Nav document can not be removed.</source>
         <translation>Документ Nav не може бути видалений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1416"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
         <source>The NCX can not be removed.</source>
         <translation>NCX не може бути видалений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1423"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1424"/>
         <source>The OPF is required for epub and can not be removed.</source>
         <translation>OPF необхідний для epub і не може бути видалений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1432"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1433"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Ви не можете видалити всі html файли
 Там завжди повинен бути принаймні один.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1573"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1574"/>
         <source>Unable to set file as cover image.</source>
         <translation>Неможливо встановити файл як зображення обкладинки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1788"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1789"/>
         <source>Select All</source>
         <translation>Вибрати все</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1789"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1790"/>
         <source>Add Blank HTML File</source>
         <translation>Додати порожній файл HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1790"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1791"/>
         <source>Add Blank Stylesheet</source>
         <translation>Додати порожній файл CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1791"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1792"/>
         <source>Add Blank Javascript</source>
         <translation>Додати бланк Javascript</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1792"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1793"/>
         <source>Add Blank SVG Image</source>
         <translation>Додати порожнє SVG зображення</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1793"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1794"/>
         <source>Add Existing Files...</source>
         <translation>Додати існуючі файли…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1794"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1795"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1796"/>
         <source>Add Copy</source>
         <translation>Додати копію</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1796"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1797"/>
         <source>Rename</source>
         <translation>Перейменувати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1797"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
         <source>RegEx Rename</source>
         <translation>Перейменувати RegEx</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1799"/>
         <source>Move</source>
         <translation>Перемістити</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1799"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1800"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1800"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
         <source>Cover Image</source>
         <translation>Зображення обкладинки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1802"/>
         <source>Merge</source>
         <translation>Об&apos;єднати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1802"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1803"/>
         <source>None</source>
         <translation>Нема</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1803"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1804"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Зробити методом Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1804"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1805"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Зробити методом IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1805"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1806"/>
         <source>Sort</source>
         <translation>Сортувати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1806"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1807"/>
         <source>Renumber TOC Entries</source>
         <translation>Перенумерувати елементи змісту</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1807"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1808"/>
         <source>Link Stylesheets...</source>
         <translation>Зв&apos;язати з Таблицею Стилів…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1808"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1809"/>
         <source>Link Javascripts...</source>
         <translation>Підключити Javascripts…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1809"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1810"/>
         <source>Add Semantics...</source>
         <translation>Додати семантику…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1810"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1811"/>
         <source>Validate with W3C</source>
         <translation>Перевірка за допомогою W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1812"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1813"/>
         <source>Save As</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1826"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1827"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Об’єднати з попереднім файлом або об&apos;єднати декілька файлів в один.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1829"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1830"/>
         <source>Rename selected file(s)</source>
         <translation>Перейменувати вибраний файл(и)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1831"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1832"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation>Використовуйте регулярні вирази для перейменування вибраних файлів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1834"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1835"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>Перемістити вибраний файл(и) до нової папки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1836"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1837"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Зв&apos;язати Таблицю Стилів з вибраними файлами.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1838"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1839"/>
         <source>Link Javascripts to selected file(s).</source>
         <translation>Зв’язати Javascripts з вибраними файлами.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1840"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1841"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Додати семантику до вибраних файлів.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1973"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1974"/>
         <source>Other Application</source>
         <translation>Інша програма</translation>
     </message>
@@ -1778,12 +1778,12 @@ Do you want to save your changes?</source>
         <translation>Фрагменти</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="102"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="107"/>
         <source>Collapse All</source>
         <translation>Згорнути все</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="103"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="108"/>
         <source>Expand All</source>
         <translation>Розгорнути все</translation>
     </message>
@@ -3653,362 +3653,362 @@ mended.</source>
 <context>
     <name>GuideItems</name>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="154"/>
+        <location filename="../../Misc/GuideItems.cpp" line="166"/>
         <source>Acknowledgements</source>
         <translation>Дякування</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="154"/>
+        <location filename="../../Misc/GuideItems.cpp" line="166"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
         <translation>Уривок, який містить подяки суб’єктам, які беруть участь у реалізації твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="155"/>
+        <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>Afterword</source>
         <translation>Післямова</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="155"/>
+        <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>Заключне висловлювання автора чи людини, що має важливе значення для розповіді, як правило, забезпечує розуміння того, як історія була написана, її значення чи пов’язані з нею події, що набули свого часу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="156"/>
+        <location filename="../../Misc/GuideItems.cpp" line="168"/>
         <source>Appendix</source>
         <translation>Додаток</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="156"/>
+        <location filename="../../Misc/GuideItems.cpp" line="168"/>
         <source>Supplemental information.</source>
         <translation>Додаткова інформація.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="157"/>
+        <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>Back Matter</source>
         <translation>Прикінцеві матеріали</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="157"/>
+        <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
         <translation>Допоміжний матеріал, що виникає після основного змісту публікації, наприклад, індекси, додатки тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="158"/>
+        <location filename="../../Misc/GuideItems.cpp" line="170"/>
         <source>Bibliography</source>
         <translation>Бібліографія</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="158"/>
+        <location filename="../../Misc/GuideItems.cpp" line="170"/>
         <source>A list of works cited.</source>
         <translation>Список цитованих робіт.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="159"/>
+        <location filename="../../Misc/GuideItems.cpp" line="171"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="159"/>
+        <location filename="../../Misc/GuideItems.cpp" line="171"/>
         <source>The start of the main text content of a publication.</source>
         <translation>Початок основного текстового змісту публікації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="160"/>
+        <location filename="../../Misc/GuideItems.cpp" line="172"/>
         <source>Colophon</source>
         <translation>Колофон</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="160"/>
+        <location filename="../../Misc/GuideItems.cpp" line="172"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
         <translation>Короткий опис, зазвичай розміщений в кінці публікації, описує виробничі нотатки, що стосуються видання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="161"/>
+        <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>Conclusion</source>
         <translation>Завершення</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="161"/>
+        <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>An ending section that typically wraps up the work.</source>
         <translation>Кінцевий розділ, який зазвичай завершує роботу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="162"/>
+        <location filename="../../Misc/GuideItems.cpp" line="174"/>
         <source>Contributors</source>
         <translation>Співавтори</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="162"/>
+        <location filename="../../Misc/GuideItems.cpp" line="174"/>
         <source>A list of contributors to the work.</source>
         <translation>Список співавторів твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="163"/>
+        <location filename="../../Misc/GuideItems.cpp" line="175"/>
         <source>Copyright Page</source>
         <translation>Сторінка авторських прав</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="163"/>
+        <location filename="../../Misc/GuideItems.cpp" line="175"/>
         <source>The copyright page of the work.</source>
         <translation>Сторінка авторських прав на твір.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="164"/>
+        <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>Cover</source>
         <translation>Обкладинка</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="164"/>
+        <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>The publications cover(s), jacket information, etc.</source>
         <translation>Обкладинка(-ки) видань, інформація на суперобкладинках і т.д.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="165"/>
+        <location filename="../../Misc/GuideItems.cpp" line="177"/>
         <source>Dedication</source>
         <translation>Присвячення</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="165"/>
+        <location filename="../../Misc/GuideItems.cpp" line="177"/>
         <source>An inscription addressed to one or several particular person(s).</source>
         <translation>Напис, адресований одній або декільком окремим особам.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="166"/>
+        <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>Epilogue</source>
         <translation>Епілог</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="166"/>
+        <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
         <translation>Заключний розділ, який, як правило, пишеться з пізнішого часу, ніж основний сюжет, хоча все ще є частиною оповідання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="167"/>
+        <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>Epigraph</source>
         <translation>Епіграф</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="167"/>
+        <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
         <translation>Цитата, яка доречна, але не є невід’ємною частиною тексту.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="168"/>
+        <location filename="../../Misc/GuideItems.cpp" line="180"/>
         <source>Errata</source>
         <translation>Друкарські помилки</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="168"/>
+        <location filename="../../Misc/GuideItems.cpp" line="180"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
         <translation>Друкарські помилки видання, у друкованих творах, як правило, вільний аркуш, вставлений вручну; іноді переплетена сторінка, яка містить виправлення помилок у роботі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="169"/>
+        <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>Footnotes</source>
         <translation>Виноски</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="169"/>
+        <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
         <translation>Збірка приміток та пояснень до тексту, що з’являються внизу сторінки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="170"/>
+        <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>Foreword</source>
         <translation>Передмова</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="170"/>
+        <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
         <translation>Вступний розділ, що передує твору, як правило, не написаний автором твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="171"/>
+        <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Front Matter</source>
         <translation>Вступні матеріали</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="171"/>
+        <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
         <translation>Попередній матеріал до основного змісту публікації, такий як зміст, присвяти тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="172"/>
+        <location filename="../../Misc/GuideItems.cpp" line="184"/>
         <source>Glossary</source>
         <translation>Глосарій</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="172"/>
+        <location filename="../../Misc/GuideItems.cpp" line="184"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
         <translation>Алфавітний перелік термінів у певній галузі знань із визначеннями для цих термінів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="173"/>
+        <location filename="../../Misc/GuideItems.cpp" line="185"/>
         <source>Half Title Page</source>
         <translation>Шмуцтитул</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="173"/>
+        <location filename="../../Misc/GuideItems.cpp" line="185"/>
         <source>The half title page of the work which carries just the title itself.</source>
         <translation>Окрема сторінка, де поміщають заголовок частини, розділу чи розділ книги, а деколи окремих творів, які входять у збірник.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="174"/>
+        <location filename="../../Misc/GuideItems.cpp" line="186"/>
         <source>Imprimatur</source>
         <translation>Дозвіл цензури</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="174"/>
+        <location filename="../../Misc/GuideItems.cpp" line="186"/>
         <source>A formal statement authorizing the publication of the work.</source>
         <translation>Офіційна заява про дозвіл на публікацію твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="175"/>
+        <location filename="../../Misc/GuideItems.cpp" line="187"/>
         <source>Imprint</source>
         <translation>Імпринт</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="175"/>
+        <location filename="../../Misc/GuideItems.cpp" line="187"/>
         <source>Information relating to the publication or distribution of the work.</source>
         <translation>Інформація, що стосується публікації чи розповсюдження твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="176"/>
+        <location filename="../../Misc/GuideItems.cpp" line="188"/>
         <source>Index</source>
         <translation>Покажчик</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="176"/>
+        <location filename="../../Misc/GuideItems.cpp" line="188"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
         <translation>Детальний список, який зазвичай розташований в алфавітному порядку, певної інформації в публікації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="177"/>
+        <location filename="../../Misc/GuideItems.cpp" line="189"/>
         <source>Introduction</source>
         <translation>Введення</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="177"/>
+        <location filename="../../Misc/GuideItems.cpp" line="189"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
         <translation>Розділ на початку твору, як правило, знайомить читача зі сферою чи характером змісту твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="178"/>
+        <location filename="../../Misc/GuideItems.cpp" line="190"/>
         <source>List of Illustrations</source>
         <translation>Список ілюстрацій</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="178"/>
+        <location filename="../../Misc/GuideItems.cpp" line="190"/>
         <source>A listing of illustrations included in the work.</source>
         <translation>Перелік ілюстрацій, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="179"/>
+        <location filename="../../Misc/GuideItems.cpp" line="191"/>
         <source>List of Audio Clips</source>
         <translation>Список аудіокліпів</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="179"/>
+        <location filename="../../Misc/GuideItems.cpp" line="191"/>
         <source>A listing of audio clips included in the work.</source>
         <translation>Перелік аудіокліпів, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="180"/>
+        <location filename="../../Misc/GuideItems.cpp" line="192"/>
         <source>List of Tables</source>
         <translation>Список таблиць</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="180"/>
+        <location filename="../../Misc/GuideItems.cpp" line="192"/>
         <source>A listing of tables included in the work.</source>
         <translation>Перелік таблиць, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="181"/>
+        <location filename="../../Misc/GuideItems.cpp" line="193"/>
         <source>List of Video Clips</source>
         <translation>Список відеокліпів</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="181"/>
+        <location filename="../../Misc/GuideItems.cpp" line="193"/>
         <source>A listing of video clips included in the work.</source>
         <translation>Перелік відеокліпів, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="182"/>
+        <location filename="../../Misc/GuideItems.cpp" line="194"/>
         <source>Notes</source>
         <translation>Примітки</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="182"/>
+        <location filename="../../Misc/GuideItems.cpp" line="194"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
         <translation>Збірка нотаток. Її можна використовувати для ідентифікації виносок, задніх нотаток, граничних приміток, вбудованих нотаток тощо, коли застарілі угоди про іменування не бажані. Статус: застарілий - замінено на: «виноски», «замітки»</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="183"/>
+        <location filename="../../Misc/GuideItems.cpp" line="195"/>
         <source>Other Credits</source>
         <translation>Інші подяки</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="183"/>
+        <location filename="../../Misc/GuideItems.cpp" line="195"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
         <translation>Подяка за раніше опубліковані частини твору, права на ілюстрацій та дозвіл на цитування матеріалів, захищених авторським правом.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="184"/>
+        <location filename="../../Misc/GuideItems.cpp" line="196"/>
         <source>Preamble</source>
         <translation>Преамбула</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="184"/>
+        <location filename="../../Misc/GuideItems.cpp" line="196"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
         <translation>Розділ на початку твору, який зазвичай містить вступну та/або пояснювальну прозу щодо обсягу чи характеру змісту твору</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="185"/>
+        <location filename="../../Misc/GuideItems.cpp" line="197"/>
         <source>Preface</source>
         <translation>Вступ</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="185"/>
+        <location filename="../../Misc/GuideItems.cpp" line="197"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
         <translation>Вступний розділ, що передує твору, як правило, написаний автором твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="186"/>
+        <location filename="../../Misc/GuideItems.cpp" line="198"/>
         <source>Prologue</source>
         <translation>Пролог</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="186"/>
+        <location filename="../../Misc/GuideItems.cpp" line="198"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
         <translation>Вступний розділ, який задає тло сюжету, як правило, є частиною розповіді.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="187"/>
+        <location filename="../../Misc/GuideItems.cpp" line="199"/>
         <source>Rear Notes</source>
         <translation>Прикінцеві примітки</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="187"/>
+        <location filename="../../Misc/GuideItems.cpp" line="199"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
         <translation>Збірка приміток, що з’являються ззаду (позаду, в кінці) твору або в кінці розділу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="188"/>
+        <location filename="../../Misc/GuideItems.cpp" line="200"/>
         <source>Title Page</source>
         <translation>Титульний аркуш</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="188"/>
+        <location filename="../../Misc/GuideItems.cpp" line="200"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
         <translation>Сторінка на початку книги, що містить її назву, авторів, видавця та іншу інформацію про видання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="189"/>
+        <location filename="../../Misc/GuideItems.cpp" line="201"/>
         <source>Table of Contents</source>
         <translation>Зміст</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="189"/>
+        <location filename="../../Misc/GuideItems.cpp" line="201"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
         <translation>Зміст – це перелік заголовків або частин книги чи документа, впорядкованих у тому порядку, в якому вони відображаються. Зазвичай з’являється в передній частині твору або на початку розділу.</translation>
     </message>
@@ -4240,67 +4240,67 @@ You can then check or uncheck individual headings in the list above.</source>
         <translation>Розмір мініатюри:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="88"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="90"/>
         <source>Name</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="89"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="91"/>
         <source>File Size (KB)</source>
         <translation>Розмір файлу (КБ)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="90"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="92"/>
         <source>Times Used</source>
         <translation>Використано</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="91"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="93"/>
         <source>Width</source>
         <translation>Ширина</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="92"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="94"/>
         <source>Height</source>
         <translation>Висота</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="93"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="95"/>
         <source>Pixels</source>
         <translation>Пікселі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="94"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="96"/>
         <source>Color</source>
         <translation>Колір</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="97"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="99"/>
         <source>Image</source>
         <translation>Зображення</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="188"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="193"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n файл(ів)</numerusform><numerusform>%n файл(ів)</numerusform><numerusform>%n файл(ів)</numerusform><numerusform>%n файл(ів)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="331"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Зберегти звіт як файл у форматі CSV</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="344"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="349"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="344"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="349"/>
         <source>Cannot save report file.</source>
         <translation>Не можу зберегти файл звіту.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="418"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="423"/>
         <source>Delete From Book</source>
         <translation>Видалити з книги</translation>
     </message>
@@ -4700,482 +4700,482 @@ Do you want to save your changes?</source>
 <context>
     <name>Landmarks</name>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="152"/>
+        <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>Acknowledgments</source>
         <translation>Дякування</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="152"/>
+        <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
         <translation>Уривок, який містить подяки суб’єктам, які беруть участь у реалізації твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="153"/>
+        <location filename="../../Misc/Landmarks.cpp" line="165"/>
         <source>Afterword</source>
         <translation>Післямова</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="153"/>
+        <location filename="../../Misc/Landmarks.cpp" line="165"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>Заключне висловлювання автора чи людини, що має важливе значення для розповіді, як правило, забезпечує розуміння того, як історія була написана, її значення чи пов’язані з нею події, що набули свого часу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="154"/>
+        <location filename="../../Misc/Landmarks.cpp" line="166"/>
         <source>Annotation</source>
         <translation>Анотація</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="154"/>
+        <location filename="../../Misc/Landmarks.cpp" line="166"/>
         <source>Explanatory information about passages in the work. Status: Deprecated</source>
         <translation>Пояснювальні відомості про уривки у творі. Статус: застарілий</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="155"/>
+        <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>Appendix</source>
         <translation>Додаток</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="155"/>
+        <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>Supplemental information.</source>
         <translation>Додаткова інформація.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="156"/>
+        <location filename="../../Misc/Landmarks.cpp" line="168"/>
         <source>Assessment</source>
         <translation>Оцінка знань</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="156"/>
+        <location filename="../../Misc/Landmarks.cpp" line="168"/>
         <source>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</source>
         <translation>Тест, контрольна або перевірочна робота чи інша діяльність, яка допомагає оцінити розуміння студентом того, що йому викладається.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="157"/>
+        <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>Back Matter</source>
         <translation>Прикінцеві матеріали</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="157"/>
+        <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
         <translation>Допоміжний матеріал, що виникає після основного змісту публікації, наприклад, індекси, додатки тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="158"/>
+        <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>Bibliography</source>
         <translation>Бібліографія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="158"/>
+        <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>A list of works cited.</source>
         <translation>Список цитованих робіт.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="159"/>
+        <location filename="../../Misc/Landmarks.cpp" line="171"/>
         <source>Body Matter</source>
         <translation>Основний текст</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="159"/>
+        <location filename="../../Misc/Landmarks.cpp" line="171"/>
         <source>The main content of a publication.</source>
         <translation>Основний зміст публікації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="160"/>
+        <location filename="../../Misc/Landmarks.cpp" line="172"/>
         <source>Chapter</source>
         <translation>Розділ</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="160"/>
+        <location filename="../../Misc/Landmarks.cpp" line="172"/>
         <source>A major structural division of a piece of writing.</source>
         <translation>Основна структурна частина твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="161"/>
+        <location filename="../../Misc/Landmarks.cpp" line="173"/>
         <source>Colophon</source>
         <translation>Колофон</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="161"/>
+        <location filename="../../Misc/Landmarks.cpp" line="173"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
         <translation>Короткий опис, зазвичай розміщений в кінці публікації, описує виробничі нотатки, що стосуються видання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="162"/>
+        <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>Conclusion</source>
         <translation>Завершення</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="162"/>
+        <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>An ending section that typically wraps up the work.</source>
         <translation>Кінцевий розділ, який зазвичай завершує роботу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="163"/>
+        <location filename="../../Misc/Landmarks.cpp" line="175"/>
         <source>Contributors</source>
         <translation>Співавтори</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="163"/>
+        <location filename="../../Misc/Landmarks.cpp" line="175"/>
         <source>A list of contributors to the work.</source>
         <translation>Список співавторів твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="164"/>
+        <location filename="../../Misc/Landmarks.cpp" line="176"/>
         <source>Copyright Page</source>
         <translation>Сторінка авторських прав</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="164"/>
+        <location filename="../../Misc/Landmarks.cpp" line="176"/>
         <source>The copyright page of the work.</source>
         <translation>Сторінка авторських прав на твір.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="165"/>
+        <location filename="../../Misc/Landmarks.cpp" line="177"/>
         <source>Cover</source>
         <translation>Обкладинка</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="165"/>
+        <location filename="../../Misc/Landmarks.cpp" line="177"/>
         <source>The publications cover(s), jacket information, etc.</source>
         <translation>Обкладинка(-ки) видань, інформація на суперобкладинках і т.д.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="166"/>
+        <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>Dedication</source>
         <translation>Присвячення</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="166"/>
+        <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>An inscription addressed to one or several particular person(s).</source>
         <translation>Напис, адресований одній або декільком окремим особам.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="167"/>
+        <location filename="../../Misc/Landmarks.cpp" line="179"/>
         <source>Division</source>
         <translation>Розділ</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="167"/>
+        <location filename="../../Misc/Landmarks.cpp" line="179"/>
         <source>A major structural division that may also appear as a substructure of a part (esp. in legislation).</source>
         <translation>Основний структурний розділ, який також може виступати як підструктура частини (особливо у законодавстві).</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="168"/>
+        <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Epigraph</source>
         <translation>Епіграф</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="168"/>
+        <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
         <translation>Цитата, яка доречна, але не є невід’ємною частиною тексту.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="169"/>
+        <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>Epilogue</source>
         <translation>Епілог</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="169"/>
+        <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
         <translation>Заключний розділ, який, як правило, пишеться з пізнішого часу, ніж основний сюжет, хоча все ще є частиною оповідання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="170"/>
+        <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>Errata</source>
         <translation>Друкарські помилки</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="170"/>
+        <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
         <translation>Друкарські помилки видання, у друкованих творах, як правило, вільний аркуш, вставлений вручну; іноді переплетена сторінка, яка містить виправлення помилок у роботі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="171"/>
+        <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>Footnotes</source>
         <translation>Виноски</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="171"/>
+        <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
         <translation>Збірка приміток та пояснень до тексту, що з’являються внизу сторінки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="172"/>
+        <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>Foreword</source>
         <translation>Передмова</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="172"/>
+        <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
         <translation>Вступний розділ, що передує твору, як правило, не написаний автором твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="173"/>
+        <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>Front Matter</source>
         <translation>Вступні матеріали</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="173"/>
+        <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
         <translation>Попередній матеріал до основного змісту публікації, такий як зміст, присвяти тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="174"/>
+        <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>Glossary</source>
         <translation>Глосарій</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="174"/>
+        <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
         <translation>Алфавітний перелік термінів у певній галузі знань із визначеннями для цих термінів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="175"/>
+        <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>Half Title Page</source>
         <translation>Шмуцтитул</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="175"/>
+        <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>The half title page of the work which carries just the title itself.</source>
         <translation>Окрема сторінка, де поміщають заголовок частини, розділу чи розділ книги, а деколи окремих творів, які входять у збірник.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="176"/>
+        <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>Imprimatur</source>
         <translation>Дозвіл цензури</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="176"/>
+        <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>A formal statement authorizing the publication of the work.</source>
         <translation>Офіційна заява про дозвіл на публікацію твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="177"/>
+        <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>Imprint</source>
         <translation>Імпринт</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="177"/>
+        <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>Information relating to the publication or distribution of the work.</source>
         <translation>Інформація, що стосується публікації чи розповсюдження твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="178"/>
+        <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>Index</source>
         <translation>Покажчик</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="178"/>
+        <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
         <translation>Детальний список, який зазвичай розташований в алфавітному порядку, певної інформації в публікації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="179"/>
+        <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>Introduction</source>
         <translation>Введення</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="179"/>
+        <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
         <translation>Розділ на початку твору, як правило, знайомить читача зі сферою чи характером змісту твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>Landmarks</source>
         <translation>Пам&apos;ятка</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>A collection of references to well-known/recurring components within the publication</source>
         <translation>Збірник посилань на відомі/повторювані компоненти в публікації</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="181"/>
+        <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>List of Audio Clips</source>
         <translation>Список аудіокліпів</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="181"/>
+        <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>A listing of audio clips included in the work.</source>
         <translation>Перелік аудіокліпів, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="182"/>
+        <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>List of Illustrations</source>
         <translation>Список ілюстрацій</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="182"/>
+        <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>A listing of illustrations included in the work.</source>
         <translation>Перелік ілюстрацій, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="183"/>
+        <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>List of Tables</source>
         <translation>Список таблиць</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="183"/>
+        <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>A listing of tables included in the work.</source>
         <translation>Перелік таблиць, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="184"/>
+        <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>List of Video Clips</source>
         <translation>Список відеокліпів</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="184"/>
+        <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>A listing of video clips included in the work.</source>
         <translation>Перелік відеокліпів, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="185"/>
+        <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>Notice</source>
         <translation>Увага</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="185"/>
+        <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</source>
         <translation>Інформація, яка потребує особливої уваги, і яку не слід пропускати чи приховувати. Приклади включають: тривога, попередження, обережно, небезпечно, важливо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="186"/>
+        <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>Other Credits</source>
         <translation>Інші подяки</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="186"/>
+        <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
         <translation>Подяка за раніше опубліковані частини твору, права на ілюстрацій та дозвіл на цитування матеріалів, захищених авторським правом.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="187"/>
+        <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>Page List</source>
         <translation>Список сторінок</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="187"/>
+        <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>A list of references to pagebreaks (start locations) from a print version of the ebook</source>
         <translation>Список посилань на розриви сторінок (початкові місця) з версії для друку електронної книги</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="188"/>
+        <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>Part</source>
         <translation>Частина</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="188"/>
+        <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
         <translation>Основний структурний поділ фрагмента написаного, як правило, укладає набір пов&apos;язаних з ним розділів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="189"/>
+        <location filename="../../Misc/Landmarks.cpp" line="201"/>
         <source>Preamble</source>
         <translation>Преамбула</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="189"/>
+        <location filename="../../Misc/Landmarks.cpp" line="201"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
         <translation>Розділ на початку твору, який зазвичай містить вступну та/або пояснювальну прозу щодо обсягу чи характеру змісту твору</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="190"/>
+        <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>Preface</source>
         <translation>Вступ</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="190"/>
+        <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
         <translation>Вступний розділ, що передує твору, як правило, написаний автором твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="191"/>
+        <location filename="../../Misc/Landmarks.cpp" line="203"/>
         <source>Prologue</source>
         <translation>Пролог</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="191"/>
+        <location filename="../../Misc/Landmarks.cpp" line="203"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
         <translation>Вступний розділ, який задає тло сюжету, як правило, є частиною розповіді.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="192"/>
+        <location filename="../../Misc/Landmarks.cpp" line="204"/>
         <source>Questions and Answers</source>
         <translation>Питання та Відповіді</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="192"/>
+        <location filename="../../Misc/Landmarks.cpp" line="204"/>
         <source>A question and answer section.</source>
         <translation>Розділ запитань та відповідей.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="193"/>
+        <location filename="../../Misc/Landmarks.cpp" line="205"/>
         <source>Rear Notes</source>
         <translation>Прикінцеві примітки</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="193"/>
+        <location filename="../../Misc/Landmarks.cpp" line="205"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
         <translation>Збірка приміток, що з’являються ззаду (позаду, в кінці) твору або в кінці розділу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="194"/>
+        <location filename="../../Misc/Landmarks.cpp" line="206"/>
         <source>Revision History</source>
         <translation>Історія внесених змін</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="194"/>
+        <location filename="../../Misc/Landmarks.cpp" line="206"/>
         <source>A record of changes made to a work.</source>
         <translation>Перелік змін, внесених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="195"/>
+        <location filename="../../Misc/Landmarks.cpp" line="207"/>
         <source>Subchapter</source>
         <translation>Підрозділ</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="195"/>
+        <location filename="../../Misc/Landmarks.cpp" line="207"/>
         <source>A major sub-division of a chapter.</source>
         <translation>Основний підрозділ глави.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="196"/>
+        <location filename="../../Misc/Landmarks.cpp" line="208"/>
         <source>Title Page</source>
         <translation>Титульний аркуш</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="196"/>
+        <location filename="../../Misc/Landmarks.cpp" line="208"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
         <translation>Сторінка на початку книги, що містить її назву, авторів, видавця та іншу інформацію про видання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="197"/>
+        <location filename="../../Misc/Landmarks.cpp" line="209"/>
         <source>Table of Contents</source>
         <translation>Зміст</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="197"/>
+        <location filename="../../Misc/Landmarks.cpp" line="209"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
         <translation>Зміст – це перелік заголовків або частин книги чи документа, впорядкованих у тому порядку, в якому вони відображаються. Зазвичай з’являється у передній частині твору або на початку розділу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="198"/>
+        <location filename="../../Misc/Landmarks.cpp" line="210"/>
         <source>Volume</source>
         <translation>Том</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="198"/>
+        <location filename="../../Misc/Landmarks.cpp" line="210"/>
         <source>A component of a collection.</source>
         <translation>Компонент колекції.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="199"/>
+        <location filename="../../Misc/Landmarks.cpp" line="211"/>
         <source>Warning</source>
         <translation>Попередження</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="199"/>
+        <location filename="../../Misc/Landmarks.cpp" line="211"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
         <translation>Попередження або застереження щодо особливого матеріалу. Статус: Депрекація – замінено на «повідомлення».</translation>
     </message>
@@ -8473,14 +8473,13 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="386"/>
-        <source>Plugins</source>
-        <translation>Модулі</translation>
+        <source>&amp;Plugins</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="392"/>
-        <location filename="../../Form_Files/main.ui" line="459"/>
-        <source>Checkpoints</source>
-        <translation>Архіваріус</translation>
+        <source>Chec&amp;kpoints</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="418"/>
@@ -8497,6 +8496,11 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../Form_Files/main.ui" line="446"/>
         <source>Add Existing</source>
         <translation>Додати існуючі</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="459"/>
+        <source>Checkpoints</source>
+        <translation>Архіваріус</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="474"/>
@@ -10872,6 +10876,31 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>Показати журнал Архіваріуса</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="2971"/>
+        <source>Focus on CodeView</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2976"/>
+        <source>Focus on BookBrowser</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2981"/>
+        <source>Focus on Preview</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2986"/>
+        <source>Focus on Table of Contents</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2991"/>
+        <source>Focus on Clips Window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../MainUI/MainWindow.cpp" line="374"/>
         <source>Automate List Editor cancelled.</source>
         <translation>Роботу Редактора списків автоматизації скасовано.</translation>
@@ -10985,37 +11014,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="1608"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1939"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2174"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2319"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2819"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2915"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2969"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3139"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3152"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3165"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3170"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3182"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3197"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3363"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3438"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4807"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4848"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4854"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4860"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5117"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5137"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5185"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5454"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2339"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2935"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2989"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2999"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3023"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3037"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3159"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3190"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3195"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3207"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3217"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3222"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3381"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3404"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3463"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3694"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4832"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4873"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4879"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4885"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5142"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5162"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5210"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5478"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5684"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -11036,17 +11065,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="800"/>
         <location filename="../../MainUI/MainWindow.cpp" line="802"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5183"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5185"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5208"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5210"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5682"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5684"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] – epub%2 – %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="800"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5183"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5208"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5682"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -11294,356 +11323,356 @@ This action cannot be reversed.</source>
         <translation>Зображення не існує:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2234"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2254"/>
         <source>or</source>
         <translation>або</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2242"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2262"/>
         <source>No CSS styles named</source>
         <translation>Немає назв стилів CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2242"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2262"/>
         <source>found, or stylesheet not linked.</source>
         <translation>знайдено або таблиця стилів не пов’язана.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2315"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2335"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;Гіперпосилання &lt;b&gt;%1&lt;/b&gt; знайдене у &lt;b&gt;%2&lt;/b&gt; не існує (і їх може бути більше). Розділення або злиття в цих умовах може призвести до розриву зв’язків або посилань.&lt;/p&gt;&lt;p&gt;Ви все ще хочете продовжувати?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2339"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2359"/>
         <source>Add Cover</source>
         <translation>Додати обкладинку</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2408"/>
         <source>An existing Cover file has been found.</source>
         <translation>Знайдено існуючий файл обкладинки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2451"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2471"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Неочікувана помилка. Для обкладинки можуть використовуватися лише файли зображень.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2490"/>
         <source>Cover added.</source>
         <translation>Обкладинку додано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2480"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2498"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2530"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2500"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2550"/>
         <source>Not Available for epub2.</source>
         <translation>Недоступно для epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2488"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2508"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>Оновлені властивості маніфесту OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2520"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2540"/>
         <source>NCX and Guide removed.</source>
         <translation>NCX та Посібник видалені.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2547"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2585"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2605"/>
         <source>NCX and Guide generation failed.</source>
         <translation>Помилка генерації NCX та Посібника.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2623"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2643"/>
         <source>NCX and Guide generated.</source>
         <translation>NCX та Посібник сгенеровані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2708"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2728"/>
         <source>An existing Index file has been found.</source>
         <translation>Знайдено існуючий файл покажчика.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2800"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2820"/>
         <source>Styles deleted.</source>
         <translation>Стилі видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2808"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2828"/>
         <source>Reports Being Generated.</source>
         <translation>Звіти формуються.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2819"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2839"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Звіти скасовуються через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2915"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2935"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Видалення невикористаних медіафайлів скасовано через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2983"/>
         <source>Unused media files deleted.</source>
         <translation>Невикористані медіафайли видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2966"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2969"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2989"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Немає використаних файлів зображень, відео чи аудіо, які можна видалити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2999"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Видалення невикористаних стилів скасовано через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2996"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3021"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3023"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>Немає невикористаних селекторів таблиць стилів, які потрібно видалити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3037"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Ви не можете вставити файл у цій позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3019"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3044"/>
         <source>Insert File</source>
         <translation>Вставити Файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3097"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3139"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Ви не можете вставити ідентифікатор у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3159"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID недійсний – повинен починатися з літери, після чого можуть додаватися букви, цифри, знаки  «-», «_», «:», або «.»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3152"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3170"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3195"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Ви не можете вставити посилання у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3165"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3190"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Посилання недійсне – не може містити «&lt;» або «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3182"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3207"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Ви не можете поставити маркер покажчика у цій позиції або не вибрали текст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3217"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Запис недійсний – не може містити «&lt;» або «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3197"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3222"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Ви не можете поставити маркер покажчика на цій позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3274"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3299"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3311"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3330"/>
         <source>Select the destination to paste into first.</source>
         <translation>Виберіть місце призначення, що слід вставити спочатку.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3319"/>
         <source>Pasted clip entry %1.</source>
         <translation>Вставлено елемент фрагменту %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3381"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Вибраний тільки один ресурс,  другий ресурс для об’єднання відсутній.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3364"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3389"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Ви впевнені, що хочете об&apos;єднати вибрані файли?
 Цю дію неможливо відмінити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3404"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>Об’єднання скасовано: файли XHTML, залучені до злиття, сформовані неправильно.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3438"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3463"/>
         <source>Cannot merge file %1</source>
         <translation>Неможливо об&apos;єднати файл %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3477"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Об’єднання успішно завершено. Можливо, Вам доведеться обновити або відредагувати зміст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Зв&apos;язування з Таблицями Стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3600"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3625"/>
         <source>Word updated.</source>
         <translation>Слово оновлено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3694"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>Зв&apos;язування з Таблицями Стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3804"/>
         <source>File(s) deleted.</source>
         <translation>Файл(и) видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3790"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3815"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Редагування Змісту скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3795"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3820"/>
         <source>Table Of Contents edited.</source>
         <translation>Зміст відредаговано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3813"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
         <source>Generate TOC cancelled.</source>
         <translation>Створення Змісту скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3863"/>
         <source>Table Of Contents generated.</source>
         <translation>Зміст сформовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3840"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3865"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Зміни Змісту не потрібні.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3914"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3939"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>Знайдено існуючий HTML-файл змісту.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3998"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4023"/>
         <source>Text selection marked.</source>
         <translation>Вибраний текст позначений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4000"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4018"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4025"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4043"/>
         <source>Text selection unmarked.</source>
         <translation>Знято позначення вибраного тексту.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4067"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4092"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Роботу Редактора МетаДаних скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4070"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4095"/>
         <source>Metadata edited.</source>
         <translation>МетаДані відредаговані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4178"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4203"/>
         <source>RunPlugin</source>
         <translation>ЗапуститиМодуль</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4204"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4229"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Цей EPUB не містить таблиць стилів CSS для перевірки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4235"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4260"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>Цей EPUB не містить таблиць стилів CSS для переформатування.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4719"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4744"/>
         <source>Line: %1, Col: %2</source>
         <translation>Рядок: %1, Стовпець: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4832"/>
         <source>File cannot be split at this position.</source>
         <translation>Файл неможливо розділити з цієї позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4830"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4855"/>
         <source>Split completed.</source>
         <translation>Розділення завершено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4848"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4873"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Неможливо розділити, оскільки принаймні один файл не є файлом HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4854"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4879"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Неможливо розділити: %1 XML неправильно сформований</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4860"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4885"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Неможливо розділити, оскільки принаймні один файл може бути не HTML файлом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4893"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4918"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Розділення завершено. Можливо, Вам доведеться оновити Зміст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4895"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4920"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Не знайдено маркерів розділення файлу. Використовуйте Вставити -&gt; Маркер розділення.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5143"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>В документ були внесені зміни.
 Ви хочете зберегти свої зміни?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5139"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5164"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Чи повинен Sigil перезаписати цей файл?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5325"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5350"/>
         <source>No importer for file type: %1</source>
         <translation>Відсутній контейнер для типу файлу: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5332"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5357"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -11656,112 +11685,140 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Спробуйте настроїти параметр Clean Source на «Виправляти вихідний код XHTML при відкритті» та перезавантажте файл.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5337"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5362"/>
         <source>Loading file...</source>
         <translation>Завантаження файлу…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5376"/>
         <source>File loaded.</source>
         <translation>Файл завантажено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5379"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5404"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Той хто створив цей файл зашифрував його за допомогою DRM. Sigil не може відкрити такі файли.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5387"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5412"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Неможливо завантажити EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5392"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5417"/>
         <source>Cannot load file %1: %2</source>
         <translation>Неможливо завантажити файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5421"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5446"/>
         <source>Saving EPUB...</source>
         <translation>Збереження EPUB…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5430"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5455"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil не може зберігати файли типу «%1».
 Будь ласка, виберіть інший формат.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5455"/>
-        <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in some data loss.
+        <location filename="../../MainUI/MainWindow.cpp" line="5479"/>
+        <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
-Do you want to automatically mend the files before saving?</source>
-        <translation>Цей EPUB містить файли HTML, які не сформовані належним чином, і Ваші поточні настройки «Clean Source» налаштовані автоматично виправляти формат при збереженні. Збереження недостатньо сформованого файлу призведе до його автоматичного виправлення, що дуже рідко може призвести до втрати даних.
-
-Ви хочете,  автоматично виправляти формат  файлів перед збереженням?</translation>
+Do you want to automatically mend the files before saving? Or cancel the Save?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5484"/>
+        <source>Saving EPUB... cancelled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="5510"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB збережено, але не всі файли HTML добре сформовані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5512"/>
         <source>EPUB saved.</source>
         <translation>EPUB збережено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5492"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5518"/>
         <source>Cannot save file %1: %2</source>
         <translation>Неможливо зберегти файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5625"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5651"/>
         <source>EPUB files (*.epub)</source>
         <translation>Файли EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5626"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5627"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5628"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5653"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5654"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Файли HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5629"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5655"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5630"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
         <source>All files (*.*)</source>
         <translation>Усі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5664"/>
         <source>EPUB file (*.epub)</source>
         <translation>Файл EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5736"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5762"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Зберегти існуючі атрибути заголовка зараз:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5737"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5737"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
         <source>OFF</source>
         <translation>OFF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5762"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5788"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="6809"/>
+        <source>Focus changed to CodeView window.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="6818"/>
+        <source>Focus changed to BookBrowser window.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="6827"/>
+        <source>Focus changed to Preview window.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="6836"/>
+        <source>Focus changed to Table Of Contents window.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="6845"/>
+        <source>Focus changed to Clips window.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -15610,12 +15667,12 @@ Do you want to automatically mend the files before saving?</source>
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1438"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1464"/>
         <source>[Title here]</source>
         <translation>[Назва отут]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1444"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1470"/>
         <source>[Main title here]</source>
         <translation>[Основний заголовок отут]</translation>
     </message>
@@ -16244,128 +16301,128 @@ Do you want to automatically mend the files before saving?</source>
         <translation>Статус: виконання</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="440"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="441"/>
         <source>Launcher process crashed</source>
         <translation>Збій у запущенному Процесі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="451"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="457"/>
         <source>Status: finished</source>
         <translation>Статус: закінчено</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="458"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="464"/>
         <source>Status: failed</source>
         <translation>Статус: неполадка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="464"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="474"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="470"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="480"/>
         <source>Status: No Changes Made</source>
         <translation>Статус: зміни відсутні</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="473"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="479"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation>Помилка: Модуль намагався видалити останній XHTML-файл … подальші зміни перервано</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="538"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="625"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="544"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="633"/>
         <source>Status:</source>
         <translation>Статус:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="565"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="571"/>
         <source>Plugin failed to start</source>
         <translation>Не вдалося запустити модуль</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="573"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
         <source>Status: error</source>
         <translation>Статус: помилка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="602"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="610"/>
         <source>Plugin cancelled</source>
         <translation>Модуль відмінено</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="603"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="611"/>
         <source>Status: cancelled</source>
         <translation>Статус: скасовано</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="697"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="705"/>
         <source>Error Parsing Result XML:  </source>
         <translation>Помилка синтаксичного аналізу XML:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="755"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="770"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="763"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="778"/>
         <source>Status: checking</source>
         <translation>Статус: перевірка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="759"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="767"/>
         <source>Incorrect XHTML:</source>
         <translation>Неправильний XHTML:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="759"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="767"/>
         <source>Line/Col</source>
         <translation>Рядок/Стовпець</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="786"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="794"/>
         <source>Check Report</source>
         <translation>Перевірити Звіт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="787"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="795"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>Виявлено неправильний XHTML/XML
 Ви впевнені, що хочете продовжувати?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="805"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="813"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Статус: очищення – видалення файлів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="838"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="846"/>
         <source>Status: deleting</source>
         <translation>Статус: видалення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="877"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="885"/>
         <source>Status: Loading</source>
         <translation>Статус: Завантаження</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="897"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="905"/>
         <source>Input Plugin</source>
         <translation>Ввести модуль</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="898"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="906"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Ваша поточна книга буде повністю замінена, можливо з втратою будь-яких незбережених змін … Ви впевнені, що хочете продовжити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="927"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="941"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="935"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="949"/>
         <source>Status: adding</source>
         <translation>Статус: додавання</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="979"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="987"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Статус: очищення – модифікація файлів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="1016"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="1024"/>
         <source>Status: modifying</source>
         <translation>Статус: модифікація</translation>
     </message>
@@ -16642,43 +16699,43 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="70"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="89"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="462"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="470"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="467"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="475"/>
         <source>Preview</source>
         <translation>Перегляд</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="243"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="248"/>
         <source>Inspect Page</source>
         <translation>Ревізувати Сторінку</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="247"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="252"/>
         <source>Select-All</source>
         <translation>Вибрати-Все</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="251"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="256"/>
         <source>Copy Selection To ClipBoard</source>
         <translation>Копіювати вибране у буфер обміну</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="255"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="260"/>
         <source>Update Preview Window</source>
         <translation>Оновити вікно попереднього Перегляду</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="259"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="264"/>
         <source>Cycle Custom CSS Files</source>
         <translation>Наступний CSS-файл користувача</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="266"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="271"/>
         <source>Print Preview View</source>
         <translation>Режим перегляду перед друком</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="657"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="662"/>
         <source>Feature not available before Qt5.12.x</source>
         <translation>Функція недоступна до Qt5.12.x</translation>
     </message>
@@ -16838,7 +16895,7 @@ Line: %1 Column %2 - %3</source>
         <translation>Файл OPF не містить файл NCX.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="710"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="711"/>
         <source>Adding Existing Files..</source>
         <translation>Додавання існуючих файлів…</translation>
     </message>
@@ -16868,19 +16925,19 @@ Line: %1 Column %2 - %3</source>
         <translation>&lt;p&gt;Доступна нова версія Sigil, версія &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Ви хочете перейти на сторінку завантаження?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="522"/>
+        <location filename="../../Misc/Utility.cpp" line="526"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Неможливо прочитати файл %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="713"/>
+        <location filename="../../Misc/Utility.cpp" line="717"/>
         <source>Sigil has encountered a problem.</source>
         <translation>У Sigil виникли проблеми.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="714"/>
+        <location filename="../../Misc/Utility.cpp" line="718"/>
         <source>Sigil may need to close.</source>
         <translation>Sigil, має закритися.</translation>
     </message>
@@ -16906,28 +16963,28 @@ Line: %1 Column %2 - %3</source>
         <translation>Неприпустимий NCX-файл: %1</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="745"/>
-        <location filename="../../main.cpp" line="793"/>
+        <location filename="../../main.cpp" line="746"/>
+        <location filename="../../main.cpp" line="794"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="755"/>
+        <location filename="../../main.cpp" line="756"/>
         <source>About</source>
         <translation>Про програму</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="764"/>
+        <location filename="../../main.cpp" line="765"/>
         <source>Preferences</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="775"/>
+        <location filename="../../main.cpp" line="776"/>
         <source>New</source>
         <translation>Новий</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="784"/>
+        <location filename="../../main.cpp" line="785"/>
         <source>Open</source>
         <translation>Відкрити</translation>
     </message>
@@ -19010,32 +19067,32 @@ your book and automatically insert into your document.</source>
         <translation>Аудіо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="168"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="169"/>
         <source>Files In the Book</source>
         <translation>Файли в книзі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="171"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="172"/>
         <source>Thumbnails</source>
         <translation>Мініатюри</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="331"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="337"/>
         <source>shades</source>
         <translation>тіні</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="331"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="337"/>
         <source>colors</source>
         <translation>кольори</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="332"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="338"/>
         <source>Grayscale</source>
         <translation>Відтінки сірого</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="332"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="338"/>
         <source>Color</source>
         <translation>Колір</translation>
     </message>
@@ -19617,17 +19674,17 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <translation>Зміст</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="136"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="142"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="167"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="173"/>
         <source>Collapse All</source>
         <translation>Згорнути все</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="168"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="174"/>
         <source>Expand All</source>
         <translation>Розгорнути все</translation>
     </message>
@@ -19643,12 +19700,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="832"/>
+        <location filename="../../Misc/Utility.cpp" line="836"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="833"/>
+        <location filename="../../Misc/Utility.cpp" line="837"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>

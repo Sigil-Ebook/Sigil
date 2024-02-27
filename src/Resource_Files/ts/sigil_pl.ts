@@ -881,55 +881,55 @@ została określona rodzina czcionek bezszeryfowych</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="95"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1811"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1938"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1812"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1939"/>
         <source>Open With</source>
         <translation>Otwórz za pomocą</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="155"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="156"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n plik</numerusform><numerusform>%n pliki</numerusform><numerusform>%n plików</numerusform><numerusform>%n plików</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="266"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="632"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="765"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="797"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="857"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="970"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="267"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="633"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="766"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="798"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="858"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="971"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="267"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="268"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Czy na pewno uporządkować alfabetycznie zaznaczone pliki?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="268"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="269"/>
         <source>This action cannot be reversed.</source>
         <translation>Tej akcji nie można cofnąć.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="311"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="312"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Plik &quot;%1&quot; nie istnieje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="632"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="633"/>
         <source>Javascript is not supported on epub2.</source>
         <translation>Javascript nie jest obsługiwany w plikach EPUB2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="690"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="691"/>
         <source>Add Existing Files</source>
         <translation>Dodaj istniejące pliki</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="735"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="736"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -938,7 +938,7 @@ została określona rodzina czcionek bezszeryfowych</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="744"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="745"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -947,7 +947,7 @@ została określona rodzina czcionek bezszeryfowych</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="766"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="767"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -956,12 +956,12 @@ OK to replace?</source>
 Chcesz go zastąpić?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="792"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="793"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Nie można usunąć lub nadpisać pliku &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="797"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="798"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -970,7 +970,7 @@ A file with this name already exists in the book.</source>
 Plik o tej samej nazwie już jest w książce.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="858"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="859"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -979,235 +979,235 @@ Plik o tej samej nazwie już jest w książce.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="871"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="872"/>
         <source>File(s) added or replaced.</source>
         <translation>Plik(i) dodano lub podmieniono.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="911"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="912"/>
         <source>Save As File</source>
         <translation>Zapisz jako plik</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="934"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="935"/>
         <source>Unable to save the file.</source>
         <translation>Nie można zapisać do pliku.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="948"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="949"/>
         <source>Choose the directory to save the files to</source>
         <translation>Wybierz folder by zapisać plik do</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="970"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="971"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Jeden lub więcej plików już istnieje. Nadpisać?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="987"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="988"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Nie można zapisać pliku. Obiekt docelowy może być folderem.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="995"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="996"/>
         <source>Unable to save files.</source>
         <translation>Nie można zapisać plików.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1256"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1257"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Nie można zmienić nazwy pliku ponieważ podobna nazwa już istnieje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1328"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>Folder docelowy ma błędną ścieżkę &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1361"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1362"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation>Nie można przenieść plików, ponieważ spowodowałoby to zduplikowanie nazw plików.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1408"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1409"/>
         <source>The Nav document can not be removed.</source>
         <translation>Dokumentu Nav nie można usunąć.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1416"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
         <source>The NCX can not be removed.</source>
         <translation>Nie można usunąć pliku NCX.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1423"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1424"/>
         <source>The OPF is required for epub and can not be removed.</source>
         <translation>OPF musi istnieć w pliku EPUB i nie można go usunąć.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1432"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1433"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Nie możesz usunąć wszystkich plików html.
 Zawsze musi być przynajmniej jeden.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1573"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1574"/>
         <source>Unable to set file as cover image.</source>
         <translation>Nie można ustawić pliku jako obraz okładki.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1788"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1789"/>
         <source>Select All</source>
         <translation>Zaznacz wszystko</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1789"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1790"/>
         <source>Add Blank HTML File</source>
         <translation>Dodaj pusty plik HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1790"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1791"/>
         <source>Add Blank Stylesheet</source>
         <translation>Dodaj pusty arkusz stylów</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1791"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1792"/>
         <source>Add Blank Javascript</source>
         <translation>Dodaj pusty plik Javascript</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1792"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1793"/>
         <source>Add Blank SVG Image</source>
         <translation>Dodaj pusty obraz SVG</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1793"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1794"/>
         <source>Add Existing Files...</source>
         <translation>Dodaj istniejące pliki...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1794"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="1795"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1796"/>
         <source>Add Copy</source>
         <translation>Dodaj kopię</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1796"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1797"/>
         <source>Rename</source>
         <translation>Zmień nazwę</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1797"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
         <source>RegEx Rename</source>
         <translation>Zmień nazwę (RegEx)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1799"/>
         <source>Move</source>
         <translation>Przenieś</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1799"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1800"/>
         <source>Delete</source>
         <translation>Usuń</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1800"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
         <source>Cover Image</source>
         <translation>Obraz okładki</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1802"/>
         <source>Merge</source>
         <translation>Scal</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1802"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1803"/>
         <source>None</source>
         <translation>Brak</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1803"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1804"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Użyj metody Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1804"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1805"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Użyj metody IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1805"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1806"/>
         <source>Sort</source>
         <translation>Porządkuj</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1806"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1807"/>
         <source>Renumber TOC Entries</source>
         <translation>Przenumeruj wpisy spisu treści</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1807"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1808"/>
         <source>Link Stylesheets...</source>
         <translation>Łącza do arkuszy stylów...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1808"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1809"/>
         <source>Link Javascripts...</source>
         <translation>Łącza do skryptów...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1809"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1810"/>
         <source>Add Semantics...</source>
         <translation>Dodaj semantykę...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1810"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1811"/>
         <source>Validate with W3C</source>
         <translation>Sprawdzenie przy pomocy W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1812"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1813"/>
         <source>Save As</source>
         <translation>Zapisz jako</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1826"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1827"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Scal z poprzednim plikiem lub scal wiele plików w jeden.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1829"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1830"/>
         <source>Rename selected file(s)</source>
         <translation>Zmień nazwy zaznaczonych plików</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1831"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1832"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation>Zmień nazwy zaznaczonych plików z wykorzystaniem wyrażeń regularnych</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1834"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1835"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>Przenieś zaznaczony(e) plik(i) do nowego folderu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1836"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1837"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Dodaj lub usuń łącza do arkuszy stylów w zaznaczonych plikach.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1838"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1839"/>
         <source>Link Javascripts to selected file(s).</source>
         <translation>Dodaj lub usuń łącza do skryptów w zaznaczonych plikach.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1840"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1841"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Dodaj semantykę w zaznaczonych plikach.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1973"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1974"/>
         <source>Other Application</source>
         <translation>Inna aplikacja</translation>
     </message>
@@ -1779,12 +1779,12 @@ Czy chcesz zapisać zmiany?</translation>
         <translation>Wycinki</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="102"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="107"/>
         <source>Collapse All</source>
         <translation>Zwiń wszystkie</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="103"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="108"/>
         <source>Expand All</source>
         <translation>Rozwiń wszystkie</translation>
     </message>
@@ -3656,362 +3656,362 @@ automatycznie poprawiany.</translation>
 <context>
     <name>GuideItems</name>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="154"/>
+        <location filename="../../Misc/GuideItems.cpp" line="166"/>
         <source>Acknowledgements</source>
         <translation>Podziękowania</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="154"/>
+        <location filename="../../Misc/GuideItems.cpp" line="166"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
         <translation>Fragment zawierający podziękowania dla podmiotów uczestniczących w realizacji prac.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="155"/>
+        <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>Afterword</source>
         <translation>Posłowie</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="155"/>
+        <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>Zamykające oświadczenie autora lub osoby znaczącej dla fabuły, zapewniające wgląd w jaki sposób historia została napisana, jej znaczenie lub podobne zdarzenia, które zaszły od momentu napisania publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="156"/>
+        <location filename="../../Misc/GuideItems.cpp" line="168"/>
         <source>Appendix</source>
         <translation>Dodatek</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="156"/>
+        <location filename="../../Misc/GuideItems.cpp" line="168"/>
         <source>Supplemental information.</source>
         <translation>Informacje uzupełniające.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="157"/>
+        <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>Back Matter</source>
         <translation>Reszta publikacji</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="157"/>
+        <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
         <translation>Materiał pomocniczy do występujących po głównej treści publikacji, takich jak indeksy, załączniki itp.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="158"/>
+        <location filename="../../Misc/GuideItems.cpp" line="170"/>
         <source>Bibliography</source>
         <translation>Bibliografia</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="158"/>
+        <location filename="../../Misc/GuideItems.cpp" line="170"/>
         <source>A list of works cited.</source>
         <translation>Lista cytowanych prac.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="159"/>
+        <location filename="../../Misc/GuideItems.cpp" line="171"/>
         <source>Text</source>
         <translation>Tekst</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="159"/>
+        <location filename="../../Misc/GuideItems.cpp" line="171"/>
         <source>The start of the main text content of a publication.</source>
         <translation>Początek publikacji treści tekstu głównego.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="160"/>
+        <location filename="../../Misc/GuideItems.cpp" line="172"/>
         <source>Colophon</source>
         <translation>Kolofon</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="160"/>
+        <location filename="../../Misc/GuideItems.cpp" line="172"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
         <translation>Krótki opis zazwyczaj znajdujący się na końcu publikacji, opisujący uwagi dotyczące produkcji istotne dla wydania.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="161"/>
+        <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>Conclusion</source>
         <translation>Wniosek</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="161"/>
+        <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>An ending section that typically wraps up the work.</source>
         <translation>Końcowa sekcja, która zazwyczaj podsumowuje pracę.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="162"/>
+        <location filename="../../Misc/GuideItems.cpp" line="174"/>
         <source>Contributors</source>
         <translation>Współautorzy</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="162"/>
+        <location filename="../../Misc/GuideItems.cpp" line="174"/>
         <source>A list of contributors to the work.</source>
         <translation>Lista współautorów pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="163"/>
+        <location filename="../../Misc/GuideItems.cpp" line="175"/>
         <source>Copyright Page</source>
         <translation>Prawa autorskie</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="163"/>
+        <location filename="../../Misc/GuideItems.cpp" line="175"/>
         <source>The copyright page of the work.</source>
         <translation>Strona praw autorskich do dzieła.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="164"/>
+        <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>Cover</source>
         <translation>Okładka</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="164"/>
+        <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>The publications cover(s), jacket information, etc.</source>
         <translation>Okładka(i) publikacji, informacje obwoluty itp.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="165"/>
+        <location filename="../../Misc/GuideItems.cpp" line="177"/>
         <source>Dedication</source>
         <translation>Dedykacja</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="165"/>
+        <location filename="../../Misc/GuideItems.cpp" line="177"/>
         <source>An inscription addressed to one or several particular person(s).</source>
         <translation>Napis skierowany do jednej lub kilku szczególnych osób.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="166"/>
+        <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>Epilogue</source>
         <translation>Epilog</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="166"/>
+        <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
         <translation>Zawiera sekcję która jest zwykle napisana w późniejszym czasie niż główny wątek, chociaż nadal jest częścią narracji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="167"/>
+        <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>Epigraph</source>
         <translation>Epigraf</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="167"/>
+        <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
         <translation>Cytat, który jest istotny, ale nie jest integralną częścią tekstu.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="168"/>
+        <location filename="../../Misc/GuideItems.cpp" line="180"/>
         <source>Errata</source>
         <translation>Errata</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="168"/>
+        <location filename="../../Misc/GuideItems.cpp" line="180"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
         <translation>Errata publikacji, w dziełach drukowanych zwykle na luźnej kartce włożonej między strony; czasami dołączona strona, która zawiera poprawki błędów w pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="169"/>
+        <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>Footnotes</source>
         <translation>Przypisy</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="169"/>
+        <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
         <translation>Zbiór informacji dodatkowych umieszczonych na spodzie strony.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="170"/>
+        <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>Foreword</source>
         <translation>Przedmowa</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="170"/>
+        <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
         <translation>Sekcja wprowadzająca, która poprzedza pracę, zazwyczaj nie napisana przez autora utworu.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="171"/>
+        <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Front Matter</source>
         <translation>Początek publikacji</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="171"/>
+        <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
         <translation>Wstępny materiał do głównej treści meritum publikacji, taki jak tabele zawartości, dedykacje itp.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="172"/>
+        <location filename="../../Misc/GuideItems.cpp" line="184"/>
         <source>Glossary</source>
         <translation>Glosariusz</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="172"/>
+        <location filename="../../Misc/GuideItems.cpp" line="184"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
         <translation>Alfabetyczna lista warunków w określonej domenie wiedzy, z definicji tych terminów.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="173"/>
+        <location filename="../../Misc/GuideItems.cpp" line="185"/>
         <source>Half Title Page</source>
         <translation>Strona przedtytułowa</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="173"/>
+        <location filename="../../Misc/GuideItems.cpp" line="185"/>
         <source>The half title page of the work which carries just the title itself.</source>
         <translation>Strona przedtytułowa dzieła, zawiera jedynie tytuł.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="174"/>
+        <location filename="../../Misc/GuideItems.cpp" line="186"/>
         <source>Imprimatur</source>
         <translation>Imprimatur</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="174"/>
+        <location filename="../../Misc/GuideItems.cpp" line="186"/>
         <source>A formal statement authorizing the publication of the work.</source>
         <translation>Oficjalne oświadczenie upoważniające do publikacji pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="175"/>
+        <location filename="../../Misc/GuideItems.cpp" line="187"/>
         <source>Imprint</source>
         <translation>Imprint</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="175"/>
+        <location filename="../../Misc/GuideItems.cpp" line="187"/>
         <source>Information relating to the publication or distribution of the work.</source>
         <translation>Informacje odnoszące się do publikacji lub rozpowszechniania utworu.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="176"/>
+        <location filename="../../Misc/GuideItems.cpp" line="188"/>
         <source>Index</source>
         <translation>Indeks</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="176"/>
+        <location filename="../../Misc/GuideItems.cpp" line="188"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
         <translation>Szczegółowa lista, zwykle ułożone alfabetycznie, konkretnych informacji w publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="177"/>
+        <location filename="../../Misc/GuideItems.cpp" line="189"/>
         <source>Introduction</source>
         <translation>Wprowadzenie</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="177"/>
+        <location filename="../../Misc/GuideItems.cpp" line="189"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
         <translation>Sekcja na początku pracy, zazwyczaj wprowadza czytelnika w zakres lub treść rodzaju pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="178"/>
+        <location filename="../../Misc/GuideItems.cpp" line="190"/>
         <source>List of Illustrations</source>
         <translation>Spis ilustracji</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="178"/>
+        <location filename="../../Misc/GuideItems.cpp" line="190"/>
         <source>A listing of illustrations included in the work.</source>
         <translation>Spis ilustracji zawartych w pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="179"/>
+        <location filename="../../Misc/GuideItems.cpp" line="191"/>
         <source>List of Audio Clips</source>
         <translation>Spis klipów audio</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="179"/>
+        <location filename="../../Misc/GuideItems.cpp" line="191"/>
         <source>A listing of audio clips included in the work.</source>
         <translation>Spis klipów audio zawartych w pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="180"/>
+        <location filename="../../Misc/GuideItems.cpp" line="192"/>
         <source>List of Tables</source>
         <translation>Spis tabel</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="180"/>
+        <location filename="../../Misc/GuideItems.cpp" line="192"/>
         <source>A listing of tables included in the work.</source>
         <translation>Spis tabel zawartych w pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="181"/>
+        <location filename="../../Misc/GuideItems.cpp" line="193"/>
         <source>List of Video Clips</source>
         <translation>Spis klipów wideo</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="181"/>
+        <location filename="../../Misc/GuideItems.cpp" line="193"/>
         <source>A listing of video clips included in the work.</source>
         <translation>Spis klipów wideo zawartych w pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="182"/>
+        <location filename="../../Misc/GuideItems.cpp" line="194"/>
         <source>Notes</source>
         <translation>Notatki</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="182"/>
+        <location filename="../../Misc/GuideItems.cpp" line="194"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
         <translation>Zbiór notatek. Może służyć do identyfikowania przypisów, notatek końcowych, notatek na marginesie, notatek w tekście, i podobnych, gdy starsze konwencje nazewnictwa nie są pożądane. Stan: Przestarzałe - Zastąpione przez: „przypisy dolne”, „notatki końcowe”</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="183"/>
+        <location filename="../../Misc/GuideItems.cpp" line="195"/>
         <source>Other Credits</source>
         <translation>Inne podziękowania</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="183"/>
+        <location filename="../../Misc/GuideItems.cpp" line="195"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
         <translation>Podziękowania do wcześniej publikowanych części pracy, ilustracji wyróżnień, oraz zgoda na cytat z materiałów chronionych prawem autorskim.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="184"/>
+        <location filename="../../Misc/GuideItems.cpp" line="196"/>
         <source>Preamble</source>
         <translation>Preambuła</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="184"/>
+        <location filename="../../Misc/GuideItems.cpp" line="196"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
         <translation>Sekcja na początku pracy, zwykle zawierająca wstęp i/lub wyjaśnienia dotyczące zakresu i charakteru treści dzieła</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="185"/>
+        <location filename="../../Misc/GuideItems.cpp" line="197"/>
         <source>Preface</source>
         <translation>Wstęp</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="185"/>
+        <location filename="../../Misc/GuideItems.cpp" line="197"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
         <translation>Sekcja wprowadzająca, która poprzedza pracę, zazwyczaj pisana przez autora utworu.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="186"/>
+        <location filename="../../Misc/GuideItems.cpp" line="198"/>
         <source>Prologue</source>
         <translation>Prolog</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="186"/>
+        <location filename="../../Misc/GuideItems.cpp" line="198"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
         <translation>Sekcja wprowadzająca która opisuje kontekst historii, zwykle część narracji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="187"/>
+        <location filename="../../Misc/GuideItems.cpp" line="199"/>
         <source>Rear Notes</source>
         <translation>Notatki końcowe</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="187"/>
+        <location filename="../../Misc/GuideItems.cpp" line="199"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
         <translation>Zbiór notatek umieszczonych z tyłu pracy (reszcie publikacji) albo na końcu sekcji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="188"/>
+        <location filename="../../Misc/GuideItems.cpp" line="200"/>
         <source>Title Page</source>
         <translation>Strona tytułowa</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="188"/>
+        <location filename="../../Misc/GuideItems.cpp" line="200"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
         <translation>Strona na początku książki, podająca jej tytuł, autora, wydawcę i inne podstawowe informacje o publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="189"/>
+        <location filename="../../Misc/GuideItems.cpp" line="201"/>
         <source>Table of Contents</source>
         <translation>Spis treści</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="189"/>
+        <location filename="../../Misc/GuideItems.cpp" line="201"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
         <translation>Spis treści, którym jest lista nagłówków czy też części książki lub dokumentu, zorganizowany w kolejności w jakiej występują. Zazwyczaj pojawia się na początku publikacji lub na początku sekcji.</translation>
     </message>
@@ -4243,67 +4243,67 @@ Możesz następnie zaznaczyć lub odznaczyć pojedyncze pozycje na liście powy�
         <translation>Wielkość miniaturki:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="88"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="90"/>
         <source>Name</source>
         <translation>Nazwa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="89"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="91"/>
         <source>File Size (KB)</source>
         <translation>Wielkość pliku (KB)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="90"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="92"/>
         <source>Times Used</source>
         <translation>Ile razy użyty</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="91"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="93"/>
         <source>Width</source>
         <translation>Szerokość</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="92"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="94"/>
         <source>Height</source>
         <translation>Wysokość</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="93"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="95"/>
         <source>Pixels</source>
         <translation>Pikseli</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="94"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="96"/>
         <source>Color</source>
         <translation>Kolor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="97"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="99"/>
         <source>Image</source>
         <translation>Obraz</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="188"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="193"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n plik</numerusform><numerusform>%n pliki</numerusform><numerusform>%n plików</numerusform><numerusform>%n plików</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="331"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Zapisz raport jako plik CSV (wartości rozdzielone przecinkiem)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="344"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="349"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="344"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="349"/>
         <source>Cannot save report file.</source>
         <translation>Nie można zapisać pliku raportu.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="418"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="423"/>
         <source>Delete From Book</source>
         <translation>Usuń z książki</translation>
     </message>
@@ -4704,482 +4704,482 @@ Czy chcesz zapisać zmiany?</translation>
 <context>
     <name>Landmarks</name>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="152"/>
+        <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>Acknowledgments</source>
         <translation>Podziękowania</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="152"/>
+        <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
         <translation>Fragment zawierający podziękowania dla podmiotów uczestniczących w realizacji prac.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="153"/>
+        <location filename="../../Misc/Landmarks.cpp" line="165"/>
         <source>Afterword</source>
         <translation>Posłowie</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="153"/>
+        <location filename="../../Misc/Landmarks.cpp" line="165"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>Zamykające oświadczenie autora lub osoby znaczącej dla fabuły, zapewniające wgląd w jaki sposób historia została napisana, jej znaczenie lub podobne zdarzenia, które zaszły od momentu napisania publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="154"/>
+        <location filename="../../Misc/Landmarks.cpp" line="166"/>
         <source>Annotation</source>
         <translation>Adnotacja</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="154"/>
+        <location filename="../../Misc/Landmarks.cpp" line="166"/>
         <source>Explanatory information about passages in the work. Status: Deprecated</source>
         <translation>Informacje wyjaśniające na temat fragmentów pracy. Status: Przestarzałe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="155"/>
+        <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>Appendix</source>
         <translation>Dodatek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="155"/>
+        <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>Supplemental information.</source>
         <translation>Informacje uzupełniające.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="156"/>
+        <location filename="../../Misc/Landmarks.cpp" line="168"/>
         <source>Assessment</source>
         <translation>Ocena</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="156"/>
+        <location filename="../../Misc/Landmarks.cpp" line="168"/>
         <source>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</source>
         <translation>Test, quiz, lub inne czynności, która pomagają ocenić ucznia, zrozumienie materiału z nauczanego zakresu.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="157"/>
+        <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>Back Matter</source>
         <translation>Reszta publikacji</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="157"/>
+        <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
         <translation>Materiał pomocniczy do występujących po głównej treści publikacji, takich jak indeksy, załączniki itp.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="158"/>
+        <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>Bibliography</source>
         <translation>Bibliografia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="158"/>
+        <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>A list of works cited.</source>
         <translation>Lista cytowanych prac.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="159"/>
+        <location filename="../../Misc/Landmarks.cpp" line="171"/>
         <source>Body Matter</source>
         <translation>Meritum publikacji</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="159"/>
+        <location filename="../../Misc/Landmarks.cpp" line="171"/>
         <source>The main content of a publication.</source>
         <translation>Główna treść publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="160"/>
+        <location filename="../../Misc/Landmarks.cpp" line="172"/>
         <source>Chapter</source>
         <translation>Rozdział</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="160"/>
+        <location filename="../../Misc/Landmarks.cpp" line="172"/>
         <source>A major structural division of a piece of writing.</source>
         <translation>Główny podział strukturalny, fragment pisma.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="161"/>
+        <location filename="../../Misc/Landmarks.cpp" line="173"/>
         <source>Colophon</source>
         <translation>Kolofon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="161"/>
+        <location filename="../../Misc/Landmarks.cpp" line="173"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
         <translation>Krótki opis zazwyczaj znajdujący się na końcu publikacji, opisujący uwagi dotyczące produkcji istotne dla wydania.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="162"/>
+        <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>Conclusion</source>
         <translation>Wniosek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="162"/>
+        <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>An ending section that typically wraps up the work.</source>
         <translation>Końcowa sekcja, która zazwyczaj podsumowuje pracę.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="163"/>
+        <location filename="../../Misc/Landmarks.cpp" line="175"/>
         <source>Contributors</source>
         <translation>Współautorzy</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="163"/>
+        <location filename="../../Misc/Landmarks.cpp" line="175"/>
         <source>A list of contributors to the work.</source>
         <translation>Lista współautorów pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="164"/>
+        <location filename="../../Misc/Landmarks.cpp" line="176"/>
         <source>Copyright Page</source>
         <translation>Prawa autorskie</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="164"/>
+        <location filename="../../Misc/Landmarks.cpp" line="176"/>
         <source>The copyright page of the work.</source>
         <translation>Strona praw autorskich do publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="165"/>
+        <location filename="../../Misc/Landmarks.cpp" line="177"/>
         <source>Cover</source>
         <translation>Okładka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="165"/>
+        <location filename="../../Misc/Landmarks.cpp" line="177"/>
         <source>The publications cover(s), jacket information, etc.</source>
         <translation>Okładka(i) publikacji, informacje obwoluty itp.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="166"/>
+        <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>Dedication</source>
         <translation>Dedykacja</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="166"/>
+        <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>An inscription addressed to one or several particular person(s).</source>
         <translation>Napis skierowany do jednej lub kilku szczególnych osób.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="167"/>
+        <location filename="../../Misc/Landmarks.cpp" line="179"/>
         <source>Division</source>
         <translation>Podział</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="167"/>
+        <location filename="../../Misc/Landmarks.cpp" line="179"/>
         <source>A major structural division that may also appear as a substructure of a part (esp. in legislation).</source>
         <translation>Główny podział strukturalny, który może również pojawić się jako fundament części (zwł. w legislacji).</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="168"/>
+        <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Epigraph</source>
         <translation>Epigraf</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="168"/>
+        <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
         <translation>Cytat, który jest istotny, ale nie jest integralną częścią tekstu.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="169"/>
+        <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>Epilogue</source>
         <translation>Epilog</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="169"/>
+        <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
         <translation>Zawiera sekcję która jest zwykle napisana w późniejszym czasie niż główny wątek, chociaż nadal jest częścią narracji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="170"/>
+        <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>Errata</source>
         <translation>Errata</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="170"/>
+        <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
         <translation>Errata publikacji, w dziełach drukowanych zwykle na luźnej kartce włożonej między strony; czasami dołączona strona, która zawiera poprawki błędów w pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="171"/>
+        <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>Footnotes</source>
         <translation>Przypisy</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="171"/>
+        <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
         <translation>Zbiór informacji dodatkowych umieszczonych na spodzie strony.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="172"/>
+        <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>Foreword</source>
         <translation>Przedmowa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="172"/>
+        <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
         <translation>Sekcja wprowadzająca, która poprzedza pracę, zazwyczaj nie napisana przez autora utworu.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="173"/>
+        <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>Front Matter</source>
         <translation>Początek publikacji</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="173"/>
+        <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
         <translation>Wstępny materiał do głównej treści meritum publikacji, taki jak tabele zawartości, dedykacje itp.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="174"/>
+        <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>Glossary</source>
         <translation>Glosariusz</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="174"/>
+        <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
         <translation>Alfabetyczna lista warunków w określonej domenie wiedzy, z definicji tych terminów.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="175"/>
+        <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>Half Title Page</source>
         <translation>Strona przedtytułowa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="175"/>
+        <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>The half title page of the work which carries just the title itself.</source>
         <translation>Strona przedtytułowa dzieła, zawiera jedynie tytuł.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="176"/>
+        <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>Imprimatur</source>
         <translation>Imprimatur</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="176"/>
+        <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>A formal statement authorizing the publication of the work.</source>
         <translation>Oficjalne oświadczenie upoważniające do publikacji pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="177"/>
+        <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>Imprint</source>
         <translation>Imprint</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="177"/>
+        <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>Information relating to the publication or distribution of the work.</source>
         <translation>Informacje odnoszące się do publikacji lub rozpowszechniania utworu.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="178"/>
+        <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>Index</source>
         <translation>Indeks</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="178"/>
+        <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
         <translation>Szczegółowa lista, zwykle ułożone alfabetycznie, konkretnych informacji w publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="179"/>
+        <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>Introduction</source>
         <translation>Wprowadzenie</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="179"/>
+        <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
         <translation>Sekcja na początku pracy, zazwyczaj wprowadza czytelnika w zakres lub treść rodzaju pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>Landmarks</source>
         <translation>Punkty orientacyjne</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>A collection of references to well-known/recurring components within the publication</source>
         <translation>Zbiór punktów odniesienia dobrze znanych / powtarzających się elementów w publikacji</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="181"/>
+        <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>List of Audio Clips</source>
         <translation>Spis klipów audio</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="181"/>
+        <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>A listing of audio clips included in the work.</source>
         <translation>Spis klipów audio zawartych w pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="182"/>
+        <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>List of Illustrations</source>
         <translation>Spis ilustracji</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="182"/>
+        <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>A listing of illustrations included in the work.</source>
         <translation>Spis ilustracji zawartych w pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="183"/>
+        <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>List of Tables</source>
         <translation>Spis tabel</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="183"/>
+        <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>A listing of tables included in the work.</source>
         <translation>Spis tabel zawartych w pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="184"/>
+        <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>List of Video Clips</source>
         <translation>Spis klipów wideo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="184"/>
+        <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>A listing of video clips included in the work.</source>
         <translation>Spis klipów wideo zawartych w pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="185"/>
+        <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>Notice</source>
         <translation>Wzmianka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="185"/>
+        <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</source>
         <translation>Informacja, która wymaga szczególnej uwagi, i że nie może być pomijana lub tłumiona. Przykłady obejmują: alarm, ostrzeżenie, ostrożnie, niebezpieczeństwo, ważne.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="186"/>
+        <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>Other Credits</source>
         <translation>Inne podziękowania</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="186"/>
+        <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
         <translation>Podziękowania do wcześniej publikowanych części pracy, ilustracji wyróżnień, oraz zgoda na cytat z materiałów chronionych prawem autorskim.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="187"/>
+        <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>Page List</source>
         <translation>Lista stron</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="187"/>
+        <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>A list of references to pagebreaks (start locations) from a print version of the ebook</source>
         <translation>Lista odnośników do podziałów stron (miejsc startowych) z wersji drukowanej ebooka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="188"/>
+        <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>Part</source>
         <translation>Część</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="188"/>
+        <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
         <translation>Główny podział strukturalny kawałka pisma, zazwyczaj razem w zestawie z odpowiednimi jej rozdziałami.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="189"/>
+        <location filename="../../Misc/Landmarks.cpp" line="201"/>
         <source>Preamble</source>
         <translation>Preambuła</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="189"/>
+        <location filename="../../Misc/Landmarks.cpp" line="201"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
         <translation>Sekcja na początku pracy, zwykle zawierająca wstęp i/lub wyjaśnienia dotyczące zakresu i charakteru treści dzieła</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="190"/>
+        <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>Preface</source>
         <translation>Wstęp</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="190"/>
+        <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
         <translation>Sekcja wprowadzająca, która poprzedza pracę, zazwyczaj pisana przez autora utworu.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="191"/>
+        <location filename="../../Misc/Landmarks.cpp" line="203"/>
         <source>Prologue</source>
         <translation>Prolog</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="191"/>
+        <location filename="../../Misc/Landmarks.cpp" line="203"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
         <translation>Sekcja wprowadzająca która opisuje kontekst historii, zwykle część narracji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="192"/>
+        <location filename="../../Misc/Landmarks.cpp" line="204"/>
         <source>Questions and Answers</source>
         <translation>Pytania i odpowiedzi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="192"/>
+        <location filename="../../Misc/Landmarks.cpp" line="204"/>
         <source>A question and answer section.</source>
         <translation>Sekcja pytań i odpowiedzi.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="193"/>
+        <location filename="../../Misc/Landmarks.cpp" line="205"/>
         <source>Rear Notes</source>
         <translation>Notatki końcowe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="193"/>
+        <location filename="../../Misc/Landmarks.cpp" line="205"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
         <translation>Zbiór notatek umieszczonych z tyłu pracy (reszcie publikacji) albo na końcu sekcji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="194"/>
+        <location filename="../../Misc/Landmarks.cpp" line="206"/>
         <source>Revision History</source>
         <translation>Historia zmian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="194"/>
+        <location filename="../../Misc/Landmarks.cpp" line="206"/>
         <source>A record of changes made to a work.</source>
         <translation>Zapis zmian wprowadzonych do pracy.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="195"/>
+        <location filename="../../Misc/Landmarks.cpp" line="207"/>
         <source>Subchapter</source>
         <translation>Podrozdział</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="195"/>
+        <location filename="../../Misc/Landmarks.cpp" line="207"/>
         <source>A major sub-division of a chapter.</source>
         <translation>Główny podział rozdziału.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="196"/>
+        <location filename="../../Misc/Landmarks.cpp" line="208"/>
         <source>Title Page</source>
         <translation>Strona tytułowa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="196"/>
+        <location filename="../../Misc/Landmarks.cpp" line="208"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
         <translation>Strona na początku książki, nadająca jej tytuł, autora, wydawcę i inne informacje o publikacji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="197"/>
+        <location filename="../../Misc/Landmarks.cpp" line="209"/>
         <source>Table of Contents</source>
         <translation>Spis treści</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="197"/>
+        <location filename="../../Misc/Landmarks.cpp" line="209"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
         <translation>Spis treści, którym jest lista nagłówków czy też części książki lub dokumentu, zorganizowany w kolejności w jakiej występują. Zazwyczaj pojawia się na początku publikacji, lub na początku sekcji.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="198"/>
+        <location filename="../../Misc/Landmarks.cpp" line="210"/>
         <source>Volume</source>
         <translation>Tom</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="198"/>
+        <location filename="../../Misc/Landmarks.cpp" line="210"/>
         <source>A component of a collection.</source>
         <translation>Element zbioru.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="199"/>
+        <location filename="../../Misc/Landmarks.cpp" line="211"/>
         <source>Warning</source>
         <translation>Ostrzeżenie</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="199"/>
+        <location filename="../../Misc/Landmarks.cpp" line="211"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
         <translation>Ostrzeżenie lub uwaga na temat konkretnego materiału. Status: Przestarzałe - zastąpione przez „wzmianka”.</translation>
     </message>
@@ -8477,14 +8477,13 @@ Arkusze stylów, które są pierwsze na liście, mają pierwszeństwo przed pó�
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="386"/>
-        <source>Plugins</source>
-        <translation>Wtyczki</translation>
+        <source>&amp;Plugins</source>
+        <translation>W&amp;tyczki</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="392"/>
-        <location filename="../../Form_Files/main.ui" line="459"/>
-        <source>Checkpoints</source>
-        <translation>Punkty kontrolne</translation>
+        <source>Chec&amp;kpoints</source>
+        <translation>Punkty &amp;kontrolne</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="418"/>
@@ -8501,6 +8500,11 @@ Arkusze stylów, które są pierwsze na liście, mają pierwszeństwo przed pó�
         <location filename="../../Form_Files/main.ui" line="446"/>
         <source>Add Existing</source>
         <translation>Dodaj istniejący</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="459"/>
+        <source>Checkpoints</source>
+        <translation>Punkty kontrolne</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="474"/>
@@ -10874,6 +10878,31 @@ Tworzy nowy dokument ePub3.&lt;/p&gt;</translation>
         <translation>Pokaż dziennik punktów kontrolnych</translation>
     </message>
     <message>
+        <location filename="../../Form_Files/main.ui" line="2971"/>
+        <source>Focus on CodeView</source>
+        <translation>Uaktywnij Widok kodu</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2976"/>
+        <source>Focus on BookBrowser</source>
+        <translation>Uaktywnij Zawartość książki</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2981"/>
+        <source>Focus on Preview</source>
+        <translation>Uaktywnij Podgląd</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2986"/>
+        <source>Focus on Table of Contents</source>
+        <translation>Uaktywnij Spis treści</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="2991"/>
+        <source>Focus on Clips Window</source>
+        <translation>Uaktywnij Wycinki</translation>
+    </message>
+    <message>
         <location filename="../../MainUI/MainWindow.cpp" line="374"/>
         <source>Automate List Editor cancelled.</source>
         <translation>Anulowano edycję listy automatyzacji.</translation>
@@ -10987,37 +11016,37 @@ Tworzy nowy dokument ePub3.&lt;/p&gt;</translation>
         <location filename="../../MainUI/MainWindow.cpp" line="1608"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1939"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2174"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2319"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2819"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2915"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2969"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3139"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3152"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3165"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3170"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3182"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3197"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3363"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3438"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4807"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4848"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4854"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4860"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5117"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5137"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5185"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5454"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2339"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2935"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2989"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2999"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3023"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3037"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3159"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3190"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3195"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3207"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3217"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3222"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3381"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3404"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3463"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3694"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4832"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4873"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4879"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4885"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5142"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5162"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5210"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5478"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5684"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -11038,17 +11067,17 @@ Tej akcji nie można cofnąć.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="800"/>
         <location filename="../../MainUI/MainWindow.cpp" line="802"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5183"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5185"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5208"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5210"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5682"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5684"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="800"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5183"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5208"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5682"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -11296,356 +11325,356 @@ Tej akcji nie można cofnąć.</translation>
         <translation>Obraz nie istnieje:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2234"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2254"/>
         <source>or</source>
         <translation>lub</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2242"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2262"/>
         <source>No CSS styles named</source>
         <translation>Brak nazw stylów CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2242"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2262"/>
         <source>found, or stylesheet not linked.</source>
         <translation>lub arkusz stylów nie połączony.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2315"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2335"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;Nie istnieje odnośnik &lt;b&gt;%1&lt;/b&gt; znaleziony w pliku &lt;b&gt;%2&lt;/b&gt;  (może być więcej takich problemów). Dzielenie i scalanie w takich warunkach może skutkować niedziałającymi linkami.&lt;/p&gt;&lt;p&gt;Czy chcesz kontynuować?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2339"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2359"/>
         <source>Add Cover</source>
         <translation>Dodaj okładkę</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2408"/>
         <source>An existing Cover file has been found.</source>
         <translation>Znaleziono istniejący plik okładki.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2451"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2471"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Niespodziewany błąd. Tylko pliki obrazów mogą być użyte jako okładka.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2490"/>
         <source>Cover added.</source>
         <translation>Dodano okładkę.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2480"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2498"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2530"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2500"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2550"/>
         <source>Not Available for epub2.</source>
         <translation>Niedostępne dla epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2488"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2508"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>Zaktualizowano właściwości manifestu OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2520"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2540"/>
         <source>NCX and Guide removed.</source>
         <translation>Plik NCX oraz sekcja Guide zostały usunięte.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2547"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2585"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2605"/>
         <source>NCX and Guide generation failed.</source>
         <translation>Nie udało się wygenerować pliku NCX oraz sekcji Guide.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2623"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2643"/>
         <source>NCX and Guide generated.</source>
         <translation>Wygenerowano plik NCX oraz sekcję Guide.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2708"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2728"/>
         <source>An existing Index file has been found.</source>
         <translation>Znaleziono istniejący plik z indeksem.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2800"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2820"/>
         <source>Styles deleted.</source>
         <translation>Style usunięte.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2808"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2828"/>
         <source>Reports Being Generated.</source>
         <translation>Generowanie raportów.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2819"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2839"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Raport anulowany z powodu błędów składniowych XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2915"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2935"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Usuwanie nieużywanych plików mediów anulowane z powodu błędów składniowych XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2983"/>
         <source>Unused media files deleted.</source>
         <translation>Usunięto nieużywane pliki mediów.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2966"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2969"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2989"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Brak nieużywanych plików obrazów, plików wideo lub audio do usunięcia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2999"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Usunięcie nieużywanych stylów anulowane z powodu błędów składniowych XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2996"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2998"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3021"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3023"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>Brak nieużywanych selektorów w arkuszach stylów do usunięcia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3012"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3037"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Nie można wstawić pliku w tej pozycji.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3019"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3044"/>
         <source>Insert File</source>
         <translation>Wstaw plik</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3072"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3097"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Plik &quot;%1&quot; nie istnieje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3118"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3139"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Nie można wstawić identyfikatora w tej pozycji.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3159"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>Identyfikator jest błędny - musi zaczynać się od litery, a następnie składać się z litery, liczby, znaków _ : - lub .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3152"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3170"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3195"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Nie można wstawić łącza w tym miejscu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3165"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3190"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Łącze jest nieprawidłowe - nie może zawierać &apos;&lt;&apos; lub &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3182"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3207"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Nie można oznaczyć indeksu w tej pozycji lub bez zaznaczania tekstu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3192"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3217"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Wpis jest nieprawidłowy - nie może zawierać &apos;&lt;&apos; lub &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3197"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3222"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Nie można oznaczyć indeksu w tym miejscu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3274"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3305"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3299"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3311"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3330"/>
         <source>Select the destination to paste into first.</source>
         <translation>Najpierw wybierz miejsce docelowe do wklejenia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3319"/>
         <source>Pasted clip entry %1.</source>
         <translation>Wklejono wpis wycinka %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3381"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Jeden zasób wybrany i nie ma możliwości scalenia go z poprzednim.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3364"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3389"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Czy na pewno scalić zaznaczone pliki?
 Tej akcji nie można cofnąć.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3379"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3404"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>Scalanie anulowane: pliki XHTML przeznaczone dla scalenia nie są poprawne składniowo.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3438"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3463"/>
         <source>Cannot merge file %1</source>
         <translation>Nie można scalić pliku %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3452"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3477"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Scalanie zakończone. Sprawdź, czy nie trzeba poprawić lub edytować spisu treści.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Łącze do arkusza stylów anulowane: %1, XML nie jest poprawny składniowo.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3600"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3625"/>
         <source>Word updated.</source>
         <translation>Słowo uaktualniono.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3694"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>Łącze do skryptu anulowane: %1, XML nie jest poprawny składniowo.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3804"/>
         <source>File(s) deleted.</source>
         <translation>Plik(ów) usunięto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3790"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3815"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Anulowano edycję spisu treści.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3795"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3820"/>
         <source>Table Of Contents edited.</source>
         <translation>Edycja spisu treści.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3813"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
         <source>Generate TOC cancelled.</source>
         <translation>Anulowano generowanie spisu treści (TOC).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3863"/>
         <source>Table Of Contents generated.</source>
         <translation>Utworzono spis treści.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3840"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3865"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Spis treści nie wymagał zmian.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3914"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3939"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>Znaleziono istniejący plik ze spisem treści HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3998"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4023"/>
         <source>Text selection marked.</source>
         <translation>Wybrany tekst zaznaczono.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4000"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4018"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4025"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4043"/>
         <source>Text selection unmarked.</source>
         <translation>Wybrany tekst odznaczono.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4067"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4092"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Anulowano edycję metadanych.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4070"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4095"/>
         <source>Metadata edited.</source>
         <translation>Edycja metadanych.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4178"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4203"/>
         <source>RunPlugin</source>
         <translation>Uruchom wtyczkę</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4204"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4229"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Ten EPUB nie zawiera żadnych arkuszy stylów CSS do sprawdzania.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4235"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4260"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>Ten EPUB nie zawiera żadnych arkuszy stylów CSS do przeformatowania.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4719"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4744"/>
         <source>Line: %1, Col: %2</source>
         <translation>Linia: %1 Kolumna: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4832"/>
         <source>File cannot be split at this position.</source>
         <translation>Plik nie może być podzielony w tym miejscu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4830"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4855"/>
         <source>Split completed.</source>
         <translation>Podział zakończony.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4848"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4873"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Nie można podzielić, ponieważ co najmniej jeden plik nie jest plikiem HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4854"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4879"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Nie można podzielić: %1, XML nie jest poprawny składniowo.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4860"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4885"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Nie można podzielić, ponieważ co najmniej jeden plik może nie być plikiem HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4893"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4918"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Podział zakończony. Sprawdź, czy nie musisz zaktualizować spisu treści.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4895"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4920"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Nie znaleziono znaczników podziału. Użyj Wstaw -&gt; Znacznik podziału.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5143"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokument został zmieniony.
 Czy chcesz zapisać swoje zmiany?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5139"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5164"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Czy Sigil ma nadpisać ten plik?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5325"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5350"/>
         <source>No importer for file type: %1</source>
         <translation>Nie można zaimportować plików typu: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5332"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5357"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -11658,112 +11687,142 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Spróbuj włączyć w ustawieniach poprawianie kodu źródłowego XHTML przy otwieraniu oraz ponownie załaduj plik.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5337"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5362"/>
         <source>Loading file...</source>
         <translation>Wczytywanie pliku...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5376"/>
         <source>File loaded.</source>
         <translation>Plik załadowano.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5379"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5404"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Twórca tego pliku zaszyfrował go przy pomocy technologi DRM. Sigil nie może odczytać takich plików.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5387"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5412"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Nie można wczytać EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5392"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5417"/>
         <source>Cannot load file %1: %2</source>
         <translation>Nie można załadować pliku %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5421"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5446"/>
         <source>Saving EPUB...</source>
         <translation>Zapisywanie EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5430"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5455"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil nie może zapisać pliku typu &quot;%1&quot;.
 Proszę wybrać inny format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5455"/>
-        <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to automatically mend on Save. Saving a file that is not well formed will cause it to be automatically fixed, which very rarely may result in some data loss.
+        <location filename="../../MainUI/MainWindow.cpp" line="5479"/>
+        <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
-Do you want to automatically mend the files before saving?</source>
-        <translation>Ten EPUB zawiera pliki HTML z błędami składniowymi, a bieżące ustawienia nakazują automatyczne poprawianie plików podczas zapisu. Zapisanie plików z błędami składni spowoduje ich automatyczne naprawienie, co w bardzo rzadkich przypadkach może spowodować utratę niektórych danych.
+Do you want to automatically mend the files before saving? Or cancel the Save?</source>
+        <translation>Ten EPUB zawiera pliki HTML z błędami składniowymi, a bieżące ustawienia nakazują automatyczne poprawianie plików podczas zapisu.
 
-Czy automatycznie poprawić pliki przed zapisaniem?</translation>
+Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5484"/>
+        <source>Saving EPUB... cancelled</source>
+        <translation>Zapisywanie pliku EPUB... anulowano</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="5510"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB został zapisany, jednak nie wszystkie pliki HTML są poprawne składniowo.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5512"/>
         <source>EPUB saved.</source>
         <translation>EPUB zapisany.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5492"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5518"/>
         <source>Cannot save file %1: %2</source>
         <translation>Nie można zapisać pliku %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5625"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5651"/>
         <source>EPUB files (*.epub)</source>
         <translation>Pliki EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5626"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5627"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5628"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5653"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5654"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Pliki HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5629"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5655"/>
         <source>Text files (*.txt)</source>
         <translation>Pliki tekstowe (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5630"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5656"/>
         <source>All files (*.*)</source>
         <translation>Wszystkie pliki (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5664"/>
         <source>EPUB file (*.epub)</source>
         <translation>Plik EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5736"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5762"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Zachowaj istniejące atrybuty nagłówków:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5737"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
         <source>ON</source>
         <translation>WŁ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5737"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
         <source>OFF</source>
         <translation>WYŁ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5762"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5788"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="6809"/>
+        <source>Focus changed to CodeView window.</source>
+        <translation>Zmiana aktywnego okna na Widok kodu.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="6818"/>
+        <source>Focus changed to BookBrowser window.</source>
+        <translation>Zmiana aktywnego okna na Zawartość książki.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="6827"/>
+        <source>Focus changed to Preview window.</source>
+        <translation>Zmiana aktywnego okna na Podgląd.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="6836"/>
+        <source>Focus changed to Table Of Contents window.</source>
+        <translation>Zmiana aktywnego okna na Spis treści.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="6845"/>
+        <source>Focus changed to Clips window.</source>
+        <translation>Zmiana aktywnego okna na Wycinki.</translation>
     </message>
 </context>
 <context>
@@ -15611,12 +15670,12 @@ Czy automatycznie poprawić pliki przed zapisaniem?</translation>
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1438"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1464"/>
         <source>[Title here]</source>
         <translation>[Tutaj tytuł]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1444"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1470"/>
         <source>[Main title here]</source>
         <translation>[Tutaj tytuł główny]</translation>
     </message>
@@ -16245,128 +16304,128 @@ Czy automatycznie poprawić pliki przed zapisaniem?</translation>
         <translation>Status: uruchamianie</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="440"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="441"/>
         <source>Launcher process crashed</source>
         <translation>Awaria procesu uruchamiania</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="451"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="457"/>
         <source>Status: finished</source>
         <translation>Status: ukończone</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="458"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="464"/>
         <source>Status: failed</source>
         <translation>Status: nie powiodło się</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="464"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="474"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="470"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="480"/>
         <source>Status: No Changes Made</source>
         <translation>Status: Nie dokonano zmian</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="473"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="479"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation>Błąd: Wtyczka próbowała usunąć ostatni plik XHTML... porzucono zmiany</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="538"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="625"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="544"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="633"/>
         <source>Status:</source>
         <translation>Status:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="565"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="571"/>
         <source>Plugin failed to start</source>
         <translation>Uruchomienie wtyczki nie powiodło się</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="573"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
         <source>Status: error</source>
         <translation>Status: błąd</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="602"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="610"/>
         <source>Plugin cancelled</source>
         <translation>Anulowano uruchomienie wtyczki</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="603"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="611"/>
         <source>Status: cancelled</source>
         <translation>Status: anulowanie</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="697"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="705"/>
         <source>Error Parsing Result XML:  </source>
         <translation>Błąd podczas analizowania wynikowego pliku XML: </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="755"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="770"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="763"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="778"/>
         <source>Status: checking</source>
         <translation>Status: sprawdzanie</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="759"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="767"/>
         <source>Incorrect XHTML:</source>
         <translation>Nieprawidłowy XHTML:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="759"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="767"/>
         <source>Line/Col</source>
         <translation>Linia/Kolumna</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="786"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="794"/>
         <source>Check Report</source>
         <translation>Sprawdź raport</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="787"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="795"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>Wykryto nieprawidłowy XHTML/XML
 Czy na pewno kontynuować?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="805"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="813"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Status: czyszczenie - usuwanie plików</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="838"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="846"/>
         <source>Status: deleting</source>
         <translation>Status: usuwanie</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="877"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="885"/>
         <source>Status: Loading</source>
         <translation>Status: ładowanie</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="897"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="905"/>
         <source>Input Plugin</source>
         <translation>Wtyczka wejściowa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="898"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="906"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Aktualna książka zostanie całkowicie zastąpiona, stracisz niezapisane zmiany... Czy na pewno kontynuować?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="927"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="941"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="935"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="949"/>
         <source>Status: adding</source>
         <translation>Status: dodawanie</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="979"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="987"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Status: czyszczenie - modyfikacja plików</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="1016"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="1024"/>
         <source>Status: modifying</source>
         <translation>Status: modyfikacja</translation>
     </message>
@@ -16643,43 +16702,43 @@ Encje mogą być oddzielone liniami, przecinkami lub spacjami.</translation>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="70"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="89"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="462"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="470"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="467"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="475"/>
         <source>Preview</source>
         <translation>Podgląd</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="243"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="248"/>
         <source>Inspect Page</source>
         <translation>Sprawdź stronę</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="247"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="252"/>
         <source>Select-All</source>
         <translation>Zaznacz wszystko</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="251"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="256"/>
         <source>Copy Selection To ClipBoard</source>
         <translation>Kopiuj zaznaczenie do schowka</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="255"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="260"/>
         <source>Update Preview Window</source>
         <translation>Uaktualnij okno Podglądu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="259"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="264"/>
         <source>Cycle Custom CSS Files</source>
         <translation>Przełącz własne pliki CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="266"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="271"/>
         <source>Print Preview View</source>
         <translation>Drukuj podgląd</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="657"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="662"/>
         <source>Feature not available before Qt5.12.x</source>
         <translation>Funkcja nie jest dostępna dla Qt w wersji niższej niż 5.12.x</translation>
     </message>
@@ -16839,7 +16898,7 @@ Linia: %1 Kolumna %2 - %3</translation>
         <translation>Plik OPF nie zawiera pliku NCX.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="710"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="711"/>
         <source>Adding Existing Files..</source>
         <translation>Dodawanie istniejących plików...</translation>
     </message>
@@ -16869,19 +16928,19 @@ Linia: %1 Kolumna %2 - %3</translation>
         <translation>&lt;p&gt;Nowy Sigil w wersji &lt;b&gt;%1&lt;/b&gt; jest już dostępny.&lt;br/&gt;&lt;p&gt;Czy przejść do strony pobierania?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="522"/>
+        <location filename="../../Misc/Utility.cpp" line="526"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Nie można odczytać pliku %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="713"/>
+        <location filename="../../Misc/Utility.cpp" line="717"/>
         <source>Sigil has encountered a problem.</source>
         <translation>Sigil napotkał problem.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="714"/>
+        <location filename="../../Misc/Utility.cpp" line="718"/>
         <source>Sigil may need to close.</source>
         <translation>Sigil może wymagać zamknięcia.</translation>
     </message>
@@ -16907,28 +16966,28 @@ Linia: %1 Kolumna %2 - %3</translation>
         <translation>Uszkodzony plik NCX: %1</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="745"/>
-        <location filename="../../main.cpp" line="793"/>
+        <location filename="../../main.cpp" line="746"/>
+        <location filename="../../main.cpp" line="794"/>
         <source>Quit</source>
         <translation>Wyjście</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="755"/>
+        <location filename="../../main.cpp" line="756"/>
         <source>About</source>
         <translation>O programie</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="764"/>
+        <location filename="../../main.cpp" line="765"/>
         <source>Preferences</source>
         <translation>Ustawienia</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="775"/>
+        <location filename="../../main.cpp" line="776"/>
         <source>New</source>
         <translation>Nowy</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="784"/>
+        <location filename="../../main.cpp" line="785"/>
         <source>Open</source>
         <translation>Otwierania</translation>
     </message>
@@ -17733,22 +17792,22 @@ Czy chcesz zapisać zmiany?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="94"/>
         <source>left single quote</source>
-        <translation>lewy pojedynczy cudzysłów</translation>
+        <translation>pojedynczy cudzysłów otwierający</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="95"/>
         <source>right single quote</source>
-        <translation>prawy pojedynczy cudzysłów</translation>
+        <translation>pojedynczy cudzysłów zamykający (apostrof poprawny typograficznie)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="96"/>
         <source>left double quote</source>
-        <translation>lewy podwójny cudzysłów</translation>
+        <translation>podwójny cudzysłów otwierający</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="97"/>
         <source>right double quote</source>
-        <translation>prawy podwójny cudzysłów</translation>
+        <translation>podwójny cudzysłów zamykający</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="98"/>
@@ -19014,32 +19073,32 @@ do książki i automatycznie wstawić do dokumentu.</translation>
         <translation>Audio</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="168"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="169"/>
         <source>Files In the Book</source>
         <translation>Pliki w książce</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="171"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="172"/>
         <source>Thumbnails</source>
         <translation>Miniatury</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="331"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="337"/>
         <source>shades</source>
         <translation>odcieni(e)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="331"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="337"/>
         <source>colors</source>
         <translation>kolory(ów)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="332"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="338"/>
         <source>Grayscale</source>
         <translation>Skala szarości</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="332"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="338"/>
         <source>Color</source>
         <translation>Kolor</translation>
     </message>
@@ -19620,17 +19679,17 @@ Użyj, jeśli edytowałeś jakieś pliki HTML podczas sprawdzania pisowni.</tran
         <translation>Spis treści</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="136"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="142"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Plik &quot;%1&quot; nie istnieje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="167"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="173"/>
         <source>Collapse All</source>
         <translation>Zwiń wszystko</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="168"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="174"/>
         <source>Expand All</source>
         <translation>Rozwiń wszystko</translation>
     </message>
@@ -19646,12 +19705,12 @@ Użyj, jeśli edytowałeś jakieś pliki HTML podczas sprawdzania pisowni.</tran
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="832"/>
+        <location filename="../../Misc/Utility.cpp" line="836"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="833"/>
+        <location filename="../../Misc/Utility.cpp" line="837"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -19786,7 +19845,7 @@ Czy kontynuować przy użyciu żądanej nazwy pliku?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>quotation mark</source>
-        <translation>znacznik cytatu</translation>
+        <translation>cudzysłów prosty</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="98"/>
@@ -19866,7 +19925,7 @@ Czy kontynuować przy użyciu żądanej nazwy pliku?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>left-pointing double angle quotation mark</source>
-        <translation>podwójny lewy apostrof drukarski</translation>
+        <translation>podwójny cudzysłów ostrokątny skierowany w lewo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="114"/>
@@ -19946,7 +20005,7 @@ Czy kontynuować przy użyciu żądanej nazwy pliku?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>right-pointing double angle quotation mark</source>
-        <translation>prawy cudzysłów</translation>
+        <translation>podwójny cudzysłów ostrokątny skierowany w prawo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="130"/>
@@ -20636,32 +20695,32 @@ Czy kontynuować przy użyciu żądanej nazwy pliku?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>left single quotation mark</source>
-        <translation>lewy apostrof drukarski</translation>
+        <translation>pojedynczy cudzysłów otwierający</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>right single quotation mark</source>
-        <translation>prawy apostrof drukarski</translation>
+        <translation>pojedynczy cudzysłów zamykający (apostrof poprawny typograficznie)</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="269"/>
         <source>single low-9 quotation mark</source>
-        <translation>pojedynczy cudzysłów dolny</translation>
+        <translation>pojedynczy cudzysłów otwierający dolny</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>left double quotation mark</source>
-        <translation>lewy cudzysłów</translation>
+        <translation>podwójny cudzysłów otwierający górny</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>right double quotation mark</source>
-        <translation>prawy cudzysłów</translation>
+        <translation>podwójny cudzysłów zamykający górny</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>double low-9 quotation mark</source>
-        <translation>dolny cudzysłów</translation>
+        <translation>podwójny cudzysłów otwierający dolny</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="273"/>
@@ -20701,12 +20760,12 @@ Czy kontynuować przy użyciu żądanej nazwy pliku?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>single left-pointing angle quotation mark</source>
-        <translation>lewy apostrof drukarski</translation>
+        <translation>pojedynczy cudzysłów ostrokątny skierowany w lewo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>single right-pointing angle quotation mark</source>
-        <translation>prawy apostrof drukarski</translation>
+        <translation>pojedynczy cudzysłów ostrokątny skierowany w prawo</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="282"/>
