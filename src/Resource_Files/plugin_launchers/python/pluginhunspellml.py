@@ -62,7 +62,7 @@ class HunspellMLChecker(object):
         try:
             # First use bundled hunspell location.
             self.hunspell = cdll[hunspell_dllpath]
-        except OSError:
+        except (OSError, AttributeError):
             # No bundled (or incompatible bundled) libhunspell found.
             # found. So search for system libhunspell.
             self.hunspell = None
