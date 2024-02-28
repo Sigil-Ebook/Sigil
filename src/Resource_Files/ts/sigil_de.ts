@@ -11719,12 +11719,14 @@ Bitte wählen Sie ein anderes Format.</translation>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
-        <translation type="unfinished"/>
+        <translation>Diese EPUB-Datei enthält ungültige HTML-Dateien und Ihre aktuelle Einstellung zum Säubern des Quelltexts ist auf die automatische Bereinigung beim Speichern eingestellt.
+
+Möchten Sie die Dateien vor dem Speichern automatisch bereinigen? Oder möchten Sie das Speichern abbrechen?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5484"/>
         <source>Saving EPUB... cancelled</source>
-        <translation type="unfinished"/>
+        <translation>EPUB wird gespeichert... abgebrochen.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5510"/>

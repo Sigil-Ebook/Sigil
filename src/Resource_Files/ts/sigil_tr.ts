@@ -224,7 +224,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="312"/>
         <source>PDF</source>
-        <translation type="unfinished"/>
+        <translation>PDF</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="317"/>
@@ -3621,18 +3621,18 @@ tamir edildi.</translation>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="570"/>
         <source>Preview Print Settings</source>
-        <translation type="unfinished"/>
+        <translation>Yazdırma Önizleme Ayarları</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="576"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="579"/>
         <source>Skip Print Preview</source>
-        <translation type="unfinished"/>
+        <translation>Yazdırma Önzilemesini Atla</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="588"/>
         <source>Print DPI:</source>
-        <translation type="unfinished"/>
+        <translation>Yazdırma Ölçeği DPI:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="222"/>
@@ -8474,12 +8474,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="386"/>
         <source>&amp;Plugins</source>
-        <translation type="unfinished"/>
+        <translation>Eklentiler</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="392"/>
         <source>Chec&amp;kpoints</source>
-        <translation type="unfinished"/>
+        <translation>Kontrol Noktaları</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="418"/>
@@ -10878,27 +10878,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2971"/>
         <source>Focus on CodeView</source>
-        <translation type="unfinished"/>
+        <translation>Kod Görünümü Odaklı</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2976"/>
         <source>Focus on BookBrowser</source>
-        <translation type="unfinished"/>
+        <translation>Kitap Gezgini Odaklı</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2981"/>
         <source>Focus on Preview</source>
-        <translation type="unfinished"/>
+        <translation>Önizleme Odaklı</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2986"/>
         <source>Focus on Table of Contents</source>
-        <translation type="unfinished"/>
+        <translation>İçindekiler Odaklı</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2991"/>
         <source>Focus on Clips Window</source>
-        <translation type="unfinished"/>
+        <translation>Klip Penceresi Odaklı</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="374"/>
@@ -11726,12 +11726,15 @@ Lütfen farklı bir format seçin.</translation>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
-        <translation type="unfinished"/>
+        <translation>Bu EPUB, iyi biçimlendirilmemiş HTML dosyalarına sahip ve geçerli Temiz Kaynak tercihleriniz, Kaydetme işleminde otomatik olarak düzeltilecek şekilde ayarlanmış.
+Kaydetmeden önce dosyaları otomatik olarak düzeltmek istiyor musunuz?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5484"/>
         <source>Saving EPUB... cancelled</source>
-        <translation type="unfinished"/>
+        <translation>Bu EPUB, iyi biçimlendirilmemiş HTML dosyalarına sahip ve geçerli Temiz Kaynak tercihleriniz, Kaydetme işleminde otomatik olarak düzeltilecek şkilde ayarlanmış. 
+Kaydetmeden önce dosyları otomatik olarak onarmak istiyor musunuz?
+Kaydı iptal etmek ister misiniz?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5510"/>
@@ -11798,27 +11801,27 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="6809"/>
         <source>Focus changed to CodeView window.</source>
-        <translation type="unfinished"/>
+        <translation>Odaklama Kod Görünümüne değiştirildi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="6818"/>
         <source>Focus changed to BookBrowser window.</source>
-        <translation type="unfinished"/>
+        <translation>Odaklama Kitap Gezgini görünümüne değiştirildi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="6827"/>
         <source>Focus changed to Preview window.</source>
-        <translation type="unfinished"/>
+        <translation>Odaklama Önizleme görünümüne değiştirildi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="6836"/>
         <source>Focus changed to Table Of Contents window.</source>
-        <translation type="unfinished"/>
+        <translation>Odaklama İçindekiler görünümüne değiştirildi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="6845"/>
         <source>Focus changed to Clips window.</source>
-        <translation type="unfinished"/>
+        <translation>Odaklama Klip penceresi görünümüne değiştirildi.</translation>
     </message>
 </context>
 <context>
