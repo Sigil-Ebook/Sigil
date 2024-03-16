@@ -425,6 +425,21 @@ int main(int argc, char *argv[])
         }
     }
 
+    // Trying to embedd woff fonts, or opening epubs with embedded woff fonts, can cause Sigil to
+    // silently crash when system display scaling is greater than 100%. So we'll force the fallback
+    // gdi font backend until such time as the directwrite font backend is more robust.
+    // See https://www.mobileread.com/forums/showthread.php?t=356351 for discussion.
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0) && QT_VERSION < QT_VERSION_CHECK(6, 8, 0)
+    // Leave a back door env var override in case of unforseen complications.
+    QString font_backend_override = Utility::GetEnvironmentVar("SIGIL_USE_DIRECTWRITE_FONTS");
+    if (!current_platform_args.contains("nodirectwrite", Qt::CaseInsensitive)) {
+        if (font_backend_override.isEmpty()) {
+            current_platform_args.append("nodirectwrite");
+        }
+    }
+#endif // QT_VERSION >= QT_VERSION_CHECK(6, 0, 0) && QT_VERSION < QT_VERSION_CHECK(6, 8, 0)
+
+
     // if altgr is not already in the list of windows platform options, add it
     SettingsStore ss;
     if (ss.enableAltGr()) {
