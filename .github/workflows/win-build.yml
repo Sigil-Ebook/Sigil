@@ -119,7 +119,7 @@ jobs:
         set REDIST=C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\MSVC\%RedistVersion%\vc_redist.x64.exe
         echo "%REDIST%"
         cp '%REDIST%' %GITHUB_WORKSPACE%\installer\vcredist_x64.exe
-        call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.37
+        call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.38
         ninja -j2 makeinstaller
 
     # RIP gdrive
