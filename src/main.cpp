@@ -425,19 +425,23 @@ int main(int argc, char *argv[])
         }
     }
 
-    // Trying to embedd woff fonts, or opening epubs with embedded woff fonts, can cause Sigil to
-    // silently crash when system display scaling is greater than 100%. So we'll force the fallback
-    // gdi font backend until such time as the directwrite font backend is more robust.
+    // Woff/woff2 fonts can be more fully supported by setting SIGIL_USE_FREETYPE_FONTENGINE to anything.
     // See https://www.mobileread.com/forums/showthread.php?t=356351 for discussion.
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0) && QT_VERSION < QT_VERSION_CHECK(6, 8, 0)
-    // Leave a back door env var override in case of unforseen complications.
-    QString font_backend_override = Utility::GetEnvironmentVar("SIGIL_USE_DIRECTWRITE_FONTS");
-    if (!current_platform_args.contains("nodirectwrite", Qt::CaseInsensitive)) {
-        if (font_backend_override.isEmpty()) {
-            current_platform_args.append("nodirectwrite");
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QString font_backend_override = Utility::GetEnvironmentVar("SIGIL_USE_FREETYPE_FONTENGINE");
+    // Don't change any global fontengine parameters a user may have set in QT_QPA_PLATFORM
+    bool fontengine_arg_exists = false;
+    foreach(QString arg, current_platform_args) {
+        if (arg.startsWith("fontengine=", Qt::CaseInsensitive)) {
+            fontengine_arg_exists = true;
         }
     }
-#endif // QT_VERSION >= QT_VERSION_CHECK(6, 0, 0) && QT_VERSION < QT_VERSION_CHECK(6, 8, 0)
+    if (!fontengine_arg_exists) {
+        if (!font_backend_override.isEmpty()) {
+            current_platform_args.append("fontengine=freetype");
+        }
+    }
+#endif // QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 
 
     // if altgr is not already in the list of windows platform options, add it
