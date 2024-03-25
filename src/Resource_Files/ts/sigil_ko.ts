@@ -49,7 +49,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="255"/>
         <source>Authors</source>
-        <translation>저자들(Authors)</translation>
+        <translation>저자들</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="41"/>
@@ -59,12 +59,12 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation>유지관리자</translation>
+        <translation>유지관리자(들)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation>이전 관리자</translation>
+        <translation>이전 유지관리자(들)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
@@ -74,17 +74,17 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="68"/>
         <source>Translators</source>
-        <translation>번역자(Translator)</translation>
+        <translation>번역자들</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Original Creator</source>
-        <translation>원 제작자(Original Creator)</translation>
+        <translation>원 제작자</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
-        <translation>은퇴(retired)</translation>
+        <translation>은퇴</translation>
     </message>
 </context>
 <context>
@@ -189,12 +189,12 @@
     <message numerus="yes">
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="150"/>
         <source>%n file(s)</source>
-        <translation><numerusform>%n 파일</numerusform></translation>
+        <translation><numerusform>%n 파일(들)</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="259"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>보고서를 콤마로 구분된 파일(Comma Sparated File)로 저장</translation>
+        <translation>콤마로 구분된 파일 형식으로 보고서 저장</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="272"/>
@@ -257,7 +257,7 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="50"/>
         <source>Font size to be used for text in Code View.</source>
-        <translation>코드 보기에서 사용할 글꼴 크기</translation>
+        <translation>코드 보기에서 사용될 글꼴 크기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="53"/>
@@ -269,7 +269,7 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="67"/>
         <source>Font family to be used for text in Code View.</source>
-        <translation>코드 보기에서 사용할 글꼴(Font family)</translation>
+        <translation>코드 보기에서 사용될 글꼴 종류</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="70"/>
@@ -285,17 +285,17 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="116"/>
         <source>Font size to be used for Insert Special Characters window</source>
-        <translation>특수 문자 삽입 창에서 사용할 글자 크기</translation>
+        <translation>특수 문자 삽입 창에서 사용될 글꼴 크기</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="164"/>
         <source>Colors:</source>
-        <translation>색깔:</translation>
+        <translation>색상:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="172"/>
         <source>Item Colors:</source>
-        <translation>항목 색깔:</translation>
+        <translation>항목 색상:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="191"/>
@@ -1164,7 +1164,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1827"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
-        <translation>선택한 파일을 이전 파일과 병합하거나 여러개의 선택된 파일을 하나의 파일로 병합합니다. </translation>
+        <translation>선택한 파일을 이전 파일과 병합하거나 여러개의 선택한 파일을 하나의 파일로 병합합니다. </translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1830"/>
@@ -1316,7 +1316,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="301"/>
         <source>Delete From Book</source>
-        <translation>책에서 삭제하기</translation>
+        <translation>책에서 삭제</translation>
     </message>
 </context>
 <context>
@@ -1634,7 +1634,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="458"/>
         <source>Export Selected Entries</source>
-        <translation>선택된 항목 내보내기</translation>
+        <translation>선택한 항목 내보내기</translation>
     </message>
     <message numerus="yes">
         <location filename="../../Dialogs/ClipEditor.cpp" line="539"/>
@@ -1984,7 +1984,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="158"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation>검색할 내용을 선택 후 CTRL+F로 검색창을 열면 선택된 내용이 토큰화 되어 찾기에 추가됩니다.</translation>
+        <translation>검색할 내용을 선택 후 CTRL+F로 검색창을 열면 선택한 내용이 토큰화 되어 찾기에 추가됩니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="164"/>
@@ -2110,12 +2110,12 @@ other end to continue searching.</source>
         <location filename="../../Dialogs/Controls.cpp" line="325"/>
         <location filename="../../Dialogs/Controls.cpp" line="326"/>
         <source>Selected HTML Files</source>
-        <translation>선택된 HTML 파일</translation>
+        <translation>선택한 HTML 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="326"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
-        <translation>책 탐색기에서 HTML 파일 선택 후 코드보기 창에서 찾거나 바꿉니다. 선택된 파일 내에서만 검색을 합니다.</translation>
+        <translation>책 탐색기에서 HTML 파일 선택 후 코드보기 창에서 찾거나 바꿉니다. 선택한 파일 내에서만 검색을 합니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="328"/>
@@ -2260,7 +2260,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="102"/>
         <source>Selected HTML Files</source>
-        <translation>선택된 HTML 파일</translation>
+        <translation>선택한 HTML 파일</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="103"/>
@@ -2374,7 +2374,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="14"/>
         <source>Dry Run Replace-All Results</source>
-        <translation>모두 바꾸기 테스트 실행 결과</translation>
+        <translation>모두 바꾸기 시뮬레이션</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="34"/>
@@ -2459,7 +2459,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="237"/>
         <source>Dry Run Replace-All</source>
-        <translation>모두 바꾸기 테스트 실행</translation>
+        <translation>모두 바꾸기 시뮬레이션</translation>
     </message>
 </context>
 <context>
@@ -2472,7 +2472,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="52"/>
         <source>Insert a blank entry above the currently selected entry.</source>
-        <translation>현재 선택된 항목 위에 빈 항목을 삽입</translation>
+        <translation>현재 선택한 항목 위에 빈 항목을 삽입</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="55"/>
@@ -2482,7 +2482,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="62"/>
         <source>Add a blank entry below the currently selected entry.</source>
-        <translation>현재 선택된 항목 아래에 빈 항목을 삽입</translation>
+        <translation>현재 선택한 항목 아래에 빈 항목을 삽입</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="65"/>
@@ -3120,12 +3120,12 @@ HTML 파일을 검색할 때만 유효합니다.</translation>
         <location filename="../../MainUI/FindReplace.cpp" line="2133"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2134"/>
         <source>Selected HTML Files</source>
-        <translation>선택된 HTML 파일</translation>
+        <translation>선택한 HTML 파일</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2134"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
-        <translation>책 탐색기에서 HTML 파일 선택 후 코드보기 창에서 찾거나 바꿉니다. 선택된 파일 내에서만 검색을 합니다.</translation>
+        <translation>책 탐색기에서 HTML 파일 선택 후 코드보기 창에서 찾거나 바꿉니다. 선택한 파일 내에서만 검색을 합니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2136"/>
@@ -3201,12 +3201,12 @@ HTML 파일을 검색할 때만 유효합니다.</translation>
         <location filename="../../MainUI/FindReplace.cpp" line="2160"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2161"/>
         <source>Marked Text</source>
-        <translation>선택된 텍스트</translation>
+        <translation>선택한 텍스트</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2161"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
-        <translation>[검색&amp;rarr; 선택 영역 표시]로 선택된 텍스트만 검색합니다. 선택 영역 취소, 다른 텍스트 입력 또는 탭이나 파일을 이동하면 선택 영역이 취소됩니다. </translation>
+        <translation>[검색&amp;rarr; 선택 영역 표시]로 선택한 텍스트만 검색합니다. 선택 영역 취소, 다른 텍스트 입력 또는 탭이나 파일을 이동하면 선택 영역이 취소됩니다. </translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2165"/>
@@ -3263,7 +3263,7 @@ HTML 파일을 검색할 때만 유효합니다.</translation>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2193"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
-        <translation>검색할 내용을 선택 후 CTRL+F로 검색창을 열면 선택된 내용이 토큰화 되어 찾기에 추가됩니다.</translation>
+        <translation>검색할 내용을 선택 후 CTRL+F로 검색창을 열면 선택한 내용이 토큰화 되어 찾기에 추가됩니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
@@ -4089,7 +4089,7 @@ mended.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="380"/>
         <source>Delete From Book</source>
-        <translation>책에서 삭제하기</translation>
+        <translation>책에서 삭제</translation>
     </message>
 </context>
 <context>
@@ -4276,7 +4276,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="423"/>
         <source>Delete From Book</source>
-        <translation>책에서 삭제하기</translation>
+        <translation>책에서 삭제</translation>
     </message>
 </context>
 <context>
@@ -5512,7 +5512,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Dzongkha</source>
-        <translation>선택된 파일을 합치시겠습니까?</translation>
+        <translation>선택한 파일을 합치시겠습니까?</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="151"/>
@@ -8185,7 +8185,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="58"/>
         <source>Move the selected stylesheets down in priority.</source>
-        <translation>선택된 스타일시트의 우선순위를 내립니다.</translation>
+        <translation>선택한 스타일시트의 우선순위를 내립니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="61"/>
@@ -8715,7 +8715,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;잘라내기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문서에서 선택된 텍스트를 잘라내서 클립보드에 보관하기.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문서에서 선택한 텍스트를 잘라내서 클립보드에 보관하기.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="969"/>
@@ -8796,7 +8796,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;복사내기&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문서에서 선택된 텍스트를 복사해서 클립보드에 보관하기.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문서에서 선택한 텍스트를 복사해서 클립보드에 보관하기.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1045"/>
@@ -9173,9 +9173,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;아래 첨자&lt;/b&gt;&lt;/p&gt;⏎
-⏎
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택된 텍스트를 조금 작고 기준선 아래로 설정하기.&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;아래 첨자&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트를 조금 작고 기준선 아래로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1436"/>
@@ -9187,9 +9187,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;윗 첨자&lt;/b&gt;&lt;/p&gt;⏎
-⏎
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택된 텍스트를 조금 작고 기준선 위로 설정하기.&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;윗 첨자&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트를 조금 작고 기준선 위로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1450"/>
@@ -9821,7 +9821,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1995"/>
         <source>Dry Run Replace All</source>
-        <translation>모두 바꾸기 테스트 실행</translation>
+        <translation>모두 바꾸기 시뮬레이션</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2000"/>
@@ -11475,7 +11475,7 @@ This action cannot be reversed.</source>
         <location filename="../../MainUI/MainWindow.cpp" line="3389"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
-        <translation>선택된 파일들을 합치시겠습니까?
+        <translation>선택한 파일들을 합치시겠습니까?
 합친 뒤에는 되돌릴 수 없습니다.</translation>
     </message>
     <message>
@@ -11691,12 +11691,14 @@ Please choose a different format.</source>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
-        <translation type="unfinished"/>
+        <translation>이 EPUB에는 형식이 올바르지 않은 HTML 파일이 있으며 저장시 올바르지 않은 코드가 자동 수정되도록 설정되어 있습니다.
+
+저장 전에 형식이 올바르지 않은 HTML 코드를 자동으로 수정하시겠습니까? 원치 않을 경우 저장을 취소합니다.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5484"/>
         <source>Saving EPUB... cancelled</source>
-        <translation type="unfinished"/>
+        <translation>EPUB 저장 중... 취소됨</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5510"/>
@@ -11842,7 +11844,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/ManageRepos.cpp" line="141"/>
         <location filename="../../Dialogs/ManageRepos.cpp" line="180"/>
         <source>Nothing is Selected.</source>
-        <translation>선택된 것이 없습니다.</translation>
+        <translation>아무 것도 선택하지 않았습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="170"/>
@@ -16569,7 +16571,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="276"/>
         <source>Nothing is Selected.</source>
-        <translation>선택된 것이 없습니다.</translation>
+        <translation>아무 것도 선택하지 않았습니다.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="324"/>
@@ -16673,7 +16675,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="248"/>
         <source>Inspect Page</source>
-        <translation>페이지 검사</translation>
+        <translation>웹 브라우저 개발 도구</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="252"/>
@@ -17189,7 +17191,7 @@ then if not found look for the second entry in the list, etc.</source>
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
         <translation>선택한 항목을 사용하여 바꾸기를 실행합니다.
-그룹이 선택된 경우 각 항목을 순차적으로 수행합니다.</translation>
+그룹이 선택한 경우 각 항목을 순차적으로 수행합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
@@ -17226,7 +17228,7 @@ Select a group to replace all entries in the group in order.</source>
         <location filename="../../Form_Files/SearchEditor.ui" line="170"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation>선택한 그룹의 항목을 포함하여 선택한 항목에 대해 선택된 순서대로 일치하는 항목의 수를 세어 표시합니다.</translation>
+        <translation>선택한 그룹의 항목을 포함하여 선택한 항목에 대해 선택한 순서대로 일치하는 항목의 수를 세어 표시합니다.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="174"/>
@@ -17310,7 +17312,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
         <source>Controls</source>
-        <translation>컨트롤</translation>
+        <translation>검색 방식 및 설정</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
@@ -17564,7 +17566,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="885"/>
         <source>Fill Controls</source>
-        <translation>Fill 컨트롤</translation>
+        <translation>검색 방식 및 설정 채우기</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="966"/>
@@ -17604,7 +17606,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="87"/>
         <source>Controls</source>
-        <translation>컨트롤</translation>
+        <translation>검색 방식 및 설정</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="481"/>
@@ -19591,7 +19593,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="266"/>
         <source>Delete From Stylesheet</source>
-        <translation>스타일시트에서 삭제하기</translation>
+        <translation>스타일시트에서 삭제</translation>
     </message>
 </context>
 <context>

@@ -39,7 +39,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation>Byggtid:</translation>
+        <translation>Skapad:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="245"/>
@@ -59,12 +59,12 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="51"/>
         <source>Maintainer(s)</source>
-        <translation>Upprätthållare</translation>
+        <translation>Utvecklare</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="56"/>
         <source>Previous Maintainer(s)</source>
-        <translation>Tidigare upprätthållare</translation>
+        <translation>Tidigare utvecklare</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="60"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>retired</source>
-        <translation>indragen</translation>
+        <translation>pensionerad</translation>
     </message>
 </context>
 <context>
@@ -224,7 +224,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="312"/>
         <source>PDF</source>
-        <translation type="unfinished"/>
+        <translation>PDF</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="317"/>
@@ -731,82 +731,82 @@ om ingen sans-serif-teckensnittsfamilj anges i din CSS</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="164"/>
         <source>[SavedSearch full name here]</source>
-        <translation type="unfinished"/>
+        <translation>{SparadSökning fullständigt namn här}</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="167"/>
         <source>[String parameter for next Plugin run here]</source>
-        <translation type="unfinished"/>
+        <translation>[Strängparameter för nästa pluginkörning här]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="300"/>
         <source>Add Cover to epub.</source>
-        <translation type="unfinished"/>
+        <translation>Addera omslag till epub.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="301"/>
         <source>Create HTML Table Of Contents.</source>
-        <translation type="unfinished"/>
+        <translation>Skapa HTML innehållsförteckning</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="302"/>
         <source>Delete Unused Media Resource.</source>
-        <translation type="unfinished"/>
+        <translation>Radera oanvända media-resurser.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="303"/>
         <source>Delete Unused CSS Selectors.</source>
-        <translation type="unfinished"/>
+        <translation>Radera oanvända CSS-instruktioner.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="304"/>
         <source>Generate NCX and OPF Guide from Epub3 Nav.</source>
-        <translation type="unfinished"/>
+        <translation>Skapa NCX och OPF Guide från Epub3 Nav.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="305"/>
         <source>Generate TOC from Heading Tags.</source>
-        <translation type="unfinished"/>
+        <translation>Skapa innehållsförteckning från Heading-taggar.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="306"/>
         <source>Mend and Prettify all XHtml files.</source>
-        <translation type="unfinished"/>
+        <translation>Laga och snygga till alla XHtml-filer.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="307"/>
         <source>Mend All XHtml files.</source>
-        <translation type="unfinished"/>
+        <translation>Laga alla XHtml-filer.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="308"/>
         <source>Reformat All CSS to Multiple Lines format.</source>
-        <translation type="unfinished"/>
+        <translation>Formatera om alla CSS till multipla rader.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="309"/>
         <source>Reformat All CSS to Single Lines format.</source>
-        <translation type="unfinished"/>
+        <translation>Formatera om alla CSS till enrader.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="310"/>
         <source>Remove NCX and OPF Guide from Epub3.</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort NCX och OPF Guide från Ebpu3.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="311"/>
         <source>Save a Checkpoint of the current epub.</source>
-        <translation type="unfinished"/>
+        <translation>Spara en Checkpoint i aktuell epub.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="312"/>
         <source>Run the named Saved Search with Replace All.</source>
-        <translation type="unfinished"/>
+        <translation>Kör namngivda Sparade sökningen med Ersätt alla.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="313"/>
         <source>Save the current epub.</source>
-        <translation type="unfinished"/>
+        <translation>Spara den aktuella epub.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="314"/>

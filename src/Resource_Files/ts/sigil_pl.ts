@@ -542,7 +542,7 @@ została określona rodzina czcionek bezszeryfowych</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="121"/>
         <source>Turns on high dpi scaling and ignores any Qt environment variables</source>
-        <translation>Włącza skalowanie w wysokiej rozdzielczości DPI oraz ignoruje wszelkie zmienne środowiskowe Qt.</translation>
+        <translation>Włącza skalowanie w wysokiej rozdzielczości DPI oraz ignoruje wszelkie zmienne środowiskowe Qt,</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="122"/>
@@ -552,12 +552,12 @@ została określona rodzina czcionek bezszeryfowych</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="123"/>
         <source>Turns off high dpi scaling regardless if any Qt environment</source>
-        <translation>Wyłącza skalowanie w wysokiej rozdzielczości DPI niezależnie od tego, czy jakiekolwiek zmienne środowiskowe Qt</translation>
+        <translation>Wyłącza skalowanie w wysokiej rozdzielczości DPI niezależnie od tego, czy jakiekolwiek zmienne środowiskowe Qt,</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="124"/>
         <source>variables controlling high dpi behavior are set.</source>
-        <translation>zachowanie w wysokiej rozdzielczości DPI są ustawione.</translation>
+        <translation>które kontrolują zachowanie w wysokiej rozdzielczości DPI, są ustawione.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="128"/>
