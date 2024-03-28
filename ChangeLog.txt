@@ -12,6 +12,8 @@ Sigil-2.1.0
       - update 3rdparty pcre2 to version 10.43 for security and other bug fixes
       - update to Qt 6.6.2 for security fixes, accessibility improvements
       - allow cancelling of Save if mend on save set and not well formed
+      - Windows users can now set the SIGIL_USE_FREETYPE_FONTENGINE environment variable
+           to more fully support woff and woff2 fonts
       
     Bug Fixes
       - multiple bug fixes from Qt 6.6.2 such as the transient child window resize bug on Windows, etc
@@ -23,6 +25,7 @@ Sigil-2.1.0
       - better handle cancelling out of plugins prior to their completion
       - better handle Guide/Landmark title translations (thank you BeckyEbook)
       - clean up cmake and build warnings
+      - fix crash on Windows when using woff/woff2 fonts
 
 
 Sigil-2.0.2
