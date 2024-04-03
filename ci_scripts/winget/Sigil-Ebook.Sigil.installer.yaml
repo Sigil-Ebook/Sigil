@@ -13,9 +13,6 @@ InstallModes:
 UpgradeBehavior: install
 FileExtensions:
 - epub
-Dependencies:
-  PackageDependencies:
-  - PackageIdentifier: Microsoft.VCRedist.2015+.x64
 InstallerSwitches:
   Upgrade: /NORESTART /SUPPRESSMSGBOXES /COMPONENTS="dicon,*afiles"
 ReleaseDate: <DATE>
@@ -28,6 +25,9 @@ Installers:
     Custom: /CURRENTUSER /NORESTART /SUPPRESSMSGBOXES /COMPONENTS="dicon,*afiles"
 - Architecture: x64
   Scope: machine
+  Dependencies:
+    PackageDependencies:
+    - PackageIdentifier: Microsoft.VCRedist.2015+.x64
   InstallerUrl: https://github.com/Sigil-Ebook/Sigil/releases/download/<VERSION>/Sigil-<VERSION>-Windows-x64-Setup.exe
   InstallerSha256: <HASH-AMD64>
   InstallerSwitches:
