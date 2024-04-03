@@ -16,7 +16,7 @@ jobs:
       WINGET_TOKEN: ${{ secrets.WINGET_PAT }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Create manifest and submit PR
       run: |
         ./build.ps1 -Version "${{ github.event.inputs.version }}"
