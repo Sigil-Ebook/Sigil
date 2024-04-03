@@ -14,13 +14,13 @@ jobs:
         run: echo "TAGNAME=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_OUTPUT
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: master
           path: main
 
       - name: Checkout website
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.ROBO_ACTIONS }}
           repository: sigil-ebook/sigil-ebook.github.io
@@ -36,7 +36,7 @@ jobs:
 
       - name: Commit post to blog
         if: "!github.event.release.prerelease"
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           repository: website
           commit_user_name: GH Actions Bot
@@ -67,7 +67,7 @@ jobs:
           EOT
 
       - name: Update Sigil version.xml
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         if: "!github.event.release.prerelease"
         with:
           repository: main

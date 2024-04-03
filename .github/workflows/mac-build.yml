@@ -40,16 +40,16 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Cache Custom Qt
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ${{runner.workspace}}/${{env.QT}}
         key: ${{ runner.os }}-qtdeps-${{hashFiles('**/reset-mac-caches.txt')}}
 
     - name: Cache Custom Python
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ${{runner.workspace}}/Frameworks
         key: ${{ runner.os }}-qtdeps-${{hashFiles('**/reset-mac-caches.txt')}}
@@ -120,7 +120,7 @@ jobs:
     #    gdrive version
     #    python3 $GITHUB_WORKSPACE/ci_scripts/newgddeploy.py
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       if: "contains(github.event.head_commit.message, '[deploy]')"
       with:
         name: sigil-installer
