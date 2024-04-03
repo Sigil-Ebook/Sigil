@@ -21,14 +21,15 @@ jobs:
     - name: Check Tag Name
       id: check_tag_name
       if: ${{ github.event.inputs.tag_name != '' }}
-      uses: actions-ecosystem/action-regex-match@v2
-      with:
-        text: ${{ github.event.inputs.tag_name }}
-        regex: '^\d+\.\d+\.\d+$'
+      run: echo "valid=yes" >> "$GITHUB_OUTPUT"
+#      uses: actions-ecosystem/action-regex-match@v2
+#      with:
+#        text: ${{ github.event.inputs.tag_name }}
+#        regex: '^\d+\.\d+\.\d+$'
       
 
     - name: GPG Import
-      if: ${{ steps.check_tag_name.outputs.match != '' }}
+      if: ${{ steps.check_tag_name.outputs.valid == 'yes' }}
       uses: crazy-max/ghaction-import-gpg@v6
       with:
         gpg_private_key: ${{ secrets.NEW_SIGNING_STUFF }}
@@ -38,7 +39,7 @@ jobs:
 
     - name: Sign and Push Tag
       id: create_archive
-      if: ${{ steps.check_tag_name.outputs.match != '' }}
+      if: ${{ steps.check_tag_name.outputs.valid == 'yes' }}
       run: |
         git config tar.tar.gz.command 'gzip -cn'
         git tag -s ${{ github.event.inputs.tag_name }} -m 'Tag for ${{ github.event.inputs.tag_name }} release'
@@ -54,7 +55,7 @@ jobs:
         gpg --detach-sign --pinentry-mode=loopback --passphrase ${{ secrets.SIGNING_BONUS_PHRASE }} ${FNAME}.zip
 
     - name: Create Release
-      if: ${{ steps.check_tag_name.outputs.match != '' }}
+      if: ${{ steps.check_tag_name.outputs.valid == 'yes' }}
       uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.ROBO_ACTIONS }}
