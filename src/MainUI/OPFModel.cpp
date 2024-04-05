@@ -426,8 +426,11 @@ bool OPFModel::MoveResourceList(const QList<Resource *> &resources, const QStrin
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QStringList not_moved;
     QHash<QString, QString> update;
+    QList<Resource*> bulk_move;
+    QStringList newpaths;
+    QStringList oldpaths;
     int i = 0;
-    foreach(Resource * resource, resources) {
+    foreach(Resource* resource, resources) {
         const QString &oldbookpath = resource->GetRelativePath();
         QString filename = resource->Filename();
         QString newbookpath = new_bookpaths.at(i++);
@@ -441,30 +444,54 @@ bool OPFModel::MoveResourceList(const QList<Resource *> &resources, const QStrin
             continue;
         }
 
-        bool move_success = false;
         // special case the OPFResource and the NCXResource
         if (resource->Type() == Resource::OPFResourceType) {
             OPFResource* opfres = qobject_cast<OPFResource*>(resource);
             if (opfres) {
-                move_success = opfres->MoveTo(newbookpath);
+                if (opfres->MoveTo(newbookpath)) {
+                    resource->SetCurrentBookRelPath(oldbookpath);
+                    update[ oldbookpath ] = newbookpath;
+                } else {
+                    not_moved.append(oldbookpath);
+                    // qDebug() << "OPFModel: not moved " << oldbookpath;
+                }
             }
-        } else if (resource->Type() == Resource::NCXResourceType) {
+            continue;
+        }
+        if (resource->Type() == Resource::NCXResourceType) {
             NCXResource* ncxres = qobject_cast<NCXResource*>(resource);
             if (ncxres) {
-                move_success = ncxres->MoveTo(newbookpath);
+                if (ncxres->MoveTo(newbookpath)) {
+                    resource->SetCurrentBookRelPath(oldbookpath);
+                    update[ oldbookpath ] = newbookpath;
+                } else {
+                    not_moved.append(oldbookpath);
+                    // qDebug() << "OPFModel: not moved " << oldbookpath;
+                }
             }
-        } else {
-            move_success = resource->MoveTo(newbookpath);
-        }
-
-        if (!move_success) {
-            not_moved.append(oldbookpath);
-            // qDebug() << "OPFModel: not moved " << oldbookpath;
             continue;
         }
 
-        resource->SetCurrentBookRelPath(oldbookpath);
-        update[ oldbookpath ] = resource->GetRelativePath();
+        // otherwise add it to the bulk move list
+        bulk_move << resource;
+        newpaths << newbookpath;
+        oldpaths << oldbookpath;
+    }
+
+    if (bulk_move.size() > 0) {
+        m_Book->GetFolderKeeper()->BulkMoveResources(bulk_move, newpaths);
+        // add these resources to the update map if successfully moved
+        for (int i=0; i < bulk_move.size(); i++) {
+            Resource* rsc = bulk_move.at(i);
+            if (rsc->GetRelativePath() == newpaths.at(i)) {
+                // it was moved successfully
+                rsc->SetCurrentBookRelPath(oldpaths.at(i));
+                update[ oldpaths.at(i) ] = newpaths.at(i);
+            } else {
+                not_moved.append(oldpaths.at(i));
+                // qDebug() << "OPFModel: not moved " << oldpaths.at(i);
+            }
+        }
     }
 
     if (update.count() > 0) {

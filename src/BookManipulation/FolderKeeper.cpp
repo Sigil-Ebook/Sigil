@@ -609,6 +609,26 @@ void FolderKeeper::ResourceRenamed(const Resource *resource, const QString &old_
     updateShortPathNames();
 }
 
+
+void FolderKeeper::BulkMoveResources(const QList<Resource *>resources, const QStringList &newpaths)
+{
+    bool in_bulk = true;
+    QHash<QString, Resource*> movedDict;
+    for (int i=0; i < resources.size(); i++) {
+        Resource * rsc = resources.at(i);
+        QString pnew = newpaths.at(i);
+        QString pold = rsc->GetRelativePath();
+        bool success = rsc->MoveTo(pnew, in_bulk);
+        if (success) {
+            movedDict[pold] = rsc;
+            m_Path2Resource.remove(pold);
+            m_Path2Resource[pnew] = rsc;
+        }
+    }
+    m_OPF->BulkResourcesMoved(movedDict);
+    updateShortPathNames();
+}
+
 void FolderKeeper::ResourceMoved(const Resource *resource, const QString &old_full_path)
 {
     // Renaming means the resource book path has changed and so we need to update it

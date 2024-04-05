@@ -752,7 +752,6 @@ void OPFResource::AddCoverMetaForImage(const Resource *resource, OPFParser &p)
     }
 }
 
-
 void OPFResource::BulkRemoveResources(const QList<Resource *>resources)
 {
     QWriteLocker locker(&GetLock());
@@ -1226,7 +1225,8 @@ void OPFResource::ResourceRenamed(const Resource *resource, QString old_full_pat
 void OPFResource::ResourceMoved(const Resource *resource, QString old_full_path)
 {
     QWriteLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    // QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    QString source = GetText();
     OPFParser p;
     p.parse(source);
     // first convert old_full_path to old_bkpath
@@ -1244,6 +1244,33 @@ void OPFResource::ResourceMoved(const Resource *resource, QString old_full_path)
             p.m_hrefpos[me.m_href] = i;
             p.m_manifest.replace(i, me);
             break;
+        }
+    }
+    UpdateText(p);
+}
+
+
+void OPFResource::BulkResourcesMoved(const QHash<QString, Resource *> movedDict)
+{
+    QWriteLocker locker(&GetLock());
+    QString opf_start_dir = Utility::startingDir(GetRelativePath());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+
+    // a move should not impact the id so leave the old unique manifest id unchanged
+    for (int i=0; i < p.m_manifest.count(); ++i) {
+        QString href = p.m_manifest.at(i).m_href;
+        QString bookpath = Utility::buildBookPath(href, opf_start_dir);
+        if (movedDict.contains(bookpath)) {
+            Resource * resource = movedDict[bookpath];
+            ManifestEntry me = p.m_manifest.at(i);
+            QString old_me_href = me.m_href;
+            me.m_href = Utility::URLEncodePath(GetRelativePathToResource(resource));
+            p.m_idpos[me.m_id] = i;
+            p.m_hrefpos.remove(old_me_href);
+            p.m_hrefpos[me.m_href] = i;
+            p.m_manifest.replace(i, me);
         }
     }
     UpdateText(p);

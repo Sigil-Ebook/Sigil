@@ -203,7 +203,7 @@ public:
      * @param new_bookpath The new bookpath.
      * @return \c true if the operation was successful.
      */
-    virtual bool MoveTo(const QString &new_bookpath);
+    virtual bool MoveTo(const QString &new_bookpath, bool in_bulk=false);
 
     /**
      * Deletes the resource.

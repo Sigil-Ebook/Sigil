@@ -1494,9 +1494,14 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
         emit ResourceActivated(next_resource);
     }
 
+
     // Delete the resources
-    foreach(Resource * resource, resources) {
-        resource->Delete();
+    if (resources.size() > 50) {
+        m_Book->GetFolderKeeper()->BulkRemoveResources(resources);
+    } else {
+        foreach(Resource * resource, resources) {
+            resource->Delete();
+        }
     }
     emit ResourcesDeleted();
     emit BookContentModified();

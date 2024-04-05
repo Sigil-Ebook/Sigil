@@ -208,7 +208,7 @@ bool Resource::RenameTo(const QString &new_filename)
     return successful;
 }
 
-bool Resource::MoveTo(const QString &new_bookpath)
+bool Resource::MoveTo(const QString &new_bookpath, bool in_bulk)
 {
     QString new_path;
     bool successful = false;
@@ -221,7 +221,9 @@ bool Resource::MoveTo(const QString &new_bookpath)
     if (successful) {
         QString old_path = m_FullFilePath;
         m_FullFilePath = new_path;
-        emit Moved(this, old_path);
+        if (!in_bulk) {
+            emit Moved(this, old_path);
+        }
     }
 
     return successful;

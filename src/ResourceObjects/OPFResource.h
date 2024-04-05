@@ -176,6 +176,7 @@ public slots:
     void ResourceRenamed(const Resource *resource, QString old_full_path);
 
     void ResourceMoved(const Resource *resource, QString old_full_path);
+    void BulkResourcesMoved(const QHash<QString, Resource *> movedDict);
 
     void UpdateManifestProperties(const QList<Resource *> resources);
 

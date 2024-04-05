@@ -264,6 +264,7 @@ public slots:
 
     void BulkRemoveResources(const QList<Resource *> resources);
 
+    void BulkMoveResources(const QList<Resource *>resources, const QStringList &newpaths);
 
 private slots:
 
