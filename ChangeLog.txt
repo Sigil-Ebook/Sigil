@@ -1,3 +1,9 @@
+Pre-2.2.0
+    New Features
+    Bug Fixes
+      - add in Bulk Resource Move and use bulk delete to handle epubs of thousands of files
+      
+      
 Sigil-2.1.0
     New Features
       - assign menu accelerators P - &Plugins, and K - Chec&kpoints (thank you BeckyEbook)
