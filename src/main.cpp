@@ -411,6 +411,10 @@ int main(int argc, char *argv[])
     // QtWebEngine may need this
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
 
+    // handle other startup based on current settings and environment variables
+    SettingsStore settings;
+
+
 #if defined(Q_OS_WIN32)
     // Insert altgr and/or darkmode window decorations as needed
     QString current_env_str = Utility::GetEnvironmentVar("QT_QPA_PLATFORM");
@@ -443,10 +447,8 @@ int main(int argc, char *argv[])
     }
 #endif // QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 
-
     // if altgr is not already in the list of windows platform options, add it
-    SettingsStore ss;
-    if (ss.enableAltGr()) {
+    if (settings.enableAltGr()) {
         if (!current_platform_args.contains("altgr", Qt::CaseInsensitive)) {
             current_platform_args.append("altgr");
         }
@@ -476,12 +478,26 @@ int main(int argc, char *argv[])
         qputenv("QT_QPA_PLATFORM", new_args.toUtf8());
     }
 #endif
+    
 
+    // allow user to override the default Preview Timeout (integer in milliseconds)
+    QString new_timeout = Utility::GetEnvironmentVar("SIGIL_PREVIEW_TIMEOUT");
+    if (!new_timeout.isEmpty()) {
+        bool okay;
+        int timeout = new_timeout.toInt(&okay, 10);
+        if (!okay) {
+            timeout = 1000;
+        } else {
+            if (timeout < 1000) timeout = 1000;
+            if (timeout > 10000)timeout = 1000;
+        }
+        settings.setUIPreviewTimeout(timeout);
+    }
+    
     // enable disabling of gpu acceleration for QtWebEngine.
     // append to current environment variable contents as numerous chromium 
     // switches exist that may be useful
-    SettingsStore nss;
-    if (nss.disableGPU()) {
+    if (settings.disableGPU()) {
         QString current_flags = Utility::GetEnvironmentVar("QTWEBENGINE_CHROMIUM_FLAGS");
         if (current_flags.isEmpty()) {
             current_flags = "--disable-gpu";
@@ -497,7 +513,6 @@ int main(int argc, char *argv[])
     disableWindowTabbing();
     removeMacosSpecificMenuItems();
 #endif
-
 
     // Install an event filter for the application
     // so we can catch OS X's file open events
@@ -520,7 +535,6 @@ int main(int argc, char *argv[])
         app.addLibraryPath("imageformats");
 
         QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
-        SettingsStore settings;
 
         // Setup the qtbase_ translator and load the translation for the selected language
         QTranslator qtbaseTranslator;

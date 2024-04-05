@@ -4609,8 +4609,10 @@ void MainWindow::SetStateActionsStaticView()
 
 void MainWindow::SetupPreviewTimer()
 {
+    SettingsStore ss;
+    int tv = ss.uiPreviewTimeout();
     m_PreviewTimer.setSingleShot(true);
-    m_PreviewTimer.setInterval(1000);
+    m_PreviewTimer.setInterval(tv);
     connect(&m_PreviewTimer, SIGNAL(timeout()), this, SLOT(UpdatePreview()));
     m_PreviewTimer.stop();
 }
