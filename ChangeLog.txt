@@ -6,9 +6,10 @@ Pre-2.2.0
            default value: 1000, will be set once at Sigil startup.
 
     Bug Fixes
-      - add in Bulk Resource Move and use bulk delete to handle epubs of thousands of files
-      
-      
+      - add in Bulk Resource Move and use bulk delete to handle epubs with thousands of files
+      - In FR, if Replace has focus and Find done, CodeView should get focus (Thanks BeckyEbook)      
+
+
 Sigil-2.1.0
     New Features
       - assign menu accelerators P - &Plugins, and K - Chec&kpoints (thank you BeckyEbook)
