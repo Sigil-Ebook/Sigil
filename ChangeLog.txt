@@ -1,5 +1,10 @@
 Pre-2.2.0
     New Features
+      - reformating css with multiline now adds space after selector comma
+      - new environment variable added: SIGIL_PREVIEW_TIMEOUT
+           (in milliseconds) to control Preview updating intervals valid range 100 - 10000
+           default value: 1000, will be set once at Sigil startup.
+
     Bug Fixes
       - add in Bulk Resource Move and use bulk delete to handle epubs of thousands of files
       
