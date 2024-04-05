@@ -73,3 +73,16 @@ QToolBar::handle:vertical {
 QLabel#logo {
   qproperty-pixmap: url(:/dark/sigil_logo_blue.png);
 }
+
+QToolBarExtension {
+  image: url(:/dark/toolbar-extension-horizontal.svg);
+  border-radius: 2px;
+  min-width: 8px;
+  min-height: 8px;
+}
+
+QToolBarExtension::hover {
+  border: 1px solid rgb(36, 36, 36);
+  padding: -1px;
+  background-color: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop:0 rgba(73,73,73,255), stop:0.5 rgba(62,62,62,255))
+} 
