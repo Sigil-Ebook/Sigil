@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2021-2023 Kevin B. Hendricks, Stratford, Ontario, Canada
+ **  Copyright (C) 2021-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
  **
  **  This file is part of Sigil.
  **
@@ -60,7 +60,7 @@ CSSParser::CSSParser()
     // Used for serializing parsed css (multiline format)
     csstemplateM.push_back("  ");      //  0 - standard indentation
     csstemplateM.push_back(" {\n");    //  1 - bracket after @-rule
-    csstemplateM.push_back("");        //  2 - unused
+    csstemplateM.push_back(" ");       //  2 - space after "," in selector
     csstemplateM.push_back(" {\n");    //  3 - bracket after selector was "\n{\n"
     csstemplateM.push_back("");        //  4 - unused
     csstemplateM.push_back(" ");       //  5 - string after property before value
@@ -76,7 +76,7 @@ CSSParser::CSSParser()
     // Used for serializing parsed css (single line format)
     csstemplate1.push_back("");        //  0 - standard indentation
     csstemplate1.push_back("{");       //  1 - bracket after @-rule
-    csstemplate1.push_back("");        //  2 - unused
+    csstemplate1.push_back("");        //  2 - space after "," in selector
     csstemplate1.push_back("{");       //  3 - bracket after selector was "\n{\n"
     csstemplate1.push_back("");        //  4 - unused
     csstemplate1.push_back("");        //  5 - string after property before value
@@ -342,7 +342,9 @@ QString CSSParser::serialize_css(bool tostdout, bool multiline)
 
             case SEL_START:
                 indent = CSSUtils::indent(lvl, csstemplate[0]);
-                output << indent << csstokens[i].data << csstemplate[3];
+                output << indent
+                       << CSSUtils::implode("," + csstemplate[2], CSSUtils::explode(",", csstokens[i].data, false))
+                       << csstemplate[3];
                 lvl++;
                 break;
 
