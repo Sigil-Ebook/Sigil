@@ -176,19 +176,31 @@ void FindReplace::SetUpFindText()
 
     // Find text should be selected by default
     ui.cbFind->lineEdit()->selectAll();
-    SetFocus();
+    SetFocusFind();
 }
 
 
-void FindReplace::SetFocus()
+void FindReplace::SetFocusFind()
 {
     ui.cbFind->lineEdit()->setFocus(Qt::ShortcutFocusReason);
 }
 
 
-bool FindReplace::HasFocus()
+void FindReplace::SetFocusReplace()
+{
+    ui.cbReplace->lineEdit()->setFocus(Qt::ShortcutFocusReason);
+}
+
+
+bool FindReplace::HasFocusFind()
 {
     return ui.cbFind->lineEdit()->hasFocus();
+}
+
+
+bool FindReplace::HasFocusReplace()
+{
+    return ui.cbReplace->lineEdit()->hasFocus();
 }
 
 
@@ -909,10 +921,16 @@ bool FindReplace::ReplaceText(Searchable::Direction direction, bool replace_curr
 
 void FindReplace::SetCodeViewIfNeeded()
 {
-    bool has_focus = HasFocus();
-    if (has_focus) {
+    if (HasFocusFind()) {
         // give the current tab CodeView Tab the focus
         ui.cbFind->lineEdit()->clearFocus();
+        ContentTab * current_tab = m_MainWindow->GetCurrentContentTab();
+        if (current_tab) current_tab->setFocus();
+        return;
+    }
+    if (HasFocusReplace()) {
+        // give the current tab CodeView Tab the focus
+        ui.cbReplace->lineEdit()->clearFocus();
         ContentTab * current_tab = m_MainWindow->GetCurrentContentTab();
         if (current_tab) current_tab->setFocus();
     }
@@ -1205,7 +1223,9 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
             DBG qDebug() << " .. which is " << containing_resource->GetRelativePath();
 
             // Save if editor or F&R has focus
-            bool has_focus = HasFocus();
+            bool has_focus_find = HasFocusFind();
+            bool has_focus_replace = HasFocusReplace();
+            
             // Save selected resources since opening tabs changes selection
             QList<Resource *>selected_resources = m_MainWindow->GetBookBrowserSelectedResources();
 
@@ -1220,9 +1240,8 @@ bool FindReplace::FindInAllFiles(Searchable::Direction direction)
             }
 
             // Reset focus to F&R if it had it
-            if (has_focus) {
-                SetFocus();
-            }
+            if (has_focus_find) SetFocusFind();
+            if (has_focus_replace) SetFocusReplace();
 
             searchable = GetAvailableSearchable();
 

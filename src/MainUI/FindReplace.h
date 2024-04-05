@@ -336,8 +336,10 @@ private:
      */
     void ConnectSignalsToSlots();
 
-    void SetFocus();
-    bool HasFocus();
+    void SetFocusFind();
+    void SetFocusReplace();
+    bool HasFocusFind();
+    bool HasFocusReplace();
 
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
