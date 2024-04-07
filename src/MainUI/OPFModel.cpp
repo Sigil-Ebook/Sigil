@@ -348,62 +348,86 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QStringList not_renamed;
     QHash<QString, QString> update;
+    QList<Resource*> bulk_rename;
+    QStringList newnames;
+    QStringList oldpaths;
     SettingsStore ss;
     int i = 0;
     foreach(Resource * resource, resources) {
-        QString old_bookpath = resource->GetRelativePath();
-        QString old_filename = resource->Filename();
-        QString extension = old_filename.right(old_filename.length() - old_filename.lastIndexOf('.'));
-
-        QString new_filename = new_filenames.at(i++);
-        QString new_filename_with_extension = new_filename;
+        QString oldbookpath = resource->GetRelativePath();
+        QString oldfilename = resource->Filename();
+        QString extension = oldfilename.right(oldfilename.length() - oldfilename.lastIndexOf('.'));
+        QString newfilename = new_filenames.at(i++);
+        QString newfilename_with_extension = newfilename;
 
         // do not rename files in META-INF
-        if (old_bookpath.startsWith("META-INF/")) continue;
+        if (oldbookpath.startsWith("META-INF/")) continue;
 
-        if (!new_filename.contains('.')) {
-            new_filename_with_extension.append(extension);
+        if (!newfilename.contains('.')) {
+            newfilename_with_extension.append(extension);
         }
 
-        if (old_filename == new_filename_with_extension) {
+        if (oldfilename == newfilename_with_extension) {
             continue;
         }
 
-        if (!FilenameIsValid(old_bookpath, new_filename_with_extension)) {
+        if (!FilenameIsValid(oldbookpath, newfilename_with_extension)) {
             if (ss.showFullPathOn()) {
                 not_renamed.append(resource->GetRelativePath());
             } else {
                 not_renamed.append(resource->ShortPathName());
             }
-
             continue;
         }
 
-        bool rename_success = false;
         // special case the OPFResource and the NCXResource
         if (resource->Type() == Resource::OPFResourceType) {
             OPFResource* opfres = qobject_cast<OPFResource*>(resource);
             if (opfres) {
-                rename_success = opfres->RenameTo(new_filename_with_extension);
-            }
-        } else if (resource->Type() == Resource::NCXResourceType) {
-            NCXResource* ncxres = qobject_cast<NCXResource*>(resource);
-            if (ncxres) {
-                rename_success = ncxres->RenameTo(new_filename_with_extension);
-            }
-        } else {
-            rename_success = resource->RenameTo(new_filename_with_extension);
-        }
-        if (!rename_success) {
-            if (ss.showFullPathOn()) {
-                not_renamed.append(resource->GetRelativePath());
-            } else {
-                not_renamed.append(resource->ShortPathName());
+                if (opfres->RenameTo(newfilename_with_extension)) {
+                    QString newbookpath = opfres->GetRelativePath();
+                    resource->SetCurrentBookRelPath(oldbookpath);
+                    update[ oldbookpath ] = newbookpath;
+                } else {
+                    not_renamed.append(oldbookpath);
+                }
             }
             continue;
         }
 
-        update[ old_bookpath ] = resource->GetRelativePath();
+        if (resource->Type() == Resource::NCXResourceType) {
+            NCXResource* ncxres = qobject_cast<NCXResource*>(resource);
+            if (ncxres) {
+                if (ncxres->RenameTo(newfilename_with_extension)) {
+                    QString newbookpath = ncxres->GetRelativePath();
+                    resource->SetCurrentBookRelPath(oldbookpath);
+                    update[ oldbookpath ] = newbookpath;
+                } else {
+                    not_renamed.append(oldbookpath);
+                }
+            }
+            continue;
+        }
+
+        // otherwise add it to the bulk rename list
+        bulk_rename << resource;
+        newnames << newfilename_with_extension;
+        oldpaths << oldbookpath;
+    }
+
+    if (bulk_rename.size() > 0) {
+         m_Book->GetFolderKeeper()->BulkRenameResources(bulk_rename, newnames);
+        // add these resources to the update map if successfully renamed
+        for (int i=0; i < bulk_rename.size(); i++) {
+            Resource* rsc = bulk_rename.at(i);
+            if (rsc->GetRelativePath() != oldpaths.at(i)) {
+                // it was renamed successfully
+                rsc->SetCurrentBookRelPath(oldpaths.at(i));
+                update[ oldpaths.at(i) ] = rsc->GetRelativePath();
+            } else {
+                not_renamed.append(oldpaths.at(i));
+            }
+        }
     }
 
     if (update.count() > 0) {
@@ -420,6 +444,7 @@ bool OPFModel:: RenameResourceList(const QList<Resource *> &resources, const QSt
 
     return false;
 }
+
 
 bool OPFModel::MoveResourceList(const QList<Resource *> &resources, const QStringList &new_bookpaths)
 {
@@ -765,10 +790,21 @@ bool OPFModel::FilenameIsValid(const QString &old_bookpath, const QString &new_f
     QString sdir = Utility::startingDir(old_bookpath);
     QString proposed_bookpath = sdir.isEmpty() ? new_filename : sdir + "/" + new_filename;
     const QStringList existing_bookpaths = m_Book->GetFolderKeeper()->GetAllBookPaths();
+    // Using QFileInfo is slow so pretest with a much faster method before using it
     if (existing_bookpaths.contains(proposed_bookpath, Qt::CaseInsensitive)) {
-        Utility::DisplayStdErrorDialog(
-            tr("The filename \"%1\" is already in use.\n").arg(new_filename));
-        return false;
+        // potential issue on filesystems that are case insensitive
+        QString FullPathToMainFolder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
+        QString orig_full_path = FullPathToMainFolder + "/" + old_bookpath;
+        QString proposed_full_path = FullPathToMainFolder + "/" + proposed_bookpath;
+        if (QFileInfo::exists(proposed_full_path)) {
+            // return false if orig_full_path and proposed_full_path are different files
+            // but allow through case only variationss from case insensitive filesystems
+            if (QFileInfo(orig_full_path) != QFileInfo(proposed_full_path)) {
+                Utility::DisplayStdErrorDialog(
+                    tr("The filename \"%1\" is already in use.\n").arg(new_filename));
+                return false;
+            }
+        }
     }
     return true;
 }

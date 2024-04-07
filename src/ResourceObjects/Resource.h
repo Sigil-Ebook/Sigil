@@ -194,7 +194,7 @@ public:
      * @param new_filename The new name.
      * @return \c true if the operation was successful.
      */
-    virtual bool RenameTo(const QString &new_filename);
+    virtual bool RenameTo(const QString &new_filename, bool in_bulk=false);
 
 
     /**

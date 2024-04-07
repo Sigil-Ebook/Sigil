@@ -1277,6 +1277,33 @@ void OPFResource::BulkResourcesMoved(const QHash<QString, Resource *> movedDict)
 }
 
 
+void OPFResource::BulkResourcesRenamed(const QHash<QString, Resource *> renamedDict)
+{
+    QWriteLocker locker(&GetLock());
+    QString opf_start_dir = Utility::startingDir(GetRelativePath());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+
+    // a rename should not impact the id so leave the old unique manifest id unchanged
+    for (int i=0; i < p.m_manifest.count(); ++i) {
+        QString href = p.m_manifest.at(i).m_href;
+        QString bookpath = Utility::buildBookPath(href, opf_start_dir);
+        if (renamedDict.contains(bookpath)) {
+            Resource * resource = renamedDict[bookpath];
+            ManifestEntry me = p.m_manifest.at(i);
+            QString old_me_href = me.m_href;
+            me.m_href = Utility::URLEncodePath(GetRelativePathToResource(resource));
+            p.m_idpos[me.m_id] = i;
+            p.m_hrefpos.remove(old_me_href);
+            p.m_hrefpos[me.m_href] = i;
+            p.m_manifest.replace(i, me);
+        }
+    }
+    UpdateText(p);
+}
+
+
 int OPFResource::GetCoverMeta(const OPFParser& p) const
 {
     for (int i = 0; i < p.m_metadata.count(); ++i) {

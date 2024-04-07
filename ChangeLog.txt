@@ -5,9 +5,11 @@ Pre-2.2.0
            (in milliseconds) to control Preview updating intervals valid range 100 - 10000
            default value: 1000, will be set once at Sigil startup.
       - Add new Find and Replace targets: Selected SVG files, Selected Javascript Files, and Selected Misc XML
+      - Add ability to rename files when new name is just a case variant on case insensitive filesystems
 
     Bug Fixes
       - add in Bulk Resource Move and use bulk delete to handle epubs with thousands of files
+      - add in Bulk Resource Rename to handle epubs with thousands of files
       - In FR, if Replace has focus and Find done, CodeView should get focus (Thanks BeckyEbook)
       - Fix dark mode Toolbar continuation symbols for Windows (Thank you BeckyEbook)
       

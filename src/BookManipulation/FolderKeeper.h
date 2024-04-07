@@ -266,6 +266,8 @@ public slots:
 
     void BulkMoveResources(const QList<Resource *>resources, const QStringList &newpaths);
 
+    void BulkRenameResources(const QList<Resource *> resources, const QStringList &newnames);
+                                                                                         
 private slots:
 
     /**
