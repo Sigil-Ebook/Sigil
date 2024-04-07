@@ -4,6 +4,7 @@ Pre-2.2.0
       - new environment variable added: SIGIL_PREVIEW_TIMEOUT
            (in milliseconds) to control Preview updating intervals valid range 100 - 10000
            default value: 1000, will be set once at Sigil startup.
+      - Add new Find and Replace targets: Selected SVG files, Selected Javascript Files, and Selected Misc XML
 
     Bug Fixes
       - add in Bulk Resource Move and use bulk delete to handle epubs with thousands of files

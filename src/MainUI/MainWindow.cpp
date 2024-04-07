@@ -1424,6 +1424,24 @@ QList <Resource *> MainWindow::GetValidSelectedCSSResources()
 }
 
 
+QList <Resource *> MainWindow::GetValidSelectedSVGResources()
+{
+    return m_BookBrowser->ValidSelectedSVGResources();
+}
+
+
+QList <Resource *> MainWindow::GetValidSelectedJSResources()
+{
+    return m_BookBrowser->ValidSelectedJSResources();
+}
+
+
+QList <Resource *> MainWindow::GetValidSelectedMiscXMLResources()
+{
+    return m_BookBrowser->ValidSelectedMiscXMLResources();
+}
+
+
 QList <Resource*> MainWindow::GetTabbedHTMLResources()
 {
     return m_TabManager->GetTabResourcesOfType(Resource::HTMLResourceType);

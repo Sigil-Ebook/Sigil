@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2024 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2021 Doug Massay
 **
 **  This file is part of Sigil.
@@ -126,6 +126,12 @@ void Controls::UpdateSearchControls(const QString &text)
         SetLookWhere("OP");
     } else if (text.contains("NX")) {
         SetLookWhere("NX");
+    } else if (text.contains("SV")) {
+        SetLookWhere("SV");
+    } else if (text.contains("SJ")) {
+        SetLookWhere("SJ");
+    } else if (text.contains("SX")) {
+        SetLookWhere("SX");
     }
 
     // Search Direction
@@ -342,6 +348,15 @@ void Controls::ExtendUI()
 
     ui.cbLookWhere->addItem(tr("NCX File"), "NX");
     look_tooltip += "<dt><b>" + tr("NCX File") + "</b><dd>" + tr("Restrict the find or replace to the NCX file.") + "</dd>";
+
+    ui.cbLookWhere->addItem(tr("Selected SVG Files"), "SV");
+    look_tooltip += "<dt><b>" + tr("Selected SVG Files") + "</b><dd>" + tr("Restrict the find or replace to the SVG files selected in the Book Browser in Code View.") + "</dd>";
+
+    ui.cbLookWhere->addItem(tr("Selected Javascript Files"), "SJ");
+    look_tooltip += "<dt><b>" + tr("Selected JS Files") + "</b><dd>" + tr("Restrict the find or replace to the JS files selected in the Book Browser in Code View.") + "</dd>";
+
+    ui.cbLookWhere->addItem(tr("Selected Misc XML Files"), "SX");
+    look_tooltip += "<dt><b>" + tr("Selected Misc XML Files") + "</b><dd>" + tr("Restrict the find or replace to other XML files selected in the Book Browser under the Misc Folder in Code View.") + "</dd>";
 
     look_tooltip += "</dl>";
     ui.cbLookWhere->setToolTip(look_tooltip);

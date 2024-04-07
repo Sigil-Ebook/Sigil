@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2011-2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -60,7 +60,10 @@ public:
         LookWhere_SelectedCSSFiles,
         LookWhere_TabbedCSSFiles,
         LookWhere_OPFFile,
-        LookWhere_NCXFile
+        LookWhere_NCXFile,
+        LookWhere_SelectedSVGFiles,
+        LookWhere_SelectedJSFiles,
+        LookWhere_SelectedMiscXMLFiles
     };
 
     enum SearchMode {
@@ -87,6 +90,9 @@ public:
      */
     bool isWhereHTML();
     bool isWhereCSS();
+    bool isWhereSVG();
+    bool isWhereJS();
+    bool isWhereMiscXML();
     bool isWhereSelected();
     bool isWhereAll();
     bool isWhereOPF() { return GetLookWhere() == LookWhere_OPFFile; };

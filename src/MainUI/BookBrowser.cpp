@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -355,6 +355,36 @@ QList <Resource *> BookBrowser::ValidSelectedCSSResources()
     return ValidSelectedResources(Resource::CSSResourceType);
 }
 
+QList <Resource *> BookBrowser::ValidSelectedSVGResources()
+{
+    return ValidSelectedResources(Resource::SVGResourceType);
+}
+
+QList <Resource *> BookBrowser::ValidSelectedJSResources()
+{
+    QStringList mts = QStringList() << "application/javscript" <<
+                                       "text/javascript" <<
+                                       "application/x-javscript" <<
+                                       "application/ecmacript";
+    return ValidSelectedResourcesByMT(mts);
+}
+
+QList <Resource *> BookBrowser::ValidSelectedMiscXMLResources()
+{
+    QStringList mts = QStringList() << "application/ttml+xml" <<
+                                       "application/smil+xml" <<
+                                       "application/smil" <<
+                                       "application/pls+xml" <<
+                                       "application/oebps-page-map+xml" <<
+                                       "application/vnd.adobe-page-map+xml" <<
+                                       "application/adobe-page-template+xml" <<
+                                       "application/vnd.adobe-page-template+xml" <<
+                                       "application/xml" <<
+                                       "text/xml";
+    return ValidSelectedResourcesByMT(mts);
+}
+
+
 QList <Resource *> BookBrowser::AllHTMLResources()
 {
     return m_OPFModel->GetResourceListInFolder(Resource::HTMLResourceType);
@@ -391,6 +421,18 @@ QList <Resource *> BookBrowser::ValidSelectedResources(Resource::ResourceType re
     foreach(Resource *resource, resources) {
         if (resource->Type() != resource_type) {
             resources.clear();
+        }
+    }
+    return resources;
+}
+
+QList <Resource *> BookBrowser::ValidSelectedResourcesByMT(QStringList &mts)
+{
+    QList <Resource *> resources = ValidSelectedResources();
+    foreach(Resource *resource, resources) {
+
+        if (!mts.contains(resource->GetMediaType())) {
+            resources.removeOne(resource);
         }
     }
     return resources;

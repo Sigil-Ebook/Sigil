@@ -1,6 +1,6 @@
 /***************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2011-2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -62,7 +62,8 @@ static const int SHOW_FIND_RESULTS_MESSAGE_DELAY_MS = 20000;
 
 // mappings from LookWhere, Search, and Direction enums to Controls code
 // Must be kept in sync with those enums
-static const QStringList TGTS = QStringList() << "CF" << "AH" << "SH" << "TH" << "AC" << "SC" << "TC" << "OP" << "NX";
+static const QStringList TGTS = QStringList() << "CF" << "AH" << "SH" << "TH" << "AC" << "SC" <<
+                                                 "TC" << "OP" << "NX" << "SV" << "SJ" << "SX";
 static const QStringList MDS = QStringList() << "NL" << "CS" << "RX";
 static const QStringList DRS = QStringList() << "DN" << "UP";
 
@@ -222,13 +223,32 @@ QString FindReplace::GetControls()
 bool FindReplace::isSearchXML()
 {
     if (isWhereHTML() || isWhereOPF() || isWhereNCX()) return true;
-    if (isWhereCSS()) return false;
+    if (isWhereSVG() || isWhereMiscXML()) return true;
+    if (isWhereCSS() || isWhereJS()) return false;
     if (isWhereCF() || m_LookWhereCurrentFile) {
         Resource * current_resource = GetCurrentResource();
         QString mt = current_resource->GetMediaType();
-        if (mt.endsWith("+xml")) return true;
+        if (mt.endsWith("+xml") || mt == "application/xml" || mt == "text/xml") return true;
     }
     return false;
+}
+
+
+bool FindReplace::isWhereSVG()
+{
+    return GetLookWhere() == FindReplace::LookWhere_SelectedSVGFiles;
+}
+
+
+bool FindReplace::isWhereJS()
+{
+    return GetLookWhere() == FindReplace::LookWhere_SelectedJSFiles;
+}
+
+
+bool FindReplace::isWhereMiscXML()
+{
+    return GetLookWhere() == FindReplace::LookWhere_SelectedMiscXMLFiles;
 }
 
 
@@ -256,6 +276,9 @@ bool FindReplace::isWhereSelected()
         (GetLookWhere() == FindReplace::LookWhere_TabbedHTMLFiles) ||
         (GetLookWhere() == FindReplace::LookWhere_SelectedCSSFiles) ||
         (GetLookWhere() == FindReplace::LookWhere_TabbedCSSFiles) ||
+        (GetLookWhere() == FindReplace::LookWhere_SelectedSVGFiles) ||
+        (GetLookWhere() == FindReplace::LookWhere_SelectedJSFiles) ||
+        (GetLookWhere() == FindReplace::LookWhere_SelectedMiscXMLFiles) ||
         (GetLookWhere() == FindReplace::LookWhere_OPFFile) ||
         (GetLookWhere() == FindReplace::LookWhere_NCXFile)) return true;
     return false;
@@ -1085,6 +1108,15 @@ QList <Resource *> FindReplace::GetFilesToSearch(bool force_all)
 
     } else if (GetLookWhere() == FindReplace::LookWhere_NCXFile) {
         all_resources = m_MainWindow->GetNCXResource();
+
+    } else if (GetLookWhere() == FindReplace::LookWhere_SelectedSVGFiles) {
+        all_resources = m_MainWindow->GetValidSelectedSVGResources();
+
+    } else if (GetLookWhere() == FindReplace::LookWhere_SelectedCSSFiles) {
+        all_resources = m_MainWindow->GetValidSelectedJSResources();
+
+    } else if (GetLookWhere() == FindReplace::LookWhere_SelectedCSSFiles) {
+        all_resources = m_MainWindow->GetValidSelectedMiscXMLResources();
     }
 
     // special case an empty list or force all
@@ -1496,6 +1528,12 @@ void FindReplace::UpdateSearchControls(const QString &text)
         SetLookWhere(FindReplace::LookWhere_OPFFile);
     } else if (text.contains("NX")) {
         SetLookWhere(FindReplace::LookWhere_NCXFile);
+    } else if (text.contains("SV")) {
+        SetLookWhere(FindReplace::LookWhere_SelectedSVGFiles);
+    } else if (text.contains("SJ")) {
+        SetLookWhere(FindReplace::LookWhere_SelectedJSFiles);
+    } else if (text.contains("SX")) {
+        SetLookWhere(FindReplace::LookWhere_SelectedMiscXMLFiles);
     }
 
     // Search Direction
@@ -1546,6 +1584,9 @@ FindReplace::LookWhere FindReplace::GetLookWhere()
         case FindReplace::LookWhere_TabbedCSSFiles:
         case FindReplace::LookWhere_OPFFile:
         case FindReplace::LookWhere_NCXFile:
+        case FindReplace::LookWhere_SelectedSVGFiles:
+        case FindReplace::LookWhere_SelectedJSFiles:
+        case FindReplace::LookWhere_SelectedMiscXMLFiles:
             return static_cast<FindReplace::LookWhere>(look);
             break;
 
@@ -2169,6 +2210,15 @@ void FindReplace::ExtendUI()
 
     ui.cbLookWhere->addItem(tr("NCX File"), FindReplace::LookWhere_NCXFile);
     look_tooltip += "<dt><b>" + tr("NCX File") + "</b><dd>" + tr("Restrict the find or replace to the NCX file.") + "</dd>";
+
+    ui.cbLookWhere->addItem(tr("Selected SVG Files"), FindReplace::LookWhere_SelectedSVGFiles);
+    look_tooltip += "<dt><b>" + tr("Selected SVG Files") + "</b><dd>" + tr("Restrict the find or replace to the SVG files selected in the Book Browser in Code View.") + "</dd>";
+
+    ui.cbLookWhere->addItem(tr("Selected Javascript Files"), FindReplace::LookWhere_SelectedJSFiles);
+    look_tooltip += "<dt><b>" + tr("Selected JS Files") + "</b><dd>" + tr("Restrict the find or replace to the JS files selected in the Book Browser in Code View.") + "</dd>";
+
+    ui.cbLookWhere->addItem(tr("Selected Misc XML Files"), FindReplace::LookWhere_SelectedMiscXMLFiles);
+    look_tooltip += "<dt><b>" + tr("Selected Misc XML Files") + "</b><dd>" + tr("Restrict the find or replace to the XML files selected in the Misc folder of the Book Browser in Code View.") + "</dd>";
 
     look_tooltip += "</dl>";
     look_tooltip += "<p>" + tr("To restrict search to selected text, use Search&rarr;Mark Selected Text.") + "</p>";
