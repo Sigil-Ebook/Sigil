@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2022 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2022-2024 Kevin B. Hendricks, Stratford, Ontario
 **
 **  This file is part of Sigil.
 **
@@ -106,6 +106,9 @@ void CountsReport::SetupTable(int sort_column, Qt::SortOrder sort_order)
         if (controls.contains("TC")) target = tr("Tabbed CSS Files");
         if (controls.contains("OP")) target = tr("OPF File");
         if (controls.contains("NX")) target = tr("NCX File");
+        if (controls.contains("SV")) target = tr("Selected SVG Files");
+        if (controls.contains("SJ")) target = tr("Selected Javascript Files");
+        if (controls.contains("SX")) target = tr("Selected Other XML Files");
         QList<QStandardItem *> rowItems;
         QStandardItem *item;
         // Full Name
