@@ -8,7 +8,9 @@ Pre-2.2.0
 
     Bug Fixes
       - add in Bulk Resource Move and use bulk delete to handle epubs with thousands of files
-      - In FR, if Replace has focus and Find done, CodeView should get focus (Thanks BeckyEbook)      
+      - In FR, if Replace has focus and Find done, CodeView should get focus (Thanks BeckyEbook)
+      - Fix dark mode Toolbar continuation symbols for Windows (Thank you BeckyEbook)
+      
 
 
 Sigil-2.1.0
