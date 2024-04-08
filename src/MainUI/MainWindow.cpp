@@ -6163,8 +6163,10 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionZoomOut, "MainWindow.ZoomOut");
     sm->registerAction(this, ui.actionZoomReset, "MainWindow.ZoomReset");
     sm->registerAction(this, m_BookBrowser->toggleViewAction(), "MainWindow.BookBrowser");
-    sm->registerAction(this, m_ValidationResultsView->toggleViewAction(), "MainWindow.ValidationResults");
+    sm->registerAction(this, m_Clips->toggleViewAction(), "MainWindow.ClipsWindow");
+    sm->registerAction(this, m_PreviewWindow->toggleViewAction(), "MainWindow.PreviewWindow");
     sm->registerAction(this, m_TableOfContents->toggleViewAction(), "MainWindow.TableOfContents");
+    sm->registerAction(this, m_ValidationResultsView->toggleViewAction(), "MainWindow.ValidationResults");
     // Window
     sm->registerAction(this, ui.actionNextTab, "MainWindow.NextTab");
     sm->registerAction(this, ui.actionPreviousTab, "MainWindow.PreviousTab");
