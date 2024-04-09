@@ -204,6 +204,8 @@ bool Resource::RenameTo(const QString &new_filename, bool in_bulk)
         SetShortPathName(new_filename);
         if (!in_bulk) {
             emit Renamed(this, old_path);
+        } else {
+            emit TellTabUpdateName(this, old_path);
         }
     }
 
@@ -225,6 +227,8 @@ bool Resource::MoveTo(const QString &new_bookpath, bool in_bulk)
         m_FullFilePath = new_path;
         if (!in_bulk) {
             emit Moved(this, old_path);
+        } else {
+            emit TellTabUpdateName(this, old_path);
         }
     }
 

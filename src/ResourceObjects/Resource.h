@@ -245,12 +245,18 @@ signals:
     void Renamed(const Resource *resource, QString old_full_path);
 
     /**
+     * Emitted whena resource is renamed or moved under builk mode
+     *
+     */
+    void TellTabUpdateName(const Resource *resource, QString old_full_path);
+
+    /**
      * Emitted whenever the resource changes location.
      *
      * @param resource The resource's that was moved.
      */
     void Moved(const Resource *resource, QString old_full_path);
-
+        
     /**
      * Emitted when the resource has been scheduled for deletion.
      *
