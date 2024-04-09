@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2023  Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2016-2024  Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2016-2023  Doug Massay
 **  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013  Dave Heiland
@@ -47,6 +47,7 @@ static QString KEY_UI_FONT = SETTINGS_GROUP + "/" + "ui_font";
 static QString KEY_ORIGINAL_UI_FONT = SETTINGS_GROUP + "/" + "original_ui_font";
 static QString KEY_UI_ICON_THEME = SETTINGS_GROUP + "/" + "ui_icon_theme";
 static QString KEY_UI_PREVIEW_TIMEOUT = SETTINGS_GROUP + "/" + "ui_preview_timeout";
+static QString KEY_UI_HIGHLIGHT_FOCUS_WIDGET = SETTINGS_GROUP + "/" + "ui_highlight_focus_widget";
 static QString KEY_DRAG_DISTANCE_TWEAK = SETTINGS_GROUP + "/" + "drag_distance_tweak";
 static QString KEY_ZOOM_IMAGE = SETTINGS_GROUP + "/" + "zoom_image";
 static QString KEY_ZOOM_TEXT = SETTINGS_GROUP + "/" + "zoom_text";
@@ -180,12 +181,20 @@ QString SettingsStore::uiIconTheme()
     return value(KEY_UI_ICON_THEME, "main").toString();
 }
 
+
 int SettingsStore::uiPreviewTimeout()
 {
     clearSettingsGroup();
     return value(KEY_UI_PREVIEW_TIMEOUT, 1000).toInt();
 }
 
+bool SettingsStore::uiHighlightFocusWidgetEnabled()
+{
+    clearSettingsGroup();
+    return value(KEY_UI_HIGHLIGHT_FOCUS_WIDGET, false).toBool();
+   
+}
+    
 int SettingsStore::uiDragDistanceTweak()
 {
     clearSettingsGroup();
@@ -562,6 +571,11 @@ void SettingsStore::setUIPreviewTimeout(int timeout)
     setValue(KEY_UI_PREVIEW_TIMEOUT, timeout);
 }
 
+void SettingsStore::setUIHighlightFocusWidget(bool enable)
+{
+    clearSettingsGroup();
+    setValue(KEY_UI_HIGHLIGHT_FOCUS_WIDGET, enable);
+}
 
 void SettingsStore::setUiDragDistanceTweak(int tweak)
 {

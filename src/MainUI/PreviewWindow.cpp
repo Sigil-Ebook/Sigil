@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024  Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2019-2023  Doug Massay
 **  Copyright (C) 2012       Dave Heiland, John Schember
 **
@@ -69,6 +69,7 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     :
     QDockWidget(tr("Preview"), parent),
     m_MainWidget(new QWidget(this)),
+    m_wrapper(new QWidget(m_MainWidget)),
     m_Layout(new QVBoxLayout(m_MainWidget)),
     m_buttons(new QHBoxLayout()),
     m_overlayBase(new OverlayHelperWidget(this)),
@@ -91,6 +92,7 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     SetupOverlayTimer();
     LoadSettings();
     ConnectSignalsToSlots();
+    setFocusPolicy(Qt::StrongFocus);
 }
 
 PreviewWindow::~PreviewWindow()
@@ -163,6 +165,7 @@ void PreviewWindow::hideEvent(QHideEvent * event)
     }
 }
 
+
 void PreviewWindow::showEvent(QShowEvent * event)
 {
     // perform the show for all children of this widget
@@ -174,6 +177,7 @@ void PreviewWindow::showEvent(QShowEvent * event)
     raise();
     emit Shown();
 }
+
 
 void PreviewWindow::paintEvent(QPaintEvent *event)
 {
@@ -240,8 +244,17 @@ void PreviewWindow::SetupView()
     if (fp) fp->installEventFilter(this);
 #endif
 
+    // use a QWidget wrapper around the QWebEnginePreview
+    // with a single pixel margin to use as focus indicator
+    m_wrapper->setObjectName("PreviewWrapper");
+    m_wrapper->setFocusProxy(m_Preview);
+    // m_wrapper->setAttribute(Qt::WA_StyledBackground, true);
+    QVBoxLayout * wl = new QVBoxLayout(m_wrapper);
+    wl->setContentsMargins(1,1,1,1);
+    wl->addWidget(m_Preview);
+
     m_Layout->setContentsMargins(0, 0, 0, 0);
-    m_Layout->addWidget(m_Preview);
+    m_Layout->addWidget(m_wrapper);
 
     m_inspectAction = new QAction(QIcon(":/main/inspect.svg"),"", this);
     m_inspectAction ->setEnabled(true);
@@ -279,14 +292,10 @@ void PreviewWindow::SetupView()
     tb->addAction(m_webviewPrint);
     tb->addWidget(m_progress);
 
+    m_buttons->setContentsMargins(0,0,0,0);
     m_buttons->addWidget(tb);
     m_Layout->addLayout(m_buttons);
-
-    m_MainWidget->setLayout(m_Layout);
     setWidget(m_MainWidget);
-
-    m_Preview->Zoom();
-
     QApplication::restoreOverrideCursor();
 }
 
@@ -540,6 +549,20 @@ void PreviewWindow::EmitGoToPreviewLocationRequest()
 bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
 {
   switch (event->type()) {
+    case QEvent::FocusIn:
+      // track focus in change events of m_Preview (or one of its child focus proxies)
+      if (m_use_focus_highlight) {
+          m_wrapper->setStyleSheet("border: 1px solid red;");
+      }
+      DBG qDebug() << "focus in event: " << object;
+      break;
+    case QEvent::FocusOut:
+      // track focus out change events of m_Preview (or one of its child focus proxies)
+      if (m_use_focus_highlight) {
+          m_wrapper->setStyleSheet("");
+      }
+      DBG qDebug() << "focus out event: " << object;
+      break;
     case QEvent::ChildAdded:
       if (object == m_Preview) {
           DBG qDebug() << "child add event";
@@ -704,9 +727,10 @@ void PreviewWindow::setProgress(int val)
 void PreviewWindow::LoadSettings()
 {
     SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
+    m_use_focus_highlight = settings.uiHighlightFocusWidgetEnabled();
+    // settings.beginGroup(SETTINGS_GROUP);
     // m_Layout->restoreState(settings.value("layout").toByteArray());
-    settings.endGroup();
+    // settings.endGroup();
 }
 
 void PreviewWindow::ConnectSignalsToSlots()

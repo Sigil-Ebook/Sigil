@@ -112,8 +112,9 @@ signals:
 protected:
     virtual void hideEvent(QHideEvent* event);
     virtual void showEvent(QShowEvent* event);
-    void resizeEvent(QResizeEvent * event);
+    virtual void resizeEvent(QResizeEvent * event);
 
+    
     /**
      * Reimplemented from QDockWidget to enable setTitleText()
      * @param event The underlying QPaintEvent.
@@ -131,6 +132,7 @@ private:
     const QString titleText();
 
     QWidget *m_MainWidget;
+    QWidget *m_wrapper;
     QVBoxLayout *m_Layout;
     QHBoxLayout *m_buttons;
     OverlayHelperWidget *m_overlayBase;
@@ -161,6 +163,7 @@ private:
 
     bool m_skipPrintPreview;
     WebViewPrinter *m_WebViewPrinter;
+    bool m_use_focus_highlight;
 };
 
 #endif // PREVIEWWINDOW_H

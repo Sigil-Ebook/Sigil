@@ -478,7 +478,6 @@ int main(int argc, char *argv[])
         qputenv("QT_QPA_PLATFORM", new_args.toUtf8());
     }
 #endif
-    
 
     // allow user to override the default Preview Timeout (integer in milliseconds)
     QString new_timeout = Utility::GetEnvironmentVar("SIGIL_PREVIEW_TIMEOUT");
@@ -650,7 +649,18 @@ int main(int argc, char *argv[])
         }
 #endif
         // End of UI font stuff
-
+        
+        // allow user to highlight focus widget
+        QString focus_highlight  = Utility::GetEnvironmentVar("SIGIL_HIGHLIGHT_FOCUS_WIDGET");
+        if (focus_highlight.isEmpty()) {
+            settings.setUIHighlightFocusWidget(false);
+        } else {
+            settings.setUIHighlightFocusWidget(true);
+	    QString current_stylesheet = app.styleSheet();
+            current_stylesheet.append(":focus { border: 1px solid red; } }");
+            app.setStyleSheet(current_stylesheet);
+        }
+        
         // Check for existing qt_styles.qss in Prefs dir and load it if present
         QString qt_stylesheet_path = Utility::DefinePrefsDir() + "/qt_styles.qss";
         QFileInfo QtStylesheetInfo(qt_stylesheet_path);
