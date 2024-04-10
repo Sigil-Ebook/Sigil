@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -24,8 +24,8 @@
 #ifndef TABLEOFCONTENTS_H
 #define TABLEOFCONTENTS_H
 
-#include <QtCore/QSharedPointer>
-#include <QtWidgets/QDockWidget>
+#include <QSharedPointer>
+#include <QDockWidget>
 
 #include "BookManipulation/Book.h"
 #include "MainUI/MainWindow.h"
@@ -34,6 +34,7 @@
 class QTimer;
 class QTreeView;
 class QVBoxLayout;
+class QPaintEvent;
 
 class Book;
 
@@ -97,6 +98,7 @@ protected:
 
     void contextMenuEvent(QContextMenuEvent *event);
     virtual void showEvent(QShowEvent *event);
+    virtual void paintEvent(QPaintEvent* event);
 
 signals:
 

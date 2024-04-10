@@ -41,6 +41,7 @@ class CSSResource;
 class QAction;
 class QMenu;
 class QModelIndex;
+class QPaintEvent;
 class QPoint;
 class QToolButton;
 class QTreeView;
@@ -377,6 +378,7 @@ private slots:
 
 protected:
     virtual void showEvent(QShowEvent *event);
+    virtual void paintEvent(QPaintEvent* event);
 
 private:
     /**

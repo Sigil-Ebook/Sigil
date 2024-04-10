@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -22,13 +22,15 @@
 
 #include "EmbedPython/EmbeddedPython.h"
 
-#include <QtCore/QFileInfo>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QHeaderView>
-#include <QtWidgets/QTableWidget>
+#include <QFileInfo>
+#include <QApplication>
+#include <QHeaderView>
+#include <QTableWidget>
 #include <QRegularExpression>
 #include <QVariant>
 #include <QFileDialog>
+#include <QPaintEvent>
+#include <QStylePainter>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
@@ -158,6 +160,36 @@ void ValidationResultsView::showEvent(QShowEvent *event)
 {
     QDockWidget::showEvent(event);
     raise();
+}
+
+
+void ValidationResultsView::paintEvent(QPaintEvent *event)
+{
+    // Allow title text to be set independently of tab text
+    // (when QDockWidget is tabified).
+    QStylePainter painter(this);
+
+    if (isFloating()) {
+        QStyleOptionFrame options;
+        options.initFrom(this);
+
+#ifdef Q_OS_MAC
+        // This is needed for Qt6 but works on Qt5 as well
+        options.palette = QApplication::palette();
+#endif
+
+        painter.drawPrimitive(QStyle::PE_FrameDockWidget, options);
+    }
+    QStyleOptionDockWidget options;
+    initStyleOption(&options);
+    options.title = windowTitle();
+
+#ifdef Q_OS_MAC
+    // This is needed for Qt6 but works on Qt5 as well
+    options.palette = QApplication::palette();
+#endif
+
+    painter.drawControl(QStyle::CE_DockWidgetTitle, options);
 }
 
 

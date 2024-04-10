@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -20,11 +20,14 @@
 **
 *************************************************************************/
 
-#include <QtWidgets/QTreeView>
-#include <QtWidgets/QVBoxLayout>
-#include <QtGui/QContextMenuEvent>
+#include <QTreeView>
+#include <QVBoxLayout>
+#include <QContextMenuEvent>
 #include <QAction>
-#include <QtWidgets/QMenu>
+#include <QMenu>
+#include <QPaintEvent>
+#include <QStylePainter>
+#include <QApplication>
 #include <QPointer>
 
 #include "Misc/Utility.h"
@@ -57,6 +60,35 @@ void ClipsWindow::showEvent(QShowEvent *event)
 {
     QDockWidget::showEvent(event);
     raise();
+}
+
+void ClipsWindow::paintEvent(QPaintEvent *event)
+{
+    // Allow title text to be set independently of tab text
+    // (when QDockWidget is tabified).
+    QStylePainter painter(this);
+
+    if (isFloating()) {
+        QStyleOptionFrame options;
+        options.initFrom(this);
+
+#ifdef Q_OS_MAC
+        // This is needed for Qt6 but works on Qt5 as well
+        options.palette = QApplication::palette();
+#endif
+
+        painter.drawPrimitive(QStyle::PE_FrameDockWidget, options);
+    }
+    QStyleOptionDockWidget options;
+    initStyleOption(&options);
+    options.title = windowTitle();
+
+#ifdef Q_OS_MAC
+    // This is needed for Qt6 but works on Qt5 as well
+    options.palette = QApplication::palette();
+#endif
+
+    painter.drawControl(QStyle::CE_DockWidgetTitle, options);
 }
 
 void ClipsWindow::SetFocusOnClips()

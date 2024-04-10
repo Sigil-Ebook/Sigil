@@ -30,6 +30,8 @@
 #include <QScrollBar>
 #include <QVariant>
 #include <QTimer>
+#include <QPaintEvent>
+#include <QStylePainter>
 #include <QDebug>
 
 #include "BookManipulation/Book.h"
@@ -114,6 +116,35 @@ BookBrowser::~BookBrowser()
     WriteSettings();
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
     sm->removeActionsOf(this);
+}
+
+void BookBrowser::paintEvent(QPaintEvent *event)
+{
+    // Allow title text to be set independently of tab text
+    // (when QDockWidget is tabified).
+    QStylePainter painter(this);
+
+    if (isFloating()) {
+        QStyleOptionFrame options;
+        options.initFrom(this);
+
+#ifdef Q_OS_MAC
+        // This is needed for Qt6 but works on Qt5 as well
+        options.palette = QApplication::palette();
+#endif
+
+        painter.drawPrimitive(QStyle::PE_FrameDockWidget, options);
+    }
+    QStyleOptionDockWidget options;
+    initStyleOption(&options);
+    options.title = windowTitle();
+
+#ifdef Q_OS_MAC
+    // This is needed for Qt6 but works on Qt5 as well
+    options.palette = QApplication::palette();
+#endif
+
+    painter.drawControl(QStyle::CE_DockWidgetTitle, options);
 }
 
 void BookBrowser::showEvent(QShowEvent *event)
