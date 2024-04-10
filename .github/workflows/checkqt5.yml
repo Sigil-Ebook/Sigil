@@ -1,0 +1,59 @@
+name: Test Qt5 Compatibility
+
+on:
+  workflow_dispatch: 
+    branches: master
+
+env:
+  BUILD_TYPE: Debug
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11.3'
+
+    - name: Cache Qt
+      id: cache-qt
+      uses: actions/cache@v4
+      with:
+        path: ${{runner.workspace}}/Qt
+        key: ${{ runner.os }}-sigilqt-${{ hashFiles('**/reset-lin-caches.txt') }}
+  
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '5.12.9'
+        dir: ${{runner.workspace}}/Qt
+        modules: 'qtwebengine qtpositioning qt5compat qtpdf qtwebchannel'
+        setup-python: 'false'
+        cache: ${{ steps.cache-qt.outputs.cache-hit }}
+
+    - uses: lukka/get-cmake@latest
+
+    - name: Install dependencies
+      run: |
+        sudo apt install mesa-common-dev libglu1-mesa-dev
+        mkdir ${{runner.workspace}}/build
+        cmake --version
+        ninja --version
+        qmake -v
+        python3 --version
+        gcc --version
+
+    - name: Build Sigil
+      working-directory: ${{runner.workspace}}/build
+      run: |
+        cmake $GITHUB_WORKSPACE \
+        -G "Ninja" \
+        -DUSE_QT5=1 \
+        -DCMAKE_PREFIX_PATH="{$QT_ROOT_DIR}/lib/cmake" \
+        -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+        -DUSE_SYSTEM_LIBS=1 \
+        -DSYSTEM_LIBS_REQUIRED=0
+        ninja -j$(getconf _NPROCESSORS_ONLN)
