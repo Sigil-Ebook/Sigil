@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2019-2023 Doug Massay
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -157,7 +157,10 @@ void CodeViewEditor::SetAppearance()
     SetAppearanceColors();
     UpdateLineNumberAreaMargin();
     HighlightCurrentLine(false);
-    setFrameStyle(QFrame::NoFrame);
+    // if we allow the default frame that matches style then focus highlight works
+    if (!settings.uiHighlightFocusWidgetEnabled()) {
+        setFrameStyle(QFrame::NoFrame);
+    }
     // Set the Zoom factor but be sure no signals are set because of this.
     m_CurrentZoomFactor = settings.zoomText();
     Zoom();
