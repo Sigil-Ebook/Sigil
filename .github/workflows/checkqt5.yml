@@ -30,7 +30,7 @@ jobs:
       with:
         version: '5.12.9'
         dir: ${{runner.workspace}}/Qt
-        modules: 'qtwebengine qtpositioning qt5compat qtpdf qtwebchannel'
+        modules: 'qtwebengine'
         setup-python: 'false'
         cache: ${{ steps.cache-qt.outputs.cache-hit }}
 
