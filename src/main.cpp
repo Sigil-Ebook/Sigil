@@ -563,6 +563,10 @@ int main(int argc, char *argv[])
         }
         app.installTranslator(&sigilTranslator);
 
+#ifdef Q_OS_MAC
+        QApplication::setStyle("macOS");
+        // app.setPalette(QApplication::style()->standardPalette());
+#endif
 #ifndef Q_OS_MAC
         // Custom dark style/palette for Windows and Linux
 #ifndef Q_OS_WIN32

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Grant Drake
 **  Copyright (C) 2012      Dave Heiland
@@ -42,13 +42,16 @@ MainApplication::MainApplication(int &argc, char **argv)
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     m_Style = QStyleFactory::create("macintosh");
 #else
-    m_Style = QStyleFactory::create("macos");
+    m_Style = QStyleFactory::create("macOS");
 #endif
     QPalette app_palette = m_Style->standardPalette();
     m_isDark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    // overwriting the app palette in Qt 6 is bad
     // set the initial app palette
     fixMacDarkModePalette(app_palette);
     setPalette(app_palette);
+#endif
 #endif
 }
 
@@ -118,10 +121,13 @@ void MainApplication::EmitPaletteChanged()
     QPalette app_palette = m_Style->standardPalette();
     bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
     if (m_isDark != isdark) {
-        // qDebug() << "Theme changed " << "was isDark:" << m_isDark << "now isDark:" << isdark;
+        qDebug() << "Theme changed " << "was isDark:" << m_isDark << "now isDark:" << isdark;
         m_isDark = isdark;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+        // overwriting the app palette in Qt 6 is bad
         fixMacDarkModePalette(app_palette);
         setPalette(app_palette);
+#endif
         emit applicationPaletteChanged();
     }
 #endif

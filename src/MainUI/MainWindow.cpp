@@ -6022,18 +6022,6 @@ void MainWindow::ExtendUI()
     statusBar()->addPermanentWidget(zoom_out);
     statusBar()->addPermanentWidget(m_slZoomSlider);
     statusBar()->addPermanentWidget(zoom_in);
-#if 0
-    // This was only needed for Bookview which is now gone
-
-    // We override the default color for highlighted text
-    // so we can actually *see* the text that the FindReplace
-    // dialog finds in Book View... sadly, QWebView ignores a custom
-    // palette set on it directly, so we have to do this globally.
-    QPalette palette;
-    palette.setColor(QPalette::Inactive, QPalette::Highlight, Qt::darkGreen);
-    palette.setColor(QPalette::Inactive, QPalette::HighlightedText, Qt::white);
-    qApp->setPalette(palette);
-#endif
     // Setup userdefined keyboard shortcuts for actions.
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
     // Note: shortcut action Ids should not be translated.
