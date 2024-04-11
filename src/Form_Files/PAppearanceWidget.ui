@@ -729,6 +729,25 @@ if a sans-serif font-family specified in your CSS</string>
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="groupBox_Focus">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QHBoxLayout" name="focusLayout">
+          <item>
+           <widget class="QCheckBox" name="chkFocusDec">
+            <property name="text">
+             <string>Highlight Widgets with Focus (Needs Sigil Restart)</string>
+            </property>
+            <property name="toolTip">
+             <string>Show colored border around Widgets when they have focus</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayoutReset">
          <item>
           <widget class="QPushButton" name="resetAllButton">
