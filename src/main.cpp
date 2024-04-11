@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2018-2023  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019-2022  Doug Massay
+**  Copyright (C) 2019-2024  Doug Massay
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -655,12 +655,8 @@ int main(int argc, char *argv[])
         // End of UI font stuff
         
         // allow user to highlight focus widget
-        QString focus_highlight  = Utility::GetEnvironmentVar("SIGIL_HIGHLIGHT_FOCUS_WIDGET");
-        if (focus_highlight.isEmpty()) {
-            settings.setUIHighlightFocusWidget(false);
-        } else {
-            settings.setUIHighlightFocusWidget(true);
-	    QString current_stylesheet = app.styleSheet();
+        if (settings.uiHighlightFocusWidgetEnabled()) {
+	        QString current_stylesheet = app.styleSheet();
             current_stylesheet.append(":focus { border: 1px solid red; } }");
             app.setStyleSheet(current_stylesheet);
         }

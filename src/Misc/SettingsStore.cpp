@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2016-2024  Kevin B. Hendricks, Stratford, ON
-**  Copyright (C) 2016-2023  Doug Massay
+**  Copyright (C) 2016-2024  Doug Massay
 **  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013  Dave Heiland
 **
@@ -946,6 +946,7 @@ void SettingsStore::clearAppearanceSettings()
     remove(KEY_UI_ICON_THEME);
     remove(KEY_DRAG_DISTANCE_TWEAK);
     remove(KEY_PREVIEW_DARK_IN_DM);
+    remove(KEY_UI_HIGHLIGHT_FOCUS_WIDGET);
     ;
 }
 

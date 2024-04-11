@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2016-2021  Kevin B. Hendricks, Stratford, ON
-**  Copyright (C) 2016-2020  Doug Massay
+**  Copyright (C) 2016-2024  Doug Massay
 **  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013  Grant Drake
 **
@@ -145,6 +145,7 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     settings.setAppearancePrefsTabIndex(ui.tabAppearance->currentIndex());
     settings.setShowFullPathOn(ui.ShowFullPath->isChecked() ? 1 : 0);
     settings.setPreviewDark(ui.PreviewDarkInDM->isChecked() ? 1 : 0);
+    settings.setUIHighlightFocusWidget(ui.chkFocusDec->isChecked() ? 1 : 0);
     // handle icon theme
     QString icon_theme = "main";
     if (ui.Fluent->isChecked()) {
@@ -262,6 +263,10 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     if ((m_currentUIFont != m_initUIFont) || m_uiFontResetFlag) {
         results = results | PreferencesWidget::ResultAction_RestartSigil;
     }
+    // if show widget focus highlight pref changed, set need for restart
+    if (m_ShowWidgetFocus != (ui.chkFocusDec->isChecked() ? 1 : 0)) {
+        results = results | PreferencesWidget::ResultAction_RestartSigil;
+    }
     m_uiFontResetFlag = false;
     results = results & PreferencesWidget::ResultAction_Mask;
     return results;
@@ -273,6 +278,8 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     ui.tabAppearance->setCurrentIndex(settings.appearancePrefsTabIndex());
     m_ShowFullPathOn = settings.showFullPathOn();
     ui.ShowFullPath->setChecked(settings.showFullPathOn());
+    m_ShowWidgetFocus = settings.uiHighlightFocusWidgetEnabled();
+    ui.chkFocusDec->setChecked(settings.uiHighlightFocusWidgetEnabled());
 
     // Handle Icon Theme
     QString icon_theme = settings.uiIconTheme();
