@@ -552,7 +552,14 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
     case QEvent::FocusIn:
       // track focus in change events of m_Preview (or one of its child focus proxies)
       if (m_use_focus_highlight) {
-          m_wrapper->setStyleSheet("border: 1px solid red;");
+          // a bit hackish as this should match what we do in main.cpp
+          // so we should probably create a sigil_constant for this value
+          // and fix both places to use it
+#ifdef Q_OS_MAC
+          m_wrapper->setStyleSheet("border: 1px solid #2B5FFE;");
+#else
+          m_wrapper->setStyleSheet("border: 1px solid red");
+#endif
       }
       DBG qDebug() << "focus in event: " << object;
       break;

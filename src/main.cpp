@@ -27,7 +27,6 @@
 #include <QCoreApplication>
 #include <QDir>
 #include <QLibraryInfo>
-#include <QStyleFactory>
 #include <QTextCodec>
 #include <QThreadPool>
 #include <QTranslator>
@@ -39,6 +38,8 @@
 #include <QFileInfo>
 #include <QTextStream>
 #include <QFontMetrics>
+#include <QStyle>
+#include <QStyleFactory>
 #include <QtWebEngineWidgets>
 #include <QtWebEngineCore>
 
@@ -57,6 +58,7 @@
 #include "Misc/UpdateChecker.h"
 #include "Misc/Utility.h"
 #include "Misc/WebProfileMgr.h"
+#include "Widgets/CaretStyle.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
@@ -84,6 +86,19 @@ extern void removeMacosSpecificMenuItems();
     #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
     #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
 #endif
+
+const QString MAC_DOCK_TITLEBAR_FIX =
+    "QDockWidget { "
+    "    titlebar-close-icon: url(:/dark/closedock-macstyle.svg);"
+    "    titlebar-normal-icon: url(:/dark/dockdock-macstyle.svg);"
+    "}";
+
+const QString FOCUS_HIGHLIGHT_QSS =
+    "QLineEdit:focus, QPlainTextEdit:focus, QTextEdit:focus, "
+    "QTreeView::focus, QListView:focus, QScrollArea:focus { "
+    "    border: 1px solid HIGHLIGHT_COLOR;"
+    "}";
+
 
 // Creates a MainWindow instance depending
 // on command line arguments
@@ -564,8 +579,9 @@ int main(int argc, char *argv[])
         app.installTranslator(&sigilTranslator);
 
 #ifdef Q_OS_MAC
-        QApplication::setStyle("macOS");
-        // app.setPalette(QApplication::style()->standardPalette());
+        // QApplication::setStyle("macOS");
+        QStyle* astyle = QStyleFactory::create("macOS");
+        app.setStyle(astyle);
 #endif
 #ifndef Q_OS_MAC
         // Custom dark style/palette for Windows and Linux
@@ -653,12 +669,31 @@ int main(int argc, char *argv[])
         }
 #endif
         // End of UI font stuff
-        
+
+        // finally for styles handle the new CaretStyle (double width cursor)
+        // last after all other application Styles
+        // Use environment variable until a proper setting is created
+        // Must update CodeViewEditor.cpp in two places when changing this to a setting
+        if (qEnvironmentVariableIsSet("SIGIL_DOUBLE_TEXTCURSOR_WIDTH")) {
+            QApplication::setStyle(new CaretStyle(QApplication::style()));
+        }
+
+#ifdef Q_OS_MAC
+        // macOS need to fix broken QDockWidgets under dark mode
+        app.setStyleSheet(app.styleSheet().append(MAC_DOCK_TITLEBAR_FIX));
+#endif
+
         // allow user to highlight focus widget
         if (settings.uiHighlightFocusWidgetEnabled()) {
-	        QString current_stylesheet = app.styleSheet();
-            current_stylesheet.append(":focus { border: 1px solid red; } }");
-            app.setStyleSheet(current_stylesheet);
+            QString focus_qss = FOCUS_HIGHLIGHT_QSS;
+            // See PreviewWindow.cpp in the eventFilter routine in FocusIn
+            // where the same platform constant is used - keep in sync
+#ifdef Q_OS_MAC
+            focus_qss.replace("HIGHLIGHT_COLOR", "#2B5FFE");
+#else //Linux and Windows
+            focus_qss.replace("HIGHLIGHT_COLOR", "red");
+#endif
+            app.setStyleSheet(app.styleSheet().append(focus_qss));
         }
         
         // Check for existing qt_styles.qss in Prefs dir and load it if present

@@ -15,5 +15,7 @@
     <file>win_dark_scrollbar.css</file>
     <file>mac_dark_scrollbar.css</file>
     <file>sigil_logo_blue.png</file>
+    <file>closedock-macstyle.svg</file>
+    <file>dockdock-macstyle.svg</file>
   </qresource>
 </RCC>

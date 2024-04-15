@@ -5946,7 +5946,6 @@ void MainWindow::ExtendUI()
 
     m_PreviewWindow = new PreviewWindow(this);
     m_PreviewWindow->setObjectName(PREVIEW_WINDOW_NAME);
-    m_PreviewWindow->setStyleSheet("QDockWidget {border: none;}");
     addDockWidget(Qt::RightDockWidgetArea, m_PreviewWindow);
     // Now that Book View is gone, show Preview by default on new installations
     // tabified with the TOC widget in the RightDockWidgetArea

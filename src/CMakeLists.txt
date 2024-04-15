@@ -234,6 +234,8 @@ set( WIDGET_FILES
     Widgets/TextDocument.cpp
     Widgets/TVLineNumberArea.cpp
     Widgets/TVLineNumberArea.h
+    Widgets/CaretStyle.cpp
+    Widgets/CaretStyle.h
     )
 
 set( EXPORTER_FILES

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2023 Doug Massay
+**  Copyright (C) 2019-2024 Doug Massay
 **  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
@@ -191,6 +191,7 @@ void CodeViewEditor::CustomSetDocument(TextDocument &ndocument)
     ResetFont();
     m_isLoadFinished = true;
     m_regen_taglist = true;
+    if (qEnvironmentVariableIsSet("SIGIL_DOUBLE_TEXTCURSOR_WIDTH")) setCursorWidth(2);
     emit DocumentSet();
 }
 
@@ -2201,6 +2202,7 @@ void CodeViewEditor::focusInEvent(QFocusEvent *event)
     emit FocusGained(this);
     QPlainTextEdit::focusInEvent(event);
     HighlightCurrentLine(false);
+    if (qEnvironmentVariableIsSet("SIGIL_DOUBLE_TEXTCURSOR_WIDTH")) setCursorWidth(2);
 }
 
 
