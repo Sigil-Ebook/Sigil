@@ -334,7 +334,7 @@ int main(int argc, char *argv[])
   #else
     QT_REQUIRE_VERSION(argc, argv, "5.12.3");
   #endif
-#endif
+#endif // version
 
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     // Unset platform theme plugins/styles environment variables immediately
@@ -346,7 +346,7 @@ int main(int argc, char *argv[])
         Q_UNUSED(irrel);
         }
     }
-#endif
+#endif // Linux
 
 
 #ifndef QT_DEBUG
@@ -384,8 +384,7 @@ int main(int argc, char *argv[])
 
     update_ini_file_if_needed(Utility::DefinePrefsDir() + "/" + SEARCHES_V2_SETTINGS_FILE,
                               Utility::DefinePrefsDir() + "/" + SEARCHES_V6_SETTINGS_FILE);
-#endif
-
+#endif // version
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     // register the our own url scheme (this is required since Qt 5.12)
@@ -397,14 +396,14 @@ int main(int argc, char *argv[])
     // sigilScheme.setSyntax(QWebEngineUrlScheme::Syntax::Host);
     sigilScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
     QWebEngineUrlScheme::registerScheme(sigilScheme);
-#endif
+#endif // version
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #ifndef Q_OS_MAC
     setupHighDPI();
 #endif
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-#endif
+#endif // version
 
     // many qtbugs related to mixing 32 and 64 bit qt apps when shader disk cache is used
     // Only use if using Qt5.9.0 or higher
@@ -484,7 +483,7 @@ int main(int argc, char *argv[])
             current_platform_args.append("darkmode=1");
         }
     }
-#endif
+#endif // version
 
     // Rewrite the new (if any) windows platform options to QT_QPA_PLATFORM
     if (!current_platform_args.isEmpty()) {
@@ -492,7 +491,7 @@ int main(int argc, char *argv[])
         qDebug() << "New windows platform args: " << new_args;
         qputenv("QT_QPA_PLATFORM", new_args.toUtf8());
     }
-#endif
+#endif // Q_OS_WIN32)
 
     // allow user to override the default Preview Timeout (integer in milliseconds)
     QString new_timeout = Utility::GetEnvironmentVar("SIGIL_PREVIEW_TIMEOUT");
@@ -507,7 +506,7 @@ int main(int argc, char *argv[])
         }
         settings.setUIPreviewTimeout(timeout);
     }
-    
+
     // enable disabling of gpu acceleration for QtWebEngine.
     // append to current environment variable contents as numerous chromium 
     // switches exist that may be useful
@@ -582,10 +581,11 @@ int main(int argc, char *argv[])
         // QApplication::setStyle("macOS");
         QStyle* astyle = QStyleFactory::create("macOS");
         app.setStyle(astyle);
-#endif
-#ifndef Q_OS_MAC
+#endif // Q_OS_MAC
+
+#ifndef Q_OS_MAC // Linux and Win
         // Custom dark style/palette for Windows and Linux
-#ifndef Q_OS_WIN32
+#ifndef Q_OS_WIN32 //Linx
         // Use platform themes/styles on Linux unless FORCE_SIGIL_DARKMODE_PALETTE is set
         if (!force_sigil_darkmode_palette.isEmpty()) {
             // Apply custom dark style
@@ -594,9 +594,9 @@ int main(int argc, char *argv[])
             // Qt keeps breaking my custom dark theme.
             // This was apparently only necessary for Qt5.15.0!!
             app.setPalette(QApplication::style()->standardPalette());
-#endif
+#endif // version
         }
-#else
+#else  // Win
         if (Utility::WindowsShouldUseDarkMode()) {
             // Apply custom dark style
             app.setStyle(new SigilDarkStyle);
@@ -605,10 +605,10 @@ int main(int argc, char *argv[])
             // being present will break dark mode. I only know the first official
             // official windows version that uses 5.15.9 needs it to be gone.
             app.setPalette(QApplication::style()->standardPalette());
-#endif
+#endif // version
         }
-#endif
-#endif
+#endif // Win
+#endif // Linux and Win
 
         // Set ui font from preferences after dark theming
         QFont f = QFont(QApplication::font());
@@ -626,7 +626,8 @@ int main(int argc, char *argv[])
             f.setPointSize(10);
             QApplication::setFont(f);
         }
-#endif
+#endif // end of os switch
+
         settings.setOriginalUIFont(f.toString());
         if (!settings.uiFont().isEmpty()) {
             QFont font;
@@ -642,7 +643,7 @@ int main(int argc, char *argv[])
                 } );
             }
         }
-#endif
+#endif // Linux and Win
 
         // drag and drop in main tab bar is too touchy and that can cause problems.
         // default drag distance limit is much too small especially for hpi displays
@@ -699,6 +700,17 @@ int main(int argc, char *argv[])
             app.setStyleSheet(app.styleSheet().append(qtstyles));
         }
 
+#ifdef Q_OS_MAC
+        // it seems that any time there is stylesheet used, system dark-light palette
+        // changes are not propagated to widgets with stylesheets (See QTBUG-124268).
+        // This in turn prevents some widgets from properly geting repainted with the new
+        // dark or light theme palette (See paintEvent in BookBrowser.cpp for example.)
+        // Because our style changes are not palette dependent they should be
+        // properly propagated to all widgets including those with stylesheets
+        // This is how to tell Qt to do that.  Perhaps any platforms need this as well.
+        app. setAttribute(Qt::AA_UseStyleSheetPropagationInWidgetStyles);
+#endif
+
         // Qt's setCursorFlashTime(msecs) (or the docs) are broken
         // According to the docs, setting a negative value should disable cursor blinking 
         // but instead just forces it to look for PlatformSpecific Themeable Hints to get 
@@ -715,8 +727,9 @@ int main(int argc, char *argv[])
 #if QT_VERSION >= 0x050700
         // Wayland needs this clarified in order to propery assign the icon 
         app.setDesktopFileName(QStringLiteral("sigil.desktop"));
-#endif
-#endif
+#endif // version
+#endif //!defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+
         // Create the required QWebEngineProfiles, Initialize the settings
         // just once, installing both URLInterceptor and URLSchemeHandler as needed
         // to bypass 2mb url limit (singleton)
@@ -746,7 +759,8 @@ int main(int argc, char *argv[])
         } else {
             RCCResourcePath = sigil_share_root + "/iconthemes";
         }
-#endif
+#endif // OS switch
+
         QString icon_theme = settings.uiIconTheme();
         // First check if user wants the Custom Icon Theme
         if (icon_theme == "custom") {
@@ -793,7 +807,7 @@ int main(int argc, char *argv[])
         if (filepath.isEmpty()) {
             filter->setInitialFilePath(QString("placeholder"));
         }
-#endif
+#endif // Q_OS_MAC
 
         if (arguments.contains("-t")) {
             std::cout  << TempFolder::GetPathToSigilScratchpad().toStdString() << std::endl;
@@ -871,7 +885,7 @@ int main(int argc, char *argv[])
             file_menu->addAction(quit_action);
 
             mac_bar->addMenu(file_menu);
-#endif
+#endif // Q_OS_MAC
 
             VerifyPlugins();
             MainWindow *widget = GetMainWindow(arguments);
