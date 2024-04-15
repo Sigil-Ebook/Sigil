@@ -683,16 +683,11 @@ int main(int argc, char *argv[])
         app.setStyleSheet(app.styleSheet().append(MAC_DOCK_TITLEBAR_FIX));
 #endif
 
-        // allow user to highlight focus widget
+        // allow user to highlight the focus widget
         if (settings.uiHighlightFocusWidgetEnabled()) {
             QString focus_qss = FOCUS_HIGHLIGHT_QSS;
-            // See PreviewWindow.cpp in the eventFilter routine in FocusIn
-            // where the same platform constant is used - keep in sync
-#ifdef Q_OS_MAC
-            focus_qss.replace("HIGHLIGHT_COLOR", "#2B5FFE");
-#else //Linux and Windows
-            focus_qss.replace("HIGHLIGHT_COLOR", "red");
-#endif
+	    QString hcolor = app.palette().color(QPalette::Highlight).name();
+            focus_qss.replace("HIGHLIGHT_COLOR", hcolor);
             app.setStyleSheet(app.styleSheet().append(focus_qss));
         }
         
