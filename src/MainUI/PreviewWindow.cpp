@@ -36,6 +36,7 @@
 #include <QTimer>
 #include <QProgressBar>
 #include <QApplication>
+#include <QToolButton>
 #include <QDebug>
 
 #include "MainUI/PreviewWindow.h"
@@ -68,9 +69,15 @@ static const QString MATHJAX3_CONFIG =
 PreviewWindow::PreviewWindow(QWidget *parent)
     :
     QDockWidget(tr("Preview"), parent),
-    m_MainWidget(new QWidget(this)),
+    m_MainWidget(new QFrame(this)),
+    m_binspect(new QToolButton(m_MainWidget)),
+    m_bselect(new QToolButton(m_MainWidget)),
+    m_bcopy(new QToolButton(m_MainWidget)),
+    m_breload(new QToolButton(m_MainWidget)),
+    m_bcycle(new QToolButton(m_MainWidget)),
+    m_bprint(new QToolButton(m_MainWidget)),
     m_wrapper(new QWidget(m_MainWidget)),
-    m_Layout(new QVBoxLayout(m_MainWidget)),
+    m_Layout(new QVBoxLayout()),
     m_buttons(new QHBoxLayout()),
     m_overlayBase(new OverlayHelperWidget(this)),
     m_Preview(new ViewPreview(m_overlayBase)),
@@ -92,7 +99,24 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     SetupOverlayTimer();
     LoadSettings();
     ConnectSignalsToSlots();
-    setFocusPolicy(Qt::StrongFocus);
+    setFocusProxy(m_MainWidget);
+    m_MainWidget->setFocusPolicy(Qt::StrongFocus);
+    m_wrapper->setFocusPolicy(Qt::NoFocus);
+    m_Preview->setFocusPolicy(Qt::StrongFocus);
+
+    m_binspect->setFocusPolicy(Qt::StrongFocus);
+    m_bselect->setFocusPolicy(Qt::StrongFocus);
+    m_bcopy->setFocusPolicy(Qt::StrongFocus);
+    m_breload->setFocusPolicy(Qt::StrongFocus);
+    m_bcycle->setFocusPolicy(Qt::StrongFocus);
+    m_bprint->setFocusPolicy(Qt::StrongFocus);
+
+    setTabOrder(m_binspect, m_bselect);
+    setTabOrder(m_bselect, m_bcopy);
+    setTabOrder(m_bcopy, m_breload);
+    setTabOrder(m_breload, m_bcycle);
+    setTabOrder(m_bcycle, m_bprint);
+    setTabOrder(m_bprint, m_Preview);
 }
 
 PreviewWindow::~PreviewWindow()
@@ -238,43 +262,49 @@ void PreviewWindow::SetupView()
     // QWebEngineView events are routed to their parent
     m_Preview->installEventFilter(this);
 
-#if 1 //!defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-    // this may be needed by all platforms in the future
     QWidget * fp = m_Preview->focusProxy();
     if (fp) fp->installEventFilter(this);
-#endif
+
+    m_Layout->setContentsMargins(0, 0, 0, 0);
 
     // use a QWidget wrapper around the QWebEnginePreview
     // with a single pixel margin to use as focus indicator
     m_wrapper->setObjectName("PreviewWrapper");
     m_wrapper->setFocusProxy(m_Preview);
-    // m_wrapper->setAttribute(Qt::WA_StyledBackground, true);
     QVBoxLayout * wl = new QVBoxLayout(m_wrapper);
     wl->setContentsMargins(1,1,1,1);
     wl->addWidget(m_Preview);
-
-    m_Layout->setContentsMargins(0, 0, 0, 0);
     m_Layout->addWidget(m_wrapper);
 
     m_inspectAction = new QAction(QIcon(":/main/inspect.svg"),"", this);
     m_inspectAction ->setEnabled(true);
     m_inspectAction->setToolTip(tr("Inspect Page"));
+    m_binspect->setDefaultAction(m_inspectAction);
+    m_binspect->setAutoRaise(true);
 
     m_selectAction  = new QAction(QIcon(":/main/edit-select-all.svg"),"", this);
     m_selectAction ->setEnabled(true);
     m_selectAction->setToolTip(tr("Select-All"));
+    m_bselect->setDefaultAction(m_selectAction);
+    m_bselect->setAutoRaise(true);
 
     m_copyAction    = new QAction(QIcon(":/main/edit-copy.svg"),"", this);
     m_copyAction ->setEnabled(true);
     m_copyAction->setToolTip(tr("Copy Selection To ClipBoard"));
+    m_bcopy->setDefaultAction(m_copyAction);
+    m_bcopy->setAutoRaise(true);
 
     m_reloadAction  = new QAction(QIcon(":/main/reload-page.svg"),"", this);
     m_reloadAction ->setEnabled(true);
     m_reloadAction->setToolTip(tr("Update Preview Window"));
+    m_breload->setDefaultAction(m_reloadAction);
+    m_breload->setAutoRaise(true);
 
     m_cycleCSSAction = new QAction(QIcon(":/main/cycle-css.svg"),"", this);
     m_cycleCSSAction ->setEnabled(false);
     m_cycleCSSAction->setToolTip(tr("Cycle Custom CSS Files"));
+    m_bcycle->setDefaultAction(m_cycleCSSAction);
+    m_bcycle->setAutoRaise(true);
 
     QIcon pricon;
     pricon.addFile(":/main/document-print.svg", QSize(), QIcon::Normal);
@@ -282,19 +312,22 @@ void PreviewWindow::SetupView()
     m_webviewPrint = new QAction(pricon, "", this);
     m_webviewPrint ->setEnabled(true);
     m_webviewPrint->setToolTip(tr("Print Preview View"));
-    
-    QToolBar * tb = new QToolBar();
-    tb->addAction(m_inspectAction);
-    tb->addAction(m_selectAction);
-    tb->addAction(m_copyAction);
-    tb->addAction(m_reloadAction);
-    tb->addAction(m_cycleCSSAction);
-    tb->addAction(m_webviewPrint);
-    tb->addWidget(m_progress);
+    m_bprint->setDefaultAction(m_webviewPrint);
+    m_bprint->setAutoRaise(true);
 
-    m_buttons->setContentsMargins(0,0,0,0);
-    m_buttons->addWidget(tb);
+    m_buttons->setContentsMargins(1,1,1,1);
+    m_buttons->addWidget(m_binspect);
+    m_buttons->addWidget(m_bselect);
+    m_buttons->addWidget(m_bcopy);
+    m_buttons->addWidget(m_breload);
+    m_buttons->addWidget(m_bcycle);
+    m_buttons->addWidget(m_bprint);
+    m_buttons->addWidget(m_progress);
+
     m_Layout->addLayout(m_buttons);
+
+    m_MainWidget->setLayout(m_Layout);
+
     setWidget(m_MainWidget);
     QApplication::restoreOverrideCursor();
 }

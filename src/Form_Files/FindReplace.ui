@@ -509,12 +509,12 @@ Valid only when searching HTML files.</string>
  <tabstops>
   <tabstop>cbFind</tabstop>
   <tabstop>cbReplace</tabstop>
-  <tabstop>tbRegexOptions</tabstop>
-  <tabstop>chkOptionWrap</tabstop>
-  <tabstop>chkOptionTextOnly</tabstop>
   <tabstop>cbSearchMode</tabstop>
   <tabstop>cbLookWhere</tabstop>
   <tabstop>cbSearchDirection</tabstop>
+  <tabstop>tbRegexOptions</tabstop>
+  <tabstop>chkOptionWrap</tabstop>
+  <tabstop>chkOptionTextOnly</tabstop>
   <tabstop>findNext</tabstop>
   <tabstop>replaceFind</tabstop>
   <tabstop>replaceCurrent</tabstop>

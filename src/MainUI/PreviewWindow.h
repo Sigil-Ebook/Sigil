@@ -44,6 +44,7 @@ class QHBoxLayout;
 class QProgressBar;
 class OverlayHelperWidget;
 class WebViewPrinter;
+class QToolButton;
 
 class PreviewWindow : public QDockWidget
 {
@@ -131,7 +132,13 @@ private:
     
     const QString titleText();
 
-    QWidget *m_MainWidget;
+    QFrame *m_MainWidget;
+    QToolButton * m_binspect;
+    QToolButton * m_bselect;
+    QToolButton * m_bcopy;
+    QToolButton * m_breload;
+    QToolButton * m_bcycle;
+    QToolButton * m_bprint;
     QWidget *m_wrapper;
     QVBoxLayout *m_Layout;
     QHBoxLayout *m_buttons;
@@ -164,6 +171,7 @@ private:
     bool m_skipPrintPreview;
     WebViewPrinter *m_WebViewPrinter;
     bool m_use_focus_highlight;
+
 };
 
 #endif // PREVIEWWINDOW_H

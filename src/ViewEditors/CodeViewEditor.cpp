@@ -132,7 +132,13 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
         m_Highlighter = NULL;
     }
 
-    setFocusPolicy(Qt::StrongFocus);
+
+    // if we use the following we can get instances
+    // of accidental insertion of tabs into CodeView
+    // when simply trying to shift focus
+    // setFocusPolicy(Qt::StrongFocus);
+    setFocusPolicy(Qt::ClickFocus);
+
     ConnectSignalsToSlots();
     SetAppearance();
 }
