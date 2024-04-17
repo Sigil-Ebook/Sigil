@@ -725,7 +725,7 @@ if a sans-serif font-family specified in your CSS</string>
              <string>Make insertion cursor more visible</string>
             </property>
             <property name="text">
-             <string>Make Insertion Cursor Double Width</string>
+             <string>Make Insertion Cursor Double Width (Needs Sigil Restart)</string>
             </property>
            </widget>
           </item>
