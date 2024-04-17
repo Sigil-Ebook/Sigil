@@ -370,8 +370,14 @@ if no font-family specified in your CSS</string>
                 </property>
                </spacer>
               </item>
+              <item row="0" column="3">
+               <widget class="QFontComboBox" name="cbPreviewFontStandard"/>
+              </item>
               <item row="3" column="3">
                <widget class="QFontComboBox" name="cbPreviewFontSerif"/>
+              </item>
+              <item row="4" column="3">
+               <widget class="QFontComboBox" name="cbPreviewFontSansSerif"/>
               </item>
               <item row="3" column="2">
                <widget class="QLabel" name="labelPreviewFontSerif">
@@ -383,12 +389,6 @@ if a serif font-family specified in your CSS</string>
                  <string>Serif:</string>
                 </property>
                </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QFontComboBox" name="cbPreviewFontStandard"/>
-              </item>
-              <item row="4" column="3">
-               <widget class="QFontComboBox" name="cbPreviewFontSansSerif"/>
               </item>
               <item row="4" column="2">
                <widget class="QLabel" name="labelPreviewFontSansSerif">
