@@ -96,7 +96,8 @@ const QString MAC_DOCK_TITLEBAR_FIX =
 const QString FOCUS_HIGHLIGHT_QSS =
     "QTableWidget:focus, QTreeWidget:focus, QLineEdit:focus, "
     "QPlainTextEdit:focus, QTextEdit:focus,QTreeView::focus, "
-    "QListView:focus, QScrollArea:focus { "
+    "QTabWidget:focus, QListView:focus, QScrollArea:focus, "
+    "QTabBar:focus { "
     "    border: 1px solid HIGHLIGHT_COLOR;"
     "}";
 

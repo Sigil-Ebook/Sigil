@@ -405,6 +405,29 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+   <tabstop>chkUseBundled</tabstop>
+   <tabstop>editPathPy3</tabstop>
+   <tabstop>Py3Auto</tabstop>
+   <tabstop>Py3Set</tabstop>
+   <tabstop>pluginTabWidget</tabstop>
+   <tabstop>plugManageTab</tabstop>
+   <tabstop>pluginTable</tabstop>
+   <tabstop>addButton</tabstop>
+   <tabstop>removeButton</tabstop>
+   <tabstop>removeAllButton</tabstop>
+   <tabstop>plugShorcutsTab</tabstop>
+   <tabstop>comboBox</tabstop>
+   <tabstop>comboBox_6</tabstop>
+   <tabstop>comboBox_2</tabstop>
+   <tabstop>comboBox_7</tabstop>
+   <tabstop>comboBox_3</tabstop>
+   <tabstop>comboBox_8</tabstop>
+   <tabstop>comboBox_4</tabstop>
+   <tabstop>comboBox_9</tabstop>
+   <tabstop>comboBox_5</tabstop>
+   <tabstop>comboBox_10</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
