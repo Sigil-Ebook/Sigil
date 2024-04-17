@@ -704,43 +704,28 @@ if a sans-serif font-family specified in your CSS</string>
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="groupDragTweak">
+        <widget class="QGroupBox" name="groupAccessible">
          <property name="title">
-          <string>Tweak Drag Distance (Needs Sigil Restart):</string>
+          <string>Accessibility Tweaks:</string>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <item>
-           <widget class="QSpinBox" name="dragTweakSpinBox"/>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_6">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>456</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox_Focus">
-         <property name="title">
-          <string/>
-         </property>
-         <layout class="QHBoxLayout" name="focusLayout">
+         <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
            <widget class="QCheckBox" name="chkFocusDec">
+            <property name="toolTip">
+             <string>Show colored border around Widgets when they have focus</string>
+            </property>
             <property name="text">
              <string>Highlight Widgets with Focus (Needs Sigil Restart)</string>
             </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="chkDoubleWidthCursor">
             <property name="toolTip">
-             <string>Show colored border around Widgets when they have focus</string>
+             <string>Make insertion cursor more visible</string>
+            </property>
+            <property name="text">
+             <string>Make Insertion Cursor Double Width</string>
             </property>
            </widget>
           </item>

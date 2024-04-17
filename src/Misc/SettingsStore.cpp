@@ -48,6 +48,7 @@ static QString KEY_ORIGINAL_UI_FONT = SETTINGS_GROUP + "/" + "original_ui_font";
 static QString KEY_UI_ICON_THEME = SETTINGS_GROUP + "/" + "ui_icon_theme";
 static QString KEY_UI_PREVIEW_TIMEOUT = SETTINGS_GROUP + "/" + "ui_preview_timeout";
 static QString KEY_UI_HIGHLIGHT_FOCUS_WIDGET = SETTINGS_GROUP + "/" + "ui_highlight_focus_widget";
+static QString KEY_UI_DOUBLEWIDTH_TEXTCURSOR = SETTINGS_GROUP + "/" + "ui_doublewidth_textcursor";
 static QString KEY_DRAG_DISTANCE_TWEAK = SETTINGS_GROUP + "/" + "drag_distance_tweak";
 static QString KEY_ZOOM_IMAGE = SETTINGS_GROUP + "/" + "zoom_image";
 static QString KEY_ZOOM_TEXT = SETTINGS_GROUP + "/" + "zoom_text";
@@ -194,13 +195,14 @@ bool SettingsStore::uiHighlightFocusWidgetEnabled()
     return value(KEY_UI_HIGHLIGHT_FOCUS_WIDGET, false).toBool();
    
 }
-    
-int SettingsStore::uiDragDistanceTweak()
+
+bool SettingsStore::uiDoubleWidthTextCursor()
 {
     clearSettingsGroup();
-    return value(KEY_DRAG_DISTANCE_TWEAK, 0).toInt();
+    return value(KEY_UI_DOUBLEWIDTH_TEXTCURSOR, false).toBool();
 }
 
+    
 QString SettingsStore::defaultMetadataLang()
 {
     clearSettingsGroup();
@@ -577,10 +579,10 @@ void SettingsStore::setUIHighlightFocusWidget(bool enable)
     setValue(KEY_UI_HIGHLIGHT_FOCUS_WIDGET, enable);
 }
 
-void SettingsStore::setUiDragDistanceTweak(int tweak)
+void SettingsStore::setUiDoubleWidthTextCursor(bool enable)
 {
     clearSettingsGroup();
-    setValue(KEY_DRAG_DISTANCE_TWEAK, tweak);
+    setValue(KEY_UI_DOUBLEWIDTH_TEXTCURSOR, enable);
 }
 
 void SettingsStore::setExternalXEditorPath(const QString &path)
@@ -944,9 +946,9 @@ void SettingsStore::clearAppearanceSettings()
     remove(KEY_HIGHDPI_SETTING);
     remove(KEY_UI_FONT);
     remove(KEY_UI_ICON_THEME);
-    remove(KEY_DRAG_DISTANCE_TWEAK);
     remove(KEY_PREVIEW_DARK_IN_DM);
     remove(KEY_UI_HIGHLIGHT_FOCUS_WIDGET);
+    remove(KEY_UI_DOUBLEWIDTH_TEXTCURSOR);
     ;
 }
 

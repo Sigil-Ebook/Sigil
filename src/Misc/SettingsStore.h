@@ -63,8 +63,7 @@ public:
     QString uiIconTheme();
     int uiPreviewTimeout();
     bool uiHighlightFocusWidgetEnabled();
-
-    int uiDragDistanceTweak();
+    bool uiDoubleWidthTextCursor();
 
     /**
      * The default langauge to use when creating new books.
@@ -289,9 +288,9 @@ public slots:
     void setUIPreviewTimeout(int timeout);
 
     void setUIHighlightFocusWidget(bool enable);
-    
-    void setUiDragDistanceTweak(int tweak);
 
+    void setUiDoubleWidthTextCursor(bool enable);
+    
     /**
      * Set the default language to use when creating new books.
      *

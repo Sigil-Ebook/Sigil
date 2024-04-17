@@ -181,6 +181,7 @@ QSize CodeViewEditor::sizeHint() const
 
 void CodeViewEditor::CustomSetDocument(TextDocument &ndocument)
 {
+    SettingsStore settings;
     setDocument(&ndocument);
     ndocument.setModified(false);
     if (m_Highlighter) {
@@ -197,7 +198,7 @@ void CodeViewEditor::CustomSetDocument(TextDocument &ndocument)
     ResetFont();
     m_isLoadFinished = true;
     m_regen_taglist = true;
-    if (qEnvironmentVariableIsSet("SIGIL_DOUBLE_TEXTCURSOR_WIDTH")) setCursorWidth(2);
+    if (settings.uiDoubleWidthTextCursor()) setCursorWidth(2);
     emit DocumentSet();
 }
 
@@ -2208,7 +2209,8 @@ void CodeViewEditor::focusInEvent(QFocusEvent *event)
     emit FocusGained(this);
     QPlainTextEdit::focusInEvent(event);
     HighlightCurrentLine(false);
-    if (qEnvironmentVariableIsSet("SIGIL_DOUBLE_TEXTCURSOR_WIDTH")) setCursorWidth(2);
+    SettingsStore settings;
+    if (settings.uiDoubleWidthTextCursor()) setCursorWidth(2);
 }
 
 

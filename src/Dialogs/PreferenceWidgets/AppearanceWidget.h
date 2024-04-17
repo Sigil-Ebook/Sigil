@@ -61,7 +61,6 @@ private:
     QColor m_currentColor;
     int m_ShowFullPathOn;
     int m_HighDPI;
-    int m_DragTweak;
     bool m_ShowWidgetFocus;
     int m_PreviewDark;
     bool m_wasDark;

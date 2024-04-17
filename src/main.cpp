@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2023  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2018-2024  Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2019-2024  Doug Massay
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -653,7 +653,11 @@ int main(int argc, char *argv[])
 #else
         QFontMetrics fm(app.font());
         int dragbase = fm.xHeight() * 2;
-        int dragtweak = settings.uiDragDistanceTweak();
+        bool ok;
+        int dragtweak = qEnvironmentVariableIntValue("SIGIL_DRAG_DISTANCE_TWEAK", &ok);
+        if (!ok) {
+            dragtweak = 0;
+        }
         // Use calculated base distance if tweak value not between -20 and 20px
         if (dragtweak >= -20 && dragtweak <= 20) {
             int newdrag = dragbase + dragtweak;
@@ -673,9 +677,7 @@ int main(int argc, char *argv[])
 
         // finally for styles handle the new CaretStyle (double width cursor)
         // last after all other application Styles
-        // Use environment variable until a proper setting is created
-        // Must update CodeViewEditor.cpp in two places when changing this to a setting
-        if (qEnvironmentVariableIsSet("SIGIL_DOUBLE_TEXTCURSOR_WIDTH")) {
+        if (settings.uiDoubleWidthTextCursor()) {
             QApplication::setStyle(new CaretStyle(QApplication::style()));
         }
 
