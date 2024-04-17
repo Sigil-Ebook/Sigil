@@ -76,7 +76,7 @@ The heading's title attribute will be updated in the document.</string>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QToolButton" name="left">
+          <widget class="QToolButton" name="bleft">
            <property name="toolTip">
             <string>Decrease the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
@@ -91,7 +91,7 @@ You can also use the left arrow key.</string>
           </widget>
          </item>
          <item>
-          <widget class="QToolButton" name="right">
+          <widget class="QToolButton" name="bright">
            <property name="toolTip">
             <string>Increase the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
@@ -172,7 +172,16 @@ You can then check or uncheck individual headings in the list above.</string>
     </widget>
    </item>
   </layout>
- </widget>
+</widget>
+<tabstops>
+  <tabstop>tvTOCDisplay</tabstop>
+  <tabstop>rename</tabstop>
+  <tabstop>bleft</tabstop>
+  <tabstop>bright</tabstop>
+  <tabstop>cbTOCItemsOnly</tabstop>
+  <tabstop>cbTOCSetHeadingLevel</tabstop>
+  <tabstop>buttonBox</tabstop>
+</tabstops>
  <resources/>
  <connections>
   <connection>

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2024 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -71,6 +71,13 @@ HeadingSelector::HeadingSelector(QSharedPointer<Book> book, QWidget *parent)
     PopulateSelectHeadingCombo(GetMaxHeadingLevel(flat_headings));
     RefreshTOCModelDisplay();
     ReadSettings();
+    ui.tvTOCDisplay->setFocusPolicy(Qt::StrongFocus);
+    ui.rename->setFocusPolicy(Qt::StrongFocus);
+    ui.bleft->setFocusPolicy(Qt::StrongFocus);
+    ui.bright->setFocusPolicy(Qt::StrongFocus);
+    ui.cbTOCItemsOnly->setFocusPolicy(Qt::StrongFocus);
+    ui.cbTOCSetHeadingLevel->setFocusPolicy(Qt::StrongFocus);
+    ui.buttonBox->setFocusPolicy(Qt::StrongFocus);
 }
 
 
@@ -835,7 +842,11 @@ int HeadingSelector::GetMaxHeadingLevel(QList<Headings::Heading> flat_headings)
 // Add the selectable entries to the Select Heading combo box
 void HeadingSelector::PopulateSelectHeadingCombo(int max_heading_level)
 {
+    disconnect(ui.cbTOCSetHeadingLevel, SIGNAL(currentTextChanged(const QString &)),
+        this,SLOT(SelectHeadingLevelInclusion(const QString &)));
+
     QString entry = tr("Up to level");
+
     ui.cbTOCSetHeadingLevel->clear();
     ui.cbTOCSetHeadingLevel->addItem(tr("<Select headings to include in TOC>"));
 
@@ -848,7 +859,10 @@ void HeadingSelector::PopulateSelectHeadingCombo(int max_heading_level)
 
         ui.cbTOCSetHeadingLevel->addItem(tr("All"));
     }
+    connect(ui.cbTOCSetHeadingLevel, SIGNAL(currentTextChanged(const QString &)),
+            this,SLOT(SelectHeadingLevelInclusion(const QString &)));
 }
+
 
 void HeadingSelector::RefreshTOCModelDisplay()
 {
@@ -907,7 +921,13 @@ void HeadingSelector::SelectHeadingLevelInclusion(const QString &heading_level)
 
     // else is "<Select heading level>" which does nothing
     // Reset selection to description
+       // the toolbutton will NOT take ownership of the menu as per the Qt docs
+    // so clean up manually
+    disconnect(ui.cbTOCSetHeadingLevel, SIGNAL(currentTextChanged(const QString &)),
+            this,SLOT(SelectHeadingLevelInclusion(const QString &)));
     ui.cbTOCSetHeadingLevel->setCurrentIndex(0);
+    connect(ui.cbTOCSetHeadingLevel, SIGNAL(currentTextChanged(const QString &)),
+            this,SLOT(SelectHeadingLevelInclusion(const QString &)));
 }
 
 
@@ -1024,23 +1044,16 @@ void HeadingSelector::ConnectSignalsToSlots()
     connect(this,               SIGNAL(accepted()),
             this,               SLOT(UpdateHeadingElements())
            );
-    #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(ui.cbTOCSetHeadingLevel,
-            SIGNAL(activated(const QString &)),
+            SIGNAL(currentTextChanged(const QString &)),
             this,               SLOT(SelectHeadingLevelInclusion(const QString &))
            );
-    #else
-    connect(ui.cbTOCSetHeadingLevel,
-            SIGNAL(textActivated(const QString &)),
-            this,               SLOT(SelectHeadingLevelInclusion(const QString &))
-           );
-    #endif
-    connect(ui.left,             SIGNAL(clicked()), this, SLOT(DecreaseHeadingLevel()));
-    connect(ui.right,            SIGNAL(clicked()), this, SLOT(IncreaseHeadingLevel()));
-    connect(ui.rename,           SIGNAL(clicked()), this, SLOT(Rename()));
-    connect(ui.tvTOCDisplay,     SIGNAL(customContextMenuRequested(const QPoint &)),
-            this,                SLOT(OpenContextMenu(const QPoint &)));
-    connect(m_Rename,            SIGNAL(triggered()), this, SLOT(Rename()));
+    connect(ui.bleft,           SIGNAL(clicked()), this, SLOT(DecreaseHeadingLevel()));
+    connect(ui.bright,          SIGNAL(clicked()), this, SLOT(IncreaseHeadingLevel()));
+    connect(ui.rename,          SIGNAL(clicked()), this, SLOT(Rename()));
+    connect(m_Rename,           SIGNAL(triggered()), this, SLOT(Rename()));
+    connect(ui.tvTOCDisplay,    SIGNAL(customContextMenuRequested(const QPoint &)),
+            this,               SLOT(OpenContextMenu(const QPoint &)));
 }
 
 
