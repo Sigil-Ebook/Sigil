@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-**  Copyright (C) 2016-2022 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford, ON Canada
 **
 **  This file is part of Sigil.
 **
@@ -134,6 +134,14 @@ MetaEditor::MetaEditor(QWidget *parent)
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     updateActions();
+    setFocusPolicy(Qt::StrongFocus);
+    view->setFocusPolicy(Qt::StrongFocus);
+    addMetaButton->setFocusPolicy(Qt::StrongFocus);
+    addPropButton->setFocusPolicy(Qt::StrongFocus);
+    delButton->setFocusPolicy(Qt::StrongFocus);
+    tbMoveUp->setFocusPolicy(Qt::StrongFocus);
+    tbMoveDown->setFocusPolicy(Qt::StrongFocus);
+    buttonBox->setFocusPolicy(Qt::StrongFocus);
 }
 
 

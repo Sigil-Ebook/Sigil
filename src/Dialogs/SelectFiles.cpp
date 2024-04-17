@@ -111,7 +111,9 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
     m_WebView->page()->settings()->setAttribute(QWebEngineSettings::ShowScrollBars,false);
 #endif
     ui.avLayout->addWidget(m_WebView);
-
+    m_WebView->setFocusPolicy(Qt::NoFocus);
+    ui.Details->setFocusPolicy(Qt::NoFocus);
+    
     ReadSettings();
 
     m_AllItem = new QListWidgetItem(tr("All"), ui.FileTypes);
@@ -164,6 +166,7 @@ void SelectFiles::SetImages()
     m_WebView->setHtml(html, QUrl());
 
     ui.imageTree->reset();
+    ui.imageTree->setTabKeyNavigation(true);
     m_SelectFilesModel->clear();
     QStringList header;
     header.append(tr("Files In the Book"));

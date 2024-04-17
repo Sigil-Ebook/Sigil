@@ -56,16 +56,6 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
-        <widget class="QPushButton" name="delButton">
-         <property name="toolTip">
-          <string>Remove a metadata element or property.</string>
-         </property>
-         <property name="text">
-          <string>Remove</string>
-         </property>
-        </widget>
-       </item>
        <item row="2" column="0">
         <widget class="QPushButton" name="addPropButton">
          <property name="toolTip">
@@ -73,6 +63,16 @@
          </property>
          <property name="text">
           <string>Add Property</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QPushButton" name="delButton">
+         <property name="toolTip">
+          <string>Remove a metadata element or property.</string>
+         </property>
+         <property name="text">
+          <string>Remove</string>
          </property>
         </widget>
        </item>
@@ -175,6 +175,15 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+   <tabstop>view</tabstop>
+   <tabstop>addMetaButton</tabstop>
+   <tabstop>addPropButton</tabstop>
+   <tabstop>delButton</tabstop>
+   <tabstop>tbMoveUp</tabstop>
+   <tabstop>tbMoveDown</tabstop>
+   <tabstop>buttonBox</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
