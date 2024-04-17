@@ -266,6 +266,33 @@
          <item row="1" column="1">
           <widget class="QComboBox" name="comboBox"/>
          </item>
+         <item row="2" column="1">
+          <widget class="QComboBox" name="comboBox_2"/>
+         </item>
+         <item row="3" column="1">
+          <widget class="QComboBox" name="comboBox_3"/>
+         </item>
+         <item row="4" column="1">
+          <widget class="QComboBox" name="comboBox_4"/>
+         </item>
+         <item row="5" column="1">
+          <widget class="QComboBox" name="comboBox_5"/>
+         </item>
+         <item row="1" column="3">
+          <widget class="QComboBox" name="comboBox_6"/>
+         </item>
+         <item row="2" column="3">
+          <widget class="QComboBox" name="comboBox_7"/>
+         </item>
+         <item row="3" column="3">
+          <widget class="QComboBox" name="comboBox_8"/>
+         </item>
+         <item row="4" column="3">
+          <widget class="QComboBox" name="comboBox_9"/>
+         </item>
+         <item row="5" column="3">
+          <widget class="QComboBox" name="comboBox_10"/>
+         </item>
          <item row="1" column="2">
           <widget class="QLabel" name="label_7">
            <property name="text">
@@ -275,9 +302,6 @@
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
-         </item>
-         <item row="1" column="3">
-          <widget class="QComboBox" name="comboBox_6"/>
          </item>
          <item row="2" column="0">
           <widget class="QLabel" name="label_3">
@@ -289,9 +313,6 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
-          <widget class="QComboBox" name="comboBox_2"/>
-         </item>
          <item row="2" column="2">
           <widget class="QLabel" name="label_8">
            <property name="text">
@@ -301,9 +322,6 @@
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
-         </item>
-         <item row="2" column="3">
-          <widget class="QComboBox" name="comboBox_7"/>
          </item>
          <item row="3" column="0">
           <widget class="QLabel" name="label_4">
@@ -315,9 +333,6 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="1">
-          <widget class="QComboBox" name="comboBox_3"/>
-         </item>
          <item row="3" column="2">
           <widget class="QLabel" name="label_9">
            <property name="text">
@@ -327,9 +342,6 @@
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
-         </item>
-         <item row="3" column="3">
-          <widget class="QComboBox" name="comboBox_8"/>
          </item>
          <item row="4" column="0">
           <widget class="QLabel" name="label_5">
@@ -341,9 +353,6 @@
            </property>
           </widget>
          </item>
-         <item row="4" column="1">
-          <widget class="QComboBox" name="comboBox_4"/>
-         </item>
          <item row="4" column="2">
           <widget class="QLabel" name="label_10">
            <property name="text">
@@ -353,9 +362,6 @@
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
-         </item>
-         <item row="4" column="3">
-          <widget class="QComboBox" name="comboBox_9"/>
          </item>
          <item row="5" column="0">
           <widget class="QLabel" name="label_6">
@@ -367,9 +373,6 @@
            </property>
           </widget>
          </item>
-         <item row="5" column="1">
-          <widget class="QComboBox" name="comboBox_5"/>
-         </item>
          <item row="5" column="2">
           <widget class="QLabel" name="label_11">
            <property name="text">
@@ -379,9 +382,6 @@
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
-         </item>
-         <item row="5" column="3">
-          <widget class="QComboBox" name="comboBox_10"/>
          </item>
         </layout>
        </item>
@@ -418,14 +418,14 @@
    <tabstop>removeAllButton</tabstop>
    <tabstop>plugShorcutsTab</tabstop>
    <tabstop>comboBox</tabstop>
-   <tabstop>comboBox_6</tabstop>
    <tabstop>comboBox_2</tabstop>
-   <tabstop>comboBox_7</tabstop>
    <tabstop>comboBox_3</tabstop>
-   <tabstop>comboBox_8</tabstop>
    <tabstop>comboBox_4</tabstop>
-   <tabstop>comboBox_9</tabstop>
    <tabstop>comboBox_5</tabstop>
+   <tabstop>comboBox_6</tabstop>
+   <tabstop>comboBox_7</tabstop>
+   <tabstop>comboBox_8</tabstop>
+   <tabstop>comboBox_9</tabstop>
    <tabstop>comboBox_10</tabstop>
  </tabstops>
  <resources/>
