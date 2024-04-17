@@ -257,6 +257,10 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     if (m_ShowWidgetFocus != (ui.chkFocusDec->isChecked() ? 1 : 0)) {
         results = results | PreferencesWidget::ResultAction_RestartSigil;
     }
+    // if double width text cursor pref changed, set need for restart
+    if (m_DoubleWidthCursor != (ui.chkDoubleWidthCursor->isChecked() ? 1 : 0)) {
+        results = results | PreferencesWidget::ResultAction_RestartSigil;
+    }
     m_uiFontResetFlag = false;
     results = results & PreferencesWidget::ResultAction_Mask;
     return results;
@@ -270,6 +274,7 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     ui.ShowFullPath->setChecked(settings.showFullPathOn());
     m_ShowWidgetFocus = settings.uiHighlightFocusWidgetEnabled();
     ui.chkFocusDec->setChecked(settings.uiHighlightFocusWidgetEnabled());
+    m_DoubleWidthCursor = settings.uiDoubleWidthTextCursor();
     ui.chkDoubleWidthCursor->setChecked(settings.uiDoubleWidthTextCursor());
 
     // Handle Icon Theme

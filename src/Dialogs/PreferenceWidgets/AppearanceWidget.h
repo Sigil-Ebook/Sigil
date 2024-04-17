@@ -62,6 +62,7 @@ private:
     int m_ShowFullPathOn;
     int m_HighDPI;
     bool m_ShowWidgetFocus;
+    bool m_DoubleWidthCursor;
     int m_PreviewDark;
     bool m_wasDark;
     QString m_initUIFont;
