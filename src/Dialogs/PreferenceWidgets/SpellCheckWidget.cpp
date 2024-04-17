@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2013      Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -45,6 +45,19 @@ SpellCheckWidget::SpellCheckWidget()
     setUpTable();
     readSettings();
     connectSignalsToSlots();
+    ui.dictionaries->setFocusPolicy(Qt::StrongFocus);
+    ui.dictionaries2d->setFocusPolicy(Qt::StrongFocus);
+    ui.HighlightMisspelled->setFocusPolicy(Qt::StrongFocus);
+    ui.CheckNumbers->setFocusPolicy(Qt::StrongFocus);
+    ui.spellTabWidget->setFocusPolicy(Qt::StrongFocus);
+    ui.addUserDict->setFocusPolicy(Qt::StrongFocus);
+    ui.renameUserDict->setFocusPolicy(Qt::StrongFocus);
+    ui.copyUserDict->setFocusPolicy(Qt::StrongFocus);
+    ui.removeUserDict->setFocusPolicy(Qt::StrongFocus);
+    ui.addUserWords->setFocusPolicy(Qt::StrongFocus);
+    ui.editWord->setFocusPolicy(Qt::StrongFocus);
+    ui.removeWord->setFocusPolicy(Qt::StrongFocus);
+    ui.removeAll->setFocusPolicy(Qt::StrongFocus);
 }
 
 void SpellCheckWidget::setUpTable()
@@ -62,6 +75,7 @@ void SpellCheckWidget::setUpTable()
     ui.userDictList->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui.userDictList->setSelectionMode(QAbstractItemView::SingleSelection);
     ui.userDictList->setAlternatingRowColors(true);
+    ui.userDictList->setTabKeyNavigation(false);
 }
 
 PreferencesWidget::ResultActions SpellCheckWidget::saveSettings()
