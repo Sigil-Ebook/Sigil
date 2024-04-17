@@ -49,7 +49,6 @@ static QString KEY_UI_ICON_THEME = SETTINGS_GROUP + "/" + "ui_icon_theme";
 static QString KEY_UI_PREVIEW_TIMEOUT = SETTINGS_GROUP + "/" + "ui_preview_timeout";
 static QString KEY_UI_HIGHLIGHT_FOCUS_WIDGET = SETTINGS_GROUP + "/" + "ui_highlight_focus_widget";
 static QString KEY_UI_DOUBLEWIDTH_TEXTCURSOR = SETTINGS_GROUP + "/" + "ui_doublewidth_textcursor";
-static QString KEY_DRAG_DISTANCE_TWEAK = SETTINGS_GROUP + "/" + "drag_distance_tweak";
 static QString KEY_ZOOM_IMAGE = SETTINGS_GROUP + "/" + "zoom_image";
 static QString KEY_ZOOM_TEXT = SETTINGS_GROUP + "/" + "zoom_text";
 static QString KEY_ZOOM_WEB = SETTINGS_GROUP + "/" + "zoom_web";
