@@ -585,8 +585,12 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
     case QEvent::FocusIn:
       // track focus in change events of m_Preview (or one of its child focus proxies)
       if (m_use_focus_highlight) {
-	  QString focus_qss = "border: 1px solid HIGHLIGHT_COLOR;";
-	  QString hcolor = palette().color(QPalette::Highlight).name();
+          QString focus_qss = "border: 1px solid HIGHLIGHT_COLOR;";
+          QString hcolor = palette().color(QPalette::Highlight).name();
+          QString user_color = Utility::GetEnvironmentVar("SIGIL_FOCUS_HIGHLIGHT_COLOR");
+          if (!user_color.isEmpty() && user_color.startsWith("#") && user_color.length() == 7) {
+              hcolor = user_color;
+          }
 	  focus_qss.replace("HIGHLIGHT_COLOR", hcolor);
 	  m_wrapper->setStyleSheet(focus_qss);
       }

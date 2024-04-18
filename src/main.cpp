@@ -93,6 +93,15 @@ const QString MAC_DOCK_TITLEBAR_FIX =
     "    titlebar-normal-icon: url(:/dark/dockdock-macstyle.svg);"
     "}";
 
+#ifdef Q_OS_MAC
+const QString FOCUS_HIGHLIGHT_QSS =
+    "QTableWidget:focus, QTreeWidget:focus, QLineEdit:focus, "
+    "QPlainTextEdit:focus, QTextEdit:focus,QTreeView::focus, "
+    "QTabWidget:focus, QListView:focus, QScrollArea:focus, "
+    "QToolButton:focus, QPushButton:focus, QTabBar:focus { "
+    "    border: 1px solid HIGHLIGHT_COLOR;"
+    "}";
+#else
 const QString FOCUS_HIGHLIGHT_QSS =
     "QTableWidget:focus, QTreeWidget:focus, QLineEdit:focus, "
     "QPlainTextEdit:focus, QTextEdit:focus,QTreeView::focus, "
@@ -100,7 +109,7 @@ const QString FOCUS_HIGHLIGHT_QSS =
     "QTabBar:focus { "
     "    border: 1px solid HIGHLIGHT_COLOR;"
     "}";
-
+#endif
 
 // Creates a MainWindow instance depending
 // on command line arguments
@@ -692,6 +701,12 @@ int main(int argc, char *argv[])
         if (settings.uiHighlightFocusWidgetEnabled()) {
             QString focus_qss = FOCUS_HIGHLIGHT_QSS;
 	    QString hcolor = app.palette().color(QPalette::Highlight).name();
+            QString user_color = Utility::GetEnvironmentVar("SIGIL_FOCUS_HIGHLIGHT_COLOR");
+            if (!user_color.isEmpty() && user_color.startsWith("#") && user_color.length() == 7) {
+                if (QColor::isValidColorName(user_color)) {
+                    hcolor = user_color;
+                }
+            }
             focus_qss.replace("HIGHLIGHT_COLOR", hcolor);
             app.setStyleSheet(app.styleSheet().append(focus_qss));
         }

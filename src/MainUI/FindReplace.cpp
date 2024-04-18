@@ -28,7 +28,6 @@
 #include <QString>
 #include <QAction>
 #include <QMenu>
-// #include <QToolButton>
 #include <QToolButton>
 #include <QKeyEvent>
 #include <QLineEdit>
@@ -114,6 +113,20 @@ FindReplace::FindReplace(MainWindow *main_window)
     ShowHideMarkedText(false);
     ReadSettings();
     m_PreviousSearch.clear();
+    ui.cbFind->setFocusPolicy(Qt::StrongFocus);
+    ui.findNext->setFocusPolicy(Qt::StrongFocus);
+    ui.replaceCurrent->setFocusPolicy(Qt::StrongFocus);
+    ui.restart->setFocusPolicy(Qt::StrongFocus);
+    ui.cbReplace->setFocusPolicy(Qt::StrongFocus);
+    ui.replaceFind->setFocusPolicy(Qt::StrongFocus);
+    ui.replaceAll->setFocusPolicy(Qt::StrongFocus);
+    ui.count->setFocusPolicy(Qt::StrongFocus);
+    ui.cbSearchMode->setFocusPolicy(Qt::StrongFocus);
+    ui.cbLookWhere->setFocusPolicy(Qt::StrongFocus);
+    ui.cbSearchDirection->setFocusPolicy(Qt::StrongFocus);
+    ui.tbRegexOptions->setFocusPolicy(Qt::StrongFocus);
+    ui.chkOptionWrap->setFocusPolicy(Qt::StrongFocus);
+    ui.chkOptionTextOnly->setFocusPolicy(Qt::StrongFocus);
 }
 
 
