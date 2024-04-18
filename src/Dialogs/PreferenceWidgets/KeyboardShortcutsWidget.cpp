@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2011      Grzegorz Wolszczak <grzechu81@gmail.com>
 **
@@ -49,6 +49,9 @@ KeyboardShortcutsWidget::KeyboardShortcutsWidget()
     ui.setupUi(this);
     connectSignalsSlots();
     readSettings();
+    ui.resetAllButton->setFocusPolicy(Qt::ClickFocus);
+    ui.assignButton->setFocusPolicy(Qt::StrongFocus);
+    ui.removeButton->setFocusPolicy(Qt::StrongFocus);
 }
 
 PreferencesWidget::ResultActions KeyboardShortcutsWidget::saveSettings()
@@ -278,6 +281,8 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
         nextKey == Qt::Key_NumLock    ||
         nextKey == Qt::Key_ScrollLock ||
         nextKey == 0                  ||
+        nextKey == Qt::Key_Tab        ||
+        nextKey == Qt::Key_Backtab    ||
         nextKey == Qt::Key_unknown    ||
         nextKey == Qt::Key_Backspace  || // This button cannot be assigned, because we want to 'clear' shortcut after backspace push
         ui.commandList->currentItem() == 0 // Do not allow writting in shortcut line edit if no item is selected
@@ -286,7 +291,20 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
         if (nextKey == Qt::Key_Backspace) {
             removeButtonClicked();
         }
-
+        // allow tab key to shift focus since using it in shortcuts is ill advised
+        // on Windows and other platforms
+        if (nextKey == Qt::Key_Tab || nextKey == Qt::Key_Backtab) {
+            QWidget * upnext = nullptr;
+            if (nextKey == Qt::Key_Tab) {
+                upnext = nextInFocusChain();
+            } else {
+                upnext = previousInFocusChain();
+            }
+            if (upnext) {
+                upnext->setFocus(Qt::TabFocusReason);
+            }
+            return;
+        }
         return;
     }
 
