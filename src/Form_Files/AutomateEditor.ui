@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>751</width>
-    <height>503</height>
+    <height>516</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -48,6 +48,9 @@
        </item>
        <item row="1" column="0">
         <widget class="QPushButton" name="addToolButton">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Add a new Tool element to the list.</string>
          </property>
@@ -58,6 +61,9 @@
        </item>
        <item row="3" column="0">
         <widget class="QPushButton" name="delButton">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Remove an Automate List element.</string>
          </property>
@@ -68,6 +74,9 @@
        </item>
        <item row="2" column="0">
         <widget class="QPushButton" name="addPluginButton">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Add a new Plugin element to the list.</string>
          </property>
@@ -93,6 +102,9 @@
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
           <widget class="QToolButton" name="tbMoveUp">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
            <property name="toolTip">
             <string>Move selected element up.</string>
            </property>
@@ -106,6 +118,9 @@
          </item>
          <item>
           <widget class="QToolButton" name="tbMoveDown">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
            <property name="toolTip">
             <string>Move selected element down.</string>
            </property>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>644</width>
-    <height>578</height>
+    <height>621</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,6 +18,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
       <widget class="QComboBox" name="Filter">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <item>
         <property name="text">
          <string>Filter Name:</string>
@@ -61,6 +64,9 @@
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QPushButton" name="LoadSearch">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Load the selected entry into the Find &amp; Replace window.</string>
          </property>
@@ -87,6 +93,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="Find">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Run Find using the selected entry.
 If a group is selected, find the first entry in the list, 
@@ -99,6 +108,9 @@ then if not found look for the second entry in the list, etc.</string>
        </item>
        <item>
         <widget class="QPushButton" name="ReplaceCurrent">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Run Replace using the selected entry.
 If a group is selected, loop through each entry
@@ -127,6 +139,9 @@ and stop at the first successful replace.</string>
        </item>
        <item>
         <widget class="QPushButton" name="Replace">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
@@ -139,6 +154,9 @@ and stop at the first successful replace/find.</string>
        </item>
        <item>
         <widget class="QPushButton" name="ReplaceAll">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</string>
@@ -166,6 +184,9 @@ Select a group to replace all entries in the group in order.</string>
        </item>
        <item>
         <widget class="QPushButton" name="CountAll">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</string>
@@ -177,6 +198,9 @@ including entries in selected groups.</string>
        </item>
        <item>
         <widget class="QPushButton" name="CountsReportPB">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Create a Counts report for the selected entries in the order selected,
 including entries in selected groups.</string>
@@ -206,6 +230,9 @@ including entries in selected groups.</string>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
           <widget class="QToolButton" name="MoveUp">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
            <property name="toolTip">
             <string>Move an entry up one level in the same group.</string>
            </property>
@@ -236,6 +263,9 @@ including entries in selected groups.</string>
          </item>
          <item>
           <widget class="QToolButton" name="MoveLeft">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
            <property name="toolTip">
             <string>Move an entry to the level of its parent.</string>
            </property>
@@ -265,6 +295,9 @@ including entries in selected groups.</string>
          </item>
          <item>
           <widget class="QToolButton" name="MoveRight">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
            <property name="toolTip">
             <string>You must select an item immediately under a group to move it into the group.</string>
            </property>
@@ -295,6 +328,9 @@ including entries in selected groups.</string>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
           <widget class="QToolButton" name="MoveDown">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
            <property name="toolTip">
             <string>Move an entry down one level in the same group.</string>
            </property>
@@ -350,7 +386,6 @@ including entries in selected groups.</string>
       <widget class="QLabel" name="Message">
        <property name="font">
         <font>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>

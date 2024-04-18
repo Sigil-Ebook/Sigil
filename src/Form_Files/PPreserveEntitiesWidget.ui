@@ -43,6 +43,9 @@
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QPushButton" name="addEntities">
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
+          </property>
           <property name="toolTip">
            <string>Enter or paste entities to add to the list.
 Entities can be separated by lines, commas, or spaces.</string>
@@ -54,6 +57,9 @@ Entities can be separated by lines, commas, or spaces.</string>
         </item>
         <item>
          <widget class="QPushButton" name="removeEntity">
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
+          </property>
           <property name="text">
            <string>Remove</string>
           </property>
@@ -61,6 +67,9 @@ Entities can be separated by lines, commas, or spaces.</string>
         </item>
         <item>
          <widget class="QPushButton" name="removeAll">
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
+          </property>
           <property name="text">
            <string>Remove All</string>
           </property>

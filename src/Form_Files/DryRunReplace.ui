@@ -27,7 +27,7 @@
     <number>0</number>
    </property>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0">
      <item>
       <widget class="QLabel" name="label">
        <property name="toolTip">
@@ -71,6 +71,9 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
        </property>
        <property name="editable">
         <bool>false</bool>
@@ -125,8 +128,11 @@
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QPushButton" name="Refresh">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="toolTip">
-        <string>Perform the dry run ReplaceAll again and rebuild the table</string>.
+        <string>Perform the dry run ReplaceAll again and rebuild the table</string>
        </property>
        <property name="text">
         <string>Refresh</string>
@@ -148,8 +154,11 @@
      </item>
      <item>
       <widget class="QPushButton" name="closeButton">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="toolTip">
-        <string>Close this dialog</string>.                                    
+        <string>Close this dialog</string>
        </property>
        <property name="text">
         <string>Close</string>

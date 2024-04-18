@@ -104,16 +104,19 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <layout class="QHBoxLayout" name="advancedLayout" stretch="0,0,0,0,0">
+         <layout class="QHBoxLayout" name="advancedLayout" stretch="0,0,0,0,0,0,0,0,0,0,0">
           <item>
            <widget class="QLabel" name="space_a">
-             <property name="text">
-              <string>  </string>
-             </property>
+            <property name="text">
+             <string/>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="chkRegexOptionDotAll">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>For Regex searches, prefix your search with (?s).</string>
             </property>
@@ -127,13 +130,16 @@
           </item>
           <item>
            <widget class="QLabel" name="space_b">
-             <property name="text">
-              <string>  </string>
-             </property>
+            <property name="text">
+             <string/>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="chkRegexOptionMinimalMatch">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>For Regex searches, prefix your search with (?U).</string>
             </property>
@@ -147,13 +153,16 @@
           </item>
           <item>
            <widget class="QLabel" name="space_c">
-             <property name="text">
-              <string>  </string>
-             </property>
+            <property name="text">
+             <string/>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="chkRegexOptionAutoTokenise">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>For Regex searches, tokenise/escape selection when opening Find.</string>
             </property>
@@ -166,14 +175,17 @@
            </widget>
           </item>
           <item>
-            <widget class="QLabel" name="space_d">
-             <property name="text">
-              <string>  </string>
-             </property>
-            </widget>
+           <widget class="QLabel" name="space_d">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="chkOptionWrap">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Search from current position to top or end of the 
 current file and then wrap to the
@@ -185,16 +197,19 @@ other end to continue searching.</string>
            </widget>
           </item>
           <item>
-            <widget class="QLabel" name="space_e">
-             <property name="text">
-              <string>  </string>
-             </property>
-            </widget>
+           <widget class="QLabel" name="space_e">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="chkOptionTextOnly">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
-              <string>Search only in text (outside tags).
+             <string>Search only in text (outside tags).
               Valid only when searching HTML files.</string>
             </property>
             <property name="text">
@@ -230,13 +245,25 @@ other end to continue searching.</string>
         <item row="2" column="1" colspan="4">
          <layout class="QHBoxLayout" name="modeLayout" stretch="0,0,0,0,0">
           <item>
-           <widget class="QComboBox" name="cbSearchMode"/>
+           <widget class="QComboBox" name="cbSearchMode">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+           </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="cbLookWhere"/>
+           <widget class="QComboBox" name="cbLookWhere">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+           </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="cbSearchDirection"/>
+           <widget class="QComboBox" name="cbSearchDirection">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+           </widget>
           </item>
           <item>
            <spacer name="horizontalSpacer">
@@ -253,11 +280,14 @@ other end to continue searching.</string>
           </item>
           <item>
            <widget class="QPushButton" name="btClearAll">
-            <property name="text">
-             <string>Clear All</string>
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
             </property>
             <property name="toolTip">
              <string>Ignore current settings and return an empty Controls value. </string>
+            </property>
+            <property name="text">
+             <string>Clear All</string>
             </property>
            </widget>
           </item>
@@ -280,5 +310,6 @@ other end to continue searching.</string>
   <tabstop>cbLookWhere</tabstop>
   <tabstop>cbSearchDirection</tabstop>
  </tabstops>
+ <resources/>
  <connections/>
 </ui>

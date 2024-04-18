@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>751</width>
-    <height>503</height>
+    <width>752</width>
+    <height>516</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -48,6 +48,9 @@
        </item>
        <item row="1" column="0">
         <widget class="QPushButton" name="addMetaButton">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Add a new metadata element.</string>
          </property>
@@ -58,6 +61,9 @@
        </item>
        <item row="2" column="0">
         <widget class="QPushButton" name="addPropButton">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Add a new property or attribute to an existing metadata element.</string>
          </property>
@@ -68,6 +74,9 @@
        </item>
        <item row="3" column="0">
         <widget class="QPushButton" name="delButton">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Remove a metadata element or property.</string>
          </property>
@@ -176,13 +185,13 @@
   </layout>
  </widget>
  <tabstops>
-   <tabstop>view</tabstop>
-   <tabstop>addMetaButton</tabstop>
-   <tabstop>addPropButton</tabstop>
-   <tabstop>delButton</tabstop>
-   <tabstop>tbMoveUp</tabstop>
-   <tabstop>tbMoveDown</tabstop>
-   <tabstop>buttonBox</tabstop>
+  <tabstop>view</tabstop>
+  <tabstop>addMetaButton</tabstop>
+  <tabstop>addPropButton</tabstop>
+  <tabstop>delButton</tabstop>
+  <tabstop>tbMoveUp</tabstop>
+  <tabstop>tbMoveDown</tabstop>
+  <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources/>
  <connections/>

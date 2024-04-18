@@ -27,7 +27,7 @@
     <number>0</number>
    </property>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0">
      <item>
       <spacer name="horizontalSpacer1">
        <property name="orientation">
@@ -59,12 +59,15 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="editable">
         <bool>false</bool>
        </property>
       </widget>
      </item>
-          <item>
+     <item>
       <widget class="QLabel" name="cntlbl">
        <property name="text">
         <string>Count:</string>
@@ -91,6 +94,10 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="toolTip">
+      <string>Delete unwanted replacements from the table.
+       Warning: Once replacements are applied, no &quot;undo&quot; is possible.</string>
+     </property>
      <property name="showDropIndicator" stdset="0">
       <bool>false</bool>
      </property>
@@ -106,19 +113,18 @@
      <property name="sortingEnabled">
       <bool>false</bool>
      </property>
-     <property name="toolTip">
-       <string>Delete unwanted replacements from the table.
-       Warning: Once replacements are applied, no "undo" is possible.</string>.
-     </property>
     </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QPushButton" name="Apply">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="toolTip">
-         <string>Apply the remaining replacements listed in the table.
-         Warning: Once applied, no "undo" is possible.</string>.
+        <string>Apply the remaining replacements listed in the table.
+         Warning: Once applied, no &quot;undo&quot; is possible.</string>
        </property>
        <property name="text">
         <string>Apply Changes</string>

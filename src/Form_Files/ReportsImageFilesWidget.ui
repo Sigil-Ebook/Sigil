@@ -79,6 +79,9 @@
      </item>
      <item>
       <widget class="QToolButton" name="ThumbnailDecrease">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="icon">
         <iconset>
          <normaloff>:/main/list-remove.svg</normaloff>:/main/list-remove.svg</iconset>
@@ -87,6 +90,9 @@
      </item>
      <item>
       <widget class="QToolButton" name="ThumbnailIncrease">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="icon">
         <iconset>
          <normaloff>:/main/list-add.svg</normaloff>:/main/list-add.svg</iconset>

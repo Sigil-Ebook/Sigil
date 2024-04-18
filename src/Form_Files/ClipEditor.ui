@@ -18,6 +18,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
       <widget class="QComboBox" name="Filter">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <item>
         <property name="text">
          <string>Filter Name:</string>
@@ -61,6 +64,9 @@
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QPushButton" name="PasteClip">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Paste the selected entry into the active window.</string>
          </property>
@@ -87,6 +93,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="AddEntry">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="text">
           <string>Add Entry</string>
          </property>
@@ -94,6 +103,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="AddGroup">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="text">
           <string>Add Group</string>
          </property>
@@ -119,6 +131,9 @@
         <layout class="QHBoxLayout" name="horizontalLayout_7">
          <item>
           <widget class="QToolButton" name="MoveUp">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
            <property name="toolTip">
             <string>Move an entry up one entry in the same group.</string>
            </property>
@@ -149,6 +164,9 @@
          </item>
          <item>
           <widget class="QToolButton" name="MoveLeft">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
            <property name="toolTip">
             <string>Move an entry to the level of its parent.</string>
            </property>
@@ -178,6 +196,9 @@
          </item>
          <item>
           <widget class="QToolButton" name="MoveRight">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
            <property name="toolTip">
             <string>You must select an item immediately under a group to move it into the group.</string>
            </property>
@@ -208,6 +229,9 @@
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
           <widget class="QToolButton" name="MoveDown">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
            <property name="toolTip">
             <string>Move an entry down one in the group.</string>
            </property>

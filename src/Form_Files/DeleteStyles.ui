@@ -23,6 +23,9 @@
    </item>
    <item>
     <widget class="QCheckBox" name="ToggleSelectAll">
+     <property name="focusPolicy">
+      <enum>Qt::StrongFocus</enum>
+     </property>
      <property name="text">
       <string>Select / Unselect all</string>
      </property>

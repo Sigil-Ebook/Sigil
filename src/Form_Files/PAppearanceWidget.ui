@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>576</width>
-    <height>475</height>
+    <height>508</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -186,6 +186,9 @@
                 <width>90</width>
                 <height>0</height>
                </size>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::StrongFocus</enum>
               </property>
               <property name="toolTip">
                <string>Select an alternative color for this display item</string>
@@ -423,6 +426,9 @@ if a sans-serif font-family specified in your CSS</string>
        </item>
        <item>
         <widget class="QCheckBox" name="PreviewDarkInDM">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="text">
           <string>Make Preview simulate a dark appearance in dark mode</string>
          </property>
@@ -471,6 +477,9 @@ if a sans-serif font-family specified in your CSS</string>
          <layout class="QHBoxLayout" name="tabversionLayout">
           <item>
            <widget class="QRadioButton" name="Default">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Sigil's default icon theme.</string>
             </property>
@@ -484,6 +493,9 @@ if a sans-serif font-family specified in your CSS</string>
           </item>
           <item>
            <widget class="QRadioButton" name="Fluent">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Icons based on the Fluent theme:</string>
             </property>
@@ -497,6 +509,9 @@ if a sans-serif font-family specified in your CSS</string>
           </item>
           <item>
            <widget class="QRadioButton" name="Material">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Icons based on Google's Material theme:</string>
             </property>
@@ -510,6 +525,9 @@ if a sans-serif font-family specified in your CSS</string>
           </item>
           <item>
            <widget class="QRadioButton" name="Custom">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Custom Icon Theme:</string>
             </property>
@@ -575,6 +593,9 @@ if a sans-serif font-family specified in your CSS</string>
           </item>
           <item row="1" column="0">
            <widget class="QSlider" name="iconSizeSlider">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="minimum">
              <number>10</number>
             </property>
@@ -608,7 +629,11 @@ if a sans-serif font-family specified in your CSS</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QComboBox" name="comboHighDPI"/>
+           <widget class="QComboBox" name="comboHighDPI">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+           </widget>
           </item>
           <item>
            <widget class="QLabel" name="lblHighDPIWarn">
@@ -651,6 +676,9 @@ if a sans-serif font-family specified in your CSS</string>
           </item>
           <item>
            <widget class="QPushButton" name="changeUIFontButton">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Change the font used by Sigil's menus, buttons, etc...</string>
             </property>
@@ -689,6 +717,9 @@ if a sans-serif font-family specified in your CSS</string>
          <layout class="QGridLayout" name="gridLayout_3a">
           <item row="0" column="0">
            <widget class="QCheckBox" name="ShowFullPath">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Check to make BookBrowser show full paths.</string>
             </property>
@@ -711,6 +742,9 @@ if a sans-serif font-family specified in your CSS</string>
          <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
            <widget class="QCheckBox" name="chkFocusDec">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Show colored border around Widgets when they have focus</string>
             </property>
@@ -721,6 +755,9 @@ if a sans-serif font-family specified in your CSS</string>
           </item>
           <item>
            <widget class="QCheckBox" name="chkDoubleWidthCursor">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Make insertion cursor more visible</string>
             </property>

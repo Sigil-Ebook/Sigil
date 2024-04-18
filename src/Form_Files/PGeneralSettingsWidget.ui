@@ -51,6 +51,9 @@ when creating new or empty Epubs in Sigil.</string>
          <layout class="QHBoxLayout" name="versionLayout">
           <item>
            <widget class="QRadioButton" name="EpubVersion2">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Epub Version 2.</string>
             </property>
@@ -64,6 +67,9 @@ when creating new or empty Epubs in Sigil.</string>
           </item>
           <item>
            <widget class="QRadioButton" name="EpubVersion3">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Epub Version 3.</string>
             </property>
@@ -112,6 +118,9 @@ mended.</string>
          <layout class="QHBoxLayout" name="mendLayout">
           <item>
            <widget class="QCheckBox" name="MendOnOpen">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Mend Not Well Formed HTML when opening an Epub or HTML file.</string>
             </property>
@@ -122,6 +131,9 @@ mended.</string>
           </item>
           <item alignment="Qt::AlignLeft">
            <widget class="QCheckBox" name="MendOnSave">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Mend Not Well Formed HTML when saving an Epub.</string>
             </property>
@@ -199,6 +211,9 @@ mended.</string>
             </item>
             <item>
              <widget class="QPushButton" name="clearButton7">
+              <property name="focusPolicy">
+               <enum>Qt::StrongFocus</enum>
+              </property>
               <property name="text">
                <string>Clear</string>
               </property>
@@ -206,6 +221,9 @@ mended.</string>
             </item>
             <item>
              <widget class="QPushButton" name="browseButton7">
+              <property name="focusPolicy">
+               <enum>Qt::StrongFocus</enum>
+              </property>
               <property name="text">
                <string>Browse</string>
               </property>
@@ -256,6 +274,9 @@ mended.</string>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Check to allow Epubs to access non-multimedia remote resources.</string>
             </property>
@@ -289,6 +310,9 @@ mended.</string>
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
             </property>
             <property name="toolTip">
              <string>Check to allow Epubs to use javascript.</string>
@@ -344,6 +368,9 @@ mended.</string>
          <layout class="QHBoxLayout" name="horizontalLayoutcss2">
           <item>
            <widget class="QRadioButton" name="Epub2css20">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>W3C stylesheet validator will use CSS level 2 for EPUB2</string>
             </property>
@@ -354,6 +381,9 @@ mended.</string>
           </item>
           <item>
            <widget class="QRadioButton" name="Epub2css21">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>W3C stylesheet validator will use CSS level 2.1 for EPUB2</string>
             </property>
@@ -367,6 +397,9 @@ mended.</string>
           </item>
           <item>
            <widget class="QRadioButton" name="Epub2css30">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>W3C stylesheet validator will use CSS level 3 for EPUB2</string>
             </property>
@@ -414,6 +447,9 @@ mended.</string>
          <layout class="QHBoxLayout" name="horizontalLayoutcss3">
           <item>
            <widget class="QRadioButton" name="Epub3css20">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>W3C stylesheet validator will use CSS level 2 for EPUB3</string>
             </property>
@@ -424,6 +460,9 @@ mended.</string>
           </item>
           <item>
            <widget class="QRadioButton" name="Epub3css21">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>W3C stylesheet validator will use CSS level 2.1 for EPUB3</string>
             </property>
@@ -437,6 +476,9 @@ mended.</string>
           </item>
           <item>
            <widget class="QRadioButton" name="Epub3css30">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>W3C stylesheet validator will use CSS level 3 for EPUB3</string>
             </property>
@@ -513,6 +555,9 @@ mended.</string>
             </item>
             <item>
              <widget class="QPushButton" name="autoButton">
+              <property name="focusPolicy">
+               <enum>Qt::StrongFocus</enum>
+              </property>
               <property name="text">
                <string>Auto</string>
               </property>
@@ -520,6 +565,9 @@ mended.</string>
             </item>
             <item>
              <widget class="QPushButton" name="browseButton">
+              <property name="focusPolicy">
+               <enum>Qt::StrongFocus</enum>
+              </property>
               <property name="text">
                <string>Browse</string>
               </property>
@@ -550,6 +598,9 @@ mended.</string>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Disable GPU Acceleration in QtWebEngine.</string>
             </property>
@@ -572,6 +623,9 @@ mended.</string>
          <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
            <widget class="QCheckBox" name="chkSkipPrintPreview">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Skip Print Preview</string>
             </property>
@@ -590,7 +644,11 @@ mended.</string>
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="cboPrintDPI"/>
+             <widget class="QComboBox" name="cboPrintDPI">
+              <property name="focusPolicy">
+               <enum>Qt::StrongFocus</enum>
+              </property>
+             </widget>
             </item>
             <item>
              <spacer name="horizontalSpacer_5">

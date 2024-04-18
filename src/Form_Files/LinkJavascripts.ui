@@ -39,6 +39,9 @@
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QToolButton" name="MoveUp">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Move the selected javascripts up in priority.
 
@@ -54,6 +57,9 @@ Javascripts that are listed first are loaded first.</string>
        </item>
        <item>
         <widget class="QToolButton" name="MoveDown">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Move the selected javascripts down in priority.</string>
          </property>

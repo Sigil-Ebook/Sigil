@@ -54,6 +54,9 @@
       <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,0,0,0">
        <item>
         <widget class="QPushButton" name="Ignore">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Ignore the selected words until Sigil
 is restarted or a new book is opened.</string>
@@ -87,6 +90,9 @@ is restarted or a new book is opened.</string>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Add the selected words to the
 dictionary selected below.</string>
@@ -110,6 +116,9 @@ dictionary selected below.</string>
            <height>16777215</height>
           </size>
          </property>
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
         </widget>
        </item>
        <item>
@@ -130,6 +139,9 @@ dictionary selected below.</string>
        </item>
        <item>
         <widget class="QPushButton" name="ChangeAll">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Change all occurrences of the selected word  in
 HTML files to the word you select or type below.
@@ -142,6 +154,9 @@ The selected word does not have to be misspelled.</string>
        </item>
        <item>
         <widget class="QComboBox" name="cbChangeAll">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="editable">
           <bool>true</bool>
          </property>
@@ -177,6 +192,9 @@ The selected word does not have to be misspelled.</string>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QCheckBox" name="ShowAllWords">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="text">
         <string>Show All Words</string>
        </property>
@@ -184,6 +202,9 @@ The selected word does not have to be misspelled.</string>
      </item>
      <item>
       <widget class="QCheckBox" name="LocaleAwareSort">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Sort words as in a locale specific manner, typically AaBbCc instead of ABCabc.</string>
        </property>
@@ -211,6 +232,9 @@ The selected word does not have to be misspelled.</string>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
      <item>
       <widget class="QPushButton" name="Refresh">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Re-check the HTML files for misspelled words.
 Use if you edit any HTML files while Spellcheck is open.</string>
