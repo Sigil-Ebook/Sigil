@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>566</width>
-    <height>93</height>
+    <height>127</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -23,7 +23,7 @@
    <property name="spacing">
     <number>0</number>
    </property>
-   <property name="margin">
+   <property name="margin" stdset="0">
     <number>0</number>
    </property>
    <item>
@@ -38,7 +38,7 @@
       <property name="spacing">
        <number>0</number>
       </property>
-      <property name="margin">
+      <property name="margin" stdset="0">
        <number>0</number>
       </property>
       <item>
@@ -122,6 +122,9 @@
         </item>
         <item row="0" column="1">
          <widget class="PasteTargetComboBox" name="cbFind">
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
+          </property>
           <property name="editable">
            <bool>true</bool>
           </property>
@@ -150,21 +153,23 @@
             <height>22</height>
            </size>
           </property>
-          <property name="text">
-           <string>Find</string>
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
           </property>
           <property name="toolTip">
            <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find next match.&lt;/p&gt;</string>
           </property>
-          <property name="icon">
-            <iconset resource="../Resource_Files/main/main.qrc">
-              <normaloff>:/main/find.svg</normaloff>:/main/find.svg
-            </iconset>
-          </property>
           <property name="styleSheet">
            <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Find</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../Resource_Files/main/main.qrc">
+            <normaloff>:/main/find.svg</normaloff>:/main/find.svg</iconset>
           </property>
          </widget>
         </item>
@@ -182,8 +187,8 @@
             <height>22</height>
            </size>
           </property>
-          <property name="text">
-           <string>Replace</string>
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
           </property>
           <property name="toolTip">
            <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace&lt;/b&gt;&lt;/p&gt;
@@ -193,10 +198,12 @@
           <property name="styleSheet">
            <string notr="true"/>
           </property>
+          <property name="text">
+           <string>Replace</string>
+          </property>
           <property name="icon">
-            <iconset resource="../Resource_Files/main/main.qrc">
-              <normaloff>:/main/replace.svg</normaloff>:/main/replace.svg 
-            </iconset>
+           <iconset resource="../Resource_Files/main/main.qrc">
+            <normaloff>:/main/replace.svg</normaloff>:/main/replace.svg</iconset>
           </property>
          </widget>
         </item>
@@ -214,8 +221,8 @@
             <height>22</height>
            </size>
           </property>
-          <property name="text">
-           <string>Restart</string>
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
           </property>
           <property name="toolTip">
            <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Restart&lt;/b&gt;&lt;/p&gt;
@@ -225,10 +232,12 @@
           <property name="styleSheet">
            <string notr="true"/>
           </property>
+          <property name="text">
+           <string>Restart</string>
+          </property>
           <property name="icon">
-            <iconset resource="../Resource_Files/main/main.qrc">
-              <normaloff>:/main/restart.svg</normaloff>:/main/restart.svg
-            </iconset>
+           <iconset resource="../Resource_Files/main/main.qrc">
+            <normaloff>:/main/restart.svg</normaloff>:/main/restart.svg</iconset>
           </property>
          </widget>
         </item>
@@ -244,6 +253,9 @@
         </item>
         <item row="1" column="1">
          <widget class="PasteTargetComboBox" name="cbReplace">
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
+          </property>
           <property name="editable">
            <bool>true</bool>
           </property>
@@ -272,8 +284,8 @@
             <height>22</height>
            </size>
           </property>
-          <property name="text">
-           <string>Replace/Find</string>
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
           </property>
           <property name="toolTip">
            <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace/Find&lt;/b&gt;&lt;/p&gt;
@@ -284,10 +296,12 @@ then find the Next match in Code View.&lt;/p&gt;</string>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
+          <property name="text">
+           <string>Replace/Find</string>
+          </property>
           <property name="icon">
-            <iconset resource="../Resource_Files/main/main.qrc">
-              <normaloff>:/main/replace-find.svg</normaloff>:/main/replace-find.svg 
-            </iconset>
+           <iconset resource="../Resource_Files/main/main.qrc">
+            <normaloff>:/main/replace-find.svg</normaloff>:/main/replace-find.svg</iconset>
           </property>
          </widget>
         </item>
@@ -305,8 +319,8 @@ then find the Next match in Code View.&lt;/p&gt;</string>
             <height>22</height>
            </size>
           </property>
-          <property name="text">
-           <string>Replace All</string>
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
           </property>
           <property name="toolTip">
            <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace All&lt;/b&gt;&lt;/p&gt;
@@ -317,10 +331,12 @@ then find the Next match in Code View.&lt;/p&gt;</string>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
+          <property name="text">
+           <string>Replace All</string>
+          </property>
           <property name="icon">
-            <iconset resource="../Resource_Files/main/main.qrc">
-              <normaloff>:/main/replace-all.svg</normaloff>:/main/replace-all.svg 
-            </iconset>
+           <iconset resource="../Resource_Files/main/main.qrc">
+            <normaloff>:/main/replace-all.svg</normaloff>:/main/replace-all.svg</iconset>
           </property>
          </widget>
         </item>
@@ -338,8 +354,8 @@ then find the Next match in Code View.&lt;/p&gt;</string>
             <height>22</height>
            </size>
           </property>
-          <property name="text">
-           <string>Count All</string>
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
           </property>
           <property name="toolTip">
            <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Count All&lt;/b&gt;&lt;/p&gt;
@@ -350,10 +366,12 @@ then find the Next match in Code View.&lt;/p&gt;</string>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
+          <property name="text">
+           <string>Count All</string>
+          </property>
           <property name="icon">
-            <iconset resource="../Resource_Files/main/main.qrc">
-              <normaloff>:/main/count-all.svg</normaloff>:/main/count-all.svg
-            </iconset>
+           <iconset resource="../Resource_Files/main/main.qrc">
+            <normaloff>:/main/count-all.svg</normaloff>:/main/count-all.svg</iconset>
           </property>
          </widget>
         </item>
@@ -368,18 +386,34 @@ then find the Next match in Code View.&lt;/p&gt;</string>
          </widget>
         </item>
         <item row="2" column="1" colspan="3">
-         <layout class="QHBoxLayout" name="modeLayout" stretch="0,0,0,0,0">
+         <layout class="QHBoxLayout" name="modeLayout" stretch="0,0,0,0">
           <item>
-           <widget class="QComboBox" name="cbSearchMode"/>
+           <widget class="QComboBox" name="cbSearchMode">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+           </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="cbLookWhere"/>
+           <widget class="QComboBox" name="cbLookWhere">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+           </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="MarkedTextIndicator"/>
+           <widget class="QComboBox" name="MarkedTextIndicator">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+           </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="cbSearchDirection"/>
+           <widget class="QComboBox" name="cbSearchDirection">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -401,7 +435,7 @@ then find the Next match in Code View.&lt;/p&gt;</string>
            <string>Regex Valid?</string>
           </property>
           <property name="text">
-           <string> </string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -416,9 +450,12 @@ then find the Next match in Code View.&lt;/p&gt;</string>
          </widget>
         </item>
         <item row="3" column="1" colspan="4">
-         <layout class="QHBoxLayout" name="advancedLayout" stretch="0,0,0,0,0">
+         <layout class="QHBoxLayout" name="advancedLayout" stretch="0,0,0,0,0,0,0,0">
           <item>
            <widget class="QToolButton" name="tbRegexOptions">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
              <string>Set advanced Regex search flags / options.</string>
             </property>
@@ -430,14 +467,17 @@ then find the Next match in Code View.&lt;/p&gt;</string>
           <item>
            <widget class="QLabel" name="space0">
             <property name="text">
-             <string>  </string>
+             <string/>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="chkOptionWrap">
-             <property name="toolTip">
-               <string>Search from current position to top or end of the
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+            <property name="toolTip">
+             <string>Search from current position to top or end of the
 current file and then wrap to the
 other end to continue searching.</string>
             </property>
@@ -449,14 +489,17 @@ other end to continue searching.</string>
           <item>
            <widget class="QLabel" name="space1">
             <property name="text">
-             <string>  </string>
+             <string/>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="chkOptionTextOnly">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
             <property name="toolTip">
-              <string>Search only in text (outside tags).
+             <string>Search only in text (outside tags).
 Valid only when searching HTML files.</string>
             </property>
             <property name="text">
@@ -467,7 +510,7 @@ Valid only when searching HTML files.</string>
           <item>
            <widget class="QLabel" name="space2">
             <property name="text">
-             <string>  </string>
+             <string/>
             </property>
            </widget>
           </item>
@@ -488,7 +531,6 @@ Valid only when searching HTML files.</string>
            <widget class="QLabel" name="message">
             <property name="font">
              <font>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -506,6 +548,13 @@ Valid only when searching HTML files.</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PasteTargetComboBox</class>
+   <extends>QComboBox</extends>
+   <header>Misc/PasteTargetComboBox.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>cbFind</tabstop>
   <tabstop>cbReplace</tabstop>
@@ -523,13 +572,6 @@ Valid only when searching HTML files.</string>
   <tabstop>count</tabstop>
   <tabstop>close</tabstop>
  </tabstops>
- <customwidgets>
-  <customwidget>
-   <class>PasteTargetComboBox</class>
-   <extends>QComboBox</extends>
-   <header>Misc/PasteTargetComboBox.h</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="../Resource_Files/main/main.qrc"/>
  </resources>

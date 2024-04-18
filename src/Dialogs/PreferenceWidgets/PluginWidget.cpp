@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -57,14 +57,7 @@ PluginWidget::PluginWidget()
     m_qlcbxs.append(ui.comboBox_9);
     m_qlcbxs.append(ui.comboBox_10);
 
-    ui.pluginTabWidget->setFocusPolicy(Qt::StrongFocus);
-    foreach(QComboBox* cb, m_qlcbxs) {
-        cb->setFocusPolicy(Qt::StrongFocus);
-    }
     ui.pluginTable->setTabKeyNavigation(false);
-    ui.addButton->setFocusPolicy(Qt::StrongFocus);
-    ui.removeButton->setFocusPolicy(Qt::StrongFocus);
-    ui.removeAllButton->setFocusPolicy(Qt::StrongFocus);
     readSettings();
     connectSignalsToSlots();
 }

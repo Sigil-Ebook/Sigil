@@ -49,9 +49,6 @@ KeyboardShortcutsWidget::KeyboardShortcutsWidget()
     ui.setupUi(this);
     connectSignalsSlots();
     readSettings();
-    ui.resetAllButton->setFocusPolicy(Qt::ClickFocus);
-    ui.assignButton->setFocusPolicy(Qt::StrongFocus);
-    ui.removeButton->setFocusPolicy(Qt::StrongFocus);
 }
 
 PreferencesWidget::ResultActions KeyboardShortcutsWidget::saveSettings()

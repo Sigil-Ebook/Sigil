@@ -98,7 +98,7 @@ const QString FOCUS_HIGHLIGHT_QSS =
     "QTableWidget:focus, QTreeWidget:focus, QLineEdit:focus, "
     "QPlainTextEdit:focus, QTextEdit:focus,QTreeView::focus, "
     "QTabWidget:focus, QListView:focus, QScrollArea:focus, "
-    "QToolButton:focus, QPushButton:focus, QTabBar:focus { "
+    "QToolButton:focus, QTabBar:focus { "
     "    border: 1px solid HIGHLIGHT_COLOR;"
     "}";
 #else

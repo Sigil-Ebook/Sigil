@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>550</width>
-    <height>436</height>
+    <height>449</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,6 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_5">
    <item>
-
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
       <widget class="QLabel" name="dict_label">
@@ -31,6 +30,9 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
        </property>
       </widget>
      </item>
@@ -62,6 +64,9 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
       </widget>
      </item>
      <item row="1" column="2">
@@ -79,6 +84,9 @@
      </item>
      <item row="2" column="0" colspan="2">
       <widget class="QCheckBox" name="HighlightMisspelled">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Highlight misspelled words in Code View.</string>
        </property>
@@ -102,6 +110,9 @@
      </item>
      <item row="3" column="0" colspan="2">
       <widget class="QCheckBox" name="CheckNumbers">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="toolTip">
         <string>Check words with numbers in them.</string>
        </property>
@@ -172,8 +183,11 @@
    </item>
    <item>
     <widget class="QTabWidget" name="spellTabWidget">
+     <property name="focusPolicy">
+      <enum>Qt::StrongFocus</enum>
+     </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="dictTab">
       <attribute name="title">
@@ -186,6 +200,9 @@
           <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
             <widget class="QPushButton" name="addUserDict">
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
              <property name="text">
               <string>Add</string>
              </property>
@@ -193,6 +210,9 @@
            </item>
            <item>
             <widget class="QPushButton" name="renameUserDict">
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
              <property name="text">
               <string>Rename</string>
              </property>
@@ -200,6 +220,9 @@
            </item>
            <item>
             <widget class="QPushButton" name="copyUserDict">
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
              <property name="text">
               <string>Copy</string>
              </property>
@@ -207,6 +230,9 @@
            </item>
            <item>
             <widget class="QPushButton" name="removeUserDict">
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
              <property name="toolTip">
               <string>Remove the selected dictionary.
 
@@ -287,6 +313,9 @@ and to make it the default dictionary.</string>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
             <widget class="QPushButton" name="addUserWords">
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
              <property name="toolTip">
               <string>Enter or paste words to add to the dictionary.
 Words can be separated by lines, commas, or spaces.</string>
@@ -298,6 +327,9 @@ Words can be separated by lines, commas, or spaces.</string>
            </item>
            <item>
             <widget class="QPushButton" name="editWord">
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
              <property name="text">
               <string>Edit</string>
              </property>
@@ -305,6 +337,9 @@ Words can be separated by lines, commas, or spaces.</string>
            </item>
            <item>
             <widget class="QPushButton" name="removeWord">
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
              <property name="text">
               <string>Remove</string>
              </property>
@@ -312,6 +347,9 @@ Words can be separated by lines, commas, or spaces.</string>
            </item>
            <item>
             <widget class="QPushButton" name="removeAll">
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
              <property name="text">
               <string>Remove All</string>
              </property>

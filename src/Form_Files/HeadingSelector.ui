@@ -48,6 +48,9 @@
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QPushButton" name="rename">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
          <property name="toolTip">
           <string>Change the name of the entry in the TOC.
 The heading's title attribute will be updated in the document.</string>
@@ -77,6 +80,9 @@ The heading's title attribute will be updated in the document.</string>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <widget class="QToolButton" name="bleft">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
            <property name="toolTip">
             <string>Decrease the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
@@ -92,6 +98,9 @@ You can also use the left arrow key.</string>
          </item>
          <item>
           <widget class="QToolButton" name="bright">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
            <property name="toolTip">
             <string>Increase the heading level of the selected entry by 1.
 The heading's tag will be updated in the document.
@@ -126,6 +135,9 @@ You can also use the right arrow key.</string>
    </item>
    <item>
     <widget class="QCheckBox" name="cbTOCItemsOnly">
+     <property name="focusPolicy">
+      <enum>Qt::StrongFocus</enum>
+     </property>
      <property name="toolTip">
       <string>Only display the items that will be added to the Table Of Contents.
 Check or uncheck an entry to determine if it will be added to the TOC.</string>
@@ -147,7 +159,7 @@ Check or uncheck an entry to determine if it will be added to the TOC.</string>
       </sizepolicy>
      </property>
      <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
+      <enum>Qt::StrongFocus</enum>
      </property>
      <property name="toolTip">
       <string>Quickly mark which headings are included in the TOC.
@@ -172,8 +184,8 @@ You can then check or uncheck individual headings in the list above.</string>
     </widget>
    </item>
   </layout>
-</widget>
-<tabstops>
+ </widget>
+ <tabstops>
   <tabstop>tvTOCDisplay</tabstop>
   <tabstop>rename</tabstop>
   <tabstop>bleft</tabstop>
@@ -181,7 +193,7 @@ You can then check or uncheck individual headings in the list above.</string>
   <tabstop>cbTOCItemsOnly</tabstop>
   <tabstop>cbTOCSetHeadingLevel</tabstop>
   <tabstop>buttonBox</tabstop>
-</tabstops>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

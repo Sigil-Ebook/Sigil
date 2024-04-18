@@ -101,6 +101,9 @@
      </item>
      <item>
       <widget class="QCheckBox" name="EnableAltGr">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
        <property name="text">
         <string>Enable AltGr on international keyboard</string>
        </property>
@@ -144,6 +147,9 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
+          </property>
           <property name="toolTip">
            <string>Assign this keyboard shortcut, overriding any conflicting usages.</string>
           </property>
@@ -162,6 +168,9 @@
          <widget class="QPushButton" name="removeButton">
           <property name="enabled">
            <bool>false</bool>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::StrongFocus</enum>
           </property>
           <property name="toolTip">
            <string>Remove this keyboard shortcut.</string>

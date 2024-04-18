@@ -71,13 +71,6 @@ HeadingSelector::HeadingSelector(QSharedPointer<Book> book, QWidget *parent)
     PopulateSelectHeadingCombo(GetMaxHeadingLevel(flat_headings));
     RefreshTOCModelDisplay();
     ReadSettings();
-    ui.tvTOCDisplay->setFocusPolicy(Qt::StrongFocus);
-    ui.rename->setFocusPolicy(Qt::StrongFocus);
-    ui.bleft->setFocusPolicy(Qt::StrongFocus);
-    ui.bright->setFocusPolicy(Qt::StrongFocus);
-    ui.cbTOCItemsOnly->setFocusPolicy(Qt::StrongFocus);
-    ui.cbTOCSetHeadingLevel->setFocusPolicy(Qt::StrongFocus);
-    ui.buttonBox->setFocusPolicy(Qt::StrongFocus);
 }
 
 

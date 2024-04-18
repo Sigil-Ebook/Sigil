@@ -84,7 +84,7 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_StartingResource(nullptr),
       m_StartingPos(-1),
       m_InRemainder(false),
-      m_RestartPerformed(false),
+
       m_SearchRunning(false),
       m_DryRunRunning(false),
       m_ShiftUsed(false),
@@ -113,20 +113,6 @@ FindReplace::FindReplace(MainWindow *main_window)
     ShowHideMarkedText(false);
     ReadSettings();
     m_PreviousSearch.clear();
-    ui.cbFind->setFocusPolicy(Qt::StrongFocus);
-    ui.findNext->setFocusPolicy(Qt::StrongFocus);
-    ui.replaceCurrent->setFocusPolicy(Qt::StrongFocus);
-    ui.restart->setFocusPolicy(Qt::StrongFocus);
-    ui.cbReplace->setFocusPolicy(Qt::StrongFocus);
-    ui.replaceFind->setFocusPolicy(Qt::StrongFocus);
-    ui.replaceAll->setFocusPolicy(Qt::StrongFocus);
-    ui.count->setFocusPolicy(Qt::StrongFocus);
-    ui.cbSearchMode->setFocusPolicy(Qt::StrongFocus);
-    ui.cbLookWhere->setFocusPolicy(Qt::StrongFocus);
-    ui.cbSearchDirection->setFocusPolicy(Qt::StrongFocus);
-    ui.tbRegexOptions->setFocusPolicy(Qt::StrongFocus);
-    ui.chkOptionWrap->setFocusPolicy(Qt::StrongFocus);
-    ui.chkOptionTextOnly->setFocusPolicy(Qt::StrongFocus);
 }
 
 

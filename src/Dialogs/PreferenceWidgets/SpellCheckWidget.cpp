@@ -45,19 +45,6 @@ SpellCheckWidget::SpellCheckWidget()
     setUpTable();
     readSettings();
     connectSignalsToSlots();
-    ui.dictionaries->setFocusPolicy(Qt::StrongFocus);
-    ui.dictionaries2d->setFocusPolicy(Qt::StrongFocus);
-    ui.HighlightMisspelled->setFocusPolicy(Qt::StrongFocus);
-    ui.CheckNumbers->setFocusPolicy(Qt::StrongFocus);
-    ui.spellTabWidget->setFocusPolicy(Qt::StrongFocus);
-    ui.addUserDict->setFocusPolicy(Qt::StrongFocus);
-    ui.renameUserDict->setFocusPolicy(Qt::StrongFocus);
-    ui.copyUserDict->setFocusPolicy(Qt::StrongFocus);
-    ui.removeUserDict->setFocusPolicy(Qt::StrongFocus);
-    ui.addUserWords->setFocusPolicy(Qt::StrongFocus);
-    ui.editWord->setFocusPolicy(Qt::StrongFocus);
-    ui.removeWord->setFocusPolicy(Qt::StrongFocus);
-    ui.removeAll->setFocusPolicy(Qt::StrongFocus);
 }
 
 void SpellCheckWidget::setUpTable()
