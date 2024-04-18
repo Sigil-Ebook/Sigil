@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2021 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2018-2024 Kevin B. Hendricks, Stratford, ON Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -376,6 +376,7 @@ void SelectCharacter::AddGrid(const QStringList &characters, int width)
             button->setToolTip(entity + " " + description);
             button->setText(display_text);
             button->setFont(font);
+            button->setFocusPolicy(Qt::StrongFocus);
             connect(button, SIGNAL(clicked()), m_buttonMapper, SLOT(map()));
             m_buttonMapper->setMapping(button, insert_text);
             grid->addWidget(button, row, col);

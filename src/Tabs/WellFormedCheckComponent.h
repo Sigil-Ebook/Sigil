@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C)      2024 Kevin B. Hendricks, Stratford, Ontario Canada 
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.

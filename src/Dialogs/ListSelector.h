@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2024 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -48,6 +48,8 @@ public:
         m_bp->setToolTip(tr("View selected"));
         m_bp->setText(btext);
         m_bp->setToolButtonStyle(Qt::ToolButtonTextOnly);
+        m_bp->setFocusPolicy(Qt::StrongFocus);
+        m_lw->setFocusPolicy(Qt::StrongFocus);
         QStringList sortedlist = Utility::LocaleAwareSort(alist);
         foreach(QString aitem, sortedlist) {
             m_lw->addItem(aitem);

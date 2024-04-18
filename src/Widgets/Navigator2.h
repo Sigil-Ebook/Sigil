@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2024 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -52,6 +52,7 @@ public:
         m_bp->setIcon(QIcon(":/main/back.svg"));
         m_bp->setToolTip(tr("Go to previous page - [p]"));
         m_bp->setToolButtonStyle(Qt::ToolButtonIconOnly);
+        m_bp->setFocusPolicy(Qt::StrongFocus);
         m_layout->addWidget(m_bp, r, c);
         c++;
 
@@ -59,6 +60,7 @@ public:
         m_bn->setIcon(QIcon(":/main/forward.svg"));
         m_bn->setToolTip(tr("Go to next page - [n]"));
         m_bn->setToolButtonStyle(Qt::ToolButtonIconOnly);
+        m_bn->setFocusPolicy(Qt::StrongFocus);
         m_layout->addWidget(m_bn, r, c);
         c++;
 
@@ -71,6 +73,7 @@ public:
         m_sn->setIcon(QIcon(":/main/arrow-down.svg"));
         m_sn->setToolTip(tr("Find Next"));
         m_sn->setToolButtonStyle(Qt::ToolButtonIconOnly);
+        m_sn->setFocusPolicy(Qt::StrongFocus);
         m_layout->addWidget(m_sn, r, c);
         c++;
 
@@ -78,6 +81,7 @@ public:
         m_sp->setIcon(QIcon(":/main/arrow-up.svg"));
         m_sp->setToolTip(tr("Find Previous"));
         m_sp->setToolButtonStyle(Qt::ToolButtonIconOnly);
+        m_sp->setFocusPolicy(Qt::StrongFocus);
         m_layout->addWidget(m_sp, r, c);
         c++;
 
@@ -85,6 +89,7 @@ public:
         m_done->setToolTip(tr("Close this window"));
         m_done->setText(tr("Done"));
         m_done->setToolButtonStyle(Qt::ToolButtonTextOnly);
+        m_done->setFocusPolicy(Qt::StrongFocus);
         m_layout->addWidget(m_done, r, c);
 
         connect(m_bp, SIGNAL(clicked()), this, SLOT(do_prev_page()));

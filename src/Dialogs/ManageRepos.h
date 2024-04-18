@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2024 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -26,8 +26,6 @@
 #include <QtGui/QStandardItemModel>
 
 #include "ui_ManageRepos.h"
-
-class QComboBox;
 
 class ManageRepos : public QDialog
 {

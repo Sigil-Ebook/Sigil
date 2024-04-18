@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021      Kevin B. Hendricks, Stratford Ontario Canada 
+**  Copyright (C) 2021-2024      Kevin B. Hendricks, Stratford Ontario Canada 
 **  Copyright (C) 2011-2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -60,6 +60,7 @@ QWidget *MetaEditorItemDelegate::createEditor(QWidget *parent, const QStyleOptio
     if (!choices.isEmpty()) {
         // Create the combobox and populate it
         QComboBox *cb = new QComboBox(parent);
+        cb->setFocusPolicy(Qt::StrongFocus);
         foreach(QString opt, choices) {
             QStringList parts = opt.split(_GS);
             cb->addItem(parts.at(0), QVariant(parts.at(1)));

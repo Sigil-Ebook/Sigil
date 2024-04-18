@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2024 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -84,6 +84,7 @@ CPCompare::CPCompare(const QString& bookroot,
     setWindowTitle(tr("Results of Comparison"));
     m_bp->setText(tr("Done"));
     m_bp->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    m_bp->setFocusPolicy(Qt::StrongFocus);
     QHBoxLayout *hl = new QHBoxLayout();
     hl->addWidget(m_dlist);
     hl->addWidget(m_alist);

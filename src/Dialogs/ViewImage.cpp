@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2020 Kevin B. Hendricks
+**  Copyright (C) 2019-2024 Kevin B. Hendricks
 **  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
@@ -50,6 +50,7 @@ ViewImage::ViewImage(QWidget *parent, bool delete_on_close)
     m_bp->setToolTip(tr("Close this window"));
     m_bp->setText(tr("Done"));
     m_bp->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    m_bp->setFocusPolicy(Qt::StrongFocus);
     QHBoxLayout* hl = new QHBoxLayout();
     hl->addStretch(0);
     hl->addWidget(m_bp);
