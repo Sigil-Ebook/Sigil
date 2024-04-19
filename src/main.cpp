@@ -706,6 +706,12 @@ int main(int argc, char *argv[])
         if (settings.uiHighlightFocusWidgetEnabled()) {
             QString focus_qss = FOCUS_HIGHLIGHT_QSS;
             QString hcolor = app.palette().color(QPalette::Highlight).name();
+            QString user_color = Utility::GetEnvironmentVar("SIGIL_FOCUS_HIGHLIGHT_COLOR");
+            if (!user_color.isEmpty() && user_color.startsWith("#") && user_color.length() == 7) {
+                if (QColor::isValidColorName(user_color)) {
+                    hcolor = user_color;
+                }
+            }
             focus_qss.replace("HIGHLIGHT_COLOR", hcolor);
             app.setStyleSheet(app.styleSheet().append(focus_qss));
         }
