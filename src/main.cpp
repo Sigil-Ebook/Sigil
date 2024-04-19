@@ -594,9 +594,19 @@ int main(int argc, char *argv[])
         app.setStyle(astyle);
 #endif // Q_OS_MAC
 
+#ifdef Q_OS_WIN32
+        QStyle* astyle = QStyleFactory::create("Fusion");
+        app.setStyle(astyle);
+#endif // Q_OS_WIN32
+
+        // Handle the new CaretStyle (double width cursor)
+        if (settings.uiDoubleWidthTextCursor()) {
+            QApplication::setStyle(new CaretStyle(QApplication::style()));
+        }
+
 #ifndef Q_OS_MAC // Linux and Win
         // Custom dark style/palette for Windows and Linux
-#ifndef Q_OS_WIN32 //Linx
+#ifndef Q_OS_WIN32 //Linux
         // Use platform themes/styles on Linux unless FORCE_SIGIL_DARKMODE_PALETTE is set
         if (!force_sigil_darkmode_palette.isEmpty()) {
             // Apply custom dark style
@@ -609,8 +619,9 @@ int main(int argc, char *argv[])
         }
 #else  // Win
         if (Utility::WindowsShouldUseDarkMode()) {
-            // Apply custom dark style
-            app.setStyle(new SigilDarkStyle);
+            // Apply custom dark style last on Windows
+            QApplication::setStyle(new SigilDarkStyle(QApplication::style()));
+            //app.setStyle(new SigilDarkStyle());
 #if QT_VERSION <= QT_VERSION_CHECK(5, 15, 0) || QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
             // At this point, I have no idea where along the 5.15.x series this
             // being present will break dark mode. I only know the first official
@@ -686,12 +697,6 @@ int main(int argc, char *argv[])
 #endif
         // End of UI font stuff
 
-        // finally for styles handle the new CaretStyle (double width cursor)
-        // last after all other application Styles
-        if (settings.uiDoubleWidthTextCursor()) {
-            QApplication::setStyle(new CaretStyle(QApplication::style()));
-        }
-
 #ifdef Q_OS_MAC
         // macOS need to fix broken QDockWidgets under dark mode
         app.setStyleSheet(app.styleSheet().append(MAC_DOCK_TITLEBAR_FIX));
@@ -700,13 +705,7 @@ int main(int argc, char *argv[])
         // allow user to highlight the focus widget
         if (settings.uiHighlightFocusWidgetEnabled()) {
             QString focus_qss = FOCUS_HIGHLIGHT_QSS;
-	    QString hcolor = app.palette().color(QPalette::Highlight).name();
-            QString user_color = Utility::GetEnvironmentVar("SIGIL_FOCUS_HIGHLIGHT_COLOR");
-            if (!user_color.isEmpty() && user_color.startsWith("#") && user_color.length() == 7) {
-                if (QColor::isValidColorName(user_color)) {
-                    hcolor = user_color;
-                }
-            }
+            QString hcolor = app.palette().color(QPalette::Highlight).name();
             focus_qss.replace("HIGHLIGHT_COLOR", hcolor);
             app.setStyleSheet(app.styleSheet().append(focus_qss));
         }
@@ -719,7 +718,7 @@ int main(int argc, char *argv[])
             app.setStyleSheet(app.styleSheet().append(qtstyles));
         }
 
-#ifdef Q_OS_MAC
+#if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
         // it seems that any time there is stylesheet used, system dark-light palette
         // changes are not propagated to widgets with stylesheets (See QTBUG-124268).
         // This in turn prevents some widgets from properly geting repainted with the new
