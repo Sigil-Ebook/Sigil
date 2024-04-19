@@ -157,10 +157,6 @@ static const QString TABLE_OF_CONTENTS_NAME       = "tableofcontents";
 static const QString PREVIEW_WINDOW_NAME          = "previewwindow";
 static const QString CLIPS_WINDOW_NAME            = "clipswindow";
 static const QString FRAME_NAME                   = "managerframe";
-static const QString TAB_STYLE_SHEET              = "#managerframe {border-top: 0px solid white;"
-        "border-left: 1px solid grey;"
-        "border-right: 1px solid grey;"
-        "border-bottom: 1px solid grey;} ";
 static const QString HTML_TOC_FILE = "TOC.xhtml";
 static const QString HTML_INDEX_FILE = "Index.xhtml";
 const QString HTML_COVER_FILENAME = "cover.xhtml";
@@ -3252,6 +3248,7 @@ void MainWindow::ApplicationPaletteChanged()
 
 void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)
 {
+    DBG qDebug() << "focus changed: " << old << now;
     QWidget *window = QApplication::activeWindow();
 
     // sometimes QApplication::activeWindow() returns nullptr but
@@ -5926,7 +5923,6 @@ void MainWindow::ExtendUI()
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(1);
     frame->setObjectName(FRAME_NAME);
-    //frame->setStyleSheet(TAB_STYLE_SHEET);
     setCentralWidget(frame);
     m_BookBrowser = new BookBrowser(this);
     m_BookBrowser->setObjectName(BOOK_BROWSER_NAME);

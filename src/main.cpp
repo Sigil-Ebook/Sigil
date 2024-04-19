@@ -93,15 +93,28 @@ const QString MAC_DOCK_TITLEBAR_FIX =
     "    titlebar-normal-icon: url(:/dark/dockdock-macstyle.svg);"
     "}";
 
-#ifdef Q_OS_MAC
+
+// Allow Focus Highlight qss to be platform dependent
+#if defined(Q_OS_MAC)
 const QString FOCUS_HIGHLIGHT_QSS =
     "QTableWidget:focus, QTreeWidget:focus, QLineEdit:focus, "
     "QPlainTextEdit:focus, QTextEdit:focus,QTreeView::focus, "
     "QTabWidget:focus, QListView:focus, QScrollArea:focus, "
     "QToolButton:focus, QTabBar:focus { "
+    "    border: 3px solid HIGHLIGHT_COLOR;"
+    "}"
+    "QPlainTextEdit, QTableWidget, QTreeView { "
+    "    padding-left:3px; padding-right:3px; padding-top:3px; padding-bottom:3px;"
+    "}";
+#elif defined(Q_OS_WIN32)
+const QString FOCUS_HIGHLIGHT_QSS =
+    "QTableWidget:focus, QTreeWidget:focus, QLineEdit:focus, "
+    "QPlainTextEdit:focus, QTextEdit:focus,QTreeView::focus, "
+    "QTabWidget:focus, QListView:focus, QScrollArea:focus, "
+    "QTabBar:focus { "
     "    border: 1px solid HIGHLIGHT_COLOR;"
     "}";
-#else
+#else // Linux
 const QString FOCUS_HIGHLIGHT_QSS =
     "QTableWidget:focus, QTreeWidget:focus, QLineEdit:focus, "
     "QPlainTextEdit:focus, QTextEdit:focus,QTreeView::focus, "

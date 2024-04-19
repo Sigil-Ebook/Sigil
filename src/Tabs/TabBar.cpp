@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2020      Doug Massay
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
@@ -47,6 +47,7 @@ TabBar::TabBar(QWidget *parent)
         "}";
     setStyleSheet(FORCE_TAB_CLOSE_BUTTON);
 #endif
+    setFocusPolicy(Qt::StrongFocus);
 }
 
 void TabBar::mouseDoubleClickEvent(QMouseEvent *event)

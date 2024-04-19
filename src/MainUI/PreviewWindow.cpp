@@ -38,6 +38,8 @@
 #include <QApplication>
 #include <QToolButton>
 #include <QDebug>
+#include <QFrame>
+#include <QWidget>
 
 #include "MainUI/PreviewWindow.h"
 #include "Dialogs/Inspector.h"
@@ -69,14 +71,14 @@ static const QString MATHJAX3_CONFIG =
 PreviewWindow::PreviewWindow(QWidget *parent)
     :
     QDockWidget(tr("Preview"), parent),
-    m_MainWidget(new QFrame(this)),
+    m_MainWidget(new QWidget(this)),
     m_binspect(new QToolButton(m_MainWidget)),
     m_bselect(new QToolButton(m_MainWidget)),
     m_bcopy(new QToolButton(m_MainWidget)),
     m_breload(new QToolButton(m_MainWidget)),
     m_bcycle(new QToolButton(m_MainWidget)),
     m_bprint(new QToolButton(m_MainWidget)),
-    m_wrapper(new QWidget(m_MainWidget)),
+    m_wrapper(new QFrame(m_MainWidget)),
     m_Layout(new QVBoxLayout()),
     m_buttons(new QHBoxLayout()),
     m_overlayBase(new OverlayHelperWidget(this)),
@@ -99,9 +101,17 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     SetupOverlayTimer();
     LoadSettings();
     ConnectSignalsToSlots();
+    setFocusPolicy(Qt::NoFocus);
     setFocusProxy(m_MainWidget);
-    m_MainWidget->setFocusPolicy(Qt::StrongFocus);
+    m_MainWidget->setObjectName("pwmain");
+    m_MainWidget->setFocusPolicy(Qt::NoFocus);
+    m_MainWidget->setFocusProxy(m_binspect);
+
+    m_wrapper->setObjectName("previewframe");
     m_wrapper->setFocusPolicy(Qt::NoFocus);
+    m_wrapper->setFocusProxy(m_Preview);
+
+    m_Preview->setObjectName("webpreview");
     m_Preview->setFocusPolicy(Qt::StrongFocus);
 
     m_binspect->setFocusPolicy(Qt::StrongFocus);
@@ -269,10 +279,8 @@ void PreviewWindow::SetupView()
 
     // use a QWidget wrapper around the QWebEnginePreview
     // with a single pixel margin to use as focus indicator
-    m_wrapper->setObjectName("PreviewWrapper");
-    m_wrapper->setFocusProxy(m_Preview);
     QVBoxLayout * wl = new QVBoxLayout(m_wrapper);
-    wl->setContentsMargins(1,1,1,1);
+    wl->setContentsMargins(0,0,0,0);
     wl->addWidget(m_Preview);
     m_Layout->addWidget(m_wrapper);
 
@@ -585,11 +593,25 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
     case QEvent::FocusIn:
       // track focus in change events of m_Preview (or one of its child focus proxies)
       if (m_use_focus_highlight) {
+
+#if defined(Q_OS_MAC)
+          QString focus_qss = "border: 3px solid HIGHLIGHT_COLOR;";
+#elif defined(Q_OS_WIN32)
           QString focus_qss = "border: 1px solid HIGHLIGHT_COLOR;";
+#else // Linux
+          QString focus_qss = "border: 1px solid HIGHLIGHT_COLOR;";
+#endif
           QString hcolor = palette().color(QPalette::Highlight).name();
           QString user_color = Utility::GetEnvironmentVar("SIGIL_FOCUS_HIGHLIGHT_COLOR");
           if (!user_color.isEmpty() && user_color.startsWith("#") && user_color.length() == 7) {
-              hcolor = user_color;
+
+#if QT_VERSION >= QT_VERSION_CHECK(6,4,0)
+              if (QColor::isValidColorName(user_color)) {
+#else
+              if (QColor::isValidColor(user_color)) {
+#endif
+                  hcolor = user_color;
+              }
           }
 	  focus_qss.replace("HIGHLIGHT_COLOR", hcolor);
 	  m_wrapper->setStyleSheet(focus_qss);
@@ -599,7 +621,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
     case QEvent::FocusOut:
       // track focus out change events of m_Preview (or one of its child focus proxies)
       if (m_use_focus_highlight) {
-          m_wrapper->setStyleSheet("");
+          m_wrapper->setStyleSheet("border: hidden;");
       }
       DBG qDebug() << "focus out event: " << object;
       break;

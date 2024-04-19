@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2015-2023 Doug Massay
 **  Copyright (C) 2012      Dave Heiland, John Schember
 **
@@ -25,7 +25,6 @@
 #ifndef PREVIEWWINDOW_H
 #define PREVIEWWINDOW_H
 
-#include <QPushButton>
 #include <QAction>
 #include <QtWebEngineWidgets>
 #include <QtWebEngineCore>
@@ -45,6 +44,8 @@ class QProgressBar;
 class OverlayHelperWidget;
 class WebViewPrinter;
 class QToolButton;
+class QWidget;
+class QFocusFrame;
 
 class PreviewWindow : public QDockWidget
 {
@@ -132,14 +133,14 @@ private:
     
     const QString titleText();
 
-    QFrame *m_MainWidget;
+    QWidget *m_MainWidget;
     QToolButton * m_binspect;
     QToolButton * m_bselect;
     QToolButton * m_bcopy;
     QToolButton * m_breload;
     QToolButton * m_bcycle;
     QToolButton * m_bprint;
-    QWidget *m_wrapper;
+    QFrame *m_wrapper;
     QVBoxLayout *m_Layout;
     QHBoxLayout *m_buttons;
     OverlayHelperWidget *m_overlayBase;
