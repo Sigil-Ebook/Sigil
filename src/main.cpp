@@ -702,19 +702,23 @@ int main(int argc, char *argv[])
         app.setStyleSheet(app.styleSheet().append(MAC_DOCK_TITLEBAR_FIX));
 #endif
 
-        // allow user to highlight the focus widget
+      	// allow user to highlight the focus widget
         if (settings.uiHighlightFocusWidgetEnabled()) {
             QString focus_qss = FOCUS_HIGHLIGHT_QSS;
             QString hcolor = app.palette().color(QPalette::Highlight).name();
             QString user_color = Utility::GetEnvironmentVar("SIGIL_FOCUS_HIGHLIGHT_COLOR");
             if (!user_color.isEmpty() && user_color.startsWith("#") && user_color.length() == 7) {
-                if (QColor::isValidColorName(user_color)) {
+#if QT_VERSION >= QT_VERSION_CHECK(6,4,0)
+		if (QColor::isValidColorName(user_color)) {
+#else
+                if (QColor::isValidColor(user_color)) {
+#endif
                     hcolor = user_color;
                 }
             }
             focus_qss.replace("HIGHLIGHT_COLOR", hcolor);
             app.setStyleSheet(app.styleSheet().append(focus_qss));
-        }
+	}
         
         // Check for existing qt_styles.qss in Prefs dir and load it if present
         QString qt_stylesheet_path = Utility::DefinePrefsDir() + "/qt_styles.qss";
