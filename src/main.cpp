@@ -96,13 +96,15 @@ const QString MAC_DOCK_TITLEBAR_FIX =
 
 // Allow Focus Highlight qss to be platform dependent
 #if defined(Q_OS_MAC)
+// Need to add padding for primary QDockWidget contents.
+// Need to explicitly add all buttons.
+// Need to include QLineEdit but special case it
+// when used inside comboboxes to prevent font clipping
+// Native size appears to be 2 or 3 pixesl not 1px
 const QString FOCUS_HIGHLIGHT_QSS =
-    "QTableWidget:focus, QTreeWidget:focus, "
-    "QPlainTextEdit:focus, QTextEdit:focus,QTreeView::focus, "
-    "QTabWidget:focus, QListView:focus, QScrollArea:focus, "
-    "QTabBar:focus { "
-    "    border: 3px solid HIGHLIGHT_COLOR;"
-    "}"
+    "QTableWidget:focus, QTreeWidget:focus, QPlainTextEdit:focus, "
+    "QTextEdit:focus, QTreeView::focus, QTabWidget:focus, "
+    "QListView:focus, QScrollArea:focus, QTabBar:focus, "
     ".QLineEdit:focus, QToolButton:focus, QPushButton:focus { "
     "    border: 3px solid HIGHLIGHT_COLOR;"
     "}"
@@ -113,19 +115,24 @@ const QString FOCUS_HIGHLIGHT_QSS =
     "    padding-left:3px; padding-right:3px; padding-top:3px; padding-bottom:3px;"
     "}";
 #elif defined(Q_OS_WIN32)
+// Not sure about which widgets Windows natively highlights
+// versus the ones we have to add. So be generic right now.
+// But - we must not add a QComboBox as styling that widget causes issues.
 const QString FOCUS_HIGHLIGHT_QSS =
     "QTableWidget:focus, QTreeWidget:focus, QLineEdit:focus, "
-    "QPlainTextEdit:focus, QTextEdit:focus,QTreeView::focus, "
+    "QPlainTextEdit:focus, QTextEdit:focus, QTreeView::focus, "
     "QTabWidget:focus, QListView:focus, QScrollArea:focus, "
     "QTabBar:focus { "
     "    border: 1px solid HIGHLIGHT_COLOR;"
     "}";
 #else // Linux
+// On Linux all buttons, lineedits and combo boxes already have native
+// focus rectangeles. So we only need to add major widgets to
+// cover Dialog and QDockWidget contents.
 const QString FOCUS_HIGHLIGHT_QSS =
-    "QTableWidget:focus, QTreeWidget:focus, QLineEdit:focus, "
-    "QPlainTextEdit:focus, QTextEdit:focus,QTreeView::focus, "
-    "QTabWidget:focus, QListView:focus, QScrollArea:focus, "
-    "QTabBar:focus { "
+    "QTableWidget:focus, QTreeWidget:focus, QPlainTextEdit:focus, "
+    "QTextEdit:focus, QTreeView::focus, QTabWidget:focus, "
+    "QListView:focus, QScrollArea:focus, QTabBar:focus { "
     "    border: 1px solid HIGHLIGHT_COLOR;"
     "}";
 #endif
