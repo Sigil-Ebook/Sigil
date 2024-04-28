@@ -27,6 +27,7 @@
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "BookManipulation/XhtmlDoc.h"
+#include "BookManipulation/CleanSource.h"
 #include "Dialogs/HeadingSelector.h"
 #include "Parsers/GumboInterface.h"
 #include "Misc/SettingsStore.h"
@@ -265,7 +266,8 @@ void HeadingSelector::UpdateHeadingElements()
             m_book_changed = true;
             if (!changed_resources.contains(heading->resource_file)) {
                 QString source = heading->resource_file->GetTOCCache();
-                heading->resource_file->SetText(source);
+                QString version = heading->resource_file->GetEpubVersion();
+                heading->resource_file->SetText(CleanSource::CharToEntity(source, version));
                 changed_resources.append(heading->resource_file);
             }
         }
@@ -439,7 +441,7 @@ void HeadingSelector::UpdateOneHeadingTitle(QStandardItem *item, const QString &
                 gumbo_element_set_attribute(element, "title", title.toUtf8().constData());
             }
             source = gi.getxhtml();
-            heading->resource_file->SetText(source);
+            heading->resource_file->SetText(CleanSource::CharToEntity(source, version));
         }
     }
 }
@@ -500,7 +502,7 @@ void HeadingSelector::ChangeHeadingLevel(int change_amount)
         if (HEADING_LOOKUP.contains(old_tag)) {
             node->v.element.tag = new_tag;
             source = gi.getxhtml();
-            heading->resource_file->SetText(source);
+            heading->resource_file->SetText(CleanSource::CharToEntity(source, version));
         }
     }
     // Clear all children information then rebuild hierarchy

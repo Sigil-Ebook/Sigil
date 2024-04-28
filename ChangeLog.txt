@@ -6,7 +6,7 @@ Pre-2.2.0
            default value: 1000, will be set once at Sigil startup.
       - Add new Find and Replace targets: Selected SVG files, Selected Javascript Files, and Selected Misc XML
       - Add ability to rename files when new name is just a case variant on case insensitive filesystems
-      - Add abiity to use a red border to highlight the widget with current focus (Thanks BeckyEbook)
+      - Add abiity to highlight the widget with current focus (Thanks BeckyEbook)
 
     Bug Fixes
       - add in Bulk Resource Move and use bulk delete to handle epubs with thousands of files
@@ -15,6 +15,7 @@ Pre-2.2.0
       - Fix dark mode Toolbar continuation symbols for Windows (Thank you BeckyEbook)
       - Fixed bug in Save-As context menu action in ImageTabs
       - Fix dark mode live switching on macOS issues qith QTreeView and QStandardItemModels
+      - Fix bug in missing CharToEntity in the Create TOC process
 
 
 Sigil-2.1.0
