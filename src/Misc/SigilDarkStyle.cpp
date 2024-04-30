@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019      Doug Massay
+**  Copyright (C) 2019-2024 Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -20,6 +20,7 @@
 *************************************************************************/
 
 #include "Misc/SigilDarkStyle.h"
+#include <QDebug>
 
 SigilDarkStyle::SigilDarkStyle() : SigilDarkStyle(styleBase()) {}
 
@@ -67,11 +68,29 @@ void SigilDarkStyle::polish(QApplication *app) {
     if (!app) return;
 
     // loadstylesheet
+    QString sheet = app->styleSheet();
     QFile qfDarkstyle(QStringLiteral(":/dark/win-dark-style.qss"));
     if (qfDarkstyle.open(QIODevice::ReadOnly | QIODevice::Text)) {
         // set stylesheet
         QString qsStylesheet = QString::fromLatin1(qfDarkstyle.readAll());
+        //app->setStyleSheet(app->styleSheet().append(qsStylesheet));
         app->setStyleSheet(qsStylesheet);
         qfDarkstyle.close();
+    }
+}
+
+void SigilDarkStyle::unpolish(QApplication *app) {
+    // undo Dark theme qss when theme changes
+    QFile qfDarkstyle(QStringLiteral(":/dark/win-dark-style.qss"));
+    QString qsStylesheet = app->styleSheet();
+    if (qfDarkstyle.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QString darkadditions = QString::fromLatin1(qfDarkstyle.readAll());
+        qsStylesheet.remove(darkadditions, Qt::CaseSensitive);
+        qsStylesheet.squeeze();
+        qfDarkstyle.close();
+    }
+    if (!qsStylesheet.isEmpty()) {
+        app->setStyleSheet("");
+        app->setStyleSheet(qsStylesheet);
     }
 }

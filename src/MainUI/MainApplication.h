@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2024      Doug Massay
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Grant Drake
 **  Copyright (C) 2012      Dave Heiland
@@ -45,6 +46,7 @@ public:
 
     void saveInPreviewCache(const QString &key, const QString& xhtml);
     QString loadFromPreviewCache(const QString &key);
+    void updateAccumulatedQss(QString &qss) const;
     
 signals:
     void applicationActivated();
@@ -53,15 +55,19 @@ signals:
 
 public slots:
     void EmitPaletteChanged();
+    void systemColorChanged();
 
 protected:
     bool event(QEvent *pEvent);
 
 private:
+    void windowsDarkThemeChange();
+    void windowsLightThemeChange();
     QStyle * m_Style;
     bool m_isDark;
     QHash<QString, QString> m_PreviewCache;
     // QStringList m_CacheKeys;
+    mutable QString m_accumulatedQss;
 };
 
 #endif // MAINAPPLICATION_H

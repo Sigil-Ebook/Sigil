@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020      Doug Massay
+**  Copyright (C) 2020-2024 Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -39,6 +39,7 @@ public:
 
     void polish(QPalette &palette) override;
     void polish(QApplication *app) override;
+    void unpolish(QApplication *app) override;
 
 private:
     QStyle *styleBase(QStyle *style = Q_NULLPTR) const;

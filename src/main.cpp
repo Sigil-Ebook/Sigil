@@ -137,6 +137,11 @@ const QString FOCUS_HIGHLIGHT_QSS =
     "}";
 #endif
 
+// Accumulate qss added after MainApplication so it
+// can be added back on Windows theme changes.
+QString accumulatedQss = "";
+
+
 // Creates a MainWindow instance depending
 // on command line arguments
 static MainWindow *GetMainWindow(const QStringList &arguments)
@@ -621,13 +626,18 @@ int main(int argc, char *argv[])
 #endif // Q_OS_MAC
 
 #ifdef Q_OS_WIN32
-        QStyle* astyle = QStyleFactory::create("Fusion");
+        QStyle* astyle = QStyleFactory::create("fusion");
         app.setStyle(astyle);
 #endif // Q_OS_WIN32
 
         // Handle the new CaretStyle (double width cursor)
+        bool isbstyle = false;
+        QStyle* bstyle;
         if (settings.uiDoubleWidthTextCursor()) {
-            QApplication::setStyle(new CaretStyle(QApplication::style()));
+            //QApplication::setStyle(new CaretStyle(QApplication::style()));
+            bstyle = new CaretStyle(astyle);
+            app.setStyle(bstyle);
+            isbstyle = true;
         }
 
 #ifndef Q_OS_MAC // Linux and Win
@@ -646,8 +656,13 @@ int main(int argc, char *argv[])
 #else  // Win
         if (Utility::WindowsShouldUseDarkMode()) {
             // Apply custom dark style last on Windows
-            QApplication::setStyle(new SigilDarkStyle(QApplication::style()));
-            //app.setStyle(new SigilDarkStyle());
+            QStyle* cstyle;
+            if (isbstyle) {
+                cstyle = new SigilDarkStyle(bstyle);
+            } else {
+                cstyle = new SigilDarkStyle(astyle);
+            }
+            app.setStyle(cstyle);
 #if QT_VERSION <= QT_VERSION_CHECK(5, 15, 0) || QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
             // At this point, I have no idea where along the 5.15.x series this
             // being present will break dark mode. I only know the first official
@@ -744,7 +759,10 @@ int main(int argc, char *argv[])
             }
             focus_qss.replace("HIGHLIGHT_COLOR", hcolor);
             app.setStyleSheet(app.styleSheet().append(focus_qss));
-	}
+            // Accumulate qss added after MainApplication so it
+            // can be added back on Windows theme changes.
+            accumulatedQss.append(focus_qss);
+        }
         
         // Check for existing qt_styles.qss in Prefs dir and load it if present
         QString qt_stylesheet_path = Utility::DefinePrefsDir() + "/qt_styles.qss";
@@ -752,7 +770,11 @@ int main(int argc, char *argv[])
         if (QtStylesheetInfo.exists() && QtStylesheetInfo.isFile() && QtStylesheetInfo.isReadable()) {
             QString qtstyles = Utility::ReadUnicodeTextFile(qt_stylesheet_path);
             app.setStyleSheet(app.styleSheet().append(qtstyles));
+            // Accumulate qss added after MainApplication so it
+            // can be added back on Windows theme changes.
+            accumulatedQss.append(qtstyles);
         }
+        app.updateAccumulatedQss(accumulatedQss);
 
 #if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
         // it seems that any time there is stylesheet used, system dark-light palette
@@ -762,7 +784,7 @@ int main(int argc, char *argv[])
         // Because our style changes are not palette dependent they should be
         // properly propagated to all widgets including those with stylesheets
         // This is how to tell Qt to do that.  Perhaps any platforms need this as well.
-        app. setAttribute(Qt::AA_UseStyleSheetPropagationInWidgetStyles);
+        app.setAttribute(Qt::AA_UseStyleSheetPropagationInWidgetStyles);
 #endif
 
         // Qt's setCursorFlashTime(msecs) (or the docs) are broken

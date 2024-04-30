@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2024      Doug Massay
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Grant Drake
 **  Copyright (C) 2012      Dave Heiland
@@ -26,15 +27,22 @@
 #include <QTimer>
 #include <QStyleFactory>
 #include <QStyle>
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+    #include <QStyleHints>
+#endif
 #include <QPalette>
 #include <QDebug>
 
 #include "MainUI/MainApplication.h"
+#include "Misc/SigilDarkStyle.h"
+#include "Misc/SettingsStore.h"
+#include "Widgets/CaretStyle.h"
 
 MainApplication::MainApplication(int &argc, char **argv)
     : QApplication(argc, argv),
       m_Style(nullptr),
-      m_isDark(false)
+      m_isDark(false),
+      m_accumulatedQss(QString())
 {
 #ifdef Q_OS_MAC
     // on macOS the application palette actual text colors never seem to change when DarkMode is enabled
@@ -52,6 +60,13 @@ MainApplication::MainApplication(int &argc, char **argv)
     fixMacDarkModePalette(app_palette);
     setPalette(app_palette);
 #endif
+#endif
+
+// Connect system color scheme change signal to reporting mechanism
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0) && defined(Q_OS_WIN32)
+    connect(styleHints(), &QStyleHints::colorSchemeChanged, this, [this]() {
+                MainApplication::systemColorChanged();
+        });
 #endif
 }
 
@@ -132,3 +147,84 @@ void MainApplication::EmitPaletteChanged()
     }
 #endif
 }
+
+void MainApplication::systemColorChanged()
+{
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+    switch (styleHints()->colorScheme())
+    {
+        case Qt::ColorScheme::Light:
+            qDebug() << "System Changed to Light Theme";
+#ifdef Q_OS_WIN32
+            windowsLightThemeChange();
+#endif
+            break;
+        case Qt::ColorScheme::Unknown:
+            qDebug() << "System Changed to Uknown Theme";
+            break;
+        case Qt::ColorScheme::Dark:
+            qDebug() << "System Changed to Dark Theme";
+#ifdef Q_OS_WIN32
+            windowsDarkThemeChange();
+#endif
+            break;
+    }
+#endif
+}
+
+void MainApplication::windowsDarkThemeChange()
+{
+    SettingsStore settings;
+    QStyle* astyle = QStyleFactory::create("Fusion");
+    setStyle(astyle);
+    //Handle the new CaretStyle (double width cursor)
+    bool isbstyle = false;
+    QStyle* bstyle;
+    if (settings.uiDoubleWidthTextCursor()) {
+        bstyle = new CaretStyle(astyle);
+        setStyle(bstyle);
+        isbstyle = true;
+    }
+    // modify windows sigil palette to our dark
+    QStyle* cstyle;
+    if (isbstyle) {
+        cstyle = new SigilDarkStyle(bstyle);
+    } else {
+        cstyle = new SigilDarkStyle(astyle);
+    }
+    setStyle(cstyle);
+    setPalette(style()->standardPalette());
+
+    // Add back stylesheet changes added after MainApplication started
+    if (!m_accumulatedQss.isEmpty()) {
+        setStyleSheet(styleSheet().append(m_accumulatedQss));
+        qDebug() << styleSheet();
+    }
+    QTimer::singleShot(0, this, SIGNAL(applicationPaletteChanged()));
+}
+
+void MainApplication::windowsLightThemeChange()
+{
+    // Windows Fusion light mode
+    SettingsStore settings;
+    QStyle* astyle = QStyleFactory::create("Fusion");
+    setStyle(astyle);
+    // Handle the new CaretStyle (double width cursor)
+    if (settings.uiDoubleWidthTextCursor()) {
+        QStyle* bstyle = new CaretStyle(astyle);
+        setStyle(bstyle);
+    }
+    setPalette(style()->standardPalette());
+    // Add back stylesheet changes added after MainApplication started
+    if (!m_accumulatedQss.isEmpty()) {
+        setStyleSheet(m_accumulatedQss);
+        qDebug() << styleSheet();
+    }
+    QTimer::singleShot(0, this, SIGNAL(applicationPaletteChanged()));
+}
+
+void MainApplication::updateAccumulatedQss(QString &qss) const
+{
+    m_accumulatedQss = qss;
+}
+
