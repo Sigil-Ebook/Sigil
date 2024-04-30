@@ -1,21 +1,26 @@
 Pre-2.2.0
     New Features
-      - reformating css with multiline now adds space after selector comma
-      - new environment variable added: SIGIL_PREVIEW_TIMEOUT
-           (in milliseconds) to control Preview updating intervals valid range 100 - 10000
-           default value: 1000, will be set once at Sigil startup.
-      - Add new Find and Replace targets: Selected SVG files, Selected Javascript Files, and Selected Misc XML
-      - Add ability to rename files when new name is just a case variant on case insensitive filesystems
-      - Add abiity to highlight the widget with current focus (Thanks BeckyEbook)
+      - add support for Windows live switching from dark to light and light to dark modes
+      - add new environment variable: SIGIL_PREVIEW_TIMEOUT
+           (in milliseconds) to allow user control of the Preview updating intervals,
+           valid range 100 - 10000.  default value: 1000.  Set only once at Sigil startup.
+      - add new Find and Replace targets: Selected SVG files, Selected Javascript Files, and Selected Misc XML
+      - add new Find and Replace Regular Expression menu option: Unicode Property (*UCP)
+      - add ability to rename files when new name is just a case variant on case insensitive filesystems
+      - Accessibility improvements:
+          - add abiity to highlight the widget with current focus (Thanks BeckyEbook)
+          - add ability to double text insertion point width throughout Sigil
 
     Bug Fixes
-      - add in Bulk Resource Move and use bulk delete to handle epubs with thousands of files
-      - add in Bulk Resource Rename to handle epubs with thousands of files
-      - In FR, if Replace has focus and Find done, CodeView should get focus (Thanks BeckyEbook)
-      - Fix dark mode Toolbar continuation symbols for Windows (Thank you BeckyEbook)
-      - Fixed bug in Save-As context menu action in ImageTabs
-      - Fix dark mode live switching on macOS issues qith QTreeView and QStandardItemModels
-      - Fix bug in missing CharToEntity in the Create TOC process
+      - reformating css with multiline now adds space after selector comma
+      - add in bulk resource move and use bulk delete to handle epubs with thousands of files
+      - add in bulk resource rename to handle epubs with thousands of files
+      - if Replace has focus and Find done, CodeView should get focus (Thanks BeckyEbook)
+      - fix dark mode Toolbar continuation symbols for Windows (Thank you BeckyEbook)
+      - fixed bug in Save-As context menu action in ImageTabs
+      - fix dark mode live switching on macOS issues qith QTreeView and QStandardItemModels
+      - fix bug in missing CharToEntity in the Create TOC process
+      - fix TabManager tab close symbol on macOS to match that used in dockwidgets
 
 
 Sigil-2.1.0
