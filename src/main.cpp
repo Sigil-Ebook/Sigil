@@ -119,10 +119,10 @@ const QString FOCUS_HIGHLIGHT_QSS =
 // versus the ones we have to add. So be generic right now.
 // But - we must not add a QComboBox as styling that widget causes issues.
 const QString FOCUS_HIGHLIGHT_QSS =
-    "QTableWidget:focus, QTreeWidget:focus, QLineEdit:focus, "
-    "QPlainTextEdit:focus, QTextEdit:focus, QTreeView::focus, "
-    "QTabWidget:focus, QListView:focus, QScrollArea:focus, "
-    "QTabBar:focus { "
+    "QTableWidget:focus, QTreeWidget:focus, QPlainTextEdit:focus, "
+    "QTextEdit:focus, QTreeView::focus, QTabWidget:focus, "
+    "QListView:focus, QScrollArea:focus, QTabBar:focus, "
+    "QLineEdit:focus, QToolButton:focus, QPushButton:focus { "
     "    border: 1px solid HIGHLIGHT_COLOR;"
     "}";
 #else // Linux
@@ -132,7 +132,8 @@ const QString FOCUS_HIGHLIGHT_QSS =
 const QString FOCUS_HIGHLIGHT_QSS =
     "QTableWidget:focus, QTreeWidget:focus, QPlainTextEdit:focus, "
     "QTextEdit:focus, QTreeView::focus, QTabWidget:focus, "
-    "QListView:focus, QScrollArea:focus, QTabBar:focus { "
+    "QListView:focus, QScrollArea:focus, QTabBar:focus, "
+    "QLineEdit:focus, QToolButton:focus, QPushButton:focus { "
     "    border: 1px solid HIGHLIGHT_COLOR;"
     "}";
 #endif
