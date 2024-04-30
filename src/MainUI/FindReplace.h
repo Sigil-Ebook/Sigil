@@ -129,6 +129,7 @@ public slots:
     void SetRegexOptionDotAll(bool new_state);
     void SetRegexOptionMinimalMatch(bool new_state);
     void SetRegexOptionAutoTokenise(bool new_state);
+    void SetRegexOptionUnicodeProperty(bool new_state);
     void SetOptionWrap(bool new_state);
     void SetRegexOptionTextOnly(bool new_state);
 
@@ -362,6 +363,7 @@ private:
     bool m_RegexOptionDotAll;
     bool m_RegexOptionMinimalMatch;
     bool m_RegexOptionAutoTokenise;
+    bool m_RegexOptionUnicodeProperty;
     bool m_OptionWrap;
     bool m_RegexOptionTextOnly;
     bool m_SpellCheck;
@@ -391,6 +393,7 @@ private:
     QAction* m_DotAllCheckAction;
     QAction* m_MinimalMatchCheckAction;
     QAction* m_AutoTokeniseCheckAction;
+    QAction* m_UnicodePropertyCheckAction;
     QMenu*   m_menu;
 };
 

@@ -37,6 +37,7 @@ Controls::Controls(QWidget* parent)
       m_RegexOptionDotAll(false),
       m_RegexOptionMinimalMatch(false),
       m_RegexOptionAutoTokenise(false),
+      m_RegexOptionUnicodeProperty(false),
       m_OptionWrap(false),
       m_RegexOptionTextOnly(false),
       m_ClearAll(false)
@@ -93,6 +94,7 @@ void Controls::UpdateSearchControls(const QString &text)
         SetRegexOptionDotAll(false);
         SetRegexOptionMinimalMatch(false);
         SetRegexOptionAutoTokenise(false);
+        SetRegexOptionUnicodeProperty(false);
         SetRegexOptionTextOnly(false);
         return;
     }
@@ -146,6 +148,7 @@ void Controls::UpdateSearchControls(const QString &text)
     SetRegexOptionDotAll(text.contains("DA"));
     SetRegexOptionMinimalMatch(text.contains("MM"));
     SetRegexOptionAutoTokenise(text.contains("AT"));
+    SetRegexOptionUnicodeProperty(text.contains("UN"));
     SetRegexOptionTextOnly(text.contains("TO"));
 }
 
@@ -164,6 +167,7 @@ QString Controls::GetControlsCode()
     if (m_RegexOptionDotAll) codes.append("DA");
     if (m_RegexOptionMinimalMatch) codes.append("MM");
     if (m_RegexOptionAutoTokenise) codes.append("AT");
+    if (m_RegexOptionUnicodeProperty) codes.append("UN");
     if (m_OptionWrap) codes.append("WR");
     if (m_RegexOptionTextOnly) codes.append("TO");
     codes.append(GetSearchDirection());
@@ -269,6 +273,12 @@ void Controls::SetRegexOptionAutoTokenise(bool new_state)
     ui.chkRegexOptionAutoTokenise->setChecked(new_state);
 }
 
+void Controls::SetRegexOptionUnicodeProperty(bool new_state)
+{
+    m_RegexOptionUnicodeProperty = new_state;
+    ui.chkRegexOptionUnicodeProperty->setChecked(new_state);
+}
+
 void Controls::SetOptionWrap(bool new_state)
 {
     m_OptionWrap = new_state;
@@ -279,6 +289,7 @@ void Controls::DoClearAll()
 {
     SetRegexOptionTextOnly(false);
     SetOptionWrap(false);
+    SetRegexOptionUnicodeProperty(false);
     SetRegexOptionAutoTokenise(false);
     SetRegexOptionMinimalMatch(false);
     SetRegexOptionDotAll(false);
@@ -295,6 +306,7 @@ void Controls::ExtendUI()
 
     SetRegexOptionTextOnly(false);
     SetOptionWrap(false);
+    SetRegexOptionUnicodeProperty(false);
     SetRegexOptionAutoTokenise(false);
     SetRegexOptionMinimalMatch(false);
     SetRegexOptionDotAll(false);
@@ -381,6 +393,7 @@ void Controls::ConnectSignalsToSlots()
     connect(ui.chkRegexOptionDotAll, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionDotAll(bool)));
     connect(ui.chkRegexOptionMinimalMatch, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionMinimalMatch(bool)));
     connect(ui.chkRegexOptionAutoTokenise, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
+    connect(ui.chkRegexOptionUnicodeProperty, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionUnicodeProperty(bool)));
     connect(ui.chkOptionWrap, SIGNAL(clicked(bool)), this, SLOT(SetOptionWrap(bool)));
     connect(ui.chkOptionTextOnly, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionTextOnly(bool)));
     connect(ui.btClearAll, SIGNAL(clicked()), this, SLOT(DoClearAll()));

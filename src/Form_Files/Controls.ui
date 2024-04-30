@@ -175,6 +175,29 @@
            </widget>
           </item>
           <item>
+           <widget class="QLabel" name="space_c2">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="chkRegexOptionUnicodeProperty">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+            <property name="toolTip">
+             <string>For Regex searches, set the Unicode Property flag.</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>Unicode Property</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QLabel" name="space_d">
             <property name="text">
              <string/>
@@ -304,6 +327,7 @@ other end to continue searching.</string>
   <tabstop>chkRegexOptionDotAll</tabstop>
   <tabstop>chkRegexOptionMinimalMatch</tabstop>
   <tabstop>chkRegexOptionAutoTokenise</tabstop>
+  <tabstop>chkRegexOptionUnicodeProperty</tabstop>
   <tabstop>chkOptionWrap</tabstop>
   <tabstop>chkOptionTextOnly</tabstop>
   <tabstop>cbSearchMode</tabstop>

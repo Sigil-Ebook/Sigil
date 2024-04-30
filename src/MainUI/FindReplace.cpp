@@ -91,6 +91,7 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_DotAllCheckAction(nullptr),
       m_MinimalMatchCheckAction(nullptr),
       m_AutoTokeniseCheckAction(nullptr),
+      m_UnicodePropertyCheckAction(nullptr),
       m_menu(nullptr)
 {
     ui.setupUi(this);
@@ -131,6 +132,10 @@ FindReplace::~FindReplace()
     if (m_AutoTokeniseCheckAction) {
         delete m_AutoTokeniseCheckAction;
         m_AutoTokeniseCheckAction = nullptr;
+    }
+    if (m_UnicodePropertyCheckAction) {
+        delete m_UnicodePropertyCheckAction;
+        m_UnicodePropertyCheckAction = nullptr;
     }
     if (m_menu) {
         delete m_menu;
@@ -211,6 +216,7 @@ QString FindReplace::GetControls()
     if (m_RegexOptionDotAll) controls << "DA";
     if (m_RegexOptionMinimalMatch) controls << "MM";
     if (m_RegexOptionAutoTokenise) controls << "AT";
+    if (m_RegexOptionUnicodeProperty) controls << "UN";
     if (m_OptionWrap) controls << "WR";
     if (m_RegexOptionTextOnly) controls << "TO";
     controls << DRS.at(GetSearchDirection());
@@ -436,6 +442,7 @@ bool FindReplace::FindAnyText(QString text, bool escape)
     SetRegexOptionDotAll(true);
     SetRegexOptionTextOnly(false);
     SetRegexOptionMinimalMatch(true);
+    SetRegexOptionUnicodeProperty(false);
     // SetOptionWrap(true);
 
     QString search_text;
@@ -464,6 +471,7 @@ void FindReplace::FindAnyTextInTags(QString text)
     SetSearchDirection(FindReplace::SearchDirection_Down);
     SetRegexOptionDotAll(true);
     SetRegexOptionMinimalMatch(true);
+    SetRegexOptionUnicodeProperty(false);
     // SetOptionWrap(true);
     SetRegexOptionTextOnly(false);
     text = text + "(?=[^<]*>)(?!(?:[^<\"]*\"[^<\"]*\")+\\s*/?>)";
@@ -1019,6 +1027,9 @@ QString FindReplace::GetSearchRegex()
         if (m_RegexOptionMinimalMatch) {
             search = PrependRegexOptionToSearch(REGEX_OPTION_MINIMAL_MATCH, search);
         }
+        if (m_RegexOptionUnicodeProperty) {
+            search = PrependRegexOptionToSearch(REGEX_OPTION_UCP, search);
+        }
     }
     // qDebug() << "GetSearchRegex returns: " << search;
     return search;
@@ -1027,10 +1038,14 @@ QString FindReplace::GetSearchRegex()
 QString FindReplace::PrependRegexOptionToSearch(const QString &option, const QString &search)
 {
     if (search.startsWith(REGEX_OPTION_UCP)) {
-        // Special case scenario - this directive must *always* be before any others
-        return REGEX_OPTION_UCP % option % search.mid(REGEX_OPTION_UCP.length());
+        if (option != REGEX_OPTION_UCP) {
+            // Special case scenario - this directive must *always* be before any others
+            return REGEX_OPTION_UCP % option % search.mid(REGEX_OPTION_UCP.length());
+        } else {
+            // already there so no change
+            return search;
+        }
     }
-
     return option % search;
 }
 
@@ -1548,6 +1563,7 @@ void FindReplace::UpdateSearchControls(const QString &text)
     SetRegexOptionDotAll(text.contains("DA"));
     SetRegexOptionMinimalMatch(text.contains("MM"));
     SetRegexOptionAutoTokenise(text.contains("AT"));
+    SetRegexOptionUnicodeProperty(text.contains("UN"));
 }
 
 
@@ -1644,6 +1660,8 @@ void FindReplace::ReadSettings()
     SetRegexOptionMinimalMatch(regexOptionMinimalMatch);
     bool regexOptionAutoTokenise = settings.value("regexoptionautotokenise", false).toBool();
     SetRegexOptionAutoTokenise(regexOptionAutoTokenise);
+    bool regexOptionUnicodeProperty = settings.value("regexoptionunicodeproperty", false).toBool();
+    SetRegexOptionUnicodeProperty(regexOptionUnicodeProperty);
     bool optionWrap = settings.value("optionwrap", true).toBool();
     SetOptionWrap(optionWrap);
     bool regexOptionTextOnly = settings.value("regexoptiontextonly", false).toBool();
@@ -1725,6 +1743,7 @@ void FindReplace::WriteSettings()
     settings.setValue("regexoptiondotall", m_DotAllCheckAction->isChecked());
     settings.setValue("regexoptionminimalmatch", m_MinimalMatchCheckAction->isChecked());
     settings.setValue("regexoptionautotokenise", m_AutoTokeniseCheckAction->isChecked());
+    settings.setValue("regexoptionunicodeproperty", m_UnicodePropertyCheckAction->isChecked());
     settings.setValue("optionwrap", ui.chkOptionWrap->isChecked());
     settings.setValue("regexoptiontextonly", ui.chkOptionTextOnly->isChecked());
     settings.endGroup();
@@ -2142,6 +2161,12 @@ void FindReplace::SetRegexOptionAutoTokenise(bool new_state)
     m_AutoTokeniseCheckAction->setChecked(new_state);
 }
 
+void FindReplace::SetRegexOptionUnicodeProperty(bool new_state)
+{
+    m_RegexOptionUnicodeProperty = new_state;
+    m_UnicodePropertyCheckAction->setChecked(new_state);
+}
+
 void FindReplace::SetOptionWrap(bool new_state)
 {
     m_OptionWrap = new_state;
@@ -2262,6 +2287,13 @@ void FindReplace::ExtendUI()
     m_AutoTokeniseCheckAction->setChecked(m_RegexOptionAutoTokenise);
     m_menu->addAction(m_AutoTokeniseCheckAction);
 
+    m_UnicodePropertyCheckAction = new QAction(tr("Unicode Property"), m_menu);
+    m_UnicodePropertyCheckAction->setCheckable(true);
+    m_UnicodePropertyCheckAction->setEnabled(true);
+    m_UnicodePropertyCheckAction->setToolTip(tr("For Regex searches, set the Unicode Property flag."));
+    m_UnicodePropertyCheckAction->setChecked(m_RegexOptionUnicodeProperty);
+    m_menu->addAction(m_UnicodePropertyCheckAction);
+
     // the toolbutton will NOT take ownership of the menu as per the Qt docs
     // so clean up manually
     ui.tbRegexOptions->setMenu(m_menu);
@@ -2317,6 +2349,7 @@ void FindReplace::ConnectSignalsToSlots()
     connect(m_DotAllCheckAction, SIGNAL(triggered(bool)), this, SLOT(SetRegexOptionDotAll(bool)));
     connect(m_MinimalMatchCheckAction, SIGNAL(triggered(bool)), this, SLOT(SetRegexOptionMinimalMatch(bool)));
     connect(m_AutoTokeniseCheckAction, SIGNAL(triggered(bool)), this, SLOT(SetRegexOptionAutoTokenise(bool)));
+    connect(m_UnicodePropertyCheckAction, SIGNAL(triggered(bool)), this, SLOT(SetRegexOptionUnicodeProperty(bool)));
     connect(ui.chkOptionWrap, SIGNAL(clicked(bool)), this, SLOT(SetOptionWrap(bool)));
     connect(ui.chkOptionTextOnly, SIGNAL(clicked(bool)), this, SLOT(SetRegexOptionTextOnly(bool)));
     connect(ui.cbFind, SIGNAL(editTextChanged(const QString&)), this, SLOT(ValidateRegex()));
@@ -2325,4 +2358,5 @@ void FindReplace::ConnectSignalsToSlots()
     connect(m_DotAllCheckAction, SIGNAL(triggered(bool)), this, SLOT(ValidateRegex()));
     connect(m_MinimalMatchCheckAction, SIGNAL(triggered(bool)), this, SLOT(ValidateRegex()));
     connect(m_AutoTokeniseCheckAction, SIGNAL(triggered(bool)), this, SLOT(ValidateRegex()));
+    connect(m_UnicodePropertyCheckAction, SIGNAL(triggered(bool)), this, SLOT(ValidateRegex()));
 }
