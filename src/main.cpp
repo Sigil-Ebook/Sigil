@@ -630,6 +630,10 @@ int main(int argc, char *argv[])
         app.setStyle(astyle);
 #endif // Q_OS_WIN32
 
+#if !defined(Q_OS_MAC) && !defined(Q_OS_WIN32) // *nix
+        QStyle* astyle = app.style();
+#endif // *nix
+
         // Handle the new CaretStyle (double width cursor)
         bool isbstyle = false;
         QStyle* bstyle;
