@@ -651,7 +651,13 @@ int main(int argc, char *argv[])
         // Use platform themes/styles on Linux unless FORCE_SIGIL_DARKMODE_PALETTE is set
         if (!force_sigil_darkmode_palette.isEmpty()) {
             // Apply custom dark style
-            app.setStyle(new SigilDarkStyle);
+            QStyle* cstyle;
+            if (isbstyle) {
+                cstyle = new SigilDarkStyle(bstyle);
+            } else {
+                cstyle = new SigilDarkStyle(astyle);
+            }
+            app.setStyle(cstyle);
 #if QT_VERSION == QT_VERSION_CHECK(5, 15, 0)
             // Qt keeps breaking my custom dark theme.
             // This was apparently only necessary for Qt5.15.0!!
