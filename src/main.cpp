@@ -514,7 +514,7 @@ int main(int argc, char *argv[])
     // if darkmode options are not already in the list of windows platform options,
     // Set it to 1 so that sigil title bars will be dark in Windows darkmode.
     // This is setting is assumed with a dark palette starting with Qt6.5.
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0) && QT_VERSION <= QT_VERSION_CHECK(6, 5, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0) && QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
     if (Utility::WindowsShouldUseDarkMode()) {
         bool darkmode_arg_exists = false;
         foreach(QString arg, current_platform_args) {
@@ -639,7 +639,6 @@ int main(int argc, char *argv[])
         bool isbstyle = false;
         QStyle* bstyle;
         if (settings.uiDoubleWidthTextCursor()) {
-            //QApplication::setStyle(new CaretStyle(QApplication::style()));
             bstyle = new CaretStyle(astyle);
             app.setStyle(bstyle);
             isbstyle = true;
@@ -665,7 +664,8 @@ int main(int argc, char *argv[])
 #endif // version
         }
 #else  // Win
-        if (Utility::WindowsShouldUseDarkMode()) {
+        // Use our custom dark theme unless user opts-in with SIGIL_USE_QT65_DARKMODE
+        if (Utility::WindowsShouldUseDarkMode() && !qEnvironmentVariableIsSet("SIGIL_USE_QT65_DARKMODE")) {
             // Apply custom dark style last on Windows
             QStyle* cstyle;
             if (isbstyle) {
@@ -771,7 +771,7 @@ int main(int argc, char *argv[])
             focus_qss.replace("HIGHLIGHT_COLOR", hcolor);
             app.setStyleSheet(app.styleSheet().append(focus_qss));
             // Accumulate qss added after MainApplication so it
-            // can be added back on Windows theme changes.
+            // can be added back on theme changes.
             accumulatedQss.append(focus_qss);
         }
         
@@ -782,9 +782,10 @@ int main(int argc, char *argv[])
             QString qtstyles = Utility::ReadUnicodeTextFile(qt_stylesheet_path);
             app.setStyleSheet(app.styleSheet().append(qtstyles));
             // Accumulate qss added after MainApplication so it
-            // can be added back on Windows theme changes.
+            // can be added back on theme changes.
             accumulatedQss.append(qtstyles);
         }
+        // Pass accumulatedQss to MainApplication for themeing changes
         app.updateAccumulatedQss(accumulatedQss);
 
 #if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
