@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -31,6 +31,7 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/ImageResource.h"
 #include "ResourceObjects/MiscTextResource.h"
+#include "ResourceObjects/XMLResource.h"
 #include "ResourceObjects/SVGResource.h"
 #include "ResourceObjects/PdfResource.h"
 #include "Tabs/PdfTab.h"
@@ -40,6 +41,7 @@
 #include "Tabs/FlowTab.h"
 #include "Tabs/ImageTab.h"
 #include "Tabs/MiscTextTab.h"
+#include "Tabs/XMLTab.h"
 #include "Tabs/SVGTab.h"
 #include "Tabs/NCXTab.h"
 #include "Tabs/OPFTab.h"

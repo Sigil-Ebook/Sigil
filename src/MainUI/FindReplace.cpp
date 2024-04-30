@@ -1129,7 +1129,7 @@ QList <Resource *> FindReplace::GetFilesToSearch(bool force_all)
     } else if (GetLookWhere() == FindReplace::LookWhere_SelectedCSSFiles) {
         all_resources = m_MainWindow->GetValidSelectedJSResources();
 
-    } else if (GetLookWhere() == FindReplace::LookWhere_SelectedCSSFiles) {
+    } else if (GetLookWhere() == FindReplace::LookWhere_SelectedMiscXMLFiles) {
         all_resources = m_MainWindow->GetValidSelectedMiscXMLResources();
     }
 
