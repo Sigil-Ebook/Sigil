@@ -7,6 +7,7 @@ Pre-2.2.0
       - add new Find and Replace targets: Selected SVG files, Selected Javascript Files, and Selected Misc XML
       - add new Find and Replace Regular Expression menu option: Unicode Property (*UCP)
       - add ability to rename files when new name is just a case variant on case insensitive filesystems
+      - extended the number of clips that can be assigned to toolbars (total now of 60 clips supported)
       - Accessibility improvements:
           - add abiity to highlight the widget with current focus (Thanks BeckyEbook)
           - add ability to double text insertion point width throughout Sigil
