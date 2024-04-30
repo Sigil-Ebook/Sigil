@@ -219,6 +219,8 @@ void MainApplication::windowsLightThemeChange()
     if (!m_accumulatedQss.isEmpty()) {
         setStyleSheet(m_accumulatedQss);
         qDebug() << styleSheet();
+    } else {
+        setStyleSheet("");
     }
     QTimer::singleShot(0, this, SIGNAL(applicationPaletteChanged()));
 }
