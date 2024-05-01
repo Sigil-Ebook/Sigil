@@ -38,6 +38,8 @@
 #include "Misc/SettingsStore.h"
 #include "Widgets/CaretStyle.h"
 
+#define DBG if(1)
+
 MainApplication::MainApplication(int &argc, char **argv)
     : QApplication(argc, argv),
       m_Style(nullptr),
@@ -135,17 +137,16 @@ void MainApplication::EmitPaletteChanged()
     // Application palette
     QPalette app_palette = m_Style->standardPalette();
     bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
-    if (m_isDark != isdark) {
-        qDebug() << "Theme changed " << "was isDark:" << m_isDark << "now isDark:" << isdark;
-        m_isDark = isdark;
+    if (m_isDark == isdark) return; // no change
+    DBG qDebug() << "Theme changed " << "was isDark:" << m_isDark << "now isDark:" << isdark;
+    m_isDark = isdark;
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        // overwriting the app palette in Qt 6 is bad
-        fixMacDarkModePalette(app_palette);
-        setPalette(app_palette);
+    // overwriting the app palette in Qt 6 is bad
+    fixMacDarkModePalette(app_palette);
+    setPalette(app_palette);
 #endif
-        emit applicationPaletteChanged();
-    }
-#endif
+#endif //macOS
+    emit applicationPaletteChanged();
 }
 
 void MainApplication::systemColorChanged()
@@ -154,23 +155,22 @@ void MainApplication::systemColorChanged()
     switch (styleHints()->colorScheme())
     {
         case Qt::ColorScheme::Light:
-            qDebug() << "System Changed to Light Theme";
+            DBG qDebug() << "System Changed to Light Theme";
 #ifdef Q_OS_WIN32
             windowsLightThemeChange();
-
-#endif
+#endif // Q_OS_WIN32
             break;
         case Qt::ColorScheme::Unknown:
-            qDebug() << "System Changed to Uknown Theme";
+            DBG qDebug() << "System Changed to Uknown Theme";
             break;
         case Qt::ColorScheme::Dark:
-            qDebug() << "System Changed to Dark Theme";
+            DBG qDebug() << "System Changed to Dark Theme";
 #ifdef Q_OS_WIN32
-            windowsDarkThemeChange();
-#endif
+            DBG windowsDarkThemeChange();
+#endif // Q_OS_WIN32
             break;
-    }
-#endif
+    } // end switch
+#endif // Qt Version Check
 }
 
 void MainApplication::windowsDarkThemeChange()
@@ -200,10 +200,10 @@ void MainApplication::windowsDarkThemeChange()
         // Add back stylesheet changes added after MainApplication started
         if (!m_accumulatedQss.isEmpty()) {
             setStyleSheet(styleSheet().append(m_accumulatedQss));
-            qDebug() << styleSheet();
+            DBG qDebug() << styleSheet();
         }
     }
-    QTimer::singleShot(0, this, SIGNAL(applicationPaletteChanged()));
+    QTimer::singleShot(0, this, SLOT(EmitPaletteChanged()));
 }
 
 void MainApplication::windowsLightThemeChange()
@@ -222,16 +222,15 @@ void MainApplication::windowsLightThemeChange()
         // Add back stylesheet changes added after MainApplication started
         if (!m_accumulatedQss.isEmpty()) {
             setStyleSheet(m_accumulatedQss);
-            qDebug() << styleSheet();
+            DBG qDebug() << styleSheet();
         } else {
             setStyleSheet("");
         }
     }
-    QTimer::singleShot(0, this, SIGNAL(applicationPaletteChanged()));
+    QTimer::singleShot(0, this, SLOT(EmitPaletteChanged()));
 }
 
 void MainApplication::updateAccumulatedQss(QString &qss) const
 {
     m_accumulatedQss = qss;
 }
-
