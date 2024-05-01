@@ -157,6 +157,7 @@ void MainApplication::systemColorChanged()
             qDebug() << "System Changed to Light Theme";
 #ifdef Q_OS_WIN32
             windowsLightThemeChange();
+
 #endif
             break;
         case Qt::ColorScheme::Unknown:
@@ -174,53 +175,57 @@ void MainApplication::systemColorChanged()
 
 void MainApplication::windowsDarkThemeChange()
 {
-    SettingsStore settings;
-    QStyle* astyle = QStyleFactory::create("Fusion");
-    setStyle(astyle);
-    //Handle the new CaretStyle (double width cursor)
-    bool isbstyle = false;
-    QStyle* bstyle;
-    if (settings.uiDoubleWidthTextCursor()) {
-        bstyle = new CaretStyle(astyle);
-        setStyle(bstyle);
-        isbstyle = true;
-    }
-    // modify windows sigil palette to our dark
-    QStyle* cstyle;
-    if (isbstyle) {
-        cstyle = new SigilDarkStyle(bstyle);
-    } else {
-        cstyle = new SigilDarkStyle(astyle);
-    }
-    setStyle(cstyle);
-    setPalette(style()->standardPalette());
+    if (!qEnvironmentVariableIsSet("SIGIL_USE_QT65_DARKMODE")) {
+        SettingsStore settings;
+        QStyle* astyle = QStyleFactory::create("Fusion");
+        setStyle(astyle);
+        //Handle the new CaretStyle (double width cursor)
+        bool isbstyle = false;
+        QStyle* bstyle;
+        if (settings.uiDoubleWidthTextCursor()) {
+            bstyle = new CaretStyle(astyle);
+            setStyle(bstyle);
+            isbstyle = true;
+        }
+        // modify windows sigil palette to our dark
+        QStyle* cstyle;
+        if (isbstyle) {
+            cstyle = new SigilDarkStyle(bstyle);
+        } else {
+            cstyle = new SigilDarkStyle(astyle);
+        }
+        setStyle(cstyle);
+        setPalette(style()->standardPalette());
 
-    // Add back stylesheet changes added after MainApplication started
-    if (!m_accumulatedQss.isEmpty()) {
-        setStyleSheet(styleSheet().append(m_accumulatedQss));
-        qDebug() << styleSheet();
+        // Add back stylesheet changes added after MainApplication started
+        if (!m_accumulatedQss.isEmpty()) {
+            setStyleSheet(styleSheet().append(m_accumulatedQss));
+            qDebug() << styleSheet();
+        }
     }
     QTimer::singleShot(0, this, SIGNAL(applicationPaletteChanged()));
 }
 
 void MainApplication::windowsLightThemeChange()
 {
-    // Windows Fusion light mode
-    SettingsStore settings;
-    QStyle* astyle = QStyleFactory::create("Fusion");
-    setStyle(astyle);
-    // Handle the new CaretStyle (double width cursor)
-    if (settings.uiDoubleWidthTextCursor()) {
-        QStyle* bstyle = new CaretStyle(astyle);
-        setStyle(bstyle);
-    }
-    setPalette(style()->standardPalette());
-    // Add back stylesheet changes added after MainApplication started
-    if (!m_accumulatedQss.isEmpty()) {
-        setStyleSheet(m_accumulatedQss);
-        qDebug() << styleSheet();
-    } else {
-        setStyleSheet("");
+    if (!qEnvironmentVariableIsSet("SIGIL_USE_QT65_DARKMODE")) {
+        // Windows Fusion light mode
+        SettingsStore settings;
+        QStyle* astyle = QStyleFactory::create("Fusion");
+        setStyle(astyle);
+        // Handle the new CaretStyle (double width cursor)
+        if (settings.uiDoubleWidthTextCursor()) {
+            QStyle* bstyle = new CaretStyle(astyle);
+            setStyle(bstyle);
+        }
+        setPalette(style()->standardPalette());
+        // Add back stylesheet changes added after MainApplication started
+        if (!m_accumulatedQss.isEmpty()) {
+            setStyleSheet(m_accumulatedQss);
+            qDebug() << styleSheet();
+        } else {
+            setStyleSheet("");
+        }
     }
     QTimer::singleShot(0, this, SIGNAL(applicationPaletteChanged()));
 }
