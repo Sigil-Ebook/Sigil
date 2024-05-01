@@ -323,8 +323,8 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "text/javascript"                         ] = "MiscTextResource";
     m_MTypeToRDesc[ "text/plain"                              ] = "MiscTextResource";  // not a core media type
     
-    m_MTypeToRDesc[ "application/xml"                         ] = "MiscTextResource";  // not a core media type
-    m_MTypeToRDesc[ "text/xml"                                ] = "MiscTextResource";  // not a core media type
+    m_MTypeToRDesc[ "application/xml"                         ] = "XMLResource";  // not a core media type
+    m_MTypeToRDesc[ "text/xml"                                ] = "XMLResource";  // not a core media type
 
     m_MTypeToRDesc[ "application/pdf"                         ] = "PdfResource";  // not a core media type
 

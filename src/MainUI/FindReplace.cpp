@@ -1087,7 +1087,7 @@ bool FindReplace::IsCurrentFileInSelection()
             }
         }
     }
-    DBG qDebug() << "IsCurrentFileInSection: " << found;
+    DBG qDebug() << "IsCurrentFileInSelection: " << found;
 
     return found;
 }
@@ -1126,7 +1126,7 @@ QList <Resource *> FindReplace::GetFilesToSearch(bool force_all)
     } else if (GetLookWhere() == FindReplace::LookWhere_SelectedSVGFiles) {
         all_resources = m_MainWindow->GetValidSelectedSVGResources();
 
-    } else if (GetLookWhere() == FindReplace::LookWhere_SelectedCSSFiles) {
+    } else if (GetLookWhere() == FindReplace::LookWhere_SelectedJSFiles) {
         all_resources = m_MainWindow->GetValidSelectedJSResources();
 
     } else if (GetLookWhere() == FindReplace::LookWhere_SelectedMiscXMLFiles) {
@@ -1319,6 +1319,12 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
         starting_resource = current_resource;
     } else if (isWhereCSS() && (current_resource->Type() == Resource::CSSResourceType)) {
         starting_resource = current_resource;
+    } else if (isWhereSVG() && (current_resource->Type() == Resource::SVGResourceType)) {
+        starting_resource = current_resource;
+    } else if (isWhereMiscXML() && (current_resource->Type() == Resource::XMLResourceType)) {
+        starting_resource = current_resource;
+    } else if (isWhereJS() && (current_resource->Type() == Resource::MiscTextResourceType)) {
+        starting_resource = current_resource;
     } else if (isWhereOPF() && (current_resource->Type() == Resource::OPFResourceType)) {
         starting_resource = current_resource;
     } else if (isWhereNCX() && (current_resource->Type() == Resource::NCXResourceType)) {
@@ -1334,7 +1340,7 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
 
     if (!starting_resource || (isWhereSelected() && !IsCurrentFileInSelection())) {
         need_to_check_assigned_starting_resource = true;
-        if (direction == Searchable::Direction_Up) {
+        if (direction == Searchable::Direction_Down) {
             starting_resource = resources.first();
         } else {
             starting_resource = resources.last();
@@ -1344,7 +1350,7 @@ Resource *FindReplace::GetNextContainingResource(Searchable::Direction direction
     Resource *next_resource = starting_resource;
 
     if (need_to_check_assigned_starting_resource) {
-        DBG qDebug() << "Trying newly assigned first eesource: " << next_resource->GetRelativePath();
+        DBG qDebug() << "Trying newly assigned first resource: " << next_resource->GetRelativePath();
         if (next_resource) {
             if (ResourceContainsCurrentRegex(next_resource)) {
                 DBG qDebug() << "Found it";
@@ -1420,7 +1426,7 @@ Resource *FindReplace::GetNextResource(Resource *current_resource, Searchable::D
     } else {
         next_reading_order = current_reading_order + 1 <= max_reading_order ? current_reading_order + 1 : 0;
     }
-
+    DBG qDebug() << "GetNextResource next_reading_order: " << next_reading_order << max_reading_order;
     if (next_reading_order > max_reading_order || next_reading_order < 0) {
         DBG qDebug() << "GetNextResource returns NULL";
         return NULL;
