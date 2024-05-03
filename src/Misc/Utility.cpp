@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2016-2023 Doug Massay
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2024 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -58,6 +58,9 @@
 #include <QCollator>
 #include <QMenu>
 #include <QSet>
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+    #include <QStyleHints>
+#endif
 #include <QVector>
 #include <QImage>
 #include <QPainter>
@@ -137,11 +140,15 @@ bool Utility::IsDarkMode()
 #ifdef Q_OS_MAC
     MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
     return mainApplication->isDarkMode();
-#else
-    // Windows, Linux and Other platforms
+#else // Windows, Linux and Other platforms
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+    bool isdark = qApp->styleHints()->colorScheme() = Qt::ColorScheme::Dark;
+    return isdark;
+#else // less than Qt6.5.0
     QPalette app_palette = qApp->palette();
     bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
     return isdark;
+#endif
 #endif
 }
 
@@ -157,6 +164,9 @@ bool Utility::IsWindowsSysDarkMode()
 
 bool Utility::WindowsShouldUseDarkMode()
 {
+    return IsWindowsSysDarkMode();
+    // No more forcing of light/dark on Windows: use Windows settings.
+#if 0
     QString override(GetEnvironmentVar("SIGIL_USES_DARK_MODE"));
     if (override.isEmpty()) {
         //Env var unset - use system registry setting.
@@ -164,6 +174,7 @@ bool Utility::WindowsShouldUseDarkMode()
     }
     // Otherwise use the env var: anything other than "0" is true.
     return (override == "0" ? false : true);
+#endif
 }
 
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
