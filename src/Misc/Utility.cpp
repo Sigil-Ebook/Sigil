@@ -142,8 +142,10 @@ bool Utility::IsDarkMode()
     return mainApplication->isDarkMode();
 #else // Windows, Linux and Other platforms
 #if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
-    bool isdark = qApp->styleHints()->colorScheme() = Qt::ColorScheme::Dark;
-    return isdark;
+    if (qApp->styleHints()->colorScheme() == Qt::ColorScheme::Dark) {
+        return true;
+    }
+    return false;
 #else // less than Qt6.5.0
     QPalette app_palette = qApp->palette();
     bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
