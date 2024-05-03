@@ -69,13 +69,13 @@ On Debian-based systems `sudo apt-get install` the following packages.
 + qt6-tools-dev
 + qt6-tools-dev-tools
 + qt6-l10n-tools (provides lconvert binary)
-+ qt6-5compat-dev (use libqt6corecompat6-dev instead on Ubuntu 22.04 and earlier)
-+ libqt6svg6 (needed at runtime for icon support)
++ qt6-5compat-dev (use libqt6core5compat6-dev instead on Ubuntu 22.04 and earlier)
++ libqt6svg6-dev
 + libqt6webenginecore6-bin (provides QtWebEngineProcess runtime binary)
 
 The following command can be copied and pasted for convenience on Debian-based systems:
 
-`sudo apt-get install qt6-webengine-dev qt6-webengine-dev-tools qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-5compat-dev libqt6svg6 libqt6webenginecore6-bin`
+`sudo apt-get install qt6-webengine-dev qt6-webengine-dev-tools qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools qt6-5compat-dev libqt6svg6-dev libqt6webenginecore6-bin`
 
 **Note:** On Debian-based systems, you may need to also install the libgl1-mesa-dev package if cmake complains of missing OpenGL headers and/or includes
 
