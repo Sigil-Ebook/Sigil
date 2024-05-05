@@ -566,7 +566,7 @@ QString Utility::ReadUnicodeTextFile(const QString &fullfilepath)
     // This will automatically switch reading from
     // UTF-8 to UTF-16 if a BOM is detected
     in.setAutoDetectUnicode(true);
-    return ConvertLineEndings(in.readAll());
+    return ConvertLineEndingsAndNormalize(in.readAll());
 }
 
 
@@ -596,9 +596,10 @@ void Utility::WriteUnicodeTextFile(const QString &text, const QString &fullfilep
 
 // Converts Mac and Windows style line endings to Unix style
 // line endings that are expected throughout the Qt framework
-QString Utility::ConvertLineEndings(const QString &text)
+QString Utility::ConvertLineEndingsAndNormalize(const QString &text)
 {
     QString newtext(text);
+    newtext = newtext.normalized(QString::NormalizationForm_C);
     return newtext.replace("\x0D\x0A", "\x0A").replace("\x0D", "\x0A");
 }
 

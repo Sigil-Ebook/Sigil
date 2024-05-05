@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2021 Kevin B. Hendricks Stratford, Ontario, Canada
+**  Copyright (C) 2016-2024 Kevin B. Hendricks Stratford, Ontario, Canada
 **  Copyright (C) 2013      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -55,7 +55,7 @@ QString HTMLEncodingResolver::ReadHTMLFile(const QString &fullfilepath)
 
     QByteArray data = file.readAll();
 
-    return Utility::ConvertLineEndings(GetCodecForHTML(data)->toUnicode(data));
+    return Utility::ConvertLineEndingsAndNormalize(GetCodecForHTML(data)->toUnicode(data));
 }
 
 

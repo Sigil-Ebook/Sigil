@@ -144,7 +144,11 @@ public:
 
     // Converts Mac and Windows style line endings to Unix style
     // line endings that are expected throughout the Qt framework
-    static QString ConvertLineEndings(const QString &text);
+    // while converting to Unicode Normalization Form C
+    // Note the mac did and does use a modified NFD form for its HFS+ file system
+    // so manifest and other urls can have the wrong form on a mac depending
+    // on filesystem in use.
+    static QString ConvertLineEndingsAndNormalize(const QString &text);
 
     // Decodes XML escaped string to normal text
     // &amp; -> &    &apos; -> '  &quot; -> "   &lt; -> <  &gt; -> >

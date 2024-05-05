@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2023 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -419,6 +419,8 @@ void ImportEPUB::ExtractContainer()
         throw (EPUBLoadParseError(QString(QObject::tr("Cannot unzip EPUB: %1")).arg(QDir::toNativeSeparators(m_FullFilePath)).toStdString()));
     }
 
+    // Note: zip archives can do utf-8 but they do NOT have a standard for Unicode NormalizationForm
+    // we will choose to use NFC
     res = unzGoToFirstFile(zfile);
 
     if (res == UNZ_OK) {
@@ -430,10 +432,12 @@ void ImportEPUB::ExtractContainer()
             QString qfile_name;
             QString cp437_file_name;
             qfile_name = QString::fromUtf8(file_name);
+            qfile_name = qfile_name.normalized(QString::NormalizationForm_C);
             if (!(file_info.flag & (1<<11))) {
                 // General purpose bit 11 says the filename is utf-8 encoded. If not set then
                 // IBM 437 encoding might be used.
                 cp437_file_name = cp437->toUnicode(file_name);
+                cp437_file_name = cp437_file_name.normalized(QString::NormalizationForm_C);
             }
             QDate moddate = QDate(file_info.tmu_date.tm_year,
                                   file_info.tmu_date.tm_mon + 1,
@@ -784,6 +788,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     if (href.indexOf(':') == -1) {
         // we know we have a relative href to a file so no fragments can exist
         apath = Utility::URLDecodePath(href);
+        apath = apath.normalized(QString::NormalizationForm_C);
     }
     // for hrefs pointing outside the epub, apath will be empty
     // qDebug() << "ImportEpub with Manifest item: " << href << apath;
@@ -804,7 +809,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
         // find the epub root relative file path from the opf location and the item href
         QString file_path = m_opfDir.absolutePath() + "/" + apath;
         file_path = Utility::resolveRelativeSegmentsInFilePath(file_path,"/");
-        file_path = file_path.remove(0, m_ExtractedFolderPath.length() + 1); 
+        file_path = file_path.remove(0, m_ExtractedFolderPath.length() + 1);
     
         // Manifest Items may *NOT* live in the META-INF and the mimetype file should NOT be manifested
         if (file_path.startsWith("META-INF/") || (file_path == "mimetype")) {
