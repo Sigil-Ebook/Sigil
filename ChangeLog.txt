@@ -22,6 +22,7 @@ Pre-2.2.0
       - fix dark mode live switching on macOS issues qith QTreeView and QStandardItemModels
       - fix bug in missing CharToEntity in the Create TOC process
       - fix TabManager tab close symbol on macOS to match that used in dockwidgets
+      - use Unciode NormalizationForm C inside Sigil and for io
 
 
 Sigil-2.1.0
