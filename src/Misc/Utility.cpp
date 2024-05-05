@@ -896,10 +896,12 @@ bool Utility::UnZip(const QString &zippath, const QString &destpath)
             QString qfile_name;
             QString cp437_file_name;
             qfile_name = QString::fromUtf8(file_name);
+            qfile_name = qfile_name.normalized(QString::NormalizationForm_C);
             if (!(file_info.flag & (1<<11))) {
                 // General purpose bit 11 says the filename is utf-8 encoded. If not set then
                 // IBM 437 encoding might be used.
                 cp437_file_name = cp437->toUnicode(file_name);
+                cp437_file_name = cp437_file_name.normalized(QString::NormalizationForm_C);
             }
 
             // If there is no file name then we can't do anything with it.
@@ -1042,8 +1044,10 @@ QStringList Utility::ZipInspect(const QString &zippath)
             QString qfile_name;
             QString cp437_file_name;
             qfile_name = QString::fromUtf8(file_name);
+            qfile_name = qfile_name.normalized(QString::NormalizationForm_C);
             if (!(file_info.flag & (1<<11))) {
                 cp437_file_name = cp437->toUnicode(file_name);
+                cp437_file_name = cp437_file_name.normalized(QString::NormalizationForm_C);
             }
 
             // If there is no file name then we can't do anything with it.
