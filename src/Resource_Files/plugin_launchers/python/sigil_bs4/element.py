@@ -12,7 +12,7 @@ from sigil_bs4.dammit import EntitySubstitution
 
 DEFAULT_OUTPUT_ENCODING = "utf-8"
 
-whitespace_re = re.compile("\s+")
+whitespace_re = re.compile(r"\s+")
 
 NON_BREAKING_INLINE_TAGS = ("a","abbr","acronym","b","bdo","big","br",
     "button","cite","code","del","dfn","em","font","i","image","img",
@@ -49,7 +49,7 @@ EBOOK_XML_PARENT_TAGS = ("package","metadata","manifest","spine","guide","ncx",
                          "head","doctitle","docauthor","navmap", "navpoint",
                           "navlabel", "pagelist", "pagetarget") 
 
-IS_ENTITY = re.compile("(&#\d+;|&#x[0-9a-fA-F]+;|&\w+;)")
+IS_ENTITY = re.compile(r"(&#\d+;|&#x[0-9a-fA-F]+;|&\w+;)")
 
 
 def _alias(attr):
@@ -108,7 +108,7 @@ class ContentMetaAttributeValue(AttributeValueWithCharsetSubstitution):
     The value of the 'content' attribute will be one of these objects.
     """
 
-    CHARSET_RE = re.compile("((^|;)\s*charset=)([^;]*)", re.M)
+    CHARSET_RE = re.compile(r"((^|;)\s*charset=)([^;]*)", re.M)
 
     def __new__(cls, original_value):
         match = cls.CHARSET_RE.search(original_value)
@@ -1702,7 +1702,7 @@ class Tag(PageElement):
 
         # Remove whitespace directly after the grouping operator ','
         # then split into tokens.
-        tokens = re.sub(',[\s]*',',', selector).split()
+        tokens = re.sub(r',[\s]*',',', selector).split()
         current_context = [self]
 
         if tokens[-1] in self._selector_combinators:
@@ -1766,7 +1766,7 @@ class Tag(PageElement):
                     if tag_name == '':
                         raise ValueError(
                             "A pseudo-class must be prefixed with a tag name.")
-                    pseudo_attributes = re.match('([a-zA-Z\d-]+)\(([a-zA-Z\d]+)\)', pseudo)
+                    pseudo_attributes = re.match(r'([a-zA-Z\d-]+)\(([a-zA-Z\d]+)\)', pseudo)
                     found = []
                     if pseudo_attributes is None:
                         pseudo_type = pseudo
