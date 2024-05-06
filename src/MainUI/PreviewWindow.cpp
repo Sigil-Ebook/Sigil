@@ -66,7 +66,7 @@ static const QString MATHJAX3_CONFIG =
 " </script> ";
 
 
-#define DBG if(1)
+#define DBG if(0)
 
 PreviewWindow::PreviewWindow(QWidget *parent)
     :
@@ -98,7 +98,6 @@ PreviewWindow::PreviewWindow(QWidget *parent)
     m_progress->setMaximum(100);
     setWindowTitle(tr("Preview"));
     SetupView();
-    // SetupOverlayTimer();
     LoadSettings();
     ConnectSignalsToSlots();
     setFocusPolicy(Qt::NoFocus);
@@ -165,21 +164,6 @@ void PreviewWindow::setUserCSSURLs(const QStringList& usercssurls)
     if (!m_usercssurls.isEmpty()) m_cycleCSSLevel = 1;
 }
 
-void PreviewWindow::SetupOverlayTimer()
-{
-#if 0
-    m_OverlayTimer.setSingleShot(true);
-    m_OverlayTimer.setInterval(2000);
-    connect(&m_OverlayTimer, SIGNAL(timeout()), this, SLOT(ShowOverlay()));
-    m_OverlayTimer.stop();
-#endif
-}
-
-void PreviewWindow::ShowOverlay()
-{
-    // m_OverlayTimer.stop();
-    // m_Preview->ShowOverlay();
-}
 
 void PreviewWindow::resizeEvent(QResizeEvent *event)
 {
@@ -384,7 +368,6 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     SetCaretLocation(location);
     m_progress->setRange(0,100);
     m_progress->setValue(0);
-    // m_OverlayTimer.start();
 
     QRegularExpression mathused("<\\s*math [^>]*>");
     QRegularExpressionMatch mo = mathused.match(text);
@@ -477,9 +460,9 @@ void PreviewWindow::UpdatePageDone()
 
     // Zoom is handled internally to mPreview just before this is called
     UpdateWindowTitle();
-    // m_OverlayTimer.stop();
     m_progress->setValue(100);
     m_progress->reset();
+    // keep this hear in case things get out of sync
     m_Preview->HideOverlay();
     // need to delay long enough for Zoom changes to be reflected in View widget
     // before trying to center it on a location.
@@ -629,20 +612,18 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
       break;
     case QEvent::ChildAdded:
       if (object == m_Preview) {
-          // DBG qDebug() << "child add event";
           const QChildEvent *childEvent(static_cast<QChildEvent*>(event));
           if (childEvent->child()) {
-              qDebug() << "added child: " << childEvent->child(); 
+              DBG qDebug() << "added child: " << childEvent->child(); 
               childEvent->child()->installEventFilter(this);
           }
       }
       break;
     case QEvent::ChildRemoved:
       if (object == m_Preview) {
-          // DBG qDebug() << "child remove event";
           const QChildEvent *childEvent(static_cast<QChildEvent*>(event));
           if (childEvent->child()) {
-              qDebug() << "removed child: " << childEvent->child(); 
+              DBG qDebug() << "removed child: " << childEvent->child(); 
               childEvent->child()->removeEventFilter(this);
           }
       }
@@ -786,8 +767,6 @@ void PreviewWindow::ReloadPreview()
 
     //force reset m_updatingPage in case a signal is lost
     m_progress->reset();
-    // m_OverlayTimer.stop();
-    // m_Preview->HideOverlay();
     m_updatingPage = false;
     emit RequestPreviewReload();
 }

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2019-2023 Doug Massay
 **
 **  This file is part of Sigil.
@@ -47,7 +47,7 @@
 #include "ViewEditors/ViewPreview.h"
 #include "ViewEditors/Overlay.h"
 
-#define DBG if(1)
+#define DBG if(0)
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
@@ -120,9 +120,7 @@ ViewPreview::ViewPreview(QWidget *parent, bool setbackground)
 {
     QWebEngineProfile* profile = WebProfileMgr::instance()->GetPreviewProfile();
     m_ViewWebPage = new WebEngPage(profile, this, setbackground);
-    qDebug() << "In ViewPreview about to setPage";
     setPage(m_ViewWebPage);
-    qDebug() << "In ViewPreview after setPage";
     
     setContextMenuPolicy(Qt::CustomContextMenu);
     // Set the Zoom factor but be sure no signals are set because of this.
@@ -165,7 +163,6 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
     if (html.isEmpty()) {
         return;
     }
-    qDebug() << "ViewPreview in CustomSetDocument wwith path: " << path;
 
     m_CustomSetDocumentInProgress = true;
 
@@ -197,7 +194,6 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
     tgturl.setHost("");
     tgturl.setQuery("sigilpreview=" + key); 
     page()->load(tgturl);
-    qDebug() << "ViewPreview leaving CustomSetDocument";
     // setContent(replaced_html.toUtf8(), "application/xhtml+xml;charset=UTF-8", QUrl::fromLocalFile(path));
 }
 
@@ -434,7 +430,6 @@ void ViewPreview::WebPageJavascriptOnLoad()
         }
         m_CustomSetDocumentInProgress = false;
     }
-    qDebug() << "ViewPreview: Document Fully Loaded";
     emit DocumentLoaded();
 }
 

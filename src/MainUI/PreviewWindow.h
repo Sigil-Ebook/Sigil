@@ -30,7 +30,6 @@
 #include <QtWebEngineCore>
 #include <QWebEngineView>
 #include <QtWidgets/QDockWidget>
-#include <QTimer>
 #include <QStringList>
 #include <ViewEditors/Viewer.h>
 #include <Dialogs/Inspector.h>
@@ -77,7 +76,6 @@ public slots:
     void ReloadPreview();
     void InspectorClosed(int);
     void setProgress(int);
-    void ShowOverlay();
     
     /**
      * Set DockWidget titlebar text independently of tab text (when tabbed)
@@ -129,7 +127,6 @@ private:
     void ConnectSignalsToSlots();
     void UpdateWindowTitle();
     bool fixup_fullscreen_svg_images(const QString &text);
-    void SetupOverlayTimer();
     
     const QString titleText();
 
@@ -164,7 +161,6 @@ private:
 
     QList<ElementIndex> m_location;
     
-    QTimer m_OverlayTimer;
     bool m_updatingPage;
     bool m_usingMathML;
     int m_cycleCSSLevel;
