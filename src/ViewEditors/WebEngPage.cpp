@@ -28,17 +28,42 @@
 
 #define DBG if(0)
  
-WebEngPage::WebEngPage(QWebEngineProfile* profile, QObject *parent, bool setbackgound)
+WebEngPage::WebEngPage(QWebEngineProfile* profile, QObject *parent, bool setbackground)
     : QWebEnginePage(profile, parent)
 {
-    if (setbackgound) {
+    qDebug() << "In WebEngPage constructor with setbackground: " << setbackground;
+    if (setbackground) {
         setBackgroundColor(Utility::WebViewBackgroundColor(true));
     }
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)  || QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
+    qDebug() << "WebEnginePage is loading about:blank";
     setUrl(QUrl("about:blank"));
+    qDebug() << "WebEnginePage  returned from loading about:blank";
 #endif
+    connect(this, SIGNAL(lifecycleStateChanged(QWebEnginePage::LifecycleState)),
+	    this, SLOT(lifecyclechange(QWebEnginePage::LifecycleState)));
+    connect(this, SIGNAL(renderProcessPidChanged(qint64)), this, SLOT(render_new_pid(qint64)));
+    connect(this, SIGNAL(renderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus, int)),
+	    this, SLOT(render_died(QWebEnginePage::RenderProcessTerminationStatus, int)));
+    qDebug() << "WebEngPage Life Cycle State: " << lifecycleState();
+    qDebug() << "WebEngPage Current RenderProcess Pid " << renderProcessPid();
+    qDebug() << "WebEngPage Current RecommendedState " << recommendedState(); 
 }
 
+void WebEngPage::render_new_pid(qint64 pid)
+{
+  qDebug() << "*** Render Process PID Changed: " << pid;
+}
+
+void WebEngPage::render_died(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode)
+{
+  qDebug() << "*** Render Porcess Terminated: " << terminationStatus << exitCode;
+}
+
+void WebEngPage::lifecyclechange(QWebEnginePage::LifecycleState state)
+{
+  qDebug() << "*** life cycle change: " << state;
+}
 // Because you can not delegate all links in QtWebEngine we must override here and generate
 // our own link requests
 
@@ -91,3 +116,4 @@ void WebEngPage::javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessa
     const QString logEntry = message + " on line:" % QString::number(lineNumber) % " Source:" + sourceID;
     qDebug() << "Javascript error: " << level << logEntry;
 }
+

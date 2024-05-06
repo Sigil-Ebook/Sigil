@@ -4740,7 +4740,7 @@ void MainWindow::UpdatePreview()
 
             bool res = m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), text, location);
             if (!res) {
-                m_PreviewTimer.start();
+	        m_PreviewTimer.start();
             }
         }
     }

@@ -145,6 +145,7 @@ bool Utility::IsDarkMode()
 #else // Windows less than Qt6.5.0 and ALL Linux
     QPalette app_palette = qApp->palette();
     bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+    qDebug() << "Utility::IsDarkMode returned dark as: " << isdark;
     return isdark;
 #endif
 }
@@ -1294,11 +1295,13 @@ QColor Utility::WebViewBackgroundColor(bool followpref)
         if (followpref) {
             SettingsStore ss;
             if (!ss.previewDark()) {
+	        qDebug() << "setting background to white because of Preview Prefs";
                 return back_color;    
             }
         }
         QPalette pal = qApp->palette();
         back_color = pal.color(QPalette::Base);
+	qDebug() << "returning Base pallette color of: " << back_color.name();
     }
     return back_color; 
 }

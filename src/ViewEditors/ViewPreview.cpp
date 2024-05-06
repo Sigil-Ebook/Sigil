@@ -47,7 +47,7 @@
 #include "ViewEditors/ViewPreview.h"
 #include "ViewEditors/Overlay.h"
 
-#define DBG if(0)
+#define DBG if(1)
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
@@ -120,7 +120,10 @@ ViewPreview::ViewPreview(QWidget *parent, bool setbackground)
 {
     QWebEngineProfile* profile = WebProfileMgr::instance()->GetPreviewProfile();
     m_ViewWebPage = new WebEngPage(profile, this, setbackground);
+    qDebug() << "In ViewPreview about to setPage";
     setPage(m_ViewWebPage);
+    qDebug() << "In ViewPreview after setPage";
+    
     setContextMenuPolicy(Qt::CustomContextMenu);
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore ss;
@@ -162,6 +165,7 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
     if (html.isEmpty()) {
         return;
     }
+    qDebug() << "ViewPreview in CustomSetDocument wwith path: " << path;
 
     m_CustomSetDocumentInProgress = true;
 
@@ -173,7 +177,7 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
  
         // keep memory footprint small clear any caches when a new page loads
         if (url().toLocalFile() != path) {
-            page()->profile()->clearHttpCache();
+	    page()->profile()->clearHttpCache();
         } 
     }
 
@@ -193,6 +197,7 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
     tgturl.setHost("");
     tgturl.setQuery("sigilpreview=" + key); 
     page()->load(tgturl);
+    qDebug() << "ViewPreview leaving CustomSetDocument";
     // setContent(replaced_html.toUtf8(), "application/xhtml+xml;charset=UTF-8", QUrl::fromLocalFile(path));
 }
 
@@ -294,6 +299,7 @@ void ViewPreview::LoadingStarted()
     DBG qDebug() << "Loading a page started";
     m_isLoadFinished = false;
     m_LoadOkay = false;
+    ShowOverlay();
 }
 
 
@@ -327,6 +333,7 @@ void ViewPreview::UpdateFinishedState(bool okay)
     DBG qDebug() << "UpdateFinishedState with okay " << okay;
     // m_isLoadFinished = true;
     m_LoadOkay = okay;
+    HideOverlay();
 }
 
 void ViewPreview::HideOverlay()
@@ -354,7 +361,7 @@ QString ViewPreview::GetHTML() const
 
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 {
-    DBG qDebug() << "EvaluateJavascript: " << m_isLoadFinished;
+    // DBG qDebug() << "EvaluateJavascript: " << m_isLoadFinished;
 
     // do not try to evaluate javascripts with the page not loaded yet
     if (!m_isLoadFinished) return QVariant();
@@ -362,7 +369,7 @@ QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
     JSResult * pres = new JSResult();
     QDeadlineTimer deadline(10000);  // in milliseconds
 
-    // DBG qDebug() << "evaluate javascript" << javascript;
+    DBG qDebug() << "evaluate javascript" << javascript;
 
     page()->runJavaScript(javascript,QWebEngineScript::ApplicationWorld, SetJavascriptResultFunctor(pres));
     while(!pres->isFinished() && (!deadline.hasExpired())) {
@@ -427,6 +434,7 @@ void ViewPreview::WebPageJavascriptOnLoad()
         }
         m_CustomSetDocumentInProgress = false;
     }
+    qDebug() << "ViewPreview: Document Fully Loaded";
     emit DocumentLoaded();
 }
 

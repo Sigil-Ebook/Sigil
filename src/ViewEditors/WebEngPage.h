@@ -48,7 +48,10 @@ signals:
 
 private slots:
     void EmitLinkClicked();    
-
+    void render_new_pid(qint64 pid);
+    void render_died(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode);
+    void lifecyclechange(QWebEnginePage::LifecycleState state);
+  
 private:
     QUrl m_url;
 };
