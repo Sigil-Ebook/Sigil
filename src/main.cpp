@@ -814,7 +814,7 @@ int main(int argc, char *argv[])
         app.setWindowIcon(GetApplicationIcon());
 #if QT_VERSION >= 0x050700
         // Wayland needs this clarified in order to propery assign the icon 
-        app.setDesktopFileName(QStringLiteral("sigil.desktop"));
+        app.setDesktopFileName(QStringLiteral("sigil"));
 #endif // version
 #endif //!defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 
