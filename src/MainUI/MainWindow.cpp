@@ -3240,9 +3240,13 @@ void MainWindow::MarkForIndex()
 
 void MainWindow::ApplicationPaletteChanged()
 {
-    // we need to force a full reload of all Tabs and Preview Window
-    // qDebug() << "ApplicationPaletteChanged";
-    m_TabManager->ReopenTabs();
+    // CodeView documents use hard coded syntax highlighting and line
+    // numbering colours (one set for light and one for dark).
+    // So we need to tell each CodeView in the TabManager to do a Refresh
+    // Same goes with AV, Image, Font, and Pdf tabs that inject dark
+    // css.  Same for our Preview Window.
+    DBG qDebug() << "ApplicationPaletteChanged";
+    m_TabManager->PerformThemeChangeRefresh();
     UpdatePreview();
 }
 

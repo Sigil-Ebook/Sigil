@@ -119,6 +119,8 @@ public slots:
     void Print();
     void PrintPreview();
 
+    void ThemeChangeRefresh();
+    
 signals:
 
     void SelectionChanged();

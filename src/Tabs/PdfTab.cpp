@@ -49,6 +49,11 @@ void PdfTab::RefreshContent()
     m_pdf->ReloadViewer();
 }
 
+void PdfTab::ThemeChangeRefresh()
+{
+    RefreshContent();
+}
+
 void PdfTab::ConnectSignalsToSlots()
 {
     connect(m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(RefreshContent()));

@@ -2204,8 +2204,6 @@ bool CodeViewEditor::MarkForIndex(const QString &title)
 // Overridden so we can emit the FocusGained() signal.
 void CodeViewEditor::focusInEvent(QFocusEvent *event)
 {
-    // Why is this needed?
-    // RehighlightDocument();
     emit FocusGained(this);
     QPlainTextEdit::focusInEvent(event);
     HighlightCurrentLine(false);
@@ -2251,11 +2249,13 @@ void CodeViewEditor::TextChangedFilter()
 
 void CodeViewEditor::RehighlightDocument()
 {
-    if (!isVisible()) {
-        return;
-    }
+    // need to be able to rehighlight the document
+    // even if it is not visibile (ie not in the active tab in TabManager)
+    // to handle theme changes
+    // if (!isVisible()) {
+    //     return;
+    // }
 
-    // Is this needed,  Why not let it work asynchronously
     if (m_Highlighter) {
         // We block signals from the document while highlighting takes place,
         // because we do not want the contentsChanged() signal to be fired
@@ -2587,12 +2587,15 @@ void CodeViewEditor::UpdateLineNumberAreaFont(const QFont &font)
 
 void CodeViewEditor::SetAppearanceColors()
 {
+    // in general setting a hard palette just interferes with theme switching
+#if 0
     QPalette our_pal = qApp->palette();
     QColor active_highlight = our_pal.color(QPalette::Active, QPalette::Highlight);
     QColor active_highlightedtext = our_pal.color(QPalette::Active, QPalette::HighlightedText);
     our_pal.setColor(QPalette::Inactive, QPalette::Highlight, active_highlight);
     our_pal.setColor(QPalette::Inactive, QPalette::HighlightedText, active_highlightedtext);
     setPalette(our_pal);
+#endif
     return;
 }
 

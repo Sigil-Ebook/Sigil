@@ -51,6 +51,8 @@ public:
 
     void UpdateDisplay();
 
+    void ThemeChangeRefresh();
+
 public slots:
     void RefreshContent();
 

@@ -36,6 +36,8 @@ class FontTab : public ContentTab
 public:
     FontTab(Resource *resource, QWidget *parent=0);
 
+    void ThemeChangeRefresh();
+
 public slots:
     void ShowFont();
     void RefreshContent();

@@ -465,6 +465,8 @@ public slots:
 
     bool ClearMarkedText();
 
+    void SetAppearanceColors();
+
     void RehighlightDocument();
 
 protected:
@@ -609,8 +611,6 @@ private:
      * @param font The new font to use.
      */
     void UpdateLineNumberAreaFont(const QFont &font);
-
-    void SetAppearanceColors();
 
     /**
      * Executes a centerCursor() call if requested

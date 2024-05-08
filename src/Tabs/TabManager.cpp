@@ -193,14 +193,6 @@ void TabManager::ReloadTabDataForResources(const QList<Resource *> &resources)
 
 void TabManager::ReopenTabs()
 {
-#ifdef Q_OS_MAC
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    // for some reason using Qt6 the Tab Manager is not inheritiing the dark/light color change
-    // from its parents when the user changes them and then it overrides the CodeView palette change
-    QPalette app_pal = QApplication::palette();
-    setPalette(app_pal);
-#endif
-#endif
     ContentTab *currentTab = GetCurrentContentTab();
     QList<Resource *> resources = GetTabResources();
     foreach(Resource *resource, resources) {
@@ -210,6 +202,15 @@ void TabManager::ReopenTabs()
     OpenResource(currentTab->GetLoadedResource(), -1, -1, QString());
 }
 
+void TabManager::PerformThemeChangeRefresh()
+{
+    for (int i = 0; i < count(); ++i) {
+        ContentTab *tab = qobject_cast<ContentTab *>(widget(i));
+        if (tab) {
+            tab->ThemeChangeRefresh();
+        }
+    }
+}
 
 void TabManager::SaveTabData()
 {

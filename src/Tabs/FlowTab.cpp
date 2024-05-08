@@ -217,6 +217,14 @@ void FlowTab::CodeView()
     QApplication::restoreOverrideCursor();
 }
 
+void FlowTab::ThemeChangeRefresh()
+{
+    if (m_wCodeView) {
+        m_wCodeView->SetAppearance();
+        m_wCodeView->RehighlightDocument();
+    }
+}
+
 void FlowTab::LoadTabContent()
 {
     // In CV, this call has nothing to do, as the resource is connected to QTextDocument.

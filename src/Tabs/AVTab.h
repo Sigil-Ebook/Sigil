@@ -35,6 +35,7 @@ class AVTab : public ContentTab
 
 public:
     AVTab(Resource *resource, QWidget *parent=0);
+    void ThemeChangeRefresh();
 
 public slots:
     void ShowAV();

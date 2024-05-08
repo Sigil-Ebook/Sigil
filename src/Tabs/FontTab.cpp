@@ -50,6 +50,11 @@ void FontTab::RefreshContent()
     m_fv->ReloadViewer();
 }
 
+void FontTab::ThemeChangeRefresh()
+{
+    RefreshContent();
+}
+
 void FontTab::ConnectSignalsToSlots()
 {
     connect(m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(RefreshContent()));

@@ -87,6 +87,8 @@ public:
      */
     void ReopenTabs();
 
+    void PerformThemeChangeRefresh();
+
     void UpdateTabDisplay();
 
     /**

@@ -211,6 +211,13 @@ void TextTab::ChangeCasing(const Utility::Casing casing)
     }
 }
 
+void TextTab::ThemeChangeRefresh()
+{
+    if (m_wCodeView) {
+        m_wCodeView->SetAppearance();
+        m_wCodeView->RehighlightDocument();
+    }
+}
 
 void TextTab::SaveTabContent()
 {

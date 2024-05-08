@@ -171,6 +171,7 @@ public:
 
     void SuspendTabReloading();
     void ResumeTabReloading();
+    void ThemeChangeRefresh();
 
 public slots:
 

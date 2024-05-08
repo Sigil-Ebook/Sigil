@@ -50,6 +50,11 @@ void AVTab::RefreshContent()
     m_av->ReloadViewer();
 }
 
+void AVTab::ThemeChangeRefresh()
+{
+    RefreshContent();
+}
+
 void AVTab::ConnectSignalsToSlots()
 {
     connect(m_Resource, SIGNAL(ResourceUpdatedOnDisk()), this, SLOT(RefreshContent()));

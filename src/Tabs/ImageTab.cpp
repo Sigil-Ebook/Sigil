@@ -187,6 +187,11 @@ void ImageTab::UpdateDisplay()
     }
 }
 
+void ImageTab::ThemeChangeRefresh()
+{
+    RefreshContent();
+}
+
 void ImageTab::RefreshContent()
 {
     m_WebView->page()->profile()->clearHttpCache();

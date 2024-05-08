@@ -35,6 +35,8 @@ class PdfTab : public ContentTab
 public:
     PdfTab(Resource *resource, QWidget *parent=0);
 
+    void ThemeChangeRefresh();
+
 public slots:
     void ShowPdf();
     void RefreshContent();
