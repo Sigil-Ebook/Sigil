@@ -27,9 +27,11 @@
 #include <QTimer>
 #include <QStyleFactory>
 #include <QStyle>
+
 #if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
-    #include <QStyleHints>
+#include <QStyleHints>
 #endif
+
 #include <QPalette>
 #include <QDebug>
 
@@ -62,6 +64,12 @@ MainApplication::MainApplication(int &argc, char **argv)
     fixMacDarkModePalette(app_palette);
     setPalette(app_palette);
 #endif
+#endif // Mac
+
+// Linux
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+    QPalette app_palette = palette();
+    m_isDark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
 #endif
 
 // Connect system color scheme change signal to reporting mechanism
@@ -74,27 +82,11 @@ MainApplication::MainApplication(int &argc, char **argv)
 
 void MainApplication::saveInPreviewCache(const QString &key, const QString& xhtml)
 {
-#if 0
-    if (m_CacheKeys.size() > 10) {
-        QString oldest_key = m_CacheKeys.takeFirst();
-        m_PreviewCache.remove(oldest_key);
-    }
-    m_CacheKeys.append(key);
-#endif
     m_PreviewCache[key] = xhtml;
 }
 
 QString MainApplication::loadFromPreviewCache(const QString &key)
 {
-#if 0
-    if (m_CacheKeys.contains(key)) {
-        // move to end of list as newest accessed key
-        m_CacheKeys.removeOne(key);
-        m_CacheKeys.append(key);
-        return m_PreviewCache[key];
-    }
-    return QString();
-#endif
     return m_PreviewCache.take(key);
 }
 
@@ -119,9 +111,9 @@ bool MainApplication::event(QEvent *pEvent)
     } else if (pEvent->type() == QEvent::ApplicationDeactivate) {
         emit applicationDeactivated();
     }
-#ifdef Q_OS_MAC
+#ifndef Q_OS_WIN32 // Linux and Mac
     if (pEvent->type() == QEvent::ApplicationPaletteChange) {
-        // qDebug() << "Application Palette Changed";
+        DBG qDebug() << "Application Palette Changed";
         QTimer::singleShot(0, this, SLOT(EmitPaletteChanged()));
     }
 #endif
@@ -133,19 +125,32 @@ void MainApplication::EmitPaletteChanged()
 #ifdef Q_OS_MAC
     // on macOS the application palette actual colors never seem to change after launch 
     // even when DarkMode is enabled. So we use a mac style standardPalette to determine
-    // if a drak vs light mode transition has been made and then use it to set the 
+    // if a dark vs light mode transition has been made and then use it to set the
     // Application palette
     QPalette app_palette = m_Style->standardPalette();
     bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
     if (m_isDark == isdark) return; // no change
     DBG qDebug() << "Theme changed " << "was isDark:" << m_isDark << "now isDark:" << isdark;
     m_isDark = isdark;
+
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     // overwriting the app palette in Qt 6 is bad
     fixMacDarkModePalette(app_palette);
     setPalette(app_palette);
 #endif
-#endif //macOS
+
+#else
+
+#ifndef Q_OS_WIN32 // Linux
+    QPalette app_palette = palette();
+    bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+    if (m_isDark == isdark) return; // no change
+    DBG qDebug() << "Theme changed " << "was isDark:" << m_isDark << "now isDark:" << isdark;
+    m_isDark = isdark;
+#endif
+
+#endif
+
     emit applicationPaletteChanged();
 }
 

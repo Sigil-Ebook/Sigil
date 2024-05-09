@@ -632,7 +632,9 @@ int main(int argc, char *argv[])
 #endif // Q_OS_WIN32
 
 #if !defined(Q_OS_MAC) && !defined(Q_OS_WIN32) // *nix
-        QStyle* astyle = app.style();
+        // QStyle* astyle = app.style();
+        QStyle* astyle = QStyleFactory::create("fusion");
+        app.setStyle(astyle);
 #endif // *nix
 
         // Handle the new CaretStyle (double width cursor)
@@ -647,8 +649,8 @@ int main(int argc, char *argv[])
 #ifndef Q_OS_MAC // Linux and Win
         // Custom dark style/palette for Windows and Linux
 #ifndef Q_OS_WIN32 //Linux
-        // Use platform themes/styles on Linux unless FORCE_SIGIL_DARKMODE_PALETTE is set
-        if (!force_sigil_darkmode_palette.isEmpty()) {
+        // Always Use platform themes/styles on Linux
+        if (0)  {
             // Apply custom dark style
             QStyle* cstyle;
             if (isbstyle) {
@@ -788,7 +790,6 @@ int main(int argc, char *argv[])
         // Pass accumulatedQss to MainApplication for themeing changes
         app.updateAccumulatedQss(accumulatedQss);
 
-#if defined(Q_OS_MAC) || defined(Q_OS_WIN32)
         // it seems that any time there is stylesheet used, system dark-light palette
         // changes are not propagated to widgets with stylesheets (See QTBUG-124268).
         // This in turn prevents some widgets from properly geting repainted with the new
@@ -797,7 +798,6 @@ int main(int argc, char *argv[])
         // properly propagated to all widgets including those with stylesheets
         // This is how to tell Qt to do that.  Perhaps any platforms need this as well.
         app.setAttribute(Qt::AA_UseStyleSheetPropagationInWidgetStyles);
-#endif
 
         // Qt's setCursorFlashTime(msecs) (or the docs) are broken
         // According to the docs, setting a negative value should disable cursor blinking 
