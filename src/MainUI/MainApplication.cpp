@@ -53,8 +53,9 @@ MainApplication::MainApplication(int &argc, char **argv)
     m_isDark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
 
 // Connect system color scheme change signal to reporting mechanism
-// In earlier versions of Qt use QPalatte Change events instead
-#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+// Note: This mechanism is very very unreliable on Linux (across many distributions and desktops)
+// So fall back to the QApplication:Palette change event instead for all of Linux for now
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0) && (defined(Q_OS_WIN32) || defined(Q_OS_MAC))
     connect(styleHints(), &QStyleHints::colorSchemeChanged, this, [this]() {
                 MainApplication::systemColorChanged();
         });
@@ -82,7 +83,8 @@ bool MainApplication::event(QEvent *pEvent)
         // can be generated multiple times
         DBG qDebug() << "Application Palette Changed";
 
-#if QT_VERSION < QT_VERSION_CHECK(6,5,0)
+#if QT_VERSION < QT_VERSION_CHECK(6,5,0) ||  (!defined(Q_OS_WIN32) && !defined(Q_OS_MAC))
+	// Use this approach for all Linux currently as it is much more reliable
         QTimer::singleShot(50, this, SLOT(systemColorChanged()));
 #endif
 
@@ -99,15 +101,16 @@ void MainApplication::systemColorChanged()
 {
     bool theme_changed = false;
     bool isdark = palette().color(QPalette::Active,QPalette::WindowText).lightness() > 128;
-
-#if QT_VERSION < QT_VERSION_CHECK(6,5,0)
+    DBG qDebug() << "made it to systemColorChanged";
+    
+#if QT_VERSION < QT_VERSION_CHECK(6,5,0) || (!defined(Q_MAC_OS) && !defined(Q_OS_WIN32))
 
     if (isdark != m_isDark) {
         theme_changed = true;
         m_isDark = isdark;
     }
 
-#else  // Qt >= 6.5
+#else  // Qt >= 6.5 and not Linux till it gets more robust
 
     switch (styleHints()->colorScheme())
     {
@@ -121,6 +124,7 @@ void MainApplication::systemColorChanged()
 #endif // Q_OS_WIN32
             
             break;
+
         case Qt::ColorScheme::Unknown:
             DBG qDebug() << "System Changed to Unknown Theme";
             if (isdark != m_isDark) {
@@ -128,6 +132,7 @@ void MainApplication::systemColorChanged()
                 m_isDark = isdark;
             }
             break;
+
         case Qt::ColorScheme::Dark:
             DBG qDebug() << "System Changed to Dark Theme";
             m_isDark = true;
