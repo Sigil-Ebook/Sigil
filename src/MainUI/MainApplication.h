@@ -31,6 +31,7 @@
 #include <QtWidgets/QApplication>
 #include <QString>
 #include <QHash>
+#include <QTimer>
 
 class MainApplication : public QApplication
 {
@@ -63,6 +64,7 @@ private:
     bool m_isDark;
     QHash<QString, QString> m_PreviewCache;
     mutable QString m_accumulatedQss;
+    QTimer * m_PaletteChangeTimer;
 };
 
 #endif // MAINAPPLICATION_H

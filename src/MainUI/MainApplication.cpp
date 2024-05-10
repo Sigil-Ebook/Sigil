@@ -45,12 +45,19 @@
 MainApplication::MainApplication(int &argc, char **argv)
     : QApplication(argc, argv),
       m_isDark(false),
-      m_accumulatedQss(QString())
+      m_accumulatedQss(QString()),
+      m_PaletteChangeTimer(new QTimer())
 {
 
     // Keep track on our own of dark or light
     QPalette app_palette = palette();
     m_isDark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+
+    // Set up PaletteChangeTimer to absorb multiple QEvents
+    m_PaletteChangeTimer->setSingleShot(true);
+    m_PaletteChangeTimer->setInterval(50);
+    connect(m_PaletteChangeTimer, SIGNAL(timeout()),this, SLOT(systemColorChanged()));
+    m_PaletteChangeTimer->stop();
 
 // Connect system color scheme change signal to reporting mechanism
 // Note: This mechanism is very very unreliable on Linux (across many distributions and desktops)
@@ -85,7 +92,9 @@ bool MainApplication::event(QEvent *pEvent)
 
 #if QT_VERSION < QT_VERSION_CHECK(6,5,0) ||  (!defined(Q_OS_WIN32) && !defined(Q_OS_MAC))
 	// Use this approach for all Linux currently as it is much more reliable
-        QTimer::singleShot(50, this, SLOT(systemColorChanged()));
+        if (m_PaletteChangeTimer->isActive()) m_PaletteChangeTimer->stop();
+        m_PaletteChangeTimer->start();
+        // QTimer::singleShot(50, this, SLOT(systemColorChanged()));
 #endif
 
     }
@@ -105,10 +114,8 @@ void MainApplication::systemColorChanged()
     
 #if QT_VERSION < QT_VERSION_CHECK(6,5,0) || (!defined(Q_MAC_OS) && !defined(Q_OS_WIN32))
 
-    if (isdark != m_isDark) {
-        theme_changed = true;
-        m_isDark = isdark;
-    }
+    theme_changed = true;
+    m_isDark = isdark;
 
 #else  // Qt >= 6.5 and not Linux till it gets more robust
 
