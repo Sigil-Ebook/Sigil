@@ -44,36 +44,17 @@
 
 MainApplication::MainApplication(int &argc, char **argv)
     : QApplication(argc, argv),
-      m_Style(nullptr),
       m_isDark(false),
       m_accumulatedQss(QString())
 {
-#ifdef Q_OS_MAC
-    // on macOS the application palette actual text colors never seem to change when DarkMode is enabled
-    // so use a mac style standardPalette
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    m_Style = QStyleFactory::create("macintosh");
-#else
-    m_Style = QStyleFactory::create("macOS");
-#endif
-    QPalette app_palette = m_Style->standardPalette();
-    m_isDark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    // overwriting the app palette in Qt 6 is bad
-    // set the initial app palette
-    fixMacDarkModePalette(app_palette);
-    setPalette(app_palette);
-#endif
-#endif // Mac
 
-// Linux
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+    // Keep track on our own of dark or light
     QPalette app_palette = palette();
     m_isDark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
-#endif
 
 // Connect system color scheme change signal to reporting mechanism
-#if QT_VERSION >= QT_VERSION_CHECK(6,5,0) && defined(Q_OS_WIN32)
+// In earlier versions of Qt use QPalatte Change events instead
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
     connect(styleHints(), &QStyleHints::colorSchemeChanged, this, [this]() {
                 MainApplication::systemColorChanged();
         });
@@ -90,20 +71,6 @@ QString MainApplication::loadFromPreviewCache(const QString &key)
     return m_PreviewCache.take(key);
 }
 
-void MainApplication::fixMacDarkModePalette(QPalette &pal)
-{
-# ifdef Q_OS_MAC
-    // See QTBUG-75321 and follow Kovid's workaround for broken ButtonText always being dark
-    pal.setColor(QPalette::ButtonText, pal.color(QPalette::WindowText));
-    if (m_isDark) {
-        // make alternating base color change not so sharp
-        pal.setColor(QPalette::AlternateBase, pal.color(QPalette::Base).lighter(150));
-        // make link color better for dark mode (try to match calibre for consistency)
-        pal.setColor(QPalette::Link, QColor("#6cb4ee"));
-    }
-#endif
-}
-
 bool MainApplication::event(QEvent *pEvent)
 {
     if (pEvent->type() == QEvent::ApplicationActivate) {
@@ -111,71 +78,72 @@ bool MainApplication::event(QEvent *pEvent)
     } else if (pEvent->type() == QEvent::ApplicationDeactivate) {
         emit applicationDeactivated();
     }
-#ifndef Q_OS_WIN32 // Linux and Mac
     if (pEvent->type() == QEvent::ApplicationPaletteChange) {
+        // can be generated multiple times
         DBG qDebug() << "Application Palette Changed";
-        QTimer::singleShot(0, this, SLOT(EmitPaletteChanged()));
-    }
+
+#if QT_VERSION < QT_VERSION_CHECK(6,5,0)
+        QTimer::singleShot(50, this, SLOT(systemColorChanged()));
 #endif
+
+    }
     return QApplication::event(pEvent);
 }
 
 void MainApplication::EmitPaletteChanged()
 {
-#ifdef Q_OS_MAC
-    // on macOS the application palette actual colors never seem to change after launch 
-    // even when DarkMode is enabled. So we use a mac style standardPalette to determine
-    // if a dark vs light mode transition has been made and then use it to set the
-    // Application palette
-    QPalette app_palette = m_Style->standardPalette();
-    bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
-    if (m_isDark == isdark) return; // no change
-    DBG qDebug() << "Theme changed " << "was isDark:" << m_isDark << "now isDark:" << isdark;
-    m_isDark = isdark;
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    // overwriting the app palette in Qt 6 is bad
-    fixMacDarkModePalette(app_palette);
-    setPalette(app_palette);
-#endif
-
-#else
-
-#ifndef Q_OS_WIN32 // Linux
-    QPalette app_palette = palette();
-    bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
-    if (m_isDark == isdark) return; // no change
-    DBG qDebug() << "Theme changed " << "was isDark:" << m_isDark << "now isDark:" << isdark;
-    m_isDark = isdark;
-#endif
-
-#endif
-
     emit applicationPaletteChanged();
 }
 
 void MainApplication::systemColorChanged()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+    bool theme_changed = false;
+    bool isdark = palette().color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+
+#if QT_VERSION < QT_VERSION_CHECK(6,5,0)
+
+    if (isdark != m_isDark) {
+        theme_changed = true;
+        m_isDark = isdark;
+    }
+
+#else  // Qt >= 6.5
+
     switch (styleHints()->colorScheme())
     {
         case Qt::ColorScheme::Light:
             DBG qDebug() << "System Changed to Light Theme";
+            m_isDark = false;
+            theme_changed = true;
+            
 #ifdef Q_OS_WIN32
             windowsLightThemeChange();
 #endif // Q_OS_WIN32
+            
             break;
         case Qt::ColorScheme::Unknown:
-            DBG qDebug() << "System Changed to Uknown Theme";
+            DBG qDebug() << "System Changed to Unknown Theme";
+            if (isdark != m_isDark) {
+                theme_changed = true;
+                m_isDark = isdark;
+            }
             break;
         case Qt::ColorScheme::Dark:
             DBG qDebug() << "System Changed to Dark Theme";
+            m_isDark = true;
+            theme_changed = true;
+
 #ifdef Q_OS_WIN32
-            DBG windowsDarkThemeChange();
+            windowsDarkThemeChange();
 #endif // Q_OS_WIN32
+
             break;
-    } // end switch
+    }
+    
 #endif // Qt Version Check
+    
+    if (theme_changed) QTimer::singleShot(0, this, SLOT(EmitPaletteChanged()));
+
 }
 
 void MainApplication::windowsDarkThemeChange()
@@ -208,7 +176,6 @@ void MainApplication::windowsDarkThemeChange()
             DBG qDebug() << styleSheet();
         }
     }
-    QTimer::singleShot(0, this, SLOT(EmitPaletteChanged()));
 }
 
 void MainApplication::windowsLightThemeChange()
@@ -232,7 +199,6 @@ void MainApplication::windowsLightThemeChange()
             setStyleSheet("");
         }
     }
-    QTimer::singleShot(0, this, SLOT(EmitPaletteChanged()));
 }
 
 void MainApplication::updateAccumulatedQss(QString &qss) const

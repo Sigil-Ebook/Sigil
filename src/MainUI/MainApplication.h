@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2024      Doug Massay
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Grant Drake
@@ -32,8 +32,6 @@
 #include <QString>
 #include <QHash>
 
-class QStyle;
-
 class MainApplication : public QApplication
 {
     Q_OBJECT
@@ -42,7 +40,6 @@ public:
     MainApplication(int &argc, char **argv);
 
     bool isDarkMode() { return m_isDark; }
-    void fixMacDarkModePalette(QPalette &pal);
 
     void saveInPreviewCache(const QString &key, const QString& xhtml);
     QString loadFromPreviewCache(const QString &key);
@@ -63,13 +60,9 @@ protected:
 private:
     void windowsDarkThemeChange();
     void windowsLightThemeChange();
-    QStyle * m_Style;
     bool m_isDark;
     QHash<QString, QString> m_PreviewCache;
-    // QStringList m_CacheKeys;
     mutable QString m_accumulatedQss;
 };
 
 #endif // MAINAPPLICATION_H
-
-

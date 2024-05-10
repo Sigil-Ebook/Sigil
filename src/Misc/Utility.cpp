@@ -137,16 +137,8 @@ QString Utility::DefinePrefsDir()
 
 bool Utility::IsDarkMode()
 {
-#if defined(Q_OS_MAC)
     MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
     return mainApplication->isDarkMode();
-#elif defined(Q_OS_WIN32) && QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
-    return qApp->styleHints()->colorScheme() == Qt::ColorScheme::Dark;
-#else // Windows less than Qt6.5.0 and ALL Linux
-    QPalette app_palette = qApp->palette();
-    bool isdark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
-    return isdark;
-#endif
 }
 
 bool Utility::IsWindowsSysDarkMode()
