@@ -50,8 +50,8 @@ MainApplication::MainApplication(int &argc, char **argv)
 {
 
     // Keep track on our own of dark or light
-    QPalette app_palette = palette();
-    m_isDark = app_palette.color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+    m_isDark = qApp->palette().color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+    
 
     // Set up PaletteChangeTimer to absorb multiple QEvents
     m_PaletteChangeTimer->setSingleShot(true);
@@ -63,6 +63,8 @@ MainApplication::MainApplication(int &argc, char **argv)
 // Note: This mechanism is very very unreliable on Linux (across many distributions and desktops)
 // So fall back to the QApplication:Palette change event instead for all of Linux for now
 #if QT_VERSION >= QT_VERSION_CHECK(6,5,0) && (defined(Q_OS_WIN32) || defined(Q_OS_MAC))
+    m_isDark = styleHints()->colorScheme() == Qt::ColorScheme::Dark;
+    
     connect(styleHints(), &QStyleHints::colorSchemeChanged, this, [this]() {
                 MainApplication::systemColorChanged();
         });
@@ -109,7 +111,7 @@ void MainApplication::EmitPaletteChanged()
 void MainApplication::systemColorChanged()
 {
     bool theme_changed = false;
-    bool isdark = palette().color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+    bool isdark = qApp->palette().color(QPalette::Active,QPalette::WindowText).lightness() > 128;
     DBG qDebug() << "made it to systemColorChanged";
     
 #if QT_VERSION < QT_VERSION_CHECK(6,5,0) || (!defined(Q_MAC_OS) && !defined(Q_OS_WIN32))
