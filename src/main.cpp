@@ -379,18 +379,6 @@ int main(int argc, char *argv[])
   #endif
 #endif // version
 
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-    // Unset platform theme plugins/styles environment variables immediately
-    // when forcing Sigil's own darkmode palette on Linux
-    if (!force_sigil_darkmode_palette.isEmpty()) {
-        QStringList env_vars = {"QT_QPA_PLATFORMTHEME", "QT_STYLE_OVERRIDE"};
-        foreach(QString v, env_vars) {
-            bool irrel = qunsetenv(v.toUtf8().constData());
-        Q_UNUSED(irrel);
-        }
-    }
-#endif // Linux
-
 
 #ifndef QT_DEBUG
     qInstallMessageHandler(MessageHandler);
@@ -632,11 +620,19 @@ int main(int argc, char *argv[])
 #endif // Q_OS_WIN32
 
 #if !defined(Q_OS_MAC) && !defined(Q_OS_WIN32) // *nix
-        // QStyle* astyle = app.style();
-        QStyle* astyle = QStyleFactory::create("fusion");
+        // QStyle* astyle = QStyleFactory::create("fusion");
+        QStyle* astyle = app.style();
         app.setStyle(astyle);
 #endif // *nix
 
+#ifndef Q_OS_WIN32 //macOS and *nix
+        // Handle the new CaretStyle (double width cursor)
+        QStyle* bstyle;
+        if (settings.uiDoubleWidthTextCursor()) {
+            bstyle = new CaretStyle(astyle);
+            app.setStyle(bstyle);
+        }
+#else // Win might or might not have an extra darkstyle to layer
         // Handle the new CaretStyle (double width cursor)
         bool isbstyle = false;
         QStyle* bstyle;
@@ -646,27 +642,7 @@ int main(int argc, char *argv[])
             isbstyle = true;
         }
 
-#ifndef Q_OS_MAC // Linux and Win
-        // Custom dark style/palette for Windows and Linux
-#ifndef Q_OS_WIN32 //Linux
-        // Always Use platform themes/styles on Linux
-        if (0)  {
-            // Apply custom dark style
-            QStyle* cstyle;
-            if (isbstyle) {
-                cstyle = new SigilDarkStyle(bstyle);
-            } else {
-                cstyle = new SigilDarkStyle(astyle);
-            }
-            app.setStyle(cstyle);
-#if QT_VERSION == QT_VERSION_CHECK(5, 15, 0)
-            // Qt keeps breaking my custom dark theme.
-            // This was apparently only necessary for Qt5.15.0!!
-            app.setPalette(QApplication::style()->standardPalette());
-#endif // version
-        }
-#else  // Win
-        // Use our custom dark theme unless user opts-in with SIGIL_USE_QT65_DARKMODE
+        // Use our custom Windows dark theme unless user opts-in with SIGIL_USE_QT65_DARKMODE
         if (Utility::WindowsShouldUseDarkMode() && !qEnvironmentVariableIsSet("SIGIL_USE_QT65_DARKMODE")) {
             // Apply custom dark style last on Windows
             QStyle* cstyle;
@@ -684,7 +660,6 @@ int main(int argc, char *argv[])
 #endif // version
         }
 #endif // Win
-#endif // Linux and Win
 
         // Set ui font from preferences after dark theming
         QFont f = QFont(QApplication::font());
