@@ -262,7 +262,8 @@ There are several configuration and environment variable options that can tailor
 
 -DINSTALL_HICOLOR_ICONS=(0|1) Install various-sized Sigil application icons to the typical hicolor theme directories (`<INSTALL_PREFIX>/share/icons/hicolor`). The default is 0, which installs a single icon to the `<INSTALL_PREFIX>/share/pixmap` folder.
 
--DUSE_ALT_ICONS=(0|1) Defaults to 0. Install/use alternative teal-colored Sigil application icon(s). You still need to specify -DINSTALL_HICOLOR_ICONS=1 if you want all the alternative teal-colored icons installed the hicolor theme.
+~~-DUSE_ALT_ICONS=(0|1) Defaults to 0. Install/use alternative teal-colored Sigil application icon(s). You still need to specify -DINSTALL_HICOLOR_ICONS=1 if you want all the alternative teal-colored icons installed the hicolor theme.~~
+**(After Sigil 2.0 and Qt6, the teal icon is standard)**
 
 The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version.
 
