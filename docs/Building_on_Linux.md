@@ -292,7 +292,7 @@ SIGIL_EXTRA_ROOT - Handy for relocating the Sigil support files. For instance yo
 
 SIGIL_DICTIONARIES - Used to tell Sigil what directories are to be searched for Hunspell dictionary files. Multiple directories can be specified by separating the paths with a colon. i.e. SIGIL_DICTIONARIES="/usr/share/hunspell" or SIGIL_DICTIONARIES="/usr/share/hunspell:/usr/share/hunspellextra" Setting this variable at run time will override all compile-time dictionary search paths (except for any user-supplied dictionaries manually added to their preference directory's hunspell_dictionary location).
 
-FORCE_SIGIL_DARKMODE_PALETTE - If this variable is set at runtime, it tells Sigil to ignore any defined platform themes/styles (QT_QPA_PLATFORMTHEME, or QT_STYLE_OVERRIDE) and to use the dark color palette provided by Sigil (starting with Sigil v1.1).
+FORCE_SIGIL_DARKMODE_PALETTE - If this variable is set at runtime, it tells Sigil to ignore any defined platform themes/styles (QT_QPA_PLATFORMTHEME, or QT_STYLE_OVERRIDE) and to use the dark color palette provided by Sigil **(Only available in Sigil v1.1 thru v2.1. Platform theming strategies only starting with Sigil v2.2)**.
 
 SIGIL_ICON_SCALE_FACTOR - Valid values: 1.0 to 3.0. The default value (with no variable set) is 1.8. Sigil scales its menu icons based on font-size. This can sometimes result in icons being a bit too large (or too small) depending on the system Qt theme. Use this variable to tweak the icon size if deemed necessary. **(Only works with Sigil v0.9.7 and earlier; v0.9.8 has a preference setting to adjust icons)**
 
