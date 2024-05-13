@@ -52,8 +52,9 @@ MainApplication::MainApplication(int &argc, char **argv)
     // Keep track on our own of dark or light
     m_isDark = qApp->palette().color(QPalette::Active,QPalette::WindowText).lightness() > 128;
     
-
     // Set up PaletteChangeTimer to absorb multiple QEvents
+    // We need this for older < Qt 6.5 and as a backup mechanism for Linux
+    // Whose ability to detect theme changes is not in a good state
     m_PaletteChangeTimer->setSingleShot(true);
     m_PaletteChangeTimer->setInterval(50);
     connect(m_PaletteChangeTimer, SIGNAL(timeout()),this, SLOT(systemColorChanged()));
@@ -62,9 +63,13 @@ MainApplication::MainApplication(int &argc, char **argv)
 // Connect system color scheme change signal to reporting mechanism
 // Note: This mechanism is very very unreliable on Linux (across many distributions and desktops)
 // So fall back to the QApplication:Palette change event instead for all of Linux for now
-#if QT_VERSION >= QT_VERSION_CHECK(6,5,0) && (defined(Q_OS_WIN32) || defined(Q_OS_MAC))
-    m_isDark = styleHints()->colorScheme() == Qt::ColorScheme::Dark;
-    
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+    DBG qDebug() << "initial styleHints colorScheme: " << styleHints()->colorScheme();
+    if (styleHints()->colorScheme() == Qt::ColorScheme::Unknown) {
+        m_isDark = qApp->palette().color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+    } else {
+        m_isDark = styleHints()->colorScheme() == Qt::ColorScheme::Dark;
+    }
     connect(styleHints(), &QStyleHints::colorSchemeChanged, this, [this]() {
                 MainApplication::systemColorChanged();
         });
@@ -93,10 +98,9 @@ bool MainApplication::event(QEvent *pEvent)
         DBG qDebug() << "Application Palette Changed";
 
 #if QT_VERSION < QT_VERSION_CHECK(6,5,0) ||  (!defined(Q_OS_WIN32) && !defined(Q_OS_MAC))
-	// Use this approach for all Linux currently as it is much more reliable
+	// Use this approach as a backup for Linux currently
         if (m_PaletteChangeTimer->isActive()) m_PaletteChangeTimer->stop();
         m_PaletteChangeTimer->start();
-        // QTimer::singleShot(50, this, SLOT(systemColorChanged()));
 #endif
 
     }
@@ -105,19 +109,26 @@ bool MainApplication::event(QEvent *pEvent)
 
 void MainApplication::EmitPaletteChanged()
 {
+    DBG qDebug() << "emitting applicationPaletteChanged";
     emit applicationPaletteChanged();
 }
 
 void MainApplication::systemColorChanged()
 {
+    // intential race on Linux so that both approaches work (typically won by styleHint() signal
+    // if it ever gets properly generated
+    m_PaletteChangeTimer->stop();
     bool theme_changed = false;
     bool isdark = qApp->palette().color(QPalette::Active,QPalette::WindowText).lightness() > 128;
-    DBG qDebug() << "made it to systemColorChanged";
+    DBG qDebug() << "reached systemColorChanged";
     
-#if QT_VERSION < QT_VERSION_CHECK(6,5,0) || (!defined(Q_MAC_OS) && !defined(Q_OS_WIN32))
-
-    theme_changed = true;
-    m_isDark = isdark;
+#if QT_VERSION < QT_VERSION_CHECK(6,5,0)
+    // in reality we really should not care if light or dark, just that theme changed
+    // but this is where we are at now
+    if (isdark != m_isDark) {
+        m_isDark = isdark;
+        theme_changed = true;
+    }
 
 #else  // Qt >= 6.5 and not Linux till it gets more robust
 
@@ -136,9 +147,11 @@ void MainApplication::systemColorChanged()
 
         case Qt::ColorScheme::Unknown:
             DBG qDebug() << "System Changed to Unknown Theme";
+	    // This is typical needed for all linux where Qt can not properly
+	    // identify the theme being used
             if (isdark != m_isDark) {
-                theme_changed = true;
                 m_isDark = isdark;
+                theme_changed = true;
             }
             break;
 
