@@ -661,41 +661,6 @@ int main(int argc, char *argv[])
         }
 #endif // Win
 
-        // Set ui font from preferences after dark theming
-        QFont f = QFont(QApplication::font());
-#ifdef Q_OS_WIN32
-        if (f.family() == "MS Shell Dlg 2" && f.pointSize() == 8) {
-            // Microsoft's recommended UI defaults
-            f.setFamily("Segoe UI");
-            f.setPointSize(9);
-            QApplication::setFont(f);
-        }
-#elif defined(Q_OS_MAC)
-        // Just in case
-#else
-        if (f.family() == "Sans Serif" && f.pointSize() == 9) {
-            f.setPointSize(10);
-            QApplication::setFont(f);
-        }
-#endif // end of os switch
-
-        settings.setOriginalUIFont(f.toString());
-        if (!settings.uiFont().isEmpty()) {
-            QFont font;
-            if (font.fromString(settings.uiFont())) QApplication::setFont(font);
-        }
-#ifndef Q_OS_MAC
-        // redo on a timer to ensure in all cases
-        if (!settings.uiFont().isEmpty()) {
-            QFont font;
-            if (font.fromString(settings.uiFont())) {
-                QTimer::singleShot(0, [=]() {
-                    QApplication::setFont(font);
-                } );
-            }
-        }
-#endif // Linux and Win
-
         // drag and drop in main tab bar is too touchy and that can cause problems.
         // default drag distance limit is much too small especially for hpi displays
         // startDragDistance default is just 10 pixels
@@ -723,8 +688,7 @@ int main(int argc, char *argv[])
             // Tweak value outside range. Use calculated distance.
             app.setStartDragDistance(dragbase);
         }
-#endif
-        // End of UI font stuff
+#endif  // End of drag distance tweaking
 
 #ifdef Q_OS_MAC
         // macOS need to fix broken QDockWidgets under dark mode
@@ -949,6 +913,44 @@ int main(int argc, char *argv[])
 
             mac_bar->addMenu(file_menu);
 #endif // Q_OS_MAC
+
+            // Set ui font from preferences
+            // This needs to happen as late as possible (before
+            // MainWindow) on Linux to work consistently.
+            QFont f = QFont(QApplication::font());
+#ifdef Q_OS_WIN32
+            if (f.family() == "MS Shell Dlg 2" && f.pointSize() == 8) {
+                // Microsoft's recommended UI defaults
+                f.setFamily("Segoe UI");
+                f.setPointSize(9);
+                QApplication::setFont(f);
+            }
+#elif defined(Q_OS_MAC)
+            // Just in case
+#else
+            if (f.family() == "Sans Serif" && f.pointSize() == 9) {
+                f.setPointSize(10);
+                QApplication::setFont(f);
+            }
+#endif // end of os switch
+
+            settings.setOriginalUIFont(f.toString());
+            if (!settings.uiFont().isEmpty()) {
+                QFont font;
+                if (font.fromString(settings.uiFont())) QApplication::setFont(font);
+            }
+#ifndef Q_OS_MAC
+            // redo on a timer to ensure in all cases
+            // Linux can reset fonts otherwise.
+            if (!settings.uiFont().isEmpty()) {
+                QFont font;
+                if (font.fromString(settings.uiFont())) {
+                    QTimer::singleShot(0, [=]() {
+                        QApplication::setFont(font);
+                    } );
+                }
+            }
+#endif // Linux and Win
 
             VerifyPlugins();
             MainWindow *widget = GetMainWindow(arguments);
