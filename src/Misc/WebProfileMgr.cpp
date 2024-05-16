@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2024 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -154,6 +154,10 @@ WebProfileMgr::WebProfileMgr()
 #if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
 #endif
+    // Unfortunately the PdfView used for PdfTab now requires both java and LocalStorage work
+    m_onetime_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, (ss.javascriptOn() == 1));
+    m_onetime_profile->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
+    m_onetime_profile->setPersistentStoragePath(localStorePath);
     // Use URLInterceptor for protection
 #if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
     m_onetime_profile->setUrlRequestInterceptor(m_URLint);
