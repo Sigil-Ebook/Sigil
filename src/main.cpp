@@ -93,6 +93,21 @@ const QString MAC_DOCK_TITLEBAR_FIX =
     "    titlebar-normal-icon: url(:/dark/dockdock-macstyle.svg);"
     "}";
 
+const QString LINUX_DOCK_TITLEBAR_FIX =
+    "QDockWidget::float-button, QDockWidget::close-button { "
+    "    border: transparent;"
+    "    background: transparent;"
+    "    padding: 0;"
+    "    icon-size: 32px;"
+    "}"
+    "QDockWidget { "
+    "    titlebar-close-icon: url(:/dark/closedock-macstyle.svg);"
+    "    titlebar-normal-icon: url(:/dark/dockdock-macstyle.svg);"
+    "}"
+    "QTabBar::close-button {"
+    "    image: url(:/dark/closedock-macstyle.svg);"
+    "}";
+
 
 // Allow Focus Highlight qss to be platform dependent
 #if defined(Q_OS_MAC)
@@ -695,6 +710,9 @@ int main(int argc, char *argv[])
         app.setStyleSheet(app.styleSheet().append(MAC_DOCK_TITLEBAR_FIX));
 #endif
 
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+        app.setStyleSheet(app.styleSheet().append(LINUX_DOCK_TITLEBAR_FIX));
+#endif
       	// allow user to highlight the focus widget
         if (settings.uiHighlightFocusWidgetEnabled()) {
             QString focus_qss = FOCUS_HIGHLIGHT_QSS;
