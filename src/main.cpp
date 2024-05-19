@@ -95,17 +95,11 @@ const QString MAC_DOCK_TITLEBAR_FIX =
 
 const QString LINUX_DOCK_TITLEBAR_FIX =
     "QDockWidget::float-button, QDockWidget::close-button { "
-    "    border: transparent;"
-    "    background: transparent;"
-    "    padding: 0;"
     "    icon-size: 32px;"
     "}"
     "QDockWidget { "
     "    titlebar-close-icon: url(:/dark/closedock-macstyle.svg);"
     "    titlebar-normal-icon: url(:/dark/dockdock-macstyle.svg);"
-    "}"
-    "QTabBar::close-button {"
-    "    image: url(:/dark/closedock-macstyle.svg);"
     "}";
 
 
