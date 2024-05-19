@@ -176,7 +176,7 @@ void MainApplication::systemColorChanged()
 void MainApplication::windowsDarkThemeChange()
 {
     SettingsStore settings;
-    if (!settings.uiUseQt65DarkTheme()) {
+    if (settings.uiUseCustomSigilDarkTheme()) {
         QStyle* astyle = QStyleFactory::create("Fusion");
         setStyle(astyle);
         //Handle the new CaretStyle (double width cursor)
@@ -208,7 +208,7 @@ void MainApplication::windowsDarkThemeChange()
 void MainApplication::windowsLightThemeChange()
 {
     SettingsStore settings;
-    if (!settings.uiUseQt65DarkTheme()) {
+    if (settings.uiUseCustomSigilDarkTheme()) {
         // Windows Fusion light mode
         QStyle* astyle = QStyleFactory::create("Fusion");
         setStyle(astyle);

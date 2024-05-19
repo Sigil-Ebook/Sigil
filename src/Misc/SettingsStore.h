@@ -64,7 +64,7 @@ public:
     int uiPreviewTimeout();
     bool uiHighlightFocusWidgetEnabled();
     bool uiDoubleWidthTextCursor();
-    bool uiUseQt65DarkTheme();
+    bool uiUseCustomSigilDarkTheme();
 
     /**
      * The default langauge to use when creating new books.
@@ -292,7 +292,7 @@ public slots:
 
     void setUiDoubleWidthTextCursor(bool enable);
 
-    void setUiUseQt65DarkTheme(bool enable);
+    void setUiUseCustomSigilDarkTheme(bool enable);
     
     /**
      * Set the default language to use when creating new books.
