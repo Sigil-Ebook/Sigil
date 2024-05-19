@@ -151,8 +151,6 @@ public:
 
     int showFullPathOn();
 
-    int highDPI();
-
     bool disableGPU();
 
     /**
@@ -379,8 +377,6 @@ public slots:
     void setJavascriptOn(int on);
 
     void setShowFullPathOn(int on);
-
-    void setHighDPI(int value);
 
     void setDisableGPU(bool value);
 

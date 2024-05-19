@@ -331,37 +331,6 @@ void VerifyPlugins()
     pdb->load_plugins_from_disk();
 }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-void setupHighDPI()
-{
-    bool has_env_setting = false;
-    QStringList env_vars;
-    env_vars << "QT_ENABLE_HIGHDPI_SCALING" << "QT_SCALE_FACTOR_ROUNDING_POLICY"
-             << "QT_AUTO_SCREEN_SCALE_FACTOR" << "QT_SCALE_FACTOR"
-             << "QT_SCREEN_SCALE_FACTORS" << "QT_DEVICE_PIXEL_RATIO";
-    foreach(QString v, env_vars) {
-        if (!Utility::GetEnvironmentVar(v).isEmpty()) {
-            has_env_setting = true;
-            break;
-        }
-    }
-
-    SettingsStore ss;
-    int highdpi = ss.highDPI();
-    if (highdpi == 1 || (highdpi == 0 && !has_env_setting)) {
-        // Turning on Automatic High DPI scaling
-        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
-    } else if (highdpi == 2) {
-        // Turning off Automatic High DPI scaling
-        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, false);
-        foreach(QString v, env_vars) {
-            bool irrel = qunsetenv(v.toUtf8().constData());
-        Q_UNUSED(irrel);
-        }
-    }
-}
-#endif
-
 
 // utility routine for performing centralized ini versioning based on Qt version
 void update_ini_file_if_needed(const QString oldfile, const QString newfile)
@@ -433,13 +402,6 @@ int main(int argc, char *argv[])
     // sigilScheme.setSyntax(QWebEngineUrlScheme::Syntax::Host);
     sigilScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
     QWebEngineUrlScheme::registerScheme(sigilScheme);
-#endif // version
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#ifndef Q_OS_MAC
-    setupHighDPI();
-#endif
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif // version
 
     // many qtbugs related to mixing 32 and 64 bit qt apps when shader disk cache is used

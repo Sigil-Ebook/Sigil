@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2021  Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2016-2024  Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2016-2024  Doug Massay
 **  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013  Grant Drake
@@ -80,16 +80,8 @@ public:
 
 AppearanceWidget::AppearanceWidget()
     :
-    m_currentColor(QColor()),
-    m_isHighDPIComboEnabled(true)
+    m_currentColor(QColor())
 {
-
-#if defined(Q_OS_MAC) || QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    // Disable the HighDPI combobox on Mac
-    // Effectively an isMacOS runtime check
-    // Also needed if Qt >= 6.0.0
-    m_isHighDPIComboEnabled = false;
-#endif
 
     ui.setupUi(this);
 #ifdef Q_OS_MAC
@@ -115,16 +107,6 @@ AppearanceWidget::AppearanceWidget()
     
     // Custom delegate for painting the color swatches
     ui.codeViewColorsList->setItemDelegate(new ColorSwatchDelegate(ui.codeViewColorsList));
-    ui.comboHighDPI->addItems({tr("Detect"), tr("On"), tr("Off")});
-    QString highdpi_tooltip = "<p><dt><b>" + tr("Detect") + "</b><dd>" + tr("Detect whether any high dpi scaling should take place.");
-    highdpi_tooltip += " " + tr("Defers to any Qt environment variables that are set to control high dpi behavior.") + "</dd>";
-    highdpi_tooltip += "<dt><b>" + tr("On") + "</b><dd>" + tr("Turns on high dpi scaling and ignores any Qt environment variables");
-    highdpi_tooltip += " " + tr("that are set controlling high dpi behavior.") + "</dd>";
-    highdpi_tooltip += "<dt><b>" + tr("Off") + "</b><dd>" + tr("Turns off high dpi scaling regardless if any Qt environment");
-    highdpi_tooltip += " " + tr("variables controlling high dpi behavior are set.") + "</dd>";
-    ui.comboHighDPI->setToolTip(highdpi_tooltip);
-    // The HighDPI setting is unused/unnecessary on Mac
-    ui.comboHighDPI->setEnabled(m_isHighDPIComboEnabled);
     ui.chkHightlightTags->setToolTip("<p>" + tr("Highlight matching tags in Code View when cursor is inside tags."));
     m_codeViewAppearance = readSettings();
     loadCodeViewColorsList(m_codeViewAppearance);
@@ -150,10 +132,6 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
         icon_theme = "custom";
     }
     settings.setUIIconTheme(icon_theme);
-    // Don't try to get the index of a disabled combobox
-    if (m_isHighDPIComboEnabled) {
-        settings.setHighDPI(ui.comboHighDPI->currentIndex());
-    }
     settings.setUIFont(m_currentUIFont);
     SettingsStore::PreviewAppearance PVAppearance;
     PVAppearance.font_family_standard     = ui.cbPreviewFontStandard->currentText();
@@ -244,12 +222,6 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     if (m_currentIconTheme != icon_theme) {
         results = results | PreferencesWidget::ResultAction_RestartSigil;
     }
-    // Don't try to get the index of a disabled combobox
-    if (m_isHighDPIComboEnabled) {
-        if (m_HighDPI != (ui.comboHighDPI->currentIndex())) {
-            results = results | PreferencesWidget::ResultAction_RestartSigil;
-        }
-    }
     if ((m_currentUIFont != m_initUIFont) || m_uiFontResetFlag) {
         results = results | PreferencesWidget::ResultAction_RestartSigil;
     }
@@ -291,11 +263,6 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     ui.Default->setChecked(icon_theme == "main");
     ui.Fluent->setChecked(icon_theme == "fluent");
     ui.Material->setChecked(icon_theme == "material");
-    // Don't try to set the index of disabled widgets
-    if (m_isHighDPIComboEnabled) {
-        m_HighDPI = settings.highDPI();
-        ui.comboHighDPI->setCurrentIndex(m_HighDPI);
-    }
     if (!settings.uiFont().isEmpty()) {
         m_initUIFont = settings.uiFont();
     } else {

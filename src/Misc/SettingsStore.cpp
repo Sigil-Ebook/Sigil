@@ -67,7 +67,6 @@ static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
 static QString KEY_REMOTE_ON = SETTINGS_GROUP + "/" + "remote_on";
 static QString KEY_JAVASCRIPT_ON = SETTINGS_GROUP + "/" + "javascript_on";
 static QString KEY_SHOWFULLPATH_ON = SETTINGS_GROUP + "/" + "showfullpath_on";
-static QString KEY_HIGHDPI_SETTING = SETTINGS_GROUP + "/" + "high_dpi";
 static QString KEY_DISABLEGPU_SETTING = SETTINGS_GROUP + "/" + "disable_gpu";
 static QString KEY_PRINT_PREVIEW_DPI_SETTING = SETTINGS_GROUP + "/" + "print_preview_dpi";
 static QString KEY_PRINT_DPI_SETTING = SETTINGS_GROUP + "/" + "print_dpi";
@@ -309,12 +308,6 @@ int SettingsStore::showFullPathOn()
 {
     clearSettingsGroup();
     return value(KEY_SHOWFULLPATH_ON, 1).toInt();
-}
-
-int SettingsStore::highDPI()
-{
-    clearSettingsGroup();
-    return value(KEY_HIGHDPI_SETTING, 0).toInt();
 }
 
 bool SettingsStore::disableGPU()
@@ -693,12 +686,6 @@ void SettingsStore::setShowFullPathOn(int on)
     setValue(KEY_SHOWFULLPATH_ON, on);
 }
 
-void SettingsStore::setHighDPI(int value)
-{
-    clearSettingsGroup();
-    setValue(KEY_HIGHDPI_SETTING, value);
-}
-
 void SettingsStore::setDisableGPU(bool value)
 {
     clearSettingsGroup();
@@ -955,7 +942,6 @@ void SettingsStore::clearAppearanceSettings()
     remove(KEY_SPECIAL_CHARACTER_FONT_SIZE);
     remove(KEY_MAIN_MENU_ICON_SIZE);
     remove(KEY_SHOWFULLPATH_ON);
-    remove(KEY_HIGHDPI_SETTING);
     remove(KEY_UI_FONT);
     remove(KEY_UI_ICON_THEME);
     remove(KEY_PREVIEW_DARK_IN_DM);

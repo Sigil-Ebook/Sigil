@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2016-2024 Doug Massay
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Grant Drake
@@ -60,7 +60,6 @@ private:
     SettingsStore::CodeViewAppearance m_codeViewAppearance;
     QColor m_currentColor;
     int m_ShowFullPathOn;
-    int m_HighDPI;
     bool m_ShowWidgetFocus;
     bool m_DoubleWidthCursor;
     int m_PreviewDark;
@@ -68,7 +67,6 @@ private:
     QString m_initUIFont;
     QString m_currentUIFont;
     bool m_uiFontResetFlag;
-    bool m_isHighDPIComboEnabled;
     QString m_currentIconTheme;
     
     Ui::AppearanceWidget ui;
