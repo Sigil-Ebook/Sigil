@@ -1,7 +1,7 @@
 /************************************************************************
  **
- **  Copyright (C) 2014-2023 Kevin B. Hendricks, Stratford Ontario Canada
- **  Copyright (C) 2020-2023 Doug Massay
+ **  Copyright (C) 2014-2024 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2024 Doug Massay
  **
  **  This file is part of Sigil.
  **
@@ -243,18 +243,8 @@ void PluginRunner::writeSigilCFG()
     colors << pal.color(QPalette::Highlight).name();
     colors << pal.color(QPalette::HighlightedText).name();
     cfg << colors.join(",");
-    switch (settings.highDPI())
-    {
-        case 0:
-            cfg << "detect";
-            break;
-        case 1:
-            cfg << "on";
-            break;
-        case 2:
-            cfg << "off";
-            break;
-    }
+    // Leave removed highdpi setting as a dummy for now
+    cfg << "detect";
     // handle automate and automate plugin parameter
     cfg << qApp->font().toString();
     if (m_mainWindow->UsingAutomate()) {
