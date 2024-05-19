@@ -175,7 +175,7 @@ void MainApplication::systemColorChanged()
 
 void MainApplication::windowsDarkThemeChange()
 {
-    if (!qEnvironmentVariableIsSet("SIGIL_USE_QT65_DARKMODE")) {
+    if (!settings.uiUseQt65DarkTheme()) {
         SettingsStore settings;
         QStyle* astyle = QStyleFactory::create("Fusion");
         setStyle(astyle);
@@ -207,7 +207,7 @@ void MainApplication::windowsDarkThemeChange()
 
 void MainApplication::windowsLightThemeChange()
 {
-    if (!qEnvironmentVariableIsSet("SIGIL_USE_QT65_DARKMODE")) {
+    if (!settings.uiUseQt65DarkTheme()) {
         // Windows Fusion light mode
         SettingsStore settings;
         QStyle* astyle = QStyleFactory::create("Fusion");

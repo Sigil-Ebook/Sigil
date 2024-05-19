@@ -652,7 +652,7 @@ int main(int argc, char *argv[])
         }
 
         // Use our custom Windows dark theme unless user opts-in with SIGIL_USE_QT65_DARKMODE
-        if (Utility::WindowsShouldUseDarkMode() && !qEnvironmentVariableIsSet("SIGIL_USE_QT65_DARKMODE")) {
+        if (Utility::WindowsShouldUseDarkMode() && !settings.uiUseQt65DarkTheme()) {
             // Apply custom dark style last on Windows
             QStyle* cstyle;
             if (isbstyle) {

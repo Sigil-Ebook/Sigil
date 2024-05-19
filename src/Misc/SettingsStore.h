@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2020-2023 Doug Massay
+**  Copyright (C) 2020-2024 Doug Massay
 **  Copyright (C) 2011-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -64,6 +64,7 @@ public:
     int uiPreviewTimeout();
     bool uiHighlightFocusWidgetEnabled();
     bool uiDoubleWidthTextCursor();
+    bool uiUseQt65DarkTheme();
 
     /**
      * The default langauge to use when creating new books.
@@ -290,6 +291,8 @@ public slots:
     void setUIHighlightFocusWidget(bool enable);
 
     void setUiDoubleWidthTextCursor(bool enable);
+
+    void setUiUseQt65DarkTheme(bool enable);
     
     /**
      * Set the default language to use when creating new books.

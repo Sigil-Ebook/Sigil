@@ -49,6 +49,7 @@ static QString KEY_UI_ICON_THEME = SETTINGS_GROUP + "/" + "ui_icon_theme";
 static QString KEY_UI_PREVIEW_TIMEOUT = SETTINGS_GROUP + "/" + "ui_preview_timeout";
 static QString KEY_UI_HIGHLIGHT_FOCUS_WIDGET = SETTINGS_GROUP + "/" + "ui_highlight_focus_widget";
 static QString KEY_UI_DOUBLEWIDTH_TEXTCURSOR = SETTINGS_GROUP + "/" + "ui_doublewidth_textcursor";
+static QString KEY_UI_QT65_DARK_THEME = SETTINGS_GROUP + "/" + "ui_qt65_dark_theme";
 static QString KEY_ZOOM_IMAGE = SETTINGS_GROUP + "/" + "zoom_image";
 static QString KEY_ZOOM_TEXT = SETTINGS_GROUP + "/" + "zoom_text";
 static QString KEY_ZOOM_WEB = SETTINGS_GROUP + "/" + "zoom_web";
@@ -199,6 +200,12 @@ bool SettingsStore::uiDoubleWidthTextCursor()
 {
     clearSettingsGroup();
     return value(KEY_UI_DOUBLEWIDTH_TEXTCURSOR, false).toBool();
+}
+
+bool SettingsStore::uiUseQt65DarkTheme()
+{
+    clearSettingsGroup();
+    return value(KEY_UI_QT65_DARK_THEME, false).toBool();
 }
 
     
@@ -582,6 +589,12 @@ void SettingsStore::setUiDoubleWidthTextCursor(bool enable)
 {
     clearSettingsGroup();
     setValue(KEY_UI_DOUBLEWIDTH_TEXTCURSOR, enable);
+}
+
+void SettingsStore::setUiUseQt65DarkTheme(bool enable)
+{
+    clearSettingsGroup();
+    setValue(KEY_UI_QT65_DARK_THEME, enable);
 }
 
 void SettingsStore::setExternalXEditorPath(const QString &path)
