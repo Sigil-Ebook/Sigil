@@ -84,6 +84,10 @@ AppearanceWidget::AppearanceWidget()
 {
 
     ui.setupUi(this);
+// Hide the Windows only preference from all other OSes
+#ifndef Q_OS_WIN32
+    ui.grpCustomDarkStyle->setVisible(false);
+#endif
 #ifdef Q_OS_MAC
     // according to macos user interface guidelines native apps would use TicksBelow
     ui.iconSizeSlider->setTickPosition(QSlider::TicksBelow);
