@@ -122,6 +122,8 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     settings.setPreviewDark(ui.PreviewDarkInDM->isChecked() ? 1 : 0);
     settings.setUIHighlightFocusWidget(ui.chkFocusDec->isChecked() ? 1 : 0);
     settings.setUiDoubleWidthTextCursor(ui.chkDoubleWidthCursor->isChecked() ? 1 : 0);
+    // This setting has no effect on other OSes, but it won't hurt to set it.
+    settings.setUiUseCustomSigilDarkTheme(ui.chkDarkStyle->isChecked() ? 1 : 0);
     // handle icon theme
     QString icon_theme = "main";
     if (ui.Fluent->isChecked()) {
@@ -233,6 +235,13 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     if (m_DoubleWidthCursor != (ui.chkDoubleWidthCursor->isChecked() ? 1 : 0)) {
         results = results | PreferencesWidget::ResultAction_RestartSigil;
     }
+    // if dark style changed on Windows, set need for restart.
+    // This setting has no effect on other OSes so no need to prompt for a restart.
+#ifdef Q_OS_WIN32
+    if (m_UseCustomSigilDarkTheme != (ui.chkDarkStyle->isChecked() ? 1 : 0)) {
+        results = results | PreferencesWidget::ResultAction_RestartSigil;
+    }
+#endif
     m_uiFontResetFlag = false;
     results = results & PreferencesWidget::ResultAction_Mask;
     return results;
@@ -248,6 +257,9 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     ui.chkFocusDec->setChecked(settings.uiHighlightFocusWidgetEnabled());
     m_DoubleWidthCursor = settings.uiDoubleWidthTextCursor();
     ui.chkDoubleWidthCursor->setChecked(settings.uiDoubleWidthTextCursor());
+    // This setting has no effect on other OSes, but it won't hurt to read it.
+    m_UseCustomSigilDarkTheme = settings.uiUseCustomSigilDarkTheme();
+    ui.chkDarkStyle->setChecked(settings.uiUseCustomSigilDarkTheme());
 
     // Handle Icon Theme
     QString icon_theme = settings.uiIconTheme();

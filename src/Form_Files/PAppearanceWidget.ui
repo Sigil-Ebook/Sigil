@@ -633,6 +633,9 @@ if a sans-serif font-family specified in your CSS</string>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QCheckBox" name="chkDarkStyle">
+            <property name="toolTip">
+             <string>When using a Windows dark style, use the classic Sigil dark style instead of the built in Qt one</string>
+            </property>
             <property name="text">
              <string>Use Classic Sigil Dark Theme</string>
             </property>

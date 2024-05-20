@@ -62,6 +62,7 @@ private:
     int m_ShowFullPathOn;
     bool m_ShowWidgetFocus;
     bool m_DoubleWidthCursor;
+    bool m_UseCustomSigilDarkTheme;
     int m_PreviewDark;
     bool m_wasDark;
     QString m_initUIFont;
