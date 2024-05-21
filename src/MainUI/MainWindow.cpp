@@ -4991,6 +4991,7 @@ void MainWindow::ReadSettings()
 
     if (MaximizedState) {
 
+#ifndef Q_OS_MAC
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         QRect maxsize = settings.value("max_mw_geometry", QApplication::desktop()->availableGeometry(this)).toRect();
 #else
@@ -4998,9 +4999,12 @@ void MainWindow::ReadSettings()
 #endif
         setGeometry(maxsize);
         setWindowState(windowState() | Qt::WindowMaximized);
+#else
+        showMaximized();
+#endif
 
     } else if (FullScreenState) {
-
+#ifndef Q_OS_MAC
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         QRect maxsize = settings.value("max_mw_geometry", QApplication::desktop()->screenGeometry(this)).toRect();
 #else
@@ -5008,6 +5012,9 @@ void MainWindow::ReadSettings()
 #endif
         setGeometry(maxsize);
         setWindowState(windowState() | Qt::WindowFullScreen);
+#else
+        showFullScreen();
+#endif
     }
 
     DWINGEO qDebug() << "------";
@@ -6301,6 +6308,7 @@ void MainWindow::UpdateLastSizes() {
 // so keep the code
 void MainWindow::RestoreLastNormalGeometry()
 {
+#ifndef Q_OS_MAC
     // record the current sizes before changing then as they
     // are updated in the resize event
     QByteArray WindowSize = m_LastWindowSize;
@@ -6311,8 +6319,8 @@ void MainWindow::RestoreLastNormalGeometry()
     m_SaveLastEnabled = false;
     if (!WindowSize.isEmpty()) restoreGeometry(WindowSize);
     m_SaveLastEnabled=true;
-
     DWINGEO DebugCurrentWidgetSizes();
+#endif
 }
 
 void MainWindow::changeEvent(QEvent *e) 
