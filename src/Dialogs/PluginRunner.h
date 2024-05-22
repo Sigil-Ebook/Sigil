@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2014-2023 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2014-2024 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -123,6 +123,7 @@ private:
     QString m_pluginAutoClose;
     QByteArray m_pluginOutput;
     QString m_algorithm;
+    QString m_fontMangling;
 
     QStringList m_filesToDelete;
     QStringList m_filesToAdd;
@@ -138,6 +139,7 @@ private:
     bool m_ready;
 
     static const QString SEP;
+    static const QString _RS;
     static const QString OPFFILEINFO;
     static const QString NCXFILEINFO;
     static const QStringList CHANGESTAGS;

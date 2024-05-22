@@ -12,6 +12,7 @@ Pre-2.2.0
       - Accessibility improvements:
           - add abiity to highlight the widget with current focus (Thanks BeckyEbook)
           - add ability to double text insertion point width throughout Sigil
+      - Extend Python Plugin Interface with info on preferred font mangling information
 
     Bug Fixes
       - reformating css with multiline now adds space after selector comma

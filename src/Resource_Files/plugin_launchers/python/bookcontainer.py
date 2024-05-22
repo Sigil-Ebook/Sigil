@@ -347,6 +347,9 @@ class BookContainer(object):
     def get_epub_filepath(self):
         return self._w.epub_filepath
 
+    # new for Sigil 2.2.0
+    def font_bookpath_to_preferred_obfuscation_algorithm(self, bookpath, ow=None):
+        return self._w.map_font_bookpath_to_mangling_algorithm(bookpath, ow)
 
     # functions for converting from  manifest id to href, basename, mimetype etc
     def href_to_id(self, href, ow=None):
