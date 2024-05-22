@@ -1,6 +1,7 @@
 Pre-2.2.0
     New Features
       - add support for Windows live switching from dark to light and light to dark modes
+      - add support for Linux kde and gtk3 live switching from dark to light and light to dark modes
       - add new environment variable: SIGIL_PREVIEW_TIMEOUT
            (in milliseconds) to allow user control of the Preview updating intervals,
            valid range 100 - 10000.  default value: 1000.  Set only once at Sigil startup.
@@ -23,6 +24,7 @@ Pre-2.2.0
       - fix bug in missing CharToEntity in the Create TOC process
       - fix TabManager tab close symbol on macOS to match that used in dockwidgets
       - use Unciode NormalizationForm C inside Sigil and for io
+      - fix macOS stuck at Maximized size issue
 
 
 Sigil-2.1.0
