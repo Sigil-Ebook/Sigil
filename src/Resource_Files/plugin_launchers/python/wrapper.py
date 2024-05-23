@@ -149,8 +149,11 @@ class Wrapper(object):
             self.uifont = cfg_lst.pop(0)
             self.using_automate = (cfg_lst.pop(0) == "InAutomate")
             self.automate_parameter = cfg_lst.pop(0);
-            font_info = cfg_lst.pop(0).split(_RS);
-            for finfo in font_info:
+            mangle_list = []
+            font_info = cfg_lst.pop(0)
+            if font_info and font_info != "":
+                mangle_list = font_info.split(_RS);
+            for finfo in mangle_list:
                 fontpath, algo = finfo.split(_US);
                 self.font_mangling[fontpath] = algo
             self.selected = cfg_lst
