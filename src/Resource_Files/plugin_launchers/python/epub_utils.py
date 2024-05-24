@@ -105,8 +105,7 @@ def build_container_xml(bookpath_to_opf):
 def build_adobe_encryption_xml(mangled_fonts):
     encryption = ''
     if mangled_fonts is not None and len(mangled_fonts) > 0:
-        encryption = '<encryption xmlns="urn:oasis:names:tc:opendocument:xmlns:container" \
-            xmlns:enc="http://www.w3.org/2001/04/xmlenc#" xmlns:deenc="http://ns.adobe.com/digitaleditions/enc">\n'
+        encryption = '<encryption xmlns="urn:oasis:names:tc:opendocument:xmlns:container" xmlns:enc="http://www.w3.org/2001/04/xmlenc#" xmlns:deenc="http://ns.adobe.com/digitaleditions/enc">\n'
         for fontbkpath in mangled_fonts:
             encryption += '  <enc:EncryptedData>\n'
             encryption += '    <enc:EncryptionMethod Algorithm="http://ns.adobe.com/pdf/enc#RC"/>\n'
@@ -122,8 +121,7 @@ def build_adobe_encryption_xml(mangled_fonts):
 def build_idpf_encryption_xml(mangled_fonts):
     encryption = ''
     if mangled_fonts is not None and len(mangled_fonts) > 0:
-        encryption = '<encryption xmlns="urn:oasis:names:tc:opendocument:xmlns:container" \
-            xmlns:enc="http://www.w3.org/2001/04/xmlenc#">\n'
+        encryption = '<encryption xmlns="urn:oasis:names:tc:opendocument:xmlns:container" xmlns:enc="http://www.w3.org/2001/04/xmlenc#">\n'
         for fontbkpath in mangled_fonts:
             encryption += '  <enc:EncryptedData>\n'
             encryption += '    <enc:EncryptionMethod Algorithm="http://www.idpf.org/2008/embedding"/>\n'
