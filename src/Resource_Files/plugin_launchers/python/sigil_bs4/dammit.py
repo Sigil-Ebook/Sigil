@@ -47,9 +47,9 @@ except ImportError:
     pass
 
 xml_encoding_re = re.compile(
-    r'^<\?.*encoding=[\'"](.*?)[\'"].*\?>'.encode(), re.I)
+    r'''^<\?.*encoding=['"](.*?)['"].*\?>'''.encode(), re.I)
 html_meta_re = re.compile(
-    r'<\s*meta[^>]+charset\s*=\s*["\']?([^>]*?)[ /;\'">]'.encode(), re.I)
+    r'''<\s*meta[^>]+charset\s*=\s*["']?([^>]*?)[ /;'">]'''.encode(), re.I)
 
 class EntitySubstitution(object):
 
