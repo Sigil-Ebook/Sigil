@@ -670,10 +670,10 @@ int main(int argc, char *argv[])
 
 #ifdef Q_OS_WIN32 
         // Windows likes these dockwidget icons for light/dark too,
-        // but only when using Qt's inherent fusion dark mode.
-        if (settings.uiUseCustomSigilDarkTheme()) {
+        // but only when using Qt's inherent fusion light/dark modes.
+        if (!Utility::WindowsShouldUseDarkMode() || !settings.uiUseCustomSigilDarkTheme()) {
             app.setStyleSheet(app.styleSheet().append(LINWIN_DOCK_TITLEBAR_FIX));
-            accumulatedQss.append(focus_qss);
+            accumulatedQss.append(LINWIN_DOCK_TITLEBAR_FIX);
         }
 #endif // Q_OS_WIN32
       	// allow user to highlight the focus widget
