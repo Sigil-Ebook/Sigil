@@ -93,10 +93,10 @@ const QString MAC_DOCK_TITLEBAR_FIX =
     "    titlebar-normal-icon: url(:/dark/dockdock-macstyle.svg);"
     "}";
 
-const QString LINUX_DOCK_TITLEBAR_FIX =
+const QString LINWIN_DOCK_TITLEBAR_FIX =
     "QDockWidget { "
-    "    titlebar-close-icon: url(:/dark/closedock-macstyle.svg);"
-    "    titlebar-normal-icon: url(:/dark/dockdock-macstyle.svg);"
+    "    titlebar-close-icon: url(:/dark/dock-close.svg);"
+    "    titlebar-normal-icon: url(:/dark/undock.svg);"
     "}";
 
 
@@ -663,9 +663,19 @@ int main(int argc, char *argv[])
         app.setStyleSheet(app.styleSheet().append(MAC_DOCK_TITLEBAR_FIX));
 #endif
 
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-        app.setStyleSheet(app.styleSheet().append(LINUX_DOCK_TITLEBAR_FIX));
-#endif
+#if !defined(Q_OS_MAC) && !defined(Q_OS_WIN32) // *nix
+        // Linux likes these dockwidget icons for light/dark
+        app.setStyleSheet(app.styleSheet().append(LINWIN_DOCK_TITLEBAR_FIX));
+#endif // end *nix
+
+#ifdef Q_OS_WIN32 
+        // Windows likes these dockwidget icons for light/dark too,
+        // but only when using Qt's inherent fusion dark mode.
+        if (settings.uiUseCustomSigilDarkTheme()) {
+            app.setStyleSheet(app.styleSheet().append(LINWIN_DOCK_TITLEBAR_FIX));
+            accumulatedQss.append(focus_qss);
+        }
+#endif // Q_OS_WIN32
       	// allow user to highlight the focus widget
         if (settings.uiHighlightFocusWidgetEnabled()) {
             QString focus_qss = FOCUS_HIGHLIGHT_QSS;
