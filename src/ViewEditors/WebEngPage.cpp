@@ -37,6 +37,7 @@ WebEngPage::WebEngPage(QWebEngineProfile* profile, QObject *parent, bool setback
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)  || QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
     setUrl(QUrl("about:blank"));
 #endif
+#if 0
     DBG qDebug() << "WebEngPage Life Cycle State: " << lifecycleState();
     DBG qDebug() << "WebEngPage Current RenderProcess Pid " << renderProcessPid();
     DBG qDebug() << "WebEngPage Current RecommendedState " << recommendedState(); 
@@ -46,6 +47,7 @@ WebEngPage::WebEngPage(QWebEngineProfile* profile, QObject *parent, bool setback
     connect(this, SIGNAL(renderProcessPidChanged(qint64)), this, SLOT(render_new_pid(qint64)));
     connect(this, SIGNAL(renderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus, int)),
 	    this, SLOT(render_died(QWebEnginePage::RenderProcessTerminationStatus, int)));
+#endif
 }
 
 
@@ -102,6 +104,7 @@ void WebEngPage::javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessa
     qDebug() << "Javascript error: " << level << logEntry;
 }
 
+#if 0
 // Keep this around to help with debugging
 void WebEngPage::render_new_pid(qint64 pid)
 {
@@ -117,3 +120,4 @@ void WebEngPage::lifecyclechange(QWebEnginePage::LifecycleState state)
 {
     DBG qDebug() << "*** life cycle change: " << state;
 }
+#endif
