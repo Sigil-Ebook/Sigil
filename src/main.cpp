@@ -676,7 +676,9 @@ int main(int argc, char *argv[])
         if (!Utility::WindowsShouldUseDarkMode() || !settings.uiUseCustomSigilDarkTheme()) {
             app.setStyleSheet(app.styleSheet().append(LINWIN_DOCK_TITLEBAR_FIX));
 	    accumulatedQss.append(LINWIN_DOCK_TITLEBAR_FIX);
-	    // Tweak for disctracting toolbar border
+	}
+	if (Utility::WindowsShouldUseDarkMode() && !settings.uiUseCustomSigilDarkTheme()) {
+	    // Tweak for disctracting toolbar border in built-in Qt dark mode
 	    app.setStyleSheet(app.styleSheet().append(WIN_TOOLBAR_TWEAK));
             accumulatedQss.append(WIN_TOOLBAR_TWEAK);
         }
