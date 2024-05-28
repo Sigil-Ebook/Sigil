@@ -673,6 +673,7 @@ int main(int argc, char *argv[])
         if (!Utility::WindowsShouldUseDarkMode() || !settings.uiUseCustomSigilDarkTheme()) {
             app.setStyleSheet(app.styleSheet().append(LINWIN_DOCK_TITLEBAR_FIX));
 	    accumulatedQss.append(LINWIN_DOCK_TITLEBAR_FIX);
+        }
 #endif // Q_OS_WIN32
       	// allow user to highlight the focus widget
         if (settings.uiHighlightFocusWidgetEnabled()) {
