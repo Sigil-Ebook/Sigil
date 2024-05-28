@@ -99,6 +99,8 @@ const QString LINWIN_DOCK_TITLEBAR_FIX =
     "    titlebar-normal-icon: url(:/dark/undock.svg);"
     "}";
 
+// One tweak for the inherent Qt dark theme
+const QString WIN_TOOLBAR_TWEAK = "QToolBar{ border: 0; }";
 
 // Allow Focus Highlight qss to be platform dependent
 #if defined(Q_OS_MAC)
@@ -673,7 +675,10 @@ int main(int argc, char *argv[])
         // but only when using Qt's inherent fusion light/dark modes.
         if (!Utility::WindowsShouldUseDarkMode() || !settings.uiUseCustomSigilDarkTheme()) {
             app.setStyleSheet(app.styleSheet().append(LINWIN_DOCK_TITLEBAR_FIX));
-            accumulatedQss.append(LINWIN_DOCK_TITLEBAR_FIX);
+	    accumulatedQss.append(LINWIN_DOCK_TITLEBAR_FIX);
+	    // Tweak for disctracting toolbar border
+	    app.setStyleSheet(app.styleSheet().append(WIN_TOOLBAR_TWEAK));
+            accumulatedQss.append(WIN_TOOLBAR_TWEAK);
         }
 #endif // Q_OS_WIN32
       	// allow user to highlight the focus widget
