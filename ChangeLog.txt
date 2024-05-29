@@ -14,6 +14,7 @@ Pre-2.2.0
           - add ability to double text insertion point width throughout Sigil
       - Extend Python Plugin Interface with info on preferred font mangling information
       - There will be no more built-in HighDPI diddling in Sigil's prefs. If you have special needs in that regard, set your own Qt environment variables.
+      - replacement strings in F&R can now use \x{hhhh} hex escape codes to represent unicode characters numerically
 
     Bug Fixes
       - reformating css with multiline now adds space after selector comma
