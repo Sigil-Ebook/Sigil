@@ -76,7 +76,9 @@ private:
      * Reset the state of the replacement process.
      */
     void resetState();
-
+    
+    bool IsValidHex6(QString& hv);
+    
     /**
      * Add to the final replacement text we are building.
      *

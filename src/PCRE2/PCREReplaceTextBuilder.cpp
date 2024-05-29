@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2024 Kevin B. Hendricks, Stratford ON, Canada
 **  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -29,6 +30,19 @@
 PCREReplaceTextBuilder::PCREReplaceTextBuilder()
 {
     resetState();
+}
+
+
+bool PCREReplaceTextBuilder::IsValidHex6(QString& hv)
+{
+    int hl = hv.length();
+    if (hl < 2 || hl == 3 || hl == 5 || hl > 6) return false; 
+    for (int i=0; i < hl; i++) {
+        if (!is_hex(hv.at(i))) return false;
+    }
+    if (hl == 2 || hl == 4) return true;
+    if (hv.left(1) == "0" || hv.left(2) == "10") return true;    
+    return false;
 }
 
 bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
@@ -63,9 +77,12 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
     QChar control_char;
     // Stores a named back reference we build as we parse the string.
     QString backref_name;
-    QString invalid_contol;
+    QString invalid_control;
     // \x hex code.
     QString control_x_hex;
+    // \x{4 char hex}
+    QString control_x6_hex;
+    bool in_hex6 = false;
     // The state of our progress through the replacment string.
     bool in_control = false;
 
@@ -102,7 +119,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
         if (in_control) {
             // Store characters incase this is an invalid control and we
             // need to put it in the final text.
-            invalid_contol += c;
+            invalid_control += c;
 
             // This is the first character after the \\ start of control.
             if (control_char.isNull()) {
@@ -120,7 +137,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                     if (backref_number >= 0 && backref_number < capture_groups_offsets.count()) {
                         accumulateReplcementText(Utility::Substring(capture_groups_offsets.at(backref_number).first, capture_groups_offsets.at(backref_number).second, text));
                     } else {
-                        accumulateReplcementText(invalid_contol);
+                        accumulateReplcementText(invalid_control);
                     }
 
                     in_control = false;
@@ -192,7 +209,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                             backref_name.clear();
                         } else {
                             in_control = false;
-                            accumulateReplcementText(invalid_contol);
+                            accumulateReplcementText(invalid_control);
                         }
                     } else {
                         if ((c == '}' && backref_bracket_start_char == '{') ||
@@ -213,7 +230,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                             if (backref_number >= 0 && backref_number < capture_groups_offsets.count()) {
                                 accumulateReplcementText(Utility::Substring(capture_groups_offsets.at(backref_number).first, capture_groups_offsets.at(backref_number).second, text));
                             } else {
-                                accumulateReplcementText(invalid_contol);
+                                accumulateReplcementText(invalid_control);
                             }
 
                             in_control = false;
@@ -222,21 +239,45 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                         }
                     }
                 } else if (control_char == 'x') {
-                    if (is_hex(c)) {
-                        control_x_hex += c;
-
-                        if (control_x_hex.length() == 2) {
-                            accumulateReplcementText(QChar(control_x_hex.toUInt(NULL, 16)));
-                            in_control = false;
+                    if (c == '{' && !in_hex6) {
+                        in_hex6 = true;
+                    } else if (c == '}' && in_hex6 && IsValidHex6(control_x6_hex)) {
+                        int hl = control_x6_hex.length();
+                        if (hl == 2 || hl == 4) {
+                            accumulateReplcementText(QChar(control_x6_hex.toUInt(NULL, 16)));
+                        } else {
+                            uint achar;
+                            QString extended_plane = control_x6_hex.left(2);
+                            QString remainder = control_x6_hex.right(4);
+                            achar = remainder.toUInt(NULL, 16);
+                            achar = (65536 * extended_plane.toUInt(NULL, 16)) + achar;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+                            accumulateReplcementText(QString::fromUcs4(&achar, 1));
+#else
+                            accumulateReplcementText(QString::fromUcs4(reinterpret_cast<char32_t*>(&achar), 1));
+#endif
+                        }
+                        in_control = false;
+                        in_hex6 = false;
+                        control_x6_hex = "";
+                    } else if (is_hex(c)) {
+                        if (in_hex6) {
+                            control_x6_hex += c;
+                        } else {
+                            control_x_hex += c;
+                            if (control_x_hex.length() == 2) {
+                                accumulateReplcementText(QChar(control_x_hex.toUInt(NULL, 16)));
+                                in_control = false;
+                            }
                         }
                     } else {
-                        accumulateReplcementText(invalid_contol);
+                        accumulateReplcementText(invalid_control);
                         in_control = false;
                     }
                 }
                 // Invalid or unsupported control.
                 else {
-                    accumulateReplcementText(invalid_contol);
+                    accumulateReplcementText(invalid_control);
                     in_control = false;
                 }
             }
@@ -246,11 +287,14 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
             // Start a control character.
             if (c == '\\') {
                 // Reset our invalid control accumulator.
-                invalid_contol = c;
+                invalid_control = c;
                 // Reset the control character that is after this
                 control_char = QChar();
                 // Reset the \x character.
                 control_x_hex = QString();
+                // Reset the \x{00abcd} character.
+                control_x6_hex = QString();
+                in_hex6 = false;
                 // We are now in a control.
                 in_control = true;
             }
@@ -265,7 +309,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
     // a back reference then we have an invalid back reference because
     // it never ended. Put the invalid reference into the replacment string.
     if (in_control) {
-        accumulateReplcementText(invalid_contol);
+        accumulateReplcementText(invalid_control);
     }
 
     out = m_finalText;
