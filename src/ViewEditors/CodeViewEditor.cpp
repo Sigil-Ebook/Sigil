@@ -2587,15 +2587,13 @@ void CodeViewEditor::UpdateLineNumberAreaFont(const QFont &font)
 
 void CodeViewEditor::SetAppearanceColors()
 {
-    // in general setting a hard palette just interferes with theme switching
-#if 0
+    // This is required for times when F&R steals focus temporarily from CodeView
     QPalette our_pal = qApp->palette();
     QColor active_highlight = our_pal.color(QPalette::Active, QPalette::Highlight);
     QColor active_highlightedtext = our_pal.color(QPalette::Active, QPalette::HighlightedText);
     our_pal.setColor(QPalette::Inactive, QPalette::Highlight, active_highlight);
     our_pal.setColor(QPalette::Inactive, QPalette::HighlightedText, active_highlightedtext);
     setPalette(our_pal);
-#endif
     return;
 }
 
