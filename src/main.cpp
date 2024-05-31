@@ -123,23 +123,30 @@ const QString FOCUS_HIGHLIGHT_QSS =
 // Not sure about which widgets Windows natively highlights
 // versus the ones we have to add. So be generic right now.
 // But - we must not add a QComboBox as styling that widget causes issues.
+// And add 1 px pad for dockwidget borders
 const QString FOCUS_HIGHLIGHT_QSS =
     "QTableWidget:focus, QTreeWidget:focus, QPlainTextEdit:focus, "
     "QTextEdit:focus, QTreeView::focus, QTabWidget:focus, "
     "QListView:focus, QScrollArea:focus, QTabBar:focus, "
     "QLineEdit:focus, QToolButton:focus, QPushButton:focus { "
     "    border: 1px solid HIGHLIGHT_COLOR;"
+    "}"
+    "QPlainTextEdit, QTableWidget, QTreeView { "
+    "    padding-left:1px; padding-right:1px; padding-top:1px; padding-bottom:1px;"
     "}";
 #else // Linux
 // On Linux all buttons, lineedits and combo boxes already have native
 // focus rectangeles. So we only need to add major widgets to
-// cover Dialog and QDockWidget contents.
+// cover Dialog and QDockWidget contents. And 1 px pad for dockwidget borders.
 const QString FOCUS_HIGHLIGHT_QSS =
     "QTableWidget:focus, QTreeWidget:focus, QPlainTextEdit:focus, "
     "QTextEdit:focus, QTreeView::focus, QTabWidget:focus, "
     "QListView:focus, QScrollArea:focus, QTabBar:focus, "
     "QLineEdit:focus, QToolButton:focus, QPushButton:focus { "
     "    border: 1px solid HIGHLIGHT_COLOR;"
+    "}"
+    "QPlainTextEdit, QTableWidget, QTreeView { "
+    "    padding-left:1px; padding-right:1px; padding-top:1px; padding-bottom:1px;"
     "}";
 #endif
 
