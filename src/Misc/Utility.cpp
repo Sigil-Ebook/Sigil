@@ -853,7 +853,11 @@ std::wstring Utility::QStringToStdWString(const QString &str)
 
 QString Utility::stdWStringToQString(const std::wstring &str)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     return QString::fromUtf16((const ushort *)str.c_str());
+#else
+    return QString::fromUtf16(reinterpret_cast<const char16_t*>((const ushort *)str.c_str()));
+#endif
 }
 #endif
 
