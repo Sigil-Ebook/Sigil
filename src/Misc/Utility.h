@@ -199,7 +199,6 @@ public:
 
 #if defined(Q_OS_WIN32)
     static std::wstring QStringToStdWString(const QString &str);
-    static QString stdWStringToQString(const std::wstring &str);
 #endif
 
     static bool UnZip(const QString &zippath, const QString &destdir);
