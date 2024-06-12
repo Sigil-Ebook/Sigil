@@ -70,10 +70,6 @@ QToolBar::handle:vertical {
   image: url(:/dark/toolbar-handle-vertical.svg);
 }
 
-QLabel#logo {
-  qproperty-pixmap: url(:/dark/sigil_logo_blue.png);
-}
-
 QToolBarExtension {
   image: url(:/dark/toolbar-extension-horizontal.svg);
   border-radius: 2px;
