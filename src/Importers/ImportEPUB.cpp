@@ -191,7 +191,7 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
                    "Sigil can automatically fix these files, although "
                    "this may very rarely result in minor data loss in extreme circumstances.\n\n"
                    "Do you want to automatically fix the files?"),
-                QMessageBox::Yes|QMessageBox::No)) 
+                                                 QMessageBox::Yes|QMessageBox::No, QMessageBox::Yes)) 
         {
             foreach(HTMLResource* htmlres, non_well_formed) {
                 QString fixed_text = CleanSource::Mend(htmlres->GetText(),htmlres->GetEpubVersion());
