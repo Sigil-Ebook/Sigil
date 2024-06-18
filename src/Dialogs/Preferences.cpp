@@ -194,6 +194,7 @@ void Preferences::openPreferencesLocation()
 
 void Preferences::extendUI()
 {
+    ui.buttonBox->setStyleSheet("button-layout: 1 ;");
     QPushButton *open_button = ui.buttonBox->addButton(tr("Open Preferences Location"), QDialogButtonBox::ActionRole);
     open_button->setToolTip(QDir::toNativeSeparators(Utility::DefinePrefsDir()));
     connect(open_button, SIGNAL(clicked()), this, SLOT(openPreferencesLocation()));
