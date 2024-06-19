@@ -1,4 +1,13 @@
-Pre-2.2.0
+Sigil-2.2.1
+   Bug Fixes
+     - fix bug introduced by using ClickFocus policy on QToolButtons with menus instead of NoFocus
+     - update base.ts for late Preferences tranaslation change missed in the last release
+     - update Translations from Transifex
+     - fix incorrect std button icon under Fusion for Sigil Preferences Open Preference Folder
+     - set default button in the fix doctype/headers dialog on epub load to Yes to match earlier behaviour
+
+     
+Sigil-2.2.0
     New Features
       - add support for Windows live switching from dark to light and light to dark modes
       - add support for Linux kde and gtk3 live switching from dark to light and light to dark modes
