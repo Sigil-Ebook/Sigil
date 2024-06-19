@@ -6233,11 +6233,11 @@ void MainWindow::ExtendUI()
 #if 1
     // use this code to disable any QToolButtons with pull down menus
     // from inadvertantly being on the tab to shift focus chain
-    ui.tbHeadings->setFocusPolicy(Qt::ClickFocus);
-    ui.tbCase->setFocusPolicy(Qt::ClickFocus);
-    ui.tbAutomate1->setFocusPolicy(Qt::ClickFocus);
-    ui.tbAutomate2->setFocusPolicy(Qt::ClickFocus);
-    ui.tbAutomate3->setFocusPolicy(Qt::ClickFocus);
+    ui.tbHeadings->setFocusPolicy(Qt::NoFocus);
+    ui.tbCase->setFocusPolicy(Qt::NoFocus);
+    ui.tbAutomate1->setFocusPolicy(Qt::NoFocus);
+    ui.tbAutomate2->setFocusPolicy(Qt::NoFocus);
+    ui.tbAutomate3->setFocusPolicy(Qt::NoFocus);
 #endif
 
     UpdateClipsUI();
