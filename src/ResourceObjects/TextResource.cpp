@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -67,11 +67,15 @@ void TextResource::SetText(const QString &text)
     //   So we cache the text update into m_Cache and update the QTextDocument
     // when we return to the GUI thread. The single-shot timer makes sure
     // of that.
+
+    // This is probably not needed but will not hurt
+    QString txt = text.normalized(QString::NormalizationForm_C);;
+
     if (QThread::currentThread() == QApplication::instance()->thread()) {
-        SetTextInternal(text);
+        SetTextInternal(txt);
     } else {
         QMutexLocker locker(&m_CacheAccessMutex);
-        m_Cache = text;
+        m_Cache = txt;
 
         // We want to make sure we schedule only one delayed update
         if (!m_CacheInUse) {

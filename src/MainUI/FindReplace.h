@@ -102,6 +102,7 @@ public:
     
     QString GetSearchRegex();
     QString GetReplace();
+    QString GetFind();
     QList<Resource*> GetAllResourcesToSearch();
     void EmitOpenFileRequest(const QString& bookpath, int line, int pos);
                                                                         
