@@ -1,3 +1,18 @@
+pre-2.3.0
+   New Features
+     - removed support for building Sigil with QT5 as our code had become a rats nest of qt version ifdefs
+           See our git branch "qt5final" for the very last buildable version of Sigil under Qt5
+     - removed the need and usage for Qt6Compat5 as its contents were deprecated and will go away eventually
+     - added support for using the IUC library to help replace the range of encodings supported by the old QTextCodec
+     - to make search and replace doable in a cross-platform way we are now using NFC unicode normalization form
+          for both epub content documents, links, urls, and find and replace strings
+     - made Sigil's Well-Formed Check (Sanity Check) more robust to whitespace parsing rules and allowed
+          it to detect and report missing XML Headers
+     - we have upgraded to use Qt 6.7.2 and Python 3.11.9 for the base of our Windows and MacOS releases
+
+   Bug Fixes
+
+
 Sigil-2.2.1
    Bug Fixes
      - fix bug introduced by using ClickFocus policy on QToolButtons with menus instead of NoFocus
