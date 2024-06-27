@@ -50,6 +50,8 @@ private:
     // and tries to see whether this is a valid UTF-8 sequence.
     // If it's valid, this is probably a UTF-8 string.
     static bool IsValidUtf8(const QByteArray &string);
+
+    static QByteArray FixupCodePageMapping(const QByteArray& ba);
 };
 
 

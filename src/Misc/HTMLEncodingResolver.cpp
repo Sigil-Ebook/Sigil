@@ -104,7 +104,9 @@ QStringDecoder HTMLEncodingResolver::GetDecoderForHTML(const QByteArray &raw_tex
     QRegularExpression enc_re(ENCODING_ATTRIBUTE);
     QRegularExpressionMatch enc_mo = enc_re.match(text);
     if (enc_mo.hasMatch()) {
-        QStringDecoder decoder = QStringDecoder(enc_mo.captured(1).toLatin1().toUpper());
+        QByteArray ba(enc_mo.captured(1).toLatin1());
+	ba = FixupCodePageMapping(ba);
+        QStringDecoder decoder = QStringDecoder(ba);
         if (decoder.isValid()) {
             return decoder;
         }
@@ -114,7 +116,9 @@ QStringDecoder HTMLEncodingResolver::GetDecoderForHTML(const QByteArray &raw_tex
     QRegularExpression char_re(CHARSET_ATTRIBUTE);
     QRegularExpressionMatch char_mo = char_re.match(text);
     if (char_mo.hasMatch()) {
-        QStringDecoder decoder = QStringDecoder(char_mo.captured(1).toLatin1().toUpper());
+        QByteArray ba(char_mo.captured(1).toLatin1());
+	ba = FixupCodePageMapping(ba);
+        QStringDecoder decoder = QStringDecoder(ba);
         if (decoder.isValid()) {
             return decoder;
         }
@@ -206,4 +210,18 @@ bool HTMLEncodingResolver::IsValidUtf8(const QByteArray &string)
     }
 
     return true;
+}
+
+QByteArray HTMLEncodingResolver::FixupCodePageMapping(const QByteArray& ba)
+{
+  if (ba == "cp1250" || ba == "CP1250" || ba == "cp-1250" || ba == "CP-1250") return QByteArray("windows-1250");
+  if (ba == "cp1251" || ba == "CP1251" || ba == "cp-1251" || ba == "CP-1251") return QByteArray("windows-1251");
+  if (ba == "cp1252" || ba == "CP1252" || ba == "cp-1252" || ba == "CP-1252") return QByteArray("windows-1252");
+  if (ba == "cp1253" || ba == "CP1253" || ba == "cp-1253" || ba == "CP-1253") return QByteArray("windows-1253");
+  if (ba == "cp1254" || ba == "CP1254" || ba == "cp-1254" || ba == "CP-1254") return QByteArray("windows-1254");
+  if (ba == "cp1255" || ba == "CP1255" || ba == "cp-1255" || ba == "CP-1255") return QByteArray("windows-1255");
+  if (ba == "cp1256" || ba == "CP1256" || ba == "cp-1256" || ba == "CP-1256") return QByteArray("windows-1256");
+  if (ba == "cp1257" || ba == "CP1257" || ba == "cp-1257" || ba == "CP-1257") return QByteArray("windows-1257");
+  if (ba == "cp1258" || ba == "CP1258" || ba == "cp-1258" || ba == "CP-1258") return QByteArray("windows-1258");
+  return QByteArray(ba);
 }
