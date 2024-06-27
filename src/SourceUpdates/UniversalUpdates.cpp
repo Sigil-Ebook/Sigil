@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021  Kevin B. Hendricks  Stratford, Ontario Canada
+**  Copyright (C) 2015-2024  Kevin B. Hendricks  Stratford, Ontario Canada
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -94,13 +94,7 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
         html_future = QtConcurrent::mapped(html_resources, std::bind(LoadAndUpdateOneHTMLFile, std::placeholders::_1, html_updates, css_updates, non_well_formed));
         css_future = QtConcurrent::map(css_resources,  std::bind(LoadAndUpdateOneCSSFile,  std::placeholders::_1, css_updates));
     }
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)    
-    sync.addFuture(html_future);
-#else
     sync.addFuture(QFuture<void>(html_future));
-#endif    
-    
     sync.addFuture(css_future);
 
     // We can't schedule these with QtConcurrent because they

@@ -25,14 +25,6 @@
 #include "Parsers/CSSInfo.h"
 #include "Parsers/HTMLStyleInfo.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
-#else
-    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
-#endif
-
 static const int TAB_SPACES_WIDTH = 4;
 static const QString LINE_MARKER("[SIGIL_NEWLINE]");
 static const QString DELIMITERS = "}{;";
@@ -169,13 +161,13 @@ QList<HTMLStyleInfo::CSSProperty> HTMLStyleInfo::getCSSProperties(const QString 
     }
 
     const QString &style_text = text.mid(styleTextStartPos, styleTextEndPos - styleTextStartPos);
-    QStringList properties = style_text.split(QChar(';'), QT_ENUM_SKIPEMPTYPARTS);
+    QStringList properties = style_text.split(QChar(';'), Qt::SkipEmptyParts);
     foreach(QString property_text, properties) {
         if (property_text.trimmed().isEmpty()) {
             continue;
         }
 
-        QStringList name_values = property_text.split(QChar(':'), QT_ENUM_SKIPEMPTYPARTS);
+        QStringList name_values = property_text.split(QChar(':'), Qt::SkipEmptyParts);
         HTMLStyleInfo::CSSProperty css_property;
 
         // Any badly formed CSS or stuff we don't "understand" like pre-processing we leave as is

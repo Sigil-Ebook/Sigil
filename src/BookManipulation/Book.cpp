@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022  Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2024  Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -638,14 +638,7 @@ void Book::CreateNewSections(const QStringList &new_sections, HTMLResource *orig
         sectionInfo.file_suffix = i;
         sectionInfo.file_extension = file_extension;
         sectionInfo.folder_path = folder_path;
-        sync.addFuture(
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)                      
-            QtConcurrent::run(this, &Book::CreateANewSection, sectionInfo)
-#else
-            QtConcurrent::run(&Book::CreateANewSection, this, sectionInfo)
-            //QtConcurrent::run(this, [this, sectionInfo] { &Book::CreateOneNewSection(sectionInfo);
-#endif
-                      );
+        sync.addFuture(QtConcurrent::run(&Book::CreateANewSection, this, sectionInfo));
     }
 
     sync.waitForFinished();
@@ -1133,12 +1126,8 @@ QSet<QString> Book::GetWordsInHTMLFiles()
         all_words.append(result);
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    return all_words.toSet();
-#else
     QSet<QString> allwordset(all_words.begin(), all_words.end());
     return allwordset;
-#endif
 }
 
 QStringList Book::GetWordsInHTMLFileMapped(HTMLResource *html_resource, const QString& default_lang)

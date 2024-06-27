@@ -42,10 +42,7 @@
 #include <QStyleFactory>
 #include <QtWebEngineWidgets>
 #include <QtWebEngineCore>
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
 #include <QWebEngineUrlScheme>
-#endif
 
 #include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
@@ -77,14 +74,6 @@ static const int RETRY_DELAY_MS = 5;
 #include "Dialogs/Preferences.h"
 extern void disableWindowTabbing();
 extern void removeMacosSpecificMenuItems();
-#endif
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
-#else
-    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
 #endif
 
 const QString MAC_DOCK_TITLEBAR_FIX =
@@ -252,12 +241,10 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
             qt_debug_message = QString("Debug: %1").arg(message.toLatin1().constData());
             fprintf(stderr, "Debug: %s\n", message.toLatin1().constData());
             break;
-#if QT_VERSION >= 0x050600
         case QtInfoMsg:
             qt_debug_message = QString("Info: %1").arg(message.toLatin1().constData());
             fprintf(stderr, "Info: %s\n", message.toLatin1().constData());
             break;
-#endif
         // TODO: should go to a log
         case QtWarningMsg:
             qt_debug_message = QString("Warning: %1").arg(message.toLatin1().constData());
@@ -322,11 +309,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
         QFile outFile(sigil_log_file);
         outFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
         QTextStream ts(&outFile);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
         ts << qt_debug_message << Qt::endl;
-#else
-        ts << qt_debug_message << endl;
-#endif  
     }
 }
 
@@ -352,14 +335,6 @@ void update_ini_file_if_needed(const QString oldfile, const QString newfile)
 // Application entry point
 int main(int argc, char *argv[])
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-    QT_REQUIRE_VERSION(argc, argv, "5.10.0");
-  #else
-    QT_REQUIRE_VERSION(argc, argv, "5.12.3");
-  #endif
-#endif // version
-
 
 #ifndef QT_DEBUG
     qInstallMessageHandler(MessageHandler);
@@ -382,7 +357,6 @@ int main(int argc, char *argv[])
     update_ini_file_if_needed(Utility::DefinePrefsDir() + "/" + SEARCHES_SETTINGS_FILE,
                               Utility::DefinePrefsDir() + "/" + SEARCHES_V2_SETTINGS_FILE);
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     // Qt6 forced move to utf-8 settings values but Qt5 settings are broken for utf-8 codec
     // See QTBUG-40796 and QTBUG-54510 which never got fixed
     update_ini_file_if_needed(Utility::DefinePrefsDir() + "/" + SIGIL_SETTINGS_FILE,
@@ -396,9 +370,7 @@ int main(int argc, char *argv[])
 
     update_ini_file_if_needed(Utility::DefinePrefsDir() + "/" + SEARCHES_V2_SETTINGS_FILE,
                               Utility::DefinePrefsDir() + "/" + SEARCHES_V6_SETTINGS_FILE);
-#endif // version
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     // register the our own url scheme (this is required since Qt 5.12)
     QWebEngineUrlScheme sigilScheme("sigil");
     sigilScheme.setFlags(QWebEngineUrlScheme::SecureScheme |
@@ -408,18 +380,10 @@ int main(int argc, char *argv[])
     // sigilScheme.setSyntax(QWebEngineUrlScheme::Syntax::Host);
     sigilScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
     QWebEngineUrlScheme::registerScheme(sigilScheme);
-#endif // version
 
     // many qtbugs related to mixing 32 and 64 bit qt apps when shader disk cache is used
     // Only use if using Qt5.9.0 or higher
-#if QT_VERSION >= 0x050900
     QCoreApplication::setAttribute(Qt::AA_DisableShaderDiskCache);
-#endif
-
-    // Disable ? as Sigil does not use QWhatsThis
-#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0) && QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QCoreApplication::setAttribute(Qt::AA_DisableWindowContextHelpButton);
-#endif
 
     // On recent processors with multiple cores this leads to over 40 threads at times
     // We prevent Qt from constantly creating and deleting threads.
@@ -443,14 +407,13 @@ int main(int argc, char *argv[])
     // Take into account current system QT_QPA_PLATFORM values
     if (!current_env_str.isEmpty()) {
         if (current_env_str.startsWith(platform_prefix, Qt::CaseInsensitive)) {
-            current_platform_args = current_env_str.mid(platform_prefix.length()).split(':', QT_ENUM_SKIPEMPTYPARTS);
+            current_platform_args = current_env_str.mid(platform_prefix.length()).split(':', Qt::SkipEmptyParts);
             qDebug() << "Current windows platform args: " << current_platform_args;
         }
     }
 
     // Woff/woff2 fonts can be more fully supported by setting SIGIL_USE_FREETYPE_FONTENGINE to anything.
     // See https://www.mobileread.com/forums/showthread.php?t=356351 for discussion.
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QString font_backend_override = Utility::GetEnvironmentVar("SIGIL_USE_FREETYPE_FONTENGINE");
     // Don't change any global fontengine parameters a user may have set in QT_QPA_PLATFORM
     bool fontengine_arg_exists = false;
@@ -464,7 +427,6 @@ int main(int argc, char *argv[])
             current_platform_args.append("fontengine=freetype");
         }
     }
-#endif // QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 
     // if altgr is not already in the list of windows platform options, add it
     if (settings.enableAltGr()) {
@@ -476,7 +438,7 @@ int main(int argc, char *argv[])
     // if darkmode options are not already in the list of windows platform options,
     // Set it to 1 so that sigil title bars will be dark in Windows darkmode.
     // This is setting is assumed with a dark palette starting with Qt6.5.
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0) && QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
+#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
     if (Utility::WindowsShouldUseDarkMode()) {
         bool darkmode_arg_exists = false;
         foreach(QString arg, current_platform_args) {
@@ -626,7 +588,7 @@ int main(int argc, char *argv[])
                 cstyle = new SigilDarkStyle(astyle);
             }
             app.setStyle(cstyle);
-#if QT_VERSION <= QT_VERSION_CHECK(5, 15, 0) || QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
             // At this point, I have no idea where along the 5.15.x series this
             // being present will break dark mode. I only know the first official
             // official windows version that uses 5.15.9 needs it to be gone.
@@ -688,11 +650,7 @@ int main(int argc, char *argv[])
             QString hcolor = app.palette().color(QPalette::Highlight).name();
             QString user_color = Utility::GetEnvironmentVar("SIGIL_FOCUS_HIGHLIGHT_COLOR");
             if (!user_color.isEmpty() && user_color.startsWith("#") && user_color.length() == 7) {
-#if QT_VERSION >= QT_VERSION_CHECK(6,4,0)
 		if (QColor::isValidColorName(user_color)) {
-#else
-                if (QColor::isValidColor(user_color)) {
-#endif
                     hcolor = user_color;
                 }
             }
@@ -738,10 +696,8 @@ int main(int argc, char *argv[])
         // and on Mac by the ICNS file.
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
         app.setWindowIcon(GetApplicationIcon());
-#if QT_VERSION >= 0x050700
         // Wayland needs this clarified in order to propery assign the icon 
         app.setDesktopFileName(QStringLiteral("sigil"));
-#endif // version
 #endif //!defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 
         // Create the required QWebEngineProfiles, Initialize the settings

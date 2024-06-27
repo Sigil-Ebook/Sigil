@@ -77,20 +77,12 @@ void WebProfileMgr::InitializeDefaultSettings(QWebEngineSettings* web_settings)
     web_settings->setAttribute(QWebEngineSettings::AllowGeolocationOnInsecureOrigins, false);
     web_settings->setAttribute(QWebEngineSettings::ScreenCaptureEnabled, false);
     web_settings->setAttribute(QWebEngineSettings::LocalStorageEnabled, false);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
     web_settings->setAttribute(QWebEngineSettings::AllowWindowActivationFromJavaScript, false);
-#endif
-#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
     web_settings->setUnknownUrlSchemePolicy(QWebEngineSettings::DisallowUnknownUrlSchemes);
     web_settings->setAttribute(QWebEngineSettings::PlaybackRequiresUserGesture, true);
     web_settings->setAttribute(QWebEngineSettings::JavascriptCanPaste, false);
-#endif
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     web_settings->setAttribute(QWebEngineSettings::DnsPrefetchEnabled, false);
-#endif
-#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
     web_settings->setAttribute(QWebEngineSettings::PdfViewerEnabled, false);
-#endif
 }
 
 
@@ -101,18 +93,10 @@ WebProfileMgr::WebProfileMgr()
     m_URLint = new URLInterceptor();
     
     // initialize the defaultProfile to be restrictive for security
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QWebEngineSettings *web_settings = QWebEngineSettings::defaultSettings();
-#else
     QWebEngineSettings *web_settings = QWebEngineProfile::defaultProfile()->settings();
-#endif
     InitializeDefaultSettings(web_settings);
     // Use URLInterceptor for protection
-#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
     QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(m_URLint);
-#else
-    QWebEngineProfile::defaultProfile()->setRequestInterceptor(m_URLint);
-#endif
 
     // create the profile for Preview
     SettingsStore ss;
@@ -121,9 +105,7 @@ WebProfileMgr::WebProfileMgr()
     m_preview_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
     m_preview_profile->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, false);
     m_preview_profile->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
     m_preview_profile->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
-#endif
     m_preview_profile->settings()->setDefaultTextEncoding("UTF-8");  
     m_preview_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, (ss.javascriptOn() == 1));
     m_preview_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, (ss.javascriptOn() == 1));
@@ -139,11 +121,7 @@ WebProfileMgr::WebProfileMgr()
     m_preview_profile->setPersistentStoragePath(localStorePath);
     // Use both our URLInterceptor and our URLSchemeHandler
     m_preview_profile->installUrlSchemeHandler("sigil", m_URLhandler);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
     m_preview_profile->setUrlRequestInterceptor(m_URLint);
-#else
-    m_preview_profile->setRequestInterceptor(m_URLint);
-#endif
 
     // create the profile for OneTime
     m_onetime_profile = new QWebEngineProfile();
@@ -151,19 +129,13 @@ WebProfileMgr::WebProfileMgr()
     m_onetime_profile->settings()->setDefaultTextEncoding("UTF-8");  
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
-#endif
     // Unfortunately the PdfView used for PdfTab now requires both java and LocalStorage work
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, (ss.javascriptOn() == 1));
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
     m_onetime_profile->setPersistentStoragePath(localStorePath);
     // Use URLInterceptor for protection
-#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
     m_onetime_profile->setUrlRequestInterceptor(m_URLint);
-#else
-    m_onetime_profile->setRequestInterceptor(m_URLint);
-#endif
 
 }
 

@@ -63,12 +63,8 @@
 
 #define DBG if(0)
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    static const QVariant QVINVALID = QVariant(QVariant::Invalid);
-#else 
-    #include <QMetaType>
-    static const QVariant QVINVALID = QVariant(QMetaType(QMetaType::UnknownType));
-#endif
+#include <QMetaType>
+static const QVariant QVINVALID = QVariant(QMetaType(QMetaType::UnknownType));
 
 
 static const QString SETTINGS_GROUP = "bookbrowser";
@@ -2190,11 +2186,7 @@ void BookBrowser::ConnectSignalsToSlots()
     m_openWithMapper->setMapping(m_OpenWithEditor3, 3);
     connect(m_OpenWithEditor4, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
     m_openWithMapper->setMapping(m_OpenWithEditor4, 4);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    connect(m_openWithMapper, SIGNAL(mapped(int)), this, SLOT(OpenWithEditor(int)));
-#else
     connect(m_openWithMapper, SIGNAL(mappedInt(int)), this, SLOT(OpenWithEditor(int)));
-#endif
     connect(m_AdobesObfuscationMethod, SIGNAL(triggered()), this, SLOT(AdobesObfuscationMethod()));
     connect(m_IdpfsObfuscationMethod,  SIGNAL(triggered()), this, SLOT(IdpfsObfuscationMethod()));
     connect(m_NoObfuscationMethod,     SIGNAL(triggered()), this, SLOT(NoObfuscationMethod()));

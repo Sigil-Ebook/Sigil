@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2014  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2024 Kevin B. Hendricks, Stratford ON Canada
+**  Copyright (C) 2014 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -31,14 +32,6 @@ static const QString POS = "osx";
 static const QString POS = "win";
 #else
 static const QString POS = "unx";
-#endif
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
-#else
-    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
 #endif
 
 Plugin::Plugin()
@@ -108,7 +101,7 @@ bool Plugin::isvalid()
     return (!m_name.isEmpty()   &&
             !m_type.isEmpty()   &&
             (!m_engine.isEmpty() && PluginRunner::SupportedEngines().contains(m_engine)) &&
-            (m_oslist.isEmpty() || m_oslist.split(',', QT_ENUM_SKIPEMPTYPARTS).contains(POS)));
+            (m_oslist.isEmpty() || m_oslist.split(',', Qt::SkipEmptyParts).contains(POS)));
 }
 
 QString Plugin::get_name()

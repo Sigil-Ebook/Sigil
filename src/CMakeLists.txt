@@ -650,40 +650,12 @@ else()
     project( sigil )
 endif()
 
-if (${USE_QT5})
-# Building Sigil with Qt5 requires cmake 3.0+
-# and a C++11 standards compatible compiler
-    cmake_minimum_required( VERSION 3.0.0 )
-
-    if (NOT MSVC)
-        include(CheckCXXCompilerFlag)
-        CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
-        CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
-        if(COMPILER_SUPPORTS_CXX11)
-            set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-        elseif(COMPILER_SUPPORTS_CXX0X)
-            set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-            # Give gcc compilers that fall through the cracks a shot.
-            if(CMAKE_COMPILER_IS_GNUCXX AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 4.8)
-                set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive")
-                message("-- fpermissive CXX flag being used for gcc ${CMAKE_CXX_COMPILER_VERSION}")
-            endif()
-        else()
-            message(FATAL_ERROR "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
-        endif()
-    endif()
-
-    include(qt5sigil.cmake)
-
 # Building Sigil with Qt6 requires cmake 3.16+
 # and a C++17 standards compatible compiler
-else()
-    cmake_minimum_required( VERSION 3.16 )
+cmake_minimum_required( VERSION 3.16 )
 
-    set(CMAKE_CXX_STANDARD 17)
-    set(CMAKE_CXX_STANDARD_REQUIRED ON)
-    set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-    include(qt6sigil.cmake)
-
-endif()
+include(qt6sigil.cmake)

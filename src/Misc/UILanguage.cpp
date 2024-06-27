@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2024 Kevin B. Hendricks, Statford ON Canada
+**  Copyright (C) 2011 John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -19,10 +20,10 @@
 **
 *************************************************************************/
 
-#include <QtCore/QDir>
-#include <QtCore/QCoreApplication>
-#include <QtCore/QLibraryInfo>
-#include <QtCore/QString>
+#include <QDir>
+#include <QCoreApplication>
+#include <QLibraryInfo>
+#include <QString>
 #include "Misc/UILanguage.h"
 #include "sigil_constants.h"
 
@@ -47,11 +48,7 @@ QStringList UILanguage::GetPossibleTranslationPaths()
     }
 #endif
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    possible_qm_locations.append(QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-#else
     possible_qm_locations.append(QLibraryInfo::path(QLibraryInfo::TranslationsPath));
-#endif
 
 #ifdef Q_OS_MAC
     possible_qm_locations.append(QCoreApplication::applicationDirPath() + "/../translations");

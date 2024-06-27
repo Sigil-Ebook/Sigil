@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -50,13 +50,8 @@
 #include "sigil_constants.h"
 #include "Tabs/ImageTab.h"
 
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    static const QVariant QVINVALID = QVariant(QVariant::Invalid);
-#else 
-    #include <QMetaType>
-    static const QVariant QVINVALID = QVariant(QMetaType(QMetaType::UnknownType));
-#endif
+#include <QMetaType>
+static const QVariant QVINVALID = QVariant(QMetaType(QMetaType::UnknownType));
 
 
 const QString IMAGE_HTML_BASE =
@@ -422,11 +417,7 @@ void ImageTab::ConnectSignalsToSlots()
     connect(m_OpenWithEditor4, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
     m_openWithMapper->setMapping(m_OpenWithEditor4, 4);
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    connect(m_openWithMapper, SIGNAL(mapped(int)),   this, SLOT(openWithEditor(int)));
-#else
     connect(m_openWithMapper, SIGNAL(mappedInt(int)),   this, SLOT(openWithEditor(int)));
-#endif
     connect(m_SaveAs,         SIGNAL(triggered()),   this, SLOT(saveAs()));
     connect(m_CopyImage,      SIGNAL(triggered()),   this, SLOT(copyImage()));
 }

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2020-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2020 Doug Massay
 **
 **  Based on CodeViewEditor.cpp portions of which were:
@@ -104,11 +104,7 @@ int TextView::CalculateLineNumberAreaWidth()
         max_value /= 10;
         num_digits++;
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
     return LINE_NUMBER_MARGIN * 2 + fontMetrics().horizontalAdvance(QChar('0')) * num_digits;
-#else
-    return LINE_NUMBER_MARGIN * 2 + fontMetrics().width(QChar('0')) * num_digits;
-#endif
 
 }
 

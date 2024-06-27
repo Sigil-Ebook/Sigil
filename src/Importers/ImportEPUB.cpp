@@ -1008,19 +1008,11 @@ bool ImportEPUB::LoadFolderStructure()
     for (int i = 0; i < num_files; ++i) {
         QString id = keys.at(i);
         sync.addFuture(
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-                       QtConcurrent::run(
-                           this,
-                           &ImportEPUB::LoadOneFile,
-                           m_Files.value(id),
-                           m_FileMimetypes.value(id))
-#else
                        QtConcurrent::run(
                            &ImportEPUB::LoadOneFile,
                            this,
                            m_Files.value(id),
                            m_FileMimetypes.value(id))
-#endif
                       );
     }
 

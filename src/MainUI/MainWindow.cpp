@@ -41,11 +41,6 @@
 #include <QtWebEngineCore>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#ifdef Q_OS_WIN32
-#include <QtWinExtras>
-#endif
-#endif
 #include <QString>
 #include <QStringList>
 #include <QFont>
@@ -55,10 +50,6 @@
 #include <QStyleFactory>
 #include <QStyle>
 #include <QDebug>
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QDesktopWidget>
-#endif
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/Index.h"
@@ -319,12 +310,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::createJumpList()
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#ifdef Q_OS_WIN32
-    QWinJumpList jumplist;
-    jumplist.recent()->setVisible(true);
-#endif
-#endif
+    // no longer used in Qt 6
 }
 
 void MainWindow::RunAutomate1()
@@ -899,13 +885,8 @@ bool MainWindow::RepoCommit()
     // now perform the commit using python in a separate thread since this
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::PerformRepoCommitInPython,
-                                                localRepo, bookid, bookinfo, bookroot, bookfiles);
-#else
     QFuture<QString> future = QtConcurrent::run(&PythonRoutines::PerformRepoCommitInPython, &pr,
                                                 localRepo, bookid, bookinfo, bookroot, bookfiles);
-#endif
     future.waitForFinished();
     QString commit_result = future.result();
 
@@ -948,13 +929,8 @@ void MainWindow::RepoCheckout(QString bookid, QString destdir, QString filename,
     // now perform the operation using python in a separate thread since this
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QFuture<QStringList> future = QtConcurrent::run(&pr, &PythonRoutines::GetRepoTagsInPython, 
-                                                         localRepo, bookid);
-#else
     QFuture<QStringList> future = QtConcurrent::run(&PythonRoutines::GetRepoTagsInPython, &pr,
                                                          localRepo, bookid);
-#endif   
     future.waitForFinished();
     QStringList tag_results = future.result();
     if (tag_results.isEmpty()) {
@@ -994,13 +970,8 @@ void MainWindow::RepoCheckout(QString bookid, QString destdir, QString filename,
     open_tab_positions << m_TabManager->GetCurrentContentTab()->GetCursorPosition();
     
     QApplication::setOverrideCursor(Qt::WaitCursor);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QFuture<QString> afuture = QtConcurrent::run(&pr, &PythonRoutines::GenerateEpubFromTagInPython, 
-                                                 localRepo, bookid, tagname, filename, destdir);
-#else
     QFuture<QString> afuture = QtConcurrent::run(&PythonRoutines::GenerateEpubFromTagInPython, &pr,
                                                  localRepo, bookid, tagname, filename, destdir);
-#endif
     afuture.waitForFinished();
     QString epub_result = afuture.result();
     if (epub_result.isEmpty()) {
@@ -1067,13 +1038,8 @@ void MainWindow::RepoDiff(QString bookid)
     // Get tags using python in a separate thread since this
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)    
-    QFuture<QStringList> future = QtConcurrent::run(&pr, &PythonRoutines::GetRepoTagsInPython, 
-                                                          localRepo, bookid);
-#else
     QFuture<QStringList> future = QtConcurrent::run(&PythonRoutines::GetRepoTagsInPython, &pr,
                                                           localRepo, bookid);
-#endif
     future.waitForFinished();
     QStringList tag_results = future.result();
     if (tag_results.isEmpty()) {
@@ -1100,13 +1066,8 @@ void MainWindow::RepoDiff(QString bookid)
     // checkout this tag version and copy it to a tempfolder
     TempFolder destdir;
     QApplication::setOverrideCursor(Qt::WaitCursor);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)    
-    QFuture<QString> cfuture = QtConcurrent::run(&pr, &PythonRoutines::CopyTagToDestDirInPython, 
-                                                 localRepo, bookid, chkpoint1, destdir.GetPath() );
-#else
     QFuture<QString> cfuture = QtConcurrent::run(&PythonRoutines::CopyTagToDestDirInPython, &pr,
                                                  localRepo, bookid, chkpoint1, destdir.GetPath() );
-#endif
     cfuture.waitForFinished();
     QString copied = cfuture.result();
     QApplication::restoreOverrideCursor();
@@ -1118,14 +1079,8 @@ void MainWindow::RepoDiff(QString bookid)
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
     
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)    
-    QFuture<QList<QStringList> > dfuture = QtConcurrent::run(&pr, 
-                                             &PythonRoutines::GetCurrentStatusVsDestDirInPython, 
-                                             bookroot, bookfiles, destdir.GetPath());
-#else
     QFuture<QList<QStringList> > dfuture = QtConcurrent::run(&PythonRoutines::GetCurrentStatusVsDestDirInPython,
                                              &pr, bookroot, bookfiles, destdir.GetPath());
-#endif
     dfuture.waitForFinished();
     QList<QStringList> sres = dfuture.result();
     QApplication::restoreOverrideCursor();
@@ -1166,13 +1121,8 @@ void MainWindow::RepoEditTagDescription()
     // Get tags using python in a separate thread since this
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)    
-    QFuture<QStringList> future = QtConcurrent::run(&pr, &PythonRoutines::GetRepoTagsInPython, 
-                                                          localRepo, bookid);
-#else
     QFuture<QStringList> future = QtConcurrent::run(&PythonRoutines::GetRepoTagsInPython, &pr,
                                                           localRepo, bookid);
-#endif
     future.waitForFinished();
     QStringList tag_results = future.result();
     if (tag_results.isEmpty()) {
@@ -1217,13 +1167,8 @@ void MainWindow::RepoEditTagDescription()
     if (ok && !newmessage.isEmpty()) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
         PythonRoutines pr;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        QFuture<bool> afuture = QtConcurrent::run(&pr, &PythonRoutines::ChangeRepoTagMsgInPython, 
-                                                 localRepo, bookid, tagname, newmessage);
-#else
         QFuture<bool> afuture = QtConcurrent::run(&PythonRoutines::ChangeRepoTagMsgInPython, &pr,
                                                  localRepo, bookid, tagname, newmessage);
-#endif
         afuture.waitForFinished();
         bool res = afuture.result();
         if (!res) {
@@ -1251,17 +1196,10 @@ void MainWindow::RepoShowLog()
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
     QFuture<QString> future =
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        QtConcurrent::run(&pr,
-                          &PythonRoutines::GenerateRepoLogSummaryInPython,
-                          localRepo,
-                          bookid);
-#else
-        QtConcurrent::run(&PythonRoutines::GenerateRepoLogSummaryInPython,
-                          &pr,
-                          localRepo,
-                          bookid);
-#endif
+    QtConcurrent::run(&PythonRoutines::GenerateRepoLogSummaryInPython,
+                      &pr,
+                      localRepo,
+                      bookid);
     future.waitForFinished();
     QString logData = future.result();
 
@@ -2605,13 +2543,8 @@ bool MainWindow::GenerateNCXGuideFromNav()
 
     // Now build the ncx in python in a separate thread since may be an long job
     PythonRoutines pr;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)    
-    QFuture<QString> future = QtConcurrent::run(&pr, &PythonRoutines::GenerateNcxInPython, navdata, 
-                                                navbkpath, ncxdir, doctitle, mainid);
-#else
     QFuture<QString> future = QtConcurrent::run(&PythonRoutines::GenerateNcxInPython, &pr, navdata, 
                                              navbkpath, ncxdir, doctitle, mainid);
-#endif
     future.waitForFinished();
     QString ncxdata = future.result();
 
@@ -4992,11 +4925,7 @@ void MainWindow::ReadSettings()
     if (MaximizedState) {
 
 #ifndef Q_OS_MAC
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        QRect maxsize = settings.value("max_mw_geometry", QApplication::desktop()->availableGeometry(this)).toRect();
-#else
         QRect maxsize = settings.value("max_mw_geometry", QGuiApplication::primaryScreen()->availableGeometry()).toRect();
-#endif
         setGeometry(maxsize);
         setWindowState(windowState() | Qt::WindowMaximized);
 #else
@@ -5005,11 +4934,7 @@ void MainWindow::ReadSettings()
 
     } else if (FullScreenState) {
 #ifndef Q_OS_MAC
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        QRect maxsize = settings.value("max_mw_geometry", QApplication::desktop()->screenGeometry(this)).toRect();
-#else
         QRect maxsize = settings.value("max_mw_geometry", QGuiApplication::primaryScreen()->availableGeometry()).toRect();
-#endif
         setGeometry(maxsize);
         setWindowState(windowState() | Qt::WindowFullScreen);
 #else

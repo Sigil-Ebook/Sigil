@@ -151,17 +151,10 @@ void ManageRepos::ShowLog()
     // may take a while depending on the speed of the filesystem
     PythonRoutines pr;
     QFuture<QString> future =
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        QtConcurrent::run(&pr,
-                          &PythonRoutines::GenerateRepoLogSummaryInPython,
-                          localRepo,
-                          bookid);
-#else
         QtConcurrent::run(&PythonRoutines::GenerateRepoLogSummaryInPython,
                           &pr,
                           localRepo,
                           bookid);
-#endif
     future.waitForFinished();
     QString logData = future.result();
 

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020-2023  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2020-2024  Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -49,9 +49,7 @@ void URLSchemeHandler::requestStarted(QWebEngineUrlRequestJob *request)
 {
     DBG qDebug() << "In URLSchemeHandler with url: " << request->requestUrl();
     DBG qDebug() << "In URLSchemeHandler with method: " << request->requestMethod();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
     DBG qDebug() << "In URLSchemeHandler with initiator: " << request->initiator();
-#endif
 
     QUrl url = request->requestUrl();
     QByteArray data;

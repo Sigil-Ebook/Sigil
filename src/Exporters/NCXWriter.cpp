@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -29,15 +29,6 @@
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/NCXResource.h"
 #include "sigil_constants.h"
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
-#else
-    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
-#endif
-
 
 NCXWriter::NCXWriter(const Book *book, QIODevice &device)
     :
@@ -259,7 +250,7 @@ QString NCXWriter::ConvertBookPathToNCXRelative(const QString & bookpath)
 {
     QString ncx_bkpath = m_ncxresource->GetRelativePath();
     // split off any fragment added to bookpath destination
-    QStringList pieces = bookpath.split('#', QT_ENUM_KEEPEMPTYPARTS);
+    QStringList pieces = bookpath.split('#', Qt::KeepEmptyParts);
     QString dest_bkpath = pieces.at(0);
     QString fragment = "";
     if (pieces.size() > 1) fragment = pieces.at(1);

@@ -29,11 +29,8 @@ else()
     set ( WIN_MIN_VERSION 6.1.7601 )
 endif()
 
-# Default to using Qt6 for builds
-# Enable Qt5 with -DUSE_QT5=1 in cmake config command
-if ( NOT DEFINED USE_QT5 )
-    set( USE_QT5 0 )
-endif()
+# Qt6 for builds
+set( USE_QT5 0 )
 
 if (${CMAKE_VERSION} VERSION_GREATER_EQUAL ${RECENT_CMAKE_VER} AND ${TRY_NEWER_FINDPYTHON3})
     set ( USE_NEWER_FINDPYTHON3 1 )

@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Modifications Copyright (C) 2016 Kevin B. Hendricks, Stratford, ON Canada
+** Modifications Copyright (C) 2016-2024  Kevin B. Hendricks, Stratford, ON Canada
 **
 ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
 ** Contact: http://www.qt-project.org/legal
@@ -45,14 +45,6 @@
 #include "Dialogs/TreeItem.h"
 #include "Dialogs/TreeModel.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
-#else
-    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
-#endif
-
 const QString _GS = QString(QChar(29));
 const QString _RS = QString(QChar(30));
 const QString _US = QString(QChar(31));
@@ -67,7 +59,7 @@ TreeModel::TreeModel(const QStringList &headers, const QString &data, QObject *p
         rootData << header;
 
     rootItem = new TreeItem(rootData);
-    QStringList datalist = data.split(_RS, QT_ENUM_SKIPEMPTYPARTS);
+    QStringList datalist = data.split(_RS, Qt::SkipEmptyParts);
     setupModelData(datalist, rootItem);
 }
 
@@ -278,11 +270,11 @@ void TreeModel::setupModelData(const QStringList &lines, TreeItem *parent)
 
         if (!lineData.isEmpty()) {
             // Read the column data from the rest of the line.
-            QStringList columnStrings = lineData.split(_US, QT_ENUM_SKIPEMPTYPARTS);
+            QStringList columnStrings = lineData.split(_US, Qt::SkipEmptyParts);
             QVector<QVariant> columnData;
             QVector<QVariant> tipData;
             for (int column = 0; column < columnStrings.count(); ++column) {
-                QStringList parts = columnStrings[column].split(_GS, QT_ENUM_KEEPEMPTYPARTS);
+                QStringList parts = columnStrings[column].split(_GS, Qt::KeepEmptyParts);
                 columnData << parts.at(0);
                 tipData << parts.at(1);
             }

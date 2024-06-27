@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -41,12 +41,7 @@
 #include <QKeySequence>
 #include <QMessageBox>
 #include <QDebug>
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QDesktopWidget>
-#else
 #include <QScreen>
-#endif
 
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -89,11 +84,7 @@ EmptyLayout::EmptyLayout(const QString &epubversion, QWidget *parent)
     view->setIndentation(20);
     view->setSortingEnabled(true);
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    const QSize availableSize = QApplication::desktop()->availableGeometry(view).size();
-#else
     const QSize availableSize = QGuiApplication::primaryScreen()->availableGeometry().size();
-#endif
 
     view->resize(availableSize / 2);
     view->setColumnWidth(0, view->width() / 3);
@@ -294,11 +285,7 @@ void EmptyLayout::loadDesign()
     view->setIndentation(20);
     view->setSortingEnabled(true);
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    const QSize availableSize = QApplication::desktop()->availableGeometry(view).size();
-#else
     const QSize availableSize = QGuiApplication::primaryScreen()->availableGeometry().size();
-#endif
 
     view->resize(availableSize / 2);
     view->setColumnWidth(0, view->width() / 3);

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -634,14 +634,8 @@ void SpellcheckEditor::ConnectSignalsSlots()
             this,               SLOT(ChangeState(int)));
     connect(ui.LocaleAwareSort,  SIGNAL(stateChanged(int)),
             this,               SLOT(ChangeState(int)));
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(ui.Dictionaries, SIGNAL(activated(const QString &)),
-            this,            SLOT(DictionaryChanged(const QString &)));
-#else
     connect(ui.Dictionaries, SIGNAL(textActivated(const QString &)),
             this,            SLOT(DictionaryChanged(const QString &)));
-#endif
-
     connect(m_FilterSC, SIGNAL(activated()), ui.FilterText, SLOT(setFocus()));
     connect(m_ShowAllSC, SIGNAL(activated()), this, SLOT(toggleShowAllWords()));
     connect(m_AwareSC, SIGNAL(activated()), this, SLOT(toggleLocaleAwareSort()));

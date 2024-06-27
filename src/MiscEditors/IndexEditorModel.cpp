@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -31,11 +31,7 @@
 #include "Misc/Utility.h"
 #include "MiscEditors/IndexEditorModel.h"
 
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-static const QString SETTINGS_FILE = INDEX_SETTINGS_FILE;
-#else
 static const QString SETTINGS_FILE = INDEX_V6_SETTINGS_FILE;
-#endif
 
 static const QString SETTINGS_GROUP         = "index_entries";
 static const QString ENTRY_PATTERN          = "Text to Include";

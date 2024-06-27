@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-**  Copyright (C) 2023  Doug Massay
+**  Copyright (C) 2023-2024  Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -111,12 +111,8 @@ void WebViewPrinter::printDocument(QPrinter *printer)
     QEventLoop loop;
     bool result;
     auto printCallback = [&](bool success) { result = success; loop.quit(); };
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    m_viewprev->page()->print(printer, std::move(printCallback));
-#else
     connect(m_viewprev, &ViewPreview::printFinished, std::move(printCallback)); 
     m_viewprev->print(printer);
-#endif    
     loop.exec();
     if (!result) {
         DBG qDebug() << "Could not print document.";

@@ -75,14 +75,6 @@
 #include "MainUI/MainApplication.h"
 #include "Parsers/QuickParser.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
-#else
-    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
-#endif
-
 static const QString URL_SAFE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-/~";
 
 static const QString DARK_STYLE =
@@ -127,11 +119,7 @@ QString Utility::DefinePrefsDir()
     if (!SIGIL_PREFS_DIR.isEmpty()) {
         return SIGIL_PREFS_DIR;
     } else {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        return QStandardPaths::writableLocation(QStandardPaths::DataLocation);
-#else
         return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
-#endif
     }
 }
 
@@ -552,9 +540,6 @@ QString Utility::ReadUnicodeTextFile(const QString &fullfilepath)
 
     QTextStream in(&file);
     // Input should be UTF-8
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    in.setCodec("UTF-8");
-#endif
     // This will automatically switch reading from
     // UTF-8 to UTF-16 if a BOM is detected
     in.setAutoDetectUnicode(true);
@@ -579,9 +564,6 @@ void Utility::WriteUnicodeTextFile(const QString &text, const QString &fullfilep
 
     QTextStream out(&file);
     // We ALWAYS output in UTF-8
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    out.setCodec("UTF-8");
-#endif
     out << text;
 }
 
@@ -672,11 +654,7 @@ QString Utility::URLEncodePath(const QString &path)
     QVector<uint32_t> codepoints = newpath.toUcs4();
     for (int i = 0; i < codepoints.size(); i++) {
         uint32_t cp = codepoints.at(i);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        QString s = QString::fromUcs4(&cp, 1);
-#else
         QString s = QString::fromUcs4(reinterpret_cast<char32_t *>(&cp), 1);
-#endif
         if (NeedToPercentEncode(cp)) {
             QByteArray b = s.toUtf8();
             for (int j = 0; j < b.size(); j++) {
@@ -789,15 +767,10 @@ void Utility::DisplayStdWarningDialog(const QString &warning_message, const QStr
 // if the env var isn't set, it returns an empty string
 QString Utility::GetEnvironmentVar(const QString &variable_name)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
     // The only time this might fall down is on Linux when an
     // environment variable holds bytedata. Don't use this
     // utility function for retrieval if that's the case.
     return qEnvironmentVariable(variable_name.toUtf8().constData(), "").trimmed();
-#else
-    // This will typically only be used on older Qts on Linux
-    return QProcessEnvironment::systemEnvironment().value(variable_name, "").trimmed();
-#endif
 }
 
 
@@ -1118,8 +1091,8 @@ QString Utility::relativePath(const QString & destination, const QString & start
     while (dest.endsWith(sep)) dest.chop(1);
     while (start.endsWith(sep)) start.chop(1);
 
-    QStringList dsegs = dest.split(sep, QT_ENUM_KEEPEMPTYPARTS);
-    QStringList ssegs = start.split(sep, QT_ENUM_KEEPEMPTYPARTS);
+    QStringList dsegs = dest.split(sep,  Qt::KeepEmptyParts);
+    QStringList ssegs = start.split(sep,  Qt::KeepEmptyParts);
     QStringList res;
     int i = 0;
     int nd = dsegs.size();

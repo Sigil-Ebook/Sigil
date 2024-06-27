@@ -34,11 +34,7 @@
 
 #include "sigil_constants.h"
 
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-static const QString SETTINGS_FILE = SIGIL_SETTINGS_FILE;
-#else
 static const QString SETTINGS_FILE = SIGIL_V6_SETTINGS_FILE;
-#endif
 
 static QString SETTINGS_GROUP = "user_preferences";
 static QString KEY_DEFAULT_METADATA_LANGUAGE = SETTINGS_GROUP + "/" + "default_metadata_lang";

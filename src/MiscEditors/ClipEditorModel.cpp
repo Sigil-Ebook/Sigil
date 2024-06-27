@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2022 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2018-2024 Kevin B. Hendricks, Stratford, Ontario
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -33,19 +33,7 @@
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
-#else
-    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
-#endif
-
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-static const QString SETTINGS_FILE = CLIPS_SETTINGS_FILE;
-#else
 static const QString SETTINGS_FILE = CLIPS_V6_SETTINGS_FILE;
-#endif
 
 static const QString SETTINGS_GROUP         = "clip_entries";
 static const QString ENTRY_NAME             = "Name";
@@ -387,7 +375,7 @@ void ClipEditorModel::AddFullNameEntry(ClipEditorModel::clipEntry *entry, QStand
     QString entry_name = entry->name;
 
     if (entry->name.contains("/")) {
-        QStringList group_names = entry->name.split("/", QT_ENUM_SKIPEMPTYPARTS);
+        QStringList group_names = entry->name.split("/", Qt::SkipEmptyParts);
         entry_name = group_names.last();
 
         if (!entry->is_group) {

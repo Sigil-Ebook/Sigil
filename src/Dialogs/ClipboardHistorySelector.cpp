@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2018-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -161,35 +161,6 @@ void ClipboardHistorySelector::SetupClipboardHistoryTable()
     }
 }
 
-#if (QT_VERSION < QT_VERSION_CHECK(5,12,2))
-// This is only needed for Linux
-// See:  https://bugreports.qt.io/browse/QTBUG-44849
-void ClipboardHistorySelector::TakeOwnershipOfClip()
-{
-    QApplication::clipboard()->setMimeData(copyMimeData(m_lastclip), QClipboard::Clipboard);
-}
-
-// This is only needed for Linux
-// See:  https://bugreports.qt.io/browse/QTBUG-44849
-QMimeData *ClipboardHistorySelector::copyMimeData(const QMimeData *mimeReference)
-{
-    QMimeData *mimeCopy = new QMimeData();
-    foreach(QString format, mimeReference->formats()) {
-        // Retrieving data
-        QByteArray data = mimeReference->data(format);
-        // Checking for custom MIME types
-        if(format.startsWith("application/x-qt")) {
-            // Retrieving true format name
-            int indexBegin = format.indexOf('"') + 1;
-            int indexEnd = format.indexOf('"', indexBegin);
-            format = format.mid(indexBegin, indexEnd - indexBegin);
-        }
-        mimeCopy->setData(format, data);
-    }
-    return mimeCopy;
-}
-#endif
-
 void ClipboardHistorySelector::ClipboardChanged()
 {
     const QString text = QApplication::clipboard()->text();
@@ -197,16 +168,6 @@ void ClipboardHistorySelector::ClipboardChanged()
     if (text.isEmpty()) {
         return;
     }
-
-// This is only needed for Linux
-// See:  https://bugreports.qt.io/browse/QTBUG-44849
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC) && (QT_VERSION < QT_VERSION_CHECK(5,12,2))
-    // if there is something on the clipboard make sure we own it
-    if (!QApplication::clipboard()->ownsClipboard()) {
-        m_lastclip = QApplication::clipboard()->mimeData(QClipboard::Clipboard);
-        QTimer::singleShot(50, this, SLOT(TakeOwnershipOfClip()));
-    }
-#endif
 
     int existing_index = m_ClipboardHistoryItems->indexOf(text);
 

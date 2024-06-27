@@ -413,34 +413,6 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
         }
     }
 
-
-#if QT_VERSION <= QT_VERSION_CHECK(5, 12, 5)
-    // This workaround to a QtWebEngine bug is no longer needed after Qt 5.12.5
-    if (fixup_fullscreen_svg_images(text)) {
-        QRegularExpression svg_height("<\\s*svg\\s[^>]*height\\s*=\\s*[\"'](100%)[\"'][^>]*>",
-                                     QRegularExpression::CaseInsensitiveOption |
-                                     QRegularExpression::MultilineOption | 
-                                     QRegularExpression::DotMatchesEverythingOption);
-        QRegularExpressionMatch hmo = svg_height.match(text, 0);
-        if (hmo.hasMatch()) {
-            int bp = hmo.capturedStart(1);
-            int n = hmo.capturedLength(1);
-            text = text.replace(bp, n, "100vh"); 
-        }
-
-        QRegularExpression svg_width("<\\s*svg\\s[^>]*width\\s*=\\s*[\"'](100%)[\"'][^>]*>",
-                                    QRegularExpression::CaseInsensitiveOption |
-                                    QRegularExpression::MultilineOption | 
-                                    QRegularExpression::DotMatchesEverythingOption);
-        QRegularExpressionMatch wmo = svg_width.match(text, 0);
-        if (wmo.hasMatch()) {
-            int bp = wmo.capturedStart(1);
-            int n = wmo.capturedLength(1);
-            text = text.replace(bp, n, "100vw"); 
-        }
-    }
-#endif
-    
     m_Filepath = filename_url;
     m_Preview->CustomSetDocument(filename_url, text);
 
@@ -590,11 +562,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
           QString user_color = Utility::GetEnvironmentVar("SIGIL_FOCUS_HIGHLIGHT_COLOR");
           if (!user_color.isEmpty() && user_color.startsWith("#") && user_color.length() == 7) {
 
-#if QT_VERSION >= QT_VERSION_CHECK(6,4,0)
               if (QColor::isValidColorName(user_color)) {
-#else
-              if (QColor::isValidColor(user_color)) {
-#endif
                   hcolor = user_color;
               }
           }
@@ -731,22 +699,10 @@ void PreviewWindow::InspectPreviewPage()
 
 void PreviewWindow::PrintRendered()
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     // Refresh skipflags from Prefs
     SettingsStore settings;
     m_skipPrintPreview = settings.skipPrintPreview();
     m_WebViewPrinter->setContent(m_Filepath, m_Preview->GetHTML(), m_skipPrintPreview);
-#else
-    QMessageBox msgbox;
-    QString text = tr("Feature not available before Qt5.12.x");
-    msgbox.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
-    msgbox.setModal(true);
-    msgbox.setWindowTitle("Sigil");
-    msgbox.setText("<h3>" + text + "</h3><br/>");
-    msgbox.setIcon(QMessageBox::Icon::Warning);
-    msgbox.setStandardButtons(QMessageBox::Close);
-    msgbox.exec();
-#endif
 
 }
 

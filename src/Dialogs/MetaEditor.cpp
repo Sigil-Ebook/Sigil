@@ -40,14 +40,6 @@
 #include "Dialogs/MetaEditorItemDelegate.h"
 #include "Dialogs/MetaEditor.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
-#else
-    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
-#endif
-
 static const QString SETTINGS_GROUP = "meta_editor";
 static const QString _IN = "  ";
 static const QString _GS = QString(QChar(29)); // Ascii Group Separator
@@ -318,7 +310,7 @@ QString MetaEditor::SetNewOPFMetadata(QString& data)
     QString newopfdata = m_opfdata;
     MetadataPieces mdp;
     // Translate from Human Readable Form
-    QStringList dlist = data.split(_RS, QT_ENUM_SKIPEMPTYPARTS);
+    QStringList dlist = data.split(_RS, Qt::SkipEmptyParts);
     QStringList nlist;
     foreach(QString rc, dlist) {
         if (rc.startsWith(_IN)) {

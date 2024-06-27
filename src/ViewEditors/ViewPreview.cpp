@@ -49,14 +49,6 @@
 
 #define DBG if(0)
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
-#else
-    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
-#endif
-
 const QString SET_CURSOR_JS2 =
     "var range = document.createRange();"
     "range.setStart(element, 0);"
@@ -475,7 +467,7 @@ QList<ElementIndex> ViewPreview::ConvertQWebPathToHierarchy(const QString & webp
 {
     // The location element hierarchy encoded in a string
     QString location_string = webpath;
-    QStringList elements    = location_string.split(",", QT_ENUM_SKIPEMPTYPARTS);
+    QStringList elements    = location_string.split(",", Qt::SkipEmptyParts);
     QList<ElementIndex> location;
     foreach(QString element, elements) {
         ElementIndex new_element;

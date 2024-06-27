@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021-2023  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2021-2024  Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -77,11 +77,7 @@ SPCRE::SPCRE(const QString &patten)
         m_valid = false;
         PCRE2_UCHAR16 buffer[256];
         pcre2_get_error_message_16(errorno, buffer, sizeof(buffer));
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        m_error = QString::fromUtf16(buffer);
-#else
         m_error = QString::fromUtf16(reinterpret_cast<char16_t*>(buffer));
-#endif
         m_errpos = (int) erroroffset;
         // qDebug() << "SPCRE invalid pattern: " << m_pattern;
         // qDebug() << "SPCRE error: " << m_error;

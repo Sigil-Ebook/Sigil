@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2019-2021 Kevin B. Hendricks Stratford, ON, Canada 
+ **  Copyright (C) 2019-2024 Kevin B. Hendricks Stratford, ON, Canada 
  **
  **  This file is part of Sigil.
  **
@@ -51,14 +51,7 @@ QString TextDocument::toText()
     QString txt;
     if (isEmpty()) return txt;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5,9,0))
     txt = toRawText();
-#else
-    // Use text cursors to get the TextDocument's contents
-    QTextCursor cursor(this);
-    cursor.select(QTextCursor::Document);
-    txt = cursor.selectedText();
-#endif
 
     QChar *uc = txt.data();
     QChar *e = uc + txt.size();

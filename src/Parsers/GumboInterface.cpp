@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023  Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2015-2024  Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -34,14 +34,6 @@
 #include "Parsers/GumboInterface.h"
 #include "string_buffer.h"
 #include "error.h"
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    #define QT_ENUM_SKIPEMPTYPARTS Qt::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS Qt::KeepEmptyParts
-#else
-    #define QT_ENUM_SKIPEMPTYPARTS QString::SkipEmptyParts
-    #define QT_ENUM_KEEPEMPTYPARTS QString::KeepEmptyParts
-#endif
 
 static std::unordered_set<std::string> nonbreaking_inline  = { 
     "a","abbr","acronym","b","bdo","big","br","button","cite","code","del",
@@ -530,7 +522,7 @@ QString GumboInterface::get_qwebpath_to_node(GumboNode* node)
 
 GumboNode* GumboInterface::get_node_from_qwebpath(QString webpath) 
 {
-    QStringList path_pieces = webpath.split(",", QT_ENUM_SKIPEMPTYPARTS);
+    QStringList path_pieces = webpath.split(",", Qt::SkipEmptyParts);
     GumboNode* node = get_root_node();
     GumboNode* end_node = node;
     for (int i=0; i < path_pieces.count() - 1 ; ++i) {

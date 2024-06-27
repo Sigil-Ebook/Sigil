@@ -251,11 +251,7 @@ bool PCREReplaceTextBuilder::BuildReplacementText(SPCRE &sre,
                             QString remainder = control_x6_hex.right(4);
                             achar = remainder.toUInt(NULL, 16);
                             achar = (65536 * extended_plane.toUInt(NULL, 16)) + achar;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-                            accumulateReplcementText(QString::fromUcs4(&achar, 1));
-#else
                             accumulateReplcementText(QString::fromUcs4(reinterpret_cast<char32_t*>(&achar), 1));
-#endif
                         }
                         in_control = false;
                         in_hex6 = false;

@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -82,9 +82,7 @@ Inspector::~Inspector()
 {
     if (m_inspectView) {
         m_inspectView->close();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
         m_inspectView->page()->setInspectedPage(nullptr);
-#endif
         m_view = nullptr;
         delete m_inspectView;
         m_inspectView = nullptr;
@@ -146,30 +144,16 @@ void Inspector::InspectPageofView(QWebEngineView* view)
 {
     m_view = view;
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
     if (m_view) {
         m_inspectView->page()->setInspectedPage(m_view->page());
     }
-#else
-    if (m_view) {
-        QString not_supported = tr("The Inspector functionality is not supported before Qt 5.11");
-        QString response = "<html><head><title>Warning</title></head><body><p>" + 
-                    not_supported + "</p></body></html>";
-        m_inspectView->setHtml(response);
-        show();
-    }
-#endif
 }
 
 void Inspector::StopInspection()
 {
     SaveSettings();
     m_view = nullptr;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 11, 0)
     m_inspectView->page()->setInspectedPage(nullptr);
-#else
-    m_inspectView->setHtml("<html><head><title></title></head><body></body></html>");
-#endif
 }
 
 QSize Inspector::sizeHint()

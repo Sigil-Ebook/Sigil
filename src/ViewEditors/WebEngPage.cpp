@@ -34,9 +34,7 @@ WebEngPage::WebEngPage(QWebEngineProfile* profile, QObject *parent, bool setback
     if (setbackground) {
         setBackgroundColor(Utility::WebViewBackgroundColor(true));
     }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)  || QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
     setUrl(QUrl("about:blank"));
-#endif
 #if 0
     DBG qDebug() << "WebEngPage Life Cycle State: " << lifecycleState();
     DBG qDebug() << "WebEngPage Current RenderProcess Pid " << renderProcessPid();
@@ -82,12 +80,10 @@ bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::Navig
         DBG qDebug() << "acceptNavigationRequest from scheme handler load" << url.toString();
         return true;
     }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     if (type == QWebEnginePage::NavigationTypeRedirect) {
         DBG qDebug() << "acceptNavigationRequest from scheme handler redirect" << url.toString();
         return true;
     }
-#endif
     qDebug() << " Unhandled acceptNavigationRequest with type: " << type;
     return true;
 }
