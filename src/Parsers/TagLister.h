@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020-2021 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2020-2024 Kevin B. Hendricks Stratford, ON, Canada 
 **
 **  This file is part of Sigil.
 **
@@ -23,7 +23,7 @@
 #define TAG_LISTER
 
 #include <QStringList>
-#include <QStringRef>
+#include <QStringView>
 #include <QList>
 
 class QString;
@@ -76,21 +76,21 @@ public:
 
     const QString& getSource();
 
-    static void parseAttribute(const QStringRef &tagstring, const QString &attribute_name, AttInfo& ainfo);
+    static void parseAttribute(const QStringView tagstring, const QString &attribute_name, AttInfo& ainfo);
     static QString serializeAttribute(const QString &aname, const QString &avalue);
-    static QString extractAllAttributes(const QStringRef &tagstring);
+    static QString extractAllAttributes(const QStringView tagstring);
     
 private:
     TagInfo getNext();
     void  buildTagList();
 
-    QStringRef parseML();
+    QStringView parseML();
 
-    void parseTag(const QStringRef &tagstring, TagInfo &mi);
+    void parseTag(const QStringView tagstring, TagInfo &mi);
 
     int findTarget(const QString &tgt, int p, bool after=false);
-    static int skipAnyBlanks(const QStringRef &segment, int p);
-    static int stopWhenContains(const QStringRef &segment, const QString& stopchars, int p);
+    static int skipAnyBlanks(const QStringView segment, int p);
+    static int stopWhenContains(const QStringView segment, const QString& stopchars, int p);
     
     QString        m_source;
     int            m_pos;

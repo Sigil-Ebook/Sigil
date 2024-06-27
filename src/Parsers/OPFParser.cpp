@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021-2023 Kevin B. Hendricks
+**  Copyright (C) 2021-2024 Kevin B. Hendricks
 **
 **  This file is part of Sigil.
 **
@@ -217,7 +217,7 @@ BaseParser::BaseParser(const QString &source)
 void BaseParser::parse_next(MarkupInfo& mi)
 {
     mi.pos = -1;
-    QStringRef markup = parseML();
+    QStringView markup = parseML();
     if (!markup.isNull()) {
         if ((markup.at(0) == '<') && (markup.at(markup.size() - 1) == '>')) {
             parseTag(markup, mi);
@@ -241,27 +241,27 @@ void BaseParser::parse_next(MarkupInfo& mi)
     }
 }
 
-QStringRef BaseParser::parseML()
+QStringView BaseParser::parseML()
 {
     int p = m_next;
     m_pos = p;
-    if (p >= m_source.length()) return QStringRef();
+    if (p >= m_source.length()) return QStringView();
     if (m_source.at(p) != '<') {
         // we have text leading up to a tag start
         m_next = findTarget("<", p+1);
-        return Utility::SubstringRef(m_pos, m_next, m_source);
+        return Utility::SubstringView(m_pos, m_next, m_source);
     }
     // handle special cases first
     QString tstart = Utility::Substring(p, p+9, m_source);
-    if (tstart.startsWith("<!--")) {
+    if (tstart.startsWith(QLatin1StringView("<!--"))) {
         // include ending > as part of the string
         m_next = findTarget("-->", p+4, true);
-        return Utility::SubstringRef(m_pos, m_next, m_source);
+        return Utility::SubstringView(m_pos, m_next, m_source);
     }
-    if (tstart.startsWith("<![CDATA[")) {
+    if (tstart.startsWith(QLatin1StringView("<![CDATA["))) {
         // include ending > as part of the string
         m_next = findTarget("]]>", p+9, true);
-        return Utility::SubstringRef(m_pos, m_next, m_source);
+        return Utility::SubstringView(m_pos, m_next, m_source);
     }
     // include ending > as part of the string
     m_next = findTarget(">", p+1, true);
@@ -270,11 +270,11 @@ QStringRef BaseParser::parseML()
     if ((ntb != -1) && (ntb < m_next)) {
         m_next = ntb;
     }
-    return Utility::SubstringRef(m_pos, m_next, m_source);
+    return Utility::SubstringView(m_pos, m_next, m_source);
 }
 
 
-void BaseParser::parseTag(const QStringRef& tagstring, MarkupInfo& mi)
+void BaseParser::parseTag(const QStringView tagstring, MarkupInfo& mi)
 {
     int taglen = tagstring.length();
     QChar c = tagstring.at(1);
@@ -282,7 +282,7 @@ void BaseParser::parseTag(const QStringRef& tagstring, MarkupInfo& mi)
 
     // first handle special cases
     if (c == '?') {
-        if (tagstring.startsWith("<?xml")) {
+        if (tagstring.startsWith(QLatin1StringView("<?xml"))) {
             mi.tname = "?xml";
             mi.ttype = "xmlheader";
             mi.tattr["special"] = Utility::Substring(5, taglen-1, tagstring);
@@ -294,11 +294,11 @@ void BaseParser::parseTag(const QStringRef& tagstring, MarkupInfo& mi)
         return;
     }
     if (c == '!') {
-        if (tagstring.startsWith("<!--")) {
+        if (tagstring.startsWith(QLatin1StringView("<!--"))) {
             mi.tname = "!--";
             mi.ttype = "comment";
             mi.tattr["special"] = Utility::Substring(4, taglen-3, tagstring);
-        } else if (tagstring.startsWith("<![CDATA[") || tagstring.startsWith("<![cdata[")) {
+        } else if (tagstring.startsWith(QLatin1StringView("<![CDATA[")) || tagstring.startsWith(QLatin1StringView("<![cdata["))) {
             mi.tname = "![CDATA[";
             mi.ttype = "cdata";
             mi.tattr["special"] = Utility::Substring(9, taglen-3, tagstring);
@@ -319,7 +319,7 @@ void BaseParser::parseTag(const QStringRef& tagstring, MarkupInfo& mi)
 
     // handle the possibility of attributes (so begin or single tag type, not end)
     if (mi.ttype.isEmpty()) {
-        while (tagstring.indexOf("=", p) != -1) {
+        while (tagstring.indexOf(QChar('='), p) != -1) {
             p = skipAnyBlanks(tagstring, p);
             b = p;
             p = stopWhenContains(tagstring, "=", p);
@@ -342,7 +342,7 @@ void BaseParser::parseTag(const QStringRef& tagstring, MarkupInfo& mi)
             mi.tattr[aname] = avalue;
         }
         mi.ttype = "begin";
-        if (tagstring.indexOf("/", p) >= 0) mi.ttype = "single";
+        if (tagstring.indexOf(QChar('/'), p) >= 0) mi.ttype = "single";
     }
     return;
 }
@@ -358,14 +358,14 @@ int BaseParser::findTarget(const QString &tgt, int p, bool after)
 }
 
 
-int BaseParser::skipAnyBlanks(const QStringRef &tgt, int p)
+int BaseParser::skipAnyBlanks(const QStringView tgt, int p)
 {
     while((p < tgt.length()) && (WHITESPACE_CHARS.contains(tgt.at(p)))) p++;
     return p;
 }
 
 
-int BaseParser::stopWhenContains(const QStringRef &tgt, const QString& stopchars, int p)
+int BaseParser::stopWhenContains(const QStringView tgt, const QString& stopchars, int p)
 {
     while((p < tgt.length()) && !stopchars.contains(tgt.at(p))) p++;
     return p;

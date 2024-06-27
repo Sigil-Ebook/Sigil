@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2024 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -22,7 +22,7 @@
 #include <QApplication>
 #include <QSyntaxHighlighter>
 #include <QTextDocument>
-#include <QStringRef>
+#include <QStringView>
 #include <QBrush>
 #include <QColor>
 #include <QDebug>
@@ -162,7 +162,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                 start = pos;
                 nstate = state;
                 while(pos < n) {
-                    if (Utility::SubstringRef(pos, pos+3, text) == "-->") {
+                    if (Utility::SubstringView(pos, pos+3, text) == QLatin1StringView("-->") ) {
                         pos += 3;
                         nstate = State_Text;
                         break;
@@ -379,7 +379,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                 nstate = state;
                 start = pos;
                 while(pos < n) {
-                    if (Utility::SubstringRef(pos, pos+2, text) == "/*") {
+                    if (Utility::SubstringView(pos, pos+2, text) == QLatin1StringView("/*")) {
                         pos += 2;
                         nstate = State_CSSComment;
                         break;
@@ -400,7 +400,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                 nstate = state;
                 start = pos;
                 while(pos < n) {
-                    if (Utility::SubstringRef(pos, pos+2, text) == "*/") {
+                    if (Utility::SubstringView(pos, pos+2, text) == QLatin1StringView("*/")) {
                         pos += 2;
                         nstate = State_CSS;
                         break;
@@ -418,11 +418,11 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                 while (pos < n) {
                     ch = text.at(pos);
                     if (ch == '<') {
-                        if (Utility::SubstringRef(pos, pos+4, text) == "<!--") {
+                        if (Utility::SubstringView(pos, pos+4, text) == QLatin1StringView("<!--")) {
                             DBG qDebug() << " found a comment";
                             nstate = State_Comment;
                         }
-                        else if (Utility::SubstringRef(pos, pos+9, text) == "<!DOCTYPE") {
+                        else if (Utility::SubstringView(pos, pos+9, text) == QLatin1StringView("<!DOCTYPE")) {
                             DBG qDebug() << " found a doctype";
                             nstate = State_DOCTYPE;
                         }

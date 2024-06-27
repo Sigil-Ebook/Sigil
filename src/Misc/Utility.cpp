@@ -45,7 +45,7 @@
 #include <QProcess>
 #include <QStandardPaths>
 #include <QStringList>
-#include <QStringRef>
+#include <QStringView>
 #include <QTextStream>
 #include <QtGlobal>
 #include <QUrl>
@@ -278,12 +278,12 @@ bool Utility::IsMixedCase(const QString &string)
     return false;
 }
 
-// Returns a substring from a specified QStringRef;
+// Returns a substring from a specified QStringView as a real QString;
 // the characters included are in the interval:
 // [ start_index, end_index >
-QString Utility::Substring(int start_index, int end_index, const QStringRef &string)
+QString Utility::Substring(int start_index, int end_index, const QStringView string)
 {
-    return string.mid(start_index, end_index - start_index).toString();
+    return string.sliced(start_index, end_index - start_index).toString();
 }
 
 
@@ -296,16 +296,12 @@ QString Utility::Substring(int start_index, int end_index, const QString &string
 
 }
 
-// Returns a substring of a specified string;
+// Returns a substring of a specified string as a QStringView
 // the characters included are in the interval:
 // [ start_index, end_index >
-QStringRef Utility::SubstringRef(int start_index, int end_index, const QString &string)
+QStringView Utility::SubstringView(int start_index, int end_index, const QString &string)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    return string.midRef(start_index, end_index - start_index);
-#else
-    return QStringRef(&string, start_index, end_index - start_index);
-#endif
+    return QStringView(string).sliced(start_index, end_index - start_index);
 }
 
 // Replace the first occurrence of string "before"
@@ -831,7 +827,17 @@ std::wstring Utility::QStringToStdWString(const QString &str)
 {
     return std::wstring((const wchar_t *)str.utf16());
 }
+
+QString Utility::stdWStringToQString(const std::wstring &str)
+{
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    return QString::fromUtf16((const ushort *)str.c_str());
+#else
+    return QString::fromUtf16(reinterpret_cast<const char16_t*>((const ushort *)str.c_str()));
 #endif
+}
+#endif
+
 
 bool Utility::UnZip(const QString &zippath, const QString &destpath)
 {

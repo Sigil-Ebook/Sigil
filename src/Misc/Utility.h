@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2016-2020 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -34,7 +34,7 @@
 #include <QStringList>
 #include <QImage>
 
-class QStringRef;
+class QStringView;
 class QWidget;
 class QMenu;
 
@@ -87,10 +87,10 @@ public:
     // For instance, "test" and "TEST" return false, "teSt" returns true.
     static bool IsMixedCase(const QString &string);
 
-    // Returns a substring of a QStringRef as a real string
+    // Returns a substring of a QStringView as a real string
     // the characters included are in the interval:
     // [ start_index, end_index >
-    static QString Substring(int start_index, int end_index, const QStringRef &string);
+    static QString Substring(int start_index, int end_index, const QStringView string);
 
     // Returns a substring of a specified string;
     // the characters included are in the interval:
@@ -100,7 +100,7 @@ public:
     // Returns a substring of a specified string;
     // the characters included are in the interval:
     // [ start_index, end_index >
-    static QStringRef SubstringRef(int start_index, int end_index, const QString &string);
+    static QStringView SubstringView(int start_index, int end_index, const QString &string);
 
     // Replace the first occurrence of string "before"
     // with string "after" in string "string"
@@ -199,6 +199,7 @@ public:
 
 #if defined(Q_OS_WIN32)
     static std::wstring QStringToStdWString(const QString &str);
+    static QString stdWStringToQString(const std::wstring &str);
 #endif
 
     static bool UnZip(const QString &zippath, const QString &destdir);

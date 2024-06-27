@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, John Schember
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, John Schember
 **
 **  This file is part of Sigil.
 **
@@ -25,7 +25,7 @@
 
 #include <QString>
 #include <QStringList>
-#include <QStringRef>
+#include <QStringView>
 #include <QHash>
 #include "Parsers/TagAtts.h"
 
@@ -153,11 +153,11 @@ public:
     QString oldprefix() { return m_oldprefix; }
 
 private:
-    QStringRef parseML();
-    void parseTag(const QStringRef &tagstring, MarkupInfo &mi);
+    QStringView parseML();
+    void parseTag(const QStringView tagstring, MarkupInfo &mi);
     int findTarget(const QString &tgt, int p, bool after=false);
-    int skipAnyBlanks(const QStringRef &segment, int p);
-    int stopWhenContains(const QStringRef &segment, const QString& stopchars, int p);
+    int skipAnyBlanks(const QStringView segment, int p);
+    int stopWhenContains(const QStringView segment, const QString& stopchars, int p);
 
     QString      m_source;
     int          m_pos;
