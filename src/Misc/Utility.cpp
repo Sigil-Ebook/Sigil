@@ -56,6 +56,7 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QCollator>
+#include <QStringDecoder>
 #include <QMenu>
 #include <QSet>
 #if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
@@ -69,7 +70,6 @@
 
 #include "sigil_constants.h"
 #include "sigil_exception.h"
-#include "Misc/QCodePage437Codec.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SleepFunctions.h"
 #include "MainUI/MainApplication.h"
@@ -88,7 +88,7 @@ static const QString DARK_STYLE =
 // This is the same read buffer size used by Java and Perl.
 #define BUFF_SIZE 8192
 
-static QCodePage437Codec *cp437 = 0;
+static QStringDecoder *cp437 = nullptr;
 
 // Subclass QMessageBox for our StdWarningDialog to make any Details Resizable
 class SigilMessageBox: public QMessageBox
@@ -827,15 +827,6 @@ std::wstring Utility::QStringToStdWString(const QString &str)
 {
     return std::wstring((const wchar_t *)str.utf16());
 }
-
-QString Utility::stdWStringToQString(const std::wstring &str)
-{
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    return QString::fromUtf16((const ushort *)str.c_str());
-#else
-    return QString::fromUtf16(reinterpret_cast<const char16_t*>((const ushort *)str.c_str()));
-#endif
-}
 #endif
 
 
@@ -844,7 +835,7 @@ bool Utility::UnZip(const QString &zippath, const QString &destpath)
     int res = 0;
     QDir dir(destpath);
     if (!cp437) {
-        cp437 = new QCodePage437Codec();
+        cp437 = new QStringDecoder("IBM437");
     }
 #ifdef Q_OS_WIN32
     zlib_filefunc64_def ffunc;
@@ -873,7 +864,7 @@ bool Utility::UnZip(const QString &zippath, const QString &destpath)
             if (!(file_info.flag & (1<<11))) {
                 // General purpose bit 11 says the filename is utf-8 encoded. If not set then
                 // IBM 437 encoding might be used.
-                cp437_file_name = cp437->toUnicode(file_name);
+                cp437_file_name = cp437->decode(file_name);
                 cp437_file_name = cp437_file_name.normalized(QString::NormalizationForm_C);
             }
 
@@ -994,7 +985,7 @@ QStringList Utility::ZipInspect(const QString &zippath)
     int res = 0;
 
     if (!cp437) {
-        cp437 = new QCodePage437Codec();
+        cp437 = new QStringDecoder("IBM437");
     }
 #ifdef Q_OS_WIN32
     zlib_filefunc64_def ffunc;
@@ -1019,7 +1010,7 @@ QStringList Utility::ZipInspect(const QString &zippath)
             qfile_name = QString::fromUtf8(file_name);
             qfile_name = qfile_name.normalized(QString::NormalizationForm_C);
             if (!(file_info.flag & (1<<11))) {
-                cp437_file_name = cp437->toUnicode(file_name);
+                cp437_file_name = cp437->decode(file_name);
                 cp437_file_name = cp437_file_name.normalized(QString::NormalizationForm_C);
             }
 

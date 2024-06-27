@@ -27,7 +27,6 @@
 #include <QCoreApplication>
 #include <QDir>
 #include <QLibraryInfo>
-#include <QTextCodec>
 #include <QThreadPool>
 #include <QTranslator>
 #include <QStandardPaths>
@@ -514,7 +513,7 @@ int main(int argc, char *argv[])
         app.addLibraryPath("iconengines");
         app.addLibraryPath("imageformats");
 
-        QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
+        // QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
 
         // Setup the qtbase_ translator and load the translation for the selected language
         QTranslator qtbaseTranslator;

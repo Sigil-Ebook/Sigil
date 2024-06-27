@@ -49,6 +49,7 @@
 #include <QDate>
 #include <QTime>
 #include <QUrl>
+#include <QStringDecoder>
 #include <QDebug>
 
 #include "BookManipulation/FolderKeeper.h"
@@ -57,7 +58,6 @@
 #include "Misc/MediaTypes.h"
 #include "Misc/FontObfuscation.h"
 #include "Misc/HTMLEncodingResolver.h"
-#include "Misc/QCodePage437Codec.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "ResourceObjects/CSSResource.h"
@@ -90,7 +90,7 @@ static const QString CONTAINER_XML       = "<?xml version=\"1.0\" encoding=\"UTF
         "   </rootfiles>\n"
         "</container>\n";
 
-static QCodePage437Codec *cp437 = 0;
+static QStringDecoder *cp437 = nullptr;
 
 // Constructor;
 // The parameter is the file to be imported
@@ -405,7 +405,7 @@ void ImportEPUB::ExtractContainer()
 {
     int res = 0;
     if (!cp437) {
-        cp437 = new QCodePage437Codec();
+        cp437 = new QStringDecoder("IBM437");
     }
 #ifdef Q_OS_WIN32
     zlib_filefunc64_def ffunc;
@@ -436,7 +436,7 @@ void ImportEPUB::ExtractContainer()
             if (!(file_info.flag & (1<<11))) {
                 // General purpose bit 11 says the filename is utf-8 encoded. If not set then
                 // IBM 437 encoding might be used.
-                cp437_file_name = cp437->toUnicode(file_name);
+                cp437_file_name = cp437->decode(file_name);
                 cp437_file_name = cp437_file_name.normalized(QString::NormalizationForm_C);
             }
             QDate moddate = QDate(file_info.tmu_date.tm_year,

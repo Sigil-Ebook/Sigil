@@ -23,11 +23,10 @@
 
 #include <string>
 
-#include <QtCore/QFile>
-#include <QtCore/QString>
-#include <QTextCodec>
+#include <QFile>
+#include <QString>
 #include <QRegularExpression>
-
+#include <QDebug>
 #include "Misc/HTMLEncodingResolver.h"
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
@@ -55,7 +54,7 @@ QString HTMLEncodingResolver::ReadHTMLFile(const QString &fullfilepath)
 
     QByteArray data = file.readAll();
 
-    return Utility::ConvertLineEndingsAndNormalize(GetCodecForHTML(data)->toUnicode(data));
+    return Utility::ConvertLineEndingsAndNormalize(GetDecoderForHTML(data).decode(data));
 }
 
 
@@ -63,17 +62,17 @@ QString HTMLEncodingResolver::ReadHTMLFile(const QString &fullfilepath)
 // if no encoding is detected, the default codec for this locale is returned.
 // We use this function because Qt's QTextCodec::codecForHtml() function
 // leaves a *lot* to be desired.
-const QTextCodec *HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_text)
+QStringDecoder HTMLEncodingResolver::GetDecoderForHTML(const QByteArray &raw_text)
 {
     unsigned char c1;
     unsigned char c2;
     unsigned char c3;
     unsigned char c4;
     QString text;
-    QTextCodec *codec;
+    QStringDecoder decoder;
 
     if (raw_text.length() < 4) {
-        return QTextCodec::codecForName("UTF-8");
+        return QStringDecoder("UTF-8");
     }
 
     // Check the BOM if present.
@@ -82,20 +81,20 @@ const QTextCodec *HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
     c3 = raw_text.at(2);
     c4 = raw_text.at(3);
     if (c1 == 0xEF && c2 == 0xBB && c3 == 0xBF) {
-        return QTextCodec::codecForName("UTF-8");
+        return QStringDecoder("UTF-8");
     } else if (c1 == 0xFF && c2 == 0xFE && c3 == 0 && c4 == 0) {
-        return QTextCodec::codecForName("UTF-32LE");
+        return QStringDecoder("UTF-32LE");
     } else if (c1 == 0 && c2 == 0 && c3 == 0xFE && c4 == 0xFF) {
-        return QTextCodec::codecForName("UTF-32BE");
+        return QStringDecoder("UTF-32BE");
     } else if (c1 == 0xFE && c2 == 0xFF) {
-        return QTextCodec::codecForName("UTF-16BE");
+        return QStringDecoder("UTF-16BE");
     } else if (c1 == 0xFF && c2 == 0xFE) {
-        return QTextCodec::codecForName("UTF-16LE");
+        return QStringDecoder("UTF-16LE");
     }
 
     // Alternating char followed by 0 is typical of utf 16 le without BOM.
     if (c1 != 0 && c2 == 0 && c3 != 0 && c4 == 0) {
-        return QTextCodec::codecForName("UTF-16LE");
+        return QStringDecoder("UTF-16LE");
     }
 
     // Try to find an ecoding specified in the file itself.
@@ -105,9 +104,9 @@ const QTextCodec *HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
     QRegularExpression enc_re(ENCODING_ATTRIBUTE);
     QRegularExpressionMatch enc_mo = enc_re.match(text);
     if (enc_mo.hasMatch()) {
-        codec = QTextCodec::codecForName(enc_mo.captured(1).toLatin1().toUpper());
-        if (codec) {
-            return codec;
+        QStringDecoder decoder = QStringDecoder(enc_mo.captured(1).toLatin1().toUpper());
+        if (decoder.isValid()) {
+            return decoder;
         }
     }
 
@@ -115,21 +114,21 @@ const QTextCodec *HTMLEncodingResolver::GetCodecForHTML(const QByteArray &raw_te
     QRegularExpression char_re(CHARSET_ATTRIBUTE);
     QRegularExpressionMatch char_mo = char_re.match(text);
     if (char_mo.hasMatch()) {
-        codec = QTextCodec::codecForName(char_mo.captured(1).toLatin1().toUpper());
-        if (codec) {
-            return codec;
+        QStringDecoder decoder = QStringDecoder(char_mo.captured(1).toLatin1().toUpper());
+        if (decoder.isValid()) {
+            return decoder;
         }
     }
 
     // See if all characters within this document are utf-8.
     if (IsValidUtf8(raw_text)) {
-        return QTextCodec::codecForName("UTF-8");
+        return QStringDecoder("UTF-8");
     }
 
     // Finally, let Qt guess and if it doesn't know it will return the codec
     // for the current locale.
     text = raw_text;
-    return QTextCodec::codecForHtml(raw_text, QTextCodec::codecForLocale());
+    return QStringDecoder::decoderForHtml(raw_text);
 }
 
 

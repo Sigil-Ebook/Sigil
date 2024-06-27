@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -27,16 +27,17 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QIODevice>
-#include <QTextCodec>
 #include <QTextStream>
 #include <QUrl>
 #include <QApplication>
 #include <QMutex>
 #include <QMutexLocker>
+#include <QStringEncoder>
+#include <QStringDecoder>
 #include <QDebug>
 
-#include "Misc/HTMLSpellCheckML.h"
 #include "Misc/SpellCheck.h"
+#include "Misc/HTMLSpellCheckML.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
@@ -136,6 +137,8 @@ void SpellCheck::UnloadDictionary(const QString &dname)
     if (m_opendicts.contains(dname)) {
         HDictionary hdic = m_opendicts[dname];
         if (hdic.handle) {
+            delete hdic.encoder;
+            delete hdic.decoder;
             delete hdic.handle;
         }
         m_opendicts.remove(dname);
@@ -202,9 +205,12 @@ bool SpellCheck::spell(const QString &word)
     }
     if (!m_opendicts.contains(dname)) return true;
     HDictionary hdic = m_opendicts[dname];
-    Q_ASSERT(hdic.codec != nullptr);
+    Q_ASSERT(hdic.encoder != nullptr);
+    Q_ASSERT(hdic.decoder != nullptr);
     Q_ASSERT(hdic.handle != nullptr);
-    bool res = hdic.handle->spell(hdic.codec->fromUnicode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word))).constData()) != 0;
+    QByteArray ba = hdic.encoder->encode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word)));
+    bool res = hdic.handle->spell(ba.constData()) != 0;    
+    // bool res = hdic.handle->spell(hdic.encoder->fromUnicode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word))).constData()) != 0;
     res = res || isIgnored(HTMLSpellCheckML::textOf(word));
     return res;
 }
@@ -217,10 +223,12 @@ bool SpellCheck::spellPS(const QString &word)
 {
     if (!m_primary.handle) return true;
     if(m_ignoredWords.contains(word)) return true;
-    bool res = m_primary.handle->spell(m_primary.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData()) != 0;
+    QByteArray pba = m_primary.encoder->encode(Utility::getSpellingSafeText(word));
+    bool res = m_primary.handle->spell(pba.constData()) !=0;
     if (res) return true;
     if (!m_secondary.handle) return false;
-    return m_secondary.handle->spell(m_secondary.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData()) != 0;
+    QByteArray sba = m_secondary.encoder->encode(Utility::getSpellingSafeText(word));
+    return m_secondary.handle->spell(sba.constData()) != 0;
 }
 
 
@@ -233,12 +241,14 @@ QStringList SpellCheck::suggest(const QString &word)
     if (dname.isEmpty()) return suggestions;
     if (!m_opendicts.contains(dname)) return suggestions;
     HDictionary hdic = m_opendicts[dname];
-    Q_ASSERT(hdic.codec != nullptr);
+    Q_ASSERT(hdic.encoder != nullptr);
+    Q_ASSERT(hdic.decoder != nullptr);
     Q_ASSERT(hdic.handle != nullptr);
-    int count = hdic.handle->suggest(&suggestedWords, hdic.codec->fromUnicode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word))).constData());
+    QByteArray wba = hdic.encoder->encode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word)));
+    int count = hdic.handle->suggest(&suggestedWords, wba.constData());
     bool possible_end_of_sentence = word.endsWith('.') && (word.count(".") == 1);
     for (int i = 0; i < count; ++i) {
-        QString suggested_word = hdic.codec->toUnicode(suggestedWords[i]);
+        QString suggested_word = hdic.decoder->decode(suggestedWords[i]);
         if (possible_end_of_sentence && !suggested_word.endsWith('.')) suggestions << suggested_word + ".";
         suggestions << suggested_word;
     }
@@ -256,21 +266,22 @@ QStringList SpellCheck::suggestPS(const QString &word)
     char **suggestedWords2;
     if (!m_primary.handle) return suggestions;
     bool possible_end_of_sentence = word.endsWith('.') && (word.count(".") == 1);
-    int count = m_primary.handle->suggest(&suggestedWords, m_primary.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
+    QByteArray pba = m_primary.encoder->encode(Utility::getSpellingSafeText(word));
+    int count = m_primary.handle->suggest(&suggestedWords, pba.constData());
     int limit = count;
     if (limit > 4) limit = 4;
     for (int i = 0; i < limit; ++i) {
-        QString suggested_word = m_primary.codec->toUnicode(suggestedWords[i]);
+        QString suggested_word = m_primary.decoder->decode(suggestedWords[i]);
         if (possible_end_of_sentence && !suggested_word.endsWith('.')) suggested_word.append('.');
         suggestions << suggested_word;
     }
-    m_primary.handle->free_list(&suggestedWords, count);
-    if (!m_secondary.handle) return suggestions; 
-    count = m_secondary.handle->suggest(&suggestedWords2, m_secondary.codec->fromUnicode(Utility::getSpellingSafeText(word)).constData());
+    if (!m_secondary.handle) return suggestions;
+    QByteArray sba = m_secondary.encoder->encode(Utility::getSpellingSafeText(word));
+    count = m_secondary.handle->suggest(&suggestedWords2, sba.constData());
     limit = count;
     if (limit > 4) limit = 4;
     for (int i = 0; i < limit; ++i) {
-        QString suggested_word = m_secondary.codec->toUnicode(suggestedWords2[i]);
+        QString suggested_word = m_secondary.decoder->decode(suggestedWords2[i]);
         if (possible_end_of_sentence && !suggested_word.endsWith('.')) suggested_word.append('.');
         suggestions << suggested_word;
     }
@@ -305,7 +316,8 @@ void SpellCheck::addWordToDictionary(const QString &word, const QString &dname)
     if (dname.isEmpty()) return;
     if (m_opendicts.contains(dname)) {
         HDictionary hdic = m_opendicts[dname];
-        hdic.handle->add(hdic.codec->fromUnicode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word))).constData());
+        QByteArray ba = hdic.encoder->encode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word)));
+        hdic.handle->add(ba.constData());
     }
 }
 
@@ -338,17 +350,20 @@ void SpellCheck::loadDictionary(const QString &dname)
     }
 
     // Get the encoding for the text in the dictionary.
-    hdic.codec = QTextCodec::codecForName(hdic.handle->get_dic_encoding());
-    if (hdic.codec == nullptr) {
-        hdic.codec = QTextCodec::codecForName("UTF-8");
-    }
-    if (!hdic.codec) {
-        qDebug() << "failed to load codec " << dname;
-        return;
+    QByteArray codecName(hdic.handle->get_dic_encoding());
+    if (codecName.startsWith("microsoft-cp125")) codecName.replace(0,sizeof("microsoft-cp") - 1 , "Windows-");
+    hdic.encoder = new QStringEncoder(codecName.data());
+    hdic.decoder = new QStringDecoder(codecName.data());
+    if (!hdic.encoder->isValid()) {
+        qDebug() << "failed to load codec: " << codecName << " from " << dname;
+        delete hdic.encoder;
+        delete hdic.decoder;
+        hdic.encoder = new QStringEncoder("UTF-8");
+        hdic.decoder = new QStringDecoder("UTF-8");
     }
 
     // Get the extra wordchars used for tokenization
-    hdic.wordchars = hdic.codec->toUnicode(hdic.handle->get_wordchars());
+    hdic.wordchars = hdic.decoder->decode(hdic.handle->get_wordchars());
 
     // register it as an open dictionary
     m_opendicts[dname] = hdic;
@@ -418,7 +433,8 @@ QString SpellCheck::getWordChars(const QString &lang)
     }
     if (!m_opendicts.contains(dname)) return "";
     HDictionary hdic = m_opendicts[dname];
-    Q_ASSERT(hdic.codec != nullptr);
+    Q_ASSERT(hdic.encoder != nullptr);
+    Q_ASSERT(hdic.decoder != nullptr);
     Q_ASSERT(hdic.handle != nullptr);
     return hdic.wordchars;
 }

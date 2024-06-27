@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -24,7 +24,7 @@
 #ifndef HTMLEncodingResolver_H
 #define HTMLEncodingResolver_H
 
-#include <QTextCodec>
+#include <QStringDecoder>
 
 class QString;
 
@@ -44,7 +44,7 @@ private:
     // if no encoding is detected, the default codec for this locale is returned.
     // We use this function because Qt's QTextCodec::codecForHtml() function
     // leaves a *lot* to be desired.
-    static const QTextCodec *GetCodecForHTML(const QByteArray &raw_text);
+    static QStringDecoder GetDecoderForHTML(const QByteArray &raw_text);
 
     // This function goes through the entire byte array
     // and tries to see whether this is a valid UTF-8 sequence.

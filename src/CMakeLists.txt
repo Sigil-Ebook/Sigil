@@ -353,8 +353,6 @@ set( MISC_FILES
     Misc/Plugin.h
     Misc/PluginDB.cpp
     Misc/PluginDB.h
-    Misc/QCodePage437Codec.cpp
-    Misc/QCodePage437Codec.h
     Misc/SearchOperations.cpp
     Misc/SearchOperations.h
     Misc/SigilDarkStyle.cpp

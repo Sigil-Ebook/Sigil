@@ -17,7 +17,7 @@ if( UNIX AND NOT APPLE )
     LIST( APPEND QRC_FILES Resource_Files/icon/app_icons_alt/app_icons.qrc )
 endif()
 
-set( PKGS_TO_FIND Core Core5Compat Network WebEngineCore WebEngineWidgets Svg Widgets Xml Concurrent PrintSupport LinguistTools )
+set( PKGS_TO_FIND Core Network WebEngineCore WebEngineWidgets Svg Widgets Xml Concurrent PrintSupport LinguistTools )
 if (APPLE)
     list( APPEND PKGS_TO_FIND UiTools )
 endif()
@@ -224,7 +224,7 @@ endif()
 
 # LIBS_TO_LINK for all platforms
 set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE2_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES}
-                  Qt6::Core5Compat Qt6::Widgets  Qt6::Xml  Qt6::PrintSupport  Qt6::WebEngineCore  
+                  Qt6::Widgets  Qt6::Xml  Qt6::PrintSupport  Qt6::WebEngineCore  
                   Qt6::WebEngineWidgets  Qt6::Network  Qt6::Concurrent Qt6::Svg)
 
 # Additions to LIBS_TO_LINK based on situation or platform

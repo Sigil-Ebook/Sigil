@@ -21,7 +21,6 @@
 *************************************************************************/
 
 #include <QtCore/QString>
-#include <QTextCodec>
 #include <QRegularExpression>
 
 #include "Misc/HTMLEncodingResolver.h"
