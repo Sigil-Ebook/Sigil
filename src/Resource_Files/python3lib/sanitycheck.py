@@ -17,6 +17,8 @@ SPECIAL_HANDLING_TAGS = OrderedDict([
 
 SPECIAL_HANDLING_TYPES = ['xmlheader', 'comment', 'doctype', 'cdata', 'pi']
 
+WHITESPACE_CHARS = (' ', '\n', '\r', '\t')
+
 MAX_TAG_LEN = 20
 
 VOID_TAGS = ("area","base","basefont","bgsound","br","col","command",
@@ -71,6 +73,9 @@ class SanityCheck(object):
             if self.headcnt != 1: 
                 self.errors.append((1, 0, 'Missing or multiple "head" tags'))
                 self.has_error = True
+            if self.xmldeclare != 1: 
+                self.errors.append((1, 0, 'Missing or multiple "xml declaration header"'))
+                self.has_error = True
         return (self.has_error, self.errors)
 
     # parses string version of tag to identify its name,
@@ -105,6 +110,13 @@ class SanityCheck(object):
             ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
             tattr['special'] = s[p:backstep]
             return tname, ttype, tattr
+        # handle special case of xml declaration header
+        if s[b:b+4] == "?xml":
+            p = b+4
+            tname = "?xml"
+            ttype, backstep = SPECIAL_HANDLING_TAGS[tname]
+            tattr['special'] = s[p:backstep]
+            return tname, ttype, tattr
         # handle special case of generic xml processing instruction (pi)
         if tname != "?xml" and s[b:b+1] == "?":
             p = b+1
@@ -134,13 +146,13 @@ class SanityCheck(object):
         if ttype is None:
             # parse any attributes
             while s.find('=',p) != -1 :
-                while s[p:p+1] == ' ' : p += 1
+                while s[p:p+1] in WHITESPACE_CHARS : p += 1
                 b = p
                 while s[p:p+1] != '=' : p += 1
                 aname = s[b:p].lower()
-                aname = aname.rstrip(' ')
+                aname = aname.rstrip(' \n\r\t')
                 p += 1
-                while s[p:p+1] == ' ' : p += 1
+                while s[p:p+1] in WHITESPACE_CHARS : p += 1
                 if s[p:p+1] in ('"', "'") :
                     qt = s[p:p+1]
                     p = p + 1
