@@ -68,6 +68,6 @@ QString TextDocument::toText()
         ;
         }
     }
-    txt = txt.normalized(QString::NormalizationForm_C);
+
     return txt;
 }

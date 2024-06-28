@@ -146,7 +146,7 @@ FindReplace::~FindReplace()
 void FindReplace::SetPreviousSearch()
 {
     m_PreviousSearch.clear();
-    m_PreviousSearch << GetFind();
+    m_PreviousSearch << ui.cbFind->lineEdit()->text();
     m_PreviousSearch << TGTS.at(GetLookWhere());
     m_PreviousSearch << DRS.at(GetSearchDirection());
 }
@@ -154,7 +154,7 @@ void FindReplace::SetPreviousSearch()
 bool FindReplace::IsNewSearch()
 {
     if (m_PreviousSearch.count() != 3) return true;
-    if (m_PreviousSearch.at(0) != GetFind()) return true;
+    if (m_PreviousSearch.at(0) != ui.cbFind->lineEdit()->text()) return true;
     if (m_PreviousSearch.at(1) != TGTS.at(GetLookWhere())) return true;
     if (m_PreviousSearch.at(2) != DRS.at(GetSearchDirection())) return true;
     return false;
@@ -171,7 +171,7 @@ void FindReplace::SetUpFindText()
             if (m_RegexOptionAutoTokenise && GetSearchMode() == FindReplace::SearchMode_Regex) {
                 selected_text = TokeniseForRegex(selected_text, false);
             }
-            selected_text = selected_text.normalized(QString::NormalizationForm_C);
+
             ui.cbFind->setEditText(selected_text);
             // To allow the user to immediately click on Replace, we need to setup the
             // regex match as though the user had clicked on Find.
@@ -451,7 +451,6 @@ bool FindReplace::FindAnyText(QString text, bool escape)
     } else {
         search_text = text + "(?![^<>]*>)(?!.*<body[^>]*>)";
     }
-    search_text = search_text.normalized(QString::NormalizationForm_C);
     ui.cbFind->setEditText(search_text);
     bool found = Find();
     ReadSettings();
@@ -476,7 +475,6 @@ void FindReplace::FindAnyTextInTags(QString text)
     // SetOptionWrap(true);
     SetRegexOptionTextOnly(false);
     text = text + "(?=[^<]*>)(?!(?:[^<\"]*\"[^<\"]*\")+\\s*/?>)";
-    text = text.normalized(QString::NormalizationForm_C);
     ui.cbFind->setEditText(text);
     Find();
 
@@ -757,7 +755,7 @@ int FindReplace::ReplaceAll()
             return 0;
         }
 
-        count = searchable->ReplaceAll(GetSearchRegex(), GetReplace(), GetSearchableDirection(), m_OptionWrap, IsMarkedText());
+        count = searchable->ReplaceAll(GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchableDirection(), m_OptionWrap, IsMarkedText());
     } else {
         count = ReplaceInAllFiles();
         // If wrap, all files are replaced, otherwise only files before/after
@@ -765,7 +763,7 @@ int FindReplace::ReplaceAll()
         // if (!m_OptionWrap) {
         //     Searchable *searchable = GetAvailableSearchable();
         //     if (searchable) {
-        //         count += searchable->ReplaceAll(GetSearchRegex(), GetReplace(), GetSearchableDirection(), m_OptionWrap);
+        //         count += searchable->ReplaceAll(GetSearchRegex(), ui.cbReplace->lineEdit()->text(), GetSearchableDirection(), m_OptionWrap);
         //     }
         // }
     }
@@ -931,7 +929,7 @@ bool FindReplace::ReplaceText(Searchable::Direction direction, bool replace_curr
 
     // If we have the matching text selected, replace it
     // This will not do anything if matching text is not selected.
-    found = searchable->ReplaceSelected(GetSearchRegex(), GetReplace(), direction, replace_current);
+    found = searchable->ReplaceSelected(GetSearchRegex(), ui.cbReplace->lineEdit()->text(), direction, replace_current);
 
     // If we are not going to stay put after a simple Replace, then find next match.
     if (!replace_current) {
@@ -1002,7 +1000,7 @@ QString FindReplace::GetSearchRegex()
         return QString();
     }
 
-    QString text = GetFind();
+    QString text = ui.cbFind->lineEdit()->text();
     // Convert &#x2029; to match line separator used by plainText.
     text.replace(QRegularExpression("\\R"), "\n");
 
@@ -1051,18 +1049,9 @@ QString FindReplace::PrependRegexOptionToSearch(const QString &option, const QSt
     return option % search;
 }
 
-QString FindReplace::GetFind()
-{
-    QString txt = ui.cbFind->lineEdit()->text();
-    txt = txt.normalized(QString::NormalizationForm_C);
-    return txt;
-}
-
 QString FindReplace::GetReplace()
 {
-    QString txt = ui.cbReplace->lineEdit()->text();
-    txt = txt.normalized(QString::NormalizationForm_C);
-    return txt;
+    return ui.cbReplace->lineEdit()->text();
 }
 
 QList<Resource*> FindReplace::GetAllResourcesToSearch()
@@ -1234,7 +1223,7 @@ int FindReplace::ReplaceInAllFiles()
 
     int count = SearchOperations::ReplaceInAllFIles(
                     GetSearchRegex(),
-                    GetReplace(),
+                    ui.cbReplace->lineEdit()->text(),
                     search_files);
     return count;
 }
@@ -1488,9 +1477,9 @@ void FindReplace::UpdatePreviousFindStrings(const QString &text)
     QString new_find_string;
 
     if (!text.isNull()) {
-        new_find_string = text.normalized(QString::NormalizationForm_C);
+        new_find_string = text;
     } else {
-        new_find_string = GetFind();
+        new_find_string = ui.cbFind->lineEdit()->text();
     }
 
     int used_at_index = ui.cbFind->findText(new_find_string);
@@ -1508,10 +1497,11 @@ void FindReplace::UpdatePreviousFindStrings(const QString &text)
 void FindReplace::UpdatePreviousReplaceStrings(const QString &text)
 {
     QString new_replace_string;
+
     if (!text.isNull()) {
-        new_replace_string = text.normalized(QString::NormalizationForm_C);
+        new_replace_string = text;
     } else {
-        new_replace_string = GetReplace();
+        new_replace_string = ui.cbReplace->lineEdit()->text();
     }
 
     int used_at_index = ui.cbReplace->findText(new_replace_string);
@@ -1783,8 +1773,8 @@ void FindReplace::SaveSearchAction()
     SearchEditorModel::searchEntry *search_entry = new SearchEditorModel::searchEntry();
     search_entry->name = "Unnamed Search";
     search_entry->is_group = false;
-    search_entry->find = GetFind();
-    search_entry->replace = GetReplace();
+    search_entry->find = ui.cbFind->lineEdit()->text();
+    search_entry->replace = ui.cbReplace->lineEdit()->text();
     search_entry->controls = GetControls();
     emit OpenSearchEditorRequest(search_entry);
 }
@@ -2099,10 +2089,9 @@ void FindReplace::TokeniseSelection()
     if (ui.cbFind->lineEdit()->hasSelectedText()) {
         // We want to tokenise only the selection
         text = ui.cbFind->lineEdit()->selectedText();
-        text = text.normalized(QString::NormalizationForm_C);
     } else {
         // We will tokenise the whole thing
-        text = GetFind();
+        text = ui.cbFind->lineEdit()->text();
     }
 
     QString new_text = TokeniseForRegex(text, true);
@@ -2121,7 +2110,7 @@ void FindReplace::TokeniseSelection()
 
 QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
 {
-    QString new_text(text.normalized(QString::NormalizationForm_C));
+    QString new_text(text);
 
     // Convert any form of newline or tabs to multiple spaces
     new_text.replace(QRegularExpression("\\R"), "  ");
@@ -2324,7 +2313,7 @@ void FindReplace::ExtendUI()
 void FindReplace::ValidateRegex()
 {
     if (GetSearchMode() == FindReplace::SearchMode_Regex) {
-        QString rawtext = GetFind();
+        QString rawtext = ui.cbFind->lineEdit()->text();
         QString text = GetSearchRegex();
         // searches have prepended regex pieces for minimal match and dotall that users do not see
         int offset_correction = text.length() - rawtext.length();

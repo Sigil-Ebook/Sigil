@@ -37,9 +37,8 @@ void PasteTargetComboBox::PasteText(const QString &text)
     // I originally tried logic manipulating the selected text. But the problem is that QLineEdit
     // does not support an Undo() if you call setEditText(), only if you call paste()
     // The only downside is that we will want to save/restore the clipboard state around it.
-    QString txt = text.normalized(QString::NormalizationForm_C);
     emit ClipboardSaveRequest();
-    QApplication::clipboard()->setText(txt);
+    QApplication::clipboard()->setText(text);
     lineEdit()->paste();
     emit ClipboardRestoreRequest();
 }

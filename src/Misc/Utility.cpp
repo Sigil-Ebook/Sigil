@@ -547,7 +547,6 @@ QString Utility::ReadUnicodeTextFile(const QString &fullfilepath)
 // file; if the file exists, it is truncated
 void Utility::WriteUnicodeTextFile(const QString &text, const QString &fullfilepath)
 {
-    QString newtext = text.normalized(QString::NormalizationForm_C);
     QFile file(fullfilepath);
 
     if (!file.open(QIODevice::WriteOnly |
@@ -561,7 +560,7 @@ void Utility::WriteUnicodeTextFile(const QString &text, const QString &fullfilep
 
     QTextStream out(&file);
     // We ALWAYS output in UTF-8
-    out << newtext;
+    out << text;
 }
 
 
@@ -570,7 +569,9 @@ void Utility::WriteUnicodeTextFile(const QString &text, const QString &fullfilep
 QString Utility::ConvertLineEndingsAndNormalize(const QString &text)
 {
     QString newtext(text);
-    newtext = newtext.normalized(QString::NormalizationForm_C);
+    // The following line is causing issues with rtl languages like Hebrew and Arabic
+    // so do not normalize for now until this is better understood
+    // newtext = newtext.normalized(QString::NormalizationForm_C);
     return newtext.replace("\x0D\x0A", "\x0A").replace("\x0D", "\x0A");
 }
 
@@ -639,11 +640,11 @@ QString Utility::URLEncodePath(const QString &path)
     // url encoding them
     QString newpath = DecodeXML(path);
 
-    // The epub spec says all paths must use Unicode Normalization Form C (NFC)
-    newpath = newpath.normalized(QString::NormalizationForm_C);
-
     // then undo any existing url encoding
     newpath = URLDecodePath(newpath);
+
+    // The epub spec says all paths must use Unicode Normalization Form C (NFC)
+    newpath = newpath.normalized(QString::NormalizationForm_C);
 
     QString result = "";
     QVector<uint32_t> codepoints = newpath.toUcs4();
@@ -683,7 +684,7 @@ QString Utility::URLDecodePath(const QString &path)
     QString newpath = QUrl::fromPercentEncoding(apath.toUtf8());
     // epub spec says all paths must use Normalization Form C (NFC)
     newpath = newpath.normalized(QString::NormalizationForm_C);
-    return newpath;
+    return newpath; 
 }
 
 

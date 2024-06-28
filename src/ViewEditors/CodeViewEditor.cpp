@@ -141,28 +141,6 @@ CodeViewEditor::~CodeViewEditor()
     m_ScrollOneLineDown->deleteLater();
 }
 
-
-QString CodeViewEditor::cursor_selected_text(const QTextCursor& c) const
-{
-    QString txt = c.selectedText();
-    QChar *uc = txt.data();
-    QChar *e = uc + txt.size();
-    for (; uc != e; ++uc) {
-        switch (uc->unicode()) {
-            case 0xfdd0: // QTextBeginningOfFrame
-            case 0xfdd1: // QTextEndOfFrame
-            case QChar::ParagraphSeparator:
-            case QChar::LineSeparator:
-                *uc = QLatin1Char('\n');
-                break;
-            default:
-            ;
-        }
-    }
-    return txt.normalized(QString::NormalizationForm_C);
-}
-
-
 void CodeViewEditor::SetAppearance()
 {
     SettingsStore settings;
@@ -369,7 +347,7 @@ void CodeViewEditor::CutCodeTags()
 
     QTextCursor cursor = textCursor();
     int start = cursor.selectionStart();
-    QString selected_text = cursor_selected_text(textCursor());
+    QString selected_text = textCursor().selectedText();
     QString new_text = StripCodeTags(selected_text);
     cursor.beginEditBlock();
     cursor.removeSelectedText();
@@ -711,13 +689,11 @@ int CodeViewEditor::CalculateLineNumberAreaWidth()
 
 void CodeViewEditor::ReplaceDocumentText(const QString &new_text)
 {
-    QString newtxt(new_text);
-    newtxt = newtxt.normalized(QString::NormalizationForm_C);
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
     cursor.select(QTextCursor::Document);
     cursor.removeSelectedText();
-    cursor.insertText(newtxt);
+    cursor.insertText(new_text);
     cursor.endEditBlock();
     m_regen_taglist = true; // just in case
 }
@@ -810,32 +786,11 @@ QString CodeViewEditor::toPlainText() const
 // overrides createMimeDataFromSelection()
 QMimeData *CodeViewEditor::createMimeDataFromSelection() const
 { 
-    QString selected_text = cursor_selected_text(textCursor());
-    selected_text = selected_text.replace(QChar::ParagraphSeparator, '\n');
-    QMimeData* md = new QMimeData();
-    md->setText(selected_text);
-    return md;
-}
-
-// overrides insertFromMimeData(const QMimeData* source)
-void CodeViewEditor::insertFromMimeData(const QMimeData* source)
-{
-    if (source->hasText() || source->hasHtml()) {
-        QMimeData nmd;
-        if (source->hasText()) {
-            QString txt = source->text();
-            txt = txt.normalized(QString::NormalizationForm_C);
-            nmd.setText(txt);
-        }
-        if (source->hasHtml()) {
-            QString ht = source->html();
-            ht = ht.normalized(QString::NormalizationForm_C);
-            nmd.setHtml(ht);
-        }
-        QPlainTextEdit::insertFromMimeData(&nmd);
-    } else {
-        QPlainTextEdit::insertFromMimeData(source);
-    }
+  QString selected_text = textCursor().selectedText();
+  selected_text = selected_text.replace(QChar::ParagraphSeparator, '\n');
+  QMimeData* md = new QMimeData();
+  md->setText(selected_text);
+  return md;
 }
 
 bool CodeViewEditor::IsLoadingFinished()
@@ -1225,7 +1180,7 @@ void CodeViewEditor::ResetLastFindMatch()
 
 QString CodeViewEditor::GetSelectedText()
 {
-    return cursor_selected_text(textCursor());
+    return textCursor().selectedText();
 }
 
 void CodeViewEditor::SetUpFindForSelectedText(const QString &search_regex)
@@ -1559,7 +1514,7 @@ QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
                     c.setPosition(c.block().position() + r.start);
                     c.movePosition(QTextCursor::Right, QTextCursor::KeepAnchor, r.length);
                     setTextCursor(c);
-                    return cursor_selected_text(c);
+                    return c.selectedText();
                 } else {
                     return toPlainText().mid(c.block().position() + r.start, r.length);
                 }
@@ -1572,7 +1527,7 @@ QString CodeViewEditor::GetCurrentWordAtCaret(bool select_word)
         int selLen = c.selectionEnd() - c.block().position() - selStart;
         foreach(QTextLayout::FormatRange r, textCursor().block().layout()->formats()) {
             if (r.start == selStart && selLen == r.length && r.format.underlineStyle() == QTextCharFormat::WaveUnderline/*QTextCharFormat::SpellCheckUnderline*/) {
-                return cursor_selected_text(c);
+                return c.selectedText();
             }
         }
     }
@@ -2209,7 +2164,7 @@ bool CodeViewEditor::MarkForIndex(const QString &title)
     safe_title.replace(">", "&gt;");
 
     bool ok = true;
-    QString selected_text = cursor_selected_text(textCursor());
+    QString selected_text = textCursor().selectedText();
     const QString &element_name = "a";
     const QString &attribute_name = "class";
 
@@ -2885,7 +2840,7 @@ void CodeViewEditor::FormatBlock(const QString &element_name, bool preserve_attr
     if (!textCursor().hasSelection()) {
         QTextCursor newcursor(textCursor());
         newcursor.select(QTextCursor::LineUnderCursor);
-        QString newtxt = cursor_selected_text(newcursor);
+        QString newtxt = newcursor.selectedText();
         int startpos = newcursor.selectionStart();
         QString cleantxt(newtxt);
         cleantxt = cleantxt.trimmed();
@@ -3006,7 +2961,7 @@ void CodeViewEditor::InsertHTMLTagAroundSelection(const QString &left_element_na
         new_attributes.prepend(" ");
     }
 
-    const QString &selected_text = cursor_selected_text(cursor);
+    const QString &selected_text = cursor.selectedText();
     const QString &prefix_text = "<" % left_element_name % new_attributes % ">";
     const QString &replacement_text = prefix_text % selected_text % "<" % right_element_name % ">";
     int selection_start = cursor.selectionStart();
@@ -3190,7 +3145,7 @@ void CodeViewEditor::FormatSelectionWithinElement(const QString &element_name, i
     } else {
         QString opening_tag = text.mid(tb.pos, tb.len);
         QString closing_tag = text.mid(te.pos, te.len);
-        QString replacement_text = cursor_selected_text(cursor);
+        QString replacement_text = cursor.selectedText();
         cursor.beginEditBlock();
         int new_selection_end = selection_end;
         int new_selection_start = selection_start;
@@ -3721,7 +3676,7 @@ bool CodeViewEditor::IsSelectionValid(const QString & text)
 void CodeViewEditor::WrapSelectionInElement(const QString& element, bool unwrap)
 {
     QTextCursor cursor = textCursor();
-    const QString selected_text = cursor_selected_text(cursor);
+    const QString selected_text = cursor.selectedText();
 
     if (selected_text.isEmpty()) {
         return;
@@ -3781,7 +3736,7 @@ void CodeViewEditor::WrapSelectionInElement(const QString& element, bool unwrap)
 void CodeViewEditor::ApplyListToSelection(const QString &element)
 {
     QTextCursor cursor = textCursor();
-    const QString selected_text = cursor_selected_text(cursor);
+    const QString selected_text = cursor.selectedText();
 
     if (selected_text.isEmpty()) {
         return;
@@ -3847,7 +3802,7 @@ void CodeViewEditor::ApplyListToSelection(const QString &element)
 void CodeViewEditor::ApplyCaseChangeToSelection(const Utility::Casing &casing)
 {
     QTextCursor cursor = textCursor();
-    const QString selected_text = cursor_selected_text(cursor);
+    const QString selected_text = cursor.selectedText();
 
     if (selected_text.isEmpty()) {
         return;

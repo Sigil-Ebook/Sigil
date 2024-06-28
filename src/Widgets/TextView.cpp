@@ -296,7 +296,6 @@ QString TextView::selected_text_from_cursor(const QTextCursor& cursor) const
         result << rstrip_pad(line); 
     }
     txt = result.join('\n');
-    txt = txt.normalized(QString::NormalizationForm_C);
     return txt;
 }
 
