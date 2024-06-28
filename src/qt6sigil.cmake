@@ -441,6 +441,20 @@ elseif (MSVC)
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${UITOOLS} ${MAIN_PACKAGE_DIR} )
     endif()
 
+    # Copy ICU libs. Windeployqt does not always pick up all three.
+    set( ICU_BIN_LIBS icudt icuin icuuc )
+    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/ )
+    foreach( lib ${ICU_BIN_LIBS} )
+        # If the three are there (any version), copy them. Otherwise keep going without them.
+        file( GLOB ICU_LIB ${QT_INSTALL_BINS}/${lib}*.dll )
+        list( LENGTH ICU_LIB PATHS_LEN )
+        if( PATHS_LEN GREATER 0 )
+            foreach( ICU ${ICU_LIB} )
+                add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E copy ${ICU} ${MAIN_PACKAGE_DIR}/ )
+            endforeach( ICU )
+        endif()
+    endforeach( lib )
+
     # Copy the translation qm files
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${MAIN_PACKAGE_DIR}/translations/ )
     foreach( QM ${QM_FILES} )
