@@ -46,12 +46,14 @@ TextResource::TextResource(const QString &mainfolder, const QString &fullfilepat
 QString TextResource::GetText() const
 {
     QMutexLocker locker(&m_CacheAccessMutex);
-
+    QString txt;
     if (m_CacheInUse) {
-        return m_Cache;
+        txt = m_Cache;
+    } else {
+        txt = m_TextDocument->toText();
     }
-
-    return m_TextDocument->toText();
+    txt = txt.normalized(QString::NormalizationForm_C);
+    return txt;
 }
 
 

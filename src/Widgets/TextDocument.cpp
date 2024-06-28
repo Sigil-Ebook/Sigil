@@ -68,6 +68,9 @@ QString TextDocument::toText()
         ;
         }
     }
-    txt = txt.normalized(QString::NormalizationForm_C);
+    // FIXME - this causes cursor positions to be off by shrinking the total
+    // number of utf16 chars in the document.txt when it combines diacritics
+    // into base chars (ie. uses precomposed form) so disable this until we know more
+    // txt = txt.normalized(QString::NormalizationForm_C);
     return txt;
 }

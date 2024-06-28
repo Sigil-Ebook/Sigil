@@ -938,6 +938,8 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     SPCRE::MatchInfo match_info;
     QString txt = toPlainText();
+    txt = txt.normalized(QString::NormalizationForm_C);
+    ReplaceDocumentText(txt);
     int start_offset = 0;
     int start = 0;
     int end = txt.length();
@@ -1034,9 +1036,11 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
 int CodeViewEditor::Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool marked_text)
 {
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
-    QString text= toPlainText();
+    QString txt= toPlainText();
+    txt = txt.normalized(QString::NormalizationForm_C);
+    ReplaceDocumentText(txt);
     int start = 0;
-    int end = text.length();
+    int end = txt.length();
 
     if (marked_text) {
         if (!MoveToMarkedText(direction, wrap)) {
@@ -1047,14 +1051,14 @@ int CodeViewEditor::Count(const QString &search_regex, Searchable::Direction dir
     }
     if (!wrap) {
         if (direction == Searchable::Direction_Up) {
-            text = Utility::Substring(start, textCursor().position(), text);
+            txt = Utility::Substring(start, textCursor().position(), txt);
         } else {
-            text = Utility::Substring(textCursor().position(), end, text);
+            txt = Utility::Substring(textCursor().position(), end, txt);
         }
     } else if (marked_text) {
-        text = Utility::Substring(start, end, text);
+        txt = Utility::Substring(start, end, txt);
     }
-    return spcre->getEveryMatchInfo(text).count();
+    return spcre->getEveryMatchInfo(txt).count();
 }
 
 
@@ -1071,7 +1075,9 @@ bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString 
     }
 
     // Convert to plain text or \s won't get newlines
-    const QString &document_text = toPlainText();
+    // assume already NFC normalized by earlier find
+    const QString document_text = toPlainText();
+    
     QString selected_text = Utility::Substring(selection_start, selection_end, document_text);
     QString replaced_text;
     bool replacement_made = false;
@@ -1137,6 +1143,8 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
 {
     int count = 0;
     QString text = toPlainText();
+    text = text.normalized(QString::NormalizationForm_C);
+    ReplaceDocumentText(text);
     int original_position = textCursor().position();
     int position = original_position;
     if (marked_text) {
