@@ -32,6 +32,7 @@
 #include "Misc/HTMLSpellCheck.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/XHTMLHighlighter2.h"
+#include "sigil_constants.h"
 
 #define DBG if(0)
 
@@ -162,7 +163,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                 start = pos;
                 nstate = state;
                 while(pos < n) {
-                    if (Utility::SubstringView(pos, pos+3, text) == QLatin1StringView("-->") ) {
+                    if (Utility::SubstringView(pos, pos+3, text) == QL1SV("-->") ) {
                         pos += 3;
                         nstate = State_Text;
                         break;
@@ -379,7 +380,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                 nstate = state;
                 start = pos;
                 while(pos < n) {
-                    if (Utility::SubstringView(pos, pos+2, text) == QLatin1StringView("/*")) {
+                    if (Utility::SubstringView(pos, pos+2, text) == QL1SV("/*")) {
                         pos += 2;
                         nstate = State_CSSComment;
                         break;
@@ -400,7 +401,7 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                 nstate = state;
                 start = pos;
                 while(pos < n) {
-                    if (Utility::SubstringView(pos, pos+2, text) == QLatin1StringView("*/")) {
+                    if (Utility::SubstringView(pos, pos+2, text) == QL1SV("*/")) {
                         pos += 2;
                         nstate = State_CSS;
                         break;
@@ -418,11 +419,11 @@ void XHTMLHighlighter2::highlightBlock(const QString &text)
                 while (pos < n) {
                     ch = text.at(pos);
                     if (ch == '<') {
-                        if (Utility::SubstringView(pos, pos+4, text) == QLatin1StringView("<!--")) {
+                        if (Utility::SubstringView(pos, pos+4, text) == QL1SV("<!--")) {
                             DBG qDebug() << " found a comment";
                             nstate = State_Comment;
                         }
-                        else if (Utility::SubstringView(pos, pos+9, text) == QLatin1StringView("<!DOCTYPE")) {
+                        else if (Utility::SubstringView(pos, pos+9, text) == QL1SV("<!DOCTYPE")) {
                             DBG qDebug() << " found a doctype";
                             nstate = State_DOCTYPE;
                         }

@@ -28,6 +28,7 @@
 
 #include "Misc/Utility.h"
 #include "Parsers/TagLister.h"
+#include "sigil_constants.h"
 
 
 // public interface
@@ -377,7 +378,7 @@ void TagLister::parseTag(const QStringView tagstring, TagLister::TagInfo& mi)
     
     // first handle special cases
     if (c == '?') {
-        if (tagstring.startsWith(QLatin1StringView("<?xml"))) {
+        if (tagstring.startsWith(QL1SV("<?xml"))) {
             mi.tname = "?xml";
             mi.ttype = "xmlheader";
         } else {
@@ -387,13 +388,13 @@ void TagLister::parseTag(const QStringView tagstring, TagLister::TagInfo& mi)
         return;
     }
     if (c == '!') {
-        if (tagstring.startsWith(QLatin1StringView("<!--"))) {
+        if (tagstring.startsWith(QL1SV("<!--"))) {
             mi.tname = "!--";
             mi.ttype = "comment"; 
-        } else if (tagstring.startsWith(QLatin1StringView("<!DOCTYPE")) || tagstring.startsWith(QLatin1StringView("<!doctype"))) {
+        } else if (tagstring.startsWith(QL1SV("<!DOCTYPE")) || tagstring.startsWith(QL1SV("<!doctype"))) {
             mi.tname = "!DOCTYPE";
             mi.ttype = "doctype";
-        } else if (tagstring.startsWith(QLatin1StringView("<![CDATA[")) || tagstring.startsWith(QLatin1StringView("<![cdata["))) {
+        } else if (tagstring.startsWith(QL1SV("<![CDATA[")) || tagstring.startsWith(QL1SV("<![cdata["))) {
             mi.tname = "![CDATA[";
             mi.ttype = "cdata";
         }
@@ -414,7 +415,7 @@ void TagLister::parseTag(const QStringView tagstring, TagLister::TagInfo& mi)
     // fill in tag type
     if (mi.ttype.isEmpty()) {
         mi.ttype = "begin";
-        if (tagstring.endsWith(QLatin1StringView("/>")) || tagstring.endsWith(QLatin1StringView("/ >"))) mi.ttype = "single";
+        if (tagstring.endsWith(QL1SV("/>")) || tagstring.endsWith(QL1SV("/ >"))) mi.ttype = "single";
     }
     return;
 }

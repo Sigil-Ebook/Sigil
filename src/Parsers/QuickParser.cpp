@@ -28,6 +28,7 @@
 #include "Parsers/TagAtts.h"
 #include "Misc/Utility.h"
 #include "Parsers/QuickParser.h"
+#include "sigil_constants.h"
 
 const QString WHITESPACE_CHARS=" \v\t\n\r\f";
 
@@ -181,7 +182,7 @@ void QuickParser::parseTag(const QStringView tagstring, QuickParser::MarkupInfo&
 
     // first handle special cases
     if (c == '?') {
-        if (tagstring.startsWith(QLatin1StringView("<?xml"))) {
+        if (tagstring.startsWith(QL1SV("<?xml"))) {
             mi.tname = "?xml";
             mi.ttype = "xmlheader";
             mi.tattr["special"] = Utility::Substring(5, taglen-1, tagstring);
@@ -193,15 +194,15 @@ void QuickParser::parseTag(const QStringView tagstring, QuickParser::MarkupInfo&
         return;
     }
     if (c == '!') {
-        if (tagstring.startsWith(QLatin1StringView("<!--"))) {
+        if (tagstring.startsWith(QL1SV("<!--"))) {
             mi.tname = "!--";
             mi.ttype = "comment"; 
             mi.tattr["special"] = Utility::Substring(4, taglen-3, tagstring);
-        } else if (tagstring.startsWith(QLatin1StringView("<!DOCTYPE")) || tagstring.startsWith(QLatin1StringView("<!doctype"))) {
+        } else if (tagstring.startsWith(QL1SV("<!DOCTYPE")) || tagstring.startsWith(QL1SV("<!doctype"))) {
             mi.tname = "!DOCTYPE";
             mi.ttype = "doctype";
             mi.tattr["special"] = Utility::Substring(9, taglen-1, tagstring);
-        } else if (tagstring.startsWith(QLatin1StringView("<![CDATA[")) || tagstring.startsWith(QLatin1StringView("<![cdata["))) {
+        } else if (tagstring.startsWith(QL1SV("<![CDATA[")) || tagstring.startsWith(QL1SV("<![cdata["))) {
             mi.tname = "![CDATA[";
             mi.ttype = "cdata";
             mi.tattr["special"] = Utility::Substring(9, taglen-3, tagstring);

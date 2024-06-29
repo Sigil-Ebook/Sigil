@@ -131,8 +131,14 @@ QStringDecoder HTMLEncodingResolver::GetDecoderForHTML(const QByteArray &raw_tex
 
     // Finally, let Qt guess and if it doesn't know it will return the codec
     // for the current locale.
+#if QT_VERSION < QT_VERSION_CHECK(6,4,0)
+    // At this point, all the checks we do are going to include what
+    // decoderForHtml is going to do in Qt6.4+ So UTF-8 is extremely likely
+    return QStringDecoder("UTF-8");
+#else
     text = raw_text;
     return QStringDecoder::decoderForHtml(raw_text);
+#endif
 }
 
 

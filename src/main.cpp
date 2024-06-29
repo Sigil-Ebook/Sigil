@@ -649,7 +649,11 @@ int main(int argc, char *argv[])
             QString hcolor = app.palette().color(QPalette::Highlight).name();
             QString user_color = Utility::GetEnvironmentVar("SIGIL_FOCUS_HIGHLIGHT_COLOR");
             if (!user_color.isEmpty() && user_color.startsWith("#") && user_color.length() == 7) {
-		if (QColor::isValidColorName(user_color)) {
+#if QT_VERSION >= QT_VERSION_CHECK(6,4,0)
+                if (QColor::isValidColorName(user_color)) {
+#else
+                if (QColor::isValidColor(user_color)) {
+#endif
                     hcolor = user_color;
                 }
             }

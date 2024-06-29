@@ -39,6 +39,15 @@
 
 #include <QStringList>
 
+// QL1SV() Macro to handle renaming of QLatin1String to QLatin1StringView in Qt6.4+
+#if QT_VERSION >= QT_VERSION_CHECK(6,4,0)
+#include <QLatin1StringView>
+#define QL1SV(t) QLatin1StringView(t)
+#else
+#include <QLatin1String>
+#define QL1SV(t) QLatin1String(t)
+#endif
+
 class QString;
 
 // These enable us to use constants defined

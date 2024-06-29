@@ -21,6 +21,7 @@
 
 #include "Misc/Utility.h"
 #include "Parsers/OPFParser.h"
+#include "sigil_constants.h"
 #include <QDebug>
 
 const QString WHITESPACE_CHARS=" \t\n\r";  // valid in pure xml
@@ -253,12 +254,12 @@ QStringView BaseParser::parseML()
     }
     // handle special cases first
     QString tstart = Utility::Substring(p, p+9, m_source);
-    if (tstart.startsWith(QLatin1StringView("<!--"))) {
+    if (tstart.startsWith(QL1SV("<!--"))) {
         // include ending > as part of the string
         m_next = findTarget("-->", p+4, true);
         return Utility::SubstringView(m_pos, m_next, m_source);
     }
-    if (tstart.startsWith(QLatin1StringView("<![CDATA["))) {
+    if (tstart.startsWith(QL1SV("<![CDATA["))) {
         // include ending > as part of the string
         m_next = findTarget("]]>", p+9, true);
         return Utility::SubstringView(m_pos, m_next, m_source);
@@ -282,7 +283,7 @@ void BaseParser::parseTag(const QStringView tagstring, MarkupInfo& mi)
 
     // first handle special cases
     if (c == '?') {
-        if (tagstring.startsWith(QLatin1StringView("<?xml"))) {
+        if (tagstring.startsWith(QL1SV("<?xml"))) {
             mi.tname = "?xml";
             mi.ttype = "xmlheader";
             mi.tattr["special"] = Utility::Substring(5, taglen-1, tagstring);
@@ -294,11 +295,11 @@ void BaseParser::parseTag(const QStringView tagstring, MarkupInfo& mi)
         return;
     }
     if (c == '!') {
-        if (tagstring.startsWith(QLatin1StringView("<!--"))) {
+        if (tagstring.startsWith(QL1SV("<!--"))) {
             mi.tname = "!--";
             mi.ttype = "comment";
             mi.tattr["special"] = Utility::Substring(4, taglen-3, tagstring);
-        } else if (tagstring.startsWith(QLatin1StringView("<![CDATA[")) || tagstring.startsWith(QLatin1StringView("<![cdata["))) {
+        } else if (tagstring.startsWith(QL1SV("<![CDATA[")) || tagstring.startsWith(QL1SV("<![cdata["))) {
             mi.tname = "![CDATA[";
             mi.ttype = "cdata";
             mi.tattr["special"] = Utility::Substring(9, taglen-3, tagstring);
