@@ -54,9 +54,9 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
-        version: '6.4.0'
+        version: '6.2.4'
         dir: ${{runner.workspace}}/Qt
-        modules: 'qtwebengine qtpositioning qtpdf qtwebchannel'
+        modules: 'qtwebengine qtpositioning qtwebchannel'
         setup-python: 'false'
         cache: ${{ steps.cache-qt.outputs.cache-hit }}
 
