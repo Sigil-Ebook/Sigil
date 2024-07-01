@@ -711,13 +711,12 @@ int CodeViewEditor::CalculateLineNumberAreaWidth()
 
 void CodeViewEditor::ReplaceDocumentText(const QString &new_text)
 {
-    QString newtxt(new_text);
-    newtxt = newtxt.normalized(QString::NormalizationForm_C);
+    QString txt = new_text.normalized(QString::NormalizationForm_C);
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
     cursor.select(QTextCursor::Document);
     cursor.removeSelectedText();
-    cursor.insertText(newtxt);
+    cursor.insertText(txt);
     cursor.endEditBlock();
     m_regen_taglist = true; // just in case
 }
@@ -938,8 +937,6 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     SPCRE::MatchInfo match_info;
     QString txt = toPlainText();
-    txt = txt.normalized(QString::NormalizationForm_C);
-    ReplaceDocumentText(txt);
     int start_offset = 0;
     int start = 0;
     int end = txt.length();
@@ -1037,8 +1034,6 @@ int CodeViewEditor::Count(const QString &search_regex, Searchable::Direction dir
 {
     SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     QString txt= toPlainText();
-    txt = txt.normalized(QString::NormalizationForm_C);
-    ReplaceDocumentText(txt);
     int start = 0;
     int end = txt.length();
 
@@ -1143,8 +1138,6 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
 {
     int count = 0;
     QString text = toPlainText();
-    text = text.normalized(QString::NormalizationForm_C);
-    ReplaceDocumentText(text);
     int original_position = textCursor().position();
     int position = original_position;
     if (marked_text) {
