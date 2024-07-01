@@ -201,7 +201,7 @@
            <item>
             <widget class="QPushButton" name="addUserDict">
              <property name="focusPolicy">
-              <enum>Qt::StrongFocus</enum>
+              <enum>Qt::TabFocus</enum>
              </property>
              <property name="text">
               <string>Add</string>
@@ -211,7 +211,7 @@
            <item>
             <widget class="QPushButton" name="renameUserDict">
              <property name="focusPolicy">
-              <enum>Qt::StrongFocus</enum>
+              <enum>Qt::TabFocus</enum>
              </property>
              <property name="text">
               <string>Rename</string>
@@ -221,7 +221,7 @@
            <item>
             <widget class="QPushButton" name="copyUserDict">
              <property name="focusPolicy">
-              <enum>Qt::StrongFocus</enum>
+              <enum>Qt::TabFocus</enum>
              </property>
              <property name="text">
               <string>Copy</string>
@@ -231,7 +231,7 @@
            <item>
             <widget class="QPushButton" name="removeUserDict">
              <property name="focusPolicy">
-              <enum>Qt::StrongFocus</enum>
+              <enum>Qt::TabFocus</enum>
              </property>
              <property name="toolTip">
               <string>Remove the selected dictionary.
@@ -314,7 +314,7 @@ and to make it the default dictionary.</string>
            <item>
             <widget class="QPushButton" name="addUserWords">
              <property name="focusPolicy">
-              <enum>Qt::StrongFocus</enum>
+              <enum>Qt::TabFocus</enum>
              </property>
              <property name="toolTip">
               <string>Enter or paste words to add to the dictionary.
@@ -328,7 +328,7 @@ Words can be separated by lines, commas, or spaces.</string>
            <item>
             <widget class="QPushButton" name="editWord">
              <property name="focusPolicy">
-              <enum>Qt::StrongFocus</enum>
+              <enum>Qt::TabFocus</enum>
              </property>
              <property name="text">
               <string>Edit</string>
@@ -338,7 +338,7 @@ Words can be separated by lines, commas, or spaces.</string>
            <item>
             <widget class="QPushButton" name="removeWord">
              <property name="focusPolicy">
-              <enum>Qt::StrongFocus</enum>
+              <enum>Qt::TabFocus</enum>
              </property>
              <property name="text">
               <string>Remove</string>
@@ -348,7 +348,7 @@ Words can be separated by lines, commas, or spaces.</string>
            <item>
             <widget class="QPushButton" name="removeAll">
              <property name="focusPolicy">
-              <enum>Qt::StrongFocus</enum>
+              <enum>Qt::TabFocus</enum>
              </property>
              <property name="text">
               <string>Remove All</string>

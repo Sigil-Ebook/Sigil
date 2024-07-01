@@ -49,7 +49,7 @@
        <item row="1" column="0">
         <widget class="QPushButton" name="addToolButton">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Add a new Tool element to the list.</string>
@@ -62,7 +62,7 @@
        <item row="3" column="0">
         <widget class="QPushButton" name="delButton">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Remove an Automate List element.</string>
@@ -75,7 +75,7 @@
        <item row="2" column="0">
         <widget class="QPushButton" name="addPluginButton">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Add a new Plugin element to the list.</string>
@@ -103,7 +103,7 @@
          <item>
           <widget class="QToolButton" name="tbMoveUp">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>Move selected element up.</string>
@@ -119,7 +119,7 @@
          <item>
           <widget class="QToolButton" name="tbMoveDown">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>Move selected element down.</string>

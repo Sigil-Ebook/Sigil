@@ -120,7 +120,7 @@
      <item>
       <widget class="QPushButton" name="Apply">
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="toolTip">
         <string>Apply the remaining replacements listed in the table.

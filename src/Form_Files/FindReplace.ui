@@ -154,7 +154,7 @@
            </size>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
+           <enum>Qt::TabFocus</enum>
           </property>
           <property name="toolTip">
            <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find&lt;/b&gt;&lt;/p&gt;
@@ -188,7 +188,7 @@
            </size>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
+           <enum>Qt::TabFocus</enum>
           </property>
           <property name="toolTip">
            <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace&lt;/b&gt;&lt;/p&gt;
@@ -222,7 +222,7 @@
            </size>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
+           <enum>Qt::TabFocus</enum>
           </property>
           <property name="toolTip">
            <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Restart&lt;/b&gt;&lt;/p&gt;
@@ -285,7 +285,7 @@
            </size>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
+           <enum>Qt::TabFocus</enum>
           </property>
           <property name="toolTip">
            <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace/Find&lt;/b&gt;&lt;/p&gt;
@@ -320,7 +320,7 @@ then find the Next match in Code View.&lt;/p&gt;</string>
            </size>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
+           <enum>Qt::TabFocus</enum>
           </property>
           <property name="toolTip">
            <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace All&lt;/b&gt;&lt;/p&gt;
@@ -355,7 +355,7 @@ then find the Next match in Code View.&lt;/p&gt;</string>
            </size>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
+           <enum>Qt::TabFocus</enum>
           </property>
           <property name="toolTip">
            <string>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Count All&lt;/b&gt;&lt;/p&gt;

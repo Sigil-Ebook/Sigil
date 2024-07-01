@@ -191,7 +191,7 @@
                </size>
               </property>
               <property name="focusPolicy">
-               <enum>Qt::StrongFocus</enum>
+               <enum>Qt::TabFocus</enum>
               </property>
               <property name="toolTip">
                <string>Select an alternative color for this display item</string>
@@ -481,7 +481,7 @@ if a sans-serif font-family specified in your CSS</string>
           <item>
            <widget class="QRadioButton" name="Default">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Sigil's default icon theme.</string>
@@ -497,7 +497,7 @@ if a sans-serif font-family specified in your CSS</string>
           <item>
            <widget class="QRadioButton" name="Fluent">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Icons based on the Fluent theme:</string>
@@ -513,7 +513,7 @@ if a sans-serif font-family specified in your CSS</string>
           <item>
            <widget class="QRadioButton" name="Material">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Icons based on Google's Material theme:</string>
@@ -529,7 +529,7 @@ if a sans-serif font-family specified in your CSS</string>
           <item>
            <widget class="QRadioButton" name="Custom">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Custom Icon Theme:</string>
@@ -683,7 +683,7 @@ if a sans-serif font-family specified in your CSS</string>
           <item>
            <widget class="QPushButton" name="changeUIFontButton">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Change the font used by Sigil's menus, buttons, etc...</string>

@@ -56,7 +56,7 @@
          <item>
           <widget class="QPushButton" name="InsertFromDisk">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>Choose which image, video, or audio files from your computer to add to
@@ -136,7 +136,7 @@ your book and automatically insert into your document.</string>
          <item>
           <widget class="QToolButton" name="ThumbnailDecrease">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="icon">
             <iconset>
@@ -147,7 +147,7 @@ your book and automatically insert into your document.</string>
          <item>
           <widget class="QToolButton" name="ThumbnailIncrease">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="icon">
             <iconset>

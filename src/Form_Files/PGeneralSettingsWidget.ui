@@ -52,7 +52,7 @@ when creating new or empty Epubs in Sigil.</string>
           <item>
            <widget class="QRadioButton" name="EpubVersion2">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Epub Version 2.</string>
@@ -68,7 +68,7 @@ when creating new or empty Epubs in Sigil.</string>
           <item>
            <widget class="QRadioButton" name="EpubVersion3">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Epub Version 3.</string>
@@ -212,7 +212,7 @@ mended.</string>
             <item>
              <widget class="QPushButton" name="clearButton7">
               <property name="focusPolicy">
-               <enum>Qt::StrongFocus</enum>
+               <enum>Qt::TabFocus</enum>
               </property>
               <property name="text">
                <string>Clear</string>
@@ -222,7 +222,7 @@ mended.</string>
             <item>
              <widget class="QPushButton" name="browseButton7">
               <property name="focusPolicy">
-               <enum>Qt::StrongFocus</enum>
+               <enum>Qt::TabFocus</enum>
               </property>
               <property name="text">
                <string>Browse</string>
@@ -369,7 +369,7 @@ mended.</string>
           <item>
            <widget class="QRadioButton" name="Epub2css20">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>W3C stylesheet validator will use CSS level 2 for EPUB2</string>
@@ -382,7 +382,7 @@ mended.</string>
           <item>
            <widget class="QRadioButton" name="Epub2css21">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>W3C stylesheet validator will use CSS level 2.1 for EPUB2</string>
@@ -398,7 +398,7 @@ mended.</string>
           <item>
            <widget class="QRadioButton" name="Epub2css30">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>W3C stylesheet validator will use CSS level 3 for EPUB2</string>
@@ -448,7 +448,7 @@ mended.</string>
           <item>
            <widget class="QRadioButton" name="Epub3css20">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>W3C stylesheet validator will use CSS level 2 for EPUB3</string>
@@ -461,7 +461,7 @@ mended.</string>
           <item>
            <widget class="QRadioButton" name="Epub3css21">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>W3C stylesheet validator will use CSS level 2.1 for EPUB3</string>
@@ -477,7 +477,7 @@ mended.</string>
           <item>
            <widget class="QRadioButton" name="Epub3css30">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>W3C stylesheet validator will use CSS level 3 for EPUB3</string>
@@ -556,7 +556,7 @@ mended.</string>
             <item>
              <widget class="QPushButton" name="autoButton">
               <property name="focusPolicy">
-               <enum>Qt::StrongFocus</enum>
+               <enum>Qt::TabFocus</enum>
               </property>
               <property name="text">
                <string>Auto</string>
@@ -566,7 +566,7 @@ mended.</string>
             <item>
              <widget class="QPushButton" name="browseButton">
               <property name="focusPolicy">
-               <enum>Qt::StrongFocus</enum>
+               <enum>Qt::TabFocus</enum>
               </property>
               <property name="text">
                <string>Browse</string>

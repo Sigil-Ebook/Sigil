@@ -65,7 +65,7 @@
        <item>
         <widget class="QPushButton" name="LoadSearch">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Load the selected entry into the Find &amp; Replace window.</string>
@@ -94,7 +94,7 @@
        <item>
         <widget class="QPushButton" name="Find">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Run Find using the selected entry.
@@ -109,7 +109,7 @@ then if not found look for the second entry in the list, etc.</string>
        <item>
         <widget class="QPushButton" name="ReplaceCurrent">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Run Replace using the selected entry.
@@ -140,7 +140,7 @@ and stop at the first successful replace.</string>
        <item>
         <widget class="QPushButton" name="Replace">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Run Replace/Find using the selected entry.
@@ -155,7 +155,7 @@ and stop at the first successful replace/find.</string>
        <item>
         <widget class="QPushButton" name="ReplaceAll">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Run Replace All for the selected entries in the order selected.
@@ -185,7 +185,7 @@ Select a group to replace all entries in the group in order.</string>
        <item>
         <widget class="QPushButton" name="CountAll">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Run Count All for the selected entries in the order selected,
@@ -199,7 +199,7 @@ including entries in selected groups.</string>
        <item>
         <widget class="QPushButton" name="CountsReportPB">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Create a Counts report for the selected entries in the order selected,
@@ -231,7 +231,7 @@ including entries in selected groups.</string>
          <item>
           <widget class="QToolButton" name="MoveUp">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>Move an entry up one level in the same group.</string>
@@ -264,7 +264,7 @@ including entries in selected groups.</string>
          <item>
           <widget class="QToolButton" name="MoveLeft">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>Move an entry to the level of its parent.</string>
@@ -296,7 +296,7 @@ including entries in selected groups.</string>
          <item>
           <widget class="QToolButton" name="MoveRight">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>You must select an item immediately under a group to move it into the group.</string>
@@ -329,7 +329,7 @@ including entries in selected groups.</string>
          <item>
           <widget class="QToolButton" name="MoveDown">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>Move an entry down one level in the same group.</string>

@@ -304,7 +304,7 @@ other end to continue searching.</string>
           <item>
            <widget class="QPushButton" name="btClearAll">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Ignore current settings and return an empty Controls value. </string>

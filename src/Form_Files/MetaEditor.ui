@@ -49,7 +49,7 @@
        <item row="1" column="0">
         <widget class="QPushButton" name="addMetaButton">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Add a new metadata element.</string>
@@ -62,7 +62,7 @@
        <item row="2" column="0">
         <widget class="QPushButton" name="addPropButton">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Add a new property or attribute to an existing metadata element.</string>
@@ -75,7 +75,7 @@
        <item row="3" column="0">
         <widget class="QPushButton" name="delButton">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Remove a metadata element or property.</string>

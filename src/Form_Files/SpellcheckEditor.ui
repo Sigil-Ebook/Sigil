@@ -55,7 +55,7 @@
        <item>
         <widget class="QPushButton" name="Ignore">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Ignore the selected words until Sigil
@@ -91,7 +91,7 @@ is restarted or a new book is opened.</string>
           </sizepolicy>
          </property>
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Add the selected words to the
@@ -140,7 +140,7 @@ dictionary selected below.</string>
        <item>
         <widget class="QPushButton" name="ChangeAll">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Change all occurrences of the selected word  in
@@ -233,7 +233,7 @@ The selected word does not have to be misspelled.</string>
      <item>
       <widget class="QPushButton" name="Refresh">
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="toolTip">
         <string>Re-check the HTML files for misspelled words.

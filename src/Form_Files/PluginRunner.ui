@@ -45,7 +45,7 @@
         </sizepolicy>
        </property>
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="text">
         <string>Start</string>
@@ -61,7 +61,7 @@
         </sizepolicy>
        </property>
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="text">
         <string>Cancel</string>
@@ -109,7 +109,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         </sizepolicy>
        </property>
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="text">
         <string>Details...</string>
@@ -119,7 +119,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <item row="5" column="3">
       <widget class="QPushButton" name="okButton">
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="text">
         <string>OK</string>

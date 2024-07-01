@@ -129,7 +129,7 @@
      <item>
       <widget class="QPushButton" name="Refresh">
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="toolTip">
         <string>Perform the dry run ReplaceAll again and rebuild the table</string>
@@ -155,7 +155,7 @@
      <item>
       <widget class="QPushButton" name="closeButton">
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="toolTip">
         <string>Close this dialog</string>

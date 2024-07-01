@@ -65,7 +65,7 @@
        <item>
         <widget class="QPushButton" name="PasteClip">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Paste the selected entry into the active window.</string>
@@ -94,7 +94,7 @@
        <item>
         <widget class="QPushButton" name="AddEntry">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="text">
           <string>Add Entry</string>
@@ -104,7 +104,7 @@
        <item>
         <widget class="QPushButton" name="AddGroup">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="text">
           <string>Add Group</string>
@@ -132,7 +132,7 @@
          <item>
           <widget class="QToolButton" name="MoveUp">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>Move an entry up one entry in the same group.</string>
@@ -165,7 +165,7 @@
          <item>
           <widget class="QToolButton" name="MoveLeft">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>Move an entry to the level of its parent.</string>
@@ -197,7 +197,7 @@
          <item>
           <widget class="QToolButton" name="MoveRight">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>You must select an item immediately under a group to move it into the group.</string>
@@ -230,7 +230,7 @@
          <item>
           <widget class="QToolButton" name="MoveDown">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>Move an entry down one in the group.</string>

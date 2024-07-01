@@ -49,7 +49,7 @@
        <item row="1" column="0">
         <widget class="QPushButton" name="loadButton">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Load a previously saved design from an ini file.</string>
@@ -62,7 +62,7 @@
        <item row="2" column="0">
         <widget class="QPushButton" name="saveButton">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Save the current design to an ini file.</string>
@@ -88,7 +88,7 @@
        <item row="4" column="0">
         <widget class="QPushButton" name="addButton">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Add a new folder to parent.</string>
@@ -101,7 +101,7 @@
        <item row="5" column="0">
         <widget class="QPushButton" name="addFileButton">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Add an allowed file type marker to an existing folder.</string>
@@ -114,7 +114,7 @@
        <item row="6" column="0">
         <widget class="QPushButton" name="delButton">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Remove an existing file type marker or folder.</string>
@@ -127,7 +127,7 @@
        <item row="7" column="0">
         <widget class="QPushButton" name="renameButton">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Rename a folder or OPF, NCX or Nav marker.</string>

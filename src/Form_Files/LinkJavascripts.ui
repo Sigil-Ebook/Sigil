@@ -40,7 +40,7 @@
        <item>
         <widget class="QToolButton" name="MoveUp">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Move the selected javascripts up in priority.
@@ -58,7 +58,7 @@ Javascripts that are listed first are loaded first.</string>
        <item>
         <widget class="QToolButton" name="MoveDown">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Move the selected javascripts down in priority.</string>

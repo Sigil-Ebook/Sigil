@@ -40,7 +40,7 @@
        <item>
         <widget class="QToolButton" name="MoveUp">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Move the selected stylesheets up in priority.
@@ -58,7 +58,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</strin
        <item>
         <widget class="QToolButton" name="MoveDown">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Move the selected stylesheets down in priority.</string>

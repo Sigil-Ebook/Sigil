@@ -148,7 +148,7 @@
            </sizepolicy>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
+           <enum>Qt::TabFocus</enum>
           </property>
           <property name="toolTip">
            <string>Assign this keyboard shortcut, overriding any conflicting usages.</string>
@@ -170,7 +170,7 @@
            <bool>false</bool>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
+           <enum>Qt::TabFocus</enum>
           </property>
           <property name="toolTip">
            <string>Remove this keyboard shortcut.</string>

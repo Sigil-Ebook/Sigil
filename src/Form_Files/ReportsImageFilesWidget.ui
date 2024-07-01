@@ -80,7 +80,7 @@
      <item>
       <widget class="QToolButton" name="ThumbnailDecrease">
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="icon">
         <iconset>
@@ -91,7 +91,7 @@
      <item>
       <widget class="QToolButton" name="ThumbnailIncrease">
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="icon">
         <iconset>

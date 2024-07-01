@@ -52,7 +52,7 @@
        <item>
         <widget class="QPushButton" name="AddEntry">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="text">
           <string>Add Entry</string>

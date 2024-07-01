@@ -49,7 +49,7 @@
        <item>
         <widget class="QPushButton" name="rename">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="toolTip">
           <string>Change the name of the entry in the TOC.
@@ -81,7 +81,7 @@ The heading's title attribute will be updated in the document.</string>
          <item>
           <widget class="QToolButton" name="bleft">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>Decrease the heading level of the selected entry by 1.
@@ -99,7 +99,7 @@ You can also use the left arrow key.</string>
          <item>
           <widget class="QToolButton" name="bright">
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
            <property name="toolTip">
             <string>Increase the heading level of the selected entry by 1.
@@ -159,7 +159,7 @@ Check or uncheck an entry to determine if it will be added to the TOC.</string>
       </sizepolicy>
      </property>
      <property name="focusPolicy">
-      <enum>Qt::StrongFocus</enum>
+      <enum>Qt::ClickFocus</enum>
      </property>
      <property name="toolTip">
       <string>Quickly mark which headings are included in the TOC.
