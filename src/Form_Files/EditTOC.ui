@@ -55,7 +55,7 @@
           <string>Add Above</string>
          </property>
          <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
+           <enum>Qt::TabFocus</enum>
          </property>
         </widget>
        </item>
@@ -68,7 +68,7 @@
           <string>Add Below</string>
          </property>
          <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
+           <enum>Qt::TabFocus</enum>
          </property>
         </widget>
        </item>
@@ -81,7 +81,7 @@
           <string>Delete</string>
          </property>
          <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
+           <enum>Qt::TabFocus</enum>
          </property>
         </widget>
        </item>
@@ -94,7 +94,7 @@
           <string>Select Target</string>
          </property>
          <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
+           <enum>Qt::TabFocus</enum>
          </property>
         </widget>
        </item>
@@ -129,7 +129,7 @@ You can also use the left arrow key.</string>
             <enum>Qt::LeftArrow</enum>
            </property>
            <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
            </property>
           </widget>
          </item>
@@ -144,7 +144,7 @@ You can also use the left arrow key.</string>
               <enum>Qt::UpArrow</enum>
              </property>
              <property name="focusPolicy">
-              <enum>Qt::StrongFocus</enum>
+              <enum>Qt::TabFocus</enum>
             </property>
             </widget>
            </item>
@@ -157,7 +157,7 @@ You can also use the left arrow key.</string>
               <enum>Qt::DownArrow</enum>
              </property>
              <property name="focusPolicy">
-              <enum>Qt::StrongFocus</enum>
+              <enum>Qt::TabFocus</enum>
              </property>
             </widget>
            </item>
@@ -176,7 +176,7 @@ You can also use the right arrow key.</string>
             <enum>Qt::RightArrow</enum>
            </property>
            <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
+            <enum>Qt::TabFocus</enum>
            </property>
           </widget>
          </item>
