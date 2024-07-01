@@ -376,7 +376,7 @@ void SelectCharacter::AddGrid(const QStringList &characters, int width)
             button->setToolTip(entity + " " + description);
             button->setText(display_text);
             button->setFont(font);
-            button->setFocusPolicy(Qt::StrongFocus);
+            button->setFocusPolicy(Qt::TabFocus);
             connect(button, SIGNAL(clicked()), m_buttonMapper, SLOT(map()));
             m_buttonMapper->setMapping(button, insert_text);
             grid->addWidget(button, row, col);

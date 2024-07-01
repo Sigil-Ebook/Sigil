@@ -102,7 +102,7 @@
      <item>
       <widget class="QCheckBox" name="EnableAltGr">
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="text">
         <string>Enable AltGr on international keyboard</string>

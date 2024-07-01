@@ -128,12 +128,12 @@ MetaEditor::MetaEditor(QWidget *parent)
     updateActions();
     setFocusPolicy(Qt::StrongFocus);
     view->setFocusPolicy(Qt::StrongFocus);
-    addMetaButton->setFocusPolicy(Qt::StrongFocus);
-    addPropButton->setFocusPolicy(Qt::StrongFocus);
-    delButton->setFocusPolicy(Qt::StrongFocus);
-    tbMoveUp->setFocusPolicy(Qt::StrongFocus);
-    tbMoveDown->setFocusPolicy(Qt::StrongFocus);
-    buttonBox->setFocusPolicy(Qt::StrongFocus);
+    addMetaButton->setFocusPolicy(Qt::TabFocus);
+    addPropButton->setFocusPolicy(Qt::TabFocus);
+    delButton->setFocusPolicy(Qt::TabFocus);
+    tbMoveUp->setFocusPolicy(Qt::TabFocus);
+    tbMoveDown->setFocusPolicy(Qt::TabFocus);
+    buttonBox->setFocusPolicy(Qt::TabFocus);
 }
 
 

@@ -430,7 +430,7 @@ if a sans-serif font-family specified in your CSS</string>
        <item>
         <widget class="QCheckBox" name="PreviewDarkInDM">
          <property name="focusPolicy">
-          <enum>Qt::StrongFocus</enum>
+          <enum>Qt::TabFocus</enum>
          </property>
          <property name="text">
           <string>Make Preview simulate a dark appearance in dark mode</string>
@@ -597,7 +597,7 @@ if a sans-serif font-family specified in your CSS</string>
           <item row="1" column="0">
            <widget class="QSlider" name="iconSizeSlider">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="minimum">
              <number>10</number>
@@ -724,7 +724,7 @@ if a sans-serif font-family specified in your CSS</string>
           <item row="0" column="0">
            <widget class="QCheckBox" name="ShowFullPath">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Check to make BookBrowser show full paths.</string>
@@ -749,7 +749,7 @@ if a sans-serif font-family specified in your CSS</string>
           <item>
            <widget class="QCheckBox" name="chkFocusDec">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Show colored border around Widgets when they have focus</string>
@@ -762,7 +762,7 @@ if a sans-serif font-family specified in your CSS</string>
           <item>
            <widget class="QCheckBox" name="chkDoubleWidthCursor">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Make insertion cursor more visible</string>

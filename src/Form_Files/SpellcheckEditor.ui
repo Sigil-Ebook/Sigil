@@ -193,7 +193,7 @@ The selected word does not have to be misspelled.</string>
      <item>
       <widget class="QCheckBox" name="ShowAllWords">
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="text">
         <string>Show All Words</string>
@@ -203,7 +203,7 @@ The selected word does not have to be misspelled.</string>
      <item>
       <widget class="QCheckBox" name="LocaleAwareSort">
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="toolTip">
         <string>Sort words as in a locale specific manner, typically AaBbCc instead of ABCabc.</string>

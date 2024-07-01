@@ -454,7 +454,7 @@ then find the Next match in Code View.&lt;/p&gt;</string>
           <item>
            <widget class="QToolButton" name="tbRegexOptions">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Set advanced Regex search flags / options.</string>
@@ -474,7 +474,7 @@ then find the Next match in Code View.&lt;/p&gt;</string>
           <item>
            <widget class="QCheckBox" name="chkOptionWrap">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Search from current position to top or end of the
@@ -496,7 +496,7 @@ other end to continue searching.</string>
           <item>
            <widget class="QCheckBox" name="chkOptionTextOnly">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Search only in text (outside tags).

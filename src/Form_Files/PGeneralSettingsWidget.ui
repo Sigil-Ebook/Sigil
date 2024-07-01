@@ -119,7 +119,7 @@ mended.</string>
           <item>
            <widget class="QCheckBox" name="MendOnOpen">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Mend Not Well Formed HTML when opening an Epub or HTML file.</string>
@@ -132,7 +132,7 @@ mended.</string>
           <item alignment="Qt::AlignLeft">
            <widget class="QCheckBox" name="MendOnSave">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Mend Not Well Formed HTML when saving an Epub.</string>
@@ -275,7 +275,7 @@ mended.</string>
              </sizepolicy>
             </property>
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Check to allow Epubs to access non-multimedia remote resources.</string>
@@ -312,7 +312,7 @@ mended.</string>
              </sizepolicy>
             </property>
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Check to allow Epubs to use javascript.</string>
@@ -599,7 +599,7 @@ mended.</string>
              </sizepolicy>
             </property>
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Disable GPU Acceleration in QtWebEngine.</string>
@@ -624,7 +624,7 @@ mended.</string>
           <item>
            <widget class="QCheckBox" name="chkSkipPrintPreview">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Skip Print Preview</string>

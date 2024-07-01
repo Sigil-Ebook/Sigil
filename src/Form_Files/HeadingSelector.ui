@@ -136,7 +136,7 @@ You can also use the right arrow key.</string>
    <item>
     <widget class="QCheckBox" name="cbTOCItemsOnly">
      <property name="focusPolicy">
-      <enum>Qt::StrongFocus</enum>
+      <enum>Qt::TabFocus</enum>
      </property>
      <property name="toolTip">
       <string>Only display the items that will be added to the Table Of Contents.

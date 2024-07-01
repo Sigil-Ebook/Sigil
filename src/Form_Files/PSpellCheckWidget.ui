@@ -85,7 +85,7 @@
      <item row="2" column="0" colspan="2">
       <widget class="QCheckBox" name="HighlightMisspelled">
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="toolTip">
         <string>Highlight misspelled words in Code View.</string>
@@ -111,7 +111,7 @@
      <item row="3" column="0" colspan="2">
       <widget class="QCheckBox" name="CheckNumbers">
        <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
+        <enum>Qt::TabFocus</enum>
        </property>
        <property name="toolTip">
         <string>Check words with numbers in them.</string>

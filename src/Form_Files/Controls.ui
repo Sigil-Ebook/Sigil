@@ -115,7 +115,7 @@
           <item>
            <widget class="QCheckBox" name="chkRegexOptionDotAll">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>For Regex searches, prefix your search with (?s).</string>
@@ -138,7 +138,7 @@
           <item>
            <widget class="QCheckBox" name="chkRegexOptionMinimalMatch">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>For Regex searches, prefix your search with (?U).</string>
@@ -161,7 +161,7 @@
           <item>
            <widget class="QCheckBox" name="chkRegexOptionAutoTokenise">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>For Regex searches, tokenise/escape selection when opening Find.</string>
@@ -184,7 +184,7 @@
           <item>
            <widget class="QCheckBox" name="chkRegexOptionUnicodeProperty">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>For Regex searches, set the Unicode Property flag.</string>
@@ -207,7 +207,7 @@
           <item>
            <widget class="QCheckBox" name="chkOptionWrap">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Search from current position to top or end of the 
@@ -229,7 +229,7 @@ other end to continue searching.</string>
           <item>
            <widget class="QCheckBox" name="chkOptionTextOnly">
             <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
+             <enum>Qt::TabFocus</enum>
             </property>
             <property name="toolTip">
              <string>Search only in text (outside tags).

@@ -50,7 +50,7 @@ ViewImage::ViewImage(QWidget *parent, bool delete_on_close)
     m_bp->setToolTip(tr("Close this window"));
     m_bp->setText(tr("Done"));
     m_bp->setToolButtonStyle(Qt::ToolButtonTextOnly);
-    m_bp->setFocusPolicy(Qt::StrongFocus);
+    m_bp->setFocusPolicy(Qt::TabFocus);
     QHBoxLayout* hl = new QHBoxLayout();
     hl->addStretch(0);
     hl->addWidget(m_bp);
