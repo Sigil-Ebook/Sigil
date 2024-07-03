@@ -1,7 +1,8 @@
 pre-2.3.0
    New Features
-     - removed support for building Sigil with QT5 as our code had become a rats nest of qt version ifdefs
+     - removed support for building Sigil with Qt5 as our code had become a rats nest of qt version ifdefs
            See our git branch "qt5final" for the very last buildable version of Sigil under Qt5
+     - our new minium version to build Qt is Qt 6.4.0 or later
      - removed the need and usage for Qt6Compat5 as its contents were deprecated and will go away eventually
      - added support for using the IUC library to help replace the range of encodings supported by the old QTextCodec
      - we are now using NFC unicode normalization form for all  links, urls, and file paths.
@@ -10,6 +11,7 @@ pre-2.3.0
      - we have upgraded to use Qt 6.7.2 and Python 3.11.9 for the base of our Windows and MacOS releases
 
    Bug Fixes
+     - reverted all Qt Buttons and CheckBoxes to default TabFocus to spped up focus changes
 
 
 Sigil-2.2.1
