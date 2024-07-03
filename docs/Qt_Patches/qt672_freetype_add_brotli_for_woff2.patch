@@ -1,0 +1,32 @@
+--- qtbase/src/3rdparty/freetype/CMakeLists.txt.orig	2024-03-21 10:56:21
++++ qtbase/src/3rdparty/freetype/CMakeLists.txt	2024-03-21 10:56:43
+@@ -53,7 +53,15 @@
+   list(APPEND BASE_SRCS src/base/ftdebug.c)
+ endif ()
+ 
++if (WIN32)
++   find_package(WrapBrotli)
++endif()
+ 
++if (UNIX)
++   set(CMAKE_PREFIX_PATH /opt/support ${CMAKE_PREFIX_PATH})
++   find_package(WrapBrotli)
++endif()
++
+ #####################################################################
+ ## BundledFreetype Generic Library:
+ #####################################################################
+@@ -92,6 +100,13 @@
+         builds/unix
+ )
+ 
++qt_internal_extend_target(BundledFreetype CONDITION UNIX OR WIN32
++    DEFINES
++        FT_CONFIG_OPTION_USE_BROTLI
++    LIBRARIES
++        WrapBrotli::WrapBrotliDec
++)
++
+ qt_internal_extend_target(BundledFreetype CONDITION QT_FEATURE_png
+     DEFINES
+         FT_CONFIG_OPTION_USE_PNG

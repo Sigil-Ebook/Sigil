@@ -1,6 +1,6 @@
 # *** IMPORTANT ***
 
-# Build Prerequisite requirements for Python 3.11.3 on macOS 11.0 and later users:
+# Build Prerequisite requirements for Python 3.11.9 on macOS 11.0 and later users:
 #
 #     First make sure you are using the latest XCode for your version of Mac OSX
 #     Then make sure you have the command line tools (CLT) installed (via xcode-select --install)
@@ -15,8 +15,8 @@
 # Create a build folder where all of the work will be done
 
 cd 
-mkdir devpython
-cd devpython
+mkdir ndevpython
+cd ndevpython
 
 
 # If you are using XCode 10.X on MacOSX 10.14.X, remember to install the command line tools 
@@ -26,45 +26,62 @@ cd devpython
 # /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
 
 # First build the main prerequisites
-
-# Download openssl-1.1.1u.tar.gz *or later* into sources from https://www.openssl.org/source
-
+# Download openssl-3.0.14.tar.gz or later into sources from https://www.openssl.org/source
 export MACOSX_DEPLOYMENT_TARGET=11.0
 export LDFLAGS="-Wl,-macosx_version_min,11.0"
-
-tar -zxvf ../sources/openssl-1.1.1u.tar.gz
-cd openssl-1.1.1u
+tar -zxvf support/openssl-3.0.14.tar.gz
+cd openssl-3.0.14
 ./config no-shared --prefix=/usr/local
 make -j4
 sudo make install
+unset LDFLAGS
+cd ..
 
 
-# Download xz-5.4.2.tar.gz or later into sources from https://tukaani.org/xz/  (via sourceforge)
+# Download xz-5.2.3.tar.gz or later into sources from https://tukaani.org/xz/  (via sourceforge)
 
 export MACOSX_DEPLOYMENT_TARGET=11.0
 export LDFLAGS="-Wl,-macosx_version_min,11.0"
 export CFLAGS="-mmacosx-version-min=11.0 -Werror=partial-availability"
 
-tar -zxvf ../sources/xz-5.4.2.tar.gz
-cd xz-5.4.2
+tar -zxvf support/xz-5.2.3.tar.gz
+cd xz-5.2.3
 ./configure --disable-shared --prefix=/usr/local
 make -j4
 sudo make install
+unset CFLAGS
+unset LDFLAGS
+cd ..
 
 
-# Download sqlite-autoconf-3410200.tar.gz into sources from 
-# https://sqlite.org/2021/sqlite-autoconf-3410200.tar.gz"
+# Download sqlite-autoconf-3450300.tar.gz into sources from 
+# https://sqlite.org/2021/sqlite-autoconf-3450300.tar.gz"
 
 export MACOSX_DEPLOYMENT_TARGET=11.0
 export LDFLAGS="-Wl,-macosx_version_min,11.0"
 export CFLAGS="-mmacosx-version-min=11.0 -Werror=partial-availability -Os -DSQLITE_ENABLE_FTS5 \
             -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_JSON1 \
             -DSQLITE_ENABLE_RTREE -DSQLITE_TCL=0 "
-tar -zxvf ../sources/sqlite-autoconf-3410200.tar.gz
-cd sqlite-autoconf-3410200
-./configure --enable-threadsafe --enable-shared=no --enable-static=yes --disable-readline --disable-dependency-tracking
+tar -zxvf support/sqlite-autoconf-3450300.tar.gz
+cd sqlite-autoconf-3450300
+./configure --prefix=/usr/local --enable-threadsafe --enable-shared=no --enable-static=yes --disable-readline --disable-dependency-tracking
 make -j4
 sudo make install
+unset LDFLAGS
+unset CFLAGS
+cd ..
+
+
+# Download mpdecimal-4.0.0.tar.gz from:
+# https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.0.tar.gz
+
+export MACOSX_DEPLOYMENT_TARGET=11.0
+tar -zxvf support/mpdecimal-4.0.0.tar.gz
+cd mpdecimal-4.0.0
+./configure --prefix=/usr/local --disable-cxx MACHINE=universal
+make -j4
+sudo make install
+cd ..
 
 
 # Specify the future home for the Python.framework and interim tcltk pieces
@@ -81,24 +98,27 @@ cd ../../
 # combined build of tcl and tk and build it right "in place" for the future 
 # Python.framework to install around
 
-# Download tcl8.6.12-src.tar.gz into sources from ftp://ftp.tcl.tk/pub/tcl//tcl8_6/tcl8.6.12-src.tar.gz
-# Download tk8.6.12-src.tar.gz into sources from ftp://ftp.tcl.tk/pub/tcl//tcl8_6/tk8.6.12-src.tar.gz
+# Download tcl8.6.14-src.tar.gz into sources from ftp://ftp.tcl.tk/pub/tcl//tcl8_6/tcl8.6.14-src.tar.gz
+# Download tk8.6.14-src.tar.gz into sources from ftp://ftp.tcl.tk/pub/tcl//tcl8_6/tk8.6.14-src.tar.gz
 
 mkdir tcltk
 cd tcltk
-tar -zxvf ../../sources/tcl8.6.12-src.tar.gz
-tar -zxvf ../../sources/tk8.6.12-src.tar.gz
+tar -zxvf ../support/tcl8.6.14-src.tar.gz
+tar -zxvf ../support/tk8.6.14-src.tar.gz
+
+For this version - no backport patches are needed.
+
 
 # Note: TCL_LIBRARY and TK_LIBRARY and libdir are appended to DESTDIR to get actual paths
 
 export MACOSX_DEPLOYMENT_TARGET=11.0
 export CFLAGS="-arch x86_64 -mmacosx-version-min=11.0"
-cd tcl8.6.12/unix
+cd tcl8.6.14/unix
 ./configure --enable-shared --enable-threads --libdir=/Frameworks/Python.framework/Versions/3.11/lib
 make TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.11/lib/tcl8.6 DESTDIR=${MYLIBS}
 make install TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.11/lib/tcl8.6 DESTDIR=${MYLIBS}
 cd ../../
-cd tk8.6.12/unix
+cd tk8.6.14/unix
 ./configure --libdir=/Frameworks/Python.framework/Versions/3.11/lib --enable-aqua --enable-shared --enable-threads
 
 make TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.11/lib/tcl8.6 \
@@ -117,34 +137,26 @@ chmod u+w libtcl8.6.dylib
 install_name_tool -id ${MYDEST}/Python.framework/Versions/3.11/lib/libtcl8.6.dylib ./libtcl8.6.dylib
 install_name_tool -id ${MYDEST}/Python.framework/Versions/3.11/lib/libtk8.6.dylib ./libtk8.6.dylib
 
-#     And finally:
-#     if you are using Qt5,  we will be building a required PyQt5 python module, 
-#     you will need to have built or
-#         downloaded prebuilt versions of Qt 5.15.X or later first
-#          So see Building_Qt5_From_Source_on_MacOSX.txt
-#
-#     if you are using Qt6, we will building the required PySide6 module, you will need to have built
-#         or downloaded prebuilt versions of Qt 6.2.2 or later
 
-# Building Python 3.11.3 to be fully relocatable for macOS 11.0 and later
+# Building Python 3.11.9 to be fully relocatable for macOS 11.0 and later
 
 # Before building remember to rename any /Applications/Python 3.11.app to save it and 
 # replace it afterwards as the damn python installation from source always overwrites
 # it no matter the configure prefix used
 
-# Download Python-3.11.3.tgz into sources from www.python.org
+# Download Python-3.11.9.tgz into support from www.python.org
 
 cd ${MYDEST}
 cd ../../
 
 export MACOSX_DEPLOYMENT_TARGET=11.0
 
-# now build Python 3.11.3 as a framework
+# now build Python 3.11.9 as a framework
 # no need to worry about what symbols exist in what version of 
 # macOS any longer, since Python 3.9.1 and later use and test for weak symbols
 
-tar -xvf ../sources/Python-3.11.3.tgz
-cd Python-3.11.3
+tar -jxvf support/Python-3.11.9.tar.xz
+cd Python-3.11.9
 
 export LDFLAGS="-Wl,-macosx_version_min,11.0" 
 export CFLAGS="-mmacosx-version-min=11.0" 

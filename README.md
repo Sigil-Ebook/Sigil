@@ -2,7 +2,7 @@ Sigil
 =====
 
 Sigil is a free, open source, multi-platform ebook editor that uses
-Qt (and QtWebEngine). It is designed to edit books in ePub format (both ePub 2 and ePub 3).
+Qt6 (and QtWebEngine). It is designed to edit books in ePub format (both ePub 2 and ePub 3).
 
 
 Links
@@ -59,29 +59,20 @@ For Building on Mac OS X
 Building using purely XCode is no longer supported on Mac OS X.  The easiest 
 way to build Sigil on Mac OS X is to use cmake 3.X and the XCode CommandLineTools.   
 
-Also because Sigil now embeds Python 3.11.3, see  
+Also because Sigil now embeds Python 3.11.9, see  
 
 > [docs/Building_A_Relocatable_Python_3.11_Framework_on_MacOSX.txt](./docs/Building_A_Relocatable_Python_3.11_Framework_on_MacOSX.txt)
 
 for detailed instructions on how to build a fully relocatable Python 3.11.3 framework before
 building Sigil.  
 
-For official releases Sigil uses Qt6.6.2 plus official local patches see:  
+For official releases Sigil uses Qt6.7.2 plus official local patches see:  
 
 > [docs/Building_Qt6_From_Source_on_MacOSX.txt](./docs/Building_Qt6_From_Source_on_MacOSX.txt)
-
-Sigil master now supports building with Qt-5.10.X through to Qt-6.6.2.  For older Qt5 see:
-
-> [docs/Building_Qt5_From_Source_on_MacOSX.txt](./docs/Building_Qt5_From_Source_on_MacOSX.txt)
 
 And finally to build Sigil itself see:
 
 > [docs/Building_Sigil_On_MacOSX_With_Qt6.txt](./docs/Building_Sigil_On_MacOSX_With_Qt6.txt)
-
-and for building Sigil under the older Qt5 see:
-
-> [docs/Building_Sigil_On_MacOSX_With_Qt5.txt](./docs/Building_Sigil_On_MacOSX_With_Qt5.txt)
-
 
 
 For Installing/Building on Windows
