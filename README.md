@@ -46,7 +46,7 @@ For newer Linux systems like Ubuntu 23.04 (and its derivitives), or Arch Linux, 
 
 The Qt6 build documentation strives to provide both Debian- and Arch-based package names.
 
-For older Linux systems whose software repositories do not provide Qt6.2.3 (or higher), the
+For older Linux systems whose software repositories do not provide Qt6.4.0 (or higher), the
 detailed instructions for building/installing Sigil with Qt5 can be found in:
 
 > [docs/Building_on_Linux_older.md](./docs/Building_on_Linux.md)
