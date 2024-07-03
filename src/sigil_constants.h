@@ -42,7 +42,6 @@
 // QL1SV() Macro to handle renaming of QLatin1String to QLatin1StringView in Qt6.4+
 #include <QLatin1StringView>
 #define QL1SV(t) QLatin1StringView(t)
-#endif
 
 class QString;
 
