@@ -72,7 +72,7 @@ tar -zxvf support/libjpeg-turbo-3.0.3.tar.gz
 mkdir buildjt3
 cd buildjt3
 cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/opt/support -DENABLE_SHARED=0 -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0 \
-  -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=11.0 -Werror=partial-availability" ../libjpeg-turbo-3.0.3/
+  -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=11.0 -Werror=partial-availability" -DWITH_JPEG8=1 ../libjpeg-turbo-3.0.3/
 make -j4
 sudo make install
 cd ..
