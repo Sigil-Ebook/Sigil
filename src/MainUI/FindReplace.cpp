@@ -171,7 +171,7 @@ void FindReplace::SetUpFindText()
             if (m_RegexOptionAutoTokenise && GetSearchMode() == FindReplace::SearchMode_Regex) {
                 selected_text = TokeniseForRegex(selected_text, false);
             }
-            selected_text = selected_text.normalized(QString::NormalizationForm_C);
+            selected_text = Utility::UseNFC(selected_text);
             ui.cbFind->setEditText(selected_text);
             // To allow the user to immediately click on Replace, we need to setup the
             // regex match as though the user had clicked on Find.
@@ -451,7 +451,7 @@ bool FindReplace::FindAnyText(QString text, bool escape)
     } else {
         search_text = text + "(?![^<>]*>)(?!.*<body[^>]*>)";
     }
-    search_text = search_text.normalized(QString::NormalizationForm_C);
+    search_text = Utility::UseNFC(search_text);
     ui.cbFind->setEditText(search_text);
     bool found = Find();
     ReadSettings();
@@ -476,7 +476,7 @@ void FindReplace::FindAnyTextInTags(QString text)
     // SetOptionWrap(true);
     SetRegexOptionTextOnly(false);
     text = text + "(?=[^<]*>)(?!(?:[^<\"]*\"[^<\"]*\")+\\s*/?>)";
-    text = text.normalized(QString::NormalizationForm_C);
+    text = Utility::UseNFC(text);
     ui.cbFind->setEditText(text);
     Find();
 
@@ -1054,14 +1054,14 @@ QString FindReplace::PrependRegexOptionToSearch(const QString &option, const QSt
 QString FindReplace::GetFind()
 {
     QString txt = ui.cbFind->lineEdit()->text();
-    txt = txt.normalized(QString::NormalizationForm_C);
+    txt = Utility::UseNFC(txt);
     return txt;
 }
 
 QString FindReplace::GetReplace()
 {
     QString txt = ui.cbReplace->lineEdit()->text();
-    txt = txt.normalized(QString::NormalizationForm_C);
+    txt = Utility::UseNFC(txt);
     return txt;
 }
 
@@ -1488,7 +1488,7 @@ void FindReplace::UpdatePreviousFindStrings(const QString &text)
     QString new_find_string;
 
     if (!text.isNull()) {
-        new_find_string = text.normalized(QString::NormalizationForm_C);
+        new_find_string = Utility::UseNFC(text);
     } else {
         new_find_string = GetFind();
     }
@@ -1509,7 +1509,7 @@ void FindReplace::UpdatePreviousReplaceStrings(const QString &text)
 {
     QString new_replace_string;
     if (!text.isNull()) {
-        new_replace_string = text.normalized(QString::NormalizationForm_C);
+        new_replace_string = Utility::UseNFC(text);
     } else {
         new_replace_string = GetReplace();
     }
@@ -2099,7 +2099,7 @@ void FindReplace::TokeniseSelection()
     if (ui.cbFind->lineEdit()->hasSelectedText()) {
         // We want to tokenise only the selection
         text = ui.cbFind->lineEdit()->selectedText();
-        text = text.normalized(QString::NormalizationForm_C);
+        text = Utility::UseNFC(text);
     } else {
         // We will tokenise the whole thing
         text = GetFind();
@@ -2121,7 +2121,7 @@ void FindReplace::TokeniseSelection()
 
 QString FindReplace::TokeniseForRegex(const QString &text, bool includeNumerics)
 {
-    QString new_text(text.normalized(QString::NormalizationForm_C));
+    QString new_text(Utility::UseNFC(text));
 
     // Convert any form of newline or tabs to multiple spaces
     new_text.replace(QRegularExpression("\\R"), "  ");

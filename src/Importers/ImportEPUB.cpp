@@ -432,11 +432,13 @@ void ImportEPUB::ExtractContainer()
             QString qfile_name;
             QString cp437_file_name;
             qfile_name = QString::fromUtf8(file_name);
+            // must do this unconditionally by epub spec
             qfile_name = qfile_name.normalized(QString::NormalizationForm_C);
             if (!(file_info.flag & (1<<11))) {
                 // General purpose bit 11 says the filename is utf-8 encoded. If not set then
                 // IBM 437 encoding might be used.
                 cp437_file_name = cp437->decode(file_name);
+                // must do this unconditionally by epub spec
                 cp437_file_name = cp437_file_name.normalized(QString::NormalizationForm_C);
             }
             QDate moddate = QDate(file_info.tmu_date.tm_year,
@@ -788,6 +790,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     if (href.indexOf(':') == -1) {
         // we know we have a relative href to a file so no fragments can exist
         apath = Utility::URLDecodePath(href);
+        // must do this unconditionally by epub spec
         apath = apath.normalized(QString::NormalizationForm_C);
     }
     // for hrefs pointing outside the epub, apath will be empty

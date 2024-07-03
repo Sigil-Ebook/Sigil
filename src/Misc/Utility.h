@@ -277,6 +277,7 @@ public:
     static QString FixupSvgForRendering(const QString& data);
     static QImage  RenderSvgToImage(const QString& filepath);
 
+    static QString UseNFC(const QString& text);
 };
 #endif // UTILITY_H
 

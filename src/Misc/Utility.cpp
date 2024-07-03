@@ -547,7 +547,7 @@ QString Utility::ReadUnicodeTextFile(const QString &fullfilepath)
 // file; if the file exists, it is truncated
 void Utility::WriteUnicodeTextFile(const QString &text, const QString &fullfilepath)
 {
-    QString newtext = text.normalized(QString::NormalizationForm_C);
+    QString newtext = Utility::UseNFC(text);
     QFile file(fullfilepath);
 
     if (!file.open(QIODevice::WriteOnly |
@@ -569,8 +569,7 @@ void Utility::WriteUnicodeTextFile(const QString &text, const QString &fullfilep
 // line endings that are expected throughout the Qt framework
 QString Utility::ConvertLineEndingsAndNormalize(const QString &text)
 {
-    QString newtext(text);
-    newtext = newtext.normalized(QString::NormalizationForm_C);
+    QString newtext = Utility::UseNFC(text);
     return newtext.replace("\x0D\x0A", "\x0A").replace("\x0D", "\x0A");
 }
 
@@ -640,6 +639,7 @@ QString Utility::URLEncodePath(const QString &path)
     QString newpath = DecodeXML(path);
 
     // The epub spec says all paths must use Unicode Normalization Form C (NFC)
+    // So do NOT Use Utility::UseNFC which conditionalizes things
     newpath = newpath.normalized(QString::NormalizationForm_C);
 
     // then undo any existing url encoding
@@ -682,6 +682,7 @@ QString Utility::URLDecodePath(const QString &path)
     apath = DecodeXML(apath);
     QString newpath = QUrl::fromPercentEncoding(apath.toUtf8());
     // epub spec says all paths must use Normalization Form C (NFC)
+    // Do Not use Utility::UseNFC as it conditionalizes it
     newpath = newpath.normalized(QString::NormalizationForm_C);
     return newpath;
 }
@@ -859,11 +860,13 @@ bool Utility::UnZip(const QString &zippath, const QString &destpath)
             QString qfile_name;
             QString cp437_file_name;
             qfile_name = QString::fromUtf8(file_name);
+            // must do this unconditionally for epub spec
             qfile_name = qfile_name.normalized(QString::NormalizationForm_C);
             if (!(file_info.flag & (1<<11))) {
                 // General purpose bit 11 says the filename is utf-8 encoded. If not set then
                 // IBM 437 encoding might be used.
                 cp437_file_name = cp437->decode(file_name);
+                // must do this unconditionally for epub spec
                 cp437_file_name = cp437_file_name.normalized(QString::NormalizationForm_C);
             }
 
@@ -1007,9 +1010,11 @@ QStringList Utility::ZipInspect(const QString &zippath)
             QString qfile_name;
             QString cp437_file_name;
             qfile_name = QString::fromUtf8(file_name);
+            // must do this unconditionally for epub spec
             qfile_name = qfile_name.normalized(QString::NormalizationForm_C);
             if (!(file_info.flag & (1<<11))) {
                 cp437_file_name = cp437->decode(file_name);
+                // must do this unconditionally for epub spec
                 cp437_file_name = cp437_file_name.normalized(QString::NormalizationForm_C);
             }
 
@@ -1531,4 +1536,17 @@ QImage Utility::RenderSvgToImage(const QString& filepath)
     renderer.render(&painter);
     return svgimage;
 
+}
+
+
+QString Utility::UseNFC(const QString& text)
+{
+    QString txt;
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+    if (mainApplication->AlwaysUseNFC()) {
+        txt = text.normalized(QString::NormalizationForm_C);
+    } else {
+        txt = text;
+    }
+    return txt;
 }

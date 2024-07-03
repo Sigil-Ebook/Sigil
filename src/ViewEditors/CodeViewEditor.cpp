@@ -159,7 +159,8 @@ QString CodeViewEditor::cursor_selected_text(const QTextCursor& c) const
             ;
         }
     }
-    return txt.normalized(QString::NormalizationForm_C);
+    txt = Utility::UseNFC(txt);
+    return txt;
 }
 
 
@@ -711,7 +712,7 @@ int CodeViewEditor::CalculateLineNumberAreaWidth()
 
 void CodeViewEditor::ReplaceDocumentText(const QString &new_text)
 {
-    QString txt = new_text.normalized(QString::NormalizationForm_C);
+    QString txt = Utility::UseNFC(new_text);
     QTextCursor cursor = textCursor();
     cursor.beginEditBlock();
     cursor.select(QTextCursor::Document);
@@ -823,12 +824,12 @@ void CodeViewEditor::insertFromMimeData(const QMimeData* source)
         QMimeData nmd;
         if (source->hasText()) {
             QString txt = source->text();
-            txt = txt.normalized(QString::NormalizationForm_C);
+            txt = Utility::UseNFC(txt);
             nmd.setText(txt);
         }
         if (source->hasHtml()) {
             QString ht = source->html();
-            ht = ht.normalized(QString::NormalizationForm_C);
+            ht = Utility::UseNFC(ht);
             nmd.setHtml(ht);
         }
         QPlainTextEdit::insertFromMimeData(&nmd);

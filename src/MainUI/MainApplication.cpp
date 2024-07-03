@@ -46,9 +46,13 @@ MainApplication::MainApplication(int &argc, char **argv)
     : QApplication(argc, argv),
       m_isDark(false),
       m_accumulatedQss(QString()),
-      m_PaletteChangeTimer(new QTimer())
+      m_PaletteChangeTimer(new QTimer()),
+      m_AlwaysUseNFC(true)
 {
 
+    // Do this only once early on in the Sigil startup
+    if (qEnvironmentVariableIsSet("SIGIL_DISABLE_NFC_NORMALIZATION")) m_AlwaysUseNFC = false;
+        
     // Keep track on our own of dark or light
     m_isDark = qApp->palette().color(QPalette::Active,QPalette::WindowText).lightness() > 128;
     

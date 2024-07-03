@@ -45,6 +45,7 @@ public:
     void saveInPreviewCache(const QString &key, const QString& xhtml);
     QString loadFromPreviewCache(const QString &key);
     void updateAccumulatedQss(QString &qss) const;
+    bool AlwaysUseNFC(){ return m_AlwaysUseNFC; };
     
 signals:
     void applicationActivated();
@@ -65,6 +66,7 @@ private:
     QHash<QString, QString> m_PreviewCache;
     mutable QString m_accumulatedQss;
     QTimer * m_PaletteChangeTimer;
+    bool m_AlwaysUseNFC = true;
 };
 
 #endif // MAINAPPLICATION_H
