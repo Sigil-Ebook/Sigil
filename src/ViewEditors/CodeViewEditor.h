@@ -226,6 +226,10 @@ public:
     // ala Kovid's solution in calibre PlainTextEdit
     virtual QMimeData *createMimeDataFromSelection() const;
 
+    // override the insertFromMimeData() to 
+    // attempt to normalize any text to form NFC before paste
+    virtual void insertFromMimeData(const QMimeData* source);
+
     // inherited
     bool IsLoadingFinished();
 
@@ -471,6 +475,8 @@ public slots:
 
 protected:
 
+    QString cursor_selected_text(const QTextCursor& c) const;
+    
     /**
      * The global event processing function.
      *
