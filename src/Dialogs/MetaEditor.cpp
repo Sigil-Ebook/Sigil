@@ -127,7 +127,7 @@ MetaEditor::MetaEditor(QWidget *parent)
 
     updateActions();
     setFocusPolicy(Qt::TabFocus);
-    view->setFocusPolicy(Qt::TabFocus);
+    view->setFocusPolicy(Qt::StrongFocus);
     addMetaButton->setFocusPolicy(Qt::TabFocus);
     addPropButton->setFocusPolicy(Qt::TabFocus);
     delButton->setFocusPolicy(Qt::TabFocus);
