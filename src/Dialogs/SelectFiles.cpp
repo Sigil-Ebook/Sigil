@@ -93,11 +93,13 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
     QDialog(parent),
     m_MediaResources(media_resources),
     m_SelectFilesModel(new QStandardItemModel),
-    m_PreviewReady(false),
+    m_PreviewReady(true),
     m_PreviewLoaded(false),
     m_DefaultSelectedImage(default_selected_image),
     m_ThumbnailSize(THUMBNAIL_SIZE),
     m_IsInsertFromDisk(false),
+    m_ImageChangedTimer(new QTimer()),
+    m_LastFocusWidget(nullptr),
     m_WebView(new QWebEngineView(this))
 {
     ui.setupUi(this);
@@ -105,13 +107,19 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
     QWebEngineProfile* profile = WebProfileMgr::instance()->GetOneTimeProfile();
     m_WebView->setPage(new SimplePage(profile, m_WebView));
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
-    m_WebView->setFocusPolicy(Qt::NoFocus);
     m_WebView->setAcceptDrops(false);
     m_WebView->page()->settings()->setAttribute(QWebEngineSettings::ShowScrollBars,false);
     ui.avLayout->addWidget(m_WebView);
-    m_WebView->setFocusPolicy(Qt::NoFocus);
     ui.Details->setFocusPolicy(Qt::NoFocus);
-    
+    m_WebView->setFocusPolicy(Qt::NoFocus);
+    ui.imageTree->setFocusPolicy(Qt::StrongFocus);
+    // set up ImageChangedTimer to absorb multiple selection
+    // changed signals since loading the WebView is slow
+    m_ImageChangedTimer->setSingleShot(true);
+    m_ImageChangedTimer->setInterval(20);
+    connect(m_ImageChangedTimer, SIGNAL(timeout()),this, SLOT(SetPreviewImage()));
+    m_ImageChangedTimer->stop();
+
     ReadSettings();
 
     m_AllItem = new QListWidgetItem(tr("All"), ui.FileTypes);
@@ -126,6 +134,8 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
     connectSignalsSlots();
 
     SetPreviewImage();
+    ui.imageTree->setFocus();
+    m_LastFocusWidget = focusWidget();
 }
 
 SelectFiles::~SelectFiles()
@@ -164,7 +174,7 @@ void SelectFiles::SetImages()
     m_WebView->setHtml(html, QUrl());
 
     ui.imageTree->reset();
-    ui.imageTree->setTabKeyNavigation(true);
+    // ui.imageTree->setTabKeyNavigation(true);
     m_SelectFilesModel->clear();
     QStringList header;
     header.append(tr("Files In the Book"));
@@ -247,8 +257,8 @@ void SelectFiles::SelectDefaultImage()
     for (int row = 0; row < root_item->rowCount(); row++) {
         if (root_item->child(row, COL_NAME)->text() == m_DefaultSelectedImage) {
             ui.imageTree->selectionModel()->select(m_SelectFilesModel->index(row, 0, parent_index), QItemSelectionModel::Select | QItemSelectionModel::Rows);
-            ui.imageTree->setFocus();
             ui.imageTree->setCurrentIndex(root_item->child(row, 0)->index());
+            ui.imageTree->setFocus();
             break;
         }
     }
@@ -278,28 +288,36 @@ void SelectFiles::DecreaseThumbnailSize()
 void SelectFiles::ReloadPreview()
 {
     // Make sure we don't load when initial painting is resizing
-    if (m_PreviewReady) {
-        SetPreviewImage();
-    }
+    if (m_ImageChangedTimer->isActive()) m_ImageChangedTimer->stop();
+    m_ImageChangedTimer->start();
 }
 
 void SelectFiles::SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
+    m_LastFocusWidget = focusWidget();
     ReloadPreview();
 }
 
 void SelectFiles::SplitterMoved(int pos, int index)
 {
-    ReloadPreview();
+    // ReloadPreview();
 }
 
 void SelectFiles::resizeEvent(QResizeEvent *event)
 {
-    ReloadPreview();
+    // ReloadPreview();
 }
 
 void SelectFiles::SetPreviewImage()
 {
+    if (!m_PreviewReady) {
+        m_ImageChangedTimer->stop();
+        m_ImageChangedTimer->start();
+        if (m_LastFocusWidget) {
+            m_LastFocusWidget->setFocus();
+        }
+        return;
+    }
     m_PreviewReady = false;
     QPixmap pixmap;
     QString details = "";
@@ -391,14 +409,14 @@ void SelectFiles::SetPreviewImage()
 
     // Technically, we need to wait until Preview is actually loaded
     // because setHtml loads external resources asynchronously
-    if (loading_resources) {
-        while(!IsPreviewLoaded()) {
-            qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-        }
-    }
+    // if (loading_resources) {
+    //     while(!IsPreviewLoaded()) {
+    //        qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
+    //    }
+    // }
     ui.Details->setText(details);
-    m_PreviewReady = true;
 }
+
 
 void SelectFiles::PreviewLoadComplete(bool okay) 
 {
@@ -406,6 +424,10 @@ void SelectFiles::PreviewLoadComplete(bool okay)
         m_WebView->stop();
     }
     m_PreviewLoaded = true;
+    m_PreviewReady = true;
+    if (m_LastFocusWidget) {
+        m_LastFocusWidget->setFocus();
+    }
 }
 
 bool SelectFiles::IsPreviewLoaded()

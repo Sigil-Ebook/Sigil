@@ -35,6 +35,8 @@
 
 class QString;
 class QWebEngineView;
+class QTimer;
+class QWidget;
 
 class SelectFiles : public QDialog
 {
@@ -72,7 +74,8 @@ private slots:
     void SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected);
 
     void SelectDefaultImage();
-
+    void SetPreviewImage();
+    
     /**
      * Filters the list of displayed images
      */
@@ -89,8 +92,6 @@ private:
     
     void ReadSettings();
     void connectSignalsSlots();
-
-    void SetPreviewImage();
 
     QList<Resource *> m_MediaResources;
 
@@ -113,9 +114,11 @@ private:
     QListWidgetItem *m_ImageItem;
     QListWidgetItem *m_VideoItem;
     QListWidgetItem *m_AudioItem;
-
+    QTimer * m_ImageChangedTimer;
+    QWidget* m_LastFocusWidget;
     QWebEngineView *m_WebView;
 
+    
     Ui::SelectFiles ui;
 };
 
