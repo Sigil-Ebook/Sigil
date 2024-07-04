@@ -10,7 +10,7 @@ if (CMAKE_VERSION VERSION_GREATER "3.27.9")
     cmake_policy(SET CMP0153 OLD)
 endif()
 
-set(QT6_NEEDED 6.2)
+set(QT6_NEEDED 6.4)
 
 # Qt6 gets shiny new(ish) teal icons
 if( UNIX AND NOT APPLE )
