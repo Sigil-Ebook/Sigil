@@ -589,6 +589,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionBookmarkLocation"/>
    <addaction name="actionGoBackFromLinkOrStyle"/>
   </widget>
   <widget class="QToolBar" name="toolBarDonate">
@@ -2891,6 +2892,10 @@
    </property>
   </action>
   <action name="actionBookmarkLocation">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/bookmark.svg</normaloff>:/main/bookmark.svg</iconset>
+   </property>
    <property name="text">
     <string>Book&amp;mark Location</string>
    </property>
