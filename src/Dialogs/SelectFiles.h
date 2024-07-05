@@ -115,7 +115,6 @@ private:
     QListWidgetItem *m_VideoItem;
     QListWidgetItem *m_AudioItem;
     QTimer * m_ImageChangedTimer;
-    QWidget* m_LastFocusWidget;
     QWebEngineView *m_WebView;
 
     

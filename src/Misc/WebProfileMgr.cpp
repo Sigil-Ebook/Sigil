@@ -71,7 +71,7 @@ void WebProfileMgr::InitializeDefaultSettings(QWebEngineSettings* web_settings)
     web_settings->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, false);
     web_settings->setAttribute(QWebEngineSettings::PluginsEnabled, false);
     web_settings->setAttribute(QWebEngineSettings::AutoLoadIconsForPage, false);
-    web_settings->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, true);
+    web_settings->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, false);
     web_settings->setAttribute(QWebEngineSettings::AllowRunningInsecureContent, false);
     web_settings->setAttribute(QWebEngineSettings::XSSAuditingEnabled, true);
     web_settings->setAttribute(QWebEngineSettings::AllowGeolocationOnInsecureOrigins, false);

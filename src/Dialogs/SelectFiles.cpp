@@ -99,7 +99,6 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
     m_ThumbnailSize(THUMBNAIL_SIZE),
     m_IsInsertFromDisk(false),
     m_ImageChangedTimer(new QTimer()),
-    m_LastFocusWidget(nullptr),
     m_WebView(new QWebEngineView(this))
 {
     ui.setupUi(this);
@@ -135,7 +134,6 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
 
     SetPreviewImage();
     ui.imageTree->setFocus();
-    m_LastFocusWidget = focusWidget();
 }
 
 SelectFiles::~SelectFiles()
@@ -294,7 +292,6 @@ void SelectFiles::ReloadPreview()
 
 void SelectFiles::SelectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
 {
-    m_LastFocusWidget = focusWidget();
     ReloadPreview();
 }
 
@@ -313,9 +310,6 @@ void SelectFiles::SetPreviewImage()
     if (!m_PreviewReady) {
         m_ImageChangedTimer->stop();
         m_ImageChangedTimer->start();
-        if (m_LastFocusWidget) {
-            m_LastFocusWidget->setFocus();
-        }
         return;
     }
     m_PreviewReady = false;
@@ -425,9 +419,6 @@ void SelectFiles::PreviewLoadComplete(bool okay)
     }
     m_PreviewLoaded = true;
     m_PreviewReady = true;
-    if (m_LastFocusWidget) {
-        m_LastFocusWidget->setFocus();
-    }
 }
 
 bool SelectFiles::IsPreviewLoaded()
