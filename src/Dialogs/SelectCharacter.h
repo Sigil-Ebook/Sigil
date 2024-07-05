@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -44,8 +45,6 @@ public:
 
     void SetList();
 
-    QString Selection();
-
 public slots:
     void show();
 
@@ -61,8 +60,6 @@ private:
     void AddGrid(const QStringList &characters, int width);
     void ReadSettings();
     void connectSignalsSlots();
-
-    QString m_SelectedText;
 
     QSignalMapper *m_buttonMapper;
     SettingsStore::SpecialCharacterAppearance m_SpecialCharacterAppearance;

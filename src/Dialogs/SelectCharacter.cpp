@@ -393,11 +393,6 @@ void SelectCharacter::AddGrid(const QStringList &characters, int width)
     ui.character_box->addLayout(grid);
 }
 
-QString SelectCharacter::Selection()
-{
-    return m_SelectedText;
-}
-
 void SelectCharacter::SetSelectedCharacter(const QString &text)
 {
     bool isCtrl = QApplication::keyboardModifiers() & Qt::ControlModifier;
