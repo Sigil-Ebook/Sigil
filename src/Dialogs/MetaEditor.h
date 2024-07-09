@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, ON Canada
+** Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford, ON Canada
 **
 **  This file is part of Sigil.
 **
@@ -76,6 +76,7 @@ private slots:
 
     void selectE2Element();
     void selectE2Property();
+    void MakeDefaultFirstSelection();
 
  private:
     void loadMetadataElements();

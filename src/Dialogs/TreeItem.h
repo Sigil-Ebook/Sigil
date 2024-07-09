@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Modifications Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, ON Canada
+** Modifications Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford, ON Canada
 **
 ** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
 ** Contact: http://www.qt-project.org/legal

@@ -29,9 +29,11 @@
 #include <QDate>
 #include <QShortcut>
 #include <QInputDialog>
+#include <QTimer>
 #include <QDebug>
 
 #include "Dialogs/TreeModel.h"
+#include "Dialogs/TreeItem.h"
 #include "Dialogs/AddMetadata.h"
 #include "MainUI/MainWindow.h"
 #include "Misc/Language.h"
@@ -134,6 +136,8 @@ MetaEditor::MetaEditor(QWidget *parent)
     tbMoveUp->setFocusPolicy(Qt::TabFocus);
     tbMoveDown->setFocusPolicy(Qt::TabFocus);
     buttonBox->setFocusPolicy(Qt::TabFocus);
+
+    QTimer::singleShot(0, this, SLOT(MakeDefaultFirstSelection()));
 }
 
 
@@ -369,6 +373,18 @@ QString MetaEditor::SetNewOPFMetadata(QString& data)
         newopfdata = results;
     }
     return newopfdata;
+}
+
+void MetaEditor::MakeDefaultFirstSelection()
+{
+    TreeModel * treemodel = qobject_cast<TreeModel *>(view->model());
+    if (treemodel) {
+        TreeItem *root_item = treemodel->getRootItem();
+        // Set the default to the first item
+        if (root_item->childCount() > 0) {
+            view->selectionModel()->select(view->model()->index(0,0, QModelIndex()), QItemSelectionModel::ClearAndSelect);
+        }
+    }
 }
 
 //Quick Utility Conversion from Element Code to Name
