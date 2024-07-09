@@ -62,12 +62,13 @@ SpellcheckEditor::SpellcheckEditor(QWidget *parent)
 {
     ui.setupUi(this);
     ui.FilterText->installEventFilter(this);
-
     SetupSpellcheckEditorTree();
     CreateContextMenuActions();
     ConnectSignalsSlots();
     UpdateDictionaries();
     ReadSettings();
+    // first time opening try to select the first row
+    m_SelectRow = 0;
 }
 
 SpellcheckEditor::~SpellcheckEditor()
@@ -350,10 +351,10 @@ void SpellcheckEditor::Refresh(int sort_column, Qt::SortOrder sort_order)
     ui.FilterText->setFocus();
     FilterEditTextChangedSlot(ui.FilterText->text());
 
-    SelectRow(m_SelectRow);
     UpdateSuggestions();
-
     QApplication::restoreOverrideCursor();
+    ui.SpellcheckEditorTree->setFocus();
+    SelectRow(m_SelectRow);
 }
 
 void SpellcheckEditor::UpdateDictionaries()
@@ -419,9 +420,9 @@ void SpellcheckEditor::SelectRow(int row)
         QStandardItem *child = root_item->child(row, 0);
         if (child) {
             QModelIndex index = child->index();
+            ui.SpellcheckEditorTree->setCurrentIndex(child->index());
             ui.SpellcheckEditorTree->setFocus();
             ui.SpellcheckEditorTree->selectionModel()->select(index, QItemSelectionModel::Select | QItemSelectionModel::Rows);
-            ui.SpellcheckEditorTree->setCurrentIndex(child->index());
         }
     }
 

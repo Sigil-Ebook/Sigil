@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -91,6 +91,8 @@ private slots:
 
     void Sort(int logicalindex, Qt::SortOrder order);
 
+    void SelectRow(int row);
+
 private:
     void CreateModel(int logicalindex, Qt::SortOrder order);
     void UpdateDictionaries();
@@ -100,8 +102,6 @@ private:
     int GetSelectedRow();
 
     int SelectedRowsCount();
-
-    void SelectRow(int row);
 
     QList<QStandardItem *> GetSelectedItems();
 
