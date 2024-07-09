@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
@@ -70,9 +70,9 @@ private slots:
     void MoveUp();
     void MoveDown();
     void SelectTarget();
-
+    void MakeDefaultFirstSelection();
     void OpenContextMenu(const QPoint &point);
-
+    
 private:
     void AddEntry(bool above);
     QModelIndex CheckSelection(int row);

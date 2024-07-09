@@ -23,6 +23,7 @@
 #include <QtCore/QStringList>
 #include <QtGui/QStandardItem>
 #include <QKeyEvent>
+#include <QTimer>
 
 #include "BookManipulation/Book.h"
 #include "Dialogs/EditTOC.h"
@@ -74,6 +75,7 @@ EditTOC::EditTOC(QSharedPointer<Book> book, QList<Resource *> resources, QWidget
     CreateTOCModel();
     UpdateTreeViewDisplay();
     ReadSettings();
+    QTimer::singleShot(0, this, SLOT(MakeDefaultFirstSelection()));
 }
 
 EditTOC::~EditTOC()
@@ -331,6 +333,18 @@ void EditTOC::AddEntry(bool above)
     ui.TOCTree->setCurrentIndex(entry_item->index());
     ui.TOCTree->selectionModel()->select(entry_item->index(), QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
 }
+
+
+void EditTOC::MakeDefaultFirstSelection()
+{
+    QStandardItem *root_item = m_TOCModel->invisibleRootItem();
+    // Set the default to the first item
+    if (root_item->rowCount() > 0) {
+        ui.TOCTree->selectionModel()->clear();
+        ui.TOCTree->selectionModel()->select(m_TOCModel->index(0, 0, QModelIndex()), QItemSelectionModel::Select | QItemSelectionModel::Rows);
+    }
+}
+
 
 QModelIndex EditTOC::CheckSelection(int row)
 {
