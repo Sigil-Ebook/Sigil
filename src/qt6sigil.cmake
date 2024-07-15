@@ -2,7 +2,7 @@
 #     Build Sigil against Qt6 - requires cmake 3.16+ and a C++17 compiler
 #############################################################################
 
-# quiet Qt 6 deprecat4ed warnings for now as we must support Qt 5.12.X and even earlier
+# quiet Qt 6 deprecat4ed warnings
 # add_definitions(-DQT_NO_DEPRECATED_WARNINGS)
 add_definitions(-DQT_IMPLICIT_QCHAR_CONSTRUCTION)
 
@@ -663,7 +663,7 @@ if( UNIX AND NOT APPLE )
     install( FILES ${EXT_RCC_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/iconthemes/ )
     if ( MATHJAX3_DIR )
         # Fixme - we need to figure out how to specify svg with mml3 extension only for external mathjax
-        # install( FILES ${CMAKE_SOURCE_DIR}/src/Resource_Files/polyfills/SIGIL_EBOOK_MML_SVG.js DESTINATION ${MATHJAX_DIR}/config/local/ )
+        # install( FILES ${CMAKE_SOURCE_DIR}/src/Resource_Files/polyfills/SIGIL_EBOOK_MML_SVG.js DESTINATION ${MATHJAX3_DIR}/config/local/ )
     else()
         install( FILES ${MATHJAX_CUSTOM} DESTINATION ${SIGIL_SHARE_ROOT}/polyfills/ )
     endif()
