@@ -1594,19 +1594,22 @@ void OPFResource::UpdateManifestProperties(const QList<Resource*> resources)
     }
     foreach(Resource* resource, resources) {
         const HTMLResource* html_resource = static_cast<const HTMLResource *>(resource);
-        // do not overwrite the nav property, it must stay no matter what
-        if (html_resource != m_NavResource) {
-            QString href = Utility::URLEncodePath(GetRelativePathToResource(html_resource));
-            int pos = p.m_hrefpos.value(href, -1);
-            if ((pos >= 0) && (pos < p.m_manifest.count())) {
-                ManifestEntry me = p.m_manifest.at(pos);
-                QStringList properties = html_resource->GetManifestProperties();
-                me.m_atts.remove("properties");
-                if (properties.count() > 0) {
-                    me.m_atts["properties"] = properties.join(QString(" "));
+        QString href = Utility::URLEncodePath(GetRelativePathToResource(html_resource));
+        int pos = p.m_hrefpos.value(href, -1);
+        if ((pos >= 0) && (pos < p.m_manifest.count())) {
+            ManifestEntry me = p.m_manifest.at(pos);
+            QStringList properties = html_resource->GetManifestProperties();
+            // The nav must not lose the nav property
+            if (html_resource == m_NavResource) {
+                if (!properties.contains("nav")) {
+                    properties << "nav";
                 }
-                p.m_manifest.replace(pos, me);
             }
+            me.m_atts.remove("properties");
+            if (properties.count() > 0) {
+                me.m_atts["properties"] = properties.join(QString(" "));
+            }
+            p.m_manifest.replace(pos, me);
         }
     }
     // now add the cover-image properties
@@ -1618,8 +1621,13 @@ void OPFResource::UpdateManifestProperties(const QList<Resource*> resources)
             int pos = p.m_idpos.value(cover_id, -1);
             if (pos >= 0 ) {
                 ManifestEntry me = p.m_manifest.at(p.m_idpos[cover_id]);
+                QString props = me.m_atts.value("properties", "");
+                if (!props.contains("cover-image")) {
+                    props = props + " cover-image";
+                }
+                props = props.simplified();
                 me.m_atts.remove("properties");
-                me.m_atts["properties"] = QString("cover-image");
+                me.m_atts["properties"] = props;
                 p.m_manifest.replace(pos, me);
             }
         }
@@ -1682,6 +1690,7 @@ void OPFResource::SetNavResource(HTMLResource * nav_resource)
 {
     m_NavResource = nav_resource;
     // Make sure the proper nav property is set in the opf manifest
+    // but do not overwrite any other existing properties
     if (m_NavResource) { 
         QWriteLocker locker(&GetLock());
         QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
@@ -1691,7 +1700,13 @@ void OPFResource::SetNavResource(HTMLResource * nav_resource)
         int pos = p.m_hrefpos.value(href, -1);
         if ((pos >= 0) && (pos < p.m_manifest.count())) {
             ManifestEntry me = p.m_manifest.at(pos);
-            me.m_atts["properties"] = QString("nav");
+            QString props = me.m_atts.value("properties", "");
+            if (!props.contains("nav")) {
+                props = props + " nav";
+            }
+            props = props.simplified();
+            me.m_atts.remove("properties");
+            me.m_atts["properties"] = props;
             p.m_manifest.replace(pos, me);
         }
         UpdateText(p);
