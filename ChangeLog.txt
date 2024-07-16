@@ -16,6 +16,8 @@ pre-2.3.0
      - reverted all Qt Buttons and CheckBoxes to default TabFocus to speed up focus changes and reduce clicks
      - fixed SelectFiles (AddCover, Insert Image) to again use the arrows keys to walk the list
      - fixed some lost or stolen focus issues
+     - fix overwriting of existing nav document and cover-image manifest properties
+     - fix for Reports column sorting that use thousands group separators
 
 
 Sigil-2.2.1

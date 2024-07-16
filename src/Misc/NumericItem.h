@@ -33,7 +33,8 @@
 #ifndef NUMERICITEM_H
 #define NUMERICITEM_H
 
-#include <QtGui/QStandardItem>
+#include <QStandardItem>
+#include <QLocale>
 
 class NumericItem: public QStandardItem
 {
@@ -45,7 +46,7 @@ public:
 
 private:
     bool operator<(const QStandardItem &other) const {
-        return text().toFloat() < other.text().toFloat();
+        return QLocale().toFloat(text())  < QLocale().toFloat(other.text());
     }
 };
 
