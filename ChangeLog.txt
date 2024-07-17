@@ -18,6 +18,7 @@ pre-2.3.0
      - fixed some lost or stolen focus issues
      - fix overwriting of existing nav document and cover-image manifest properties
      - fix for Reports column sorting that use thousands group separators
+     - fix for Reports file size column that did not properly use QLocale for decimal points and separators
 
 
 Sigil-2.2.1
