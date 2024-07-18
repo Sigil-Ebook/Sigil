@@ -289,6 +289,7 @@ public slots:
     void EditAutomate(const QString &automatefile);
     
     bool StandardizeEpub();
+    bool RebaseManifestIDs();
 
     void CreateEpubLayout();
 

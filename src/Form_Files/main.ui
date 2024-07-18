@@ -385,6 +385,7 @@
     <addaction name="actionMetaEditor"/>
     <addaction name="menuTOC"/>
     <addaction name="actionStandardize" />
+    <addaction name="actionRebaseManifestIDs" />
     <addaction name="actionCustomLayout" />
     <addaction name="menuIndex"/>
     <addaction name="separator"/>
@@ -1526,6 +1527,14 @@
    </property>
    <property name="toolTip">
     <string>Restructure Epub to Sigil Standard Form</string>
+   </property>
+  </action>
+    <action name="actionRebaseManifestIDs">
+   <property name="text">
+    <string>Rebase OPF Manifest IDs on Current Filenames</string>
+   </property>
+   <property name="toolTip">
+    <string>Updates each Manifest ID to reflect its current file name</string>
    </property>
   </action>
   <action name="actionZoomIn">

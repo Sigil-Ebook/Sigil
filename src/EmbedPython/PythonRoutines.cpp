@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2016-2022 Doug Massay
 **
 **  This file is part of Sigil.
@@ -418,4 +418,23 @@ QString PythonRoutines::CopyTagToDestDirInPython(const QString& localRepo,
         results = res.toString();
     }
     return results;
+}
+
+
+QString PythonRoutines::RebaseManifestIDsInPython(const QString& opfdata) 
+{
+    int rv = 0;
+    QString traceback;
+    QString newopfdata= opfdata;
+    QString module = "fix_opf_ids";
+    QList<QVariant> args;
+    args.append(QVariant(opfdata));
+    EmbeddedPython* epp = EmbeddedPython::instance();
+    QVariant res = epp->runInPython(module, QString("rebase_manifest_ids"), args, &rv, traceback, true);
+    if (rv) {
+        fprintf(stderr, "rebase_manifest_ids error %d traceback %s\n",rv, traceback.toStdString().c_str());
+        return newopfdata;
+    }
+    newopfdata = res.toString();
+    return newopfdata;
 }

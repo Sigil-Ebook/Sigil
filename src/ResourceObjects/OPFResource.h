@@ -185,6 +185,8 @@ public slots:
 
     QHash <QString, QString> GetManifestPropertiesForPaths();
 
+    void RebaseManifestIDs();
+
 private:
 
     /**

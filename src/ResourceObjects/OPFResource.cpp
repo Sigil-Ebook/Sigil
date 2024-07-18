@@ -46,6 +46,7 @@
 #include "ResourceObjects/NCXResource.h"
 #include "ResourceObjects/OPFResource.h"
 #include "ResourceObjects/NavProcessor.h"
+#include "EmbedPython/PythonRoutines.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 
@@ -1742,4 +1743,14 @@ void OPFResource::SetItemRefLinear(Resource * resource, bool linear)
         }
         UpdateText(p);
     }
+}
+
+
+void OPFResource::RebaseManifestIDs()
+{
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    PythonRoutines pr;
+    source = pr.RebaseManifestIDsInPython(source);
+    TextResource::SetText(source);
 }

@@ -787,6 +787,27 @@ bool MainWindow::StandardizeEpub()
     return true;
 }
 
+
+bool MainWindow::RebaseManifestIDs()
+{
+    SaveTabData();
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    OPFResource* opfresource = m_Book->GetOPF();
+    if (!opfresource->FileIsWellFormed()) {
+        Utility::warning(this, tr("Sigil"),
+                             tr("Rebase cancelled: %1, XML not well formed.").arg(opfresource->ShortPathName()));
+        QApplication::restoreOverrideCursor();
+        return false;
+    }
+    opfresource->RebaseManifestIDs();
+    m_BookBrowser->Refresh();
+    m_Book->SetModified();
+    QApplication::restoreOverrideCursor();
+    ShowMessageOnStatusBar(tr("Rebase completed."));
+    return true;
+}
+
+
 void MainWindow::FixDuplicateFilenames()
 {
   QStringList bookpaths = m_Book->GetFolderKeeper()->GetAllBookPaths();
@@ -5966,6 +5987,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionNewSVGFile, "MainWindow.NewSVGFile");
     sm->registerAction(this, ui.actionAddExistingFile, "MainWindow.AddExistingFile");
     sm->registerAction(this, ui.actionStandardize, "MainWindow.StandardizeEpub");
+    sm->registerAction(this, ui.actionRebaseManifestIDs, "MainWindow.RebaseManifestIDs");
     sm->registerAction(this, ui.actionCustomLayout, "MainWindow.CustomLayout");
     sm->registerAction(this, ui.actionOpen, "MainWindow.Open");
 #ifndef Q_OS_MAC
@@ -6416,6 +6438,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionAbout,         SIGNAL(triggered()), this, SLOT(AboutDialog()));
     // Tools
     connect(ui.actionStandardize,   SIGNAL(triggered()), this, SLOT(StandardizeEpub()));
+    connect(ui.actionRebaseManifestIDs,   SIGNAL(triggered()), this, SLOT(RebaseManifestIDs()));
     connect(ui.actionCustomLayout,  SIGNAL(triggered()), this, SLOT(CreateEpubLayout()));
     connect(ui.actionAddCover,      SIGNAL(triggered()), this, SLOT(AddCover()));
     connect(ui.actionMetaEditor,    SIGNAL(triggered()), this, SLOT(MetaEditorDialog()));

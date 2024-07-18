@@ -11,6 +11,7 @@ pre-2.3.0
      - we have upgraded to use Qt 6.7.2 and Python 3.11.9 for the base of our Windows and MacOS releases
      - added a Bookmark Location toolbar icon right beside the Back button for easier use
      - Opening EditTOC, SpeckcheckEditor or MetaDataEditor will now highlight the first line entry
+     - Add new Tool: Rebase OPF Manifest IDs on Current Filenames
   
    Bug Fixes
      - reverted all Qt Buttons and CheckBoxes to default TabFocus to speed up focus changes and reduce clicks

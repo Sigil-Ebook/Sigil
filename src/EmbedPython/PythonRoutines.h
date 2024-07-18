@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2016-2022 Doug Massay
 **
 **  This file is part of Sigil.
@@ -96,7 +96,9 @@ public:
     QList<QStringList> GetCurrentStatusVsDestDirInPython(const QString& bookroot,
                                                          const QStringList& bookfiles,
                                                          const QString& destdir);
-    
+
+    QString RebaseManifestIDsInPython(const QString& opfdata);
+
 
 private:
 
