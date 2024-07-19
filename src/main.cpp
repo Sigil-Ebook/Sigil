@@ -486,6 +486,9 @@ int main(int argc, char *argv[])
         qputenv("QTWEBENGINE_CHROMIUM_FLAGS", current_flags.toUtf8());
     }
 
+    // disable thread unsafe use of the PCRE2 JIT in QRegularExpression
+    qputenv("QT_ENABLE_REGEXP_JIT","0");
+
     MainApplication app(argc, argv);
 
 #ifdef Q_OS_MAC

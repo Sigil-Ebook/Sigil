@@ -97,6 +97,8 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
     sync.addFuture(QFuture<void>(html_future));
     sync.addFuture(css_future);
 
+    sync.waitForFinished();
+
     // We can't schedule these with QtConcurrent because they
     // will (indirectly) call QTextDocument::setPlainText, and if
     // a tab is open for the ncx/opf, then an event needs to be sent
@@ -118,8 +120,6 @@ QStringList UniversalUpdates::PerformUniversalUpdates(bool resources_already_loa
         xml_resource->SetCurrentBookRelPath("");
         xml_resource->SaveToDisk();
     }
-
-    sync.waitForFinished();
 
     // Now assemble our list of errors if any.
     QStringList load_update_errors;
