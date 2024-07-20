@@ -2060,16 +2060,6 @@
   (\p{Medefaidrin}+)(\p{Old_Sogdian}+)(\p{Sogdian}+)/x,utf
     \x{11800}\x{11da9}\x{10d27}\x{11ee0}\x{16e48}\x{10f27}\x{10f30} 
 
-# These two are here because of differences from Perl.
-
-/^\X/utf
-    A\x{200d}B                     A ZWJ
-    \x{261d}\x{261d}B              Extended_Pictographic Extended_Pictographic 
-    \x{261D}\x{1F3FB}B             Extended_Pictographic Extend
-    \x{1F1E6}\x{1F1E7}B            RegionalIndicator RegionalIndicator 
-    \x{261D}\x{1F3FB}\x{261d}B     Extended_Pictographic Extend E-P
-    \x{261D}\x{1F3FB}\x{200d}\x{261d}B     Extended_Pictographic Extend ZWJ E-P
-
 # Regional indicators
 
 /^(\X)(\X)/utf,aftertext

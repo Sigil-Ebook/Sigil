@@ -4708,22 +4708,6 @@ Callout 0: last capture = 1
  6: \x{10f27}
  7: \x{10f30}
 
-# These two are here because of differences from Perl.
-
-/^\X/utf
-    A\x{200d}B                     A ZWJ
- 0: A\x{200d}
-    \x{261d}\x{261d}B              Extended_Pictographic Extended_Pictographic 
- 0: \x{261d}\x{261d}
-    \x{261D}\x{1F3FB}B             Extended_Pictographic Extend
- 0: \x{261d}\x{1f3fb}
-    \x{1F1E6}\x{1F1E7}B            RegionalIndicator RegionalIndicator 
- 0: \x{1f1e6}\x{1f1e7}
-    \x{261D}\x{1F3FB}\x{261d}B     Extended_Pictographic Extend E-P
- 0: \x{261d}\x{1f3fb}\x{261d}
-    \x{261D}\x{1F3FB}\x{200d}\x{261d}B     Extended_Pictographic Extend ZWJ E-P
- 0: \x{261d}\x{1f3fb}\x{200d}\x{261d}
-
 # Regional indicators
 
 /^(\X)(\X)/utf,aftertext

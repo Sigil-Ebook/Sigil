@@ -148,7 +148,7 @@ int main(void)
 #define F_PROPERTY	0x200000
 
 struct regression_test_case {
-	int compile_options;
+	uint32_t compile_options;
 	int newline;
 	int match_options;
 	int start_offset;
@@ -276,6 +276,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ CM, A, 0, 0, "a1277|a1377|bX487", "bx487" },
 	{ CM, A, 0, 0, "a1277|a1377|bx487", "bX487" },
 	{ 0, A, 0, 0, "(a|)b*+a", "a" },
+	{ 0, A, 0, 0 | F_NOMATCH, "(.|.|.|.|.)(|.|.|.|.)(.||.|.|.)(.|.||.|.)(.|.|.||.)(.|.|.|.|)(A|.|.|.|.)(.|A|.|.|.)(.|.|A|.|.)(.|.|.|A|.)(.|.|.|.|A)(B|.|.|.|.)(.|B|.|.|.)(.|.|B|.|.)(.|.|.|B|.)(.|.|.|.|B)xa", "1234567890123456ax" },
 
 	/* Greedy and non-greedy ? operators. */
 	{ MU, A, 0, 0, "(?:a)?a", "laab" },
@@ -395,6 +396,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MU, A, 0, 0, "[\\x{10001}-\\x{10fffe}]+", "#\xc3\xa9\xe2\xb1\xa5\xf0\x90\x80\x80\xf0\x90\x80\x81\xf4\x8f\xbf\xbe\xf4\x8f\xbf\xbf" },
 	{ MU, A, 0, 0, "[^\\x{10001}-\\x{10fffe}]+", "\xf0\x90\x80\x81#\xc3\xa9\xe2\xb1\xa5\xf0\x90\x80\x80\xf4\x8f\xbf\xbf\xf4\x8f\xbf\xbe" },
 	{ CMU, A, 0, 0 | F_NOMATCH | F_PROPERTY, "^[\\x{100}-\\x{17f}]", " " },
+	{ M, A, 0, 0 | F_NOMATCH, "[^\\S\\W]{6}", "abcdefghijk" },
 
 	/* Unicode properties. */
 	{ MUP, A, 0, 0, "[1-5\xc3\xa9\\w]", "\xc3\xa1_" },
@@ -1172,7 +1174,7 @@ static int regression_tests(void)
 	int counter = 0;
 	int jit_compile_mode;
 	int utf = 0;
-	int disabled_options = 0;
+	uint32_t disabled_options = 0;
 	int i;
 #ifdef SUPPORT_PCRE2_8
 	pcre2_code_8 *re8;
@@ -1377,9 +1379,9 @@ static int regression_tests(void)
 			ovector8_1 = pcre2_get_ovector_pointer_8(mdata8_1);
 			ovector8_2 = pcre2_get_ovector_pointer_8(mdata8_2);
 			for (i = 0; i < OVECTOR_SIZE * 2; ++i)
-				ovector8_1[i] = -2;
+				ovector8_1[i] = (PCRE2_SIZE)(-2);
 			for (i = 0; i < OVECTOR_SIZE * 2; ++i)
-				ovector8_2[i] = -2;
+				ovector8_2[i] = (PCRE2_SIZE)(-2);
 			pcre2_set_match_limit_8(mcontext8, 10000000);
 		}
 		if (re8) {
@@ -1417,9 +1419,9 @@ static int regression_tests(void)
 			ovector16_1 = pcre2_get_ovector_pointer_16(mdata16_1);
 			ovector16_2 = pcre2_get_ovector_pointer_16(mdata16_2);
 			for (i = 0; i < OVECTOR_SIZE * 2; ++i)
-				ovector16_1[i] = -2;
+				ovector16_1[i] = (PCRE2_SIZE)(-2);
 			for (i = 0; i < OVECTOR_SIZE * 2; ++i)
-				ovector16_2[i] = -2;
+				ovector16_2[i] = (PCRE2_SIZE)(-2);
 			pcre2_set_match_limit_16(mcontext16, 10000000);
 		}
 		if (re16) {
@@ -1462,9 +1464,9 @@ static int regression_tests(void)
 			ovector32_1 = pcre2_get_ovector_pointer_32(mdata32_1);
 			ovector32_2 = pcre2_get_ovector_pointer_32(mdata32_2);
 			for (i = 0; i < OVECTOR_SIZE * 2; ++i)
-				ovector32_1[i] = -2;
+				ovector32_1[i] = (PCRE2_SIZE)(-2);
 			for (i = 0; i < OVECTOR_SIZE * 2; ++i)
-				ovector32_2[i] = -2;
+				ovector32_2[i] = (PCRE2_SIZE)(-2);
 			pcre2_set_match_limit_32(mcontext32, 10000000);
 		}
 		if (re32) {
@@ -1844,7 +1846,7 @@ static int check_invalid_utf_result(int pattern_index, const char *type, int res
 #define CPI (PCRE2_JIT_COMPLETE | PCRE2_JIT_PARTIAL_SOFT | PCRE2_JIT_INVALID_UTF)
 
 struct invalid_utf8_regression_test_case {
-	int compile_options;
+	uint32_t compile_options;
 	int jit_compile_options;
 	int start_offset;
 	int skip_left;
@@ -2135,7 +2137,7 @@ static int invalid_utf8_regression_tests(void)
 #define CPI (PCRE2_JIT_COMPLETE | PCRE2_JIT_PARTIAL_SOFT | PCRE2_JIT_INVALID_UTF)
 
 struct invalid_utf16_regression_test_case {
-	int compile_options;
+	uint32_t compile_options;
 	int jit_compile_options;
 	int start_offset;
 	int skip_left;
@@ -2343,7 +2345,7 @@ static int invalid_utf16_regression_tests(void)
 #define CPI (PCRE2_JIT_COMPLETE | PCRE2_JIT_PARTIAL_SOFT | PCRE2_JIT_INVALID_UTF)
 
 struct invalid_utf32_regression_test_case {
-	int compile_options;
+	uint32_t compile_options;
 	int jit_compile_options;
 	int start_offset;
 	int skip_left;

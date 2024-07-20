@@ -24,7 +24,6 @@ contents of this README file are:
 
   The PCRE2 APIs
   Documentation for PCRE2
-  Contributions by users of PCRE2
   Building PCRE2 on non-Unix-like systems
   Building PCRE2 without using autotools
   Building PCRE2 using autotools
@@ -944,7 +943,14 @@ The distribution should contain the files listed below.
   src/config.h.generic    ) a version of config.h for use in non-"configure"
                           )   environments
 
+(F) Auxiliary files for building PCRE2 under OpenVMS
+
+  vms/configure.com       )
+  vms/openvms_readme.txt  ) These files were contributed by a PCRE2 user.
+  vms/pcre2.h_patch       )
+  vms/stdint.h            )
+
 Philip Hazel
 Email local part: Philip.Hazel
 Email domain: gmail.com
-Last updated: 24 November 2023
+Last updated: 15 April 2024

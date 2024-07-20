@@ -13,6 +13,7 @@ This document contains the following sections:
   Building PCRE2 on Windows with Visual Studio
   Testing with RunTest.bat
   Building PCRE2 on native z/OS and z/VM
+  Building PCRE2 under VMS
 
 
 GENERAL
@@ -416,6 +417,14 @@ Everything in that location, source and executable, is in EBCDIC and native
 z/OS file formats. The port provides an API for LE languages such as COBOL and
 for the z/OS and z/VM versions of the Rexx languages.
 
+
+BUILDING PCRE2 UNDER VMS
+
+Alexey Chuphin has contributed some auxiliary files for building PCRE2 under
+OpenVMS. They are in the "vms" directory in the distribution tarball. Please
+read the file called vms/openvms_readme.txt. The pcre2test and pcre2grep
+programs contain some VMS-specific code.
+
 ===========================
-Last Updated: 15 April 2023
+Last Updated: 16 April 2024
 ===========================

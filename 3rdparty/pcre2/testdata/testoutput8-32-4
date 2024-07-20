@@ -10,7 +10,8 @@
 #pattern fullbincode,memory
 
 /((?i)b)/
-Memory allocation (code space): 48
+Memory allocation - compiled block : 184
+Memory allocation - code portion   : 48
 ------------------------------------------------------------------
   0   9 Bra
   2   5 CBra 1
@@ -21,7 +22,8 @@ Memory allocation (code space): 48
 ------------------------------------------------------------------
 
 /(?s)(.*X|^B)/
-Memory allocation (code space): 76
+Memory allocation - compiled block : 212
+Memory allocation - code portion   : 76
 ------------------------------------------------------------------
   0  16 Bra
   2   7 CBra 1
@@ -36,7 +38,8 @@ Memory allocation (code space): 76
 ------------------------------------------------------------------
 
 /(?s:.*X|^B)/
-Memory allocation (code space): 72
+Memory allocation - compiled block : 208
+Memory allocation - code portion   : 72
 ------------------------------------------------------------------
   0  15 Bra
   2   6 Bra
@@ -51,7 +54,8 @@ Memory allocation (code space): 72
 ------------------------------------------------------------------
 
 /^[[:alnum:]]/
-Memory allocation (code space): 60
+Memory allocation - compiled block : 196
+Memory allocation - code portion   : 60
 ------------------------------------------------------------------
   0  12 Bra
   2     ^
@@ -61,7 +65,8 @@ Memory allocation (code space): 60
 ------------------------------------------------------------------
 
 /#/Ix
-Memory allocation (code space): 20
+Memory allocation - compiled block : 156
+Memory allocation - code portion   : 20
 ------------------------------------------------------------------
   0   2 Bra
   2   2 Ket
@@ -73,7 +78,8 @@ Options: extended
 Subject length lower bound = 0
 
 /a#/Ix
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     a
@@ -86,7 +92,8 @@ First code unit = 'a'
 Subject length lower bound = 1
 
 /x?+/
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     x?+
@@ -95,7 +102,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /x++/
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     x++
@@ -104,7 +112,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /x{1,3}+/
-Memory allocation (code space): 40
+Memory allocation - compiled block : 176
+Memory allocation - code portion   : 40
 ------------------------------------------------------------------
   0   7 Bra
   2     x
@@ -114,7 +123,8 @@ Memory allocation (code space): 40
 ------------------------------------------------------------------
 
 /(x)*+/
-Memory allocation (code space): 52
+Memory allocation - compiled block : 188
+Memory allocation - code portion   : 52
 ------------------------------------------------------------------
   0  10 Bra
   2     Braposzero
@@ -126,7 +136,8 @@ Memory allocation (code space): 52
 ------------------------------------------------------------------
 
 /^((a+)(?U)([ab]+)(?-U)([bc]+)(\w*))/
-Memory allocation (code space): 220
+Memory allocation - compiled block : 356
+Memory allocation - code portion   : 220
 ------------------------------------------------------------------
   0  52 Bra
   2     ^
@@ -149,7 +160,8 @@ Memory allocation (code space): 220
 ------------------------------------------------------------------
 
 "8J\$WE\<\.rX\+ix\[d1b\!H\#\?vV0vrK\:ZH1\=2M\>iV\;\?aPhFB\<\*vW\@QW\@sO9\}cfZA\-i\'w\%hKd6gt1UJP\,15_\#QY\$M\^Mss_U\/\]\&LK9\[5vQub\^w\[KDD\<EjmhUZ\?\.akp2dF\>qmj\;2\}YWFdYx\.Ap\]hjCPTP\(n28k\+3\;o\&WXqs\/gOXdr\$\:r\'do0\;b4c\(f_Gr\=\"\\4\)\[01T7ajQJvL\$W\~mL_sS\/4h\:x\*\[ZN\=KLs\&L5zX\/\/\>it\,o\:aU\(\;Z\>pW\&T7oP\'2K\^E\:x9\'c\[\%z\-\,64JQ5AeH_G\#KijUKghQw\^\\vea3a\?kka_G\$8\#\`\*kynsxzBLru\'\]k_\[7FrVx\}\^\=\$blx\>s\-N\%j\;D\*aZDnsw\:YKZ\%Q\.Kne9\#hP\?\+b3\(SOvL\,\^\;\&u5\@\?5C5Bhb\=m\-vEh_L15Jl\]U\)0RP6\{q\%L\^_z5E\'Dw6X\b"
-Memory allocation (code space): 3296
+Memory allocation - compiled block : 3432
+Memory allocation - code portion   : 3296
 ------------------------------------------------------------------
   0 821 Bra
   2     8J$WE<.rX+ix[d1b!H#?vV0vrK:ZH1=2M>iV;?aPhFB<*vW@QW@sO9}cfZA-i'w%hKd6gt1UJP,15_#QY$M^Mss_U/]&LK9[5vQub^w[KDD<EjmhUZ?.akp2dF>qmj;2}YWFdYx.Ap]hjCPTP(n28k+3;o&WXqs/gOXdr$:r'do0;b4c(f_Gr="\4)[01T7ajQJvL$W~mL_sS/4h:x*[ZN=KLs&L5zX//>it,o:aU(;Z>pW&T7oP'2K^E:x9'c[%z-,64JQ5AeH_G#KijUKghQw^\vea3a?kka_G$8#`*kynsxzBLru']k_[7FrVx}^=$blx>s-N%j;D*aZDnsw:YKZ%Q.Kne9#hP?+b3(SOvL,^;&u5@?5C5Bhb=m-vEh_L15Jl]U)0RP6{q%L^_z5E'Dw6X
@@ -159,7 +171,8 @@ Memory allocation (code space): 3296
 ------------------------------------------------------------------
 
 "\$\<\.X\+ix\[d1b\!H\#\?vV0vrK\:ZH1\=2M\>iV\;\?aPhFB\<\*vW\@QW\@sO9\}cfZA\-i\'w\%hKd6gt1UJP\,15_\#QY\$M\^Mss_U\/\]\&LK9\[5vQub\^w\[KDD\<EjmhUZ\?\.akp2dF\>qmj\;2\}YWFdYx\.Ap\]hjCPTP\(n28k\+3\;o\&WXqs\/gOXdr\$\:r\'do0\;b4c\(f_Gr\=\"\\4\)\[01T7ajQJvL\$W\~mL_sS\/4h\:x\*\[ZN\=KLs\&L5zX\/\/\>it\,o\:aU\(\;Z\>pW\&T7oP\'2K\^E\:x9\'c\[\%z\-\,64JQ5AeH_G\#KijUKghQw\^\\vea3a\?kka_G\$8\#\`\*kynsxzBLru\'\]k_\[7FrVx\}\^\=\$blx\>s\-N\%j\;D\*aZDnsw\:YKZ\%Q\.Kne9\#hP\?\+b3\(SOvL\,\^\;\&u5\@\?5C5Bhb\=m\-vEh_L15Jl\]U\)0RP6\{q\%L\^_z5E\'Dw6X\b"
-Memory allocation (code space): 3256
+Memory allocation - compiled block : 3392
+Memory allocation - code portion   : 3256
 ------------------------------------------------------------------
   0 811 Bra
   2     $<.X+ix[d1b!H#?vV0vrK:ZH1=2M>iV;?aPhFB<*vW@QW@sO9}cfZA-i'w%hKd6gt1UJP,15_#QY$M^Mss_U/]&LK9[5vQub^w[KDD<EjmhUZ?.akp2dF>qmj;2}YWFdYx.Ap]hjCPTP(n28k+3;o&WXqs/gOXdr$:r'do0;b4c(f_Gr="\4)[01T7ajQJvL$W~mL_sS/4h:x*[ZN=KLs&L5zX//>it,o:aU(;Z>pW&T7oP'2K^E:x9'c[%z-,64JQ5AeH_G#KijUKghQw^\vea3a?kka_G$8#`*kynsxzBLru']k_[7FrVx}^=$blx>s-N%j;D*aZDnsw:YKZ%Q.Kne9#hP?+b3(SOvL,^;&u5@?5C5Bhb=m-vEh_L15Jl]U)0RP6{q%L^_z5E'Dw6X
@@ -169,7 +182,8 @@ Memory allocation (code space): 3256
 ------------------------------------------------------------------
 
 /(a(?1)b)/
-Memory allocation (code space): 64
+Memory allocation - compiled block : 200
+Memory allocation - code portion   : 64
 ------------------------------------------------------------------
   0  13 Bra
   2   9 CBra 1
@@ -182,7 +196,8 @@ Memory allocation (code space): 64
 ------------------------------------------------------------------
 
 /(a(?1)+b)/
-Memory allocation (code space): 80
+Memory allocation - compiled block : 216
+Memory allocation - code portion   : 80
 ------------------------------------------------------------------
   0  17 Bra
   2  13 CBra 1
@@ -197,7 +212,8 @@ Memory allocation (code space): 80
 ------------------------------------------------------------------
 
 /a(?P<name1>b|c)d(?P<longername2>e)/
-Memory allocation (code space): 108
+Memory allocation - compiled block : 348
+Memory allocation - code portion   : 108
 ------------------------------------------------------------------
   0  24 Bra
   2     a
@@ -215,7 +231,8 @@ Memory allocation (code space): 108
 ------------------------------------------------------------------
 
 /(?:a(?P<c>c(?P<d>d)))(?P<a>a)/
-Memory allocation (code space): 128
+Memory allocation - compiled block : 300
+Memory allocation - code portion   : 128
 ------------------------------------------------------------------
   0  29 Bra
   2  18 Bra
@@ -235,7 +252,8 @@ Memory allocation (code space): 128
 ------------------------------------------------------------------
 
 /(?P<a>a)...(?P=a)bbb(?P>a)d/
-Memory allocation (code space): 108
+Memory allocation - compiled block : 256
+Memory allocation - code portion   : 108
 ------------------------------------------------------------------
   0  24 Bra
   2   5 CBra 1
@@ -253,7 +271,8 @@ Memory allocation (code space): 108
 ------------------------------------------------------------------
 
 /abc(?C255)de(?C)f/
-Memory allocation (code space): 100
+Memory allocation - compiled block : 236
+Memory allocation - code portion   : 100
 ------------------------------------------------------------------
   0  22 Bra
   2     abc
@@ -266,7 +285,8 @@ Memory allocation (code space): 100
 ------------------------------------------------------------------
 
 /abcde/auto_callout
-Memory allocation (code space): 156
+Memory allocation - compiled block : 292
+Memory allocation - code portion   : 156
 ------------------------------------------------------------------
   0  36 Bra
   2     Callout 255 0 1
@@ -285,7 +305,8 @@ Memory allocation (code space): 156
 ------------------------------------------------------------------
 
 /\x{100}/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     \x{100}
@@ -294,7 +315,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /\x{1000}/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     \x{1000}
@@ -303,7 +325,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /\x{10000}/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     \x{10000}
@@ -312,7 +335,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /\x{100000}/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     \x{100000}
@@ -321,7 +345,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /\x{10ffff}/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     \x{10ffff}
@@ -333,7 +358,8 @@ Memory allocation (code space): 28
 Failed: error 134 at offset 9: character code point value in \x{} or \o{} is too large
 
 /[\x{ff}]/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     \x{ff}
@@ -342,7 +368,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /[\x{100}]/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     \x{100}
@@ -351,7 +378,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /\x80/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     \x{80}
@@ -360,7 +388,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /\xff/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     \x{ff}
@@ -369,7 +398,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /\x{0041}\x{2262}\x{0391}\x{002e}/I,utf
-Memory allocation (code space): 52
+Memory allocation - compiled block : 188
+Memory allocation - code portion   : 52
 ------------------------------------------------------------------
   0  10 Bra
   2     A\x{2262}\x{391}.
@@ -383,7 +413,8 @@ Last code unit = '.'
 Subject length lower bound = 4
 
 /\x{D55c}\x{ad6d}\x{C5B4}/I,utf
-Memory allocation (code space): 44
+Memory allocation - compiled block : 180
+Memory allocation - code portion   : 44
 ------------------------------------------------------------------
   0   8 Bra
   2     \x{d55c}\x{ad6d}\x{c5b4}
@@ -397,7 +428,8 @@ Last code unit = \x{c5b4}
 Subject length lower bound = 3
 
 /\x{65e5}\x{672c}\x{8a9e}/I,utf
-Memory allocation (code space): 44
+Memory allocation - compiled block : 180
+Memory allocation - code portion   : 44
 ------------------------------------------------------------------
   0   8 Bra
   2     \x{65e5}\x{672c}\x{8a9e}
@@ -411,7 +443,8 @@ Last code unit = \x{8a9e}
 Subject length lower bound = 3
 
 /[\x{100}]/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     \x{100}
@@ -420,7 +453,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /[Z\x{100}]/utf
-Memory allocation (code space): 76
+Memory allocation - compiled block : 212
+Memory allocation - code portion   : 76
 ------------------------------------------------------------------
   0  16 Bra
   2     [Z\x{100}]
@@ -429,7 +463,8 @@ Memory allocation (code space): 76
 ------------------------------------------------------------------
 
 /^[\x{100}\E-\Q\E\x{150}]/utf
-Memory allocation (code space): 52
+Memory allocation - compiled block : 188
+Memory allocation - code portion   : 52
 ------------------------------------------------------------------
   0  10 Bra
   2     ^
@@ -439,7 +474,8 @@ Memory allocation (code space): 52
 ------------------------------------------------------------------
 
 /^[\QĀ\E-\QŐ\E]/utf
-Memory allocation (code space): 52
+Memory allocation - compiled block : 188
+Memory allocation - code portion   : 52
 ------------------------------------------------------------------
   0  10 Bra
   2     ^
@@ -452,7 +488,8 @@ Memory allocation (code space): 52
 Failed: error 106 at offset 13: missing terminating ] for character class
 
 /[\p{L}]/
-Memory allocation (code space): 48
+Memory allocation - compiled block : 184
+Memory allocation - code portion   : 48
 ------------------------------------------------------------------
   0   9 Bra
   2     [\p{L}]
@@ -461,7 +498,8 @@ Memory allocation (code space): 48
 ------------------------------------------------------------------
 
 /[\p{^L}]/
-Memory allocation (code space): 48
+Memory allocation - compiled block : 184
+Memory allocation - code portion   : 48
 ------------------------------------------------------------------
   0   9 Bra
   2     [\P{L}]
@@ -470,7 +508,8 @@ Memory allocation (code space): 48
 ------------------------------------------------------------------
 
 /[\P{L}]/
-Memory allocation (code space): 48
+Memory allocation - compiled block : 184
+Memory allocation - code portion   : 48
 ------------------------------------------------------------------
   0   9 Bra
   2     [\P{L}]
@@ -479,7 +518,8 @@ Memory allocation (code space): 48
 ------------------------------------------------------------------
 
 /[\P{^L}]/
-Memory allocation (code space): 48
+Memory allocation - compiled block : 184
+Memory allocation - code portion   : 48
 ------------------------------------------------------------------
   0   9 Bra
   2     [\p{L}]
@@ -488,7 +528,8 @@ Memory allocation (code space): 48
 ------------------------------------------------------------------
 
 /[abc\p{L}\x{0660}]/utf
-Memory allocation (code space): 88
+Memory allocation - compiled block : 224
+Memory allocation - code portion   : 88
 ------------------------------------------------------------------
   0  19 Bra
   2     [a-c\p{L}\x{660}]
@@ -497,7 +538,8 @@ Memory allocation (code space): 88
 ------------------------------------------------------------------
 
 /[\p{Nd}]/utf
-Memory allocation (code space): 48
+Memory allocation - compiled block : 184
+Memory allocation - code portion   : 48
 ------------------------------------------------------------------
   0   9 Bra
   2     [\p{Nd}]
@@ -506,7 +548,8 @@ Memory allocation (code space): 48
 ------------------------------------------------------------------
 
 /[\p{Nd}+-]+/utf
-Memory allocation (code space): 84
+Memory allocation - compiled block : 220
+Memory allocation - code portion   : 84
 ------------------------------------------------------------------
   0  18 Bra
   2     [+\-\p{Nd}]++
@@ -515,7 +558,8 @@ Memory allocation (code space): 84
 ------------------------------------------------------------------
 
 /A\x{391}\x{10427}\x{ff3a}\x{1fb0}/i,utf
-Memory allocation (code space): 60
+Memory allocation - compiled block : 196
+Memory allocation - code portion   : 60
 ------------------------------------------------------------------
   0  12 Bra
   2  /i A\x{391}\x{10427}\x{ff3a}\x{1fb0}
@@ -524,7 +568,8 @@ Memory allocation (code space): 60
 ------------------------------------------------------------------
 
 /A\x{391}\x{10427}\x{ff3a}\x{1fb0}/utf
-Memory allocation (code space): 60
+Memory allocation - compiled block : 196
+Memory allocation - code portion   : 60
 ------------------------------------------------------------------
   0  12 Bra
   2     A\x{391}\x{10427}\x{ff3a}\x{1fb0}
@@ -533,7 +578,8 @@ Memory allocation (code space): 60
 ------------------------------------------------------------------
 
 /[\x{105}-\x{109}]/i,utf
-Memory allocation (code space): 48
+Memory allocation - compiled block : 184
+Memory allocation - code portion   : 48
 ------------------------------------------------------------------
   0   9 Bra
   2     [\x{104}-\x{109}]
@@ -542,7 +588,8 @@ Memory allocation (code space): 48
 ------------------------------------------------------------------
 
 /( ( (?(1)0|) )*   )/x
-Memory allocation (code space): 104
+Memory allocation - compiled block : 240
+Memory allocation - code portion   : 104
 ------------------------------------------------------------------
   0  23 Bra
   2  19 CBra 1
@@ -560,7 +607,8 @@ Memory allocation (code space): 104
 ------------------------------------------------------------------
 
 /(  (?(1)0|)*   )/x
-Memory allocation (code space): 84
+Memory allocation - compiled block : 220
+Memory allocation - code portion   : 84
 ------------------------------------------------------------------
   0  18 Bra
   2  14 CBra 1
@@ -576,7 +624,8 @@ Memory allocation (code space): 84
 ------------------------------------------------------------------
 
 /[a]/
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     a
@@ -585,7 +634,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /[a]/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     a
@@ -594,7 +644,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /[\xaa]/
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     \x{aa}
@@ -603,7 +654,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /[\xaa]/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     \x{aa}
@@ -612,7 +664,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /[^a]/
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     [^a]
@@ -621,7 +674,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /[^a]/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     [^a]
@@ -630,7 +684,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /[^\xaa]/
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     [^\x{aa}]
@@ -639,7 +694,8 @@ Memory allocation (code space): 28
 ------------------------------------------------------------------
 
 /[^\xaa]/utf
-Memory allocation (code space): 28
+Memory allocation - compiled block : 164
+Memory allocation - code portion   : 28
 ------------------------------------------------------------------
   0   4 Bra
   2     [^\x{aa}]

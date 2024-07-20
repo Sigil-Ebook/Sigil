@@ -696,7 +696,9 @@ heavily used in the test files.
       jitfast                   use JIT fast path
       jitverify                 verify JIT use
       locale=&#60;name&#62;             use this locale
-      max_pattern_length=&#60;n&#62;    set maximum pattern length
+      max_pattern_compiled      ) set maximum compiled pattern
+                 _length=&#60;n&#62;    )   length (bytes)
+      max_pattern_length=&#60;n&#62;    set maximum pattern length (code units)
       max_varlookbehind=&#60;n&#62;     set maximum variable lookbehind length
       memory                    show memory used
       newline=&#60;type&#62;            set newline type
@@ -1019,6 +1021,15 @@ The <b>max_pattern_length</b> modifier sets a limit, in code units, to the
 length of pattern that <b>pcre2_compile()</b> will accept. Breaching the limit
 causes a compilation error. The default is the largest number a PCRE2_SIZE
 variable can hold (essentially unlimited).
+</P>
+<br><b>
+Limiting the size of a compiled pattern
+</b><br>
+<P>
+The <b>max_pattern_compiled_length</b> modifier sets a limit, in bytes, to the
+amount of memory used by a compiled pattern. Breaching the limit causes a
+compilation error. The default is the largest number a PCRE2_SIZE variable can
+hold (essentially unlimited).
 <a name="posixwrapper"></a></P>
 <br><b>
 Using the POSIX wrapper API
@@ -2193,7 +2204,7 @@ Cambridge, England.
 </P>
 <br><a name="SEC21" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 27 January 2024
+Last updated: 24 April 2024
 <br>
 Copyright &copy; 1997-2024 University of Cambridge.
 <br>

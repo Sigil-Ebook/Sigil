@@ -12,6 +12,7 @@ pre-2.3.0
      - added a Bookmark Location toolbar icon right beside the Back button for easier use
      - Opening EditTOC, SpeckcheckEditor or MetaDataEditor will now highlight the first line entry
      - Add new Tool: Rebase OPF Manifest IDs on Current Filenames
+     - Update to 3rdparty PCRE2 version 10.44 for bug fixes
   
    Bug Fixes
      - reverted all Qt Buttons and CheckBoxes to default TabFocus to speed up focus changes and reduce clicks
@@ -20,6 +21,7 @@ pre-2.3.0
      - fix overwriting of existing nav document and cover-image manifest properties
      - fix for Reports column sorting that use thousands group separators
      - fix for Reports file size column that did not properly use QLocale for decimal points and separators
+     - fix crashing due to PCRE2 bugs in Qt 6.7.2 with their internal PCRE2
 
 
 Sigil-2.2.1

@@ -9,14 +9,14 @@ dnl The PCRE2_PRERELEASE feature is for identifying release candidates. It might
 dnl be defined as -RC2, for example. For real releases, it should be empty.
 
 m4_define(pcre2_major, [10])
-m4_define(pcre2_minor, [43])
+m4_define(pcre2_minor, [44])
 m4_define(pcre2_prerelease, [])
-m4_define(pcre2_date, [2024-02-16])
+m4_define(pcre2_date, [2024-06-07])
 
 # Libtool shared library interface versions (current:revision:age)
-m4_define(libpcre2_8_version,     [12:0:12])
-m4_define(libpcre2_16_version,    [12:0:12])
-m4_define(libpcre2_32_version,    [12:0:12])
+m4_define(libpcre2_8_version,     [13:0:13])
+m4_define(libpcre2_16_version,    [13:0:13])
+m4_define(libpcre2_32_version,    [13:0:13])
 m4_define(libpcre2_posix_version, [3:5:0])
 
 # NOTE: The CMakeLists.txt file searches for the above variables in the first
@@ -191,7 +191,7 @@ if test "$enable_jit" = "auto"; then
   CPPFLAGS=-I$srcdir
   AC_COMPILE_IFELSE([AC_LANG_SOURCE([[
   #define SLJIT_CONFIG_AUTO 1
-  #include "src/sljit/sljitConfigInternal.h"
+  #include "src/sljit/sljitConfigCPU.h"
   #if (defined SLJIT_CONFIG_UNSUPPORTED && SLJIT_CONFIG_UNSUPPORTED)
   #error unsupported
   #endif]])], enable_jit=yes, enable_jit=no)
@@ -883,7 +883,7 @@ AC_DEFINE_UNQUOTED([HEAP_LIMIT], [$with_heap_limit], [
   a pattern. It applies to both pcre2_match() and pcre2_dfa_match(). It does
   not apply to JIT matching. The value is in kibibytes (units of 1024 bytes).])
 
-AC_DEFINE([MAX_NAME_SIZE], [32], [
+AC_DEFINE([MAX_NAME_SIZE], [128], [
   This limit is parameterized just in case anybody ever wants to
   change it. Care must be taken if it is increased, because it guards
   against integer overflow caused by enormously large patterns.])

@@ -4680,9 +4680,9 @@ B)x/alt_verbnames,mark
 /(?<=\K.)/g,replace=-,allow_lookaround_bsk
     ab
 
-/(?'abcdefghijklmnopqrstuvwxyzABCDEFG'toolong)/
+/(?'abcdefghijklmnopqrstuvwxyzABCDEFGabcdefghijklmnopqrstuvwxyzABCDEabcdefghijklmnopqrstuvwxyzABCDEabcdefghijklmnopqrstuvwxyzABCDEFGH'toolong)/
 
-/(?'abcdefghijklmnopqrstuvwxyzABCDEF'justright)/
+/(?'abcdefghijklmnopqrstuvwxyzABCDEFGabcdefghijklmnopqrstuvwxyzABCDEabcdefghijklmnopqrstuvwxyzABCDEabcdefghijklmnopqrstuvwxyzABCDEFG'justright)/
 
 # These two use zero-termination
 /abcd/max_pattern_length=3
@@ -4693,6 +4693,9 @@ B)x/alt_verbnames,mark
 /abcdefab/hex,max_pattern_length=3
 
 /abcdef/hex,max_pattern_length=3
+
+# Test compiled length limit
+/(abcdefg){10}/max_pattern_compiled_length=100
 
 # These patterns used to take a long time to compile
 
@@ -4949,7 +4952,7 @@ a)"xI
 /{„Í„ÍÍ„Í{'{22{2{{2{'{22{{22{2{'{22{2{{2{{222{{2{'{22{2{22{2{'{22{2{{2{'{22{2{22{2{'{'{22{2{22{2{'{22{2{{2{'{22{2{22{2{'{222{2Ä„Í„ÍÍ„Í{'{22{2{{2{'{22{{11{2{'{22{2{{2{{'{22{2{{2{'{22{{22{1{'{22{2{{2{{222{{2{'{22{2{22{2{'{/auto_callout
 
 //
-\=get=i00000000000000000000000000000000
+\=get=i00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 \=get=i2345678901234567890123456789012,get=i1245678901234567890123456789012
 
 "(?(?C))"
@@ -6098,5 +6101,14 @@ a)"xI
 
 /(a(?1)z||(?1)++)$/
     abcd\=disable_recurseloop_check
+
+/(((?<=123?456456|ABC)))(?<=\2)../
+    ABCDEFG
+    12345645678910 
+    
+# This test is crashing Perl 5.38.2.
+
+/[^\S\W]{6}/
+    .abc def..
 
 # End of testinput2

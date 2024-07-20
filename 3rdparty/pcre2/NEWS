@@ -2,6 +2,14 @@ News about PCRE2 releases
 -------------------------
 
 
+Version 10.44 07-June-2024
+--------------------------
+
+This is mostly a bug-fix and tidying release. There is one new function, to set
+a maximum size for a compiled pattern. The maximum name length for groups is
+increased to 128. Some auxiliary files for building under VMS are added.
+
+
 Version 10.43 16-February-2024
 ------------------------------
 

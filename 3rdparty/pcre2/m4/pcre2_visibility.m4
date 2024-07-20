@@ -77,6 +77,8 @@ AC_DEFUN([PCRE2_VISIBILITY],
     else
       AC_DEFINE(PCRE2_EXPORT, [], [to make a symbol visible])
     fi
+  else
+    AC_DEFINE(PCRE2_EXPORT, [], [to make a symbol visible])
   fi
   AC_SUBST([VISIBILITY_CFLAGS])
   AC_SUBST([VISIBILITY_CXXFLAGS])

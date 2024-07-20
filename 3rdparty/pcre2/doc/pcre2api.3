@@ -1,4 +1,4 @@
-.TH PCRE2API 3 "27 January 2024" "PCRE2 10.43"
+.TH PCRE2API 3 "24 April 2024" "PCRE2 10.44"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .sp
@@ -100,6 +100,9 @@ document for an overview of all the PCRE2 documentation.
 .sp
 .B int pcre2_set_max_pattern_length(pcre2_compile_context *\fIccontext\fP,
 .B "  PCRE2_SIZE \fIvalue\fP);"
+.sp
+.B int pcre2_set_max_pattern_compiled_length(
+.B "  pcre2_compile_context *\fIccontext\fP, PCRE2_SIZE \fIvalue\fP);"
 .sp
 .B int pcre2_set_max_varlookbehind(pcre2_compile_contest *\fIccontext\fP,
 .B "  uint32_t \fIvalue\fP);
@@ -803,6 +806,18 @@ compiled with this context. If the pattern is longer, an error is generated.
 This facility is provided so that applications that accept patterns from
 external sources can limit their size. The default is the largest number that a
 PCRE2_SIZE variable can hold, which is effectively unlimited.
+.sp
+.nf
+.B int pcre2_set_max_pattern_compiled_length(
+.B "  pcre2_compile_context *\fIccontext\fP, PCRE2_SIZE \fIvalue\fP);"
+.fi
+.sp
+This sets a maximum size, in bytes, for the memory needed to hold the compiled
+version of a pattern that is compiled with this context. If the pattern needs
+more memory, an error is generated. This facility is provided so that
+applications that accept patterns from external sources can limit the amount of
+memory they use. The default is the largest number that a PCRE2_SIZE variable
+can hold, which is effectively unlimited.
 .sp
 .nf
 .B int pcre2_set_max_varlookbehind(pcre2_compile_contest *\fIccontext\fP,
@@ -4167,6 +4182,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 27 January 2024
+Last updated: 24 April 2024
 Copyright (c) 1997-2024 University of Cambridge.
 .fi

@@ -161,6 +161,10 @@ document for an overview of all the PCRE2 documentation.
 <b>  PCRE2_SIZE <i>value</i>);</b>
 <br>
 <br>
+<b>int pcre2_set_max_pattern_compiled_length(</b>
+<b>  pcre2_compile_context *<i>ccontext</i>, PCRE2_SIZE <i>value</i>);</b>
+<br>
+<br>
 <b>int pcre2_set_max_varlookbehind(pcre2_compile_contest *<i>ccontext</i>,</b>
 <b>"  uint32_t <i>value</i>);</b>
 <br>
@@ -872,6 +876,18 @@ compiled with this context. If the pattern is longer, an error is generated.
 This facility is provided so that applications that accept patterns from
 external sources can limit their size. The default is the largest number that a
 PCRE2_SIZE variable can hold, which is effectively unlimited.
+<br>
+<br>
+<b>int pcre2_set_max_pattern_compiled_length(</b>
+<b>  pcre2_compile_context *<i>ccontext</i>, PCRE2_SIZE <i>value</i>);</b>
+<br>
+<br>
+This sets a maximum size, in bytes, for the memory needed to hold the compiled
+version of a pattern that is compiled with this context. If the pattern needs
+more memory, an error is generated. This facility is provided so that
+applications that accept patterns from external sources can limit the amount of
+memory they use. The default is the largest number that a PCRE2_SIZE variable
+can hold, which is effectively unlimited.
 <br>
 <br>
 <b>int pcre2_set_max_varlookbehind(pcre2_compile_contest *<i>ccontext</i>,</b>
@@ -4161,7 +4177,7 @@ Cambridge, England.
 </P>
 <br><a name="SEC43" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 27 January 2024
+Last updated: 24 April 2024
 <br>
 Copyright &copy; 1997-2024 University of Cambridge.
 <br>

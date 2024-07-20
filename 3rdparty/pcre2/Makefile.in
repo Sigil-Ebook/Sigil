@@ -1108,6 +1108,7 @@ dist_html_DATA = \
   doc/html/pcre2_set_glob_separator.html \
   doc/html/pcre2_set_heap_limit.html \
   doc/html/pcre2_set_match_limit.html \
+  doc/html/pcre2_set_max_pattern_compiled_length.html \
   doc/html/pcre2_set_max_pattern_length.html \
   doc/html/pcre2_set_max_varlookbehind.html \
   doc/html/pcre2_set_offset_limit.html \
@@ -1206,6 +1207,7 @@ dist_man_MANS = \
   doc/pcre2_set_glob_separator.3 \
   doc/pcre2_set_heap_limit.3 \
   doc/pcre2_set_match_limit.3 \
+  doc/pcre2_set_max_pattern_compiled_length.3 \
   doc/pcre2_set_max_pattern_length.3 \
   doc/pcre2_set_max_varlookbehind.3 \
   doc/pcre2_set_offset_limit.3 \
@@ -1254,11 +1256,16 @@ check_SCRIPTS =
 dist_noinst_SCRIPTS = RunTest $(am__append_45)
 
 # Additional files to delete on 'make clean', 'make distclean',
-# and 'make maintainer-clean'.
+# and 'make maintainer-clean'. It turns out that the default is to delete only
+# those binaries that *this* configuration has created. If the configuration
+# has been changed, some binaries may not get automatically deleted. Therefore
+# we list them here.
 
 # RunTest and RunGrepTest should clean up after themselves, but just in case
 # they don't, add their working files to CLEANFILES.
-CLEANFILES = src/pcre2_chartables.c testSinput test3input test3output \
+CLEANFILES = pcre2_dftables pcre2_jit_test pcre2fuzzcheck-8 \
+	pcre2fuzzcheck-16 pcre2fuzzcheck-32 pcre2demo \
+	src/pcre2_chartables.c testSinput test3input test3output \
 	test3outputA test3outputB testtry teststdout teststderr \
 	teststderrgrep testtemp1grep testtemp2grep testtrygrep \
 	testNinputgrep
@@ -1271,6 +1278,8 @@ MAINTAINERCLEANFILES = src/pcre2.h.generic src/config.h.generic
 # These files contain additional m4 macros that are used by autoconf.
 
 # These files contain maintenance information
+
+# These are support files for building under VMS
 
 # These files are used in the preparation of a release
 
@@ -1291,14 +1300,15 @@ MAINTAINERCLEANFILES = src/pcre2.h.generic src/config.h.generic
 # PCRE2 demonstration program. Not built automatically. The point is that the
 # users should build it themselves. So just distribute the source.
 EXTRA_DIST = m4/ax_pthread.m4 m4/pcre2_visibility.m4 \
-	NON-AUTOTOOLS-BUILD HACKING PrepareRelease CheckMan CleanTxt \
-	Detrail 132html doc/index.html.src src/pcre2.h.generic \
-	src/config.h.generic src/pcre2_ucptables.c \
-	src/pcre2_chartables.c.dist src/sljit/sljitConfig.h \
-	src/sljit/sljitConfigCPU.h src/sljit/sljitConfigInternal.h \
-	src/sljit/sljitLir.c src/sljit/sljitLir.h \
-	src/sljit/sljitNativeARM_32.c src/sljit/sljitNativeARM_64.c \
-	src/sljit/sljitNativeARM_T2_32.c \
+	NON-AUTOTOOLS-BUILD HACKING vms/configure.com \
+	vms/openvms_readme.txt vms/pcre2.h_patch vms/stdint.h \
+	PrepareRelease CheckMan CleanTxt Detrail 132html \
+	doc/index.html.src src/pcre2.h.generic src/config.h.generic \
+	src/pcre2_ucptables.c src/pcre2_chartables.c.dist \
+	src/sljit/sljitConfig.h src/sljit/sljitConfigCPU.h \
+	src/sljit/sljitConfigInternal.h src/sljit/sljitLir.c \
+	src/sljit/sljitLir.h src/sljit/sljitNativeARM_32.c \
+	src/sljit/sljitNativeARM_64.c src/sljit/sljitNativeARM_T2_32.c \
 	src/sljit/sljitNativeLOONGARCH_64.c \
 	src/sljit/sljitNativeMIPS_32.c src/sljit/sljitNativeMIPS_64.c \
 	src/sljit/sljitNativeMIPS_common.c \
@@ -1309,7 +1319,8 @@ EXTRA_DIST = m4/ax_pthread.m4 m4/pcre2_visibility.m4 \
 	src/sljit/sljitNativeRISCV_common.c \
 	src/sljit/sljitNativeS390X.c src/sljit/sljitNativeX86_32.c \
 	src/sljit/sljitNativeX86_64.c \
-	src/sljit/sljitNativeX86_common.c src/sljit/sljitUtils.c \
+	src/sljit/sljitNativeX86_common.c src/sljit/sljitSerialize.c \
+	src/sljit/sljitUtils.c \
 	src/sljit/allocator_src/sljitExecAllocatorApple.c \
 	src/sljit/allocator_src/sljitExecAllocatorCore.c \
 	src/sljit/allocator_src/sljitExecAllocatorFreeBSD.c \

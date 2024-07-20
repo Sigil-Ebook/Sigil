@@ -3,6 +3,7 @@
 # are different without JIT.
 
 /abc/I,jit,jitverify
+JIT compilation was not successful (bad JIT option)
 Capture group count = 0
 First code unit = 'a'
 Last code unit = 'c'

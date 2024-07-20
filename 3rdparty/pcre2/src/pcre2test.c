@@ -719,6 +719,7 @@ static modstruct modlist[] = {
   { "match_line",                  MOD_CTC,  MOD_OPT, PCRE2_EXTRA_MATCH_LINE,     CO(extra_options) },
   { "match_unset_backref",         MOD_PAT,  MOD_OPT, PCRE2_MATCH_UNSET_BACKREF,  PO(options) },
   { "match_word",                  MOD_CTC,  MOD_OPT, PCRE2_EXTRA_MATCH_WORD,     CO(extra_options) },
+  { "max_pattern_compiled_length", MOD_CTC,  MOD_SIZ, 0,                          CO(max_pattern_compiled_length) },
   { "max_pattern_length",          MOD_CTC,  MOD_SIZ, 0,                          CO(max_pattern_length) },
   { "max_varlookbehind",           MOD_CTC,  MOD_INT, 0,                          CO(max_varlookbehind) },
   { "memory",                      MOD_PD,   MOD_CTL, CTL_MEMORY,                 PD(control) },
@@ -1428,6 +1429,14 @@ are supported. */
   else \
     pcre2_set_match_limit_32(G(a,32),b)
 
+#define PCRE2_SET_MAX_PATTERN_COMPILED_LENGTH(a,b) \
+  if (test_mode == PCRE8_MODE) \
+    pcre2_set_max_pattern_compiled_length_8(G(a,8),b); \
+  else if (test_mode == PCRE16_MODE) \
+    pcre2_set_max_pattern_compiled_length_16(G(a,16),b); \
+  else \
+    pcre2_set_max_pattern_compiled_length_32(G(a,32),b)
+
 #define PCRE2_SET_MAX_PATTERN_LENGTH(a,b) \
   if (test_mode == PCRE8_MODE) \
     pcre2_set_max_pattern_length_8(G(a,8),b); \
@@ -1934,6 +1943,12 @@ the three different cases. */
   else \
     G(pcre2_set_match_limit_,BITTWO)(G(a,BITTWO),b)
 
+#define PCRE2_SET_MAX_PATTERN_COMPILED_LENGTH(a,b) \
+  if (test_mode == G(G(PCRE,BITONE),_MODE)) \
+    G(pcre2_set_max_pattern_compiled_length_,BITONE)(G(a,BITONE),b); \
+  else \
+    G(pcre2_set_max_pattern_compiled_length_,BITTWO)(G(a,BITTWO),b)
+
 #define PCRE2_SET_MAX_PATTERN_LENGTH(a,b) \
   if (test_mode == G(G(PCRE,BITONE),_MODE)) \
     G(pcre2_set_max_pattern_length_,BITONE)(G(a,BITONE),b); \
@@ -2166,6 +2181,7 @@ the three different cases. */
 #define PCRE2_SET_GLOB_SEPARATOR(r,a,b) r = pcre2_set_glob_separator_8(G(a,8),b)
 #define PCRE2_SET_HEAP_LIMIT(a,b) pcre2_set_heap_limit_8(G(a,8),b)
 #define PCRE2_SET_MATCH_LIMIT(a,b) pcre2_set_match_limit_8(G(a,8),b)
+#define PCRE2_SET_MAX_PATTERN_COMPILED_LENGTH(a,b) pcre2_set_max_pattern_compiled_length_8(G(a,8),b)
 #define PCRE2_SET_MAX_PATTERN_LENGTH(a,b) pcre2_set_max_pattern_length_8(G(a,8),b)
 #define PCRE2_SET_MAX_VARLOOKBEHIND(a,b) pcre2_set_max_varlookbehind_8(G(a,8),b)
 #define PCRE2_SET_OFFSET_LIMIT(a,b) pcre2_set_offset_limit_8(G(a,8),b)
@@ -4404,14 +4420,15 @@ if (test_mode == PCRE32_MODE) cblock_size = sizeof(pcre2_real_code_32);
 /* The uint32_t variables are cast before multiplying to stop code analyzers
 grumbling about potential overflow. */
 
-fprintf(outfile, "Memory allocation (code space): %" SIZ_FORM "\n", size -
+fprintf(outfile, "Memory allocation - compiled block : %" SIZ_FORM "\n", size);
+fprintf(outfile, "Memory allocation - code portion   : %" SIZ_FORM "\n", size -
   (PCRE2_SIZE)name_count * (PCRE2_SIZE)name_entry_size * (PCRE2_SIZE)code_unit_size -
   cblock_size);
 
 if (pat_patctl.jit != 0)
   {
   (void)pattern_info(PCRE2_INFO_JITSIZE, &size, FALSE);
-  fprintf(outfile, "Memory allocation (JIT code): %" SIZ_FORM "\n", size);
+  fprintf(outfile, "Memory allocation - JIT code       : %" SIZ_FORM "\n", size);
   }
 }
 
@@ -5644,6 +5661,8 @@ if ((pat_patctl.control & CTL_POSIX) != 0)
   if (local_newline_default != 0) prmsg(&msg, "#newline_default");
   if (FLD(pat_context, max_pattern_length) != PCRE2_UNSET)
     prmsg(&msg, "max_pattern_length");
+  if (FLD(pat_context, max_pattern_compiled_length) != PCRE2_UNSET)
+    prmsg(&msg, "max_pattern_compiled_length");
   if (FLD(pat_context, parens_nest_limit) != PARENS_NEST_DEFAULT)
     prmsg(&msg, "parens_nest_limit");
 
@@ -5991,38 +6010,6 @@ if (timeit > 0)
 PCRE2_COMPILE(compiled_code, use_pbuffer, patlen,
   pat_patctl.options|use_forbid_utf, &errorcode, &erroroffset, use_pat_context);
 
-/* Call the JIT compiler if requested. When timing, we must free and recompile
-the pattern each time because that is the only way to free the JIT compiled
-code. We know that compilation will always succeed. */
-
-if (TEST(compiled_code, !=, NULL) && pat_patctl.jit != 0)
-  {
-  if (timeit > 0)
-    {
-    int i;
-    clock_t time_taken = 0;
-
-    for (i = 0; i < timeit; i++)
-      {
-      clock_t start_time;
-      SUB1(pcre2_code_free, compiled_code);
-      PCRE2_COMPILE(compiled_code, use_pbuffer, patlen,
-        pat_patctl.options|use_forbid_utf, &errorcode, &erroroffset,
-        use_pat_context);
-      start_time = clock();
-      PCRE2_JIT_COMPILE(jitrc, compiled_code, pat_patctl.jit);
-      time_taken += clock() - start_time;
-      }
-    total_jit_compile_time += time_taken;
-    fprintf(outfile, "JIT compile  %8.4f microseconds\n",
-      ((1000000 / CLOCKS_PER_SEC) * (double)time_taken) / timeit);
-    }
-  else
-    {
-    PCRE2_JIT_COMPILE(jitrc, compiled_code, pat_patctl.jit);
-    }
-  }
-
 /* If valgrind is supported, mark the pbuffer as accessible again. The 16-bit
 and 32-bit buffers can be marked completely undefined, but we must leave the
 pattern in the 8-bit buffer defined because it may be read from a callout
@@ -6049,6 +6036,50 @@ if (test_mode == PCRE32_MODE)
   }
 #endif
 #endif
+
+/* Call the JIT compiler if requested. When timing, we must free and recompile
+the pattern each time because that is the only way to free the JIT compiled
+code. We know that compilation will always succeed. */
+
+if (TEST(compiled_code, !=, NULL) && pat_patctl.jit != 0)
+  {
+  if (timeit > 0)
+    {
+    int i;
+    clock_t time_taken = 0;
+
+    for (i = 0; i < timeit; i++)
+      {
+      clock_t start_time;
+      SUB1(pcre2_code_free, compiled_code);
+      PCRE2_COMPILE(compiled_code, use_pbuffer, patlen,
+        pat_patctl.options|use_forbid_utf, &errorcode, &erroroffset,
+        use_pat_context);
+      start_time = clock();
+      PCRE2_JIT_COMPILE(jitrc, compiled_code, pat_patctl.jit);
+      time_taken += clock() - start_time;
+      if (jitrc != 0)
+        {
+        fprintf(outfile, "JIT compilation was not successful");
+        if (!print_error_message(jitrc, " (", ")\n")) return PR_ABEND;
+        break;
+        }
+      }
+    total_jit_compile_time += time_taken;
+    if (jitrc == 0)
+      fprintf(outfile, "JIT compile  %8.4f microseconds\n",
+        ((1000000 / CLOCKS_PER_SEC) * (double)time_taken) / timeit);
+    }
+  else
+    {
+    PCRE2_JIT_COMPILE(jitrc, compiled_code, pat_patctl.jit);
+    if (jitrc != 0 && (pat_patctl.control & CTL_JITVERIFY) != 0)
+      {
+      fprintf(outfile, "JIT compilation was not successful");
+      if (!print_error_message(jitrc, " (", ")\n")) return PR_ABEND;
+      }
+    }
+  }
 
 /* Compilation failed; go back for another re, skipping to blank line
 if non-interactive. */
@@ -9397,10 +9428,10 @@ max_oveccount = DEFAULT_OVECCOUNT;
 #define CONTEXTTESTS \
   (void)G(pcre2_set_compile_extra_options_,BITS)(G(pat_context,BITS), 0); \
   (void)G(pcre2_set_max_pattern_length_,BITS)(G(pat_context,BITS), 0); \
+  (void)G(pcre2_set_max_pattern_compiled_length_,BITS)(G(pat_context,BITS), 0); \
   (void)G(pcre2_set_max_varlookbehind_,BITS)(G(pat_context,BITS), 0); \
   (void)G(pcre2_set_offset_limit_,BITS)(G(dat_context,BITS), 0); \
   (void)G(pcre2_get_match_data_size_,BITS)(G(match_data,BITS))
-
 
 /* Call the appropriate functions for the current mode, and exercise some
 functions that are not otherwise called. */

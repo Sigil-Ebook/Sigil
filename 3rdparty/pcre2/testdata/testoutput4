@@ -2668,6 +2668,33 @@ No match
     \x09\x{1b04}Control, spacingmark
  0: \x{09}
  0+ \x{1b04}Control, spacingmark
+    *Test Extended Pictographic after bug fix
+ 0: *
+ 0+ Test Extended Pictographic after bug fix
+    \x{261d}\x{261d}B              Extended_Pictographic Extended_Pictographic 
+ 0: \x{261d}
+ 0+ \x{261d}B              Extended_Pictographic Extended_Pictographic
+    \x{261D}\x{1F3FB}\x{261d}B     Extended_Pictographic Extend E-P
+ 0: \x{261d}\x{1f3fb}
+ 0+ \x{261d}B     Extended_Pictographic Extend E-P
+    \x{261D}\x{1F3FB}\x{200d}\x{261d}B     Extended_Pictographic Extend ZWJ E-P
+ 0: \x{261d}\x{1f3fb}\x{200d}\x{261d}
+ 0+ B     Extended_Pictographic Extend ZWJ E-P
+    \x{1f3f3}\x{fe0f}\x{200d}\x{1f308}\x{1f3f4}\x{200d}\x{2620}\x{fe0f}\x{1f3f3}\x{fe0f}\x{200d}\x{1f308}\x{1f3f4}\x{200d}\x{2620}\x{fe0f}
+ 0: \x{1f3f3}\x{fe0f}\x{200d}\x{1f308}
+ 0+ \x{1f3f4}\x{200d}\x{2620}\x{fe0f}\x{1f3f3}\x{fe0f}\x{200d}\x{1f308}\x{1f3f4}\x{200d}\x{2620}\x{fe0f}
+    A\x{200d}\x{1f308}B
+ 0: A\x{200d}
+ 0+ \x{1f308}B
+    A\x{200d}B                     A ZWJ
+ 0: A\x{200d}
+ 0+ B                     A ZWJ
+    \x{261D}\x{1F3FB}B             Extended_Pictographic Extend
+ 0: \x{261d}\x{1f3fb}
+ 0+ B             Extended_Pictographic Extend
+    \x{1F1E6}\x{1F1E7}B            RegionalIndicator RegionalIndicator 
+ 0: \x{1f1e6}\x{1f1e7}
+ 0+ B            RegionalIndicator RegionalIndicator
     *There are no Prepend characters, so we can't test Prepend, CR
  0: *
  0+ There are no Prepend characters, so we can't test Prepend, CR
