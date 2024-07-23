@@ -231,11 +231,7 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_ClipboardHistoryLimit(CLIPBOARD_HISTORY_MAX),
     m_LastPasteTarget(NULL),
     m_ZoomPreview(false),
-    m_LastWindowSize(QByteArray()),
-    m_LastState(QByteArray()),
     m_FirstTime(true),
-    m_PendingLastSizeUpdate(false),
-    m_SaveLastEnabled(false),
     m_PreviousHTMLResource(NULL),
     m_PreviousHTMLText(QString()),
     m_PreviousHTMLLocation(QList<ElementIndex>()),
@@ -1648,13 +1644,15 @@ void MainWindow::ShowMessageOnStatusBar(const QString &message,
 void MainWindow::ShowLastOpenFileWarnings()
 {
     if (!m_LastOpenFileWarnings.isEmpty()) {
-        Utility::DisplayStdWarningDialog(
-            "<p><b>" %
-            tr("Opening this EPUB generated warnings.") %
-            "</b></p><p>" %
-            tr("Select Show Details for more information.") %
-            "</p>",
-            m_LastOpenFileWarnings.join("\n"));
+        foreach(QString warning, m_LastOpenFileWarnings) {
+            Utility::DisplayStdWarningDialog( 
+                "<p><b>" %
+               tr("Opening this EPUB generated warning()s.") %
+                  "</b></p><p>" %
+                tr("Select Show Details for more information on this warning.") %
+                "</p>",
+                warning, this);
+        }
         m_LastOpenFileWarnings.clear();
     }
 }
@@ -1662,7 +1660,6 @@ void MainWindow::ShowLastOpenFileWarnings()
 void MainWindow::showEvent(QShowEvent *event)
 {
     m_IsInitialLoad = false;
-
     QMainWindow::showEvent(event);
 }
 
@@ -1700,17 +1697,7 @@ void MainWindow::moveEvent(QMoveEvent *event)
 {
     DWINGEO qDebug() << "------";
     DWINGEO qDebug() << "In moveEvent with maximized or full" << isMaxOrFull();
-
-    // Workaround for Qt bug - see WriteSettings() for details.
-    if (!m_PendingLastSizeUpdate && !isMaxOrFull()) {
-        DWINGEO qDebug() << "issuing a LastSizeUpdate request";
-        m_PendingLastSizeUpdate = true;
-        // delay long enough for WindowState to be properly set if Maximized or FullScreened
-        QTimer::singleShot(1000, this, SLOT(UpdateLastSizes()));
-    }
-
     DWINGEO DebugCurrentWidgetSizes();
-
     QMainWindow::moveEvent(event);
 }
 
@@ -1730,15 +1717,6 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     DWINGEO qDebug() << "new size: " << event->size();
     DWINGEO qDebug() << "primary screen total size: " << qApp->primaryScreen()->geometry();
     DWINGEO qDebug() << "primary screen available size: " << qApp->primaryScreen()->availableGeometry();
-
-    // Workaround for Qt bug - see WriteSettings() for details.
-    if (!m_PendingLastSizeUpdate && !isMaxOrFull()) {
-        DWINGEO qDebug() << "issuing a LastSizeUpdate request";
-        m_PendingLastSizeUpdate = true;
-        // delay long enough for WindowState to be properly set if Maximize or FullScreen
-        QTimer::singleShot(1000, this, SLOT(UpdateLastSizes()));
-    }
-
     DWINGEO DebugCurrentWidgetSizes();
 
     QMainWindow::resizeEvent(event);
@@ -1804,17 +1782,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
             m_PreviewWindow->hide();
         }
 
-#ifdef Q_OS_MAC
-        // Qt BUG:  macOS can not be left in fullscreen or maximized mode upon exit
-        if (isFullScreen()) setWindowState(windowState() & ~Qt::WindowFullScreen);
-        if (isMaximized()) setWindowState(windowState() & ~Qt::WindowMaximized);
-#endif
         event->accept();
     } else {
         event->ignore();
         SetupPreviewTimer();
-        // re-enable the ability to record good last normal sizes
-        m_SaveLastEnabled = true;
         m_IsClosing = false;
     }
 }
@@ -4934,33 +4905,13 @@ void MainWindow::ReadSettings()
     bool MaximizedState = settings.value("maximized", false).toBool();
     bool FullScreenState = settings.value("fullscreen", false).toBool();
 
-    m_LastWindowSize = settings.value("geometry",QByteArray()).toByteArray();
-
-    // we should probably not restore geometry of a maximized window here
-    // since it would restore the normal geometry
-
-    if (!MaximizedState && !FullScreenState) {
-        if (!m_LastWindowSize.isEmpty()) restoreGeometry(m_LastWindowSize);
-    } 
+    QByteArray lastWindowSize = settings.value("geometry", QByteArray()).toByteArray();
+    if (!lastWindowSize.isEmpty()) restoreGeometry(lastWindowSize);
 
     if (MaximizedState) {
-
-#ifndef Q_OS_MAC
-        QRect maxsize = settings.value("max_mw_geometry", QGuiApplication::primaryScreen()->availableGeometry()).toRect();
-        setGeometry(maxsize);
-        setWindowState(windowState() | Qt::WindowMaximized);
-#else
         showMaximized();
-#endif
-
     } else if (FullScreenState) {
-#ifndef Q_OS_MAC
-        QRect maxsize = settings.value("max_mw_geometry", QGuiApplication::primaryScreen()->availableGeometry()).toRect();
-        setGeometry(maxsize);
-        setWindowState(windowState() | Qt::WindowFullScreen);
-#else
         showFullScreen();
-#endif
     }
 
     DWINGEO qDebug() << "------";
@@ -4973,12 +4924,11 @@ void MainWindow::ReadSettings()
     // has the proper geometry to match what was saved and has been
     // properly resized (see QTBUG-46620 and QTBUG-16252)
     // So delay restore until the first time the widget is made active
-    m_LastState = settings.value("toolbars",QByteArray()).toByteArray();
-
-#ifdef Q_OS_MAC
-    // Work around saved state restore bug with Find and Replace on macOS
+    QByteArray lastState = settings.value("toolbars",QByteArray()).toByteArray();
+    if (!lastState.isEmpty()) restoreState(lastState);
+    
+    // Work around saved state restore bug with Find and Replace
     m_FRVisible = settings.value("frvisible", false).toBool();
-#endif
 
     // The last folder used for saving and opening files
     m_LastFolderOpen  = settings.value("lastfolderopen", QDir::homePath()).toString();
@@ -5052,9 +5002,6 @@ void MainWindow::WriteSettings()
     DWINGEO qDebug() << "------";
     DWINGEO qDebug() << "In WriteSettings";
 
-    // disable recording any last sizes as exiting
-    m_SaveLastEnabled = false;
-
     SettingsStore settings;
     settings.beginGroup(SETTINGS_GROUP);
     // The size of the window and it's full screen status
@@ -5065,29 +5012,17 @@ void MainWindow::WriteSettings()
     settings.setValue("maximized", isMaximized());
     settings.setValue("fullscreen",isFullScreen());
 
-#ifdef Q_OS_MAC
     // work around Find Replace saved state restore bug on macOS
     settings.setValue("frvisible",m_FindReplace->isVisible());
     if (m_FindReplace->isVisible()) {
         // can not use just hide() and FR keeps its own internal state
         m_FindReplace->HideFindReplace();
     }
-#endif
 
     DBG DebugCurrentWidgetSizes();
 
-    // if currently not maximized and not full screen, just save what we have now
-    if (!isMaximized() && !isFullScreen()) {
-        settings.setValue("geometry", saveGeometry());
-    } else {
-        settings.setValue("geometry", m_LastWindowSize);
-    }
-
-    // in case this is needed for helping to determine when last normal sizes
-    if (isMaximized() || isFullScreen() ) {
-        settings.setValue("max_mw_geometry", geometry());
-    }
-
+    settings.setValue("geometry", saveGeometry());
+    
     // The positions of all the toolbars and dock widgets
     settings.setValue("toolbars", saveState());
 
@@ -5352,11 +5287,9 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
             // Get any warnings - if our main window is not currently visible they will be
             // shown when the window is displayed.
             m_LastOpenFileWarnings.append(importer->GetLoadWarnings());
-
             if (!m_IsInitialLoad) {
                 ShowLastOpenFileWarnings();
             }
-
             if (!is_internal) {
                 // Store the folder the user opened from
                 m_LastFolderOpen = QFileInfo(fullfilepath).absolutePath();
@@ -6231,43 +6164,12 @@ void MainWindow::LoadInitialFile(const QString &openfilepath, const QString vers
 
 // Workaround for Long term Qt restore geometry bug - see WriteSettings() for details.
 void MainWindow::UpdateLastSizes() {
-    DWINGEO qDebug() << "------";
-    DWINGEO qDebug() << "In UpdateLastSizes";
-    DWINGEO qDebug() << "Pending: " << m_PendingLastSizeUpdate;
-    DWINGEO qDebug() << "Enabled: " << m_SaveLastEnabled;
-
-    if (!m_PendingLastSizeUpdate) return;
-
-    if (m_SaveLastEnabled) {
-        if (!isMaxOrFull()) {
-            DWINGEO qDebug() << "recording last sizes";
-            m_LastWindowSize = saveGeometry();
-        }
-    }
-
-    DWINGEO DebugCurrentWidgetSizes();
-
-    m_PendingLastSizeUpdate = false;
-
 }
 
 // This may still be needed on Windows and Linux
 // so keep the code
 void MainWindow::RestoreLastNormalGeometry()
 {
-#ifndef Q_OS_MAC
-    // record the current sizes before changing then as they
-    // are updated in the resize event
-    QByteArray WindowSize = m_LastWindowSize;
-    DWINGEO qDebug() << "------";
-    DWINGEO qDebug() << "In RestoreLastNormalGeometry";
-
-    // prevent any resulting move or resize from being recorded here
-    m_SaveLastEnabled = false;
-    if (!WindowSize.isEmpty()) restoreGeometry(WindowSize);
-    m_SaveLastEnabled=true;
-    DWINGEO DebugCurrentWidgetSizes();
-#endif
 }
 
 void MainWindow::changeEvent(QEvent *e) 
@@ -6300,14 +6202,8 @@ void MainWindow::changeEvent(QEvent *e)
             DWINGEO qDebug() << "Main Window is transitioning from inactive to active: " << isMaxOrFull();
 
             if (m_FirstTime) {
-                if (!m_LastState.isEmpty()) {
-                    restoreState(m_LastState);
-#ifdef Q_OS_MAC
-                    // work around for macOS specific bug saved state restore with Find & Replace
-                    if (m_FRVisible) {
-                         QTimer::singleShot(0, this, SLOT(Find()));
-                    }
-#endif
+                if (m_FRVisible) {
+                     QTimer::singleShot(30, this, SLOT(Find()));
                 }
 
                 DWINGEO {
@@ -6333,23 +6229,14 @@ void MainWindow::changeEvent(QEvent *e)
                     }
                 }
 
-                // restoreState properly handles moving floating Preview Window
-                // back to main screen if needed but keeps it hidden, only need to 
-                // use View to display it, at least on macOSX
-
+            }
+            // moved here from showEvent to make sure it comes after state restoration
+            if (m_FirstTime && !m_LastOpenFileWarnings.isEmpty()) {
+                QTimer::singleShot(0, this, SLOT(ShowLastOpenFileWarnings()));
             }
             m_FirstTime = false;
 
-            // moved here from showEvent to make sure it comes after state restoration
-            if (!m_LastOpenFileWarnings.isEmpty()) {
-                QTimer::singleShot(0, this, SLOT(ShowLastOpenFileWarnings()));
-            }
-
             DBG DebugCurrentWidgetSizes();
-
-            m_SaveLastEnabled = true;
-            m_PendingLastSizeUpdate = true;
-            UpdateLastSizes();
 
         } else {
             DWINGEO qDebug() << "Main Window is transitioning from active to inactive";
