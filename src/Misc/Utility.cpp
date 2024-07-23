@@ -102,8 +102,10 @@ class SigilMessageBox: public QMessageBox
         virtual void resizeEvent(QResizeEvent * e) {
             QMessageBox::resizeEvent(e);
             setMaximumSize(QWIDGETSIZE_MAX, QWIDGETSIZE_MAX);
-            if (QWidget *textEdit = findChild<QTextEdit *>()) {
+            QWidget * textEdit = findChild<QTextEdit *>();
+            if (textEdit) {
                 textEdit->setMaximumHeight(QWIDGETSIZE_MAX);
+                textEdit->setMaximumWidth(QWIDGETSIZE_MAX);
             }
         }
 };
@@ -716,9 +718,8 @@ void Utility::DisplayExceptionErrorDialog(const QString &error_info)
 }
 
 
-void Utility::DisplayStdErrorDialog(const QString &error_message, const QString &detailed_text)
+void Utility::DisplayStdErrorDialog(const QString &error_message, const QString &detailed_text, QWidget* parent)
 {
-    QWidget * parent = QApplication::activeWindow();
     QMessageBox message_box(parent);
     message_box.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
     message_box.setModal(true);
@@ -732,15 +733,11 @@ void Utility::DisplayStdErrorDialog(const QString &error_message, const QString 
 
     message_box.setStandardButtons(QMessageBox::Close);
     message_box.exec();
-#ifdef Q_OS_MAC    
-    if (parent) parent->activateWindow();
-#endif
 }
 
 
-void Utility::DisplayStdWarningDialog(const QString &warning_message, const QString &detailed_text)
+void Utility::DisplayStdWarningDialog(const QString &warning_message, const QString &detailed_text, QWidget * parent)
 {
-    QWidget * parent = QApplication::activeWindow();
     SigilMessageBox message_box(parent);
     message_box.setWindowFlags(Qt::Window | Qt::WindowStaysOnTopHint);
     message_box.setModal(true);
@@ -754,9 +751,6 @@ void Utility::DisplayStdWarningDialog(const QString &warning_message, const QStr
     }
     message_box.setStandardButtons(QMessageBox::Ok);
     message_box.exec();
-#ifdef Q_OS_MAC    
-    if (parent) parent->activateWindow();
-#endif    
 }
 
 // Returns a value for the environment variable name passed;
