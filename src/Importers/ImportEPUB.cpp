@@ -151,9 +151,7 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
     }
     
     if (!notInManifest.isEmpty()) {
-        QApplication::restoreOverrideCursor();
-        Utility::DisplayStdWarningDialog(tr("Files exist in epub that are not listed in the manifest, they will be ignored"), notInManifest.join("\n"));
-        QApplication::setOverrideCursor(Qt::WaitCursor);
+        AddLoadWarning(QObject::tr("Files exist in epub that are not listed in the manifest, they will be ignored: %1").arg(notInManifest.join(", ")));
     }
 
     LoadFolderStructure();
@@ -172,7 +170,8 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
         }
     }
 
-    bool checkit = ((ss.cleanOn() & CLEANON_OPEN) == CLEANON_OPEN);
+    bool autofix = ((ss.cleanOn() & CLEANON_OPEN) == CLEANON_OPEN);
+    bool checkit = true;
 
     QFuture<std::pair<HTMLResource*, bool> > html_future;
     html_future = QtConcurrent::mapped(hresources, std::bind(InitialLoadAndCheckOneHTMLFile, std::placeholders::_1, checkit));
@@ -183,23 +182,25 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
         }
     }
     if (!non_well_formed.isEmpty()) {
-        QApplication::restoreOverrideCursor();
-        if (QMessageBox::Yes == Utility::warning(QApplication::activeWindow(),
-                tr("Sigil"),
-                tr("This EPUB has HTML files that are not well formed or are "
-                   "missing a DOCTYPE, html, head or body elements. "
-                   "Sigil can automatically fix these files, although "
-                   "this may very rarely result in minor data loss in extreme circumstances.\n\n"
-                   "Do you want to automatically fix the files?"),
-                                                 QMessageBox::Yes|QMessageBox::No, QMessageBox::Yes)) 
-        {
+        QStringList problem_files;
+        foreach(HTMLResource* htmlres, non_well_formed) {
+            problem_files << htmlres->GetRelativePath();
+        }
+        QString fixme = "\n\n" + problem_files.join("\n");
+        if (autofix) {
             foreach(HTMLResource* htmlres, non_well_formed) {
                 QString fixed_text = CleanSource::Mend(htmlres->GetText(),htmlres->GetEpubVersion());
                 htmlres->SetText(fixed_text);
             }
             non_well_formed.clear();
+            AddLoadWarning(QObject::tr("This EPUB had HTML files that were not well formed or are "
+                   "missing a DOCTYPE, html, head or body elements. They were automatically fixed based on "
+                                       "your Preference setting to Clean on Open. %1").arg(fixme));
+        } else {
+            AddLoadWarning(QObject::tr("This EPUB has HTML files that are not well formed or are "
+                   "missing a DOCTYPE, html, head or body elements. Fix these manually or use "
+                   "Sigil's Mend tool to automatically fixed these errors or omissions. %1").arg(fixme));
         }
-        QApplication::setOverrideCursor(Qt::WaitCursor);
     }
 
     ProcessFontFiles(resources, encrypted_files);
@@ -635,7 +636,7 @@ void ImportEPUB::LocateOPF()
     }
 
     if (num_opf > 1) {
-        Utility::DisplayStdWarningDialog(tr("This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found."),"");
+        AddLoadWarning(QObject::tr("This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found."));
     }
 
     if (m_OPFFilePath.isEmpty() || !QFile::exists(m_OPFFilePath)) {
