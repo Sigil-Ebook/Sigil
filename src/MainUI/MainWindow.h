@@ -904,6 +904,8 @@ private:
     QStringList m_LastOpenFileWarnings;
     bool m_IsInitialLoad;
 
+    QByteArray m_LastState;
+    
     /**
      * The path to the current file loaded.
      */

@@ -200,6 +200,7 @@ MainWindow::MainWindow(const QString &openfilepath,
     QMainWindow(parent, flags),
     m_LastOpenFileWarnings(QStringList()),
     m_IsInitialLoad(true),
+    m_LastState(QByteArray()),
     m_CurrentFilePath(QString()),
     m_CurrentFileName(QString()),
     m_Book(new Book()),
@@ -4928,8 +4929,7 @@ void MainWindow::ReadSettings()
     // has the proper geometry to match what was saved and has been
     // properly resized (see QTBUG-46620 and QTBUG-16252)
     // So delay restore until the first time the widget is made active
-    QByteArray lastState = settings.value("toolbars",QByteArray()).toByteArray();
-    if (!lastState.isEmpty()) restoreState(lastState);
+    m_LastState = settings.value("toolbars",QByteArray()).toByteArray();
     
     // Work around saved state restore bug with Find and Replace
     m_FRVisible = settings.value("frvisible", false).toBool();
@@ -6206,6 +6206,9 @@ void MainWindow::changeEvent(QEvent *e)
             DWINGEO qDebug() << "Main Window is transitioning from inactive to active: " << isMaxOrFull();
 
             if (m_FirstTime) {
+
+                if (!m_LastState.isEmpty()) restoreState(m_LastState);
+                
                 if (m_FRVisible) {
                      QTimer::singleShot(30, this, SLOT(Find()));
                 }
