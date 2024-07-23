@@ -1644,14 +1644,18 @@ void MainWindow::ShowMessageOnStatusBar(const QString &message,
 void MainWindow::ShowLastOpenFileWarnings()
 {
     if (!m_LastOpenFileWarnings.isEmpty()) {
-        foreach(QString warning, m_LastOpenFileWarnings) {
-            Utility::DisplayStdWarningDialog( 
+        foreach(QString info, m_LastOpenFileWarnings) {
+            QString msg;
+            QString details;
+            if (!info.isEmpty()) {
+                QStringList warning = info.split(QChar(31));
+                msg = warning[0];
+                details = warning[1];
+                Utility::DisplayStdWarningDialog( 
                 "<p><b>" %
-               tr("Opening this EPUB generated warning()s.") %
-                  "</b></p><p>" %
-                tr("Select Show Details for more information on this warning.") %
-                "</p>",
-                warning, this);
+                tr("Warning: ") % msg %
+                "</b><p>", details, this);
+            }
         }
         m_LastOpenFileWarnings.clear();
     }

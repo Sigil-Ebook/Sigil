@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -23,7 +24,7 @@
 #ifndef IMPORTER_H
 #define IMPORTER_H
 
-#include <QtCore/QSharedPointer>
+#include <QSharedPointer>
 
 #include "BookManipulation/Book.h"
 #include "BookManipulation/XhtmlDoc.h"

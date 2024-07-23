@@ -92,6 +92,8 @@ static const QString CONTAINER_XML       = "<?xml version=\"1.0\" encoding=\"UTF
 
 static QStringDecoder *cp437 = nullptr;
 
+static  const QString SEP = QString(QChar(31));
+
 // Constructor;
 // The parameter is the file to be imported
 ImportEPUB::ImportEPUB(const QString &fullfilepath)
@@ -151,7 +153,9 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
     }
     
     if (!notInManifest.isEmpty()) {
-        AddLoadWarning(QObject::tr("Files exist in epub that are not listed in the manifest, they will be ignored: %1").arg(notInManifest.join(", ")));
+        QString warning = tr("Files exist in epub that are not listed in the manifest, they will be ignored.");
+        warning = warning + SEP + notInManifest.join("\n"); 
+        AddLoadWarning(warning);
     }
 
     LoadFolderStructure();
@@ -186,20 +190,23 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
         foreach(HTMLResource* htmlres, non_well_formed) {
             problem_files << htmlres->GetRelativePath();
         }
-        QString fixme = "\n\n" + problem_files.join("\n");
         if (autofix) {
             foreach(HTMLResource* htmlres, non_well_formed) {
                 QString fixed_text = CleanSource::Mend(htmlres->GetText(),htmlres->GetEpubVersion());
                 htmlres->SetText(fixed_text);
             }
             non_well_formed.clear();
-            AddLoadWarning(QObject::tr("This EPUB had HTML files that were not well formed or are "
-                   "missing a DOCTYPE, html, head or body elements. They were automatically fixed based on "
-                                       "your Preference setting to Clean on Open. %1").arg(fixme));
+            QString warning = tr("This EPUB had HTML files that were not well formed or are "
+                   "missing a DOCTYPE, html, head or body elements.<br/><br>They were automatically fixed based on "
+                   "your Preference setting to Clean on Open.");
+            warning = warning + SEP + problem_files.join("\n");
+            AddLoadWarning(warning);
         } else {
-            AddLoadWarning(QObject::tr("This EPUB has HTML files that are not well formed or are "
-                   "missing a DOCTYPE, html, head or body elements. Fix these manually or use "
-                   "Sigil's Mend tool to automatically fixed these errors or omissions. %1").arg(fixme));
+            QString warning = tr("This EPUB has HTML files that are not well formed or are "
+                   "missing a DOCTYPE, html, head or body elements.<br/></br>Fix these manually or use "
+                                 "Sigil's Mend tool to automatically fixed these errors or omissions.");
+            warning = warning + SEP + problem_files.join("\n");
+            AddLoadWarning(warning);
         }
     }
 
