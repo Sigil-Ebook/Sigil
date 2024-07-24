@@ -60,7 +60,7 @@ jobs:
       run: |
         pwd
         if [[ ! -d ${{runner.workspace}}/${{env.QT}} ]]; \
-        then wget ${DOWNLOADQT} && tar xzf ${{env.QT}}_arm64.tar.xz; fi
+        then curl -L -o qt6.tar.xz ${DOWNLOADQT} && tar xzf qt6.tar.xz; fi
 
         if [[ -d ${{runner.workspace}}/${{env.QT}}/bin ]]; \
         then cd ${{runner.workspace}}/${{env.QT}}/bin && \
@@ -72,7 +72,7 @@ jobs:
 
         if [[ ! -d ${{runner.workspace}}/Frameworks ]]; \
         then mkdir Frameworks && cd ${{runner.workspace}}/Frameworks && \
-        wget ${DOWNLOADPY} && tar xzf Python.framework_arm64.tar.xz; fi
+        curl -L -o python3.tar.xz ${DOWNLOADPY} && tar xzf python3.tar.xz; fi
 
         export MYDEST=${{runner.workspace}}/Frameworks
         echo ${MYDEST}/Python.framework/Versions/${PY_VER}/bin >> $GITHUB_PATH
