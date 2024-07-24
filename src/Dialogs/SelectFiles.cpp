@@ -339,8 +339,6 @@ void SelectFiles::SetPreviewImage()
     const double ffmbsize = ffsize / 1024.0;
     const QString fmbsize = QLocale().toString(ffmbsize, 'f', 2);
 
-    bool loading_resources = false;
-    
     // Images
     if (resource_type == Resource::ImageResourceType || resource_type == Resource::SVGResourceType) {
 
@@ -369,7 +367,6 @@ void SelectFiles::SetPreviewImage()
         m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
         m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
-        loading_resources = true;
     }
 
     if (resource_type == Resource::VideoResourceType) {
@@ -384,7 +381,6 @@ void SelectFiles::SetPreviewImage()
         m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
         m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
-        loading_resources = true;
         details = QString("%1 MB").arg(fmbsize);
     } else if (resource_type == Resource::AudioResourceType) {
         QString html;
@@ -397,17 +393,8 @@ void SelectFiles::SetPreviewImage()
         m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
         m_PreviewLoaded = false;
         m_WebView->setHtml(html, resourceUrl);
-        loading_resources = true;
         details = QString("%1 MB").arg(fmbsize);
     }
-
-    // Technically, we need to wait until Preview is actually loaded
-    // because setHtml loads external resources asynchronously
-    // if (loading_resources) {
-    //     while(!IsPreviewLoaded()) {
-    //        qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-    //    }
-    // }
     ui.Details->setText(details);
 }
 
