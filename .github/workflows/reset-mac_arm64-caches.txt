@@ -1,3 +1,4 @@
-Change the content of this file to reset the caches for the github actions sigil mac build
+Change the content of this file to reset the caches for the github actions sigil macos_arm64 build
 
 Changed 2024.7.24
+Changed 2024.7.24 again
