@@ -1,4 +1,4 @@
-name: Build Sigil on macOS
+name: Build Sigil on macOS_arm64
 
 on:
   push:
@@ -60,7 +60,7 @@ jobs:
       run: |
         pwd
         if [[ ! -d ${{runner.workspace}}/${{env.QT}} ]]; \
-        then wget ${DOWNLOADQT} && tar xzf ${{env.QT}}.tar.xz; fi
+        then wget ${DOWNLOADQT} && tar xzf ${{env.QT}}_arm64.tar.xz; fi
 
         if [[ -d ${{runner.workspace}}/${{env.QT}}/bin ]]; \
         then cd ${{runner.workspace}}/${{env.QT}}/bin && \
@@ -72,7 +72,7 @@ jobs:
 
         if [[ ! -d ${{runner.workspace}}/Frameworks ]]; \
         then mkdir Frameworks && cd ${{runner.workspace}}/Frameworks && \
-        wget ${DOWNLOADPY} && tar xzf Python.framework.tar.xz; fi
+        wget ${DOWNLOADPY} && tar xzf Python.framework_arm64.tar.xz; fi
 
         export MYDEST=${{runner.workspace}}/Frameworks
         echo ${MYDEST}/Python.framework/Versions/${PY_VER}/bin >> $GITHUB_PATH
