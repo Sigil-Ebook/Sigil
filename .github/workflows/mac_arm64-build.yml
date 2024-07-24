@@ -1,4 +1,4 @@
-name: Build Sigil on macOS_arm64
+name: Build Sigil on macOS arm64
 
 on:
   push:
