@@ -109,7 +109,7 @@ jobs:
         make addframeworks
         bash $GITHUB_WORKSPACE/ci_scripts/rpath_adjust.sh
         cd ./bin
-        tar -cJf Sigil.tar.xz Sigil.app
+        tar -cJf Sigil_arm64.tar.xz Sigil.app
 
     # RIP gdrive
     #- name: Upload to gdrive
