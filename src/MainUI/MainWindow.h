@@ -119,9 +119,6 @@ public:
 
     void maybe_fixup_dockwidget_geometry(QDockWidget * widget);
 
-    // returns true if MainWindow is Maximized or is FullScreen
-    bool isMaxOrFull();
-
     /**
      * The book currently being edited.
      *
@@ -324,12 +321,7 @@ protected:
 
 private slots:
 
-    void UpdateLastSizes();
-
-    void RestoreLastNormalGeometry();
-
     bool AddCover();
-
 
     /**
      * Implements New action functionality.
@@ -706,7 +698,6 @@ private slots:
     void unloadPluginsMenu();
 
 private:
-    void createJumpList();
     void updateToolTipsOnPluginIcons();
     void UpdateClipButton(QAction *ui_action);
     void InsertFiles(const QStringList &selected_images);

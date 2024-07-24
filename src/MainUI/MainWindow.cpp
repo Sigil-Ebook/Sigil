@@ -246,7 +246,6 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_headingActionGroup(new QActionGroup(this)),
     m_UsingAutomate(false)
 {
-    createJumpList();
     ui.setupUi(this);
     // Telling Qt to delete this window
     // from memory when it is closed
@@ -302,12 +301,6 @@ MainWindow::~MainWindow()
     if (m_PreviewWindow) delete m_PreviewWindow;
 #endif
 
-}
-
-
-void MainWindow::createJumpList()
-{
-    // no longer used in Qt 6
 }
 
 void MainWindow::RunAutomate1()
@@ -1690,18 +1683,8 @@ void MainWindow::DebugCurrentWidgetSizes()
     }
 }
 
-// somehow this routine needs to detect that the mainwindow has
-// been maximized or made fullscreen *before* that WindowState
-// has been set.
-bool MainWindow::isMaxOrFull() {
-    bool result = isMaximized() || isFullScreen();
-    return result; 
-}
-
 void MainWindow::moveEvent(QMoveEvent *event)
 {
-    DWINGEO qDebug() << "------";
-    DWINGEO qDebug() << "In moveEvent with maximized or full" << isMaxOrFull();
     DWINGEO DebugCurrentWidgetSizes();
     QMainWindow::moveEvent(event);
 }
@@ -1716,14 +1699,11 @@ void MainWindow::moveEvent(QMoveEvent *event)
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    DWINGEO qDebug() << "------";
-    DWINGEO qDebug() << "in ResizeEvent with maximized or full" << isMaxOrFull();
     DWINGEO qDebug() << "old size: " << event->oldSize();
     DWINGEO qDebug() << "new size: " << event->size();
     DWINGEO qDebug() << "primary screen total size: " << qApp->primaryScreen()->geometry();
     DWINGEO qDebug() << "primary screen available size: " << qApp->primaryScreen()->availableGeometry();
     DWINGEO DebugCurrentWidgetSizes();
-
     QMainWindow::resizeEvent(event);
 }
 
@@ -6166,16 +6146,6 @@ void MainWindow::LoadInitialFile(const QString &openfilepath, const QString vers
     }
 }
 
-// Workaround for Long term Qt restore geometry bug - see WriteSettings() for details.
-void MainWindow::UpdateLastSizes() {
-}
-
-// This may still be needed on Windows and Linux
-// so keep the code
-void MainWindow::RestoreLastNormalGeometry()
-{
-}
-
 void MainWindow::changeEvent(QEvent *e) 
 {
     DWINGEO qDebug() << "------";
@@ -6193,20 +6163,16 @@ void MainWindow::changeEvent(QEvent *e)
             DWINGEO qDebug() << "Main Window new state: maximized";
         } else if (isFullScreen()) {
             DWINGEO qDebug() << "Main Window new state: fullscreen";
-            } else {
+        } else {
             // NORMAL
-                DWINGEO qDebug() << "Main Window new state: normal";
-            // This is still be needed for Windows and Linux to restore after maximize
-                QTimer::singleShot(0, this, SLOT(RestoreLastNormalGeometry()));
+            DWINGEO qDebug() << "Main Window new state: normal";
         }
     }
     if (e->type() == QEvent::ActivationChange) {
         if(isActiveWindow()) {
-            DWINGEO qDebug() << "------";
-            DWINGEO qDebug() << "Main Window is transitioning from inactive to active: " << isMaxOrFull();
+            DWINGEO qDebug() << "Main Window is transitioning from inactive to active: ";
 
             if (m_FirstTime) {
-
                 if (!m_LastState.isEmpty()) restoreState(m_LastState);
                 
                 if (m_FRVisible) {
