@@ -5,7 +5,7 @@ pre-2.3.0
      - our new minium version to build Qt is Qt 6.4.0 or later
      - removed the need and usage for Qt6Compat5 as its contents were deprecated and will go away eventually
      - added support for using the IUC library to help replace the range of encodings supported by the old QTextCodec
-     - we are now using NFC unicode normalization form for all  links, urls, and file paths.
+     - we are now using NFC unicode normalization form for all content, links, urls, and file paths.
      - made Sigil's Well-Formed Check (Sanity Check) more robust to whitespace parsing rules and allowed
           it to detect and report missing XML Headers
      - we have upgraded to use Qt 6.7.2 and Python 3.11.9 for the base of our Windows and MacOS releases
@@ -13,6 +13,7 @@ pre-2.3.0
      - Opening EditTOC, SpeckcheckEditor or MetaDataEditor will now highlight the first line entry
      - Add new Tool: Rebase OPF Manifest IDs on Current Filenames
      - Update to 3rdparty PCRE2 version 10.44 for bug fixes
+     - General code cleanup to remove unneeded hacks and workarounds for old Qt bugs now fixed
   
    Bug Fixes
      - reverted all Qt Buttons and CheckBoxes to default TabFocus to speed up focus changes and reduce clicks
