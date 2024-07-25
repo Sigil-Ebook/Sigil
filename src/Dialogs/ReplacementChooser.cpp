@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2022 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2022-2024 Kevin B. Hendricks, Stratford, Ontario
 **
 **  This file is part of Sigil.
 **
@@ -272,20 +272,6 @@ void ReplacementChooser::DeleteSelectedRows()
     if (!ui.chooserTree->selectionModel()->hasSelection()) return;
     // This QTreeView is limited to ContiguousSelection mode
     // so should be able to delete in blocks
-#if 0
-    // Delete one at a time as selection delets may change indexes
-    int row = -1;
-    QModelIndex parent_index;
-
-    while (ui.chooserTree->selectionModel()->hasSelection()) {
-        QModelIndex index = ui.chooserTree->selectionModel()->selectedRows(0).first();
-        if (index.isValid()) {
-            row = index.row();
-            parent_index = index.parent();
-            m_ItemModel->removeRows(row, 1, parent_index);
-        }
-    }
-#else
     QModelIndex index = ui.chooserTree->selectionModel()->selectedRows(0).first();
     int count = ui.chooserTree->selectionModel()->selectedRows(0).count();
     int row = index.row();
@@ -295,41 +281,7 @@ void ReplacementChooser::DeleteSelectedRows()
 
     // display the current count above the table (with a buffer to the right)
     ui.cntamt->setText(QString::number(m_current_count) + "   ");
-
-#endif
-
 }
-
-#if 0
-void ReplacementChooser::FilterEditTextChangedSlot(const QString &text)
-{
-    const QString lowercaseText = text.toLower();
-    QStandardItem *root_item = m_ItemModel->invisibleRootItem();
-    QModelIndex parent_index;
-    // Hide rows that don't contain the filter text
-    int first_visible_row = -1;
-
-    for (int row = 0; row < root_item->rowCount(); row++) {
-        if (text.isEmpty() || root_item->child(row, 0)->text().toLower().contains(lowercaseText)) {
-            ui.chooserTree->setRowHidden(row, parent_index, false);
-
-            if (first_visible_row == -1) {
-                first_visible_row = row;
-            }
-        } else {
-            ui.chooserTree->setRowHidden(row, parent_index, true);
-        }
-    }
-
-    if (!text.isEmpty() && first_visible_row != -1) {
-        // Select the first non-hidden row
-        ui.chooserTree->setCurrentIndex(root_item->child(first_visible_row, 0)->index());
-    } else {
-        // Clear current and selection, which clears preview image
-        ui.chooserTree->setCurrentIndex(QModelIndex());
-    }
-}
-#endif
 
 void ReplacementChooser::ReadSettings()
 {

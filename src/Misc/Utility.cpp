@@ -100,27 +100,11 @@ class SigilMessageBox: public QMessageBox
     public:
         SigilMessageBox(QWidget* parent) : QMessageBox(parent) 
         {
-            // setSizeGripEnabled(true);
         }
     private:
 
         virtual void resizeEvent(QResizeEvent * e) {
             QMessageBox::resizeEvent(e);
-#if 0
-            setMinimumHeight(0);
-            setMaximumHeight(16777215);
-            setMinimumWidth(0);
-            setMaximumWidth(16777215);
-            setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-            QWidget * textEdit = findChild<QTextEdit *>();
-            if (textEdit) {
-                textEdit->setMinimumHeight(0);
-                textEdit->setMaximumHeight(16777215);
-                textEdit->setMinimumWidth(0);
-                textEdit->setMaximumWidth(16777215);
-                textEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-            }
-#endif
         }
 };
 
@@ -159,15 +143,6 @@ bool Utility::WindowsShouldUseDarkMode()
 {
     return IsWindowsSysDarkMode();
     // No more forcing of light/dark on Windows: use Windows settings.
-#if 0
-    QString override(GetEnvironmentVar("SIGIL_USES_DARK_MODE"));
-    if (override.isEmpty()) {
-        //Env var unset - use system registry setting.
-        return IsWindowsSysDarkMode();
-    }
-    // Otherwise use the env var: anything other than "0" is true.
-    return (override == "0" ? false : true);
-#endif
 }
 
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)

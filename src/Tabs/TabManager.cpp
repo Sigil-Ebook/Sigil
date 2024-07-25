@@ -83,21 +83,6 @@ ContentTab *TabManager::GetCurrentContentTab()
     return qobject_cast<ContentTab *>(widget);
 }
 
-
-#if 0
-// keep this as it is useful for debuggin why preview will not update on some tabs
-ContentTab* TabManager::GetContentTabForResource(Resource* resource)
-{
-    int index = ResourceTabIndex(resource);
-
-    if (index != -1) {
-        ContentTab* tab = qobject_cast<ContentTab *>(widget(index));
-        return tab;
-    }
-    return NULL;
-}
-#endif
-
 QList<ContentTab *> TabManager::GetContentTabs()
 {
     QList <ContentTab *> tabs;

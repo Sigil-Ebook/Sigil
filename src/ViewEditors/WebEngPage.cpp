@@ -35,17 +35,6 @@ WebEngPage::WebEngPage(QWebEngineProfile* profile, QObject *parent, bool setback
         setBackgroundColor(Utility::WebViewBackgroundColor(true));
     }
     setUrl(QUrl("about:blank"));
-#if 0
-    DBG qDebug() << "WebEngPage Life Cycle State: " << lifecycleState();
-    DBG qDebug() << "WebEngPage Current RenderProcess Pid " << renderProcessPid();
-    DBG qDebug() << "WebEngPage Current RecommendedState " << recommendedState(); 
-
-    connect(this, SIGNAL(lifecycleStateChanged(QWebEnginePage::LifecycleState)),
-	    this, SLOT(lifecyclechange(QWebEnginePage::LifecycleState)));
-    connect(this, SIGNAL(renderProcessPidChanged(qint64)), this, SLOT(render_new_pid(qint64)));
-    connect(this, SIGNAL(renderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus, int)),
-	    this, SLOT(render_died(QWebEnginePage::RenderProcessTerminationStatus, int)));
-#endif
 }
 
 
@@ -99,21 +88,3 @@ void WebEngPage::javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessa
     const QString logEntry = message + " on line:" % QString::number(lineNumber) % " Source:" + sourceID;
     qDebug() << "Javascript error: " << level << logEntry;
 }
-
-#if 0
-// Keep this around to help with debugging
-void WebEngPage::render_new_pid(qint64 pid)
-{
-    DBG qDebug() << "*** Render Process PID Changed: " << pid;
-}
-
-void WebEngPage::render_died(QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode)
-{
-    DBG qDebug() << "*** Render Porcess Terminated: " << terminationStatus << exitCode;
-}
-
-void WebEngPage::lifecyclechange(QWebEnginePage::LifecycleState state)
-{
-    DBG qDebug() << "*** life cycle change: " << state;
-}
-#endif

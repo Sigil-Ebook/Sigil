@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2022 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2022-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -55,7 +55,6 @@ public slots:
 
 private slots:
     void ChangeContext();
-    // void FilterEditTextChangedSlot(const QString &text);
     void DeleteSelectedRows();
     void ApplyReplacements();
     void CreateContextMenuActions();

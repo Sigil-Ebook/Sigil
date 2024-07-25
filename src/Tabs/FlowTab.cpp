@@ -200,10 +200,6 @@ void FlowTab::CodeView()
     QApplication::setOverrideCursor(Qt::WaitCursor);
     CreateCodeViewIfRequired();
     m_wCodeView->SetDelayedCursorScreenCenteringRequired();
-#if 0
-    // This is uneeded since handled in constructor
-    setFocusProxy(m_wCodeView);
-#endif
 
     // We will usually want focus in the tab, except when splitting opens this as a preceding tab.
     if (m_grabFocus) {

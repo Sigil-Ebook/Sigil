@@ -878,18 +878,6 @@ bool PluginRunner::addFiles(const QStringList &files)
             QString epubPath = m_outputDir + "/" + href;
             QFileInfo fi(epubPath);
             ui.statusLbl->setText(tr("Status: Loading") + " " + fi.fileName());
-#if 0 // was ifdef Q_OS_MAC
-            // creating a new MainWindow inside a modal QDialog seems to have issues
-            // about mouse pointer location and focus that may cause a segfault in 
-            // showModal() -> isBlockingWindow() -> isAncestorOf() when a
-            // Preferences Dialog is invoked in that New Window before focus is outside
-            // of the Plugin Runner and in the new Window.  The segfault is due
-            // to stale pointers in qApplication::modalWindowList().
-            MainWindow *new_window = new MainWindow(epubPath, "", true);
-            new_window->show();
-            // will this be allowed if PluginRunner is Application Modal
-            new_window->activateWindow();
-#else
             // For Linux and Windows and macOS  will replace current book
             // So Throw Up a Dialog to See if they want to proceed
             bool proceed = false;
@@ -912,7 +900,6 @@ bool PluginRunner::addFiles(const QStringList &files)
             if (proceed) {
                 m_mainWindow->LoadFile(epubPath, true);
             }
-#endif
             return true;
         }
 

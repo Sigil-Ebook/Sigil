@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2022 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford, ON Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -358,46 +358,3 @@ void CSSInfo::generateSelectorsList()
         i++;
     }
 }
-
-#if 0
-// keep this in case we need to work around differnces in how css parsers handle comments
-// once a selector has started
-QString CSSInfo::replaceBlockComments(const QString &text)
-{
-    // We take a copy of the text and remove all block comments from it.
-    // However we must be careful to replace with spaces/keep line feeds
-    // so that do not corrupt the position information used by the parser.
-    QString new_text(text);
-    QRegularExpression comment_search("/\\*.*\\*/", QRegularExpression::InvertedGreedinessOption|QRegularExpression::DotMatchesEverythingOption);
-    int start = 0;
-    int comment_index;
-
-    while (true) {
-        int comment_len = 0;
-        comment_index = -1;
-        QRegularExpressionMatch match = comment_search.match(new_text, start);
-        if (match.hasMatch()) {
-            comment_index = match.capturedStart();
-            comment_len = match.capturedLength();
-        }
-
-        if (comment_index < 0) {
-            break;
-        }
-
-        QString match_text = new_text.mid(comment_index, comment_len);
-        match_text.replace(QRegularExpression("[^\r\n]"), QChar(' '));
-        new_text.remove(comment_index, match_text.length());
-        new_text.insert(comment_index, match_text);
-        // Prepare for the next comment.
-        start = comment_index + comment_len;
-
-        if (start >= new_text.length() - 2) {
-            break;
-        }
-    }
-
-    return new_text;
-}
-#endif
-

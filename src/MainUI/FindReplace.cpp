@@ -349,15 +349,6 @@ void FindReplace::RestartClicked()
     ShowMessage(tr("Search will restart"));
 }
 
-#if 0
-void FindReplace::AdvancedOptionsClicked()
-{
-    bool is_currently_visible = ui.tbRegexOptions->isVisible();
-    WriteSettingsAdvancedVisible(!is_currently_visible);
-    ShowHideAdvancedOptions();
-}
-#endif
-
 void FindReplace::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
@@ -967,24 +958,6 @@ void FindReplace::SetCodeViewIfNeeded()
         if (current_tab) current_tab->setFocus();
     }
 }
-
-#if 0
-// This originally was the code at the end of SetCodeViewIfNeeded(force)
-// But it made no sense cause it did not really accomplish anything
-// where it was.  Even splitting it out into a routine to be done
-// at the end did not help so I am just leaving it here in case
-// this decision comes back to bite me!
-void FindReplace::RestoreFRFocusIfNeeded(bool had_focus, bool force)
-{
-    if (force ||
-        (!m_LookWhereCurrentFile && (isWhereHTML() || isWhereCSS() || isWhereOPF() || isWhereNCX())))
-    {
-        if (had_focus) {
-            SetFocus();
-        }
-    }
-}
-#endif
 
 // Displays a message to the user informing him
 // that his last search term could not be found.
@@ -1700,35 +1673,6 @@ void FindReplace::ShowHide()
     }
 }
 
-#if 0
-void FindReplace::ShowHideAdvancedOptions()
-{
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
-    bool show_advanced = settings.value("advanced_visible", true).toBool();
-    settings.endGroup();
-    ui.optionsl->setVisible(show_advanced);
-    ui.space0->setVisible(show_advanced);
-    ui.space1->setVisible(show_advanced);
-    ui.space2->setVisible(show_advanced);
-    ui.tbRegexOptions->setVisible(show_advanced);
-    ui.chkOptionWrap->setVisible(show_advanced);
-    ui.chkOptionTextOnly->setVisible(show_advanced);
-    ui.replaceFind->setVisible(show_advanced);
-    ui.count->setVisible(show_advanced);
-    ui.revalid->setVisible(show_advanced);
-    QIcon icon;
-
-    if (show_advanced) {
-        icon.addFile(QString::fromUtf8(":/main/chevron-up.svg"));
-        ui.advancedShowHide->setIcon(icon);
-    } else {
-        icon.addFile(QString::fromUtf8(":/main/chevron-down.svg"));
-        ui.advancedShowHide->setIcon(icon);
-    }
-}
-#endif
-
 void FindReplace::WriteSettingsVisible(bool visible)
 {
     SettingsStore settings;
@@ -1736,16 +1680,6 @@ void FindReplace::WriteSettingsVisible(bool visible)
     settings.setValue("visible", visible);
     settings.endGroup();
 }
-
-#if 0
-void FindReplace::WriteSettingsAdvancedVisible(bool visible)
-{
-    SettingsStore settings;
-    settings.beginGroup(SETTINGS_GROUP);
-    settings.setValue("advanced_visible", visible);
-    settings.endGroup();
-}
-#endif
 
 void FindReplace::WriteSettings()
 {
@@ -1920,20 +1854,10 @@ void FindReplace::ReplaceCurrentSearch()
 
     m_IsSearchGroupRunning = true;
     
-#if 0
-    foreach(SearchEditorModel::searchEntry * search_entry, search_entries) {
-        LoadSearch(search_entry);
-        if (ReplaceCurrent()) {
-            break;
-        } else {
-            m_MainWindow->SearchEditorRecordEntryAsCompleted(search_entry);
-        }
-    }
-#else
     SearchEditorModel::searchEntry * search_entry = search_entries.first();
     LoadSearch(search_entry);
     ReplaceCurrent();
-#endif
+
     m_IsSearchGroupRunning = false;
 }
 

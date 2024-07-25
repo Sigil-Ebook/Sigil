@@ -225,15 +225,6 @@ void ViewPreview::Zoom()
 
 void ViewPreview::UpdateDisplay()
 {
-#if 0
-    SettingsStore settings;
-    float stored_factor = settings.zoomWeb();
-
-    if (stored_factor != m_CurrentZoomFactor) {
-        m_CurrentZoomFactor = stored_factor;
-        Zoom();
-    }
-#endif
 }
 
 void ViewPreview::SetPreviewColors(const QString &bg, const QString &fg)

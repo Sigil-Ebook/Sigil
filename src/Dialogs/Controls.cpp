@@ -84,22 +84,6 @@ void Controls::UpdateSearchControls(const QString &text)
 {
     if (text.isEmpty()) DoClearAll();
 
-#if 0
-    //default to normal down no wrap current file
-    if (text.isEmpty()) {
-        SetSearchMode("NL");
-        SetLookWhere("CF");
-        SetSearchDirection("DN");
-        SetOptionWrap(true);
-        SetRegexOptionDotAll(false);
-        SetRegexOptionMinimalMatch(false);
-        SetRegexOptionAutoTokenise(false);
-        SetRegexOptionUnicodeProperty(false);
-        SetRegexOptionTextOnly(false);
-        return;
-    }
-#endif
-
     // Search Mode
     if (text.contains("NL")) {
         SetSearchMode("NL");
