@@ -547,87 +547,87 @@ if a sans-serif font-family specified in your CSS</source>
         <translation>Підсвічувати парні теги у Браузері Коду, коли курсор знаходиться всередині тегу.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="333"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="329"/>
         <source>CSS Comment</source>
         <translation>Коментар CSS</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="334"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="330"/>
         <source>CSS Property</source>
         <translation>Властивість CSS</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="335"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="331"/>
         <source>CSS Quote</source>
         <translation>Цитата CSS</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="336"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="332"/>
         <source>CSS Selector</source>
         <translation>Селектор CSS</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="337"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="333"/>
         <source>CSS Value</source>
         <translation>Значення CSS</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="338"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="334"/>
         <source>Line Highlight</source>
         <translation>Підсвічений рядок</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="339"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="335"/>
         <source>Line# Background</source>
         <translation>Рядок# Фон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="340"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="336"/>
         <source>Line# Foreground</source>
         <translation>Рядок# Передній план</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="341"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="337"/>
         <source>Spelling Underline</source>
         <translation>Підкреслити при перевірці орфографії</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="342"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="338"/>
         <source>XHTML Attribute Name</source>
         <translation>Назва атрибута XHTML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="343"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="339"/>
         <source>XHTML Attribute Value</source>
         <translation>Значення атрибута XHTML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="344"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="340"/>
         <source>XHTML CSS</source>
         <translation>XHTML CSS</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="345"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="341"/>
         <source>XHTML CSS Comment</source>
         <translation>Коментар CSS XHTML </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="346"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="342"/>
         <source>XHTML DocType</source>
         <translation>XHTML DocType</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="347"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="343"/>
         <source>XHTML Entity</source>
         <translation>Об&apos;єкт XHTML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="348"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="344"/>
         <source>XHTML HTML Tag</source>
         <translation>Тег HTML XHTML </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="349"/>
+        <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="345"/>
         <source>XHTML HTML Comment</source>
         <translation>Коментар HTML XHTML </translation>
     </message>
@@ -842,67 +842,67 @@ if a sans-serif font-family specified in your CSS</source>
 <context>
     <name>BookBrowser</name>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="84"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="111"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="80"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="107"/>
         <source>Book Browser</source>
         <translation>Структура Книги</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="96"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="92"/>
         <source>Font Obfuscation</source>
         <translation>Обфускація Шрифту</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="97"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1891"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2018"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="93"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1887"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2014"/>
         <source>Open With</source>
         <translation>Відкрити за допомогою</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="188"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="184"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n файл</numerusform><numerusform>%n файли</numerusform><numerusform>%n файлів</numerusform><numerusform>%n файл(и)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="299"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="707"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="840"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="872"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="932"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1045"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1331"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1436"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="295"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="703"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="836"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="868"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="928"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1041"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1432"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="300"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="296"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Ви впевнені, що хочете відсортувати обрані файли в абетко-цифровому форматі?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="301"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="297"/>
         <source>This action cannot be reversed.</source>
         <translation>Цю дію не можна буде повернути.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="344"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="340"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="707"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="703"/>
         <source>Javascript is not supported on epub2.</source>
         <translation>Javascript не підтримується в epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="765"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="761"/>
         <source>Add Existing Files</source>
         <translation>Додати існуючі файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="810"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="806"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -911,7 +911,7 @@ if a sans-serif font-family specified in your CSS</source>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="819"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="815"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -920,7 +920,7 @@ if a sans-serif font-family specified in your CSS</source>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="841"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="837"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -929,12 +929,12 @@ OK to replace?</source>
 натисніть «ОК», якщо бажаете замінити?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="867"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="863"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Неможливо видалити або замінити файл «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="872"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="868"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -943,7 +943,7 @@ A file with this name already exists in the book.</source>
 Файл з цим ім’ям вже є у книзі.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="933"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="929"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -952,235 +952,235 @@ A file with this name already exists in the book.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="946"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="942"/>
         <source>File(s) added or replaced.</source>
         <translation>Файл(и) додано або замінено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="986"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
         <source>Save As File</source>
         <translation>Зберегти як файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1009"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1005"/>
         <source>Unable to save the file.</source>
         <translation>Неможливо зберегти файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1023"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1019"/>
         <source>Choose the directory to save the files to</source>
         <translation>Оберіть каталог для збереження файлів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1045"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1041"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Один або декілька файлів вже існують. Бажаєте перезаписати?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1062"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1058"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Неможливо зберегти файли. Місце призначення має бути каталогом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1070"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1066"/>
         <source>Unable to save files.</source>
         <translation>Неможливо зберегти файли.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1331"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1327"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Неможливо змінити назву файлу, через можливість повторення імен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1398"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>У папки призначення недійсний шлях «%1»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1436"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1432"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation>Неможливо перемістити файли, через можливість повторення імен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1483"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1479"/>
         <source>The Nav document can not be removed.</source>
         <translation>Документ Nav не може бути видалений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1491"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1487"/>
         <source>The NCX can not be removed.</source>
         <translation>NCX не може бути видалений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1498"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1494"/>
         <source>The OPF is required for epub and can not be removed.</source>
         <translation>OPF необхідний для epub і не може бути видалений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1507"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1503"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Ви не можете видалити всі html файли
 Там завжди повинен бути принаймні один.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1653"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1649"/>
         <source>Unable to set file as cover image.</source>
         <translation>Неможливо встановити файл як зображення обкладинки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1868"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1864"/>
         <source>Select All</source>
         <translation>Вибрати все</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1869"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1865"/>
         <source>Add Blank HTML File</source>
         <translation>Додати порожній файл HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1870"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1866"/>
         <source>Add Blank Stylesheet</source>
         <translation>Додати порожній файл CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1871"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1867"/>
         <source>Add Blank Javascript</source>
         <translation>Додати бланк Javascript</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1872"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1868"/>
         <source>Add Blank SVG Image</source>
         <translation>Додати порожнє SVG зображення</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1873"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1869"/>
         <source>Add Existing Files...</source>
         <translation>Додати існуючі файли…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1874"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1875"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1870"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1871"/>
         <source>Add Copy</source>
         <translation>Додати копію</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1876"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1872"/>
         <source>Rename</source>
         <translation>Перейменувати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1873"/>
         <source>RegEx Rename</source>
         <translation>Перейменувати RegEx</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1878"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1874"/>
         <source>Move</source>
         <translation>Перемістити</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1879"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1875"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1880"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1876"/>
         <source>Cover Image</source>
         <translation>Зображення обкладинки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1881"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
         <source>Merge</source>
         <translation>Об&apos;єднати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1882"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1878"/>
         <source>None</source>
         <translation>Нема</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1883"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1879"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Зробити методом Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1884"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1880"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Зробити методом IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1885"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1881"/>
         <source>Sort</source>
         <translation>Сортувати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1886"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1882"/>
         <source>Renumber TOC Entries</source>
         <translation>Перенумерувати елементи змісту</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1887"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1883"/>
         <source>Link Stylesheets...</source>
         <translation>Зв&apos;язати з Таблицею Стилів…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1888"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1884"/>
         <source>Link Javascripts...</source>
         <translation>Підключити Javascripts…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1889"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1885"/>
         <source>Add Semantics...</source>
         <translation>Додати семантику…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1890"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1886"/>
         <source>Validate with W3C</source>
         <translation>Перевірка за допомогою W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1892"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1888"/>
         <source>Save As</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1906"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1902"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Об’єднати з попереднім файлом або об&apos;єднати декілька файлів в один.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1909"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1905"/>
         <source>Rename selected file(s)</source>
         <translation>Перейменувати вибраний файл(и)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1911"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1907"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation>Використовуйте регулярні вирази для перейменування вибраних файлів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1914"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1910"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>Перемістити вибраний файл(и) до нової папки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1916"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1912"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Зв&apos;язати Таблицю Стилів з вибраними файлами.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1918"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1914"/>
         <source>Link Javascripts to selected file(s).</source>
         <translation>Зв’язати Javascripts з вибраними файлами.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1920"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1916"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Додати семантику до вибраних файлів.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2053"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2049"/>
         <source>Other Application</source>
         <translation>Інша програма</translation>
     </message>
@@ -1211,7 +1211,7 @@ There always has to be at least one.</source>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="84"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="198"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="194"/>
         <source>Results of Comparison</source>
         <translation>Результати порівняння</translation>
     </message>
@@ -1221,25 +1221,25 @@ There always has to be at least one.</source>
         <translation>Готово</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="192"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="201"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="188"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="197"/>
         <source>Checkpoint:</source>
         <translation>Контрольна точка:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="192"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="202"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="188"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="198"/>
         <source>Current:</source>
         <translation>Поточний:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="200"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="196"/>
         <source>These binary files differ in content:</source>
         <translation>Ці бінарні файли відрізняються за вмістом:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="201"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="202"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="197"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="198"/>
         <source>bytes</source>
         <translation>байтів</translation>
     </message>
@@ -1373,17 +1373,17 @@ There always has to be at least one.</source>
         <translation>&lt;p&gt;Це список символів, які використовуються у всіх файлах HTML.&lt;p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="277"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="269"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Зберегти звіт як файл у форматі CSV</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="290"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="282"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="290"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="282"/>
         <source>Cannot save report file.</source>
         <translation>Не можу зберегти файл звіту.</translation>
     </message>
@@ -1705,17 +1705,17 @@ Do you want to save your changes?</source>
 <context>
     <name>ClipEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="79"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="67"/>
         <source>Name</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="80"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="68"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="678"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="666"/>
         <source>Unable to create file %1</source>
         <translation>Неможливо створити файл %1</translation>
     </message>
@@ -1733,12 +1733,12 @@ Do you want to save your changes?</source>
         <translation>Недавній вміст буферу обміну:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="340"/>
+        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="301"/>
         <source>Paste</source>
         <translation>Вставити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="342"/>
+        <location filename="../../Dialogs/ClipboardHistorySelector.cpp" line="303"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
@@ -1764,147 +1764,147 @@ Do you want to save your changes?</source>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="572"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="587"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>Неможливо вставити закриваючий тег у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="580"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="595"/>
         <source>No open tags found at this position.</source>
         <translation>У цій позиції не знайдено відкритих тегів.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1467"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1501"/>
         <source>Add To Default Dictionary</source>
         <translation>Додати до Словника за замовчуванням</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1480"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1514"/>
         <source>Add To Dictionary</source>
         <translation>Додати до Словника</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1497"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1531"/>
         <source>Ignore</source>
         <translation>Ігнорувати</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1559"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1593"/>
         <source>Reformat CSS</source>
         <translation>Переформатувати CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1561"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1595"/>
         <source>Multiple Lines Per Style</source>
         <translation>Багаторядковий Стиль</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1562"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1596"/>
         <source>Single Line Per Style</source>
         <translation>Однорядковий Стиль</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1588"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1622"/>
         <source>Rename Selected Class</source>
         <translation>Перейменувати вибраний клас</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1610"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1644"/>
         <source>Reformat HTML</source>
         <translation>Переформатувати HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1612"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1646"/>
         <source>Mend and Prettify Code</source>
         <translation>Виправити та відформатувати Код</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1613"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1647"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Виправити та відформатувати Код – Всі HTML файли</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1614"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1648"/>
         <source>Mend Code</source>
         <translation>Виправити Код</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1615"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1649"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Виправити Код – Всі HTML файли</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1645"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1679"/>
         <source>Go To Link Or Style</source>
         <translation>Перейти до посилання або стилю</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1667"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1701"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>Перемикач режиму перенесення рядків</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1689"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1723"/>
         <source>View Image</source>
         <translation>Перегляд зображення</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1690"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1724"/>
         <source>Open Tab For Image</source>
         <translation>Відкрити вкладку для зображення</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1716"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1750"/>
         <source>Mark Selected Text</source>
         <translation>Позначити вибраний текст</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1718"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1752"/>
         <source>Unmark Marked Text</source>
         <translation>Зняти позначку з відміченого тексту</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1744"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1778"/>
         <source>Clips</source>
         <translation>Фрагменти</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1754"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1788"/>
         <source>Add To Clips</source>
         <translation>Додати до фрагментів</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1883"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1917"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Щоб скористатися цією функцією, Ви повинні знаходитися у відкриваючому HTML-тегу.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1893"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1927"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Щоб скористатися цією функцією, Ви повинні знаходитися всередині відкриваючого HTML-тегу.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1957"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1991"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>Вибраний текст не є допустимою назвою класу.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1964"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1998"/>
         <source>Rename Class</source>
         <translation>Перейменувати клас</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1965"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1999"/>
         <source>Enter new class name</source>
         <translation>Введіть нову назву класу</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1985"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2019"/>
         <source>Class renamed.</source>
         <translation>Клас перейменовано.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1987"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2021"/>
         <source>Class rename aborted.</source>
         <translation>Перейменування класу перервано.</translation>
     </message>
@@ -2026,223 +2026,223 @@ other end to continue searching.</source>
         <translation>Очистити все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="320"/>
+        <location filename="../../Dialogs/Controls.cpp" line="304"/>
         <source>What to search for</source>
         <translation>Що шукати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="321"/>
+        <location filename="../../Dialogs/Controls.cpp" line="305"/>
         <source>Select Mode</source>
         <translation>Вибрати режим</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="322"/>
-        <location filename="../../Dialogs/Controls.cpp" line="323"/>
+        <location filename="../../Dialogs/Controls.cpp" line="306"/>
+        <location filename="../../Dialogs/Controls.cpp" line="307"/>
         <source>Normal</source>
         <translation>Звичайний</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="323"/>
+        <location filename="../../Dialogs/Controls.cpp" line="307"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation>Пошук без урахування регістру безпосередньо того, що Ви друкуєте.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="325"/>
-        <location filename="../../Dialogs/Controls.cpp" line="326"/>
+        <location filename="../../Dialogs/Controls.cpp" line="309"/>
+        <location filename="../../Dialogs/Controls.cpp" line="310"/>
         <source>Case Sensitive</source>
         <translation>З урахуванням регістру</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="326"/>
+        <location filename="../../Dialogs/Controls.cpp" line="310"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>Пошук з урахуванням регістру безпосередньо того, що Ви друкуєте.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="328"/>
-        <location filename="../../Dialogs/Controls.cpp" line="329"/>
+        <location filename="../../Dialogs/Controls.cpp" line="312"/>
+        <location filename="../../Dialogs/Controls.cpp" line="313"/>
         <source>Regex</source>
         <translation>Регулярні вирази</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="329"/>
+        <location filename="../../Dialogs/Controls.cpp" line="313"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>Пошук за шаблоном з використанням синтаксису регулярних виразів.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="334"/>
+        <location filename="../../Dialogs/Controls.cpp" line="318"/>
         <source>Where to search</source>
         <translation>Де шукати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="336"/>
+        <location filename="../../Dialogs/Controls.cpp" line="320"/>
         <source>Select Target</source>
         <translation>Вибрати Адресат</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="337"/>
-        <location filename="../../Dialogs/Controls.cpp" line="338"/>
-        <location filename="../../Dialogs/Controls.cpp" line="347"/>
+        <location filename="../../Dialogs/Controls.cpp" line="321"/>
+        <location filename="../../Dialogs/Controls.cpp" line="322"/>
+        <location filename="../../Dialogs/Controls.cpp" line="331"/>
         <source>Current File</source>
         <translation>Поточний Файл</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="338"/>
+        <location filename="../../Dialogs/Controls.cpp" line="322"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>Обмежити пошук або заміну відкритим файлом. Утримуйте клавішу Ctrl при натисканні будь-яких кнопок пошуку, щоб тимчасово обмежити пошук поточним файлом.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="340"/>
-        <location filename="../../Dialogs/Controls.cpp" line="341"/>
+        <location filename="../../Dialogs/Controls.cpp" line="324"/>
+        <location filename="../../Dialogs/Controls.cpp" line="325"/>
         <source>All HTML Files</source>
         <translation>Всі HTML файли</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="341"/>
+        <location filename="../../Dialogs/Controls.cpp" line="325"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>Знайти або замінити у всіх HTML файлах у Браузері Коду.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="343"/>
-        <location filename="../../Dialogs/Controls.cpp" line="344"/>
+        <location filename="../../Dialogs/Controls.cpp" line="327"/>
+        <location filename="../../Dialogs/Controls.cpp" line="328"/>
         <source>Selected HTML Files</source>
         <translation>Вибрані HTML файли</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="344"/>
+        <location filename="../../Dialogs/Controls.cpp" line="328"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>Обмежити пошук або заміну файлами HTML, вибраними у вікні Структури Книги.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="346"/>
+        <location filename="../../Dialogs/Controls.cpp" line="330"/>
         <source>Tabbed HTML Files</source>
         <translation>Файли HTML з вкладками</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="347"/>
+        <location filename="../../Dialogs/Controls.cpp" line="331"/>
         <source>Restrict the find or replace to the HTML files open in Tabs.</source>
         <translation>Обмежити пошук або заміну файлами HTML, відкритими у вкладках.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="349"/>
-        <location filename="../../Dialogs/Controls.cpp" line="350"/>
+        <location filename="../../Dialogs/Controls.cpp" line="333"/>
+        <location filename="../../Dialogs/Controls.cpp" line="334"/>
         <source>All CSS Files</source>
         <translation>Всі CSS файли</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="350"/>
+        <location filename="../../Dialogs/Controls.cpp" line="334"/>
         <source>Find or replace in all CSS files in Code View.</source>
         <translation>Знайти або замінити у всіх CSS файлах у Браузері Коду.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="352"/>
-        <location filename="../../Dialogs/Controls.cpp" line="353"/>
+        <location filename="../../Dialogs/Controls.cpp" line="336"/>
+        <location filename="../../Dialogs/Controls.cpp" line="337"/>
         <source>Selected CSS Files</source>
         <translation>Вибрані CSS файли</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="353"/>
+        <location filename="../../Dialogs/Controls.cpp" line="337"/>
         <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
         <translation>Обмежити пошук або заміну файлами CSS, вибраними у вікні Структури Книги.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="355"/>
-        <location filename="../../Dialogs/Controls.cpp" line="356"/>
+        <location filename="../../Dialogs/Controls.cpp" line="339"/>
+        <location filename="../../Dialogs/Controls.cpp" line="340"/>
         <source>Tabbed CSS Files</source>
         <translation>Файли CSS з вкладками</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="356"/>
+        <location filename="../../Dialogs/Controls.cpp" line="340"/>
         <source>Restrict the find or replace to the CSS files open in Tabs.</source>
         <translation>Обмежити пошук або заміну файлами CSS, відкритими у вкладках.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="358"/>
-        <location filename="../../Dialogs/Controls.cpp" line="359"/>
+        <location filename="../../Dialogs/Controls.cpp" line="342"/>
+        <location filename="../../Dialogs/Controls.cpp" line="343"/>
         <source>OPF File</source>
         <translation>Файл OPF</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="359"/>
+        <location filename="../../Dialogs/Controls.cpp" line="343"/>
         <source>Restrict the find or replace to the OPF file.</source>
         <translation>Обмежити пошук або заміну файлами OPF.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="361"/>
-        <location filename="../../Dialogs/Controls.cpp" line="362"/>
+        <location filename="../../Dialogs/Controls.cpp" line="345"/>
+        <location filename="../../Dialogs/Controls.cpp" line="346"/>
         <source>NCX File</source>
         <translation>Файл NCX</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="362"/>
+        <location filename="../../Dialogs/Controls.cpp" line="346"/>
         <source>Restrict the find or replace to the NCX file.</source>
         <translation>Обмежити пошук або заміну файлами NCX.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="364"/>
-        <location filename="../../Dialogs/Controls.cpp" line="365"/>
+        <location filename="../../Dialogs/Controls.cpp" line="348"/>
+        <location filename="../../Dialogs/Controls.cpp" line="349"/>
         <source>Selected SVG Files</source>
         <translation>Вибрані SVG файли</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="365"/>
+        <location filename="../../Dialogs/Controls.cpp" line="349"/>
         <source>Restrict the find or replace to the SVG files selected in the Book Browser in Code View.</source>
         <translation>Обмежити пошук або заміну файлами SVG, вибраними у вікні Структури Книги.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="367"/>
+        <location filename="../../Dialogs/Controls.cpp" line="351"/>
         <source>Selected Javascript Files</source>
         <translation>Вибрані Javascript файли</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="368"/>
+        <location filename="../../Dialogs/Controls.cpp" line="352"/>
         <source>Selected JS Files</source>
         <translation>Вибрані JS файли</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="368"/>
+        <location filename="../../Dialogs/Controls.cpp" line="352"/>
         <source>Restrict the find or replace to the JS files selected in the Book Browser in Code View.</source>
         <translation>Обмежити пошук або заміну файлами JS, вибраними у вікні Структури Книги.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="370"/>
-        <location filename="../../Dialogs/Controls.cpp" line="371"/>
+        <location filename="../../Dialogs/Controls.cpp" line="354"/>
+        <location filename="../../Dialogs/Controls.cpp" line="355"/>
         <source>Selected Misc XML Files</source>
         <translation>Вибрані XML файли у каталозі Misc</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="371"/>
+        <location filename="../../Dialogs/Controls.cpp" line="355"/>
         <source>Restrict the find or replace to other XML files selected in the Book Browser under the Misc Folder in Code View.</source>
         <translation>Обмежити пошук або заміну іншими файлами XML, вибраними у вікні Структури Книги у каталозі Misc.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="377"/>
+        <location filename="../../Dialogs/Controls.cpp" line="361"/>
         <source>Select Direction</source>
         <translation>Вибрати напрямок</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="378"/>
-        <location filename="../../Dialogs/Controls.cpp" line="382"/>
+        <location filename="../../Dialogs/Controls.cpp" line="362"/>
+        <location filename="../../Dialogs/Controls.cpp" line="366"/>
         <source>Up</source>
         <translation>Вгору</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="379"/>
-        <location filename="../../Dialogs/Controls.cpp" line="383"/>
+        <location filename="../../Dialogs/Controls.cpp" line="363"/>
+        <location filename="../../Dialogs/Controls.cpp" line="367"/>
         <source>Down</source>
         <translation>Вниз</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="380"/>
+        <location filename="../../Dialogs/Controls.cpp" line="364"/>
         <source>Direction to search</source>
         <translation>Напрямок пошуку</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="382"/>
+        <location filename="../../Dialogs/Controls.cpp" line="366"/>
         <source>Search for the previous match from your current position.</source>
         <translation>Пошук попереднього збігу з поточної позиції.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Controls.cpp" line="383"/>
+        <location filename="../../Dialogs/Controls.cpp" line="367"/>
         <source>Search for the next match from your current position.</source>
         <translation>Пошук наступного збігу з поточної позиції.</translation>
     </message>
@@ -2543,7 +2543,7 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="81"/>
-        <location filename="../../Dialogs/EditTOC.cpp" line="467"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="481"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
@@ -2578,37 +2578,37 @@ You can also use the right arrow key.</source>
 Ви можете використовувати клавішу зі стрілкою вправо.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="97"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="99"/>
         <source>TOC Entry</source>
         <translation>Запис TOC</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="98"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="100"/>
         <source>Target</source>
         <translation>Адресат</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="466"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="480"/>
         <source>Rename</source>
         <translation>Перейменувати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="474"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="488"/>
         <source>Move Up</source>
         <translation>Перемістити вгору</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="475"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="489"/>
         <source>Move Down</source>
         <translation>Перемістити вниз</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="481"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="495"/>
         <source>Expand All</source>
         <translation>Розгорнути все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="482"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
         <source>Collapse All</source>
         <translation>Згорнути все</translation>
     </message>
@@ -2616,7 +2616,7 @@ You can also use the right arrow key.</source>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="782"/>
+        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="760"/>
         <source>Embedded Python Error</source>
         <translation>Помилка вбудованого Python</translation>
     </message>
@@ -2705,152 +2705,152 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <translation>Натисніть «OK», щоб зберегти власний дизайн epub, інакше натисніть «Скасувати».</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="155"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
         <source>Xhtml files</source>
         <translation>Файли Xhtml</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="155"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
         <source>Style files</source>
         <translation>Файли Стилів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="156"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="147"/>
         <source>Image files</source>
         <translation>Файли зображення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="156"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="147"/>
         <source>Font files</source>
         <translation>Файли шрифтів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="157"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="148"/>
         <source>Audio files</source>
         <translation>Файли Аудіо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="157"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="148"/>
         <source>Video files</source>
         <translation>Файли Відео</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="158"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="149"/>
         <source>Javascript files</source>
         <translation>Файли JavaScript</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="158"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="149"/>
         <source>Misc files</source>
         <translation>Файли різні</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="159"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="150"/>
         <source>OPF file</source>
         <translation>Файл OPF</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="159"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="150"/>
         <source>NCX file</source>
         <translation>Файл NCX</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="160"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="151"/>
         <source>Nav file</source>
         <translation>Файл Nav</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="233"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="224"/>
         <source>Select previously saved layout design ini File</source>
         <translation>Вибрати раніше збережений дизайн з файлу ini</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="235"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="226"/>
         <source>Settings Files (*.ini)</source>
         <translation>Файли налаштувань (*.ini)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="342"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="329"/>
         <source>Save current design to an ini File</source>
         <translation>Зберегти поточний дизайн у файл ini</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="374"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="361"/>
         <source>Add a Folder</source>
         <translation>Додати Папку</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="374"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="361"/>
         <source>New Folder Name?</source>
         <translation>Назва нової папки?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="374"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="361"/>
         <source>untitled_folder</source>
         <translation>папка_без_назви</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="411"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="398"/>
         <source>Rename a Folder</source>
         <translation>Перейменувати папку</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="411"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="398"/>
         <source>New Name for Folder?</source>
         <translation>Нова назва для папки?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="422"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="409"/>
         <source>Rename a File</source>
         <translation>Перейменувати Файл</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="422"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="409"/>
         <source>New Name for File?</source>
         <translation>Нове ім&apos;я для файла?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="480"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="467"/>
         <source>A single OPF file is required.</source>
         <translation>Потрібен файл OPF.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="481"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="468"/>
         <source>At least one xhtml marker must exist.</source>
         <translation>Принаймні один маркер xhtml повинен існувати.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="482"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="469"/>
         <source>At least one image marker must exist.</source>
         <translation>Принаймні один маркер зображення повинен існувати.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="483"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="470"/>
         <source>At least one css marker must exist.</source>
         <translation>Принаймні один маркер css повинен існувати.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="485"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="472"/>
         <source>A single NCX file is required.</source>
         <translation>Потрібен файл NCX.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="487"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="474"/>
         <source>A single NAV file is required.</source>
         <translation>Потрібен файл NAV.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="491"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="478"/>
         <source>Errors Detected</source>
         <translation>Виявлені помилки</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="497"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="484"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="498"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="485"/>
         <source>Do you want to set this layout as the default empty Epub layout for Sigil?
 
 </source>
@@ -3034,350 +3034,350 @@ Valid only when searching HTML files.</source>
         <translation>Перезапуск пошуку</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="374"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2218"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2227"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="365"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2152"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2153"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2162"/>
         <source>Current File</source>
         <translation>Поточний Файл</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="605"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1977"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="598"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1911"/>
         <source>Matches found: %n</source>
         <translation><numerusform>Знайдено збігів: %n</numerusform><numerusform>Знайдено збігів: %n</numerusform><numerusform>Знайдено збігів: %n</numerusform><numerusform>Знайдено збігів: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="695"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="688"/>
         <source>Choose Replacements</source>
         <translation>Вибрати Заміни</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="713"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="772"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2020"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="706"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="765"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1954"/>
         <source>No replacements made</source>
         <translation>Замін не зроблено</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/FindReplace.cpp" line="715"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="774"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2022"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="708"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="767"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1956"/>
         <source>Replacements made: %n</source>
         <translation><numerusform>Зроблено замін: %n</numerusform><numerusform>Зроблено замін: %n</numerusform><numerusform>Зроблено замін: %n</numerusform><numerusform>Зроблено замін: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="900"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="893"/>
         <source>End of search</source>
         <translation>Пошук закінчено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="991"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="966"/>
         <source>No matches found</source>
         <translation>Збігів не знайдено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1764"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1708"/>
         <source>This tab cannot be searched</source>
         <translation>Не можна шукати на цій вкладці</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1807"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1751"/>
         <source>Unnamed search loaded</source>
         <translation>Завантажено пошук без назви</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1810"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1754"/>
         <source>Loaded</source>
         <translation>Завантажено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="1883"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1907"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1936"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="1961"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2005"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1827"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1851"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1870"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1895"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="1939"/>
         <source>No searches selected</source>
         <translation>Не вибрано пошукових запитів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2070"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2004"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2071"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2005"/>
         <source>Are you sure you want to clear your Find and Replace current values and history?</source>
         <translation>Ви впевнені, що хочете очистити поточні значення пошуку та заміни а також історію?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2203"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2138"/>
         <source>What to search for</source>
         <translation>Що шукати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2204"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2205"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2139"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2140"/>
         <source>Normal</source>
         <translation>Звичайний</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2205"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2140"/>
         <source>Case in-sensitive search of exactly what you type.</source>
         <translation>Пошук без урахування регістру безпосередньо того, що Ви друкуєте.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2207"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2208"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2142"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2143"/>
         <source>Case Sensitive</source>
         <translation>З урахуванням регістру</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2208"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2143"/>
         <source>Case sensitive search of exactly what you type.</source>
         <translation>Пошук з урахуванням регістру безпосередньо того, що Ви друкуєте.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2210"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2211"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2145"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2146"/>
         <source>Regex</source>
         <translation>RegEx</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2211"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2146"/>
         <source>Search for a pattern using Regular Expression syntax.</source>
         <translation>Пошук за шаблоном з використанням синтаксису регулярних виразів.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2215"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2258"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2150"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2193"/>
         <source>Where to search</source>
         <translation>Де шукати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2218"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2153"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
         <translation>Обмежити пошук або заміну відкритим файлом. Утримуйте клавішу Ctrl при натисканні будь-яких кнопок пошуку, щоб тимчасово обмежити пошук поточним файлом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2220"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2221"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2155"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2156"/>
         <source>All HTML Files</source>
         <translation>Всі HTML файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2221"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2156"/>
         <source>Find or replace in all HTML files in Code View.</source>
         <translation>Знайти або замінити у всіх HTML файлах у Браузері Коду.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2223"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2224"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2158"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2159"/>
         <source>Selected HTML Files</source>
         <translation>Вибрані HTML файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2224"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2159"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
         <translation>Обмежити пошук або заміну файлами HTML, вибраними у вікні Структури Книги.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2226"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2161"/>
         <source>Tabbed HTML Files</source>
         <translation>Файли HTML з вкладками</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2227"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2162"/>
         <source>Restrict the find or replace to the HTML files open in Tabs.</source>
         <translation>Обмежити пошук або заміну файлами HTML, відкритими у вкладках.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2229"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2230"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2164"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2165"/>
         <source>All CSS Files</source>
         <translation>Всі CSS файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2230"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2165"/>
         <source>Find or replace in all CSS files in Code View.</source>
         <translation>Знайти або замінити у всіх CSS файлах у Браузері Коду.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2232"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2233"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2167"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2168"/>
         <source>Selected CSS Files</source>
         <translation>Вибрані CSS файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2233"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2168"/>
         <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
         <translation>Обмежити пошук або заміну файлами CSS, вибраними у вікні Структури Книги.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2235"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2236"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2170"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2171"/>
         <source>Tabbed CSS Files</source>
         <translation>Файли CSS з вкладками</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2236"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2171"/>
         <source>Restrict the find or replace to the CSS files open in Tabs.</source>
         <translation>Обмежити пошук або заміну файлами CSS, відкритими у вкладках.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2238"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2239"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2173"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2174"/>
         <source>OPF File</source>
         <translation>Файл OPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2239"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2174"/>
         <source>Restrict the find or replace to the OPF file.</source>
         <translation>Обмежити пошук або заміну файлами OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2241"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2242"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2176"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2177"/>
         <source>NCX File</source>
         <translation>Файл NCX</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2242"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2177"/>
         <source>Restrict the find or replace to the NCX file.</source>
         <translation>Обмежити пошук або заміну файлами NCX.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2244"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2245"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2179"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2180"/>
         <source>Selected SVG Files</source>
         <translation>Вибрані SVG файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2245"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2180"/>
         <source>Restrict the find or replace to the SVG files selected in the Book Browser in Code View.</source>
         <translation>Обмежити пошук або заміну файлами SVG, вибраними у вікні Структури Книги.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2247"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2182"/>
         <source>Selected Javascript Files</source>
         <translation>Вибрані Javascript файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2248"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2183"/>
         <source>Selected JS Files</source>
         <translation>Вибрані JS файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2248"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2183"/>
         <source>Restrict the find or replace to the JS files selected in the Book Browser in Code View.</source>
         <translation>Обмежити пошук або заміну файлами JS, вибраними у вікні Структури Книги.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2250"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2251"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2185"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2186"/>
         <source>Selected Misc XML Files</source>
         <translation>Вибрані XML файли у каталозі Misc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2251"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2186"/>
         <source>Restrict the find or replace to the XML files selected in the Misc folder of the Book Browser in Code View.</source>
         <translation>Обмежити пошук або заміну файлами XML, вибраними у каталозі Misc у вікні Структури Книги.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2254"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2189"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
         <translation>Щоб обмежити пошук вибраним текстом, використовуйте Пошук&amp;rarr;Позначити вибраний текст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2259"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2260"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2194"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2195"/>
         <source>Marked Text</source>
         <translation>Позначений Текст</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2260"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2195"/>
         <source>Restrict the find or replace to the text marked by Search&amp;rarr;Mark Selected Text.  Cleared if you use Undo, enter text, or change views or tabs.</source>
         <translation>Обмежити пошук або заміну текстом, позначеним Пошук&amp;rarr;Позначити вибраний текст. Очищається, якщо використовується «Відмінити», вводиться текст або змінюється режим перегляду або вкладки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2264"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2268"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2199"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2203"/>
         <source>Up</source>
         <translation>Вгору</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2265"/>
-        <location filename="../../MainUI/FindReplace.cpp" line="2269"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2200"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2204"/>
         <source>Down</source>
         <translation>Вниз</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2266"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2201"/>
         <source>Direction to search</source>
         <translation>Напрямок пошуку</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2268"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2203"/>
         <source>Search for the previous match from your current position.</source>
         <translation>Пошук попереднього збігу з поточної позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2269"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2204"/>
         <source>Search for the next match from your current position.</source>
         <translation>Пошук наступного збігу з поточної позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2275"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2210"/>
         <source>Dot All</source>
         <translation>DotAll</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2278"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2213"/>
         <source>For Regex searches, prefix your search with (?s).</source>
         <translation>Для пошуку з RegEx, у виразі використовується префікс (?s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2282"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
         <source>Minimal Match</source>
         <translation>Мінімальний збіг</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2285"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2220"/>
         <source>For Regex searches, prefix your search with (?U).</source>
         <translation>Для пошуку з RegEx, у виразі використовується префікс (?U).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2289"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2224"/>
         <source>Auto Tokenise</source>
         <translation>Автотокенізація</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2292"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2227"/>
         <source>For Regex searches, tokenise/escape selection when opening Find.</source>
         <translation>Для пошуку з RegEx, токенізація/екранування певних символів у виділенні при відкритті «Пошук».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2296"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2231"/>
         <source>Unicode Property</source>
         <translation>Властивості Unicode</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2299"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2234"/>
         <source>For Regex searches, set the Unicode Property flag.</source>
         <translation>При пошуку у режимі Regex встановіть флаг/параметр «Властивості Unicode».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2323"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2258"/>
         <source>Invalid Regex:</source>
         <translation>Недостовірний RegEx:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2324"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2259"/>
         <source>offset:</source>
         <translation>позиція:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/FindReplace.cpp" line="2328"/>
+        <location filename="../../MainUI/FindReplace.cpp" line="2263"/>
         <source>Valid Regex</source>
         <translation>Достовірний Regex</translation>
     </message>
@@ -3385,17 +3385,17 @@ Valid only when searching HTML files.</source>
 <context>
     <name>FindReplaceQLineEdit</name>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="64"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="60"/>
         <source>Clear Find Replace History</source>
         <translation>Очистити історію пошуку/заміни</translation>
     </message>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="77"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="73"/>
         <source>Tokenise Selection</source>
         <translation>Токенізація виділення</translation>
     </message>
     <message>
-        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="90"/>
+        <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="86"/>
         <source>Save Search</source>
         <translation>Зберегти результати пошуку</translation>
     </message>
@@ -3403,7 +3403,7 @@ Valid only when searching HTML files.</source>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="871"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="867"/>
         <source>Print %1</source>
         <translation>Друк %1</translation>
     </message>
@@ -3419,27 +3419,27 @@ Valid only when searching HTML files.</source>
 <context>
     <name>FontView</name>
     <message>
-        <location filename="../../Widgets/FontView.cpp" line="127"/>
+        <location filename="../../Widgets/FontView.cpp" line="125"/>
         <source>No reliable font data</source>
         <translation>Немає достовірних даних про шрифт</translation>
     </message>
     <message>
-        <location filename="../../Widgets/FontView.cpp" line="138"/>
+        <location filename="../../Widgets/FontView.cpp" line="136"/>
         <source>abcdefghijklmnopqrstuvwxyz</source>
         <translation>abcdefghijklmnopqrstuvwxyz</translation>
     </message>
     <message>
-        <location filename="../../Widgets/FontView.cpp" line="139"/>
+        <location filename="../../Widgets/FontView.cpp" line="137"/>
         <source>ABCDEFGHIJKLMNOPQRSTUVWXYZ</source>
         <translation>ABCDEFGHIJKLMNOPQRSTUVWXYZ</translation>
     </message>
     <message>
-        <location filename="../../Widgets/FontView.cpp" line="140"/>
+        <location filename="../../Widgets/FontView.cpp" line="138"/>
         <source>0123456789.:,;(*!?&apos;\/&quot;)$%^&amp;-+@=_-~&gt;&lt;</source>
         <translation>0123456789.:,;(*!?&apos;\/&quot;)$%^&amp;-+@=_-~&gt;&lt;</translation>
     </message>
     <message>
-        <location filename="../../Widgets/FontView.cpp" line="141"/>
+        <location filename="../../Widgets/FontView.cpp" line="139"/>
         <source>The quick brown fox jumps over the lazy dog</source>
         <translation>Факт ґринджол: бій псюг вщух, з’їм шче яєць.</translation>
     </message>
@@ -4390,44 +4390,44 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="205"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="200"/>
         <source>shades</source>
         <translation>тіні</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="205"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="200"/>
         <source>colors</source>
         <translation>кольори</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="206"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="201"/>
         <source>Grayscale</source>
         <translation>Відтінки сірого</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="206"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="201"/>
         <source>Color</source>
         <translation>Колір</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="332"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="390"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="393"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="327"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="385"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="388"/>
         <source>Open With</source>
         <translation>Відкрити за допомогою</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="368"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="363"/>
         <source>Other Application</source>
         <translation>Інша програма</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="391"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="386"/>
         <source>Save As</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="392"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="387"/>
         <source>Copy Image</source>
         <translation>Копіювати зображення</translation>
     </message>
@@ -4435,22 +4435,22 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImageView</name>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="90"/>
+        <location filename="../../Widgets/ImageView.cpp" line="88"/>
         <source>shades</source>
         <translation>тіні</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="90"/>
+        <location filename="../../Widgets/ImageView.cpp" line="88"/>
         <source>colors</source>
         <translation>кольори</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="91"/>
+        <location filename="../../Widgets/ImageView.cpp" line="89"/>
         <source>Grayscale</source>
         <translation>Відтінки сірого</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="91"/>
+        <location filename="../../Widgets/ImageView.cpp" line="89"/>
         <source>Color</source>
         <translation>Колір</translation>
     </message>
@@ -4458,33 +4458,24 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImportEPUB</name>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="155"/>
-        <source>Files exist in epub that are not listed in the manifest, they will be ignored</source>
-        <translation>У epub існують файли, які не вказані у маніфесті, вони будуть проігноровані</translation>
+        <location filename="../../Importers/ImportEPUB.cpp" line="156"/>
+        <source>Files exist in epub that are not listed in the manifest, they will be ignored.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="188"/>
-        <source>Sigil</source>
-        <translation>Sigil</translation>
+        <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
+        <source>This EPUB had HTML files that were not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;br&gt;They were automatically fixed based on your Preference setting to Clean on Open.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="189"/>
-        <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements. Sigil can automatically fix these files, although this may very rarely result in minor data loss in extreme circumstances.
-
-Do you want to automatically fix the files?</source>
-        <translation>Цей EPUB містить файли HTML, які не сформовані належним чином або в них відсутні елементи DOCTYPE, html, head або body. Sigil може спробувати автоматично виправити ці файли, але це може призвести до втрати даних в екстремальній ситуації.
-
-Ви хочете автоматично виправити файли?</translation>
+        <location filename="../../Importers/ImportEPUB.cpp" line="205"/>
+        <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;/br&gt;Fix these manually or use Sigil&apos;s Mend tool to automatically fixed these errors or omissions.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="596"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation>Epub відсутній або неправильно вказаний OPF.</translation>
-    </message>
-    <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="636"/>
-        <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
-        <translation>Ця електронна публікація має множинне тлумачення (декілька файлів OPF). Редагування цього epub в Sigil призведе до створення звичайної одиночної версії epub з використнням лише основного (першого) знайденого файлу OPF.</translation>
     </message>
 </context>
 <context>
@@ -4667,17 +4658,17 @@ Do you want to save your changes?</source>
 <context>
     <name>IndexEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="68"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="64"/>
         <source>Text to Include</source>
         <translation>Шаблон тексту</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="69"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="65"/>
         <source>Index Entries</source>
         <translation>Ключові слова</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="354"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="350"/>
         <source>Unable to create file %1</source>
         <translation>Неможливо створити файл %1</translation>
     </message>
@@ -4688,11 +4679,6 @@ Do you want to save your changes?</source>
         <location filename="../../Dialogs/Inspector.cpp" line="56"/>
         <source>Inspect Page or Element</source>
         <translation>Ревізувати Сторінку або Елемент</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/Inspector.cpp" line="155"/>
-        <source>The Inspector functionality is not supported before Qt 5.11</source>
-        <translation>Функціональність інспектора не підтримується до Qt 5.11</translation>
     </message>
 </context>
 <context>
@@ -8546,174 +8532,174 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>Інструменти Epub&amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="406"/>
+        <location filename="../../Form_Files/main.ui" line="407"/>
         <source>&amp;Plugins</source>
         <translation>&amp;Модулі</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="412"/>
+        <location filename="../../Form_Files/main.ui" line="413"/>
         <source>Chec&amp;kpoints</source>
         <translation>&amp;Архіваріус</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="438"/>
+        <location filename="../../Form_Files/main.ui" line="439"/>
         <source>New</source>
         <translation>Новий</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="452"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1658"/>
+        <location filename="../../Form_Files/main.ui" line="453"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1607"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="466"/>
+        <location filename="../../Form_Files/main.ui" line="467"/>
         <source>Add Existing</source>
         <translation>Додати існуючі</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="479"/>
+        <location filename="../../Form_Files/main.ui" line="480"/>
         <source>Checkpoints</source>
         <translation>Архіваріус</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="494"/>
+        <location filename="../../Form_Files/main.ui" line="495"/>
         <source>Index</source>
         <translation>Покажчик</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="510"/>
+        <location filename="../../Form_Files/main.ui" line="511"/>
         <source>Undo/Redo</source>
         <translation>Відмінити/Повернути</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="524"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="636"/>
+        <location filename="../../Form_Files/main.ui" line="525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="612"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="540"/>
+        <location filename="../../Form_Files/main.ui" line="541"/>
         <source>External Editor</source>
         <translation>Зовнішній редактор</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="553"/>
+        <location filename="../../Form_Files/main.ui" line="554"/>
         <source>Find</source>
         <translation>Знайти</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="567"/>
+        <location filename="../../Form_Files/main.ui" line="568"/>
         <source>Insert</source>
         <translation>Вставити</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="584"/>
+        <location filename="../../Form_Files/main.ui" line="585"/>
         <source>Back</source>
         <translation>Назад</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="596"/>
+        <location filename="../../Form_Files/main.ui" line="598"/>
         <source>Donate</source>
         <translation>Допомогти грошима</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="608"/>
+        <location filename="../../Form_Files/main.ui" line="610"/>
         <source>Tools</source>
         <translation>Причандали</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="623"/>
+        <location filename="../../Form_Files/main.ui" line="625"/>
         <source>Plugins Set 1</source>
         <translation>Набір модулів 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="639"/>
+        <location filename="../../Form_Files/main.ui" line="641"/>
         <source>Plugins Set 2</source>
         <translation>Набір модулів 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="655"/>
+        <location filename="../../Form_Files/main.ui" line="657"/>
         <source>Automation Lists</source>
         <translation>Списки автоматизації</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="669"/>
+        <location filename="../../Form_Files/main.ui" line="671"/>
         <source>Automation List 1</source>
         <translation>Список автоматизації 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="680"/>
+        <location filename="../../Form_Files/main.ui" line="682"/>
         <source>Automation List 2</source>
         <translation>Список автоматизації 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="691"/>
+        <location filename="../../Form_Files/main.ui" line="693"/>
         <source>Automation List 3</source>
         <translation>Список автоматизації 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="699"/>
+        <location filename="../../Form_Files/main.ui" line="701"/>
         <source>Heading</source>
         <translation>Заголовок</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="713"/>
+        <location filename="../../Form_Files/main.ui" line="715"/>
         <source>Set Heading Level of Selected Text</source>
         <translation>Встановити рівень заголовка для виділеного тексту</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="726"/>
+        <location filename="../../Form_Files/main.ui" line="728"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="743"/>
+        <location filename="../../Form_Files/main.ui" line="745"/>
         <source>Align</source>
         <translation>Вирівняти</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="758"/>
+        <location filename="../../Form_Files/main.ui" line="760"/>
         <source>List</source>
         <translation>Список</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="771"/>
+        <location filename="../../Form_Files/main.ui" line="773"/>
         <source>Indent</source>
         <translation>Відступ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="784"/>
+        <location filename="../../Form_Files/main.ui" line="786"/>
         <source>Change Case</source>
         <translation>Змінити регістр</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="798"/>
+        <location filename="../../Form_Files/main.ui" line="800"/>
         <source>Set Case of Selected Text</source>
         <translation>Встановити регістр у виділеному тексті</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="808"/>
+        <location filename="../../Form_Files/main.ui" line="810"/>
         <source>Text Direction</source>
         <translation>Напрямок тексту</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="822"/>
+        <location filename="../../Form_Files/main.ui" line="824"/>
         <source>Clip Bar</source>
         <translation>Панель Фрагментів</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="863"/>
+        <location filename="../../Form_Files/main.ui" line="865"/>
         <source>Clip Bar2</source>
         <translation>Панель Фрагментів 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="909"/>
+        <location filename="../../Form_Files/main.ui" line="911"/>
         <source>New Default</source>
         <translation>Новий за замовчуванням</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="912"/>
+        <location filename="../../Form_Files/main.ui" line="914"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new default book.&lt;/p&gt;</source>
@@ -8722,17 +8708,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Створити нову стандартну книгу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="917"/>
+        <location filename="../../Form_Files/main.ui" line="919"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="927"/>
+        <location filename="../../Form_Files/main.ui" line="929"/>
         <source>ePub&amp;2</source>
         <translation>ePub&amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="930"/>
+        <location filename="../../Form_Files/main.ui" line="932"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub2 book.&lt;/p&gt;</source>
@@ -8741,12 +8727,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Створити нову книгу ePub2.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="942"/>
+        <location filename="../../Form_Files/main.ui" line="944"/>
         <source>ePub&amp;3</source>
         <translation>ePub&amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="945"/>
+        <location filename="../../Form_Files/main.ui" line="947"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub3 book.&lt;/p&gt;</source>
@@ -8755,12 +8741,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Створити нову книгу ePub3.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="957"/>
+        <location filename="../../Form_Files/main.ui" line="959"/>
         <source>&amp;Save</source>
         <translation>&amp;Зберегти</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="960"/>
+        <location filename="../../Form_Files/main.ui" line="962"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
@@ -8769,17 +8755,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Зберегти поточну книгу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="965"/>
+        <location filename="../../Form_Files/main.ui" line="967"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="970"/>
+        <location filename="../../Form_Files/main.ui" line="972"/>
         <source>Save &amp;As...</source>
         <translation>Зберегти &amp;Як…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="973"/>
+        <location filename="../../Form_Files/main.ui" line="975"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
@@ -8788,27 +8774,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Зберегти поточну книгу з іншою назвою.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="978"/>
+        <location filename="../../Form_Files/main.ui" line="980"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="983"/>
+        <location filename="../../Form_Files/main.ui" line="985"/>
         <source>Save A &amp;Copy...</source>
         <translation>Зберегти як &amp;копію…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="986"/>
+        <location filename="../../Form_Files/main.ui" line="988"/>
         <source>Save a copy of your book to another file name.</source>
         <translation>Зберегти копію книги з іншим ім&apos;ям файлу.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="995"/>
+        <location filename="../../Form_Files/main.ui" line="997"/>
         <source>Cu&amp;t</source>
         <translation>Виріза&amp;ти</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="998"/>
+        <location filename="../../Form_Files/main.ui" line="1000"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
@@ -8817,12 +8803,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вирізає вибраний текст з документа і поміщає його у буфер обміну.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1009"/>
+        <location filename="../../Form_Files/main.ui" line="1011"/>
         <source>&amp;Paste</source>
         <translation>Вст&amp;авити</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1012"/>
+        <location filename="../../Form_Files/main.ui" line="1014"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
@@ -8831,27 +8817,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вставляє вміст буфера обміну у книгу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1019"/>
+        <location filename="../../Form_Files/main.ui" line="1021"/>
         <source>&amp;Closing Tag</source>
         <translation>&amp;Закриваючий тег</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1022"/>
+        <location filename="../../Form_Files/main.ui" line="1024"/>
         <source>Insert a closing tag in Code View.</source>
         <translation>Вставити закриваючий тег у Браузері Коду.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1025"/>
+        <location filename="../../Form_Files/main.ui" line="1027"/>
         <source>Ctrl+.</source>
         <translation>Ctrl+.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1034"/>
+        <location filename="../../Form_Files/main.ui" line="1036"/>
         <source>&amp;Undo</source>
         <translation>В&amp;ідмінити</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1037"/>
+        <location filename="../../Form_Files/main.ui" line="1039"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
@@ -8860,17 +8846,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Скасовує зміни зроблені попередньою операцією.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1042"/>
+        <location filename="../../Form_Files/main.ui" line="1044"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1051"/>
+        <location filename="../../Form_Files/main.ui" line="1053"/>
         <source>&amp;Redo</source>
         <translation>&amp;Повернути</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1054"/>
+        <location filename="../../Form_Files/main.ui" line="1056"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
@@ -8879,17 +8865,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Відновлює зміни, скасовані попередньою дією «Відмінити».&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1059"/>
+        <location filename="../../Form_Files/main.ui" line="1061"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1068"/>
+        <location filename="../../Form_Files/main.ui" line="1070"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копіювати</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1071"/>
+        <location filename="../../Form_Files/main.ui" line="1073"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
@@ -8898,12 +8884,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Копіювати вибраний текст і помістити його у буфер обміну.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1085"/>
+        <location filename="../../Form_Files/main.ui" line="1087"/>
         <source>Align &amp;Left</source>
         <translation>Вирівняти &amp;Ліворуч</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1088"/>
+        <location filename="../../Form_Files/main.ui" line="1090"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
@@ -8912,12 +8898,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вирівнює абзац по лівому полю.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1102"/>
+        <location filename="../../Form_Files/main.ui" line="1104"/>
         <source>Align &amp;Right</source>
         <translation>Вирівняти &amp;Праворуч</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1105"/>
+        <location filename="../../Form_Files/main.ui" line="1107"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
@@ -8926,12 +8912,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вирівнює абзац по правому полю.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1119"/>
+        <location filename="../../Form_Files/main.ui" line="1121"/>
         <source>&amp;Center</source>
         <translation>По &amp;Центру</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1122"/>
+        <location filename="../../Form_Files/main.ui" line="1124"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
@@ -8940,17 +8926,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вирівнює абзац по центру.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1127"/>
+        <location filename="../../Form_Files/main.ui" line="1129"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1139"/>
+        <location filename="../../Form_Files/main.ui" line="1141"/>
         <source>&amp;Justify</source>
         <translation>По &amp;ширині</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1142"/>
+        <location filename="../../Form_Files/main.ui" line="1144"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
@@ -8959,17 +8945,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вирівнює абзац по лівому та правому полям.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1147"/>
+        <location filename="../../Form_Files/main.ui" line="1149"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1159"/>
+        <location filename="../../Form_Files/main.ui" line="1161"/>
         <source>&amp;Bold</source>
         <translation>&amp;Жирний</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1162"/>
+        <location filename="../../Form_Files/main.ui" line="1164"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
@@ -8978,17 +8964,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Зробити вибраний текст жирним.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1167"/>
+        <location filename="../../Form_Files/main.ui" line="1169"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1179"/>
+        <location filename="../../Form_Files/main.ui" line="1181"/>
         <source>&amp;Italic</source>
         <translation>&amp;Курсив</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1182"/>
+        <location filename="../../Form_Files/main.ui" line="1184"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
@@ -8997,17 +8983,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Зробити вибраний текст курсивом.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1187"/>
+        <location filename="../../Form_Files/main.ui" line="1189"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1196"/>
+        <location filename="../../Form_Files/main.ui" line="1198"/>
         <source>&amp;Open...</source>
         <translation>&amp;Відкрити…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1199"/>
+        <location filename="../../Form_Files/main.ui" line="1201"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
@@ -9016,17 +9002,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Відкриває книгу з носія.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1204"/>
+        <location filename="../../Form_Files/main.ui" line="1206"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1216"/>
+        <location filename="../../Form_Files/main.ui" line="1218"/>
         <source>&amp;Underline</source>
         <translation>&amp;Підкреслений</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1219"/>
+        <location filename="../../Form_Files/main.ui" line="1221"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
@@ -9035,42 +9021,42 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Підкреслити лінією вибраний текст.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1224"/>
+        <location filename="../../Form_Files/main.ui" line="1226"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1236"/>
+        <location filename="../../Form_Files/main.ui" line="1238"/>
         <source>&amp;Quit</source>
         <translation>&amp;Вихід</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1239"/>
+        <location filename="../../Form_Files/main.ui" line="1241"/>
         <source>Exit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1242"/>
+        <location filename="../../Form_Files/main.ui" line="1244"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1254"/>
+        <location filename="../../Form_Files/main.ui" line="1256"/>
         <source>&amp;About...</source>
         <translation>&amp;Про програму…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1257"/>
+        <location filename="../../Form_Files/main.ui" line="1259"/>
         <source>Show information about Sigil.</source>
         <translation>Показати інформацію про Sigil.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1262"/>
+        <location filename="../../Form_Files/main.ui" line="1264"/>
         <source>Add &amp;Cover...</source>
         <translation>Додати &amp;Обкладинку…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1265"/>
+        <location filename="../../Form_Files/main.ui" line="1267"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
@@ -9079,12 +9065,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;До структури книги додається файл з зображенням обкладинки.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1276"/>
+        <location filename="../../Form_Files/main.ui" line="1278"/>
         <source>&amp;Metadata Editor...</source>
         <translation>&amp;Редактор МетаДаних…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1279"/>
+        <location filename="../../Form_Files/main.ui" line="1281"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
@@ -9093,17 +9079,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Редагувати та відобразити інформацію про свою книгу, включаючи автора та назву.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1284"/>
+        <location filename="../../Form_Files/main.ui" line="1286"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1293"/>
+        <location filename="../../Form_Files/main.ui" line="1295"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation>&amp;Генерація Змісту…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1296"/>
+        <location filename="../../Form_Files/main.ui" line="1298"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
@@ -9112,17 +9098,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Створити новий Зміст із заголовків Вашої книги.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1301"/>
+        <location filename="../../Form_Files/main.ui" line="1303"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1310"/>
+        <location filename="../../Form_Files/main.ui" line="1312"/>
         <source>&amp;Edit Table Of Contents...</source>
         <translation>&amp;Редагувати Зміст…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1313"/>
+        <location filename="../../Form_Files/main.ui" line="1315"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
@@ -9131,12 +9117,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Безпосередньо відредагувати існуючий зміст.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1324"/>
+        <location filename="../../Form_Files/main.ui" line="1326"/>
         <source>&amp;Split At Cursor</source>
         <translation>&amp;Розділити по курсору</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1327"/>
+        <location filename="../../Form_Files/main.ui" line="1329"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
@@ -9145,17 +9131,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Розділити поточний файл на два файли, використовуючи розташування курсору як точку поділу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1332"/>
+        <location filename="../../Form_Files/main.ui" line="1334"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1341"/>
+        <location filename="../../Form_Files/main.ui" line="1343"/>
         <source>&amp;File...</source>
         <translation>&amp;Файл…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1344"/>
+        <location filename="../../Form_Files/main.ui" line="1346"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
@@ -9168,17 +9154,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ви можете додати файли до книги за допомогою меню Файл – Додати – Існуючі файли.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1351"/>
+        <location filename="../../Form_Files/main.ui" line="1353"/>
         <source>Ctrl+Shift+I</source>
         <translation>Ctrl+Shift+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1360"/>
+        <location filename="../../Form_Files/main.ui" line="1362"/>
         <source>&amp;Special Character...</source>
         <translation>&amp;Спеціальний знак…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1363"/>
+        <location filename="../../Form_Files/main.ui" line="1365"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
@@ -9187,12 +9173,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вибрати спеціальний символ та вставити у Ваш текст.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1374"/>
+        <location filename="../../Form_Files/main.ui" line="1376"/>
         <source>I&amp;D...</source>
         <translation>I&amp;D…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1377"/>
+        <location filename="../../Form_Files/main.ui" line="1379"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
@@ -9201,12 +9187,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вставити або відредагувати якір з назвою ідентифікатора, щоб використовувати його як адресата чи ціль посилання.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1388"/>
+        <location filename="../../Form_Files/main.ui" line="1390"/>
         <source>&amp;Link...</source>
         <translation>&amp;Посилання…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1391"/>
+        <location filename="../../Form_Files/main.ui" line="1393"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
@@ -9215,12 +9201,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Вставити або відредагувати якір із гіперпосиланням на адресата чи ціль.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1405"/>
+        <location filename="../../Form_Files/main.ui" line="1407"/>
         <source>&amp;Numbered List</source>
         <translation>&amp;Нумерований список</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1408"/>
+        <location filename="../../Form_Files/main.ui" line="1410"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
@@ -9229,12 +9215,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Створити нумерований список.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1422"/>
+        <location filename="../../Form_Files/main.ui" line="1424"/>
         <source>Bulle&amp;ted List</source>
         <translation>Марк&amp;ований список</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1425"/>
+        <location filename="../../Form_Files/main.ui" line="1427"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
@@ -9243,17 +9229,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Створити маркований список.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1430"/>
+        <location filename="../../Form_Files/main.ui" line="1432"/>
         <source>Ctrl+Shift+L</source>
         <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1442"/>
+        <location filename="../../Form_Files/main.ui" line="1444"/>
         <source>Stri&amp;kethrough</source>
         <translation>Закре&amp;слений</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1445"/>
+        <location filename="../../Form_Files/main.ui" line="1447"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
@@ -9262,12 +9248,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Накреслити лінію через середину вибраного тексту.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1459"/>
+        <location filename="../../Form_Files/main.ui" line="1461"/>
         <source>&amp;Subscript</source>
         <translation>Ни&amp;жній індекс</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1462"/>
+        <location filename="../../Form_Files/main.ui" line="1464"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
@@ -9276,12 +9262,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Встановити вибраний текст трохи менше і нижче нормального рядка.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1476"/>
+        <location filename="../../Form_Files/main.ui" line="1478"/>
         <source>Su&amp;perscript</source>
         <translation>Ве&amp;рхній індекс</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1479"/>
+        <location filename="../../Form_Files/main.ui" line="1481"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
@@ -9290,88 +9276,98 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Встановити вибраний текст трохи менше і вище нормального рядка.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1490"/>
+        <location filename="../../Form_Files/main.ui" line="1492"/>
         <source>&amp;Print...</source>
         <translation>&amp;Друк…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1493"/>
+        <location filename="../../Form_Files/main.ui" line="1495"/>
         <source>Print</source>
         <translation>Друк</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1496"/>
+        <location filename="../../Form_Files/main.ui" line="1498"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1505"/>
+        <location filename="../../Form_Files/main.ui" line="1507"/>
         <source>Print Pre&amp;view...</source>
         <translation>Вигляд для &amp;Друку</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1508"/>
+        <location filename="../../Form_Files/main.ui" line="1510"/>
         <source>Print Preview</source>
         <translation>Перегляд перед друком</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1513"/>
-        <location filename="../../Form_Files/main.ui" line="1516"/>
+        <location filename="../../Form_Files/main.ui" line="1515"/>
+        <location filename="../../Form_Files/main.ui" line="1518"/>
         <source>Close</source>
         <translation>Закрити</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1519"/>
+        <location filename="../../Form_Files/main.ui" line="1521"/>
         <source>Ctrl+Shift+W</source>
         <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1524"/>
+        <location filename="../../Form_Files/main.ui" line="1526"/>
         <source>Restructure Epub to Sigil Norm</source>
         <translation>Змінити структуру Epub на Sigil Norm</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1527"/>
+        <location filename="../../Form_Files/main.ui" line="1529"/>
         <source>Restructure Epub to Sigil Standard Form</source>
         <translation>Змінити структуру Epub на стандартну форму Sigil</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1536"/>
+        <location filename="../../Form_Files/main.ui" line="1534"/>
+        <source>Rebase OPF Manifest IDs on Current Filenames</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1537"/>
+        <source>Updates each Manifest ID to reflect its current file name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1546"/>
         <source>Zoom &amp;In</source>
         <translation>&amp;Збільшити</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1539"/>
+        <location filename="../../Form_Files/main.ui" line="1549"/>
         <source>Zoom In</source>
         <translation>Збільшити</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1542"/>
+        <location filename="../../Form_Files/main.ui" line="1552"/>
         <source>Ctrl+=</source>
         <translation>Ctrl+=</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1551"/>
+        <location filename="../../Form_Files/main.ui" line="1561"/>
         <source>Zoom &amp;Out</source>
         <translation>Зм&amp;еншити</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1554"/>
+        <location filename="../../Form_Files/main.ui" line="1564"/>
         <source>Zoom Out</source>
         <translation>Зменшити</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1557"/>
+        <location filename="../../Form_Files/main.ui" line="1567"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1566"/>
+        <location filename="../../Form_Files/main.ui" line="1576"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation>&amp;Знайти &amp;&amp; Замінити…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1569"/>
+        <location filename="../../Form_Files/main.ui" line="1579"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
@@ -9380,17 +9376,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Знайти і замінити текст у документі.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1574"/>
+        <location filename="../../Form_Files/main.ui" line="1584"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1583"/>
+        <location filename="../../Form_Files/main.ui" line="1593"/>
         <source>Incre&amp;ase Indent</source>
         <translation>Збіль&amp;шити відступ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1586"/>
+        <location filename="../../Form_Files/main.ui" line="1596"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
@@ -9399,17 +9395,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Збільшити рівень відступу абзацу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1591"/>
+        <location filename="../../Form_Files/main.ui" line="1601"/>
         <source>Ctrl+Alt+M</source>
         <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1600"/>
+        <location filename="../../Form_Files/main.ui" line="1610"/>
         <source>&amp;Decrease Indent</source>
         <translation>&amp;Зменшити відступ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1603"/>
+        <location filename="../../Form_Files/main.ui" line="1613"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
@@ -9418,18 +9414,18 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Зменшити рівень відступу абзацу.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1608"/>
-        <location filename="../../Form_Files/main.ui" line="2048"/>
+        <location filename="../../Form_Files/main.ui" line="1618"/>
+        <location filename="../../Form_Files/main.ui" line="2058"/>
         <source>Ctrl+Shift+M</source>
         <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1617"/>
+        <location filename="../../Form_Files/main.ui" line="1627"/>
         <source>Te&amp;xt Direction LTR</source>
         <translation>Напрямок Тек&amp;сту ЗН</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1620"/>
+        <location filename="../../Form_Files/main.ui" line="1630"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
@@ -9442,12 +9438,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1633"/>
+        <location filename="../../Form_Files/main.ui" line="1643"/>
         <source>T&amp;ext Direction RTL</source>
         <translation>Напрямок Тек&amp;сту СН</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1636"/>
+        <location filename="../../Form_Files/main.ui" line="1646"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
@@ -9460,12 +9456,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1649"/>
+        <location filename="../../Form_Files/main.ui" line="1659"/>
         <source>Text Directi&amp;on Default</source>
         <translation>&amp;Напрямок тексту за замовчуванням</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1652"/>
+        <location filename="../../Form_Files/main.ui" line="1662"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
@@ -9478,22 +9474,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1661"/>
+        <location filename="../../Form_Files/main.ui" line="1671"/>
         <source>Remove &amp;Formatting</source>
         <translation>Прибрати &amp;форматування</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1664"/>
+        <location filename="../../Form_Files/main.ui" line="1674"/>
         <source>Ctrl+Space</source>
         <translation>Ctrl+Space</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1673"/>
+        <location filename="../../Form_Files/main.ui" line="1683"/>
         <source>Remove Tag Pair</source>
         <translation>Вилучити парні теги</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1676"/>
+        <location filename="../../Form_Files/main.ui" line="1686"/>
         <source>
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Remove Open and Close Tag Pair.&lt;/p&gt;
     </source>
@@ -9502,12 +9498,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1687"/>
+        <location filename="../../Form_Files/main.ui" line="1697"/>
         <source>&amp;Lowercase</source>
         <translation>&amp;Мінускул</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1690"/>
+        <location filename="../../Form_Files/main.ui" line="1700"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -9520,17 +9516,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1697"/>
+        <location filename="../../Form_Files/main.ui" line="1707"/>
         <source>Ctrl+Alt+L</source>
         <translation>Ctrl+Alt+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1706"/>
+        <location filename="../../Form_Files/main.ui" line="1716"/>
         <source>&amp;Uppercase</source>
         <translation>&amp;Прописні</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1709"/>
+        <location filename="../../Form_Files/main.ui" line="1719"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -9543,17 +9539,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1716"/>
+        <location filename="../../Form_Files/main.ui" line="1726"/>
         <source>Ctrl+Alt+U</source>
         <translation>Ctrl+Alt+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1725"/>
+        <location filename="../../Form_Files/main.ui" line="1735"/>
         <source>&amp;Titlecase</source>
         <translation>&amp;Заголовна у слові</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1728"/>
+        <location filename="../../Form_Files/main.ui" line="1738"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -9566,12 +9562,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1741"/>
+        <location filename="../../Form_Files/main.ui" line="1751"/>
         <source>&amp;Capitalize</source>
         <translation>&amp;Заголовна у реченні</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1744"/>
+        <location filename="../../Form_Files/main.ui" line="1754"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -9584,127 +9580,127 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1753"/>
+        <location filename="../../Form_Files/main.ui" line="1763"/>
         <source>Sigil Website...</source>
         <translation>Веб-сайт Sigil…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1758"/>
+        <location filename="../../Form_Files/main.ui" line="1768"/>
         <source>&amp;Next Tab</source>
         <translation>&amp;Наступна Вкладка</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1761"/>
+        <location filename="../../Form_Files/main.ui" line="1771"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1766"/>
+        <location filename="../../Form_Files/main.ui" line="1776"/>
         <source>&amp;Previous Tab</source>
         <translation>&amp;Попередня Вкладка</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1769"/>
+        <location filename="../../Form_Files/main.ui" line="1779"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1774"/>
+        <location filename="../../Form_Files/main.ui" line="1784"/>
         <source>&amp;Close Tab</source>
         <translation>&amp;Закрити Вкладку</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1777"/>
+        <location filename="../../Form_Files/main.ui" line="1787"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1782"/>
+        <location filename="../../Form_Files/main.ui" line="1792"/>
         <source>Split At &amp;Markers</source>
         <translation>Розділити по &amp;маркерам</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1785"/>
+        <location filename="../../Form_Files/main.ui" line="1795"/>
         <source>Split At Sigil split file markers</source>
         <translation>Розділити по Sigil-маркерам розділення файлу</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1788"/>
+        <location filename="../../Form_Files/main.ui" line="1798"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1793"/>
+        <location filename="../../Form_Files/main.ui" line="1803"/>
         <source>Split &amp;Marker</source>
         <translation>&amp;Маркер розділення</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1796"/>
+        <location filename="../../Form_Files/main.ui" line="1806"/>
         <source>Insert Sigil split file marker</source>
         <translation>Вставити Sigil-маркер розділення файлу</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1799"/>
+        <location filename="../../Form_Files/main.ui" line="1809"/>
         <source>Ctrl+Shift+Return</source>
         <translation>Ctrl+Shift+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1804"/>
+        <location filename="../../Form_Files/main.ui" line="1814"/>
         <source>User &amp;Guide...</source>
         <translation>Посібник &amp;користувача…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1807"/>
+        <location filename="../../Form_Files/main.ui" line="1817"/>
         <source>User Guide</source>
         <translation>Посібник користувача</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1810"/>
+        <location filename="../../Form_Files/main.ui" line="1820"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1815"/>
+        <location filename="../../Form_Files/main.ui" line="1825"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation>&amp;Часті запитання…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1818"/>
+        <location filename="../../Form_Files/main.ui" line="1828"/>
         <source>Frequently Asked Questions</source>
         <translation>Часті запитання</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1823"/>
+        <location filename="../../Form_Files/main.ui" line="1833"/>
         <source>&amp;Tutorials...</source>
         <translation>&amp;Підручники…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1826"/>
+        <location filename="../../Form_Files/main.ui" line="1836"/>
         <source>Tutorials</source>
         <translation>Навчальні посібники</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1831"/>
+        <location filename="../../Form_Files/main.ui" line="1841"/>
         <source>Well-Formed Check &amp;EPUB</source>
         <translation>Перевірка правильності формату &amp;EPUB</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1834"/>
+        <location filename="../../Form_Files/main.ui" line="1844"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Перевірка EPUB на правильність&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Переконатися, що Ваш документ відповідає мінімуму, необхідному для успішного аналізу. Це не означає дотримання відповідних стандартів epub.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1837"/>
+        <location filename="../../Form_Files/main.ui" line="1847"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1842"/>
+        <location filename="../../Form_Files/main.ui" line="1852"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation>Перевірка Таблиць Стилів на &amp;W3C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1845"/>
+        <location filename="../../Form_Files/main.ui" line="1855"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -9717,12 +9713,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1858"/>
+        <location filename="../../Form_Files/main.ui" line="1868"/>
         <source>&amp;Spellcheck...</source>
         <translation>&amp;Перевірка орфографії…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1861"/>
+        <location filename="../../Form_Files/main.ui" line="1871"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
@@ -9731,102 +9727,102 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Знайти усі неправильно написані слова, після чого додати їх до словника або проігнорувати їх.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1866"/>
+        <location filename="../../Form_Files/main.ui" line="1876"/>
         <source>Ctrl+Alt+Q</source>
         <translation>Ctrl+Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1874"/>
+        <location filename="../../Form_Files/main.ui" line="1884"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation>&amp;Підкреслити слова з помилками</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1877"/>
+        <location filename="../../Form_Files/main.ui" line="1887"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation>Увімкнути або вимкнути підсвічування помилково написаних слів у Браузері Коду.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1882"/>
+        <location filename="../../Form_Files/main.ui" line="1892"/>
         <source>&amp;Next Misspelled Word</source>
         <translation>&amp;Наступне слово з помилкою</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1885"/>
+        <location filename="../../Form_Files/main.ui" line="1895"/>
         <source>Find the next misspelled word in the book.</source>
         <translation>Знайти у книзі наступне неправильно написане слово.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1888"/>
+        <location filename="../../Form_Files/main.ui" line="1898"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1893"/>
+        <location filename="../../Form_Files/main.ui" line="1903"/>
         <source>&amp;Add Misspelled Word</source>
         <translation>&amp;Додати слово з помилкою</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1896"/>
+        <location filename="../../Form_Files/main.ui" line="1906"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation>Додайте поточне неправильно написане слово до словника користувача за замовчуванням.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1901"/>
+        <location filename="../../Form_Files/main.ui" line="1911"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation>&amp;Ігнорувати слово з помилкою</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1904"/>
+        <location filename="../../Form_Files/main.ui" line="1914"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation>Ігноруйте поточне неправильно написане слово, доки Sigil не перезапуститься.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1909"/>
+        <location filename="../../Form_Files/main.ui" line="1919"/>
         <source>&amp;Clear Ignored Words</source>
         <translation>&amp;Забути проігноровані слова</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1912"/>
+        <location filename="../../Form_Files/main.ui" line="1922"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation>Очистити список проігнорованих слів з перевірки правопису, без перезапуску Sigil.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1917"/>
+        <location filename="../../Form_Files/main.ui" line="1927"/>
         <source>&amp;Index Editor...</source>
         <translation>&amp;Редактор Покажчика…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1925"/>
+        <location filename="../../Form_Files/main.ui" line="1935"/>
         <source>Ctrl+Alt+I</source>
         <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1930"/>
+        <location filename="../../Form_Files/main.ui" line="1940"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation>&amp;Видалити невикористані медіафайли…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1935"/>
+        <location filename="../../Form_Files/main.ui" line="1945"/>
         <source>Delete &amp;Unused Stylesheet Selectors...</source>
         <translation>Видалити &amp;невикористані селектори Таблиць Стилів…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1940"/>
+        <location filename="../../Form_Files/main.ui" line="1950"/>
         <source>&amp;Reports...</source>
         <translation>&amp;Звіти…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1943"/>
+        <location filename="../../Form_Files/main.ui" line="1953"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1952"/>
+        <location filename="../../Form_Files/main.ui" line="1962"/>
         <source>&amp;Donate...</source>
         <translation>&amp;Жертвувати…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1955"/>
+        <location filename="../../Form_Files/main.ui" line="1965"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -9837,837 +9833,837 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1963"/>
+        <location filename="../../Form_Files/main.ui" line="1973"/>
         <source>Close &amp;Other Tabs</source>
         <translation>Закрити &amp;інші Вкладки</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1966"/>
+        <location filename="../../Form_Files/main.ui" line="1976"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1971"/>
+        <location filename="../../Form_Files/main.ui" line="1981"/>
         <source>Go To &amp;Line...</source>
         <translation>Перейти до &amp;Рядка…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1974"/>
+        <location filename="../../Form_Files/main.ui" line="1984"/>
         <source>Ctrl+/</source>
         <translation>Ctrl+/</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1979"/>
+        <location filename="../../Form_Files/main.ui" line="1989"/>
         <source>Find &amp;Next</source>
         <translation>Шукати &amp;Наступний</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1982"/>
+        <location filename="../../Form_Files/main.ui" line="1992"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1987"/>
+        <location filename="../../Form_Files/main.ui" line="1997"/>
         <source>Find &amp;Previous</source>
         <translation>Шукати &amp;Попередній</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1990"/>
+        <location filename="../../Form_Files/main.ui" line="2000"/>
         <source>Ctrl+Shift+G</source>
         <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1995"/>
+        <location filename="../../Form_Files/main.ui" line="2005"/>
         <source>Replace</source>
         <translation>Замінити</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1998"/>
+        <location filename="../../Form_Files/main.ui" line="2008"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2003"/>
+        <location filename="../../Form_Files/main.ui" line="2013"/>
         <source>&amp;Replace/Find Next</source>
         <translation>&amp;Замінити/Шукати Наступний</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2006"/>
+        <location filename="../../Form_Files/main.ui" line="2016"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2011"/>
+        <location filename="../../Form_Files/main.ui" line="2021"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation>З&amp;амінити/Шукати Попередній</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2014"/>
+        <location filename="../../Form_Files/main.ui" line="2024"/>
         <source>Ctrl+[</source>
         <translation>Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2019"/>
+        <location filename="../../Form_Files/main.ui" line="2029"/>
         <source>Replace &amp;All</source>
         <translation>Замінити &amp;Все</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2022"/>
+        <location filename="../../Form_Files/main.ui" line="2032"/>
         <source>Ctrl+Alt+A</source>
         <translation>Ctrl+Alt+A</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2027"/>
+        <location filename="../../Form_Files/main.ui" line="2037"/>
         <source>&amp;Count All</source>
         <translation>&amp;Порахувати Все</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2030"/>
+        <location filename="../../Form_Files/main.ui" line="2040"/>
         <source>Ctrl+Alt+N</source>
         <translation>Ctrl+Alt+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2035"/>
+        <location filename="../../Form_Files/main.ui" line="2045"/>
         <source>Dry Run Replace All</source>
         <translation>Пробний запуск «Замінити Все»</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2040"/>
+        <location filename="../../Form_Files/main.ui" line="2050"/>
         <source>Filter Replacements</source>
         <translation>Фільтр замін</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2045"/>
+        <location filename="../../Form_Files/main.ui" line="2055"/>
         <source>Mar&amp;k Selected Text</source>
         <translation>Позна&amp;чити вибраний текст</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2053"/>
+        <location filename="../../Form_Files/main.ui" line="2063"/>
         <source>Find &amp;Next In File</source>
         <translation>Знайти &amp;наступне у файлі</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2058"/>
+        <location filename="../../Form_Files/main.ui" line="2068"/>
         <source>&amp;Replace Next In File</source>
         <translation>&amp;Замінити наступне у файлі</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2063"/>
+        <location filename="../../Form_Files/main.ui" line="2073"/>
         <source>Replace &amp;All In File</source>
         <translation>Замінити &amp;Все у файлі</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2068"/>
+        <location filename="../../Form_Files/main.ui" line="2078"/>
         <source>&amp;Count All In File</source>
         <translation>&amp;Порахувати Все у файлі</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2077"/>
+        <location filename="../../Form_Files/main.ui" line="2087"/>
         <source>&amp;Saved Searches...</source>
         <translation>&amp;Зберегти знайдене…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2080"/>
+        <location filename="../../Form_Files/main.ui" line="2090"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2085"/>
+        <location filename="../../Form_Files/main.ui" line="2095"/>
         <source>&amp;Clip Editor...</source>
         <translation>&amp;Редактор Фрагментів…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2088"/>
+        <location filename="../../Form_Files/main.ui" line="2098"/>
         <source>Open the Clip Editor.</source>
         <translation>Відкрити редактор фрагментів.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2091"/>
+        <location filename="../../Form_Files/main.ui" line="2101"/>
         <source>Ctrl+Alt+C</source>
         <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2096"/>
+        <location filename="../../Form_Files/main.ui" line="2106"/>
         <source>Clip &amp;1</source>
         <translation>Фрагмент &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2099"/>
+        <location filename="../../Form_Files/main.ui" line="2109"/>
         <source>Insert Clip 1</source>
         <translation>Вставити Фрагмент 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2102"/>
+        <location filename="../../Form_Files/main.ui" line="2112"/>
         <source>Ctrl+Alt+1</source>
         <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2107"/>
+        <location filename="../../Form_Files/main.ui" line="2117"/>
         <source>Clip &amp;2</source>
         <translation>Фрагмент &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2110"/>
+        <location filename="../../Form_Files/main.ui" line="2120"/>
         <source>Insert Clip 2</source>
         <translation>Вставити Фрагмент 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2113"/>
+        <location filename="../../Form_Files/main.ui" line="2123"/>
         <source>Ctrl+Alt+2</source>
         <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2118"/>
+        <location filename="../../Form_Files/main.ui" line="2128"/>
         <source>Clip &amp;3</source>
         <translation>Фрагмент &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2121"/>
+        <location filename="../../Form_Files/main.ui" line="2131"/>
         <source>Insert Clip 3</source>
         <translation>Вставити Фрагмент 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2124"/>
+        <location filename="../../Form_Files/main.ui" line="2134"/>
         <source>Ctrl+Alt+3</source>
         <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2129"/>
+        <location filename="../../Form_Files/main.ui" line="2139"/>
         <source>Clip &amp;4</source>
         <translation>Фрагмент &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2132"/>
+        <location filename="../../Form_Files/main.ui" line="2142"/>
         <source>Insert Clip 4</source>
         <translation>Вставити Фрагмент 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2135"/>
+        <location filename="../../Form_Files/main.ui" line="2145"/>
         <source>Ctrl+Alt+4</source>
         <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2140"/>
+        <location filename="../../Form_Files/main.ui" line="2150"/>
         <source>Clip &amp;5</source>
         <translation>Фрагмент &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2143"/>
+        <location filename="../../Form_Files/main.ui" line="2153"/>
         <source>Insert Clip 5</source>
         <translation>Вставити Фрагмент 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2146"/>
+        <location filename="../../Form_Files/main.ui" line="2156"/>
         <source>Ctrl+Alt+5</source>
         <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2151"/>
+        <location filename="../../Form_Files/main.ui" line="2161"/>
         <source>Clip &amp;6</source>
         <translation>Фрагмент &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2154"/>
+        <location filename="../../Form_Files/main.ui" line="2164"/>
         <source>Insert Clip 6</source>
         <translation>Вставити Фрагмент 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2157"/>
+        <location filename="../../Form_Files/main.ui" line="2167"/>
         <source>Ctrl+Alt+6</source>
         <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2162"/>
+        <location filename="../../Form_Files/main.ui" line="2172"/>
         <source>Clip &amp;7</source>
         <translation>Фрагмент &amp;7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2165"/>
+        <location filename="../../Form_Files/main.ui" line="2175"/>
         <source>Insert Clip 7</source>
         <translation>Вставити Фрагмент 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2168"/>
+        <location filename="../../Form_Files/main.ui" line="2178"/>
         <source>Ctrl+Alt+7</source>
         <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2173"/>
+        <location filename="../../Form_Files/main.ui" line="2183"/>
         <source>Clip &amp;8</source>
         <translation>Фрагмент &amp;8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2176"/>
+        <location filename="../../Form_Files/main.ui" line="2186"/>
         <source>Insert Clip 8</source>
         <translation>Вставити Фрагмент 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2179"/>
+        <location filename="../../Form_Files/main.ui" line="2189"/>
         <source>Ctrl+Alt+8</source>
         <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2184"/>
+        <location filename="../../Form_Files/main.ui" line="2194"/>
         <source>Clip &amp;9</source>
         <translation>Фрагмент &amp;9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2187"/>
+        <location filename="../../Form_Files/main.ui" line="2197"/>
         <source>Insert Clip 9</source>
         <translation>Вставити Фрагмент 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2190"/>
+        <location filename="../../Form_Files/main.ui" line="2200"/>
         <source>Ctrl+Alt+9</source>
         <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2195"/>
+        <location filename="../../Form_Files/main.ui" line="2205"/>
         <source>Clip 1&amp;0</source>
         <translation>Фрагмент 1&amp;0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2198"/>
+        <location filename="../../Form_Files/main.ui" line="2208"/>
         <source>Insert Clip 10</source>
         <translation>Вставити Фрагмент 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2201"/>
+        <location filename="../../Form_Files/main.ui" line="2211"/>
         <source>Ctrl+Alt+0</source>
         <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2206"/>
+        <location filename="../../Form_Files/main.ui" line="2216"/>
         <source>Clip 11</source>
         <translation>Фрагмент 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2209"/>
+        <location filename="../../Form_Files/main.ui" line="2219"/>
         <source>Insert Clip 11</source>
         <translation>Вставити Фрагмент 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2214"/>
+        <location filename="../../Form_Files/main.ui" line="2224"/>
         <source>Clip 12</source>
         <translation>Фрагмент 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2217"/>
+        <location filename="../../Form_Files/main.ui" line="2227"/>
         <source>Insert Clip 12</source>
         <translation>Вставити Фрагмент 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2222"/>
+        <location filename="../../Form_Files/main.ui" line="2232"/>
         <source>Clip 13</source>
         <translation>Фрагмент 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2225"/>
+        <location filename="../../Form_Files/main.ui" line="2235"/>
         <source>Insert Clip 13</source>
         <translation>Вставити Фрагмент 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2230"/>
+        <location filename="../../Form_Files/main.ui" line="2240"/>
         <source>Clip 14</source>
         <translation>Фрагмент 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2233"/>
+        <location filename="../../Form_Files/main.ui" line="2243"/>
         <source>Insert Clip 14</source>
         <translation>Вставити Фрагмент 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2238"/>
+        <location filename="../../Form_Files/main.ui" line="2248"/>
         <source>Clip 15</source>
         <translation>Фрагмент 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2241"/>
+        <location filename="../../Form_Files/main.ui" line="2251"/>
         <source>Insert Clip 15</source>
         <translation>Вставити Фрагмент 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2246"/>
+        <location filename="../../Form_Files/main.ui" line="2256"/>
         <source>Clip 16</source>
         <translation>Фрагмент 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2249"/>
+        <location filename="../../Form_Files/main.ui" line="2259"/>
         <source>Insert Clip 16</source>
         <translation>Вставити Фрагмент 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2254"/>
+        <location filename="../../Form_Files/main.ui" line="2264"/>
         <source>Clip 17</source>
         <translation>Фрагмент 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2257"/>
+        <location filename="../../Form_Files/main.ui" line="2267"/>
         <source>Insert Clip 17</source>
         <translation>Вставити Фрагмент 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2262"/>
+        <location filename="../../Form_Files/main.ui" line="2272"/>
         <source>Clip 18</source>
         <translation>Фрагмент 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2265"/>
+        <location filename="../../Form_Files/main.ui" line="2275"/>
         <source>Insert Clip 18</source>
         <translation>Вставити Фрагмент 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2270"/>
+        <location filename="../../Form_Files/main.ui" line="2280"/>
         <source>Clip 19</source>
         <translation>Фрагмент 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2273"/>
+        <location filename="../../Form_Files/main.ui" line="2283"/>
         <source>Insert Clip 19</source>
         <translation>Вставити Фрагмент 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2278"/>
+        <location filename="../../Form_Files/main.ui" line="2288"/>
         <source>Clip 20</source>
         <translation>Фрагмент 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2281"/>
+        <location filename="../../Form_Files/main.ui" line="2291"/>
         <source>Insert Clip 20</source>
         <translation>Вставити Фрагмент 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2287"/>
+        <location filename="../../Form_Files/main.ui" line="2297"/>
         <source>Clip 21</source>
         <translation>Фрагмент 21</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2290"/>
+        <location filename="../../Form_Files/main.ui" line="2300"/>
         <source>Insert Clip 21</source>
         <translation>Вставити Фрагмент 21</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2295"/>
+        <location filename="../../Form_Files/main.ui" line="2305"/>
         <source>Clip 22</source>
         <translation>Фрагмент 22</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2298"/>
+        <location filename="../../Form_Files/main.ui" line="2308"/>
         <source>Insert Clip 22</source>
         <translation>Вставити Фрагмент 22</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2303"/>
+        <location filename="../../Form_Files/main.ui" line="2313"/>
         <source>Clip 23</source>
         <translation>Фрагмент 23</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2306"/>
+        <location filename="../../Form_Files/main.ui" line="2316"/>
         <source>Insert Clip 23</source>
         <translation>Вставити Фрагмент 23</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2311"/>
+        <location filename="../../Form_Files/main.ui" line="2321"/>
         <source>Clip 24</source>
         <translation>Фрагмент 24</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2314"/>
+        <location filename="../../Form_Files/main.ui" line="2324"/>
         <source>Insert Clip 24</source>
         <translation>Вставити Фрагмент 24</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2319"/>
+        <location filename="../../Form_Files/main.ui" line="2329"/>
         <source>Clip 25</source>
         <translation>Фрагмент 25</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2322"/>
+        <location filename="../../Form_Files/main.ui" line="2332"/>
         <source>Insert Clip 25</source>
         <translation>Вставити Фрагмент 25</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2327"/>
+        <location filename="../../Form_Files/main.ui" line="2337"/>
         <source>Clip 26</source>
         <translation>Фрагмент 26</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2330"/>
+        <location filename="../../Form_Files/main.ui" line="2340"/>
         <source>Insert Clip 26</source>
         <translation>Вставити Фрагмент 26</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2335"/>
+        <location filename="../../Form_Files/main.ui" line="2345"/>
         <source>Clip 27</source>
         <translation>Фрагмент 27</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2338"/>
+        <location filename="../../Form_Files/main.ui" line="2348"/>
         <source>Insert Clip 27</source>
         <translation>Вставити Фрагмент 27</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2343"/>
+        <location filename="../../Form_Files/main.ui" line="2353"/>
         <source>Clip 28</source>
         <translation>Фрагмент 28</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2346"/>
+        <location filename="../../Form_Files/main.ui" line="2356"/>
         <source>Insert Clip 28</source>
         <translation>Вставити Фрагмент 28</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2351"/>
+        <location filename="../../Form_Files/main.ui" line="2361"/>
         <source>Clip 29</source>
         <translation>Фрагмент 29</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2354"/>
+        <location filename="../../Form_Files/main.ui" line="2364"/>
         <source>Insert Clip 29</source>
         <translation>Вставити Фрагмент 29</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2359"/>
+        <location filename="../../Form_Files/main.ui" line="2369"/>
         <source>Clip 30</source>
         <translation>Фрагмент 30</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2362"/>
+        <location filename="../../Form_Files/main.ui" line="2372"/>
         <source>Insert Clip 30</source>
         <translation>Вставити Фрагмент 30</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2367"/>
+        <location filename="../../Form_Files/main.ui" line="2377"/>
         <source>Clip 31</source>
         <translation>Фрагмент 31</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2370"/>
+        <location filename="../../Form_Files/main.ui" line="2380"/>
         <source>Insert Clip 31</source>
         <translation>Вставити Фрагмент 31</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2375"/>
+        <location filename="../../Form_Files/main.ui" line="2385"/>
         <source>Clip 32</source>
         <translation>Фрагмент 32</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2378"/>
+        <location filename="../../Form_Files/main.ui" line="2388"/>
         <source>Insert Clip 32</source>
         <translation>Вставити Фрагмент 32</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2383"/>
+        <location filename="../../Form_Files/main.ui" line="2393"/>
         <source>Clip 33</source>
         <translation>Фрагмент 33</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2386"/>
+        <location filename="../../Form_Files/main.ui" line="2396"/>
         <source>Insert Clip 33</source>
         <translation>Вставити Фрагмент 33</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2391"/>
+        <location filename="../../Form_Files/main.ui" line="2401"/>
         <source>Clip 34</source>
         <translation>Фрагмент 34</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2394"/>
+        <location filename="../../Form_Files/main.ui" line="2404"/>
         <source>Insert Clip 34</source>
         <translation>Вставити Фрагмент 34</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2399"/>
+        <location filename="../../Form_Files/main.ui" line="2409"/>
         <source>Clip 35</source>
         <translation>Фрагмент 35</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2402"/>
+        <location filename="../../Form_Files/main.ui" line="2412"/>
         <source>Insert Clip 35</source>
         <translation>Вставити Фрагмент 35</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2407"/>
+        <location filename="../../Form_Files/main.ui" line="2417"/>
         <source>Clip 36</source>
         <translation>Фрагмент 36</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2410"/>
+        <location filename="../../Form_Files/main.ui" line="2420"/>
         <source>Insert Clip 36</source>
         <translation>Вставити Фрагмент 36</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2415"/>
+        <location filename="../../Form_Files/main.ui" line="2425"/>
         <source>Clip 37</source>
         <translation>Фрагмент 37</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2418"/>
+        <location filename="../../Form_Files/main.ui" line="2428"/>
         <source>Insert Clip 37</source>
         <translation>Вставити Фрагмент 37</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2423"/>
+        <location filename="../../Form_Files/main.ui" line="2433"/>
         <source>Clip 38</source>
         <translation>Фрагмент 38</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2426"/>
+        <location filename="../../Form_Files/main.ui" line="2436"/>
         <source>Insert Clip 38</source>
         <translation>Вставити Фрагмент 38</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2431"/>
+        <location filename="../../Form_Files/main.ui" line="2441"/>
         <source>Clip 39</source>
         <translation>Фрагмент 39</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2434"/>
+        <location filename="../../Form_Files/main.ui" line="2444"/>
         <source>Insert Clip 39</source>
         <translation>Вставити Фрагмент 39</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2439"/>
+        <location filename="../../Form_Files/main.ui" line="2449"/>
         <source>Clip 40</source>
         <translation>Фрагмент 40</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2442"/>
+        <location filename="../../Form_Files/main.ui" line="2452"/>
         <source>Insert Clip 40</source>
         <translation>Вставити Фрагмент 40</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2447"/>
+        <location filename="../../Form_Files/main.ui" line="2457"/>
         <source>Clip 41</source>
         <translation>Фрагмент 41</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2450"/>
+        <location filename="../../Form_Files/main.ui" line="2460"/>
         <source>Insert Clip 41</source>
         <translation>Вставити Фрагмент 41</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2455"/>
+        <location filename="../../Form_Files/main.ui" line="2465"/>
         <source>Clip 42</source>
         <translation>Фрагмент 42</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2458"/>
+        <location filename="../../Form_Files/main.ui" line="2468"/>
         <source>Insert Clip 42</source>
         <translation>Вставити Фрагмент 42</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2463"/>
+        <location filename="../../Form_Files/main.ui" line="2473"/>
         <source>Clip 43</source>
         <translation>Фрагмент 43</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2466"/>
+        <location filename="../../Form_Files/main.ui" line="2476"/>
         <source>Insert Clip 43</source>
         <translation>Вставити Фрагмент 43</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2471"/>
+        <location filename="../../Form_Files/main.ui" line="2481"/>
         <source>Clip 44</source>
         <translation>Фрагмент 44</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2474"/>
+        <location filename="../../Form_Files/main.ui" line="2484"/>
         <source>Insert Clip 44</source>
         <translation>Вставити Фрагмент 44</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2479"/>
+        <location filename="../../Form_Files/main.ui" line="2489"/>
         <source>Clip 45</source>
         <translation>Фрагмент 45</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2482"/>
+        <location filename="../../Form_Files/main.ui" line="2492"/>
         <source>Insert Clip 45</source>
         <translation>Вставити Фрагмент 45</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2487"/>
+        <location filename="../../Form_Files/main.ui" line="2497"/>
         <source>Clip 46</source>
         <translation>Фрагмент 46</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2490"/>
+        <location filename="../../Form_Files/main.ui" line="2500"/>
         <source>Insert Clip 46</source>
         <translation>Вставити Фрагмент 46</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2495"/>
+        <location filename="../../Form_Files/main.ui" line="2505"/>
         <source>Clip 47</source>
         <translation>Фрагмент 47</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2498"/>
+        <location filename="../../Form_Files/main.ui" line="2508"/>
         <source>Insert Clip 47</source>
         <translation>Вставити Фрагмент 47</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2503"/>
+        <location filename="../../Form_Files/main.ui" line="2513"/>
         <source>Clip 48</source>
         <translation>Фрагмент 48</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2506"/>
+        <location filename="../../Form_Files/main.ui" line="2516"/>
         <source>Insert Clip 48</source>
         <translation>Вставити Фрагмент 48</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2511"/>
+        <location filename="../../Form_Files/main.ui" line="2521"/>
         <source>Clip 49</source>
         <translation>Фрагмент 49</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2514"/>
+        <location filename="../../Form_Files/main.ui" line="2524"/>
         <source>Insert Clip 49</source>
         <translation>Вставити Фрагмент 49</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2519"/>
+        <location filename="../../Form_Files/main.ui" line="2529"/>
         <source>Clip 50</source>
         <translation>Фрагмент 50</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2522"/>
+        <location filename="../../Form_Files/main.ui" line="2532"/>
         <source>Insert Clip 50</source>
         <translation>Вставити Фрагмент 50</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2527"/>
+        <location filename="../../Form_Files/main.ui" line="2537"/>
         <source>Clip 51</source>
         <translation>Фрагмент 51</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2530"/>
+        <location filename="../../Form_Files/main.ui" line="2540"/>
         <source>Insert Clip 51</source>
         <translation>Вставити Фрагмент 51</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2535"/>
+        <location filename="../../Form_Files/main.ui" line="2545"/>
         <source>Clip 52</source>
         <translation>Фрагмент 52</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2538"/>
+        <location filename="../../Form_Files/main.ui" line="2548"/>
         <source>Insert Clip 52</source>
         <translation>Вставити Фрагмент 52</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2543"/>
+        <location filename="../../Form_Files/main.ui" line="2553"/>
         <source>Clip 53</source>
         <translation>Фрагмент 53</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2546"/>
+        <location filename="../../Form_Files/main.ui" line="2556"/>
         <source>Insert Clip 53</source>
         <translation>Вставити Фрагмент 53</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2551"/>
+        <location filename="../../Form_Files/main.ui" line="2561"/>
         <source>Clip 54</source>
         <translation>Фрагмент 54</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2554"/>
+        <location filename="../../Form_Files/main.ui" line="2564"/>
         <source>Insert Clip 54</source>
         <translation>Вставити Фрагмент 54</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2559"/>
+        <location filename="../../Form_Files/main.ui" line="2569"/>
         <source>Clip 55</source>
         <translation>Фрагмент 55</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2562"/>
+        <location filename="../../Form_Files/main.ui" line="2572"/>
         <source>Insert Clip 55</source>
         <translation>Вставити Фрагмент 55</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2567"/>
+        <location filename="../../Form_Files/main.ui" line="2577"/>
         <source>Clip 56</source>
         <translation>Фрагмент 56</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2570"/>
+        <location filename="../../Form_Files/main.ui" line="2580"/>
         <source>Insert Clip 56</source>
         <translation>Вставити Фрагмент 56</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2575"/>
+        <location filename="../../Form_Files/main.ui" line="2585"/>
         <source>Clip 57</source>
         <translation>Фрагмент 57</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2578"/>
+        <location filename="../../Form_Files/main.ui" line="2588"/>
         <source>Insert Clip 57</source>
         <translation>Вставити Фрагмент 57</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2583"/>
+        <location filename="../../Form_Files/main.ui" line="2593"/>
         <source>Clip 58</source>
         <translation>Фрагмент 58</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2586"/>
+        <location filename="../../Form_Files/main.ui" line="2596"/>
         <source>Insert Clip 58</source>
         <translation>Вставити Фрагмент 58</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2591"/>
+        <location filename="../../Form_Files/main.ui" line="2601"/>
         <source>Clip 59</source>
         <translation>Фрагмент 59</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2594"/>
+        <location filename="../../Form_Files/main.ui" line="2604"/>
         <source>Insert Clip 59</source>
         <translation>Вставити Фрагмент 59</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2599"/>
+        <location filename="../../Form_Files/main.ui" line="2609"/>
         <source>Clip 60</source>
         <translation>Фрагмент 60</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2602"/>
+        <location filename="../../Form_Files/main.ui" line="2612"/>
         <source>Insert Clip 60</source>
         <translation>Вставити Фрагмент 60</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2610"/>
+        <location filename="../../Form_Files/main.ui" line="2620"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;Налаштування…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2613"/>
+        <location filename="../../Form_Files/main.ui" line="2623"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2618"/>
+        <location filename="../../Form_Files/main.ui" line="2628"/>
         <source>&amp;Zoom Reset</source>
         <translation>Початковий &amp;масштаб</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2621"/>
+        <location filename="../../Form_Files/main.ui" line="2631"/>
         <source>Zoom Reset</source>
         <translation>Повернутися до початкового масштабу</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2624"/>
+        <location filename="../../Form_Files/main.ui" line="2634"/>
         <source>Ctrl+0</source>
         <translation>Ctrl+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2636"/>
+        <location filename="../../Form_Files/main.ui" line="2646"/>
         <source>Heading &amp;1</source>
         <translation>Заголовок &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2639"/>
+        <location filename="../../Form_Files/main.ui" line="2649"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
@@ -10676,17 +10672,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати абзац як заголовок 1-го рівня.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2644"/>
+        <location filename="../../Form_Files/main.ui" line="2654"/>
         <source>Ctrl+1</source>
         <translation>Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2656"/>
+        <location filename="../../Form_Files/main.ui" line="2666"/>
         <source>Heading &amp;2</source>
         <translation>Заголовок &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2659"/>
+        <location filename="../../Form_Files/main.ui" line="2669"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
@@ -10695,17 +10691,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати абзац як заголовок 2-го рівня.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2664"/>
+        <location filename="../../Form_Files/main.ui" line="2674"/>
         <source>Ctrl+2</source>
         <translation>Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2676"/>
+        <location filename="../../Form_Files/main.ui" line="2686"/>
         <source>Heading &amp;3</source>
         <translation>Заголовок &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2679"/>
+        <location filename="../../Form_Files/main.ui" line="2689"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
@@ -10714,17 +10710,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати абзац як заголовок 3-го рівня.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2684"/>
+        <location filename="../../Form_Files/main.ui" line="2694"/>
         <source>Ctrl+3</source>
         <translation>Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2696"/>
+        <location filename="../../Form_Files/main.ui" line="2706"/>
         <source>Heading &amp;4</source>
         <translation>Заголовок &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2699"/>
+        <location filename="../../Form_Files/main.ui" line="2709"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
@@ -10733,17 +10729,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати абзац як заголовок 4-го рівня.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2704"/>
+        <location filename="../../Form_Files/main.ui" line="2714"/>
         <source>Ctrl+4</source>
         <translation>Ctrl+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2716"/>
+        <location filename="../../Form_Files/main.ui" line="2726"/>
         <source>Heading &amp;5</source>
         <translation>Заголовок &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2719"/>
+        <location filename="../../Form_Files/main.ui" line="2729"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
@@ -10752,17 +10748,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати абзац як заголовок 5-го рівня.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2724"/>
+        <location filename="../../Form_Files/main.ui" line="2734"/>
         <source>Ctrl+5</source>
         <translation>Ctrl+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2736"/>
+        <location filename="../../Form_Files/main.ui" line="2746"/>
         <source>Heading &amp;6</source>
         <translation>Заголовок &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2739"/>
+        <location filename="../../Form_Files/main.ui" line="2749"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
@@ -10771,17 +10767,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати абзац як заголовок 6-го рівня.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2744"/>
+        <location filename="../../Form_Files/main.ui" line="2754"/>
         <source>Ctrl+6</source>
         <translation>Ctrl+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2756"/>
+        <location filename="../../Form_Files/main.ui" line="2766"/>
         <source>&amp;Normal</source>
         <translation>Звичайний текст</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2759"/>
+        <location filename="../../Form_Files/main.ui" line="2769"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
@@ -10790,37 +10786,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Форматувати як звичайний текст.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2764"/>
+        <location filename="../../Form_Files/main.ui" line="2774"/>
         <source>Ctrl+7</source>
         <translation>Ctrl+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2772"/>
+        <location filename="../../Form_Files/main.ui" line="2782"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation>&amp;Збереження Існуючих Атрибутів</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2775"/>
+        <location filename="../../Form_Files/main.ui" line="2785"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation>При застосуванні цього стилю зберігаються всі існуючі атрибути тега</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2780"/>
+        <location filename="../../Form_Files/main.ui" line="2790"/>
         <source>Blank HTML File</source>
         <translation>Бланк HTML-файлу</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2783"/>
+        <location filename="../../Form_Files/main.ui" line="2793"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation>Додати до книги новий порожній HTML-файл.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2792"/>
+        <location filename="../../Form_Files/main.ui" line="2802"/>
         <source>Existing Files...</source>
         <translation>Існуючі Файли…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2795"/>
+        <location filename="../../Form_Files/main.ui" line="2805"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
@@ -10829,137 +10825,137 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Додайте до книги файли зі свого комп’ютера.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2802"/>
+        <location filename="../../Form_Files/main.ui" line="2812"/>
         <source>Blank Stylesheet</source>
         <translation>Бланк Таблиці Стилів</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2805"/>
+        <location filename="../../Form_Files/main.ui" line="2815"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation>Додати до книги нову порожню Таблицю Стилів.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2810"/>
+        <location filename="../../Form_Files/main.ui" line="2820"/>
         <source>Blank Javascript</source>
         <translation>Бланк Javascript</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2813"/>
+        <location filename="../../Form_Files/main.ui" line="2823"/>
         <source>Add a new blank javascript to the book.</source>
         <translation>Додати до книги новий порожній javascript.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2818"/>
+        <location filename="../../Form_Files/main.ui" line="2828"/>
         <source>Blank SVG Image</source>
         <translation>Бланк зображення SVG</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2821"/>
+        <location filename="../../Form_Files/main.ui" line="2831"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation>Додати до книги новий порожній файл зображення SVG.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2826"/>
+        <location filename="../../Form_Files/main.ui" line="2836"/>
         <source>Pre&amp;vious File</source>
         <translation>Попе&amp;редній Файл</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2829"/>
+        <location filename="../../Form_Files/main.ui" line="2839"/>
         <source>Open previous file of the same type.</source>
         <translation>Відкрити попередній файл того ж типу.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2832"/>
+        <location filename="../../Form_Files/main.ui" line="2842"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2837"/>
+        <location filename="../../Form_Files/main.ui" line="2847"/>
         <source>Next &amp;File</source>
         <translation>Наступний &amp;Файл</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2840"/>
+        <location filename="../../Form_Files/main.ui" line="2850"/>
         <source>Open next file of the same type.</source>
         <translation>Відкрити наступний файл того ж типу.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2843"/>
+        <location filename="../../Form_Files/main.ui" line="2853"/>
         <source>Alt+PgDown</source>
         <translation>Alt+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2848"/>
+        <location filename="../../Form_Files/main.ui" line="2858"/>
         <source>&amp;Add To Index Editor</source>
         <translation>&amp;Додати до Редактора Покажчика</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2855"/>
+        <location filename="../../Form_Files/main.ui" line="2865"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation>Додати вибраний текст до Редактора Покажчика.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2860"/>
+        <location filename="../../Form_Files/main.ui" line="2870"/>
         <source>&amp;Mark For Index</source>
         <translation>&amp;Позначити для Покажчика</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2867"/>
+        <location filename="../../Form_Files/main.ui" line="2877"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation>Позначити вибраний текст для включення до Покажчика.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2870"/>
+        <location filename="../../Form_Files/main.ui" line="2880"/>
         <source>Ctrl+Shift+X</source>
         <translation>Ctrl+Shift+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2875"/>
+        <location filename="../../Form_Files/main.ui" line="2885"/>
         <source>&amp;Create Index</source>
         <translation>&amp;Створити Покажчик</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2882"/>
+        <location filename="../../Form_Files/main.ui" line="2892"/>
         <source>Generate a new Index HTML file.</source>
         <translation>Генерувати новий HTML-файл покажчика.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2887"/>
+        <location filename="../../Form_Files/main.ui" line="2897"/>
         <source>&amp;Create HTML from Table Of Contents</source>
         <translation>&amp;Створити Зміст у файлі HTML</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2890"/>
+        <location filename="../../Form_Files/main.ui" line="2900"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation>Створити новий файл HTML, використовуючи поточний TOC.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2895"/>
+        <location filename="../../Form_Files/main.ui" line="2909"/>
         <source>Book&amp;mark Location</source>
         <translation>Місце зак&amp;ладки</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2898"/>
+        <location filename="../../Form_Files/main.ui" line="2912"/>
         <source>Ctrl+Alt+B</source>
         <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2903"/>
+        <location filename="../../Form_Files/main.ui" line="2917"/>
         <source>&amp;Go To Link Or Style</source>
         <translation>&amp;Перейти до посилання або стилю</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2906"/>
+        <location filename="../../Form_Files/main.ui" line="2920"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2915"/>
+        <location filename="../../Form_Files/main.ui" line="2929"/>
         <source>&amp;Back</source>
         <translation>&amp;Назад</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2918"/>
+        <location filename="../../Form_Files/main.ui" line="2932"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
@@ -10970,543 +10966,554 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2924"/>
+        <location filename="../../Form_Files/main.ui" line="2938"/>
         <source>Ctrl+\</source>
         <translation>Ctrl+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2929"/>
+        <location filename="../../Form_Files/main.ui" line="2943"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
         <translation>Редагувати/Вставити з &amp;історії буфера обміну…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2932"/>
+        <location filename="../../Form_Files/main.ui" line="2946"/>
         <source>Ctrl+Alt+V</source>
         <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2937"/>
+        <location filename="../../Form_Files/main.ui" line="2951"/>
         <source>&amp;Delete Line</source>
         <translation>&amp;Видалити рядок</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2940"/>
+        <location filename="../../Form_Files/main.ui" line="2954"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2949"/>
+        <location filename="../../Form_Files/main.ui" line="2963"/>
         <source>Run Automate List 1</source>
         <translation>Запустити список автоматизації 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2954"/>
+        <location filename="../../Form_Files/main.ui" line="2968"/>
         <source>Edit Automate List 1</source>
         <translation>Редагувати список автоматизації 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2963"/>
+        <location filename="../../Form_Files/main.ui" line="2977"/>
         <source>Run Automate List 2</source>
         <translation>Запустити список автоматизації 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2968"/>
+        <location filename="../../Form_Files/main.ui" line="2982"/>
         <source>Edit Automate List 2</source>
         <translation>Редагувати список автоматизації 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2977"/>
+        <location filename="../../Form_Files/main.ui" line="2991"/>
         <source>Run Automate List 3</source>
         <translation>Запустити список автоматизації 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2982"/>
+        <location filename="../../Form_Files/main.ui" line="2996"/>
         <source>Edit Automate List 3</source>
         <translation>Редагувати список автоматизації 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2987"/>
+        <location filename="../../Form_Files/main.ui" line="3001"/>
         <source>Manage Plugins</source>
         <translation>Управління модулями</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2996"/>
+        <location filename="../../Form_Files/main.ui" line="3010"/>
         <source>Run Plugin 1</source>
         <translation>Запустити модуль 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3005"/>
+        <location filename="../../Form_Files/main.ui" line="3019"/>
         <source>Run Plugin 2</source>
         <translation>Запустити модуль 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3014"/>
+        <location filename="../../Form_Files/main.ui" line="3028"/>
         <source>Run Plugin 3</source>
         <translation>Запустити модуль 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3023"/>
+        <location filename="../../Form_Files/main.ui" line="3037"/>
         <source>Run Plugin 4</source>
         <translation>Запустити модуль 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3032"/>
+        <location filename="../../Form_Files/main.ui" line="3046"/>
         <source>Run Plugin 5</source>
         <translation>Запустити модуль 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3041"/>
+        <location filename="../../Form_Files/main.ui" line="3055"/>
         <source>Run Plugin 6</source>
         <translation>Запустити модуль 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3050"/>
+        <location filename="../../Form_Files/main.ui" line="3064"/>
         <source>Run Plugin 7</source>
         <translation>Запустити модуль 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3059"/>
+        <location filename="../../Form_Files/main.ui" line="3073"/>
         <source>Run Plugin 8</source>
         <translation>Запустити модуль 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3068"/>
+        <location filename="../../Form_Files/main.ui" line="3082"/>
         <source>Run Plugin 9</source>
         <translation>Запустити модуль 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3077"/>
+        <location filename="../../Form_Files/main.ui" line="3091"/>
         <source>Run Plugin 10</source>
         <translation>Запустити модуль 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3086"/>
+        <location filename="../../Form_Files/main.ui" line="3100"/>
         <source>Launch External Xhtml Editor</source>
         <translation>Запуск зовнішнього редактора Xhtml</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3089"/>
+        <location filename="../../Form_Files/main.ui" line="3103"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3094"/>
+        <location filename="../../Form_Files/main.ui" line="3108"/>
         <source>Mend and &amp;Prettify All HTML Files</source>
         <translation>Виправити та &amp;відформатувати Код всіх HTML файлів</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3099"/>
+        <location filename="../../Form_Files/main.ui" line="3113"/>
         <source>&amp;Mend All HTML Files</source>
         <translation>&amp;Виправити всі HTML файли</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3104"/>
+        <location filename="../../Form_Files/main.ui" line="3118"/>
         <source>&amp;Update Manifest Properties</source>
         <translation>&amp;Оновити властивості Маніфесту</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3109"/>
+        <location filename="../../Form_Files/main.ui" line="3123"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
         <translation>Створити &amp;NCX/Посібник для epub2 рідерів</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3114"/>
+        <location filename="../../Form_Files/main.ui" line="3128"/>
         <source>Create a Custom Empty Epub</source>
         <translation>Створити власний бланк Epub</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3119"/>
+        <location filename="../../Form_Files/main.ui" line="3133"/>
         <source>Remove the NCX and Guide</source>
         <translation>Видалити NCX та Посібник</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3128"/>
+        <location filename="../../Form_Files/main.ui" line="3142"/>
         <source>Create Checkpoint for Epub</source>
         <translation>Створити контрольну точку для Epub</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3137"/>
+        <location filename="../../Form_Files/main.ui" line="3151"/>
         <source>Restore Epub from previous Checkpoint</source>
         <translation>Відновити Epub з попередньої контрольної точки</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3146"/>
+        <location filename="../../Form_Files/main.ui" line="3160"/>
         <source>Compare Epub against Previous Checkpoint</source>
         <translation>Порівняти Epub з попередньою контрольною точкою</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3155"/>
+        <location filename="../../Form_Files/main.ui" line="3169"/>
         <source>Manage Checkpoint Repositories</source>
         <translation>Управляти репозитаріями контрольних точок</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3160"/>
+        <location filename="../../Form_Files/main.ui" line="3174"/>
         <source>Edit Checkpoint Descriptions</source>
         <translation>Редагування Опису контрольної точки</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3165"/>
+        <location filename="../../Form_Files/main.ui" line="3179"/>
         <source>Show Log of Checkpoints</source>
         <translation>Показати журнал Архіваріуса</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3170"/>
+        <location filename="../../Form_Files/main.ui" line="3184"/>
         <source>Focus on CodeView</source>
         <translation>Фокус на Браузер Коду</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3175"/>
+        <location filename="../../Form_Files/main.ui" line="3189"/>
         <source>Focus on BookBrowser</source>
         <translation>Фокус на Структуру Книги</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3180"/>
+        <location filename="../../Form_Files/main.ui" line="3194"/>
         <source>Focus on Preview</source>
         <translation>Фокус на Перегляд</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3185"/>
+        <location filename="../../Form_Files/main.ui" line="3199"/>
         <source>Focus on Table of Contents</source>
         <translation>Фокус на Зміст</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3190"/>
+        <location filename="../../Form_Files/main.ui" line="3204"/>
         <source>Focus on Clips Window</source>
         <translation>Фокус на Фрагменти</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="370"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="346"/>
         <source>Automate List Editor cancelled.</source>
         <translation>Роботу Редактора списків автоматизації скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="373"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="349"/>
         <source>Automate List edited.</source>
         <translation>Список автоматизації відредаговано</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="355"/>
         <source>Error: Automation Already in Use</source>
         <translation>Помилка: Автоматизація вже використовується</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="385"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="361"/>
         <source>Missing Automation List</source>
         <translation>Список автоматизації відсутній</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="395"/>
         <source>running</source>
         <translation>виконується</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="477"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="453"/>
         <source>skipped since not an epub3</source>
         <translation>пропущено, оскільки це не epub3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="502"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="478"/>
         <source>Missing or unknown Saved Search name</source>
         <translation>Відсутня або невідома назва збереженого пошуку</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="506"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="482"/>
         <source>Missing or unknown plugin or tool</source>
         <translation>Відсутній або невідомий модуль або інструмент</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="511"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="487"/>
         <source>failed</source>
         <translation>збоїть</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="519"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="495"/>
         <source>Validation tool</source>
         <translation>Інструмент перевірки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="520"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="496"/>
         <source>found errors</source>
         <translation>виявлені помилки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="523"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="499"/>
         <source>Validation tool found errors - Abort or Ignore?</source>
         <translation>Інструмент перевірки виявив помилки – Перервати чи Ігнорувати?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="532"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="508"/>
         <source>Aborted due to Validation Errors</source>
         <translation>Перервано через помилки перевірки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="535"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="511"/>
         <source>Ignored Validation Errors</source>
         <translation>Ігноровані помилки перевірки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="538"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="514"/>
         <source>Validation Tool Reported No Problems Found</source>
         <translation>Інструмент перевірки повідомив, що проблем не виявлено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="545"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
         <source>Automation List Failed</source>
         <translation>Помилка списку автоматизації</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="547"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="523"/>
         <source>Automation List Completed</source>
         <translation>Список автоматизації завершено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="549"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="525"/>
         <source>Automate Log</source>
         <translation>Журнал автоматизації</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="624"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="600"/>
         <source>Input</source>
         <translation>Ввод</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="630"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="606"/>
         <source>Output</source>
         <translation>Вивід</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="642"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="618"/>
         <source>Validation</source>
         <translation>Перевірка</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="691"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="704"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="713"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="721"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="798"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1622"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1953"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2188"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2353"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2853"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2949"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3003"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3013"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3037"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3051"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3157"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3173"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3178"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3204"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3209"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3221"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3231"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3236"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3400"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3407"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3482"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3713"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4853"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4894"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4900"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4906"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5170"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5190"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5238"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5506"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5712"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="667"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="680"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="689"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="697"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="774"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1571"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1868"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2103"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2268"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2859"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2913"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2923"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2947"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2961"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3067"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3083"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3114"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3119"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3131"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3141"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3146"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3310"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3317"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3333"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3392"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3424"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3623"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4804"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4810"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4816"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5035"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5055"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5103"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5369"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5575"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="692"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="668"/>
         <source>Are you sure you want to restructure this epub?
 This action cannot be reversed.</source>
         <translation>Ви впевнені, що хочете реструктурувати цей epub?
 Ця дія не може бути скасована.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="705"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="714"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="722"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="681"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="690"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="698"/>
         <source>Restructure cancelled: %1, XML not well formed.</source>
         <translation>Зміна структури скасована: %1, неправильно сформований XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="796"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="798"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5236"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5238"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5710"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5712"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="772"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="774"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5103"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5573"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5575"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] – epub%2 – %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="796"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5236"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5710"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="772"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5573"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="800"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="776"/>
         <source>Restructure completed.</source>
         <translation>Реструктуризація завершена.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="913"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="788"/>
+        <source>Rebase cancelled: %1, XML not well formed.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="796"/>
+        <source>Rebase completed.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="905"/>
         <source>Checkpoint generation failed.</source>
         <translation>Не вдалося створити контрольну точку.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="919"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="911"/>
         <source>Checkpoint saved.</source>
         <translation>Контрольна точка збережена.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="961"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="948"/>
         <source>Checkout Failed. No checkpoints found</source>
         <translation>Перевірити не вдалося. Контрольні точки не знайдені</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="978"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="965"/>
         <source>Checkout Failed. No checkpoint selected</source>
         <translation>Перевірити не вдалося. Контрольна точка не вибрана</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="989"/>
         <source>Epub Generate from Tag Failed.</source>
         <translation>Не вдалося створити Epub з тегу.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1012"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="994"/>
         <source>Epub Generation succeeded</source>
         <translation>Epub успішно сгенерований</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1026"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1008"/>
         <source>Repository Checkout</source>
         <translation>Перевірка репозитарія</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1027"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1009"/>
         <source>Your current book will be replaced losing any unsaved changes ... Are you sure you want to proceed?</source>
         <translation>Ваша поточна книга буде замінена, втративши при цьому всі незбережені зміни… Ви впевнені, що хочете продовжити?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1051"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1080"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1033"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1057"/>
         <source>Diff Failed. No checkpoints found</source>
         <translation>Порівняти не вдалося. Контрольні точки не знайдені</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1073"/>
         <source>Diff Failed. No checkpoint selected for comparison</source>
         <translation>Порівняти не вдалося. Контрольна точка не вибрана для порівняння</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1138"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
         <source>Results of Comparison</source>
         <translation>Результати порівняння</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1138"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
         <source>No differences were found.</source>
         <translation>Ніяких відмінностей не виявлено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1159"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1179"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1125"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1140"/>
         <source>Description Edit Failed. No checkpoints found</source>
         <translation>Збій при редагуванні Опису. Контрольні точки не знайдені</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1196"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1157"/>
         <source>Description Edit Failed. No checkpoint selected to edit</source>
         <translation>Збій при редагуванні Опису. Контрольна точка не вибрана</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1213"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1174"/>
         <source>Edit checkpoint Description</source>
         <translation>Редагування Опису контрольної точки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1214"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1175"/>
         <source>New Checkpoint Description:</source>
         <translation>Опис нової контрольної точки:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1230"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1186"/>
         <source>Description Edit Failed for unknown reason</source>
         <translation>Збій при редагуванні Опису з невідомих причин</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1236"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1192"/>
         <source>Description edit cancelled or empty</source>
         <translation>Редагування Опису скасовано або пусте</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1195"/>
         <source>Description successfully updated</source>
         <translation>Опис успішно оновлено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1219"/>
         <source>Repository Log</source>
         <translation>Журнал репозитарія</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1297"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1246"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
         <translation>Жоден зовнішній редактор Xhtml не вказаний: дивитись Налаштування</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1304"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1253"/>
         <source>Specified External Xhtml Editor path does not exist</source>
         <translation>Вказаний шлях для зовнішнього редактора Xhtml не існує</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1263"/>
         <source>PageEdit XHtml Editor works only on Html/OPF Resources</source>
         <translation>Редактор XHtml PageEdit працює лише з ресурсами Html/OPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1320"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1269"/>
         <source>External XHtml Editor works only on Html Resources</source>
         <translation>Зовнішній редактор XHtml працює лише з ресурсами Html</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1361"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1310"/>
         <source>Executing PageEdit Xhtml Editor</source>
         <translation>Виконання редактора Xhtml PageEdit</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1374"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1323"/>
         <source>Executing External Xhtml Editor</source>
         <translation>Виконання зовнішнього редактора Xhtml</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1378"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1327"/>
         <source>Failed to Launch External Xhtml Editor</source>
         <translation>Не вдалося запустити зовнішній редактор Xhtml</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1489"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>Навігація скасована, оскільки місцезнаходження більше не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1557"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1506"/>
         <source>Location bookmarked.</source>
         <translation>Місце позначене закладкою.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1622"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1571"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -11515,438 +11522,433 @@ This action cannot be reversed.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1607"/>
         <source>was updated</source>
         <translation>було оновлено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1665"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1614"/>
         <source>Warning</source>
         <translation>Попередження</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1665"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1614"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>Файл НЕ був правильно сформований і може бути пошкоджений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1694"/>
-        <source>Opening this EPUB generated warnings.</source>
-        <translation>При відкритті цього EPUB, створені попередження.</translation>
+        <location filename="../../MainUI/MainWindow.cpp" line="1650"/>
+        <source>Warning: </source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1696"/>
-        <source>Select Show Details for more information.</source>
-        <translation>Виберіть Показати деталі для отримання додаткової інформації.</translation>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1820"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1742"/>
         <source>Sigil is closing...</source>
         <translation>Sigil закривається…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1887"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1802"/>
         <source>New file created.</source>
         <translation>Новий файл створено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1912"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1827"/>
         <source>Open File</source>
         <translation>Відкрити файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1952"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1867"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Цей файл більше не існує. Натисніть «OK», щоб видалити його з меню.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2030"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1945"/>
         <source>Save File</source>
         <translation>Зберегти файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1999"/>
         <source>Save a Copy</source>
         <translation>Зберегти як копію</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2123"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2038"/>
         <source>Epub layout discarded.</source>
         <translation>Макет Epub відхилено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2130"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2045"/>
         <source>New epub created.</source>
         <translation>Нова електронна книга створена.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2165"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2080"/>
         <source>Go To Line</source>
         <translation>Перейти до рядка</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2165"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2080"/>
         <source>Line #</source>
         <translation>Рядок #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2188"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2103"/>
         <source>Image does not exist: </source>
         <translation>Зображення не існує:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2268"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2183"/>
         <source>or</source>
         <translation>або</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2276"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2191"/>
         <source>No CSS styles named</source>
         <translation>Немає назв стилів CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2276"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2191"/>
         <source>found, or stylesheet not linked.</source>
         <translation>знайдено або таблиця стилів не пов’язана.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2264"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;Гіперпосилання &lt;b&gt;%1&lt;/b&gt; знайдене у &lt;b&gt;%2&lt;/b&gt; не існує (і їх може бути більше). Розділення або злиття в цих умовах може призвести до розриву зв’язків або посилань.&lt;/p&gt;&lt;p&gt;Ви все ще хочете продовжувати?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2373"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2288"/>
         <source>Add Cover</source>
         <translation>Додати обкладинку</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2422"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2337"/>
         <source>An existing Cover file has been found.</source>
         <translation>Знайдено існуючий файл обкладинки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2485"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2400"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Неочікувана помилка. Для обкладинки можуть використовуватися лише файли зображень.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2504"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2419"/>
         <source>Cover added.</source>
         <translation>Обкладинку додано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2514"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2532"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2564"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2429"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2447"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2479"/>
         <source>Not Available for epub2.</source>
         <translation>Недоступно для epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2522"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2437"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>Оновлені властивості маніфесту OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2554"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2469"/>
         <source>NCX and Guide removed.</source>
         <translation>NCX та Посібник видалені.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2581"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2496"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2529"/>
         <source>NCX and Guide generation failed.</source>
         <translation>Помилка генерації NCX та Посібника.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2657"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2567"/>
         <source>NCX and Guide generated.</source>
         <translation>NCX та Посібник сгенеровані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2742"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2652"/>
         <source>An existing Index file has been found.</source>
         <translation>Знайдено існуючий файл покажчика.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2834"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2744"/>
         <source>Styles deleted.</source>
         <translation>Стилі видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2842"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2752"/>
         <source>Reports Being Generated.</source>
         <translation>Звіти формуються.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2853"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2763"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Звіти скасовуються через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2949"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2859"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Видалення невикористаних медіафайлів скасовано через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2997"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2907"/>
         <source>Unused media files deleted.</source>
         <translation>Невикористані медіафайли видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3000"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3003"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2910"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2913"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Немає використаних файлів зображень, відео чи аудіо, які можна видалити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2923"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Видалення невикористаних стилів скасовано через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3035"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3037"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2945"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2947"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>Немає невикористаних селекторів таблиць стилів, які потрібно видалити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3051"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2961"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Ви не можете вставити файл у цій позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2968"/>
         <source>Insert File</source>
         <translation>Вставити Файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3111"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3021"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3157"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3178"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3067"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3088"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Ви не можете вставити ідентифікатор у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3173"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3083"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID недійсний – повинен починатися з літери, після чого можуть додаватися букви, цифри, знаки  «-», «_», «:», або «.»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3191"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3209"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3119"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Ви не можете вставити посилання у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3204"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3114"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Посилання недійсне – не може містити «&lt;» або «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3221"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3131"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Ви не можете поставити маркер покажчика у цій позиції або не вибрали текст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3231"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3141"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Запис недійсний – не може містити «&lt;» або «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3236"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3146"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Ви не можете поставити маркер покажчика на цій позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3318"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3330"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3228"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3240"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3259"/>
         <source>Select the destination to paste into first.</source>
         <translation>Виберіть місце призначення, що слід вставити спочатку.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3338"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3248"/>
         <source>Pasted clip entry %1.</source>
         <translation>Вставлено елемент фрагменту %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3400"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3310"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Вибраний тільки один ресурс,  другий ресурс для об’єднання відсутній.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3408"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3318"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Ви впевнені, що хочете об&apos;єднати вибрані файли?
 Цю дію неможливо відмінити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3423"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3333"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>Об’єднання скасовано: файли XHTML, залучені до злиття, сформовані неправильно.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3482"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3392"/>
         <source>Cannot merge file %1</source>
         <translation>Неможливо об&apos;єднати файл %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3496"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3406"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Об’єднання успішно завершено. Можливо, Вам доведеться обновити або відредагувати зміст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3424"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Зв&apos;язування з Таблицями Стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3644"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3554"/>
         <source>Word updated.</source>
         <translation>Слово оновлено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3713"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3623"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>Зв&apos;язування з Таблицями Стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3823"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3733"/>
         <source>File(s) deleted.</source>
         <translation>Файл(и) видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3834"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3744"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Редагування Змісту скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3749"/>
         <source>Table Of Contents edited.</source>
         <translation>Зміст відредаговано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3857"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3767"/>
         <source>Generate TOC cancelled.</source>
         <translation>Створення Змісту скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3882"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3792"/>
         <source>Table Of Contents generated.</source>
         <translation>Зміст сформовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3884"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3794"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Зміни Змісту не потрібні.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3958"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3868"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>Знайдено існуючий HTML-файл змісту.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4042"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3952"/>
         <source>Text selection marked.</source>
         <translation>Вибраний текст позначений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4044"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4062"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3954"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3972"/>
         <source>Text selection unmarked.</source>
         <translation>Знято позначення вибраного тексту.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4111"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4021"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Роботу Редактора МетаДаних скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4114"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4024"/>
         <source>Metadata edited.</source>
         <translation>МетаДані відредаговані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4222"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4132"/>
         <source>RunPlugin</source>
         <translation>ЗапуститиМодуль</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4248"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4158"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Цей EPUB не містить таблиць стилів CSS для перевірки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4279"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4189"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>Цей EPUB не містить таблиць стилів CSS для переформатування.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4675"/>
         <source>Line: %1, Col: %2</source>
         <translation>Рядок: %1, Стовпець: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4853"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4763"/>
         <source>File cannot be split at this position.</source>
         <translation>Файл неможливо розділити з цієї позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4876"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4786"/>
         <source>Split completed.</source>
         <translation>Розділення завершено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4804"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Неможливо розділити, оскільки принаймні один файл не є файлом HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4900"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4810"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Неможливо розділити: %1 XML неправильно сформований</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4906"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4816"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Неможливо розділити, оскільки принаймні один файл може бути не HTML файлом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4939"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4849"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Розділення завершено. Можливо, Вам доведеться оновити Зміст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4941"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4851"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Не знайдено маркерів розділення файлу. Використовуйте Вставити -&gt; Маркер розділення.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5171"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5036"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>У файл EPUB були внесені зміни.
 Що потрібно зробити?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5192"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5057"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Чи повинен Sigil перезаписати цей файл?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5378"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5243"/>
         <source>No importer for file type: %1</source>
         <translation>Відсутній контейнер для типу файлу: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5385"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5250"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -11959,44 +11961,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Активуйте опцію «Відкрити» у параметрі «Виправити некоректний код HTML по команді» налаштувань та перезавантажте файл.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5390"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5255"/>
         <source>Loading file...</source>
         <translation>Завантаження файлу…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5404"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5269"/>
         <source>File loaded.</source>
         <translation>Файл завантажено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5432"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5295"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Той хто створив цей файл зашифрував його за допомогою DRM. Sigil не може відкрити такі файли.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5303"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Неможливо завантажити EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5445"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5308"/>
         <source>Cannot load file %1: %2</source>
         <translation>Неможливо завантажити файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5474"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5337"/>
         <source>Saving EPUB...</source>
         <translation>Збереження EPUB…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5483"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5346"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil не може зберігати файли типу «%1».
 Будь ласка, виберіть інший формат.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5507"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5370"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -12005,94 +12007,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 Ви хочете автоматично виправити файли перед збереженням? Чи скасувати збереження?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5375"/>
         <source>Saving EPUB... cancelled</source>
         <translation>Збереження EPUB... скасовано</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5538"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5401"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB збережено, але не всі файли HTML добре сформовані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5403"/>
         <source>EPUB saved.</source>
         <translation>EPUB збережено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5546"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5409"/>
         <source>Cannot save file %1: %2</source>
         <translation>Неможливо зберегти файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5679"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5542"/>
         <source>EPUB files (*.epub)</source>
         <translation>Файли EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5680"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5681"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5682"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5544"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5545"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Файли HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5546"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5684"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5547"/>
         <source>All files (*.*)</source>
         <translation>Усі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5692"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5555"/>
         <source>EPUB file (*.epub)</source>
         <translation>Файл EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5790"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5653"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Зберегти існуючі атрибути заголовка зараз:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5791"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5654"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5791"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5654"/>
         <source>OFF</source>
         <translation>OFF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5816"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5679"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6836"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6642"/>
         <source>Focus changed to CodeView window.</source>
         <translation>Фокус переключився на вікно «Браузер Коду».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6845"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6651"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>Фокус переключився на вікно «Структура Книги».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6854"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6660"/>
         <source>Focus changed to Preview window.</source>
         <translation>Фокус переключився на вікно «Перегляд».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6863"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6669"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>Фокус переключився на вікно «Зміст».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6872"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6678"/>
         <source>Focus changed to Clips window.</source>
         <translation>Фокус переключився на вікно «Фрагменти».</translation>
     </message>
@@ -12151,22 +12153,22 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     </message>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="141"/>
-        <location filename="../../Dialogs/ManageRepos.cpp" line="180"/>
+        <location filename="../../Dialogs/ManageRepos.cpp" line="173"/>
         <source>Nothing is Selected.</source>
         <translation>Нічого не вибрано.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ManageRepos.cpp" line="170"/>
+        <location filename="../../Dialogs/ManageRepos.cpp" line="163"/>
         <source>Repository Log</source>
         <translation>Журнал репозитарія</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ManageRepos.cpp" line="205"/>
+        <location filename="../../Dialogs/ManageRepos.cpp" line="198"/>
         <source>Remove All Repositories</source>
         <translation>Прибрати всі репозитарії</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ManageRepos.cpp" line="206"/>
+        <location filename="../../Dialogs/ManageRepos.cpp" line="199"/>
         <source>Are you sure sure you want to remove all checkpoint repositories?</source>
         <translation>Ви впевнені, що хочете прибрати всі репозитарії контрольних точок?</translation>
     </message>
@@ -14889,916 +14891,916 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <translation>Натисніть «ОК», щоб внести Ваші зміни метаданих в epub, інакше натисніть «Скасувати».</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="90"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="84"/>
         <source>Name</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="90"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="84"/>
         <source>Value</source>
         <translation>Значення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="445"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="526"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="453"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="534"/>
         <source>[ISBN here]</source>
         <translation>[ISBN отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="449"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="531"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="457"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="539"/>
         <source>[ISSN here]</source>
         <translation>[ISSN отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="453"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="536"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="461"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="544"/>
         <source>[DOI here]</source>
         <translation>[DOI отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="457"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="541"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="465"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
         <source>[UUID here]</source>
         <translation>[UUID отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="461"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="546"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="469"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
         <source>[Amazon ASIN here]</source>
         <translation>[Amazon ASIN отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="477"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="485"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
         <source>[Author name here]</source>
         <translation>[Ім&apos;я автора отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="483"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="569"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="491"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="577"/>
         <source>[Creator name here]</source>
         <translation>[Ім&apos;я основного автора отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="487"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="573"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="495"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="581"/>
         <source>[Contributor name here]</source>
         <translation>[Імена співавторів отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="491"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="496"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="577"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="707"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="499"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="504"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="585"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="671"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="715"/>
         <source>[Value here]</source>
         <translation>[Значення отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="495"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="576"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="893"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1062"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="503"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="901"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1070"/>
         <source>Custom Element</source>
         <translation>Елемент Користувача</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="495"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="576"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="503"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="584"/>
         <source>[Custom element]</source>
         <translation>[Елемент Користувача]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
         <source>[Custom identifier here]</source>
         <translation>[Кастомний ідентифікатор отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="658"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
         <source>[Insert identifier type here]</source>
         <translation>[Вставити тип ідентифікатора отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="660"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
         <source>[Insert scheme type here]</source>
         <translation>[Вставити тип схеми отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="941"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="949"/>
         <source>Custom Property</source>
         <translation>Кастомна властивість</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="662"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
         <source>[Custom property/attribute]</source>
         <translation>[Кастомна властивість/атрибут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="706"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1096"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="714"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1104"/>
         <source>Custom Attribute</source>
         <translation>Кастомний Атрибут</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="706"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="714"/>
         <source>[Custom metadata property/attribute]</source>
         <translation>[Кастомна властивість/атрибут МетаДаних]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="765"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="773"/>
         <source>[Place value here]</source>
         <translation>[Помістити значення отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="804"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="812"/>
         <source>[Your value here]</source>
         <translation>[Ваше значення отут]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
         <source>Author</source>
         <translation>Автор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="869"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1035"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
         <source>Represents a primary author of the book or publication</source>
         <translation>Представляє основного автора книги чи публікації</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
         <source>Subject</source>
         <translation>Тема</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="870"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1039"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation>Довільна фраза або ключове слово, що описує предмет, про який йде мова. Використовуйте декілька елементів «теми», якщо це необхідно.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1048"/>
         <source>Description</source>
         <translation>Опис</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="871"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1040"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1048"/>
         <source>Description of the publication&apos;s content.</source>
         <translation>Опис вмісту публікації.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
         <source>Publisher</source>
         <translation>Видавець</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="872"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1041"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
         <source>An entity responsible for making the publication available.</source>
         <translation>Суб&apos;єкт, відповідальний за видання публікації.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
         <source>Date Published</source>
         <translation>Дата публікації</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="873"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>The date of publication.</source>
         <translation>Дата публікації.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
         <source>Date Created</source>
         <translation>Дата створення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="874"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>The date of creation.</source>
         <translation>Дата створення.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
         <source>Date Modified</source>
         <translation>Дата внесення змін</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="875"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
         <source>The date of modification.</source>
         <translation>Дата внесення змін.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
         <translation>Використовується для вказівки на те, що дана публікація EPUB має спеціалізований тип.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1055"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1055"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation>Тип носія або розміри видання. Найкраща практика – використовувати значення керованого словника (наприклад, типів мультимедійних файлів MIME).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1048"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1056"/>
         <source>Source</source>
         <translation>Джерело</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
         <translation>Визначає пов&apos;язані ресурси (джерела), з яких походить ця публікація EPUB.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="887"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1057"/>
         <source>Language</source>
         <translation>Мова</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="887"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
         <translation>Вказує мову публікації. Виберіть з меню, що випадає</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="888"/>
         <source>Related To</source>
         <translation>Пов&apos;язано з</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="888"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1058"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation>Посилання на пов&apos;язаний ресурс. Рекомендована найкраща практика – ідентифікувати ресурс за допомогою рядка або числа, що відповідає формальній системі ідентифікації.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="889"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1059"/>
         <source>Coverage</source>
         <translation>Охоплення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="889"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1059"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation>Ступінь або обсяг вмісту змісту публікації.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="890"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1060"/>
         <source>Rights</source>
         <translation>Права</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="890"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1060"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation>Інформація про права, що зберігаються у публікації та над нею. Інформація про права часто охоплює права інтелектуальної власності (IPR), авторські права та різні права власності. Якщо елемент «Права» відсутній, жодних припущень щодо будь-яких прав, що зберігаються в публікації або над нею, не можна робити.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="891"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
         <source>Creator</source>
         <translation>Основний Автор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="891"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Представляє ім’я людини, організації, тощо, відповідальної за створення вмісту Публікації EPUB. Властивість ролі може бути приєднана до елемента, щоб вказати функцію, яку автор грав у створенні вмісту.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="892"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
         <source>Contributor</source>
         <translation>Співавтор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="892"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Представляє ім’я людини, організації, тощо, які відігравали другорядну роль у створенні змісту публікації EPUB. Властивість ролі може бути приєднана до елемента, щоб вказати функцію, яку автор грав у створенні вмісту.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="893"/>
         <source>Belongs to a Collection</source>
         <translation>Належить до колекції</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="893"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
         <translation>Визначає назву колекції, до якої належить Публікація EPUB. Публікація EPUB може належати до однієї або декількох колекцій.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="894"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
         <source>Title</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="894"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
         <translation>Назва видання. Видання може мати лише одну головну назву, але може мати численні інші типи заголовків. До них відносяться основні, підзаголовки, короткі, збірники, видання та розширені типи заголовків.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="887"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="895"/>
         <source>Identifier: DOI</source>
         <translation>Ідентифікатор: DOI</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="887"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="895"/>
         <source>Digital Object Identifier associated with this publication.</source>
         <translation>Цифровий ідентифікатор об&apos;єкта, пов’язаний з цією публікацією.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="888"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="896"/>
         <source>Identifier: ISBN</source>
         <translation>Ідентифікатор: ISBN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="888"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="896"/>
         <source>International Standard Book Number associated with this publication.</source>
         <translation>Міжнародний стандартний номер книги, пов’язаний із даною публікацією.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="889"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="897"/>
         <source>Identifier: ISSN</source>
         <translation>Ідентифікатор: ISSN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="889"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="897"/>
         <source>International Standard Serial Number associated with this publication.</source>
         <translation>Міжнародний стандартний серійний номер, пов’язаний із даною публікацією.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="890"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="898"/>
         <source>Identifier: UUID</source>
         <translation>Ідентифікатор: UUID</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="890"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="898"/>
         <source>A Universally Unique Identifier generated for this publication.</source>
         <translation>Універсальний унікальний ідентифікатор, створений для цієї публікації.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="891"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="899"/>
         <source>Identifier: ASIN</source>
         <translation>Ідентифікатор: ASIN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="891"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="899"/>
         <source>An Amazon Standard Identification Number associated with this publication.</source>
         <translation>Стандартний ідентифікаційний номер Amazon, пов&apos;язаний з цією публікацією.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="892"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1058"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="900"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1066"/>
         <source>Identifier: Custom</source>
         <translation>Ідентифікатор: Custom</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="892"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="900"/>
         <source>A custom identifier based on a specified scheme</source>
         <translation>Ідентифікатор що настроюється або ідентифікатор користувача або кастомний на основі визначеної схеми</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="893"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="901"/>
         <source>An empty metadata element you can modify.</source>
         <translation>Порожній елемент МетаДаних, який ви можете змінити.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="894"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="902"/>
         <source>Meta Element (primary)</source>
         <translation>Мета елемент (первинний)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="894"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="902"/>
         <source>An empty primary metadata element you can modify.</source>
         <translation>Порожній основний елемент МетаДаних, який ви можете змінити.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1089"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="928"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1097"/>
         <source>Id Attribute</source>
         <translation>Атрибут Id</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="920"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1089"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="928"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1097"/>
         <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
         <translation>Необов&apos;язкова, як правило, коротка унікальна послідовність символів (рядок) ідентифікатора, яка використовується як атрибут у документі Package (opf).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1090"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1098"/>
         <source>XML Language</source>
         <translation>Мова XML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="921"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
         <source>Optional, language specifying attribute.  Uses same codes as Language. Not for use with Language, Date, or Identifier metadata elements.</source>
         <translation>Необов’язковий, атрибут мови. Використовує ті ж коди, що й Language. Не використовується для Language, Date або Identifier елементів МетаДаних.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
         <source>Uses Right To Left Text</source>
         <translation>Текст справа-Наліво</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="922"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Необов’язковий атрибут тексту для цього елемента МетаДаних. справа-наліво (СН). Не використовується для dc:language, dc:date або dc:identifier елементів МетаДаних.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
         <source>Uses Left to Right Text</source>
         <translation>Текст Зліва-Направо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="923"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Необов’язковий атрибут тексту для цього елемента МетаДаних. зліва-направо (ЗН). Не використовується для dc:language, dc:date або dc:identifier елементів МетаДаних.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
         <source>Title: Main Title</source>
         <translation>Заголовок: Головний заголовок</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="924"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
         <translation>Вказує, що асоційована назва є основною назвою видання. Має існувати лише одна головна назва.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
         <source>Title: Subtitle</source>
         <translation>Заголовок: Підзаголовок</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="925"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
         <translation>Вказує, що пов&apos;язаний заголовок є підзаголовком публікації, якщо така існує.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="934"/>
         <source>Title: Short Title</source>
         <translation>Заголовок: Скорочений заголовок</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="926"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="934"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
         <translation>Вказує, що пов’язана назва – це скорочена назва публікації, якщо така існує.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="927"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="935"/>
         <source>Title: Collection Title</source>
         <translation>Заголовок: Назва колекції</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="927"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="935"/>
         <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
         <translation>Вказує, що пов&apos;язаний заголовок – це назва колекції, до якої належить ця публікація, якщо така існує.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="928"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="936"/>
         <source>Title: Edition Title</source>
         <translation>Заголовок: Назва видання</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="928"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="936"/>
         <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
         <translation>Вказує, що пов’язана назва – це назва видання для цих публікацій, якщо таке існує.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="937"/>
         <source>Title: Expanded Title</source>
         <translation>Заголовок: Розширений заголовок</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="937"/>
         <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
         <translation>Вказує, що пов’язаний заголовок – це розширений заголовок для цієї публікації, якщо такий існує.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="938"/>
         <source>Alternate Script</source>
         <translation>Альтернативний сценарій</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="938"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an xml:lang attribute.</source>
         <translation>Забезпечує альтернативне вираження асоційованого значення властивості у мові та сценарії, ідентифікованому атрибутом xml:lang.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="939"/>
         <source>Alternate Language</source>
         <translation>Альтернативна мова</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="939"/>
         <source>Language code for the language used in the associated alternate-script property value.</source>
         <translation>Код мови для мови, що використовується у відповідному значенні властивості альтернативного сценарію.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="940"/>
         <source>Collection is a Set</source>
         <translation>Колекція являє собою набір</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="940"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
         <translation>Властивість , яка використовується з «belongs-to-collection». Позначає форму або характер колекції. Значення «set» слід використовувати для скінченної колекції творів, які разом становлять єдину інтелектуальну одиницю; як правило, випускаються разом і можуть продаватися як одиниця.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="941"/>
         <source>Collection is a Series</source>
         <translation>Колекція являє собою серію</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="941"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
         <translation>Властивість , яка використовується з «belongs-to-collection». Позначає форму або характер колекції. Значення «серія» слід використовувати для послідовності пов&apos;язаних творів, які формально ідентифікуються як група; як правило, з безстроковими публікаціями або роботами, що випускаються індивідуально на протязі часу.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="934"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="942"/>
         <source>Display Sequence</source>
         <translation>Послідовність відображення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="934"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="942"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
         <translation>Позначає числове положення, в якому відображається поточна властивість відносно ідентичних властивостей метаданих (наприклад, вказується на порядок відображення декількох назв або декількох авторів).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="935"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1091"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="943"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1099"/>
         <source>File As</source>
         <translation>Файл як</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="935"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1091"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="943"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1099"/>
         <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
         <translation>Надає нормалізовану форму пов&apos;язаної властивості для сортування. Зазвичай використовується з іменами автора, творця та дописувача.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="936"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="944"/>
         <source>Position In Group</source>
         <translation>Позиція в групі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="936"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="944"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
         <translation>Позначає числове положення, в якому впорядковується публікація EPUB щодо інших творів, що належать до тієї ж групи (будь то всі публікації EPUB чи ні).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="937"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="945"/>
         <source>Identifier Type</source>
         <translation>Тип ідентифікатора</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="937"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="945"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
         <translation>Позначає форму або характер ідентифікатора. Коли значення типу ідентифікатора виводиться зі списку коду чи іншого формального перерахування, для ідентифікації його джерела слід використовувати атрибут схеми.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="938"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1092"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="946"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1100"/>
         <source>Role</source>
         <translation>Роль</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="938"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1092"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="946"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1100"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
         <translation>Описує характер роботи, яку виконує творець або автор (наприклад, що людина є автором чи редактором твору). Зазвичай використовується схема marc:relators для керованої лексики.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="939"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1093"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="947"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1101"/>
         <source>Scheme</source>
         <translation>Схема</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="939"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="947"/>
         <source>This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
         <translation>Цей атрибут зазвичай додається до Identifier, Source, Creator, або Contributor, щоб вказати на керовану систему лексики, що використовується (наприклад, marc:relators, щоб вказати дійсні значення для властивості ролі).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="940"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="948"/>
         <source>Source of Pagination</source>
         <translation>Джерело Пагінації</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="940"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="948"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
         <translation>Вказує на унікальний аспект адаптованого джерельного ресурсу, який зберігався в даному випуску публікації EPUB. Ця специфікація визначає значення сторінки, що вказує на те, що вихідний елемент є джерелом властивостей розбиття сторінки, визначених у вмісті. Це значення слід встановлювати щоразу, коли включається пагинація та відомо джерело друку. Дійсні значення: pagination.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="941"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="949"/>
         <source>An empty metadata property or attribute you can modify.</source>
         <translation>Порожня властивість або атрибут МетаДаних, які Ви можете змінити.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="969"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="977"/>
         <source>Text Direction</source>
         <translation>Напрямок тексту</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="969"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="977"/>
         <source>Optional text direction attribute for this metadata item.</source>
         <translation>Необов’язковий атрибут напряму тексту для цього елемента МетаДаних.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="970"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="978"/>
         <source>Title Type</source>
         <translation>Тип заголовка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="970"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="978"/>
         <source>Indicates the kind or type of the title</source>
         <translation>Вказує вид або тип заголовка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="971"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="979"/>
         <source>Collection Type</source>
         <translation>Тип колекції</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="971"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="979"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection.</source>
         <translation>Властивість, яка використовується разом із колекцією. Вказує на форму або характер колекції.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="972"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="980"/>
         <source>Source of</source>
         <translation>Джерело з</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="972"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="980"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.</source>
         <translation>Вказує на унікальний аспект адаптованого вихідного ресурсу, який був збережений у даній редакції публікації EPUB.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1007"/>
         <source>Published</source>
         <translation>Опубліковано</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="999"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1007"/>
         <source>Event Type is Published.</source>
         <translation>Тип події – Опубліковано.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1000"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1008"/>
         <source>Publication</source>
         <translation>Публікація</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1000"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1008"/>
         <source>Event Type is Publication.</source>
         <translation>Тип події – Публікація.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1001"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1009"/>
         <source>Creation</source>
         <translation>Створення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1001"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1009"/>
         <source>Event Type is Creation.</source>
         <translation>Тип події – Створення.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1002"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1010"/>
         <source>Modification</source>
         <translation>Внесення змін</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1002"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1010"/>
         <source>Event Type is Modification.</source>
         <translation>Тип події – Внесення змін.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1003"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1011"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1061"/>
         <source>Digital Object Identifier</source>
         <translation>Цифровий ідентифікатор об&apos;єкта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1003"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1011"/>
         <source>Identifier Scheme: Digital Object Identifier</source>
         <translation>Ідентифікатор схеми: Ідентифікатор цифрового об&apos;єкта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1004"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1012"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1062"/>
         <source>International Standard Book Number</source>
         <translation>Міжнародний стандартний номер книги</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1004"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1012"/>
         <source>Identifier Scheme: International Standard Book Number</source>
         <translation>Ідентифікатор схеми: Міжнародний стандартний номер книги</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1005"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1055"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1063"/>
         <source>International Standard Serial Number</source>
         <translation>Міжнародний стандартний серійний номер</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1005"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
         <source>Identifier Scheme: International Standard Serial Number</source>
         <translation>Ідентифікатор схеми: Міжнародний стандартний серійний номер</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1006"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1056"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1064"/>
         <source>Universally Unique Identifier</source>
         <translation>Універсальний унікальний ідентифікатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1006"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
         <source>Identifier Scheme: Universally Unique Identifier</source>
         <translation>Ідентифікатор схеми: Універсальний унікальний ідентифікатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1007"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1015"/>
         <source>Amazon Unique Identifier</source>
         <translation>Унікальний ідентифікатор Amazon</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1007"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1015"/>
         <source>Identifier Scheme: Amazon Unique Identifier</source>
         <translation>Ідентифікатор схеми: Унікальний ідентифікатор Amazon</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1036"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
         <translation>Основна назва видання epub. Може існувати лише одна назва.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1037"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Представляє ім’я людини, організації, тощо, відповідальної за створення вмісту Публікації EPUB. Атрибути opf:role, opf:scheme та opf:file-as можуть бути приєднані до елемента, щоб вказати функцію, яку виконував автор при створенні вмісту.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1038"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
         <translation>Представляє ім’я людини, організації, тощо, які відігравали другорядну роль у створенні вмісту публікації EPUB</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>Date</source>
         <translation>Дата</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1042"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>A date associated with this epub, typically refined by event type information</source>
         <translation>Дата, пов’язана з цим epub, зазвичай уточнюється за інформацією про тип події</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>Date: Publication</source>
         <translation>Дата: Опубліковано</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>Date: Creation</source>
         <translation>Дата: Створено</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
         <source>Date: Modification</source>
         <translation>Дата: Внесення змін</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
         <source>The nature or genre of the content of the resource.</source>
         <translation>Характер або жанр контенту ресурсу.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1048"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1056"/>
         <source>A reference to a resource from which the present publication is derived.</source>
         <translation>Посилання на ресурс, з якого походить ця публікація.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1057"/>
         <source>A language used in the publication. Choose a RFC5646 value.</source>
         <translation>Мова, що використовується в публікації. Виберіть значення RFC5646</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1058"/>
         <source>Relation</source>
         <translation>Відношення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1055"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1056"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1057"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1061"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1062"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1063"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1064"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1065"/>
         <source>Identifier</source>
         <translation>Ідентифікатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1057"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1065"/>
         <source>Amazon Standard Identification Number</source>
         <translation>Стандартний ідентифікаційний номер Amazon</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1058"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1066"/>
         <source>A custom identifier</source>
         <translation>Кастомний ідентифікатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1059"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1067"/>
         <source>Series</source>
         <translation>Серія</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1059"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1067"/>
         <source>Series title or name (from calibre)</source>
         <translation>Назва серії або найменування (як в Calibre)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1060"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1068"/>
         <source>Series Index</source>
         <translation>Індекс серії</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1060"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1068"/>
         <source>Index of this book in the series (from calibre)</source>
         <translation>Номер книги в серії (як в Calibre)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1061"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1069"/>
         <source>Title for Sorting</source>
         <translation>Назва для сортування</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1061"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1069"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
         <translation>Версія назви електронної книги для сортування (як в Calibre)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1062"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1070"/>
         <source>An empty element for you to modify</source>
         <translation>Порожній елемент, який ви можете змінити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1090"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1098"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Необов’язковий, атрибут мови. Використовує ті ж коди, що й dc: language. Не використовується для dc: langauge, dc: date або dc:identifier елементів МетаДаних.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1093"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1101"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.</source>
         <translation>Цей атрибут зазвичай додається в dc:identifier, щоб вказати тип використовуваного ідентифікатора: DOI, ISBN, ISSN, UUID або AMAZON..</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1094"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1102"/>
         <source>Custom Scheme</source>
         <translation>Схема Користувача</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1094"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1102"/>
         <source>This attribute is typically added to dc:identifier to indicate that a custom identifier scheme is being used.</source>
         <translation>Цей атрибут зазвичай додається до dc:identifier, щоб зазначити, що використовується схема ідентифікаторів корістувача. </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1095"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1103"/>
         <source>Event</source>
         <translation>Подія</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1095"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1103"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
         <translation>Цей атрибут зазвичай додається до елемента dc:date, щоб вказати тип дати: публікація, створення або внесення змін.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1096"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1104"/>
         <source>An empty metadata attribute you can modify.</source>
         <translation>Порожній атрибут МетаДаних, який ви можете змінити.</translation>
     </message>
@@ -15943,12 +15945,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1518"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1511"/>
         <source>[Title here]</source>
         <translation>[Назва отут]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1524"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1517"/>
         <source>[Main title here]</source>
         <translation>[Основний заголовок отут]</translation>
     </message>
@@ -16677,28 +16679,28 @@ Are you Sure You Want to Continue?</source>
         <translation>Статус: Завантаження</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="900"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="888"/>
         <source>Input Plugin</source>
         <translation>Ввести модуль</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="901"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="889"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Ваша поточна книга буде повністю замінена, можливо з втратою будь-яких незбережених змін … Ви впевнені, що хочете продовжити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="930"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="944"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="917"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="931"/>
         <source>Status: adding</source>
         <translation>Статус: додавання</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="982"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="969"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Статус: очищення – модифікація файлів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="1019"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="1006"/>
         <source>Status: modifying</source>
         <translation>Статус: модифікація</translation>
     </message>
@@ -16920,7 +16922,7 @@ Are you Sure You Want to Continue?</source>
         <translation>Зміни набудуть чинності після перезапуску Sigil.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/Preferences.cpp" line="198"/>
+        <location filename="../../Dialogs/Preferences.cpp" line="197"/>
         <source>Open Preferences Location</source>
         <translation>Каталог Налаштувань</translation>
     </message>
@@ -16975,8 +16977,8 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="73"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="99"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="502"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="510"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="474"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="482"/>
         <source>Preview</source>
         <translation>Перегляд</translation>
     </message>
@@ -17010,11 +17012,6 @@ Entities can be separated by lines, commas, or spaces.</source>
         <source>Print Preview View</source>
         <translation>Режим перегляду перед друком</translation>
     </message>
-    <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="741"/>
-        <source>Feature not available before Qt5.12.x</source>
-        <translation>Функція недоступна до Qt5.12.x</translation>
-    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -17034,8 +17031,8 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="100"/>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="305"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="91"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="292"/>
         <source>Custom Epub Layout Designer</source>
         <translation>Конструктор оформлення Epub</translation>
     </message>
@@ -17056,122 +17053,127 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation>Створення звіту…</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="116"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="118"/>
         <source>Cannot read EPUB: %1</source>
         <translation>Неможливо прочитати EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="248"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="256"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation>Файл OPF не містить чинного списку потоку (spine).</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="249"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="953"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="257"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="964"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil створив для Вас нове.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="250"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="258"/>
         <source>Please verify and correct the OPF Spine order.</source>
         <translation>Будь ласка, перевірте та виправте порядок OPF Spine.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="299"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="307"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>Помилка синтаксичного аналізу шифрування xml.
 Рядок: %1 Стовпець %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="419"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="427"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation>Неможливо розпакувати EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="493"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="503"/>
         <source>Possible evil or corrupt epub file name: %1</source>
         <translation>Можливо невідповідне або пошкоджене ім’я файлу epub: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="524"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="533"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="553"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="561"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="534"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="543"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="563"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="571"/>
         <source>Cannot extract file: %1</source>
         <translation>Неможливо витягти файл: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="574"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="584"/>
         <source>Cannot open EPUB: %1</source>
         <translation>Неможливо відкрити EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="628"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="638"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>Неможливо проаналізувати файл container.xml.
 Рядок: %1 Стовпець %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="640"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="646"/>
+        <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
+        <translation>Ця електронна публікація має множинне тлумачення (декілька файлів OPF). Редагування цього epub в Sigil призведе до створення звичайної одиночної версії epub з використнням лише основного (першого) знайденого файлу OPF.</translation>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="650"/>
         <source>No appropriate OPF file found</source>
         <translation>Не знайдено відповідного файлу OPF</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="693"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="703"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>Не вдається прочитати файл OPF.
 Рядок: %1 Стовпець %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="801"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="812"/>
         <source>The OPF uses an unrecognized media type &quot;%1&quot; for file &quot;%2&quot;</source>
         <translation>OPF використовує нерозпізнаний тип медіа «%1» для файлу «%2»</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="802"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="813"/>
         <source>A temporary media type of &quot;%1&quot; has been assigned. You should edit your OPF file to fix this problem.</source>
         <translation>Присвоєно тимчасовий тип медіа «%1». Потрібно редагувати файл OPF, щоб вирішити цю проблему.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="816"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="827"/>
         <source>The OPF has an illegal Manifest entry for a file inside the META-INF folder for file &quot;%1&quot;</source>
         <translation>OPF має некоректний запис Маніфесту для файлу у папці META-INF «%1»</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="817"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="828"/>
         <source>You should edit your OPF file to remove this entry.</source>
         <translation>Вам слід відредагувати файл OPF, щоб вилучити цей запис.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="836"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="847"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>Маніфест OPF містить повторювані ідентифікатори для: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="837"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="848"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>Для завантаження цього EPUB призначений тимчасовий ідентифікатор. Потрібно редагувати файл OPF, щоб видалити дублювання.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="928"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="939"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>Файл OPF неправильно ідентифікував файл NCX.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="929"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="940"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil використовує наступний файл як NCX:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="952"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="963"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>Файл OPF не містить файл NCX.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="785"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="781"/>
         <source>Adding Existing Files..</source>
         <translation>Додавання існуючих файлів…</translation>
     </message>
@@ -17201,19 +17203,19 @@ Line: %1 Column %2 - %3</source>
         <translation>&lt;p&gt;Доступна нова версія Sigil, версія &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Ви хочете перейти на сторінку завантаження?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="526"/>
+        <location filename="../../Misc/Utility.cpp" line="501"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Неможливо прочитати файл %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="718"/>
+        <location filename="../../Misc/Utility.cpp" line="691"/>
         <source>Sigil has encountered a problem.</source>
         <translation>У Sigil виникли проблеми.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="719"/>
+        <location filename="../../Misc/Utility.cpp" line="692"/>
         <source>Sigil may need to close.</source>
         <translation>Sigil, має закритися.</translation>
     </message>
@@ -17223,44 +17225,44 @@ Line: %1 Column %2 - %3</source>
         <translation>Покажчик</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="215"/>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="284"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="209"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="278"/>
         <source>Invalid HTML file: %1</source>
         <translation>Неприпустимий HTML-файл: %1</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="329"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="323"/>
         <source>Invalid OPF file: %1</source>
         <translation>Неприпустимий OPF-файл: %1</translation>
     </message>
     <message>
-        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="355"/>
+        <location filename="../../SourceUpdates/UniversalUpdates.cpp" line="349"/>
         <source>Invalid NCX file: %1</source>
         <translation>Неприпустимий NCX-файл: %1</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="847"/>
-        <location filename="../../main.cpp" line="895"/>
+        <location filename="../../main.cpp" line="805"/>
+        <location filename="../../main.cpp" line="853"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="857"/>
+        <location filename="../../main.cpp" line="815"/>
         <source>About</source>
         <translation>Про програму</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="866"/>
+        <location filename="../../main.cpp" line="824"/>
         <source>Preferences</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="877"/>
+        <location filename="../../main.cpp" line="835"/>
         <source>New</source>
         <translation>Новий</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="886"/>
+        <location filename="../../main.cpp" line="844"/>
         <source>Open</source>
         <translation>Відкрити</translation>
     </message>
@@ -17434,7 +17436,7 @@ valid for all selected files.
         <translation>Після</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="377"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="329"/>
         <source>Delete Selected Rows</source>
         <translation>Видалити вибрані рядки</translation>
     </message>
@@ -17907,117 +17909,117 @@ Do you want to save your changes?</source>
 <context>
     <name>SearchEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="84"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="72"/>
         <source>Name</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="85"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="73"/>
         <source>Find</source>
         <translation>Знайти</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="86"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="74"/>
         <source>Replace</source>
         <translation>Замінити</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="87"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="75"/>
         <source>Controls</source>
         <translation>Параметри</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="481"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="469"/>
         <source>Mode: Normal</source>
         <translation>Режим: Звичайний</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="484"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="472"/>
         <source>Mode: Regular Expression</source>
         <translation>Режим: Регулярні вирази:</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="487"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="475"/>
         <source>Mode: Case Sensitive</source>
         <translation>Режим: З урахуванням регістру</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="490"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="478"/>
         <source>Direction: Up</source>
         <translation>Напрямок: Вгору</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="493"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="481"/>
         <source>Direction: Down</source>
         <translation>Напрямок: Вниз</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="496"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="484"/>
         <source>Target: Current File</source>
         <translation>Ціль: Поточний файл</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="499"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="487"/>
         <source>Target: All HTML Files</source>
         <translation>Ціль: Всі файли HTML</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="502"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="490"/>
         <source>Target: Selected HTML Files</source>
         <translation>Ціль: Вибрані файли HTML</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="505"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="493"/>
         <source>Target: Tabbed HTML Files</source>
         <translation>Ціль: Файли HTML з вкладками</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="508"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="496"/>
         <source>Target: All CSS Files</source>
         <translation>Ціль: Всі файли CSS</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="511"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="499"/>
         <source>Target: Selected CSS Files</source>
         <translation>Ціль: Вибрані файли CSS</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="514"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="502"/>
         <source>Target: Tabbed CSS Files</source>
         <translation>Ціль: Файли CSS з вкладками</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="517"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="505"/>
         <source>Target: OPF File</source>
         <translation>Ціль: файл OPF</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="520"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="508"/>
         <source>Target: NCX File</source>
         <translation>Ціль: файл NCX</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="523"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="511"/>
         <source>Option: DotAll</source>
         <translation>Варіант: DotAll</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="526"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="514"/>
         <source>Option: Minimal Match</source>
         <translation>Варіант: Мінімальний збіг</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="529"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="517"/>
         <source>Option: Auto Tokenise</source>
         <translation>Варіант: Авторозбиття</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="520"/>
         <source>Option: Wrap</source>
         <translation>Варіант: Шукати скрізь</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="815"/>
         <source>Unable to create file %1</source>
         <translation>Неможливо створити файл %1</translation>
     </message>
@@ -19323,52 +19325,52 @@ your book and automatically insert into your document.</source>
         <translation>Розмір мініатюри:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="119"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="124"/>
         <source>All</source>
         <translation>Всюди</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="120"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="125"/>
         <source>Images</source>
         <translation>Зображення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="121"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="126"/>
         <source>Video</source>
         <translation>Відео</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="122"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="127"/>
         <source>Audio</source>
         <translation>Аудіо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="172"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="178"/>
         <source>Files In the Book</source>
         <translation>Файли в книзі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="175"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="181"/>
         <source>Thumbnails</source>
         <translation>Мініатюри</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="340"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="348"/>
         <source>shades</source>
         <translation>тіні</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="340"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="348"/>
         <source>colors</source>
         <translation>кольори</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="341"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="349"/>
         <source>Grayscale</source>
         <translation>Відтінки сірого</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="341"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="349"/>
         <source>Color</source>
         <translation>Колір</translation>
     </message>
@@ -19688,7 +19690,7 @@ is restarted or a new book is opened.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="65"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="564"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="565"/>
         <source>Ignore</source>
         <translation>Ігнорувати</translation>
     </message>
@@ -19770,85 +19772,85 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <translation>r</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="159"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="182"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="221"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="160"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="183"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="222"/>
         <source>No words selected.</source>
         <translation>Не вибрано слів.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="175"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="176"/>
         <source>Ignored word(s).</source>
         <translation>Ігнорувати слово(а).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="210"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="211"/>
         <source>Added word(s) to dictionary.</source>
         <translation>Додати слово(а) до Словника.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="212"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="213"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
         <translation>Слово (слова) додані до словника. Словник не обрано у налаштуваннях.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="227"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="228"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
         <translation>Нове слово не може містити «&lt;», «&gt;», or «&amp;».</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="238"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="315"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="239"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="316"/>
         <source>No</source>
         <translation>Ні</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="257"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="258"/>
         <source>Word</source>
         <translation>Слово</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="258"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="259"/>
         <source>Count</source>
         <translation>Рахувати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="259"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="260"/>
         <source>Language</source>
         <translation>Мова</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="260"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="261"/>
         <source>Misspelled?</source>
         <translation>Орфографічна помилка?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="313"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="314"/>
         <source>Yes</source>
         <translation>Так</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="336"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="337"/>
         <source>Misspelled Words</source>
         <translation>Слова з помилками</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="336"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="337"/>
         <source>Total Unique Words</source>
         <translation>Всього унікальних слів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="565"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="566"/>
         <source>Add to Dictionary</source>
         <translation>Додати до Словника</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="567"/>
         <source>Find in Text</source>
         <translation>Пошук у Тексті</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="567"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="568"/>
         <source>Select All</source>
         <translation>Вибрати все</translation>
     </message>
@@ -19937,7 +19939,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>TabManager</name>
     <message>
-        <location filename="../../Tabs/TabManager.cpp" line="291"/>
+        <location filename="../../Tabs/TabManager.cpp" line="276"/>
         <source>Cannot edit file</source>
         <translation>Неможливо редагувати файл</translation>
     </message>
@@ -19945,22 +19947,22 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>TableOfContents</name>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="54"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="46"/>
         <source>Table Of Contents</source>
         <translation>Зміст</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="175"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="167"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="206"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="198"/>
         <source>Collapse All</source>
         <translation>Згорнути все</translation>
     </message>
     <message>
-        <location filename="../../MainUI/TableOfContents.cpp" line="207"/>
+        <location filename="../../MainUI/TableOfContents.cpp" line="199"/>
         <source>Expand All</source>
         <translation>Розгорнути все</translation>
     </message>
@@ -19976,12 +19978,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="837"/>
+        <location filename="../../Misc/Utility.cpp" line="795"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="838"/>
+        <location filename="../../Misc/Utility.cpp" line="796"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
