@@ -149,10 +149,11 @@ QString CodeViewEditor::cursor_selected_text(const QTextCursor& c) const
     QChar *e = uc + txt.size();
     for (; uc != e; ++uc) {
         switch (uc->unicode()) {
+            // pass QChar::ParagraphSeparator through unchanged for ApplyList to
+            // work properly and not create improperly nested code
             case 0xfdd0: // QTextBeginningOfFrame
             case 0xfdd1: // QTextEndOfFrame
             case QChar::LineSeparator:
-            case QChar::ParagraphSeparator:
                 *uc = QLatin1Char('\n');
                 break;
             default:
@@ -3813,7 +3814,7 @@ void CodeViewEditor::ApplyListToSelection(const QString &element)
         new_text = new_text.trimmed();
         // now split remaining text by new lines and 
         // remove any beginning and ending li tags
-        QStringList alist = new_text.split(QChar('\n'), Qt::SkipEmptyParts);
+        QStringList alist = new_text.split(QChar::ParagraphSeparator, Qt::SkipEmptyParts);
         QStringList result;
         foreach(QString aitem, alist) {
             result.append(indent + RemoveLastTag(RemoveFirstTag(aitem,"li"), "li"));
@@ -3822,7 +3823,7 @@ void CodeViewEditor::ApplyListToSelection(const QString &element)
         new_text = result.join("\n");
     }
     else if ((tagname == "p") || tagname.isEmpty()) {
-        QStringList alist = new_text.split(QChar('\n'), Qt::SkipEmptyParts);
+        QStringList alist = new_text.split(QChar::ParagraphSeparator, Qt::SkipEmptyParts);
         QStringList result;
         result.append(indent + "<" + element + ">");
         foreach(QString aitem, alist) {
