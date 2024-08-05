@@ -3492,8 +3492,8 @@ when creating new or empty Epubs in Sigil.</source>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="109"/>
         <source>Choose when your not well formed HTML code is automatically 
 mended.</source>
-        <translation>Виберіть, коли Ваш некоректний код HTML буде автоматично
-виправлений.</translation>
+        <translation>Виберіть, коли Ваш неправильно сформований HTML-код
+буде виправлений автоматично.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="113"/>
@@ -4460,17 +4460,17 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="156"/>
         <source>Files exist in epub that are not listed in the manifest, they will be ignored.</source>
-        <translation type="unfinished"/>
+        <translation>Якщо epub містить файли, які не вказані у маніфесті, вони будуть проігноровані</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
         <source>This EPUB had HTML files that were not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;br&gt;They were automatically fixed based on your Preference setting to Clean on Open.</source>
-        <translation type="unfinished"/>
+        <translation>Цей EPUB містив HTML-файли, які були неправильно сформовані або не мали елементів DOCTYPE, html, head або body.&lt;br/&gt;&lt;br&gt;Вони були автоматично виправлені у відповідності з налаштуванням виправляти некоректний код HTML по команді &quot;Відкрити&quot;.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="205"/>
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;/br&gt;Fix these manually or use Sigil&apos;s Mend tool to automatically fixed these errors or omissions.</source>
-        <translation type="unfinished"/>
+        <translation>Цей EPUB містить HTML-файли, які були неправильно сформовані або не мають елементів DOCTYPE, html, head або body.&lt;br/&gt;&lt;/br&gt;Виправте їх вручну або скористайтеся наявним у Sigil інструментарієм для автоматичного виправлення цих помилок або пропусків.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
@@ -11539,7 +11539,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1650"/>
         <source>Warning: </source>
-        <translation type="unfinished"/>
+        <translation>Попередження:</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1742"/>
