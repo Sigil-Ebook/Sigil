@@ -349,7 +349,7 @@ QStringList SettingsStore::pluginMap()
 QString SettingsStore::defaultVersion()
 {
     clearSettingsGroup();
-    return value(KEY_DEFAULT_VERSION, "2.0").toString();
+    return value(KEY_DEFAULT_VERSION, "3.0").toString();
 }
 
 QList <std::pair <ushort, QString>>  SettingsStore::preserveEntityCodeNames()
