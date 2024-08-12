@@ -12,9 +12,9 @@ To build Sigil on newer Linux systems, you need to get/do the following things:
 
 1. [A Linux build-toolchain](#gcc) with a C++17 capable compiler (gcc 7.x.x or higher recommended)
 2. [CMake](#cmake) (3.16 or higher)
-3. [Qt6.2.2 or higher](#qt6) 6.4+ is more realistic (with QtWebEngine)
+3. [Qt6.4or higher](#qt6) (with QtWebEngine)
 4. [3rd-party dependencies](#thirdparty) (an optional step)
-5. [Python 3.6](#python) (3.9+ is more realistic)
+5. [Python 3.9](#python)
 6. [The Sigil source code](#sigil) (downloaded tarball/zipfile or a git clone)
 7. [Build/Install Sigil](#build)
 8. [Test Sigil's Plugin Framework](#testing)
@@ -48,7 +48,7 @@ and `sudo apt-get install cmake` will get you what you need on Debian-type syste
 
 
 ## <a name="qt6"/>Getting Qt6
-**If your repos don't provide at least Qt6.2.2 (and 6.4+ is more realistic) use the [Building_on_Linux_older](./Building_on_Linux_older.md) documentation for Qt5.**
+**If your repos don't provide at least Qt6.4+ use the [Building_on_Linux_older](./Building_on_Linux_older.md) documentation for Qt5.**
 
 To get Sigil's Qt6 requirements on Arch, `sudo pacman -S` the following packages:
 
@@ -102,7 +102,7 @@ The following command can be copied and pasted for convenience on Debian-based s
 
 If you do install them, remember to use use the -DUSE_SYSTEM_LIBS=1 option when configuring Sigil with cmake later on. Otherwise, the build process will ignore them and provide/build its own.
 
-## <a name="python"/>Getting Python 3.6 (3.9+ is more realistic)
+## <a name="python"/>Getting Python 3.9+
 On Arch `sudo pacman -S` (at a minimum) the following packages:
 
 + python
@@ -189,7 +189,7 @@ Then issue the following command to configure Sigil:
 
 If there are no errors, you're ready to build.
 
-**Starting with Sigil 2.0.2, the -DUSE_QT6=1 is assumed and no longer used. If you wish to build Sigil with Qt5, you will need to add -DUSE_QT5=1 to the cmake configure command.**
+**Starting with Sigil 2.0.2, the -DUSE_QT6=1 is assumed and no longer used. If you wish to build Sigil with Qt5, you will need to add -DUSE_QT5=1 to the cmake configure command and use a version of Sigil less than 2.3.0**
 
 The default install prefix is /usr/local. If you wish to change the install location, you can do so by adding a `-DCMAKE_INSTALL_PREFIX` option to the above cmake configure command like so:
 
@@ -199,9 +199,9 @@ You can also customize/override where the Sigil support files get installed (`<C
 
 If cmake couldn't automatically find the necessary Python 3.4 (or higher) stuff it needs (like if you installed manually in an unusual location, or you want to use a different Python version) you may need to tell cmake *specifically* where things can be found. Do so with:
 
->`-DPYTHON_LIBRARY=<the full path to the python3.6 (or higher) shared library> (usually something similar to /usr/lib/libpython36.so)`
+>`-DPYTHON_LIBRARY=<the full path to the python3.9 (or higher) shared library> (usually something similar to /usr/lib/libpython39.so)`
 
->`-DPYTHON_INCLUDE_DIR=<the full path to the directory where python3.6's (or higher) header files can be found> (ex: /usr/include/python3.6)`
+>`-DPYTHON_INCLUDE_DIR=<the full path to the directory where python3.9's (or higher) header files can be found> (ex: /usr/include/python3.9)`
 
 >`-DPYTHON_EXECUTABLE=<the full path to the python3.6 (or higher) interpreter> (ex: /usr/bin/python)`
 
@@ -219,7 +219,7 @@ If you configured with the default install prefix, you can launch by entering "s
 
 ## <a name="testing"/>Testing Sigil's Python plugin framework
 
-To test if Sigil's Python 3.6+ plugin framework is fully functional, you can do the following:
+To test if Sigil's Python 3.9+ plugin framework is fully functional, you can do the following:
 
 1. download testplugin_v019.zip from [https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v019.zip](https://github.com/Sigil-Ebook/Sigil/raw/master/docs/testplugin_v019.zip)
 2. open Sigil to the normal nearly blank template epub it generates when opened
@@ -236,11 +236,11 @@ There are several configuration and environment variable options that can tailor
 
 ### CMake options
 
--DUSE_QT5=(0|1) Defaults to 0 (use Qt6). Build Sigil using Qt5 or Qt6
+-DUSE_QT5=(0|1) Defaults to 0 (use Qt6). Build Sigil using Qt5 or Qt6. Unavailable starting with Sigil 2.3.0
 
--DQt6_DIR=`<path>` Configures cmake to use a Qt6 installation other than the normal system version of Qt5 (ex. /opt/Qt6.2.3/lib/cmake/Qt6 - the path should alays end in /lib/cmake/Qt6)
+-DCMAKE_PREFIX_PATH=`<path>` Configures cmake to use a Qt6 installation other than the normal system version of Qt6 (ex. /opt/Qt6.2.3/lib/cmake - the path should alays end in /lib/cmake)
 
--DCMAKE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil will be installed to (default is /usr/local)
+-DCMAKE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil will be installed to (default is /usr/local). This is recommended over -DQt6_DIR on Linux.
 
 -DSHARE_INSTALL_PREFIX=`<path>` Configures the prefix where Sigil's support files will be installed to (default is /usr/local meaning the support files will be installed in /usr/local/share/sigil)
 
