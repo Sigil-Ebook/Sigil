@@ -111,10 +111,14 @@ void SearchEditor::SetupSearchEditorTree()
         "<dd>TC - " + tr("Target: Tabbed CSS Files") + "</dd>" +
         "<dd>OP - " + tr("Target: OPF File") + "</dd>" +
         "<dd>NX - " + tr("Target: NCX File") + "</dd>" +
+        "<dd>SV - " + tr("Target: Selected SVG Files") + "</dd>" +
+        "<dd>SJ - " + tr("Target: Selected Javascript Files") + "</dd>" +
+        "<dd>SX - " + tr("Target: Selected Misc XML Files") + "</dd>" +
         "<dd>&nbsp;</dd>" +
         "<dd>DA - " + tr("Option: DotAll") + "</dd>" +
         "<dd>MM - " + tr("Option: Minimal Match") + "</dd>" +
         "<dd>AT - " + tr("Option: Auto Tokenise") + "</dd>" +
+        "<dd>UN - " + tr("Option: Unicode Property") + "</dd>" +
         "<dd>WR - " + tr("Option: Wrap") + "</dd>" + "</dl>" +
         "<dd>TO - " + tr("Option: Text") + "</dd>" + "</dl>";
 
