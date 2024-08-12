@@ -7,8 +7,8 @@ To build Sigil on Windows, you need to get/do the following things:
 1. [Visual Studio 2022+](#vsstudio) The free Community Edition will work fine
 2. [CMake](#cmake) (3.18 or higher)
 3. [Inno Setup](#inno) (Version 6 - unicode version - or higher required)
-4. [Qt6.5.2+/QtWebEngine](#qt6)
-5. [Python 3.11.3+](#python)
+4. [Qt6.7.2+/QtWebEngine](#qt6)
+5. [Python 3.11.9+](#python)
 6. [The Sigil source code](#sigil) (downloaded zipfile or a git clone)
 7. [Building Sigil](#build)
 8. [Advanced stuff](#advanced)
@@ -29,20 +29,20 @@ CMake 3.18 or better is required. Download it from [cmake.org](http://www.cmake.
 ## <a name="inno"/>Inno Setup
 Get the unicode version of version 6+ (6.3 at the time of this writing) from [jrsoftware.org](http://www.jrsoftware.org/isdl.php) make sure you say yes to the Preprocessor option when installing. **Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH**. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.
 
-## <a name="qt6"/>Qt6.5.2+
+## <a name="qt6"/>Qt6.7.2+
 As of Qt6+, there there are no binary Qt installers provided for free. You must compile it yourself from source (applying the appropriate patches from the Sigil Docs directory).
 
 If you want to use the exact, patched versions of Qt6.7.2 and QtWebEngine that I'm using to release Sigil, feel free to download the whole shebang [from my personal repository](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). It's the archive named: Qt6.7.2ci_x64_VS2022.7z. Unzip it with 7-zip and note the location.
 
-Once you have Qt6.5.2+ built/installed/unzipped, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH**
+Once you have Qt6.7.2+ built/installed/unzipped, **make sure its "bin" directory (the one containing "windeployqt.exe) is added to your PATH**
 
-## <a name="python"/>Getting Python 3.11.3+
-**This is important**. You're going to be building the 64-bit version of Sigil, so you need to install the 64-bit version of Python 3.11.3+. 
+## <a name="python"/>Getting Python 3.11.9+
+**This is important**. You're going to be building the 64-bit version of Sigil, so you need to install the 64-bit version of Python 3.11.9+. 
 
 The official Windows Sigil installer uses Python 3.11.9 from [Python.org](http://www.python.org).  Other flavors of Python may work, but you're on your own if they don't. Download it and install it. If you install somewhere that requires special privileges to add/remove files, you may need to use an administator command prompt to install Sigil's extra Python module dependencies. **I recommend installing Python to the default location ($USER/appdata) to avoid that problem. I also recommend allowing the Python installer to add Python to your PATH**. This will make it easier for Sigil to locate the necessary Python pieces it needs, and will make it easy to install the extra Python modules using Pythons "pip" tool. I'm going to assume you've done so for the rest of these instructions.
 
 ### Getting the extra Python module dependencies
-After installing Python 3.11.3+, I recommend making sure Python's pip/setuptools is updated to the latest version. The easiest way to do this is to open a command prompt (the shortcut to the Visual Studio command prompt you made on your desktop [in step 1](#vsstudio) will work fine) and type:
+After installing Python 3.11.9+, I recommend making sure Python's pip/setuptools is updated to the latest version. The easiest way to do this is to open a command prompt (the shortcut to the Visual Studio command prompt you made on your desktop [in step 1](#vsstudio) will work fine) and type:
 
 >`python -m pip install -U pip`
 
@@ -50,17 +50,17 @@ Once finished, you can begin to install the extra modules needed by Sigil.
 
 + six
 + html5lib (1.1+)
-+ regex (2023.3.23+)
++ regex (2024.5.15+)
 + cssselect (1.2.0+)
-+ css-parser (1.0.8+)
-+ chardet (5.1.0+)
-+ dulwich (0.21.3+) dulwich also requires urllib3 and certifi minimums
-+ Pillow (9.5.0+)
-+ lxml (4.9.2+)
-+ Shiboken6 (6.5.2+)
-+ PySide6 (6.5.2+) Use the same version as Shiboken6
-+ Pyside6-Addons (6.5.2+)
-(I've also compiled PySide/Shiboken6 for Qt6.7.2. You can download the wheels from the same place as my custom version of Qt6.5)
++ css-parser (1.0.10+)
++ chardet (5.2.0+)
++ dulwich (0.22.1+) dulwich also requires urllib3 and certifi minimums
++ Pillow (10.3.0+)
++ lxml (5.2.2+)
++ Shiboken6 (6.7.2+)
++ PySide6 (6.7.2+) Use the same version as Shiboken6
++ Pyside6-Addons (6.7.2+)
+(I've also compiled PySide/Shiboken6 for Qt6.7.2. You can download the wheels from the same place as my custom version of Qt6.7.2)
 
 From the same command prompt you updated pip with, install the "six" module with the following command:
 
@@ -74,9 +74,9 @@ etc...
 
 ### Installing Pillow
 
-Other versions of Pillow will probably work fine, but Sigil's installer build is predicated on a v6.2.1 minimum. To install that specific version, use the following pip command.
+Other versions of Pillow will probably work fine, but Sigil's installer build is predicated on a v10.3.0 minimum. To install that specific version, use the following pip command.
 
->`pip install Pillow==9.5.0`
+>`pip install Pillow==10.3.0`
 
 Otherwise:
 
@@ -88,13 +88,13 @@ will suffice.
 
 Install a specific version with pip using the following command
 
->`pip install lxml==4.9.2`
+>`pip install lxml==5.2.2`
 
 ### Installing PySide6.
 
 PyQt5 was replaced with Qt's own Shiboken/PySide6 with Sigil-Qt6
 
->`pip install PySide6==6.5.2 Shiboken6==6.5.2 PySide6-Addons==6.5.2`
+>`pip install PySide6==6.7.2 Shiboken6==6.5.2 PySide6-Addons==6.7.2`
 
 PySide6-Addons provides WebEngine and PDF support
 
@@ -104,7 +104,7 @@ You can clone the Sigil Github repository (Requires a Windows git client - I use
 
 >`git clone https://github.com/Sigil-Ebook/Sigil.git`
 
-Or you can download a specific release's zipfile from Sigil's [releases page](https://github.com/Sigil-Ebook/Sigil/releases/latest) on Github (2.2.1 at the time of this writing).
+Or you can download a specific release's zipfile from Sigil's [releases page](https://github.com/Sigil-Ebook/Sigil/releases/latest) on Github (2.3.0 at the time of this writing).
 
 I recommend the latter method, as the github repository version might not always be stable at any given moment (even though we try hard not to leave it broken).
 
@@ -134,7 +134,7 @@ Obviously change the paths to match where you've actually installed Qt6.5.x+ and
 
 `cmake -G "NMake Makefiles" -DWIN_INSTALLER_USE_64BIT_CRT=1 -DQt6_DIR="C:Qt6.7.2\lib\cmake\Qt6" -DCMAKE_BUILD_TYPE=Release "C:\path\to\sigil-src"`
 
-**Starting with Sigil 2.0.2, the -DUSE_QT6=1 is assumed and no longer used. If you wish to build Sigil with Qt5, you will need to add -DUSE_QT5=1 to the cmake configure command. Even this will be unailable starting with Sigil 2.3.0**
+**Starting with Sigil 2.0.2, the -DUSE_QT6=1 is assumed and no longer used. If you wish to build Sigil with Qt5, you will need to add -DUSE_QT5=1 to the cmake configure command. Even this will be unavailable starting with Sigil 2.3.0**
 
 If this completes successfully, then you're ready to compile Sigil (leave the command prompt open).
 
@@ -148,8 +148,6 @@ You can also use cmake-gui (double-click on cmake-gui in the cmake/bin directory
 #### Advanced CMAKE Options
 
 -DUSE_QT5=(0|1) Defaults to 0 (Use Qt6). Build Sigil using Qt6 or Qt5 (NOTE: this will be ineffective starting with Sigil 2.3.0)
-
--DUSE_ALT_ICONS=(0|1) Defaults to 0. Install/use alternative teal-colored Sigil application icon.
 
 The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version. They can come in handy if you have multiple versions of Python 3 installed on your computer.
 
