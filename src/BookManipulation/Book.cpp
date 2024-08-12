@@ -1314,9 +1314,9 @@ Resource *Book::MergeResources(QList<Resource *> resources)
             QString section_id = Utility::GenerateUniqueId("section", UsedIds);
             UsedIds.insert(section_id);
             if (version.startsWith("3")) {
-                new_bodies.append("<a id=\"" + section_id + "\"></a>\n" + updated_bodies[bookpath]);
+                new_bodies.append("  <a id=\"" + section_id + "\"></a>\n" + updated_bodies[bookpath]);
             } else {
-                new_bodies.append("<p id=\"" + section_id + "\" hidden=\"hidden\"></p>\n" + updated_bodies[bookpath]);
+                new_bodies.append("  <p id=\"" + section_id + "\" style=\"display:none\"></p>\n" + updated_bodies[bookpath]);
             }
             section_id_map[bookpath] = section_id;
         }
