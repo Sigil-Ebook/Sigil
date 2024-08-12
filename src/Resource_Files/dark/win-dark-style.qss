@@ -23,7 +23,6 @@ QDockWidget::float-button, QDockWidget::close-button {
   border: transparent;
   background: transparent; 
   padding: 0;
-  icon-size: 9px;
 }
 
 QDockWidget {
