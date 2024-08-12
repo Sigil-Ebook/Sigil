@@ -1260,7 +1260,6 @@ Resource *Book::MergeResources(QList<Resource *> resources)
         // return the nav_resource as the failed resource
         return nav_resource;
     }
-
     // nothing to merge
     if (resources.size() < 2) return NULL;
 
@@ -1282,12 +1281,12 @@ Resource *Book::MergeResources(QList<Resource *> resources)
     }
 
     Resource *sink_resource = resources.at(0);
+    QString version = sink_resource->GetEpubVersion(); 
     HTMLResource *sink_html_resource = qobject_cast<HTMLResource *>(sink_resource);
-
+    
     const QList<QPair<QString, QString>> &bodies = QtConcurrent::blockingMapped(resources, 
-                                                                                std::bind(UpdateAndExtractBodyInOneFile, 
-                                                                                          std::placeholders::_1,
-                                                                                          merged_bookpaths));
+                                                       std::bind(UpdateAndExtractBodyInOneFile, std::placeholders::_1,
+                                                       merged_bookpaths));
     // collect the outputs from the many threads
     QHash<QString, QString> updated_bodies;
     for (int i = 0; i < bodies.count(); ++i) {
@@ -1314,7 +1313,11 @@ Resource *Book::MergeResources(QList<Resource *> resources)
         } else {
             QString section_id = Utility::GenerateUniqueId("section", UsedIds);
             UsedIds.insert(section_id);
-            new_bodies.append("  <a id=\"" + section_id + "\"></a>\n" + updated_bodies[bookpath]);
+            if (version.startsWith("3")) {
+                new_bodies.append("<a id=\"" + section_id + "\"></a>\n" + updated_bodies[bookpath]);
+            } else {
+                new_bodies.append("<p id=\"" + section_id + "\" hidden=\"hidden\"></p>\n" + updated_bodies[bookpath]);
+            }
             section_id_map[bookpath] = section_id;
         }
         i++;
@@ -1325,7 +1328,6 @@ Resource *Book::MergeResources(QList<Resource *> resources)
 
     // Anchor Updates should handle updating all links in the nav properly
     // But if this is an epub2, then we must update the guide entries as well
-    QString version = sink_resource->GetEpubVersion(); 
     if (version.startsWith("2")) {
         GetOPF()->UpdateGuideAfterMerge(resources, section_id_map);
     }
