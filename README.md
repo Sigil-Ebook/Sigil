@@ -22,6 +22,8 @@ Links
 
 * Sigil User Guide is located at https://github.com/Sigil-Ebook/sigil-user-guide/releases/latest
 
+* An online version of the User Guide is available at: https://sigil-ebook.com/sigil-user-guide
+
 Issue Tracker
 =============
 
