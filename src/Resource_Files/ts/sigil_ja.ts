@@ -1765,147 +1765,147 @@ Do you want to save your changes?</source>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="587"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="588"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>この位置には終了タグを挿入できません。</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="595"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="596"/>
         <source>No open tags found at this position.</source>
         <translation>この位置に開始タグが見つかりません。</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1501"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1502"/>
         <source>Add To Default Dictionary</source>
         <translation>デフォルトの辞書に追加</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1514"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1515"/>
         <source>Add To Dictionary</source>
         <translation>辞書に追加</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1531"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1532"/>
         <source>Ignore</source>
         <translation>無視</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1593"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1594"/>
         <source>Reformat CSS</source>
         <translation>CSSを再フォーマット</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1595"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1596"/>
         <source>Multiple Lines Per Style</source>
         <translation>各スタイルを複数行で定義</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1596"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1597"/>
         <source>Single Line Per Style</source>
         <translation>各スタイルを1行で定義</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1622"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1623"/>
         <source>Rename Selected Class</source>
         <translation>選択したクラス名を変更</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1644"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1645"/>
         <source>Reformat HTML</source>
         <translation>HTMLを再フォーマット</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1646"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1647"/>
         <source>Mend and Prettify Code</source>
         <translation>コードを修正して整形表示</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1647"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1648"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>すべてのHTMLファイルで、コードを修正して整形表示</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1648"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1649"/>
         <source>Mend Code</source>
         <translation>コードを修正</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1649"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1650"/>
         <source>Mend Code - All HTML Files</source>
         <translation>すべてのHTMLファイルで、コードを修正</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1679"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1680"/>
         <source>Go To Link Or Style</source>
         <translation>リンクまたはスタイルに進む</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1701"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1702"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>行の折り返しモードの切り替え</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1723"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1724"/>
         <source>View Image</source>
         <translation>画像を表示</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1724"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1725"/>
         <source>Open Tab For Image</source>
         <translation>画像をタブで開く</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1750"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1751"/>
         <source>Mark Selected Text</source>
         <translation>選択されたテキストをマークする</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1752"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1753"/>
         <source>Unmark Marked Text</source>
         <translation>マークされたテキストのマークを外す</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1778"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1779"/>
         <source>Clips</source>
         <translation>クリップ</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1788"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1789"/>
         <source>Add To Clips</source>
         <translation>クリップに追加</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1917"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1918"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>この機能を使用するには、HTML開始タグ内にいる必要があります。</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1927"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1928"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>この機能を使用するには、HTML開始タグの内側にいる必要があります。</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1991"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1992"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>選択されたテキストは、有効なクラス名ではありません。</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1998"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1999"/>
         <source>Rename Class</source>
         <translation>クラス名を変更</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1999"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2000"/>
         <source>Enter new class name</source>
         <translation>新しいクラス名を入力してください。</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2019"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2020"/>
         <source>Class renamed.</source>
         <translation>クラス名が変更されました。</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2021"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2022"/>
         <source>Class rename aborted.</source>
         <translation>クラス名の変更が中止されました。</translation>
     </message>
@@ -17711,196 +17711,216 @@ including entries in selected groups.</source>
         <translation>ターゲット: NCXファイル</translation>
     </message>
     <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="114"/>
+        <source>Target: Selected SVG Files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
+        <source>Target: Selected Javascript Files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="116"/>
+        <source>Target: Selected Misc XML Files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
         <source>Option: DotAll</source>
         <translation>オプション: DotAll</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="116"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
         <source>Option: Minimal Match</source>
         <translation>オプション: 最小一致</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="117"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="120"/>
         <source>Option: Auto Tokenise</source>
         <translation>オプション: 自動トークン化</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="121"/>
+        <source>Option: Unicode Property</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="122"/>
         <source>Option: Wrap</source>
         <translation>オプション: 折り返し</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="123"/>
         <source>Option: Text</source>
         <translation>オプション: テキスト</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="129"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="129"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
         <source>Save your changes.</source>
         <translation>変更点を保存します。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="129"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
         <translation>Sigilの他のインスタンスが実行されている場合は、変更内容が自動的に更新されます。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="146"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="157"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="150"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="161"/>
         <source>Cannot save entries.</source>
         <translation>エントリーを保存できません。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="235"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="239"/>
         <source>Saved Searches loaded from file.</source>
         <translation>ファイルから読み込まれた検索条件を保存しました。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="272"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="276"/>
         <source>You cannot select more than one entry when using this action.</source>
         <translation>このアクションを使用する場合、複数のエントリーを選択することはできません。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="282"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="286"/>
         <source>You cannot select a group for this action.</source>
         <translation>このアクションのグループは選択できません。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="359"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="363"/>
         <source>You cannot select an entry and a group containing the entry.</source>
         <translation>エントリーおよびエントリーを含むグループは選択できません。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="475"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="479"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
         <translation>グループのコピーや切り取りはできません。ドラッグアンドドロップを使用してください。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="552"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="556"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="552"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="556"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>すべてのエントリーを再読み込みしますか?これにより、保存されていない変更が上書きされます。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="567"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="666"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="571"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="670"/>
         <source>Sigil INI files (*.ini)</source>
         <translation>Sigil INIファイル (*.ini)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="568"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="667"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="572"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="671"/>
         <source>CSV files (*.csv)</source>
         <translation>CSVファイル (*.csv)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="569"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="668"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="573"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="672"/>
         <source>Text files (*.txt)</source>
         <translation>テキストファイル (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="582"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="586"/>
         <source>Import Search Entries</source>
         <translation>検索エントリーのインポート</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="682"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="686"/>
         <source>Export Selected Searches</source>
         <translation>選択した検索条件をエクスポート</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="876"/>
         <source>Add Entry</source>
         <translation>エントリーを追加</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="877"/>
         <source>Add Group</source>
         <translation>グループを追加</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="878"/>
         <source>Edit</source>
         <translation>編集</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="879"/>
         <source>Cut</source>
         <translation>切り取り </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="880"/>
         <source>Copy</source>
         <translation>コピー</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="877"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="881"/>
         <source>Paste</source>
         <translation>貼り付け</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="882"/>
         <source>Delete</source>
         <translation>削除</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="883"/>
         <source>Import</source>
         <translation>インポート</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="880"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="884"/>
         <source>Reload</source>
         <translation>再読み込み</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="881"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="885"/>
         <source>Export</source>
         <translation>エクスポート</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="882"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="886"/>
         <source>Export All</source>
         <translation>すべてエクスポート</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="883"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="887"/>
         <source>Collapse All</source>
         <translation>すべて閉じる</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="888"/>
         <source>Expand All</source>
         <translation>すべて展開</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="889"/>
         <source>Fill Controls</source>
         <translation>フィルコントロール</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="966"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="970"/>
         <source>Search entries saved.</source>
         <translation>検索エントリーが保存されました。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="995"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="999"/>
         <source>Sigil: Saved Searches</source>
         <translation>Sigil: 保存された検索</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="996"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="1000"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
         <translation>検索エントリーが変更されている可能性があります。

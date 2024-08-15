@@ -1137,7 +1137,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1886"/>
         <source>Validate with W3C</source>
-        <translation>Перевірка за допомогою W3C</translation>
+        <translation>Перевірити на сайті W3C</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1888"/>
@@ -1764,147 +1764,147 @@ Do you want to save your changes?</source>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="587"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="588"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>Неможливо вставити закриваючий тег у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="595"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="596"/>
         <source>No open tags found at this position.</source>
         <translation>У цій позиції не знайдено відкритих тегів.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1501"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1502"/>
         <source>Add To Default Dictionary</source>
         <translation>Додати до Словника за замовчуванням</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1514"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1515"/>
         <source>Add To Dictionary</source>
         <translation>Додати до Словника</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1531"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1532"/>
         <source>Ignore</source>
         <translation>Ігнорувати</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1593"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1594"/>
         <source>Reformat CSS</source>
         <translation>Переформатувати CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1595"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1596"/>
         <source>Multiple Lines Per Style</source>
         <translation>Багаторядковий Стиль</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1596"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1597"/>
         <source>Single Line Per Style</source>
         <translation>Однорядковий Стиль</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1622"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1623"/>
         <source>Rename Selected Class</source>
         <translation>Перейменувати вибраний клас</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1644"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1645"/>
         <source>Reformat HTML</source>
         <translation>Переформатувати HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1646"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1647"/>
         <source>Mend and Prettify Code</source>
         <translation>Виправити та відформатувати Код</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1647"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1648"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Виправити та відформатувати Код – Всі HTML файли</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1648"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1649"/>
         <source>Mend Code</source>
         <translation>Виправити Код</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1649"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1650"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Виправити Код – Всі HTML файли</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1679"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1680"/>
         <source>Go To Link Or Style</source>
         <translation>Перейти до посилання або стилю</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1701"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1702"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>Перемикач режиму перенесення рядків</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1723"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1724"/>
         <source>View Image</source>
         <translation>Перегляд зображення</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1724"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1725"/>
         <source>Open Tab For Image</source>
         <translation>Відкрити вкладку для зображення</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1750"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1751"/>
         <source>Mark Selected Text</source>
         <translation>Позначити вибраний текст</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1752"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1753"/>
         <source>Unmark Marked Text</source>
         <translation>Зняти позначку з відміченого тексту</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1778"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1779"/>
         <source>Clips</source>
         <translation>Фрагменти</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1788"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1789"/>
         <source>Add To Clips</source>
         <translation>Додати до фрагментів</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1917"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1918"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Щоб скористатися цією функцією, Ви повинні знаходитися у відкриваючому HTML-тегу.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1927"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1928"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Щоб скористатися цією функцією, Ви повинні знаходитися всередині відкриваючого HTML-тегу.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1991"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1992"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>Вибраний текст не є допустимою назвою класу.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1998"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1999"/>
         <source>Rename Class</source>
         <translation>Перейменувати клас</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1999"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2000"/>
         <source>Enter new class name</source>
         <translation>Введіть нову назву класу</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2019"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2020"/>
         <source>Class renamed.</source>
         <translation>Клас перейменовано.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2021"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2022"/>
         <source>Class rename aborted.</source>
         <translation>Перейменування класу перервано.</translation>
     </message>
@@ -9324,12 +9324,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1534"/>
         <source>Rebase OPF Manifest IDs on Current Filenames</source>
-        <translation type="unfinished"/>
+        <translation>Замінити ID файлів їх іменами (у OPF)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1537"/>
         <source>Updates each Manifest ID to reflect its current file name</source>
-        <translation type="unfinished"/>
+        <translation>Оновлюється кожен ID у маніфесті до відповідного поточного імені файлу.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1546"/>
@@ -9682,7 +9682,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1841"/>
         <source>Well-Formed Check &amp;EPUB</source>
-        <translation>Перевірка правильності формату &amp;EPUB</translation>
+        <translation>Перевірити правильність формату &amp;EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1844"/>
@@ -9697,7 +9697,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1852"/>
         <source>Validate Stylesheets With &amp;W3C</source>
-        <translation>Перевірка Таблиць Стилів на &amp;W3C</translation>
+        <translation>Перевірити Таблиці Стилів на сайті &amp;W3C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1855"/>
@@ -9715,7 +9715,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1868"/>
         <source>&amp;Spellcheck...</source>
-        <translation>&amp;Перевірка орфографії…</translation>
+        <translation>&amp;Перевірити орфографію…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1871"/>
@@ -11358,12 +11358,12 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="788"/>
         <source>Rebase cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Заміна ID скасована: %1, помилки у структурі XML.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="796"/>
         <source>Rebase completed.</source>
-        <translation type="unfinished"/>
+        <translation>Заміна ID у файлі OPF виконана успішно. </translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="905"/>
@@ -17710,196 +17710,216 @@ including entries in selected groups.</source>
         <translation>Ціль: файл NCX</translation>
     </message>
     <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="114"/>
+        <source>Target: Selected SVG Files</source>
+        <translation>Ціль: Вибрані файли SVG</translation>
+    </message>
+    <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
+        <source>Target: Selected Javascript Files</source>
+        <translation>Ціль: Вибрані Javascript файли</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="116"/>
+        <source>Target: Selected Misc XML Files</source>
+        <translation>Ціль: Вибрані XML файли у каталозі Misc</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
         <source>Option: DotAll</source>
         <translation>Варіант: DotAll</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="116"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
         <source>Option: Minimal Match</source>
         <translation>Варіант: Мінімальний збіг</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="117"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="120"/>
         <source>Option: Auto Tokenise</source>
         <translation>Варіант: Авторозбиття</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="121"/>
+        <source>Option: Unicode Property</source>
+        <translation>Опція: Властивості Unicode</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="122"/>
         <source>Option: Wrap</source>
         <translation>Варіант: Перенос</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="123"/>
         <source>Option: Text</source>
         <translation>Варіант: Текст</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="129"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="129"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
         <source>Save your changes.</source>
         <translation>Зберегти зміни.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="129"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
         <translation>Якщо запущені інші екземпляри Sigil, вони будуть автоматично оновлені з Вашими змінами.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="146"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="157"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="150"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="161"/>
         <source>Cannot save entries.</source>
         <translation>Неможливо зберегти внесені записи.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="235"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="239"/>
         <source>Saved Searches loaded from file.</source>
         <translation>Збережені пошукові запити завантажені з файлу.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="272"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="276"/>
         <source>You cannot select more than one entry when using this action.</source>
         <translation>Ви не можете вибрати більше одного запиту при використанні цієї дії.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="282"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="286"/>
         <source>You cannot select a group for this action.</source>
         <translation>Ви не можете вибрати групу для цієї дії.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="359"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="363"/>
         <source>You cannot select an entry and a group containing the entry.</source>
         <translation>Ви не можете вибрати запит та групу, що містить запит.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="475"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="479"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
         <translation>Ви не можете копіювати або вирізати групи – використовуйте drag&amp;drop.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="552"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="556"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="552"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="556"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>Ви впевнені, що хочете перезавантажити всі запити? Це перезапише всі незбережені зміни.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="567"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="666"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="571"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="670"/>
         <source>Sigil INI files (*.ini)</source>
         <translation>Файли Sigil INI (*.ini)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="568"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="667"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="572"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="671"/>
         <source>CSV files (*.csv)</source>
         <translation>Файли CSV (*.csv)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="569"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="668"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="573"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="672"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="582"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="586"/>
         <source>Import Search Entries</source>
         <translation>Імпорт пошукових запитів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="682"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="686"/>
         <source>Export Selected Searches</source>
         <translation>Експорт вибраних пошукових запитів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="876"/>
         <source>Add Entry</source>
         <translation>Додати запит</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="877"/>
         <source>Add Group</source>
         <translation>Додати Групу</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="878"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="879"/>
         <source>Cut</source>
         <translation>Вирізати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="880"/>
         <source>Copy</source>
         <translation>Копіювати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="877"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="881"/>
         <source>Paste</source>
         <translation>Вставити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="882"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="883"/>
         <source>Import</source>
         <translation>Імпорт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="880"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="884"/>
         <source>Reload</source>
         <translation>Перезавантажити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="881"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="885"/>
         <source>Export</source>
         <translation>Експорт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="882"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="886"/>
         <source>Export All</source>
         <translation>Експортувати все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="883"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="887"/>
         <source>Collapse All</source>
         <translation>Згорнути все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="888"/>
         <source>Expand All</source>
         <translation>Розгорнути все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="889"/>
         <source>Fill Controls</source>
         <translation>Заповнити параметри</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="966"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="970"/>
         <source>Search entries saved.</source>
         <translation>Пошукові запити збережені.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="995"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="999"/>
         <source>Sigil: Saved Searches</source>
         <translation>Sigil: Збережені пошукові запити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="996"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="1000"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
         <translation>Пошукові запити були змінені.
