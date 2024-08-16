@@ -1,4 +1,4 @@
-pre-2.3.0
+Sigil-2.3.0
    New Features
      - removed support for building Sigil with Qt5 as our code had become a rats nest of qt version ifdefs
            See our git branch "qt5final" for the very last buildable version of Sigil under Qt5
