@@ -372,13 +372,15 @@ elseif (MSVC)
     set( MAIN_PACKAGE_DIR ${TEMP_PACKAGE_DIR}/Sigil )
     set( OUTPUT_PACKAGE_DIR ${CMAKE_BINARY_DIR}/installer )
     set( PYTHON_DEST_DIR ${MAIN_PACKAGE_DIR}/python3 )
-    set( VCREDIST_VER "2022" )
     # Qt6 gets shiny new(ish) teal icons
     set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_alt )
 
     # ISS conf file for the Inno Setup compiler
     # We first create a CMake configured version of the ISS file,
     # and then we copy it to the temp folder every time we need to build the installer.
+    if ( NOT DEFINED INNO_COMP )
+        set( INNO_COMP zip/7 )
+    endif()
     set( ISS_MAIN_LOCATION ${CMAKE_SOURCE_DIR}/installer/Sigil.iss  )
     set( ISS_CONFIGURED_LOCATION ${CMAKE_BINARY_DIR}/Sigil_configured.iss )
     set( ISS_TEMP_LOCATION ${CMAKE_BINARY_DIR}/temp_folder/Sigil_configured.iss )
@@ -523,23 +525,6 @@ elseif (MSVC)
     # Copy the application executable
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
                         COMMAND cmake -E copy ${EXE_PATH} ${MAIN_PACKAGE_DIR} )
-
-    # We need to copy the CRT dlls
-    # Add -DWIN_INSTALLER_USE_64BIT_CRT=1 to the cmake call if you want to build
-    # an installer for the x64 verison of Sigil. This will make sure that the
-    # correct CRT libs are included in the installer.
-    add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD COMMAND cmake -E make_directory ${TEMP_PACKAGE_DIR}/vendor/ )
-    if ( WIN_INSTALLER_USE_64BIT_CRT )
-        message( STATUS "Using the 64 bit CRT in the Sigil Windows installer" )
-        message( STATUS "Ensure vcredist_x64.exe for VS${VCREDIST_VER} has been placed in installer/ if you plan on running makeinstaller" )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist_x64.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist.exe )
-    else()
-        message( STATUS "Using the 32 bit CRT in the Sigil Windows installer" )
-        message( STATUS "Ensure vcredist_x86.exe for VS${VCREDIST_VER} has been placed in installer/ if you plan on running makeinstaller" )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
-            COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/installer/vcredist_x86.exe ${TEMP_PACKAGE_DIR}/vendor/vcredist.exe )
-    endif()
 
     # Copy the Changelog
     add_custom_command( TARGET ${TARGET_FOR_COPY} PRE_BUILD
