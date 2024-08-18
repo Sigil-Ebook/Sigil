@@ -1637,6 +1637,8 @@ void MainWindow::ShowMessageOnStatusBar(const QString &message,
 
 void MainWindow::ShowLastOpenFileWarnings()
 {
+    if (m_inShowLastOpenWarnings) return;
+    m_inShowLastOpenWarnings = true;
     if (!m_LastOpenFileWarnings.isEmpty()) {
         foreach(QString info, m_LastOpenFileWarnings) {
             QString msg;
@@ -1653,6 +1655,7 @@ void MainWindow::ShowLastOpenFileWarnings()
         }
         m_LastOpenFileWarnings.clear();
     }
+    m_inShowLastOpenWarnings = false;
 }
 
 void MainWindow::showEvent(QShowEvent *event)

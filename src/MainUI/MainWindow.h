@@ -1079,6 +1079,8 @@ private:
     bool m_UsingAutomate;
     QStringList m_AutomateLog;
     QString m_AutomatePluginParameter;
+
+    bool m_inShowLastOpenWarnings = false;
     
     /**
      * Holds all the widgets Qt Designer created for us.
