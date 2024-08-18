@@ -110,6 +110,7 @@ jobs:
       working-directory: ${{runner.workspace}}\build
       if: "contains(github.event.head_commit.message, '[deploy]')"
       run: |
+        set PATH=C:\%PYTHON%;%INNO%;${{runner.workspace}}\%QT%\bin;%PATH%
         call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
         ninja -j2 makeinstaller
 
