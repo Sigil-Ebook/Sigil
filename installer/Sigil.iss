@@ -17,7 +17,6 @@ UninstallDisplayIcon={app}\{#AppName}.exe
 AppPublisher=Sigil-Ebook
 AppPublisherURL=https://github.com/Sigil-Ebook/Sigil
 Compression=${INNO_COMP}
-;SolidCompression=yes
 OutputDir=..\installer
 LicenseFile=${LICENSE_LOCATION}
 ; Lowest supported windowsversion
