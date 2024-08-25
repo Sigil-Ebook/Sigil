@@ -1267,6 +1267,19 @@ void BookBrowser::RenameSelected()
 
     template_name = rename_template.GetTemplateName();
 
+    if (!template_name.isEmpty()) {
+        // Verify the template name does not have any forbidden chars in the name
+        const QString badchars = "<>:\"/\\|?*";
+	bool has_bad_chars = false;
+	foreach(QChar ch, template_name) {
+	    has_bad_chars = has_bad_chars || badchars.contains(ch);
+	}
+        if (has_bad_chars) {
+	    Utility::DisplayStdErrorDialog(tr("Filenames can not contain these characters: \"%1\".").arg(badchars));
+	    return;
+	}
+    }
+
     // Save the template for later - save now in case of abort before final save
     settings.setRenameTemplate(template_name);
 
