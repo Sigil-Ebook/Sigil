@@ -1644,9 +1644,14 @@ void MainWindow::ShowLastOpenFileWarnings()
             QString msg;
             QString details;
             if (!info.isEmpty()) {
-                QStringList warning = info.split(QChar(31));
-                msg = warning[0];
-                details = warning[1];
+                if (info.contains(QChar(31))) {
+                    QStringList warning = info.split(QChar(31), Qt::KeepEmptyParts);
+                    msg = warning[0];
+                    details = warning[1];
+                } else {
+                    msg = info;
+                    details = "";
+                }
                 Utility::DisplayStdWarningDialog( 
                 "<p><b>" %
                 tr("Warning: ") % msg %
