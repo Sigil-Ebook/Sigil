@@ -4898,6 +4898,16 @@ void MainWindow::ReadSettings()
     bool MaximizedState = settings.value("maximized", false).toBool();
     bool FullScreenState = settings.value("fullscreen", false).toBool();
 
+    // The positions of all the toolbars and dock widgets.
+    // The dockwidgets  will only "restore" properly if the widget already
+    // has the proper geometry to match what was saved and has been
+    // properly resized (see QTBUG-46620 and QTBUG-16252)
+    // So read in now but delay restore until the first time the widget is made active
+    m_LastState = settings.value("toolbars",QByteArray()).toByteArray();
+
+    // Work around saved state restore bug with Find and Replace
+    m_FRVisible = settings.value("frvisible", false).toBool();
+
     QByteArray lastWindowSize = settings.value("geometry", QByteArray()).toByteArray();
     if (!lastWindowSize.isEmpty()) restoreGeometry(lastWindowSize);
 
@@ -4912,15 +4922,6 @@ void MainWindow::ReadSettings()
 
     DWINGEO DebugCurrentWidgetSizes();
 
-    // The positions of all the toolbars and dock widgets
-    // The dockwidgets  will only "restore" properly if the widget already
-    // has the proper geometry to match what was saved and has been
-    // properly resized (see QTBUG-46620 and QTBUG-16252)
-    // So delay restore until the first time the widget is made active
-    m_LastState = settings.value("toolbars",QByteArray()).toByteArray();
-    
-    // Work around saved state restore bug with Find and Replace
-    m_FRVisible = settings.value("frvisible", false).toBool();
 
     // The last folder used for saving and opening files
     m_LastFolderOpen  = settings.value("lastfolderopen", QDir::homePath()).toString();
