@@ -253,8 +253,8 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
         if (extract_metadata) {
             m_Book->GetOPF()->SetDCMetadata(originalMetadata);
         }
-        AddLoadWarning(QObject::tr("The OPF file does not contain a valid spine.") % "\n" %
-                       QObject::tr("Sigil has created a new one for you.") % "\n" %
+        AddLoadWarning(QObject::tr("The OPF file does not contain a valid spine.") % "<br>" %
+                       QObject::tr("Sigil has created a new one for you.") % "<br>" %
                        QObject::tr("Please verify and correct the OPF Spine order."));
     }
 
@@ -936,8 +936,8 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
             resource->SetSavedDate(std::get<2>(ainfo));
 	    }
         m_NCXNotInManifest = false;
-        load_warning = QObject::tr("The OPF file did not identify the NCX file correctly.") + "\n" + 
-                               " - "  +  QObject::tr("Sigil has used the following file as the NCX:") + 
+        load_warning = QObject::tr("The OPF file did not identify the NCX file correctly.") + "<br>" + 
+                               QObject::tr("Sigil has used the following file as the NCX:") + 
                                QString(" %1").arg(m_NcxCandidates[ m_NCXId ]);
 
         AddLoadWarning(load_warning);
@@ -960,8 +960,8 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
 
     m_NCXNotInManifest = true;
 
-    load_warning = QObject::tr("The OPF file does not contain an NCX file.") + "\n" + 
-                               " - " +  QObject::tr("Sigil has created a new one for you.");
+    load_warning = QObject::tr("The OPF file does not contain an NCX file.") + "<br>" + 
+                               QObject::tr("Sigil has created a new one for you.");
 
     m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() + "/toc.ncx";
 
