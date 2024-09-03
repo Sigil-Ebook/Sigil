@@ -5317,6 +5317,13 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
        Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
                                              .arg(QDir::toNativeSeparators(fullfilepath))
                                              .arg(e.what()));
+   } catch (const std::exception &e) {
+       ShowMessageOnStatusBar();
+       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
+       QApplication::restoreOverrideCursor();
+       Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
+                                             .arg(QDir::toNativeSeparators(fullfilepath))
+                                             .arg(e.what()));
    } catch (QString& err) {
        ShowMessageOnStatusBar();
        // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
