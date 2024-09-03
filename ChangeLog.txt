@@ -3,6 +3,7 @@ Sigil-2.3.1
      - fix to prevent double epub load warnings
      - fix to prevent load warnings without details from causing a crash
      - fix to prevent rename templates from using characters forbidden in file names and paths
+     - fix to better restoreState when MainWindow is Maximized of FullScreen
 
 
 Sigil-2.3.0
