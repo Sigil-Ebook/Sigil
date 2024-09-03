@@ -1,3 +1,10 @@
+Sigil-2.3.1
+   Bug Fixes
+     - fix to prevent double epub load warnings
+     - fix to prevent load warnings without details from causing a crash
+     - fix to prevent rename templates from using characters forbidden in file names and paths
+
+
 Sigil-2.3.0
    New Features
      - removed support for building Sigil with Qt5 as our code had become a rats nest of qt version ifdefs
