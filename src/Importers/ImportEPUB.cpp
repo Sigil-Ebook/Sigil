@@ -878,24 +878,26 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
 
     // handle the normal/proper case of an ncx id on the spine matching an ncx candidate that exists
     if (!m_NCXId.isEmpty() && m_NcxCandidates.contains(m_NCXId)) {
-        QString bookpath;
         ncx_href = m_NcxCandidates[ m_NCXId ];
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
         m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
-        bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
-        QString ncx_text = CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath),
-                                                   "application/x-dtbncx+xml");
-        NCXResource* resource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
-        resource->SetText(ncx_text);
-        resource->SaveToDisk(false);
-        if (m_FileInfoFromZip.contains(bookpath)) {
-            std::tuple<size_t, QString, QString> ainfo = m_FileInfoFromZip[bookpath];
-            resource->SetSavedSize(std::get<0>(ainfo));
-            resource->SetSavedCRC32(std::get<1>(ainfo));
-            resource->SetSavedDate(std::get<2>(ainfo));
-	    }
-        m_NCXNotInManifest = false;
-        return;
+        if (QFile::exists(m_NCXFilePath)) {
+            QString ncx_text = Utility::ReadUnicodeTextFile(m_NCXFilePath);
+            ncx_text = CleanSource::ProcessXML(ncx_text, "application/x-dtbncx+xml");
+            QString bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
+            NCXResource* resource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
+            resource->SetText(ncx_text);
+            resource->SaveToDisk(false);
+            if (m_FileInfoFromZip.contains(bookpath)) {
+                std::tuple<size_t, QString, QString> ainfo = m_FileInfoFromZip[bookpath];
+                resource->SetSavedSize(std::get<0>(ainfo));
+                resource->SetSavedCRC32(std::get<1>(ainfo));
+                resource->SetSavedDate(std::get<2>(ainfo));
+	        }
+            m_NCXNotInManifest = false;
+            return;
+        }
+        // No NCX file exists at the path specified in the manifest and pointed to by spine toc
     }
 
     bool found = false;
@@ -923,25 +925,29 @@ void ImportEPUB::LocateOrCreateNCX(const QString &ncx_id_on_spine)
         ncx_href = m_NcxCandidates[ m_NCXId ];
         m_NCXFilePath = QFileInfo(m_OPFFilePath).absolutePath() % "/" % ncx_href;
         m_NCXFilePath = Utility::resolveRelativeSegmentsInFilePath(m_NCXFilePath, "/");
-        QString ncx_text = CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath),
-                                                   "application/x-dtbncx+xml");
-        QString bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
-        NCXResource* resource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
-        resource->SetText(ncx_text);
-        resource->SaveToDisk(false);
-        if (m_FileInfoFromZip.contains(bookpath)) {
-            std::tuple<size_t, QString, QString> ainfo = m_FileInfoFromZip[bookpath];
-            resource->SetSavedSize(std::get<0>(ainfo));
-            resource->SetSavedCRC32(std::get<1>(ainfo));
-            resource->SetSavedDate(std::get<2>(ainfo));
-	    }
-        m_NCXNotInManifest = false;
-        load_warning = QObject::tr("The OPF file did not identify the NCX file correctly.") + "\n" + 
+        if (QFile::exists(m_NCXFilePath)) {
+            QString ncx_text = CleanSource::ProcessXML(Utility::ReadUnicodeTextFile(m_NCXFilePath),
+                                                       "application/x-dtbncx+xml");
+            QString bookpath = m_NCXFilePath.right(m_NCXFilePath.length() - m_ExtractedFolderPath.length() - 1);
+            NCXResource* resource = m_Book->GetFolderKeeper()->AddNCXToFolder(m_PackageVersion, bookpath);
+            resource->SetText(ncx_text);
+            resource->SaveToDisk(false);
+            if (m_FileInfoFromZip.contains(bookpath)) {
+                std::tuple<size_t, QString, QString> ainfo = m_FileInfoFromZip[bookpath];
+                resource->SetSavedSize(std::get<0>(ainfo));
+                resource->SetSavedCRC32(std::get<1>(ainfo));
+                resource->SetSavedDate(std::get<2>(ainfo));
+	        }
+            m_NCXNotInManifest = false;
+            load_warning = QObject::tr("The OPF file did not identify the NCX file correctly.") + "\n" + 
                                " - "  +  QObject::tr("Sigil has used the following file as the NCX:") + 
                                QString(" %1").arg(m_NcxCandidates[ m_NCXId ]);
 
-        AddLoadWarning(load_warning);
-        return;
+            AddLoadWarning(load_warning);
+            return;
+        }
+        // again file with ncx extension in manifest is missing
+        found = false;
     }
 
     // An NCX is only required in epub2 so punt here if epub3
