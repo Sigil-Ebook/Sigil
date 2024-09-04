@@ -4912,9 +4912,9 @@ void MainWindow::ReadSettings()
     if (!lastWindowSize.isEmpty()) restoreGeometry(lastWindowSize);
 
     if (MaximizedState) {
-        showMaximized();
+        // showMaximized();
     } else if (FullScreenState) {
-        showFullScreen();
+        // showFullScreen();
     }
 
     DWINGEO qDebug() << "------";
