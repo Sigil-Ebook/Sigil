@@ -5298,7 +5298,6 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
         }
    } catch (FileEncryptedWithDrm&) {
        ShowMessageOnStatusBar();
-       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
        QApplication::restoreOverrideCursor();
        CreateNewBook();
        Utility::DisplayStdErrorDialog(
@@ -5306,7 +5305,6 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
               "Sigil cannot open such files."));
    } catch (EPUBLoadParseError& epub_load_error) {
        ShowMessageOnStatusBar();
-       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
        QApplication::restoreOverrideCursor();
        CreateNewBook();
        const QString errors = QString(epub_load_error.what());
@@ -5314,7 +5312,6 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
            tr("Cannot load EPUB: %1").arg(QDir::toNativeSeparators(fullfilepath)), errors);
    } catch (const std::runtime_error &e) {
        ShowMessageOnStatusBar();
-       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
        QApplication::restoreOverrideCursor();
        CreateNewBook();
        Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
@@ -5322,17 +5319,10 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
                                              .arg(e.what()));
    } catch (QString& err) {
        ShowMessageOnStatusBar();
-       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
        QApplication::restoreOverrideCursor();
        CreateNewBook();
        Utility::DisplayStdErrorDialog(err);
-    } catch (...) {
-       ShowMessageOnStatusBar();
-       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
-       QApplication::restoreOverrideCursor();
-       CreateNewBook();
-       Utility::DisplayExceptionErrorDialog(tr("Unknown Exception Type"));
-    } 
+    }
     // If we got to here some sort of error occurred while loading the file
     // and potentially has left the GUI in a nasty state (like on initial startup)
     // Fallback to displaying a new book instead so GUI integrity is maintained.
