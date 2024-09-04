@@ -208,7 +208,9 @@ void GeneralSettingsWidget::setXEditorPath()
                                                        NAME_FILTER,
                                                        0,
                                                        options);
-    ui.lineEdit7->setText(xeditorPath);
+    if (!xeditorPath.isEmpty()) {
+        ui.lineEdit7->setText(xeditorPath);
+    }
 }
 
 void GeneralSettingsWidget::XEditorPathChanged()
