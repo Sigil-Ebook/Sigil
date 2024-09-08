@@ -4912,9 +4912,9 @@ void MainWindow::ReadSettings()
     if (!lastWindowSize.isEmpty()) restoreGeometry(lastWindowSize);
 
     if (MaximizedState) {
-        showMaximized();
+        // showMaximized();
     } else if (FullScreenState) {
-        showFullScreen();
+        // showFullScreen();
     }
 
     DWINGEO qDebug() << "------";
@@ -5298,36 +5298,34 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
         }
    } catch (FileEncryptedWithDrm&) {
        ShowMessageOnStatusBar();
-       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
        QApplication::restoreOverrideCursor();
+       CreateNewBook();
        Utility::DisplayStdErrorDialog(
            tr("The creator of this file has encrypted it with DRM. "
               "Sigil cannot open such files."));
    } catch (EPUBLoadParseError& epub_load_error) {
        ShowMessageOnStatusBar();
-       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
        QApplication::restoreOverrideCursor();
+       CreateNewBook();
        const QString errors = QString(epub_load_error.what());
        Utility::DisplayStdErrorDialog(
            tr("Cannot load EPUB: %1").arg(QDir::toNativeSeparators(fullfilepath)), errors);
    } catch (const std::runtime_error &e) {
        ShowMessageOnStatusBar();
-       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
        QApplication::restoreOverrideCursor();
+       CreateNewBook();
        Utility::DisplayExceptionErrorDialog(tr("Cannot load file %1: %2")
                                              .arg(QDir::toNativeSeparators(fullfilepath))
                                              .arg(e.what()));
    } catch (QString& err) {
        ShowMessageOnStatusBar();
-       // ImportHTML/ImportEPUB use wait cursor and can throw exceptions caught here
        QApplication::restoreOverrideCursor();
+       CreateNewBook();
        Utility::DisplayStdErrorDialog(err);
-   }
-
+    }
     // If we got to here some sort of error occurred while loading the file
     // and potentially has left the GUI in a nasty state (like on initial startup)
     // Fallback to displaying a new book instead so GUI integrity is maintained.
-    CreateNewBook();
     return false;
 }
 

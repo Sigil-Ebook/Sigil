@@ -40,7 +40,7 @@ Feature requests opened on the issue tracker will be closed.
 Linux Build and Install
 =======================
 
-Starting with Sigil 2.0.2, the default cmake configuration is to build with Qt6. For a while, the latest versions of Sigil can still be built with Qt5 by passing the -DUSE_QT5=1 directive to cmake for the intial configuration.
+Starting with Sigil 2.3.0, Qt6.4 is the minimum requirement to build Sigil. You'll need to use an older version if you need to build with Qt5.
 
 For newer Linux systems like Ubuntu 23.04 (and its derivitives), or Arch Linux, or Debian Trixie or Unstable, you should be able to compile Sigil using repo-provided dependencies. Instructions for doing so can be found in:
 

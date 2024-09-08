@@ -3690,17 +3690,17 @@ mended.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="222"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="224"/>
         <source>Incorrect Path for External Xhtml Editor selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="242"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="244"/>
         <source>Select Folder for Temporary Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="259"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="261"/>
         <source>Incorrect Folder for Temporary Files selected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11144,11 +11144,11 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="4812"/>
         <location filename="../../MainUI/MainWindow.cpp" line="4818"/>
         <location filename="../../MainUI/MainWindow.cpp" line="4824"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5043"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5063"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5111"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5377"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5583"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5044"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5064"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5112"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5376"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5582"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11168,17 +11168,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="772"/>
         <location filename="../../MainUI/MainWindow.cpp" line="774"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5109"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5111"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5581"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5583"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5110"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5112"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5580"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5582"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="772"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5109"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5581"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5110"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5580"/>
         <source>Sigil [std]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11759,23 +11759,23 @@ This action cannot be reversed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5044"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5045"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5065"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5066"/>
         <source>Should Sigil overwrite this file?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5251"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5252"/>
         <source>No importer for file type: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5258"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5259"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -11784,137 +11784,137 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5264"/>
         <source>Loading file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5277"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5278"/>
         <source>File loaded.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5303"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5304"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5311"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5312"/>
         <source>Cannot load EPUB: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5316"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5317"/>
         <source>Cannot load file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5345"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5344"/>
         <source>Saving EPUB...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5354"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5353"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5378"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5377"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5383"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5382"/>
         <source>Saving EPUB... cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5409"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5408"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5411"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5410"/>
         <source>EPUB saved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5417"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5416"/>
         <source>Cannot save file %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5550"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5549"/>
         <source>EPUB files (*.epub)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="5550"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5551"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5552"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5553"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5554"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5553"/>
         <source>Text files (*.txt)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5555"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5554"/>
         <source>All files (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5563"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5562"/>
         <source>EPUB file (*.epub)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5661"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5660"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5661"/>
         <source>ON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5661"/>
         <source>OFF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5687"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5686"/>
         <source>&amp;%1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6650"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6649"/>
         <source>Focus changed to CodeView window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6659"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6658"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6668"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6667"/>
         <source>Focus changed to Preview window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6677"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6676"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6685"/>
         <source>Focus changed to Clips window.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16880,7 +16880,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="257"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="964"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="970"/>
         <source>Sigil has created a new one for you.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16971,17 +16971,17 @@ Line: %1 Column %2 - %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="939"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="942"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="940"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="943"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="963"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="969"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation type="unfinished"></translation>
     </message>
