@@ -293,7 +293,13 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
         if (nextKey == Qt::Key_Tab || nextKey == Qt::Key_Backtab) {
             QWidget * upnext = nullptr;
             if (nextKey == Qt::Key_Tab) {
-                upnext = nextInFocusChain();
+                if (ui.assignButton->isEnabled()) {
+                    upnext = ui.assignButton;
+                } else if (ui.removeButton->isEnabled()) {
+                    upnext = ui.removeButton;
+                } else {
+                    upnext = nextInFocusChain();
+                }
             } else {
                 upnext = previousInFocusChain();
             }
