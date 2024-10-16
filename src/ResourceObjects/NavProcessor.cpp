@@ -546,7 +546,7 @@ void NavProcessor::RemoveAllLandmarksForResource(const Resource * resource)
 {
     QList<NavLandmarkEntry> landlist = GetLandmarks();
     QWriteLocker locker(&m_NavResource->GetLock());
-    QString resource_book_path = resource->GetRelativePath();
+    QString resource_book_path = Utility::URLEncodePath(resource->GetRelativePath());
     QList<int> positions_to_delete;
     for (int i=0; i < landlist.size(); i++) {
         NavLandmarkEntry le = landlist.at(i);
@@ -565,7 +565,7 @@ void NavProcessor::RemoveAllLandmarksForResource(const Resource * resource)
 
 int NavProcessor::GetResourceLandmarkPos(const Resource *resource, const QList<NavLandmarkEntry> & landlist, QString tgt_id)
 {
-    QString resource_book_path = resource->GetRelativePath();
+    QString resource_book_path = Utility::URLEncodePath(resource->GetRelativePath());
     if (!tgt_id.isEmpty()) {
         resource_book_path = resource_book_path + "#" + tgt_id;
     }
@@ -615,8 +615,9 @@ QStringList NavProcessor::GetAllLandmarkInfoByBookPath()
         QString href = ConvertHREFToBookPath(le.href);
         QString frag = "";
         QStringList parts = href.split('#', Qt::KeepEmptyParts);
+        QString bkpath = Utility::URLDecodePath(parts.at(0));
         if (parts.size() > 1) frag = parts.at(1);
-        rec = parts.at(0) + _RS + frag + _RS + le.etype + _RS + le.title;
+        rec = bkpath + _RS + frag + _RS + le.etype + _RS + le.title;
         landmark_info << rec;    
     }
     return landmark_info;
