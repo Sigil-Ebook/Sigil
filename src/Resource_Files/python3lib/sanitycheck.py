@@ -159,6 +159,7 @@ class SanityCheck(object):
                     b = p
                     while s[p:p+1] != qt: 
                         p += 1
+                        # Opening quote with no closing quote
                         if p >= taglen:
                             error_msg = 'Attribute "' +  aname +  '" has unmatched quotes on attribute value'
                             self.errors.append((self.tag_start[0], self.tag_start[1], error_msg))
@@ -170,6 +171,12 @@ class SanityCheck(object):
                     b = p
                     while s[p:p+1] not in ('>', '/', ' ') : 
                         p += 1
+                        # Closing quote with no opening quote
+                        if s[p:p+1] in ('"', "'"):
+                            error_msg = 'Attribute "' +  aname +  '" has unmatched quotes on attribute value'
+                            self.errors.append((self.tag_start[0], self.tag_start[1], error_msg))
+                            self.has_error = True
+                            return None, None, None
                         if p >= taglen:
                             error_msg = 'Attribute "' + aname + '" has unterminated attribute value' 
                             self.errors.append((self.tag_start[0], self.tag_start[1], error_msg))
