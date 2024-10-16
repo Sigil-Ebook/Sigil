@@ -38,6 +38,8 @@ static const QString NAV_PAGELIST_PATTERN = "\\s*<!--\\s*SIGIL_REPLACE_PAGELIST_
 static const QString NAV_LANDMARKS_PATTERN = "\\s*<!--\\s*SIGIL_REPLACE_LANDMARKS_HERE\\s*-->\\s*";
 static const QString NAV_TOC_PATTERN = "\\s*<!--\\s*SIGIL_REPLACE_TOC_HERE\\s*-->\\s*";
 
+static const QString _RS = QString(QChar(30)); // Ascii Record Separator
+
 NavProcessor::NavProcessor(HTMLResource * nav_resource)
   : m_NavResource(nav_resource)
 {
@@ -489,12 +491,12 @@ void NavProcessor::SetTOC(const QList<NavTOCEntry> & toclist)
 }
 
 
-void NavProcessor::AddLandmarkCode(const Resource *resource, QString new_code, bool toggle)
+void NavProcessor::AddLandmarkCode(const Resource *resource, QString new_code, bool toggle, QString tgt_id)
 {
     if (new_code.isEmpty()) return;
     QList<NavLandmarkEntry> landlist = GetLandmarks();
     QWriteLocker locker(&m_NavResource->GetLock());
-    int pos = GetResourceLandmarkPos(resource, landlist);
+    int pos = GetResourceLandmarkPos(resource, landlist, tgt_id);
     QString current_code;
     if (pos > -1) {
         NavLandmarkEntry le = landlist.at(pos);
@@ -511,7 +513,11 @@ void NavProcessor::AddLandmarkCode(const Resource *resource, QString new_code, b
             NavLandmarkEntry le;
             le.etype = new_code;
             le.title = title;
-            le.href = ConvertBookPathToNavRelative(resource->GetRelativePath());
+            QString href = ConvertBookPathToNavRelative(resource->GetRelativePath());
+            if (!tgt_id.isEmpty()) {
+                href = href + "#" + tgt_id;
+            }
+            le.href = href;
             // special case the nav setting the toc semantic on itself
             if ((resource == m_NavResource) && (new_code == "toc")) {
                 le.href = "#toc";
@@ -525,37 +531,59 @@ void NavProcessor::AddLandmarkCode(const Resource *resource, QString new_code, b
     SetLandmarks(landlist);
 }
 
-void NavProcessor::RemoveLandmarkForResource(const Resource * resource) 
+void NavProcessor::RemoveLandmarkForResource(const Resource * resource, QString tgt_id) 
 {
     QList<NavLandmarkEntry> landlist = GetLandmarks();
     QWriteLocker locker(&m_NavResource->GetLock());
-    int pos = GetResourceLandmarkPos(resource, landlist);
-    while((pos > -1) && !landlist.isEmpty()) {
+    int pos = GetResourceLandmarkPos(resource, landlist, tgt_id);
+    if (pos > -1) {
         landlist.removeAt(pos);
-        pos = GetResourceLandmarkPos(resource, landlist);
     }
     SetLandmarks(landlist);
 }
 
-int NavProcessor::GetResourceLandmarkPos(const Resource *resource, const QList<NavLandmarkEntry> & landlist)
+void NavProcessor::RemoveAllLandmarksForResource(const Resource * resource) 
 {
+    QList<NavLandmarkEntry> landlist = GetLandmarks();
+    QWriteLocker locker(&m_NavResource->GetLock());
     QString resource_book_path = resource->GetRelativePath();
-    for (int i=0; i < landlist.count(); ++i) {
+    QList<int> positions_to_delete;
+    for (int i=0; i < landlist.size(); i++) {
         NavLandmarkEntry le = landlist.at(i);
         QString href = ConvertHREFToBookPath(le.href);
         QStringList parts = href.split('#', Qt::KeepEmptyParts);
         if (parts.at(0) == resource_book_path) {
+            positions_to_delete << i;
+        }
+    }
+    while(positions_to_delete.size() > 0) {
+        int pos = positions_to_delete.takeLast();
+        landlist.removeAt(pos);
+    }
+    SetLandmarks(landlist);
+}
+
+int NavProcessor::GetResourceLandmarkPos(const Resource *resource, const QList<NavLandmarkEntry> & landlist, QString tgt_id)
+{
+    QString resource_book_path = resource->GetRelativePath();
+    if (!tgt_id.isEmpty()) {
+        resource_book_path = resource_book_path + "#" + tgt_id;
+    }
+    for (int i=0; i < landlist.count(); ++i) {
+        NavLandmarkEntry le = landlist.at(i);
+        QString href = ConvertHREFToBookPath(le.href);
+        if (href == resource_book_path) {
             return i;
         }
     }
     return -1;
 }
 
-QString NavProcessor::GetLandmarkCodeForResource(const Resource *resource)
+QString NavProcessor::GetLandmarkCodeForResource(const Resource *resource, QString tgt_id)
 {
     const QList<NavLandmarkEntry> landlist = GetLandmarks();
     QReadLocker locker(&m_NavResource->GetLock());
-    int pos = GetResourceLandmarkPos(resource, landlist);
+    int pos = GetResourceLandmarkPos(resource, landlist, tgt_id);
     QString etype;
     if (pos > -1) {
         NavLandmarkEntry le = landlist.at(pos);
@@ -564,42 +592,74 @@ QString NavProcessor::GetLandmarkCodeForResource(const Resource *resource)
     return etype;
 }
 
-QString NavProcessor::GetLandmarkNameForResource(const Resource *resource)
+QString NavProcessor::GetLandmarkNameForResource(const Resource *resource, QString tgt_id)
 {
     QString name;
-    QString etype = GetLandmarkCodeForResource(resource);
+    QString etype = GetLandmarkCodeForResource(resource, tgt_id);
     if (!etype.isEmpty()) {
         name = Landmarks::instance()->GetName(etype);
     }
     return name;
 }
 
-QHash <QString, QString> NavProcessor::GetLandmarkNameForPaths()
+// return the landmark info converted to bookpath 
+// with the following formant for each string in the returned list
+// bookpath|fragment|code|title
+QStringList NavProcessor::GetAllLandmarkInfoByBookPath()
 {
     const QList<NavLandmarkEntry> landlist = GetLandmarks();
     QReadLocker locker(&m_NavResource->GetLock());
-    QHash <QString, QString> semantic_types;
+    QStringList landmark_info;
+    foreach(NavLandmarkEntry le, landlist) {
+        QString rec;
+        QString href = ConvertHREFToBookPath(le.href);
+        QString frag = "";
+        QStringList parts = href.split('#', Qt::KeepEmptyParts);
+        if (parts.size() > 1) frag = parts.at(1);
+        rec = parts.at(0) + _RS + frag + _RS + le.etype + _RS + le.title;
+        landmark_info << rec;    
+    }
+    return landmark_info;
+}
+
+// create a hash of bookpaths to a list of all landmarks names contained therein
+QHash <QString, QStringList> NavProcessor::GetLandmarkNameForPaths()
+{
+    const QList<NavLandmarkEntry> landlist = GetLandmarks();
+    QReadLocker locker(&m_NavResource->GetLock());
+    QHash <QString, QStringList> semantic_types;
     foreach(NavLandmarkEntry le, landlist) {
         QString href = ConvertHREFToBookPath(le.href);
         QStringList parts = href.split('#', Qt::KeepEmptyParts);
         QString etype = le.etype;
-        semantic_types[parts.at(0)] = Landmarks::instance()->GetName(etype);
+        QStringList names;
+        if (semantic_types.contains(parts.at(0))) {
+            names = semantic_types[parts.at(0)];
+        }
+        names << Landmarks::instance()->GetName(etype);
+        semantic_types[parts.at(0)] = names;
     }
     return semantic_types;
 }
 
-QHash <QString, QString> NavProcessor::GetLandmarkCodeForPaths()
+// create a hash of bookpaths to a list of all landmarks names contained therein
+QHash <QString, QStringList> NavProcessor::GetLandmarkCodeForPaths()
 {
   const QList<NavLandmarkEntry> landlist = GetLandmarks();
   QReadLocker locker(&m_NavResource->GetLock());
-  QHash <QString, QString> semantic_types;
+  QHash <QString, QStringList> semantic_codes;
   foreach(NavLandmarkEntry le, landlist) {
-    QString href = ConvertHREFToBookPath(le.href);
-    QStringList parts = href.split('#', Qt::KeepEmptyParts);
-    QString etype = le.etype;
-    semantic_types[parts.at(0)] = etype;
+      QString href = ConvertHREFToBookPath(le.href);
+      QStringList parts = href.split('#', Qt::KeepEmptyParts);
+      QString etype = le.etype;
+      QStringList codes;
+      if (semantic_codes.contains(parts.at(0))) {
+          codes = semantic_codes[parts.at(0)];
+      }
+      codes << etype;
+      semantic_codes[parts.at(0)] = codes;
   }
-  return semantic_types;
+  return semantic_codes;
 }
 
 

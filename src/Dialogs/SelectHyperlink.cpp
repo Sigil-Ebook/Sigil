@@ -66,7 +66,7 @@ void SelectHyperlink::SetList()
 {
     m_SelectHyperlinkModel->clear();
     QStringList header;
-    header.append(tr("Targets in the Book"));
+    header.append(tr("Targets"));
     m_SelectHyperlinkModel->setHorizontalHeaderLabels(header);
     ui.list->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui.list->setModel(m_SelectHyperlinkModel);

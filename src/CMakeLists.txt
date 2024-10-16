@@ -127,6 +127,8 @@ set( DIALOG_FILES
     Dialogs/SelectIndexTitle.h
     Dialogs/SelectFiles.cpp
     Dialogs/SelectFiles.h
+    Dialogs/SemanticTargetID.cpp
+    Dialogs/SemanticTargetID.h
     Dialogs/AddAutomateTool.cpp
     Dialogs/AddAutomateTool.h
     Dialogs/AddAutomatePlugin.cpp
@@ -528,6 +530,7 @@ set( UI_FILES
     Form_Files/SelectId.ui
     Form_Files/SelectIndexTitle.ui
     Form_Files/SelectFiles.ui
+    Form_Files/SemanticTargetID.ui
     Form_Files/MetaEditor.ui
     Form_Files/AddAutomateTool.ui
     Form_Files/AddAutomatePlugin.ui

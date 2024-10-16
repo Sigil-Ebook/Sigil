@@ -2548,25 +2548,23 @@ bool MainWindow::GenerateNCXGuideFromNav()
 
     // collect all of the current nav landmark codes
     NavProcessor navproc(nav_resource);
-    QHash<QString, QString> nav_landmark_codes = navproc.GetLandmarkCodeForPaths();
 
-    // Walk through all html resources and if they have a landmark code
-    // lookup its equivalent in the guide and set it if it exists
-    QList<Resource *> html_resources = GetAllHTMLResources();
-    foreach(Resource * resource, html_resources) {
-        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+    QStringList landmark_info = navproc.GetAllLandmarkInfoByBookPath();
+
+    // Walk through the landmark info and convert to guide entries where possible
+    foreach(QString lm, landmark_info) {
+        HTMLResource * html_resource = nullptr;
+        QStringList parts = lm.split(QChar(30), Qt::KeepEmptyParts);
+        // parts(0)=bookpath, parts(1)=fragment, parts(2)=code, parts.at(3)=title
+        Resource* resource = m_Book->GetFolderKeeper()->GetResourceByBookPathNoThrow(parts.at(0));
+        if (resource) html_resource = qobject_cast<HTMLResource *>(resource);
         if (html_resource) {
-            QString respath = resource->GetRelativePath();
-            if (nav_landmark_codes.contains(respath)) {
-                QString landmark_code = nav_landmark_codes[respath];
-                QString guide_code =  Landmarks::instance()->GuideLandMapping(landmark_code);
-                if (!guide_code.isEmpty()) {
-                    m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code, false);
-                }
+            QString guide_code =  Landmarks::instance()->GuideLandMapping(parts.at(2));
+            if (!guide_code.isEmpty()) {
+                m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code, false, parts.at(1));
             }
         }
     }
-
     m_TableOfContents->Refresh();
     m_BookBrowser->BookContentModified();
     m_BookBrowser->Refresh();
@@ -2611,44 +2609,56 @@ void MainWindow::CreateIndex()
     }
 
     // get semantic (guide/landmark) information for all resources
-    QHash <QString, QString> semantic_types;
     QString version = m_Book->GetOPF()->GetEpubVersion();
     HTMLResource * nav_resource = m_Book->GetConstOPF()->GetNavResource();
+    QHash <QString, QStringList> semantic_codes;
     if (version.startsWith('3')) {
         if (nav_resource) {
             NavProcessor navproc(nav_resource);
-            semantic_types = navproc.GetLandmarkCodeForPaths();
+            semantic_codes = navproc.GetLandmarkCodeForPaths();
+        } else {
+            semantic_codes = m_Book->GetOPF()->GetSemanticCodeForPaths();
         }
     } else {
-        semantic_types = m_Book->GetOPF()->GetSemanticCodeForPaths();
+        semantic_codes = m_Book->GetOPF()->GetSemanticCodeForPaths();
     }
     QStringList allow_index;
     allow_index  << "bodymatter" << "chapter" << "conclusion" << "division" << "epilogue" << 
                     "introduction" << "part" << "preamble" << "prologue" << "subchapter" <<  
                     "text" << "volume"; 
 
-    HTMLResource *index_resource = NULL;
+    HTMLResource *index_resource = nullptr;
 
     QList<HTMLResource *> html_resources;
 
     // Turn the list of Resources that are really HTMLResources to a real list
     // of HTMLResources stripping out any front or back matter
+    
     QList<Resource *> resources = GetAllHTMLResources();
     foreach(Resource * resource, resources) {
+        QStringList codeslist;
+        bool keepit = false;
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-
+    
         if (html_resource) {
-            QString resource_path = html_resource->GetRelativePath();
-            QString semantic_code;
-            if (semantic_types.contains(resource_path)) {
-                semantic_code = semantic_types[resource_path];
-            }
-            if (semantic_code.isEmpty() || allow_index.contains(semantic_code)) {
-                html_resources.append(html_resource);
-            }
 
+            QString resource_path = html_resource->GetRelativePath();
+            
+            codeslist = semantic_codes.value(resource_path, QStringList());
+            if (codeslist.isEmpty()) {
+                keepit = true;
+            }
+        
+            if (!keepit) {   
+                foreach(QString code, allow_index) {
+                    if (codeslist.contains(code)) keepit = true;
+                }
+            }
+            
+            if (keepit) html_resources.append(html_resource);
+            
             // Check if this is an existing index file.
-            if (semantic_code == "index") {
+            if (codeslist.contains("index")) {
                 index_resource = html_resource;
             } else if (resource->Filename() == HTML_INDEX_FILE && html_resource == NULL) {
                 index_resource = html_resource;
@@ -2656,21 +2666,21 @@ void MainWindow::CreateIndex()
         }
     }
 
-    if (index_resource != NULL) {
+    if (index_resource) {
         QString msg = tr("An existing Index file has been found.");
         if (!ProceedToOverwrite(msg, index_resource->ShortPathName())) {
-            index_resource = NULL;
+            index_resource = nullptr;
         }
     }
 
     // Close the tab so the focus saving doesn't overwrite the text were
     // replacing in the resource.
-    if (index_resource != NULL) {
+    if (index_resource) {
         m_TabManager->CloseTabForResource(index_resource);
     }
 
     // Create an HTMLResource for the INDEX if it doesn't exist.
-    if (index_resource == NULL) {
+    if (index_resource == nullptr) {
         index_resource = m_Book->CreateEmptyHTMLFile();
         index_resource->RenameTo(HTML_INDEX_FILE);
     }
@@ -2695,8 +2705,8 @@ void MainWindow::CreateIndex()
     QString stylebookpath = styleresource->GetRelativePath();
 
     // Write out the HTML index file.
-    IndexHTMLWriter index(indexbookpath, stylebookpath);
-    index_resource->SetText(index.WriteXML(version));
+    IndexHTMLWriter makeindex(indexbookpath, stylebookpath);
+    index_resource->SetText(makeindex.WriteXML(version));
 
     // Normally Setting a semantic on a resource that already has it set will remove the semantic.
     //  Pass along toggle as false to disable this default behaviour

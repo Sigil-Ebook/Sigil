@@ -541,7 +541,7 @@ void OPFModel::InitializeModel()
     QList<Resource *> resources = m_Book->GetFolderKeeper()->GetResourceList();
     QHash <Resource *, int> reading_order_all = m_Book->GetOPF()->GetReadingOrderAll(resources);
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
-    QHash <QString, QString> semantic_type_all;
+    QHash <QString, QStringList> semantic_type_all;
     QHash <QString, QString> manifest_properties_all;
     SettingsStore ss;
     if (version.startsWith('3')) {
@@ -572,7 +572,7 @@ void OPFModel::InitializeModel()
         }
 
         if (semantic_type_all.contains(path)) {
-            tooltip += " (" + semantic_type_all[path] + ")";
+            tooltip += " (" + semantic_type_all[path].join(",") + ")";
         }
         if (manifest_properties_all.contains(path)) {
             tooltip += " [" + manifest_properties_all[path] + "]";

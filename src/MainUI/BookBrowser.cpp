@@ -38,6 +38,7 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/DeleteFiles.h"
 #include "Dialogs/RenameTemplate.h"
+#include "Dialogs/SemanticTargetID.h"
 #include "Dialogs/AddSemantics.h"
 #include "Dialogs/SelectFolder.h"
 #include "Dialogs/RERenamer.h"
@@ -1686,6 +1687,12 @@ void BookBrowser::AddSemanticCode()
     }
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
+    QString tgt_id = "";
+    SemanticTargetID getTarget(html_resource, this);
+    if (getTarget.exec() == QDialog::Accepted) {
+        tgt_id = getTarget.GetID();
+    }
+    
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
     HTMLResource * nav_resource = NULL;
     if (version.startsWith('3')) {
@@ -1697,9 +1704,9 @@ void BookBrowser::AddSemanticCode()
 
     if (version.startsWith('3')) {
         NavProcessor navproc(nav_resource);
-        current_code = navproc.GetLandmarkCodeForResource(resource);
+        current_code = navproc.GetLandmarkCodeForResource(resource, tgt_id);
     } else { 
-        current_code = m_Book->GetOPF()->GetGuideSemanticCodeForResource(resource);
+        current_code = m_Book->GetOPF()->GetGuideSemanticCodeForResource(resource, tgt_id);
     }
 
     if (version.startsWith('3')) {
@@ -1711,7 +1718,7 @@ void BookBrowser::AddSemanticCode()
                 // do allow a user to change only the toc semantics on the nav resource
                 if ((html_resource != nav_resource) || (new_code == "toc")) {
                     NavProcessor navproc(nav_resource);
-                    navproc.AddLandmarkCode(html_resource, new_code);
+                    navproc.AddLandmarkCode(html_resource, new_code, true, tgt_id);
                     m_OPFModel->Refresh();
                     emit BookContentModified();
                 } 
@@ -1722,7 +1729,7 @@ void BookBrowser::AddSemanticCode()
         if (addmeaning.exec() == QDialog::Accepted) {
             codes = addmeaning.GetSelectedEntries();
             if (!codes.isEmpty()) {
-                m_Book->GetOPF()->AddGuideSemanticCode(html_resource, codes.at(0));
+                m_Book->GetOPF()->AddGuideSemanticCode(html_resource, codes.at(0), true, tgt_id);
                 m_OPFModel->Refresh();
                 emit BookContentModified();
             }

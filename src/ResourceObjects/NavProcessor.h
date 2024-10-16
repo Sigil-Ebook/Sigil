@@ -23,6 +23,7 @@
 
 #include <QString>
 #include <QList>
+#include <QStringList>
 #include "BookManipulation/Book.h"
 #include "BookManipulation/Headings.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -68,12 +69,14 @@ public:
     TOCModel::TOCEntry GetRootTOCEntry();
 
     // For Working with Landmarks
-    void AddLandmarkCode(const Resource * resource, QString new_code, bool toggle = true);
-    void RemoveLandmarkForResource(const Resource * resource);
-    QString GetLandmarkCodeForResource(const Resource * resource);
-    QString GetLandmarkNameForResource(const Resource * resource);
-    QHash<QString, QString> GetLandmarkCodeForPaths();
-    QHash<QString, QString> GetLandmarkNameForPaths();
+    void AddLandmarkCode(const Resource * resource, QString new_code, bool toggle = true, QString tgt_id="");
+    void RemoveLandmarkForResource(const Resource * resource, QString tgt_id="");
+    void RemoveAllLandmarksForResource(const Resource * resource);
+    QString GetLandmarkCodeForResource(const Resource * resource, QString tgt_id="");
+    QString GetLandmarkNameForResource(const Resource * resource, QString tgt_id="");
+    QHash<QString, QStringList> GetLandmarkCodeForPaths();
+    QHash<QString, QStringList> GetLandmarkNameForPaths();
+    QStringList GetAllLandmarkInfoByBookPath();
 
 
 private:    
@@ -85,7 +88,7 @@ private:
     void SetLandmarks(const QList<NavLandmarkEntry> & landlist);
     void SetPageList(const QList<NavPageListEntry> & pagelist);
 
-    int GetResourceLandmarkPos(const Resource * resource, const QList<NavLandmarkEntry> & landlist);
+    int GetResourceLandmarkPos(const Resource * resource, const QList<NavLandmarkEntry> & landlist, QString tgt_id="");
     QList<NavTOCEntry> GetNodeTOC(GumboInterface & gi, const GumboNode* node, int lvl);
     QList<NavTOCEntry> HeadingWalker(const Headings::Heading & heading, int lvl);
 

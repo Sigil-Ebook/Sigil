@@ -26,6 +26,9 @@
 #define OPFRESOURCE_H
 
 #include <memory>
+#include <QStringList>
+#include <QHash>
+#include <QString>
 #include "Misc/GuideItems.h"
 #include "ResourceObjects/XMLResource.h"
 #include "Parsers/OPFParser.h"
@@ -64,10 +67,10 @@ public:
 
     virtual bool LoadFromDisk();
 
-    QString GetGuideSemanticCodeForResource(const Resource *resource) const;
-    QString GetGuideSemanticNameForResource(Resource *resource);
-    QHash <QString, QString> GetSemanticCodeForPaths();
-    QHash <QString, QString> GetGuideSemanticNameForPaths();
+    QString GetGuideSemanticCodeForResource(const Resource *resource, QString tgt_id="") const;
+    QString GetGuideSemanticNameForResource(Resource *resource, QString tgt_id="");
+    QHash <QString, QStringList> GetSemanticCodeForPaths();
+    QHash <QString, QStringList> GetGuideSemanticNameForPaths();
 
     void ClearSemanticCodesInGuide();
 
@@ -167,7 +170,7 @@ public slots:
     void RemoveResource(const Resource *resource);
     void BulkRemoveResources(const QList<Resource *>resources);
 
-    void AddGuideSemanticCode(HTMLResource *html_resource, QString code, bool toggle = true);
+    void AddGuideSemanticCode(HTMLResource *html_resource, QString code, bool toggle = true, QString tgt_id="");
 
     void SetResourceAsCoverImage(ImageResource *image_resource);
 
@@ -216,13 +219,16 @@ private:
     int GetMainIdentifier(const OPFParser &p) const;
 
     // CAN BE -1 which means no reference for resource
-    int GetGuideReferenceForResourcePos(const Resource *resource, const OPFParser &p) const;
+    int GetGuideReferenceForResourcePos(const Resource *resource, const OPFParser &p, QString tgt_id="") const;
 
-    void RemoveGuideReferenceForResource(const Resource *resource, OPFParser &p);
+    void RemoveGuideReferenceForResource(const Resource *resource, OPFParser &p, QString tgt_id="");
+    
+    void RemoveAllGuideReferencesForResource(const Resource *resource, OPFParser& p);
 
-    QString GetGuideSemanticCodeForResource(const Resource *resource, const OPFParser &p) const;
+    QString GetGuideSemanticCodeForResource(const Resource *resource, const OPFParser &p, QString tgt_id="") const;
 
-    void SetGuideSemanticCodeForResource(QString code, const Resource *resource, OPFParser &p, const QString &lang);
+    void SetGuideSemanticCodeForResource(QString code, const Resource *resource, OPFParser &p,
+                                         const QString &lang, QString tgt_id="");
 
     void RemoveDuplicateGuideCodes(QString code, OPFParser &p);
 

@@ -773,11 +773,11 @@ void OPFResource::BulkRemoveResources(const QList<Resource *>resources)
                     break;
                 }
             }
-            RemoveGuideReferenceForResource(resource, p);
+            RemoveAllGuideReferencesForResource(resource, p);
             QString version = GetEpubVersion();
             if (version.startsWith('3')) {
                 NavProcessor navproc(GetNavResource());
-                navproc.RemoveLandmarkForResource(resource);
+                navproc.RemoveAllLandmarksForResource(resource);
             }
         }
         if (pos > -1) {
@@ -821,11 +821,11 @@ void OPFResource::RemoveResource(const Resource *resource)
                 break;
             }
         }
-        RemoveGuideReferenceForResource(resource, p);
+        RemoveAllGuideReferencesForResource(resource, p);
         QString version = GetEpubVersion();
         if (version.startsWith('3')) {
             NavProcessor navproc(GetNavResource());
-            navproc.RemoveLandmarkForResource(resource);
+            navproc.RemoveAllLandmarksForResource(resource);
         }
     }
     if (pos > -1) {
@@ -855,7 +855,7 @@ void OPFResource::ClearSemanticCodesInGuide()
 }
 
 
-void OPFResource::AddGuideSemanticCode(HTMLResource *html_resource, QString new_code, bool toggle)
+void OPFResource::AddGuideSemanticCode(HTMLResource *html_resource, QString new_code, bool toggle, QString tgt_id)
 {
     //first get primary book language
     QString lang = GetPrimaryBookLanguage();
@@ -863,23 +863,23 @@ void OPFResource::AddGuideSemanticCode(HTMLResource *html_resource, QString new_
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
-    QString current_code = GetGuideSemanticCodeForResource(html_resource, p);
+    QString current_code = GetGuideSemanticCodeForResource(html_resource, p, tgt_id);
 
     if ((current_code != new_code) || !toggle) {
         RemoveDuplicateGuideCodes(new_code, p);
-        SetGuideSemanticCodeForResource(new_code, html_resource, p, lang);
+        SetGuideSemanticCodeForResource(new_code, html_resource, p, lang, tgt_id);
     } else {
         // If the current code is the same as the new one,
         // we toggle it off.
-        RemoveGuideReferenceForResource(html_resource, p);
+        RemoveGuideReferenceForResource(html_resource, p, tgt_id);
     }
     UpdateText(p);
 }
 
-QString OPFResource::GetGuideSemanticCodeForResource(const Resource *resource, const OPFParser &p) const
+QString OPFResource::GetGuideSemanticCodeForResource(const Resource *resource, const OPFParser &p, QString tgt_id) const
 {
     QString gtype;
-    int pos = GetGuideReferenceForResourcePos(resource, p);
+    int pos = GetGuideReferenceForResourcePos(resource, p, tgt_id);
     if (pos > -1) {
         GuideEntry ge = p.m_guide.at(pos);
         gtype = ge.m_type;
@@ -887,14 +887,16 @@ QString OPFResource::GetGuideSemanticCodeForResource(const Resource *resource, c
     return gtype;
 }
 
-int OPFResource::GetGuideReferenceForResourcePos(const Resource *resource, const OPFParser &p) const
+int OPFResource::GetGuideReferenceForResourcePos(const Resource *resource, const OPFParser &p, QString tgt_id) const
 {
-  QString href_to_resource_from_opf = Utility::URLEncodePath(GetRelativePathToResource(resource));
+    QString href_to_resource_from_opf = Utility::URLEncodePath(GetRelativePathToResource(resource));
     for (int i=0; i < p.m_guide.count(); ++i) {
         GuideEntry ge = p.m_guide.at(i);
         QString href = ge.m_href;
-        QStringList parts = href.split('#', Qt::KeepEmptyParts);
-        if (parts.at(0) == href_to_resource_from_opf) {
+        if (!tgt_id.isEmpty()){
+            href_to_resource_from_opf = href_to_resource_from_opf + "#" + tgt_id;
+        }
+        if (href == href_to_resource_from_opf) {
             return i;
         }
     }
@@ -924,15 +926,35 @@ void OPFResource::RemoveDuplicateGuideCodes(QString code, OPFParser& p)
     }
 }
 
-void OPFResource::RemoveGuideReferenceForResource(const Resource *resource, OPFParser& p)
+void OPFResource::RemoveGuideReferenceForResource(const Resource *resource, OPFParser& p, QString tgt_id)
+{
+    if (p.m_guide.isEmpty()) return;
+    int pos = GetGuideReferenceForResourcePos(resource, p, tgt_id);
+    while((pos > -1) && (!p.m_guide.isEmpty())) {
+        p.m_guide.removeAt(pos);
+        pos = GetGuideReferenceForResourcePos(resource, p, tgt_id);
+    }
+}
+
+void OPFResource::RemoveAllGuideReferencesForResource(const Resource *resource, OPFParser& p)
 {
     // if guide hrefs use fragments, the same resource may be there in multiple
     // guide entries.  Since resource being deleted, remove them all
     if (p.m_guide.isEmpty()) return;
-    int pos = GetGuideReferenceForResourcePos(resource, p);
-    while((pos > -1) && (!p.m_guide.isEmpty())) {
+    QString href_to_resource_from_opf = Utility::URLEncodePath(GetRelativePathToResource(resource));
+    QList<int> positions_to_delete;
+    for (int i=0; i < p.m_guide.count(); ++i) {
+        GuideEntry ge = p.m_guide.at(i);
+        QString href = ge.m_href;
+        QStringList parts = href.split('#', Qt::KeepEmptyParts);
+        if (parts.at(0) == href_to_resource_from_opf) {
+            positions_to_delete << i;
+        }
+    }
+    // handle deletions in reverse order to maintain position info
+    while(positions_to_delete.size() > 0) {
+        int pos = positions_to_delete.takeLast();
         p.m_guide.removeAt(pos);
-        pos = GetGuideReferenceForResourcePos(resource, p);
     }
 }
 
@@ -1001,10 +1023,11 @@ void OPFResource::UpdateGuideAfterMerge(QList<Resource*> &merged_resources, QHas
     UpdateText(p);
 }
 
-void OPFResource::SetGuideSemanticCodeForResource(QString code, const Resource *resource, OPFParser& p, const QString &lang)
+void OPFResource::SetGuideSemanticCodeForResource(QString code, const Resource *resource,
+                                                  OPFParser& p, const QString &lang, QString tgt_id)
 {
     if (code.isEmpty()) return;
-    int pos = GetGuideReferenceForResourcePos(resource, p);
+    int pos = GetGuideReferenceForResourcePos(resource, p, tgt_id);
     QString title = GuideItems::instance()->GetTitle(code, lang);
     if (pos > -1) {
         GuideEntry ge = p.m_guide.at(pos);
@@ -1015,63 +1038,79 @@ void OPFResource::SetGuideSemanticCodeForResource(QString code, const Resource *
         GuideEntry ge;
         ge.m_type = code;
         ge.m_title = title;
-        ge.m_href = Utility::URLEncodePath(GetRelativePathToResource(resource));
+        QString href = Utility::URLEncodePath(GetRelativePathToResource(resource));
+        if (!tgt_id.isEmpty()) {
+            href = href + "#" + tgt_id;
+        }
+        ge.m_href = href; 
         p.m_guide.append(ge);
     }
 }
 
 
-QString OPFResource::GetGuideSemanticCodeForResource(const Resource *resource) const
+QString OPFResource::GetGuideSemanticCodeForResource(const Resource *resource, QString tgt_id) const
 {
     QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
-    return GetGuideSemanticCodeForResource(resource, p);
+    return GetGuideSemanticCodeForResource(resource, p, tgt_id);
 }
 
 
-QString OPFResource::GetGuideSemanticNameForResource(Resource *resource)
+QString OPFResource::GetGuideSemanticNameForResource(Resource *resource, QString tgt_id)
 {
-    return GuideItems::instance()->GetName(GetGuideSemanticCodeForResource(resource));
+    return GuideItems::instance()->GetName(GetGuideSemanticCodeForResource(resource, tgt_id));
 }
 
 
-QHash <QString, QString>  OPFResource::GetSemanticCodeForPaths()
+// returns a hash of bookpath to a list of all semantic codes that exist in that file
+QHash <QString, QStringList>  OPFResource::GetSemanticCodeForPaths()
 {
     QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
 
-    QHash <QString, QString> semantic_types;
+    QHash <QString, QStringList> semantic_codes;
     foreach(GuideEntry ge, p.m_guide) {
         QString href = ge.m_href;
         QStringList parts = href.split('#', Qt::KeepEmptyParts);
         QString apath = Utility::URLDecodePath(parts.at(0));
         QString bkpath = Utility::buildBookPath(apath, GetFolder());
         QString gtype = ge.m_type;
-        semantic_types[bkpath] = gtype;
+        QStringList codes;
+        if (semantic_codes.contains(bkpath)) {
+            codes = semantic_codes[bkpath];
+        }
+        codes << gtype;
+        semantic_codes[bkpath] = codes;
     }
-    return semantic_types;
+    return semantic_codes;
 }
 
 
-QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
+// returns a hash of bookpath to a list of all semantic names that exist in that file
+QHash <QString, QStringList>  OPFResource::GetGuideSemanticNameForPaths()
 {
     QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
 
-    QHash <QString, QString> semantic_types;
+    QHash <QString, QStringList> semantic_types;
     foreach(GuideEntry ge, p.m_guide) {
         QString href = ge.m_href;
         QStringList parts = href.split('#', Qt::KeepEmptyParts);
         QString gtype = ge.m_type;
         QString apath = Utility::URLDecodePath(parts.at(0));
         QString bkpath = Utility::buildBookPath(apath, GetFolder());
-        semantic_types[bkpath] = GuideItems::instance()->GetName(gtype);
+        QStringList names;
+        if (semantic_types.contains(bkpath)) {
+            names = semantic_types[bkpath];
+        }
+        names << GuideItems::instance()->GetName(gtype);
+        semantic_types[bkpath] = names;
     }
 
     // Cover image semantics don't use reference
@@ -1082,7 +1121,9 @@ QHash <QString, QString>  OPFResource::GetGuideSemanticNameForPaths()
         ManifestEntry man = p.m_manifest.at(p.m_idpos[cover_id]);
         QString apath = Utility::URLDecodePath(man.m_href);
         QString bkpath = Utility::buildBookPath(apath, GetFolder());
-        semantic_types[bkpath] = GuideItems::instance()->GetName("cover");
+        QStringList al;
+        al << GuideItems::instance()->GetName("cover");
+        semantic_types[bkpath] = al;
     }
     return semantic_types;
 }
