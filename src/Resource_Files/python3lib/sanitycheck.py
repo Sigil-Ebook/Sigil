@@ -183,6 +183,10 @@ class SanityCheck(object):
                             self.has_error = True
                             return None, None, None
                     val = s[b:p]
+                    error_msg = 'Attribute "' + aname + '" has missing quotes surrounding the value'
+                    self.errors.append((self.tag_start[0], self.tag_start[1], error_msg))
+                    self.has_error = True
+                    return None, None, None
                 tattr[aname] = val
         # label beginning and single tags
         if ttype is None:
