@@ -51,6 +51,7 @@ QString CleanSource::Mend(const QString &source, const QString &version)
 {
     SettingsStore settings;
     QString newsource = PreprocessSpecialCases(source);
+    newsource = RemoveMetaCharset(newsource);
     GumboInterface gp = GumboInterface(newsource, version);
     newsource = gp.repair();
     newsource = CharToEntity(newsource, version);
@@ -63,6 +64,7 @@ QString CleanSource::Mend(const QString &source, const QString &version)
 QString CleanSource::MendPrettify(const QString &source, const QString &version)
 {
     QString newsource = PreprocessSpecialCases(source);
+    newsource = RemoveMetaCharset(newsource);
     GumboInterface gi = GumboInterface(newsource, version);
     newsource = gi.prettyprint();
     newsource = CharToEntity(newsource, version);
