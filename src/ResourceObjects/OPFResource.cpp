@@ -59,6 +59,7 @@ static const QString ITEM_ELEMENT_TEMPLATE    = "<item id=\"%1\" href=\"%2\" med
 static const QString ITEMREF_ELEMENT_TEMPLATE = "<itemref idref=\"%1\"/>";
 static const QString OPF_REWRITTEN_COMMENT    = "<!-- Your OPF file was broken so Sigil "
                                                 "tried to rebuild it for you. -->";
+static const QString _RS = QString(QChar(30)); // Ascii Record Separator
 
 static const QString PKG_VERSION = "<\\s*package[^>]*version\\s*=\\s*[\"\']([^\'\"]*)[\'\"][^>]*>";
 
@@ -934,6 +935,28 @@ void OPFResource::RemoveGuideReferenceForResource(const Resource *resource, OPFP
         p.m_guide.removeAt(pos);
         pos = GetGuideReferenceForResourcePos(resource, p, tgt_id);
     }
+}
+
+QStringList OPFResource::GetAllGuideInfoByBookPath() const
+{
+    QStringList guide_info;
+    QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);    
+    if (p.m_guide.isEmpty()) return guide_info;
+    for (int i=0; i < p.m_guide.count(); ++i) {
+        QString rec;
+        GuideEntry ge = p.m_guide.at(i);
+        QString href = ge.m_href;
+        QString frag = "";
+        QStringList parts = href.split('#', Qt::KeepEmptyParts);
+        QString bkpath = Utility::buildBookPath(Utility::URLDecodePath(parts.at(0)), GetFolder());
+        if (parts.size() > 1) frag = parts.at(1);
+        rec = bkpath + _RS + frag + _RS + ge.m_type + _RS + ge.m_title;
+        guide_info << rec;
+    }
+    return guide_info;
 }
 
 void OPFResource::RemoveAllGuideReferencesForResource(const Resource *resource, OPFParser& p)

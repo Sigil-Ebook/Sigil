@@ -71,6 +71,7 @@ public:
     QString GetGuideSemanticNameForResource(Resource *resource, QString tgt_id="");
     QHash <QString, QStringList> GetSemanticCodeForPaths();
     QHash <QString, QStringList> GetGuideSemanticNameForPaths();
+    QStringList GetAllGuideInfoByBookPath() const;
 
     void ClearSemanticCodesInGuide();
 
