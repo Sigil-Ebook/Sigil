@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -67,8 +67,15 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
 {
     // Need to rebuild m_AllResources since deletes can happen behind the scenes
     m_AllResources = m_Book->GetAllResources();
-    QString version = m_Book->GetOPF()->GetEpubVersion();
     m_ItemModel->clear();
+    QHash<QString, QStringList> semantic_names;
+    QString version = m_Book->GetOPF()->GetEpubVersion();
+    if (version.startsWith('3')) {
+        NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
+        semantic_names = navproc.GetLandmarkNameForPaths();
+    } else {
+        semantic_names = m_Book->GetOPF()->GetGuideSemanticNameForPaths();
+    }
     QStringList header;
     header.append(tr("Directory"));
     header.append(tr("Name"));
@@ -115,12 +122,10 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << item;
         // Semantics
         item = new QStandardItem();
-        if (version.startsWith('3')) {
-            NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
-            item->setText(navproc.GetLandmarkNameForResource(resource));
-        } else {
-            item->setText(m_Book->GetOPF()->GetGuideSemanticNameForResource(resource));
-        }
+        QStringList semlist = semantic_names.value(filepath, QStringList());
+        QString semvals = "";
+        if (!semlist.isEmpty()) semvals = semlist.join(",");
+        item->setText(semvals);
         rowItems << item;
         // Manifest Properties
         if (version.startsWith('3')) {
