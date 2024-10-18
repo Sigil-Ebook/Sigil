@@ -44,12 +44,12 @@ To get Sigil's Qt5 requirements, `sudo apt-get install` the following packages:
 + qttools5-dev
 + qttools5-dev-tools
 + qtwebengine5-dev
-+ libqt5svg5 (needed for runtime support for icons)
++ libqt5svg5-dev (build requirement starting with Sigil v2.1.0)
 
 
 The folllowing command can be copied and pasted for convenience:
 
-`sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine5-dev libqt5svg5`
+`sudo apt-get install qtbase5-dev qttools5-dev qttools5-dev-tools qtwebengine5-dev libqt5svg5-dev`
 
 ## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
 Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them, `sudo apt-get install` the following packages.
