@@ -351,6 +351,14 @@ private slots:
     void AddSemanticCode();
 
     /**
+     * display information on the currently
+     * selected resource.
+     */
+    QString BuildListMD(const QStringList& lst);
+    void GetInfo();
+    
+
+    /**
      * Implements the Merge context menu action functionality.
      */
     void Merge();
@@ -533,6 +541,7 @@ private:
     QAction *m_LinkStylesheets;
     QAction *m_LinkJavascripts;
     QAction *m_AddSemantics;
+    QAction *m_GetInfo;
     QAction *m_SaveAs;
     QAction *m_ValidateWithW3C;
 
