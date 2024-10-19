@@ -1801,6 +1801,9 @@ void BookBrowser::GetInfo()
 
     MDViewer mdv(mdsrc);
     mdv.exec();
+
+    SelectResources(resources);
+    m_TreeView->verticalScrollBar()->setSliderPosition(scrollY);
 }
             
 void BookBrowser::AddSemanticCode()
