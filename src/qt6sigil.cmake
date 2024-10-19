@@ -2,10 +2,6 @@
 #     Build Sigil against Qt6 - requires cmake 3.16+ and a C++17 compiler
 #############################################################################
 
-# quiet Qt 6 deprecat4ed warnings
-# add_definitions(-DQT_NO_DEPRECATED_WARNINGS)
-add_definitions(-DQT_IMPLICIT_QCHAR_CONSTRUCTION)
-
 if (CMAKE_VERSION VERSION_GREATER "3.27.9")
     cmake_policy(SET CMP0153 OLD)
 endif()
