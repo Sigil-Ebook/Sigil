@@ -98,7 +98,7 @@ QChar CSSUtils::s_at(const QString &istring, const int pos)
 {
     if(pos > (istring.length()-1) || pos < 0)
     {
-        return 0;
+        return QChar(0);
     } 
     else 
     {
@@ -168,7 +168,7 @@ QString CSSUtils::build_value(const QVector<QString> subvalues)
 
 bool CSSUtils::ctype_space(const QChar c)
 {
-    return (c == ' ' || c == '\t' || c == '\r' || c == '\n' || c == 11);
+    return (c == ' ' || c == '\t' || c == '\r' || c == '\n' || c == QChar(11));
 }
 
 

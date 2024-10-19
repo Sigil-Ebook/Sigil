@@ -250,7 +250,7 @@ QString CSSParser::unicode(QString& istring, int& i)
         (CSSUtils::hexdec(add) > 96 && CSSUtils::hexdec(add) < 123))
     {
         QString msg = "Replaced unicode notation: Changed \\" + CSSUtils::rtrim(add) + " to ";
-        add = static_cast<int>(CSSUtils::hexdec(add));
+        add = QChar(static_cast<int>(CSSUtils::hexdec(add)));
         msg += add;
         log(msg,Information);
         replaced = true;
