@@ -1676,7 +1676,11 @@ QString BookBrowser::BuildListMD(const QStringList& lst)
 {
     QString res="";
     foreach(QString rec, lst) {
-        res = res + "- " + rec + "\n";
+        if (!rec.isEmpty()) {
+            res = res + "- " + rec + "\n";
+        } else {
+            res = res + " \n";
+        }
     }
     return res;
 }
@@ -1719,10 +1723,15 @@ void BookBrowser::GetInfo()
     mdlst << "- " + resource->GetMediaType() + "\n";
 
     mdlst << tr("Epub Version");
-    mdlst << "- " + version + "\n";
+    mdlst << "- " + version + " \n";
 
     mdlst << tr("Primary Language");
-    mdlst << "- " + html_resource->GetLanguageAttribute() + "\n";
+    QString pl = html_resource->GetLanguageAttribute();
+    if (!pl.isEmpty()) {
+        mdlst << "= " + pl +  "\n";
+    } else {
+        mdlst << QString(" \n");
+    }
 
     mdlst << tr("File Size(kb)");
     mdlst << "- " + fsize + "\n";
