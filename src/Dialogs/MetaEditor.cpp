@@ -31,6 +31,7 @@
 #include <QInputDialog>
 #include <QTimer>
 #include <QDebug>
+#include <QTimeZone>
 
 #include "Dialogs/TreeModel.h"
 #include "Dialogs/TreeItem.h"
@@ -474,7 +475,7 @@ void MetaEditor::selectElement()
             insertRow(EName(code), code, content, "");
         } else if (code == "dcterms:modified") {
             QDateTime zt(QDateTime::currentDateTime());
-            zt.setTimeSpec(Qt::UTC);
+            zt.setTimeZone(QTimeZone::utc());
             QString content = zt.toString(Qt::ISODate);
             insertRow(EName(code), code, content, "");
         } else if (code == "dc:type") {
