@@ -127,7 +127,7 @@ def ignore_in_pyside6_dirs(base, items, ignored_dirs=None):
     ans = []
     if ignored_dirs is None:
         ignored_dirs = ['.git', 'glue', 'include', 'typesystems', 'examples', 'Linguist.app',
-                        'Assistant.app', 'Designer.app', '__pycache__']
+                        'Assistant.app', 'Designer.app', '__pycache__', 'scripts']
     for name in items:
         path = os.path.join(base, name)
         if os.path.isdir(path):
