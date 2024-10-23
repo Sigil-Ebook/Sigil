@@ -10,3 +10,4 @@ Reset cache for Qt6.6.2 on 19-Febbruary-2024
 Reset Cache on 7-March-2024
 Reset Cache on 25-March-2024
 Reset Cache on 28-June-2024
+Reset Cache on 23-October-2024
