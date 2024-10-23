@@ -29,10 +29,10 @@ env:
   HOMEBREW_NO_AUTO_UPDATE: 1
   HOMEBREW_NO_INSTALL_CLEANUP: 1
   MACOSX_DEPLOYMENT_TARGET: 11
-  DOWNLOADQT: https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Qt672.tar.xz
+  DOWNLOADQT: https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Qt673.tar.xz
   DOWNLOADPY: https://github.com/kevinhendricks/BuildSigilOnMac/releases/download/for_sigil_1.0.0/Python.framework.tar.xz
   PY_VER: 3.11
-  QT: Qt672
+  QT: Qt673
 
 jobs:
   build:
