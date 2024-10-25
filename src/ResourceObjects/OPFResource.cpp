@@ -32,6 +32,9 @@
 #include <QRegularExpressionMatch>
 #include <QDateTime>
 #include <QDebug>
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+#include <QTimeZone>
+#endif
 
 #include "BookManipulation/CleanSource.h"
 #include "BookManipulation/XhtmlDoc.h"
@@ -1500,7 +1503,11 @@ QString OPFResource::AddModificationDateMeta()
 {
     QString datetime;
     QDateTime local(QDateTime::currentDateTime());
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+    local.setTimeZone(QTimeZone::UTC);
+#else
     local.setTimeSpec(Qt::UTC);
+#endif
     datetime = local.toString(Qt::ISODate);
 
     QWriteLocker locker(&GetLock());
@@ -1576,7 +1583,11 @@ QString OPFResource::GetOPFDefaultText(const QString &version)
     }
     // epub 3 set dcterms:modified date time in ISO 8601 format
     QDateTime local(QDateTime::currentDateTime());
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+    local.setTimeZone(QTimeZone::UTC);
+#else
     local.setTimeSpec(Qt::UTC);
+#endif
     QString datetime = local.toString(Qt::ISODate);
     return TEMPLATE3_TEXT.arg(Utility::CreateUUID()).arg(defaultLanguage).arg(tr("[Main title here]")).arg(datetime);
 }
