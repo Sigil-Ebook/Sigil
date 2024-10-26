@@ -53,6 +53,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "Misc/MediaTypes.h"
+#include "Misc/HTMLSpellCheckML.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/GuideItems.h"
 #include "Misc/Landmarks.h"
@@ -1710,12 +1711,15 @@ void BookBrowser::GetInfo()
     if (primary_lang.isEmpty()) {
       primary_lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
     }
+    
     QString fullfilepath = resource->GetFullPath();
     QString version = resource->GetEpubVersion();
     double ffsize = QFile(fullfilepath).size() / 1024.0;
     QString fsize = QLocale().toString(ffsize, 'f', 2);
     QString source = html_resource->GetText();
 
+    int word_count = HTMLSpellCheckML::GetAllWords(source, primary_lang).size();
+    
     QStringList mdlst;
     mdlst << "# "+ bookpath + "\n";
 
@@ -1733,7 +1737,7 @@ void BookBrowser::GetInfo()
 
     mdlst << tr("Primary Language");
     if (!primary_lang.isEmpty()) {
-        mdlst << "= " + primary_lang +  "\n";
+        mdlst << "- " + primary_lang +  "\n";
     } else {
         mdlst << QString(" \n");
     }
@@ -1748,6 +1752,9 @@ void BookBrowser::GetInfo()
         mdlst << "- " + tr("No") + "\n";
     }
 
+    mdlst << tr("Word Count");
+    mdlst << "- " + QString::number(word_count) + " " + tr("word(s)") + "\n";
+    
     mdlst << tr("Linked Stylesheets");
     mdlst << BuildListMD(XhtmlDoc::GetLinkedStylesheets(source)) + "\n";
 
