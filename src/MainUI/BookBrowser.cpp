@@ -1704,7 +1704,7 @@ void BookBrowser::GetInfo()
 
     QString bookpath = resource->GetRelativePath();
     QString folder_path = resource->GetFolder();
-    if (folder_path == ".") folder_path = tr("root folder");
+    if (folder_path == ".") folder_path = tr("(root folder)");
     QString primary_lang = html_resource->GetLanguageAttribute();
     // fallback to the primary language specified in the OPF metadata
     if (primary_lang.isEmpty()) {
