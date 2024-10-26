@@ -1703,7 +1703,13 @@ void BookBrowser::GetInfo()
     if (!html_resource) return;
 
     QString bookpath = resource->GetRelativePath();
+    QString folder_path = resource->GetFolder();
+    if (folder_path == ".") folder_path = tr("root folder");
     QString primary_lang = html_resource->GetLanguageAttribute();
+    // fallback to the primary language specified in the OPF metadata
+    if (primary_lang.isEmpty()) {
+      primary_lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
+    }
     QString fullfilepath = resource->GetFullPath();
     QString version = resource->GetEpubVersion();
     double ffsize = QFile(fullfilepath).size() / 1024.0;
@@ -1717,7 +1723,7 @@ void BookBrowser::GetInfo()
     mdlst << "- " +  resource->Filename() + "\n";
 
     mdlst <<  tr("Folder");
-    mdlst << "- " + resource->GetFolder() + "\n";
+    mdlst << "- " + folder_path + "\n";
 
     mdlst << tr("Media Type");
     mdlst << "- " + resource->GetMediaType() + "\n";
@@ -1726,9 +1732,8 @@ void BookBrowser::GetInfo()
     mdlst << "- " + version + " \n";
 
     mdlst << tr("Primary Language");
-    QString pl = html_resource->GetLanguageAttribute();
-    if (!pl.isEmpty()) {
-        mdlst << "= " + pl +  "\n";
+    if (!primary_lang.isEmpty()) {
+        mdlst << "= " + primary_lang +  "\n";
     } else {
         mdlst << QString(" \n");
     }
@@ -1822,11 +1827,15 @@ void BookBrowser::AddSemanticCode()
     HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
 
     QString tgt_id = "";
-    SemanticTargetID getTarget(html_resource, this);
-    if (getTarget.exec() == QDialog::Accepted) {
-        tgt_id = getTarget.GetID();
+    QString xhtmlsrc = html_resource->GetText();
+    QStringList idlst = XhtmlDoc::GetAllDescendantIDs(xhtmlsrc);
+    // run the dialog only if there are  ids defined in the xhtml source
+    if (!idlst.isEmpty()) {
+        SemanticTargetID getTarget(html_resource, idlst, this);
+        if (getTarget.exec() == QDialog::Accepted) {
+            tgt_id = getTarget.GetID();
+        }
     }
-    
     QString version = m_Book->GetConstOPF()->GetEpubVersion();
     HTMLResource * nav_resource = NULL;
     if (version.startsWith('3')) {

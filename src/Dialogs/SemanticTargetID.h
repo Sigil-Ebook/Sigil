@@ -24,6 +24,7 @@
 #define SEMANTICTARGETID_H
 
 #include <QDialog>
+#include <QStringList>
 
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/HTMLResource.h"
@@ -34,9 +35,7 @@ class SemanticTargetID: public QDialog
     Q_OBJECT
 
 public:
-    SemanticTargetID(HTMLResource *html_resource, QWidget *parent = 0);
-
-    void SetList();
+  SemanticTargetID(HTMLResource *html_resource, const QStringList& idlst, QWidget *parent = 0);
 
     QString GetID();
 

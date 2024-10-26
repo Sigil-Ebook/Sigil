@@ -27,7 +27,7 @@
 
 static QString SETTINGS_GROUP = "semantic_target_id";
 
-SemanticTargetID::SemanticTargetID(HTMLResource *html_resource, QWidget *parent)
+SemanticTargetID::SemanticTargetID(HTMLResource *html_resource, const QStringList& idlst, QWidget *parent)
     :
     QDialog(parent),
     m_SelectedText(""),
@@ -36,16 +36,9 @@ SemanticTargetID::SemanticTargetID(HTMLResource *html_resource, QWidget *parent)
     ui.setupUi(this);
     connectSignalsSlots();
     ReadSettings();
-    SetList();
-}
-
-void SemanticTargetID::SetList()
-{
     QString BookPath = m_HTMLResource->GetRelativePath();
-    QString xhtmlsrc = m_HTMLResource->GetText();
-    QStringList ids = XhtmlDoc::GetAllDescendantIDs(xhtmlsrc);
     ui.id->addItem(BookPath);
-    foreach(QString id, ids) {
+    foreach(QString id, idlst) {
         ui.id->addItem(id);
     }
     ui.id->setEditText(BookPath);
