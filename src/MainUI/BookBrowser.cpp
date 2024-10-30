@@ -1753,7 +1753,7 @@ void BookBrowser::GetInfo()
     }
 
     mdlst << tr("Word Count");
-    mdlst << "- " + QString::number(word_count) + " " + tr("word(s)") + "\n";
+    mdlst << "- " + QString::number(word_count) + "\n";
     
     mdlst << tr("Linked Stylesheets");
     mdlst << BuildListMD(XhtmlDoc::GetLinkedStylesheets(source)) + "\n";
