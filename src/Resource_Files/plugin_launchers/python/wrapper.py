@@ -35,7 +35,7 @@ from hrefutils import ext_mime_map, mime_group_map
 
 import unicodedata
 
-_launcher_version = 20240803
+_launcher_version = 20241101
 
 _RS = chr(30) # record separator
 _US = chr(31) # unit separator

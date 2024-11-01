@@ -1,3 +1,22 @@
+pre-2.4.0
+   New Features
+     - added a GetInfo dialog and right click menu option for XHTML files that provides a collection
+         of information specific to that file without having to run Reports (including a word count)
+     - added support for multiple semantics per xhtml file, while uncommon is technically allowed by the spec
+     - made debugging with VS IDE easier
+     - streamlined Sigil logos and installer for Windows
+     - improve Sigil Well-Formed (sanity check) to better identify errors with missing attribute quotes
+     - update to Qt 6.7.3 and its PySide6 version for MacOS and Windows release builds
+     - updates to building on linux documentation
+     
+   Bug Fixes
+     - readability improvments for Load Warnings (thank you BeckyEbook)
+     - remove xhtml meta charset information after converting to utf-8 on initial load to prevent encoding errors
+     - forced the Preferences KeyboardShortcuts assign and remove buttons into the tab focus chain
+     - PR #778 building Sigil with recent Qt versions that no longer accept the QT_IMPLICIT_QCHAR_CONSTRUCTION macro
+     - fixes for using QTimeZone to prevent build warnings where possible (modified version of PR #779)
+     
+   
 Sigil-2.3.1
    Bug Fixes
      - fix to prevent double epub load warnings
