@@ -192,7 +192,7 @@
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="155"/>
         <source>%n file(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform> <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -863,7 +863,7 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="187"/>
         <source>%n file(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform> <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -1381,7 +1381,7 @@ There always has to be at least one.</source>
         <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="150"/>
         <source>%n file(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform> <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -1726,7 +1726,7 @@ There always has to be at least one.</source>
         <location filename="../../Dialogs/ClipEditor.cpp" line="539"/>
         <source>CSS entries added: %n</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform> <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -3122,7 +3122,7 @@ Valid only when searching HTML files.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="1911"/>
         <source>Matches found: %n</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform> <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -3143,7 +3143,7 @@ Valid only when searching HTML files.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="1956"/>
         <source>Replacements made: %n</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform> <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -4249,7 +4249,7 @@ mended.</source>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="199"/>
         <source>%n file(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform> <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -4438,7 +4438,7 @@ You can then check or uncheck individual headings in the list above.</source>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="193"/>
         <source>%n file(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform> <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -4636,7 +4636,7 @@ You can then check or uncheck individual headings in the list above.</source>
         <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
         <source>Entries added: %n</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform> <numerusform></numerusform>
         </translation>
     </message>
     <message>
