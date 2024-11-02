@@ -1,0 +1,12 @@
+six
+html5lib
+lxml
+css-parser
+dulwich
+regex
+cssselect
+chardet
+pillow
+tk
+shiboken6
+PySide6
