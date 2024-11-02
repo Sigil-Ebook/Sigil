@@ -18,8 +18,8 @@ Update the pip module in the virtual environement to the latest version (from py
 
 >`python -m pip install --upgrade pip`
 
-Install the modules listed in the plugin-reqs.txt file insto the virtual environment with pip:
+Install the modules listed in the plugin-reqs.txt file into the virtual environment with pip:
 
 > `python -m pip install -r plugin-reqs.txt`
 
-That's it. Now open Sigil's Preferences, go to the Plugin section, click the 'Set' button, browse to /home/[username]/sigilpy/bin and select the the python binary. Make sure the latest testplugin is installed and use it verify all tests are passing. Or if you don't have Sigil compiled yet, go back to the build instructions and configure Sigil's plugin preferences after you have Sigil up and running.
+That's it. Now open Sigil's Preferences, go to the Plugin section, click the 'Set' button, browse to /home/[username]/sigilpy/bin/ and select the the python binary. Make sure the latest testplugin is installed and use it to verify all tests are passing. Or if you don't have Sigil compiled yet, go back to the build instructions and configure Sigil's plugin preferences after you have Sigil up and running.
