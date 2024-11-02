@@ -2,9 +2,9 @@
 
 Maybe you don't want to install a bunch of extra python modules in your system Python, or maybe your distro doesn't have pre-packaged versions of all the modules Sigil needs in their repositories (and/or maybe your distro won't allow you to "pip install" modules from [pypi.org](https://pypi.org) into your system Python because they think they know better than you about how to do things). Regardless of the reasons, this is the document to help you create a virtual Python environment that Sigil can use to run [useful 3rd-party plugins](https://www.mobileread.com/forums/forumdisplay.php?f=268).
 
-This document assumes that the virtual environment is going to be created in your home directory in a folder named 'sigilpy' with all of the modules that are listed in the plugin-reqs.txt file found in the 'docs' folder of Sigil's source code. If you're not building Sigil from source and still want to create a virtual python to run plugins, you can [download/copy the plugin-reqs.txt file](https://github.com/Sigil-Ebook/Sigil/blob/master/docs/plugin-reqs.txt) from Sigil's github repository./
+This document assumes that the virtual environment is going to be created in your home directory in a folder named 'sigilpy' with all of the modules that are listed in the plugin-reqs.txt file found in the 'docs' folder of Sigil's source code. If you're not building Sigil from source and still want to create a virtual python to run plugins, you can [download/copy the plugin-reqs.txt file](https://github.com/Sigil-Ebook/Sigil/blob/master/docs/plugin-reqs.txt) from Sigil's github repository.
 
-Copy/Save/Create the plugin-reqs.txt to/in your home directory
+Copy/Save/Create the plugin-reqs.txt to your home directory
 
 Open a terminal in your home directory and create the sigilpy virtual environment with the following command:
 
