@@ -181,15 +181,18 @@ EmbeddedPython* EmbeddedPython::instance()
 
 EmbeddedPython::EmbeddedPython()
 {
-#if defined(BUNDLING_PYTHON)
-    // This is for Mac and Windows official builds
 
-#if PY_VERSION_HEX >= 0x03090000
     // Use new Python PyConfig and init routines
     PyStatus status;
     PyConfig config;
-    // initialize to be embedded
+
+#if defined(BUNDLING_PYTHON)
+    // initialize to be embedded (isolated)
     PyConfig_InitIsolatedConfig(&config);
+#else
+    // Linux, NetBSD, and everyone else (no Bundling)
+    PyConfig_InitPythonConfig(&config);
+#endif
 
     //From https://github.com/python/cpython/blob/main/Python/initconfig.c
     // Isolated Config is equivalent to
@@ -217,7 +220,8 @@ EmbeddedPython::EmbeddedPython()
         PyConfig_Clear(&config);
         return;
     }
-    
+
+#if defined(BUNDLING_PYTHON)
     config.write_bytecode = 0;
     config.optimization_level = 2;
     config.module_search_paths_set = 1;
@@ -246,6 +250,8 @@ EmbeddedPython::EmbeddedPython()
     }
 #endif
     
+#endif  // BUNDLING PYTHON
+    
     // Use new Python PyConfig and init routines
     status = Py_InitializeFromConfig(&config);
     if (PyStatus_Exception(status)) {
@@ -255,100 +261,6 @@ EmbeddedPython::EmbeddedPython()
         return;
     }
     PyConfig_Clear(&config);
-
-
-#else // PY_VERSION_HEX >= 0x03090000
-    
-    // Using Older technique to initialize Python
-    // Build platform specific delimited string of paths that will
-    // comprise the embedded Python's sys.path
-    QString pysyspath;
-    
-#if defined(__APPLE__)
-    QDir exedir(QCoreApplication::applicationDirPath());
-    exedir.cdUp();
-    QString pyhomepath = exedir.absolutePath() + PYTHON_MAIN_PREFIX;
-    foreach (const QString &src_path, PYTHON_SYS_PATHS) {
-        QString segment = pyhomepath + PYTHON_LIB_PATH + src_path;
-        if (pysyspath.isEmpty()) {
-            pysyspath = segment;
-        } else {
-            pysyspath = pysyspath + PATH_LIST_DELIM + segment;
-        }
-    }
-#else // Windows since Linux does not use a Bundled Python
-    QString pyhomepath = QCoreApplication::applicationDirPath();
-    foreach (const QString &src_path, PYTHON_SYS_PATHS) {
-        QString segment = pyhomepath + PYTHON_MAIN_PATH + src_path;
-        if (pysyspath.isEmpty()) {
-            pysyspath = segment;
-        } else {
-            pysyspath = pysyspath + PATH_LIST_DELIM + segment;
-        }
-    }
-#endif
-
-    wchar_t *mpath = new wchar_t[pysyspath.size()+1];
-    pysyspath.toWCharArray(mpath);
-    mpath[pysyspath.size()]=L'\0';
-
-    // Set before Py_Initialize to ensure isolation from system python
-    Py_SetPath(mpath);
-    delete[] mpath;
-    
-    // Everyone uses these flags when python is bundled.
-    Py_DontWriteBytecodeFlag = 1;
-    Py_IgnoreEnvironmentFlag = 1;
-    Py_NoUserSiteDirectory = 1;
-    //Py_DebugFlag = 0;
-    //Py_VerboseFlag = 0;
-
-    Py_Initialize();
-
-#if PY_VERSION_HEX < 0x03070000
-    PyEval_InitThreads();
-#endif
-
-#endif // PY_VERSION_HEX >= 0x03090000 
-
-
-#else // BUNDLING_PYTHON - NO BUNDLING
-
-    // For Linux, NetBSD, and everbody else
-
-#if PY_VERSION_HEX >= 0x03090000
-    // Use new Python PyConfig and init routines (but not embedded/isolated)
-    PyStatus status;
-    PyConfig config;
-    PyConfig_InitPythonConfig(&config);
-    status = PyConfig_Read(&config);
-    if (PyStatus_Exception(status)) {
-        qDebug() << "EmbeddedPython constructor error: could not read the config";
-        qDebug() << QString(status.err_msg);
-        PyConfig_Clear(&config);
-        return;
-    }
-    status = Py_InitializeFromConfig(&config);
-    if (PyStatus_Exception(status)) {
-        qDebug() << "EmbeddedPython constructor error: Could not initialize from config";
-        qDebug() << QString(status.err_msg);
-        PyConfig_Clear(&config);
-        return;
-    }
-    PyConfig_Clear(&config);
-    
-#else // NOT PY_VERSION_HEX >= 0x03090000
-
-    // Use old Python init routines
-    Py_Initialize();
-
-#if PY_VERSION_HEX < 0x03070000
-    PyEval_InitThreads();
-#endif
-
-#endif // PY_VERSION_HEX >= 0x03090000
-
-#endif // BUNDLING_PYTHON
 
     m_threadstate = PyEval_SaveThread();
     m_pyobjmetaid = qMetaTypeId<PyObjectPtr>();
