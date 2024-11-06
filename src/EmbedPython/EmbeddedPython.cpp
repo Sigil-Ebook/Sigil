@@ -233,10 +233,6 @@ EmbeddedPython::EmbeddedPython()
         return;
     }
 
-//#if defined(LINUX_VIRT_PY)
-//    config.module_search_paths_set = 1;
-//#endif
-
 #if defined(BUNDLING_PYTHON)
     config.write_bytecode = 0;
     config.optimization_level = 2;
@@ -277,6 +273,7 @@ EmbeddedPython::EmbeddedPython()
         return;
     }
     PyConfig_Clear(&config);
+    // Debug output for python paths
     PyRun_SimpleString("import sys; print(f'{sys.executable=}\\n{sys.prefix=}\\n{sys.exec_prefix=}\\n{sys.base_prefix=}\\n{sys.base_exec_prefix=}\\n{sys.path=}')");
 
     m_threadstate = PyEval_SaveThread();

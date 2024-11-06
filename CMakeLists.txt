@@ -127,6 +127,7 @@ if (${USE_NEWER_FINDPYTHON3})
     endif()
     if( UNIX AND NOT APPLE )
         if ( USE_VIRT_PY )
+            # Must be run in an environment with the venv activated
             set ( Python3_FIND_VIRTUAL ONLY )
             add_definitions( -DLINUX_VIRT_PY )
         endif()
