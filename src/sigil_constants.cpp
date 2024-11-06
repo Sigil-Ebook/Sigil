@@ -34,6 +34,7 @@ const QString SIGIL_PREFS_DIR = QProcessEnvironment::systemEnvironment().value("
 const QString PATH_LIST_DELIM = ";";
 const QString PYTHON_MAIN_PATH = "";  // Bundled Python interpreter is in same dir as Sigil exe now
 const QStringList PYTHON_SYS_PATHS = QStringList() << "" << "/Lib" << "/DLLs" << "/Lib/site-packages";
+const QString VIRT_PYTHON_BIN = QString(VIRT_PYTHON_BIN);
 #else
 const QString SIGIL_PREFS_DIR = QString(getenv("SIGIL_PREFS_DIR"));
 #endif
@@ -65,7 +66,7 @@ const QString sigil_share_root = QString(SIGIL_SHARE_ROOT);
 const bool dicts_are_bundled = DICTS_ARE_BUNDLED;
 const QString extra_dict_dirs = QString(EXTRA_DICT_DIRS);
 const QString mathjax3_dir = QString(MATHJAX3_DIR);
-const QString PYTHON_MAIN_PATH = "/python3/lib/python3.5";
+const QString virt_python_bin = QString(VIRT_PYTHON_BIN);
 #if __x86_64__ || __ppc64__
 const QStringList PYTHON_SYS_PATHS = QStringList () << "/plat-x86_64-linux-gnu" << "/plat-linux" << "/lib-dynload" << "/site-packages";
 #else

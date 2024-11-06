@@ -191,8 +191,20 @@ EmbeddedPython::EmbeddedPython()
     PyConfig_InitIsolatedConfig(&config);
 #else
     // Linux, NetBSD, and everyone else (no Bundling)
+#if defined(LINUX_VIRT_PY)
+    // virt_python_bin is an extern const QString from constants.cpp
+    if (!virt_python_bin.isEmpty()) {
+        PyConfig_InitIsolatedConfig(&config);
+        //const auto* venv_executable = virt_python_bin.toStdWString().c_str();
+        //auto venv_executable = L"/home/dmassay/sigilpy/bin/python3.12";
+        PyConfig_SetString(&config, &config.executable, virt_python_bin.toStdWString().c_str());
+    } else {
+        PyConfig_InitPythonConfig(&config);
+    }
+#else
     PyConfig_InitPythonConfig(&config);
-#endif
+#endif // defined(LINUX_VIRT_PY)
+#endif // defined(BUNDLING_PYTHON)
 
     //From https://github.com/python/cpython/blob/main/Python/initconfig.c
     // Isolated Config is equivalent to
@@ -220,6 +232,10 @@ EmbeddedPython::EmbeddedPython()
         PyConfig_Clear(&config);
         return;
     }
+
+//#if defined(LINUX_VIRT_PY)
+//    config.module_search_paths_set = 1;
+//#endif
 
 #if defined(BUNDLING_PYTHON)
     config.write_bytecode = 0;
@@ -261,6 +277,7 @@ EmbeddedPython::EmbeddedPython()
         return;
     }
     PyConfig_Clear(&config);
+    PyRun_SimpleString("import sys; print(f'{sys.executable=}\\n{sys.prefix=}\\n{sys.exec_prefix=}\\n{sys.base_prefix=}\\n{sys.base_exec_prefix=}\\n{sys.path=}')");
 
     m_threadstate = PyEval_SaveThread();
     m_pyobjmetaid = qMetaTypeId<PyObjectPtr>();
