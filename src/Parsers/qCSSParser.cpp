@@ -588,7 +588,7 @@ void CSSParser::parseInProperty(QString& css_input, int& i, parse_status& astatu
         }
         else
         {
-            log("Unexpected character '" + QString(1, css_input[i]) + "'in property name", Error);
+            log("Unexpected character '" + QString(1, css_input[i]) + "' in property name", Error);
         }
     }
     else if(!CSSUtils::ctype_space(css_input[i]))
