@@ -5,11 +5,15 @@ from __future__ import (unicode_literals, division, absolute_import,
                         print_function)
 
 import sys, os, glob, inspect, shutil, platform, textwrap, py_compile, site
-from python_paths6 import py_ver, py_lib, sys_dlls, py_exe, py_inc, py_dest, tmp_prefix, proj_name, include_pyside6
+from python_paths6 import py_ver, py_lib, sys_dlls, py_inc, py_dest, tmp_prefix, proj_name, include_pyside6  # , py_exe
 
 # Python standard modules location
-srcdir = os.path.dirname(inspect.getfile(os))
-pybase = os.path.dirname(srcdir)
+# srcdir = os.path.dirname(inspect.getfile(os))
+# pybase = os.path.dirname(srcdir)
+
+# Get "real" python binary, libs and stdlibs regardless if a venv is being used.
+pybase = sys.base_prefix
+py_exe = os.path.join(py_base, "python.exe")
 
 # Where we're going to copy stuff
 lib_dir = os.path.join(tmp_prefix, 'Lib')
@@ -45,6 +49,7 @@ if include_pyside6:
 def copy_site_packages():
     for pkg, typ in site_packages:
         found = False
+        # Uses site-packages from venv or base python
         for path in site.getsitepackages():
             if not found:
                 for entry in os.listdir(path):
