@@ -7,7 +7,6 @@ from __future__ import (unicode_literals, division, absolute_import,
 import sys, os, glob, inspect, shutil, platform, textwrap, py_compile, site
 from python_paths6 import py_ver, py_lib, sys_dlls, py_inc, py_dest, tmp_prefix, proj_name, include_pyside6  # , py_exe
 
-# Python standard modules location
 # srcdir = os.path.dirname(inspect.getfile(os))
 # pybase = os.path.dirname(srcdir)
 
