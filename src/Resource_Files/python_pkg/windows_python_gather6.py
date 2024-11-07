@@ -12,7 +12,7 @@ from python_paths6 import py_ver, py_lib, sys_dlls, py_inc, py_dest, tmp_prefix,
 
 # Get "real" python binary, libs and stdlibs regardless if a venv is being used.
 pybase = sys.base_prefix
-py_exe = os.path.join(py_base, "python.exe")
+py_exe = os.path.join(pybase, "python.exe")
 
 # Where we're going to copy stuff
 lib_dir = os.path.join(tmp_prefix, 'Lib')
