@@ -5,10 +5,7 @@ from __future__ import (unicode_literals, division, absolute_import,
                         print_function)
 
 import sys, os, glob, inspect, shutil, platform, textwrap, py_compile, site
-from python_paths6 import py_ver, py_lib, sys_dlls, py_inc, py_dest, tmp_prefix, proj_name, include_pyside6  # , py_exe
-
-# srcdir = os.path.dirname(inspect.getfile(os))
-# pybase = os.path.dirname(srcdir)
+from python_paths6 import py_ver, py_lib, sys_dlls, py_inc, py_dest, tmp_prefix, proj_name, include_pyside6
 
 # Get "real" python binary, libs and stdlibs regardless if a venv is being used.
 pybase = sys.base_prefix

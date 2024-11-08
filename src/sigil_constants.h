@@ -152,7 +152,6 @@ extern const QString PYTHON_MAIN_BIN_PATH;
 extern const QString PYTHON_LIB_PATH;
 #endif
 extern const QStringList PYTHON_SYS_PATHS;
-extern const QString virt_python_bin;
 
 #if !defined(_WIN32) && !defined(__APPLE__)
 extern const QString sigil_extra_root;
@@ -162,6 +161,7 @@ extern const QString sigil_share_root;
 extern const bool dicts_are_bundled;
 extern const QString extra_dict_dirs;
 extern const QString mathjax3_dir;
+extern const QString virt_python_bin;
 #endif
 
 #endif // SG_CONSTANTS_H

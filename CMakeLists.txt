@@ -8,13 +8,11 @@
 #########################################################
 
 # Hard minimum version of cmake for all sub projects and Sigil
-cmake_minimum_required( VERSION 3.5 ) 
+cmake_minimum_required( VERSION 3.18 ) 
 
 project( Sigil )
 
-# Need CMAKE 3.18+ to make full use of new FindPython3
-# with the Development.Embed submodule.
-set( RECENT_CMAKE_VER "3.18.1" )
+set( RECENT_CMAKE_VER "3.18" )
 if ( NOT DEFINED TRY_NEWER_FINDPYTHON3 )
     set ( TRY_NEWER_FINDPYTHON3 0 )
 endif()
