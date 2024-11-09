@@ -1,5 +1,7 @@
 if(NOT DEFINED QTVER)
-    message(FATAL_ERROR "-DQTVER must be used if downloading custom Qt6")
+    message(STATUS "-DQTVER should be used when downloading custom Qt6")
+    message(STATUS "Defaulting to 6.7.3 - the only version currently supported")
+    set(QTVER 6.7.3)
 endif()
 
 if(NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/Qt${QTVER}")

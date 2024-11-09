@@ -3,11 +3,9 @@ html5lib==1.1
 regex==2024.5.15
 css-parser==1.0.10
 cssselect==1.2.0
-urllib3==2.2.2
 certifi==2024.6.2
 dulwich==0.22.1
 chardet==5.2.0
 pillow==10.3.0
 lxml==5.2.2
-shiboken6@https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/shiboken6-6.7.3-6.7.3-cp311-cp311-win_amd64.whl
-PySide6@https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/PySide6-6.7.3-6.7.3-cp311-cp311-win_amd64.whl
+PySide6==6.7.3

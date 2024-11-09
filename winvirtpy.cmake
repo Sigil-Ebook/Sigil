@@ -4,6 +4,8 @@ if(NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/sigilpy")
     # Create venv with system python
     message(STATUS "Creating virtual python environment in ${CMAKE_CURRENT_BINARY_DIR}/sigilpy")
     execute_process(COMMAND "${Python3_EXECUTABLE}" -m venv "${CMAKE_CURRENT_BINARY_DIR}/sigilpy")
+    # Update venv pip
+    execute_process(COMMAND "${CMAKE_CURRENT_BINARY_DIR}/sigilpy/Scripts/python.exe" -m pip install -U pip)
     # Pip install -r requirements.txt into venv
     message(STATUS "Downloading/installing required python modules into venv using pip requirements file: ${REQUIREMENTS}")
     execute_process(COMMAND "${CMAKE_CURRENT_BINARY_DIR}/sigilpy/Scripts/python.exe" -m pip install -r "${REQUIREMENTS}")
