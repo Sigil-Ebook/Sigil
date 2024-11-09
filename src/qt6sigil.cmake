@@ -425,11 +425,11 @@ elseif (MSVC)
         # Sigil doesn't need QtUiTools or QtOpenGlWidgets to function,
         # but Pyside6 needs them to use the QUiLoader feature.
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND
-	        windeployqt.exe --release --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} 
+        ${QT_INSTALL_BINS}/windeployqt.exe --release --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} 
             --libdir ${MAIN_PACKAGE_DIR} -openglwidgets ${MAIN_PACKAGE_DIR}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
     else()
         add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND
-            windeployqt.exe --release --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} 
+        ${QT_INSTALL_BINS}/windeployqt.exe --release --no-translations --no-compiler-runtime --dir ${MAIN_PACKAGE_DIR} 
             --libdir ${MAIN_PACKAGE_DIR} ${MAIN_PACKAGE_DIR}/${PROJECT_NAME}${CMAKE_EXECUTABLE_SUFFIX} )
     endif()
 

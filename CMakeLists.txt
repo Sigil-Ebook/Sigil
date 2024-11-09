@@ -12,9 +12,20 @@ cmake_minimum_required( VERSION 3.18 )
 
 project( Sigil )
 
+# Change this URL if the location of the CI Windows Qt6 download ever changes
+set (WINQTURL "https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1")
+
 set( RECENT_CMAKE_VER "3.18" )
 if ( NOT DEFINED TRY_NEWER_FINDPYTHON3 )
     set ( TRY_NEWER_FINDPYTHON3 0 )
+endif()
+
+if ( NOT DEFINED USE_VIRT_PY )
+    set ( USE_VERT_PY 0 )
+endif()
+
+if ( NOT DEFINED DOWNLOAD_QT )
+    set ( DOWNLOAD_QT 0 )
 endif()
 
 # Set Inno minimum Windows version 
@@ -121,11 +132,28 @@ if (${USE_NEWER_FINDPYTHON3})
         find_package(Python3 3.9 COMPONENTS Interpreter Development)
     endif()
     if ( WIN32 )
-        if ( USE_VIRT_PY )
-            # Must be run in an environment with the venv activated
-            set ( Python3_FIND_VIRTUAL ONLY )
+        if ( DOWNLOAD_QT )
+            include(windownloadqt.cmake)
+            set(CMAKE_PREFIX_PATH "${CMAKE_CURRENT_BINARY_DIR}/Qt${QTVER}/lib/cmake")
+            set(Qt6_Dir "${CMAKE_CURRENT_BINARY_DIR}/Qt${QTVER}/lib/cmake/Qt6")
+            if(NOT EXISTS "${Qt6_Dir}")
+                message(FATAL_ERROR "Qt6 download/configure unsuccessful!")
+            endif()
         endif()
-        find_package(Python3 3.9 COMPONENTS Interpreter Development)
+        if ( USE_VIRT_PY )
+            include(winvirtpy.cmake)
+            # Set hints so virtual Python environement is found first
+            set(Python3_FIND_VIRTUAL ONLY)
+            set(Python3_FIND_REGISTRY NEVER)
+            set(Python3_FIND_STRATEGY LOCATION)
+            # Trick cmake's findPython3 module into thinking the virtual python is activated
+            set(VIRT_PATH "${CMAKE_CURRENT_BINARY_DIR}/sigilpy")
+            set(ENV{VIRTUAL_ENV} "${VIRT_PATH}")
+            if(NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/sigilpy/Scripts/python.exe")
+                message(FATAL_ERROR "Virtual Python setup unsuccessful!")
+            endif()
+        endif()
+        find_package(Python3 3.9 REQUIRED COMPONENTS Interpreter Development)
     endif()
     if( UNIX AND NOT APPLE )
         if ( USE_VIRT_PY )
