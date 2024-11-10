@@ -17,7 +17,7 @@ set (WINQTURL "https://github.com/dougmassay/win-qtwebkit-5.212/releases/downloa
 
 # Used to keep Qt and PySide6 versions in sync
 if(NOT DEFINED QTVER)
-message(STATUS "-DQTVER should be used to clarify which Qt6 version")
+    message(STATUS "-DQTVER should be used to clarify which Qt6 version")
     message(STATUS "Defaulting to 6.7.3")
     set(QTVER 6.7.3)
 endif()
