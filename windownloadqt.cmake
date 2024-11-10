@@ -1,9 +1,3 @@
-if(NOT DEFINED QTVER)
-    message(STATUS "-DQTVER should be used when downloading custom Qt6")
-    message(STATUS "Defaulting to 6.7.3 - the only version currently supported")
-    set(QTVER 6.7.3)
-endif()
-
 if(NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/Qt${QTVER}")
     message(STATUS "Downloading Custom Qt6 from developer's github...")
     set(QTURL "${WINQTURL}/Qt${QTVER}ci_x64_VS2022.7z")

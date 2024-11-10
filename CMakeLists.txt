@@ -15,6 +15,13 @@ project( Sigil )
 # Change this URL if the location of the CI Windows Qt6 download ever changes
 set (WINQTURL "https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1")
 
+# Used to keep Qt and PySide6 versions in sync
+if(NOT DEFINED QTVER)
+message(STATUS "-DQTVER should be used to clarify which Qt6 version")
+    message(STATUS "Defaulting to 6.7.3")
+    set(QTVER 6.7.3)
+endif()
+
 set( RECENT_CMAKE_VER "3.18" )
 if ( NOT DEFINED TRY_NEWER_FINDPYTHON3 )
     set ( TRY_NEWER_FINDPYTHON3 0 )
