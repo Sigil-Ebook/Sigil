@@ -15,22 +15,30 @@ project( Sigil )
 # Change this URL if the location of the CI Windows Qt6 download ever changes
 set (WINQTURL "https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1")
 
-# Used to keep Qt and PySide6 versions in sync
+# Used to keep downloaded Qt and PySide6 versions in sync.
+# Check https://github.com/dougmassay/win-qtwebkit-5.212/releases/ to
+# see what versions are available. Defaults to 6.7.3.
 if(NOT DEFINED QTVER)
-    message(STATUS "-DQTVER should be used to clarify which Qt6 version")
-    message(STATUS "Defaulting to 6.7.3")
     set(QTVER 6.7.3)
 endif()
 
-set( RECENT_CMAKE_VER "3.18" )
+# Default to using newe findPython3 on Windows and Linux
 if ( NOT DEFINED TRY_NEWER_FINDPYTHON3 )
-    set ( TRY_NEWER_FINDPYTHON3 0 )
+    if ( NOT APPLE )
+        set ( TRY_NEWER_FINDPYTHON3 1 )
+    else()
+        set ( TRY_NEWER_FINDPYTHON3 0 )
+    endif()
 endif()
 
+# Set to 1 to create and use a virtual Python venv on Windows and Linux.
+# Use in conjunction with QTVER to download/install correct PySide6 module
 if ( NOT DEFINED USE_VIRT_PY )
     set ( USE_VERT_PY 0 )
 endif()
 
+# Set to 1 to download and use a custom-built Qt from WINQTURL.
+# Use in conjunction with QTVER to clarify which version of Qt to download.
 if ( NOT DEFINED DOWNLOAD_QT )
     set ( DOWNLOAD_QT 0 )
 endif()
