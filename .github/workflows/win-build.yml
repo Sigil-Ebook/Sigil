@@ -99,8 +99,6 @@ jobs:
         cmake %GITHUB_WORKSPACE% ^
         -G "Ninja" ^
         -DCMAKE_BUILD_TYPE=%BUILD_TYPE% ^
-        -DPYTHON_LIBRARY="C:\%PYTHON%\libs\python311.lib" ^
-        -DPYTHON_INCLUDE_DIR="C:\%PYTHON%\include" ^
         -DPYTHON_EXECUTABLE="C:\%PYTHON%\python.exe" ^
         -DQt6_DIR="${{runner.workspace}}\$QT\lib\cmake\Qt6"
         ninja -j2
