@@ -157,82 +157,82 @@
         <translation>Фильтр:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="73"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="80"/>
         <source>Directory</source>
         <translation>Каталог</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="74"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="81"/>
         <source>Name</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="75"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="82"/>
         <source>File Size (KB)</source>
         <translation>Размер файла (КБ)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="76"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="83"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="77"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="84"/>
         <source>Semantics</source>
         <translation>Семантика</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="79"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="86"/>
         <source>Properties</source>
         <translation>Свойства</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="150"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="155"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n файл</numerusform><numerusform>%n файла</numerusform><numerusform>%n файлов</numerusform><numerusform>%n файлов</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="259"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="264"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Сохранить отчёт как файл в формате CSV</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="272"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="277"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="272"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="277"/>
         <source>Cannot save report file.</source>
         <translation>Не удалось сохранить файл отчёта.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="297"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="302"/>
         <source>Image</source>
         <translation>Изображение</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="302"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="307"/>
         <source>Audio</source>
         <translation>Аудио</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="307"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="312"/>
         <source>Video</source>
         <translation>Видео</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="312"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="317"/>
         <source>PDF</source>
         <translation>PDF</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="317"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="322"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="344"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="349"/>
         <source>Unknown</source>
         <translation>Неизвестно</translation>
     </message>
@@ -842,67 +842,67 @@ if a sans-serif font-family specified in your CSS</source>
 <context>
     <name>BookBrowser</name>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="80"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="107"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="83"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="110"/>
         <source>Book Browser</source>
         <translation>Структура книги</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="92"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="95"/>
         <source>Font Obfuscation</source>
         <translation>Обфускация шрифта</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="93"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1900"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2027"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="96"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2058"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2189"/>
         <source>Open With</source>
         <translation>Открыть с помощью</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="184"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="187"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n файл</numerusform><numerusform>%n файла</numerusform><numerusform>%n файлов</numerusform><numerusform>%n файлов</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="295"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="703"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="836"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="868"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="928"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1041"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1340"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1445"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="298"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="706"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="839"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="871"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="931"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1044"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1343"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1448"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="296"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="299"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Вы уверены, что хотите сортировать выбранные файлы по алфавиту и порядку чисел?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="297"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="300"/>
         <source>This action cannot be reversed.</source>
         <translation>Это действие нельзя будет отменить.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="340"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="343"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не существует.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="703"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="706"/>
         <source>Javascript is not supported on epub2.</source>
         <translation>Javascript не поддерживается в epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="761"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="764"/>
         <source>Add Existing Files</source>
         <translation>Добавить существующие файлы</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="806"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="809"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -911,7 +911,7 @@ if a sans-serif font-family specified in your CSS</source>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="815"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="818"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -920,7 +920,7 @@ if a sans-serif font-family specified in your CSS</source>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="837"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="840"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -929,12 +929,12 @@ OK to replace?</source>
 Нажмите ОК чтобы заменить.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="863"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="866"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Не удалось удалить или заменить файл «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="868"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="871"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -943,7 +943,7 @@ A file with this name already exists in the book.</source>
 Файл с таким именем уже есть в книге.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="929"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="932"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -952,240 +952,345 @@ A file with this name already exists in the book.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="942"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="945"/>
         <source>File(s) added or replaced.</source>
         <translation>Файл(ы) добавлены или заменены.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="985"/>
         <source>Save As File</source>
         <translation>Сохранить как файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1005"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1008"/>
         <source>Unable to save the file.</source>
         <translation>Не удалось сохранить этот файл.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1019"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1022"/>
         <source>Choose the directory to save the files to</source>
         <translation>Выберите папку для сохранения файлов на</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1041"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1044"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Один или несколько файлов уже существуют. Нажмите OK, чтобы заменить.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1058"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1061"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Невозможно сохранить файлы. Конечный объект может быть каталогом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1066"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1069"/>
         <source>Unable to save files.</source>
         <translation>Невозможно сохранить файлы.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1278"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1281"/>
         <source>Filenames can not contain these characters: &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Имена файлов не могут содержать символы: «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1340"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1343"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Невозможно переименовать файлы, так как это приведёт к дублированию имён файлов.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1411"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1414"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>У папки назначения недопустимый путь «%1»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1445"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1448"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation>Невозможно переместить файлы, так как это приведёт к дублированию имён файлов.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1492"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1495"/>
         <source>The Nav document can not be removed.</source>
         <translation>Невозможно удалить документ Nav.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1500"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1503"/>
         <source>The NCX can not be removed.</source>
         <translation>NCX не может быть удалён.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1507"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1510"/>
         <source>The OPF is required for epub and can not be removed.</source>
         <translation>OPF требуется для EPUB и не может быть удалён.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1516"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1519"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Вы не можете удалить все файлы HTML.
 Должен остаться хотя бы один.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1662"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1665"/>
         <source>Unable to set file as cover image.</source>
         <translation>Невозможно установить файл как изображение обложки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1708"/>
+        <source>(root folder)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1726"/>
+        <source>FileName</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1729"/>
+        <source>Folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1732"/>
+        <source>Media Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1735"/>
+        <source>Epub Version</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1738"/>
+        <source>Primary Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1745"/>
+        <source>File Size(kb)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1748"/>
+        <source>WellFormed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1750"/>
+        <source>Yes</source>
+        <translation>Да</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1752"/>
+        <source>No</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1755"/>
+        <source>Word Count</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1758"/>
+        <source>Linked Stylesheets</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1761"/>
+        <source>Linked Javascripts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1764"/>
+        <source>Linked Images</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1767"/>
+        <source>Linked Audio</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1770"/>
+        <source>Linked Video</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1797"/>
+        <source>Semantics OPF Guide or Nav Landmarks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1806"/>
+        <source>Manifest Properties</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1809"/>
+        <source>Defined Ids</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2034"/>
         <source>Select All</source>
         <translation>Выделить всё</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1878"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2035"/>
         <source>Add Blank HTML File</source>
         <translation>Добавить пустой файл HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1879"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2036"/>
         <source>Add Blank Stylesheet</source>
         <translation>Добавить пустой файл CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1880"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2037"/>
         <source>Add Blank Javascript</source>
         <translation>Добавить пустой Javascript</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1881"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2038"/>
         <source>Add Blank SVG Image</source>
         <translation>Добавить пустое изображение SVG</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1882"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2039"/>
         <source>Add Existing Files...</source>
         <translation>Добавить существующие файлы…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1883"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1884"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2040"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2041"/>
         <source>Add Copy</source>
         <translation>Добавить копию</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1885"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2042"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1886"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2043"/>
         <source>RegEx Rename</source>
         <translation>Переименовать RegEx</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1887"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2044"/>
         <source>Move</source>
         <translation>Переместить</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1888"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2045"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1889"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2046"/>
         <source>Cover Image</source>
         <translation>Изображение обложки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1890"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2047"/>
         <source>Merge</source>
         <translation>Объединить</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1891"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2048"/>
         <source>None</source>
         <translation>Не использовать</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1892"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2049"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Метод Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1893"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2050"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Метод IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1894"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2051"/>
         <source>Sort</source>
         <translation>Сортировать</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1895"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2052"/>
         <source>Renumber TOC Entries</source>
         <translation>Перенумеровать элементы TOC</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1896"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2053"/>
         <source>Link Stylesheets...</source>
         <translation>Связать с таблицей стилей...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1897"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2054"/>
         <source>Link Javascripts...</source>
         <translation>Ссылка на Javascript...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1898"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2055"/>
         <source>Add Semantics...</source>
         <translation>Добавить семантику...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1899"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2056"/>
+        <source>Get Info...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2057"/>
         <source>Validate with W3C</source>
         <translation>Проверить с помощью W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1901"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2059"/>
         <source>Save As</source>
         <translation>Сохранить как</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1915"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2073"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Объединение с предыдущим файлом или  нескольких файлов в один.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1918"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2076"/>
         <source>Rename selected file(s)</source>
         <translation>Переименовать выбранные файлы</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1920"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2078"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation>Используйте регулярные выражения для переименования выбранных файлов</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1923"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2081"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>Переместить выбранный файл(ы) в новую папку </translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1925"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2083"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Связать с таблицей стилей в выбранных файлах.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1927"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2085"/>
         <source>Link Javascripts to selected file(s).</source>
         <translation>Связать Javascript с выбранными файлами.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1929"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2087"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Добавить семантику в выбранные файлы.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2062"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2089"/>
+        <source>Show Information about selected file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2224"/>
         <source>Other Application</source>
         <translation>Другое приложение</translation>
     </message>
@@ -4766,7 +4871,7 @@ Do you want to save your changes?</source>
         <translation>Убрать</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="454"/>
+        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="460"/>
         <source>Conflicts with: &lt;b&gt;</source>
         <translation>Конфликт с: &lt;b&gt;</translation>
     </message>
@@ -8421,6 +8526,14 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
 </context>
 <context>
+    <name>MDViewer</name>
+    <message>
+        <location filename="../../Form_Files/MDViewer.ui" line="14"/>
+        <source>Information</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../../Form_Files/main.ui" line="14"/>
@@ -11290,36 +11403,36 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="1876"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2276"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2771"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2867"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2921"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2781"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2877"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2931"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2955"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2969"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3075"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3091"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3096"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3109"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3122"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3127"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3139"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2941"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2965"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3085"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3106"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3119"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3132"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3154"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3318"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3325"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3341"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3400"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3432"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3631"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4771"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4812"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4818"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4824"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5044"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5064"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5112"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5376"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5582"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3159"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3328"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3335"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3442"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3641"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4781"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4822"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4828"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4834"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5054"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5122"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5386"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5592"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -11340,17 +11453,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="772"/>
         <location filename="../../MainUI/MainWindow.cpp" line="774"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5110"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5112"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5580"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5582"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5120"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5122"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5590"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5592"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] – epub%2 – %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="772"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5110"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5580"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5120"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5590"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -11666,293 +11779,293 @@ This action cannot be reversed.</source>
         <translation>Ошибка при создании NCX и Guide.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2575"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2573"/>
         <source>NCX and Guide generated.</source>
         <translation>NCX и Guide созданы.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2660"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2670"/>
         <source>An existing Index file has been found.</source>
         <translation>Найден существующий файл Указателя.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2752"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2762"/>
         <source>Styles deleted.</source>
         <translation>Стили удалены.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2760"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2770"/>
         <source>Reports Being Generated.</source>
         <translation>Создаются Отчёты.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2771"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2781"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Отчёты отменены из-за ошибок в структуре XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2867"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2877"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Невозможно удалить неиспользуемые изображения из-за ошибок в структуре XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2915"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2925"/>
         <source>Unused media files deleted.</source>
         <translation>Неиспользуемые изображения удалены.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2918"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2921"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2928"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2931"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Нет неиспользуемых медиафайлов.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2931"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2941"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Невозможно удалить неиспользуемые стили из-за ошибок в структуре XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2953"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2955"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2965"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>Нет неиспользуемых селекторов CSS.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2969"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Невозможно вставить сюда файл.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2976"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
         <source>Insert File</source>
         <translation>Вставить файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3029"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3039"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не существует.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3075"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3085"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3106"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Невозможно вставить ID в эту позицию.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3091"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID недействителен – он должен начинаться с буквы, затем следует любое количество букв/цифр/знаков «_», «:», «-» или «.».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3109"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3127"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3119"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Невозможно вставить сюда ссылку.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3122"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3132"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Ссылка недействительна — она не должна содержать «&lt;» или «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3139"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Вы не можете создать метку Указателя в этом месте или не  выделили текст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3159"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Элемент недействителен — он не должен содержать «&lt;» или «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3154"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Вы не можете создать метку Указателя в этом месте.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3236"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3248"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3267"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3246"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3258"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3277"/>
         <source>Select the destination to paste into first.</source>
         <translation>Выберите место для вставки в первую очередь.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3256"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3266"/>
         <source>Pasted clip entry %1.</source>
         <translation>Вставленный элемент фрагмента %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3318"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3328"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Не выбран второй элемент для объединения.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3336"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Вы уверены, что хотите объединить выбранные файлы?
 Это действие нельзя отменить.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3341"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3351"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>Объединение отменено из-за ошибок в структуре XΗΤML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3400"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
         <source>Cannot merge file %1</source>
         <translation>Нельзя объединить файл %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3424"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Объединение завершено. Может потребоваться обновление оглавления.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3432"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3442"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Ссылка таблицы стилей отменена: %1, ошибки в структуре XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3562"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3572"/>
         <source>Word updated.</source>
         <translation>Слово обновлено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3631"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3641"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>Ссылка на Javascript отменена: %1, ошибки в структуре XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3741"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3751"/>
         <source>File(s) deleted.</source>
         <translation>Файлы удалены.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3752"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3762"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Изменение оглавления отменено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3757"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3767"/>
         <source>Table Of Contents edited.</source>
         <translation>Оглавление изменено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3775"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3785"/>
         <source>Generate TOC cancelled.</source>
         <translation>Создание оглавления отменено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3800"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3810"/>
         <source>Table Of Contents generated.</source>
         <translation>Оглавление создано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3812"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Нет необходимых изменений оглавления.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3876"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3886"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>Найден существующий HTML-файл оглавления.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3960"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3970"/>
         <source>Text selection marked.</source>
         <translation>Выделение отмечено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3962"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3980"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3972"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3990"/>
         <source>Text selection unmarked.</source>
         <translation>Отметка снята.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4029"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4039"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Редактирование метаданных отменено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4032"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4042"/>
         <source>Metadata edited.</source>
         <translation>Метаданные отредактированы.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4150"/>
         <source>RunPlugin</source>
         <translation>ЗапуститьПлагин</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4166"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4176"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>В этом файле отсутствуют таблицы стилей CSS.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4197"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4207"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>Этот EPUB не содержит таблиц стилей CSS, которые нужно переформатировать.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4693"/>
         <source>Line: %1, Col: %2</source>
         <translation>Строка: %1, Столбец: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4771"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4781"/>
         <source>File cannot be split at this position.</source>
         <translation>Файл невозможно разделить в этой позиции.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4794"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4804"/>
         <source>Split completed.</source>
         <translation>Разделение завершено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4812"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4822"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Разделение невозможно, так как выделен не файл HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4828"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Не удаётся разделить файл %1: ошибки в структуре XML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4834"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Не удаётся разделить, поскольку по крайней мере один файл может не быть HTML-файлом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4857"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4867"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Разделение завершено. Может потребоваться обновление оглавления.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4859"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4869"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Не найдено меток разделения файла. Используйте Вставка-&gt;Метка разделения.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5045"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5055"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Файл EPUB был изменён.
 Что прикажете делать?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5066"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5076"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Должен ли Sigil перезаписать этот файл?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5252"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5262"/>
         <source>No importer for file type: %1</source>
         <translation>Нет импортёра для файлового типа: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5259"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5269"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -11966,44 +12079,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 в настройках и перезагрузите файл.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5264"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5274"/>
         <source>Loading file...</source>
         <translation>Загрузка файла...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5278"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5288"/>
         <source>File loaded.</source>
         <translation>Файл загружен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5304"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5314"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Создатель этого файла зашифровал его. Sigil не может открывать такие файлы.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5312"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5322"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Не удалось загрузить EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5317"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5327"/>
         <source>Cannot load file %1: %2</source>
         <translation>Не удалось загрузить файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5344"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5354"/>
         <source>Saving EPUB...</source>
         <translation>Сохранение файла EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5363"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil не может сохранить файлы типа «%1».
 Пожалуйста, выберите другой формат.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5377"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5387"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -12012,94 +12125,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 Вы хотите автоматически исправлять файлы перед сохранением? Или отменить сохранение?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5382"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5392"/>
         <source>Saving EPUB... cancelled</source>
         <translation>Сохранение EPUB... отменено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5408"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5418"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB сохранён, но некоторые HTML-файлы имеют ошибки в структуре.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5420"/>
         <source>EPUB saved.</source>
         <translation>EPUB сохранён.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5416"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5426"/>
         <source>Cannot save file %1: %2</source>
         <translation>Невозможно сохранить файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5549"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5559"/>
         <source>EPUB files (*.epub)</source>
         <translation>Файлы EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5550"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5551"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5552"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5560"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5561"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5562"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Файлы HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5553"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5563"/>
         <source>Text files (*.txt)</source>
         <translation>Текстовые файлы (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5554"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5564"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5562"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5572"/>
         <source>EPUB file (*.epub)</source>
         <translation>Файл EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5660"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5670"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Сохранить имеющиеся атрибуты заголовков прямо сейчас:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5661"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5671"/>
         <source>ON</source>
         <translation>ВКЛ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5661"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5671"/>
         <source>OFF</source>
         <translation>ВЫКЛ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5696"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6649"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6659"/>
         <source>Focus changed to CodeView window.</source>
         <translation>Фокус переключился на окно «Просмотр кода».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6668"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>Фокус переключился на окно «Структура книги».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6667"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6677"/>
         <source>Focus changed to Preview window.</source>
         <translation>Фокус переключился на окно «Предпросмотр».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6676"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6686"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>Фокус переключился на окно «Оглавление».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6685"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6695"/>
         <source>Focus changed to Clips window.</source>
         <translation>Фокус переключился на окно «Фрагменты».</translation>
     </message>
@@ -14896,916 +15009,916 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <translation>Используйте OK, чтобы зафиксировать изменения метаданных в epub или используйте Отменить.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="84"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="87"/>
         <source>Name</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="84"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="87"/>
         <source>Value</source>
         <translation>Значение</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="453"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="534"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="456"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="541"/>
         <source>[ISBN here]</source>
         <translation>[Здесь ISBN]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="457"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="539"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="460"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="546"/>
         <source>[ISSN here]</source>
         <translation>[Здесь ISBN]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="461"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="544"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="464"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="551"/>
         <source>[DOI here]</source>
         <translation>[Здесь DOI]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="465"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="549"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="468"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <source>[UUID here]</source>
         <translation>[Здесь UIDD]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="469"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="554"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="472"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="561"/>
         <source>[Amazon ASIN here]</source>
         <translation>[Здесь ASIN]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="485"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="572"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="492"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="579"/>
         <source>[Author name here]</source>
         <translation>[Здесь имя автора]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="491"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="577"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="498"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="584"/>
         <source>[Creator name here]</source>
         <translation>[Здесь имя создателя]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="495"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="581"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="502"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="588"/>
         <source>[Contributor name here]</source>
         <translation>[Здесь имя соавтора]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="499"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="504"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="585"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="671"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="715"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="506"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="511"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="592"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="678"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="722"/>
         <source>[Value here]</source>
         <translation>[Нужно значение]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="503"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="584"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="901"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1070"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="510"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="591"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="908"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1077"/>
         <source>Custom Element</source>
         <translation>Особый элемент</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="503"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="510"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="591"/>
         <source>[Custom element]</source>
         <translation>[Особый элемент]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="559"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
         <source>[Custom identifier here]</source>
         <translation>[Пользовательский идентификатор]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="666"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="673"/>
         <source>[Insert identifier type here]</source>
         <translation>[Укажите здесь тип идентификатора]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="668"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="675"/>
         <source>[Insert scheme type here]</source>
         <translation>[Нужен тип схемы]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="949"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="677"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="956"/>
         <source>Custom Property</source>
         <translation>Особые свойства</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="670"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="677"/>
         <source>[Custom property/attribute]</source>
         <translation>[Особые свойства/атрибуты]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="714"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1104"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="721"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1111"/>
         <source>Custom Attribute</source>
         <translation>Пользовательский атрибут</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="714"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="721"/>
         <source>[Custom metadata property/attribute]</source>
         <translation>[Особые свойства/атрибуты метаданных]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="773"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="780"/>
         <source>[Place value here]</source>
         <translation>[Введите здесь значение]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="812"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="819"/>
         <source>[Your value here]</source>
         <translation>[Ваше значение здесь]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>Author</source>
         <translation>Автор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="877"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1043"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>Represents a primary author of the book or publication</source>
         <translation>Основной автор книги или публикации</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
         <source>Subject</source>
         <translation>Тема</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="878"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1047"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
         <source>An arbitrary phrase or keyword describing the subject in question. Use multiple &apos;subject&apos; elements if needed.</source>
         <translation>Произвольная фраза или ключевое слово, описывающее рассматриваемый предмет. При необходимости используйте несколько элементов «тема».</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1048"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1055"/>
         <source>Description</source>
         <translation>Описание</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="879"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1048"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1055"/>
         <source>Description of the publication&apos;s content.</source>
         <translation>Описание содержания публикации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="887"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1056"/>
         <source>Publisher</source>
         <translation>Издатель</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="880"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="887"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1056"/>
         <source>An entity responsible for making the publication available.</source>
         <translation>Организация, ответственная за выпуск, издание публикации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="888"/>
         <source>Date Published</source>
         <translation>Дата издания</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="881"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="888"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1058"/>
         <source>The date of publication.</source>
         <translation>Дата публикации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="889"/>
         <source>Date Created</source>
         <translation>Дата создания</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="882"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="889"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1059"/>
         <source>The date of creation.</source>
         <translation>Дата создания.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="890"/>
         <source>Date Modified</source>
         <translation>Дата изменения</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="883"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="890"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1060"/>
         <source>The date of modification.</source>
         <translation>Дата изменения.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="891"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1061"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="891"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
         <translation>Указывает, что данная EPUB-публикация специализированного типа...</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1055"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="892"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1062"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="885"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1055"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="892"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1062"/>
         <source>The media type or dimensions of the publication. Best practice is to use a value from a controlled vocabulary (e.g. MIME media types).</source>
         <translation>Тип носителя или размеры публикации. Лучше указывать значение из контролируемого словаря (например, MIME-типов носителей).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1056"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="893"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1063"/>
         <source>Source</source>
         <translation>Источник</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="886"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="893"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
         <translation>Определяет соответствующие ресурсы, из которого формируется эта EPUB-публикация.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="887"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1057"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="894"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1064"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="887"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="894"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
         <translation>Определяет язык публикации. Выберите из выпадающего меню</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="888"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="895"/>
         <source>Related To</source>
         <translation>Относится к</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="888"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1058"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="895"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1065"/>
         <source>A reference to a related resource. The recommended best practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</source>
         <translation>Ссылка на связанный ресурс. Рекомендуемая наилучшая практика заключается в идентификации указанного ресурса с помощью строки или номера, соответствующего формальной системе идентификации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="889"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1059"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="896"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1066"/>
         <source>Coverage</source>
         <translation>Охват</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="889"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1059"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="896"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1066"/>
         <source>The extent or scope of the content of the publication&apos;s content.</source>
         <translation>Степень или объём содержания контента публикации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="890"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1060"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="897"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1067"/>
         <source>Rights</source>
         <translation>Права</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="890"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1060"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="897"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1067"/>
         <source>Information about rights held in and over the publication. Rights information often encompasses Intellectual Property Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the publication.</source>
         <translation>Информация о правах, имеющихся в публикации и за ее пределами. Информация о правах часто включает права интеллектуальной собственности (ПИС), авторские права и различные права собственности. Если элемент «Права» отсутствует, нельзя делать какие-либо предположения относительно каких-либо прав, имеющихся в публикации или в отношении этой публикации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="891"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="898"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>Creator</source>
         <translation>Создатель</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="891"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="898"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Лицо или организация и т.д.,  ответственные за создание контента публикации EPUB. Свойство Роль может быть присоединено к элементу для указания функции, которую выполнил автор при создании контента.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="892"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="899"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
         <source>Contributor</source>
         <translation>Соавтор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="892"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="899"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Лицо, организация и т.д., которые сыграли второстепенную роль в создании контента публикации EPUB. Свойство Роль может быть присоединено к элементу для указания функции, которую выполнил соавтор при создании контента.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="893"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="900"/>
         <source>Belongs to a Collection</source>
         <translation>Элемент коллекции</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="893"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="900"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
         <translation>Определяет имя сборника, к которому принадлежит публикация EPUB. Публикация EPUB может принадлежать одному или нескольким сборникам.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="894"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="901"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>Title</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="894"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="901"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
         <translation>Название издания. Публикация может иметь только одно основное название, но может иметь множество других типов названий. К ним относятся основные, субтитры, короткие, сборники, издания и расширенные типы заголовков.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="895"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="902"/>
         <source>Identifier: DOI</source>
         <translation>Идентификатор: DOI</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="895"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="902"/>
         <source>Digital Object Identifier associated with this publication.</source>
         <translation>Идентификатор цифрового объекта (DOI), присвоенный этой публикации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="896"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="903"/>
         <source>Identifier: ISBN</source>
         <translation>Идентификатор: ISBN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="896"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="903"/>
         <source>International Standard Book Number associated with this publication.</source>
         <translation>Международный стандартный книжный номер (ISBN), присвоенный этой EPUB-публикации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="897"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="904"/>
         <source>Identifier: ISSN</source>
         <translation>Идентификатор: ISSN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="897"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="904"/>
         <source>International Standard Serial Number associated with this publication.</source>
         <translation>Международный стандартный серийный номер (ISSN), присвоенный этой публикации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="898"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="905"/>
         <source>Identifier: UUID</source>
         <translation>Идентификатор: UUID</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="898"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="905"/>
         <source>A Universally Unique Identifier generated for this publication.</source>
         <translation>UUID, назначенный этой публикации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="899"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="906"/>
         <source>Identifier: ASIN</source>
         <translation>Идентификатор: ASIN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="899"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="906"/>
         <source>An Amazon Standard Identification Number associated with this publication.</source>
         <translation>Стандартный идентификационный номер Amazon, присвоенный этой публикации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="900"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1066"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="907"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1073"/>
         <source>Identifier: Custom</source>
         <translation>Идентификатор: пользовательский</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="900"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="907"/>
         <source>A custom identifier based on a specified scheme</source>
         <translation>Пользовательский идентификатор, основывающийся на указанной схеме</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="901"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="908"/>
         <source>An empty metadata element you can modify.</source>
         <translation>Пустой элемент метаданных, который можно изменить.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="902"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="909"/>
         <source>Meta Element (primary)</source>
         <translation>Элемент Meta (основной)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="902"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="909"/>
         <source>An empty primary metadata element you can modify.</source>
         <translation>Пустой основной элемент метаданных, который можно изменить.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="928"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1097"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="935"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1104"/>
         <source>Id Attribute</source>
         <translation>Атрибут-идентификатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="928"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1097"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="935"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1104"/>
         <source>Optional, typically short, unique identifier string used as an attribute in the Package (opf) document.</source>
         <translation>Необязательная, обычно короткая строка уникального идентификатора, используемая в качестве атрибута в документе Package (opf).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1098"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="936"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1105"/>
         <source>XML Language</source>
         <translation>Язык XML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="929"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="936"/>
         <source>Optional, language specifying attribute.  Uses same codes as Language. Not for use with Language, Date, or Identifier metadata elements.</source>
         <translation>Необязательный атрибут, определяющий язык. Использует те же коды, что и Язык. Не совместим с элементами метаданных Язык, Дата или Идентификатор.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="937"/>
         <source>Uses Right To Left Text</source>
         <translation>Письмо справа налево</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="930"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="937"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Необязательный атрибут, указывающий направление текста для этого элемента метаданных. Справа-налево (Right-to-Left). Не применим к элементам метаданных dc:language, dc:date и dc:identifier.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="938"/>
         <source>Uses Left to Right Text</source>
         <translation>Письмо слева направо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="931"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="938"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Необязательный атрибут, указывающий направление текста для этого элемента метаданных. Слева-направо (Left-to-Right). Не применим к элементам метаданных dc:language, dc:date и dc:identifier.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="939"/>
         <source>Title: Main Title</source>
         <translation>Тип заголовка: основной</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="932"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="939"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
         <translation>Указывает, что этот заголовок — основной заголовок публикации. Допустим только один основной заголовок.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="940"/>
         <source>Title: Subtitle</source>
         <translation>Тип заголовка: подзаголовок</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="933"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="940"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
         <translation>Указывает, что этот заголовок — подзаголовок публикации, если он существует.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="934"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="941"/>
         <source>Title: Short Title</source>
         <translation>Тип заголовка: короткий</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="934"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="941"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
         <translation>Указывает, что этот заголовок — сокращённый подзаголовок публикации, если он существует.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="935"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="942"/>
         <source>Title: Collection Title</source>
         <translation>Тип заголовка: элемент коллекции</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="935"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="942"/>
         <source>Indicates that the associated title is the title of a collection that includes this publication belongs to, if one exists.</source>
         <translation>Указывает, что связанный заголовок является заголовком коллекции, к которой относится эта публикация, если она существует.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="936"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="943"/>
         <source>Title: Edition Title</source>
         <translation>Тип заголовка: издание</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="936"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="943"/>
         <source>Indicates that the associated title is an edition title for this publications if one exists.</source>
         <translation>Указывает, что связанный заголовок является названием издания для этих публикаций, если оно существует.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="937"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="944"/>
         <source>Title: Expanded Title</source>
         <translation>Тип заголовка: расширенный</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="937"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="944"/>
         <source>Indicates that the associated title is an expanded title for this publication if one exists.</source>
         <translation>Указывает, что связанный заголовок является расширенным заголовком для этой публикации, если она существует.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="938"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="945"/>
         <source>Alternate Script</source>
         <translation>Другое письмо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="938"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="945"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an xml:lang attribute.</source>
         <translation>Предоставляет альтернативное выражение связанного значения свойства на языке и письме, определяемом атрибутом xml:lang.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="939"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="946"/>
         <source>Alternate Language</source>
         <translation>Другой язык</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="939"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="946"/>
         <source>Language code for the language used in the associated alternate-script property value.</source>
         <translation>Код языка для значения соответствующего свойства alternate-script.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="940"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="947"/>
         <source>Collection is a Set</source>
         <translation>Тип коллекции: набор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="940"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="947"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
         <translation>Свойство, используемое с «Элемент коллекции». Указывает форму или характер коллекции. Значение «Набор» должно использоваться для конечного набора произведений, которые вместе составляют единую интеллектуальную единицу; как правило, выпускаются вместе и могут быть проданы как единое целое.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="941"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="948"/>
         <source>Collection is a Series</source>
         <translation>Тип коллекции: цикл</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="941"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="948"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
         <translation>Свойство, используемое с «Элемент коллекции». Указывает форму или характер коллекции. Значение «Цикл» должно использоваться для последовательности связанных произведений, которые формально идентифицируются как группа; как правило, бессрочные, с произведениями изданными в индивидуальном порядке в течение определённого времени.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="942"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="949"/>
         <source>Display Sequence</source>
         <translation>Последовательность отображения</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="942"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="949"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
         <translation>Указывает числовую позицию, в которой отображается текущее свойство относительно идентичных свойств метаданных (например, для указания порядка отображения нескольких заголовков или нескольких авторов).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="943"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1099"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="950"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1106"/>
         <source>File As</source>
         <translation>Внести как</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="943"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1099"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="950"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1106"/>
         <source>Provides the normalized form of the associated property for sorting. Typically used with author, creator, and contributor names.</source>
         <translation>Предоставляет нормализованную форму связанного свойства для сортировки. Обычно используется с именами авторов, создателей и участников.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="944"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="951"/>
         <source>Position In Group</source>
         <translation>Позиция в группе</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="944"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="951"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
         <translation>Указывает числовую позицию, в которой Публикация EPUB упорядочена относительно других произведений, принадлежащих к той же группе (независимо от того, являются ли все они публикациями EPUB или нет).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="945"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="952"/>
         <source>Identifier Type</source>
         <translation>Тип идентификатора</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="945"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="952"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
         <translation>Указывает форму или характер идентификатора. Когда значение типа идентификатора берётся из списка кодов или другого формального перечисления, атрибут схемы должен использоваться для идентификации его источника.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="946"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1100"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="953"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1107"/>
         <source>Role</source>
         <translation>Роль</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="946"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1100"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="953"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1107"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
         <translation>Описывает характер работы, выполняемой создателем или участником (например, что лицо является автором или редактором работы). Обычно используется со схемой mark:relators для контролируемого словаря.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="947"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1101"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="954"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1108"/>
         <source>Scheme</source>
         <translation>Схема</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="947"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="954"/>
         <source>This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
         <translation>Этот атрибут обычно добавляется к Идентификатору, Источнику, Создателю или Соавтору для указания используемой управляемой словарной системы. (например, marc:relators, чтобы указать допустимые значения для свойства Роль).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="948"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="955"/>
         <source>Source of Pagination</source>
         <translation>Источник разделения на страницы</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="948"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="955"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
         <translation>Указывает на уникальный аспект адаптированного исходного ресурса, который был сохранен в данном исполнении публикации EPUB. В этой спецификации определяется значение нумерации страниц, указывающее, что указанный исходный элемент является источником свойств разрыва страницы, определенных в содержимом. Это значение следует устанавливать всякий раз, когда включена нумерация страниц и известен источник печати. Допустимые значения: pagination.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="949"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="956"/>
         <source>An empty metadata property or attribute you can modify.</source>
         <translation>Незаполненные свойства и атрибуты метаданных, которые вы можете изменить.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="977"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
         <source>Text Direction</source>
         <translation>Направление текста</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="977"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
         <source>Optional text direction attribute for this metadata item.</source>
         <translation>Необязательное указание направления письма для этого элемента метаданных.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="978"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
         <source>Title Type</source>
         <translation>Тип заголовка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="978"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
         <source>Indicates the kind or type of the title</source>
         <translation>Указывает вид или тип заголовка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="979"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="986"/>
         <source>Collection Type</source>
         <translation>Тип коллекции</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="979"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="986"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection.</source>
         <translation>Свойство, используемое с «элемент коллекции». Указывает разновидность коллекции.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="980"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="987"/>
         <source>Source of</source>
         <translation>Источник</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="980"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="987"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.</source>
         <translation>Указывает на уникальный аспект адаптированного ресурса-источника, который был сохранен в данном представлении публикации EPUB.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1007"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
         <source>Published</source>
         <translation>Издано</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1007"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
         <source>Event Type is Published.</source>
         <translation>Тип события: дата издания.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1008"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1015"/>
         <source>Publication</source>
         <translation>Публикация</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1008"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1015"/>
         <source>Event Type is Publication.</source>
         <translation>Тип события: публикация</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1009"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1016"/>
         <source>Creation</source>
         <translation>Создание</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1009"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1016"/>
         <source>Event Type is Creation.</source>
         <translation>Тип события: создание</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1010"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1017"/>
         <source>Modification</source>
         <translation>Изменение</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1010"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1017"/>
         <source>Event Type is Modification.</source>
         <translation>Тип события: изменение</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1011"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1061"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1018"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1068"/>
         <source>Digital Object Identifier</source>
         <translation>Digital Object Identifier, т.е. Идентификатор Цифрового Объекта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1011"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1018"/>
         <source>Identifier Scheme: Digital Object Identifier</source>
         <translation>Схема идентификатора: Цифровой идентификатор объекта (DOI)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1012"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1062"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1019"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1069"/>
         <source>International Standard Book Number</source>
         <translation>International Standard Book Number, т.е. Международный Стандартный Книжный Номер</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1012"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1019"/>
         <source>Identifier Scheme: International Standard Book Number</source>
         <translation>Схема идентификатора: Международный стандартный книжный номер (ISBN)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1063"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1070"/>
         <source>International Standard Serial Number</source>
         <translation>Международный стандартный номер серии</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
         <source>Identifier Scheme: International Standard Serial Number</source>
         <translation>Схема идентификатора: Международный стандартный серийный номер (ISSN)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1064"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1071"/>
         <source>Universally Unique Identifier</source>
         <translation>Универсальный уникальный идентификатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
         <source>Identifier Scheme: Universally Unique Identifier</source>
         <translation>Схема идентификатора: Универсально уникальный идентификатор (UUID)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1015"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
         <source>Amazon Unique Identifier</source>
         <translation>Уникальный идентификатор Amazon</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1015"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
         <source>Identifier Scheme: Amazon Unique Identifier</source>
         <translation>Схема идентификатора: Уникальный идентификатор Amazon</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1044"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
         <translation>Основной и единственный заголовок EPUB-публикации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1045"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
         <translation>Представляет имя лица, организации и т.д., ответственного за создание содержимого публикации EPUB. Атрибуты opf:role, opf:scheme и opf:file-as могут быть добавлены к элементу для указания функции, которую сыграл создатель при создании контента.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1046"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
         <translation>Представляет имя человека, организации и т.п., которые сыграли второстепенную роль в создании EPUB-публикации.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1057"/>
         <source>Date</source>
         <translation>Дата</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1057"/>
         <source>A date associated with this epub, typically refined by event type information</source>
         <translation>Дата, связанная с этим файлом EPUB, обычно уточняемая типом события</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1058"/>
         <source>Date: Publication</source>
         <translation>Дата: публикация</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1059"/>
         <source>Date: Creation</source>
         <translation>Дата: создание</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1053"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1060"/>
         <source>Date: Modification</source>
         <translation>Дата: изменение</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1054"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1061"/>
         <source>The nature or genre of the content of the resource.</source>
         <translation>Сущность или происхождение содержимого ресурса.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1056"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1063"/>
         <source>A reference to a resource from which the present publication is derived.</source>
         <translation>Ссылка на ресурс, на основе которого создана данная публикация.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1057"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1064"/>
         <source>A language used in the publication. Choose a RFC5646 value.</source>
         <translation>Язык, выбранный в публикации. Выбирайте значения согласно RFC5646.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1058"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1065"/>
         <source>Relation</source>
         <translation>Зависимость</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1061"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1062"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1063"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1064"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1065"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1068"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1069"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1070"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1071"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1072"/>
         <source>Identifier</source>
         <translation>Идентификатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1065"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1072"/>
         <source>Amazon Standard Identification Number</source>
         <translation>Стандартный номер-идентификатор Amazon (ASIN)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1066"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1073"/>
         <source>A custom identifier</source>
         <translation>Пользовательский идентификатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1067"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1074"/>
         <source>Series</source>
         <translation>Серия</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1067"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1074"/>
         <source>Series title or name (from calibre)</source>
         <translation>Название серии (из calibre)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1068"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1075"/>
         <source>Series Index</source>
         <translation>Номер в серии</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1068"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1075"/>
         <source>Index of this book in the series (from calibre)</source>
         <translation>Номер книги в серии (из calibre)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1069"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1076"/>
         <source>Title for Sorting</source>
         <translation>Заголовок для сортировки</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1069"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1076"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
         <translation>Версия названия книги используемое при сортировке (как в Calibre)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1070"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1077"/>
         <source>An empty element for you to modify</source>
         <translation>Вы можете изменить пустой элемент.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1098"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1105"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
         <translation>Необязательный атрибут, определяющий язык. Использует те же коды, что и dc:language. Не совместим с элементами метаданных dc:language, dc:date или dc:identifier.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1101"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1108"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.</source>
         <translation>Этот атрибут обычно добавляется в dc:identifier для указания типа используемого идентификатора: DOI, ISBN, ISSN, UUID или AMAZON.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1102"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1109"/>
         <source>Custom Scheme</source>
         <translation>Схема пользователя</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1102"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1109"/>
         <source>This attribute is typically added to dc:identifier to indicate that a custom identifier scheme is being used.</source>
         <translation>Этот атрибут обычно добавляется к dc:identifier, чтобы указать, что используется пользовательская схема идентификатора.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1103"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1110"/>
         <source>Event</source>
         <translation>Событие</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1103"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1110"/>
         <source>This attribute is typically added to dc:date elements to specify the date type: publication, creation, or modification.</source>
         <translation>Этот атрибут обычно используется с элементами dc:date для пояснения даты: публикации, создания или изменения.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="1104"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="1111"/>
         <source>An empty metadata attribute you can modify.</source>
         <translation>Пустой атрибут метаданных, который вы можете отредактировать.</translation>
     </message>
@@ -15950,12 +16063,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1511"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1582"/>
         <source>[Title here]</source>
         <translation>[Место заголовка]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1517"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1592"/>
         <source>[Main title here]</source>
         <translation>[Место для основного заголовка]</translation>
     </message>
@@ -17021,7 +17134,7 @@ Entities can be separated by lines, commas, or spaces.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="297"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="299"/>
         <source>Cleaning...</source>
         <translation>Очистка...</translation>
     </message>
@@ -17178,7 +17291,7 @@ Line: %1 Column %2 - %3</source>
         <translation>OPF-файл не содержит NCX-файл.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="781"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="784"/>
         <source>Adding Existing Files..</source>
         <translation>Добавление существующих файлов...</translation>
     </message>
@@ -19452,8 +19565,8 @@ double click on existing destinations in your book from the list above.</source>
     </message>
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="69"/>
-        <source>Targets in the Book</source>
-        <translation>Цели в книге</translation>
+        <source>Targets</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -19498,6 +19611,24 @@ ID должен быть уникален и начинаться с буквы.
         <location filename="../../Form_Files/SelectIndexTitle.ui" line="25"/>
         <source>Index Entry:</source>
         <translation>Ключевое слово:</translation>
+    </message>
+</context>
+<context>
+    <name>SemanticTargetID</name>
+    <message>
+        <location filename="../../Form_Files/SemanticTargetID.ui" line="14"/>
+        <source>Target for Semantic</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/SemanticTargetID.ui" line="22"/>
+        <source>Select an ID or use the default file level target for this Semantic setting.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/SemanticTargetID.ui" line="25"/>
+        <source>ID:</source>
+        <translation>ID:</translation>
     </message>
 </context>
 <context>
