@@ -8,6 +8,7 @@ pre-2.4.0
      - improve Sigil Well-Formed (sanity check) to better identify errors with missing attribute quotes
      - update to Qt 6.7.3 and its PySide6 version for MacOS and Windows release builds
      - updates to building on linux documentation
+     - add support for building with and using virtual python environments on Windows and Linux
      
    Bug Fixes
      - readability improvments for Load Warnings (thank you BeckyEbook)
