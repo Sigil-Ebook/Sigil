@@ -103,9 +103,9 @@
 # 2023-01-15 Carlo added C99 as the minimum required
 # 2023-08-06 PH added support for setting variable length lookbehind maximum
 
-# Increased minimum to 3.5 to workaround deprecated backward compatibility
-# since 3.27.
-cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+# Increased minimum to 3.18 to workaround deprecated backward compatibility
+# since in more recent cmakes
+cmake_minimum_required(VERSION 3.18 FATAL_ERROR)
 project(PCRE2 C)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED TRUE)

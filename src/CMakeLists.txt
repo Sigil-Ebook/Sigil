@@ -656,7 +656,7 @@ endif()
 
 # Building Sigil with Qt6 requires cmake 3.16+
 # and a C++17 standards compatible compiler
-cmake_minimum_required( VERSION 3.16 )
+cmake_minimum_required( VERSION 3.18 )
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
