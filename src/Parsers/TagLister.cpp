@@ -30,6 +30,7 @@
 #include "Parsers/TagLister.h"
 #include "sigil_constants.h"
 
+const QString WHITESPACE_CHARS=" \t\n\r";  // valid in pure xml
 
 // public interface
 
@@ -433,7 +434,7 @@ int TagLister::findTarget(const QString &tgt, int p, bool after)
 
 int TagLister::skipAnyBlanks(const QStringView tgt, int p)
 {
-    while((p < tgt.length()) && (tgt.at(p) == ' ')) p++;
+    while((p < tgt.length()) && (WHITESPACE_CHARS.contains(tgt.at(p)))) p++;
     return p;
 }
 
