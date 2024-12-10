@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Replacements (Delete Unwanted Replacements)</string>
+   <string>Replacements (Select Desired Replacements)</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="leftMargin">
@@ -28,6 +28,16 @@
    </property>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0">
+      <item>
+        <widget class="QCheckBox" name="ToggleSelectAll">
+          <property name="focusPolicy">
+            <enum>Qt::TabFocus</enum>
+          </property>
+          <property name="text">
+            <string>Select / Unselect all</string>
+          </property>
+         </widget>
+     </item>
      <item>
       <spacer name="horizontalSpacer1">
        <property name="orientation">
@@ -87,7 +97,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QTreeView" name="chooserTree">
+    <widget class="QTableView" name="chooserTable">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -95,7 +105,7 @@
       </sizepolicy>
      </property>
      <property name="toolTip">
-      <string>Delete unwanted replacements from the table.
+      <string>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</string>
      </property>
      <property name="showDropIndicator" stdset="0">
@@ -107,11 +117,11 @@
      <property name="selectionMode">
       <enum>QAbstractItemView::ContiguousSelection</enum>
      </property>
-     <property name="uniformRowHeights">
-      <bool>true</bool>
-     </property>
      <property name="sortingEnabled">
       <bool>false</bool>
+     </property>
+     <property name="focusPolicy">
+       <enum>Qt::TabFocus</enum>
      </property>
     </widget>
    </item>
@@ -123,7 +133,7 @@
         <enum>Qt::TabFocus</enum>
        </property>
        <property name="toolTip">
-        <string>Apply the remaining replacements listed in the table.
+        <string>Apply the selected replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</string>
        </property>
        <property name="text">

@@ -22,7 +22,7 @@
 #include <QKeySequence>
 #include <QMessageBox>
 #include <QPushButton>
-#include <QTreeView>
+#include <QTableView>
 #include <QModelIndex>
 #include "Misc/NumericItem.h"
 #include "Misc/SettingsStore.h"
@@ -40,15 +40,14 @@
 static const QString SETTINGS_GROUP = "replacement_chooser";
 
 // These need to be changed if columns added or deleted
-static const int BEFORE_COL = 2;
-static const int AFTER_COL = 3;
+static const int BEFORE_COL = 3;
+static const int AFTER_COL = 4;
 
 ReplacementChooser::ReplacementChooser(QWidget* parent)
     :
     QDialog(parent),
     m_ItemModel(new QStandardItemModel),
     m_TextDelegate(new StyledTextDelegate()),
-    m_ContextMenu(new QMenu(this)),
     m_replacement_count(0),
     m_current_count(0)
 {
@@ -61,19 +60,40 @@ ReplacementChooser::ReplacementChooser(QWidget* parent)
     ui.amtcb->addItem("40",40);
     ui.amtcb->addItem("50",50);
     ui.amtcb->setEditable(false);
+    ui.ToggleSelectAll->setCheckState(Qt::Checked);
     ReadSettings();
-    CreateContextMenuActions();
     connectSignalsSlots();
     // sorting must NOT be enabled as offset order is important
     // changes in a file must be made from bottom to top
-    ui.chooserTree->setSortingEnabled(false);
-    ui.chooserTree->setTextElideMode(Qt::ElideLeft);
+    ui.chooserTable->setSortingEnabled(false);
+    ui.chooserTable->setTextElideMode(Qt::ElideLeft);
+    ui.chooserTable->setTabKeyNavigation(false);
+    ui.chooserTable->setFocusPolicy(Qt::TabFocus);
+    ui.chooserTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui.amtcb->setFocusPolicy(Qt::TabFocus);
+    ui.ToggleSelectAll->setFocusPolicy(Qt::TabFocus);
+    CreateTable();
+    ui.chooserTable->setFocus(Qt::OtherFocusReason);
 }
 
 ReplacementChooser::~ReplacementChooser()
 {
     m_ItemModel->clear();
     delete m_ItemModel;
+}
+
+void ReplacementChooser::SelectUnselectAll(bool value)
+{
+    Qt::CheckState checkboxValue = (value ? Qt::Checked : Qt::Unchecked);
+    m_current_count = 0;
+    for (int row = 0; row < m_ItemModel->rowCount(); row++) {
+        QStandardItem *checkbox = m_ItemModel->itemFromIndex(m_ItemModel->index(row, 0));
+        checkbox->setCheckState(checkboxValue);
+        if (value) m_current_count = m_current_count + 1;
+    }
+    // display the current count above the table (with a buffer to the right)
+    ui.cntamt->setText(QString::number(m_current_count) + "   ");
+
 }
 
 void ReplacementChooser::closeEvent(QCloseEvent *e)
@@ -93,14 +113,15 @@ void ReplacementChooser::CreateTable()
     m_ItemModel->clear();
     m_Resources.clear();
     QStringList header;
+    header.append(tr("Replace"));
     header.append(tr("Book Path"));
     header.append(tr("Offset"));
     header.append(tr("Before"));
     header.append(tr("After"));
     m_ItemModel->setHorizontalHeaderLabels(header);
-    ui.chooserTree->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui.chooserTree->setModel(m_ItemModel);
-    ui.chooserTree->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui.chooserTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui.chooserTable->setModel(m_ItemModel);
+    ui.chooserTable->setContextMenuPolicy(Qt::NoContextMenu);
 
     QList<Resource*> resources = m_FindReplace->GetAllResourcesToSearch();
     QString search_regex = m_FindReplace->GetSearchRegex();
@@ -154,6 +175,12 @@ void ReplacementChooser::CreateTable()
                 // finally add a row to the table
                 QList<QStandardItem *> rowItems;
 
+                // Checkbox
+                QStandardItem *checkbox_item = new QStandardItem();
+                checkbox_item->setCheckable(true);
+                checkbox_item->setCheckState(Qt::Checked);
+                rowItems << checkbox_item;
+
                 // Book Path
                 QStandardItem *item;
                 item = new QStandardItem();
@@ -197,13 +224,13 @@ void ReplacementChooser::CreateTable()
     ui.cntamt->setText(QString::number(m_current_count) + "   ");
     
     // set styled text item delegate for columns 2 (before) and 3 (after)
-    ui.chooserTree->setItemDelegateForColumn(BEFORE_COL, m_TextDelegate);
-    ui.chooserTree->setItemDelegateForColumn(AFTER_COL, m_TextDelegate);
+    ui.chooserTable->setItemDelegateForColumn(BEFORE_COL, m_TextDelegate);
+    ui.chooserTable->setItemDelegateForColumn(AFTER_COL, m_TextDelegate);
     
-    for (int i = 0; i < ui.chooserTree->header()->count(); i++) {
-        ui.chooserTree->resizeColumnToContents(i);
+    for (int i = 0; i < ui.chooserTable->horizontalHeader()->count(); i++) {
+        ui.chooserTable->resizeColumnToContents(i);
     }
-    ui.chooserTree->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui.chooserTable->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
 
 
@@ -242,43 +269,55 @@ void ReplacementChooser::ApplyReplacements()
     // replacements must be made in reverse offset order (bottom to top) of file
     int rows = m_ItemModel->rowCount();
     for (int i=0; i < rows; i++) {
-        QString bookpath = m_ItemModel->item(i, 0)->text();
-        QString match_segment = m_ItemModel->item(i,2)->data(Qt::UserRole+3).toString();
-        int startpos = m_ItemModel->item(i,1)->text().toInt();
-        int n = match_segment.length();
-        QString new_text = m_ItemModel->item(i,3)->data(Qt::UserRole+3).toString();
-        Resource * resource = m_Resources[bookpath];
-        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        TextResource *text_resource = qobject_cast<TextResource *>(resource);
-        if (html_resource) {
-            QWriteLocker locker(&html_resource->GetLock());
-            QString text = html_resource->GetText();
-            QString updated_text = text.replace(startpos, n, new_text);
-            html_resource->SetText(updated_text);
-            m_replacement_count++;
-        } else if (text_resource) {
-            QWriteLocker locker(&text_resource->GetLock());
-            QString text = text_resource->GetText();
-            QString updated_text = text.replace(startpos, n, new_text);
-            text_resource->SetText(updated_text);
-            m_replacement_count++;
+        bool checked = m_ItemModel->item(i,0)->checkState() == Qt::Checked;
+        if (checked) {
+            QString bookpath = m_ItemModel->item(i, 1)->text();
+            int startpos = m_ItemModel->item(i,2)->text().toInt();
+            QString match_segment = m_ItemModel->item(i,3)->data(Qt::UserRole+3).toString();
+            int n = match_segment.length();
+            QString new_text = m_ItemModel->item(i,4)->data(Qt::UserRole+3).toString();
+            Resource * resource = m_Resources[bookpath];
+            HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+            TextResource *text_resource = qobject_cast<TextResource *>(resource);
+            if (html_resource) {
+                QWriteLocker locker(&html_resource->GetLock());
+                QString text = html_resource->GetText();
+                QString updated_text = text.replace(startpos, n, new_text);
+                html_resource->SetText(updated_text);
+                m_replacement_count++;
+            } else if (text_resource) {
+                QWriteLocker locker(&text_resource->GetLock());
+                QString text = text_resource->GetText();
+                QString updated_text = text.replace(startpos, n, new_text);
+                text_resource->SetText(updated_text);
+                m_replacement_count++;
+            }
         }
     }
     close();
 }
 
-void ReplacementChooser::DeleteSelectedRows()
+void ReplacementChooser::ChangeSelectedRows()
 {
-    if (!ui.chooserTree->selectionModel()->hasSelection()) return;
-    // This QTreeView is limited to ContiguousSelection mode
-    // so should be able to delete in blocks
-    QModelIndex index = ui.chooserTree->selectionModel()->selectedRows(0).first();
-    int count = ui.chooserTree->selectionModel()->selectedRows(0).count();
+    if (!ui.chooserTable->selectionModel()->hasSelection()) return;
+    // This QTableView is limited to ContiguousSelection mode
+    // so should be able to select or deselect in blocks
+    QModelIndex index = ui.chooserTable->selectionModel()->selectedRows(0).first();
+    int count = ui.chooserTable->selectionModel()->selectedRows(0).count();
     int row = index.row();
-    QModelIndex parent_index = index.parent();
-    m_ItemModel->removeRows(row, count, parent_index);
-    m_current_count = m_current_count - count;
-
+    int i = row;
+    while (count > 0) {
+        bool checked = m_ItemModel->item(i,0)->checkState() == Qt::Checked;
+        if (checked) {
+            m_ItemModel->item(i, 0)->setCheckState(Qt::Unchecked);
+            m_current_count--;
+        } else {
+            m_ItemModel->item(i, 0)->setCheckState(Qt::Checked);
+            m_current_count++;
+        }
+        i++;
+        count--;
+    }
     // display the current count above the table (with a buffer to the right)
     ui.cntamt->setText(QString::number(m_current_count) + "   ");
 }
@@ -293,6 +332,7 @@ void ReplacementChooser::ReadSettings()
     }
     m_context_amt = settings.value("context",20).toInt();
     SetContextCB(m_context_amt);
+    connect(ui.amtcb, SIGNAL(currentIndexChanged(int)), this, SLOT(ChangeContext()));
     settings.endGroup();
 }
 
@@ -311,7 +351,24 @@ void ReplacementChooser::ChangeContext()
     int val = ui.amtcb->currentData().toInt();
     if (val != m_context_amt) {
         m_context_amt = val;
+        // store away the current seletions to restore them
+        // after table is recreated with changed context
+        QList<bool> selections;
+        int rows = m_ItemModel->rowCount();
+        for (int i=0; i < rows; i++) {
+            bool checked = m_ItemModel->item(i,0)->checkState() == Qt::Checked;
+            selections << checked;
+        }
         CreateTable();
+        // update with saved selections
+        rows = m_ItemModel->rowCount();
+        for (int i=0; i < rows; i++) {
+            if (selections.at(i)) {
+                m_ItemModel->item(i,0)->setCheckState(Qt::Checked);
+            } else {
+                m_ItemModel->item(i,0)->setCheckState(Qt::Unchecked);
+            }
+        }
     }
 }
 
@@ -324,39 +381,26 @@ void ReplacementChooser::WriteSettings()
     settings.endGroup();
 }
 
-void ReplacementChooser::CreateContextMenuActions()
+void ReplacementChooser::doActivated(const QModelIndex& index)
 {
-    m_Delete    =   new QAction(tr("Delete Selected Rows"),  this);
-    QList<QKeySequence> shortcuts;
-    shortcuts << QKeySequence::Delete << QKeySequence::Cut << QKeySequence(Qt::Key_Backspace);
-    m_Delete->setShortcuts(shortcuts);
-    addAction(m_Delete);
+    ChangeSelectedRows();
 }
 
-void ReplacementChooser::OpenContextMenu(const QPoint &point)
+void ReplacementChooser::keyPressEvent(QKeyEvent* event)
 {
-    SetupContextMenu(point);
-    m_ContextMenu->exec(ui.chooserTree->viewport()->mapToGlobal(point));
-    if (!m_ContextMenu.isNull()) {
-        m_ContextMenu->clear();
-        m_Delete->setEnabled(true);
-     }
+    if (ui.chooserTable->selectionModel()->hasSelection()) {
+        if ((event->key() == Qt::Key_Return) || (event->key() == Qt::Key_Enter)) {
+            ChangeSelectedRows();
+            return;
+        }
+    }
+    QDialog::keyPressEvent(event);
 }
-
-void ReplacementChooser::SetupContextMenu(const QPoint &point)
-{
-    m_ContextMenu->addAction(m_Delete);
-    m_Delete->setEnabled(ui.chooserTree->selectionModel()->hasSelection());
-}
-
 
 void ReplacementChooser::connectSignalsSlots()
 {
-    // connect(ui.leFilter,  SIGNAL(textChanged(QString)), this, SLOT(FilterEditTextChangedSlot(QString)));
-    connect(m_Delete, SIGNAL(triggered()), this, SLOT(DeleteSelectedRows()));
     connect(ui.Apply, SIGNAL(clicked()), this, SLOT(ApplyReplacements()));
     connect(ui.buttonBox->button(QDialogButtonBox::Close), SIGNAL(clicked()), this, SLOT(close()));
-    connect(ui.amtcb, SIGNAL(currentIndexChanged(int)), this, SLOT(ChangeContext()));
-    connect(ui.chooserTree, SIGNAL(customContextMenuRequested(const QPoint &)),
-            this, SLOT(OpenContextMenu(const QPoint &)));
+    connect(ui.ToggleSelectAll, SIGNAL(clicked(bool)), this, SLOT(SelectUnselectAll(bool)));
+    connect(ui.chooserTable, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(doActivated(const QModelIndex &)));
 }

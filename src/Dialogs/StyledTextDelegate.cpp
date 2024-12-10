@@ -34,7 +34,7 @@
 #include <QSize>
 #include "Dialogs/StyledTextDelegate.h"
 
-static const int COL_START = 2;
+static const int COL_START = 3;
 
 
 StyledTextDelegate::StyledTextDelegate(QObject *parent)

@@ -55,12 +55,14 @@ public slots:
 
 private slots:
     void ChangeContext();
-    void DeleteSelectedRows();
+    void ChangeSelectedRows();
     void ApplyReplacements();
-    void CreateContextMenuActions();
-    void SetupContextMenu(const QPoint &point);
-    void OpenContextMenu(const QPoint &point);
+    void SelectUnselectAll(bool value);
+    void doActivated(const QModelIndex& index);
 
+protected:
+    void keyPressEvent(QKeyEvent* evemy) override;    
+    
 private:
     QString GetPriorContext(int start, const QString &text, int amt);
     QString GetPostContext(int end, const QString &text, int amt);
@@ -79,10 +81,6 @@ private:
     FindReplace * m_FindReplace;
 
     int m_context_amt;
-
-    QAction *m_Delete;
-
-    QPointer<QMenu> m_ContextMenu;
 
     QHash<QString, Resource*> m_Resources;
 
