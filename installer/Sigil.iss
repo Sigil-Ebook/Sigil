@@ -33,14 +33,14 @@ OutputBaseFilename={#AppName}-${SIGIL_FULL_VERSION}-Windows${LEGACY_BUILD}${ISS_
 ChangesAssociations=yes
 ;SetupLogging=yes
 
-; "ArchitecturesAllowed=x64" specifies that Setup cannot run on
-; anything but x64.
-; The ${ISS_ARCH} var is substituted with "x64" or an empty string
+; "ArchitecturesAllowed=x64compatible" specifies that Setup cannot run on
+; anything but x64 or arm64.
+; The ${ISS_ARCH} var is substituted with "x64compatible" or an empty string
 ArchitecturesAllowed="${ISS_ARCH}"
-; "ArchitecturesInstallIn64BitMode=x64" requests that the install be
-; done in "64-bit mode" on x64, meaning it should use the native
+; "ArchitecturesInstallIn64BitMode=x64compatible" requests that the install be
+; done in "64-bit mode" on x64 (or arm64), meaning it should use the native
 ; 64-bit Program Files directory and the 64-bit view of the registry.
-; The ${ISS_ARCH} var is substituted with "x64" or an empty string
+; The ${ISS_ARCH} var is substituted with "x64compatible" or an empty string
 ArchitecturesInstallIn64BitMode="${ISS_ARCH}"
 
 [Files]
