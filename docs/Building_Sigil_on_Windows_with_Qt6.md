@@ -6,7 +6,7 @@ To build Sigil on Windows, you need to get/do the following things:
 
 1. [Visual Studio 2022+](#vsstudio) The free Community Edition will work fine
 2. [CMake](#cmake) (3.18 or higher)
-3. [Inno Setup](#inno) (Version 6 - unicode version - or higher required)
+3. [Inno Setup](#inno) (Version 6.3.0 - unicode version - or higher required)
 4. [Qt6.7.2+/QtWebEngine](#qt6)
 5. [Python 3.11.9+](#python)
 6. [The Sigil source code](#sigil) (downloaded zipfile or a git clone)
@@ -27,7 +27,7 @@ If you're going to use the Visual Studio IDE and cmake-gui, you won't need to us
 CMake 3.18 or better is required. Download it from [cmake.org](http://www.cmake.org) and install it. **Make sure CMake's "bin" directory (the one containing "cmake.exe") is added to your PATH**.
 
 ## <a name="inno"/>Inno Setup
-Get the unicode version of version 6+ (6.3 at the time of this writing) from [jrsoftware.org](http://www.jrsoftware.org/isdl.php) make sure you say yes to the Preprocessor option when installing. **Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH**. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.
+Get the unicode version of version 6.3.0+ from [jrsoftware.org](http://www.jrsoftware.org/isdl.php) make sure you say yes to the Preprocessor option when installing. **Also make sure the Inno Setup directory (the one containing "ISCC.exe") is added to your PATH**. There is no 64-bit version of Inno Setup, but you can still use it to create 64-bit program installers.
 
 ## <a name="qt6"/>Qt6.7.2+
 As of Qt6+, there there are no binary Qt installers provided for free. You must compile it yourself from source (applying the appropriate patches from the Sigil Docs directory).
