@@ -384,7 +384,7 @@ elseif (MSVC)
     # Specify platform var for Inno
     if ( 64_BIT_PLATFORM )
         # Used in the ISS CMake configuration
-        set( ISS_ARCH "x64" )
+        set( ISS_ARCH "x64compatible" )
         set( ISS_SETUP_FILENAME_PLATFORM "-x64" )
     endif()
 
