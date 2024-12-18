@@ -10,6 +10,7 @@ pre-2.4.0
      - updates to building on linux documentation
      - add support for building with and using virtual python environments on Windows and Linux
      - change Replacement Chooser to use Checkboxes to determine if rep-lacements should be made, no deletes
+     - allow Windows Sigil installer to run on Windows arm64
 
  
    Bug Fixes
