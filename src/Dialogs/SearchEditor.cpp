@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -139,7 +139,7 @@ void SearchEditor::ShowMessage(const QString &message)
 {
     ui.Message->setText(message);
     ui.Message->repaint();
-    QApplication::processEvents();
+    // QApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
 }
 
 bool SearchEditor::SaveData(QList<SearchEditorModel::searchEntry *> entries, QString filename)
