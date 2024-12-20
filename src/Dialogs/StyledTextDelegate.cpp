@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2022      Kevin B. Hendricks, Stratford Ontario Canada 
+**  Copyright (C) 2022-2024  Kevin B. Hendricks, Stratford Ontario Canada 
 **
 **  This file is part of Sigil.
 **
@@ -34,7 +34,7 @@
 #include <QSize>
 #include "Dialogs/StyledTextDelegate.h"
 
-static const int COL_START = 3;
+// static const int COL_START = 3;
 
 
 StyledTextDelegate::StyledTextDelegate(QObject *parent)
@@ -49,10 +49,10 @@ StyledTextDelegate::~StyledTextDelegate()
 void StyledTextDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // use only in desginated columns
-    if (index.column() < COL_START) {
-        QStyledItemDelegate::paint(painter, option, index);
-        return;
-    }
+    // if (index.column() < COL_START) {
+    //     QStyledItemDelegate::paint(painter, option, index);
+    //     return;
+    // }
     painter->save();
     painter->setClipRect(QRectF(option.rect));
     painter->translate(option.rect.topLeft());
@@ -75,9 +75,9 @@ void StyledTextDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
 
 QSize StyledTextDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    if (index.column() < COL_START) {
-        return QStyledItemDelegate::sizeHint(option, index);
-    }
+    // if (index.column() < COL_START) {
+    //     return QStyledItemDelegate::sizeHint(option, index);
+    // }
     QTextDocument doc;
     doc.setPlainText(index.data(Qt::DisplayRole).toString());
     QSize res = doc.size().toSize();
