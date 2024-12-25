@@ -179,7 +179,7 @@
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="84"/>
         <source>Semantics</source>
-        <translation>セマンティクス</translation>
+        <translation>セマンティック</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="86"/>
@@ -449,17 +449,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="631"/>
         <source>Dark Theme Style (Windows Only):</source>
-        <translation type="unfinished"/>
+        <translation>ダークテーマスタイル（Windows のみ）:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="637"/>
         <source>When using a Windows dark style, use the classic Sigil dark style instead of the built in Qt one</source>
-        <translation type="unfinished"/>
+        <translation>Windowsのダークスタイルを使用する場合は、組み込みのQtダークスタイルではなく、クラシックなSigilのダークスタイルを使用します</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="640"/>
         <source>Use Classic Sigil Dark Theme</source>
-        <translation type="unfinished"/>
+        <translation>クラシックなSigilのダークテーマを使用する</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="647"/>
@@ -494,37 +494,37 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="730"/>
         <source>Check to make BookBrowser show full paths.</source>
-        <translation>ブックブラウザーにフルパスが表示されるようにするには、チェックします。</translation>
+        <translation>ブックブラウザーでフルパス表示するにはチェックします。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="733"/>
         <source>BookBrowser should show full paths.</source>
-        <translation>ブックブラウザーにフルパスが表示されます。</translation>
+        <translation>ブックブラウザーでフルパス表示する</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="746"/>
         <source>Accessibility Tweaks:</source>
-        <translation type="unfinished"/>
+        <translation>アクセシビリティの調整:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="755"/>
         <source>Show colored border around Widgets when they have focus</source>
-        <translation type="unfinished"/>
+        <translation>ウィジェットにフォーカスがあるときにウィジェットの周囲に色付きの枠線を表示します</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="758"/>
         <source>Highlight Widgets with Focus (Needs Sigil Restart)</source>
-        <translation type="unfinished"/>
+        <translation>フォーカスのあるウィジェットを強調表示する（Sigilの再起動が必要）</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="768"/>
         <source>Make insertion cursor more visible</source>
-        <translation type="unfinished"/>
+        <translation>挿入カーソルをより見やすくします</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="771"/>
         <source>Make Insertion Cursor Double Width (Needs Sigil Restart)</source>
-        <translation type="unfinished"/>
+        <translation>挿入カーソルの幅を2倍にする（Sigilの再起動が必要）</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="789"/>
@@ -989,7 +989,7 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1281"/>
         <source>Filenames can not contain these characters: &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>ファイル名に、これらの文字 &quot;%1&quot; を含めることはできません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1343"/>
@@ -1036,42 +1036,42 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1708"/>
         <source>(root folder)</source>
-        <translation type="unfinished"/>
+        <translation>(ルートフォルダー)</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1726"/>
         <source>FileName</source>
-        <translation type="unfinished"/>
+        <translation>ファイル名</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1729"/>
         <source>Folder</source>
-        <translation type="unfinished"/>
+        <translation>フォルダー</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1732"/>
         <source>Media Type</source>
-        <translation type="unfinished"/>
+        <translation>メディアタイプ</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1735"/>
         <source>Epub Version</source>
-        <translation type="unfinished"/>
+        <translation>EPUBバージョン</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1738"/>
         <source>Primary Language</source>
-        <translation type="unfinished"/>
+        <translation>第一言語</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1745"/>
         <source>File Size(kb)</source>
-        <translation type="unfinished"/>
+        <translation>ファイルサイズ(KB)</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1748"/>
         <source>WellFormed</source>
-        <translation type="unfinished"/>
+        <translation>整形式</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1750"/>
@@ -1086,47 +1086,47 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1755"/>
         <source>Word Count</source>
-        <translation type="unfinished"/>
+        <translation>単語数</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1758"/>
         <source>Linked Stylesheets</source>
-        <translation type="unfinished"/>
+        <translation>リンクされたスタイルシート</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1761"/>
         <source>Linked Javascripts</source>
-        <translation type="unfinished"/>
+        <translation>リンクされたJavaScript</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1764"/>
         <source>Linked Images</source>
-        <translation type="unfinished"/>
+        <translation>リンクされた画像</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1767"/>
         <source>Linked Audio</source>
-        <translation type="unfinished"/>
+        <translation>リンクされたオーディオ</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1770"/>
         <source>Linked Video</source>
-        <translation type="unfinished"/>
+        <translation>リンクされた動画</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1797"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
-        <translation type="unfinished"/>
+        <translation>セマンティックOPFガイドまたはNavランドマーク</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1806"/>
         <source>Manifest Properties</source>
-        <translation type="unfinished"/>
+        <translation>マニフェストプロパティ</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1809"/>
         <source>Defined Ids</source>
-        <translation type="unfinished"/>
+        <translation>定義済みID</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2034"/>
@@ -1233,12 +1233,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2055"/>
         <source>Add Semantics...</source>
-        <translation>セマンティクスを追加...</translation>
+        <translation>セマンティックを追加...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2056"/>
         <source>Get Info...</source>
-        <translation type="unfinished"/>
+        <translation>情報を取得...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2057"/>
@@ -1283,12 +1283,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2087"/>
         <source>Add Semantics to selected file(s).</source>
-        <translation>選択したファイルにセマンティクスを追加します。</translation>
+        <translation>選択したファイルにセマンティックを追加します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2089"/>
         <source>Show Information about selected file.</source>
-        <translation type="unfinished"/>
+        <translation>選択したファイルに関する情報を表示します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2224"/>
@@ -2088,12 +2088,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="190"/>
         <source>For Regex searches, set the Unicode Property flag.</source>
-        <translation type="unfinished"/>
+        <translation>正規表現検索で、Unicodeプロパティのフラグを設定します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="196"/>
         <source>Unicode Property</source>
-        <translation type="unfinished"/>
+        <translation>Unicodeプロパティ</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="213"/>
@@ -2292,38 +2292,38 @@ HTMLファイルを検索する場合にのみ有効です。</translation>
         <location filename="../../Dialogs/Controls.cpp" line="348"/>
         <location filename="../../Dialogs/Controls.cpp" line="349"/>
         <source>Selected SVG Files</source>
-        <translation type="unfinished"/>
+        <translation>選択されたSVGファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="349"/>
         <source>Restrict the find or replace to the SVG files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>コードビューの検索または置換を、ブックブラウザーで選択されたSVGファイルに制限します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="351"/>
         <source>Selected Javascript Files</source>
-        <translation type="unfinished"/>
+        <translation>選択されたJavaScriptファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="352"/>
         <source>Selected JS Files</source>
-        <translation type="unfinished"/>
+        <translation>選択されたJSファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="352"/>
         <source>Restrict the find or replace to the JS files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>コードビューの検索または置換を、ブックブラウザーで選択されたJSファイルに制限します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="354"/>
         <location filename="../../Dialogs/Controls.cpp" line="355"/>
         <source>Selected Misc XML Files</source>
-        <translation type="unfinished"/>
+        <translation>選択されたその他のXMLファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="355"/>
         <source>Restrict the find or replace to other XML files selected in the Book Browser under the Misc Folder in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>コードビューの検索または置換を、ブックブラウザーで選択されたMiscフォルダー配下のその他のXMLファイルに制限します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="361"/>
@@ -2438,17 +2438,17 @@ HTMLファイルを検索する場合にのみ有効です。</translation>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="109"/>
         <source>Selected SVG Files</source>
-        <translation type="unfinished"/>
+        <translation>選択されたSVGファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="110"/>
         <source>Selected Javascript Files</source>
-        <translation type="unfinished"/>
+        <translation>選択されたJavaScriptファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="111"/>
         <source>Selected Other XML Files</source>
-        <translation type="unfinished"/>
+        <translation>選択されたその他のXMLファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="256"/>
@@ -2727,7 +2727,7 @@ You can also use the right arrow key.</source>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="760"/>
+        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="686"/>
         <source>Embedded Python Error</source>
         <translation>埋め込みPythonエラー</translation>
     </message>
@@ -3361,38 +3361,38 @@ HTMLファイルを検索する場合にのみ有効です。</translation>
         <location filename="../../MainUI/FindReplace.cpp" line="2179"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2180"/>
         <source>Selected SVG Files</source>
-        <translation type="unfinished"/>
+        <translation>選択されたSVGファイル</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2180"/>
         <source>Restrict the find or replace to the SVG files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>コードビューの検索または置換を、ブックブラウザーで選択されたSVGファイルに制限します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2182"/>
         <source>Selected Javascript Files</source>
-        <translation type="unfinished"/>
+        <translation>選択されたJavaScriptファイル</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2183"/>
         <source>Selected JS Files</source>
-        <translation type="unfinished"/>
+        <translation>選択されたJSファイル</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2183"/>
         <source>Restrict the find or replace to the JS files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>コードビューの検索または置換を、ブックブラウザーで選択されたJSファイルに制限します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2185"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2186"/>
         <source>Selected Misc XML Files</source>
-        <translation type="unfinished"/>
+        <translation>選択されたその他のXMLファイル</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2186"/>
         <source>Restrict the find or replace to the XML files selected in the Misc folder of the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>コードビューの検索または置換を、ブックブラウザーのMiscフォルダー内で選択されたXMLファイルに制限します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2189"/>
@@ -3470,12 +3470,12 @@ HTMLファイルを検索する場合にのみ有効です。</translation>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2231"/>
         <source>Unicode Property</source>
-        <translation type="unfinished"/>
+        <translation>Unicodeプロパティ</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2234"/>
         <source>For Regex searches, set the Unicode Property flag.</source>
-        <translation type="unfinished"/>
+        <translation>正規表現検索で、Unicodeプロパティのフラグを設定します。</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2258"/>
@@ -4570,17 +4570,17 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="156"/>
         <source>Files exist in epub that are not listed in the manifest, they will be ignored.</source>
-        <translation type="unfinished"/>
+        <translation>マニフェストにリストされていないファイルがepubに存在する場合、それらは無視されます。</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
         <source>This EPUB had HTML files that were not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;br&gt;They were automatically fixed based on your Preference setting to Clean on Open.</source>
-        <translation type="unfinished"/>
+        <translation>このEPUBには、整形式でないか、あるいは、DOCTYPE、html、head、body要素が欠落しているHTMLファイルがありました。&lt;br/&gt;&lt;br&gt;これらは、開くときに修正する環境設定に基づいて、自動的に修正されました。</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="205"/>
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;/br&gt;Fix these manually or use Sigil&apos;s Mend tool to automatically fixed these errors or omissions.</source>
-        <translation type="unfinished"/>
+        <translation>このEPUBには、整形式でないか、あるいは、DOCTYPE、html、head、body要素が欠落しているHTMLファイルがあります。&lt;br/&gt;&lt;/br&gt;手動で修正するか、SigilのMendツールを使用して、これらのエラーや欠落を自動的に修正してください。</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
@@ -8529,7 +8529,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/MDViewer.ui" line="14"/>
         <source>Information</source>
-        <translation type="unfinished"/>
+        <translation>情報</translation>
     </message>
 </context>
 <context>
@@ -8652,12 +8652,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="407"/>
         <source>&amp;Plugins</source>
-        <translation type="unfinished"/>
+        <translation>プラグイン(&amp;P)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="413"/>
         <source>Chec&amp;kpoints</source>
-        <translation type="unfinished"/>
+        <translation>チェックポイント(&amp;K)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="439"/>
@@ -9437,17 +9437,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1529"/>
         <source>Restructure Epub to Sigil Standard Form</source>
-        <translation>EpubをSigil標準フォームに再構築</translation>
+        <translation>EpubをSigil標準フォームに再構築します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1534"/>
         <source>Rebase OPF Manifest IDs on Current Filenames</source>
-        <translation type="unfinished"/>
+        <translation>OPFマニフェストIDを、現在のファイル名でリベース</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1537"/>
         <source>Updates each Manifest ID to reflect its current file name</source>
-        <translation type="unfinished"/>
+        <translation>各マニフェストIDを、現在のファイル名に一致するように更新します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1546"/>
@@ -10553,202 +10553,202 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2457"/>
         <source>Clip 41</source>
-        <translation type="unfinished"/>
+        <translation>クリップ41</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2460"/>
         <source>Insert Clip 41</source>
-        <translation type="unfinished"/>
+        <translation>クリップ41を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2465"/>
         <source>Clip 42</source>
-        <translation type="unfinished"/>
+        <translation>クリップ42</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2468"/>
         <source>Insert Clip 42</source>
-        <translation type="unfinished"/>
+        <translation>クリップ42を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2473"/>
         <source>Clip 43</source>
-        <translation type="unfinished"/>
+        <translation>クリップ43</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2476"/>
         <source>Insert Clip 43</source>
-        <translation type="unfinished"/>
+        <translation>クリップ43を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2481"/>
         <source>Clip 44</source>
-        <translation type="unfinished"/>
+        <translation>クリップ44</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2484"/>
         <source>Insert Clip 44</source>
-        <translation type="unfinished"/>
+        <translation>クリップ44を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2489"/>
         <source>Clip 45</source>
-        <translation type="unfinished"/>
+        <translation>クリップ45</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2492"/>
         <source>Insert Clip 45</source>
-        <translation type="unfinished"/>
+        <translation>クリップ45を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2497"/>
         <source>Clip 46</source>
-        <translation type="unfinished"/>
+        <translation>クリップ46</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2500"/>
         <source>Insert Clip 46</source>
-        <translation type="unfinished"/>
+        <translation>クリップ46を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2505"/>
         <source>Clip 47</source>
-        <translation type="unfinished"/>
+        <translation>クリップ47</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2508"/>
         <source>Insert Clip 47</source>
-        <translation type="unfinished"/>
+        <translation>クリップ47を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2513"/>
         <source>Clip 48</source>
-        <translation type="unfinished"/>
+        <translation>クリップ48</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2516"/>
         <source>Insert Clip 48</source>
-        <translation type="unfinished"/>
+        <translation>クリップ48を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2521"/>
         <source>Clip 49</source>
-        <translation type="unfinished"/>
+        <translation>クリップ49</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2524"/>
         <source>Insert Clip 49</source>
-        <translation type="unfinished"/>
+        <translation>クリップ49を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2529"/>
         <source>Clip 50</source>
-        <translation type="unfinished"/>
+        <translation>クリップ50</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2532"/>
         <source>Insert Clip 50</source>
-        <translation type="unfinished"/>
+        <translation>クリップ50を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2537"/>
         <source>Clip 51</source>
-        <translation type="unfinished"/>
+        <translation>クリップ51</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2540"/>
         <source>Insert Clip 51</source>
-        <translation type="unfinished"/>
+        <translation>クリップ51を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2545"/>
         <source>Clip 52</source>
-        <translation type="unfinished"/>
+        <translation>クリップ52</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2548"/>
         <source>Insert Clip 52</source>
-        <translation type="unfinished"/>
+        <translation>クリップ52を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2553"/>
         <source>Clip 53</source>
-        <translation type="unfinished"/>
+        <translation>クリップ53</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2556"/>
         <source>Insert Clip 53</source>
-        <translation type="unfinished"/>
+        <translation>クリップ53を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2561"/>
         <source>Clip 54</source>
-        <translation type="unfinished"/>
+        <translation>クリップ54</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2564"/>
         <source>Insert Clip 54</source>
-        <translation type="unfinished"/>
+        <translation>クリップ54を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2569"/>
         <source>Clip 55</source>
-        <translation type="unfinished"/>
+        <translation>クリップ55</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2572"/>
         <source>Insert Clip 55</source>
-        <translation type="unfinished"/>
+        <translation>クリップ55を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2577"/>
         <source>Clip 56</source>
-        <translation type="unfinished"/>
+        <translation>クリップ56</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2580"/>
         <source>Insert Clip 56</source>
-        <translation type="unfinished"/>
+        <translation>クリップ56を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2585"/>
         <source>Clip 57</source>
-        <translation type="unfinished"/>
+        <translation>クリップ57</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2588"/>
         <source>Insert Clip 57</source>
-        <translation type="unfinished"/>
+        <translation>クリップ57を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2593"/>
         <source>Clip 58</source>
-        <translation type="unfinished"/>
+        <translation>クリップ58</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2596"/>
         <source>Insert Clip 58</source>
-        <translation type="unfinished"/>
+        <translation>クリップ58を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2601"/>
         <source>Clip 59</source>
-        <translation type="unfinished"/>
+        <translation>クリップ59</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2604"/>
         <source>Insert Clip 59</source>
-        <translation type="unfinished"/>
+        <translation>クリップ59を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2609"/>
         <source>Clip 60</source>
-        <translation type="unfinished"/>
+        <translation>クリップ60</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2612"/>
         <source>Insert Clip 60</source>
-        <translation type="unfinished"/>
+        <translation>クリップ60を挿入</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2620"/>
@@ -11476,12 +11476,12 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="788"/>
         <source>Rebase cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>リベースがキャンセルされました: %1、XMLが整形式ではありません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="796"/>
         <source>Rebase completed.</source>
-        <translation type="unfinished"/>
+        <translation>リベースが完了しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="905"/>
@@ -11657,7 +11657,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1657"/>
         <source>Warning: </source>
-        <translation type="unfinished"/>
+        <translation>警告: </translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1750"/>
@@ -17487,77 +17487,80 @@ valid for all selected files.
     <name>ReplacementChooser</name>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
-        <source>Replacements (Delete Unwanted Replacements)</source>
-        <translation>置換（不要な置換の削除）</translation>
+        <source>Replacements (Select Desired Replacements)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="47"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="37"/>
+        <source>Select / Unselect all</source>
+        <translation>すべて選択/選択解除</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="57"/>
         <source>Select the amount of context in characters shown before and after the match.</source>
         <translation>一致する前後に表示される文字の文脈量を選択します。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="50"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="60"/>
         <source>Context:</source>
         <translation>コンテキスト:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="73"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="83"/>
         <source>Count:</source>
         <translation>カウント:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="80"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="90"/>
         <source>Total Number of Matches/Replacements</source>
         <translation>マッチ/置換した合計数</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="83"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="93"/>
         <source>----   </source>
         <translation>----   </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="98"/>
-        <source>Delete unwanted replacements from the table.
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="108"/>
+        <source>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation>テーブルから不要な置換を削除します。
-警告: 置換が一度適用されると、「元に戻す」ことはできません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="126"/>
-        <source>Apply the remaining replacements listed in the table.
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="136"/>
+        <source>Apply the selected replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation>テーブルにリストされている残りの置換を適用します。
-警告: 一度適用されると、「元に戻す」ことはできません。</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="130"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="140"/>
         <source>Apply Changes</source>
         <translation>変更を適用する</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="96"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="116"/>
+        <source>Replace</source>
+        <translation>置換</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="117"/>
         <source>Book Path</source>
         <translation>ブックパス</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="97"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="118"/>
         <source>Offset</source>
         <translation>オフセット</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="98"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="119"/>
         <source>Before</source>
         <translation>前</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="99"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="120"/>
         <source>After</source>
         <translation>後</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="329"/>
-        <source>Delete Selected Rows</source>
-        <translation>選択された行を削除する</translation>
     </message>
 </context>
 <context>
@@ -17831,17 +17834,17 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="114"/>
         <source>Target: Selected SVG Files</source>
-        <translation type="unfinished"/>
+        <translation>ターゲット: 選択されたSVGファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
         <source>Target: Selected Javascript Files</source>
-        <translation type="unfinished"/>
+        <translation>ターゲット: 選択されたJavaScriptファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="116"/>
         <source>Target: Selected Misc XML Files</source>
-        <translation type="unfinished"/>
+        <translation>ターゲット: 選択されたその他のXMLファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
@@ -17861,7 +17864,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="121"/>
         <source>Option: Unicode Property</source>
-        <translation type="unfinished"/>
+        <translation>オプション: Unicodeプロパティ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="122"/>
@@ -19568,7 +19571,7 @@ double click on existing destinations in your book from the list above.</source>
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="69"/>
         <source>Targets</source>
-        <translation type="unfinished"/>
+        <translation>ターゲット</translation>
     </message>
 </context>
 <context>
@@ -19620,12 +19623,12 @@ ID名は一意で、文字で始まる必要があります。</translation>
     <message>
         <location filename="../../Form_Files/SemanticTargetID.ui" line="14"/>
         <source>Target for Semantic</source>
-        <translation type="unfinished"/>
+        <translation>セマンティックのターゲット</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SemanticTargetID.ui" line="22"/>
         <source>Select an ID or use the default file level target for this Semantic setting.</source>
-        <translation type="unfinished"/>
+        <translation>IDを選択するか、このセマンティック設定のデフォルトのファイルレベルターゲットを使用します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SemanticTargetID.ui" line="25"/>

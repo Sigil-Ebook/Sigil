@@ -1036,42 +1036,42 @@ Mindestens eine Datei muss verbleiben.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1708"/>
         <source>(root folder)</source>
-        <translation type="unfinished"/>
+        <translation>(Stammordner)</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1726"/>
         <source>FileName</source>
-        <translation type="unfinished"/>
+        <translation>Dateiname</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1729"/>
         <source>Folder</source>
-        <translation type="unfinished"/>
+        <translation>Ordner</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1732"/>
         <source>Media Type</source>
-        <translation type="unfinished"/>
+        <translation>Medientyp</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1735"/>
         <source>Epub Version</source>
-        <translation type="unfinished"/>
+        <translation>Epub-Version</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1738"/>
         <source>Primary Language</source>
-        <translation type="unfinished"/>
+        <translation>Hauptsprache</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1745"/>
         <source>File Size(kb)</source>
-        <translation type="unfinished"/>
+        <translation>Dateigröße (KB)</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1748"/>
         <source>WellFormed</source>
-        <translation type="unfinished"/>
+        <translation>Syntax korrekt</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1750"/>
@@ -1086,47 +1086,47 @@ Mindestens eine Datei muss verbleiben.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1755"/>
         <source>Word Count</source>
-        <translation type="unfinished"/>
+        <translation>Wortanzahl</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1758"/>
         <source>Linked Stylesheets</source>
-        <translation type="unfinished"/>
+        <translation>Verknüpfte Stylesheet-Dateien</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1761"/>
         <source>Linked Javascripts</source>
-        <translation type="unfinished"/>
+        <translation>Verknüpfte JavaScript-Dateien</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1764"/>
         <source>Linked Images</source>
-        <translation type="unfinished"/>
+        <translation>Verknüpfte Bild-Dateien</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1767"/>
         <source>Linked Audio</source>
-        <translation type="unfinished"/>
+        <translation>Verknüpfte Audio-Dateien</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1770"/>
         <source>Linked Video</source>
-        <translation type="unfinished"/>
+        <translation>Verknüpfte Video-Dateien</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1797"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
-        <translation type="unfinished"/>
+        <translation>OPF-Guide oder NAV-Landmarks</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1806"/>
         <source>Manifest Properties</source>
-        <translation type="unfinished"/>
+        <translation>Manifest-Eigenschaften</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1809"/>
         <source>Defined Ids</source>
-        <translation type="unfinished"/>
+        <translation>Definierte IDs</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2034"/>
@@ -1237,7 +1237,7 @@ Mindestens eine Datei muss verbleiben.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2056"/>
         <source>Get Info...</source>
-        <translation type="unfinished"/>
+        <translation>Informationen anzeigen...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2057"/>
@@ -1287,7 +1287,7 @@ Mindestens eine Datei muss verbleiben.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2089"/>
         <source>Show Information about selected file.</source>
-        <translation type="unfinished"/>
+        <translation>Zeigt Informationen zur ausgewählten Datei an.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2224"/>
@@ -2725,7 +2725,7 @@ Sie können auch die rechte Pfeiltaste benutzen.</translation>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="760"/>
+        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="686"/>
         <source>Embedded Python Error</source>
         <translation>Fehler im integrierten Python-Interpreter</translation>
     </message>
@@ -17479,77 +17479,80 @@ die Sie verwenden, für alle ausgewählten Dateien gültig ist.
     <name>ReplacementChooser</name>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
-        <source>Replacements (Delete Unwanted Replacements)</source>
-        <translation>Ersetzungen (Unerwünschte Ersetzungen können gelöscht werden)</translation>
+        <source>Replacements (Select Desired Replacements)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="47"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="37"/>
+        <source>Select / Unselect all</source>
+        <translation>Alles auswählen / Auswahl aufheben</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="57"/>
         <source>Select the amount of context in characters shown before and after the match.</source>
         <translation>Legt fest, wie viele Zeichen vor und nach der Übereinstimmung angezeigt werden.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="50"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="60"/>
         <source>Context:</source>
         <translation>Kontext:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="73"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="83"/>
         <source>Count:</source>
         <translation>Anzahl:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="80"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="90"/>
         <source>Total Number of Matches/Replacements</source>
         <translation>Gesamtanzahl der Übereinstimmungen/Ersetzungen</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="83"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="93"/>
         <source>----   </source>
         <translation>----   </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="98"/>
-        <source>Delete unwanted replacements from the table.
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="108"/>
+        <source>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation>Löschen Sie unerwünschte Ersetzungen in der Tabelle.
-Achtung: Änderungen können nicht mehr rückgängig gemacht werden!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="126"/>
-        <source>Apply the remaining replacements listed in the table.
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="136"/>
+        <source>Apply the selected replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation>Führt die verbleibenden Änderungen in der Tabelle aus.
-         Achtung: Änderungen können nicht mehr rückgängig gemacht werden!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="130"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="140"/>
         <source>Apply Changes</source>
         <translation>Änderungen anwenden</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="96"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="116"/>
+        <source>Replace</source>
+        <translation>Ersetzen</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="117"/>
         <source>Book Path</source>
         <translation>Buchpfad</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="97"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="118"/>
         <source>Offset</source>
         <translation>Offset</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="98"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="119"/>
         <source>Before</source>
         <translation>Vorher</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="99"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="120"/>
         <source>After</source>
         <translation>Nachher</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="329"/>
-        <source>Delete Selected Rows</source>
-        <translation>Ausgewählte Zeilen löschen</translation>
     </message>
 </context>
 <context>
@@ -19560,7 +19563,7 @@ in Ihrem Buch aus der obiger Liste auswählen oder mit Doppel-Klick aktivieren.<
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="69"/>
         <source>Targets</source>
-        <translation type="unfinished"/>
+        <translation>Ziele</translation>
     </message>
 </context>
 <context>
@@ -19612,12 +19615,12 @@ ID-Namen müssen eindeutig sein und mit einem Buchstaben beginnen.</translation>
     <message>
         <location filename="../../Form_Files/SemanticTargetID.ui" line="14"/>
         <source>Target for Semantic</source>
-        <translation type="unfinished"/>
+        <translation>Ziel für Semantik</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SemanticTargetID.ui" line="22"/>
         <source>Select an ID or use the default file level target for this Semantic setting.</source>
-        <translation type="unfinished"/>
+        <translation>Wählen Sie eine ID aus oder verwenden Sie das Standardziel auf Dateiebene für diese semantische Einstellung</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SemanticTargetID.ui" line="25"/>

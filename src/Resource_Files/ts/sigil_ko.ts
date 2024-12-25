@@ -480,7 +480,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="715"/>
         <source>Determine if the BookBrowser should show full paths</source>
-        <translation>책 탐색기에 전체 경로가 표시되어야하는지 결정</translation>
+        <translation>책 탐색기에 전체 경로 표시 여부를 선택할 수 있습니다</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="718"/>
@@ -495,7 +495,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="733"/>
         <source>BookBrowser should show full paths.</source>
-        <translation>책 탐색기에 전체 경로가 표시돼야 함</translation>
+        <translation>책 탐색기에 전체 경로 표시</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="746"/>
@@ -2714,7 +2714,7 @@ You can also use the right arrow key.</source>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="760"/>
+        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="686"/>
         <source>Embedded Python Error</source>
         <translation>내장 Python 오류</translation>
     </message>
@@ -17447,77 +17447,82 @@ valid for all selected files.
     <name>ReplacementChooser</name>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
-        <source>Replacements (Delete Unwanted Replacements)</source>
-        <translation>교체 (교체를 원하지 않은 항목 삭제)</translation>
+        <source>Replacements (Select Desired Replacements)</source>
+        <translation>대체 항목(원하는 대체 항목 선택)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="47"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="37"/>
+        <source>Select / Unselect all</source>
+        <translation>모두 선택 / 선택 취소</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="57"/>
         <source>Select the amount of context in characters shown before and after the match.</source>
         <translation>일치 전후에 표시되는 문자의 컨텍스트 양을 선택합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="50"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="60"/>
         <source>Context:</source>
         <translation>문맥:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="73"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="83"/>
         <source>Count:</source>
         <translation>개수:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="80"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="90"/>
         <source>Total Number of Matches/Replacements</source>
         <translation>총 일치/교체 수</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="83"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="93"/>
         <source>----   </source>
         <translation>----   </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="98"/>
-        <source>Delete unwanted replacements from the table.
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="108"/>
+        <source>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation>테이블에서 교체하고 싶지 않은 항목을 삭제합니다.
-경고: 교체가 적용되면 &quot;실행 취소&quot;가 불가능합니다.</translation>
+        <translation>표에서 원하는 대체 항목을 선택하세요.
+경고: 대체 항목이 적용되면 &quot;실행취소&quot;가 불가능합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="126"/>
-        <source>Apply the remaining replacements listed in the table.
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="136"/>
+        <source>Apply the selected replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation>표에 나열된 교체 항목을 적용합니다.
-경고: 일단 적용되면 &quot;실행 취소&quot;가 불가능합니다.</translation>
+        <translation>표에 나열된 선택된 대체 항목을 적용합니다.
+경고: 적용 후에는 &quot;취소&quot;가 불가능합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="130"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="140"/>
         <source>Apply Changes</source>
         <translation>변경 승인</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="96"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="116"/>
+        <source>Replace</source>
+        <translation>바꾸기</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="117"/>
         <source>Book Path</source>
         <translation>책 경로</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="97"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="118"/>
         <source>Offset</source>
         <translation>오프셋</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="98"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="119"/>
         <source>Before</source>
         <translation>이전</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="99"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="120"/>
         <source>After</source>
         <translation>다음</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="329"/>
-        <source>Delete Selected Rows</source>
-        <translation>선택 열 삭제</translation>
     </message>
 </context>
 <context>

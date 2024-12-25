@@ -2725,7 +2725,7 @@ Você também pode usar a tecla de seta à direita.</translation>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="760"/>
+        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="686"/>
         <source>Embedded Python Error</source>
         <translation>Erro Embutido Python</translation>
     </message>
@@ -17523,77 +17523,82 @@ extensão que utilizar será aplicada a todos os arquivos selecionados.
     <name>ReplacementChooser</name>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
-        <source>Replacements (Delete Unwanted Replacements)</source>
-        <translation>Substituições (Apagar Substituições Indesejadas)</translation>
+        <source>Replacements (Select Desired Replacements)</source>
+        <translation>Substituições (Selecionar Substituições Desejadas)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="47"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="37"/>
+        <source>Select / Unselect all</source>
+        <translation>Marcar/Desmarcar todos</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="57"/>
         <source>Select the amount of context in characters shown before and after the match.</source>
         <translation>Selecionar a quantidade de contextos nos caracteres mostrados antes e depois da correspondência.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="50"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="60"/>
         <source>Context:</source>
         <translation>Contexto:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="73"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="83"/>
         <source>Count:</source>
         <translation>Contagem:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="80"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="90"/>
         <source>Total Number of Matches/Replacements</source>
         <translation>Quantidade Total de Correspondências/Substituições</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="83"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="93"/>
         <source>----   </source>
         <translation>----   </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="98"/>
-        <source>Delete unwanted replacements from the table.
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="108"/>
+        <source>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation>Apagar substituições indesejadas da tabela.
-       Aviso: Quando as substituições forem aplicadas, não é possível desfazer.</translation>
+        <translation>Selecionar substituições desejadas na tabela.
+       Aviso: Uma vez que as substituições sejam feitas, não será possível desfazer.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="126"/>
-        <source>Apply the remaining replacements listed in the table.
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="136"/>
+        <source>Apply the selected replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation>Aplicar as substituições restantes listadas na tabela.
-         Aviso: Uma vez aplicadas, não é possível desfazer.</translation>
+        <translation>Aplicar as substituições selecionadas listadas na tabela.
+         Aviso: Uma vez que sejam aplicadas, não será possível desfazer..</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="130"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="140"/>
         <source>Apply Changes</source>
         <translation>Aplicar as Mudanças</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="96"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="116"/>
+        <source>Replace</source>
+        <translation>Substituir</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="117"/>
         <source>Book Path</source>
         <translation>Caminho do Livro</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="97"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="118"/>
         <source>Offset</source>
         <translation>Deslocamento</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="98"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="119"/>
         <source>Before</source>
         <translation>Antes</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="99"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="120"/>
         <source>After</source>
         <translation>Depois</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="329"/>
-        <source>Delete Selected Rows</source>
-        <translation>Apagar Linhas Selecionadas</translation>
     </message>
 </context>
 <context>

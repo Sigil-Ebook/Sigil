@@ -2728,7 +2728,7 @@ You can also use the right arrow key.</source>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="760"/>
+        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="686"/>
         <source>Embedded Python Error</source>
         <translation>嵌入的Python出现错误</translation>
     </message>
@@ -17486,77 +17486,82 @@ filename08.xhtml
     <name>ReplacementChooser</name>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
-        <source>Replacements (Delete Unwanted Replacements)</source>
-        <translation>替换（删除不需要的替换项）</translation>
+        <source>Replacements (Select Desired Replacements)</source>
+        <translation>替换（选择期望的替换）</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="47"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="37"/>
+        <source>Select / Unselect all</source>
+        <translation>全选 / 取消全选</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="57"/>
         <source>Select the amount of context in characters shown before and after the match.</source>
         <translation>选择匹配前后显示的上下文字符数。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="50"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="60"/>
         <source>Context:</source>
         <translation>上下文：</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="73"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="83"/>
         <source>Count:</source>
         <translation>计数：</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="80"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="90"/>
         <source>Total Number of Matches/Replacements</source>
         <translation>匹配/替换的总数</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="83"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="93"/>
         <source>----   </source>
         <translation>----   </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="98"/>
-        <source>Delete unwanted replacements from the table.
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="108"/>
+        <source>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation>从表中删除不需要的替换项。
-       警告：一旦应用了更换，就不可能进行“撤消”。</translation>
+        <translation>在表格中选择期望的替换.
+       警告：一旦应用了替换，不可能进行“撤销”</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="126"/>
-        <source>Apply the remaining replacements listed in the table.
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="136"/>
+        <source>Apply the selected replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation>应用表中列出的其余替换项。
-         警告：一旦应用，就不能“撤消”。</translation>
+        <translation>应用表格内所列的已选中的替换
+         警告：一旦应用，不可能进行“撤销”</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/ReplacementChooser.ui" line="130"/>
+        <location filename="../../Form_Files/ReplacementChooser.ui" line="140"/>
         <source>Apply Changes</source>
         <translation>应用更改</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="96"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="116"/>
+        <source>Replace</source>
+        <translation>替换</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="117"/>
         <source>Book Path</source>
         <translation>图书路径</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="97"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="118"/>
         <source>Offset</source>
         <translation>偏移</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="98"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="119"/>
         <source>Before</source>
         <translation>之前</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="99"/>
+        <location filename="../../Dialogs/ReplacementChooser.cpp" line="120"/>
         <source>After</source>
         <translation>之后</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/ReplacementChooser.cpp" line="329"/>
-        <source>Delete Selected Rows</source>
-        <translation>删除所选行</translation>
     </message>
 </context>
 <context>
