@@ -17620,12 +17620,16 @@ then if not found look for the second entry in the list, etc.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="105"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
-        <source>Find</source>
-        <translation>Find</translation>
+        <source>&amp;Find</source>
+        <translation>&amp;Find</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="115"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
+        <source>Alt+F</source>
+        <translation>Alt+F</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/SearchEditor.ui" line="118"/>
         <source>Run Replace using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
@@ -17634,13 +17638,13 @@ If a group is selected, loop through each entry
 and stop at the first successful replace.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="120"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="123"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
         <source>Replace</source>
         <translation>Replace</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="146"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="149"/>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
@@ -17649,76 +17653,76 @@ If a group is selected, loop through each entry
 and stop at the first successful replace/find.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="151"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="154"/>
         <source>Replace/Find</source>
         <translation>Replace/Find</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="161"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="164"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
         <translation>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="165"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="168"/>
         <source>Replace All</source>
         <translation>Replace All</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="191"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="194"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
         <translation>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="195"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="198"/>
         <source>Count All</source>
         <translation>Count All</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="205"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="208"/>
         <source>Create a Counts report for the selected entries in the order selected,
 including entries in selected groups.</source>
         <translation>Create a Counts report for the selected entries in the order selected,
 including entries in selected groups.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="209"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="212"/>
         <source>Counts Report</source>
         <translation>Counts Report</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="237"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
         <source>Move an entry up one level in the same group.</source>
         <translation>Move an entry up one level in the same group.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="273"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="305"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="338"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="243"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="276"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="308"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="341"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="270"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="273"/>
         <source>Move an entry to the level of its parent.</source>
         <translation>Move an entry to the level of its parent.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="302"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="305"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
         <translation>You must select an item immediately under a group to move it into the group.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="335"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="338"/>
         <source>Move an entry down one level in the same group.</source>
         <translation>Move an entry down one level in the same group.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="400"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="403"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
         <translation>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</translation>
     </message>
@@ -17741,6 +17745,11 @@ including entries in selected groups.</translation>
         <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>Name of your entry or group.</source>
         <translation>Name of your entry or group.</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
+        <source>Find</source>
+        <translation>Find</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
@@ -19851,7 +19860,7 @@ is restarted or a new book is opened.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="65"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="565"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="568"/>
         <source>Ignore</source>
         <translation>Ignore</translation>
     </message>
@@ -19991,27 +20000,27 @@ Use if you edit any HTML files while Spellcheck is open.</translation>
         <translation>Yes</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="337"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="340"/>
         <source>Misspelled Words</source>
         <translation>Misspelled Words</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="337"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="340"/>
         <source>Total Unique Words</source>
         <translation>Total Unique Words</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="569"/>
         <source>Add to Dictionary</source>
         <translation>Add to Dictionary</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="567"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="570"/>
         <source>Find in Text</source>
         <translation>Find in Text</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="568"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="571"/>
         <source>Select All</source>
         <translation>Select All</translation>
     </message>

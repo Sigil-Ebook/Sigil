@@ -17619,12 +17619,16 @@ then if not found look for the second entry in the list, etc.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="105"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
-        <source>Find</source>
-        <translation>検索</translation>
+        <source>&amp;Find</source>
+        <translation>検索(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="115"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
+        <source>Alt+F</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/SearchEditor.ui" line="118"/>
         <source>Run Replace using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
@@ -17633,13 +17637,13 @@ and stop at the first successful replace.</source>
 最初に成功した置換で停止します。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="120"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="123"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
         <source>Replace</source>
         <translation>置換</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="146"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="149"/>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
@@ -17648,76 +17652,76 @@ and stop at the first successful replace/find.</source>
 最初に成功した置換/検索で停止します。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="151"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="154"/>
         <source>Replace/Find</source>
         <translation>置換/検索</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="161"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="164"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
         <translation>選択したエントリーに対して、選択した順序で[すべて置換]を実行します。
 グループを選択して、グループ内のすべてのエントリーを順番に置き換えます。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="165"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="168"/>
         <source>Replace All</source>
         <translation>すべて置換</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="191"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="194"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
         <translation>選択したエントリーに対して、選択した順序で[すべてカウント]を実行します。
 選択したグループ内のエントリーを含みます。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="195"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="198"/>
         <source>Count All</source>
         <translation>すべてカウント</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="205"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="208"/>
         <source>Create a Counts report for the selected entries in the order selected,
 including entries in selected groups.</source>
         <translation>選択したエントリーに対して、選択した順序でカウントレポートを作成します。
 選択したグループ内のエントリーを含みます。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="209"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="212"/>
         <source>Counts Report</source>
         <translation>カウントレポート</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="237"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
         <source>Move an entry up one level in the same group.</source>
         <translation>エントリーを同じグループの1つ上のレベルに移動します。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="273"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="305"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="338"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="243"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="276"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="308"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="341"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="270"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="273"/>
         <source>Move an entry to the level of its parent.</source>
         <translation>エントリーをその親のレベルに移動します。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="302"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="305"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
         <translation>グループに移動するには、グループのすぐ下にあるアイテムを選択する必要があります。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="335"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="338"/>
         <source>Move an entry down one level in the same group.</source>
         <translation>エントリーを同じグループの1つ下のレベルに移動します。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="400"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="403"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
         <translation>[適用]をクリックして、選択した検索で[検索と置換]を読み込みます。[OK]をクリックして検索を読み込み、データを保存して閉じます。</translation>
     </message>
@@ -17740,6 +17744,11 @@ including entries in selected groups.</source>
         <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>Name of your entry or group.</source>
         <translation>エントリーまたはグループの名前。</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
+        <source>Find</source>
+        <translation>検索</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
@@ -19849,7 +19858,7 @@ is restarted or a new book is opened.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="65"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="565"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="568"/>
         <source>Ignore</source>
         <translation>無視</translation>
     </message>
@@ -19988,27 +19997,27 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <translation>はい</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="337"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="340"/>
         <source>Misspelled Words</source>
         <translation>ミススペル単語</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="337"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="340"/>
         <source>Total Unique Words</source>
         <translation>一意の単語の合計</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="569"/>
         <source>Add to Dictionary</source>
         <translation>辞書に追加</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="567"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="570"/>
         <source>Find in Text</source>
         <translation>テキスト内で検索</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="568"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="571"/>
         <source>Select All</source>
         <translation>すべて選択</translation>
     </message>

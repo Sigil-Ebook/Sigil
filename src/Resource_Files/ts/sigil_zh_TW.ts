@@ -17587,12 +17587,16 @@ then if not found look for the second entry in the list, etc.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="105"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
-        <source>Find</source>
-        <translation>尋找</translation>
+        <source>&amp;Find</source>
+        <translation>尋找(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="115"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
+        <source>Alt+F</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/SearchEditor.ui" line="118"/>
         <source>Run Replace using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
@@ -17600,13 +17604,13 @@ and stop at the first successful replace.</source>
 如果選擇了群組，則會到每個條目尋找，並停止在第一個成功取代的地方。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="120"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="123"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
         <source>Replace</source>
         <translation>取代</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="146"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="149"/>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
@@ -17614,75 +17618,75 @@ and stop at the first successful replace/find.</source>
 如果選擇了群組，則會到每個條目尋找，並停止在第一個成功搜尋並取代的地方。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="151"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="154"/>
         <source>Replace/Find</source>
         <translation>取代/尋找</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="161"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="164"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
         <translation>用選取的條目依序執行全部取代。
 選擇一個群組，依序取代群組內的所有條目。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="165"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="168"/>
         <source>Replace All</source>
         <translation>全部取代</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="191"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="194"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
         <translation>用選取的條目依序執行全部計算，
 包括在選取的群組裡的條目。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="195"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="198"/>
         <source>Count All</source>
         <translation>全部計算</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="205"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="208"/>
         <source>Create a Counts report for the selected entries in the order selected,
 including entries in selected groups.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="209"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="212"/>
         <source>Counts Report</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="237"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
         <source>Move an entry up one level in the same group.</source>
         <translation>將條目於相同群組內上移一層。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="273"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="305"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="338"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="243"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="276"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="308"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="341"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="270"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="273"/>
         <source>Move an entry to the level of its parent.</source>
         <translation>將條目移到它的父條目的層級。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="302"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="305"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
         <translation>您必須立即選擇一個群組下方的項目，並將它移到群組內。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="335"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="338"/>
         <source>Move an entry down one level in the same group.</source>
         <translation>將條目於相同群組內下移一層。</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="400"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="403"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
         <translation>點擊「套用」來在選取的搜尋內載入「尋找並取代」。點擊「確定」可以載入您的搜尋，儲存您的資料並關閉。</translation>
     </message>
@@ -17705,6 +17709,11 @@ including entries in selected groups.</source>
         <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>Name of your entry or group.</source>
         <translation>您的條目或群組的名稱。</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
+        <source>Find</source>
+        <translation>尋找</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
@@ -19811,7 +19820,7 @@ is restarted or a new book is opened.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="65"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="565"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="568"/>
         <source>Ignore</source>
         <translation>忽略</translation>
     </message>
@@ -19949,27 +19958,27 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="337"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="340"/>
         <source>Misspelled Words</source>
         <translation>拼錯的單字</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="337"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="340"/>
         <source>Total Unique Words</source>
         <translation>所有獨一的單字</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="569"/>
         <source>Add to Dictionary</source>
         <translation>新增到字典</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="567"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="570"/>
         <source>Find in Text</source>
         <translation>在文字中尋找</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="568"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="571"/>
         <source>Select All</source>
         <translation>全部選取</translation>
     </message>

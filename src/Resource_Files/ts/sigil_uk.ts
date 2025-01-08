@@ -17618,12 +17618,16 @@ then if not found look for the second entry in the list, etc.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="105"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
-        <source>Find</source>
-        <translation>Знайти</translation>
+        <source>&amp;Find</source>
+        <translation>&amp;Знайти</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="115"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
+        <source>Alt+F</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/SearchEditor.ui" line="118"/>
         <source>Run Replace using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
@@ -17632,13 +17636,13 @@ and stop at the first successful replace.</source>
 і зупиниться на першій вдалій заміні.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="120"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="123"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
         <source>Replace</source>
         <translation>Замінити</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="146"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="149"/>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
@@ -17647,76 +17651,76 @@ and stop at the first successful replace/find.</source>
 і зупиниться на знайденому або першій вдалій заміні.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="151"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="154"/>
         <source>Replace/Find</source>
         <translation>Замінити/Знайти</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="161"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="164"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
         <translation>Запустити «Замінити все» для вибраних запитів у вибраному порядку.
 Виберіть групу, щоб виконати всі запити в групі по черзі.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="165"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="168"/>
         <source>Replace All</source>
         <translation>Замінити Все</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="191"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="194"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
         <translation>Запустити «Порахувати все» для вибраних запитів у вибраному порядку,
 включаючи запити у вибраних групах.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="195"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="198"/>
         <source>Count All</source>
         <translation>Порахувати все</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="205"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="208"/>
         <source>Create a Counts report for the selected entries in the order selected,
 including entries in selected groups.</source>
         <translation>Створити Звіт Підрахунку для вибраних запитів у вибраному порядку,
 включаючи запити у вибраних групах.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="209"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="212"/>
         <source>Counts Report</source>
         <translation>Звіт підрахунку</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="237"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
         <source>Move an entry up one level in the same group.</source>
         <translation>Перемістіть елемент на один рівень вгору в тій же групі.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="273"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="305"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="338"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="243"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="276"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="308"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="341"/>
         <source>...</source>
         <translation>…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="270"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="273"/>
         <source>Move an entry to the level of its parent.</source>
         <translation>Перемістити запит на рівень його батьків.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="302"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="305"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
         <translation>Ви повинні вибрати пункт безпосередньо під групою, щоб перемістити його до групи.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="335"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="338"/>
         <source>Move an entry down one level in the same group.</source>
         <translation>Перемістіть елемент на один рівень вниз в тій же групі.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="400"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="403"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
         <translation>Натисніть «Застосувати», щоб завантажити «Знайти &amp; Замінити» з вибраним пошуком. Натисніть кнопку «OK», щоб завантажити свій список пошуку, зберегти свої дані та закрити.</translation>
     </message>
@@ -17739,6 +17743,11 @@ including entries in selected groups.</source>
         <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>Name of your entry or group.</source>
         <translation>Назва Вашого пошукового запиту чи групи.</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
+        <source>Find</source>
+        <translation>Знайти</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
@@ -19849,7 +19858,7 @@ is restarted or a new book is opened.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="65"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="565"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="568"/>
         <source>Ignore</source>
         <translation>Ігнорувати</translation>
     </message>
@@ -19989,27 +19998,27 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <translation>Так</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="337"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="340"/>
         <source>Misspelled Words</source>
         <translation>Слова з помилками</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="337"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="340"/>
         <source>Total Unique Words</source>
         <translation>Всього унікальних слів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="569"/>
         <source>Add to Dictionary</source>
         <translation>Додати до Словника</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="567"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="570"/>
         <source>Find in Text</source>
         <translation>Пошук у Тексті</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="568"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="571"/>
         <source>Select All</source>
         <translation>Вибрати все</translation>
     </message>

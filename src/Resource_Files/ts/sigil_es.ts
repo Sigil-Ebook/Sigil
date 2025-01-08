@@ -1036,42 +1036,42 @@ Siempre debe haber al menos uno.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1708"/>
         <source>(root folder)</source>
-        <translation type="unfinished"/>
+        <translation>(carpeta raíz)</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1726"/>
         <source>FileName</source>
-        <translation type="unfinished"/>
+        <translation>Nombre de archivo</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1729"/>
         <source>Folder</source>
-        <translation type="unfinished"/>
+        <translation>Carpeta</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1732"/>
         <source>Media Type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de medio</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1735"/>
         <source>Epub Version</source>
-        <translation type="unfinished"/>
+        <translation>Versión de epub</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1738"/>
         <source>Primary Language</source>
-        <translation type="unfinished"/>
+        <translation>Idioma principal</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1745"/>
         <source>File Size(kb)</source>
-        <translation type="unfinished"/>
+        <translation>Tamaño de archivo (kB)</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1748"/>
         <source>WellFormed</source>
-        <translation type="unfinished"/>
+        <translation>Sintácticamente correcto</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1750"/>
@@ -1086,47 +1086,47 @@ Siempre debe haber al menos uno.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1755"/>
         <source>Word Count</source>
-        <translation type="unfinished"/>
+        <translation>Recuento de palabras</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1758"/>
         <source>Linked Stylesheets</source>
-        <translation type="unfinished"/>
+        <translation>Hojas de estilos enlazadas</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1761"/>
         <source>Linked Javascripts</source>
-        <translation type="unfinished"/>
+        <translation>Javascripts enlazados</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1764"/>
         <source>Linked Images</source>
-        <translation type="unfinished"/>
+        <translation>Imágenes enlazadas</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1767"/>
         <source>Linked Audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio enlazado</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1770"/>
         <source>Linked Video</source>
-        <translation type="unfinished"/>
+        <translation>Vídeo enlazado</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1797"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
-        <translation type="unfinished"/>
+        <translation>Guía OPF o hitos de navegación</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1806"/>
         <source>Manifest Properties</source>
-        <translation type="unfinished"/>
+        <translation>Propiedades del manifiesto</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1809"/>
         <source>Defined Ids</source>
-        <translation type="unfinished"/>
+        <translation>Identificadores definidos</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2034"/>
@@ -1237,7 +1237,7 @@ Siempre debe haber al menos uno.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2056"/>
         <source>Get Info...</source>
-        <translation type="unfinished"/>
+        <translation>Obtener información...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2057"/>
@@ -1287,7 +1287,7 @@ Siempre debe haber al menos uno.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2089"/>
         <source>Show Information about selected file.</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar información sobre el archivo seleccionado.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2224"/>
@@ -8525,7 +8525,7 @@ Las hojas de estilo que aparecen primero tienen prioridad sobre las posteriores.
     <message>
         <location filename="../../Form_Files/MDViewer.ui" line="14"/>
         <source>Information</source>
-        <translation type="unfinished"/>
+        <translation>Información</translation>
     </message>
 </context>
 <context>
@@ -17480,7 +17480,7 @@ que sean válidas para todos los archivos seleccionados.
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
         <source>Replacements (Select Desired Replacements)</source>
-        <translation type="unfinished"/>
+        <translation>Sustituciones (seleccionar sustituciones deseadas)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="37"/>
@@ -17516,13 +17516,13 @@ que sean válidas para todos los archivos seleccionados.
         <location filename="../../Form_Files/ReplacementChooser.ui" line="108"/>
         <source>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>Seleccionar sustituciones deseadas en la tabla. Advertencia: Una vez que se aplican las sustituciones, no hay posibilidad de deshacer.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="136"/>
         <source>Apply the selected replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>Aplicar las sustituciones que seleccionadas en la tabla. Advertencia: Una vez aplicadas, no hay posibilidad de deshacer.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="140"/>
@@ -17611,12 +17611,16 @@ de la lista, si no se encuentra buscar la segunda, etc.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="105"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
-        <source>Find</source>
-        <translation>Buscar</translation>
+        <source>&amp;Find</source>
+        <translation>&amp;Buscar</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="115"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
+        <source>Alt+F</source>
+        <translation>Alt+F</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/SearchEditor.ui" line="118"/>
         <source>Run Replace using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace.</source>
@@ -17625,13 +17629,13 @@ Si se selecciona un grupo, proceder con cada entrada
 por orden y detenerse tras la primera operación con éxito.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="120"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="123"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
         <source>Replace</source>
         <translation>Sustituir</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="146"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="149"/>
         <source>Run Replace/Find using the selected entry.
 If a group is selected, loop through each entry
 and stop at the first successful replace/find.</source>
@@ -17640,76 +17644,76 @@ Si se selecciona un grupo, proceder con cada entrada
 por orden y detenerse tras la primera operación con éxito.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="151"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="154"/>
         <source>Replace/Find</source>
         <translation>Sustituir/buscar</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="161"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="164"/>
         <source>Run Replace All for the selected entries in the order selected.
 Select a group to replace all entries in the group in order.</source>
         <translation>Ejecutar «Sustituir todo» con las entradas seleccionadas en el orden seleccionado.
 Seleccione un grupo para sustituir todas las entradas del grupo por orden.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="165"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="168"/>
         <source>Replace All</source>
         <translation>Sustituir todos</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="191"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="194"/>
         <source>Run Count All for the selected entries in the order selected,
 including entries in selected groups.</source>
         <translation>Ejecutar «Contar todos» para las entradas seleccionadas en
 su orden, incluyendo entradas en los grupos seleccionados.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="195"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="198"/>
         <source>Count All</source>
         <translation>Contar todos</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="205"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="208"/>
         <source>Create a Counts report for the selected entries in the order selected,
 including entries in selected groups.</source>
         <translation>Crear un informe de recuentos para las entradas seleccionadas en el orden de selección,
 incluyendo las entradas en los grupos seleccionados.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="209"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="212"/>
         <source>Counts Report</source>
         <translation>Informe de recuentos</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="237"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
         <source>Move an entry up one level in the same group.</source>
         <translation>Mover una entrada un lugar hacia arriba en el mismo grupo.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="273"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="305"/>
-        <location filename="../../Form_Files/SearchEditor.ui" line="338"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="243"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="276"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="308"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="341"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="270"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="273"/>
         <source>Move an entry to the level of its parent.</source>
         <translation>Mover una entrada al nivel de su superior.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="302"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="305"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
         <translation>Debe seleccionar un elemento inmediatamente bajo un grupo para moverlo al grupo.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="335"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="338"/>
         <source>Move an entry down one level in the same group.</source>
         <translation>Mover una entrada un lugar hacia abajo en el mismo grupo.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/SearchEditor.ui" line="400"/>
+        <location filename="../../Form_Files/SearchEditor.ui" line="403"/>
         <source>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</source>
         <translation>Pulse «Aplicar» para cargar «Buscar y sustituir» con la búsqueda seleccionada. Pulse «Aceptar» para cargar la búsqueda, guardar los datos y cerrar.</translation>
     </message>
@@ -17732,6 +17736,11 @@ incluyendo las entradas en los grupos seleccionados.</translation>
         <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>Name of your entry or group.</source>
         <translation>Nombre de la entrada o grupo.</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
+        <source>Find</source>
+        <translation>Buscar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
@@ -19563,7 +19572,7 @@ pulsar dos veces sobre destinos existentes en el libro en la lista de arriba.</t
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="69"/>
         <source>Targets</source>
-        <translation type="unfinished"/>
+        <translation>Destinos</translation>
     </message>
 </context>
 <context>
@@ -19615,12 +19624,12 @@ Los nombres de ID deben ser únicos y empezar por una letra.</translation>
     <message>
         <location filename="../../Form_Files/SemanticTargetID.ui" line="14"/>
         <source>Target for Semantic</source>
-        <translation type="unfinished"/>
+        <translation>Destino para concepto</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SemanticTargetID.ui" line="22"/>
         <source>Select an ID or use the default file level target for this Semantic setting.</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione un identificador o use el archivo de destino predeterminado para esta configuración de concepto.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SemanticTargetID.ui" line="25"/>
@@ -19843,7 +19852,7 @@ se reinicie Sigil o se abra un nuevo libro.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="65"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="565"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="568"/>
         <source>Ignore</source>
         <translation>Ignorar</translation>
     </message>
@@ -19984,27 +19993,27 @@ de Ortografía está abierta.</translation>
         <translation>Sí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="337"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="340"/>
         <source>Misspelled Words</source>
         <translation>Palabras con problemas de ortografía</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="337"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="340"/>
         <source>Total Unique Words</source>
         <translation>Palabras únicas totales</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="569"/>
         <source>Add to Dictionary</source>
         <translation>Añadir al diccionario</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="567"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="570"/>
         <source>Find in Text</source>
         <translation>Buscar en el texto</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="568"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="571"/>
         <source>Select All</source>
         <translation>Seleccionar todo</translation>
     </message>
