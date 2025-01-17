@@ -31,13 +31,13 @@ diff -urN bs4_4.4_official/AUTHORS.txt sigil_bs4/AUTHORS.txt
 + Krumins, Kent Johnson, Ben Last, Robert Leftwich, Staffan Malmgren,
 + Ksenia Marasanova, JP Moins, Adam Monsen, John Nagle, "Jon", Ed
 + Oskiewicz, Greg Phillips, Giles Radford, Arthur Rudolph, Marko
-+ Samastur, Jouni Seppänen, Alexander Schmolck, Andy Theyers, Glyn
++ Samastur, Jouni SeppÃ¤nen, Alexander Schmolck, Andy Theyers, Glyn
 + Webster, Paul Wright, Danny Yoo
 +
 +An incomplete list of people who made suggestions or found bugs or
 +found ways to break Beautiful Soup:
 +
-+ Hanno Böck, Matteo Bertini, Chris Curvey, Simon Cusack, Bruce Eckel,
++ Hanno BÃ¶ck, Matteo Bertini, Chris Curvey, Simon Cusack, Bruce Eckel,
 + Matt Ernst, Michael Foord, Tom Harris, Bill de hOra, Donald Howes,
 + Matt Patterson, Scott Roberts, Steve Strassmann, Mike Williams,
 + warchild at redho dot com, Sami Kuisma, Carlos Rocha, Bob Hutchison,
