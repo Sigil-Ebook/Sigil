@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright 2015 Kevin B. Hendricks Stratford Ontario Canada
-# Copyright 2012 Google Inc. All Rights Reserved.
+# Copyright 2015-2025 Kevin B. Hendricks Stratford Ontario Canada
+# Copyright 2012      Google Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -55,17 +55,18 @@ _Ptr = ctypes.POINTER
 
 class EnumMetaclass(type(ctypes.c_uint)):
     def __new__(metaclass, name, bases, cls_dict):
-        cls = type(ctypes.c_uint).__new__(metaclass, name, bases, cls_dict)
-        if name == 'Enum':
-            return cls
-        try:
-            for i, value in enumerate(cls_dict['_values_']):
-                setattr(cls, value, cls.from_param(i))
-        except KeyError:
-            raise ValueError('No _values_ list found inside enum type.')
-        except TypeError:
-            raise ValueError('_values_ must be a list of names of enum constants.')
-        return cls
+        return super().__new__(metaclass, name, bases, cls_dict)
+
+    def __init__(self, name, bases, cls_dict):
+        super().__init__(name, bases, cls_dict)
+        if name != 'Enum':
+            try:
+                for i, value in enumerate(cls_dict['_values_']):
+                    setattr(self, value, self.from_param(i))
+            except KeyError:
+                raise ValueError('No _values_ list found inside enum type.')
+            except TypeError:
+              raise ValueError('_values_ must be a list of names of enum constants.')
 
 def with_metaclass(mcls):
     def decorator(cls):
