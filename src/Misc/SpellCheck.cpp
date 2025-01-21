@@ -36,6 +36,9 @@
 #include <QStringDecoder>
 #include <QDebug>
 
+#include <string>
+#include <vector>
+
 #include "Misc/SpellCheck.h"
 #include "Misc/HTMLSpellCheckML.h"
 #include "Misc/SettingsStore.h"
@@ -209,8 +212,7 @@ bool SpellCheck::spell(const QString &word)
     Q_ASSERT(hdic.decoder != nullptr);
     Q_ASSERT(hdic.handle != nullptr);
     QByteArray ba = hdic.encoder->encode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word)));
-    bool res = hdic.handle->spell(ba.constData()) != 0;    
-    // bool res = hdic.handle->spell(hdic.encoder->fromUnicode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word))).constData()) != 0;
+    bool res = hdic.handle->spell(ba.toStdString());    
     res = res || isIgnored(HTMLSpellCheckML::textOf(word));
     return res;
 }
@@ -224,11 +226,11 @@ bool SpellCheck::spellPS(const QString &word)
     if (!m_primary.handle) return true;
     if(m_ignoredWords.contains(word)) return true;
     QByteArray pba = m_primary.encoder->encode(Utility::getSpellingSafeText(word));
-    bool res = m_primary.handle->spell(pba.constData()) !=0;
+    bool res = m_primary.handle->spell(pba.toStdString());
     if (res) return true;
     if (!m_secondary.handle) return false;
     QByteArray sba = m_secondary.encoder->encode(Utility::getSpellingSafeText(word));
-    return m_secondary.handle->spell(sba.constData()) != 0;
+    return m_secondary.handle->spell(sba.toStdString());
 }
 
 
@@ -236,7 +238,6 @@ QStringList SpellCheck::suggest(const QString &word)
 {
     DBG qDebug() << "In suggest";
     QStringList suggestions;
-    char **suggestedWords;
     QString dname = m_langcode2dict.value(HTMLSpellCheckML::langOf(word), "");
     if (dname.isEmpty()) return suggestions;
     if (!m_opendicts.contains(dname)) return suggestions;
@@ -245,15 +246,14 @@ QStringList SpellCheck::suggest(const QString &word)
     Q_ASSERT(hdic.decoder != nullptr);
     Q_ASSERT(hdic.handle != nullptr);
     QByteArray wba = hdic.encoder->encode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word)));
-    int count = hdic.handle->suggest(&suggestedWords, wba.constData());
+    std::vector<std::string> suggestedWords = hdic.handle->suggest(wba.toStdString());
+    int count = suggestedWords.size();
     bool possible_end_of_sentence = word.endsWith('.') && (word.count(".") == 1);
     for (int i = 0; i < count; ++i) {
-        QString suggested_word = hdic.decoder->decode(suggestedWords[i]);
+        QString suggested_word = hdic.decoder->decode(QByteArray::fromStdString(suggestedWords[i]));
         if (possible_end_of_sentence && !suggested_word.endsWith('.')) suggestions << suggested_word + ".";
         suggestions << suggested_word;
     }
-
-    hdic.handle->free_list(&suggestedWords, count);
     return suggestions;
 }
 
@@ -262,30 +262,27 @@ QStringList SpellCheck::suggest(const QString &word)
 QStringList SpellCheck::suggestPS(const QString &word)
 {
     QStringList suggestions;
-    char **suggestedWords;
-    char **suggestedWords2;
     if (!m_primary.handle) return suggestions;
     bool possible_end_of_sentence = word.endsWith('.') && (word.count(".") == 1);
     QByteArray pba = m_primary.encoder->encode(Utility::getSpellingSafeText(word));
-    int count = m_primary.handle->suggest(&suggestedWords, pba.constData());
-    int limit = count;
+    std::vector<std::string> suggestedWords = m_primary.handle->suggest(pba.toStdString());
+    int limit = suggestedWords.size();;
     if (limit > 4) limit = 4;
     for (int i = 0; i < limit; ++i) {
-        QString suggested_word = m_primary.decoder->decode(suggestedWords[i]);
+        QString suggested_word = m_primary.decoder->decode(QByteArray::fromStdString(suggestedWords[i]));
         if (possible_end_of_sentence && !suggested_word.endsWith('.')) suggested_word.append('.');
         suggestions << suggested_word;
     }
     if (!m_secondary.handle) return suggestions;
     QByteArray sba = m_secondary.encoder->encode(Utility::getSpellingSafeText(word));
-    count = m_secondary.handle->suggest(&suggestedWords2, sba.constData());
-    limit = count;
+    std::vector<std::string> suggestedWords2 = m_secondary.handle->suggest(sba.toStdString());
+    limit = suggestedWords2.size();;
     if (limit > 4) limit = 4;
     for (int i = 0; i < limit; ++i) {
-        QString suggested_word = m_secondary.decoder->decode(suggestedWords2[i]);
+        QString suggested_word = m_secondary.decoder->decode(QByteArray::fromStdString(suggestedWords2[i]));
         if (possible_end_of_sentence && !suggested_word.endsWith('.')) suggested_word.append('.');
         suggestions << suggested_word;
     }
-    m_secondary.handle->free_list(&suggestedWords2, count);
     return suggestions;
 }
 
@@ -317,7 +314,7 @@ void SpellCheck::addWordToDictionary(const QString &word, const QString &dname)
     if (m_opendicts.contains(dname)) {
         HDictionary hdic = m_opendicts[dname];
         QByteArray ba = hdic.encoder->encode(Utility::getSpellingSafeText(HTMLSpellCheckML::textOf(word)));
-        hdic.handle->add(ba.constData());
+        hdic.handle->add(ba.toStdString());
     }
 }
 
