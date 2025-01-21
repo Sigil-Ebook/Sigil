@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -50,6 +50,8 @@
 #include <QTime>
 #include <QUrl>
 #include <QStringDecoder>
+#include <QMimeDatabase>
+#include <QMimeType>
 #include <QDebug>
 
 #include "BookManipulation/FolderKeeper.h"
@@ -795,19 +797,36 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     // Note:  Under epub3 they can point outside the epub so need to handle full url
 
     QString apath;
+    QString file_full_path;
     if (href.indexOf(':') == -1) {
         // we know we have a relative href to a file so no fragments can exist
         apath = Utility::URLDecodePath(href);
         // must do this unconditionally by epub spec
         apath = apath.normalized(QString::NormalizationForm_C);
+        // find the epub root relative file path from the opf location and the item href
+        file_full_path = m_opfDir.absolutePath() + "/" + apath;
+        file_full_path = Utility::resolveRelativeSegmentsInFilePath(file_full_path,"/");
     }
     // for hrefs pointing outside the epub, apath will be empty
     // qDebug() << "ImportEpub with Manifest item: " << href << apath;
     QString extension = QFileInfo(apath).suffix().toLower();
-
-    // validate the media type if we can, and warn otherwise
+     // validate the media type if we can, and warn otherwise
     QString group = MediaTypes::instance()->GetGroupFromMediaType(type,"");
     QString ext_mtype = MediaTypes::instance()->GetMediaTypeFromExtension(extension,"");
+    if (ext_mtype.isEmpty()) {
+        // as a last resort use QMimeDatabase to sniff the magic bytes in the file
+        QMimeDatabase db;
+        if (!file_full_path.isEmpty()) {
+	    QFile file(file_full_path);
+	    if (file.open(QIODeviceBase::ReadOnly)) {
+                QMimeType mime_type = db.mimeTypeForData(&file);
+                if (mime_type.isValid()) {
+                    ext_mtype = mime_type.name();
+                }
+                file.close();
+            }
+        }
+    }
     if (type.isEmpty() || group.isEmpty()) {
         const QString load_warning = QObject::tr("The OPF uses an unrecognized media type \"%1\" for file \"%2\"").arg(type).arg(QFileInfo(apath).fileName()) +
             " - " + QObject::tr("A temporary media type of \"%1\" has been assigned. You should edit your OPF file to fix this problem.").arg(ext_mtype);
@@ -817,9 +836,7 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
 
     if (!apath.isEmpty()) {
         
-        // find the epub root relative file path from the opf location and the item href
-        QString file_path = m_opfDir.absolutePath() + "/" + apath;
-        file_path = Utility::resolveRelativeSegmentsInFilePath(file_path,"/");
+        QString file_path = file_full_path;
         file_path = file_path.remove(0, m_ExtractedFolderPath.length() + 1);
     
         // Manifest Items may *NOT* live in the META-INF and the mimetype file should NOT be manifested
