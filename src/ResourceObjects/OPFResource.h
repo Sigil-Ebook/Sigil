@@ -185,6 +185,8 @@ public slots:
 
     void UpdateManifestProperties(const QList<Resource *> resources);
 
+    void UpdateManifestMediaTypes(const QList<Resource*> resources);
+
     QString GetManifestPropertiesForResource(const Resource * resource);
 
     QHash <QString, QString> GetManifestPropertiesForPaths();
@@ -270,8 +272,6 @@ private:
     QString GetUniqueID(const QString &preferred_id, const OPFParser &p) const;
 
     QString GetResourceMimetype(const Resource *resource) const;
-
-    QString GetFileMimetype(const QString &filepath) const;
 
     void UpdateText(const OPFParser &p);
 
