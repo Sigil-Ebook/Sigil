@@ -44,6 +44,7 @@ public:
     static MediaTypes *instance();
     QString GetMediaTypeFromExtension(const QString &extension, const QString &fallback = "");
     QString GetFileDataMimeType(const QString &absolute_file_path, const QString &fallback = "");
+    QString GetMediaTypeFromXML(const QString& absolute_file_path, const QString &fallback = "");
     QString GetGroupFromMediaType(const QString &mediatype, const QString &fallback = "");
     QString GetResourceDescFromMediaType(const QString &mediatype, const QString &fallback = "");
 

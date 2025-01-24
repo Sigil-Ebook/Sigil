@@ -28,6 +28,8 @@
 #include <QMimeType>
 
 #include "sigil_constants.h"
+#include "Misc/Utility.h"
+#include "Parsers/QuickParser.h"
 #include "Misc/MediaTypes.h"
 
 const QStringList IMAGE_EXTENSIONS     = QStringList() << "jpg"   << "jpeg" << "png" << "gif"  << "tif"  << "tiff"  << "bm"
@@ -93,6 +95,57 @@ QString MediaTypes::GetFileDataMimeType(const QString &absolute_file_path, const
             mimetype = mt.name();
 	}
         file.close();
+    }
+    return mimetype;
+}
+
+
+QString MediaTypes::GetMediaTypeFromXML(const QString& absolute_file_path, const QString &fallback)
+{
+    QString mimetype = fallback;
+    QString xmldata = Utility::ReadUnicodeTextFile(absolute_file_path);
+    QuickParser qp(xmldata);
+    while(true) {
+        QuickParser::MarkupInfo mi = qp.parse_next();
+        if (mi.pos < 0) break;
+        if (mi.text.isEmpty()) {
+            if (mi.ttype == "begin" || mi.ttype == "single") {
+                mimetype = "application/xml";
+                QString tag = mi.tname;
+                QString prefix = "";
+                if (mi.tname.contains(":")) {
+                    QStringList tagpieces = mi.tname.split(':');
+                    tag = tagpieces.at(1);
+                    prefix = tagpieces.at(0);
+                }
+                QStringList attvalues = mi.tattr.values();
+                if (tag == "smil" && attvalues.contains("http://www.w3.org/ns/SMIL")) {
+                    mimetype = "application/smil+xml";
+                }
+                if (tag == "template" && attvalues.contains("http://ns.adobe.com/2006/ade")) {
+                    mimetype = "application/vnd.adobe-page-template+xml";
+                }
+                if (tag == "page-map")        mimetype = "application/vnd.adobe-page-map+xml";
+                if (tag == "display_options") mimetype = "application/apple-display-options+xml";
+                if (tag == "container")       mimetype = "application/oebps-container+xml";
+                if (tag == "svg")             mimetype = "image/svg+xml";
+                if (tag == "package")         mimetype = "application/oebps-package+xml";
+                if (tag == "encryption")      mimetype = "application/oebps-encryption+xml";
+                if (tag == "plist")           mimetype = "application/vnd.apple-plist+xml";
+                if (tag == "onixmessage")     mimetype = "application/onix+xml";
+                if (tag == "tt")              mimetype = "application/ttml+xml";
+                if (tag == "ncx")             mimetype = "application/x-dtbncx+xml";
+                if (tag == "lexicon")         mimetype = "application/pls+xml";
+                if (tag == "html") {
+                    if (attvalues.contains("http://www.w3.org/1999/xhtml")) {
+                        mimetype = "application/xhtml+xml";
+                    } else {
+                        mimetype = "text/html";
+                    }
+                }
+                return mimetype;
+            }
+        }
     }
     return mimetype;
 }
