@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2019-2025  Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -43,6 +43,7 @@ public:
 
     static MediaTypes *instance();
     QString GetMediaTypeFromExtension(const QString &extension, const QString &fallback = "");
+    QString GetFileDataMimeType(const QString &absolute_file_path, const QString &fallback = "");
     QString GetGroupFromMediaType(const QString &mediatype, const QString &fallback = "");
     QString GetResourceDescFromMediaType(const QString &mediatype, const QString &fallback = "");
 
