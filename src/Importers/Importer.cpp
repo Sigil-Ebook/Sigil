@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -21,11 +22,14 @@
 
 #include "Importers/Importer.h"
 
+static const QString SEP = QString(QChar(31));
+
 Importer::Importer(const QString &fullfilepath)
     :
     m_FullFilePath(fullfilepath),
     m_Book(new Book()),
-    m_LoadWarnings(QStringList())
+    m_LoadWarnings(QStringList()),
+    m_MediaTypeWarnings(QStringList())
 {
 }
 
@@ -39,10 +43,21 @@ XhtmlDoc::WellFormedError Importer::CheckValidToLoad()
 
 QStringList Importer::GetLoadWarnings()
 {
+    if (m_MediaTypeWarnings.size() > 0) {
+        QString warning = QObject::tr("The OPF contains missing or unrecognized media types.  Temporary media types have been generated. You should edit your OPF to fix these.");
+        warning = warning + SEP + m_MediaTypeWarnings.join("\n");
+        AddLoadWarning(warning);
+        m_MediaTypeWarnings.clear();
+    }
     return m_LoadWarnings;
 }
 
 void Importer::AddLoadWarning(const QString &warning)
 {
     m_LoadWarnings.append(warning % "\n");
+}
+
+void Importer::AddMediaTypeWarning(const QString &warning)
+{
+    m_MediaTypeWarnings.append(warning % "\n");
 }

@@ -822,9 +822,8 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
         ext_mtype = MediaTypes::instance()->GetMediaTypeFromXML(file_full_path, "application/xml");
     }
     if (type.isEmpty() || group.isEmpty()) {
-        const QString load_warning = QObject::tr("The OPF uses an unrecognized media type \"%1\" for file \"%2\"").arg(type).arg(QFileInfo(apath).fileName()) +
-            " - " + QObject::tr("A temporary media type of \"%1\" has been assigned. You should edit your OPF file to fix this problem.").arg(ext_mtype);
-        AddLoadWarning(load_warning);
+        const QString warning = apath + "\n     '" + type + "' -> '" + ext_mtype + "'";;
+        AddMediaTypeWarning(warning);
         if (!ext_mtype.isEmpty()) type = ext_mtype;
     }
 
