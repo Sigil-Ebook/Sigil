@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2023 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -22,6 +22,11 @@
 #include <QString>
 #include <QStringList>
 #include <QHash>
+#include <QFileInfo>
+#include <QFile>
+#include <QMimeDatabase>
+#include <QMimeType>
+
 #include "sigil_constants.h"
 #include "Misc/MediaTypes.h"
 
@@ -74,6 +79,24 @@ QString MediaTypes::GetMediaTypeFromExtension(const QString &extension, const QS
 {
     return m_ExtToMType.value(extension, fallback);
 }
+
+
+QString MediaTypes::GetFileDataMimeType(const QString &absolute_file_path, const QString &fallback)
+{
+    QMimeDatabase db;
+    QString mimetype = fallback;
+    QFileInfo fi(absolute_file_path);
+    QFile file(absolute_file_path);
+    if (file.open(QIODeviceBase::ReadOnly)) {
+        QMimeType mt = db.mimeTypeForFileNameAndData(fi.fileName(), &file);
+        if (mt.isValid()) {
+            mimetype = mt.name();
+	}
+        file.close();
+    }
+    return mimetype;
+}
+
 
 QString MediaTypes::GetGroupFromMediaType(const QString &media_type, const QString &fallback)
 {

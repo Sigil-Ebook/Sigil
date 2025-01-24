@@ -50,8 +50,6 @@
 #include <QTime>
 #include <QUrl>
 #include <QStringDecoder>
-#include <QMimeDatabase>
-#include <QMimeType>
 #include <QDebug>
 
 #include "BookManipulation/FolderKeeper.h"
@@ -814,17 +812,9 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     QString group = MediaTypes::instance()->GetGroupFromMediaType(type,"");
     QString ext_mtype = MediaTypes::instance()->GetMediaTypeFromExtension(extension,"");
     if (ext_mtype.isEmpty()) {
-        // as a last resort use QMimeDatabase to sniff the magic bytes in the file
-        QMimeDatabase db;
         if (!file_full_path.isEmpty()) {
-	    QFile file(file_full_path);
-	    if (file.open(QIODeviceBase::ReadOnly)) {
-                QMimeType mime_type = db.mimeTypeForData(&file);
-                if (mime_type.isValid()) {
-                    ext_mtype = mime_type.name();
-                }
-                file.close();
-            }
+            // sniff for magic bytes in the file
+            ext_mtype = MediaTypes::instance()->GetFileDataMimeType(file_full_path, "");
         }
     }
     if (type.isEmpty() || group.isEmpty()) {
