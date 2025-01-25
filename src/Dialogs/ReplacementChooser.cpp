@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2022-2024 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2022-2025 Kevin B. Hendricks, Stratford, Ontario
 **
 **  This file is part of Sigil.
 **
@@ -230,6 +230,7 @@ void ReplacementChooser::CreateTable()
     for (int i = 0; i < ui.chooserTable->horizontalHeader()->count(); i++) {
         ui.chooserTable->resizeColumnToContents(i);
     }
+    ui.chooserTable->resizeRowsToContents();
     ui.chooserTable->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
 
