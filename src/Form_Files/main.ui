@@ -386,6 +386,7 @@
     <addaction name="menuTOC"/>
     <addaction name="actionStandardize" />
     <addaction name="actionRebaseManifestIDs" />
+    <addaction name="actionUpdateManifestMediaTypes"/>
     <addaction name="actionCustomLayout" />
     <addaction name="menuIndex"/>
     <addaction name="separator"/>
@@ -3116,6 +3117,11 @@
   <action name="actionUpdateManifestProperties">
    <property name="text">
     <string>&amp;Update Manifest Properties</string>
+   </property>
+  </action>
+  <action name="actionUpdateManifestMediaTypes">
+   <property name="text">
+    <string>Update OPF Manifest Media Types</string>
    </property>
   </action>
   <action name="actionNCXGuideFromNav">

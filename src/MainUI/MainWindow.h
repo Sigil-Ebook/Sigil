@@ -256,6 +256,8 @@ public slots:
 
     bool UpdateManifestProperties();
 
+    bool UpdateManifestMediaTypes();
+
     bool GenerateNCXGuideFromNav();
 
     bool RemoveNCXGuideFromEpub3();

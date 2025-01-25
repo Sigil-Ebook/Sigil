@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2015-2024 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
@@ -1730,6 +1730,8 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
     DBG qDebug() << "in close event before maybe save";
 
+    bool find_was_open = m_FindReplace->isVisible();
+    
     // this should be done first to save all geometry
     // extra saves should not be an issue if the window close is abandoned
     WriteSettings();
@@ -1779,6 +1781,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
     } else {
         event->ignore();
         SetupPreviewTimer();
+        // WriteSettings closes F&R if open so repoen if needed
+        if (find_was_open) {
+            QTimer::singleShot(10, this, SLOT(Find()));
+        }
         m_IsClosing = false;
     }
 }
@@ -2429,6 +2435,21 @@ bool MainWindow::AddCover()
     return true;
 }
 
+bool MainWindow::UpdateManifestMediaTypes()
+{
+
+    SaveTabData();
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    m_Book->GetFolderKeeper()->SuspendWatchingResources();
+    m_Book->SaveAllResourcesToDisk();
+    m_Book->GetFolderKeeper()->ResumeWatchingResources();
+    QList<Resource*> all_resources = m_Book->GetFolderKeeper()->GetResourceList();
+    m_Book->GetOPF()->UpdateManifestMediaTypes(all_resources);
+    m_Book->SetModified();
+    ShowMessageOnStatusBar(tr("OPF Manifest Mimetypes Updated."));
+    QApplication::restoreOverrideCursor();
+    return true;
+}
 
 bool MainWindow::UpdateManifestProperties()
 {
@@ -6017,6 +6038,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
     sm->registerAction(this, ui.actionMendPrettifyHTML, "MainWindow.MendPrettifyHTML");
     sm->registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
+    sm->registerAction(this, ui.actionUpdateManifestMediaTypes, "MainWindow.UpdateManifestMediaTypes");
     sm->registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
     sm->registerAction(this, ui.actionNCXGuideFromNav, "MainWindow.NCXGuideFromNav");
     sm->registerAction(this, ui.actionRemoveNCXGuide, "MainWindow.RemoveNCXGuide");
@@ -6312,22 +6334,23 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionSigilWebsite,  SIGNAL(triggered()), this, SLOT(SigilWebsite()));
     connect(ui.actionAbout,         SIGNAL(triggered()), this, SLOT(AboutDialog()));
     // Tools
-    connect(ui.actionStandardize,   SIGNAL(triggered()), this, SLOT(StandardizeEpub()));
-    connect(ui.actionRebaseManifestIDs,   SIGNAL(triggered()), this, SLOT(RebaseManifestIDs()));
-    connect(ui.actionCustomLayout,  SIGNAL(triggered()), this, SLOT(CreateEpubLayout()));
-    connect(ui.actionAddCover,      SIGNAL(triggered()), this, SLOT(AddCover()));
-    connect(ui.actionMetaEditor,    SIGNAL(triggered()), this, SLOT(MetaEditorDialog()));
-    connect(ui.actionWellFormedCheckEpub,  SIGNAL(triggered()), this, SLOT(WellFormedCheckEpub()));
-    connect(ui.actionValidateStylesheetsWithW3C,  SIGNAL(triggered()), this, SLOT(ValidateStylesheetsWithW3C()));
-    connect(ui.actionSpellcheckEditor,   SIGNAL(triggered()), this, SLOT(SpellcheckEditorDialog()));
-    connect(ui.actionAutoSpellCheck, SIGNAL(triggered(bool)), this, SLOT(SetAutoSpellCheck(bool)));
-    connect(ui.actionSpellcheck,    SIGNAL(triggered()), m_FindReplace, SLOT(FindMisspelledWord()));
-    connect(ui.actionMendPrettifyHTML,    SIGNAL(triggered()), this, SLOT(MendPrettifyHTML()));
-    connect(ui.actionMendHTML,      SIGNAL(triggered()), this, SLOT(MendHTML()));
-    connect(ui.actionUpdateManifestProperties,      SIGNAL(triggered()), this, SLOT(UpdateManifestProperties()));
-    connect(ui.actionNCXGuideFromNav, SIGNAL(triggered()), this, SLOT(GenerateNCXGuideFromNav()));
-    connect(ui.actionRemoveNCXGuide,  SIGNAL(triggered()), this, SLOT(RemoveNCXGuideFromEpub3()));
-    connect(ui.actionClearIgnoredWords, SIGNAL(triggered()), this, SLOT(ClearIgnoredWords()));
+    connect(ui.actionStandardize,                SIGNAL(triggered()), this, SLOT(StandardizeEpub()));
+    connect(ui.actionRebaseManifestIDs,          SIGNAL(triggered()), this, SLOT(RebaseManifestIDs()));
+    connect(ui.actionUpdateManifestMediaTypes,   SIGNAL(triggered()), this, SLOT(UpdateManifestMediaTypes()));
+    connect(ui.actionCustomLayout,               SIGNAL(triggered()), this, SLOT(CreateEpubLayout()));
+    connect(ui.actionAddCover,                   SIGNAL(triggered()), this, SLOT(AddCover()));
+    connect(ui.actionMetaEditor,                 SIGNAL(triggered()), this, SLOT(MetaEditorDialog()));
+    connect(ui.actionWellFormedCheckEpub,        SIGNAL(triggered()), this, SLOT(WellFormedCheckEpub()));
+    connect(ui.actionValidateStylesheetsWithW3C, SIGNAL(triggered()), this, SLOT(ValidateStylesheetsWithW3C()));
+    connect(ui.actionSpellcheckEditor,           SIGNAL(triggered()), this, SLOT(SpellcheckEditorDialog()));
+    connect(ui.actionAutoSpellCheck,             SIGNAL(triggered(bool)), this, SLOT(SetAutoSpellCheck(bool)));
+    connect(ui.actionSpellcheck,                 SIGNAL(triggered()), m_FindReplace, SLOT(FindMisspelledWord()));
+    connect(ui.actionMendPrettifyHTML,           SIGNAL(triggered()),     this, SLOT(MendPrettifyHTML()));
+    connect(ui.actionMendHTML,                   SIGNAL(triggered()),     this, SLOT(MendHTML()));
+    connect(ui.actionUpdateManifestProperties,   SIGNAL(triggered()),     this, SLOT(UpdateManifestProperties()));
+    connect(ui.actionNCXGuideFromNav,            SIGNAL(triggered()),     this, SLOT(GenerateNCXGuideFromNav()));
+    connect(ui.actionRemoveNCXGuide,             SIGNAL(triggered()),     this, SLOT(RemoveNCXGuideFromEpub3()));
+    connect(ui.actionClearIgnoredWords,          SIGNAL(triggered()),     this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateTOC()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));
     connect(ui.actionCreateHTMLTOC, SIGNAL(triggered()), this, SLOT(CreateHTMLTOC()));
