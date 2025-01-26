@@ -1,3 +1,17 @@
+pre-2.4.2
+   Bug Fixes
+     - fix sigil-gumbo gumboc to work with Python 3.13+ - ie. work around backwards incompatible changes in ctypes
+     - fix Replacement Chooser table to allow for multiple line row heights in Before and After fields (regression)
+     - prevent too many warnings when no media types provided in OPF by generating the warning collectively
+     - prevent  build warnings by using hunspell's std:string interface (not C char * ones)
+     - fix files in third party code that used latin-1 encoding to now use utf-8
+     - fix old use of 'python' in python code header lines to always use 'python3'
+     - removed user scope installs from winget util they work properly with dependencies
+
+   New Features
+     - Added new tool: 'Update OPF Manifest Media Types' to set unrecognized media types based on actual file contents
+
+
 Sigil-2.4.0
    New Features
      - added a GetInfo dialog and right click menu option for XHTML files that provides a collection
