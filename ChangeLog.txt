@@ -7,6 +7,7 @@ pre-2.4.2
      - fix files in third party code that used latin-1 encoding to now use utf-8
      - fix old use of 'python' in python code header lines to always use 'python3'
      - removed user scope installs from winget util they work properly with dependencies
+     - restore Find&Replace if it was open when the user tries to exit Sigil and then aborts the exit
 
    New Features
      - Added new tool: 'Update OPF Manifest Media Types' to set unrecognized media types based on actual file contents
